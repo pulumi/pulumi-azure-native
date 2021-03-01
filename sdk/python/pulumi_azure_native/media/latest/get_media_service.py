@@ -173,7 +173,7 @@ def get_media_service(account_name: Optional[str] = None,
     :param str account_name: The Media Services account name.
     :param str resource_group_name: The name of the resource group within the Azure subscription.
     """
-    pulumi.log.warn("get_media_service is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:media:getMediaService'.")
+    pulumi.log.warn("""get_media_service is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:media:getMediaService'.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['resourceGroupName'] = resource_group_name

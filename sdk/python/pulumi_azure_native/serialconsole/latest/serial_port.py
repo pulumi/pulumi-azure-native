@@ -42,7 +42,7 @@ class SerialPort(pulumi.CustomResource):
         :param pulumi.Input[str] serial_port: The name of the serial port to create.
         :param pulumi.Input['SerialPortState'] state: Specifies whether the port is enabled for a serial console connection.
         """
-        pulumi.log.warn("SerialPort is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:serialconsole:SerialPort'.")
+        pulumi.log.warn("""SerialPort is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:serialconsole:SerialPort'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -100,6 +100,9 @@ class SerialPort(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["name"] = None
+        __props__["state"] = None
+        __props__["type"] = None
         return SerialPort(resource_name, opts=opts, __props__=__props__)
 
     @property

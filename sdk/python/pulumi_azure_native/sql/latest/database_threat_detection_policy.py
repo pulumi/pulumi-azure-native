@@ -56,7 +56,7 @@ class DatabaseThreatDetectionPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] storage_endpoint: Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. If state is Enabled, storageEndpoint is required.
         :param pulumi.Input[Union[str, 'SecurityAlertPolicyUseServerDefault']] use_server_default: Specifies whether to use the default server policy.
         """
-        pulumi.log.warn("DatabaseThreatDetectionPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:sql:DatabaseThreatDetectionPolicy'.")
+        pulumi.log.warn("""DatabaseThreatDetectionPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:sql:DatabaseThreatDetectionPolicy'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -122,6 +122,18 @@ class DatabaseThreatDetectionPolicy(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["disabled_alerts"] = None
+        __props__["email_account_admins"] = None
+        __props__["email_addresses"] = None
+        __props__["kind"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["retention_days"] = None
+        __props__["state"] = None
+        __props__["storage_account_access_key"] = None
+        __props__["storage_endpoint"] = None
+        __props__["type"] = None
+        __props__["use_server_default"] = None
         return DatabaseThreatDetectionPolicy(resource_name, opts=opts, __props__=__props__)
 
     @property

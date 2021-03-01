@@ -54,7 +54,7 @@ class DscConfiguration(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ContentSourceArgs']] source: Gets or sets the source.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets the tags attached to the resource.
         """
-        pulumi.log.warn("DscConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:automation:DscConfiguration'.")
+        pulumi.log.warn("""DscConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:automation:DscConfiguration'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -121,6 +121,21 @@ class DscConfiguration(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["creation_time"] = None
+        __props__["description"] = None
+        __props__["etag"] = None
+        __props__["job_count"] = None
+        __props__["last_modified_time"] = None
+        __props__["location"] = None
+        __props__["log_verbose"] = None
+        __props__["name"] = None
+        __props__["node_configuration_count"] = None
+        __props__["parameters"] = None
+        __props__["provisioning_state"] = None
+        __props__["source"] = None
+        __props__["state"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
         return DscConfiguration(resource_name, opts=opts, __props__=__props__)
 
     @property

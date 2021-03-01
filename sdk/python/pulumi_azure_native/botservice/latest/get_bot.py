@@ -152,7 +152,7 @@ def get_bot(resource_group_name: Optional[str] = None,
     :param str resource_group_name: The name of the Bot resource group in the user subscription.
     :param str resource_name: The name of the Bot resource.
     """
-    pulumi.log.warn("get_bot is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:botservice:getBot'.")
+    pulumi.log.warn("""get_bot is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:botservice:getBot'.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name

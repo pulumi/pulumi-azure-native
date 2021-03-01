@@ -38,7 +38,7 @@ class UserSettingsWithLocation(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['UserPropertiesArgs']] properties: The cloud shell user settings properties.
         :param pulumi.Input[str] user_settings_name: The name of the user settings
         """
-        pulumi.log.warn("UserSettingsWithLocation is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:portal:UserSettingsWithLocation'.")
+        pulumi.log.warn("""UserSettingsWithLocation is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:portal:UserSettingsWithLocation'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -87,6 +87,7 @@ class UserSettingsWithLocation(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["properties"] = None
         return UserSettingsWithLocation(resource_name, opts=opts, __props__=__props__)
 
     @property

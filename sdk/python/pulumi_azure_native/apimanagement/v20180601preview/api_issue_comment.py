@@ -103,6 +103,11 @@ class ApiIssueComment(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["created_date"] = None
+        __props__["name"] = None
+        __props__["text"] = None
+        __props__["type"] = None
+        __props__["user_id"] = None
         return ApiIssueComment(resource_name, opts=opts, __props__=__props__)
 
     @property

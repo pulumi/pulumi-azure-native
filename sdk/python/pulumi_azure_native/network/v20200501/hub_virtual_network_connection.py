@@ -103,6 +103,14 @@ class HubVirtualNetworkConnection(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["allow_hub_to_remote_vnet_transit"] = None
+        __props__["allow_remote_vnet_to_use_hub_vnet_gateways"] = None
+        __props__["enable_internet_security"] = None
+        __props__["etag"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["remote_virtual_network"] = None
+        __props__["routing_configuration"] = None
         return HubVirtualNetworkConnection(resource_name, opts=opts, __props__=__props__)
 
     @property

@@ -90,6 +90,13 @@ class HybridConnection(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["created_at"] = None
+        __props__["listener_count"] = None
+        __props__["name"] = None
+        __props__["requires_client_authorization"] = None
+        __props__["type"] = None
+        __props__["updated_at"] = None
+        __props__["user_metadata"] = None
         return HybridConnection(resource_name, opts=opts, __props__=__props__)
 
     @property

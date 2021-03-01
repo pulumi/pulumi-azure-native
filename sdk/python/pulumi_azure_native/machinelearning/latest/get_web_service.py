@@ -118,7 +118,7 @@ def get_web_service(region: Optional[str] = None,
     :param str resource_group_name: Name of the resource group in which the web service is located.
     :param str web_service_name: The name of the web service.
     """
-    pulumi.log.warn("get_web_service is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:machinelearning:getWebService'.")
+    pulumi.log.warn("""get_web_service is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:machinelearning:getWebService'.""")
     __args__ = dict()
     __args__['region'] = region
     __args__['resourceGroupName'] = resource_group_name

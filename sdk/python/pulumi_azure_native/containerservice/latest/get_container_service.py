@@ -212,7 +212,7 @@ def get_container_service(container_service_name: Optional[str] = None,
     :param str container_service_name: The name of the container service in the specified subscription and resource group.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("get_container_service is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:containerservice:getContainerService'.")
+    pulumi.log.warn("""get_container_service is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:containerservice:getContainerService'.""")
     __args__ = dict()
     __args__['containerServiceName'] = container_service_name
     __args__['resourceGroupName'] = resource_group_name

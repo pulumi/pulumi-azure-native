@@ -104,6 +104,12 @@ class FileServer(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["backup_schedule_group_id"] = None
+        __props__["description"] = None
+        __props__["domain_name"] = None
+        __props__["name"] = None
+        __props__["storage_domain_id"] = None
+        __props__["type"] = None
         return FileServer(resource_name, opts=opts, __props__=__props__)
 
     @property

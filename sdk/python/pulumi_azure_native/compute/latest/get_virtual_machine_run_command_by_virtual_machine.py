@@ -240,7 +240,7 @@ def get_virtual_machine_run_command_by_virtual_machine(expand: Optional[str] = N
     :param str run_command_name: The name of the virtual machine run command.
     :param str vm_name: The name of the virtual machine containing the run command.
     """
-    pulumi.log.warn("get_virtual_machine_run_command_by_virtual_machine is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:compute:getVirtualMachineRunCommandByVirtualMachine'.")
+    pulumi.log.warn("""get_virtual_machine_run_command_by_virtual_machine is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:compute:getVirtualMachineRunCommandByVirtualMachine'.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['resourceGroupName'] = resource_group_name

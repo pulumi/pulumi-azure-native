@@ -55,7 +55,7 @@ def list_server_gateway_status(resource_group_name: Optional[str] = None,
     :param str resource_group_name: The name of the Azure Resource group of which a given Analysis Services server is part. This name must be at least 1 character in length, and no more than 90.
     :param str server_name: The name of the Analysis Services server.
     """
-    pulumi.log.warn("list_server_gateway_status is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:analysisservices:listServerGatewayStatus'.")
+    pulumi.log.warn("""list_server_gateway_status is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:analysisservices:listServerGatewayStatus'.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['serverName'] = server_name

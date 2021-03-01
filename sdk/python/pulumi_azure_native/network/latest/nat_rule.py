@@ -52,7 +52,7 @@ class NatRule(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The resource group name of the VpnGateway.
         :param pulumi.Input[Union[str, 'VpnNatRuleType']] type: The type of NAT rule for VPN NAT.
         """
-        pulumi.log.warn("NatRule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:NatRule'.")
+        pulumi.log.warn("""NatRule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:NatRule'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -112,6 +112,16 @@ class NatRule(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["egress_vpn_site_link_connections"] = None
+        __props__["etag"] = None
+        __props__["external_mappings"] = None
+        __props__["ingress_vpn_site_link_connections"] = None
+        __props__["internal_mappings"] = None
+        __props__["ip_configuration_id"] = None
+        __props__["mode"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["type"] = None
         return NatRule(resource_name, opts=opts, __props__=__props__)
 
     @property

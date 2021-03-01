@@ -252,7 +252,7 @@ def get_custom_image(expand: Optional[str] = None,
     :param str name: The name of the custom image.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("get_custom_image is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devtestlab:getCustomImage'.")
+    pulumi.log.warn("""get_custom_image is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devtestlab:getCustomImage'.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['labName'] = lab_name

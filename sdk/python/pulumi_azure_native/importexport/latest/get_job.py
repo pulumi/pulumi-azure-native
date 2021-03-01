@@ -140,7 +140,7 @@ def get_job(job_name: Optional[str] = None,
     :param str job_name: The name of the import/export job.
     :param str resource_group_name: The resource group name uniquely identifies the resource group within the user subscription.
     """
-    pulumi.log.warn("get_job is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:importexport:getJob'.")
+    pulumi.log.warn("""get_job is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:importexport:getJob'.""")
     __args__ = dict()
     __args__['jobName'] = job_name
     __args__['resourceGroupName'] = resource_group_name

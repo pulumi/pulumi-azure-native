@@ -57,7 +57,7 @@ class Topic(pulumi.CustomResource):
         :param pulumi.Input[bool] support_ordering: Value that indicates whether the topic supports ordering.
         :param pulumi.Input[str] topic_name: The topic name.
         """
-        pulumi.log.warn("Topic is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:servicebus:Topic'.")
+        pulumi.log.warn("""Topic is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:servicebus:Topic'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -124,6 +124,24 @@ class Topic(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["accessed_at"] = None
+        __props__["auto_delete_on_idle"] = None
+        __props__["count_details"] = None
+        __props__["created_at"] = None
+        __props__["default_message_time_to_live"] = None
+        __props__["duplicate_detection_history_time_window"] = None
+        __props__["enable_batched_operations"] = None
+        __props__["enable_express"] = None
+        __props__["enable_partitioning"] = None
+        __props__["max_size_in_megabytes"] = None
+        __props__["name"] = None
+        __props__["requires_duplicate_detection"] = None
+        __props__["size_in_bytes"] = None
+        __props__["status"] = None
+        __props__["subscription_count"] = None
+        __props__["support_ordering"] = None
+        __props__["type"] = None
+        __props__["updated_at"] = None
         return Topic(resource_name, opts=opts, __props__=__props__)
 
     @property

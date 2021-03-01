@@ -39,7 +39,7 @@ class ConsumerGroup(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Name of the resource group within the azure subscription.
         :param pulumi.Input[str] user_metadata: User Metadata is a placeholder to store user-defined string data with maximum length 1024. e.g. it can be used to store descriptive data, such as list of teams and their contact information also user-defined configuration settings can be stored.
         """
-        pulumi.log.warn("ConsumerGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:eventhub:ConsumerGroup'.")
+        pulumi.log.warn("""ConsumerGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:eventhub:ConsumerGroup'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -96,6 +96,11 @@ class ConsumerGroup(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["created_at"] = None
+        __props__["name"] = None
+        __props__["type"] = None
+        __props__["updated_at"] = None
+        __props__["user_metadata"] = None
         return ConsumerGroup(resource_name, opts=opts, __props__=__props__)
 
     @property

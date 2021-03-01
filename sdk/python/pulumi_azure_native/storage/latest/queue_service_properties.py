@@ -39,7 +39,7 @@ class QueueServiceProperties(pulumi.CustomResource):
         :param pulumi.Input[str] queue_service_name: The name of the Queue Service within the specified storage account. Queue Service Name must be 'default'
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         """
-        pulumi.log.warn("QueueServiceProperties is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storage:QueueServiceProperties'.")
+        pulumi.log.warn("""QueueServiceProperties is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storage:QueueServiceProperties'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -91,6 +91,9 @@ class QueueServiceProperties(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["cors"] = None
+        __props__["name"] = None
+        __props__["type"] = None
         return QueueServiceProperties(resource_name, opts=opts, __props__=__props__)
 
     @property

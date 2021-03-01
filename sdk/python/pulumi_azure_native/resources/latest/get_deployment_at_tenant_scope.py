@@ -114,7 +114,7 @@ def get_deployment_at_tenant_scope(deployment_name: Optional[str] = None,
 
     :param str deployment_name: The name of the deployment.
     """
-    pulumi.log.warn("get_deployment_at_tenant_scope is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:resources:getDeploymentAtTenantScope'.")
+    pulumi.log.warn("""get_deployment_at_tenant_scope is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:resources:getDeploymentAtTenantScope'.""")
     __args__ = dict()
     __args__['deploymentName'] = deployment_name
     if opts is None:

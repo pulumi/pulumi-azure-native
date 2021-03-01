@@ -94,6 +94,15 @@ class GraphQuery(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["description"] = None
+        __props__["etag"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["query"] = None
+        __props__["result_kind"] = None
+        __props__["tags"] = None
+        __props__["time_modified"] = None
+        __props__["type"] = None
         return GraphQuery(resource_name, opts=opts, __props__=__props__)
 
     @property

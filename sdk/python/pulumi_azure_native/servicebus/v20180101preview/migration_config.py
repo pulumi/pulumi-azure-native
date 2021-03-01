@@ -93,6 +93,13 @@ class MigrationConfig(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["migration_state"] = None
+        __props__["name"] = None
+        __props__["pending_replication_operations_count"] = None
+        __props__["post_migration_name"] = None
+        __props__["provisioning_state"] = None
+        __props__["target_namespace"] = None
+        __props__["type"] = None
         return MigrationConfig(resource_name, opts=opts, __props__=__props__)
 
     @property

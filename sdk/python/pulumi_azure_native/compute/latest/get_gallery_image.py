@@ -274,7 +274,7 @@ def get_gallery_image(gallery_image_name: Optional[str] = None,
     :param str gallery_name: The name of the Shared Image Gallery from which the Image Definitions are to be retrieved.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("get_gallery_image is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:compute:getGalleryImage'.")
+    pulumi.log.warn("""get_gallery_image is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:compute:getGalleryImage'.""")
     __args__ = dict()
     __args__['galleryImageName'] = gallery_image_name
     __args__['galleryName'] = gallery_name

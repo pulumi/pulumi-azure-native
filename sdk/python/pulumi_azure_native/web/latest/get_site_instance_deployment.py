@@ -227,7 +227,7 @@ def get_site_instance_deployment(id: Optional[str] = None,
     :param str name: Name of web app
     :param str resource_group_name: Name of resource group
     """
-    pulumi.log.warn("get_site_instance_deployment is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getSiteInstanceDeployment'.")
+    pulumi.log.warn("""get_site_instance_deployment is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getSiteInstanceDeployment'.""")
     __args__ = dict()
     __args__['id'] = id
     __args__['instanceId'] = instance_id

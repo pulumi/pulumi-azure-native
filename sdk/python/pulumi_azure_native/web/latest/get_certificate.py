@@ -368,7 +368,7 @@ def get_certificate(name: Optional[str] = None,
     :param str name: Name of the certificate.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
-    pulumi.log.warn("get_certificate is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getCertificate'.")
+    pulumi.log.warn("""get_certificate is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getCertificate'.""")
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name

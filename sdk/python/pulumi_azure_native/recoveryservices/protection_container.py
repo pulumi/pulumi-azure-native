@@ -101,6 +101,12 @@ class ProtectionContainer(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["e_tag"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["properties"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
         return ProtectionContainer(resource_name, opts=opts, __props__=__props__)
 
     @property

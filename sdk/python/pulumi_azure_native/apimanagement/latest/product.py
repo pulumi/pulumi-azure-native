@@ -50,7 +50,7 @@ class Product(pulumi.CustomResource):
         :param pulumi.Input[int] subscriptions_limit: Whether the number of subscriptions a user can have to this product at the same time. Set to null or omit to allow unlimited per user subscriptions. Can be present only if subscriptionRequired property is present and has a value of true.
         :param pulumi.Input[str] terms: Product terms of use. Developers trying to subscribe to the product will be presented and required to accept these terms before they can complete the subscription process.
         """
-        pulumi.log.warn("Product is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:Product'.")
+        pulumi.log.warn("""Product is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:Product'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -110,6 +110,15 @@ class Product(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["approval_required"] = None
+        __props__["description"] = None
+        __props__["display_name"] = None
+        __props__["name"] = None
+        __props__["state"] = None
+        __props__["subscription_required"] = None
+        __props__["subscriptions_limit"] = None
+        __props__["terms"] = None
+        __props__["type"] = None
         return Product(resource_name, opts=opts, __props__=__props__)
 
     @property

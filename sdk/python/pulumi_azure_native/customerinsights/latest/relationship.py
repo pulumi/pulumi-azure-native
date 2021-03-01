@@ -54,7 +54,7 @@ class Relationship(pulumi.CustomResource):
         :param pulumi.Input[str] relationship_name: The name of the Relationship.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         """
-        pulumi.log.warn("Relationship is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:customerinsights:Relationship'.")
+        pulumi.log.warn("""Relationship is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:customerinsights:Relationship'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -120,6 +120,20 @@ class Relationship(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["cardinality"] = None
+        __props__["description"] = None
+        __props__["display_name"] = None
+        __props__["expiry_date_time_utc"] = None
+        __props__["fields"] = None
+        __props__["lookup_mappings"] = None
+        __props__["name"] = None
+        __props__["profile_type"] = None
+        __props__["provisioning_state"] = None
+        __props__["related_profile_type"] = None
+        __props__["relationship_guid_id"] = None
+        __props__["relationship_name"] = None
+        __props__["tenant_id"] = None
+        __props__["type"] = None
         return Relationship(resource_name, opts=opts, __props__=__props__)
 
     @property

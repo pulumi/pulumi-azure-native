@@ -202,7 +202,7 @@ def get_pipeline(factory_name: Optional[str] = None,
     :param str pipeline_name: The pipeline name.
     :param str resource_group_name: The resource group name.
     """
-    pulumi.log.warn("get_pipeline is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datafactory:getPipeline'.")
+    pulumi.log.warn("""get_pipeline is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datafactory:getPipeline'.""")
     __args__ = dict()
     __args__['factoryName'] = factory_name
     __args__['pipelineName'] = pipeline_name

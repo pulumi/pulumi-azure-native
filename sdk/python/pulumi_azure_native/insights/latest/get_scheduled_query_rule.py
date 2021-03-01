@@ -248,7 +248,7 @@ def get_scheduled_query_rule(resource_group_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     :param str rule_name: The name of the rule.
     """
-    pulumi.log.warn("get_scheduled_query_rule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:insights:getScheduledQueryRule'.")
+    pulumi.log.warn("""get_scheduled_query_rule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:insights:getScheduledQueryRule'.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['ruleName'] = rule_name

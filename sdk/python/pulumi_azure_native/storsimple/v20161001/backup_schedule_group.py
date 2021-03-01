@@ -92,6 +92,9 @@ class BackupScheduleGroup(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["name"] = None
+        __props__["start_time"] = None
+        __props__["type"] = None
         return BackupScheduleGroup(resource_name, opts=opts, __props__=__props__)
 
     @property

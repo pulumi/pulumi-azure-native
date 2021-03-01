@@ -110,6 +110,16 @@ class DatabaseSecurityAlertPolicy(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["creation_time"] = None
+        __props__["disabled_alerts"] = None
+        __props__["email_account_admins"] = None
+        __props__["email_addresses"] = None
+        __props__["name"] = None
+        __props__["retention_days"] = None
+        __props__["state"] = None
+        __props__["storage_account_access_key"] = None
+        __props__["storage_endpoint"] = None
+        __props__["type"] = None
         return DatabaseSecurityAlertPolicy(resource_name, opts=opts, __props__=__props__)
 
     @property

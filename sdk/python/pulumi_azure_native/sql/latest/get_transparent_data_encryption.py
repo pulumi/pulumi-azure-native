@@ -107,7 +107,7 @@ def get_transparent_data_encryption(database_name: Optional[str] = None,
     :param str server_name: The name of the server.
     :param str transparent_data_encryption_name: The name of the transparent data encryption configuration.
     """
-    pulumi.log.warn("get_transparent_data_encryption is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:sql:getTransparentDataEncryption'.")
+    pulumi.log.warn("""get_transparent_data_encryption is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:sql:getTransparentDataEncryption'.""")
     __args__ = dict()
     __args__['databaseName'] = database_name
     __args__['resourceGroupName'] = resource_group_name

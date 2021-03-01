@@ -202,7 +202,7 @@ def get_p2s_vpn_server_configuration(p2_s_vpn_server_configuration_name: Optiona
     :param str resource_group_name: The resource group name of the P2SVpnServerConfiguration.
     :param str virtual_wan_name: The name of the VirtualWan.
     """
-    pulumi.log.warn("get_p2s_vpn_server_configuration is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getP2sVpnServerConfiguration'.")
+    pulumi.log.warn("""get_p2s_vpn_server_configuration is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getP2sVpnServerConfiguration'.""")
     __args__ = dict()
     __args__['p2SVpnServerConfigurationName'] = p2_s_vpn_server_configuration_name
     __args__['resourceGroupName'] = resource_group_name

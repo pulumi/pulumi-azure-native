@@ -118,7 +118,7 @@ def get_network_interface_tap_configuration(network_interface_name: Optional[str
     :param str resource_group_name: The name of the resource group.
     :param str tap_configuration_name: The name of the tap configuration.
     """
-    pulumi.log.warn("get_network_interface_tap_configuration is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getNetworkInterfaceTapConfiguration'.")
+    pulumi.log.warn("""get_network_interface_tap_configuration is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getNetworkInterfaceTapConfiguration'.""")
     __args__ = dict()
     __args__['networkInterfaceName'] = network_interface_name
     __args__['resourceGroupName'] = resource_group_name

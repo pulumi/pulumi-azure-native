@@ -132,7 +132,7 @@ def get_database_account_cassandra_table(account_name: Optional[str] = None,
     :param str resource_group_name: Name of an Azure resource group.
     :param str table_name: Cosmos DB table name.
     """
-    pulumi.log.warn("get_database_account_cassandra_table is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:documentdb:getDatabaseAccountCassandraTable'.")
+    pulumi.log.warn("""get_database_account_cassandra_table is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:documentdb:getDatabaseAccountCassandraTable'.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['keyspaceName'] = keyspace_name

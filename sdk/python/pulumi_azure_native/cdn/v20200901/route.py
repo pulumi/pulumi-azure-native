@@ -129,6 +129,23 @@ class Route(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["compression_settings"] = None
+        __props__["custom_domains"] = None
+        __props__["deployment_status"] = None
+        __props__["enabled_state"] = None
+        __props__["forwarding_protocol"] = None
+        __props__["https_redirect"] = None
+        __props__["link_to_default_domain"] = None
+        __props__["name"] = None
+        __props__["origin_group"] = None
+        __props__["origin_path"] = None
+        __props__["patterns_to_match"] = None
+        __props__["provisioning_state"] = None
+        __props__["query_string_caching_behavior"] = None
+        __props__["rule_sets"] = None
+        __props__["supported_protocols"] = None
+        __props__["system_data"] = None
+        __props__["type"] = None
         return Route(resource_name, opts=opts, __props__=__props__)
 
     @property

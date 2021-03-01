@@ -193,7 +193,7 @@ def get_web_app_vnet_connection_slot(name: Optional[str] = None,
     :param str slot: Name of the deployment slot. If a slot is not specified, the API will get the named virtual network for the production slot.
     :param str vnet_name: Name of the virtual network.
     """
-    pulumi.log.warn("get_web_app_vnet_connection_slot is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getWebAppVnetConnectionSlot'.")
+    pulumi.log.warn("""get_web_app_vnet_connection_slot is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getWebAppVnetConnectionSlot'.""")
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name

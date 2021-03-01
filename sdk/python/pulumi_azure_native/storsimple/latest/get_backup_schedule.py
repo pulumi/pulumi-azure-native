@@ -170,7 +170,7 @@ def get_backup_schedule(backup_policy_name: Optional[str] = None,
     :param str manager_name: The manager name
     :param str resource_group_name: The resource group name
     """
-    pulumi.log.warn("get_backup_schedule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storsimple:getBackupSchedule'.")
+    pulumi.log.warn("""get_backup_schedule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storsimple:getBackupSchedule'.""")
     __args__ = dict()
     __args__['backupPolicyName'] = backup_policy_name
     __args__['backupScheduleName'] = backup_schedule_name

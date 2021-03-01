@@ -100,6 +100,14 @@ class ExportPipeline(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["identity"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["options"] = None
+        __props__["provisioning_state"] = None
+        __props__["system_data"] = None
+        __props__["target"] = None
+        __props__["type"] = None
         return ExportPipeline(resource_name, opts=opts, __props__=__props__)
 
     @property

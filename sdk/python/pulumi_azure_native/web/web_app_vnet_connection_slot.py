@@ -106,6 +106,17 @@ class WebAppVnetConnectionSlot(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["cert_blob"] = None
+        __props__["cert_thumbprint"] = None
+        __props__["dns_servers"] = None
+        __props__["is_swift"] = None
+        __props__["kind"] = None
+        __props__["name"] = None
+        __props__["resync_required"] = None
+        __props__["routes"] = None
+        __props__["system_data"] = None
+        __props__["type"] = None
+        __props__["vnet_resource_id"] = None
         return WebAppVnetConnectionSlot(resource_name, opts=opts, __props__=__props__)
 
     @property

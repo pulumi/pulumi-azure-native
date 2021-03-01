@@ -130,7 +130,7 @@ def get_file_service_properties(account_name: Optional[str] = None,
     :param str file_services_name: The name of the file Service within the specified storage account. File Service Name must be "default"
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     """
-    pulumi.log.warn("get_file_service_properties is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storage:getFileServiceProperties'.")
+    pulumi.log.warn("""get_file_service_properties is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storage:getFileServiceProperties'.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['fileServicesName'] = file_services_name

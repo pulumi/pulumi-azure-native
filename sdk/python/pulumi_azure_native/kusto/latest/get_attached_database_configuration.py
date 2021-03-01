@@ -153,7 +153,7 @@ def get_attached_database_configuration(attached_database_configuration_name: Op
     :param str cluster_name: The name of the Kusto cluster.
     :param str resource_group_name: The name of the resource group containing the Kusto cluster.
     """
-    pulumi.log.warn("get_attached_database_configuration is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:kusto:getAttachedDatabaseConfiguration'.")
+    pulumi.log.warn("""get_attached_database_configuration is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:kusto:getAttachedDatabaseConfiguration'.""")
     __args__ = dict()
     __args__['attachedDatabaseConfigurationName'] = attached_database_configuration_name
     __args__['clusterName'] = cluster_name

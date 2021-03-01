@@ -128,6 +128,27 @@ class Workspace(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["adla_resource_id"] = None
+        __props__["connectivity_endpoints"] = None
+        __props__["default_data_lake_storage"] = None
+        __props__["encryption"] = None
+        __props__["extra_properties"] = None
+        __props__["identity"] = None
+        __props__["location"] = None
+        __props__["managed_resource_group_name"] = None
+        __props__["managed_virtual_network"] = None
+        __props__["managed_virtual_network_settings"] = None
+        __props__["name"] = None
+        __props__["private_endpoint_connections"] = None
+        __props__["provisioning_state"] = None
+        __props__["purview_configuration"] = None
+        __props__["sql_administrator_login"] = None
+        __props__["sql_administrator_login_password"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["virtual_network_profile"] = None
+        __props__["workspace_repository_configuration"] = None
+        __props__["workspace_uid"] = None
         return Workspace(resource_name, opts=opts, __props__=__props__)
 
     @property

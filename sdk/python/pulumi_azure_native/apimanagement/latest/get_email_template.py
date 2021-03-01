@@ -154,7 +154,7 @@ def get_email_template(resource_group_name: Optional[str] = None,
     :param str service_name: The name of the API Management service.
     :param str template_name: Email Template Name Identifier.
     """
-    pulumi.log.warn("get_email_template is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getEmailTemplate'.")
+    pulumi.log.warn("""get_email_template is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getEmailTemplate'.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['serviceName'] = service_name

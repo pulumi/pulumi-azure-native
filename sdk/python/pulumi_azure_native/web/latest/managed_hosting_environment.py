@@ -107,7 +107,7 @@ class ManagedHostingEnvironment(pulumi.CustomResource):
         :param pulumi.Input[str] vnet_subnet_name: Subnet of the hostingEnvironment's (App Service Environment) virtual network
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkerPoolArgs']]]] worker_pools: Description of worker pools with worker size ids, VM sizes, and number of workers in each pool
         """
-        pulumi.log.warn("ManagedHostingEnvironment is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:ManagedHostingEnvironment'.")
+        pulumi.log.warn("""ManagedHostingEnvironment is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:ManagedHostingEnvironment'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -190,6 +190,41 @@ class ManagedHostingEnvironment(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["allowed_multi_sizes"] = None
+        __props__["allowed_worker_sizes"] = None
+        __props__["api_management_account_id"] = None
+        __props__["cluster_settings"] = None
+        __props__["database_edition"] = None
+        __props__["database_service_objective"] = None
+        __props__["dns_suffix"] = None
+        __props__["environment_capacities"] = None
+        __props__["environment_is_healthy"] = None
+        __props__["environment_status"] = None
+        __props__["internal_load_balancing_mode"] = None
+        __props__["ipssl_address_count"] = None
+        __props__["kind"] = None
+        __props__["last_action"] = None
+        __props__["last_action_result"] = None
+        __props__["location"] = None
+        __props__["maximum_number_of_machines"] = None
+        __props__["multi_role_count"] = None
+        __props__["multi_size"] = None
+        __props__["name"] = None
+        __props__["network_access_control_list"] = None
+        __props__["provisioning_state"] = None
+        __props__["resource_group"] = None
+        __props__["status"] = None
+        __props__["subscription_id"] = None
+        __props__["suspended"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["upgrade_domains"] = None
+        __props__["vip_mappings"] = None
+        __props__["virtual_network"] = None
+        __props__["vnet_name"] = None
+        __props__["vnet_resource_group_name"] = None
+        __props__["vnet_subnet_name"] = None
+        __props__["worker_pools"] = None
         return ManagedHostingEnvironment(resource_name, opts=opts, __props__=__props__)
 
     @property

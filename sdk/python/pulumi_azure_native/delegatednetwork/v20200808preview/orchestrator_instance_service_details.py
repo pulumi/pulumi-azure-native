@@ -111,6 +111,19 @@ class OrchestratorInstanceServiceDetails(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["api_server_endpoint"] = None
+        __props__["cluster_root_ca"] = None
+        __props__["controller_details"] = None
+        __props__["identity"] = None
+        __props__["kind"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["orchestrator_app_id"] = None
+        __props__["orchestrator_tenant_id"] = None
+        __props__["provisioning_state"] = None
+        __props__["resource_guid"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
         return OrchestratorInstanceServiceDetails(resource_name, opts=opts, __props__=__props__)
 
     @property

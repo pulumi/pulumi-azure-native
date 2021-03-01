@@ -131,6 +131,25 @@ class VpnConnection(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["connection_bandwidth"] = None
+        __props__["connection_status"] = None
+        __props__["dpd_timeout_seconds"] = None
+        __props__["egress_bytes_transferred"] = None
+        __props__["enable_bgp"] = None
+        __props__["enable_internet_security"] = None
+        __props__["enable_rate_limiting"] = None
+        __props__["etag"] = None
+        __props__["ingress_bytes_transferred"] = None
+        __props__["ipsec_policies"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["remote_vpn_site"] = None
+        __props__["routing_weight"] = None
+        __props__["shared_key"] = None
+        __props__["use_local_azure_ip_address"] = None
+        __props__["use_policy_based_traffic_selectors"] = None
+        __props__["vpn_connection_protocol_type"] = None
+        __props__["vpn_link_connections"] = None
         return VpnConnection(resource_name, opts=opts, __props__=__props__)
 
     @property

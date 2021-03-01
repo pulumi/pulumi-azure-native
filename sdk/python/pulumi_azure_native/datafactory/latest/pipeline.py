@@ -56,7 +56,7 @@ class Pipeline(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, Any]] run_dimensions: Dimensions emitted by Pipeline.
         :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['VariableSpecificationArgs']]]] variables: List of variables for pipeline.
         """
-        pulumi.log.warn("Pipeline is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:datafactory:Pipeline'.")
+        pulumi.log.warn("""Pipeline is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:datafactory:Pipeline'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -117,6 +117,18 @@ class Pipeline(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["activities"] = None
+        __props__["annotations"] = None
+        __props__["concurrency"] = None
+        __props__["description"] = None
+        __props__["etag"] = None
+        __props__["folder"] = None
+        __props__["name"] = None
+        __props__["parameters"] = None
+        __props__["policy"] = None
+        __props__["run_dimensions"] = None
+        __props__["type"] = None
+        __props__["variables"] = None
         return Pipeline(resource_name, opts=opts, __props__=__props__)
 
     @property

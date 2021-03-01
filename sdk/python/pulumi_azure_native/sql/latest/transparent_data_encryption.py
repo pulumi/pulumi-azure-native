@@ -40,7 +40,7 @@ class TransparentDataEncryption(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'TransparentDataEncryptionStatus']] status: The status of the database transparent data encryption.
         :param pulumi.Input[str] transparent_data_encryption_name: The name of the transparent data encryption configuration.
         """
-        pulumi.log.warn("TransparentDataEncryption is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:sql:TransparentDataEncryption'.")
+        pulumi.log.warn("""TransparentDataEncryption is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:sql:TransparentDataEncryption'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -96,6 +96,10 @@ class TransparentDataEncryption(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["status"] = None
+        __props__["type"] = None
         return TransparentDataEncryption(resource_name, opts=opts, __props__=__props__)
 
     @property

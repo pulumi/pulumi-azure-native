@@ -205,7 +205,7 @@ def get_volume(device_name: Optional[str] = None,
     :param str volume_container_name: The volume container name.
     :param str volume_name: The volume name.
     """
-    pulumi.log.warn("get_volume is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storsimple:getVolume'.")
+    pulumi.log.warn("""get_volume is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storsimple:getVolume'.""")
     __args__ = dict()
     __args__['deviceName'] = device_name
     __args__['managerName'] = manager_name

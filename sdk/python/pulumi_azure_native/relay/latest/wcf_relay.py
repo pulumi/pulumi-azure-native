@@ -44,7 +44,7 @@ class WCFRelay(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
         :param pulumi.Input[str] user_metadata: The usermetadata is a placeholder to store user-defined string data for the WCF Relay endpoint. For example, it can be used to store descriptive data, such as list of teams and their contact information. Also, user-defined configuration settings can be stored.
         """
-        pulumi.log.warn("WCFRelay is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:relay:WCFRelay'.")
+        pulumi.log.warn("""WCFRelay is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:relay:WCFRelay'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -103,6 +103,16 @@ class WCFRelay(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["created_at"] = None
+        __props__["is_dynamic"] = None
+        __props__["listener_count"] = None
+        __props__["name"] = None
+        __props__["relay_type"] = None
+        __props__["requires_client_authorization"] = None
+        __props__["requires_transport_security"] = None
+        __props__["type"] = None
+        __props__["updated_at"] = None
+        __props__["user_metadata"] = None
         return WCFRelay(resource_name, opts=opts, __props__=__props__)
 
     @property

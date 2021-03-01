@@ -50,7 +50,7 @@ class CustomIPPrefix(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of availability zones denoting the IP allocated for the resource needs to come from.
         """
-        pulumi.log.warn("CustomIPPrefix is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:CustomIPPrefix'.")
+        pulumi.log.warn("""CustomIPPrefix is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:CustomIPPrefix'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -109,6 +109,18 @@ class CustomIPPrefix(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["cidr"] = None
+        __props__["commissioned_state"] = None
+        __props__["etag"] = None
+        __props__["extended_location"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["public_ip_prefixes"] = None
+        __props__["resource_guid"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["zones"] = None
         return CustomIPPrefix(resource_name, opts=opts, __props__=__props__)
 
     @property

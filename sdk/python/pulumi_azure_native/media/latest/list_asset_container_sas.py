@@ -62,7 +62,7 @@ def list_asset_container_sas(account_name: Optional[str] = None,
     :param Union[str, 'AssetContainerPermission'] permissions: The permissions to set on the SAS URL.
     :param str resource_group_name: The name of the resource group within the Azure subscription.
     """
-    pulumi.log.warn("list_asset_container_sas is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:media:listAssetContainerSas'.")
+    pulumi.log.warn("""list_asset_container_sas is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:media:listAssetContainerSas'.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['assetName'] = asset_name

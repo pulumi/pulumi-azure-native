@@ -87,7 +87,7 @@ def get_hyper_v_collector(hyper_v_collector_name: Optional[str] = None,
     :param str project_name: Name of the Azure Migrate project.
     :param str resource_group_name: Name of the Azure Resource Group that project is part of.
     """
-    pulumi.log.warn("get_hyper_v_collector is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:migrate:getHyperVCollector'.")
+    pulumi.log.warn("""get_hyper_v_collector is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:migrate:getHyperVCollector'.""")
     __args__ = dict()
     __args__['hyperVCollectorName'] = hyper_v_collector_name
     __args__['projectName'] = project_name

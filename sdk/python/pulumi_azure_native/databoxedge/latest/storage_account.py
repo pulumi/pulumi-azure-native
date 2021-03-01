@@ -45,7 +45,7 @@ class StorageAccount(pulumi.CustomResource):
         :param pulumi.Input[str] storage_account_name: The StorageAccount name.
         :param pulumi.Input[Union[str, 'StorageAccountStatus']] storage_account_status: Current status of the storage account
         """
-        pulumi.log.warn("StorageAccount is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:databoxedge:StorageAccount'.")
+        pulumi.log.warn("""StorageAccount is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:databoxedge:StorageAccount'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -105,6 +105,15 @@ class StorageAccount(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["blob_endpoint"] = None
+        __props__["container_count"] = None
+        __props__["data_policy"] = None
+        __props__["description"] = None
+        __props__["name"] = None
+        __props__["storage_account_credential_id"] = None
+        __props__["storage_account_status"] = None
+        __props__["system_data"] = None
+        __props__["type"] = None
         return StorageAccount(resource_name, opts=opts, __props__=__props__)
 
     @property

@@ -107,6 +107,16 @@ class ManagerExtendedInfo(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["algorithm"] = None
+        __props__["encryption_key"] = None
+        __props__["encryption_key_thumbprint"] = None
+        __props__["etag"] = None
+        __props__["integrity_key"] = None
+        __props__["kind"] = None
+        __props__["name"] = None
+        __props__["portal_certificate_thumbprint"] = None
+        __props__["type"] = None
+        __props__["version"] = None
         return ManagerExtendedInfo(resource_name, opts=opts, __props__=__props__)
 
     @property

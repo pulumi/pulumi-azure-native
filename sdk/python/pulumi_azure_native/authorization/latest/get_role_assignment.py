@@ -92,7 +92,7 @@ def get_role_assignment(role_assignment_name: Optional[str] = None,
     :param str role_assignment_name: The name of the role assignment to get.
     :param str scope: The scope of the role assignment.
     """
-    pulumi.log.warn("get_role_assignment is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:authorization:getRoleAssignment'.")
+    pulumi.log.warn("""get_role_assignment is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:authorization:getRoleAssignment'.""")
     __args__ = dict()
     __args__['roleAssignmentName'] = role_assignment_name
     __args__['scope'] = scope

@@ -47,7 +47,7 @@ class EmailTemplate(pulumi.CustomResource):
         :param pulumi.Input[str] template_name: Email Template Name Identifier.
         :param pulumi.Input[str] title: Title of the Template.
         """
-        pulumi.log.warn("EmailTemplate is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:EmailTemplate'.")
+        pulumi.log.warn("""EmailTemplate is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:EmailTemplate'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -104,6 +104,14 @@ class EmailTemplate(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["body"] = None
+        __props__["description"] = None
+        __props__["is_default"] = None
+        __props__["name"] = None
+        __props__["parameters"] = None
+        __props__["subject"] = None
+        __props__["title"] = None
+        __props__["type"] = None
         return EmailTemplate(resource_name, opts=opts, __props__=__props__)
 
     @property

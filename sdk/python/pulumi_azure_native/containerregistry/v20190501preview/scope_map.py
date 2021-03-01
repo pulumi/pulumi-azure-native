@@ -94,6 +94,13 @@ class ScopeMap(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["actions"] = None
+        __props__["creation_date"] = None
+        __props__["description"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["system_data"] = None
+        __props__["type"] = None
         return ScopeMap(resource_name, opts=opts, __props__=__props__)
 
     @property

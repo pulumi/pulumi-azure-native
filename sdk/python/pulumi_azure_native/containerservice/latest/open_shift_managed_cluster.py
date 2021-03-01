@@ -54,7 +54,7 @@ class OpenShiftManagedCluster(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OpenShiftRouterProfileArgs']]]] router_profiles: Configuration for OpenShift router(s).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
-        pulumi.log.warn("OpenShiftManagedCluster is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:containerservice:OpenShiftManagedCluster'.")
+        pulumi.log.warn("""OpenShiftManagedCluster is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:containerservice:OpenShiftManagedCluster'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -117,6 +117,21 @@ class OpenShiftManagedCluster(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["agent_pool_profiles"] = None
+        __props__["auth_profile"] = None
+        __props__["cluster_version"] = None
+        __props__["fqdn"] = None
+        __props__["location"] = None
+        __props__["master_pool_profile"] = None
+        __props__["name"] = None
+        __props__["network_profile"] = None
+        __props__["open_shift_version"] = None
+        __props__["plan"] = None
+        __props__["provisioning_state"] = None
+        __props__["public_hostname"] = None
+        __props__["router_profiles"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
         return OpenShiftManagedCluster(resource_name, opts=opts, __props__=__props__)
 
     @property

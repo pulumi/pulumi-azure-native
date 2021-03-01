@@ -100,6 +100,18 @@ class Namespace(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["create_acs_namespace"] = None
+        __props__["created_at"] = None
+        __props__["enabled"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["service_bus_endpoint"] = None
+        __props__["sku"] = None
+        __props__["status"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["updated_at"] = None
         return Namespace(resource_name, opts=opts, __props__=__props__)
 
     @property

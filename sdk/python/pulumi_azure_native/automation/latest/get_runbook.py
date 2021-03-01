@@ -298,7 +298,7 @@ def get_runbook(automation_account_name: Optional[str] = None,
     :param str resource_group_name: Name of an Azure Resource group.
     :param str runbook_name: The runbook name.
     """
-    pulumi.log.warn("get_runbook is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:automation:getRunbook'.")
+    pulumi.log.warn("""get_runbook is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:automation:getRunbook'.""")
     __args__ = dict()
     __args__['automationAccountName'] = automation_account_name
     __args__['resourceGroupName'] = resource_group_name

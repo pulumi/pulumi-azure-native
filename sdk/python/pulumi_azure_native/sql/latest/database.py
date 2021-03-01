@@ -107,7 +107,7 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[bool] zone_redundant: Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
         """
-        pulumi.log.warn("Database is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:sql:Database'.")
+        pulumi.log.warn("""Database is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:sql:Database'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -187,6 +187,37 @@ class Database(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["collation"] = None
+        __props__["containment_state"] = None
+        __props__["create_mode"] = None
+        __props__["creation_date"] = None
+        __props__["current_service_objective_id"] = None
+        __props__["database_id"] = None
+        __props__["default_secondary_location"] = None
+        __props__["earliest_restore_date"] = None
+        __props__["edition"] = None
+        __props__["elastic_pool_name"] = None
+        __props__["failover_group_id"] = None
+        __props__["kind"] = None
+        __props__["location"] = None
+        __props__["max_size_bytes"] = None
+        __props__["name"] = None
+        __props__["read_scale"] = None
+        __props__["recommended_index"] = None
+        __props__["recovery_services_recovery_point_resource_id"] = None
+        __props__["requested_service_objective_id"] = None
+        __props__["requested_service_objective_name"] = None
+        __props__["restore_point_in_time"] = None
+        __props__["sample_name"] = None
+        __props__["service_level_objective"] = None
+        __props__["service_tier_advisors"] = None
+        __props__["source_database_deletion_date"] = None
+        __props__["source_database_id"] = None
+        __props__["status"] = None
+        __props__["tags"] = None
+        __props__["transparent_data_encryption"] = None
+        __props__["type"] = None
+        __props__["zone_redundant"] = None
         return Database(resource_name, opts=opts, __props__=__props__)
 
     @property

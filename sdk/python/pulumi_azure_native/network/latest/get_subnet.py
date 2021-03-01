@@ -324,7 +324,7 @@ def get_subnet(expand: Optional[str] = None,
     :param str subnet_name: The name of the subnet.
     :param str virtual_network_name: The name of the virtual network.
     """
-    pulumi.log.warn("get_subnet is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getSubnet'.")
+    pulumi.log.warn("""get_subnet is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getSubnet'.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['resourceGroupName'] = resource_group_name

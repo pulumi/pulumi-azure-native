@@ -110,6 +110,22 @@ class DenyAssignment(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["condition"] = None
+        __props__["condition_version"] = None
+        __props__["created_by"] = None
+        __props__["created_on"] = None
+        __props__["deny_assignment_name"] = None
+        __props__["description"] = None
+        __props__["do_not_apply_to_child_scopes"] = None
+        __props__["exclude_principals"] = None
+        __props__["is_system_protected"] = None
+        __props__["name"] = None
+        __props__["permissions"] = None
+        __props__["principals"] = None
+        __props__["scope"] = None
+        __props__["type"] = None
+        __props__["updated_by"] = None
+        __props__["updated_on"] = None
         return DenyAssignment(resource_name, opts=opts, __props__=__props__)
 
     @property

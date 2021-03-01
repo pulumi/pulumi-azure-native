@@ -59,7 +59,7 @@ class ServerEndpoint(pulumi.CustomResource):
         :param pulumi.Input[int] tier_files_older_than_days: Tier files older than days.
         :param pulumi.Input[int] volume_free_space_percent: Level of free space to be maintained by Cloud Tiering if it is enabled.
         """
-        pulumi.log.warn("ServerEndpoint is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storagesync:ServerEndpoint'.")
+        pulumi.log.warn("""ServerEndpoint is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storagesync:ServerEndpoint'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -131,6 +131,26 @@ class ServerEndpoint(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["cloud_tiering"] = None
+        __props__["cloud_tiering_status"] = None
+        __props__["friendly_name"] = None
+        __props__["initial_download_policy"] = None
+        __props__["last_operation_name"] = None
+        __props__["last_workflow_id"] = None
+        __props__["local_cache_mode"] = None
+        __props__["name"] = None
+        __props__["offline_data_transfer"] = None
+        __props__["offline_data_transfer_share_name"] = None
+        __props__["offline_data_transfer_storage_account_resource_id"] = None
+        __props__["offline_data_transfer_storage_account_tenant_id"] = None
+        __props__["provisioning_state"] = None
+        __props__["recall_status"] = None
+        __props__["server_local_path"] = None
+        __props__["server_resource_id"] = None
+        __props__["sync_status"] = None
+        __props__["tier_files_older_than_days"] = None
+        __props__["type"] = None
+        __props__["volume_free_space_percent"] = None
         return ServerEndpoint(resource_name, opts=opts, __props__=__props__)
 
     @property

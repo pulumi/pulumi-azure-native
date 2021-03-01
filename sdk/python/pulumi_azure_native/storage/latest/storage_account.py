@@ -74,7 +74,7 @@ class StorageAccount(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: Required. Gets or sets the SKU name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets a list of key value pairs that describe the resource. These tags can be used for viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key with a length no greater than 128 characters and a value with a length no greater than 256 characters.
         """
-        pulumi.log.warn("StorageAccount is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storage:StorageAccount'.")
+        pulumi.log.warn("""StorageAccount is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storage:StorageAccount'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -158,6 +158,40 @@ class StorageAccount(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["access_tier"] = None
+        __props__["allow_blob_public_access"] = None
+        __props__["allow_shared_key_access"] = None
+        __props__["azure_files_identity_based_authentication"] = None
+        __props__["blob_restore_status"] = None
+        __props__["creation_time"] = None
+        __props__["custom_domain"] = None
+        __props__["enable_https_traffic_only"] = None
+        __props__["enable_nfs_v3"] = None
+        __props__["encryption"] = None
+        __props__["extended_location"] = None
+        __props__["failover_in_progress"] = None
+        __props__["geo_replication_stats"] = None
+        __props__["identity"] = None
+        __props__["is_hns_enabled"] = None
+        __props__["kind"] = None
+        __props__["large_file_shares_state"] = None
+        __props__["last_geo_failover_time"] = None
+        __props__["location"] = None
+        __props__["minimum_tls_version"] = None
+        __props__["name"] = None
+        __props__["network_rule_set"] = None
+        __props__["primary_endpoints"] = None
+        __props__["primary_location"] = None
+        __props__["private_endpoint_connections"] = None
+        __props__["provisioning_state"] = None
+        __props__["routing_preference"] = None
+        __props__["secondary_endpoints"] = None
+        __props__["secondary_location"] = None
+        __props__["sku"] = None
+        __props__["status_of_primary"] = None
+        __props__["status_of_secondary"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
         return StorageAccount(resource_name, opts=opts, __props__=__props__)
 
     @property

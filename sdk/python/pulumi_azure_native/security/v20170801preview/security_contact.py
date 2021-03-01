@@ -89,6 +89,12 @@ class SecurityContact(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["alert_notifications"] = None
+        __props__["alerts_to_admins"] = None
+        __props__["email"] = None
+        __props__["name"] = None
+        __props__["phone"] = None
+        __props__["type"] = None
         return SecurityContact(resource_name, opts=opts, __props__=__props__)
 
     @property

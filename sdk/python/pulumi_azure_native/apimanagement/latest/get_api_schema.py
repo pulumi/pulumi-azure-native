@@ -119,7 +119,7 @@ def get_api_schema(api_id: Optional[str] = None,
     :param str schema_id: Schema identifier within an API. Must be unique in the current API Management service instance.
     :param str service_name: The name of the API Management service.
     """
-    pulumi.log.warn("get_api_schema is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getApiSchema'.")
+    pulumi.log.warn("""get_api_schema is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getApiSchema'.""")
     __args__ = dict()
     __args__['apiId'] = api_id
     __args__['resourceGroupName'] = resource_group_name

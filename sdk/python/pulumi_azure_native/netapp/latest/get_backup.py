@@ -181,7 +181,7 @@ def get_backup(account_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     :param str volume_name: The name of the volume
     """
-    pulumi.log.warn("get_backup is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:netapp:getBackup'.")
+    pulumi.log.warn("""get_backup is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:netapp:getBackup'.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['backupName'] = backup_name

@@ -118,7 +118,7 @@ def get_bandwidth_setting(bandwidth_setting_name: Optional[str] = None,
     :param str manager_name: The manager name
     :param str resource_group_name: The resource group name
     """
-    pulumi.log.warn("get_bandwidth_setting is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storsimple:getBandwidthSetting'.")
+    pulumi.log.warn("""get_bandwidth_setting is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storsimple:getBandwidthSetting'.""")
     __args__ = dict()
     __args__['bandwidthSettingName'] = bandwidth_setting_name
     __args__['managerName'] = manager_name

@@ -100,6 +100,14 @@ class StorageInsightConfig(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["containers"] = None
+        __props__["e_tag"] = None
+        __props__["name"] = None
+        __props__["status"] = None
+        __props__["storage_account"] = None
+        __props__["tables"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
         return StorageInsightConfig(resource_name, opts=opts, __props__=__props__)
 
     @property

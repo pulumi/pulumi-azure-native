@@ -96,6 +96,15 @@ class DedicatedHostGroup(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["hosts"] = None
+        __props__["instance_view"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["platform_fault_domain_count"] = None
+        __props__["support_automatic_placement"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["zones"] = None
         return DedicatedHostGroup(resource_name, opts=opts, __props__=__props__)
 
     @property

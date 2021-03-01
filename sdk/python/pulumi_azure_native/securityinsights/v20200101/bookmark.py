@@ -129,6 +129,22 @@ class Bookmark(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["created"] = None
+        __props__["created_by"] = None
+        __props__["display_name"] = None
+        __props__["etag"] = None
+        __props__["event_time"] = None
+        __props__["incident_info"] = None
+        __props__["labels"] = None
+        __props__["name"] = None
+        __props__["notes"] = None
+        __props__["query"] = None
+        __props__["query_end_time"] = None
+        __props__["query_result"] = None
+        __props__["query_start_time"] = None
+        __props__["type"] = None
+        __props__["updated"] = None
+        __props__["updated_by"] = None
         return Bookmark(resource_name, opts=opts, __props__=__props__)
 
     @property

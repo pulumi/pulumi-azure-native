@@ -55,7 +55,7 @@ def get_event_subscription_full_url(event_subscription_name: Optional[str] = Non
     :param str event_subscription_name: Name of the event subscription.
     :param str scope: The scope of the event subscription. The scope can be a subscription, or a resource group, or a top level resource belonging to a resource provider namespace, or an EventGrid topic. For example, use '/subscriptions/{subscriptionId}/' for a subscription, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for a resource group, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}' for a resource, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/topics/{topicName}' for an EventGrid topic.
     """
-    pulumi.log.warn("get_event_subscription_full_url is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:eventgrid:getEventSubscriptionFullUrl'.")
+    pulumi.log.warn("""get_event_subscription_full_url is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:eventgrid:getEventSubscriptionFullUrl'.""")
     __args__ = dict()
     __args__['eventSubscriptionName'] = event_subscription_name
     __args__['scope'] = scope

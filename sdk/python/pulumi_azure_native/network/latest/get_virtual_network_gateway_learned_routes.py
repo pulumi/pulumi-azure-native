@@ -56,7 +56,7 @@ def get_virtual_network_gateway_learned_routes(resource_group_name: Optional[str
     :param str resource_group_name: The name of the resource group.
     :param str virtual_network_gateway_name: The name of the virtual network gateway.
     """
-    pulumi.log.warn("get_virtual_network_gateway_learned_routes is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getVirtualNetworkGatewayLearnedRoutes'.")
+    pulumi.log.warn("""get_virtual_network_gateway_learned_routes is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getVirtualNetworkGatewayLearnedRoutes'.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['virtualNetworkGatewayName'] = virtual_network_gateway_name

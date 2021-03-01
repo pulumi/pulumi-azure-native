@@ -68,7 +68,7 @@ class GalleryImage(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
-        pulumi.log.warn("GalleryImage is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:compute:GalleryImage'.")
+        pulumi.log.warn("""GalleryImage is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:compute:GalleryImage'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -141,6 +141,24 @@ class GalleryImage(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["description"] = None
+        __props__["disallowed"] = None
+        __props__["end_of_life_date"] = None
+        __props__["eula"] = None
+        __props__["features"] = None
+        __props__["hyper_v_generation"] = None
+        __props__["identifier"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["os_state"] = None
+        __props__["os_type"] = None
+        __props__["privacy_statement_uri"] = None
+        __props__["provisioning_state"] = None
+        __props__["purchase_plan"] = None
+        __props__["recommended"] = None
+        __props__["release_note_uri"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
         return GalleryImage(resource_name, opts=opts, __props__=__props__)
 
     @property

@@ -96,6 +96,10 @@ class ReplicationNetworkMapping(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["properties"] = None
+        __props__["type"] = None
         return ReplicationNetworkMapping(resource_name, opts=opts, __props__=__props__)
 
     @property

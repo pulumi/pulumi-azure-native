@@ -48,7 +48,7 @@ class WorkspaceConnection(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'ValueFormat']] value_format: format for the workspace connection value
         :param pulumi.Input[str] workspace_name: Name of Azure Machine Learning workspace.
         """
-        pulumi.log.warn("WorkspaceConnection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:machinelearningservices:WorkspaceConnection'.")
+        pulumi.log.warn("""WorkspaceConnection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:machinelearningservices:WorkspaceConnection'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -104,6 +104,13 @@ class WorkspaceConnection(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["auth_type"] = None
+        __props__["category"] = None
+        __props__["name"] = None
+        __props__["target"] = None
+        __props__["type"] = None
+        __props__["value"] = None
+        __props__["value_format"] = None
         return WorkspaceConnection(resource_name, opts=opts, __props__=__props__)
 
     @property

@@ -48,7 +48,7 @@ class OriginGroup(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ResponseBasedOriginErrorDetectionParametersArgs']] response_based_origin_error_detection_settings: The JSON object that contains the properties to determine origin health using real requests/responses. This property is currently not supported.
         :param pulumi.Input[int] traffic_restoration_time_to_healed_or_new_endpoints_in_minutes: Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
         """
-        pulumi.log.warn("OriginGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:cdn:OriginGroup'.")
+        pulumi.log.warn("""OriginGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:cdn:OriginGroup'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -111,6 +111,15 @@ class OriginGroup(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["health_probe_settings"] = None
+        __props__["name"] = None
+        __props__["origins"] = None
+        __props__["provisioning_state"] = None
+        __props__["resource_state"] = None
+        __props__["response_based_origin_error_detection_settings"] = None
+        __props__["system_data"] = None
+        __props__["traffic_restoration_time_to_healed_or_new_endpoints_in_minutes"] = None
+        __props__["type"] = None
         return OriginGroup(resource_name, opts=opts, __props__=__props__)
 
     @property

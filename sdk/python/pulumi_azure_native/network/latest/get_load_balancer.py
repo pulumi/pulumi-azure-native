@@ -250,7 +250,7 @@ def get_load_balancer(expand: Optional[str] = None,
     :param str load_balancer_name: The name of the load balancer.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("get_load_balancer is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getLoadBalancer'.")
+    pulumi.log.warn("""get_load_balancer is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getLoadBalancer'.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['loadBalancerName'] = load_balancer_name

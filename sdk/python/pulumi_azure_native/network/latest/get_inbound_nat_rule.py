@@ -204,7 +204,7 @@ def get_inbound_nat_rule(expand: Optional[str] = None,
     :param str load_balancer_name: The name of the load balancer.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("get_inbound_nat_rule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getInboundNatRule'.")
+    pulumi.log.warn("""get_inbound_nat_rule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getInboundNatRule'.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['inboundNatRuleName'] = inbound_nat_rule_name

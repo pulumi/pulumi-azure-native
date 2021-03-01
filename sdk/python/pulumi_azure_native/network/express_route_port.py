@@ -111,6 +111,23 @@ class ExpressRoutePort(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["allocation_date"] = None
+        __props__["bandwidth_in_gbps"] = None
+        __props__["circuits"] = None
+        __props__["encapsulation"] = None
+        __props__["etag"] = None
+        __props__["ether_type"] = None
+        __props__["identity"] = None
+        __props__["links"] = None
+        __props__["location"] = None
+        __props__["mtu"] = None
+        __props__["name"] = None
+        __props__["peering_location"] = None
+        __props__["provisioned_bandwidth_in_gbps"] = None
+        __props__["provisioning_state"] = None
+        __props__["resource_guid"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
         return ExpressRoutePort(resource_name, opts=opts, __props__=__props__)
 
     @property

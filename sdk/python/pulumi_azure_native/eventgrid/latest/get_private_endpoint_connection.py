@@ -128,7 +128,7 @@ def get_private_endpoint_connection(parent_name: Optional[str] = None,
     :param str private_endpoint_connection_name: The name of the private endpoint connection connection.
     :param str resource_group_name: The name of the resource group within the user's subscription.
     """
-    pulumi.log.warn("get_private_endpoint_connection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:eventgrid:getPrivateEndpointConnection'.")
+    pulumi.log.warn("""get_private_endpoint_connection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:eventgrid:getPrivateEndpointConnection'.""")
     __args__ = dict()
     __args__['parentName'] = parent_name
     __args__['parentType'] = parent_type

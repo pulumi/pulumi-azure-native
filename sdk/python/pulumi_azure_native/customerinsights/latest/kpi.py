@@ -66,7 +66,7 @@ class Kpi(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['KpiThresholdsArgs']] thres_holds: The KPI thresholds.
         :param pulumi.Input[str] unit: The unit of measurement for the KPI.
         """
-        pulumi.log.warn("Kpi is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:customerinsights:Kpi'.")
+        pulumi.log.warn("""Kpi is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:customerinsights:Kpi'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -145,6 +145,27 @@ class Kpi(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["aliases"] = None
+        __props__["calculation_window"] = None
+        __props__["calculation_window_field_name"] = None
+        __props__["description"] = None
+        __props__["display_name"] = None
+        __props__["entity_type"] = None
+        __props__["entity_type_name"] = None
+        __props__["expression"] = None
+        __props__["extracts"] = None
+        __props__["filter"] = None
+        __props__["function"] = None
+        __props__["group_by"] = None
+        __props__["group_by_metadata"] = None
+        __props__["kpi_name"] = None
+        __props__["name"] = None
+        __props__["participant_profiles_metadata"] = None
+        __props__["provisioning_state"] = None
+        __props__["tenant_id"] = None
+        __props__["thres_holds"] = None
+        __props__["type"] = None
+        __props__["unit"] = None
         return Kpi(resource_name, opts=opts, __props__=__props__)
 
     @property

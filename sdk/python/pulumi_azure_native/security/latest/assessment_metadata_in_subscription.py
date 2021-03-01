@@ -54,7 +54,7 @@ class AssessmentMetadataInSubscription(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'Severity']] severity: The severity level of the assessment
         :param pulumi.Input[Union[str, 'UserImpact']] user_impact: The user impact of the assessment
         """
-        pulumi.log.warn("AssessmentMetadataInSubscription is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:security:AssessmentMetadataInSubscription'.")
+        pulumi.log.warn("""AssessmentMetadataInSubscription is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:security:AssessmentMetadataInSubscription'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -117,6 +117,20 @@ class AssessmentMetadataInSubscription(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["assessment_type"] = None
+        __props__["category"] = None
+        __props__["description"] = None
+        __props__["display_name"] = None
+        __props__["implementation_effort"] = None
+        __props__["name"] = None
+        __props__["partner_data"] = None
+        __props__["policy_definition_id"] = None
+        __props__["preview"] = None
+        __props__["remediation_description"] = None
+        __props__["severity"] = None
+        __props__["threats"] = None
+        __props__["type"] = None
+        __props__["user_impact"] = None
         return AssessmentMetadataInSubscription(resource_name, opts=opts, __props__=__props__)
 
     @property

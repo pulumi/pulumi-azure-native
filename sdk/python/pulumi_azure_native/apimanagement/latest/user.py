@@ -58,7 +58,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'UserState']] state: Account state. Specifies whether the user is active or not. Blocked users are unable to sign into the developer portal or call any APIs of subscribed products. Default state is Active.
         :param pulumi.Input[str] user_id: User identifier. Must be unique in the current API Management service instance.
         """
-        pulumi.log.warn("User is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:User'.")
+        pulumi.log.warn("""User is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:User'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -129,6 +129,16 @@ class User(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["email"] = None
+        __props__["first_name"] = None
+        __props__["groups"] = None
+        __props__["identities"] = None
+        __props__["last_name"] = None
+        __props__["name"] = None
+        __props__["note"] = None
+        __props__["registration_date"] = None
+        __props__["state"] = None
+        __props__["type"] = None
         return User(resource_name, opts=opts, __props__=__props__)
 
     @property

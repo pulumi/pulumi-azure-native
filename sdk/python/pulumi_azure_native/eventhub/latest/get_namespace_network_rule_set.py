@@ -116,7 +116,7 @@ def get_namespace_network_rule_set(namespace_name: Optional[str] = None,
     :param str namespace_name: The Namespace name
     :param str resource_group_name: Name of the resource group within the azure subscription.
     """
-    pulumi.log.warn("get_namespace_network_rule_set is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:eventhub:getNamespaceNetworkRuleSet'.")
+    pulumi.log.warn("""get_namespace_network_rule_set is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:eventhub:getNamespaceNetworkRuleSet'.""")
     __args__ = dict()
     __args__['namespaceName'] = namespace_name
     __args__['resourceGroupName'] = resource_group_name

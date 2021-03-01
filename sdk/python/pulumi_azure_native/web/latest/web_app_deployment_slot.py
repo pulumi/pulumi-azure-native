@@ -58,7 +58,7 @@ class WebAppDeploymentSlot(pulumi.CustomResource):
         :param pulumi.Input[str] start_time: Start time.
         :param pulumi.Input[int] status: Deployment status.
         """
-        pulumi.log.warn("WebAppDeploymentSlot is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppDeploymentSlot'.")
+        pulumi.log.warn("""WebAppDeploymentSlot is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppDeploymentSlot'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -122,6 +122,19 @@ class WebAppDeploymentSlot(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["active"] = None
+        __props__["author"] = None
+        __props__["author_email"] = None
+        __props__["deployer"] = None
+        __props__["details"] = None
+        __props__["end_time"] = None
+        __props__["kind"] = None
+        __props__["message"] = None
+        __props__["name"] = None
+        __props__["start_time"] = None
+        __props__["status"] = None
+        __props__["system_data"] = None
+        __props__["type"] = None
         return WebAppDeploymentSlot(resource_name, opts=opts, __props__=__props__)
 
     @property

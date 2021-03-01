@@ -117,6 +117,25 @@ class BlockchainMember(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["consortium"] = None
+        __props__["consortium_management_account_address"] = None
+        __props__["consortium_management_account_password"] = None
+        __props__["consortium_member_display_name"] = None
+        __props__["consortium_role"] = None
+        __props__["dns"] = None
+        __props__["firewall_rules"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["password"] = None
+        __props__["protocol"] = None
+        __props__["provisioning_state"] = None
+        __props__["public_key"] = None
+        __props__["root_contract_address"] = None
+        __props__["sku"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["user_name"] = None
+        __props__["validator_nodes_sku"] = None
         return BlockchainMember(resource_name, opts=opts, __props__=__props__)
 
     @property

@@ -124,6 +124,17 @@ class JobDefinition(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["customer_secrets"] = None
+        __props__["data_service_input"] = None
+        __props__["data_sink_id"] = None
+        __props__["data_source_id"] = None
+        __props__["last_modified_time"] = None
+        __props__["name"] = None
+        __props__["run_location"] = None
+        __props__["schedules"] = None
+        __props__["state"] = None
+        __props__["type"] = None
+        __props__["user_confirmation"] = None
         return JobDefinition(resource_name, opts=opts, __props__=__props__)
 
     @property

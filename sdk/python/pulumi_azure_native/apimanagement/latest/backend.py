@@ -56,7 +56,7 @@ class Backend(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['BackendTlsPropertiesArgs']] tls: Backend TLS Properties
         :param pulumi.Input[str] url: Runtime Url of the Backend.
         """
-        pulumi.log.warn("Backend is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:Backend'.")
+        pulumi.log.warn("""Backend is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:Backend'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -120,6 +120,17 @@ class Backend(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["credentials"] = None
+        __props__["description"] = None
+        __props__["name"] = None
+        __props__["properties"] = None
+        __props__["protocol"] = None
+        __props__["proxy"] = None
+        __props__["resource_id"] = None
+        __props__["title"] = None
+        __props__["tls"] = None
+        __props__["type"] = None
+        __props__["url"] = None
         return Backend(resource_name, opts=opts, __props__=__props__)
 
     @property

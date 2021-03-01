@@ -94,7 +94,7 @@ def get_digital_twins_endpoint(endpoint_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group that contains the DigitalTwinsInstance.
     :param str resource_name: The name of the DigitalTwinsInstance.
     """
-    pulumi.log.warn("get_digital_twins_endpoint is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:digitaltwins:getDigitalTwinsEndpoint'.")
+    pulumi.log.warn("""get_digital_twins_endpoint is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:digitaltwins:getDigitalTwinsEndpoint'.""")
     __args__ = dict()
     __args__['endpointName'] = endpoint_name
     __args__['resourceGroupName'] = resource_group_name

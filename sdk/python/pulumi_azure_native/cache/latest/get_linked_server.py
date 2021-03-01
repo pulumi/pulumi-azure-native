@@ -129,7 +129,7 @@ def get_linked_server(linked_server_name: Optional[str] = None,
     :param str name: The name of the redis cache.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("get_linked_server is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:cache:getLinkedServer'.")
+    pulumi.log.warn("""get_linked_server is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:cache:getLinkedServer'.""")
     __args__ = dict()
     __args__['linkedServerName'] = linked_server_name
     __args__['name'] = name

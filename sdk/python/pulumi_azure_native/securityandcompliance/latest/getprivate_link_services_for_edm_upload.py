@@ -164,7 +164,7 @@ def getprivate_link_services_for_edm_upload(resource_group_name: Optional[str] =
     :param str resource_group_name: The name of the resource group that contains the service instance.
     :param str resource_name: The name of the service instance.
     """
-    pulumi.log.warn("getprivate_link_services_for_edm_upload is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:securityandcompliance:getprivateLinkServicesForEDMUpload'.")
+    pulumi.log.warn("""getprivate_link_services_for_edm_upload is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:securityandcompliance:getprivateLinkServicesForEDMUpload'.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name

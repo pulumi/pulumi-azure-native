@@ -117,7 +117,7 @@ def get_virtual_network_rule(resource_group_name: Optional[str] = None,
     :param str server_name: The name of the server.
     :param str virtual_network_rule_name: The name of the virtual network rule.
     """
-    pulumi.log.warn("get_virtual_network_rule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:dbforpostgresql:getVirtualNetworkRule'.")
+    pulumi.log.warn("""get_virtual_network_rule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:dbforpostgresql:getVirtualNetworkRule'.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['serverName'] = server_name

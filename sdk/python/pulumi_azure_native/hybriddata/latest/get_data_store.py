@@ -142,7 +142,7 @@ def get_data_store(data_manager_name: Optional[str] = None,
     :param str data_store_name: The data store/repository name queried.
     :param str resource_group_name: The Resource Group Name
     """
-    pulumi.log.warn("get_data_store is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:hybriddata:getDataStore'.")
+    pulumi.log.warn("""get_data_store is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:hybriddata:getDataStore'.""")
     __args__ = dict()
     __args__['dataManagerName'] = data_manager_name
     __args__['dataStoreName'] = data_store_name

@@ -162,7 +162,7 @@ def get_log_profile(log_profile_name: Optional[str] = None,
 
     :param str log_profile_name: The name of the log profile.
     """
-    pulumi.log.warn("get_log_profile is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:insights:getLogProfile'.")
+    pulumi.log.warn("""get_log_profile is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:insights:getLogProfile'.""")
     __args__ = dict()
     __args__['logProfileName'] = log_profile_name
     if opts is None:

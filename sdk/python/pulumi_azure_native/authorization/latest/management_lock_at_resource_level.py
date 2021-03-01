@@ -50,7 +50,7 @@ class ManagementLockAtResourceLevel(pulumi.CustomResource):
         :param pulumi.Input[str] resource_provider_namespace: The resource provider namespace of the resource to lock.
         :param pulumi.Input[str] resource_type: The resource type of the resource to lock.
         """
-        pulumi.log.warn("ManagementLockAtResourceLevel is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:authorization:ManagementLockAtResourceLevel'.")
+        pulumi.log.warn("""ManagementLockAtResourceLevel is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:authorization:ManagementLockAtResourceLevel'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -115,6 +115,11 @@ class ManagementLockAtResourceLevel(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["level"] = None
+        __props__["name"] = None
+        __props__["notes"] = None
+        __props__["owners"] = None
+        __props__["type"] = None
         return ManagementLockAtResourceLevel(resource_name, opts=opts, __props__=__props__)
 
     @property

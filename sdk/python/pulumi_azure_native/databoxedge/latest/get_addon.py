@@ -108,7 +108,7 @@ def get_addon(addon_name: Optional[str] = None,
     :param str resource_group_name: The resource group name.
     :param str role_name: The role name.
     """
-    pulumi.log.warn("get_addon is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:databoxedge:getAddon'.")
+    pulumi.log.warn("""get_addon is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:databoxedge:getAddon'.""")
     __args__ = dict()
     __args__['addonName'] = addon_name
     __args__['deviceName'] = device_name

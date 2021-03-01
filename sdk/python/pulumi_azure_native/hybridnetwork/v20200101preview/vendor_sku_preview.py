@@ -80,6 +80,8 @@ class VendorSkuPreview(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["name"] = None
+        __props__["type"] = None
         return VendorSkuPreview(resource_name, opts=opts, __props__=__props__)
 
     @property

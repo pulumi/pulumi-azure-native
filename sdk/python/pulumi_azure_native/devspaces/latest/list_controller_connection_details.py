@@ -54,7 +54,7 @@ def list_controller_connection_details(name: Optional[str] = None,
     :param str resource_group_name: Resource group to which the resource belongs.
     :param str target_container_host_resource_id: Resource ID of the target container host mapped to the Azure Dev Spaces Controller.
     """
-    pulumi.log.warn("list_controller_connection_details is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devspaces:listControllerConnectionDetails'.")
+    pulumi.log.warn("""list_controller_connection_details is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devspaces:listControllerConnectionDetails'.""")
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name

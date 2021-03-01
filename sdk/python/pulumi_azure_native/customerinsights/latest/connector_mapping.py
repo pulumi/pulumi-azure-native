@@ -52,7 +52,7 @@ class ConnectorMapping(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ConnectorMappingPropertiesArgs']] mapping_properties: The properties of the mapping.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         """
-        pulumi.log.warn("ConnectorMapping is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:customerinsights:ConnectorMapping'.")
+        pulumi.log.warn("""ConnectorMapping is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:customerinsights:ConnectorMapping'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -126,6 +126,23 @@ class ConnectorMapping(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["connector_mapping_name"] = None
+        __props__["connector_name"] = None
+        __props__["connector_type"] = None
+        __props__["created"] = None
+        __props__["data_format_id"] = None
+        __props__["description"] = None
+        __props__["display_name"] = None
+        __props__["entity_type"] = None
+        __props__["entity_type_name"] = None
+        __props__["last_modified"] = None
+        __props__["mapping_properties"] = None
+        __props__["name"] = None
+        __props__["next_run_time"] = None
+        __props__["run_id"] = None
+        __props__["state"] = None
+        __props__["tenant_id"] = None
+        __props__["type"] = None
         return ConnectorMapping(resource_name, opts=opts, __props__=__props__)
 
     @property

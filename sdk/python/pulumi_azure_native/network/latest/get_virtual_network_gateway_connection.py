@@ -392,7 +392,7 @@ def get_virtual_network_gateway_connection(resource_group_name: Optional[str] = 
     :param str resource_group_name: The name of the resource group.
     :param str virtual_network_gateway_connection_name: The name of the virtual network gateway connection.
     """
-    pulumi.log.warn("get_virtual_network_gateway_connection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getVirtualNetworkGatewayConnection'.")
+    pulumi.log.warn("""get_virtual_network_gateway_connection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getVirtualNetworkGatewayConnection'.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['virtualNetworkGatewayConnectionName'] = virtual_network_gateway_connection_name

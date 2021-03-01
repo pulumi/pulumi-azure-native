@@ -121,7 +121,7 @@ def list_web_app_hybrid_connection_keys_slot(name: Optional[str] = None,
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     :param str slot: The name of the slot for the web app.
     """
-    pulumi.log.warn("list_web_app_hybrid_connection_keys_slot is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listWebAppHybridConnectionKeysSlot'.")
+    pulumi.log.warn("""list_web_app_hybrid_connection_keys_slot is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listWebAppHybridConnectionKeysSlot'.""")
     __args__ = dict()
     __args__['name'] = name
     __args__['namespaceName'] = namespace_name

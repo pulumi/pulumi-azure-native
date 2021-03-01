@@ -136,6 +136,29 @@ class VirtualNetworkGateway(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["active_active"] = None
+        __props__["bgp_settings"] = None
+        __props__["custom_routes"] = None
+        __props__["enable_bgp"] = None
+        __props__["enable_dns_forwarding"] = None
+        __props__["enable_private_ip_address"] = None
+        __props__["etag"] = None
+        __props__["extended_location"] = None
+        __props__["gateway_default_site"] = None
+        __props__["gateway_type"] = None
+        __props__["inbound_dns_forwarding_endpoint"] = None
+        __props__["ip_configurations"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["resource_guid"] = None
+        __props__["sku"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["virtual_network_extended_location_resource_id"] = None
+        __props__["vpn_client_configuration"] = None
+        __props__["vpn_gateway_generation"] = None
+        __props__["vpn_type"] = None
         return VirtualNetworkGateway(resource_name, opts=opts, __props__=__props__)
 
     @property

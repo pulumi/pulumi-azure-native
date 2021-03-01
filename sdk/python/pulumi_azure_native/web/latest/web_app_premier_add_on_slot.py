@@ -54,7 +54,7 @@ class WebAppPremierAddOnSlot(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] vendor: Premier add on Vendor.
         """
-        pulumi.log.warn("WebAppPremierAddOnSlot is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppPremierAddOnSlot'.")
+        pulumi.log.warn("""WebAppPremierAddOnSlot is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppPremierAddOnSlot'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -116,6 +116,17 @@ class WebAppPremierAddOnSlot(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["kind"] = None
+        __props__["location"] = None
+        __props__["marketplace_offer"] = None
+        __props__["marketplace_publisher"] = None
+        __props__["name"] = None
+        __props__["product"] = None
+        __props__["sku"] = None
+        __props__["system_data"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["vendor"] = None
         return WebAppPremierAddOnSlot(resource_name, opts=opts, __props__=__props__)
 
     @property

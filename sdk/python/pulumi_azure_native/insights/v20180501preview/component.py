@@ -142,6 +142,31 @@ class Component(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["app_id"] = None
+        __props__["application_id"] = None
+        __props__["application_type"] = None
+        __props__["connection_string"] = None
+        __props__["creation_date"] = None
+        __props__["disable_ip_masking"] = None
+        __props__["flow_type"] = None
+        __props__["hockey_app_id"] = None
+        __props__["hockey_app_token"] = None
+        __props__["immediate_purge_data_on30_days"] = None
+        __props__["ingestion_mode"] = None
+        __props__["instrumentation_key"] = None
+        __props__["kind"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["private_link_scoped_resources"] = None
+        __props__["provisioning_state"] = None
+        __props__["public_network_access_for_ingestion"] = None
+        __props__["public_network_access_for_query"] = None
+        __props__["request_source"] = None
+        __props__["retention_in_days"] = None
+        __props__["sampling_percentage"] = None
+        __props__["tags"] = None
+        __props__["tenant_id"] = None
+        __props__["type"] = None
         return Component(resource_name, opts=opts, __props__=__props__)
 
     @property

@@ -127,6 +127,24 @@ class LiveEvent(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["created"] = None
+        __props__["cross_site_access_policies"] = None
+        __props__["description"] = None
+        __props__["encoding"] = None
+        __props__["hostname_prefix"] = None
+        __props__["input"] = None
+        __props__["last_modified"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["preview"] = None
+        __props__["provisioning_state"] = None
+        __props__["resource_state"] = None
+        __props__["stream_options"] = None
+        __props__["system_data"] = None
+        __props__["tags"] = None
+        __props__["transcriptions"] = None
+        __props__["type"] = None
+        __props__["use_static_hostname"] = None
         return LiveEvent(resource_name, opts=opts, __props__=__props__)
 
     @property

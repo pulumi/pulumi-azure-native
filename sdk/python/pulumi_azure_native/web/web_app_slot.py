@@ -190,6 +190,52 @@ class WebAppSlot(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["availability_state"] = None
+        __props__["client_affinity_enabled"] = None
+        __props__["client_cert_enabled"] = None
+        __props__["client_cert_exclusion_paths"] = None
+        __props__["client_cert_mode"] = None
+        __props__["cloning_info"] = None
+        __props__["container_size"] = None
+        __props__["custom_domain_verification_id"] = None
+        __props__["daily_memory_time_quota"] = None
+        __props__["default_host_name"] = None
+        __props__["enabled"] = None
+        __props__["enabled_host_names"] = None
+        __props__["host_name_ssl_states"] = None
+        __props__["host_names"] = None
+        __props__["host_names_disabled"] = None
+        __props__["hosting_environment_profile"] = None
+        __props__["https_only"] = None
+        __props__["hyper_v"] = None
+        __props__["identity"] = None
+        __props__["in_progress_operation_id"] = None
+        __props__["is_default_container"] = None
+        __props__["is_xenon"] = None
+        __props__["kind"] = None
+        __props__["last_modified_time_utc"] = None
+        __props__["location"] = None
+        __props__["max_number_of_workers"] = None
+        __props__["name"] = None
+        __props__["outbound_ip_addresses"] = None
+        __props__["possible_outbound_ip_addresses"] = None
+        __props__["redundancy_mode"] = None
+        __props__["repository_site_name"] = None
+        __props__["reserved"] = None
+        __props__["resource_group"] = None
+        __props__["scm_site_also_stopped"] = None
+        __props__["server_farm_id"] = None
+        __props__["site_config"] = None
+        __props__["slot_swap_status"] = None
+        __props__["state"] = None
+        __props__["storage_account_required"] = None
+        __props__["suspended_till"] = None
+        __props__["system_data"] = None
+        __props__["tags"] = None
+        __props__["target_swap_slot"] = None
+        __props__["traffic_manager_host_names"] = None
+        __props__["type"] = None
+        __props__["usage_state"] = None
         return WebAppSlot(resource_name, opts=opts, __props__=__props__)
 
     @property

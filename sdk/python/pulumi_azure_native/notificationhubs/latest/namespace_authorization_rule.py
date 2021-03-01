@@ -40,7 +40,7 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SharedAccessAuthorizationRulePropertiesArgs']] properties: Properties of the Namespace AuthorizationRules.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         """
-        pulumi.log.warn("NamespaceAuthorizationRule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:notificationhubs:NamespaceAuthorizationRule'.")
+        pulumi.log.warn("""NamespaceAuthorizationRule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:notificationhubs:NamespaceAuthorizationRule'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -106,6 +106,20 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["claim_type"] = None
+        __props__["claim_value"] = None
+        __props__["created_time"] = None
+        __props__["key_name"] = None
+        __props__["location"] = None
+        __props__["modified_time"] = None
+        __props__["name"] = None
+        __props__["primary_key"] = None
+        __props__["revision"] = None
+        __props__["rights"] = None
+        __props__["secondary_key"] = None
+        __props__["sku"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
         return NamespaceAuthorizationRule(resource_name, opts=opts, __props__=__props__)
 
     @property

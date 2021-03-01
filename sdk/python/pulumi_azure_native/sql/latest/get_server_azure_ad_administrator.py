@@ -129,7 +129,7 @@ def get_server_azure_ad_administrator(administrator_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str server_name: The name of the server.
     """
-    pulumi.log.warn("get_server_azure_ad_administrator is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:sql:getServerAzureADAdministrator'.")
+    pulumi.log.warn("""get_server_azure_ad_administrator is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:sql:getServerAzureADAdministrator'.""")
     __args__ = dict()
     __args__['administratorName'] = administrator_name
     __args__['resourceGroupName'] = resource_group_name

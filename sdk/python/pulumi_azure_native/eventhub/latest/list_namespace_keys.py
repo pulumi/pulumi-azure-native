@@ -129,7 +129,7 @@ def list_namespace_keys(authorization_rule_name: Optional[str] = None,
     :param str namespace_name: The Namespace name
     :param str resource_group_name: Name of the resource group within the azure subscription.
     """
-    pulumi.log.warn("list_namespace_keys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:eventhub:listNamespaceKeys'.")
+    pulumi.log.warn("""list_namespace_keys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:eventhub:listNamespaceKeys'.""")
     __args__ = dict()
     __args__['authorizationRuleName'] = authorization_rule_name
     __args__['namespaceName'] = namespace_name

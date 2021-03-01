@@ -130,7 +130,7 @@ def get_private_endpoint_connection(private_endpoint_connection_name: Optional[s
     :param str resource_group_name: The name of the resource group where the recovery services vault is present.
     :param str vault_name: The name of the recovery services vault.
     """
-    pulumi.log.warn("get_private_endpoint_connection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:recoveryservices:getPrivateEndpointConnection'.")
+    pulumi.log.warn("""get_private_endpoint_connection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:recoveryservices:getPrivateEndpointConnection'.""")
     __args__ = dict()
     __args__['privateEndpointConnectionName'] = private_endpoint_connection_name
     __args__['resourceGroupName'] = resource_group_name

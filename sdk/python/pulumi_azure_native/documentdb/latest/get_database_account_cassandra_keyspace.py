@@ -105,7 +105,7 @@ def get_database_account_cassandra_keyspace(account_name: Optional[str] = None,
     :param str keyspace_name: Cosmos DB keyspace name.
     :param str resource_group_name: Name of an Azure resource group.
     """
-    pulumi.log.warn("get_database_account_cassandra_keyspace is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:documentdb:getDatabaseAccountCassandraKeyspace'.")
+    pulumi.log.warn("""get_database_account_cassandra_keyspace is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:documentdb:getDatabaseAccountCassandraKeyspace'.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['keyspaceName'] = keyspace_name

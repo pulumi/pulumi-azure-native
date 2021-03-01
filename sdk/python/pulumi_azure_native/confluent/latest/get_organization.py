@@ -176,7 +176,7 @@ def get_organization(organization_name: Optional[str] = None,
     :param str organization_name: Organization resource name
     :param str resource_group_name: Resource group name
     """
-    pulumi.log.warn("get_organization is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:confluent:getOrganization'.")
+    pulumi.log.warn("""get_organization is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:confluent:getOrganization'.""")
     __args__ = dict()
     __args__['organizationName'] = organization_name
     __args__['resourceGroupName'] = resource_group_name

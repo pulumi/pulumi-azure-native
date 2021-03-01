@@ -125,6 +125,21 @@ class VirtualMachineScaleSetVMRunCommand(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["async_execution"] = None
+        __props__["error_blob_uri"] = None
+        __props__["instance_view"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["output_blob_uri"] = None
+        __props__["parameters"] = None
+        __props__["protected_parameters"] = None
+        __props__["provisioning_state"] = None
+        __props__["run_as_password"] = None
+        __props__["run_as_user"] = None
+        __props__["source"] = None
+        __props__["tags"] = None
+        __props__["timeout_in_seconds"] = None
+        __props__["type"] = None
         return VirtualMachineScaleSetVMRunCommand(resource_name, opts=opts, __props__=__props__)
 
     @property

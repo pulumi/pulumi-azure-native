@@ -144,7 +144,7 @@ def get_container(container_name: Optional[str] = None,
     :param str resource_group_name: The resource group name.
     :param str storage_account_name: The Storage Account Name
     """
-    pulumi.log.warn("get_container is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:databoxedge:getContainer'.")
+    pulumi.log.warn("""get_container is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:databoxedge:getContainer'.""")
     __args__ = dict()
     __args__['containerName'] = container_name
     __args__['deviceName'] = device_name

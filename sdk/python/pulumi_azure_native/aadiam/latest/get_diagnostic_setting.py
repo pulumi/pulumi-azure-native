@@ -150,7 +150,7 @@ def get_diagnostic_setting(name: Optional[str] = None,
 
     :param str name: The name of the diagnostic setting.
     """
-    pulumi.log.warn("get_diagnostic_setting is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:aadiam:getDiagnosticSetting'.")
+    pulumi.log.warn("""get_diagnostic_setting is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:aadiam:getDiagnosticSetting'.""")
     __args__ = dict()
     __args__['name'] = name
     if opts is None:

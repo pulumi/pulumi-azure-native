@@ -40,7 +40,7 @@ class CustomDomain(pulumi.CustomResource):
         :param pulumi.Input[str] profile_name: Name of the CDN profile which is unique within the resource group.
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
         """
-        pulumi.log.warn("CustomDomain is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:cdn:CustomDomain'.")
+        pulumi.log.warn("""CustomDomain is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:cdn:CustomDomain'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -103,6 +103,15 @@ class CustomDomain(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["custom_https_provisioning_state"] = None
+        __props__["custom_https_provisioning_substate"] = None
+        __props__["host_name"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["resource_state"] = None
+        __props__["system_data"] = None
+        __props__["type"] = None
+        __props__["validation_data"] = None
         return CustomDomain(resource_name, opts=opts, __props__=__props__)
 
     @property

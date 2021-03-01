@@ -164,7 +164,7 @@ def get_policy_definition_at_management_group(management_group_id: Optional[str]
     :param str management_group_id: The ID of the management group.
     :param str policy_definition_name: The name of the policy definition to get.
     """
-    pulumi.log.warn("get_policy_definition_at_management_group is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:authorization:getPolicyDefinitionAtManagementGroup'.")
+    pulumi.log.warn("""get_policy_definition_at_management_group is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:authorization:getPolicyDefinitionAtManagementGroup'.""")
     __args__ = dict()
     __args__['managementGroupId'] = management_group_id
     __args__['policyDefinitionName'] = policy_definition_name

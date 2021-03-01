@@ -98,6 +98,17 @@ class Asset(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["alternate_id"] = None
+        __props__["asset_id"] = None
+        __props__["container"] = None
+        __props__["created"] = None
+        __props__["description"] = None
+        __props__["last_modified"] = None
+        __props__["name"] = None
+        __props__["storage_account_name"] = None
+        __props__["storage_encryption_format"] = None
+        __props__["system_data"] = None
+        __props__["type"] = None
         return Asset(resource_name, opts=opts, __props__=__props__)
 
     @property

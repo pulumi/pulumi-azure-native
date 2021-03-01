@@ -76,7 +76,7 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[bool] zone_balance: Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: The virtual machine scale set zones. NOTE: Availability zones can only be set when you create the scale set
         """
-        pulumi.log.warn("VirtualMachineScaleSet is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:compute:VirtualMachineScaleSet'.")
+        pulumi.log.warn("""VirtualMachineScaleSet is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:compute:VirtualMachineScaleSet'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -146,6 +146,30 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["additional_capabilities"] = None
+        __props__["automatic_repairs_policy"] = None
+        __props__["do_not_run_extensions_on_overprovisioned_vms"] = None
+        __props__["extended_location"] = None
+        __props__["host_group"] = None
+        __props__["identity"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["orchestration_mode"] = None
+        __props__["overprovision"] = None
+        __props__["plan"] = None
+        __props__["platform_fault_domain_count"] = None
+        __props__["provisioning_state"] = None
+        __props__["proximity_placement_group"] = None
+        __props__["scale_in_policy"] = None
+        __props__["single_placement_group"] = None
+        __props__["sku"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["unique_id"] = None
+        __props__["upgrade_policy"] = None
+        __props__["virtual_machine_profile"] = None
+        __props__["zone_balance"] = None
+        __props__["zones"] = None
         return VirtualMachineScaleSet(resource_name, opts=opts, __props__=__props__)
 
     @property

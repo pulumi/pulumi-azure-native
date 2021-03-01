@@ -44,7 +44,7 @@ class Environment(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The sku determines the type of environment, either Gen1 (S1 or S2) or Gen2 (L1). For Gen1 environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of additional properties for the resource.
         """
-        pulumi.log.warn("Environment is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:timeseriesinsights:Environment'.")
+        pulumi.log.warn("""Environment is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:timeseriesinsights:Environment'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -100,6 +100,12 @@ class Environment(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["kind"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["sku"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
         return Environment(resource_name, opts=opts, __props__=__props__)
 
     @property

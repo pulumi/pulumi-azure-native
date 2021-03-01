@@ -262,7 +262,7 @@ def get_network_virtual_appliance(expand: Optional[str] = None,
     :param str network_virtual_appliance_name: The name of Network Virtual Appliance.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("get_network_virtual_appliance is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getNetworkVirtualAppliance'.")
+    pulumi.log.warn("""get_network_virtual_appliance is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getNetworkVirtualAppliance'.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['networkVirtualApplianceName'] = network_virtual_appliance_name

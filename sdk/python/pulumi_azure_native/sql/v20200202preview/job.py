@@ -97,6 +97,11 @@ class Job(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["description"] = None
+        __props__["name"] = None
+        __props__["schedule"] = None
+        __props__["type"] = None
+        __props__["version"] = None
         return Job(resource_name, opts=opts, __props__=__props__)
 
     @property

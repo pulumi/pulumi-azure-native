@@ -106,7 +106,7 @@ def get_dps_certificate(certificate_name: Optional[str] = None,
     :param str provisioning_service_name: Name of the provisioning service the certificate is associated with.
     :param str resource_group_name: Resource group identifier.
     """
-    pulumi.log.warn("get_dps_certificate is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devices:getDpsCertificate'.")
+    pulumi.log.warn("""get_dps_certificate is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devices:getDpsCertificate'.""")
     __args__ = dict()
     __args__['certificateName'] = certificate_name
     __args__['provisioningServiceName'] = provisioning_service_name

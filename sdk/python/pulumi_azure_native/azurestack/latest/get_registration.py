@@ -151,7 +151,7 @@ def get_registration(registration_name: Optional[str] = None,
     :param str registration_name: Name of the Azure Stack registration.
     :param str resource_group: Name of the resource group.
     """
-    pulumi.log.warn("get_registration is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:azurestack:getRegistration'.")
+    pulumi.log.warn("""get_registration is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:azurestack:getRegistration'.""")
     __args__ = dict()
     __args__['registrationName'] = registration_name
     __args__['resourceGroup'] = resource_group

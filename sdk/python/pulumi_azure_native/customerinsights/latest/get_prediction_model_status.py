@@ -177,7 +177,7 @@ def get_prediction_model_status(hub_name: Optional[str] = None,
     :param str prediction_name: The name of the Prediction.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("get_prediction_model_status is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:customerinsights:getPredictionModelStatus'.")
+    pulumi.log.warn("""get_prediction_model_status is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:customerinsights:getPredictionModelStatus'.""")
     __args__ = dict()
     __args__['hubName'] = hub_name
     __args__['predictionName'] = prediction_name

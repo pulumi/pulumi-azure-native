@@ -276,7 +276,7 @@ def list_web_app_backup_status_secrets(backup_id: Optional[str] = None,
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     :param str storage_account_url: SAS URL to the container.
     """
-    pulumi.log.warn("list_web_app_backup_status_secrets is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listWebAppBackupStatusSecrets'.")
+    pulumi.log.warn("""list_web_app_backup_status_secrets is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listWebAppBackupStatusSecrets'.""")
     __args__ = dict()
     __args__['backupId'] = backup_id
     __args__['backupName'] = backup_name

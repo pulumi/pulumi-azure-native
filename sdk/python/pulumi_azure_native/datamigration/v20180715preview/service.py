@@ -104,6 +104,17 @@ class Service(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["etag"] = None
+        __props__["kind"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["public_key"] = None
+        __props__["sku"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["virtual_nic_id"] = None
+        __props__["virtual_subnet_id"] = None
         return Service(resource_name, opts=opts, __props__=__props__)
 
     @property

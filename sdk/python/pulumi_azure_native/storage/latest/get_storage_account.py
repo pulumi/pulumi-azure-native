@@ -466,7 +466,7 @@ def get_storage_account(account_name: Optional[str] = None,
     :param str expand: May be used to expand the properties within account's properties. By default, data is not included when fetching properties. Currently we only support geoReplicationStats and blobRestoreStatus.
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     """
-    pulumi.log.warn("get_storage_account is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storage:getStorageAccount'.")
+    pulumi.log.warn("""get_storage_account is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storage:getStorageAccount'.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['expand'] = expand

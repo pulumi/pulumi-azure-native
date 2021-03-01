@@ -192,7 +192,7 @@ def get_job_definition(data_manager_name: Optional[str] = None,
     :param str job_definition_name: The job definition name that is being queried.
     :param str resource_group_name: The Resource Group Name
     """
-    pulumi.log.warn("get_job_definition is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:hybriddata:getJobDefinition'.")
+    pulumi.log.warn("""get_job_definition is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:hybriddata:getJobDefinition'.""")
     __args__ = dict()
     __args__['dataManagerName'] = data_manager_name
     __args__['dataServiceName'] = data_service_name

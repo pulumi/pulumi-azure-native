@@ -99,6 +99,12 @@ class ServerAdministrator(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["administrator_type"] = None
+        __props__["login"] = None
+        __props__["name"] = None
+        __props__["sid"] = None
+        __props__["tenant_id"] = None
+        __props__["type"] = None
         return ServerAdministrator(resource_name, opts=opts, __props__=__props__)
 
     @property

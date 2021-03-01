@@ -94,6 +94,14 @@ class CapacityDetails(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["administration"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["sku"] = None
+        __props__["state"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
         return CapacityDetails(resource_name, opts=opts, __props__=__props__)
 
     @property

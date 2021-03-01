@@ -98,6 +98,15 @@ class WorkloadNetworkSegment(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["connected_gateway"] = None
+        __props__["display_name"] = None
+        __props__["name"] = None
+        __props__["port_vif"] = None
+        __props__["provisioning_state"] = None
+        __props__["revision"] = None
+        __props__["status"] = None
+        __props__["subnet"] = None
+        __props__["type"] = None
         return WorkloadNetworkSegment(resource_name, opts=opts, __props__=__props__)
 
     @property

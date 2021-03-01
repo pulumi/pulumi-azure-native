@@ -64,7 +64,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[str] service_type_name: The name of the service type
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Azure resource tags.
         """
-        pulumi.log.warn("Service is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:servicefabric:Service'.")
+        pulumi.log.warn("""Service is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:servicefabric:Service'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -134,6 +134,22 @@ class Service(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["correlation_scheme"] = None
+        __props__["default_move_cost"] = None
+        __props__["etag"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["partition_description"] = None
+        __props__["placement_constraints"] = None
+        __props__["provisioning_state"] = None
+        __props__["service_dns_name"] = None
+        __props__["service_kind"] = None
+        __props__["service_load_metrics"] = None
+        __props__["service_package_activation_mode"] = None
+        __props__["service_placement_policies"] = None
+        __props__["service_type_name"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
         return Service(resource_name, opts=opts, __props__=__props__)
 
     @property

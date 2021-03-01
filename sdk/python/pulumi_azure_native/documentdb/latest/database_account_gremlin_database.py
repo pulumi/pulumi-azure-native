@@ -40,7 +40,7 @@ class DatabaseAccountGremlinDatabase(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['GremlinDatabaseResourceArgs']] resource: The standard JSON format of a Gremlin database
         :param pulumi.Input[str] resource_group_name: Name of an Azure resource group.
         """
-        pulumi.log.warn("DatabaseAccountGremlinDatabase is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:documentdb:DatabaseAccountGremlinDatabase'.")
+        pulumi.log.warn("""DatabaseAccountGremlinDatabase is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:documentdb:DatabaseAccountGremlinDatabase'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -102,6 +102,13 @@ class DatabaseAccountGremlinDatabase(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["etag"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["rid"] = None
+        __props__["tags"] = None
+        __props__["ts"] = None
+        __props__["type"] = None
         return DatabaseAccountGremlinDatabase(resource_name, opts=opts, __props__=__props__)
 
     @property

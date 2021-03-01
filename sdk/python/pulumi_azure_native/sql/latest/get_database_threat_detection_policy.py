@@ -203,7 +203,7 @@ def get_database_threat_detection_policy(database_name: Optional[str] = None,
     :param str security_alert_policy_name: The name of the security alert policy.
     :param str server_name: The name of the server.
     """
-    pulumi.log.warn("get_database_threat_detection_policy is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:sql:getDatabaseThreatDetectionPolicy'.")
+    pulumi.log.warn("""get_database_threat_detection_policy is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:sql:getDatabaseThreatDetectionPolicy'.""")
     __args__ = dict()
     __args__['databaseName'] = database_name
     __args__['resourceGroupName'] = resource_group_name

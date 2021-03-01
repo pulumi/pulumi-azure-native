@@ -178,7 +178,7 @@ def get_diagnostic(diagnostic_id: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     :param str service_name: The name of the API Management service.
     """
-    pulumi.log.warn("get_diagnostic is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getDiagnostic'.")
+    pulumi.log.warn("""get_diagnostic is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getDiagnostic'.""")
     __args__ = dict()
     __args__['diagnosticId'] = diagnostic_id
     __args__['resourceGroupName'] = resource_group_name

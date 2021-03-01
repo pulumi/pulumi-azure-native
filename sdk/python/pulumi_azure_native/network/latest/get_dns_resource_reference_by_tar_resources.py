@@ -55,7 +55,7 @@ def get_dns_resource_reference_by_tar_resources(target_resources: Optional[Seque
 
     :param Sequence[pulumi.InputType['SubResourceArgs']] target_resources: A list of references to azure resources for which referencing dns records need to be queried.
     """
-    pulumi.log.warn("get_dns_resource_reference_by_tar_resources is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getDnsResourceReferenceByTarResources'.")
+    pulumi.log.warn("""get_dns_resource_reference_by_tar_resources is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getDnsResourceReferenceByTarResources'.""")
     __args__ = dict()
     __args__['targetResources'] = target_resources
     if opts is None:

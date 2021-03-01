@@ -188,7 +188,7 @@ def get_local_network_gateway(local_network_gateway_name: Optional[str] = None,
     :param str local_network_gateway_name: The name of the local network gateway.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("get_local_network_gateway is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getLocalNetworkGateway'.")
+    pulumi.log.warn("""get_local_network_gateway is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getLocalNetworkGateway'.""")
     __args__ = dict()
     __args__['localNetworkGatewayName'] = local_network_gateway_name
     __args__['resourceGroupName'] = resource_group_name

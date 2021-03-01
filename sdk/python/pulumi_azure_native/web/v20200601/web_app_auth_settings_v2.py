@@ -91,6 +91,14 @@ class WebAppAuthSettingsV2(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["global_validation"] = None
+        __props__["http_settings"] = None
+        __props__["identity_providers"] = None
+        __props__["kind"] = None
+        __props__["login"] = None
+        __props__["name"] = None
+        __props__["platform"] = None
+        __props__["type"] = None
         return WebAppAuthSettingsV2(resource_name, opts=opts, __props__=__props__)
 
     @property

@@ -236,7 +236,7 @@ def get_dscp_configuration(dscp_configuration_name: Optional[str] = None,
     :param str dscp_configuration_name: The name of the resource.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("get_dscp_configuration is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getDscpConfiguration'.")
+    pulumi.log.warn("""get_dscp_configuration is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getDscpConfiguration'.""")
     __args__ = dict()
     __args__['dscpConfigurationName'] = dscp_configuration_name
     __args__['resourceGroupName'] = resource_group_name

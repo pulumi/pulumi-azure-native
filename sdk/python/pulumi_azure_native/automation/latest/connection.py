@@ -45,7 +45,7 @@ class Connection(pulumi.CustomResource):
         :param pulumi.Input[str] name: Gets or sets the name of the connection.
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
         """
-        pulumi.log.warn("Connection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:automation:Connection'.")
+        pulumi.log.warn("""Connection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:automation:Connection'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -105,6 +105,13 @@ class Connection(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["connection_type"] = None
+        __props__["creation_time"] = None
+        __props__["description"] = None
+        __props__["field_definition_values"] = None
+        __props__["last_modified_time"] = None
+        __props__["name"] = None
+        __props__["type"] = None
         return Connection(resource_name, opts=opts, __props__=__props__)
 
     @property

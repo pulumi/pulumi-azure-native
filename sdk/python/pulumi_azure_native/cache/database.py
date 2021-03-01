@@ -104,6 +104,16 @@ class Database(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["client_protocol"] = None
+        __props__["clustering_policy"] = None
+        __props__["eviction_policy"] = None
+        __props__["modules"] = None
+        __props__["name"] = None
+        __props__["persistence"] = None
+        __props__["port"] = None
+        __props__["provisioning_state"] = None
+        __props__["resource_state"] = None
+        __props__["type"] = None
         return Database(resource_name, opts=opts, __props__=__props__)
 
     @property

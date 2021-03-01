@@ -118,7 +118,7 @@ def get_private_endpoint_connection(cluster_name: Optional[str] = None,
     :param str private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    pulumi.log.warn("get_private_endpoint_connection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:cache:getPrivateEndpointConnection'.")
+    pulumi.log.warn("""get_private_endpoint_connection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:cache:getPrivateEndpointConnection'.""")
     __args__ = dict()
     __args__['clusterName'] = cluster_name
     __args__['privateEndpointConnectionName'] = private_endpoint_connection_name

@@ -250,7 +250,7 @@ def get_schedule(automation_account_name: Optional[str] = None,
     :param str resource_group_name: Name of an Azure Resource group.
     :param str schedule_name: The schedule name.
     """
-    pulumi.log.warn("get_schedule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:automation:getSchedule'.")
+    pulumi.log.warn("""get_schedule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:automation:getSchedule'.""")
     __args__ = dict()
     __args__['automationAccountName'] = automation_account_name
     __args__['resourceGroupName'] = resource_group_name

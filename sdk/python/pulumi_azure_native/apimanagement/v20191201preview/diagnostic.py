@@ -109,6 +109,16 @@ class Diagnostic(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["always_log"] = None
+        __props__["backend"] = None
+        __props__["frontend"] = None
+        __props__["http_correlation_protocol"] = None
+        __props__["log_client_ip"] = None
+        __props__["logger_id"] = None
+        __props__["name"] = None
+        __props__["sampling"] = None
+        __props__["type"] = None
+        __props__["verbosity"] = None
         return Diagnostic(resource_name, opts=opts, __props__=__props__)
 
     @property

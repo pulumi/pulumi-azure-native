@@ -202,7 +202,7 @@ def getv_net_peering(peering_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace.
     """
-    pulumi.log.warn("getv_net_peering is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:databricks:getvNetPeering'.")
+    pulumi.log.warn("""getv_net_peering is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:databricks:getvNetPeering'.""")
     __args__ = dict()
     __args__['peeringName'] = peering_name
     __args__['resourceGroupName'] = resource_group_name

@@ -212,7 +212,7 @@ def get_factory(factory_name: Optional[str] = None,
     :param str factory_name: The factory name.
     :param str resource_group_name: The resource group name.
     """
-    pulumi.log.warn("get_factory is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datafactory:getFactory'.")
+    pulumi.log.warn("""get_factory is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datafactory:getFactory'.""")
     __args__ = dict()
     __args__['factoryName'] = factory_name
     __args__['resourceGroupName'] = resource_group_name

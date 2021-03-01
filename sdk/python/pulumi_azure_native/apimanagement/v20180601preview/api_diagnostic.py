@@ -108,6 +108,14 @@ class ApiDiagnostic(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["always_log"] = None
+        __props__["backend"] = None
+        __props__["enable_http_correlation_headers"] = None
+        __props__["frontend"] = None
+        __props__["logger_id"] = None
+        __props__["name"] = None
+        __props__["sampling"] = None
+        __props__["type"] = None
         return ApiDiagnostic(resource_name, opts=opts, __props__=__props__)
 
     @property

@@ -110,7 +110,7 @@ def get_replication_protection_container_mapping(fabric_name: Optional[str] = No
     :param str resource_group_name: The name of the resource group where the recovery services vault is present.
     :param str resource_name: The name of the recovery services vault.
     """
-    pulumi.log.warn("get_replication_protection_container_mapping is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:recoveryservices:getReplicationProtectionContainerMapping'.")
+    pulumi.log.warn("""get_replication_protection_container_mapping is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:recoveryservices:getReplicationProtectionContainerMapping'.""")
     __args__ = dict()
     __args__['fabricName'] = fabric_name
     __args__['mappingName'] = mapping_name

@@ -91,6 +91,11 @@ class Channel(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["channel_functions"] = None
+        __props__["channel_type"] = None
+        __props__["credentials"] = None
+        __props__["name"] = None
+        __props__["type"] = None
         return Channel(resource_name, opts=opts, __props__=__props__)
 
     @property

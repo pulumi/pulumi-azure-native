@@ -103,6 +103,14 @@ class WebAppSitePushSettingsSlot(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["dynamic_tags_json"] = None
+        __props__["is_push_enabled"] = None
+        __props__["kind"] = None
+        __props__["name"] = None
+        __props__["system_data"] = None
+        __props__["tag_whitelist_json"] = None
+        __props__["tags_requiring_auth"] = None
+        __props__["type"] = None
         return WebAppSitePushSettingsSlot(resource_name, opts=opts, __props__=__props__)
 
     @property

@@ -147,6 +147,28 @@ class WebTest(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["configuration"] = None
+        __props__["content_validation"] = None
+        __props__["description"] = None
+        __props__["enabled"] = None
+        __props__["expected_http_status_code"] = None
+        __props__["frequency"] = None
+        __props__["ignore_https_status_code"] = None
+        __props__["kind"] = None
+        __props__["location"] = None
+        __props__["locations"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["request"] = None
+        __props__["retry_enabled"] = None
+        __props__["s_sl_cert_remaining_lifetime_check"] = None
+        __props__["s_sl_check"] = None
+        __props__["synthetic_monitor_id"] = None
+        __props__["tags"] = None
+        __props__["timeout"] = None
+        __props__["type"] = None
+        __props__["web_test_kind"] = None
+        __props__["web_test_name"] = None
         return WebTest(resource_name, opts=opts, __props__=__props__)
 
     @property

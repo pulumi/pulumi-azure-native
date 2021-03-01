@@ -44,7 +44,7 @@ class ClusterPrincipalAssignment(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'ClusterPrincipalRole']] role: Cluster principal role.
         :param pulumi.Input[str] tenant_id: The tenant id of the principal
         """
-        pulumi.log.warn("ClusterPrincipalAssignment is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:kusto:ClusterPrincipalAssignment'.")
+        pulumi.log.warn("""ClusterPrincipalAssignment is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:kusto:ClusterPrincipalAssignment'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -108,6 +108,15 @@ class ClusterPrincipalAssignment(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["name"] = None
+        __props__["principal_id"] = None
+        __props__["principal_name"] = None
+        __props__["principal_type"] = None
+        __props__["provisioning_state"] = None
+        __props__["role"] = None
+        __props__["tenant_id"] = None
+        __props__["tenant_name"] = None
+        __props__["type"] = None
         return ClusterPrincipalAssignment(resource_name, opts=opts, __props__=__props__)
 
     @property

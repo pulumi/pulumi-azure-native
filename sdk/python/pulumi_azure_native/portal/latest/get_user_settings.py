@@ -54,7 +54,7 @@ def get_user_settings(user_settings_name: Optional[str] = None,
 
     :param str user_settings_name: The name of the user settings
     """
-    pulumi.log.warn("get_user_settings is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:portal:getUserSettings'.")
+    pulumi.log.warn("""get_user_settings is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:portal:getUserSettings'.""")
     __args__ = dict()
     __args__['userSettingsName'] = user_settings_name
     if opts is None:

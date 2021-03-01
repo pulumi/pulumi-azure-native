@@ -56,7 +56,7 @@ def get_lab_account_regional_availability(lab_account_name: Optional[str] = None
     :param str lab_account_name: The name of the lab Account.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("get_lab_account_regional_availability is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:labservices:getLabAccountRegionalAvailability'.")
+    pulumi.log.warn("""get_lab_account_regional_availability is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:labservices:getLabAccountRegionalAvailability'.""")
     __args__ = dict()
     __args__['labAccountName'] = lab_account_name
     __args__['resourceGroupName'] = resource_group_name

@@ -47,7 +47,7 @@ class IscsiServer(pulumi.CustomResource):
         :param pulumi.Input[str] reverse_chap_id: The reverse chap id.
         :param pulumi.Input[str] storage_domain_id: The storage domain id.
         """
-        pulumi.log.warn("IscsiServer is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storsimple:IscsiServer'.")
+        pulumi.log.warn("""IscsiServer is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storsimple:IscsiServer'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -110,6 +110,13 @@ class IscsiServer(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["backup_schedule_group_id"] = None
+        __props__["chap_id"] = None
+        __props__["description"] = None
+        __props__["name"] = None
+        __props__["reverse_chap_id"] = None
+        __props__["storage_domain_id"] = None
+        __props__["type"] = None
         return IscsiServer(resource_name, opts=opts, __props__=__props__)
 
     @property

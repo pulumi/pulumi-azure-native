@@ -108,6 +108,20 @@ class ConnectedRegistry(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["activation"] = None
+        __props__["client_token_ids"] = None
+        __props__["connection_state"] = None
+        __props__["last_activity_time"] = None
+        __props__["logging"] = None
+        __props__["login_server"] = None
+        __props__["mode"] = None
+        __props__["name"] = None
+        __props__["parent"] = None
+        __props__["provisioning_state"] = None
+        __props__["status_details"] = None
+        __props__["system_data"] = None
+        __props__["type"] = None
+        __props__["version"] = None
         return ConnectedRegistry(resource_name, opts=opts, __props__=__props__)
 
     @property

@@ -114,6 +114,19 @@ class Job(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["correlation_data"] = None
+        __props__["created"] = None
+        __props__["description"] = None
+        __props__["end_time"] = None
+        __props__["input"] = None
+        __props__["last_modified"] = None
+        __props__["name"] = None
+        __props__["outputs"] = None
+        __props__["priority"] = None
+        __props__["start_time"] = None
+        __props__["state"] = None
+        __props__["system_data"] = None
+        __props__["type"] = None
         return Job(resource_name, opts=opts, __props__=__props__)
 
     @property

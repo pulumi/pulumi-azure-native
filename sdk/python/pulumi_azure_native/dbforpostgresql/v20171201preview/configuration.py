@@ -90,6 +90,14 @@ class Configuration(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["allowed_values"] = None
+        __props__["data_type"] = None
+        __props__["default_value"] = None
+        __props__["description"] = None
+        __props__["name"] = None
+        __props__["source"] = None
+        __props__["type"] = None
+        __props__["value"] = None
         return Configuration(resource_name, opts=opts, __props__=__props__)
 
     @property

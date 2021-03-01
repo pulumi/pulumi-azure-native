@@ -191,7 +191,7 @@ def get_web_app_vnet_connection(name: Optional[str] = None,
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     :param str vnet_name: Name of the virtual network.
     """
-    pulumi.log.warn("get_web_app_vnet_connection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getWebAppVnetConnection'.")
+    pulumi.log.warn("""get_web_app_vnet_connection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getWebAppVnetConnection'.""")
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name

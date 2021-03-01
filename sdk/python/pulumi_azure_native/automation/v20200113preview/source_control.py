@@ -108,6 +108,17 @@ class SourceControl(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["auto_sync"] = None
+        __props__["branch"] = None
+        __props__["creation_time"] = None
+        __props__["description"] = None
+        __props__["folder_path"] = None
+        __props__["last_modified_time"] = None
+        __props__["name"] = None
+        __props__["publish_runbook"] = None
+        __props__["repo_url"] = None
+        __props__["source_type"] = None
+        __props__["type"] = None
         return SourceControl(resource_name, opts=opts, __props__=__props__)
 
     @property

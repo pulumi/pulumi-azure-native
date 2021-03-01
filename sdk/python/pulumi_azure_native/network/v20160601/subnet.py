@@ -106,6 +106,14 @@ class Subnet(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["address_prefix"] = None
+        __props__["etag"] = None
+        __props__["ip_configurations"] = None
+        __props__["name"] = None
+        __props__["network_security_group"] = None
+        __props__["provisioning_state"] = None
+        __props__["resource_navigation_links"] = None
+        __props__["route_table"] = None
         return Subnet(resource_name, opts=opts, __props__=__props__)
 
     @property

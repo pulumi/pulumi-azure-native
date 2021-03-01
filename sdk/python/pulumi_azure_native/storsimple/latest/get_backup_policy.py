@@ -179,7 +179,7 @@ def get_backup_policy(backup_policy_name: Optional[str] = None,
     :param str manager_name: The manager name
     :param str resource_group_name: The resource group name
     """
-    pulumi.log.warn("get_backup_policy is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storsimple:getBackupPolicy'.")
+    pulumi.log.warn("""get_backup_policy is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storsimple:getBackupPolicy'.""")
     __args__ = dict()
     __args__['backupPolicyName'] = backup_policy_name
     __args__['deviceName'] = device_name

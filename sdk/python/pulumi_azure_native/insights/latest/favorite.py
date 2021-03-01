@@ -52,7 +52,7 @@ class Favorite(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of 0 or more tags that are associated with this favorite definition
         :param pulumi.Input[str] version: This instance's version of the data model. This can change as new features are added that can be marked favorite. Current examples include MetricsExplorer (ME) and Search.
         """
-        pulumi.log.warn("Favorite is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:insights:Favorite'.")
+        pulumi.log.warn("""Favorite is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:insights:Favorite'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -111,6 +111,17 @@ class Favorite(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["category"] = None
+        __props__["config"] = None
+        __props__["favorite_id"] = None
+        __props__["favorite_type"] = None
+        __props__["is_generated_from_template"] = None
+        __props__["name"] = None
+        __props__["source_type"] = None
+        __props__["tags"] = None
+        __props__["time_modified"] = None
+        __props__["user_id"] = None
+        __props__["version"] = None
         return Favorite(resource_name, opts=opts, __props__=__props__)
 
     @property

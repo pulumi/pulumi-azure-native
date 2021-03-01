@@ -300,7 +300,7 @@ def get_server_endpoint(resource_group_name: Optional[str] = None,
     :param str storage_sync_service_name: Name of Storage Sync Service resource.
     :param str sync_group_name: Name of Sync Group resource.
     """
-    pulumi.log.warn("get_server_endpoint is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storagesync:getServerEndpoint'.")
+    pulumi.log.warn("""get_server_endpoint is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storagesync:getServerEndpoint'.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['serverEndpointName'] = server_endpoint_name

@@ -156,7 +156,7 @@ def get_machine_learning_service(expand: Optional[bool] = None,
     :param str service_name: Name of the Azure Machine Learning service.
     :param str workspace_name: Name of Azure Machine Learning workspace.
     """
-    pulumi.log.warn("get_machine_learning_service is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:machinelearningservices:getMachineLearningService'.")
+    pulumi.log.warn("""get_machine_learning_service is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:machinelearningservices:getMachineLearningService'.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['resourceGroupName'] = resource_group_name

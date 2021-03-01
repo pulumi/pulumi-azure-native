@@ -142,7 +142,7 @@ def get_connection(automation_account_name: Optional[str] = None,
     :param str connection_name: The name of connection.
     :param str resource_group_name: Name of an Azure Resource group.
     """
-    pulumi.log.warn("get_connection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:automation:getConnection'.")
+    pulumi.log.warn("""get_connection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:automation:getConnection'.""")
     __args__ = dict()
     __args__['automationAccountName'] = automation_account_name
     __args__['connectionName'] = connection_name

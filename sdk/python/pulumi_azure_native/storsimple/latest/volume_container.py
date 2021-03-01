@@ -50,7 +50,7 @@ class VolumeContainer(pulumi.CustomResource):
         :param pulumi.Input[str] storage_account_credential_id: The path ID of storage account associated with the volume container.
         :param pulumi.Input[str] volume_container_name: The name of the volume container.
         """
-        pulumi.log.warn("VolumeContainer is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storsimple:VolumeContainer'.")
+        pulumi.log.warn("""VolumeContainer is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storsimple:VolumeContainer'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -115,6 +115,17 @@ class VolumeContainer(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["band_width_rate_in_mbps"] = None
+        __props__["bandwidth_setting_id"] = None
+        __props__["encryption_key"] = None
+        __props__["encryption_status"] = None
+        __props__["kind"] = None
+        __props__["name"] = None
+        __props__["owner_ship_status"] = None
+        __props__["storage_account_credential_id"] = None
+        __props__["total_cloud_storage_usage_in_bytes"] = None
+        __props__["type"] = None
+        __props__["volume_count"] = None
         return VolumeContainer(resource_name, opts=opts, __props__=__props__)
 
     @property

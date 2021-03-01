@@ -86,6 +86,9 @@ class QueueServiceProperties(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["cors"] = None
+        __props__["name"] = None
+        __props__["type"] = None
         return QueueServiceProperties(resource_name, opts=opts, __props__=__props__)
 
     @property

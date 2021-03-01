@@ -104,7 +104,7 @@ def get_registration_definition(registration_definition_id: Optional[str] = None
     :param str registration_definition_id: Guid of the registration definition.
     :param str scope: Scope of the resource.
     """
-    pulumi.log.warn("get_registration_definition is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:managedservices:getRegistrationDefinition'.")
+    pulumi.log.warn("""get_registration_definition is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:managedservices:getRegistrationDefinition'.""")
     __args__ = dict()
     __args__['registrationDefinitionId'] = registration_definition_id
     __args__['scope'] = scope

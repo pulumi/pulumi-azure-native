@@ -54,7 +54,7 @@ class VpnGateway(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] virtual_hub: The VirtualHub to which the gateway belongs.
         :param pulumi.Input[int] vpn_gateway_scale_unit: The scale unit for this vpn gateway.
         """
-        pulumi.log.warn("VpnGateway is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:VpnGateway'.")
+        pulumi.log.warn("""VpnGateway is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:VpnGateway'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -114,6 +114,19 @@ class VpnGateway(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["bgp_settings"] = None
+        __props__["connections"] = None
+        __props__["etag"] = None
+        __props__["ip_configurations"] = None
+        __props__["is_routing_preference_internet"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["nat_rules"] = None
+        __props__["provisioning_state"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["virtual_hub"] = None
+        __props__["vpn_gateway_scale_unit"] = None
         return VpnGateway(resource_name, opts=opts, __props__=__props__)
 
     @property

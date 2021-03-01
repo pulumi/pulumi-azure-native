@@ -40,7 +40,7 @@ class GeoBackupPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] server_name: The name of the server.
         :param pulumi.Input['GeoBackupPolicyState'] state: The state of the geo backup policy.
         """
-        pulumi.log.warn("GeoBackupPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:sql:GeoBackupPolicy'.")
+        pulumi.log.warn("""GeoBackupPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:sql:GeoBackupPolicy'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -100,6 +100,12 @@ class GeoBackupPolicy(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["kind"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["state"] = None
+        __props__["storage_type"] = None
+        __props__["type"] = None
         return GeoBackupPolicy(resource_name, opts=opts, __props__=__props__)
 
     @property

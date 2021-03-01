@@ -45,7 +45,7 @@ class ServiceEndpointPolicyDefinition(pulumi.CustomResource):
         :param pulumi.Input[str] service_endpoint_policy_name: The name of the service endpoint policy.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] service_resources: A list of service resources.
         """
-        pulumi.log.warn("ServiceEndpointPolicyDefinition is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:ServiceEndpointPolicyDefinition'.")
+        pulumi.log.warn("""ServiceEndpointPolicyDefinition is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:ServiceEndpointPolicyDefinition'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -101,6 +101,12 @@ class ServiceEndpointPolicyDefinition(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["description"] = None
+        __props__["etag"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["service"] = None
+        __props__["service_resources"] = None
         return ServiceEndpointPolicyDefinition(resource_name, opts=opts, __props__=__props__)
 
     @property

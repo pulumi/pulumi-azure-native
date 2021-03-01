@@ -45,7 +45,7 @@ class RoleDefinition(pulumi.CustomResource):
         :param pulumi.Input[str] role_type: The role type.
         :param pulumi.Input[str] scope: The scope of the role definition.
         """
-        pulumi.log.warn("RoleDefinition is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:authorization:RoleDefinition'.")
+        pulumi.log.warn("""RoleDefinition is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:authorization:RoleDefinition'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -98,6 +98,13 @@ class RoleDefinition(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["assignable_scopes"] = None
+        __props__["description"] = None
+        __props__["name"] = None
+        __props__["permissions"] = None
+        __props__["role_name"] = None
+        __props__["role_type"] = None
+        __props__["type"] = None
         return RoleDefinition(resource_name, opts=opts, __props__=__props__)
 
     @property

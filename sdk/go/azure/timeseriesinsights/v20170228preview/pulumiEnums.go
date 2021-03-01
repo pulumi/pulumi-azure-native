@@ -38,6 +38,51 @@ func (e AccessPolicyRole) ToStringPtrOutputWithContext(ctx context.Context) pulu
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// AccessPolicyRoleArrayInput is an input type that accepts AccessPolicyRoleArray and AccessPolicyRoleArrayOutput values.
+// You can construct a concrete instance of `AccessPolicyRoleArrayInput` via:
+//
+//          AccessPolicyRoleArray{ AccessPolicyRoleArgs{...} }
+type AccessPolicyRoleArrayInput interface {
+	pulumi.Input
+
+	ToAccessPolicyRoleArrayOutput() AccessPolicyRoleArrayOutput
+	ToAccessPolicyRoleArrayOutputWithContext(context.Context) AccessPolicyRoleArrayOutput
+}
+
+type AccessPolicyRoleArray []AccessPolicyRole
+
+func (AccessPolicyRoleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AccessPolicyRole)(nil)).Elem()
+}
+
+func (i AccessPolicyRoleArray) ToAccessPolicyRoleArrayOutput() AccessPolicyRoleArrayOutput {
+	return i.ToAccessPolicyRoleArrayOutputWithContext(context.Background())
+}
+
+func (i AccessPolicyRoleArray) ToAccessPolicyRoleArrayOutputWithContext(ctx context.Context) AccessPolicyRoleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessPolicyRoleArrayOutput)
+}
+
+type AccessPolicyRoleArrayOutput struct{ *pulumi.OutputState }
+
+func (AccessPolicyRoleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AccessPolicyRole)(nil)).Elem()
+}
+
+func (o AccessPolicyRoleArrayOutput) ToAccessPolicyRoleArrayOutput() AccessPolicyRoleArrayOutput {
+	return o
+}
+
+func (o AccessPolicyRoleArrayOutput) ToAccessPolicyRoleArrayOutputWithContext(ctx context.Context) AccessPolicyRoleArrayOutput {
+	return o
+}
+
+func (o AccessPolicyRoleArrayOutput) Index(i pulumi.IntInput) pulumi.StringOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) pulumi.StringOutput {
+		return vs[0].([]AccessPolicyRole)[vs[1].(int)].ToStringOutput()
+	}).(pulumi.StringOutput)
+}
+
 // The kind of the event source.
 type Kind pulumi.String
 

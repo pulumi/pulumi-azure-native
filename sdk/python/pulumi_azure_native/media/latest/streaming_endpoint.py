@@ -63,7 +63,7 @@ class StreamingEndpoint(pulumi.CustomResource):
         :param pulumi.Input[str] streaming_endpoint_name: The name of the streaming endpoint, maximum length is 24.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.log.warn("StreamingEndpoint is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:media:StreamingEndpoint'.")
+        pulumi.log.warn("""StreamingEndpoint is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:media:StreamingEndpoint'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -136,6 +136,27 @@ class StreamingEndpoint(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["access_control"] = None
+        __props__["availability_set_name"] = None
+        __props__["cdn_enabled"] = None
+        __props__["cdn_profile"] = None
+        __props__["cdn_provider"] = None
+        __props__["created"] = None
+        __props__["cross_site_access_policies"] = None
+        __props__["custom_host_names"] = None
+        __props__["description"] = None
+        __props__["free_trial_end_time"] = None
+        __props__["host_name"] = None
+        __props__["last_modified"] = None
+        __props__["location"] = None
+        __props__["max_cache_age"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["resource_state"] = None
+        __props__["scale_units"] = None
+        __props__["system_data"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
         return StreamingEndpoint(resource_name, opts=opts, __props__=__props__)
 
     @property

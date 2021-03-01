@@ -54,7 +54,7 @@ class BackupSchedule(pulumi.CustomResource):
         :param pulumi.Input['ScheduleStatus'] schedule_status: The schedule status.
         :param pulumi.Input[str] start_time: The start time of the schedule.
         """
-        pulumi.log.warn("BackupSchedule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storsimple:BackupSchedule'.")
+        pulumi.log.warn("""BackupSchedule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storsimple:BackupSchedule'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -128,6 +128,15 @@ class BackupSchedule(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["backup_type"] = None
+        __props__["kind"] = None
+        __props__["last_successful_run"] = None
+        __props__["name"] = None
+        __props__["retention_count"] = None
+        __props__["schedule_recurrence"] = None
+        __props__["schedule_status"] = None
+        __props__["start_time"] = None
+        __props__["type"] = None
         return BackupSchedule(resource_name, opts=opts, __props__=__props__)
 
     @property

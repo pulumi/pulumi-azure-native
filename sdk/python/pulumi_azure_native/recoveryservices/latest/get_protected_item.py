@@ -136,7 +136,7 @@ def get_protected_item(container_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group where the recovery services vault is present.
     :param str vault_name: The name of the recovery services vault.
     """
-    pulumi.log.warn("get_protected_item is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:recoveryservices:getProtectedItem'.")
+    pulumi.log.warn("""get_protected_item is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:recoveryservices:getProtectedItem'.""")
     __args__ = dict()
     __args__['containerName'] = container_name
     __args__['fabricName'] = fabric_name

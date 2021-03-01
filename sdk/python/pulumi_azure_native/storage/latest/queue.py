@@ -36,7 +36,7 @@ class Queue(pulumi.CustomResource):
         :param pulumi.Input[str] queue_name: A queue name must be unique within a storage account and must be between 3 and 63 characters.The name must comprise of lowercase alphanumeric and dash(-) characters only, it should begin and end with an alphanumeric character and it cannot have two consecutive dash(-) characters.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         """
-        pulumi.log.warn("Queue is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storage:Queue'.")
+        pulumi.log.warn("""Queue is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storage:Queue'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -89,6 +89,10 @@ class Queue(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["approximate_message_count"] = None
+        __props__["metadata"] = None
+        __props__["name"] = None
+        __props__["type"] = None
         return Queue(resource_name, opts=opts, __props__=__props__)
 
     @property

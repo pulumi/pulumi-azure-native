@@ -152,7 +152,7 @@ def get_peering_service(peering_service_name: Optional[str] = None,
     :param str peering_service_name: The name of the peering.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("get_peering_service is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:peering:getPeeringService'.")
+    pulumi.log.warn("""get_peering_service is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:peering:getPeeringService'.""")
     __args__ = dict()
     __args__['peeringServiceName'] = peering_service_name
     __args__['resourceGroupName'] = resource_group_name

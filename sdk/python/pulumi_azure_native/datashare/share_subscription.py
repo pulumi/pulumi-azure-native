@@ -108,6 +108,24 @@ class ShareSubscription(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["created_at"] = None
+        __props__["expiration_date"] = None
+        __props__["invitation_id"] = None
+        __props__["name"] = None
+        __props__["provider_email"] = None
+        __props__["provider_name"] = None
+        __props__["provider_tenant_name"] = None
+        __props__["provisioning_state"] = None
+        __props__["share_description"] = None
+        __props__["share_kind"] = None
+        __props__["share_name"] = None
+        __props__["share_subscription_status"] = None
+        __props__["share_terms"] = None
+        __props__["source_share_location"] = None
+        __props__["system_data"] = None
+        __props__["type"] = None
+        __props__["user_email"] = None
+        __props__["user_name"] = None
         return ShareSubscription(resource_name, opts=opts, __props__=__props__)
 
     @property

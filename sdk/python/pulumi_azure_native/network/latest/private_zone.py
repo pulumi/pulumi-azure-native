@@ -39,7 +39,7 @@ class PrivateZone(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.log.warn("PrivateZone is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:PrivateZone'.")
+        pulumi.log.warn("""PrivateZone is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:PrivateZone'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -98,6 +98,19 @@ class PrivateZone(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["etag"] = None
+        __props__["internal_id"] = None
+        __props__["location"] = None
+        __props__["max_number_of_record_sets"] = None
+        __props__["max_number_of_virtual_network_links"] = None
+        __props__["max_number_of_virtual_network_links_with_registration"] = None
+        __props__["name"] = None
+        __props__["number_of_record_sets"] = None
+        __props__["number_of_virtual_network_links"] = None
+        __props__["number_of_virtual_network_links_with_registration"] = None
+        __props__["provisioning_state"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
         return PrivateZone(resource_name, opts=opts, __props__=__props__)
 
     @property

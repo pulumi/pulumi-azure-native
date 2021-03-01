@@ -109,6 +109,14 @@ class StorageAccountCredential(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["access_key"] = None
+        __props__["cloud_type"] = None
+        __props__["enable_ssl"] = None
+        __props__["end_point"] = None
+        __props__["location"] = None
+        __props__["login"] = None
+        __props__["name"] = None
+        __props__["type"] = None
         return StorageAccountCredential(resource_name, opts=opts, __props__=__props__)
 
     @property

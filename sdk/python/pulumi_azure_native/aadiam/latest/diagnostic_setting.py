@@ -46,7 +46,7 @@ class DiagnosticSetting(pulumi.CustomResource):
         :param pulumi.Input[str] storage_account_id: The resource ID of the storage account to which you would like to send Diagnostic Logs.
         :param pulumi.Input[str] workspace_id: The workspace ID (resource ID of a Log Analytics workspace) for a Log Analytics workspace to which you would like to send Diagnostic Logs. Example: /subscriptions/4b9e8510-67ab-4e9a-95a9-e2f1e570ea9c/resourceGroups/insights-integration/providers/Microsoft.OperationalInsights/workspaces/viruela2
         """
-        pulumi.log.warn("DiagnosticSetting is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:aadiam:DiagnosticSetting'.")
+        pulumi.log.warn("""DiagnosticSetting is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:aadiam:DiagnosticSetting'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -96,6 +96,14 @@ class DiagnosticSetting(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["event_hub_authorization_rule_id"] = None
+        __props__["event_hub_name"] = None
+        __props__["logs"] = None
+        __props__["name"] = None
+        __props__["service_bus_rule_id"] = None
+        __props__["storage_account_id"] = None
+        __props__["type"] = None
+        __props__["workspace_id"] = None
         return DiagnosticSetting(resource_name, opts=opts, __props__=__props__)
 
     @property

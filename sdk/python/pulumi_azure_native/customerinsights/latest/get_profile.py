@@ -300,7 +300,7 @@ def get_profile(hub_name: Optional[str] = None,
     :param str profile_name: The name of the profile.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("get_profile is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:customerinsights:getProfile'.")
+    pulumi.log.warn("""get_profile is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:customerinsights:getProfile'.""")
     __args__ = dict()
     __args__['hubName'] = hub_name
     __args__['localeCode'] = locale_code

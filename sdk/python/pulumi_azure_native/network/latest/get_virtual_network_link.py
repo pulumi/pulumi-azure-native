@@ -166,7 +166,7 @@ def get_virtual_network_link(private_zone_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     :param str virtual_network_link_name: The name of the virtual network link.
     """
-    pulumi.log.warn("get_virtual_network_link is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getVirtualNetworkLink'.")
+    pulumi.log.warn("""get_virtual_network_link is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getVirtualNetworkLink'.""")
     __args__ = dict()
     __args__['privateZoneName'] = private_zone_name
     __args__['resourceGroupName'] = resource_group_name

@@ -157,7 +157,7 @@ def get_sql_pool_workload_classifier(resource_group_name: Optional[str] = None,
     :param str workload_group_name: The name of the workload group.
     :param str workspace_name: The name of the workspace
     """
-    pulumi.log.warn("get_sql_pool_workload_classifier is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:synapse:getSqlPoolWorkloadClassifier'.")
+    pulumi.log.warn("""get_sql_pool_workload_classifier is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:synapse:getSqlPoolWorkloadClassifier'.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['sqlPoolName'] = sql_pool_name

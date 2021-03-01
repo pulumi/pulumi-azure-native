@@ -188,7 +188,7 @@ def get_alert_rule(resource_group_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     :param str rule_name: The name of the rule.
     """
-    pulumi.log.warn("get_alert_rule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:insights:getAlertRule'.")
+    pulumi.log.warn("""get_alert_rule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:insights:getAlertRule'.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['ruleName'] = rule_name

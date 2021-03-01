@@ -49,7 +49,7 @@ class WebAppSitePushSettingsSlot(pulumi.CustomResource):
                '_', '@', '#', '.', ':', '-'. 
                Validation should be performed at the PushRequestHandler.
         """
-        pulumi.log.warn("WebAppSitePushSettingsSlot is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppSitePushSettingsSlot'.")
+        pulumi.log.warn("""WebAppSitePushSettingsSlot is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppSitePushSettingsSlot'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -109,6 +109,14 @@ class WebAppSitePushSettingsSlot(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["dynamic_tags_json"] = None
+        __props__["is_push_enabled"] = None
+        __props__["kind"] = None
+        __props__["name"] = None
+        __props__["system_data"] = None
+        __props__["tag_whitelist_json"] = None
+        __props__["tags_requiring_auth"] = None
+        __props__["type"] = None
         return WebAppSitePushSettingsSlot(resource_name, opts=opts, __props__=__props__)
 
     @property

@@ -44,7 +44,7 @@ class ReportConfigByResourceGroupName(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Azure Resource Group Name.
         :param pulumi.Input[pulumi.InputType['ReportConfigScheduleArgs']] schedule: Has schedule information for the report config.
         """
-        pulumi.log.warn("ReportConfigByResourceGroupName is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:costmanagement:ReportConfigByResourceGroupName'.")
+        pulumi.log.warn("""ReportConfigByResourceGroupName is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:costmanagement:ReportConfigByResourceGroupName'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -101,6 +101,13 @@ class ReportConfigByResourceGroupName(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["definition"] = None
+        __props__["delivery_info"] = None
+        __props__["format"] = None
+        __props__["name"] = None
+        __props__["schedule"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
         return ReportConfigByResourceGroupName(resource_name, opts=opts, __props__=__props__)
 
     @property

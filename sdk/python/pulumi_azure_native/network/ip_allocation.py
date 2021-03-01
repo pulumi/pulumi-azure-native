@@ -109,6 +109,18 @@ class IpAllocation(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["allocation_tags"] = None
+        __props__["etag"] = None
+        __props__["ipam_allocation_id"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["prefix"] = None
+        __props__["prefix_length"] = None
+        __props__["prefix_type"] = None
+        __props__["subnet"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["virtual_network"] = None
         return IpAllocation(resource_name, opts=opts, __props__=__props__)
 
     @property

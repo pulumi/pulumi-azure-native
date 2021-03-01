@@ -58,7 +58,7 @@ class JobDefinition(pulumi.CustomResource):
         :param pulumi.Input['State'] state: State of the job definition.
         :param pulumi.Input['UserConfirmation'] user_confirmation: Enum to detect if user confirmation is required. If not passed will default to NotRequired.
         """
-        pulumi.log.warn("JobDefinition is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:hybriddata:JobDefinition'.")
+        pulumi.log.warn("""JobDefinition is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:hybriddata:JobDefinition'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -129,6 +129,17 @@ class JobDefinition(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["customer_secrets"] = None
+        __props__["data_service_input"] = None
+        __props__["data_sink_id"] = None
+        __props__["data_source_id"] = None
+        __props__["last_modified_time"] = None
+        __props__["name"] = None
+        __props__["run_location"] = None
+        __props__["schedules"] = None
+        __props__["state"] = None
+        __props__["type"] = None
+        __props__["user_confirmation"] = None
         return JobDefinition(resource_name, opts=opts, __props__=__props__)
 
     @property

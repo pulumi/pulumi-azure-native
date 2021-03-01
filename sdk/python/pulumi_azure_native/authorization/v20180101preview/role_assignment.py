@@ -88,6 +88,12 @@ class RoleAssignment(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["can_delegate"] = None
+        __props__["name"] = None
+        __props__["principal_id"] = None
+        __props__["role_definition_id"] = None
+        __props__["scope"] = None
+        __props__["type"] = None
         return RoleAssignment(resource_name, opts=opts, __props__=__props__)
 
     @property

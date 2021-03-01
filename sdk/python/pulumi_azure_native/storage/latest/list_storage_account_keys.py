@@ -58,7 +58,7 @@ def list_storage_account_keys(account_name: Optional[str] = None,
     :param str expand: Specifies type of the key to be listed. Possible value is kerb.
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     """
-    pulumi.log.warn("list_storage_account_keys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storage:listStorageAccountKeys'.")
+    pulumi.log.warn("""list_storage_account_keys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storage:listStorageAccountKeys'.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['expand'] = expand

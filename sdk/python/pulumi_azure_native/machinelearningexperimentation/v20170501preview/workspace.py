@@ -98,6 +98,16 @@ class Workspace(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["account_id"] = None
+        __props__["creation_date"] = None
+        __props__["description"] = None
+        __props__["friendly_name"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["workspace_id"] = None
         return Workspace(resource_name, opts=opts, __props__=__props__)
 
     @property

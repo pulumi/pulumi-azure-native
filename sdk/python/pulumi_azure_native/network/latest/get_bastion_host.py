@@ -152,7 +152,7 @@ def get_bastion_host(bastion_host_name: Optional[str] = None,
     :param str bastion_host_name: The name of the Bastion Host.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("get_bastion_host is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getBastionHost'.")
+    pulumi.log.warn("""get_bastion_host is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getBastionHost'.""")
     __args__ = dict()
     __args__['bastionHostName'] = bastion_host_name
     __args__['resourceGroupName'] = resource_group_name

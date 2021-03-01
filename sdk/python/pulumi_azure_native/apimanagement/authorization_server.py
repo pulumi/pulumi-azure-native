@@ -142,6 +142,24 @@ class AuthorizationServer(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["authorization_endpoint"] = None
+        __props__["authorization_methods"] = None
+        __props__["bearer_token_sending_methods"] = None
+        __props__["client_authentication_method"] = None
+        __props__["client_id"] = None
+        __props__["client_registration_endpoint"] = None
+        __props__["client_secret"] = None
+        __props__["default_scope"] = None
+        __props__["description"] = None
+        __props__["display_name"] = None
+        __props__["grant_types"] = None
+        __props__["name"] = None
+        __props__["resource_owner_password"] = None
+        __props__["resource_owner_username"] = None
+        __props__["support_state"] = None
+        __props__["token_body_parameters"] = None
+        __props__["token_endpoint"] = None
+        __props__["type"] = None
         return AuthorizationServer(resource_name, opts=opts, __props__=__props__)
 
     @property

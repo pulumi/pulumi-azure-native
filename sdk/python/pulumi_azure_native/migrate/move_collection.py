@@ -92,6 +92,13 @@ class MoveCollection(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["etag"] = None
+        __props__["identity"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["properties"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
         return MoveCollection(resource_name, opts=opts, __props__=__props__)
 
     @property

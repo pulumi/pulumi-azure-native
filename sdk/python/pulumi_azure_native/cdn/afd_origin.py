@@ -121,6 +121,20 @@ class AFDOrigin(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["azure_origin"] = None
+        __props__["deployment_status"] = None
+        __props__["enabled_state"] = None
+        __props__["host_name"] = None
+        __props__["http_port"] = None
+        __props__["https_port"] = None
+        __props__["name"] = None
+        __props__["origin_host_header"] = None
+        __props__["priority"] = None
+        __props__["provisioning_state"] = None
+        __props__["shared_private_link_resource"] = None
+        __props__["system_data"] = None
+        __props__["type"] = None
+        __props__["weight"] = None
         return AFDOrigin(resource_name, opts=opts, __props__=__props__)
 
     @property

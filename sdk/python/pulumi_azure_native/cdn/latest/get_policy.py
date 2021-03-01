@@ -221,7 +221,7 @@ def get_policy(policy_name: Optional[str] = None,
     :param str policy_name: The name of the CdnWebApplicationFirewallPolicy.
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
-    pulumi.log.warn("get_policy is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:cdn:getPolicy'.")
+    pulumi.log.warn("""get_policy is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:cdn:getPolicy'.""")
     __args__ = dict()
     __args__['policyName'] = policy_name
     __args__['resourceGroupName'] = resource_group_name

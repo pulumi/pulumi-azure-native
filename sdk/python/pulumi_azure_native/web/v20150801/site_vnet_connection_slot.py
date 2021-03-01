@@ -119,6 +119,17 @@ class SiteVNETConnectionSlot(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["cert_blob"] = None
+        __props__["cert_thumbprint"] = None
+        __props__["dns_servers"] = None
+        __props__["kind"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["resync_required"] = None
+        __props__["routes"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["vnet_resource_id"] = None
         return SiteVNETConnectionSlot(resource_name, opts=opts, __props__=__props__)
 
     @property

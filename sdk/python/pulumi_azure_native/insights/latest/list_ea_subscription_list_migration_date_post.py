@@ -61,7 +61,7 @@ def list_ea_subscription_list_migration_date_post(opts: Optional[pulumi.InvokeOp
     Subscription migrate date information properties
     Latest API Version: 2017-10-01.
     """
-    pulumi.log.warn("list_ea_subscription_list_migration_date_post is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:insights:listEASubscriptionListMigrationDatePost'.")
+    pulumi.log.warn("""list_ea_subscription_list_migration_date_post is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:insights:listEASubscriptionListMigrationDatePost'.""")
     __args__ = dict()
     if opts is None:
         opts = pulumi.InvokeOptions()

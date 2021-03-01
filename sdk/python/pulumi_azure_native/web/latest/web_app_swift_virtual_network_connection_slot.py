@@ -42,7 +42,7 @@ class WebAppSwiftVirtualNetworkConnectionSlot(pulumi.CustomResource):
         :param pulumi.Input[str] subnet_resource_id: The Virtual Network subnet's resource ID. This is the subnet that this Web App will join. This subnet must have a delegation to Microsoft.Web/serverFarms defined first.
         :param pulumi.Input[bool] swift_supported: A flag that specifies if the scale unit this Web App is on supports Swift integration.
         """
-        pulumi.log.warn("WebAppSwiftVirtualNetworkConnectionSlot is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppSwiftVirtualNetworkConnectionSlot'.")
+        pulumi.log.warn("""WebAppSwiftVirtualNetworkConnectionSlot is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppSwiftVirtualNetworkConnectionSlot'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -98,6 +98,12 @@ class WebAppSwiftVirtualNetworkConnectionSlot(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["kind"] = None
+        __props__["name"] = None
+        __props__["subnet_resource_id"] = None
+        __props__["swift_supported"] = None
+        __props__["system_data"] = None
+        __props__["type"] = None
         return WebAppSwiftVirtualNetworkConnectionSlot(resource_name, opts=opts, __props__=__props__)
 
     @property

@@ -159,6 +159,51 @@ func (e AuthorizationMethod) ToStringPtrOutputWithContext(ctx context.Context) p
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// AuthorizationMethodArrayInput is an input type that accepts AuthorizationMethodArray and AuthorizationMethodArrayOutput values.
+// You can construct a concrete instance of `AuthorizationMethodArrayInput` via:
+//
+//          AuthorizationMethodArray{ AuthorizationMethodArgs{...} }
+type AuthorizationMethodArrayInput interface {
+	pulumi.Input
+
+	ToAuthorizationMethodArrayOutput() AuthorizationMethodArrayOutput
+	ToAuthorizationMethodArrayOutputWithContext(context.Context) AuthorizationMethodArrayOutput
+}
+
+type AuthorizationMethodArray []AuthorizationMethod
+
+func (AuthorizationMethodArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AuthorizationMethod)(nil)).Elem()
+}
+
+func (i AuthorizationMethodArray) ToAuthorizationMethodArrayOutput() AuthorizationMethodArrayOutput {
+	return i.ToAuthorizationMethodArrayOutputWithContext(context.Background())
+}
+
+func (i AuthorizationMethodArray) ToAuthorizationMethodArrayOutputWithContext(ctx context.Context) AuthorizationMethodArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthorizationMethodArrayOutput)
+}
+
+type AuthorizationMethodArrayOutput struct{ *pulumi.OutputState }
+
+func (AuthorizationMethodArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AuthorizationMethod)(nil)).Elem()
+}
+
+func (o AuthorizationMethodArrayOutput) ToAuthorizationMethodArrayOutput() AuthorizationMethodArrayOutput {
+	return o
+}
+
+func (o AuthorizationMethodArrayOutput) ToAuthorizationMethodArrayOutputWithContext(ctx context.Context) AuthorizationMethodArrayOutput {
+	return o
+}
+
+func (o AuthorizationMethodArrayOutput) Index(i pulumi.IntInput) pulumi.StringOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) pulumi.StringOutput {
+		return vs[0].([]AuthorizationMethod)[vs[1].(int)].ToStringOutput()
+	}).(pulumi.StringOutput)
+}
+
 // Backend communication protocol.
 type BackendProtocol pulumi.String
 
@@ -631,6 +676,51 @@ func (e Protocol) ToStringPtrOutput() pulumi.StringPtrOutput {
 
 func (e Protocol) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// ProtocolArrayInput is an input type that accepts ProtocolArray and ProtocolArrayOutput values.
+// You can construct a concrete instance of `ProtocolArrayInput` via:
+//
+//          ProtocolArray{ ProtocolArgs{...} }
+type ProtocolArrayInput interface {
+	pulumi.Input
+
+	ToProtocolArrayOutput() ProtocolArrayOutput
+	ToProtocolArrayOutputWithContext(context.Context) ProtocolArrayOutput
+}
+
+type ProtocolArray []Protocol
+
+func (ProtocolArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Protocol)(nil)).Elem()
+}
+
+func (i ProtocolArray) ToProtocolArrayOutput() ProtocolArrayOutput {
+	return i.ToProtocolArrayOutputWithContext(context.Background())
+}
+
+func (i ProtocolArray) ToProtocolArrayOutputWithContext(ctx context.Context) ProtocolArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProtocolArrayOutput)
+}
+
+type ProtocolArrayOutput struct{ *pulumi.OutputState }
+
+func (ProtocolArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Protocol)(nil)).Elem()
+}
+
+func (o ProtocolArrayOutput) ToProtocolArrayOutput() ProtocolArrayOutput {
+	return o
+}
+
+func (o ProtocolArrayOutput) ToProtocolArrayOutputWithContext(ctx context.Context) ProtocolArrayOutput {
+	return o
+}
+
+func (o ProtocolArrayOutput) Index(i pulumi.IntInput) pulumi.StringOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) pulumi.StringOutput {
+		return vs[0].([]Protocol)[vs[1].(int)].ToStringOutput()
+	}).(pulumi.StringOutput)
 }
 
 // Provisioning state.

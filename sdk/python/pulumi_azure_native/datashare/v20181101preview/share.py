@@ -94,6 +94,15 @@ class Share(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["created_at"] = None
+        __props__["description"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["share_kind"] = None
+        __props__["terms"] = None
+        __props__["type"] = None
+        __props__["user_email"] = None
+        __props__["user_name"] = None
         return Share(resource_name, opts=opts, __props__=__props__)
 
     @property

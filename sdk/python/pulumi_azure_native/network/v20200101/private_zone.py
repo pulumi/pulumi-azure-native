@@ -92,6 +92,19 @@ class PrivateZone(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["etag"] = None
+        __props__["internal_id"] = None
+        __props__["location"] = None
+        __props__["max_number_of_record_sets"] = None
+        __props__["max_number_of_virtual_network_links"] = None
+        __props__["max_number_of_virtual_network_links_with_registration"] = None
+        __props__["name"] = None
+        __props__["number_of_record_sets"] = None
+        __props__["number_of_virtual_network_links"] = None
+        __props__["number_of_virtual_network_links_with_registration"] = None
+        __props__["provisioning_state"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
         return PrivateZone(resource_name, opts=opts, __props__=__props__)
 
     @property

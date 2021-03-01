@@ -143,7 +143,7 @@ def get_api_tag_description(api_id: Optional[str] = None,
     :param str service_name: The name of the API Management service.
     :param str tag_description_id: Tag description identifier. Used when creating tagDescription for API/Tag association. Based on API and Tag names.
     """
-    pulumi.log.warn("get_api_tag_description is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getApiTagDescription'.")
+    pulumi.log.warn("""get_api_tag_description is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getApiTagDescription'.""")
     __args__ = dict()
     __args__['apiId'] = api_id
     __args__['resourceGroupName'] = resource_group_name

@@ -128,7 +128,7 @@ def get_management_group_subscription(group_id: Optional[str] = None,
     :param str group_id: Management Group ID.
     :param str subscription_id: Subscription ID.
     """
-    pulumi.log.warn("get_management_group_subscription is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:management:getManagementGroupSubscription'.")
+    pulumi.log.warn("""get_management_group_subscription is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:management:getManagementGroupSubscription'.""")
     __args__ = dict()
     __args__['groupId'] = group_id
     __args__['subscriptionId'] = subscription_id

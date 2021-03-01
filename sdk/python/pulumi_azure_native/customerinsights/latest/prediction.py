@@ -63,7 +63,7 @@ class Prediction(pulumi.CustomResource):
         :param pulumi.Input[str] scope_expression: Scope expression.
         :param pulumi.Input[str] score_label: Score label.
         """
-        pulumi.log.warn("Prediction is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:customerinsights:Prediction'.")
+        pulumi.log.warn("""Prediction is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:customerinsights:Prediction'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -144,6 +144,25 @@ class Prediction(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["auto_analyze"] = None
+        __props__["description"] = None
+        __props__["display_name"] = None
+        __props__["grades"] = None
+        __props__["involved_interaction_types"] = None
+        __props__["involved_kpi_types"] = None
+        __props__["involved_relationships"] = None
+        __props__["mappings"] = None
+        __props__["name"] = None
+        __props__["negative_outcome_expression"] = None
+        __props__["positive_outcome_expression"] = None
+        __props__["prediction_name"] = None
+        __props__["primary_profile_type"] = None
+        __props__["provisioning_state"] = None
+        __props__["scope_expression"] = None
+        __props__["score_label"] = None
+        __props__["system_generated_entities"] = None
+        __props__["tenant_id"] = None
+        __props__["type"] = None
         return Prediction(resource_name, opts=opts, __props__=__props__)
 
     @property

@@ -96,6 +96,15 @@ class SqlDatabase(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["collation"] = None
+        __props__["database_guid"] = None
+        __props__["location"] = None
+        __props__["max_size_bytes"] = None
+        __props__["name"] = None
+        __props__["status"] = None
+        __props__["system_data"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
         return SqlDatabase(resource_name, opts=opts, __props__=__props__)
 
     @property

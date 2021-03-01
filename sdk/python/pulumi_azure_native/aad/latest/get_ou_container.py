@@ -214,7 +214,7 @@ def get_ou_container(domain_service_name: Optional[str] = None,
     :param str ou_container_name: The name of the OuContainer.
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     """
-    pulumi.log.warn("get_ou_container is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:aad:getOuContainer'.")
+    pulumi.log.warn("""get_ou_container is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:aad:getOuContainer'.""")
     __args__ = dict()
     __args__['domainServiceName'] = domain_service_name
     __args__['ouContainerName'] = ou_container_name

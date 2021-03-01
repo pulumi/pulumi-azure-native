@@ -176,7 +176,7 @@ def get_service(group_name: Optional[str] = None,
     :param str group_name: Name of the resource group
     :param str service_name: Name of the service
     """
-    pulumi.log.warn("get_service is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datamigration:getService'.")
+    pulumi.log.warn("""get_service is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datamigration:getService'.""")
     __args__ = dict()
     __args__['groupName'] = group_name
     __args__['serviceName'] = service_name

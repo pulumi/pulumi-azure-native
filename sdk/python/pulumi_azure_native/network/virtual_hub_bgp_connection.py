@@ -95,6 +95,13 @@ class VirtualHubBgpConnection(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["connection_state"] = None
+        __props__["etag"] = None
+        __props__["name"] = None
+        __props__["peer_asn"] = None
+        __props__["peer_ip"] = None
+        __props__["provisioning_state"] = None
+        __props__["type"] = None
         return VirtualHubBgpConnection(resource_name, opts=opts, __props__=__props__)
 
     @property

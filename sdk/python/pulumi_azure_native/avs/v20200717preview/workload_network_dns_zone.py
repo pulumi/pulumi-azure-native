@@ -99,6 +99,15 @@ class WorkloadNetworkDnsZone(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["display_name"] = None
+        __props__["dns_server_ips"] = None
+        __props__["dns_services"] = None
+        __props__["domain"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["revision"] = None
+        __props__["source_ip"] = None
+        __props__["type"] = None
         return WorkloadNetworkDnsZone(resource_name, opts=opts, __props__=__props__)
 
     @property

@@ -95,7 +95,7 @@ def get_content_item(content_item_id: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     :param str service_name: The name of the API Management service.
     """
-    pulumi.log.warn("get_content_item is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getContentItem'.")
+    pulumi.log.warn("""get_content_item is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getContentItem'.""")
     __args__ = dict()
     __args__['contentItemId'] = content_item_id
     __args__['contentTypeId'] = content_type_id

@@ -52,7 +52,7 @@ class AppServicePlanRouteForVnet(pulumi.CustomResource):
         :param pulumi.Input[str] start_address: The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.
         :param pulumi.Input[str] vnet_name: Name of the Virtual Network.
         """
-        pulumi.log.warn("AppServicePlanRouteForVnet is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:AppServicePlanRouteForVnet'.")
+        pulumi.log.warn("""AppServicePlanRouteForVnet is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:AppServicePlanRouteForVnet'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -110,6 +110,13 @@ class AppServicePlanRouteForVnet(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["end_address"] = None
+        __props__["kind"] = None
+        __props__["name"] = None
+        __props__["route_type"] = None
+        __props__["start_address"] = None
+        __props__["system_data"] = None
+        __props__["type"] = None
         return AppServicePlanRouteForVnet(resource_name, opts=opts, __props__=__props__)
 
     @property

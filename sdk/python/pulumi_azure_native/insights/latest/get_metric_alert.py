@@ -260,7 +260,7 @@ def get_metric_alert(resource_group_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     :param str rule_name: The name of the rule.
     """
-    pulumi.log.warn("get_metric_alert is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:insights:getMetricAlert'.")
+    pulumi.log.warn("""get_metric_alert is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:insights:getMetricAlert'.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['ruleName'] = rule_name

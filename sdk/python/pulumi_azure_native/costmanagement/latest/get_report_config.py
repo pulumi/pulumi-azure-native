@@ -138,7 +138,7 @@ def get_report_config(report_config_name: Optional[str] = None,
 
     :param str report_config_name: Report Config Name.
     """
-    pulumi.log.warn("get_report_config is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:costmanagement:getReportConfig'.")
+    pulumi.log.warn("""get_report_config is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:costmanagement:getReportConfig'.""")
     __args__ = dict()
     __args__['reportConfigName'] = report_config_name
     if opts is None:

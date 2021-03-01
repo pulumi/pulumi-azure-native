@@ -45,7 +45,7 @@ class BlobContainer(pulumi.CustomResource):
         :param pulumi.Input['PublicAccess'] public_access: Specifies whether data in the container may be accessed publicly and the level of access.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         """
-        pulumi.log.warn("BlobContainer is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storage:BlobContainer'.")
+        pulumi.log.warn("""BlobContainer is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storage:BlobContainer'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -113,6 +113,25 @@ class BlobContainer(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["default_encryption_scope"] = None
+        __props__["deleted"] = None
+        __props__["deleted_time"] = None
+        __props__["deny_encryption_scope_override"] = None
+        __props__["etag"] = None
+        __props__["has_immutability_policy"] = None
+        __props__["has_legal_hold"] = None
+        __props__["immutability_policy"] = None
+        __props__["last_modified_time"] = None
+        __props__["lease_duration"] = None
+        __props__["lease_state"] = None
+        __props__["lease_status"] = None
+        __props__["legal_hold"] = None
+        __props__["metadata"] = None
+        __props__["name"] = None
+        __props__["public_access"] = None
+        __props__["remaining_retention_days"] = None
+        __props__["type"] = None
+        __props__["version"] = None
         return BlobContainer(resource_name, opts=opts, __props__=__props__)
 
     @property

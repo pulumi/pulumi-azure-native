@@ -35,7 +35,7 @@ class Authorization(pulumi.CustomResource):
         :param pulumi.Input[str] private_cloud_name: The name of the private cloud.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         """
-        pulumi.log.warn("Authorization is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:avs:Authorization'.")
+        pulumi.log.warn("""Authorization is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:avs:Authorization'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -89,6 +89,11 @@ class Authorization(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["express_route_authorization_id"] = None
+        __props__["express_route_authorization_key"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["type"] = None
         return Authorization(resource_name, opts=opts, __props__=__props__)
 
     @property

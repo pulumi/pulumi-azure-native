@@ -134,6 +134,28 @@ class Registry(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["admin_user_enabled"] = None
+        __props__["anonymous_pull_enabled"] = None
+        __props__["creation_date"] = None
+        __props__["data_endpoint_enabled"] = None
+        __props__["data_endpoint_host_names"] = None
+        __props__["encryption"] = None
+        __props__["identity"] = None
+        __props__["location"] = None
+        __props__["login_server"] = None
+        __props__["name"] = None
+        __props__["network_rule_bypass_options"] = None
+        __props__["network_rule_set"] = None
+        __props__["policies"] = None
+        __props__["private_endpoint_connections"] = None
+        __props__["provisioning_state"] = None
+        __props__["public_network_access"] = None
+        __props__["sku"] = None
+        __props__["status"] = None
+        __props__["system_data"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["zone_redundancy"] = None
         return Registry(resource_name, opts=opts, __props__=__props__)
 
     @property

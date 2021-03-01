@@ -105,6 +105,16 @@ class FileServer(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["creation_time"] = None
+        __props__["data_disks"] = None
+        __props__["mount_settings"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["provisioning_state_transition_time"] = None
+        __props__["ssh_configuration"] = None
+        __props__["subnet"] = None
+        __props__["type"] = None
+        __props__["vm_size"] = None
         return FileServer(resource_name, opts=opts, __props__=__props__)
 
     @property

@@ -61,7 +61,7 @@ class RecordSet(pulumi.CustomResource):
         :param pulumi.Input[float] ttl: The TTL (time-to-live) of the records in the record set.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TxtRecordArgs']]]] txt_records: The list of TXT records in the record set.
         """
-        pulumi.log.warn("RecordSet is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:RecordSet'.")
+        pulumi.log.warn("""RecordSet is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:RecordSet'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -128,6 +128,21 @@ class RecordSet(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["a_records"] = None
+        __props__["aaaa_records"] = None
+        __props__["cname_record"] = None
+        __props__["etag"] = None
+        __props__["fqdn"] = None
+        __props__["is_auto_registered"] = None
+        __props__["metadata"] = None
+        __props__["mx_records"] = None
+        __props__["name"] = None
+        __props__["ptr_records"] = None
+        __props__["soa_record"] = None
+        __props__["srv_records"] = None
+        __props__["ttl"] = None
+        __props__["txt_records"] = None
+        __props__["type"] = None
         return RecordSet(resource_name, opts=opts, __props__=__props__)
 
     @property

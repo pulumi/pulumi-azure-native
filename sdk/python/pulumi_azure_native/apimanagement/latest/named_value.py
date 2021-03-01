@@ -43,7 +43,7 @@ class NamedValue(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: Optional tags that when provided can be used to filter the NamedValue list.
         :param pulumi.Input[str] value: Value of the NamedValue. Can contain policy expressions. It may not be empty or consist only of whitespace. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
         """
-        pulumi.log.warn("NamedValue is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:NamedValue'.")
+        pulumi.log.warn("""NamedValue is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:NamedValue'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -102,6 +102,12 @@ class NamedValue(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["display_name"] = None
+        __props__["name"] = None
+        __props__["secret"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["value"] = None
         return NamedValue(resource_name, opts=opts, __props__=__props__)
 
     @property

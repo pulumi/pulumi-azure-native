@@ -101,6 +101,21 @@ class Cluster(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["aad_client_id"] = None
+        __props__["aad_tenant_id"] = None
+        __props__["billing_model"] = None
+        __props__["cloud_id"] = None
+        __props__["last_billing_timestamp"] = None
+        __props__["last_sync_timestamp"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["registration_timestamp"] = None
+        __props__["reported_properties"] = None
+        __props__["status"] = None
+        __props__["tags"] = None
+        __props__["trial_days_remaining"] = None
+        __props__["type"] = None
         return Cluster(resource_name, opts=opts, __props__=__props__)
 
     @property

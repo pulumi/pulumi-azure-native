@@ -39,7 +39,7 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['JobPropertiesArgs']] properties: Gets or sets the job properties.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         """
-        pulumi.log.warn("Job is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:scheduler:Job'.")
+        pulumi.log.warn("""Job is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:scheduler:Job'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -91,6 +91,9 @@ class Job(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["name"] = None
+        __props__["properties"] = None
+        __props__["type"] = None
         return Job(resource_name, opts=opts, __props__=__props__)
 
     @property

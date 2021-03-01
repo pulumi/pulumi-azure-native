@@ -93,6 +93,15 @@ class Factory(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["create_time"] = None
+        __props__["identity"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["version"] = None
+        __props__["vsts_configuration"] = None
         return Factory(resource_name, opts=opts, __props__=__props__)
 
     @property

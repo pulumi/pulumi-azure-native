@@ -238,7 +238,7 @@ def get_sql_pool(resource_group_name: Optional[str] = None,
     :param str sql_pool_name: SQL pool name
     :param str workspace_name: The name of the workspace
     """
-    pulumi.log.warn("get_sql_pool is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:synapse:getSqlPool'.")
+    pulumi.log.warn("""get_sql_pool is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:synapse:getSqlPool'.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['sqlPoolName'] = sql_pool_name

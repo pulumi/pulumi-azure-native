@@ -43,7 +43,7 @@ class Credential(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
         :param pulumi.Input[str] user_name: Gets or sets the user name of the credential.
         """
-        pulumi.log.warn("Credential is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:automation:Credential'.")
+        pulumi.log.warn("""Credential is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:automation:Credential'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -105,6 +105,12 @@ class Credential(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["creation_time"] = None
+        __props__["description"] = None
+        __props__["last_modified_time"] = None
+        __props__["name"] = None
+        __props__["type"] = None
+        __props__["user_name"] = None
         return Credential(resource_name, opts=opts, __props__=__props__)
 
     @property

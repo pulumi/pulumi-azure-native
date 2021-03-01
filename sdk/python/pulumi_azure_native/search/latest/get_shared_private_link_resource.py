@@ -94,7 +94,7 @@ def get_shared_private_link_resource(resource_group_name: Optional[str] = None,
     :param str search_service_name: The name of the Azure Cognitive Search service associated with the specified resource group.
     :param str shared_private_link_resource_name: The name of the shared private link resource managed by the Azure Cognitive Search service within the specified resource group.
     """
-    pulumi.log.warn("get_shared_private_link_resource is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:search:getSharedPrivateLinkResource'.")
+    pulumi.log.warn("""get_shared_private_link_resource is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:search:getSharedPrivateLinkResource'.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['searchServiceName'] = search_service_name

@@ -70,7 +70,7 @@ class VpnConnection(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'VirtualNetworkGatewayConnectionProtocol']] vpn_connection_protocol_type: Connection protocol used for this connection.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnSiteLinkConnectionArgs']]]] vpn_link_connections: List of all vpn site link connections to the gateway.
         """
-        pulumi.log.warn("VpnConnection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:VpnConnection'.")
+        pulumi.log.warn("""VpnConnection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:VpnConnection'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -140,6 +140,26 @@ class VpnConnection(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["connection_bandwidth"] = None
+        __props__["connection_status"] = None
+        __props__["dpd_timeout_seconds"] = None
+        __props__["egress_bytes_transferred"] = None
+        __props__["enable_bgp"] = None
+        __props__["enable_internet_security"] = None
+        __props__["enable_rate_limiting"] = None
+        __props__["etag"] = None
+        __props__["ingress_bytes_transferred"] = None
+        __props__["ipsec_policies"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["remote_vpn_site"] = None
+        __props__["routing_configuration"] = None
+        __props__["routing_weight"] = None
+        __props__["shared_key"] = None
+        __props__["use_local_azure_ip_address"] = None
+        __props__["use_policy_based_traffic_selectors"] = None
+        __props__["vpn_connection_protocol_type"] = None
+        __props__["vpn_link_connections"] = None
         return VpnConnection(resource_name, opts=opts, __props__=__props__)
 
     @property

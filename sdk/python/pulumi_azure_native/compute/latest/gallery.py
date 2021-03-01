@@ -44,7 +44,7 @@ class Gallery(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SharingProfileArgs']] sharing_profile: Profile for gallery sharing to subscription or tenant
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
-        pulumi.log.warn("Gallery is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:compute:Gallery'.")
+        pulumi.log.warn("""Gallery is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:compute:Gallery'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -98,6 +98,14 @@ class Gallery(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["description"] = None
+        __props__["identifier"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["sharing_profile"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
         return Gallery(resource_name, opts=opts, __props__=__props__)
 
     @property

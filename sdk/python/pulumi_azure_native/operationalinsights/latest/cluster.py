@@ -52,7 +52,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ClusterSkuArgs']] sku: The sku properties.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.log.warn("Cluster is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:operationalinsights:Cluster'.")
+        pulumi.log.warn("""Cluster is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:operationalinsights:Cluster'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -114,6 +114,22 @@ class Cluster(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["associated_workspaces"] = None
+        __props__["billing_type"] = None
+        __props__["capacity_reservation_properties"] = None
+        __props__["cluster_id"] = None
+        __props__["created_date"] = None
+        __props__["identity"] = None
+        __props__["is_availability_zones_enabled"] = None
+        __props__["is_double_encryption_enabled"] = None
+        __props__["key_vault_properties"] = None
+        __props__["last_modified_date"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["sku"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
         return Cluster(resource_name, opts=opts, __props__=__props__)
 
     @property

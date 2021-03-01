@@ -92,7 +92,7 @@ def list_storage_account_service_sas(account_name: Optional[str] = None,
     :param str shared_access_expiry_time: The time at which the shared access signature becomes invalid.
     :param str shared_access_start_time: The time at which the SAS becomes valid.
     """
-    pulumi.log.warn("list_storage_account_service_sas is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storage:listStorageAccountServiceSAS'.")
+    pulumi.log.warn("""list_storage_account_service_sas is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storage:listStorageAccountServiceSAS'.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['cacheControl'] = cache_control

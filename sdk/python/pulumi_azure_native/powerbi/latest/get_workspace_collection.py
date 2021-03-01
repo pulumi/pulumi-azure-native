@@ -118,7 +118,7 @@ def get_workspace_collection(resource_group_name: Optional[str] = None,
     :param str resource_group_name: Azure resource group
     :param str workspace_collection_name: Power BI Embedded Workspace Collection name
     """
-    pulumi.log.warn("get_workspace_collection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:powerbi:getWorkspaceCollection'.")
+    pulumi.log.warn("""get_workspace_collection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:powerbi:getWorkspaceCollection'.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['workspaceCollectionName'] = workspace_collection_name

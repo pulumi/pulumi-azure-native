@@ -322,7 +322,7 @@ def get_big_data_pool(big_data_pool_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace
     """
-    pulumi.log.warn("get_big_data_pool is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:synapse:getBigDataPool'.")
+    pulumi.log.warn("""get_big_data_pool is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:synapse:getBigDataPool'.""")
     __args__ = dict()
     __args__['bigDataPoolName'] = big_data_pool_name
     __args__['resourceGroupName'] = resource_group_name

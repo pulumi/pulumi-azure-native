@@ -240,7 +240,7 @@ def get_record_set(private_zone_name: Optional[str] = None,
     :param str relative_record_set_name: The name of the record set, relative to the name of the zone.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("get_record_set is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getRecordSet'.")
+    pulumi.log.warn("""get_record_set is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getRecordSet'.""")
     __args__ = dict()
     __args__['privateZoneName'] = private_zone_name
     __args__['recordType'] = record_type

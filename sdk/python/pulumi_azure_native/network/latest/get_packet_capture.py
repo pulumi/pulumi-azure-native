@@ -166,7 +166,7 @@ def get_packet_capture(network_watcher_name: Optional[str] = None,
     :param str packet_capture_name: The name of the packet capture session.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("get_packet_capture is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getPacketCapture'.")
+    pulumi.log.warn("""get_packet_capture is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getPacketCapture'.""")
     __args__ = dict()
     __args__['networkWatcherName'] = network_watcher_name
     __args__['packetCaptureName'] = packet_capture_name

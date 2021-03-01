@@ -41,7 +41,7 @@ class WorkspaceSqlAadAdmin(pulumi.CustomResource):
         :param pulumi.Input[str] tenant_id: Tenant ID of the workspace active directory administrator
         :param pulumi.Input[str] workspace_name: The name of the workspace
         """
-        pulumi.log.warn("WorkspaceSqlAadAdmin is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:synapse:WorkspaceSqlAadAdmin'.")
+        pulumi.log.warn("""WorkspaceSqlAadAdmin is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:synapse:WorkspaceSqlAadAdmin'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -95,6 +95,12 @@ class WorkspaceSqlAadAdmin(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["administrator_type"] = None
+        __props__["login"] = None
+        __props__["name"] = None
+        __props__["sid"] = None
+        __props__["tenant_id"] = None
+        __props__["type"] = None
         return WorkspaceSqlAadAdmin(resource_name, opts=opts, __props__=__props__)
 
     @property

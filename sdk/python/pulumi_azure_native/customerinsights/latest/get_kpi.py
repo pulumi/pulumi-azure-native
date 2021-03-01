@@ -310,7 +310,7 @@ def get_kpi(hub_name: Optional[str] = None,
     :param str kpi_name: The name of the KPI.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("get_kpi is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:customerinsights:getKpi'.")
+    pulumi.log.warn("""get_kpi is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:customerinsights:getKpi'.""")
     __args__ = dict()
     __args__['hubName'] = hub_name
     __args__['kpiName'] = kpi_name

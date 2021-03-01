@@ -110,6 +110,17 @@ class ServerEndpoint(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["cloud_tiering"] = None
+        __props__["friendly_name"] = None
+        __props__["last_operation_name"] = None
+        __props__["last_workflow_id"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["server_local_path"] = None
+        __props__["server_resource_id"] = None
+        __props__["sync_status"] = None
+        __props__["type"] = None
+        __props__["volume_free_space_percent"] = None
         return ServerEndpoint(resource_name, opts=opts, __props__=__props__)
 
     @property

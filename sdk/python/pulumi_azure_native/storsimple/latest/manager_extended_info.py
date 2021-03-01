@@ -50,7 +50,7 @@ class ManagerExtendedInfo(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The resource group name
         :param pulumi.Input[str] version: The version of the extended info being persisted.
         """
-        pulumi.log.warn("ManagerExtendedInfo is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storsimple:ManagerExtendedInfo'.")
+        pulumi.log.warn("""ManagerExtendedInfo is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storsimple:ManagerExtendedInfo'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -112,6 +112,16 @@ class ManagerExtendedInfo(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["algorithm"] = None
+        __props__["encryption_key"] = None
+        __props__["encryption_key_thumbprint"] = None
+        __props__["etag"] = None
+        __props__["integrity_key"] = None
+        __props__["kind"] = None
+        __props__["name"] = None
+        __props__["portal_certificate_thumbprint"] = None
+        __props__["type"] = None
+        __props__["version"] = None
         return ManagerExtendedInfo(resource_name, opts=opts, __props__=__props__)
 
     @property

@@ -200,7 +200,7 @@ def get_zone(resource_group_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     :param str zone_name: The name of the DNS zone (without a terminating dot).
     """
-    pulumi.log.warn("get_zone is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getZone'.")
+    pulumi.log.warn("""get_zone is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getZone'.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['zoneName'] = zone_name

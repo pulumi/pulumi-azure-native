@@ -98,6 +98,16 @@ class WebAppRelayServiceConnectionSlot(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["biztalk_uri"] = None
+        __props__["entity_connection_string"] = None
+        __props__["entity_name"] = None
+        __props__["hostname"] = None
+        __props__["kind"] = None
+        __props__["name"] = None
+        __props__["port"] = None
+        __props__["resource_connection_string"] = None
+        __props__["resource_type"] = None
+        __props__["type"] = None
         return WebAppRelayServiceConnectionSlot(resource_name, opts=opts, __props__=__props__)
 
     @property

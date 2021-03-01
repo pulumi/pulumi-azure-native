@@ -128,7 +128,7 @@ def get_enterprise_knowledge_graph(resource_group_name: Optional[str] = None,
     :param str resource_group_name: The name of the EnterpriseKnowledgeGraph resource group in the user subscription.
     :param str resource_name: The name of the EnterpriseKnowledgeGraph resource.
     """
-    pulumi.log.warn("get_enterprise_knowledge_graph is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:enterpriseknowledgegraph:getEnterpriseKnowledgeGraph'.")
+    pulumi.log.warn("""get_enterprise_knowledge_graph is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:enterpriseknowledgegraph:getEnterpriseKnowledgeGraph'.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name

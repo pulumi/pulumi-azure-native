@@ -105,6 +105,16 @@ class WebAppSourceControlSlot(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["branch"] = None
+        __props__["deployment_rollback_enabled"] = None
+        __props__["is_git_hub_action"] = None
+        __props__["is_manual_integration"] = None
+        __props__["is_mercurial"] = None
+        __props__["kind"] = None
+        __props__["name"] = None
+        __props__["repo_url"] = None
+        __props__["system_data"] = None
+        __props__["type"] = None
         return WebAppSourceControlSlot(resource_name, opts=opts, __props__=__props__)
 
     @property

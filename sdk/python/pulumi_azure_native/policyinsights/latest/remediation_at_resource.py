@@ -44,7 +44,7 @@ class RemediationAtResource(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'ResourceDiscoveryMode']] resource_discovery_mode: The way resources to remediate are discovered. Defaults to ExistingNonCompliant if not specified.
         :param pulumi.Input[str] resource_id: Resource ID.
         """
-        pulumi.log.warn("RemediationAtResource is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:policyinsights:RemediationAtResource'.")
+        pulumi.log.warn("""RemediationAtResource is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:policyinsights:RemediationAtResource'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -100,6 +100,16 @@ class RemediationAtResource(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["created_on"] = None
+        __props__["deployment_status"] = None
+        __props__["filters"] = None
+        __props__["last_updated_on"] = None
+        __props__["name"] = None
+        __props__["policy_assignment_id"] = None
+        __props__["policy_definition_reference_id"] = None
+        __props__["provisioning_state"] = None
+        __props__["resource_discovery_mode"] = None
+        __props__["type"] = None
         return RemediationAtResource(resource_name, opts=opts, __props__=__props__)
 
     @property

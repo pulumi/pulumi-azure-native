@@ -428,7 +428,7 @@ def get_disk(disk_name: Optional[str] = None,
     :param str disk_name: The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("get_disk is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:compute:getDisk'.")
+    pulumi.log.warn("""get_disk is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:compute:getDisk'.""")
     __args__ = dict()
     __args__['diskName'] = disk_name
     __args__['resourceGroupName'] = resource_group_name

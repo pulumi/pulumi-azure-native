@@ -105,6 +105,17 @@ class SoftwareUpdateConfigurationByName(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["created_by"] = None
+        __props__["creation_time"] = None
+        __props__["error"] = None
+        __props__["last_modified_by"] = None
+        __props__["last_modified_time"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["schedule_info"] = None
+        __props__["tasks"] = None
+        __props__["type"] = None
+        __props__["update_configuration"] = None
         return SoftwareUpdateConfigurationByName(resource_name, opts=opts, __props__=__props__)
 
     @property

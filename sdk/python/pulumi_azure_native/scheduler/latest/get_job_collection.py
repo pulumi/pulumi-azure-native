@@ -112,7 +112,7 @@ def get_job_collection(job_collection_name: Optional[str] = None,
     :param str job_collection_name: The job collection name.
     :param str resource_group_name: The resource group name.
     """
-    pulumi.log.warn("get_job_collection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:scheduler:getJobCollection'.")
+    pulumi.log.warn("""get_job_collection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:scheduler:getJobCollection'.""")
     __args__ = dict()
     __args__['jobCollectionName'] = job_collection_name
     __args__['resourceGroupName'] = resource_group_name

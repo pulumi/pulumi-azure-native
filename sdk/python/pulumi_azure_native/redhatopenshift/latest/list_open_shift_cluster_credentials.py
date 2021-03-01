@@ -67,7 +67,7 @@ def list_open_shift_cluster_credentials(resource_group_name: Optional[str] = Non
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str resource_name: The name of the OpenShift cluster resource.
     """
-    pulumi.log.warn("list_open_shift_cluster_credentials is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:redhatopenshift:listOpenShiftClusterCredentials'.")
+    pulumi.log.warn("""list_open_shift_cluster_credentials is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:redhatopenshift:listOpenShiftClusterCredentials'.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name

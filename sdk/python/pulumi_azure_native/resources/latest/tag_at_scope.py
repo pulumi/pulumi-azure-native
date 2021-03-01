@@ -35,7 +35,7 @@ class TagAtScope(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['TagsArgs']] properties: The set of tags.
         :param pulumi.Input[str] scope: The resource scope.
         """
-        pulumi.log.warn("TagAtScope is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:resources:TagAtScope'.")
+        pulumi.log.warn("""TagAtScope is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:resources:TagAtScope'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -85,6 +85,9 @@ class TagAtScope(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["name"] = None
+        __props__["properties"] = None
+        __props__["type"] = None
         return TagAtScope(resource_name, opts=opts, __props__=__props__)
 
     @property

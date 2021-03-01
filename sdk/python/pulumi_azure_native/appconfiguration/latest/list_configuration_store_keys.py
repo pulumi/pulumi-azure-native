@@ -70,7 +70,7 @@ def list_configuration_store_keys(config_store_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group to which the container registry belongs.
     :param str skip_token: A skip token is used to continue retrieving items after an operation returns a partial result. If a previous response contains a nextLink element, the value of the nextLink element will include a skipToken parameter that specifies a starting point to use for subsequent calls.
     """
-    pulumi.log.warn("list_configuration_store_keys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:appconfiguration:listConfigurationStoreKeys'.")
+    pulumi.log.warn("""list_configuration_store_keys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:appconfiguration:listConfigurationStoreKeys'.""")
     __args__ = dict()
     __args__['configStoreName'] = config_store_name
     __args__['resourceGroupName'] = resource_group_name

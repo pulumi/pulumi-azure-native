@@ -117,7 +117,7 @@ def get_ip_firewall_rule(resource_group_name: Optional[str] = None,
     :param str rule_name: The IP firewall rule name
     :param str workspace_name: The name of the workspace
     """
-    pulumi.log.warn("get_ip_firewall_rule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:synapse:getIpFirewallRule'.")
+    pulumi.log.warn("""get_ip_firewall_rule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:synapse:getIpFirewallRule'.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['ruleName'] = rule_name

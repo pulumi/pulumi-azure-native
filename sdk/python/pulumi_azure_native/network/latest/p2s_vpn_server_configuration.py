@@ -60,7 +60,7 @@ class P2sVpnServerConfiguration(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpsecPolicyArgs']]]] vpn_client_ipsec_policies: VpnClientIpsecPolicies for P2SVpnServerConfiguration.
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'VpnGatewayTunnelingProtocol']]]] vpn_protocols: VPN protocols for the P2SVpnServerConfiguration.
         """
-        pulumi.log.warn("P2sVpnServerConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:P2sVpnServerConfiguration'.")
+        pulumi.log.warn("""P2sVpnServerConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:P2sVpnServerConfiguration'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -122,6 +122,18 @@ class P2sVpnServerConfiguration(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["etag"] = None
+        __props__["name"] = None
+        __props__["p2_s_vpn_gateways"] = None
+        __props__["p2_s_vpn_server_config_radius_client_root_certificates"] = None
+        __props__["p2_s_vpn_server_config_radius_server_root_certificates"] = None
+        __props__["p2_s_vpn_server_config_vpn_client_revoked_certificates"] = None
+        __props__["p2_s_vpn_server_config_vpn_client_root_certificates"] = None
+        __props__["provisioning_state"] = None
+        __props__["radius_server_address"] = None
+        __props__["radius_server_secret"] = None
+        __props__["vpn_client_ipsec_policies"] = None
+        __props__["vpn_protocols"] = None
         return P2sVpnServerConfiguration(resource_name, opts=opts, __props__=__props__)
 
     @property

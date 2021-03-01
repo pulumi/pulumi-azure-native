@@ -40,7 +40,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] storage_sync_service_name: The name of the storage sync service name within the specified resource group.
         """
-        pulumi.log.warn("PrivateEndpointConnection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storagesync:PrivateEndpointConnection'.")
+        pulumi.log.warn("""PrivateEndpointConnection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storagesync:PrivateEndpointConnection'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -96,6 +96,11 @@ class PrivateEndpointConnection(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["name"] = None
+        __props__["private_endpoint"] = None
+        __props__["private_link_service_connection_state"] = None
+        __props__["provisioning_state"] = None
+        __props__["type"] = None
         return PrivateEndpointConnection(resource_name, opts=opts, __props__=__props__)
 
     @property

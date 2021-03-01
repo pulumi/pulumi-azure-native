@@ -167,7 +167,7 @@ def get_view(hub_name: Optional[str] = None,
     :param str user_id: The user ID. Use * to retrieve hub level view.
     :param str view_name: The name of the view.
     """
-    pulumi.log.warn("get_view is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:customerinsights:getView'.")
+    pulumi.log.warn("""get_view is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:customerinsights:getView'.""")
     __args__ = dict()
     __args__['hubName'] = hub_name
     __args__['resourceGroupName'] = resource_group_name

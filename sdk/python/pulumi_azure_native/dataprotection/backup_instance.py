@@ -102,6 +102,15 @@ class BackupInstance(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["data_source_info"] = None
+        __props__["data_source_set_info"] = None
+        __props__["name"] = None
+        __props__["object_type"] = None
+        __props__["policy_info"] = None
+        __props__["protection_status"] = None
+        __props__["provisioning_state"] = None
+        __props__["system_data"] = None
+        __props__["type"] = None
         return BackupInstance(resource_name, opts=opts, __props__=__props__)
 
     @property

@@ -103,6 +103,16 @@ class ManagedNetworkGroup(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["etag"] = None
+        __props__["kind"] = None
+        __props__["location"] = None
+        __props__["management_groups"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["subnets"] = None
+        __props__["subscriptions"] = None
+        __props__["type"] = None
+        __props__["virtual_networks"] = None
         return ManagedNetworkGroup(resource_name, opts=opts, __props__=__props__)
 
     @property

@@ -52,7 +52,7 @@ class BatchAccount(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the Batch account.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The user-specified tags associated with the account.
         """
-        pulumi.log.warn("BatchAccount is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:batch:BatchAccount'.")
+        pulumi.log.warn("""BatchAccount is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:batch:BatchAccount'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -117,6 +117,25 @@ class BatchAccount(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["account_endpoint"] = None
+        __props__["active_job_and_job_schedule_quota"] = None
+        __props__["auto_storage"] = None
+        __props__["dedicated_core_quota"] = None
+        __props__["dedicated_core_quota_per_vm_family"] = None
+        __props__["dedicated_core_quota_per_vm_family_enforced"] = None
+        __props__["encryption"] = None
+        __props__["identity"] = None
+        __props__["key_vault_reference"] = None
+        __props__["location"] = None
+        __props__["low_priority_core_quota"] = None
+        __props__["name"] = None
+        __props__["pool_allocation_mode"] = None
+        __props__["pool_quota"] = None
+        __props__["private_endpoint_connections"] = None
+        __props__["provisioning_state"] = None
+        __props__["public_network_access"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
         return BatchAccount(resource_name, opts=opts, __props__=__props__)
 
     @property

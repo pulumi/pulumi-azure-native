@@ -98,6 +98,12 @@ class Route(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["address_prefix"] = None
+        __props__["etag"] = None
+        __props__["name"] = None
+        __props__["next_hop_ip_address"] = None
+        __props__["next_hop_type"] = None
+        __props__["provisioning_state"] = None
         return Route(resource_name, opts=opts, __props__=__props__)
 
     @property

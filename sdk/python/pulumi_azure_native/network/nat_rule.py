@@ -107,6 +107,16 @@ class NatRule(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["egress_vpn_site_link_connections"] = None
+        __props__["etag"] = None
+        __props__["external_mappings"] = None
+        __props__["ingress_vpn_site_link_connections"] = None
+        __props__["internal_mappings"] = None
+        __props__["ip_configuration_id"] = None
+        __props__["mode"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["type"] = None
         return NatRule(resource_name, opts=opts, __props__=__props__)
 
     @property

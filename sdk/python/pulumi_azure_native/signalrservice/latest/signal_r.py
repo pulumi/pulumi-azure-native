@@ -57,7 +57,7 @@ class SignalR(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags of the service which is a list of key value pairs that describe the resource.
         :param pulumi.Input[pulumi.InputType['ServerlessUpstreamSettingsArgs']] upstream: Upstream settings when the Azure SignalR is in server-less mode.
         """
-        pulumi.log.warn("SignalR is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:signalrservice:SignalR'.")
+        pulumi.log.warn("""SignalR is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:signalrservice:SignalR'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -121,6 +121,24 @@ class SignalR(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["cors"] = None
+        __props__["external_ip"] = None
+        __props__["features"] = None
+        __props__["host_name"] = None
+        __props__["host_name_prefix"] = None
+        __props__["kind"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["network_acls"] = None
+        __props__["private_endpoint_connections"] = None
+        __props__["provisioning_state"] = None
+        __props__["public_port"] = None
+        __props__["server_port"] = None
+        __props__["sku"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["upstream"] = None
+        __props__["version"] = None
         return SignalR(resource_name, opts=opts, __props__=__props__)
 
     @property

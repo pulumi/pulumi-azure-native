@@ -52,7 +52,7 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input['VolumeStatus'] volume_status: The volume status.
         :param pulumi.Input['VolumeType'] volume_type: The type of the volume.
         """
-        pulumi.log.warn("Volume is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storsimple:Volume'.")
+        pulumi.log.warn("""Volume is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storsimple:Volume'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -129,6 +129,18 @@ class Volume(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["access_control_record_ids"] = None
+        __props__["backup_policy_ids"] = None
+        __props__["backup_status"] = None
+        __props__["kind"] = None
+        __props__["monitoring_status"] = None
+        __props__["name"] = None
+        __props__["operation_status"] = None
+        __props__["size_in_bytes"] = None
+        __props__["type"] = None
+        __props__["volume_container_id"] = None
+        __props__["volume_status"] = None
+        __props__["volume_type"] = None
         return Volume(resource_name, opts=opts, __props__=__props__)
 
     @property

@@ -97,6 +97,14 @@ class Output(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["datasource"] = None
+        __props__["diagnostics"] = None
+        __props__["etag"] = None
+        __props__["name"] = None
+        __props__["serialization"] = None
+        __props__["size_window"] = None
+        __props__["time_window"] = None
+        __props__["type"] = None
         return Output(resource_name, opts=opts, __props__=__props__)
 
     @property

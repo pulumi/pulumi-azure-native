@@ -178,7 +178,7 @@ def get_remediation_at_management_group(management_group_id: Optional[str] = Non
     :param str management_groups_namespace: The namespace for Microsoft Management RP; only "Microsoft.Management" is allowed.
     :param str remediation_name: The name of the remediation.
     """
-    pulumi.log.warn("get_remediation_at_management_group is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:policyinsights:getRemediationAtManagementGroup'.")
+    pulumi.log.warn("""get_remediation_at_management_group is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:policyinsights:getRemediationAtManagementGroup'.""")
     __args__ = dict()
     __args__['managementGroupId'] = management_group_id
     __args__['managementGroupsNamespace'] = management_groups_namespace

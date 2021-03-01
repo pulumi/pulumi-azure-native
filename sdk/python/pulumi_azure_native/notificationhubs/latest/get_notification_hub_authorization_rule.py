@@ -228,7 +228,7 @@ def get_notification_hub_authorization_rule(authorization_rule_name: Optional[st
     :param str notification_hub_name: The notification hub name.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("get_notification_hub_authorization_rule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:notificationhubs:getNotificationHubAuthorizationRule'.")
+    pulumi.log.warn("""get_notification_hub_authorization_rule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:notificationhubs:getNotificationHubAuthorizationRule'.""")
     __args__ = dict()
     __args__['authorizationRuleName'] = authorization_rule_name
     __args__['namespaceName'] = namespace_name

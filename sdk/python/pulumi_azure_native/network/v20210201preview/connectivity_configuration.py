@@ -109,6 +109,18 @@ class ConnectivityConfiguration(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["applies_to_groups"] = None
+        __props__["connectivity_topology"] = None
+        __props__["delete_existing_peering"] = None
+        __props__["description"] = None
+        __props__["display_name"] = None
+        __props__["etag"] = None
+        __props__["hub_id"] = None
+        __props__["is_global"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["system_data"] = None
+        __props__["type"] = None
         return ConnectivityConfiguration(resource_name, opts=opts, __props__=__props__)
 
     @property

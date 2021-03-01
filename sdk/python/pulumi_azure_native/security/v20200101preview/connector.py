@@ -79,6 +79,10 @@ class Connector(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["authentication_details"] = None
+        __props__["hybrid_compute_settings"] = None
+        __props__["name"] = None
+        __props__["type"] = None
         return Connector(resource_name, opts=opts, __props__=__props__)
 
     @property

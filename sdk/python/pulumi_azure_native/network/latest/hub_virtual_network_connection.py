@@ -51,7 +51,7 @@ class HubVirtualNetworkConnection(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['RoutingConfigurationArgs']] routing_configuration: The Routing Configuration indicating the associated and propagated route tables on this connection.
         :param pulumi.Input[str] virtual_hub_name: The name of the VirtualHub.
         """
-        pulumi.log.warn("HubVirtualNetworkConnection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:HubVirtualNetworkConnection'.")
+        pulumi.log.warn("""HubVirtualNetworkConnection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:HubVirtualNetworkConnection'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -109,6 +109,14 @@ class HubVirtualNetworkConnection(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["allow_hub_to_remote_vnet_transit"] = None
+        __props__["allow_remote_vnet_to_use_hub_vnet_gateways"] = None
+        __props__["enable_internet_security"] = None
+        __props__["etag"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["remote_virtual_network"] = None
+        __props__["routing_configuration"] = None
         return HubVirtualNetworkConnection(resource_name, opts=opts, __props__=__props__)
 
     @property

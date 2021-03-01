@@ -35,7 +35,7 @@ class Experiment(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
         :param pulumi.Input[str] workspace_name: The name of the workspace. Workspace names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
         """
-        pulumi.log.warn("Experiment is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:batchai:Experiment'.")
+        pulumi.log.warn("""Experiment is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:batchai:Experiment'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -89,6 +89,11 @@ class Experiment(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["creation_time"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["provisioning_state_transition_time"] = None
+        __props__["type"] = None
         return Experiment(resource_name, opts=opts, __props__=__props__)
 
     @property

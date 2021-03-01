@@ -58,7 +58,7 @@ def list_database_principals(cluster_name: Optional[str] = None,
     :param str database_name: The name of the database in the Kusto cluster.
     :param str resource_group_name: The name of the resource group containing the Kusto cluster.
     """
-    pulumi.log.warn("list_database_principals is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:kusto:listDatabasePrincipals'.")
+    pulumi.log.warn("""list_database_principals is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:kusto:listDatabasePrincipals'.""")
     __args__ = dict()
     __args__['clusterName'] = cluster_name
     __args__['databaseName'] = database_name

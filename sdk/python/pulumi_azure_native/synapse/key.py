@@ -87,6 +87,10 @@ class Key(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["is_active_cmk"] = None
+        __props__["key_vault_url"] = None
+        __props__["name"] = None
+        __props__["type"] = None
         return Key(resource_name, opts=opts, __props__=__props__)
 
     @property

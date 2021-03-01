@@ -43,7 +43,7 @@ class Backup(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] volume_name: The name of the volume
         """
-        pulumi.log.warn("Backup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:netapp:Backup'.")
+        pulumi.log.warn("""Backup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:netapp:Backup'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -108,6 +108,16 @@ class Backup(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["backup_id"] = None
+        __props__["backup_type"] = None
+        __props__["creation_date"] = None
+        __props__["failure_reason"] = None
+        __props__["label"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["size"] = None
+        __props__["type"] = None
         return Backup(resource_name, opts=opts, __props__=__props__)
 
     @property

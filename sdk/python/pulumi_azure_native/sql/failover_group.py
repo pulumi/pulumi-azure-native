@@ -106,6 +106,16 @@ class FailoverGroup(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["databases"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["partner_servers"] = None
+        __props__["read_only_endpoint"] = None
+        __props__["read_write_endpoint"] = None
+        __props__["replication_role"] = None
+        __props__["replication_state"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
         return FailoverGroup(resource_name, opts=opts, __props__=__props__)
 
     @property

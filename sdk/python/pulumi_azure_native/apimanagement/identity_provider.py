@@ -115,6 +115,17 @@ class IdentityProvider(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["allowed_tenants"] = None
+        __props__["authority"] = None
+        __props__["client_id"] = None
+        __props__["client_secret"] = None
+        __props__["name"] = None
+        __props__["password_reset_policy_name"] = None
+        __props__["profile_editing_policy_name"] = None
+        __props__["signin_policy_name"] = None
+        __props__["signin_tenant"] = None
+        __props__["signup_policy_name"] = None
+        __props__["type"] = None
         return IdentityProvider(resource_name, opts=opts, __props__=__props__)
 
     @property

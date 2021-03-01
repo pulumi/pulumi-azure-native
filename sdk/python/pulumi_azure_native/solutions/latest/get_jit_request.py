@@ -200,7 +200,7 @@ def get_jit_request(jit_request_name: Optional[str] = None,
     :param str jit_request_name: The name of the JIT request.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    pulumi.log.warn("get_jit_request is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:solutions:getJitRequest'.")
+    pulumi.log.warn("""get_jit_request is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:solutions:getJitRequest'.""")
     __args__ = dict()
     __args__['jitRequestName'] = jit_request_name
     __args__['resourceGroupName'] = resource_group_name

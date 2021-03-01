@@ -166,7 +166,7 @@ def get_lab_account(expand: Optional[str] = None,
     :param str lab_account_name: The name of the lab Account.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("get_lab_account is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:labservices:getLabAccount'.")
+    pulumi.log.warn("""get_lab_account is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:labservices:getLabAccount'.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['labAccountName'] = lab_account_name

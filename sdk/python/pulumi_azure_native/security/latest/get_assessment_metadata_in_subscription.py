@@ -216,7 +216,7 @@ def get_assessment_metadata_in_subscription(assessment_metadata_name: Optional[s
 
     :param str assessment_metadata_name: The Assessment Key - Unique key for the assessment type
     """
-    pulumi.log.warn("get_assessment_metadata_in_subscription is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:security:getAssessmentMetadataInSubscription'.")
+    pulumi.log.warn("""get_assessment_metadata_in_subscription is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:security:getAssessmentMetadataInSubscription'.""")
     __args__ = dict()
     __args__['assessmentMetadataName'] = assessment_metadata_name
     if opts is None:

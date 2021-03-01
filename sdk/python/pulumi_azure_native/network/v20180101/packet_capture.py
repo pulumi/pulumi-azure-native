@@ -112,6 +112,16 @@ class PacketCapture(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["bytes_to_capture_per_packet"] = None
+        __props__["etag"] = None
+        __props__["filters"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["storage_location"] = None
+        __props__["target"] = None
+        __props__["time_limit_in_seconds"] = None
+        __props__["total_bytes_per_session"] = None
+        __props__["type"] = None
         return PacketCapture(resource_name, opts=opts, __props__=__props__)
 
     @property

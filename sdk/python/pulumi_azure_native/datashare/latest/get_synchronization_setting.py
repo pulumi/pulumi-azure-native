@@ -108,7 +108,7 @@ def get_synchronization_setting(account_name: Optional[str] = None,
     :param str share_name: The name of the share.
     :param str synchronization_setting_name: The name of the synchronizationSetting.
     """
-    pulumi.log.warn("get_synchronization_setting is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datashare:getSynchronizationSetting'.")
+    pulumi.log.warn("""get_synchronization_setting is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datashare:getSynchronizationSetting'.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['resourceGroupName'] = resource_group_name

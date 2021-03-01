@@ -108,6 +108,19 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["boot_strap_configuration_blob"] = None
+        __props__["cloud_init_configuration_blob"] = None
+        __props__["etag"] = None
+        __props__["identity"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["sku"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["virtual_appliance_asn"] = None
+        __props__["virtual_appliance_nics"] = None
+        __props__["virtual_hub"] = None
         return NetworkVirtualAppliance(resource_name, opts=opts, __props__=__props__)
 
     @property

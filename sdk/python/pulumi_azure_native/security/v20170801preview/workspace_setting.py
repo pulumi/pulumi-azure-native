@@ -80,6 +80,10 @@ class WorkspaceSetting(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["name"] = None
+        __props__["scope"] = None
+        __props__["type"] = None
+        __props__["workspace_id"] = None
         return WorkspaceSetting(resource_name, opts=opts, __props__=__props__)
 
     @property

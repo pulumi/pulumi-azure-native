@@ -104,6 +104,14 @@ class OriginGroup(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["health_probe_settings"] = None
+        __props__["name"] = None
+        __props__["origins"] = None
+        __props__["provisioning_state"] = None
+        __props__["resource_state"] = None
+        __props__["response_based_origin_error_detection_settings"] = None
+        __props__["traffic_restoration_time_to_healed_or_new_endpoints_in_minutes"] = None
+        __props__["type"] = None
         return OriginGroup(resource_name, opts=opts, __props__=__props__)
 
     @property

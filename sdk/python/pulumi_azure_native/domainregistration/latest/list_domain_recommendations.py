@@ -68,7 +68,7 @@ def list_domain_recommendations(keywords: Optional[str] = None,
     :param str keywords: Keywords to be used for generating domain recommendations.
     :param int max_domain_recommendations: Maximum number of recommendations.
     """
-    pulumi.log.warn("list_domain_recommendations is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:domainregistration:listDomainRecommendations'.")
+    pulumi.log.warn("""list_domain_recommendations is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:domainregistration:listDomainRecommendations'.""")
     __args__ = dict()
     __args__['keywords'] = keywords
     __args__['maxDomainRecommendations'] = max_domain_recommendations

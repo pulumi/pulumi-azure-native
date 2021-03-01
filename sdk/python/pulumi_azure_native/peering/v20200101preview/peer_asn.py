@@ -86,6 +86,13 @@ class PeerAsn(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["error_message"] = None
+        __props__["name"] = None
+        __props__["peer_asn"] = None
+        __props__["peer_contact_detail"] = None
+        __props__["peer_name"] = None
+        __props__["type"] = None
+        __props__["validation_state"] = None
         return PeerAsn(resource_name, opts=opts, __props__=__props__)
 
     @property

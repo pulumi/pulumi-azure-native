@@ -151,6 +151,51 @@ func (e CertificateVisibility) ToStringPtrOutputWithContext(ctx context.Context)
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// CertificateVisibilityArrayInput is an input type that accepts CertificateVisibilityArray and CertificateVisibilityArrayOutput values.
+// You can construct a concrete instance of `CertificateVisibilityArrayInput` via:
+//
+//          CertificateVisibilityArray{ CertificateVisibilityArgs{...} }
+type CertificateVisibilityArrayInput interface {
+	pulumi.Input
+
+	ToCertificateVisibilityArrayOutput() CertificateVisibilityArrayOutput
+	ToCertificateVisibilityArrayOutputWithContext(context.Context) CertificateVisibilityArrayOutput
+}
+
+type CertificateVisibilityArray []CertificateVisibility
+
+func (CertificateVisibilityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CertificateVisibility)(nil)).Elem()
+}
+
+func (i CertificateVisibilityArray) ToCertificateVisibilityArrayOutput() CertificateVisibilityArrayOutput {
+	return i.ToCertificateVisibilityArrayOutputWithContext(context.Background())
+}
+
+func (i CertificateVisibilityArray) ToCertificateVisibilityArrayOutputWithContext(ctx context.Context) CertificateVisibilityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateVisibilityArrayOutput)
+}
+
+type CertificateVisibilityArrayOutput struct{ *pulumi.OutputState }
+
+func (CertificateVisibilityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CertificateVisibility)(nil)).Elem()
+}
+
+func (o CertificateVisibilityArrayOutput) ToCertificateVisibilityArrayOutput() CertificateVisibilityArrayOutput {
+	return o
+}
+
+func (o CertificateVisibilityArrayOutput) ToCertificateVisibilityArrayOutputWithContext(ctx context.Context) CertificateVisibilityArrayOutput {
+	return o
+}
+
+func (o CertificateVisibilityArrayOutput) Index(i pulumi.IntInput) pulumi.StringOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) pulumi.StringOutput {
+		return vs[0].([]CertificateVisibility)[vs[1].(int)].ToStringOutput()
+	}).(pulumi.StringOutput)
+}
+
 // If omitted, the default value is Requeue.
 type ComputeNodeDeallocationOption pulumi.String
 

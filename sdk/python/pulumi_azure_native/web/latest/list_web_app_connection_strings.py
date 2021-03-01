@@ -116,7 +116,7 @@ def list_web_app_connection_strings(name: Optional[str] = None,
     :param str name: Name of the app.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
-    pulumi.log.warn("list_web_app_connection_strings is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listWebAppConnectionStrings'.")
+    pulumi.log.warn("""list_web_app_connection_strings is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listWebAppConnectionStrings'.""")
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name

@@ -174,7 +174,7 @@ def get_remediation_at_subscription(remediation_name: Optional[str] = None,
 
     :param str remediation_name: The name of the remediation.
     """
-    pulumi.log.warn("get_remediation_at_subscription is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:policyinsights:getRemediationAtSubscription'.")
+    pulumi.log.warn("""get_remediation_at_subscription is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:policyinsights:getRemediationAtSubscription'.""")
     __args__ = dict()
     __args__['remediationName'] = remediation_name
     if opts is None:

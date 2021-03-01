@@ -99,6 +99,15 @@ class AlertsSuppressionRule(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["alert_type"] = None
+        __props__["comment"] = None
+        __props__["expiration_date_utc"] = None
+        __props__["last_modified_utc"] = None
+        __props__["name"] = None
+        __props__["reason"] = None
+        __props__["state"] = None
+        __props__["suppression_alerts_scope"] = None
+        __props__["type"] = None
         return AlertsSuppressionRule(resource_name, opts=opts, __props__=__props__)
 
     @property

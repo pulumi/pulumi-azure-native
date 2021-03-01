@@ -70,7 +70,7 @@ def list_webhook_events(registry_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group to which the container registry belongs.
     :param str webhook_name: The name of the webhook.
     """
-    pulumi.log.warn("list_webhook_events is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:containerregistry:listWebhookEvents'.")
+    pulumi.log.warn("""list_webhook_events is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:containerregistry:listWebhookEvents'.""")
     __args__ = dict()
     __args__['registryName'] = registry_name
     __args__['resourceGroupName'] = resource_group_name

@@ -144,6 +144,28 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["azure_asn"] = None
+        __props__["connections"] = None
+        __props__["etag"] = None
+        __props__["express_route_connection"] = None
+        __props__["gateway_manager_etag"] = None
+        __props__["ipv6_peering_config"] = None
+        __props__["last_modified_by"] = None
+        __props__["microsoft_peering_config"] = None
+        __props__["name"] = None
+        __props__["peer_asn"] = None
+        __props__["peered_connections"] = None
+        __props__["peering_type"] = None
+        __props__["primary_azure_port"] = None
+        __props__["primary_peer_address_prefix"] = None
+        __props__["provisioning_state"] = None
+        __props__["route_filter"] = None
+        __props__["secondary_azure_port"] = None
+        __props__["secondary_peer_address_prefix"] = None
+        __props__["shared_key"] = None
+        __props__["state"] = None
+        __props__["stats"] = None
+        __props__["vlan_id"] = None
         return ExpressRouteCircuitPeering(resource_name, opts=opts, __props__=__props__)
 
     @property

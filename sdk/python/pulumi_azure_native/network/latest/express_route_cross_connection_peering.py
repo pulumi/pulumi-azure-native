@@ -62,7 +62,7 @@ class ExpressRouteCrossConnectionPeering(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'ExpressRoutePeeringState']] state: The peering state.
         :param pulumi.Input[int] vlan_id: The VLAN ID.
         """
-        pulumi.log.warn("ExpressRouteCrossConnectionPeering is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:ExpressRouteCrossConnectionPeering'.")
+        pulumi.log.warn("""ExpressRouteCrossConnectionPeering is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:ExpressRouteCrossConnectionPeering'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -129,6 +129,23 @@ class ExpressRouteCrossConnectionPeering(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["azure_asn"] = None
+        __props__["etag"] = None
+        __props__["gateway_manager_etag"] = None
+        __props__["ipv6_peering_config"] = None
+        __props__["last_modified_by"] = None
+        __props__["microsoft_peering_config"] = None
+        __props__["name"] = None
+        __props__["peer_asn"] = None
+        __props__["peering_type"] = None
+        __props__["primary_azure_port"] = None
+        __props__["primary_peer_address_prefix"] = None
+        __props__["provisioning_state"] = None
+        __props__["secondary_azure_port"] = None
+        __props__["secondary_peer_address_prefix"] = None
+        __props__["shared_key"] = None
+        __props__["state"] = None
+        __props__["vlan_id"] = None
         return ExpressRouteCrossConnectionPeering(resource_name, opts=opts, __props__=__props__)
 
     @property

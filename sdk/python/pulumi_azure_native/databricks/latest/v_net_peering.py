@@ -53,7 +53,7 @@ class VNetPeering(pulumi.CustomResource):
         :param pulumi.Input[bool] use_remote_gateways: If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         """
-        pulumi.log.warn("VNetPeering is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:databricks:vNetPeering'.")
+        pulumi.log.warn("""VNetPeering is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:databricks:vNetPeering'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -116,6 +116,18 @@ class VNetPeering(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["allow_forwarded_traffic"] = None
+        __props__["allow_gateway_transit"] = None
+        __props__["allow_virtual_network_access"] = None
+        __props__["databricks_address_space"] = None
+        __props__["databricks_virtual_network"] = None
+        __props__["name"] = None
+        __props__["peering_state"] = None
+        __props__["provisioning_state"] = None
+        __props__["remote_address_space"] = None
+        __props__["remote_virtual_network"] = None
+        __props__["type"] = None
+        __props__["use_remote_gateways"] = None
         return VNetPeering(resource_name, opts=opts, __props__=__props__)
 
     @property

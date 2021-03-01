@@ -106,7 +106,7 @@ def get_guest_configuration_assignment(guest_configuration_assignment_name: Opti
     :param str resource_group_name: The resource group name.
     :param str vm_name: The name of the virtual machine.
     """
-    pulumi.log.warn("get_guest_configuration_assignment is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:guestconfiguration:getGuestConfigurationAssignment'.")
+    pulumi.log.warn("""get_guest_configuration_assignment is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:guestconfiguration:getGuestConfigurationAssignment'.""")
     __args__ = dict()
     __args__['guestConfigurationAssignmentName'] = guest_configuration_assignment_name
     __args__['resourceGroupName'] = resource_group_name

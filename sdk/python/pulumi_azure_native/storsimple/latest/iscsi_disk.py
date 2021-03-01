@@ -52,7 +52,7 @@ class IscsiDisk(pulumi.CustomResource):
         :param pulumi.Input[float] provisioned_capacity_in_bytes: The provisioned capacity in bytes.
         :param pulumi.Input[str] resource_group_name: The resource group name
         """
-        pulumi.log.warn("IscsiDisk is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storsimple:IscsiDisk'.")
+        pulumi.log.warn("""IscsiDisk is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storsimple:IscsiDisk'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -127,6 +127,16 @@ class IscsiDisk(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["access_control_records"] = None
+        __props__["data_policy"] = None
+        __props__["description"] = None
+        __props__["disk_status"] = None
+        __props__["local_used_capacity_in_bytes"] = None
+        __props__["monitoring_status"] = None
+        __props__["name"] = None
+        __props__["provisioned_capacity_in_bytes"] = None
+        __props__["type"] = None
+        __props__["used_capacity_in_bytes"] = None
         return IscsiDisk(resource_name, opts=opts, __props__=__props__)
 
     @property

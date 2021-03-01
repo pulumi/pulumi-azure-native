@@ -117,7 +117,7 @@ def get_access_policy(access_policy_name: Optional[str] = None,
     :param str environment_name: The name of the Time Series Insights environment associated with the specified resource group.
     :param str resource_group_name: Name of an Azure Resource group.
     """
-    pulumi.log.warn("get_access_policy is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:timeseriesinsights:getAccessPolicy'.")
+    pulumi.log.warn("""get_access_policy is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:timeseriesinsights:getAccessPolicy'.""")
     __args__ = dict()
     __args__['accessPolicyName'] = access_policy_name
     __args__['environmentName'] = environment_name

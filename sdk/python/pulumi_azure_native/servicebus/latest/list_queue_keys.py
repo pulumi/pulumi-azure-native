@@ -131,7 +131,7 @@ def list_queue_keys(authorization_rule_name: Optional[str] = None,
     :param str queue_name: The queue name.
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
-    pulumi.log.warn("list_queue_keys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:servicebus:listQueueKeys'.")
+    pulumi.log.warn("""list_queue_keys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:servicebus:listQueueKeys'.""")
     __args__ = dict()
     __args__['authorizationRuleName'] = authorization_rule_name
     __args__['namespaceName'] = namespace_name

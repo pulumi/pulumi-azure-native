@@ -85,7 +85,7 @@ def get_image_upload_url_for_data(entity_type: Optional[str] = None,
     :param str relative_path: Relative path of the image.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("get_image_upload_url_for_data is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:customerinsights:getImageUploadUrlForData'.")
+    pulumi.log.warn("""get_image_upload_url_for_data is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:customerinsights:getImageUploadUrlForData'.""")
     __args__ = dict()
     __args__['entityType'] = entity_type
     __args__['entityTypeName'] = entity_type_name

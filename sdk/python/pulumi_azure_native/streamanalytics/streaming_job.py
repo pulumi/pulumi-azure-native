@@ -130,6 +130,29 @@ class StreamingJob(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["compatibility_level"] = None
+        __props__["created_date"] = None
+        __props__["data_locale"] = None
+        __props__["etag"] = None
+        __props__["events_late_arrival_max_delay_in_seconds"] = None
+        __props__["events_out_of_order_max_delay_in_seconds"] = None
+        __props__["events_out_of_order_policy"] = None
+        __props__["functions"] = None
+        __props__["inputs"] = None
+        __props__["job_id"] = None
+        __props__["job_state"] = None
+        __props__["last_output_event_time"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["output_error_policy"] = None
+        __props__["output_start_mode"] = None
+        __props__["output_start_time"] = None
+        __props__["outputs"] = None
+        __props__["provisioning_state"] = None
+        __props__["sku"] = None
+        __props__["tags"] = None
+        __props__["transformation"] = None
+        __props__["type"] = None
         return StreamingJob(resource_name, opts=opts, __props__=__props__)
 
     @property

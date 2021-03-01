@@ -131,7 +131,7 @@ def list_disaster_recovery_config_keys(alias: Optional[str] = None,
     :param str namespace_name: The Namespace name
     :param str resource_group_name: Name of the resource group within the azure subscription.
     """
-    pulumi.log.warn("list_disaster_recovery_config_keys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:eventhub:listDisasterRecoveryConfigKeys'.")
+    pulumi.log.warn("""list_disaster_recovery_config_keys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:eventhub:listDisasterRecoveryConfigKeys'.""")
     __args__ = dict()
     __args__['alias'] = alias
     __args__['authorizationRuleName'] = authorization_rule_name

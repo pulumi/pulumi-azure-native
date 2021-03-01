@@ -105,6 +105,51 @@ func (e DaysOfWeek) ToStringPtrOutputWithContext(ctx context.Context) pulumi.Str
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// DaysOfWeekArrayInput is an input type that accepts DaysOfWeekArray and DaysOfWeekArrayOutput values.
+// You can construct a concrete instance of `DaysOfWeekArrayInput` via:
+//
+//          DaysOfWeekArray{ DaysOfWeekArgs{...} }
+type DaysOfWeekArrayInput interface {
+	pulumi.Input
+
+	ToDaysOfWeekArrayOutput() DaysOfWeekArrayOutput
+	ToDaysOfWeekArrayOutputWithContext(context.Context) DaysOfWeekArrayOutput
+}
+
+type DaysOfWeekArray []DaysOfWeek
+
+func (DaysOfWeekArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DaysOfWeek)(nil)).Elem()
+}
+
+func (i DaysOfWeekArray) ToDaysOfWeekArrayOutput() DaysOfWeekArrayOutput {
+	return i.ToDaysOfWeekArrayOutputWithContext(context.Background())
+}
+
+func (i DaysOfWeekArray) ToDaysOfWeekArrayOutputWithContext(ctx context.Context) DaysOfWeekArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DaysOfWeekArrayOutput)
+}
+
+type DaysOfWeekArrayOutput struct{ *pulumi.OutputState }
+
+func (DaysOfWeekArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DaysOfWeek)(nil)).Elem()
+}
+
+func (o DaysOfWeekArrayOutput) ToDaysOfWeekArrayOutput() DaysOfWeekArrayOutput {
+	return o
+}
+
+func (o DaysOfWeekArrayOutput) ToDaysOfWeekArrayOutputWithContext(ctx context.Context) DaysOfWeekArrayOutput {
+	return o
+}
+
+func (o DaysOfWeekArrayOutput) Index(i pulumi.IntInput) pulumi.StringOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) pulumi.StringOutput {
+		return vs[0].([]DaysOfWeek)[vs[1].(int)].ToStringOutput()
+	}).(pulumi.StringOutput)
+}
+
 // The EDIFACT frame setting characterSet.
 type EdifactCharacterSet pulumi.String
 

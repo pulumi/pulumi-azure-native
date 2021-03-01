@@ -131,7 +131,7 @@ def get_geo_backup_policy(database_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str server_name: The name of the server.
     """
-    pulumi.log.warn("get_geo_backup_policy is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:sql:getGeoBackupPolicy'.")
+    pulumi.log.warn("""get_geo_backup_policy is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:sql:getGeoBackupPolicy'.""")
     __args__ = dict()
     __args__['databaseName'] = database_name
     __args__['geoBackupPolicyName'] = geo_backup_policy_name

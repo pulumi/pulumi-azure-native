@@ -53,7 +53,7 @@ class ExpressRouteConnection(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['RoutingConfigurationArgs']] routing_configuration: The Routing Configuration indicating the associated and propagated route tables on this connection.
         :param pulumi.Input[int] routing_weight: The routing weight associated to the connection.
         """
-        pulumi.log.warn("ExpressRouteConnection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:ExpressRouteConnection'.")
+        pulumi.log.warn("""ExpressRouteConnection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:ExpressRouteConnection'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -115,6 +115,14 @@ class ExpressRouteConnection(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["authorization_key"] = None
+        __props__["enable_internet_security"] = None
+        __props__["express_route_circuit_peering"] = None
+        __props__["express_route_gateway_bypass"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["routing_configuration"] = None
+        __props__["routing_weight"] = None
         return ExpressRouteConnection(resource_name, opts=opts, __props__=__props__)
 
     @property

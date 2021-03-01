@@ -113,6 +113,23 @@ class FrontDoor(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["backend_pools"] = None
+        __props__["backend_pools_settings"] = None
+        __props__["cname"] = None
+        __props__["enabled_state"] = None
+        __props__["friendly_name"] = None
+        __props__["frontdoor_id"] = None
+        __props__["frontend_endpoints"] = None
+        __props__["health_probe_settings"] = None
+        __props__["load_balancing_settings"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["resource_state"] = None
+        __props__["routing_rules"] = None
+        __props__["rules_engines"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
         return FrontDoor(resource_name, opts=opts, __props__=__props__)
 
     @property

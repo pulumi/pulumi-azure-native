@@ -204,7 +204,7 @@ def get_notification_channel(expand: Optional[str] = None,
     :param str name: The name of the notification channel.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("get_notification_channel is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devtestlab:getNotificationChannel'.")
+    pulumi.log.warn("""get_notification_channel is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devtestlab:getNotificationChannel'.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['labName'] = lab_name

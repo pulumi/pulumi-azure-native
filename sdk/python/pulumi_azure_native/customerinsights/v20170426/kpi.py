@@ -139,6 +139,27 @@ class Kpi(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["aliases"] = None
+        __props__["calculation_window"] = None
+        __props__["calculation_window_field_name"] = None
+        __props__["description"] = None
+        __props__["display_name"] = None
+        __props__["entity_type"] = None
+        __props__["entity_type_name"] = None
+        __props__["expression"] = None
+        __props__["extracts"] = None
+        __props__["filter"] = None
+        __props__["function"] = None
+        __props__["group_by"] = None
+        __props__["group_by_metadata"] = None
+        __props__["kpi_name"] = None
+        __props__["name"] = None
+        __props__["participant_profiles_metadata"] = None
+        __props__["provisioning_state"] = None
+        __props__["tenant_id"] = None
+        __props__["thres_holds"] = None
+        __props__["type"] = None
+        __props__["unit"] = None
         return Kpi(resource_name, opts=opts, __props__=__props__)
 
     @property

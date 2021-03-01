@@ -50,7 +50,7 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the Azure subscription.
         :param pulumi.Input[str] transform_name: The Transform name.
         """
-        pulumi.log.warn("Job is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:media:Job'.")
+        pulumi.log.warn("""Job is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:media:Job'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -119,6 +119,19 @@ class Job(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["correlation_data"] = None
+        __props__["created"] = None
+        __props__["description"] = None
+        __props__["end_time"] = None
+        __props__["input"] = None
+        __props__["last_modified"] = None
+        __props__["name"] = None
+        __props__["outputs"] = None
+        __props__["priority"] = None
+        __props__["start_time"] = None
+        __props__["state"] = None
+        __props__["system_data"] = None
+        __props__["type"] = None
         return Job(resource_name, opts=opts, __props__=__props__)
 
     @property

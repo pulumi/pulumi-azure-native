@@ -115,7 +115,7 @@ def get_ssh_public_key(resource_group_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     :param str ssh_public_key_name: The name of the SSH public key.
     """
-    pulumi.log.warn("get_ssh_public_key is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:compute:getSshPublicKey'.")
+    pulumi.log.warn("""get_ssh_public_key is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:compute:getSshPublicKey'.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['sshPublicKeyName'] = ssh_public_key_name

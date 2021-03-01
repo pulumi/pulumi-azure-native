@@ -44,7 +44,7 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] resource_group_name: The name of the resource group containing the Kusto cluster.
         """
-        pulumi.log.warn("AttachedDatabaseConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:kusto:AttachedDatabaseConfiguration'.")
+        pulumi.log.warn("""AttachedDatabaseConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:kusto:AttachedDatabaseConfiguration'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -107,6 +107,14 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["attached_database_names"] = None
+        __props__["cluster_resource_id"] = None
+        __props__["database_name"] = None
+        __props__["default_principals_modification_kind"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["type"] = None
         return AttachedDatabaseConfiguration(resource_name, opts=opts, __props__=__props__)
 
     @property

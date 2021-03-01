@@ -135,7 +135,7 @@ def get_jit_network_access_policy(asc_location: Optional[str] = None,
     :param str jit_network_access_policy_name: Name of a Just-in-Time access configuration policy.
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     """
-    pulumi.log.warn("get_jit_network_access_policy is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:security:getJitNetworkAccessPolicy'.")
+    pulumi.log.warn("""get_jit_network_access_policy is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:security:getJitNetworkAccessPolicy'.""")
     __args__ = dict()
     __args__['ascLocation'] = asc_location
     __args__['jitNetworkAccessPolicyName'] = jit_network_access_policy_name

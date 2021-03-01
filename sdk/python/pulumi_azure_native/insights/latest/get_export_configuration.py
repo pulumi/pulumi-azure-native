@@ -273,7 +273,7 @@ def get_export_configuration(export_id: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str resource_name: The name of the Application Insights component resource.
     """
-    pulumi.log.warn("get_export_configuration is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:insights:getExportConfiguration'.")
+    pulumi.log.warn("""get_export_configuration is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:insights:getExportConfiguration'.""")
     __args__ = dict()
     __args__['exportId'] = export_id
     __args__['resourceGroupName'] = resource_group_name

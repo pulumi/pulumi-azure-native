@@ -72,7 +72,7 @@ def list_share_subscription_source_share_synchronization_settings(account_name: 
     :param str share_subscription_name: The name of the shareSubscription.
     :param str skip_token: Continuation token
     """
-    pulumi.log.warn("list_share_subscription_source_share_synchronization_settings is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datashare:listShareSubscriptionSourceShareSynchronizationSettings'.")
+    pulumi.log.warn("""list_share_subscription_source_share_synchronization_settings is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datashare:listShareSubscriptionSourceShareSynchronizationSettings'.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['resourceGroupName'] = resource_group_name

@@ -121,6 +121,21 @@ class VirtualMachineSchedule(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["created_date"] = None
+        __props__["daily_recurrence"] = None
+        __props__["hourly_recurrence"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["notification_settings"] = None
+        __props__["provisioning_state"] = None
+        __props__["status"] = None
+        __props__["tags"] = None
+        __props__["target_resource_id"] = None
+        __props__["task_type"] = None
+        __props__["time_zone_id"] = None
+        __props__["type"] = None
+        __props__["unique_identifier"] = None
+        __props__["weekly_recurrence"] = None
         return VirtualMachineSchedule(resource_name, opts=opts, __props__=__props__)
 
     @property

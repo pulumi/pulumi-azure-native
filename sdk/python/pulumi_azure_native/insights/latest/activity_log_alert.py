@@ -49,7 +49,7 @@ class ActivityLogAlert(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: A list of resource IDs that will be used as prefixes. The alert will only apply to Activity Log events with resource IDs that fall under one of these prefixes. This list must include at least one item.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         """
-        pulumi.log.warn("ActivityLogAlert is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:insights:ActivityLogAlert'.")
+        pulumi.log.warn("""ActivityLogAlert is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:insights:ActivityLogAlert'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -114,6 +114,15 @@ class ActivityLogAlert(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["actions"] = None
+        __props__["condition"] = None
+        __props__["description"] = None
+        __props__["enabled"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["scopes"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
         return ActivityLogAlert(resource_name, opts=opts, __props__=__props__)
 
     @property

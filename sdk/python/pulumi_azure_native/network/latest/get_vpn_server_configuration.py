@@ -272,7 +272,7 @@ def get_vpn_server_configuration(resource_group_name: Optional[str] = None,
     :param str resource_group_name: The resource group name of the VpnServerConfiguration.
     :param str vpn_server_configuration_name: The name of the VpnServerConfiguration being retrieved.
     """
-    pulumi.log.warn("get_vpn_server_configuration is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getVpnServerConfiguration'.")
+    pulumi.log.warn("""get_vpn_server_configuration is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getVpnServerConfiguration'.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['vpnServerConfigurationName'] = vpn_server_configuration_name

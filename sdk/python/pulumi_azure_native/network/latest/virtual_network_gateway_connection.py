@@ -76,7 +76,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['VirtualNetworkGatewayArgs']] virtual_network_gateway2: The reference to virtual network gateway resource.
         :param pulumi.Input[str] virtual_network_gateway_connection_name: The name of the virtual network gateway connection.
         """
-        pulumi.log.warn("VirtualNetworkGatewayConnection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:VirtualNetworkGatewayConnection'.")
+        pulumi.log.warn("""VirtualNetworkGatewayConnection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:VirtualNetworkGatewayConnection'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -155,6 +155,34 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["authorization_key"] = None
+        __props__["connection_mode"] = None
+        __props__["connection_protocol"] = None
+        __props__["connection_status"] = None
+        __props__["connection_type"] = None
+        __props__["dpd_timeout_seconds"] = None
+        __props__["egress_bytes_transferred"] = None
+        __props__["enable_bgp"] = None
+        __props__["etag"] = None
+        __props__["express_route_gateway_bypass"] = None
+        __props__["ingress_bytes_transferred"] = None
+        __props__["ipsec_policies"] = None
+        __props__["local_network_gateway2"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["peer"] = None
+        __props__["provisioning_state"] = None
+        __props__["resource_guid"] = None
+        __props__["routing_weight"] = None
+        __props__["shared_key"] = None
+        __props__["tags"] = None
+        __props__["traffic_selector_policies"] = None
+        __props__["tunnel_connection_status"] = None
+        __props__["type"] = None
+        __props__["use_local_azure_ip_address"] = None
+        __props__["use_policy_based_traffic_selectors"] = None
+        __props__["virtual_network_gateway1"] = None
+        __props__["virtual_network_gateway2"] = None
         return VirtualNetworkGatewayConnection(resource_name, opts=opts, __props__=__props__)
 
     @property

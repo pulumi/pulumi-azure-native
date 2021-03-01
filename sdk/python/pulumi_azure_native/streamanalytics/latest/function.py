@@ -41,7 +41,7 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ScalarFunctionPropertiesArgs']] properties: The properties that are associated with a function.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         """
-        pulumi.log.warn("Function is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:streamanalytics:Function'.")
+        pulumi.log.warn("""Function is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:streamanalytics:Function'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -93,6 +93,9 @@ class Function(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["name"] = None
+        __props__["properties"] = None
+        __props__["type"] = None
         return Function(resource_name, opts=opts, __props__=__props__)
 
     @property

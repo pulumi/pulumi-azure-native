@@ -109,6 +109,18 @@ class DiskPool(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["additional_capabilities"] = None
+        __props__["availability_zones"] = None
+        __props__["disks"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["status"] = None
+        __props__["subnet_id"] = None
+        __props__["system_data"] = None
+        __props__["tags"] = None
+        __props__["tier"] = None
+        __props__["type"] = None
         return DiskPool(resource_name, opts=opts, __props__=__props__)
 
     @property

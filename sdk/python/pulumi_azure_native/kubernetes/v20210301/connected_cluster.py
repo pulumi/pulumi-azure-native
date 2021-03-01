@@ -112,6 +112,24 @@ class ConnectedCluster(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["agent_public_key_certificate"] = None
+        __props__["agent_version"] = None
+        __props__["connectivity_status"] = None
+        __props__["distribution"] = None
+        __props__["identity"] = None
+        __props__["infrastructure"] = None
+        __props__["kubernetes_version"] = None
+        __props__["last_connectivity_time"] = None
+        __props__["location"] = None
+        __props__["managed_identity_certificate_expiration_time"] = None
+        __props__["name"] = None
+        __props__["offering"] = None
+        __props__["provisioning_state"] = None
+        __props__["system_data"] = None
+        __props__["tags"] = None
+        __props__["total_core_count"] = None
+        __props__["total_node_count"] = None
+        __props__["type"] = None
         return ConnectedCluster(resource_name, opts=opts, __props__=__props__)
 
     @property

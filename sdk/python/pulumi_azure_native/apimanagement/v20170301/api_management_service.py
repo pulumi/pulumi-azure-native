@@ -135,6 +135,31 @@ class ApiManagementService(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["additional_locations"] = None
+        __props__["certificates"] = None
+        __props__["created_at_utc"] = None
+        __props__["custom_properties"] = None
+        __props__["etag"] = None
+        __props__["gateway_regional_url"] = None
+        __props__["gateway_url"] = None
+        __props__["hostname_configurations"] = None
+        __props__["identity"] = None
+        __props__["location"] = None
+        __props__["management_api_url"] = None
+        __props__["name"] = None
+        __props__["notification_sender_email"] = None
+        __props__["portal_url"] = None
+        __props__["provisioning_state"] = None
+        __props__["publisher_email"] = None
+        __props__["publisher_name"] = None
+        __props__["scm_url"] = None
+        __props__["sku"] = None
+        __props__["static_ips"] = None
+        __props__["tags"] = None
+        __props__["target_provisioning_state"] = None
+        __props__["type"] = None
+        __props__["virtual_network_configuration"] = None
+        __props__["virtual_network_type"] = None
         return ApiManagementService(resource_name, opts=opts, __props__=__props__)
 
     @property

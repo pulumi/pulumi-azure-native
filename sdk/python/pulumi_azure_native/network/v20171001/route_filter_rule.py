@@ -108,6 +108,14 @@ class RouteFilterRule(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["access"] = None
+        __props__["communities"] = None
+        __props__["etag"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["route_filter_rule_type"] = None
+        __props__["tags"] = None
         return RouteFilterRule(resource_name, opts=opts, __props__=__props__)
 
     @property

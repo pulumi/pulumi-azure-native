@@ -50,7 +50,7 @@ class Budget(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'TimeGrainType']] time_grain: The time covered by a budget. Tracking of the amount will be reset based on the time grain. BillingMonth, BillingQuarter, and BillingAnnual are only supported by WD customers
         :param pulumi.Input[pulumi.InputType['BudgetTimePeriodArgs']] time_period: Has start and end date of the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than twelve months. Past start date should  be selected within the timegrain period. There are no restrictions on the end date.
         """
-        pulumi.log.warn("Budget is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:consumption:Budget'.")
+        pulumi.log.warn("""Budget is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:consumption:Budget'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -114,6 +114,16 @@ class Budget(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["amount"] = None
+        __props__["category"] = None
+        __props__["current_spend"] = None
+        __props__["e_tag"] = None
+        __props__["filter"] = None
+        __props__["name"] = None
+        __props__["notifications"] = None
+        __props__["time_grain"] = None
+        __props__["time_period"] = None
+        __props__["type"] = None
         return Budget(resource_name, opts=opts, __props__=__props__)
 
     @property

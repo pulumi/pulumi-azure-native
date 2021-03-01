@@ -116,7 +116,7 @@ def get_management_lock_by_scope(lock_name: Optional[str] = None,
     :param str lock_name: The name of lock.
     :param str scope: The scope for the lock. 
     """
-    pulumi.log.warn("get_management_lock_by_scope is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:authorization:getManagementLockByScope'.")
+    pulumi.log.warn("""get_management_lock_by_scope is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:authorization:getManagementLockByScope'.""")
     __args__ = dict()
     __args__['lockName'] = lock_name
     __args__['scope'] = scope

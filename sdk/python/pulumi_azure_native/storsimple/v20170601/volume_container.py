@@ -109,6 +109,17 @@ class VolumeContainer(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["band_width_rate_in_mbps"] = None
+        __props__["bandwidth_setting_id"] = None
+        __props__["encryption_key"] = None
+        __props__["encryption_status"] = None
+        __props__["kind"] = None
+        __props__["name"] = None
+        __props__["owner_ship_status"] = None
+        __props__["storage_account_credential_id"] = None
+        __props__["total_cloud_storage_usage_in_bytes"] = None
+        __props__["type"] = None
+        __props__["volume_count"] = None
         return VolumeContainer(resource_name, opts=opts, __props__=__props__)
 
     @property

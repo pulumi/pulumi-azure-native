@@ -46,7 +46,7 @@ class Pool(pulumi.CustomResource):
         :param pulumi.Input[float] size: Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
-        pulumi.log.warn("Pool is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:netapp:Pool'.")
+        pulumi.log.warn("""Pool is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:netapp:Pool'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -114,6 +114,17 @@ class Pool(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["pool_id"] = None
+        __props__["provisioning_state"] = None
+        __props__["qos_type"] = None
+        __props__["service_level"] = None
+        __props__["size"] = None
+        __props__["tags"] = None
+        __props__["total_throughput_mibps"] = None
+        __props__["type"] = None
+        __props__["utilized_throughput_mibps"] = None
         return Pool(resource_name, opts=opts, __props__=__props__)
 
     @property

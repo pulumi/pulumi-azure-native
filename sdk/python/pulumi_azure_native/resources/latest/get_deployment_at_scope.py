@@ -116,7 +116,7 @@ def get_deployment_at_scope(deployment_name: Optional[str] = None,
     :param str deployment_name: The name of the deployment.
     :param str scope: The resource scope.
     """
-    pulumi.log.warn("get_deployment_at_scope is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:resources:getDeploymentAtScope'.")
+    pulumi.log.warn("""get_deployment_at_scope is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:resources:getDeploymentAtScope'.""")
     __args__ = dict()
     __args__['deploymentName'] = deployment_name
     __args__['scope'] = scope

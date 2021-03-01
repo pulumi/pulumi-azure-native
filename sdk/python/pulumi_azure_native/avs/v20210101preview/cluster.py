@@ -93,6 +93,13 @@ class Cluster(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["cluster_id"] = None
+        __props__["cluster_size"] = None
+        __props__["hosts"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["sku"] = None
+        __props__["type"] = None
         return Cluster(resource_name, opts=opts, __props__=__props__)
 
     @property

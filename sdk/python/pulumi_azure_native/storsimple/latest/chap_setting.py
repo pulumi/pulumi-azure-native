@@ -42,7 +42,7 @@ class ChapSetting(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['AsymmetricEncryptedSecretArgs']] password: The chap password.
         :param pulumi.Input[str] resource_group_name: The resource group name
         """
-        pulumi.log.warn("ChapSetting is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storsimple:ChapSetting'.")
+        pulumi.log.warn("""ChapSetting is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storsimple:ChapSetting'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -99,6 +99,9 @@ class ChapSetting(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["name"] = None
+        __props__["password"] = None
+        __props__["type"] = None
         return ChapSetting(resource_name, opts=opts, __props__=__props__)
 
     @property

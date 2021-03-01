@@ -130,6 +130,25 @@ class ApplicationGateway(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["backend_address_pools"] = None
+        __props__["backend_http_settings_collection"] = None
+        __props__["etag"] = None
+        __props__["frontend_ip_configurations"] = None
+        __props__["frontend_ports"] = None
+        __props__["gateway_ip_configurations"] = None
+        __props__["http_listeners"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["operational_state"] = None
+        __props__["probes"] = None
+        __props__["provisioning_state"] = None
+        __props__["request_routing_rules"] = None
+        __props__["resource_guid"] = None
+        __props__["sku"] = None
+        __props__["ssl_certificates"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["url_path_maps"] = None
         return ApplicationGateway(resource_name, opts=opts, __props__=__props__)
 
     @property

@@ -43,7 +43,7 @@ class FileServiceProperties(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         :param pulumi.Input[pulumi.InputType['DeleteRetentionPolicyArgs']] share_delete_retention_policy: The file service properties for share soft delete.
         """
-        pulumi.log.warn("FileServiceProperties is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storage:FileServiceProperties'.")
+        pulumi.log.warn("""FileServiceProperties is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storage:FileServiceProperties'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -98,6 +98,12 @@ class FileServiceProperties(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["cors"] = None
+        __props__["name"] = None
+        __props__["protocol_settings"] = None
+        __props__["share_delete_retention_policy"] = None
+        __props__["sku"] = None
+        __props__["type"] = None
         return FileServiceProperties(resource_name, opts=opts, __props__=__props__)
 
     @property

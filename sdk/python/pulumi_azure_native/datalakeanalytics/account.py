@@ -147,6 +147,36 @@ class Account(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["account_id"] = None
+        __props__["compute_policies"] = None
+        __props__["creation_time"] = None
+        __props__["current_tier"] = None
+        __props__["data_lake_store_accounts"] = None
+        __props__["debug_data_access_level"] = None
+        __props__["default_data_lake_store_account"] = None
+        __props__["endpoint"] = None
+        __props__["firewall_allow_azure_ips"] = None
+        __props__["firewall_rules"] = None
+        __props__["firewall_state"] = None
+        __props__["hive_metastores"] = None
+        __props__["last_modified_time"] = None
+        __props__["location"] = None
+        __props__["max_degree_of_parallelism"] = None
+        __props__["max_degree_of_parallelism_per_job"] = None
+        __props__["max_job_count"] = None
+        __props__["min_priority_per_job"] = None
+        __props__["name"] = None
+        __props__["new_tier"] = None
+        __props__["provisioning_state"] = None
+        __props__["public_data_lake_store_accounts"] = None
+        __props__["query_store_retention"] = None
+        __props__["state"] = None
+        __props__["storage_accounts"] = None
+        __props__["system_max_degree_of_parallelism"] = None
+        __props__["system_max_job_count"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["virtual_network_rules"] = None
         return Account(resource_name, opts=opts, __props__=__props__)
 
     @property

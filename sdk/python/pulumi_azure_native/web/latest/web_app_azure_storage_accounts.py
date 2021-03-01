@@ -40,7 +40,7 @@ class WebAppAzureStorageAccounts(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['AzureStorageInfoValueArgs']]]] properties: Azure storage accounts.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
         """
-        pulumi.log.warn("WebAppAzureStorageAccounts is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppAzureStorageAccounts'.")
+        pulumi.log.warn("""WebAppAzureStorageAccounts is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppAzureStorageAccounts'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -92,6 +92,11 @@ class WebAppAzureStorageAccounts(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["kind"] = None
+        __props__["name"] = None
+        __props__["properties"] = None
+        __props__["system_data"] = None
+        __props__["type"] = None
         return WebAppAzureStorageAccounts(resource_name, opts=opts, __props__=__props__)
 
     @property

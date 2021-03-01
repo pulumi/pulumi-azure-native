@@ -125,6 +125,24 @@ class SqlVirtualMachine(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["auto_backup_settings"] = None
+        __props__["auto_patching_settings"] = None
+        __props__["identity"] = None
+        __props__["key_vault_credential_settings"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["server_configurations_management_settings"] = None
+        __props__["sql_image_offer"] = None
+        __props__["sql_image_sku"] = None
+        __props__["sql_management"] = None
+        __props__["sql_server_license_type"] = None
+        __props__["sql_virtual_machine_group_resource_id"] = None
+        __props__["storage_configuration_settings"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["virtual_machine_resource_id"] = None
+        __props__["wsfc_domain_credentials"] = None
         return SqlVirtualMachine(resource_name, opts=opts, __props__=__props__)
 
     @property

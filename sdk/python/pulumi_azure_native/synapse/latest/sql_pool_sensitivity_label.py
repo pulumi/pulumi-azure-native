@@ -53,7 +53,7 @@ class SqlPoolSensitivityLabel(pulumi.CustomResource):
         :param pulumi.Input[str] table_name: The name of the table.
         :param pulumi.Input[str] workspace_name: The name of the workspace
         """
-        pulumi.log.warn("SqlPoolSensitivityLabel is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:synapse:SqlPoolSensitivityLabel'.")
+        pulumi.log.warn("""SqlPoolSensitivityLabel is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:synapse:SqlPoolSensitivityLabel'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -123,6 +123,18 @@ class SqlPoolSensitivityLabel(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["column_name"] = None
+        __props__["information_type"] = None
+        __props__["information_type_id"] = None
+        __props__["is_disabled"] = None
+        __props__["label_id"] = None
+        __props__["label_name"] = None
+        __props__["managed_by"] = None
+        __props__["name"] = None
+        __props__["rank"] = None
+        __props__["schema_name"] = None
+        __props__["table_name"] = None
+        __props__["type"] = None
         return SqlPoolSensitivityLabel(resource_name, opts=opts, __props__=__props__)
 
     @property

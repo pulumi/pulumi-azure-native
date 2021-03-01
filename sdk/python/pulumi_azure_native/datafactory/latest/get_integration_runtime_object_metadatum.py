@@ -72,7 +72,7 @@ def get_integration_runtime_object_metadatum(factory_name: Optional[str] = None,
     :param str metadata_path: Metadata path.
     :param str resource_group_name: The resource group name.
     """
-    pulumi.log.warn("get_integration_runtime_object_metadatum is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datafactory:getIntegrationRuntimeObjectMetadatum'.")
+    pulumi.log.warn("""get_integration_runtime_object_metadatum is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datafactory:getIntegrationRuntimeObjectMetadatum'.""")
     __args__ = dict()
     __args__['factoryName'] = factory_name
     __args__['integrationRuntimeName'] = integration_runtime_name

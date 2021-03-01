@@ -121,6 +121,30 @@ class Lab(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["announcement"] = None
+        __props__["artifacts_storage_account"] = None
+        __props__["created_date"] = None
+        __props__["default_premium_storage_account"] = None
+        __props__["default_storage_account"] = None
+        __props__["environment_permission"] = None
+        __props__["extended_properties"] = None
+        __props__["lab_storage_type"] = None
+        __props__["load_balancer_id"] = None
+        __props__["location"] = None
+        __props__["mandatory_artifacts_resource_ids_linux"] = None
+        __props__["mandatory_artifacts_resource_ids_windows"] = None
+        __props__["name"] = None
+        __props__["network_security_group_id"] = None
+        __props__["premium_data_disk_storage_account"] = None
+        __props__["premium_data_disks"] = None
+        __props__["provisioning_state"] = None
+        __props__["public_ip_id"] = None
+        __props__["support"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["unique_identifier"] = None
+        __props__["vault_name"] = None
+        __props__["vm_creation_resource_group"] = None
         return Lab(resource_name, opts=opts, __props__=__props__)
 
     @property

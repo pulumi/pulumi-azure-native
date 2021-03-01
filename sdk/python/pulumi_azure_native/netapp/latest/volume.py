@@ -79,7 +79,7 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[str] volume_name: The name of the volume
         :param pulumi.Input[str] volume_type: What type of volume is this
         """
-        pulumi.log.warn("Volume is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:netapp:Volume'.")
+        pulumi.log.warn("""Volume is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:netapp:Volume'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -179,6 +179,32 @@ class Volume(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["backup_id"] = None
+        __props__["baremetal_tenant_id"] = None
+        __props__["creation_token"] = None
+        __props__["data_protection"] = None
+        __props__["encryption_key_source"] = None
+        __props__["export_policy"] = None
+        __props__["file_system_id"] = None
+        __props__["is_restoring"] = None
+        __props__["kerberos_enabled"] = None
+        __props__["location"] = None
+        __props__["mount_targets"] = None
+        __props__["name"] = None
+        __props__["protocol_types"] = None
+        __props__["provisioning_state"] = None
+        __props__["security_style"] = None
+        __props__["service_level"] = None
+        __props__["smb_continuously_available"] = None
+        __props__["smb_encryption"] = None
+        __props__["snapshot_directory_visible"] = None
+        __props__["snapshot_id"] = None
+        __props__["subnet_id"] = None
+        __props__["tags"] = None
+        __props__["throughput_mibps"] = None
+        __props__["type"] = None
+        __props__["usage_threshold"] = None
+        __props__["volume_type"] = None
         return Volume(resource_name, opts=opts, __props__=__props__)
 
     @property

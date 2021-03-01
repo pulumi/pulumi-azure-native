@@ -50,7 +50,7 @@ class WebAppBackupConfigurationSlot(pulumi.CustomResource):
         :param pulumi.Input[str] slot: Name of the deployment slot. If a slot is not specified, the API will update the backup configuration for the production slot.
         :param pulumi.Input[str] storage_account_url: SAS URL to the container.
         """
-        pulumi.log.warn("WebAppBackupConfigurationSlot is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppBackupConfigurationSlot'.")
+        pulumi.log.warn("""WebAppBackupConfigurationSlot is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppBackupConfigurationSlot'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -111,6 +111,15 @@ class WebAppBackupConfigurationSlot(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["backup_name"] = None
+        __props__["backup_schedule"] = None
+        __props__["databases"] = None
+        __props__["enabled"] = None
+        __props__["kind"] = None
+        __props__["name"] = None
+        __props__["storage_account_url"] = None
+        __props__["system_data"] = None
+        __props__["type"] = None
         return WebAppBackupConfigurationSlot(resource_name, opts=opts, __props__=__props__)
 
     @property

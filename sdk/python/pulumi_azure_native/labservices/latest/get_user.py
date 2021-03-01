@@ -206,7 +206,7 @@ def get_user(expand: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     :param str user_name: The name of the user.
     """
-    pulumi.log.warn("get_user is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:labservices:getUser'.")
+    pulumi.log.warn("""get_user is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:labservices:getUser'.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['labAccountName'] = lab_account_name

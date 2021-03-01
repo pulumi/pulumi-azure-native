@@ -158,7 +158,7 @@ def get_analytics_item(id: Optional[str] = None,
     :param str resource_name: The name of the Application Insights component resource.
     :param str scope_path: Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component.
     """
-    pulumi.log.warn("get_analytics_item is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:insights:getAnalyticsItem'.")
+    pulumi.log.warn("""get_analytics_item is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:insights:getAnalyticsItem'.""")
     __args__ = dict()
     __args__['id'] = id
     __args__['name'] = name

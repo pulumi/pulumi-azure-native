@@ -188,7 +188,7 @@ def get_adc_catalog(catalog_name: Optional[str] = None,
     :param str catalog_name: The name of the data catalog in the specified subscription and resource group.
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     """
-    pulumi.log.warn("get_adc_catalog is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datacatalog:getADCCatalog'.")
+    pulumi.log.warn("""get_adc_catalog is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datacatalog:getADCCatalog'.""")
     __args__ = dict()
     __args__['catalogName'] = catalog_name
     __args__['resourceGroupName'] = resource_group_name

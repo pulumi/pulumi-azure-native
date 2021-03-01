@@ -53,7 +53,7 @@ class IpAllocation(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[Union[str, 'IpAllocationType']] type: The type for the IpAllocation.
         """
-        pulumi.log.warn("IpAllocation is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:IpAllocation'.")
+        pulumi.log.warn("""IpAllocation is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:IpAllocation'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -114,6 +114,18 @@ class IpAllocation(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["allocation_tags"] = None
+        __props__["etag"] = None
+        __props__["ipam_allocation_id"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["prefix"] = None
+        __props__["prefix_length"] = None
+        __props__["prefix_type"] = None
+        __props__["subnet"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["virtual_network"] = None
         return IpAllocation(resource_name, opts=opts, __props__=__props__)
 
     @property

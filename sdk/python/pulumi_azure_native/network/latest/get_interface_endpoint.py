@@ -190,7 +190,7 @@ def get_interface_endpoint(expand: Optional[str] = None,
     :param str interface_endpoint_name: The name of the interface endpoint.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("get_interface_endpoint is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getInterfaceEndpoint'.")
+    pulumi.log.warn("""get_interface_endpoint is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getInterfaceEndpoint'.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['interfaceEndpointName'] = interface_endpoint_name

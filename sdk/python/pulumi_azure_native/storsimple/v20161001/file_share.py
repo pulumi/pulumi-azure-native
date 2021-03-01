@@ -121,6 +121,16 @@ class FileShare(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["admin_user"] = None
+        __props__["data_policy"] = None
+        __props__["description"] = None
+        __props__["local_used_capacity_in_bytes"] = None
+        __props__["monitoring_status"] = None
+        __props__["name"] = None
+        __props__["provisioned_capacity_in_bytes"] = None
+        __props__["share_status"] = None
+        __props__["type"] = None
+        __props__["used_capacity_in_bytes"] = None
         return FileShare(resource_name, opts=opts, __props__=__props__)
 
     @property

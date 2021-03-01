@@ -178,7 +178,7 @@ def get_route_table(expand: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     :param str route_table_name: The name of the route table.
     """
-    pulumi.log.warn("get_route_table is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getRouteTable'.")
+    pulumi.log.warn("""get_route_table is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getRouteTable'.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['resourceGroupName'] = resource_group_name

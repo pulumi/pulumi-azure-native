@@ -46,7 +46,7 @@ class RouteTable(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RouteArgs']]]] routes: Collection of routes contained within a route table.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.log.warn("RouteTable is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:RouteTable'.")
+        pulumi.log.warn("""RouteTable is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:RouteTable'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -103,6 +103,16 @@ class RouteTable(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["disable_bgp_route_propagation"] = None
+        __props__["etag"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["resource_guid"] = None
+        __props__["routes"] = None
+        __props__["subnets"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
         return RouteTable(resource_name, opts=opts, __props__=__props__)
 
     @property

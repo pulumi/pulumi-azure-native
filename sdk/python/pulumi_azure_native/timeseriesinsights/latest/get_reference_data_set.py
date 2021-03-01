@@ -154,7 +154,7 @@ def get_reference_data_set(environment_name: Optional[str] = None,
     :param str reference_data_set_name: The name of the Time Series Insights reference data set associated with the specified environment.
     :param str resource_group_name: Name of an Azure Resource group.
     """
-    pulumi.log.warn("get_reference_data_set is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:timeseriesinsights:getReferenceDataSet'.")
+    pulumi.log.warn("""get_reference_data_set is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:timeseriesinsights:getReferenceDataSet'.""")
     __args__ = dict()
     __args__['environmentName'] = environment_name
     __args__['referenceDataSetName'] = reference_data_set_name

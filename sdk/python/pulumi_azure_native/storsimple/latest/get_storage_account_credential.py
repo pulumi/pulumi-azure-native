@@ -142,7 +142,7 @@ def get_storage_account_credential(manager_name: Optional[str] = None,
     :param str resource_group_name: The resource group name
     :param str storage_account_credential_name: The name of storage account credential to be fetched.
     """
-    pulumi.log.warn("get_storage_account_credential is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storsimple:getStorageAccountCredential'.")
+    pulumi.log.warn("""get_storage_account_credential is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storsimple:getStorageAccountCredential'.""")
     __args__ = dict()
     __args__['managerName'] = manager_name
     __args__['resourceGroupName'] = resource_group_name

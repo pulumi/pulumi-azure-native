@@ -128,7 +128,7 @@ def get_integration_service_environment(integration_service_environment_name: Op
     :param str integration_service_environment_name: The integration service environment name.
     :param str resource_group: The resource group.
     """
-    pulumi.log.warn("get_integration_service_environment is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:logic:getIntegrationServiceEnvironment'.")
+    pulumi.log.warn("""get_integration_service_environment is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:logic:getIntegrationServiceEnvironment'.""")
     __args__ = dict()
     __args__['integrationServiceEnvironmentName'] = integration_service_environment_name
     __args__['resourceGroup'] = resource_group

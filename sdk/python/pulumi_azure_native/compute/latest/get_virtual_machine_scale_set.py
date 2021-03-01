@@ -344,7 +344,7 @@ def get_virtual_machine_scale_set(resource_group_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     :param str vm_scale_set_name: The name of the VM scale set.
     """
-    pulumi.log.warn("get_virtual_machine_scale_set is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:compute:getVirtualMachineScaleSet'.")
+    pulumi.log.warn("""get_virtual_machine_scale_set is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:compute:getVirtualMachineScaleSet'.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['vmScaleSetName'] = vm_scale_set_name

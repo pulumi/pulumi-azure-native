@@ -130,7 +130,7 @@ def get_user(device_name: Optional[str] = None,
     :param str name: The user name.
     :param str resource_group_name: The resource group name.
     """
-    pulumi.log.warn("get_user is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:databoxedge:getUser'.")
+    pulumi.log.warn("""get_user is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:databoxedge:getUser'.""")
     __args__ = dict()
     __args__['deviceName'] = device_name
     __args__['name'] = name

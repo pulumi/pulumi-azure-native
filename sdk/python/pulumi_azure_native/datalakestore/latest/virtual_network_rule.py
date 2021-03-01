@@ -37,7 +37,7 @@ class VirtualNetworkRule(pulumi.CustomResource):
         :param pulumi.Input[str] subnet_id: The resource identifier for the subnet.
         :param pulumi.Input[str] virtual_network_rule_name: The name of the virtual network rule to create or update.
         """
-        pulumi.log.warn("VirtualNetworkRule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:datalakestore:VirtualNetworkRule'.")
+        pulumi.log.warn("""VirtualNetworkRule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:datalakestore:VirtualNetworkRule'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -91,6 +91,9 @@ class VirtualNetworkRule(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["name"] = None
+        __props__["subnet_id"] = None
+        __props__["type"] = None
         return VirtualNetworkRule(resource_name, opts=opts, __props__=__props__)
 
     @property

@@ -56,7 +56,7 @@ class ArtifactSource(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         :param pulumi.Input[str] uri: The artifact source's URI.
         """
-        pulumi.log.warn("ArtifactSource is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devtestlab:ArtifactSource'.")
+        pulumi.log.warn("""ArtifactSource is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devtestlab:ArtifactSource'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -119,6 +119,21 @@ class ArtifactSource(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["arm_template_folder_path"] = None
+        __props__["branch_ref"] = None
+        __props__["created_date"] = None
+        __props__["display_name"] = None
+        __props__["folder_path"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["security_token"] = None
+        __props__["source_type"] = None
+        __props__["status"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["unique_identifier"] = None
+        __props__["uri"] = None
         return ArtifactSource(resource_name, opts=opts, __props__=__props__)
 
     @property

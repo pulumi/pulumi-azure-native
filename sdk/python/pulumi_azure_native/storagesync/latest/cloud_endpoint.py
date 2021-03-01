@@ -45,7 +45,7 @@ class CloudEndpoint(pulumi.CustomResource):
         :param pulumi.Input[str] storage_sync_service_name: Name of Storage Sync Service resource.
         :param pulumi.Input[str] sync_group_name: Name of Sync Group resource.
         """
-        pulumi.log.warn("CloudEndpoint is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storagesync:CloudEndpoint'.")
+        pulumi.log.warn("""CloudEndpoint is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storagesync:CloudEndpoint'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -108,6 +108,17 @@ class CloudEndpoint(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["azure_file_share_name"] = None
+        __props__["backup_enabled"] = None
+        __props__["friendly_name"] = None
+        __props__["last_operation_name"] = None
+        __props__["last_workflow_id"] = None
+        __props__["name"] = None
+        __props__["partnership_id"] = None
+        __props__["provisioning_state"] = None
+        __props__["storage_account_resource_id"] = None
+        __props__["storage_account_tenant_id"] = None
+        __props__["type"] = None
         return CloudEndpoint(resource_name, opts=opts, __props__=__props__)
 
     @property

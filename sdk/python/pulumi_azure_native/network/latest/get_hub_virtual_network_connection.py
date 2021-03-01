@@ -154,7 +154,7 @@ def get_hub_virtual_network_connection(connection_name: Optional[str] = None,
     :param str resource_group_name: The resource group name of the VirtualHub.
     :param str virtual_hub_name: The name of the VirtualHub.
     """
-    pulumi.log.warn("get_hub_virtual_network_connection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getHubVirtualNetworkConnection'.")
+    pulumi.log.warn("""get_hub_virtual_network_connection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getHubVirtualNetworkConnection'.""")
     __args__ = dict()
     __args__['connectionName'] = connection_name
     __args__['resourceGroupName'] = resource_group_name

@@ -132,6 +132,26 @@ class Incident(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["additional_data"] = None
+        __props__["classification"] = None
+        __props__["classification_comment"] = None
+        __props__["classification_reason"] = None
+        __props__["created_time_utc"] = None
+        __props__["description"] = None
+        __props__["etag"] = None
+        __props__["first_activity_time_utc"] = None
+        __props__["incident_number"] = None
+        __props__["incident_url"] = None
+        __props__["labels"] = None
+        __props__["last_activity_time_utc"] = None
+        __props__["last_modified_time_utc"] = None
+        __props__["name"] = None
+        __props__["owner"] = None
+        __props__["related_analytic_rule_ids"] = None
+        __props__["severity"] = None
+        __props__["status"] = None
+        __props__["title"] = None
+        __props__["type"] = None
         return Incident(resource_name, opts=opts, __props__=__props__)
 
     @property

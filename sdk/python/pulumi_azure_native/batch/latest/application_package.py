@@ -37,7 +37,7 @@ class ApplicationPackage(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the Batch account.
         :param pulumi.Input[str] version_name: The version of the application.
         """
-        pulumi.log.warn("ApplicationPackage is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:batch:ApplicationPackage'.")
+        pulumi.log.warn("""ApplicationPackage is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:batch:ApplicationPackage'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -97,6 +97,14 @@ class ApplicationPackage(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["etag"] = None
+        __props__["format"] = None
+        __props__["last_activation_time"] = None
+        __props__["name"] = None
+        __props__["state"] = None
+        __props__["storage_url"] = None
+        __props__["storage_url_expiry"] = None
+        __props__["type"] = None
         return ApplicationPackage(resource_name, opts=opts, __props__=__props__)
 
     @property

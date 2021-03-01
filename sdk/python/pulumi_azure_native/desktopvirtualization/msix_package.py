@@ -116,6 +116,19 @@ class MSIXPackage(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["display_name"] = None
+        __props__["image_path"] = None
+        __props__["is_active"] = None
+        __props__["is_regular_registration"] = None
+        __props__["last_updated"] = None
+        __props__["name"] = None
+        __props__["package_applications"] = None
+        __props__["package_dependencies"] = None
+        __props__["package_family_name"] = None
+        __props__["package_name"] = None
+        __props__["package_relative_path"] = None
+        __props__["type"] = None
+        __props__["version"] = None
         return MSIXPackage(resource_name, opts=opts, __props__=__props__)
 
     @property

@@ -177,7 +177,7 @@ def get_disaster_recovery_configuration(disaster_recovery_configuration_name: Op
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str server_name: The name of the server.
     """
-    pulumi.log.warn("get_disaster_recovery_configuration is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:sql:getDisasterRecoveryConfiguration'.")
+    pulumi.log.warn("""get_disaster_recovery_configuration is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:sql:getDisasterRecoveryConfiguration'.""")
     __args__ = dict()
     __args__['disasterRecoveryConfigurationName'] = disaster_recovery_configuration_name
     __args__['resourceGroupName'] = resource_group_name

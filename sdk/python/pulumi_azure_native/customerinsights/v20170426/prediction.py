@@ -138,6 +138,25 @@ class Prediction(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["auto_analyze"] = None
+        __props__["description"] = None
+        __props__["display_name"] = None
+        __props__["grades"] = None
+        __props__["involved_interaction_types"] = None
+        __props__["involved_kpi_types"] = None
+        __props__["involved_relationships"] = None
+        __props__["mappings"] = None
+        __props__["name"] = None
+        __props__["negative_outcome_expression"] = None
+        __props__["positive_outcome_expression"] = None
+        __props__["prediction_name"] = None
+        __props__["primary_profile_type"] = None
+        __props__["provisioning_state"] = None
+        __props__["scope_expression"] = None
+        __props__["score_label"] = None
+        __props__["system_generated_entities"] = None
+        __props__["tenant_id"] = None
+        __props__["type"] = None
         return Prediction(resource_name, opts=opts, __props__=__props__)
 
     @property

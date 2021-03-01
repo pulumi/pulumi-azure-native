@@ -118,7 +118,7 @@ def get_private_endpoint_connection(private_endpoint_connection_name: Optional[s
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str server_name: The name of the server.
     """
-    pulumi.log.warn("get_private_endpoint_connection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:dbforpostgresql:getPrivateEndpointConnection'.")
+    pulumi.log.warn("""get_private_endpoint_connection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:dbforpostgresql:getPrivateEndpointConnection'.""")
     __args__ = dict()
     __args__['privateEndpointConnectionName'] = private_endpoint_connection_name
     __args__['resourceGroupName'] = resource_group_name

@@ -103,7 +103,7 @@ def list_service_test_keys(resource_group_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str service_name: The name of the Service resource.
     """
-    pulumi.log.warn("list_service_test_keys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:appplatform:listServiceTestKeys'.")
+    pulumi.log.warn("""list_service_test_keys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:appplatform:listServiceTestKeys'.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['serviceName'] = service_name

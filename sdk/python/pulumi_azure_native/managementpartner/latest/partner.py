@@ -31,7 +31,7 @@ class Partner(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] partner_id: Id of the Partner
         """
-        pulumi.log.warn("Partner is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:managementpartner:Partner'.")
+        pulumi.log.warn("""Partner is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:managementpartner:Partner'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -83,6 +83,16 @@ class Partner(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["created_time"] = None
+        __props__["etag"] = None
+        __props__["name"] = None
+        __props__["object_id"] = None
+        __props__["partner_id"] = None
+        __props__["partner_name"] = None
+        __props__["tenant_id"] = None
+        __props__["type"] = None
+        __props__["updated_time"] = None
+        __props__["version"] = None
         return Partner(resource_name, opts=opts, __props__=__props__)
 
     @property

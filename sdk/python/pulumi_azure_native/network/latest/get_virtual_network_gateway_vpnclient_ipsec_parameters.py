@@ -139,7 +139,7 @@ def get_virtual_network_gateway_vpnclient_ipsec_parameters(resource_group_name: 
     :param str resource_group_name: The name of the resource group.
     :param str virtual_network_gateway_name: The virtual network gateway name.
     """
-    pulumi.log.warn("get_virtual_network_gateway_vpnclient_ipsec_parameters is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getVirtualNetworkGatewayVpnclientIpsecParameters'.")
+    pulumi.log.warn("""get_virtual_network_gateway_vpnclient_ipsec_parameters is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getVirtualNetworkGatewayVpnclientIpsecParameters'.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['virtualNetworkGatewayName'] = virtual_network_gateway_name

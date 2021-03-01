@@ -260,7 +260,7 @@ def get_workflow(resource_group_name: Optional[str] = None,
     :param str resource_group_name: The resource group name.
     :param str workflow_name: The workflow name.
     """
-    pulumi.log.warn("get_workflow is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:logic:getWorkflow'.")
+    pulumi.log.warn("""get_workflow is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:logic:getWorkflow'.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['workflowName'] = workflow_name

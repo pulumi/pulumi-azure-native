@@ -93,7 +93,7 @@ def get_skus_nested_resource_type_third(nested_resource_type_first: Optional[str
     :param str resource_type: The resource type.
     :param str sku: The SKU.
     """
-    pulumi.log.warn("get_skus_nested_resource_type_third is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:providerhub:getSkusNestedResourceTypeThird'.")
+    pulumi.log.warn("""get_skus_nested_resource_type_third is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:providerhub:getSkusNestedResourceTypeThird'.""")
     __args__ = dict()
     __args__['nestedResourceTypeFirst'] = nested_resource_type_first
     __args__['nestedResourceTypeSecond'] = nested_resource_type_second

@@ -106,6 +106,17 @@ class Favorite(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["category"] = None
+        __props__["config"] = None
+        __props__["favorite_id"] = None
+        __props__["favorite_type"] = None
+        __props__["is_generated_from_template"] = None
+        __props__["name"] = None
+        __props__["source_type"] = None
+        __props__["tags"] = None
+        __props__["time_modified"] = None
+        __props__["user_id"] = None
+        __props__["version"] = None
         return Favorite(resource_name, opts=opts, __props__=__props__)
 
     @property

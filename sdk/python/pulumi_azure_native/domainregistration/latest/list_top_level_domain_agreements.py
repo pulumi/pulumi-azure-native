@@ -70,7 +70,7 @@ def list_top_level_domain_agreements(for_transfer: Optional[bool] = None,
     :param bool include_privacy: If <code>true</code>, then the list of agreements will include agreements for domain privacy as well; otherwise, <code>false</code>.
     :param str name: Name of the top-level domain.
     """
-    pulumi.log.warn("list_top_level_domain_agreements is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:domainregistration:listTopLevelDomainAgreements'.")
+    pulumi.log.warn("""list_top_level_domain_agreements is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:domainregistration:listTopLevelDomainAgreements'.""")
     __args__ = dict()
     __args__['forTransfer'] = for_transfer
     __args__['includePrivacy'] = include_privacy

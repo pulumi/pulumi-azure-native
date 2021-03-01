@@ -98,7 +98,7 @@ def get_entity(filter: Optional[str] = None,
     :param int top: Number of elements to return when retrieving results. Passing this in will override $skipToken.
     :param str view: The view parameter allows clients to filter the type of data that is returned by the getEntities call.
     """
-    pulumi.log.warn("get_entity is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:management:getEntity'.")
+    pulumi.log.warn("""get_entity is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:management:getEntity'.""")
     __args__ = dict()
     __args__['filter'] = filter
     __args__['groupName'] = group_name

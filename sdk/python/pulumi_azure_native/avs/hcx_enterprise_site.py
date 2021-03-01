@@ -83,6 +83,10 @@ class HcxEnterpriseSite(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["activation_key"] = None
+        __props__["name"] = None
+        __props__["status"] = None
+        __props__["type"] = None
         return HcxEnterpriseSite(resource_name, opts=opts, __props__=__props__)
 
     @property

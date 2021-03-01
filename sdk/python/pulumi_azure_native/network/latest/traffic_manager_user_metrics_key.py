@@ -29,7 +29,7 @@ class TrafficManagerUserMetricsKey(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
-        pulumi.log.warn("TrafficManagerUserMetricsKey is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:TrafficManagerUserMetricsKey'.")
+        pulumi.log.warn("""TrafficManagerUserMetricsKey is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:TrafficManagerUserMetricsKey'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -74,6 +74,9 @@ class TrafficManagerUserMetricsKey(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["key"] = None
+        __props__["name"] = None
+        __props__["type"] = None
         return TrafficManagerUserMetricsKey(resource_name, opts=opts, __props__=__props__)
 
     @property

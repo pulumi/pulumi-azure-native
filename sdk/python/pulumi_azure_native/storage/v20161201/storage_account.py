@@ -117,6 +117,25 @@ class StorageAccount(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["access_tier"] = None
+        __props__["creation_time"] = None
+        __props__["custom_domain"] = None
+        __props__["enable_https_traffic_only"] = None
+        __props__["encryption"] = None
+        __props__["kind"] = None
+        __props__["last_geo_failover_time"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["primary_endpoints"] = None
+        __props__["primary_location"] = None
+        __props__["provisioning_state"] = None
+        __props__["secondary_endpoints"] = None
+        __props__["secondary_location"] = None
+        __props__["sku"] = None
+        __props__["status_of_primary"] = None
+        __props__["status_of_secondary"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
         return StorageAccount(resource_name, opts=opts, __props__=__props__)
 
     @property

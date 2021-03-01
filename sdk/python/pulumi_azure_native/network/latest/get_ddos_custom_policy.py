@@ -164,7 +164,7 @@ def get_ddos_custom_policy(ddos_custom_policy_name: Optional[str] = None,
     :param str ddos_custom_policy_name: The name of the DDoS custom policy.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("get_ddos_custom_policy is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getDdosCustomPolicy'.")
+    pulumi.log.warn("""get_ddos_custom_policy is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getDdosCustomPolicy'.""")
     __args__ = dict()
     __args__['ddosCustomPolicyName'] = ddos_custom_policy_name
     __args__['resourceGroupName'] = resource_group_name

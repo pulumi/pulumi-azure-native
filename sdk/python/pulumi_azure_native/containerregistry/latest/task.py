@@ -59,7 +59,7 @@ class Task(pulumi.CustomResource):
         :param pulumi.Input[int] timeout: Run timeout in seconds.
         :param pulumi.Input[pulumi.InputType['TriggerPropertiesArgs']] trigger: The properties that describe all triggers for the task.
         """
-        pulumi.log.warn("Task is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:containerregistry:Task'.")
+        pulumi.log.warn("""Task is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:containerregistry:Task'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -128,6 +128,20 @@ class Task(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["agent_configuration"] = None
+        __props__["creation_date"] = None
+        __props__["credentials"] = None
+        __props__["identity"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["platform"] = None
+        __props__["provisioning_state"] = None
+        __props__["status"] = None
+        __props__["step"] = None
+        __props__["tags"] = None
+        __props__["timeout"] = None
+        __props__["trigger"] = None
+        __props__["type"] = None
         return Task(resource_name, opts=opts, __props__=__props__)
 
     @property

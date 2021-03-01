@@ -137,6 +137,32 @@ class VirtualMachine(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["amount_of_ram"] = None
+        __props__["controllers"] = None
+        __props__["customization"] = None
+        __props__["disks"] = None
+        __props__["dnsname"] = None
+        __props__["expose_to_guest_vm"] = None
+        __props__["folder"] = None
+        __props__["guest_os"] = None
+        __props__["guest_os_type"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["nics"] = None
+        __props__["number_of_cores"] = None
+        __props__["password"] = None
+        __props__["private_cloud_id"] = None
+        __props__["provisioning_state"] = None
+        __props__["public_ip"] = None
+        __props__["resource_pool"] = None
+        __props__["status"] = None
+        __props__["tags"] = None
+        __props__["template_id"] = None
+        __props__["type"] = None
+        __props__["username"] = None
+        __props__["v_sphere_networks"] = None
+        __props__["vm_id"] = None
+        __props__["vmwaretools"] = None
         return VirtualMachine(resource_name, opts=opts, __props__=__props__)
 
     @property

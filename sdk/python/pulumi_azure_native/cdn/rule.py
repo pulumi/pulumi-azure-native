@@ -108,6 +108,15 @@ class Rule(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["actions"] = None
+        __props__["conditions"] = None
+        __props__["deployment_status"] = None
+        __props__["match_processing_behavior"] = None
+        __props__["name"] = None
+        __props__["order"] = None
+        __props__["provisioning_state"] = None
+        __props__["system_data"] = None
+        __props__["type"] = None
         return Rule(resource_name, opts=opts, __props__=__props__)
 
     @property

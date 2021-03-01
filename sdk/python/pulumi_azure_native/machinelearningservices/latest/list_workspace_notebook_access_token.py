@@ -111,7 +111,7 @@ def list_workspace_notebook_access_token(resource_group_name: Optional[str] = No
     :param str resource_group_name: Name of the resource group in which workspace is located.
     :param str workspace_name: Name of Azure Machine Learning workspace.
     """
-    pulumi.log.warn("list_workspace_notebook_access_token is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:machinelearningservices:listWorkspaceNotebookAccessToken'.")
+    pulumi.log.warn("""list_workspace_notebook_access_token is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:machinelearningservices:listWorkspaceNotebookAccessToken'.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['workspaceName'] = workspace_name

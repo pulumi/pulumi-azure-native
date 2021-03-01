@@ -56,7 +56,7 @@ def get_console_with_location(console_name: Optional[str] = None,
     :param str console_name: The name of the console
     :param str location: The provider location
     """
-    pulumi.log.warn("get_console_with_location is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:portal:getConsoleWithLocation'.")
+    pulumi.log.warn("""get_console_with_location is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:portal:getConsoleWithLocation'.""")
     __args__ = dict()
     __args__['consoleName'] = console_name
     __args__['location'] = location

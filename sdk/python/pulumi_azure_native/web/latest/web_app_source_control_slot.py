@@ -50,7 +50,7 @@ class WebAppSourceControlSlot(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
         :param pulumi.Input[str] slot: Name of the deployment slot. If a slot is not specified, the API will update the source control configuration for the production slot.
         """
-        pulumi.log.warn("WebAppSourceControlSlot is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppSourceControlSlot'.")
+        pulumi.log.warn("""WebAppSourceControlSlot is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppSourceControlSlot'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -110,6 +110,16 @@ class WebAppSourceControlSlot(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["branch"] = None
+        __props__["deployment_rollback_enabled"] = None
+        __props__["is_git_hub_action"] = None
+        __props__["is_manual_integration"] = None
+        __props__["is_mercurial"] = None
+        __props__["kind"] = None
+        __props__["name"] = None
+        __props__["repo_url"] = None
+        __props__["system_data"] = None
+        __props__["type"] = None
         return WebAppSourceControlSlot(resource_name, opts=opts, __props__=__props__)
 
     @property

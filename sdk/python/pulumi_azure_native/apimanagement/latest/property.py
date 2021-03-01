@@ -43,7 +43,7 @@ class Property(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: Optional tags that when provided can be used to filter the property list.
         :param pulumi.Input[str] value: Value of the property. Can contain policy expressions. It may not be empty or consist only of whitespace.
         """
-        pulumi.log.warn("Property is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:Property'.")
+        pulumi.log.warn("""Property is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:Property'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -102,6 +102,12 @@ class Property(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["display_name"] = None
+        __props__["name"] = None
+        __props__["secret"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["value"] = None
         return Property(resource_name, opts=opts, __props__=__props__)
 
     @property

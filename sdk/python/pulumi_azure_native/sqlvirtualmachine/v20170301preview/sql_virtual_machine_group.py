@@ -97,6 +97,17 @@ class SqlVirtualMachineGroup(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["cluster_configuration"] = None
+        __props__["cluster_manager_type"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["scale_type"] = None
+        __props__["sql_image_offer"] = None
+        __props__["sql_image_sku"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["wsfc_domain_profile"] = None
         return SqlVirtualMachineGroup(resource_name, opts=opts, __props__=__props__)
 
     @property

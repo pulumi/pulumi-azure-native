@@ -166,7 +166,7 @@ def get_dedicated_host_group(expand: Optional[str] = None,
     :param str host_group_name: The name of the dedicated host group.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("get_dedicated_host_group is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:compute:getDedicatedHostGroup'.")
+    pulumi.log.warn("""get_dedicated_host_group is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:compute:getDedicatedHostGroup'.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['hostGroupName'] = host_group_name

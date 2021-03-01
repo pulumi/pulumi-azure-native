@@ -284,7 +284,7 @@ def get_azure_firewall(azure_firewall_name: Optional[str] = None,
     :param str azure_firewall_name: The name of the Azure Firewall.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("get_azure_firewall is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getAzureFirewall'.")
+    pulumi.log.warn("""get_azure_firewall is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getAzureFirewall'.""")
     __args__ = dict()
     __args__['azureFirewallName'] = azure_firewall_name
     __args__['resourceGroupName'] = resource_group_name

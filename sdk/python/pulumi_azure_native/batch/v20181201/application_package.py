@@ -91,6 +91,14 @@ class ApplicationPackage(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["etag"] = None
+        __props__["format"] = None
+        __props__["last_activation_time"] = None
+        __props__["name"] = None
+        __props__["state"] = None
+        __props__["storage_url"] = None
+        __props__["storage_url_expiry"] = None
+        __props__["type"] = None
         return ApplicationPackage(resource_name, opts=opts, __props__=__props__)
 
     @property

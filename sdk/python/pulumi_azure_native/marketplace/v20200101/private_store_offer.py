@@ -98,6 +98,19 @@ class PrivateStoreOffer(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["created_at"] = None
+        __props__["e_tag"] = None
+        __props__["icon_file_uris"] = None
+        __props__["modified_at"] = None
+        __props__["name"] = None
+        __props__["offer_display_name"] = None
+        __props__["plans"] = None
+        __props__["private_store_id"] = None
+        __props__["publisher_display_name"] = None
+        __props__["specific_plan_ids_limitation"] = None
+        __props__["type"] = None
+        __props__["unique_offer_id"] = None
+        __props__["update_suppressed_due_idempotence"] = None
         return PrivateStoreOffer(resource_name, opts=opts, __props__=__props__)
 
     @property

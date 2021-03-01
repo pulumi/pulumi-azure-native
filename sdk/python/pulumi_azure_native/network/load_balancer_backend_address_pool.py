@@ -100,6 +100,16 @@ class LoadBalancerBackendAddressPool(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["backend_ip_configurations"] = None
+        __props__["etag"] = None
+        __props__["load_balancer_backend_addresses"] = None
+        __props__["load_balancing_rules"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["outbound_rule"] = None
+        __props__["outbound_rules"] = None
+        __props__["provisioning_state"] = None
+        __props__["type"] = None
         return LoadBalancerBackendAddressPool(resource_name, opts=opts, __props__=__props__)
 
     @property

@@ -144,6 +144,33 @@ class Workspace(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["allow_public_access_when_behind_vnet"] = None
+        __props__["application_insights"] = None
+        __props__["container_registry"] = None
+        __props__["description"] = None
+        __props__["discovery_url"] = None
+        __props__["encryption"] = None
+        __props__["friendly_name"] = None
+        __props__["hbi_workspace"] = None
+        __props__["identity"] = None
+        __props__["image_build_compute"] = None
+        __props__["key_vault"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["notebook_info"] = None
+        __props__["primary_user_assigned_identity"] = None
+        __props__["private_endpoint_connections"] = None
+        __props__["private_link_count"] = None
+        __props__["provisioning_state"] = None
+        __props__["service_managed_resources_settings"] = None
+        __props__["service_provisioned_resource_group"] = None
+        __props__["shared_private_link_resources"] = None
+        __props__["sku"] = None
+        __props__["storage_account"] = None
+        __props__["system_data"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["workspace_id"] = None
         return Workspace(resource_name, opts=opts, __props__=__props__)
 
     @property

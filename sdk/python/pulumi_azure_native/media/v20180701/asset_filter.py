@@ -97,6 +97,11 @@ class AssetFilter(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["first_quality"] = None
+        __props__["name"] = None
+        __props__["presentation_time_range"] = None
+        __props__["tracks"] = None
+        __props__["type"] = None
         return AssetFilter(resource_name, opts=opts, __props__=__props__)
 
     @property

@@ -49,7 +49,7 @@ class WebAppVnetConnectionSlot(pulumi.CustomResource):
         :param pulumi.Input[str] vnet_name: Name of an existing Virtual Network.
         :param pulumi.Input[str] vnet_resource_id: The Virtual Network's resource ID.
         """
-        pulumi.log.warn("WebAppVnetConnectionSlot is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppVnetConnectionSlot'.")
+        pulumi.log.warn("""WebAppVnetConnectionSlot is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppVnetConnectionSlot'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -111,6 +111,17 @@ class WebAppVnetConnectionSlot(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["cert_blob"] = None
+        __props__["cert_thumbprint"] = None
+        __props__["dns_servers"] = None
+        __props__["is_swift"] = None
+        __props__["kind"] = None
+        __props__["name"] = None
+        __props__["resync_required"] = None
+        __props__["routes"] = None
+        __props__["system_data"] = None
+        __props__["type"] = None
+        __props__["vnet_resource_id"] = None
         return WebAppVnetConnectionSlot(resource_name, opts=opts, __props__=__props__)
 
     @property

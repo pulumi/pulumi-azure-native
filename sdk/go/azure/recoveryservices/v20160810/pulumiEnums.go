@@ -66,6 +66,51 @@ func (e PossibleOperationsDirections) ToStringPtrOutputWithContext(ctx context.C
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// PossibleOperationsDirectionsArrayInput is an input type that accepts PossibleOperationsDirectionsArray and PossibleOperationsDirectionsArrayOutput values.
+// You can construct a concrete instance of `PossibleOperationsDirectionsArrayInput` via:
+//
+//          PossibleOperationsDirectionsArray{ PossibleOperationsDirectionsArgs{...} }
+type PossibleOperationsDirectionsArrayInput interface {
+	pulumi.Input
+
+	ToPossibleOperationsDirectionsArrayOutput() PossibleOperationsDirectionsArrayOutput
+	ToPossibleOperationsDirectionsArrayOutputWithContext(context.Context) PossibleOperationsDirectionsArrayOutput
+}
+
+type PossibleOperationsDirectionsArray []PossibleOperationsDirections
+
+func (PossibleOperationsDirectionsArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PossibleOperationsDirections)(nil)).Elem()
+}
+
+func (i PossibleOperationsDirectionsArray) ToPossibleOperationsDirectionsArrayOutput() PossibleOperationsDirectionsArrayOutput {
+	return i.ToPossibleOperationsDirectionsArrayOutputWithContext(context.Background())
+}
+
+func (i PossibleOperationsDirectionsArray) ToPossibleOperationsDirectionsArrayOutputWithContext(ctx context.Context) PossibleOperationsDirectionsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PossibleOperationsDirectionsArrayOutput)
+}
+
+type PossibleOperationsDirectionsArrayOutput struct{ *pulumi.OutputState }
+
+func (PossibleOperationsDirectionsArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PossibleOperationsDirections)(nil)).Elem()
+}
+
+func (o PossibleOperationsDirectionsArrayOutput) ToPossibleOperationsDirectionsArrayOutput() PossibleOperationsDirectionsArrayOutput {
+	return o
+}
+
+func (o PossibleOperationsDirectionsArrayOutput) ToPossibleOperationsDirectionsArrayOutputWithContext(ctx context.Context) PossibleOperationsDirectionsArrayOutput {
+	return o
+}
+
+func (o PossibleOperationsDirectionsArrayOutput) Index(i pulumi.IntInput) pulumi.StringOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) pulumi.StringOutput {
+		return vs[0].([]PossibleOperationsDirections)[vs[1].(int)].ToStringOutput()
+	}).(pulumi.StringOutput)
+}
+
 // The group type.
 type RecoveryPlanGroupType pulumi.String
 
@@ -131,6 +176,51 @@ func (e ReplicationProtectedItemOperation) ToStringPtrOutput() pulumi.StringPtrO
 
 func (e ReplicationProtectedItemOperation) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// ReplicationProtectedItemOperationArrayInput is an input type that accepts ReplicationProtectedItemOperationArray and ReplicationProtectedItemOperationArrayOutput values.
+// You can construct a concrete instance of `ReplicationProtectedItemOperationArrayInput` via:
+//
+//          ReplicationProtectedItemOperationArray{ ReplicationProtectedItemOperationArgs{...} }
+type ReplicationProtectedItemOperationArrayInput interface {
+	pulumi.Input
+
+	ToReplicationProtectedItemOperationArrayOutput() ReplicationProtectedItemOperationArrayOutput
+	ToReplicationProtectedItemOperationArrayOutputWithContext(context.Context) ReplicationProtectedItemOperationArrayOutput
+}
+
+type ReplicationProtectedItemOperationArray []ReplicationProtectedItemOperation
+
+func (ReplicationProtectedItemOperationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReplicationProtectedItemOperation)(nil)).Elem()
+}
+
+func (i ReplicationProtectedItemOperationArray) ToReplicationProtectedItemOperationArrayOutput() ReplicationProtectedItemOperationArrayOutput {
+	return i.ToReplicationProtectedItemOperationArrayOutputWithContext(context.Background())
+}
+
+func (i ReplicationProtectedItemOperationArray) ToReplicationProtectedItemOperationArrayOutputWithContext(ctx context.Context) ReplicationProtectedItemOperationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationProtectedItemOperationArrayOutput)
+}
+
+type ReplicationProtectedItemOperationArrayOutput struct{ *pulumi.OutputState }
+
+func (ReplicationProtectedItemOperationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReplicationProtectedItemOperation)(nil)).Elem()
+}
+
+func (o ReplicationProtectedItemOperationArrayOutput) ToReplicationProtectedItemOperationArrayOutput() ReplicationProtectedItemOperationArrayOutput {
+	return o
+}
+
+func (o ReplicationProtectedItemOperationArrayOutput) ToReplicationProtectedItemOperationArrayOutputWithContext(ctx context.Context) ReplicationProtectedItemOperationArrayOutput {
+	return o
+}
+
+func (o ReplicationProtectedItemOperationArrayOutput) Index(i pulumi.IntInput) pulumi.StringOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) pulumi.StringOutput {
+		return vs[0].([]ReplicationProtectedItemOperation)[vs[1].(int)].ToStringOutput()
+	}).(pulumi.StringOutput)
 }
 
 // A value indicating whether multi-VM sync has to be enabled. Value should be 'Enabled' or 'Disabled'.

@@ -141,7 +141,7 @@ def get_registered_prefix(peering_name: Optional[str] = None,
     :param str registered_prefix_name: The name of the registered prefix.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("get_registered_prefix is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:peering:getRegisteredPrefix'.")
+    pulumi.log.warn("""get_registered_prefix is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:peering:getRegisteredPrefix'.""")
     __args__ = dict()
     __args__['peeringName'] = peering_name
     __args__['registeredPrefixName'] = registered_prefix_name

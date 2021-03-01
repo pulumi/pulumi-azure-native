@@ -84,6 +84,11 @@ class Authorization(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["express_route_authorization_id"] = None
+        __props__["express_route_authorization_key"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["type"] = None
         return Authorization(resource_name, opts=opts, __props__=__props__)
 
     @property

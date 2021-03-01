@@ -136,6 +136,28 @@ class ManagedCluster(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["addon_features"] = None
+        __props__["admin_password"] = None
+        __props__["admin_user_name"] = None
+        __props__["azure_active_directory"] = None
+        __props__["client_connection_port"] = None
+        __props__["clients"] = None
+        __props__["cluster_certificate_thumbprint"] = None
+        __props__["cluster_code_version"] = None
+        __props__["cluster_id"] = None
+        __props__["cluster_state"] = None
+        __props__["dns_name"] = None
+        __props__["etag"] = None
+        __props__["fabric_settings"] = None
+        __props__["fqdn"] = None
+        __props__["http_gateway_connection_port"] = None
+        __props__["load_balancing_rules"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["sku"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
         return ManagedCluster(resource_name, opts=opts, __props__=__props__)
 
     @property

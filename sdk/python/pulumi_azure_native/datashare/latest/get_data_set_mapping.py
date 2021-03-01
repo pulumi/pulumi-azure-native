@@ -108,7 +108,7 @@ def get_data_set_mapping(account_name: Optional[str] = None,
     :param str resource_group_name: The resource group name.
     :param str share_subscription_name: The name of the shareSubscription.
     """
-    pulumi.log.warn("get_data_set_mapping is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datashare:getDataSetMapping'.")
+    pulumi.log.warn("""get_data_set_mapping is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datashare:getDataSetMapping'.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['dataSetMappingName'] = data_set_mapping_name

@@ -54,7 +54,7 @@ class Schedule(pulumi.CustomResource):
         :param pulumi.Input[str] start_time: Gets or sets the start time of the schedule.
         :param pulumi.Input[str] time_zone: Gets or sets the time zone of the schedule.
         """
-        pulumi.log.warn("Schedule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:automation:Schedule'.")
+        pulumi.log.warn("""Schedule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:automation:Schedule'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -125,6 +125,22 @@ class Schedule(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["advanced_schedule"] = None
+        __props__["creation_time"] = None
+        __props__["description"] = None
+        __props__["expiry_time"] = None
+        __props__["expiry_time_offset_minutes"] = None
+        __props__["frequency"] = None
+        __props__["interval"] = None
+        __props__["is_enabled"] = None
+        __props__["last_modified_time"] = None
+        __props__["name"] = None
+        __props__["next_run"] = None
+        __props__["next_run_offset_minutes"] = None
+        __props__["start_time"] = None
+        __props__["start_time_offset_minutes"] = None
+        __props__["time_zone"] = None
+        __props__["type"] = None
         return Schedule(resource_name, opts=opts, __props__=__props__)
 
     @property

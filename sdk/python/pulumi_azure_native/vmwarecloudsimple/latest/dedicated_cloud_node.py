@@ -53,7 +53,7 @@ class DedicatedCloudNode(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: Dedicated Cloud Nodes SKU
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Dedicated Cloud Nodes tags
         """
-        pulumi.log.warn("DedicatedCloudNode is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:vmwarecloudsimple:DedicatedCloudNode'.")
+        pulumi.log.warn("""DedicatedCloudNode is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:vmwarecloudsimple:DedicatedCloudNode'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -130,6 +130,24 @@ class DedicatedCloudNode(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["availability_zone_id"] = None
+        __props__["availability_zone_name"] = None
+        __props__["cloud_rack_name"] = None
+        __props__["created"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["nodes_count"] = None
+        __props__["placement_group_id"] = None
+        __props__["placement_group_name"] = None
+        __props__["private_cloud_id"] = None
+        __props__["private_cloud_name"] = None
+        __props__["provisioning_state"] = None
+        __props__["purchase_id"] = None
+        __props__["sku"] = None
+        __props__["status"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["vmware_cluster_name"] = None
         return DedicatedCloudNode(resource_name, opts=opts, __props__=__props__)
 
     @property

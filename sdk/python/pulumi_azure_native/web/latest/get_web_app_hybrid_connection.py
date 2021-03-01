@@ -205,7 +205,7 @@ def get_web_app_hybrid_connection(name: Optional[str] = None,
     :param str relay_name: The relay name for this hybrid connection.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
-    pulumi.log.warn("get_web_app_hybrid_connection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getWebAppHybridConnection'.")
+    pulumi.log.warn("""get_web_app_hybrid_connection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getWebAppHybridConnection'.""")
     __args__ = dict()
     __args__['name'] = name
     __args__['namespaceName'] = namespace_name

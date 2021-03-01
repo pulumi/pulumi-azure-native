@@ -189,7 +189,7 @@ def get_source_control(automation_account_name: Optional[str] = None,
     :param str resource_group_name: Name of an Azure Resource group.
     :param str source_control_name: The name of source control.
     """
-    pulumi.log.warn("get_source_control is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:automation:getSourceControl'.")
+    pulumi.log.warn("""get_source_control is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:automation:getSourceControl'.""")
     __args__ = dict()
     __args__['automationAccountName'] = automation_account_name
     __args__['resourceGroupName'] = resource_group_name

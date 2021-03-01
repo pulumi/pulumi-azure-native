@@ -98,6 +98,16 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["customize"] = None
+        __props__["distribute"] = None
+        __props__["last_run_status"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["provisioning_error"] = None
+        __props__["provisioning_state"] = None
+        __props__["source"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
         return VirtualMachineImageTemplate(resource_name, opts=opts, __props__=__props__)
 
     @property

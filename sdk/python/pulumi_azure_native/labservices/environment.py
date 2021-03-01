@@ -117,6 +117,22 @@ class Environment(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["claimed_by_user_name"] = None
+        __props__["claimed_by_user_object_id"] = None
+        __props__["claimed_by_user_principal_id"] = None
+        __props__["is_claimed"] = None
+        __props__["last_known_power_state"] = None
+        __props__["latest_operation_result"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["network_interface"] = None
+        __props__["password_last_reset"] = None
+        __props__["provisioning_state"] = None
+        __props__["resource_sets"] = None
+        __props__["tags"] = None
+        __props__["total_usage"] = None
+        __props__["type"] = None
+        __props__["unique_identifier"] = None
         return Environment(resource_name, opts=opts, __props__=__props__)
 
     @property

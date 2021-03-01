@@ -200,7 +200,7 @@ def get_configuration_store(config_store_name: Optional[str] = None,
     :param str config_store_name: The name of the configuration store.
     :param str resource_group_name: The name of the resource group to which the container registry belongs.
     """
-    pulumi.log.warn("get_configuration_store is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:appconfiguration:getConfigurationStore'.")
+    pulumi.log.warn("""get_configuration_store is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:appconfiguration:getConfigurationStore'.""")
     __args__ = dict()
     __args__['configStoreName'] = config_store_name
     __args__['resourceGroupName'] = resource_group_name

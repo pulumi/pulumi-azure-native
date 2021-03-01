@@ -130,6 +130,24 @@ class PartnerRegistration(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["authorized_azure_subscription_ids"] = None
+        __props__["customer_service_uri"] = None
+        __props__["location"] = None
+        __props__["logo_uri"] = None
+        __props__["long_description"] = None
+        __props__["name"] = None
+        __props__["partner_customer_service_extension"] = None
+        __props__["partner_customer_service_number"] = None
+        __props__["partner_name"] = None
+        __props__["partner_resource_type_description"] = None
+        __props__["partner_resource_type_display_name"] = None
+        __props__["partner_resource_type_name"] = None
+        __props__["provisioning_state"] = None
+        __props__["setup_uri"] = None
+        __props__["system_data"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["visibility_state"] = None
         return PartnerRegistration(resource_name, opts=opts, __props__=__props__)
 
     @property

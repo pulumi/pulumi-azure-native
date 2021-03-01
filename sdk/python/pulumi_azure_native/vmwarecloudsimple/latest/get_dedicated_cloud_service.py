@@ -151,7 +151,7 @@ def get_dedicated_cloud_service(dedicated_cloud_service_name: Optional[str] = No
     :param str dedicated_cloud_service_name: dedicated cloud Service name
     :param str resource_group_name: The name of the resource group
     """
-    pulumi.log.warn("get_dedicated_cloud_service is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:vmwarecloudsimple:getDedicatedCloudService'.")
+    pulumi.log.warn("""get_dedicated_cloud_service is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:vmwarecloudsimple:getDedicatedCloudService'.""")
     __args__ = dict()
     __args__['dedicatedCloudServiceName'] = dedicated_cloud_service_name
     __args__['resourceGroupName'] = resource_group_name

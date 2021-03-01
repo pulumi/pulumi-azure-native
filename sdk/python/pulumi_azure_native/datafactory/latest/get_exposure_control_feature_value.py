@@ -69,7 +69,7 @@ def get_exposure_control_feature_value(feature_name: Optional[str] = None,
     :param str feature_type: The feature type.
     :param str location_id: The location identifier.
     """
-    pulumi.log.warn("get_exposure_control_feature_value is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datafactory:getExposureControlFeatureValue'.")
+    pulumi.log.warn("""get_exposure_control_feature_value is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datafactory:getExposureControlFeatureValue'.""")
     __args__ = dict()
     __args__['featureName'] = feature_name
     __args__['featureType'] = feature_type

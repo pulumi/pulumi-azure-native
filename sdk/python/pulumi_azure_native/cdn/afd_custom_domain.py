@@ -100,6 +100,16 @@ class AFDCustomDomain(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["azure_dns_zone"] = None
+        __props__["deployment_status"] = None
+        __props__["domain_validation_state"] = None
+        __props__["host_name"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["system_data"] = None
+        __props__["tls_settings"] = None
+        __props__["type"] = None
+        __props__["validation_properties"] = None
         return AFDCustomDomain(resource_name, opts=opts, __props__=__props__)
 
     @property

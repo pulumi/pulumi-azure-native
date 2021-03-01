@@ -651,6 +651,51 @@ func (e StreamOptionsFlag) ToStringPtrOutputWithContext(ctx context.Context) pul
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// StreamOptionsFlagArrayInput is an input type that accepts StreamOptionsFlagArray and StreamOptionsFlagArrayOutput values.
+// You can construct a concrete instance of `StreamOptionsFlagArrayInput` via:
+//
+//          StreamOptionsFlagArray{ StreamOptionsFlagArgs{...} }
+type StreamOptionsFlagArrayInput interface {
+	pulumi.Input
+
+	ToStreamOptionsFlagArrayOutput() StreamOptionsFlagArrayOutput
+	ToStreamOptionsFlagArrayOutputWithContext(context.Context) StreamOptionsFlagArrayOutput
+}
+
+type StreamOptionsFlagArray []StreamOptionsFlag
+
+func (StreamOptionsFlagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StreamOptionsFlag)(nil)).Elem()
+}
+
+func (i StreamOptionsFlagArray) ToStreamOptionsFlagArrayOutput() StreamOptionsFlagArrayOutput {
+	return i.ToStreamOptionsFlagArrayOutputWithContext(context.Background())
+}
+
+func (i StreamOptionsFlagArray) ToStreamOptionsFlagArrayOutputWithContext(ctx context.Context) StreamOptionsFlagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamOptionsFlagArrayOutput)
+}
+
+type StreamOptionsFlagArrayOutput struct{ *pulumi.OutputState }
+
+func (StreamOptionsFlagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StreamOptionsFlag)(nil)).Elem()
+}
+
+func (o StreamOptionsFlagArrayOutput) ToStreamOptionsFlagArrayOutput() StreamOptionsFlagArrayOutput {
+	return o
+}
+
+func (o StreamOptionsFlagArrayOutput) ToStreamOptionsFlagArrayOutputWithContext(ctx context.Context) StreamOptionsFlagArrayOutput {
+	return o
+}
+
+func (o StreamOptionsFlagArrayOutput) Index(i pulumi.IntInput) pulumi.StringOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) pulumi.StringOutput {
+		return vs[0].([]StreamOptionsFlag)[vs[1].(int)].ToStringOutput()
+	}).(pulumi.StringOutput)
+}
+
 // The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
 type StretchMode pulumi.String
 

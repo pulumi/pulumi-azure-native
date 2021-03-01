@@ -100,6 +100,16 @@ class BackupPolicy(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["backup_policy_creation_type"] = None
+        __props__["kind"] = None
+        __props__["last_backup_time"] = None
+        __props__["name"] = None
+        __props__["next_backup_time"] = None
+        __props__["scheduled_backup_status"] = None
+        __props__["schedules_count"] = None
+        __props__["ssm_host_name"] = None
+        __props__["type"] = None
+        __props__["volume_ids"] = None
         return BackupPolicy(resource_name, opts=opts, __props__=__props__)
 
     @property

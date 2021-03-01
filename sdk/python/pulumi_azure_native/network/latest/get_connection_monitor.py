@@ -274,7 +274,7 @@ def get_connection_monitor(connection_monitor_name: Optional[str] = None,
     :param str network_watcher_name: The name of the Network Watcher resource.
     :param str resource_group_name: The name of the resource group containing Network Watcher.
     """
-    pulumi.log.warn("get_connection_monitor is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getConnectionMonitor'.")
+    pulumi.log.warn("""get_connection_monitor is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getConnectionMonitor'.""")
     __args__ = dict()
     __args__['connectionMonitorName'] = connection_monitor_name
     __args__['networkWatcherName'] = network_watcher_name

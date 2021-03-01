@@ -79,7 +79,7 @@ def list_manager_public_encryption_key(manager_name: Optional[str] = None,
     :param str manager_name: The manager name
     :param str resource_group_name: The resource group name
     """
-    pulumi.log.warn("list_manager_public_encryption_key is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storsimple:listManagerPublicEncryptionKey'.")
+    pulumi.log.warn("""list_manager_public_encryption_key is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storsimple:listManagerPublicEncryptionKey'.""")
     __args__ = dict()
     __args__['managerName'] = manager_name
     __args__['resourceGroupName'] = resource_group_name

@@ -56,7 +56,7 @@ class FlowLog(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] target_resource_id: ID of network security group to which flow log will be applied.
         """
-        pulumi.log.warn("FlowLog is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:FlowLog'.")
+        pulumi.log.warn("""FlowLog is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:FlowLog'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -123,6 +123,19 @@ class FlowLog(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["enabled"] = None
+        __props__["etag"] = None
+        __props__["flow_analytics_configuration"] = None
+        __props__["format"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["retention_policy"] = None
+        __props__["storage_id"] = None
+        __props__["tags"] = None
+        __props__["target_resource_guid"] = None
+        __props__["target_resource_id"] = None
+        __props__["type"] = None
         return FlowLog(resource_name, opts=opts, __props__=__props__)
 
     @property

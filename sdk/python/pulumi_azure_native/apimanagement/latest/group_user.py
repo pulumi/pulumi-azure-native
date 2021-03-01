@@ -38,7 +38,7 @@ class GroupUser(pulumi.CustomResource):
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input[str] user_id: User identifier. Must be unique in the current API Management service instance.
         """
-        pulumi.log.warn("GroupUser is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:GroupUser'.")
+        pulumi.log.warn("""GroupUser is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:GroupUser'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -100,6 +100,16 @@ class GroupUser(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["email"] = None
+        __props__["first_name"] = None
+        __props__["groups"] = None
+        __props__["identities"] = None
+        __props__["last_name"] = None
+        __props__["name"] = None
+        __props__["note"] = None
+        __props__["registration_date"] = None
+        __props__["state"] = None
+        __props__["type"] = None
         return GroupUser(resource_name, opts=opts, __props__=__props__)
 
     @property

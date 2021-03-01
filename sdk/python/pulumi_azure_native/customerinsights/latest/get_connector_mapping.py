@@ -264,7 +264,7 @@ def get_connector_mapping(connector_name: Optional[str] = None,
     :param str mapping_name: The name of the connector mapping.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("get_connector_mapping is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:customerinsights:getConnectorMapping'.")
+    pulumi.log.warn("""get_connector_mapping is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:customerinsights:getConnectorMapping'.""")
     __args__ = dict()
     __args__['connectorName'] = connector_name
     __args__['hubName'] = hub_name

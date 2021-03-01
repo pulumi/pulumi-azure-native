@@ -106,7 +106,7 @@ def get_content_key_policy_properties_with_secrets(account_name: Optional[str] =
     :param str content_key_policy_name: The Content Key Policy name.
     :param str resource_group_name: The name of the resource group within the Azure subscription.
     """
-    pulumi.log.warn("get_content_key_policy_properties_with_secrets is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:media:getContentKeyPolicyPropertiesWithSecrets'.")
+    pulumi.log.warn("""get_content_key_policy_properties_with_secrets is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:media:getContentKeyPolicyPropertiesWithSecrets'.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['contentKeyPolicyName'] = content_key_policy_name

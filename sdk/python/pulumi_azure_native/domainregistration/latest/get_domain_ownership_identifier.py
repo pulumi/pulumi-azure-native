@@ -118,7 +118,7 @@ def get_domain_ownership_identifier(domain_name: Optional[str] = None,
     :param str name: Name of identifier.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
-    pulumi.log.warn("get_domain_ownership_identifier is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:domainregistration:getDomainOwnershipIdentifier'.")
+    pulumi.log.warn("""get_domain_ownership_identifier is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:domainregistration:getDomainOwnershipIdentifier'.""")
     __args__ = dict()
     __args__['domainName'] = domain_name
     __args__['name'] = name

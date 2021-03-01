@@ -56,7 +56,7 @@ class EnvironmentSetting(pulumi.CustomResource):
         :param pulumi.Input[str] title: Brief title describing the environment and its resource settings
         :param pulumi.Input[str] unique_identifier: The unique immutable identifier of a resource (Guid).
         """
-        pulumi.log.warn("EnvironmentSetting is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:labservices:EnvironmentSetting'.")
+        pulumi.log.warn("""EnvironmentSetting is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:labservices:EnvironmentSetting'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -124,6 +124,20 @@ class EnvironmentSetting(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["configuration_state"] = None
+        __props__["description"] = None
+        __props__["last_changed"] = None
+        __props__["last_published"] = None
+        __props__["latest_operation_result"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["publishing_state"] = None
+        __props__["resource_settings"] = None
+        __props__["tags"] = None
+        __props__["title"] = None
+        __props__["type"] = None
+        __props__["unique_identifier"] = None
         return EnvironmentSetting(resource_name, opts=opts, __props__=__props__)
 
     @property

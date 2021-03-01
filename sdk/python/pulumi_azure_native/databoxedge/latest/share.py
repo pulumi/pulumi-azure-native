@@ -56,7 +56,7 @@ class Share(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'ShareStatus']] share_status: Current status of the share.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserAccessRightArgs']]]] user_access_rights: Mapping of users and corresponding access rights on the share (required for SMB protocol).
         """
-        pulumi.log.warn("Share is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:databoxedge:Share'.")
+        pulumi.log.warn("""Share is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:databoxedge:Share'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -123,6 +123,19 @@ class Share(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["access_protocol"] = None
+        __props__["azure_container_info"] = None
+        __props__["client_access_rights"] = None
+        __props__["data_policy"] = None
+        __props__["description"] = None
+        __props__["monitoring_status"] = None
+        __props__["name"] = None
+        __props__["refresh_details"] = None
+        __props__["share_mappings"] = None
+        __props__["share_status"] = None
+        __props__["system_data"] = None
+        __props__["type"] = None
+        __props__["user_access_rights"] = None
         return Share(resource_name, opts=opts, __props__=__props__)
 
     @property

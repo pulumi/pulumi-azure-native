@@ -80,6 +80,9 @@ class StorageAccountStaticWebsite(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["container_name"] = None
+        __props__["error404_document"] = None
+        __props__["index_document"] = None
         return StorageAccountStaticWebsite(resource_name, opts=opts, __props__=__props__)
 
     @property

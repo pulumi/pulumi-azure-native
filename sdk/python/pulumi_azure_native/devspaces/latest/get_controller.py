@@ -184,7 +184,7 @@ def get_controller(name: Optional[str] = None,
     :param str name: Name of the resource.
     :param str resource_group_name: Resource group to which the resource belongs.
     """
-    pulumi.log.warn("get_controller is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devspaces:getController'.")
+    pulumi.log.warn("""get_controller is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devspaces:getController'.""")
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name

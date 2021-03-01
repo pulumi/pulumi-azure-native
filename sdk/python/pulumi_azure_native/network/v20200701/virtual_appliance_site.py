@@ -95,6 +95,12 @@ class VirtualApplianceSite(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["address_prefix"] = None
+        __props__["etag"] = None
+        __props__["name"] = None
+        __props__["o365_policy"] = None
+        __props__["provisioning_state"] = None
+        __props__["type"] = None
         return VirtualApplianceSite(resource_name, opts=opts, __props__=__props__)
 
     @property

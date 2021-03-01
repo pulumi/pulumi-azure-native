@@ -50,7 +50,7 @@ class GalleryImage(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         :param pulumi.Input[str] unique_identifier: The unique immutable identifier of a resource (Guid).
         """
-        pulumi.log.warn("GalleryImage is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:labservices:GalleryImage'.")
+        pulumi.log.warn("""GalleryImage is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:labservices:GalleryImage'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -115,6 +115,22 @@ class GalleryImage(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["author"] = None
+        __props__["created_date"] = None
+        __props__["description"] = None
+        __props__["icon"] = None
+        __props__["image_reference"] = None
+        __props__["is_enabled"] = None
+        __props__["is_override"] = None
+        __props__["is_plan_authorized"] = None
+        __props__["latest_operation_result"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["plan_id"] = None
+        __props__["provisioning_state"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["unique_identifier"] = None
         return GalleryImage(resource_name, opts=opts, __props__=__props__)
 
     @property

@@ -41,7 +41,7 @@ class AttestationProvider(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags that will be assigned to the attestation provider.
         """
-        pulumi.log.warn("AttestationProvider is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:attestation:AttestationProvider'.")
+        pulumi.log.warn("""AttestationProvider is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:attestation:AttestationProvider'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -99,6 +99,15 @@ class AttestationProvider(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["attest_uri"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["private_endpoint_connections"] = None
+        __props__["status"] = None
+        __props__["system_data"] = None
+        __props__["tags"] = None
+        __props__["trust_model"] = None
+        __props__["type"] = None
         return AttestationProvider(resource_name, opts=opts, __props__=__props__)
 
     @property

@@ -238,7 +238,7 @@ def get_link(hub_name: Optional[str] = None,
     :param str link_name: The name of the link.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("get_link is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:customerinsights:getLink'.")
+    pulumi.log.warn("""get_link is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:customerinsights:getLink'.""")
     __args__ = dict()
     __args__['hubName'] = hub_name
     __args__['linkName'] = link_name

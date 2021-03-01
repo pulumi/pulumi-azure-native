@@ -274,7 +274,7 @@ def get_share_subscription(account_name: Optional[str] = None,
     :param str resource_group_name: The resource group name.
     :param str share_subscription_name: The name of the shareSubscription.
     """
-    pulumi.log.warn("get_share_subscription is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datashare:getShareSubscription'.")
+    pulumi.log.warn("""get_share_subscription is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datashare:getShareSubscription'.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['resourceGroupName'] = resource_group_name

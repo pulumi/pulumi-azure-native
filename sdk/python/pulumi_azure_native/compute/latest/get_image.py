@@ -166,7 +166,7 @@ def get_image(expand: Optional[str] = None,
     :param str image_name: The name of the image.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("get_image is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:compute:getImage'.")
+    pulumi.log.warn("""get_image is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:compute:getImage'.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['imageName'] = image_name

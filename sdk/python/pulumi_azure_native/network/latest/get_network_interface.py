@@ -334,7 +334,7 @@ def get_network_interface(expand: Optional[str] = None,
     :param str network_interface_name: The name of the network interface.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("get_network_interface is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getNetworkInterface'.")
+    pulumi.log.warn("""get_network_interface is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getNetworkInterface'.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['networkInterfaceName'] = network_interface_name

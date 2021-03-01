@@ -113,6 +113,22 @@ class ScheduledQueryRule(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["action"] = None
+        __props__["created_with_api_version"] = None
+        __props__["description"] = None
+        __props__["display_name"] = None
+        __props__["enabled"] = None
+        __props__["etag"] = None
+        __props__["is_legacy_log_analytics_rule"] = None
+        __props__["kind"] = None
+        __props__["last_updated_time"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["schedule"] = None
+        __props__["source"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
         return ScheduledQueryRule(resource_name, opts=opts, __props__=__props__)
 
     @property

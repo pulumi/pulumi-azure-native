@@ -142,7 +142,7 @@ def get_bandwidth_schedule(device_name: Optional[str] = None,
     :param str name: The bandwidth schedule name.
     :param str resource_group_name: The resource group name.
     """
-    pulumi.log.warn("get_bandwidth_schedule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:databoxedge:getBandwidthSchedule'.")
+    pulumi.log.warn("""get_bandwidth_schedule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:databoxedge:getBandwidthSchedule'.""")
     __args__ = dict()
     __args__['deviceName'] = device_name
     __args__['name'] = name

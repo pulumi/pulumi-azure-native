@@ -180,7 +180,7 @@ def get_express_route_circuit_connection(circuit_name: Optional[str] = None,
     :param str peering_name: The name of the peering.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("get_express_route_circuit_connection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getExpressRouteCircuitConnection'.")
+    pulumi.log.warn("""get_express_route_circuit_connection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getExpressRouteCircuitConnection'.""")
     __args__ = dict()
     __args__['circuitName'] = circuit_name
     __args__['connectionName'] = connection_name

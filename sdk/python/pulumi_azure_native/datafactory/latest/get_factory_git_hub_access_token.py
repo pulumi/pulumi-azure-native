@@ -61,7 +61,7 @@ def get_factory_git_hub_access_token(factory_name: Optional[str] = None,
     :param str git_hub_client_id: GitHub application client ID.
     :param str resource_group_name: The resource group name.
     """
-    pulumi.log.warn("get_factory_git_hub_access_token is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datafactory:getFactoryGitHubAccessToken'.")
+    pulumi.log.warn("""get_factory_git_hub_access_token is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datafactory:getFactoryGitHubAccessToken'.""")
     __args__ = dict()
     __args__['factoryName'] = factory_name
     __args__['gitHubAccessCode'] = git_hub_access_code

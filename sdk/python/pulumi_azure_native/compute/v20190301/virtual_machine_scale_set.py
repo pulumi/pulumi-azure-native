@@ -131,6 +131,27 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["additional_capabilities"] = None
+        __props__["automatic_repairs_policy"] = None
+        __props__["do_not_run_extensions_on_overprovisioned_vms"] = None
+        __props__["identity"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["overprovision"] = None
+        __props__["plan"] = None
+        __props__["platform_fault_domain_count"] = None
+        __props__["provisioning_state"] = None
+        __props__["proximity_placement_group"] = None
+        __props__["scale_in_policy"] = None
+        __props__["single_placement_group"] = None
+        __props__["sku"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["unique_id"] = None
+        __props__["upgrade_policy"] = None
+        __props__["virtual_machine_profile"] = None
+        __props__["zone_balance"] = None
+        __props__["zones"] = None
         return VirtualMachineScaleSet(resource_name, opts=opts, __props__=__props__)
 
     @property

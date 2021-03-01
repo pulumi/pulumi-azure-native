@@ -211,7 +211,7 @@ def get_private_zone(private_zone_name: Optional[str] = None,
     :param str private_zone_name: The name of the Private DNS zone (without a terminating dot).
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("get_private_zone is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getPrivateZone'.")
+    pulumi.log.warn("""get_private_zone is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getPrivateZone'.""")
     __args__ = dict()
     __args__['privateZoneName'] = private_zone_name
     __args__['resourceGroupName'] = resource_group_name

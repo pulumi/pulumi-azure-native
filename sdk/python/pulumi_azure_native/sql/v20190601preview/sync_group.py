@@ -112,6 +112,18 @@ class SyncGroup(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["conflict_resolution_policy"] = None
+        __props__["hub_database_password"] = None
+        __props__["hub_database_user_name"] = None
+        __props__["interval"] = None
+        __props__["last_sync_time"] = None
+        __props__["name"] = None
+        __props__["private_endpoint_name"] = None
+        __props__["schema"] = None
+        __props__["sync_database_id"] = None
+        __props__["sync_state"] = None
+        __props__["type"] = None
+        __props__["use_private_link_connection"] = None
         return SyncGroup(resource_name, opts=opts, __props__=__props__)
 
     @property

@@ -51,7 +51,7 @@ class LiveOutput(pulumi.CustomResource):
         :param pulumi.Input[float] output_snap_time: The initial timestamp that the live output will start at, any content before this value will not be archived.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the Azure subscription.
         """
-        pulumi.log.warn("LiveOutput is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:media:LiveOutput'.")
+        pulumi.log.warn("""LiveOutput is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:media:LiveOutput'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -119,6 +119,18 @@ class LiveOutput(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["archive_window_length"] = None
+        __props__["asset_name"] = None
+        __props__["created"] = None
+        __props__["description"] = None
+        __props__["hls"] = None
+        __props__["last_modified"] = None
+        __props__["manifest_name"] = None
+        __props__["name"] = None
+        __props__["output_snap_time"] = None
+        __props__["provisioning_state"] = None
+        __props__["resource_state"] = None
+        __props__["type"] = None
         return LiveOutput(resource_name, opts=opts, __props__=__props__)
 
     @property

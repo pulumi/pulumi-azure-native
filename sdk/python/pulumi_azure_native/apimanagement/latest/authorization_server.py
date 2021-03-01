@@ -70,7 +70,7 @@ class AuthorizationServer(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TokenBodyParameterContractArgs']]]] token_body_parameters: Additional parameters required by the token endpoint of this authorization server represented as an array of JSON objects with name and value string properties, i.e. {"name" : "name value", "value": "a value"}.
         :param pulumi.Input[str] token_endpoint: OAuth token endpoint. Contains absolute URI to entity being referenced.
         """
-        pulumi.log.warn("AuthorizationServer is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:AuthorizationServer'.")
+        pulumi.log.warn("""AuthorizationServer is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:AuthorizationServer'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -147,6 +147,24 @@ class AuthorizationServer(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["authorization_endpoint"] = None
+        __props__["authorization_methods"] = None
+        __props__["bearer_token_sending_methods"] = None
+        __props__["client_authentication_method"] = None
+        __props__["client_id"] = None
+        __props__["client_registration_endpoint"] = None
+        __props__["client_secret"] = None
+        __props__["default_scope"] = None
+        __props__["description"] = None
+        __props__["display_name"] = None
+        __props__["grant_types"] = None
+        __props__["name"] = None
+        __props__["resource_owner_password"] = None
+        __props__["resource_owner_username"] = None
+        __props__["support_state"] = None
+        __props__["token_body_parameters"] = None
+        __props__["token_endpoint"] = None
+        __props__["type"] = None
         return AuthorizationServer(resource_name, opts=opts, __props__=__props__)
 
     @property

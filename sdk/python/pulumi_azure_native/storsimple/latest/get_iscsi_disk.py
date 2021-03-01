@@ -181,7 +181,7 @@ def get_iscsi_disk(device_name: Optional[str] = None,
     :param str manager_name: The manager name
     :param str resource_group_name: The resource group name
     """
-    pulumi.log.warn("get_iscsi_disk is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storsimple:getIscsiDisk'.")
+    pulumi.log.warn("""get_iscsi_disk is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storsimple:getIscsiDisk'.""")
     __args__ = dict()
     __args__['deviceName'] = device_name
     __args__['diskName'] = disk_name

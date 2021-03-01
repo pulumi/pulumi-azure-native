@@ -35,7 +35,7 @@ class Table(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         :param pulumi.Input[str] table_name: A table name must be unique within a storage account and must be between 3 and 63 characters.The name must comprise of only alphanumeric characters and it cannot begin with a numeric character.
         """
-        pulumi.log.warn("Table is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storage:Table'.")
+        pulumi.log.warn("""Table is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storage:Table'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -86,6 +86,9 @@ class Table(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["name"] = None
+        __props__["table_name"] = None
+        __props__["type"] = None
         return Table(resource_name, opts=opts, __props__=__props__)
 
     @property

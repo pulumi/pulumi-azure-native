@@ -114,6 +114,20 @@ class Relationship(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["cardinality"] = None
+        __props__["description"] = None
+        __props__["display_name"] = None
+        __props__["expiry_date_time_utc"] = None
+        __props__["fields"] = None
+        __props__["lookup_mappings"] = None
+        __props__["name"] = None
+        __props__["profile_type"] = None
+        __props__["provisioning_state"] = None
+        __props__["related_profile_type"] = None
+        __props__["relationship_guid_id"] = None
+        __props__["relationship_name"] = None
+        __props__["tenant_id"] = None
+        __props__["type"] = None
         return Relationship(resource_name, opts=opts, __props__=__props__)
 
     @property

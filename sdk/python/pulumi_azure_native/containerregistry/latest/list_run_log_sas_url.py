@@ -57,7 +57,7 @@ def list_run_log_sas_url(registry_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group to which the container registry belongs.
     :param str run_id: The run ID.
     """
-    pulumi.log.warn("list_run_log_sas_url is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:containerregistry:listRunLogSasUrl'.")
+    pulumi.log.warn("""list_run_log_sas_url is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:containerregistry:listRunLogSasUrl'.""")
     __args__ = dict()
     __args__['registryName'] = registry_name
     __args__['resourceGroupName'] = resource_group_name

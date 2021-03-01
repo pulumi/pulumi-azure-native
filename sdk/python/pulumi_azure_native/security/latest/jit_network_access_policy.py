@@ -42,7 +42,7 @@ class JitNetworkAccessPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JitNetworkAccessPolicyVirtualMachineArgs']]]] virtual_machines: Configurations for Microsoft.Compute/virtualMachines resource type.
         """
-        pulumi.log.warn("JitNetworkAccessPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:security:JitNetworkAccessPolicy'.")
+        pulumi.log.warn("""JitNetworkAccessPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:security:JitNetworkAccessPolicy'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -100,6 +100,13 @@ class JitNetworkAccessPolicy(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["kind"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["requests"] = None
+        __props__["type"] = None
+        __props__["virtual_machines"] = None
         return JitNetworkAccessPolicy(resource_name, opts=opts, __props__=__props__)
 
     @property

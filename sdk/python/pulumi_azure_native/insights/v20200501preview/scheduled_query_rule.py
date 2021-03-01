@@ -135,6 +135,26 @@ class ScheduledQueryRule(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["actions"] = None
+        __props__["created_with_api_version"] = None
+        __props__["criteria"] = None
+        __props__["description"] = None
+        __props__["display_name"] = None
+        __props__["enabled"] = None
+        __props__["etag"] = None
+        __props__["evaluation_frequency"] = None
+        __props__["is_legacy_log_analytics_rule"] = None
+        __props__["kind"] = None
+        __props__["location"] = None
+        __props__["mute_actions_duration"] = None
+        __props__["name"] = None
+        __props__["override_query_time_range"] = None
+        __props__["scopes"] = None
+        __props__["severity"] = None
+        __props__["tags"] = None
+        __props__["target_resource_types"] = None
+        __props__["type"] = None
+        __props__["window_size"] = None
         return ScheduledQueryRule(resource_name, opts=opts, __props__=__props__)
 
     @property

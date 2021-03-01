@@ -135,6 +135,24 @@ class NodeType(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["application_ports"] = None
+        __props__["capacities"] = None
+        __props__["data_disk_size_gb"] = None
+        __props__["ephemeral_ports"] = None
+        __props__["is_primary"] = None
+        __props__["name"] = None
+        __props__["placement_properties"] = None
+        __props__["provisioning_state"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["vm_extensions"] = None
+        __props__["vm_image_offer"] = None
+        __props__["vm_image_publisher"] = None
+        __props__["vm_image_sku"] = None
+        __props__["vm_image_version"] = None
+        __props__["vm_instance_count"] = None
+        __props__["vm_secrets"] = None
+        __props__["vm_size"] = None
         return NodeType(resource_name, opts=opts, __props__=__props__)
 
     @property

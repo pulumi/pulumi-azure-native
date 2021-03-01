@@ -202,7 +202,7 @@ def get_private_endpoint(expand: Optional[str] = None,
     :param str private_endpoint_name: The name of the private endpoint.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("get_private_endpoint is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getPrivateEndpoint'.")
+    pulumi.log.warn("""get_private_endpoint is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getPrivateEndpoint'.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['privateEndpointName'] = private_endpoint_name

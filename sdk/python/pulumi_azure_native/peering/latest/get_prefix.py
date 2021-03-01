@@ -168,7 +168,7 @@ def get_prefix(expand: Optional[str] = None,
     :param str prefix_name: The name of the prefix.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("get_prefix is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:peering:getPrefix'.")
+    pulumi.log.warn("""get_prefix is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:peering:getPrefix'.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['peeringServiceName'] = peering_service_name

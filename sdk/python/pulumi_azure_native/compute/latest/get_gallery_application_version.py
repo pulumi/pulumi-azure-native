@@ -146,7 +146,7 @@ def get_gallery_application_version(expand: Optional[str] = None,
     :param str gallery_name: The name of the Shared Application Gallery in which the Application Definition resides.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("get_gallery_application_version is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:compute:getGalleryApplicationVersion'.")
+    pulumi.log.warn("""get_gallery_application_version is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:compute:getGalleryApplicationVersion'.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['galleryApplicationName'] = gallery_application_name

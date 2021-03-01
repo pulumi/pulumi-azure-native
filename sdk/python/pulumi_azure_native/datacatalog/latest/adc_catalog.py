@@ -54,7 +54,7 @@ class ADCCatalog(pulumi.CustomResource):
         :param pulumi.Input[int] units: Azure data catalog units.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrincipalsArgs']]]] users: Azure data catalog user list.
         """
-        pulumi.log.warn("ADCCatalog is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:datacatalog:ADCCatalog'.")
+        pulumi.log.warn("""ADCCatalog is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:datacatalog:ADCCatalog'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -111,6 +111,17 @@ class ADCCatalog(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["admins"] = None
+        __props__["enable_automatic_unit_adjustment"] = None
+        __props__["etag"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["sku"] = None
+        __props__["successfully_provisioned"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["units"] = None
+        __props__["users"] = None
         return ADCCatalog(resource_name, opts=opts, __props__=__props__)
 
     @property

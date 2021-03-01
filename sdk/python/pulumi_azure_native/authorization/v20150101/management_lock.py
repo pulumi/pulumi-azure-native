@@ -79,6 +79,10 @@ class ManagementLock(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["level"] = None
+        __props__["name"] = None
+        __props__["notes"] = None
+        __props__["type"] = None
         return ManagementLock(resource_name, opts=opts, __props__=__props__)
 
     @property

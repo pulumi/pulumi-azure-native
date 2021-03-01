@@ -37,7 +37,7 @@ class RoleAssignment(pulumi.CustomResource):
         :param pulumi.Input[str] role_assignment_name: The name of the role assignment to create. It can be any valid GUID.
         :param pulumi.Input[str] scope: The scope of the role assignment to create. The scope can be any REST resource instance. For example, use '/subscriptions/{subscription-id}/' for a subscription, '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}' for a resource group, and '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}' for a resource.
         """
-        pulumi.log.warn("RoleAssignment is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:authorization:RoleAssignment'.")
+        pulumi.log.warn("""RoleAssignment is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:authorization:RoleAssignment'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -88,6 +88,9 @@ class RoleAssignment(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["name"] = None
+        __props__["properties"] = None
+        __props__["type"] = None
         return RoleAssignment(resource_name, opts=opts, __props__=__props__)
 
     @property

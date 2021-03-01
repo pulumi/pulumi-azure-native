@@ -113,6 +113,14 @@ class ServerFarmRouteForVnet(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["end_address"] = None
+        __props__["kind"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["route_type"] = None
+        __props__["start_address"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
         return ServerFarmRouteForVnet(resource_name, opts=opts, __props__=__props__)
 
     @property

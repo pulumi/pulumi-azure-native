@@ -62,7 +62,7 @@ class ServiceFabricSchedule(pulumi.CustomResource):
         :param pulumi.Input[str] user_name: The name of the user profile.
         :param pulumi.Input[pulumi.InputType['WeekDetailsArgs']] weekly_recurrence: If the schedule will occur only some days of the week, specify the weekly recurrence.
         """
-        pulumi.log.warn("ServiceFabricSchedule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devtestlab:ServiceFabricSchedule'.")
+        pulumi.log.warn("""ServiceFabricSchedule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devtestlab:ServiceFabricSchedule'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -131,6 +131,21 @@ class ServiceFabricSchedule(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["created_date"] = None
+        __props__["daily_recurrence"] = None
+        __props__["hourly_recurrence"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["notification_settings"] = None
+        __props__["provisioning_state"] = None
+        __props__["status"] = None
+        __props__["tags"] = None
+        __props__["target_resource_id"] = None
+        __props__["task_type"] = None
+        __props__["time_zone_id"] = None
+        __props__["type"] = None
+        __props__["unique_identifier"] = None
+        __props__["weekly_recurrence"] = None
         return ServiceFabricSchedule(resource_name, opts=opts, __props__=__props__)
 
     @property

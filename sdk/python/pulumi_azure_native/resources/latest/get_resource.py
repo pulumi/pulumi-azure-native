@@ -182,7 +182,7 @@ def get_resource(parent_resource_path: Optional[str] = None,
     :param str resource_provider_namespace: The namespace of the resource provider.
     :param str resource_type: The resource type of the resource.
     """
-    pulumi.log.warn("get_resource is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:resources:getResource'.")
+    pulumi.log.warn("""get_resource is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:resources:getResource'.""")
     __args__ = dict()
     __args__['parentResourcePath'] = parent_resource_path
     __args__['resourceGroupName'] = resource_group_name

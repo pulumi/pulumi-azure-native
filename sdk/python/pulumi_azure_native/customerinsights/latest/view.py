@@ -41,7 +41,7 @@ class View(pulumi.CustomResource):
         :param pulumi.Input[str] user_id: the user ID.
         :param pulumi.Input[str] view_name: The name of the view.
         """
-        pulumi.log.warn("View is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:customerinsights:View'.")
+        pulumi.log.warn("""View is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:customerinsights:View'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -100,6 +100,15 @@ class View(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["changed"] = None
+        __props__["created"] = None
+        __props__["definition"] = None
+        __props__["display_name"] = None
+        __props__["name"] = None
+        __props__["tenant_id"] = None
+        __props__["type"] = None
+        __props__["user_id"] = None
+        __props__["view_name"] = None
         return View(resource_name, opts=opts, __props__=__props__)
 
     @property

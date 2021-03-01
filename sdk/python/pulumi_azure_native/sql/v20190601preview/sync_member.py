@@ -117,6 +117,20 @@ class SyncMember(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["database_name"] = None
+        __props__["database_type"] = None
+        __props__["name"] = None
+        __props__["password"] = None
+        __props__["private_endpoint_name"] = None
+        __props__["server_name"] = None
+        __props__["sql_server_database_id"] = None
+        __props__["sync_agent_id"] = None
+        __props__["sync_direction"] = None
+        __props__["sync_member_azure_database_resource_id"] = None
+        __props__["sync_state"] = None
+        __props__["type"] = None
+        __props__["use_private_link_connection"] = None
+        __props__["user_name"] = None
         return SyncMember(resource_name, opts=opts, __props__=__props__)
 
     @property

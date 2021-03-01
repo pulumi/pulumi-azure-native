@@ -70,7 +70,7 @@ def list_schedule_applicable(lab_name: Optional[str] = None,
     :param str name: The name of the schedule.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("list_schedule_applicable is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devtestlab:listScheduleApplicable'.")
+    pulumi.log.warn("""list_schedule_applicable is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devtestlab:listScheduleApplicable'.""")
     __args__ = dict()
     __args__['labName'] = lab_name
     __args__['name'] = name

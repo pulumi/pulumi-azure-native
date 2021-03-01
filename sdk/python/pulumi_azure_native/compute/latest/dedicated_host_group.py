@@ -44,7 +44,7 @@ class DedicatedHostGroup(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Availability Zone to use for this host group. Only single zone is supported. The zone can be assigned only during creation. If not provided, the group supports all zones in the region. If provided, enforces each host in the group to be in the same zone.
         """
-        pulumi.log.warn("DedicatedHostGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:compute:DedicatedHostGroup'.")
+        pulumi.log.warn("""DedicatedHostGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:compute:DedicatedHostGroup'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -101,6 +101,15 @@ class DedicatedHostGroup(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["hosts"] = None
+        __props__["instance_view"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["platform_fault_domain_count"] = None
+        __props__["support_automatic_placement"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["zones"] = None
         return DedicatedHostGroup(resource_name, opts=opts, __props__=__props__)
 
     @property

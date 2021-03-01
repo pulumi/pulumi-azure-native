@@ -94,7 +94,7 @@ def get_patch_schedule(default: Optional[str] = None,
     :param str name: The name of the redis cache.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("get_patch_schedule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:cache:getPatchSchedule'.")
+    pulumi.log.warn("""get_patch_schedule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:cache:getPatchSchedule'.""")
     __args__ = dict()
     __args__['default'] = default
     __args__['name'] = name

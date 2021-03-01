@@ -139,7 +139,7 @@ def get_workspace(resource_group_name: Optional[str] = None,
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     :param str workspace_name: The name of the workspace. Workspace names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
     """
-    pulumi.log.warn("get_workspace is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:batchai:getWorkspace'.")
+    pulumi.log.warn("""get_workspace is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:batchai:getWorkspace'.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['workspaceName'] = workspace_name

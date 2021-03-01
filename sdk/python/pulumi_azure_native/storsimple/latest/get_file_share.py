@@ -181,7 +181,7 @@ def get_file_share(device_name: Optional[str] = None,
     :param str resource_group_name: The resource group name
     :param str share_name: The file share name.
     """
-    pulumi.log.warn("get_file_share is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storsimple:getFileShare'.")
+    pulumi.log.warn("""get_file_share is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storsimple:getFileShare'.""")
     __args__ = dict()
     __args__['deviceName'] = device_name
     __args__['fileServerName'] = file_server_name

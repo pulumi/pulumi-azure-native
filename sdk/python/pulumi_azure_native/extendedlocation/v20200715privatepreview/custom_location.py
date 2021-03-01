@@ -106,6 +106,18 @@ class CustomLocation(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["authentication"] = None
+        __props__["cluster_extension_ids"] = None
+        __props__["display_name"] = None
+        __props__["host_resource_id"] = None
+        __props__["host_type"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["namespace"] = None
+        __props__["provisioning_state"] = None
+        __props__["system_data"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
         return CustomLocation(resource_name, opts=opts, __props__=__props__)
 
     @property

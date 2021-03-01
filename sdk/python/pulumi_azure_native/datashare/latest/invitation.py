@@ -48,7 +48,7 @@ class Invitation(pulumi.CustomResource):
                Must be specified along TargetActiveDirectoryId. This enables sending
                invitations to specific users or applications in an AD tenant.
         """
-        pulumi.log.warn("Invitation is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:datashare:Invitation'.")
+        pulumi.log.warn("""Invitation is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:datashare:Invitation'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -113,6 +113,19 @@ class Invitation(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["expiration_date"] = None
+        __props__["invitation_id"] = None
+        __props__["invitation_status"] = None
+        __props__["name"] = None
+        __props__["responded_at"] = None
+        __props__["sent_at"] = None
+        __props__["system_data"] = None
+        __props__["target_active_directory_id"] = None
+        __props__["target_email"] = None
+        __props__["target_object_id"] = None
+        __props__["type"] = None
+        __props__["user_email"] = None
+        __props__["user_name"] = None
         return Invitation(resource_name, opts=opts, __props__=__props__)
 
     @property

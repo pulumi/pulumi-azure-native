@@ -103,6 +103,13 @@ class IncidentComment(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["author"] = None
+        __props__["created_time_utc"] = None
+        __props__["etag"] = None
+        __props__["last_modified_time_utc"] = None
+        __props__["message"] = None
+        __props__["name"] = None
+        __props__["type"] = None
         return IncidentComment(resource_name, opts=opts, __props__=__props__)
 
     @property

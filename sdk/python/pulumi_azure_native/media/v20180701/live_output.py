@@ -113,6 +113,18 @@ class LiveOutput(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["archive_window_length"] = None
+        __props__["asset_name"] = None
+        __props__["created"] = None
+        __props__["description"] = None
+        __props__["hls"] = None
+        __props__["last_modified"] = None
+        __props__["manifest_name"] = None
+        __props__["name"] = None
+        __props__["output_snap_time"] = None
+        __props__["provisioning_state"] = None
+        __props__["resource_state"] = None
+        __props__["type"] = None
         return LiveOutput(resource_name, opts=opts, __props__=__props__)
 
     @property

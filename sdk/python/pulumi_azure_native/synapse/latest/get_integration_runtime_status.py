@@ -70,7 +70,7 @@ def get_integration_runtime_status(integration_runtime_name: Optional[str] = Non
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace.
     """
-    pulumi.log.warn("get_integration_runtime_status is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:synapse:getIntegrationRuntimeStatus'.")
+    pulumi.log.warn("""get_integration_runtime_status is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:synapse:getIntegrationRuntimeStatus'.""")
     __args__ = dict()
     __args__['integrationRuntimeName'] = integration_runtime_name
     __args__['resourceGroupName'] = resource_group_name

@@ -47,7 +47,7 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[str] thumbprint: This must match the thumbprint from the name.
         :param pulumi.Input[str] thumbprint_algorithm: This must match the first portion of the certificate name. Currently required to be 'SHA1'.
         """
-        pulumi.log.warn("Certificate is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:batch:Certificate'.")
+        pulumi.log.warn("""Certificate is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:batch:Certificate'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -112,6 +112,18 @@ class Certificate(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["delete_certificate_error"] = None
+        __props__["etag"] = None
+        __props__["format"] = None
+        __props__["name"] = None
+        __props__["previous_provisioning_state"] = None
+        __props__["previous_provisioning_state_transition_time"] = None
+        __props__["provisioning_state"] = None
+        __props__["provisioning_state_transition_time"] = None
+        __props__["public_data"] = None
+        __props__["thumbprint"] = None
+        __props__["thumbprint_algorithm"] = None
+        __props__["type"] = None
         return Certificate(resource_name, opts=opts, __props__=__props__)
 
     @property

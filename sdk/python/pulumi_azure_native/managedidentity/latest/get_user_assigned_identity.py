@@ -139,7 +139,7 @@ def get_user_assigned_identity(resource_group_name: Optional[str] = None,
     :param str resource_group_name: The name of the Resource Group to which the identity belongs.
     :param str resource_name: The name of the identity resource.
     """
-    pulumi.log.warn("get_user_assigned_identity is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:managedidentity:getUserAssignedIdentity'.")
+    pulumi.log.warn("""get_user_assigned_identity is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:managedidentity:getUserAssignedIdentity'.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name

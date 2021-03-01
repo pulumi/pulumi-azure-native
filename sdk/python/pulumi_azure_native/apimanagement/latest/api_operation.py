@@ -55,7 +55,7 @@ class ApiOperation(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ParameterContractArgs']]]] template_parameters: Collection of URL template parameters.
         :param pulumi.Input[str] url_template: Relative URL template identifying the target resource for this operation. May include parameters. Example: /customers/{cid}/orders/{oid}/?date={date}
         """
-        pulumi.log.warn("ApiOperation is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:ApiOperation'.")
+        pulumi.log.warn("""ApiOperation is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:ApiOperation'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -123,6 +123,16 @@ class ApiOperation(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["description"] = None
+        __props__["display_name"] = None
+        __props__["method"] = None
+        __props__["name"] = None
+        __props__["policies"] = None
+        __props__["request"] = None
+        __props__["responses"] = None
+        __props__["template_parameters"] = None
+        __props__["type"] = None
+        __props__["url_template"] = None
         return ApiOperation(resource_name, opts=opts, __props__=__props__)
 
     @property

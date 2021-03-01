@@ -121,6 +121,23 @@ class ConnectorMapping(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["connector_mapping_name"] = None
+        __props__["connector_name"] = None
+        __props__["connector_type"] = None
+        __props__["created"] = None
+        __props__["data_format_id"] = None
+        __props__["description"] = None
+        __props__["display_name"] = None
+        __props__["entity_type"] = None
+        __props__["entity_type_name"] = None
+        __props__["last_modified"] = None
+        __props__["mapping_properties"] = None
+        __props__["name"] = None
+        __props__["next_run_time"] = None
+        __props__["run_id"] = None
+        __props__["state"] = None
+        __props__["tenant_id"] = None
+        __props__["type"] = None
         return ConnectorMapping(resource_name, opts=opts, __props__=__props__)
 
     @property

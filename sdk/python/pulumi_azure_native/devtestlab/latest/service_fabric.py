@@ -46,7 +46,7 @@ class ServiceFabric(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         :param pulumi.Input[str] user_name: The name of the user profile.
         """
-        pulumi.log.warn("ServiceFabric is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devtestlab:ServiceFabric'.")
+        pulumi.log.warn("""ServiceFabric is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devtestlab:ServiceFabric'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -106,6 +106,15 @@ class ServiceFabric(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["applicable_schedule"] = None
+        __props__["environment_id"] = None
+        __props__["external_service_fabric_id"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["unique_identifier"] = None
         return ServiceFabric(resource_name, opts=opts, __props__=__props__)
 
     @property

@@ -202,7 +202,7 @@ def get_machine_extension(extension_name: Optional[str] = None,
     :param str name: The name of the machine containing the extension.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("get_machine_extension is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:hybridcompute:getMachineExtension'.")
+    pulumi.log.warn("""get_machine_extension is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:hybridcompute:getMachineExtension'.""")
     __args__ = dict()
     __args__['extensionName'] = extension_name
     __args__['name'] = name

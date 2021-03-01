@@ -125,6 +125,19 @@ class IntegrationAccountAgreement(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["agreement_type"] = None
+        __props__["changed_time"] = None
+        __props__["content"] = None
+        __props__["created_time"] = None
+        __props__["guest_identity"] = None
+        __props__["guest_partner"] = None
+        __props__["host_identity"] = None
+        __props__["host_partner"] = None
+        __props__["location"] = None
+        __props__["metadata"] = None
+        __props__["name"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
         return IntegrationAccountAgreement(resource_name, opts=opts, __props__=__props__)
 
     @property

@@ -135,6 +135,26 @@ class Certificate(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["cer_blob"] = None
+        __props__["expiration_date"] = None
+        __props__["friendly_name"] = None
+        __props__["host_names"] = None
+        __props__["hosting_environment_profile"] = None
+        __props__["issue_date"] = None
+        __props__["issuer"] = None
+        __props__["kind"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["password"] = None
+        __props__["pfx_blob"] = None
+        __props__["public_key_hash"] = None
+        __props__["self_link"] = None
+        __props__["site_name"] = None
+        __props__["subject_name"] = None
+        __props__["tags"] = None
+        __props__["thumbprint"] = None
+        __props__["type"] = None
+        __props__["valid"] = None
         return Certificate(resource_name, opts=opts, __props__=__props__)
 
     @property

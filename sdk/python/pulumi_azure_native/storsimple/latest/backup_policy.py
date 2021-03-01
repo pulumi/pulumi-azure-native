@@ -42,7 +42,7 @@ class BackupPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The resource group name
         :param pulumi.Input[Sequence[pulumi.Input[str]]] volume_ids: The path IDs of the volumes which are part of the backup policy.
         """
-        pulumi.log.warn("BackupPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storsimple:BackupPolicy'.")
+        pulumi.log.warn("""BackupPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storsimple:BackupPolicy'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -106,6 +106,16 @@ class BackupPolicy(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["backup_policy_creation_type"] = None
+        __props__["kind"] = None
+        __props__["last_backup_time"] = None
+        __props__["name"] = None
+        __props__["next_backup_time"] = None
+        __props__["scheduled_backup_status"] = None
+        __props__["schedules_count"] = None
+        __props__["ssm_host_name"] = None
+        __props__["type"] = None
+        __props__["volume_ids"] = None
         return BackupPolicy(resource_name, opts=opts, __props__=__props__)
 
     @property

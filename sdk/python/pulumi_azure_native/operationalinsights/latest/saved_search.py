@@ -53,7 +53,7 @@ class SavedSearch(pulumi.CustomResource):
         :param pulumi.Input[float] version: The version number of the query language. The current version is 2 and is the default.
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         """
-        pulumi.log.warn("SavedSearch is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:operationalinsights:SavedSearch'.")
+        pulumi.log.warn("""SavedSearch is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:operationalinsights:SavedSearch'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -118,6 +118,16 @@ class SavedSearch(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["category"] = None
+        __props__["display_name"] = None
+        __props__["etag"] = None
+        __props__["function_alias"] = None
+        __props__["function_parameters"] = None
+        __props__["name"] = None
+        __props__["query"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["version"] = None
         return SavedSearch(resource_name, opts=opts, __props__=__props__)
 
     @property

@@ -40,7 +40,7 @@ class IntegrationRuntime(pulumi.CustomResource):
         :param pulumi.Input[Union[pulumi.InputType['ManagedIntegrationRuntimeArgs'], pulumi.InputType['SelfHostedIntegrationRuntimeArgs']]] properties: Integration runtime properties.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         """
-        pulumi.log.warn("IntegrationRuntime is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:datafactory:IntegrationRuntime'.")
+        pulumi.log.warn("""IntegrationRuntime is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:datafactory:IntegrationRuntime'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -95,6 +95,10 @@ class IntegrationRuntime(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["etag"] = None
+        __props__["name"] = None
+        __props__["properties"] = None
+        __props__["type"] = None
         return IntegrationRuntime(resource_name, opts=opts, __props__=__props__)
 
     @property

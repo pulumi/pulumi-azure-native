@@ -55,7 +55,7 @@ def get_global_user_operation_status(operation_url: Optional[str] = None,
     :param str operation_url: The operation url of long running operation
     :param str user_name: The name of the user.
     """
-    pulumi.log.warn("get_global_user_operation_status is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:labservices:getGlobalUserOperationStatus'.")
+    pulumi.log.warn("""get_global_user_operation_status is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:labservices:getGlobalUserOperationStatus'.""")
     __args__ = dict()
     __args__['operationUrl'] = operation_url
     __args__['userName'] = user_name

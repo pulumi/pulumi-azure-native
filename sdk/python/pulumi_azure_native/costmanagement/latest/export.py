@@ -46,7 +46,7 @@ class Export(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ExportScheduleArgs']] schedule: Has schedule information for the export.
         :param pulumi.Input[str] scope: The scope associated with export operations. This includes '/subscriptions/{subscriptionId}/' for subscription scope, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope and '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, '/providers/Microsoft.Management/managementGroups/{managementGroupId} for Management Group scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for billingProfile scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}/invoiceSections/{invoiceSectionId}' for invoiceSection scope, and '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/customers/{customerId}' specific for partners.
         """
-        pulumi.log.warn("Export is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:costmanagement:Export'.")
+        pulumi.log.warn("""Export is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:costmanagement:Export'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -105,6 +105,15 @@ class Export(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["definition"] = None
+        __props__["delivery_info"] = None
+        __props__["e_tag"] = None
+        __props__["format"] = None
+        __props__["name"] = None
+        __props__["next_run_time_estimate"] = None
+        __props__["run_history"] = None
+        __props__["schedule"] = None
+        __props__["type"] = None
         return Export(resource_name, opts=opts, __props__=__props__)
 
     @property

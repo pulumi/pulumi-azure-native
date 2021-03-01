@@ -38,7 +38,7 @@ class HyperVCollector(pulumi.CustomResource):
         :param pulumi.Input[str] project_name: Name of the Azure Migrate project.
         :param pulumi.Input[str] resource_group_name: Name of the Azure Resource Group that project is part of.
         """
-        pulumi.log.warn("HyperVCollector is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:migrate:HyperVCollector'.")
+        pulumi.log.warn("""HyperVCollector is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:migrate:HyperVCollector'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -91,6 +91,10 @@ class HyperVCollector(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["e_tag"] = None
+        __props__["name"] = None
+        __props__["properties"] = None
+        __props__["type"] = None
         return HyperVCollector(resource_name, opts=opts, __props__=__props__)
 
     @property

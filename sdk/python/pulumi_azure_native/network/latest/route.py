@@ -50,7 +50,7 @@ class Route(pulumi.CustomResource):
         :param pulumi.Input[str] route_table_name: The name of the route table.
         :param pulumi.Input[str] type: The type of the resource.
         """
-        pulumi.log.warn("Route is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:Route'.")
+        pulumi.log.warn("""Route is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:Route'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -110,6 +110,14 @@ class Route(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["address_prefix"] = None
+        __props__["etag"] = None
+        __props__["has_bgp_override"] = None
+        __props__["name"] = None
+        __props__["next_hop_ip_address"] = None
+        __props__["next_hop_type"] = None
+        __props__["provisioning_state"] = None
+        __props__["type"] = None
         return Route(resource_name, opts=opts, __props__=__props__)
 
     @property

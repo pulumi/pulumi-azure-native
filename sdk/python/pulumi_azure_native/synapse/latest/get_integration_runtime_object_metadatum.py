@@ -72,7 +72,7 @@ def get_integration_runtime_object_metadatum(integration_runtime_name: Optional[
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace.
     """
-    pulumi.log.warn("get_integration_runtime_object_metadatum is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:synapse:getIntegrationRuntimeObjectMetadatum'.")
+    pulumi.log.warn("""get_integration_runtime_object_metadatum is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:synapse:getIntegrationRuntimeObjectMetadatum'.""")
     __args__ = dict()
     __args__['integrationRuntimeName'] = integration_runtime_name
     __args__['metadataPath'] = metadata_path

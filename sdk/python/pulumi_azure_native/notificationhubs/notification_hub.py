@@ -119,6 +119,19 @@ class NotificationHub(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["adm_credential"] = None
+        __props__["apns_credential"] = None
+        __props__["authorization_rules"] = None
+        __props__["baidu_credential"] = None
+        __props__["gcm_credential"] = None
+        __props__["location"] = None
+        __props__["mpns_credential"] = None
+        __props__["name"] = None
+        __props__["registration_ttl"] = None
+        __props__["sku"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["wns_credential"] = None
         return NotificationHub(resource_name, opts=opts, __props__=__props__)
 
     @property

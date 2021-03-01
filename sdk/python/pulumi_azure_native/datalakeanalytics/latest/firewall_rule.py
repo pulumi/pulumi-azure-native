@@ -39,7 +39,7 @@ class FirewallRule(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the Azure resource group.
         :param pulumi.Input[str] start_ip_address: The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
         """
-        pulumi.log.warn("FirewallRule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:datalakeanalytics:FirewallRule'.")
+        pulumi.log.warn("""FirewallRule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:datalakeanalytics:FirewallRule'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -96,6 +96,10 @@ class FirewallRule(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["end_ip_address"] = None
+        __props__["name"] = None
+        __props__["start_ip_address"] = None
+        __props__["type"] = None
         return FirewallRule(resource_name, opts=opts, __props__=__props__)
 
     @property

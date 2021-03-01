@@ -200,7 +200,7 @@ def get_virtual_wan(resource_group_name: Optional[str] = None,
     :param str resource_group_name: The resource group name of the VirtualWan.
     :param str virtual_wan_name: The name of the VirtualWAN being retrieved.
     """
-    pulumi.log.warn("get_virtual_wan is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getVirtualWan'.")
+    pulumi.log.warn("""get_virtual_wan is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getVirtualWan'.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['virtualWANName'] = virtual_wan_name

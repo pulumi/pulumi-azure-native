@@ -214,7 +214,7 @@ def get_web_app_deployment(id: Optional[str] = None,
     :param str name: Name of the app.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
-    pulumi.log.warn("get_web_app_deployment is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getWebAppDeployment'.")
+    pulumi.log.warn("""get_web_app_deployment is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getWebAppDeployment'.""")
     __args__ = dict()
     __args__['id'] = id
     __args__['name'] = name

@@ -119,6 +119,20 @@ class PartnerTopicEventSubscription(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["dead_letter_destination"] = None
+        __props__["dead_letter_with_resource_identity"] = None
+        __props__["delivery_with_resource_identity"] = None
+        __props__["destination"] = None
+        __props__["event_delivery_schema"] = None
+        __props__["expiration_time_utc"] = None
+        __props__["filter"] = None
+        __props__["labels"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["retry_policy"] = None
+        __props__["system_data"] = None
+        __props__["topic"] = None
+        __props__["type"] = None
         return PartnerTopicEventSubscription(resource_name, opts=opts, __props__=__props__)
 
     @property

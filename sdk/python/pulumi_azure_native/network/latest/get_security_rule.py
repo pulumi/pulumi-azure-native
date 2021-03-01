@@ -286,7 +286,7 @@ def get_security_rule(network_security_group_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     :param str security_rule_name: The name of the security rule.
     """
-    pulumi.log.warn("get_security_rule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getSecurityRule'.")
+    pulumi.log.warn("""get_security_rule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getSecurityRule'.""")
     __args__ = dict()
     __args__['networkSecurityGroupName'] = network_security_group_name
     __args__['resourceGroupName'] = resource_group_name

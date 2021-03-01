@@ -89,6 +89,9 @@ class GatewayCertificateAuthority(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["is_trusted"] = None
+        __props__["name"] = None
+        __props__["type"] = None
         return GatewayCertificateAuthority(resource_name, opts=opts, __props__=__props__)
 
     @property

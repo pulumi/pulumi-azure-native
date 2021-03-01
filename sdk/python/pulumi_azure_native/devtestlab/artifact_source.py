@@ -114,6 +114,21 @@ class ArtifactSource(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["arm_template_folder_path"] = None
+        __props__["branch_ref"] = None
+        __props__["created_date"] = None
+        __props__["display_name"] = None
+        __props__["folder_path"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["security_token"] = None
+        __props__["source_type"] = None
+        __props__["status"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["unique_identifier"] = None
+        __props__["uri"] = None
         return ArtifactSource(resource_name, opts=opts, __props__=__props__)
 
     @property

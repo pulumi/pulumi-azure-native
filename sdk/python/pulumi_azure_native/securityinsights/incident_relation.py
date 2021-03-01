@@ -102,6 +102,13 @@ class IncidentRelation(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["etag"] = None
+        __props__["name"] = None
+        __props__["related_resource_id"] = None
+        __props__["related_resource_kind"] = None
+        __props__["related_resource_name"] = None
+        __props__["related_resource_type"] = None
+        __props__["type"] = None
         return IncidentRelation(resource_name, opts=opts, __props__=__props__)
 
     @property

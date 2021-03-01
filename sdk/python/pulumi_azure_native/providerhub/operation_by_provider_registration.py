@@ -83,6 +83,13 @@ class OperationByProviderRegistration(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["action_type"] = None
+        __props__["display"] = None
+        __props__["is_data_action"] = None
+        __props__["name"] = None
+        __props__["origin"] = None
+        __props__["properties"] = None
+        __props__["type"] = None
         return OperationByProviderRegistration(resource_name, opts=opts, __props__=__props__)
 
     @property

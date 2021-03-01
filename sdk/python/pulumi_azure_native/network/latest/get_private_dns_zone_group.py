@@ -106,7 +106,7 @@ def get_private_dns_zone_group(private_dns_zone_group_name: Optional[str] = None
     :param str private_endpoint_name: The name of the private endpoint.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("get_private_dns_zone_group is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getPrivateDnsZoneGroup'.")
+    pulumi.log.warn("""get_private_dns_zone_group is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getPrivateDnsZoneGroup'.""")
     __args__ = dict()
     __args__['privateDnsZoneGroupName'] = private_dns_zone_group_name
     __args__['privateEndpointName'] = private_endpoint_name

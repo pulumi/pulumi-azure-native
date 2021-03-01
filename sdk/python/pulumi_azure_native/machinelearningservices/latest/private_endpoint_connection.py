@@ -48,7 +48,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Contains resource tags defined as key/value pairs.
         :param pulumi.Input[str] workspace_name: Name of Azure Machine Learning workspace.
         """
-        pulumi.log.warn("PrivateEndpointConnection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:machinelearningservices:PrivateEndpointConnection'.")
+        pulumi.log.warn("""PrivateEndpointConnection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:machinelearningservices:PrivateEndpointConnection'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -109,6 +109,16 @@ class PrivateEndpointConnection(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["identity"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["private_endpoint"] = None
+        __props__["private_link_service_connection_state"] = None
+        __props__["provisioning_state"] = None
+        __props__["sku"] = None
+        __props__["system_data"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
         return PrivateEndpointConnection(resource_name, opts=opts, __props__=__props__)
 
     @property

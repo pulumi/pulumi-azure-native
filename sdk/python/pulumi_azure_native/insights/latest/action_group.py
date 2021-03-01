@@ -63,7 +63,7 @@ class ActionGroup(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VoiceReceiverArgs']]]] voice_receivers: The list of voice receivers that are part of this action group.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebhookReceiverArgs']]]] webhook_receivers: The list of webhook receivers that are part of this action group.
         """
-        pulumi.log.warn("ActionGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:insights:ActionGroup'.")
+        pulumi.log.warn("""ActionGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:insights:ActionGroup'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -133,6 +133,24 @@ class ActionGroup(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["arm_role_receivers"] = None
+        __props__["automation_runbook_receivers"] = None
+        __props__["azure_app_push_receivers"] = None
+        __props__["azure_function_receivers"] = None
+        __props__["email_receivers"] = None
+        __props__["enabled"] = None
+        __props__["group_short_name"] = None
+        __props__["identity"] = None
+        __props__["itsm_receivers"] = None
+        __props__["kind"] = None
+        __props__["location"] = None
+        __props__["logic_app_receivers"] = None
+        __props__["name"] = None
+        __props__["sms_receivers"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["voice_receivers"] = None
+        __props__["webhook_receivers"] = None
         return ActionGroup(resource_name, opts=opts, __props__=__props__)
 
     @property

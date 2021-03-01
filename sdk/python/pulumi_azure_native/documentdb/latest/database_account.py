@@ -86,7 +86,7 @@ class DatabaseAccount(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkRuleArgs']]]] virtual_network_rules: List of Virtual Network ACL rules configured for the Cosmos DB account.
         """
-        pulumi.log.warn("DatabaseAccount is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:documentdb:DatabaseAccount'.")
+        pulumi.log.warn("""DatabaseAccount is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:documentdb:DatabaseAccount'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -171,6 +171,39 @@ class DatabaseAccount(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["api_properties"] = None
+        __props__["backup_policy"] = None
+        __props__["capabilities"] = None
+        __props__["connector_offer"] = None
+        __props__["consistency_policy"] = None
+        __props__["cors"] = None
+        __props__["database_account_offer_type"] = None
+        __props__["disable_key_based_metadata_write_access"] = None
+        __props__["document_endpoint"] = None
+        __props__["enable_analytical_storage"] = None
+        __props__["enable_automatic_failover"] = None
+        __props__["enable_cassandra_connector"] = None
+        __props__["enable_free_tier"] = None
+        __props__["enable_multiple_write_locations"] = None
+        __props__["failover_policies"] = None
+        __props__["identity"] = None
+        __props__["ip_rules"] = None
+        __props__["is_virtual_network_filter_enabled"] = None
+        __props__["key_vault_key_uri"] = None
+        __props__["kind"] = None
+        __props__["location"] = None
+        __props__["locations"] = None
+        __props__["name"] = None
+        __props__["network_acl_bypass"] = None
+        __props__["network_acl_bypass_resource_ids"] = None
+        __props__["private_endpoint_connections"] = None
+        __props__["provisioning_state"] = None
+        __props__["public_network_access"] = None
+        __props__["read_locations"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["virtual_network_rules"] = None
+        __props__["write_locations"] = None
         return DatabaseAccount(resource_name, opts=opts, __props__=__props__)
 
     @property

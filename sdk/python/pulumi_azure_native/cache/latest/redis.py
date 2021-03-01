@@ -62,7 +62,7 @@ class Redis(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tenant_settings: A dictionary of tenant settings
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of availability zones denoting where the resource needs to come from.
         """
-        pulumi.log.warn("Redis is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:cache:Redis'.")
+        pulumi.log.warn("""Redis is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:cache:Redis'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -133,6 +133,30 @@ class Redis(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["access_keys"] = None
+        __props__["enable_non_ssl_port"] = None
+        __props__["host_name"] = None
+        __props__["instances"] = None
+        __props__["linked_servers"] = None
+        __props__["location"] = None
+        __props__["minimum_tls_version"] = None
+        __props__["name"] = None
+        __props__["port"] = None
+        __props__["private_endpoint_connections"] = None
+        __props__["provisioning_state"] = None
+        __props__["public_network_access"] = None
+        __props__["redis_configuration"] = None
+        __props__["redis_version"] = None
+        __props__["replicas_per_master"] = None
+        __props__["shard_count"] = None
+        __props__["sku"] = None
+        __props__["ssl_port"] = None
+        __props__["static_ip"] = None
+        __props__["subnet_id"] = None
+        __props__["tags"] = None
+        __props__["tenant_settings"] = None
+        __props__["type"] = None
+        __props__["zones"] = None
         return Redis(resource_name, opts=opts, __props__=__props__)
 
     @property

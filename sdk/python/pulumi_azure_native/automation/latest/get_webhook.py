@@ -214,7 +214,7 @@ def get_webhook(automation_account_name: Optional[str] = None,
     :param str resource_group_name: Name of an Azure Resource group.
     :param str webhook_name: The webhook name.
     """
-    pulumi.log.warn("get_webhook is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:automation:getWebhook'.")
+    pulumi.log.warn("""get_webhook is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:automation:getWebhook'.""")
     __args__ = dict()
     __args__['automationAccountName'] = automation_account_name
     __args__['resourceGroupName'] = resource_group_name

@@ -108,6 +108,22 @@ class Cluster(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["associated_workspaces"] = None
+        __props__["billing_type"] = None
+        __props__["capacity_reservation_properties"] = None
+        __props__["cluster_id"] = None
+        __props__["created_date"] = None
+        __props__["identity"] = None
+        __props__["is_availability_zones_enabled"] = None
+        __props__["is_double_encryption_enabled"] = None
+        __props__["key_vault_properties"] = None
+        __props__["last_modified_date"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["sku"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
         return Cluster(resource_name, opts=opts, __props__=__props__)
 
     @property

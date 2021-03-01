@@ -105,6 +105,15 @@ class Product(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["approval_required"] = None
+        __props__["description"] = None
+        __props__["display_name"] = None
+        __props__["name"] = None
+        __props__["state"] = None
+        __props__["subscription_required"] = None
+        __props__["subscriptions_limit"] = None
+        __props__["terms"] = None
+        __props__["type"] = None
         return Product(resource_name, opts=opts, __props__=__props__)
 
     @property

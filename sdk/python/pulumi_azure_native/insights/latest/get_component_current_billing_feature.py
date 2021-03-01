@@ -68,7 +68,7 @@ def get_component_current_billing_feature(resource_group_name: Optional[str] = N
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str resource_name: The name of the Application Insights component resource.
     """
-    pulumi.log.warn("get_component_current_billing_feature is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:insights:getComponentCurrentBillingFeature'.")
+    pulumi.log.warn("""get_component_current_billing_feature is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:insights:getComponentCurrentBillingFeature'.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name

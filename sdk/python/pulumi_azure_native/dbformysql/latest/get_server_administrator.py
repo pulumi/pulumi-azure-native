@@ -127,7 +127,7 @@ def get_server_administrator(resource_group_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str server_name: The name of the server.
     """
-    pulumi.log.warn("get_server_administrator is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:dbformysql:getServerAdministrator'.")
+    pulumi.log.warn("""get_server_administrator is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:dbformysql:getServerAdministrator'.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['serverName'] = server_name

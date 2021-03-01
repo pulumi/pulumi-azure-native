@@ -36,7 +36,7 @@ class DomainTopic(pulumi.CustomResource):
         :param pulumi.Input[str] domain_topic_name: Name of the domain topic.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription.
         """
-        pulumi.log.warn("DomainTopic is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:eventgrid:DomainTopic'.")
+        pulumi.log.warn("""DomainTopic is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:eventgrid:DomainTopic'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -89,6 +89,10 @@ class DomainTopic(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["system_data"] = None
+        __props__["type"] = None
         return DomainTopic(resource_name, opts=opts, __props__=__props__)
 
     @property

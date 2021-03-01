@@ -84,6 +84,8 @@ class ComponentCurrentBillingFeature(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["current_billing_features"] = None
+        __props__["data_volume_cap"] = None
         return ComponentCurrentBillingFeature(resource_name, opts=opts, __props__=__props__)
 
     @property

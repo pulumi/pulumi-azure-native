@@ -190,7 +190,7 @@ def get_project(group_name: Optional[str] = None,
     :param str project_name: Name of the project
     :param str service_name: Name of the service
     """
-    pulumi.log.warn("get_project is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datamigration:getProject'.")
+    pulumi.log.warn("""get_project is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datamigration:getProject'.""")
     __args__ = dict()
     __args__['groupName'] = group_name
     __args__['projectName'] = project_name

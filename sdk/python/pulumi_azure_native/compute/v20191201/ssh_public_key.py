@@ -84,6 +84,11 @@ class SshPublicKey(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["public_key"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
         return SshPublicKey(resource_name, opts=opts, __props__=__props__)
 
     @property

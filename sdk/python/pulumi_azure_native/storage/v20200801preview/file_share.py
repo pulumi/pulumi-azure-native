@@ -109,6 +109,23 @@ class FileShare(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["access_tier"] = None
+        __props__["access_tier_change_time"] = None
+        __props__["access_tier_status"] = None
+        __props__["deleted"] = None
+        __props__["deleted_time"] = None
+        __props__["enabled_protocols"] = None
+        __props__["etag"] = None
+        __props__["last_modified_time"] = None
+        __props__["metadata"] = None
+        __props__["name"] = None
+        __props__["remaining_retention_days"] = None
+        __props__["root_squash"] = None
+        __props__["share_quota"] = None
+        __props__["share_usage_bytes"] = None
+        __props__["snapshot_time"] = None
+        __props__["type"] = None
+        __props__["version"] = None
         return FileShare(resource_name, opts=opts, __props__=__props__)
 
     @property

@@ -69,7 +69,7 @@ def list_web_app_sync_function_triggers_slot(name: Optional[str] = None,
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     :param str slot: Name of the deployment slot.
     """
-    pulumi.log.warn("list_web_app_sync_function_triggers_slot is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listWebAppSyncFunctionTriggersSlot'.")
+    pulumi.log.warn("""list_web_app_sync_function_triggers_slot is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listWebAppSyncFunctionTriggersSlot'.""")
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name

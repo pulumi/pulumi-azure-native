@@ -226,7 +226,7 @@ def get_virtual_network_peering(resource_group_name: Optional[str] = None,
     :param str virtual_network_name: The name of the virtual network.
     :param str virtual_network_peering_name: The name of the virtual network peering.
     """
-    pulumi.log.warn("get_virtual_network_peering is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getVirtualNetworkPeering'.")
+    pulumi.log.warn("""get_virtual_network_peering is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getVirtualNetworkPeering'.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['virtualNetworkName'] = virtual_network_name

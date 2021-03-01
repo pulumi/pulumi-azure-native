@@ -42,7 +42,7 @@ class MaintenanceConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] resource_name_: The name of the managed cluster resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TimeInWeekArgs']]]] time_in_week: Weekday time slots allowed to upgrade.
         """
-        pulumi.log.warn("MaintenanceConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:containerservice:MaintenanceConfiguration'.")
+        pulumi.log.warn("""MaintenanceConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:containerservice:MaintenanceConfiguration'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -96,6 +96,11 @@ class MaintenanceConfiguration(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["name"] = None
+        __props__["not_allowed_time"] = None
+        __props__["system_data"] = None
+        __props__["time_in_week"] = None
+        __props__["type"] = None
         return MaintenanceConfiguration(resource_name, opts=opts, __props__=__props__)
 
     @property

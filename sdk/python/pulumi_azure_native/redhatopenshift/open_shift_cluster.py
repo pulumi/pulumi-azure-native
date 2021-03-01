@@ -111,6 +111,19 @@ class OpenShiftCluster(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["apiserver_profile"] = None
+        __props__["cluster_profile"] = None
+        __props__["console_profile"] = None
+        __props__["ingress_profiles"] = None
+        __props__["location"] = None
+        __props__["master_profile"] = None
+        __props__["name"] = None
+        __props__["network_profile"] = None
+        __props__["provisioning_state"] = None
+        __props__["service_principal_profile"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["worker_profiles"] = None
         return OpenShiftCluster(resource_name, opts=opts, __props__=__props__)
 
     @property

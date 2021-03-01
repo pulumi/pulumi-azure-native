@@ -48,7 +48,7 @@ class ApiIssue(pulumi.CustomResource):
         :param pulumi.Input[str] title: The issue title.
         :param pulumi.Input[str] user_id: A resource identifier for the user created the issue.
         """
-        pulumi.log.warn("ApiIssue is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:ApiIssue'.")
+        pulumi.log.warn("""ApiIssue is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:ApiIssue'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -113,6 +113,14 @@ class ApiIssue(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["api_id"] = None
+        __props__["created_date"] = None
+        __props__["description"] = None
+        __props__["name"] = None
+        __props__["state"] = None
+        __props__["title"] = None
+        __props__["type"] = None
+        __props__["user_id"] = None
         return ApiIssue(resource_name, opts=opts, __props__=__props__)
 
     @property

@@ -176,7 +176,7 @@ def get_budget_by_resource_group_name(budget_name: Optional[str] = None,
     :param str budget_name: Budget Name.
     :param str resource_group_name: Azure Resource Group Name.
     """
-    pulumi.log.warn("get_budget_by_resource_group_name is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:consumption:getBudgetByResourceGroupName'.")
+    pulumi.log.warn("""get_budget_by_resource_group_name is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:consumption:getBudgetByResourceGroupName'.""")
     __args__ = dict()
     __args__['budgetName'] = budget_name
     __args__['resourceGroupName'] = resource_group_name

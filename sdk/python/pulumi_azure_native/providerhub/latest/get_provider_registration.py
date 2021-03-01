@@ -83,7 +83,7 @@ def get_provider_registration(provider_namespace: Optional[str] = None,
 
     :param str provider_namespace: The name of the resource provider hosted within ProviderHub.
     """
-    pulumi.log.warn("get_provider_registration is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:providerhub:getProviderRegistration'.")
+    pulumi.log.warn("""get_provider_registration is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:providerhub:getProviderRegistration'.""")
     __args__ = dict()
     __args__['providerNamespace'] = provider_namespace
     if opts is None:

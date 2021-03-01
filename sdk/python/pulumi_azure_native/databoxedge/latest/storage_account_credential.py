@@ -54,7 +54,7 @@ class StorageAccountCredential(pulumi.CustomResource):
         :param pulumi.Input[str] storage_account_id: Id of the storage account.
         :param pulumi.Input[str] user_name: Username for the storage account.
         """
-        pulumi.log.warn("StorageAccountCredential is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:databoxedge:StorageAccountCredential'.")
+        pulumi.log.warn("""StorageAccountCredential is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:databoxedge:StorageAccountCredential'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -119,6 +119,17 @@ class StorageAccountCredential(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["account_key"] = None
+        __props__["account_type"] = None
+        __props__["alias"] = None
+        __props__["blob_domain_name"] = None
+        __props__["connection_string"] = None
+        __props__["name"] = None
+        __props__["ssl_status"] = None
+        __props__["storage_account_id"] = None
+        __props__["system_data"] = None
+        __props__["type"] = None
+        __props__["user_name"] = None
         return StorageAccountCredential(resource_name, opts=opts, __props__=__props__)
 
     @property

@@ -35,7 +35,7 @@ class HierarchySetting(pulumi.CustomResource):
         :param pulumi.Input[str] group_id: Management Group ID.
         :param pulumi.Input[bool] require_authorization_for_group_creation: Indicates whether RBAC access is required upon group creation under the root Management Group. If set to true, user will require Microsoft.Management/managementGroups/write action on the root Management Group scope in order to create new Groups directly under the root. This will prevent new users from creating new Management Groups, unless they are given access.
         """
-        pulumi.log.warn("HierarchySetting is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:management:HierarchySetting'.")
+        pulumi.log.warn("""HierarchySetting is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:management:HierarchySetting'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -85,6 +85,11 @@ class HierarchySetting(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["default_management_group"] = None
+        __props__["name"] = None
+        __props__["require_authorization_for_group_creation"] = None
+        __props__["tenant_id"] = None
+        __props__["type"] = None
         return HierarchySetting(resource_name, opts=opts, __props__=__props__)
 
     @property

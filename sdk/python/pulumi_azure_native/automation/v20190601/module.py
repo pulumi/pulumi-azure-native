@@ -106,6 +106,22 @@ class Module(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["activity_count"] = None
+        __props__["content_link"] = None
+        __props__["creation_time"] = None
+        __props__["description"] = None
+        __props__["error"] = None
+        __props__["etag"] = None
+        __props__["is_composite"] = None
+        __props__["is_global"] = None
+        __props__["last_modified_time"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["size_in_bytes"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["version"] = None
         return Module(resource_name, opts=opts, __props__=__props__)
 
     @property

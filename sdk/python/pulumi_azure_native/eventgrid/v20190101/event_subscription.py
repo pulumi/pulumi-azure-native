@@ -94,6 +94,15 @@ class EventSubscription(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["dead_letter_destination"] = None
+        __props__["destination"] = None
+        __props__["filter"] = None
+        __props__["labels"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["retry_policy"] = None
+        __props__["topic"] = None
+        __props__["type"] = None
         return EventSubscription(resource_name, opts=opts, __props__=__props__)
 
     @property

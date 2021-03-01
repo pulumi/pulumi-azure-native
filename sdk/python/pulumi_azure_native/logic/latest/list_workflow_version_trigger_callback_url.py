@@ -125,7 +125,7 @@ def list_workflow_version_trigger_callback_url(key_type: Optional[Union[str, 'Ke
     :param str version_id: The workflow versionId.
     :param str workflow_name: The workflow name.
     """
-    pulumi.log.warn("list_workflow_version_trigger_callback_url is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:logic:listWorkflowVersionTriggerCallbackUrl'.")
+    pulumi.log.warn("""list_workflow_version_trigger_callback_url is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:logic:listWorkflowVersionTriggerCallbackUrl'.""")
     __args__ = dict()
     __args__['keyType'] = key_type
     __args__['notAfter'] = not_after

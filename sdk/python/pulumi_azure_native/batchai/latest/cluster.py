@@ -52,7 +52,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] vm_size: The size of the virtual machines in the cluster. All nodes in a cluster have the same VM size. For information about available VM sizes for clusters using images from the Virtual Machines Marketplace see Sizes for Virtual Machines (Linux). Batch AI service supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).
         :param pulumi.Input[str] workspace_name: The name of the workspace. Workspace names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
         """
-        pulumi.log.warn("Cluster is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:batchai:Cluster'.")
+        pulumi.log.warn("""Cluster is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:batchai:Cluster'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -124,6 +124,23 @@ class Cluster(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["allocation_state"] = None
+        __props__["allocation_state_transition_time"] = None
+        __props__["creation_time"] = None
+        __props__["current_node_count"] = None
+        __props__["errors"] = None
+        __props__["name"] = None
+        __props__["node_setup"] = None
+        __props__["node_state_counts"] = None
+        __props__["provisioning_state"] = None
+        __props__["provisioning_state_transition_time"] = None
+        __props__["scale_settings"] = None
+        __props__["subnet"] = None
+        __props__["type"] = None
+        __props__["user_account_settings"] = None
+        __props__["virtual_machine_configuration"] = None
+        __props__["vm_priority"] = None
+        __props__["vm_size"] = None
         return Cluster(resource_name, opts=opts, __props__=__props__)
 
     @property

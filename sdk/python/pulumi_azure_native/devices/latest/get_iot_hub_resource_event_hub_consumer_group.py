@@ -107,7 +107,7 @@ def get_iot_hub_resource_event_hub_consumer_group(event_hub_endpoint_name: Optio
     :param str resource_group_name: The name of the resource group that contains the IoT hub.
     :param str resource_name: The name of the IoT hub.
     """
-    pulumi.log.warn("get_iot_hub_resource_event_hub_consumer_group is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devices:getIotHubResourceEventHubConsumerGroup'.")
+    pulumi.log.warn("""get_iot_hub_resource_event_hub_consumer_group is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devices:getIotHubResourceEventHubConsumerGroup'.""")
     __args__ = dict()
     __args__['eventHubEndpointName'] = event_hub_endpoint_name
     __args__['name'] = name

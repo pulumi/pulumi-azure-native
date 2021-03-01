@@ -55,7 +55,7 @@ def list_delegation_setting_secrets(resource_group_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     :param str service_name: The name of the API Management service.
     """
-    pulumi.log.warn("list_delegation_setting_secrets is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:listDelegationSettingSecrets'.")
+    pulumi.log.warn("""list_delegation_setting_secrets is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:listDelegationSettingSecrets'.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['serviceName'] = service_name

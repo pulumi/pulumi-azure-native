@@ -140,7 +140,7 @@ def get_hybrid_use_benefit(plan_id: Optional[str] = None,
     :param str plan_id: This is a unique identifier for a plan. Should be a guid.
     :param str scope: The scope at which the operation is performed. This is limited to Microsoft.Compute/virtualMachines and Microsoft.Compute/hostGroups/hosts for now
     """
-    pulumi.log.warn("get_hybrid_use_benefit is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:softwareplan:getHybridUseBenefit'.")
+    pulumi.log.warn("""get_hybrid_use_benefit is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:softwareplan:getHybridUseBenefit'.""")
     __args__ = dict()
     __args__['planId'] = plan_id
     __args__['scope'] = scope

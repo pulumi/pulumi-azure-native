@@ -45,7 +45,7 @@ class LoadBalancerBackendAddressPool(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the resource that is unique within the set of backend address pools used by the load balancer. This name can be used to access the resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         """
-        pulumi.log.warn("LoadBalancerBackendAddressPool is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:LoadBalancerBackendAddressPool'.")
+        pulumi.log.warn("""LoadBalancerBackendAddressPool is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:LoadBalancerBackendAddressPool'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -105,6 +105,16 @@ class LoadBalancerBackendAddressPool(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["backend_ip_configurations"] = None
+        __props__["etag"] = None
+        __props__["load_balancer_backend_addresses"] = None
+        __props__["load_balancing_rules"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["outbound_rule"] = None
+        __props__["outbound_rules"] = None
+        __props__["provisioning_state"] = None
+        __props__["type"] = None
         return LoadBalancerBackendAddressPool(resource_name, opts=opts, __props__=__props__)
 
     @property

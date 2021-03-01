@@ -96,7 +96,7 @@ def get_custom_domain(app_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str service_name: The name of the Service resource.
     """
-    pulumi.log.warn("get_custom_domain is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:appplatform:getCustomDomain'.")
+    pulumi.log.warn("""get_custom_domain is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:appplatform:getCustomDomain'.""")
     __args__ = dict()
     __args__['appName'] = app_name
     __args__['domainName'] = domain_name

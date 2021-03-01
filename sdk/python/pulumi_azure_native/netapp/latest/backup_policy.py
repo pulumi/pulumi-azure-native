@@ -55,7 +55,7 @@ class BackupPolicy(pulumi.CustomResource):
         :param pulumi.Input[int] weekly_backups_to_keep: Weekly backups count to keep
         :param pulumi.Input[int] yearly_backups_to_keep: Yearly backups count to keep
         """
-        pulumi.log.warn("BackupPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:netapp:BackupPolicy'.")
+        pulumi.log.warn("""BackupPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:netapp:BackupPolicy'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -116,6 +116,18 @@ class BackupPolicy(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["daily_backups_to_keep"] = None
+        __props__["enabled"] = None
+        __props__["location"] = None
+        __props__["monthly_backups_to_keep"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["volume_backups"] = None
+        __props__["volumes_assigned"] = None
+        __props__["weekly_backups_to_keep"] = None
+        __props__["yearly_backups_to_keep"] = None
         return BackupPolicy(resource_name, opts=opts, __props__=__props__)
 
     @property

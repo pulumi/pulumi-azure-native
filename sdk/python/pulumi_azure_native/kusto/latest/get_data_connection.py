@@ -107,7 +107,7 @@ def get_data_connection(cluster_name: Optional[str] = None,
     :param str database_name: The name of the database in the Kusto cluster.
     :param str resource_group_name: The name of the resource group containing the Kusto cluster.
     """
-    pulumi.log.warn("get_data_connection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:kusto:getDataConnection'.")
+    pulumi.log.warn("""get_data_connection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:kusto:getDataConnection'.""")
     __args__ = dict()
     __args__['clusterName'] = cluster_name
     __args__['dataConnectionName'] = data_connection_name

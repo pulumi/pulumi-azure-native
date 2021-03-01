@@ -250,7 +250,7 @@ def get_private_link_service(expand: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     :param str service_name: The name of the private link service.
     """
-    pulumi.log.warn("get_private_link_service is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getPrivateLinkService'.")
+    pulumi.log.warn("""get_private_link_service is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getPrivateLinkService'.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['resourceGroupName'] = resource_group_name

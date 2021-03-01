@@ -35,7 +35,7 @@ class NotebookWorkspace(pulumi.CustomResource):
         :param pulumi.Input[str] notebook_workspace_name: The name of the notebook workspace resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         """
-        pulumi.log.warn("NotebookWorkspace is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:documentdb:NotebookWorkspace'.")
+        pulumi.log.warn("""NotebookWorkspace is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:documentdb:NotebookWorkspace'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -88,6 +88,10 @@ class NotebookWorkspace(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["name"] = None
+        __props__["notebook_server_endpoint"] = None
+        __props__["status"] = None
+        __props__["type"] = None
         return NotebookWorkspace(resource_name, opts=opts, __props__=__props__)
 
     @property

@@ -98,6 +98,12 @@ class ComputePolicy(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["max_degree_of_parallelism_per_job"] = None
+        __props__["min_priority_per_job"] = None
+        __props__["name"] = None
+        __props__["object_id"] = None
+        __props__["object_type"] = None
+        __props__["type"] = None
         return ComputePolicy(resource_name, opts=opts, __props__=__props__)
 
     @property

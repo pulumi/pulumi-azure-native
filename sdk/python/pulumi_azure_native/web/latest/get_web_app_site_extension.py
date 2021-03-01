@@ -343,7 +343,7 @@ def get_web_app_site_extension(name: Optional[str] = None,
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     :param str site_extension_id: Site extension name.
     """
-    pulumi.log.warn("get_web_app_site_extension is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getWebAppSiteExtension'.")
+    pulumi.log.warn("""get_web_app_site_extension is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getWebAppSiteExtension'.""")
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name

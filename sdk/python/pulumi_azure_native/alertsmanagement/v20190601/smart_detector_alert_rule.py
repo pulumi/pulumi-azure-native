@@ -122,6 +122,18 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["action_groups"] = None
+        __props__["description"] = None
+        __props__["detector"] = None
+        __props__["frequency"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["scope"] = None
+        __props__["severity"] = None
+        __props__["state"] = None
+        __props__["tags"] = None
+        __props__["throttling"] = None
+        __props__["type"] = None
         return SmartDetectorAlertRule(resource_name, opts=opts, __props__=__props__)
 
     @property
