@@ -116,7 +116,7 @@ export class MediaGraph extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:media/v20190901preview:MediaGraph" }, { type: "azure-nextgen:media/v20190901preview:MediaGraph" }, { type: "azure-native:media/v20200201preview:MediaGraph" }, { type: "azure-nextgen:media/v20200201preview:MediaGraph" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:media:MediaGraph" }, { type: "azure-native:media/v20190901preview:MediaGraph" }, { type: "azure-nextgen:media/v20190901preview:MediaGraph" }, { type: "azure-native:media/v20200201preview:MediaGraph" }, { type: "azure-nextgen:media/v20200201preview:MediaGraph" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MediaGraph.__pulumiType, name, inputs, opts);
     }

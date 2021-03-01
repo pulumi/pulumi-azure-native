@@ -121,7 +121,7 @@ export class NetworkGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:network:NetworkGroup" }, { type: "azure-nextgen:network:NetworkGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20210201preview:NetworkGroup" }, { type: "azure-native:network:NetworkGroup" }, { type: "azure-nextgen:network:NetworkGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NetworkGroup.__pulumiType, name, inputs, opts);
     }

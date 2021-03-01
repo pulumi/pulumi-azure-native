@@ -103,7 +103,7 @@ export class AddressByName extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:edgeorder/v20201201preview:AddressByName" }, { type: "azure-nextgen:edgeorder/v20201201preview:AddressByName" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:edgeorder:AddressByName" }, { type: "azure-native:edgeorder/v20201201preview:AddressByName" }, { type: "azure-nextgen:edgeorder/v20201201preview:AddressByName" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AddressByName.__pulumiType, name, inputs, opts);
     }

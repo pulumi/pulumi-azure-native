@@ -106,7 +106,7 @@ export class Variable extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:automation/latest:Variable" }, { type: "azure-nextgen:automation/latest:Variable" }, { type: "azure-native:automation/v20151031:Variable" }, { type: "azure-nextgen:automation/v20151031:Variable" }, { type: "azure-native:automation/v20190601:Variable" }, { type: "azure-nextgen:automation/v20190601:Variable" }, { type: "azure-native:automation/v20200113preview:Variable" }, { type: "azure-nextgen:automation/v20200113preview:Variable" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:automation:Variable" }, { type: "azure-native:automation/latest:Variable" }, { type: "azure-nextgen:automation/latest:Variable" }, { type: "azure-native:automation/v20151031:Variable" }, { type: "azure-nextgen:automation/v20151031:Variable" }, { type: "azure-native:automation/v20190601:Variable" }, { type: "azure-nextgen:automation/v20190601:Variable" }, { type: "azure-native:automation/v20200113preview:Variable" }, { type: "azure-nextgen:automation/v20200113preview:Variable" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Variable.__pulumiType, name, inputs, opts);
     }

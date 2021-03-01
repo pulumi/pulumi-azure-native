@@ -103,7 +103,7 @@ export class StorageDomain extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:storsimple:StorageDomain" }, { type: "azure-nextgen:storsimple:StorageDomain" }, { type: "azure-native:storsimple/v20161001:StorageDomain" }, { type: "azure-nextgen:storsimple/v20161001:StorageDomain" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:storsimple/latest:StorageDomain" }, { type: "azure-native:storsimple:StorageDomain" }, { type: "azure-nextgen:storsimple:StorageDomain" }, { type: "azure-native:storsimple/v20161001:StorageDomain" }, { type: "azure-nextgen:storsimple/v20161001:StorageDomain" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(StorageDomain.__pulumiType, name, inputs, opts);
     }

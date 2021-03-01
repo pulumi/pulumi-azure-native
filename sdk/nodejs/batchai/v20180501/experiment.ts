@@ -90,7 +90,7 @@ export class Experiment extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:batchai:Experiment" }, { type: "azure-nextgen:batchai:Experiment" }, { type: "azure-native:batchai/latest:Experiment" }, { type: "azure-nextgen:batchai/latest:Experiment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:batchai/v20180501:Experiment" }, { type: "azure-native:batchai:Experiment" }, { type: "azure-nextgen:batchai:Experiment" }, { type: "azure-native:batchai/latest:Experiment" }, { type: "azure-nextgen:batchai/latest:Experiment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Experiment.__pulumiType, name, inputs, opts);
     }

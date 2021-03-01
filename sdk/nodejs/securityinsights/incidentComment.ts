@@ -115,7 +115,7 @@ export class IncidentComment extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20190101preview:IncidentComment" }, { type: "azure-nextgen:securityinsights/v20190101preview:IncidentComment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:securityinsights:IncidentComment" }, { type: "azure-native:securityinsights/v20190101preview:IncidentComment" }, { type: "azure-nextgen:securityinsights/v20190101preview:IncidentComment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IncidentComment.__pulumiType, name, inputs, opts);
     }

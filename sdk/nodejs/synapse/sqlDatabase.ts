@@ -116,7 +116,7 @@ export class SqlDatabase extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:synapse/v20200401preview:SqlDatabase" }, { type: "azure-nextgen:synapse/v20200401preview:SqlDatabase" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:synapse:SqlDatabase" }, { type: "azure-native:synapse/v20200401preview:SqlDatabase" }, { type: "azure-nextgen:synapse/v20200401preview:SqlDatabase" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SqlDatabase.__pulumiType, name, inputs, opts);
     }

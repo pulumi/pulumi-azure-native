@@ -126,7 +126,7 @@ export class MultipleActivationKey extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:windowsesu:MultipleActivationKey" }, { type: "azure-nextgen:windowsesu:MultipleActivationKey" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:windowsesu/v20190916preview:MultipleActivationKey" }, { type: "azure-native:windowsesu:MultipleActivationKey" }, { type: "azure-nextgen:windowsesu:MultipleActivationKey" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MultipleActivationKey.__pulumiType, name, inputs, opts);
     }

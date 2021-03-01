@@ -106,7 +106,7 @@ export class ManagedInstanceKey extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:sql:ManagedInstanceKey" }, { type: "azure-nextgen:sql:ManagedInstanceKey" }, { type: "azure-native:sql/v20171001preview:ManagedInstanceKey" }, { type: "azure-nextgen:sql/v20171001preview:ManagedInstanceKey" }, { type: "azure-native:sql/v20200801preview:ManagedInstanceKey" }, { type: "azure-nextgen:sql/v20200801preview:ManagedInstanceKey" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql/v20200202preview:ManagedInstanceKey" }, { type: "azure-native:sql:ManagedInstanceKey" }, { type: "azure-nextgen:sql:ManagedInstanceKey" }, { type: "azure-native:sql/v20171001preview:ManagedInstanceKey" }, { type: "azure-nextgen:sql/v20171001preview:ManagedInstanceKey" }, { type: "azure-native:sql/v20200801preview:ManagedInstanceKey" }, { type: "azure-nextgen:sql/v20200801preview:ManagedInstanceKey" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ManagedInstanceKey.__pulumiType, name, inputs, opts);
     }

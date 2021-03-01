@@ -67,7 +67,7 @@ export class UserSettingsWithLocation extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:portal/latest:UserSettingsWithLocation" }, { type: "azure-nextgen:portal/latest:UserSettingsWithLocation" }, { type: "azure-native:portal/v20181001:UserSettingsWithLocation" }, { type: "azure-nextgen:portal/v20181001:UserSettingsWithLocation" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:portal:UserSettingsWithLocation" }, { type: "azure-native:portal/latest:UserSettingsWithLocation" }, { type: "azure-nextgen:portal/latest:UserSettingsWithLocation" }, { type: "azure-native:portal/v20181001:UserSettingsWithLocation" }, { type: "azure-nextgen:portal/v20181001:UserSettingsWithLocation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(UserSettingsWithLocation.__pulumiType, name, inputs, opts);
     }

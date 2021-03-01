@@ -157,7 +157,7 @@ export class Workspace extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:databricks/latest:Workspace" }, { type: "azure-nextgen:databricks/latest:Workspace" }, { type: "azure-native:databricks/v20180401:Workspace" }, { type: "azure-nextgen:databricks/v20180401:Workspace" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:databricks:Workspace" }, { type: "azure-native:databricks/latest:Workspace" }, { type: "azure-nextgen:databricks/latest:Workspace" }, { type: "azure-native:databricks/v20180401:Workspace" }, { type: "azure-nextgen:databricks/v20180401:Workspace" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Workspace.__pulumiType, name, inputs, opts);
     }

@@ -139,7 +139,7 @@ export class Query extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:operationalinsights:Query" }, { type: "azure-nextgen:operationalinsights:Query" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:operationalinsights/v20190901preview:Query" }, { type: "azure-native:operationalinsights:Query" }, { type: "azure-nextgen:operationalinsights:Query" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Query.__pulumiType, name, inputs, opts);
     }

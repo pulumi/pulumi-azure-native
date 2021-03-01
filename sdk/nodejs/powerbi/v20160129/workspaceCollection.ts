@@ -84,7 +84,7 @@ export class WorkspaceCollection extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:powerbi:WorkspaceCollection" }, { type: "azure-nextgen:powerbi:WorkspaceCollection" }, { type: "azure-native:powerbi/latest:WorkspaceCollection" }, { type: "azure-nextgen:powerbi/latest:WorkspaceCollection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:powerbi/v20160129:WorkspaceCollection" }, { type: "azure-native:powerbi:WorkspaceCollection" }, { type: "azure-nextgen:powerbi:WorkspaceCollection" }, { type: "azure-native:powerbi/latest:WorkspaceCollection" }, { type: "azure-nextgen:powerbi/latest:WorkspaceCollection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WorkspaceCollection.__pulumiType, name, inputs, opts);
     }

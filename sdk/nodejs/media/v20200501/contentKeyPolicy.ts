@@ -112,7 +112,7 @@ export class ContentKeyPolicy extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:media:ContentKeyPolicy" }, { type: "azure-nextgen:media:ContentKeyPolicy" }, { type: "azure-native:media/latest:ContentKeyPolicy" }, { type: "azure-nextgen:media/latest:ContentKeyPolicy" }, { type: "azure-native:media/v20180330preview:ContentKeyPolicy" }, { type: "azure-nextgen:media/v20180330preview:ContentKeyPolicy" }, { type: "azure-native:media/v20180601preview:ContentKeyPolicy" }, { type: "azure-nextgen:media/v20180601preview:ContentKeyPolicy" }, { type: "azure-native:media/v20180701:ContentKeyPolicy" }, { type: "azure-nextgen:media/v20180701:ContentKeyPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:media/v20200501:ContentKeyPolicy" }, { type: "azure-native:media:ContentKeyPolicy" }, { type: "azure-nextgen:media:ContentKeyPolicy" }, { type: "azure-native:media/latest:ContentKeyPolicy" }, { type: "azure-nextgen:media/latest:ContentKeyPolicy" }, { type: "azure-native:media/v20180330preview:ContentKeyPolicy" }, { type: "azure-nextgen:media/v20180330preview:ContentKeyPolicy" }, { type: "azure-native:media/v20180601preview:ContentKeyPolicy" }, { type: "azure-nextgen:media/v20180601preview:ContentKeyPolicy" }, { type: "azure-native:media/v20180701:ContentKeyPolicy" }, { type: "azure-nextgen:media/v20180701:ContentKeyPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ContentKeyPolicy.__pulumiType, name, inputs, opts);
     }

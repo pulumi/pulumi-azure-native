@@ -105,7 +105,7 @@ export class CustomResourceProvider extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:customproviders:CustomResourceProvider" }, { type: "azure-nextgen:customproviders:CustomResourceProvider" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:customproviders/v20180901preview:CustomResourceProvider" }, { type: "azure-native:customproviders:CustomResourceProvider" }, { type: "azure-nextgen:customproviders:CustomResourceProvider" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CustomResourceProvider.__pulumiType, name, inputs, opts);
     }

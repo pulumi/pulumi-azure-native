@@ -230,7 +230,7 @@ export class Assessment extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20180202:Assessment" }, { type: "azure-nextgen:migrate/v20180202:Assessment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:migrate/v20171111preview:Assessment" }, { type: "azure-native:migrate/v20180202:Assessment" }, { type: "azure-nextgen:migrate/v20180202:Assessment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Assessment.__pulumiType, name, inputs, opts);
     }

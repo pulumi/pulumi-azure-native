@@ -106,7 +106,7 @@ export class ManagementLockAtResourceLevel extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:authorization:ManagementLockAtResourceLevel" }, { type: "azure-nextgen:authorization:ManagementLockAtResourceLevel" }, { type: "azure-native:authorization/latest:ManagementLockAtResourceLevel" }, { type: "azure-nextgen:authorization/latest:ManagementLockAtResourceLevel" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:authorization/v20160901:ManagementLockAtResourceLevel" }, { type: "azure-native:authorization:ManagementLockAtResourceLevel" }, { type: "azure-nextgen:authorization:ManagementLockAtResourceLevel" }, { type: "azure-native:authorization/latest:ManagementLockAtResourceLevel" }, { type: "azure-nextgen:authorization/latest:ManagementLockAtResourceLevel" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ManagementLockAtResourceLevel.__pulumiType, name, inputs, opts);
     }

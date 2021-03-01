@@ -141,7 +141,7 @@ export class OrchestratorInstanceServiceDetails extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:delegatednetwork:OrchestratorInstanceServiceDetails" }, { type: "azure-nextgen:delegatednetwork:OrchestratorInstanceServiceDetails" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:delegatednetwork/v20200808preview:OrchestratorInstanceServiceDetails" }, { type: "azure-native:delegatednetwork:OrchestratorInstanceServiceDetails" }, { type: "azure-nextgen:delegatednetwork:OrchestratorInstanceServiceDetails" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(OrchestratorInstanceServiceDetails.__pulumiType, name, inputs, opts);
     }

@@ -115,7 +115,7 @@ export class AutoScaleVCore extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:powerbidedicated/latest:AutoScaleVCore" }, { type: "azure-nextgen:powerbidedicated/latest:AutoScaleVCore" }, { type: "azure-native:powerbidedicated/v20210101:AutoScaleVCore" }, { type: "azure-nextgen:powerbidedicated/v20210101:AutoScaleVCore" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:powerbidedicated:AutoScaleVCore" }, { type: "azure-native:powerbidedicated/latest:AutoScaleVCore" }, { type: "azure-nextgen:powerbidedicated/latest:AutoScaleVCore" }, { type: "azure-native:powerbidedicated/v20210101:AutoScaleVCore" }, { type: "azure-nextgen:powerbidedicated/v20210101:AutoScaleVCore" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AutoScaleVCore.__pulumiType, name, inputs, opts);
     }

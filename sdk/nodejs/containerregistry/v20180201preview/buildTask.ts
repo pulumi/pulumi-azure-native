@@ -136,7 +136,7 @@ export class BuildTask extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:containerregistry:BuildTask" }, { type: "azure-nextgen:containerregistry:BuildTask" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:containerregistry/v20180201preview:BuildTask" }, { type: "azure-native:containerregistry:BuildTask" }, { type: "azure-nextgen:containerregistry:BuildTask" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BuildTask.__pulumiType, name, inputs, opts);
     }

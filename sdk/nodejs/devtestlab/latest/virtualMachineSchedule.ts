@@ -160,7 +160,7 @@ export class VirtualMachineSchedule extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:devtestlab:VirtualMachineSchedule" }, { type: "azure-nextgen:devtestlab:VirtualMachineSchedule" }, { type: "azure-native:devtestlab/v20160515:VirtualMachineSchedule" }, { type: "azure-nextgen:devtestlab/v20160515:VirtualMachineSchedule" }, { type: "azure-native:devtestlab/v20180915:VirtualMachineSchedule" }, { type: "azure-nextgen:devtestlab/v20180915:VirtualMachineSchedule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:devtestlab/latest:VirtualMachineSchedule" }, { type: "azure-native:devtestlab:VirtualMachineSchedule" }, { type: "azure-nextgen:devtestlab:VirtualMachineSchedule" }, { type: "azure-native:devtestlab/v20160515:VirtualMachineSchedule" }, { type: "azure-nextgen:devtestlab/v20160515:VirtualMachineSchedule" }, { type: "azure-native:devtestlab/v20180915:VirtualMachineSchedule" }, { type: "azure-nextgen:devtestlab/v20180915:VirtualMachineSchedule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualMachineSchedule.__pulumiType, name, inputs, opts);
     }

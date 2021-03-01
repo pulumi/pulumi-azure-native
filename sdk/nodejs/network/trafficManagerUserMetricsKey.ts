@@ -70,7 +70,7 @@ export class TrafficManagerUserMetricsKey extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:network/latest:TrafficManagerUserMetricsKey" }, { type: "azure-nextgen:network/latest:TrafficManagerUserMetricsKey" }, { type: "azure-native:network/v20180401:TrafficManagerUserMetricsKey" }, { type: "azure-nextgen:network/v20180401:TrafficManagerUserMetricsKey" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network:TrafficManagerUserMetricsKey" }, { type: "azure-native:network/latest:TrafficManagerUserMetricsKey" }, { type: "azure-nextgen:network/latest:TrafficManagerUserMetricsKey" }, { type: "azure-native:network/v20180401:TrafficManagerUserMetricsKey" }, { type: "azure-nextgen:network/v20180401:TrafficManagerUserMetricsKey" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(TrafficManagerUserMetricsKey.__pulumiType, name, inputs, opts);
     }

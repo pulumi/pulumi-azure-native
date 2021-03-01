@@ -90,7 +90,7 @@ export class ProviderInstance extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:hanaonazure:ProviderInstance" }, { type: "azure-nextgen:hanaonazure:ProviderInstance" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:hanaonazure/v20200207preview:ProviderInstance" }, { type: "azure-native:hanaonazure:ProviderInstance" }, { type: "azure-nextgen:hanaonazure:ProviderInstance" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ProviderInstance.__pulumiType, name, inputs, opts);
     }

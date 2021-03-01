@@ -81,7 +81,7 @@ export class VirtualNetworkRule extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:datalakestore:VirtualNetworkRule" }, { type: "azure-nextgen:datalakestore:VirtualNetworkRule" }, { type: "azure-native:datalakestore/latest:VirtualNetworkRule" }, { type: "azure-nextgen:datalakestore/latest:VirtualNetworkRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:datalakestore/v20161101:VirtualNetworkRule" }, { type: "azure-native:datalakestore:VirtualNetworkRule" }, { type: "azure-nextgen:datalakestore:VirtualNetworkRule" }, { type: "azure-native:datalakestore/latest:VirtualNetworkRule" }, { type: "azure-nextgen:datalakestore/latest:VirtualNetworkRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualNetworkRule.__pulumiType, name, inputs, opts);
     }

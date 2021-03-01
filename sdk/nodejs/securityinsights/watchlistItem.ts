@@ -150,7 +150,7 @@ export class WatchlistItem extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20190101preview:WatchlistItem" }, { type: "azure-nextgen:securityinsights/v20190101preview:WatchlistItem" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:securityinsights:WatchlistItem" }, { type: "azure-native:securityinsights/v20190101preview:WatchlistItem" }, { type: "azure-nextgen:securityinsights/v20190101preview:WatchlistItem" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WatchlistItem.__pulumiType, name, inputs, opts);
     }

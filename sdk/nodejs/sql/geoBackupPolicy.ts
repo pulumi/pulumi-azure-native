@@ -105,7 +105,7 @@ export class GeoBackupPolicy extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:sql/latest:GeoBackupPolicy" }, { type: "azure-nextgen:sql/latest:GeoBackupPolicy" }, { type: "azure-native:sql/v20140401:GeoBackupPolicy" }, { type: "azure-nextgen:sql/v20140401:GeoBackupPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql:GeoBackupPolicy" }, { type: "azure-native:sql/latest:GeoBackupPolicy" }, { type: "azure-nextgen:sql/latest:GeoBackupPolicy" }, { type: "azure-native:sql/v20140401:GeoBackupPolicy" }, { type: "azure-nextgen:sql/v20140401:GeoBackupPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(GeoBackupPolicy.__pulumiType, name, inputs, opts);
     }

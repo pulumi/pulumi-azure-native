@@ -88,7 +88,7 @@ export class SkusNestedResourceTypeSecond extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:providerhub/latest:SkusNestedResourceTypeSecond" }, { type: "azure-nextgen:providerhub/latest:SkusNestedResourceTypeSecond" }, { type: "azure-native:providerhub/v20201120:SkusNestedResourceTypeSecond" }, { type: "azure-nextgen:providerhub/v20201120:SkusNestedResourceTypeSecond" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:providerhub:SkusNestedResourceTypeSecond" }, { type: "azure-native:providerhub/latest:SkusNestedResourceTypeSecond" }, { type: "azure-nextgen:providerhub/latest:SkusNestedResourceTypeSecond" }, { type: "azure-native:providerhub/v20201120:SkusNestedResourceTypeSecond" }, { type: "azure-nextgen:providerhub/v20201120:SkusNestedResourceTypeSecond" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SkusNestedResourceTypeSecond.__pulumiType, name, inputs, opts);
     }

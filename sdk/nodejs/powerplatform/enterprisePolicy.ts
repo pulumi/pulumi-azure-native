@@ -106,7 +106,7 @@ export class EnterprisePolicy extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:powerplatform/v20201030preview:EnterprisePolicy" }, { type: "azure-nextgen:powerplatform/v20201030preview:EnterprisePolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:powerplatform:EnterprisePolicy" }, { type: "azure-native:powerplatform/v20201030preview:EnterprisePolicy" }, { type: "azure-nextgen:powerplatform/v20201030preview:EnterprisePolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(EnterprisePolicy.__pulumiType, name, inputs, opts);
     }

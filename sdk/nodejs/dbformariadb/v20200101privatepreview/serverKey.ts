@@ -100,6 +100,8 @@ export class ServerKey extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:dbformariadb/v20200101privatepreview:ServerKey" }] };
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ServerKey.__pulumiType, name, inputs, opts);
     }
 }

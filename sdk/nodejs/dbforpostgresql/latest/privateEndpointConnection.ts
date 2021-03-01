@@ -97,7 +97,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:dbforpostgresql:PrivateEndpointConnection" }, { type: "azure-nextgen:dbforpostgresql:PrivateEndpointConnection" }, { type: "azure-native:dbforpostgresql/v20180601:PrivateEndpointConnection" }, { type: "azure-nextgen:dbforpostgresql/v20180601:PrivateEndpointConnection" }, { type: "azure-native:dbforpostgresql/v20180601privatepreview:PrivateEndpointConnection" }, { type: "azure-nextgen:dbforpostgresql/v20180601privatepreview:PrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:dbforpostgresql/latest:PrivateEndpointConnection" }, { type: "azure-native:dbforpostgresql:PrivateEndpointConnection" }, { type: "azure-nextgen:dbforpostgresql:PrivateEndpointConnection" }, { type: "azure-native:dbforpostgresql/v20180601:PrivateEndpointConnection" }, { type: "azure-nextgen:dbforpostgresql/v20180601:PrivateEndpointConnection" }, { type: "azure-native:dbforpostgresql/v20180601privatepreview:PrivateEndpointConnection" }, { type: "azure-nextgen:dbforpostgresql/v20180601privatepreview:PrivateEndpointConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateEndpointConnection.__pulumiType, name, inputs, opts);
     }

@@ -115,7 +115,7 @@ export class VirtualNetworkLink extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:network:VirtualNetworkLink" }, { type: "azure-nextgen:network:VirtualNetworkLink" }, { type: "azure-native:network/latest:VirtualNetworkLink" }, { type: "azure-nextgen:network/latest:VirtualNetworkLink" }, { type: "azure-native:network/v20180901:VirtualNetworkLink" }, { type: "azure-nextgen:network/v20180901:VirtualNetworkLink" }, { type: "azure-native:network/v20200601:VirtualNetworkLink" }, { type: "azure-nextgen:network/v20200601:VirtualNetworkLink" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20200101:VirtualNetworkLink" }, { type: "azure-native:network:VirtualNetworkLink" }, { type: "azure-nextgen:network:VirtualNetworkLink" }, { type: "azure-native:network/latest:VirtualNetworkLink" }, { type: "azure-nextgen:network/latest:VirtualNetworkLink" }, { type: "azure-native:network/v20180901:VirtualNetworkLink" }, { type: "azure-nextgen:network/v20180901:VirtualNetworkLink" }, { type: "azure-native:network/v20200601:VirtualNetworkLink" }, { type: "azure-nextgen:network/v20200601:VirtualNetworkLink" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualNetworkLink.__pulumiType, name, inputs, opts);
     }

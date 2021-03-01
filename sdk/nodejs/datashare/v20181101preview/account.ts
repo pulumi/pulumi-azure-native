@@ -114,7 +114,7 @@ export class Account extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:datashare:Account" }, { type: "azure-nextgen:datashare:Account" }, { type: "azure-native:datashare/latest:Account" }, { type: "azure-nextgen:datashare/latest:Account" }, { type: "azure-native:datashare/v20191101:Account" }, { type: "azure-nextgen:datashare/v20191101:Account" }, { type: "azure-native:datashare/v20200901:Account" }, { type: "azure-nextgen:datashare/v20200901:Account" }, { type: "azure-native:datashare/v20201001preview:Account" }, { type: "azure-nextgen:datashare/v20201001preview:Account" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:datashare/v20181101preview:Account" }, { type: "azure-native:datashare:Account" }, { type: "azure-nextgen:datashare:Account" }, { type: "azure-native:datashare/latest:Account" }, { type: "azure-nextgen:datashare/latest:Account" }, { type: "azure-native:datashare/v20191101:Account" }, { type: "azure-nextgen:datashare/v20191101:Account" }, { type: "azure-native:datashare/v20200901:Account" }, { type: "azure-nextgen:datashare/v20200901:Account" }, { type: "azure-native:datashare/v20201001preview:Account" }, { type: "azure-nextgen:datashare/v20201001preview:Account" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Account.__pulumiType, name, inputs, opts);
     }

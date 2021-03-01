@@ -132,7 +132,7 @@ export class Formula extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:devtestlab:Formula" }, { type: "azure-nextgen:devtestlab:Formula" }, { type: "azure-native:devtestlab/latest:Formula" }, { type: "azure-nextgen:devtestlab/latest:Formula" }, { type: "azure-native:devtestlab/v20150521preview:Formula" }, { type: "azure-nextgen:devtestlab/v20150521preview:Formula" }, { type: "azure-native:devtestlab/v20180915:Formula" }, { type: "azure-nextgen:devtestlab/v20180915:Formula" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:devtestlab/v20160515:Formula" }, { type: "azure-native:devtestlab:Formula" }, { type: "azure-nextgen:devtestlab:Formula" }, { type: "azure-native:devtestlab/latest:Formula" }, { type: "azure-nextgen:devtestlab/latest:Formula" }, { type: "azure-native:devtestlab/v20150521preview:Formula" }, { type: "azure-nextgen:devtestlab/v20150521preview:Formula" }, { type: "azure-native:devtestlab/v20180915:Formula" }, { type: "azure-nextgen:devtestlab/v20180915:Formula" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Formula.__pulumiType, name, inputs, opts);
     }

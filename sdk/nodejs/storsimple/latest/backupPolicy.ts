@@ -134,7 +134,7 @@ export class BackupPolicy extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:storsimple:BackupPolicy" }, { type: "azure-nextgen:storsimple:BackupPolicy" }, { type: "azure-native:storsimple/v20170601:BackupPolicy" }, { type: "azure-nextgen:storsimple/v20170601:BackupPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:storsimple/latest:BackupPolicy" }, { type: "azure-native:storsimple:BackupPolicy" }, { type: "azure-nextgen:storsimple:BackupPolicy" }, { type: "azure-native:storsimple/v20170601:BackupPolicy" }, { type: "azure-nextgen:storsimple/v20170601:BackupPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BackupPolicy.__pulumiType, name, inputs, opts);
     }
