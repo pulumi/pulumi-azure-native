@@ -64,6 +64,7 @@ namespace Pulumi.AzureNative.Resources.V20190510
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:resources/v20190510:DeploymentAtManagementGroupScope"},
                     new Pulumi.Alias { Type = "azure-native:resources:DeploymentAtManagementGroupScope"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources:DeploymentAtManagementGroupScope"},
                     new Pulumi.Alias { Type = "azure-native:resources/latest:DeploymentAtManagementGroupScope"},

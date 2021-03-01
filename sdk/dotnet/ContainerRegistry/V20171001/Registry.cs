@@ -112,6 +112,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20171001
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20171001:Registry"},
                     new Pulumi.Alias { Type = "azure-native:containerregistry:Registry"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry:Registry"},
                     new Pulumi.Alias { Type = "azure-native:containerregistry/latest:Registry"},

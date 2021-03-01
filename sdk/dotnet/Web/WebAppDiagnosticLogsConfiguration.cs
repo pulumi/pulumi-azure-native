@@ -89,6 +89,7 @@ namespace Pulumi.AzureNative.Web
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:web:WebAppDiagnosticLogsConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:web/latest:WebAppDiagnosticLogsConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/latest:WebAppDiagnosticLogsConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppDiagnosticLogsConfiguration"},

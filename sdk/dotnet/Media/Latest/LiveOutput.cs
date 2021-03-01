@@ -114,6 +114,7 @@ namespace Pulumi.AzureNative.Media.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:media/latest:LiveOutput"},
                     new Pulumi.Alias { Type = "azure-native:media:LiveOutput"},
                     new Pulumi.Alias { Type = "azure-nextgen:media:LiveOutput"},
                     new Pulumi.Alias { Type = "azure-native:media/v20180330preview:LiveOutput"},

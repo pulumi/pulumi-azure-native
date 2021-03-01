@@ -88,6 +88,7 @@ namespace Pulumi.AzureNative.Media.V20200201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:media/v20200201preview:MediaGraph"},
                     new Pulumi.Alias { Type = "azure-native:media:MediaGraph"},
                     new Pulumi.Alias { Type = "azure-nextgen:media:MediaGraph"},
                     new Pulumi.Alias { Type = "azure-native:media/v20190901preview:MediaGraph"},

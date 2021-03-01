@@ -77,6 +77,7 @@ namespace Pulumi.AzureNative.OperationsManagement
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:operationsmanagement:Solution"},
                     new Pulumi.Alias { Type = "azure-native:operationsmanagement/v20151101preview:Solution"},
                     new Pulumi.Alias { Type = "azure-nextgen:operationsmanagement/v20151101preview:Solution"},
                 },

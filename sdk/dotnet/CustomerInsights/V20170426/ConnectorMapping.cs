@@ -142,6 +142,7 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170426
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:customerinsights/v20170426:ConnectorMapping"},
                     new Pulumi.Alias { Type = "azure-native:customerinsights:ConnectorMapping"},
                     new Pulumi.Alias { Type = "azure-nextgen:customerinsights:ConnectorMapping"},
                     new Pulumi.Alias { Type = "azure-native:customerinsights/latest:ConnectorMapping"},

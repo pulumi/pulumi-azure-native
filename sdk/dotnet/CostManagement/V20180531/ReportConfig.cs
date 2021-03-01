@@ -82,6 +82,7 @@ namespace Pulumi.AzureNative.CostManagement.V20180531
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:costmanagement/v20180531:ReportConfig"},
                     new Pulumi.Alias { Type = "azure-native:costmanagement:ReportConfig"},
                     new Pulumi.Alias { Type = "azure-nextgen:costmanagement:ReportConfig"},
                     new Pulumi.Alias { Type = "azure-native:costmanagement/latest:ReportConfig"},

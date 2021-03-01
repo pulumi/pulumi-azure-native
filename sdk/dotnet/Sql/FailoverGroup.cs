@@ -101,6 +101,7 @@ namespace Pulumi.AzureNative.Sql
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:sql:FailoverGroup"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20150501preview:FailoverGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20150501preview:FailoverGroup"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20200202preview:FailoverGroup"},

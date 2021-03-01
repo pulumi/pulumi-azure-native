@@ -114,6 +114,7 @@ namespace Pulumi.AzureNative.PolicyInsights.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:policyinsights/latest:AttestationAtResource"},
                     new Pulumi.Alias { Type = "azure-native:policyinsights:AttestationAtResource"},
                     new Pulumi.Alias { Type = "azure-nextgen:policyinsights:AttestationAtResource"},
                     new Pulumi.Alias { Type = "azure-native:policyinsights/v20210101:AttestationAtResource"},

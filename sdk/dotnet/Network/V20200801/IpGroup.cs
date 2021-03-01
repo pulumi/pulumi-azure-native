@@ -94,6 +94,7 @@ namespace Pulumi.AzureNative.Network.V20200801
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:IpGroup"},
                     new Pulumi.Alias { Type = "azure-native:network:IpGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:IpGroup"},
                     new Pulumi.Alias { Type = "azure-native:network/latest:IpGroup"},

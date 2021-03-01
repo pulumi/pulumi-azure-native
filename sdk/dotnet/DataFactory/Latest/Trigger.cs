@@ -66,6 +66,7 @@ namespace Pulumi.AzureNative.DataFactory.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:datafactory/latest:Trigger"},
                     new Pulumi.Alias { Type = "azure-native:datafactory:Trigger"},
                     new Pulumi.Alias { Type = "azure-nextgen:datafactory:Trigger"},
                     new Pulumi.Alias { Type = "azure-native:datafactory/v20170901preview:Trigger"},

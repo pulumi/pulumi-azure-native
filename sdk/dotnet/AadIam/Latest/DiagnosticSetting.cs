@@ -90,6 +90,7 @@ namespace Pulumi.AzureNative.AadIam.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:aadiam/latest:DiagnosticSetting"},
                     new Pulumi.Alias { Type = "azure-native:aadiam:DiagnosticSetting"},
                     new Pulumi.Alias { Type = "azure-nextgen:aadiam:DiagnosticSetting"},
                     new Pulumi.Alias { Type = "azure-native:aadiam/v20170401:DiagnosticSetting"},

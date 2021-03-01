@@ -76,6 +76,7 @@ namespace Pulumi.AzureNative.Synapse.V20201201
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:synapse/v20201201:PrivateLinkHub"},
                     new Pulumi.Alias { Type = "azure-native:synapse:PrivateLinkHub"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse:PrivateLinkHub"},
                     new Pulumi.Alias { Type = "azure-native:synapse/latest:PrivateLinkHub"},

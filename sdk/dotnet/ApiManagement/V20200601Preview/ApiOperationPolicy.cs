@@ -64,6 +64,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20200601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20200601preview:ApiOperationPolicy"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement:ApiOperationPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement:ApiOperationPolicy"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/latest:ApiOperationPolicy"},

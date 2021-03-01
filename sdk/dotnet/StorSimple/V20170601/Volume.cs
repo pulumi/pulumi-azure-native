@@ -112,6 +112,7 @@ namespace Pulumi.AzureNative.StorSimple.V20170601
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:storsimple/v20170601:Volume"},
                     new Pulumi.Alias { Type = "azure-native:storsimple:Volume"},
                     new Pulumi.Alias { Type = "azure-nextgen:storsimple:Volume"},
                     new Pulumi.Alias { Type = "azure-native:storsimple/latest:Volume"},

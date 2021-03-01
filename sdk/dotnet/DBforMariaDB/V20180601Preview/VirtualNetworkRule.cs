@@ -70,6 +70,7 @@ namespace Pulumi.AzureNative.DBforMariaDB.V20180601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:dbformariadb/v20180601preview:VirtualNetworkRule"},
                     new Pulumi.Alias { Type = "azure-native:dbformariadb:VirtualNetworkRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbformariadb:VirtualNetworkRule"},
                     new Pulumi.Alias { Type = "azure-native:dbformariadb/latest:VirtualNetworkRule"},

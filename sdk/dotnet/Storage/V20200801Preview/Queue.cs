@@ -61,6 +61,7 @@ namespace Pulumi.AzureNative.Storage.V20200801Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20200801preview:Queue"},
                     new Pulumi.Alias { Type = "azure-native:storage:Queue"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage:Queue"},
                     new Pulumi.Alias { Type = "azure-native:storage/latest:Queue"},

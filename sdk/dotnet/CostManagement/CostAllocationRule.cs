@@ -59,6 +59,7 @@ namespace Pulumi.AzureNative.CostManagement
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:costmanagement:CostAllocationRule"},
                     new Pulumi.Alias { Type = "azure-native:costmanagement/v20200301preview:CostAllocationRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:costmanagement/v20200301preview:CostAllocationRule"},
                 },

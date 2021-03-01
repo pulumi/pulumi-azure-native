@@ -84,6 +84,7 @@ namespace Pulumi.AzureNative.Logic.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:logic/latest:IntegrationAccountSession"},
                     new Pulumi.Alias { Type = "azure-native:logic:IntegrationAccountSession"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic:IntegrationAccountSession"},
                     new Pulumi.Alias { Type = "azure-native:logic/v20160601:IntegrationAccountSession"},

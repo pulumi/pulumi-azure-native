@@ -144,6 +144,7 @@ namespace Pulumi.AzureNative.Logic.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:logic/latest:Workflow"},
                     new Pulumi.Alias { Type = "azure-native:logic:Workflow"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic:Workflow"},
                     new Pulumi.Alias { Type = "azure-native:logic/v20150201preview:Workflow"},

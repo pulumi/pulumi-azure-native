@@ -71,6 +71,7 @@ namespace Pulumi.AzureNative.Resources
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:resources:DeploymentAtSubscriptionScope"},
                     new Pulumi.Alias { Type = "azure-native:resources/latest:DeploymentAtSubscriptionScope"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/latest:DeploymentAtSubscriptionScope"},
                     new Pulumi.Alias { Type = "azure-native:resources/v20180501:DeploymentAtSubscriptionScope"},

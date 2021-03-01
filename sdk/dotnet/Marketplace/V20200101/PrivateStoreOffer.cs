@@ -118,6 +118,7 @@ namespace Pulumi.AzureNative.Marketplace.V20200101
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:marketplace/v20200101:PrivateStoreOffer"},
                     new Pulumi.Alias { Type = "azure-native:marketplace:PrivateStoreOffer"},
                     new Pulumi.Alias { Type = "azure-nextgen:marketplace:PrivateStoreOffer"},
                     new Pulumi.Alias { Type = "azure-native:marketplace/latest:PrivateStoreOffer"},

@@ -64,6 +64,7 @@ namespace Pulumi.AzureNative.Sql.V20200202Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20200202preview:JobCredential"},
                     new Pulumi.Alias { Type = "azure-native:sql:JobCredential"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql:JobCredential"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20170301preview:JobCredential"},

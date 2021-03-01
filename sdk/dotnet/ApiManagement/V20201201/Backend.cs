@@ -106,6 +106,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20201201
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20201201:Backend"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement:Backend"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement:Backend"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/latest:Backend"},

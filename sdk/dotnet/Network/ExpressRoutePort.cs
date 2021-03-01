@@ -143,6 +143,7 @@ namespace Pulumi.AzureNative.Network
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network:ExpressRoutePort"},
                     new Pulumi.Alias { Type = "azure-native:network/latest:ExpressRoutePort"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/latest:ExpressRoutePort"},
                     new Pulumi.Alias { Type = "azure-native:network/v20180801:ExpressRoutePort"},

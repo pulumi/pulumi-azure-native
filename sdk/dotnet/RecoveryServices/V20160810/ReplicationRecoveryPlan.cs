@@ -64,6 +64,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20160810
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20160810:ReplicationRecoveryPlan"},
                     new Pulumi.Alias { Type = "azure-native:recoveryservices:ReplicationRecoveryPlan"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices:ReplicationRecoveryPlan"},
                     new Pulumi.Alias { Type = "azure-native:recoveryservices/latest:ReplicationRecoveryPlan"},

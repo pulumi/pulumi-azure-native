@@ -94,6 +94,7 @@ namespace Pulumi.AzureNative.Insights.V20201001
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:insights/v20201001:ActivityLogAlert"},
                     new Pulumi.Alias { Type = "azure-native:insights:ActivityLogAlert"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights:ActivityLogAlert"},
                     new Pulumi.Alias { Type = "azure-native:insights/latest:ActivityLogAlert"},

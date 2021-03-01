@@ -100,6 +100,7 @@ namespace Pulumi.AzureNative.Network.V20150615
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20150615:LocalNetworkGateway"},
                     new Pulumi.Alias { Type = "azure-native:network:LocalNetworkGateway"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:LocalNetworkGateway"},
                     new Pulumi.Alias { Type = "azure-native:network/latest:LocalNetworkGateway"},

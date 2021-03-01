@@ -89,6 +89,7 @@ namespace Pulumi.AzureNative.Sql
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:sql:InstancePool"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20180601preview:InstancePool"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20180601preview:InstancePool"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20200202preview:InstancePool"},

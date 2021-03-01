@@ -58,6 +58,7 @@ namespace Pulumi.AzureNative.DataShare.V20191101
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:datashare/v20191101:DataSetMapping"},
                     new Pulumi.Alias { Type = "azure-native:datashare:DataSetMapping"},
                     new Pulumi.Alias { Type = "azure-nextgen:datashare:DataSetMapping"},
                     new Pulumi.Alias { Type = "azure-native:datashare/latest:DataSetMapping"},

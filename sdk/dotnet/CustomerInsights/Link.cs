@@ -131,6 +131,7 @@ namespace Pulumi.AzureNative.CustomerInsights
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:customerinsights:Link"},
                     new Pulumi.Alias { Type = "azure-native:customerinsights/latest:Link"},
                     new Pulumi.Alias { Type = "azure-nextgen:customerinsights/latest:Link"},
                     new Pulumi.Alias { Type = "azure-native:customerinsights/v20170101:Link"},

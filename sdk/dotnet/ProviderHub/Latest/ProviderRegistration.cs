@@ -56,6 +56,7 @@ namespace Pulumi.AzureNative.ProviderHub.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:providerhub/latest:ProviderRegistration"},
                     new Pulumi.Alias { Type = "azure-native:providerhub:ProviderRegistration"},
                     new Pulumi.Alias { Type = "azure-nextgen:providerhub:ProviderRegistration"},
                     new Pulumi.Alias { Type = "azure-native:providerhub/v20201120:ProviderRegistration"},

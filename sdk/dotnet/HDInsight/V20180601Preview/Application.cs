@@ -70,6 +70,7 @@ namespace Pulumi.AzureNative.HDInsight.V20180601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:hdinsight/v20180601preview:Application"},
                     new Pulumi.Alias { Type = "azure-native:hdinsight:Application"},
                     new Pulumi.Alias { Type = "azure-nextgen:hdinsight:Application"},
                     new Pulumi.Alias { Type = "azure-native:hdinsight/v20150301preview:Application"},

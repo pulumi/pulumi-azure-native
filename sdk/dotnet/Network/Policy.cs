@@ -122,6 +122,7 @@ namespace Pulumi.AzureNative.Network
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network:Policy"},
                     new Pulumi.Alias { Type = "azure-native:network/latest:Policy"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/latest:Policy"},
                     new Pulumi.Alias { Type = "azure-native:network/v20180801:Policy"},

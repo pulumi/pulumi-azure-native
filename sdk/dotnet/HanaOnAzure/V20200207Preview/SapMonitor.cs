@@ -112,6 +112,7 @@ namespace Pulumi.AzureNative.HanaOnAzure.V20200207Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:hanaonazure/v20200207preview:SapMonitor"},
                     new Pulumi.Alias { Type = "azure-native:hanaonazure:SapMonitor"},
                     new Pulumi.Alias { Type = "azure-nextgen:hanaonazure:SapMonitor"},
                 },

@@ -95,6 +95,7 @@ namespace Pulumi.AzureNative.OperationalInsights
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:operationalinsights:DataExport"},
                     new Pulumi.Alias { Type = "azure-native:operationalinsights/latest:DataExport"},
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/latest:DataExport"},
                     new Pulumi.Alias { Type = "azure-native:operationalinsights/v20190801preview:DataExport"},

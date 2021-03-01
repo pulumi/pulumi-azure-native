@@ -208,6 +208,7 @@ namespace Pulumi.AzureNative.Authorization.V20210301Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:authorization/v20210301preview:AccessReviewScheduleDefinitionById"},
                     new Pulumi.Alias { Type = "azure-native:authorization:AccessReviewScheduleDefinitionById"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization:AccessReviewScheduleDefinitionById"},
                     new Pulumi.Alias { Type = "azure-native:authorization/v20180501preview:AccessReviewScheduleDefinitionById"},

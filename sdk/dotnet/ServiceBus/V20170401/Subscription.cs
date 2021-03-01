@@ -154,6 +154,7 @@ namespace Pulumi.AzureNative.ServiceBus.V20170401
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20170401:Subscription"},
                     new Pulumi.Alias { Type = "azure-native:servicebus:Subscription"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus:Subscription"},
                     new Pulumi.Alias { Type = "azure-native:servicebus/latest:Subscription"},

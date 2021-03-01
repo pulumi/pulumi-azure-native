@@ -124,6 +124,7 @@ namespace Pulumi.AzureNative.Automation.V20151031
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:automation/v20151031:Watcher"},
                     new Pulumi.Alias { Type = "azure-native:automation:Watcher"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation:Watcher"},
                     new Pulumi.Alias { Type = "azure-native:automation/latest:Watcher"},

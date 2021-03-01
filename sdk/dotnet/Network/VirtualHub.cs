@@ -179,6 +179,7 @@ namespace Pulumi.AzureNative.Network
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network:VirtualHub"},
                     new Pulumi.Alias { Type = "azure-native:network/latest:VirtualHub"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/latest:VirtualHub"},
                     new Pulumi.Alias { Type = "azure-native:network/v20180401:VirtualHub"},

@@ -125,6 +125,7 @@ namespace Pulumi.AzureNative.Intune
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:intune:IoMAMPolicyByName"},
                     new Pulumi.Alias { Type = "azure-native:intune/v20150114preview:IoMAMPolicyByName"},
                     new Pulumi.Alias { Type = "azure-nextgen:intune/v20150114preview:IoMAMPolicyByName"},
                     new Pulumi.Alias { Type = "azure-native:intune/v20150114privatepreview:IoMAMPolicyByName"},

@@ -114,6 +114,7 @@ namespace Pulumi.AzureNative.DevTestLab.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:devtestlab/latest:NotificationChannel"},
                     new Pulumi.Alias { Type = "azure-native:devtestlab:NotificationChannel"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab:NotificationChannel"},
                     new Pulumi.Alias { Type = "azure-native:devtestlab/v20160515:NotificationChannel"},

@@ -154,6 +154,7 @@ namespace Pulumi.AzureNative.Blockchain.V20180601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:blockchain/v20180601preview:BlockchainMember"},
                     new Pulumi.Alias { Type = "azure-native:blockchain:BlockchainMember"},
                     new Pulumi.Alias { Type = "azure-nextgen:blockchain:BlockchainMember"},
                 },

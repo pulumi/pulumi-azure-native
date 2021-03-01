@@ -112,6 +112,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20160319
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20160319:DatabaseAccountGremlinGraph"},
                     new Pulumi.Alias { Type = "azure-native:documentdb:DatabaseAccountGremlinGraph"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb:DatabaseAccountGremlinGraph"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/latest:DatabaseAccountGremlinGraph"},

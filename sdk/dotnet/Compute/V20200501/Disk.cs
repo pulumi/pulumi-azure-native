@@ -202,6 +202,7 @@ namespace Pulumi.AzureNative.Compute.V20200501
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20200501:Disk"},
                     new Pulumi.Alias { Type = "azure-native:compute:Disk"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute:Disk"},
                     new Pulumi.Alias { Type = "azure-native:compute/latest:Disk"},

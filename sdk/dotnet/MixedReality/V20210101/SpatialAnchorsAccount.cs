@@ -112,6 +112,7 @@ namespace Pulumi.AzureNative.MixedReality.V20210101
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:mixedreality/v20210101:SpatialAnchorsAccount"},
                     new Pulumi.Alias { Type = "azure-native:mixedreality:SpatialAnchorsAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:mixedreality:SpatialAnchorsAccount"},
                     new Pulumi.Alias { Type = "azure-native:mixedreality/latest:SpatialAnchorsAccount"},

@@ -131,6 +131,7 @@ namespace Pulumi.AzureNative.HybridNetwork
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:hybridnetwork:NetworkFunction"},
                     new Pulumi.Alias { Type = "azure-native:hybridnetwork/v20200101preview:NetworkFunction"},
                     new Pulumi.Alias { Type = "azure-nextgen:hybridnetwork/v20200101preview:NetworkFunction"},
                 },

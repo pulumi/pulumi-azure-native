@@ -131,6 +131,7 @@ namespace Pulumi.AzureNative.Solutions
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:solutions:Appliance"},
                     new Pulumi.Alias { Type = "azure-native:solutions/v20160901preview:Appliance"},
                     new Pulumi.Alias { Type = "azure-nextgen:solutions/v20160901preview:Appliance"},
                 },

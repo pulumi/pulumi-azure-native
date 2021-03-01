@@ -124,6 +124,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20170301
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20170301:Subscription"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement:Subscription"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement:Subscription"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/latest:Subscription"},

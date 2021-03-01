@@ -66,6 +66,7 @@ namespace Pulumi.AzureNative.DBforMariaDB.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:dbformariadb/latest:Database"},
                     new Pulumi.Alias { Type = "azure-native:dbformariadb:Database"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbformariadb:Database"},
                     new Pulumi.Alias { Type = "azure-native:dbformariadb/v20180601:Database"},

@@ -82,6 +82,7 @@ namespace Pulumi.AzureNative.Migrate.V20180202
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:migrate/v20180202:Group"},
                     new Pulumi.Alias { Type = "azure-native:migrate/v20171111preview:Group"},
                     new Pulumi.Alias { Type = "azure-nextgen:migrate/v20171111preview:Group"},
                 },

@@ -94,6 +94,7 @@ namespace Pulumi.AzureNative.CostManagement.V20200601
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:costmanagement/v20200601:Export"},
                     new Pulumi.Alias { Type = "azure-native:costmanagement:Export"},
                     new Pulumi.Alias { Type = "azure-nextgen:costmanagement:Export"},
                     new Pulumi.Alias { Type = "azure-native:costmanagement/latest:Export"},

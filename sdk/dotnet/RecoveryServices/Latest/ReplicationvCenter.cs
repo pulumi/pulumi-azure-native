@@ -66,6 +66,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/latest:ReplicationvCenter"},
                     new Pulumi.Alias { Type = "azure-native:recoveryservices:ReplicationvCenter"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices:ReplicationvCenter"},
                     new Pulumi.Alias { Type = "azure-native:recoveryservices/v20160810:ReplicationvCenter"},

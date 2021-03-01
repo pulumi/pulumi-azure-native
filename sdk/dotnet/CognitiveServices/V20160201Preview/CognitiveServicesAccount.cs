@@ -94,6 +94,7 @@ namespace Pulumi.AzureNative.CognitiveServices.V20160201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:cognitiveservices/v20160201preview:CognitiveServicesAccount"},
                     new Pulumi.Alias { Type = "azure-native:cognitiveservices:CognitiveServicesAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:cognitiveservices:CognitiveServicesAccount"},
                     new Pulumi.Alias { Type = "azure-native:cognitiveservices/latest:CognitiveServicesAccount"},

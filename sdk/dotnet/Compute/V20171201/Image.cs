@@ -82,6 +82,7 @@ namespace Pulumi.AzureNative.Compute.V20171201
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20171201:Image"},
                     new Pulumi.Alias { Type = "azure-native:compute:Image"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute:Image"},
                     new Pulumi.Alias { Type = "azure-native:compute/latest:Image"},

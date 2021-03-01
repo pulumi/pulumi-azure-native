@@ -136,6 +136,7 @@ namespace Pulumi.AzureNative.Network.V20200801
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:LoadBalancer"},
                     new Pulumi.Alias { Type = "azure-native:network:LoadBalancer"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:LoadBalancer"},
                     new Pulumi.Alias { Type = "azure-native:network/latest:LoadBalancer"},

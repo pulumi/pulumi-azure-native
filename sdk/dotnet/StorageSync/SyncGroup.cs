@@ -65,6 +65,7 @@ namespace Pulumi.AzureNative.StorageSync
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:storagesync:SyncGroup"},
                     new Pulumi.Alias { Type = "azure-native:storagesync/latest:SyncGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagesync/latest:SyncGroup"},
                     new Pulumi.Alias { Type = "azure-native:storagesync/v20170605preview:SyncGroup"},

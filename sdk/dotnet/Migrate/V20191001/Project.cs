@@ -76,6 +76,7 @@ namespace Pulumi.AzureNative.Migrate.V20191001
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:migrate/v20191001:Project"},
                     new Pulumi.Alias { Type = "azure-native:migrate:Project"},
                     new Pulumi.Alias { Type = "azure-nextgen:migrate:Project"},
                     new Pulumi.Alias { Type = "azure-native:migrate/latest:Project"},

@@ -90,6 +90,7 @@ namespace Pulumi.AzureNative.DBforMySQL.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:dbformysql/latest:Configuration"},
                     new Pulumi.Alias { Type = "azure-native:dbformysql:Configuration"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbformysql:Configuration"},
                     new Pulumi.Alias { Type = "azure-native:dbformysql/v20171201:Configuration"},

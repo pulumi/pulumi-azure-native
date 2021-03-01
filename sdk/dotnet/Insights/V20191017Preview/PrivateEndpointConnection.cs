@@ -70,6 +70,7 @@ namespace Pulumi.AzureNative.Insights.V20191017Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:insights/v20191017preview:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:insights:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights:PrivateEndpointConnection"},
                 },

@@ -124,6 +124,7 @@ namespace Pulumi.AzureNative.Sql.V20190601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20190601preview:Server"},
                     new Pulumi.Alias { Type = "azure-native:sql:Server"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql:Server"},
                     new Pulumi.Alias { Type = "azure-native:sql/latest:Server"},

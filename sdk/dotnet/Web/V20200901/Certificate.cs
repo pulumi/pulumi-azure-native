@@ -196,6 +196,7 @@ namespace Pulumi.AzureNative.Web.V20200901
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:Certificate"},
                     new Pulumi.Alias { Type = "azure-native:web:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:Certificate"},
                     new Pulumi.Alias { Type = "azure-native:web/latest:Certificate"},

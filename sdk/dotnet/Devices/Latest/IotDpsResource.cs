@@ -84,6 +84,7 @@ namespace Pulumi.AzureNative.Devices.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:devices/latest:IotDpsResource"},
                     new Pulumi.Alias { Type = "azure-native:devices:IotDpsResource"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices:IotDpsResource"},
                     new Pulumi.Alias { Type = "azure-native:devices/v20170821preview:IotDpsResource"},

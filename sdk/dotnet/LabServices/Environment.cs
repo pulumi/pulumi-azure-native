@@ -137,6 +137,7 @@ namespace Pulumi.AzureNative.LabServices
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:labservices:Environment"},
                     new Pulumi.Alias { Type = "azure-native:labservices/latest:Environment"},
                     new Pulumi.Alias { Type = "azure-nextgen:labservices/latest:Environment"},
                     new Pulumi.Alias { Type = "azure-native:labservices/v20181015:Environment"},

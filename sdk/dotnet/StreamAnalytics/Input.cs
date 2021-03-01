@@ -59,6 +59,7 @@ namespace Pulumi.AzureNative.StreamAnalytics
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:streamanalytics:Input"},
                     new Pulumi.Alias { Type = "azure-native:streamanalytics/latest:Input"},
                     new Pulumi.Alias { Type = "azure-nextgen:streamanalytics/latest:Input"},
                     new Pulumi.Alias { Type = "azure-native:streamanalytics/v20160301:Input"},

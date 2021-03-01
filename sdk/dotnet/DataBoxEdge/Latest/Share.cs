@@ -120,6 +120,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/latest:Share"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge:Share"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge:Share"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20190301:Share"},

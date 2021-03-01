@@ -70,6 +70,7 @@ namespace Pulumi.AzureNative.ContainerService.V20201201
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20201201:MaintenanceConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:containerservice:MaintenanceConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice:MaintenanceConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:containerservice/latest:MaintenanceConfiguration"},

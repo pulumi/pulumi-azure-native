@@ -64,6 +64,7 @@ namespace Pulumi.AzureNative.DBforMySQL.V20171201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:dbformysql/v20171201preview:Database"},
                     new Pulumi.Alias { Type = "azure-native:dbformysql:Database"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbformysql:Database"},
                     new Pulumi.Alias { Type = "azure-native:dbformysql/latest:Database"},

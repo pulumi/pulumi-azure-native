@@ -119,6 +119,7 @@ namespace Pulumi.AzureNative.RedHatOpenShift
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:redhatopenshift:OpenShiftCluster"},
                     new Pulumi.Alias { Type = "azure-native:redhatopenshift/latest:OpenShiftCluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:redhatopenshift/latest:OpenShiftCluster"},
                     new Pulumi.Alias { Type = "azure-native:redhatopenshift/v20200430:OpenShiftCluster"},

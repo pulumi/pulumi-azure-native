@@ -119,6 +119,7 @@ namespace Pulumi.AzureNative.Compute
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:compute:DedicatedHost"},
                     new Pulumi.Alias { Type = "azure-native:compute/latest:DedicatedHost"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/latest:DedicatedHost"},
                     new Pulumi.Alias { Type = "azure-native:compute/v20190301:DedicatedHost"},

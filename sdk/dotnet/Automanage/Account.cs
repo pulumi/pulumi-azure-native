@@ -71,6 +71,7 @@ namespace Pulumi.AzureNative.Automanage
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:automanage:Account"},
                     new Pulumi.Alias { Type = "azure-native:automanage/v20200630preview:Account"},
                     new Pulumi.Alias { Type = "azure-nextgen:automanage/v20200630preview:Account"},
                 },

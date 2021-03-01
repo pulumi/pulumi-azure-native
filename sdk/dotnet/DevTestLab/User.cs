@@ -95,6 +95,7 @@ namespace Pulumi.AzureNative.DevTestLab
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:devtestlab:User"},
                     new Pulumi.Alias { Type = "azure-native:devtestlab/latest:User"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/latest:User"},
                     new Pulumi.Alias { Type = "azure-native:devtestlab/v20160515:User"},

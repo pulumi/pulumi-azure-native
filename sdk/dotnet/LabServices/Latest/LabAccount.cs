@@ -96,6 +96,7 @@ namespace Pulumi.AzureNative.LabServices.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:labservices/latest:LabAccount"},
                     new Pulumi.Alias { Type = "azure-native:labservices:LabAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:labservices:LabAccount"},
                     new Pulumi.Alias { Type = "azure-native:labservices/v20181015:LabAccount"},

@@ -124,6 +124,7 @@ namespace Pulumi.AzureNative.CostManagement.V20180801Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:costmanagement/v20180801preview:Connector"},
                     new Pulumi.Alias { Type = "azure-native:costmanagement:Connector"},
                     new Pulumi.Alias { Type = "azure-nextgen:costmanagement:Connector"},
                 },

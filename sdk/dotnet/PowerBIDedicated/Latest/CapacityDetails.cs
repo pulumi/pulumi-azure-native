@@ -102,6 +102,7 @@ namespace Pulumi.AzureNative.PowerBIDedicated.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:powerbidedicated/latest:CapacityDetails"},
                     new Pulumi.Alias { Type = "azure-native:powerbidedicated:CapacityDetails"},
                     new Pulumi.Alias { Type = "azure-nextgen:powerbidedicated:CapacityDetails"},
                     new Pulumi.Alias { Type = "azure-native:powerbidedicated/v20171001:CapacityDetails"},

@@ -71,6 +71,7 @@ namespace Pulumi.AzureNative.EventHub
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:eventhub:ConsumerGroup"},
                     new Pulumi.Alias { Type = "azure-native:eventhub/latest:ConsumerGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventhub/latest:ConsumerGroup"},
                     new Pulumi.Alias { Type = "azure-native:eventhub/v20140901:ConsumerGroup"},

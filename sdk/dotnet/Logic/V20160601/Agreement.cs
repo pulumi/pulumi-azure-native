@@ -118,6 +118,7 @@ namespace Pulumi.AzureNative.Logic.V20160601
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:logic/v20160601:Agreement"},
                     new Pulumi.Alias { Type = "azure-native:logic:Agreement"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic:Agreement"},
                     new Pulumi.Alias { Type = "azure-native:logic/latest:Agreement"},

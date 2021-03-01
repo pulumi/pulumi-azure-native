@@ -82,6 +82,7 @@ namespace Pulumi.AzureNative.Network.V20150501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20150501preview:Subnet"},
                     new Pulumi.Alias { Type = "azure-native:network:Subnet"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:Subnet"},
                     new Pulumi.Alias { Type = "azure-native:network/latest:Subnet"},

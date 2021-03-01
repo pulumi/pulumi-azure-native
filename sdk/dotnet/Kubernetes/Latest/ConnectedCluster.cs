@@ -150,6 +150,7 @@ namespace Pulumi.AzureNative.Kubernetes.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:kubernetes/latest:ConnectedCluster"},
                     new Pulumi.Alias { Type = "azure-native:kubernetes:ConnectedCluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:kubernetes:ConnectedCluster"},
                     new Pulumi.Alias { Type = "azure-native:kubernetes/v20200101preview:ConnectedCluster"},

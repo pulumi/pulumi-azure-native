@@ -90,6 +90,7 @@ namespace Pulumi.AzureNative.ApiManagement.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:ApiIssue"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement:ApiIssue"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement:ApiIssue"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:ApiIssue"},

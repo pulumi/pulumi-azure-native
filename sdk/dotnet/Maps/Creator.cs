@@ -71,6 +71,7 @@ namespace Pulumi.AzureNative.Maps
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:maps:Creator"},
                     new Pulumi.Alias { Type = "azure-native:maps/v20200201preview:Creator"},
                     new Pulumi.Alias { Type = "azure-nextgen:maps/v20200201preview:Creator"},
                 },

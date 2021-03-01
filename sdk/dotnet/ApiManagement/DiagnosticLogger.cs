@@ -78,6 +78,7 @@ namespace Pulumi.AzureNative.ApiManagement
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement:DiagnosticLogger"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/latest:DiagnosticLogger"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:DiagnosticLogger"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:DiagnosticLogger"},

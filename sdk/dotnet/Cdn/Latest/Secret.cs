@@ -75,6 +75,7 @@ namespace Pulumi.AzureNative.Cdn.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:cdn/latest:Secret"},
                     new Pulumi.Alias { Type = "azure-native:cdn:Secret"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn:Secret"},
                     new Pulumi.Alias { Type = "azure-native:cdn/v20200901:Secret"},

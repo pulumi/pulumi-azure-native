@@ -99,6 +99,7 @@ namespace Pulumi.AzureNative.Cdn.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:cdn/latest:AFDOriginGroup"},
                     new Pulumi.Alias { Type = "azure-native:cdn:AFDOriginGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn:AFDOriginGroup"},
                     new Pulumi.Alias { Type = "azure-native:cdn/v20200901:AFDOriginGroup"},

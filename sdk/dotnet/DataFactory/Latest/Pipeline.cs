@@ -114,6 +114,7 @@ namespace Pulumi.AzureNative.DataFactory.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:datafactory/latest:Pipeline"},
                     new Pulumi.Alias { Type = "azure-native:datafactory:Pipeline"},
                     new Pulumi.Alias { Type = "azure-nextgen:datafactory:Pipeline"},
                     new Pulumi.Alias { Type = "azure-native:datafactory/v20170901preview:Pipeline"},

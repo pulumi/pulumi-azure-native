@@ -103,6 +103,7 @@ namespace Pulumi.AzureNative.KeyVault.V20190901
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:keyvault/v20190901:Key"},
                     new Pulumi.Alias { Type = "azure-native:keyvault:Key"},
                     new Pulumi.Alias { Type = "azure-nextgen:keyvault:Key"},
                     new Pulumi.Alias { Type = "azure-native:keyvault/latest:Key"},

@@ -70,6 +70,7 @@ namespace Pulumi.AzureNative.EngagementFabric.V20180901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:engagementfabric/v20180901preview:Account"},
                     new Pulumi.Alias { Type = "azure-native:engagementfabric:Account"},
                     new Pulumi.Alias { Type = "azure-nextgen:engagementfabric:Account"},
                 },

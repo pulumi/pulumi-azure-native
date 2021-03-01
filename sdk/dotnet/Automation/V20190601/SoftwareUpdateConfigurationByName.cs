@@ -106,6 +106,7 @@ namespace Pulumi.AzureNative.Automation.V20190601
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:automation/v20190601:SoftwareUpdateConfigurationByName"},
                     new Pulumi.Alias { Type = "azure-native:automation:SoftwareUpdateConfigurationByName"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation:SoftwareUpdateConfigurationByName"},
                     new Pulumi.Alias { Type = "azure-native:automation/latest:SoftwareUpdateConfigurationByName"},

@@ -60,6 +60,7 @@ namespace Pulumi.AzureNative.ProviderHub.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:providerhub/latest:DefaultRollout"},
                     new Pulumi.Alias { Type = "azure-native:providerhub:DefaultRollout"},
                     new Pulumi.Alias { Type = "azure-nextgen:providerhub:DefaultRollout"},
                     new Pulumi.Alias { Type = "azure-native:providerhub/v20201120:DefaultRollout"},

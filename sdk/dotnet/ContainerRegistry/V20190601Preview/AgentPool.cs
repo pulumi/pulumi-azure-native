@@ -101,6 +101,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20190601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20190601preview:AgentPool"},
                     new Pulumi.Alias { Type = "azure-native:containerregistry:AgentPool"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry:AgentPool"},
                 },

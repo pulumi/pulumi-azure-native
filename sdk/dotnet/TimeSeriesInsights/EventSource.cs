@@ -71,6 +71,7 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights:EventSource"},
                     new Pulumi.Alias { Type = "azure-native:timeseriesinsights/latest:EventSource"},
                     new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights/latest:EventSource"},
                     new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20170228preview:EventSource"},

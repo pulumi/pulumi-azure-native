@@ -252,6 +252,7 @@ namespace Pulumi.AzureNative.Web
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:web:ManagedHostingEnvironment"},
                     new Pulumi.Alias { Type = "azure-native:web/latest:ManagedHostingEnvironment"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/latest:ManagedHostingEnvironment"},
                     new Pulumi.Alias { Type = "azure-native:web/v20150801:ManagedHostingEnvironment"},

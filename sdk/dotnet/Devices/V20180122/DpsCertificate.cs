@@ -64,6 +64,7 @@ namespace Pulumi.AzureNative.Devices.V20180122
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:devices/v20180122:DpsCertificate"},
                     new Pulumi.Alias { Type = "azure-native:devices:DpsCertificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices:DpsCertificate"},
                     new Pulumi.Alias { Type = "azure-native:devices/latest:DpsCertificate"},

@@ -58,6 +58,7 @@ namespace Pulumi.AzureNative.Relay.V20160701
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:relay/v20160701:WCFRelayAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-native:relay:WCFRelayAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:relay:WCFRelayAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-native:relay/latest:WCFRelayAuthorizationRule"},

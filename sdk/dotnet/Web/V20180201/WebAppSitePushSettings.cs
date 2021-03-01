@@ -85,6 +85,7 @@ namespace Pulumi.AzureNative.Web.V20180201
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:WebAppSitePushSettings"},
                     new Pulumi.Alias { Type = "azure-native:web:WebAppSitePushSettings"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:WebAppSitePushSettings"},
                     new Pulumi.Alias { Type = "azure-native:web/latest:WebAppSitePushSettings"},

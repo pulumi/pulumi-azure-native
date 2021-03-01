@@ -70,6 +70,7 @@ namespace Pulumi.AzureNative.Sql.V20200801Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20200801preview:Job"},
                     new Pulumi.Alias { Type = "azure-native:sql:Job"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql:Job"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20170301preview:Job"},

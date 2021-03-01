@@ -70,6 +70,7 @@ namespace Pulumi.AzureNative.KeyVault.V20200401Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:keyvault/v20200401preview:Vault"},
                     new Pulumi.Alias { Type = "azure-native:keyvault:Vault"},
                     new Pulumi.Alias { Type = "azure-nextgen:keyvault:Vault"},
                     new Pulumi.Alias { Type = "azure-native:keyvault/latest:Vault"},

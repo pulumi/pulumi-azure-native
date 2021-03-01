@@ -78,6 +78,7 @@ namespace Pulumi.AzureNative.OperationalInsights.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/latest:LinkedService"},
                     new Pulumi.Alias { Type = "azure-native:operationalinsights:LinkedService"},
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights:LinkedService"},
                     new Pulumi.Alias { Type = "azure-native:operationalinsights/v20151101preview:LinkedService"},

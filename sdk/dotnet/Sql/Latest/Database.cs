@@ -266,6 +266,7 @@ namespace Pulumi.AzureNative.Sql.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:sql/latest:Database"},
                     new Pulumi.Alias { Type = "azure-native:sql:Database"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql:Database"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20140401:Database"},

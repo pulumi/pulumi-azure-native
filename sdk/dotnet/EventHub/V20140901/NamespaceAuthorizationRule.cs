@@ -64,6 +64,7 @@ namespace Pulumi.AzureNative.EventHub.V20140901
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:eventhub/v20140901:NamespaceAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-native:eventhub:NamespaceAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventhub:NamespaceAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-native:eventhub/latest:NamespaceAuthorizationRule"},

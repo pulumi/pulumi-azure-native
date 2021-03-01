@@ -72,6 +72,7 @@ namespace Pulumi.AzureNative.DBforMariaDB.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:dbformariadb/latest:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:dbformariadb:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbformariadb:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:dbformariadb/v20180601:PrivateEndpointConnection"},

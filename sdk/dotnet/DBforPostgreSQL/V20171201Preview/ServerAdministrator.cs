@@ -76,6 +76,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20171201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql/v20171201preview:ServerAdministrator"},
                     new Pulumi.Alias { Type = "azure-native:dbforpostgresql:ServerAdministrator"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql:ServerAdministrator"},
                     new Pulumi.Alias { Type = "azure-native:dbforpostgresql/latest:ServerAdministrator"},

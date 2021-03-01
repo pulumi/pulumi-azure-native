@@ -76,6 +76,7 @@ namespace Pulumi.AzureNative.IoTSpaces.V20171001Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:iotspaces/v20171001preview:IoTSpace"},
                     new Pulumi.Alias { Type = "azure-native:iotspaces:IoTSpace"},
                     new Pulumi.Alias { Type = "azure-nextgen:iotspaces:IoTSpace"},
                 },

@@ -88,6 +88,7 @@ namespace Pulumi.AzureNative.AzureStack.V20170601
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:azurestack/v20170601:Registration"},
                     new Pulumi.Alias { Type = "azure-native:azurestack:Registration"},
                     new Pulumi.Alias { Type = "azure-nextgen:azurestack:Registration"},
                     new Pulumi.Alias { Type = "azure-native:azurestack/latest:Registration"},

@@ -112,6 +112,7 @@ namespace Pulumi.AzureNative.Network.V20150501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20150501preview:PublicIpAddress"},
                     new Pulumi.Alias { Type = "azure-native:network:PublicIpAddress"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:PublicIpAddress"},
                     new Pulumi.Alias { Type = "azure-native:network/latest:PublicIpAddress"},

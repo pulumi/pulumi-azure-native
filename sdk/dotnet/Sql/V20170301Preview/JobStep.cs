@@ -88,6 +88,7 @@ namespace Pulumi.AzureNative.Sql.V20170301Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20170301preview:JobStep"},
                     new Pulumi.Alias { Type = "azure-native:sql:JobStep"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql:JobStep"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20200202preview:JobStep"},

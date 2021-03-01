@@ -106,6 +106,7 @@ namespace Pulumi.AzureNative.Kusto.V20170907PrivatePreview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:kusto/v20170907privatepreview:Cluster"},
                     new Pulumi.Alias { Type = "azure-native:kusto:Cluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto:Cluster"},
                     new Pulumi.Alias { Type = "azure-native:kusto/latest:Cluster"},

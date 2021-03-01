@@ -94,6 +94,7 @@ namespace Pulumi.AzureNative.SecurityAndCompliance.V20210111
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:securityandcompliance/v20210111:privateLinkServicesForO365ManagementActivityAPI"},
                     new Pulumi.Alias { Type = "azure-native:securityandcompliance:privateLinkServicesForO365ManagementActivityAPI"},
                     new Pulumi.Alias { Type = "azure-nextgen:securityandcompliance:privateLinkServicesForO365ManagementActivityAPI"},
                     new Pulumi.Alias { Type = "azure-native:securityandcompliance/latest:privateLinkServicesForO365ManagementActivityAPI"},

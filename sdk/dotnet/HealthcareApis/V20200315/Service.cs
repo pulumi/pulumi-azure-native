@@ -88,6 +88,7 @@ namespace Pulumi.AzureNative.HealthcareApis.V20200315
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:healthcareapis/v20200315:Service"},
                     new Pulumi.Alias { Type = "azure-native:healthcareapis:Service"},
                     new Pulumi.Alias { Type = "azure-nextgen:healthcareapis:Service"},
                     new Pulumi.Alias { Type = "azure-native:healthcareapis/latest:Service"},

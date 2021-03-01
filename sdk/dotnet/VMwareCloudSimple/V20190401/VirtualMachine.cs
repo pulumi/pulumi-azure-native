@@ -196,6 +196,7 @@ namespace Pulumi.AzureNative.VMwareCloudSimple.V20190401
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:vmwarecloudsimple/v20190401:VirtualMachine"},
                     new Pulumi.Alias { Type = "azure-native:vmwarecloudsimple:VirtualMachine"},
                     new Pulumi.Alias { Type = "azure-nextgen:vmwarecloudsimple:VirtualMachine"},
                     new Pulumi.Alias { Type = "azure-native:vmwarecloudsimple/latest:VirtualMachine"},

@@ -98,6 +98,7 @@ namespace Pulumi.AzureNative.Cdn
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:cdn:AFDEndpoint"},
                     new Pulumi.Alias { Type = "azure-native:cdn/latest:AFDEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/latest:AFDEndpoint"},
                     new Pulumi.Alias { Type = "azure-native:cdn/v20200901:AFDEndpoint"},

@@ -59,6 +59,7 @@ namespace Pulumi.AzureNative.ServiceBus
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:servicebus:NamespaceVirtualNetworkRule"},
                     new Pulumi.Alias { Type = "azure-native:servicebus/v20180101preview:NamespaceVirtualNetworkRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20180101preview:NamespaceVirtualNetworkRule"},
                 },

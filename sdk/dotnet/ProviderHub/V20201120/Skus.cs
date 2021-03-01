@@ -52,6 +52,7 @@ namespace Pulumi.AzureNative.ProviderHub.V20201120
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:providerhub/v20201120:Skus"},
                     new Pulumi.Alias { Type = "azure-native:providerhub:Skus"},
                     new Pulumi.Alias { Type = "azure-nextgen:providerhub:Skus"},
                     new Pulumi.Alias { Type = "azure-native:providerhub/latest:Skus"},

@@ -64,6 +64,7 @@ namespace Pulumi.AzureNative.OperationsManagement.V20151101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:operationsmanagement/v20151101preview:ManagementConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:operationsmanagement:ManagementConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:operationsmanagement:ManagementConfiguration"},
                 },

@@ -112,6 +112,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20150521preview:ArtifactSourceResource"},
                     new Pulumi.Alias { Type = "azure-native:devtestlab:ArtifactSourceResource"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab:ArtifactSourceResource"},
                     new Pulumi.Alias { Type = "azure-native:devtestlab/latest:ArtifactSourceResource"},

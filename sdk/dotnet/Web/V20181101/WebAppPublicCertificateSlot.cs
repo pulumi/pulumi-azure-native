@@ -76,6 +76,7 @@ namespace Pulumi.AzureNative.Web.V20181101
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20181101:WebAppPublicCertificateSlot"},
                     new Pulumi.Alias { Type = "azure-native:web:WebAppPublicCertificateSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:WebAppPublicCertificateSlot"},
                     new Pulumi.Alias { Type = "azure-native:web/latest:WebAppPublicCertificateSlot"},

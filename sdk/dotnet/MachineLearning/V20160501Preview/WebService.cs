@@ -70,6 +70,7 @@ namespace Pulumi.AzureNative.MachineLearning.V20160501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:machinelearning/v20160501preview:WebService"},
                     new Pulumi.Alias { Type = "azure-native:machinelearning:WebService"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearning:WebService"},
                     new Pulumi.Alias { Type = "azure-native:machinelearning/latest:WebService"},

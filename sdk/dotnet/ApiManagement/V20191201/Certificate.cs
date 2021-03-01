@@ -70,6 +70,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20191201
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201:Certificate"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement:Certificate"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/latest:Certificate"},

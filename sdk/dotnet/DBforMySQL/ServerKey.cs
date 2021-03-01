@@ -77,6 +77,7 @@ namespace Pulumi.AzureNative.DBforMySQL
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:dbformysql:ServerKey"},
                     new Pulumi.Alias { Type = "azure-native:dbformysql/latest:ServerKey"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbformysql/latest:ServerKey"},
                     new Pulumi.Alias { Type = "azure-native:dbformysql/v20200101:ServerKey"},

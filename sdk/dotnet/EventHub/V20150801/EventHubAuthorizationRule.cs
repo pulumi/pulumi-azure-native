@@ -64,6 +64,7 @@ namespace Pulumi.AzureNative.EventHub.V20150801
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:eventhub/v20150801:EventHubAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-native:eventhub:EventHubAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventhub:EventHubAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-native:eventhub/latest:EventHubAuthorizationRule"},

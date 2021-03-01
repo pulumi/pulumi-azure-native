@@ -82,6 +82,7 @@ namespace Pulumi.AzureNative.Peering.V20201001
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:peering/v20201001:PeerAsn"},
                     new Pulumi.Alias { Type = "azure-native:peering:PeerAsn"},
                     new Pulumi.Alias { Type = "azure-nextgen:peering:PeerAsn"},
                     new Pulumi.Alias { Type = "azure-native:peering/latest:PeerAsn"},

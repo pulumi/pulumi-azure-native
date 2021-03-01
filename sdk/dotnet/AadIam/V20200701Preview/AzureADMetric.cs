@@ -67,6 +67,7 @@ namespace Pulumi.AzureNative.AadIam.V20200701Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:aadiam/v20200701preview:azureADMetric"},
                     new Pulumi.Alias { Type = "azure-native:aadiam:azureADMetric"},
                     new Pulumi.Alias { Type = "azure-nextgen:aadiam:azureADMetric"},
                 },

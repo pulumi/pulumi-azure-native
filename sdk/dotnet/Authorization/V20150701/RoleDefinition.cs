@@ -82,6 +82,7 @@ namespace Pulumi.AzureNative.Authorization.V20150701
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:authorization/v20150701:RoleDefinition"},
                     new Pulumi.Alias { Type = "azure-native:authorization:RoleDefinition"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization:RoleDefinition"},
                     new Pulumi.Alias { Type = "azure-native:authorization/latest:RoleDefinition"},

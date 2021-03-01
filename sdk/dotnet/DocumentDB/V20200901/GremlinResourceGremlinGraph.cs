@@ -70,6 +70,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20200901
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200901:GremlinResourceGremlinGraph"},
                     new Pulumi.Alias { Type = "azure-native:documentdb:GremlinResourceGremlinGraph"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb:GremlinResourceGremlinGraph"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/latest:GremlinResourceGremlinGraph"},

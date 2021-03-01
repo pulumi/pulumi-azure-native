@@ -76,6 +76,7 @@ namespace Pulumi.AzureNative.StorageSync.V20180701
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20180701:StorageSyncService"},
                     new Pulumi.Alias { Type = "azure-native:storagesync:StorageSyncService"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagesync:StorageSyncService"},
                     new Pulumi.Alias { Type = "azure-native:storagesync/latest:StorageSyncService"},

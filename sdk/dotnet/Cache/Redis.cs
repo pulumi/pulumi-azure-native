@@ -185,6 +185,7 @@ namespace Pulumi.AzureNative.Cache
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:cache:Redis"},
                     new Pulumi.Alias { Type = "azure-native:cache/latest:Redis"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache/latest:Redis"},
                     new Pulumi.Alias { Type = "azure-native:cache/v20150801:Redis"},

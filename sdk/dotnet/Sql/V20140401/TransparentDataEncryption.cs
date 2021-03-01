@@ -64,6 +64,7 @@ namespace Pulumi.AzureNative.Sql.V20140401
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20140401:TransparentDataEncryption"},
                     new Pulumi.Alias { Type = "azure-native:sql:TransparentDataEncryption"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql:TransparentDataEncryption"},
                     new Pulumi.Alias { Type = "azure-native:sql/latest:TransparentDataEncryption"},

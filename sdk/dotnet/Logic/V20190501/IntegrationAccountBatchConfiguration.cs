@@ -70,6 +70,7 @@ namespace Pulumi.AzureNative.Logic.V20190501
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:logic/v20190501:IntegrationAccountBatchConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:logic:IntegrationAccountBatchConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic:IntegrationAccountBatchConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:logic/latest:IntegrationAccountBatchConfiguration"},

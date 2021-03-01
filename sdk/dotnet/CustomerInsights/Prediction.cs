@@ -155,6 +155,7 @@ namespace Pulumi.AzureNative.CustomerInsights
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:customerinsights:Prediction"},
                     new Pulumi.Alias { Type = "azure-native:customerinsights/latest:Prediction"},
                     new Pulumi.Alias { Type = "azure-nextgen:customerinsights/latest:Prediction"},
                     new Pulumi.Alias { Type = "azure-native:customerinsights/v20170426:Prediction"},

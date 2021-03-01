@@ -77,6 +77,7 @@ namespace Pulumi.AzureNative.StoragePool
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:storagepool:IscsiTarget"},
                     new Pulumi.Alias { Type = "azure-native:storagepool/v20200315preview:IscsiTarget"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagepool/v20200315preview:IscsiTarget"},
                 },

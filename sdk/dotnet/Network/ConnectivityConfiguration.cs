@@ -113,6 +113,7 @@ namespace Pulumi.AzureNative.Network
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network:ConnectivityConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:network/v20210201preview:ConnectivityConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20210201preview:ConnectivityConfiguration"},
                 },

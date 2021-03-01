@@ -166,6 +166,7 @@ namespace Pulumi.AzureNative.Web.V20160801
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20160801:WebAppSiteExtension"},
                     new Pulumi.Alias { Type = "azure-native:web:WebAppSiteExtension"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:WebAppSiteExtension"},
                     new Pulumi.Alias { Type = "azure-native:web/latest:WebAppSiteExtension"},

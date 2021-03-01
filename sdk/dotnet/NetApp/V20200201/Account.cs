@@ -76,6 +76,7 @@ namespace Pulumi.AzureNative.NetApp.V20200201
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200201:Account"},
                     new Pulumi.Alias { Type = "azure-native:netapp:Account"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp:Account"},
                     new Pulumi.Alias { Type = "azure-native:netapp/latest:Account"},

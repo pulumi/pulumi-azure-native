@@ -64,6 +64,7 @@ namespace Pulumi.AzureNative.GuestConfiguration.V20200625
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:guestconfiguration/v20200625:GuestConfigurationHCRPAssignment"},
                     new Pulumi.Alias { Type = "azure-native:guestconfiguration:GuestConfigurationHCRPAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:guestconfiguration:GuestConfigurationHCRPAssignment"},
                     new Pulumi.Alias { Type = "azure-native:guestconfiguration/latest:GuestConfigurationHCRPAssignment"},

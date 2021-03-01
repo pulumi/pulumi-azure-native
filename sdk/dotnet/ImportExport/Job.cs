@@ -83,6 +83,7 @@ namespace Pulumi.AzureNative.ImportExport
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:importexport:Job"},
                     new Pulumi.Alias { Type = "azure-native:importexport/latest:Job"},
                     new Pulumi.Alias { Type = "azure-nextgen:importexport/latest:Job"},
                     new Pulumi.Alias { Type = "azure-native:importexport/v20161101:Job"},

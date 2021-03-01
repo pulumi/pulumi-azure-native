@@ -125,6 +125,7 @@ namespace Pulumi.AzureNative.DevTestLab
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:devtestlab:Disk"},
                     new Pulumi.Alias { Type = "azure-native:devtestlab/latest:Disk"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/latest:Disk"},
                     new Pulumi.Alias { Type = "azure-native:devtestlab/v20160515:Disk"},

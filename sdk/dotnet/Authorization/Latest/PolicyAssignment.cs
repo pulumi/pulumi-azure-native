@@ -120,6 +120,7 @@ namespace Pulumi.AzureNative.Authorization.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:authorization/latest:PolicyAssignment"},
                     new Pulumi.Alias { Type = "azure-native:authorization:PolicyAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization:PolicyAssignment"},
                     new Pulumi.Alias { Type = "azure-native:authorization/v20151001preview:PolicyAssignment"},

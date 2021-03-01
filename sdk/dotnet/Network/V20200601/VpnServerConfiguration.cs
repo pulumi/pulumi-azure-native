@@ -148,6 +148,7 @@ namespace Pulumi.AzureNative.Network.V20200601
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:VpnServerConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:network:VpnServerConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:VpnServerConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:network/latest:VpnServerConfiguration"},

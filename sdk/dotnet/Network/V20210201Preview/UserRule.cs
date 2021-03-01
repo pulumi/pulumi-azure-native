@@ -118,6 +118,7 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20210201preview:UserRule"},
                     new Pulumi.Alias { Type = "azure-native:network:UserRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:UserRule"},
                 },

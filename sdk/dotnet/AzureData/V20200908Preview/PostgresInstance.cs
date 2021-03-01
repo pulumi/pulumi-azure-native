@@ -94,6 +94,7 @@ namespace Pulumi.AzureNative.AzureData.V20200908Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:azuredata/v20200908preview:PostgresInstance"},
                     new Pulumi.Alias { Type = "azure-native:azuredata:PostgresInstance"},
                     new Pulumi.Alias { Type = "azure-nextgen:azuredata:PostgresInstance"},
                     new Pulumi.Alias { Type = "azure-native:azuredata/v20190724preview:PostgresInstance"},

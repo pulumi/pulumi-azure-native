@@ -70,6 +70,7 @@ namespace Pulumi.AzureNative.Network.V20200501
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:NetworkInterfaceTapConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:network:NetworkInterfaceTapConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:NetworkInterfaceTapConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:network/latest:NetworkInterfaceTapConfiguration"},

@@ -112,6 +112,7 @@ namespace Pulumi.AzureNative.Web.V20190801
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20190801:WebAppHostNameBinding"},
                     new Pulumi.Alias { Type = "azure-native:web:WebAppHostNameBinding"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:WebAppHostNameBinding"},
                     new Pulumi.Alias { Type = "azure-native:web/latest:WebAppHostNameBinding"},

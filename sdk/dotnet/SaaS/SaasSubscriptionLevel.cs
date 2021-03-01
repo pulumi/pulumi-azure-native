@@ -65,6 +65,7 @@ namespace Pulumi.AzureNative.SaaS
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:saas:SaasSubscriptionLevel"},
                     new Pulumi.Alias { Type = "azure-native:saas/v20180301beta:SaasSubscriptionLevel"},
                     new Pulumi.Alias { Type = "azure-nextgen:saas/v20180301beta:SaasSubscriptionLevel"},
                 },

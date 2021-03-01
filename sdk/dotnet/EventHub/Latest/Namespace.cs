@@ -120,6 +120,7 @@ namespace Pulumi.AzureNative.EventHub.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:eventhub/latest:Namespace"},
                     new Pulumi.Alias { Type = "azure-native:eventhub:Namespace"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventhub:Namespace"},
                     new Pulumi.Alias { Type = "azure-native:eventhub/v20140901:Namespace"},

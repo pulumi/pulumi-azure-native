@@ -82,6 +82,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20160515:Secret"},
                     new Pulumi.Alias { Type = "azure-native:devtestlab:Secret"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab:Secret"},
                     new Pulumi.Alias { Type = "azure-native:devtestlab/latest:Secret"},

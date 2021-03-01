@@ -132,6 +132,7 @@ namespace Pulumi.AzureNative.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:RecordSet"},
                     new Pulumi.Alias { Type = "azure-native:network:RecordSet"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:RecordSet"},
                     new Pulumi.Alias { Type = "azure-native:network/v20180901:RecordSet"},

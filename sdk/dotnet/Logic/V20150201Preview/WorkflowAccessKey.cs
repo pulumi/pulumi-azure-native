@@ -61,6 +61,7 @@ namespace Pulumi.AzureNative.Logic.V20150201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:logic/v20150201preview:WorkflowAccessKey"},
                     new Pulumi.Alias { Type = "azure-native:logic:WorkflowAccessKey"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic:WorkflowAccessKey"},
                 },

@@ -77,6 +77,7 @@ namespace Pulumi.AzureNative.Network
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network:ExpressRouteCircuitAuthorization"},
                     new Pulumi.Alias { Type = "azure-native:network/latest:ExpressRouteCircuitAuthorization"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/latest:ExpressRouteCircuitAuthorization"},
                     new Pulumi.Alias { Type = "azure-native:network/v20150501preview:ExpressRouteCircuitAuthorization"},

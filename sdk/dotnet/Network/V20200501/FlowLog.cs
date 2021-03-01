@@ -118,6 +118,7 @@ namespace Pulumi.AzureNative.Network.V20200501
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:FlowLog"},
                     new Pulumi.Alias { Type = "azure-native:network:FlowLog"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:FlowLog"},
                     new Pulumi.Alias { Type = "azure-native:network/latest:FlowLog"},

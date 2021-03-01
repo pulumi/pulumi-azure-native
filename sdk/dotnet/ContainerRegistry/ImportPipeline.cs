@@ -95,6 +95,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:containerregistry:ImportPipeline"},
                     new Pulumi.Alias { Type = "azure-native:containerregistry/v20191201preview:ImportPipeline"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20191201preview:ImportPipeline"},
                     new Pulumi.Alias { Type = "azure-native:containerregistry/v20201101preview:ImportPipeline"},

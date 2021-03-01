@@ -66,6 +66,7 @@ namespace Pulumi.AzureNative.AzureStack.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:azurestack/latest:CustomerSubscription"},
                     new Pulumi.Alias { Type = "azure-native:azurestack:CustomerSubscription"},
                     new Pulumi.Alias { Type = "azure-nextgen:azurestack:CustomerSubscription"},
                     new Pulumi.Alias { Type = "azure-native:azurestack/v20170601:CustomerSubscription"},

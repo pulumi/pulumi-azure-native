@@ -58,6 +58,7 @@ namespace Pulumi.AzureNative.Relay.V20170401
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:relay/v20170401:HybridConnectionAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-native:relay:HybridConnectionAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:relay:HybridConnectionAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-native:relay/latest:HybridConnectionAuthorizationRule"},

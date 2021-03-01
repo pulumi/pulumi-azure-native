@@ -112,6 +112,7 @@ namespace Pulumi.AzureNative.Search.V20150819
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:search/v20150819:Service"},
                     new Pulumi.Alias { Type = "azure-native:search:Service"},
                     new Pulumi.Alias { Type = "azure-nextgen:search:Service"},
                     new Pulumi.Alias { Type = "azure-native:search/latest:Service"},

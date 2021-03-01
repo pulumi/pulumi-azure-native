@@ -64,6 +64,7 @@ namespace Pulumi.AzureNative.Cache.V20160401
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:cache/v20160401:PatchSchedule"},
                     new Pulumi.Alias { Type = "azure-native:cache/v20170201:PatchSchedule"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache/v20170201:PatchSchedule"},
                 },

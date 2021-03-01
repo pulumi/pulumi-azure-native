@@ -70,6 +70,7 @@ namespace Pulumi.AzureNative.DeploymentManager.V20180901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:deploymentmanager/v20180901preview:Step"},
                     new Pulumi.Alias { Type = "azure-native:deploymentmanager:Step"},
                     new Pulumi.Alias { Type = "azure-nextgen:deploymentmanager:Step"},
                     new Pulumi.Alias { Type = "azure-native:deploymentmanager/v20191101preview:Step"},

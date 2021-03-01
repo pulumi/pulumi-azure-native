@@ -83,6 +83,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:containerregistry:PipelineRun"},
                     new Pulumi.Alias { Type = "azure-native:containerregistry/v20191201preview:PipelineRun"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20191201preview:PipelineRun"},
                     new Pulumi.Alias { Type = "azure-native:containerregistry/v20201101preview:PipelineRun"},

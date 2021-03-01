@@ -113,6 +113,7 @@ namespace Pulumi.AzureNative.Network
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network:InboundNatRule"},
                     new Pulumi.Alias { Type = "azure-native:network/latest:InboundNatRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/latest:InboundNatRule"},
                     new Pulumi.Alias { Type = "azure-native:network/v20170601:InboundNatRule"},

@@ -137,6 +137,7 @@ namespace Pulumi.AzureNative.Insights
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:insights:WebTest"},
                     new Pulumi.Alias { Type = "azure-native:insights/latest:WebTest"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights/latest:WebTest"},
                     new Pulumi.Alias { Type = "azure-native:insights/v20150501:WebTest"},

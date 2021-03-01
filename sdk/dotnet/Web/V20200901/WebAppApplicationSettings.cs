@@ -70,6 +70,7 @@ namespace Pulumi.AzureNative.Web.V20200901
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:WebAppApplicationSettings"},
                     new Pulumi.Alias { Type = "azure-native:web:WebAppApplicationSettings"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:WebAppApplicationSettings"},
                     new Pulumi.Alias { Type = "azure-native:web/latest:WebAppApplicationSettings"},

@@ -102,6 +102,7 @@ namespace Pulumi.AzureNative.OperationalInsights.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/latest:SavedSearch"},
                     new Pulumi.Alias { Type = "azure-native:operationalinsights:SavedSearch"},
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights:SavedSearch"},
                     new Pulumi.Alias { Type = "azure-native:operationalinsights/v20150320:SavedSearch"},

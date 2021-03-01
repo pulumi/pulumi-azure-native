@@ -180,6 +180,7 @@ namespace Pulumi.AzureNative.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:PublicIPAddress"},
                     new Pulumi.Alias { Type = "azure-native:network:PublicIPAddress"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:PublicIPAddress"},
                     new Pulumi.Alias { Type = "azure-native:network/v20150501preview:PublicIPAddress"},
