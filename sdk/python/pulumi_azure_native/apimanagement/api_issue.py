@@ -108,6 +108,14 @@ class ApiIssue(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["api_id"] = None
+        __props__["created_date"] = None
+        __props__["description"] = None
+        __props__["name"] = None
+        __props__["state"] = None
+        __props__["title"] = None
+        __props__["type"] = None
+        __props__["user_id"] = None
         return ApiIssue(resource_name, opts=opts, __props__=__props__)
 
     @property

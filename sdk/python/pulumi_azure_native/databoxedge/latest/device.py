@@ -48,7 +48,7 @@ class Device(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The SKU type.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The list of tags that describe the device. These tags can be used to view and group this device (across resource groups).
         """
-        pulumi.log.warn("Device is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:databoxedge:Device'.")
+        pulumi.log.warn("""Device is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:databoxedge:Device'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -119,6 +119,31 @@ class Device(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["configured_role_types"] = None
+        __props__["culture"] = None
+        __props__["data_box_edge_device_status"] = None
+        __props__["description"] = None
+        __props__["device_hcs_version"] = None
+        __props__["device_local_capacity"] = None
+        __props__["device_model"] = None
+        __props__["device_software_version"] = None
+        __props__["device_type"] = None
+        __props__["edge_profile"] = None
+        __props__["etag"] = None
+        __props__["friendly_name"] = None
+        __props__["identity"] = None
+        __props__["kind"] = None
+        __props__["location"] = None
+        __props__["model_description"] = None
+        __props__["name"] = None
+        __props__["node_count"] = None
+        __props__["resource_move_details"] = None
+        __props__["serial_number"] = None
+        __props__["sku"] = None
+        __props__["system_data"] = None
+        __props__["tags"] = None
+        __props__["time_zone"] = None
+        __props__["type"] = None
         return Device(resource_name, opts=opts, __props__=__props__)
 
     @property

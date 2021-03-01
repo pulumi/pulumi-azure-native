@@ -162,7 +162,7 @@ def get_policy_definition(policy_definition_name: Optional[str] = None,
 
     :param str policy_definition_name: The name of the policy definition to get.
     """
-    pulumi.log.warn("get_policy_definition is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:authorization:getPolicyDefinition'.")
+    pulumi.log.warn("""get_policy_definition is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:authorization:getPolicyDefinition'.""")
     __args__ = dict()
     __args__['policyDefinitionName'] = policy_definition_name
     if opts is None:

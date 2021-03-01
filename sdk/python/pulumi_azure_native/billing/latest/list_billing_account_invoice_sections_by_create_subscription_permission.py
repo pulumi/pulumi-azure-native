@@ -66,7 +66,7 @@ def list_billing_account_invoice_sections_by_create_subscription_permission(bill
 
     :param str billing_account_name: The ID that uniquely identifies a billing account.
     """
-    pulumi.log.warn("list_billing_account_invoice_sections_by_create_subscription_permission is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:billing:listBillingAccountInvoiceSectionsByCreateSubscriptionPermission'.")
+    pulumi.log.warn("""list_billing_account_invoice_sections_by_create_subscription_permission is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:billing:listBillingAccountInvoiceSectionsByCreateSubscriptionPermission'.""")
     __args__ = dict()
     __args__['billingAccountName'] = billing_account_name
     if opts is None:

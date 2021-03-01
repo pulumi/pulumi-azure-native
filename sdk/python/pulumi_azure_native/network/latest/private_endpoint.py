@@ -52,7 +52,7 @@ class PrivateEndpoint(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SubnetArgs']] subnet: The ID of the subnet from which the private IP will be allocated.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.log.warn("PrivateEndpoint is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:PrivateEndpoint'.")
+        pulumi.log.warn("""PrivateEndpoint is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:PrivateEndpoint'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -111,6 +111,18 @@ class PrivateEndpoint(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["custom_dns_configs"] = None
+        __props__["etag"] = None
+        __props__["extended_location"] = None
+        __props__["location"] = None
+        __props__["manual_private_link_service_connections"] = None
+        __props__["name"] = None
+        __props__["network_interfaces"] = None
+        __props__["private_link_service_connections"] = None
+        __props__["provisioning_state"] = None
+        __props__["subnet"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
         return PrivateEndpoint(resource_name, opts=opts, __props__=__props__)
 
     @property

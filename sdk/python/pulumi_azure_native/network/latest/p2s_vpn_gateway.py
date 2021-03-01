@@ -53,7 +53,7 @@ class P2sVpnGateway(pulumi.CustomResource):
         :param pulumi.Input[int] vpn_gateway_scale_unit: The scale unit for this p2s vpn gateway.
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] vpn_server_configuration: The VpnServerConfiguration to which the p2sVpnGateway is attached to.
         """
-        pulumi.log.warn("P2sVpnGateway is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:P2sVpnGateway'.")
+        pulumi.log.warn("""P2sVpnGateway is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:P2sVpnGateway'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -113,6 +113,19 @@ class P2sVpnGateway(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["custom_dns_servers"] = None
+        __props__["etag"] = None
+        __props__["is_routing_preference_internet"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["p2_s_connection_configurations"] = None
+        __props__["provisioning_state"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["virtual_hub"] = None
+        __props__["vpn_client_connection_health"] = None
+        __props__["vpn_gateway_scale_unit"] = None
+        __props__["vpn_server_configuration"] = None
         return P2sVpnGateway(resource_name, opts=opts, __props__=__props__)
 
     @property

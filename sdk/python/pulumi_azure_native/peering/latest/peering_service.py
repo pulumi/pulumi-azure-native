@@ -45,7 +45,7 @@ class PeeringService(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['PeeringServiceSkuArgs']] sku: The SKU that defines the type of the peering service.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         """
-        pulumi.log.warn("PeeringService is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:peering:PeeringService'.")
+        pulumi.log.warn("""PeeringService is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:peering:PeeringService'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -99,6 +99,14 @@ class PeeringService(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["peering_service_location"] = None
+        __props__["peering_service_provider"] = None
+        __props__["provisioning_state"] = None
+        __props__["sku"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
         return PeeringService(resource_name, opts=opts, __props__=__props__)
 
     @property

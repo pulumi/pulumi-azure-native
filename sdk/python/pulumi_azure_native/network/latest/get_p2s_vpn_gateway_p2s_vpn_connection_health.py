@@ -212,7 +212,7 @@ def get_p2s_vpn_gateway_p2s_vpn_connection_health(gateway_name: Optional[str] = 
     :param str gateway_name: The name of the P2SVpnGateway.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("get_p2s_vpn_gateway_p2s_vpn_connection_health is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getP2sVpnGatewayP2sVpnConnectionHealth'.")
+    pulumi.log.warn("""get_p2s_vpn_gateway_p2s_vpn_connection_health is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getP2sVpnGatewayP2sVpnConnectionHealth'.""")
     __args__ = dict()
     __args__['gatewayName'] = gateway_name
     __args__['resourceGroupName'] = resource_group_name

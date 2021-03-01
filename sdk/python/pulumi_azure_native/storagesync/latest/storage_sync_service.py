@@ -41,7 +41,7 @@ class StorageSyncService(pulumi.CustomResource):
         :param pulumi.Input[str] storage_sync_service_name: Name of Storage Sync Service resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets a list of key value pairs that describe the resource. These tags can be used for viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key with a length no greater than 128 characters and a value with a length no greater than 256 characters.
         """
-        pulumi.log.warn("StorageSyncService is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storagesync:StorageSyncService'.")
+        pulumi.log.warn("""StorageSyncService is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storagesync:StorageSyncService'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -98,6 +98,17 @@ class StorageSyncService(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["incoming_traffic_policy"] = None
+        __props__["last_operation_name"] = None
+        __props__["last_workflow_id"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["private_endpoint_connections"] = None
+        __props__["provisioning_state"] = None
+        __props__["storage_sync_service_status"] = None
+        __props__["storage_sync_service_uid"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
         return StorageSyncService(resource_name, opts=opts, __props__=__props__)
 
     @property

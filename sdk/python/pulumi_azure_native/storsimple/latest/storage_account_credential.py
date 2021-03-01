@@ -46,7 +46,7 @@ class StorageAccountCredential(pulumi.CustomResource):
         :param pulumi.Input['SslStatus'] ssl_status: Signifies whether SSL needs to be enabled or not.
         :param pulumi.Input[str] storage_account_credential_name: The storage account credential name.
         """
-        pulumi.log.warn("StorageAccountCredential is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storsimple:StorageAccountCredential'.")
+        pulumi.log.warn("""StorageAccountCredential is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storsimple:StorageAccountCredential'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -106,6 +106,13 @@ class StorageAccountCredential(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["access_key"] = None
+        __props__["end_point"] = None
+        __props__["kind"] = None
+        __props__["name"] = None
+        __props__["ssl_status"] = None
+        __props__["type"] = None
+        __props__["volumes_count"] = None
         return StorageAccountCredential(resource_name, opts=opts, __props__=__props__)
 
     @property

@@ -62,7 +62,7 @@ def list_bot_connection_service_providers(opts: Optional[pulumi.InvokeOptions] =
     The list of bot service providers response.
     Latest API Version: 2020-06-02.
     """
-    pulumi.log.warn("list_bot_connection_service_providers is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:botservice:listBotConnectionServiceProviders'.")
+    pulumi.log.warn("""list_bot_connection_service_providers is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:botservice:listBotConnectionServiceProviders'.""")
     __args__ = dict()
     if opts is None:
         opts = pulumi.InvokeOptions()

@@ -113,7 +113,7 @@ def get_hierarchy_setting(group_id: Optional[str] = None,
 
     :param str group_id: Management Group ID.
     """
-    pulumi.log.warn("get_hierarchy_setting is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:management:getHierarchySetting'.")
+    pulumi.log.warn("""get_hierarchy_setting is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:management:getHierarchySetting'.""")
     __args__ = dict()
     __args__['groupId'] = group_id
     if opts is None:

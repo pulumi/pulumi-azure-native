@@ -117,6 +117,18 @@ class P2sVpnServerConfiguration(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["etag"] = None
+        __props__["name"] = None
+        __props__["p2_s_vpn_gateways"] = None
+        __props__["p2_s_vpn_server_config_radius_client_root_certificates"] = None
+        __props__["p2_s_vpn_server_config_radius_server_root_certificates"] = None
+        __props__["p2_s_vpn_server_config_vpn_client_revoked_certificates"] = None
+        __props__["p2_s_vpn_server_config_vpn_client_root_certificates"] = None
+        __props__["provisioning_state"] = None
+        __props__["radius_server_address"] = None
+        __props__["radius_server_secret"] = None
+        __props__["vpn_client_ipsec_policies"] = None
+        __props__["vpn_protocols"] = None
         return P2sVpnServerConfiguration(resource_name, opts=opts, __props__=__props__)
 
     @property

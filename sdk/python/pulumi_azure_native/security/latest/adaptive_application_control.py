@@ -40,7 +40,7 @@ class AdaptiveApplicationControl(pulumi.CustomResource):
         :param pulumi.Input[str] group_name: Name of an application control machine group
         :param pulumi.Input[pulumi.InputType['ProtectionModeArgs']] protection_mode: The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
         """
-        pulumi.log.warn("AdaptiveApplicationControl is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:security:AdaptiveApplicationControl'.")
+        pulumi.log.warn("""AdaptiveApplicationControl is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:security:AdaptiveApplicationControl'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -97,6 +97,17 @@ class AdaptiveApplicationControl(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["configuration_status"] = None
+        __props__["enforcement_mode"] = None
+        __props__["issues"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["path_recommendations"] = None
+        __props__["protection_mode"] = None
+        __props__["recommendation_status"] = None
+        __props__["source_system"] = None
+        __props__["type"] = None
+        __props__["vm_recommendations"] = None
         return AdaptiveApplicationControl(resource_name, opts=opts, __props__=__props__)
 
     @property

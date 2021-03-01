@@ -106,6 +106,19 @@ class AssessmentsMetadataSubscription(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["assessment_type"] = None
+        __props__["category"] = None
+        __props__["description"] = None
+        __props__["display_name"] = None
+        __props__["implementation_effort"] = None
+        __props__["name"] = None
+        __props__["policy_definition_id"] = None
+        __props__["preview"] = None
+        __props__["remediation_description"] = None
+        __props__["severity"] = None
+        __props__["threats"] = None
+        __props__["type"] = None
+        __props__["user_impact"] = None
         return AssessmentsMetadataSubscription(resource_name, opts=opts, __props__=__props__)
 
     @property

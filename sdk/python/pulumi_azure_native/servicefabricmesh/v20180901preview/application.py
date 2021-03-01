@@ -102,6 +102,20 @@ class Application(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["debug_params"] = None
+        __props__["description"] = None
+        __props__["diagnostics"] = None
+        __props__["health_state"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["service_names"] = None
+        __props__["services"] = None
+        __props__["status"] = None
+        __props__["status_details"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["unhealthy_evaluation"] = None
         return Application(resource_name, opts=opts, __props__=__props__)
 
     @property

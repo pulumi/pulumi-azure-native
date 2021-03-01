@@ -40,7 +40,7 @@ class RulesEngine(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RulesEngineRuleArgs']]]] rules: A list of rules that define a particular Rules Engine Configuration.
         :param pulumi.Input[str] rules_engine_name: Name of the Rules Engine which is unique within the Front Door.
         """
-        pulumi.log.warn("RulesEngine is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:RulesEngine'.")
+        pulumi.log.warn("""RulesEngine is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:RulesEngine'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -93,6 +93,10 @@ class RulesEngine(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["name"] = None
+        __props__["resource_state"] = None
+        __props__["rules"] = None
+        __props__["type"] = None
         return RulesEngine(resource_name, opts=opts, __props__=__props__)
 
     @property

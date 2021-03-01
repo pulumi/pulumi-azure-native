@@ -40,7 +40,7 @@ class DiskAccessAPrivateEndpointConnection(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionStateArgs']] private_link_service_connection_state: A collection of information about the state of the connection between DiskAccess and Virtual Network.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         """
-        pulumi.log.warn("DiskAccessAPrivateEndpointConnection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:compute:DiskAccessAPrivateEndpointConnection'.")
+        pulumi.log.warn("""DiskAccessAPrivateEndpointConnection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:compute:DiskAccessAPrivateEndpointConnection'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -96,6 +96,11 @@ class DiskAccessAPrivateEndpointConnection(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["name"] = None
+        __props__["private_endpoint"] = None
+        __props__["private_link_service_connection_state"] = None
+        __props__["provisioning_state"] = None
+        __props__["type"] = None
         return DiskAccessAPrivateEndpointConnection(resource_name, opts=opts, __props__=__props__)
 
     @property

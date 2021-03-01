@@ -108,6 +108,14 @@ class AnalyticsItem(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["content"] = None
+        __props__["name"] = None
+        __props__["properties"] = None
+        __props__["scope"] = None
+        __props__["time_created"] = None
+        __props__["time_modified"] = None
+        __props__["type"] = None
+        __props__["version"] = None
         return AnalyticsItem(resource_name, opts=opts, __props__=__props__)
 
     @property

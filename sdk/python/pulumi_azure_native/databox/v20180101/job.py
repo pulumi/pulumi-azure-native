@@ -99,6 +99,19 @@ class Job(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["cancellation_reason"] = None
+        __props__["details"] = None
+        __props__["error"] = None
+        __props__["is_cancellable"] = None
+        __props__["is_deletable"] = None
+        __props__["is_shipping_address_editable"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["sku"] = None
+        __props__["start_time"] = None
+        __props__["status"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
         return Job(resource_name, opts=opts, __props__=__props__)
 
     @property

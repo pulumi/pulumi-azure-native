@@ -90,6 +90,9 @@ class MonitoringConfig(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["metric_configurations"] = None
+        __props__["name"] = None
+        __props__["type"] = None
         return MonitoringConfig(resource_name, opts=opts, __props__=__props__)
 
     @property

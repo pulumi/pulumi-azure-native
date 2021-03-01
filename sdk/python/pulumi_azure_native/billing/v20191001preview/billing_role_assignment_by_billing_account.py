@@ -95,6 +95,18 @@ class BillingRoleAssignmentByBillingAccount(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["created_by_principal_id"] = None
+        __props__["created_by_principal_tenant_id"] = None
+        __props__["created_by_user_email_address"] = None
+        __props__["created_on"] = None
+        __props__["name"] = None
+        __props__["principal_id"] = None
+        __props__["principal_tenant_id"] = None
+        __props__["role_definition_id"] = None
+        __props__["scope"] = None
+        __props__["type"] = None
+        __props__["user_authentication_type"] = None
+        __props__["user_email_address"] = None
         return BillingRoleAssignmentByBillingAccount(resource_name, opts=opts, __props__=__props__)
 
     @property

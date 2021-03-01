@@ -98,6 +98,14 @@ class EmailTemplate(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["body"] = None
+        __props__["description"] = None
+        __props__["is_default"] = None
+        __props__["name"] = None
+        __props__["parameters"] = None
+        __props__["subject"] = None
+        __props__["title"] = None
+        __props__["type"] = None
         return EmailTemplate(resource_name, opts=opts, __props__=__props__)
 
     @property

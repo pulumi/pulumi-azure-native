@@ -124,7 +124,7 @@ def get_table_resource_table(account_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str table_name: Cosmos DB table name.
     """
-    pulumi.log.warn("get_table_resource_table is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:documentdb:getTableResourceTable'.")
+    pulumi.log.warn("""get_table_resource_table is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:documentdb:getTableResourceTable'.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['resourceGroupName'] = resource_group_name

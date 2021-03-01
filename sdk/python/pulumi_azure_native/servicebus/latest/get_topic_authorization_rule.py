@@ -95,7 +95,7 @@ def get_topic_authorization_rule(authorization_rule_name: Optional[str] = None,
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     :param str topic_name: The topic name.
     """
-    pulumi.log.warn("get_topic_authorization_rule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:servicebus:getTopicAuthorizationRule'.")
+    pulumi.log.warn("""get_topic_authorization_rule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:servicebus:getTopicAuthorizationRule'.""")
     __args__ = dict()
     __args__['authorizationRuleName'] = authorization_rule_name
     __args__['namespaceName'] = namespace_name

@@ -106,7 +106,7 @@ def get_trigger(device_name: Optional[str] = None,
     :param str name: The trigger name.
     :param str resource_group_name: The resource group name.
     """
-    pulumi.log.warn("get_trigger is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:databoxedge:getTrigger'.")
+    pulumi.log.warn("""get_trigger is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:databoxedge:getTrigger'.""")
     __args__ = dict()
     __args__['deviceName'] = device_name
     __args__['name'] = name

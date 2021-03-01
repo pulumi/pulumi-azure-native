@@ -242,7 +242,7 @@ def get_virtual_machine_schedule(expand: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     :param str virtual_machine_name: The name of the virtual machine.
     """
-    pulumi.log.warn("get_virtual_machine_schedule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devtestlab:getVirtualMachineSchedule'.")
+    pulumi.log.warn("""get_virtual_machine_schedule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devtestlab:getVirtualMachineSchedule'.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['labName'] = lab_name

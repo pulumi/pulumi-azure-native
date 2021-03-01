@@ -93,7 +93,7 @@ def list_iot_dps_resource_keys_for_key_name(key_name: Optional[str] = None,
     :param str provisioning_service_name: Name of the provisioning service.
     :param str resource_group_name: The name of the resource group that contains the provisioning service.
     """
-    pulumi.log.warn("list_iot_dps_resource_keys_for_key_name is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devices:listIotDpsResourceKeysForKeyName'.")
+    pulumi.log.warn("""list_iot_dps_resource_keys_for_key_name is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devices:listIotDpsResourceKeysForKeyName'.""")
     __args__ = dict()
     __args__['keyName'] = key_name
     __args__['provisioningServiceName'] = provisioning_service_name

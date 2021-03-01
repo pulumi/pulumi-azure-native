@@ -66,7 +66,7 @@ class VirtualMachineScaleSetVM(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[str] vm_scale_set_name: The name of the VM scale set where the extension should be create or updated.
         """
-        pulumi.log.warn("VirtualMachineScaleSetVM is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:compute:VirtualMachineScaleSetVM'.")
+        pulumi.log.warn("""VirtualMachineScaleSetVM is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:compute:VirtualMachineScaleSetVM'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -139,6 +139,31 @@ class VirtualMachineScaleSetVM(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["additional_capabilities"] = None
+        __props__["availability_set"] = None
+        __props__["diagnostics_profile"] = None
+        __props__["hardware_profile"] = None
+        __props__["instance_id"] = None
+        __props__["instance_view"] = None
+        __props__["latest_model_applied"] = None
+        __props__["license_type"] = None
+        __props__["location"] = None
+        __props__["model_definition_applied"] = None
+        __props__["name"] = None
+        __props__["network_profile"] = None
+        __props__["network_profile_configuration"] = None
+        __props__["os_profile"] = None
+        __props__["plan"] = None
+        __props__["protection_policy"] = None
+        __props__["provisioning_state"] = None
+        __props__["resources"] = None
+        __props__["security_profile"] = None
+        __props__["sku"] = None
+        __props__["storage_profile"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["vm_id"] = None
+        __props__["zones"] = None
         return VirtualMachineScaleSetVM(resource_name, opts=opts, __props__=__props__)
 
     @property

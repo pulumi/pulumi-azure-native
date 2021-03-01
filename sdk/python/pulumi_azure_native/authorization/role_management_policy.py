@@ -93,6 +93,15 @@ class RoleManagementPolicy(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["description"] = None
+        __props__["display_name"] = None
+        __props__["effective_rules"] = None
+        __props__["is_organization_default"] = None
+        __props__["last_updated_date_time"] = None
+        __props__["name"] = None
+        __props__["rules"] = None
+        __props__["scope"] = None
+        __props__["type"] = None
         return RoleManagementPolicy(resource_name, opts=opts, __props__=__props__)
 
     @property

@@ -59,7 +59,7 @@ def list_workflow_run_action_repetition_expression_traces(action_name: Optional[
     :param str run_name: The workflow run name.
     :param str workflow_name: The workflow name.
     """
-    pulumi.log.warn("list_workflow_run_action_repetition_expression_traces is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:logic:listWorkflowRunActionRepetitionExpressionTraces'.")
+    pulumi.log.warn("""list_workflow_run_action_repetition_expression_traces is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:logic:listWorkflowRunActionRepetitionExpressionTraces'.""")
     __args__ = dict()
     __args__['actionName'] = action_name
     __args__['repetitionName'] = repetition_name

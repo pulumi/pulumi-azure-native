@@ -123,7 +123,7 @@ def list_integration_account_agreement_content_callback_url(agreement_name: Opti
     :param str not_after: The expiry time.
     :param str resource_group_name: The resource group name.
     """
-    pulumi.log.warn("list_integration_account_agreement_content_callback_url is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:logic:listIntegrationAccountAgreementContentCallbackUrl'.")
+    pulumi.log.warn("""list_integration_account_agreement_content_callback_url is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:logic:listIntegrationAccountAgreementContentCallbackUrl'.""")
     __args__ = dict()
     __args__['agreementName'] = agreement_name
     __args__['integrationAccountName'] = integration_account_name

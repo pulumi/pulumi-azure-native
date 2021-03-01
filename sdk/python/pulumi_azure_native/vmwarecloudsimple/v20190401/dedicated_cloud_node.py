@@ -124,6 +124,24 @@ class DedicatedCloudNode(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["availability_zone_id"] = None
+        __props__["availability_zone_name"] = None
+        __props__["cloud_rack_name"] = None
+        __props__["created"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["nodes_count"] = None
+        __props__["placement_group_id"] = None
+        __props__["placement_group_name"] = None
+        __props__["private_cloud_id"] = None
+        __props__["private_cloud_name"] = None
+        __props__["provisioning_state"] = None
+        __props__["purchase_id"] = None
+        __props__["sku"] = None
+        __props__["status"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["vmware_cluster_name"] = None
         return DedicatedCloudNode(resource_name, opts=opts, __props__=__props__)
 
     @property

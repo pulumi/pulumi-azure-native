@@ -118,7 +118,7 @@ def get_private_endpoint_connection(config_store_name: Optional[str] = None,
     :param str private_endpoint_connection_name: Private endpoint connection name
     :param str resource_group_name: The name of the resource group to which the container registry belongs.
     """
-    pulumi.log.warn("get_private_endpoint_connection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:appconfiguration:getPrivateEndpointConnection'.")
+    pulumi.log.warn("""get_private_endpoint_connection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:appconfiguration:getPrivateEndpointConnection'.""")
     __args__ = dict()
     __args__['configStoreName'] = config_store_name
     __args__['privateEndpointConnectionName'] = private_endpoint_connection_name

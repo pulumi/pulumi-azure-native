@@ -119,6 +119,19 @@ class UserRule(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["description"] = None
+        __props__["destination"] = None
+        __props__["destination_port_ranges"] = None
+        __props__["direction"] = None
+        __props__["display_name"] = None
+        __props__["etag"] = None
+        __props__["name"] = None
+        __props__["protocol"] = None
+        __props__["provisioning_state"] = None
+        __props__["source"] = None
+        __props__["source_port_ranges"] = None
+        __props__["system_data"] = None
+        __props__["type"] = None
         return UserRule(resource_name, opts=opts, __props__=__props__)
 
     @property

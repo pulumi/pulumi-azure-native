@@ -124,6 +124,19 @@ class WatchlistItem(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["created"] = None
+        __props__["created_by"] = None
+        __props__["entity_mapping"] = None
+        __props__["etag"] = None
+        __props__["is_deleted"] = None
+        __props__["items_key_value"] = None
+        __props__["name"] = None
+        __props__["tenant_id"] = None
+        __props__["type"] = None
+        __props__["updated"] = None
+        __props__["updated_by"] = None
+        __props__["watchlist_item_id"] = None
+        __props__["watchlist_item_type"] = None
         return WatchlistItem(resource_name, opts=opts, __props__=__props__)
 
     @property

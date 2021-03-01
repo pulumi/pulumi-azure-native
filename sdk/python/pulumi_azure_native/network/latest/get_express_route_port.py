@@ -260,7 +260,7 @@ def get_express_route_port(express_route_port_name: Optional[str] = None,
     :param str express_route_port_name: The name of ExpressRoutePort.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("get_express_route_port is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getExpressRoutePort'.")
+    pulumi.log.warn("""get_express_route_port is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getExpressRoutePort'.""")
     __args__ = dict()
     __args__['expressRoutePortName'] = express_route_port_name
     __args__['resourceGroupName'] = resource_group_name

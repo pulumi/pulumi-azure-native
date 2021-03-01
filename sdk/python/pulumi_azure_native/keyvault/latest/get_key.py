@@ -187,7 +187,7 @@ def get_key(key_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group which contains the specified key vault.
     :param str vault_name: The name of the vault which contains the key to be retrieved.
     """
-    pulumi.log.warn("get_key is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:keyvault:getKey'.")
+    pulumi.log.warn("""get_key is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:keyvault:getKey'.""")
     __args__ = dict()
     __args__['keyName'] = key_name
     __args__['resourceGroupName'] = resource_group_name

@@ -68,7 +68,7 @@ class AppServicePlan(pulumi.CustomResource):
         :param pulumi.Input[int] target_worker_size_id: Scaling worker size ID.
         :param pulumi.Input[str] worker_tier_name: Target worker tier assigned to the App Service plan.
         """
-        pulumi.log.warn("AppServicePlan is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:AppServicePlan'.")
+        pulumi.log.warn("""AppServicePlan is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:AppServicePlan'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -147,6 +147,32 @@ class AppServicePlan(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["free_offer_expiration_time"] = None
+        __props__["geo_region"] = None
+        __props__["hosting_environment_profile"] = None
+        __props__["hyper_v"] = None
+        __props__["is_spot"] = None
+        __props__["is_xenon"] = None
+        __props__["kind"] = None
+        __props__["location"] = None
+        __props__["maximum_elastic_worker_count"] = None
+        __props__["maximum_number_of_workers"] = None
+        __props__["name"] = None
+        __props__["number_of_sites"] = None
+        __props__["per_site_scaling"] = None
+        __props__["provisioning_state"] = None
+        __props__["reserved"] = None
+        __props__["resource_group"] = None
+        __props__["sku"] = None
+        __props__["spot_expiration_time"] = None
+        __props__["status"] = None
+        __props__["subscription"] = None
+        __props__["system_data"] = None
+        __props__["tags"] = None
+        __props__["target_worker_count"] = None
+        __props__["target_worker_size_id"] = None
+        __props__["type"] = None
+        __props__["worker_tier_name"] = None
         return AppServicePlan(resource_name, opts=opts, __props__=__props__)
 
     @property

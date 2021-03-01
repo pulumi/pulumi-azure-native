@@ -61,7 +61,7 @@ class VirtualMachineScaleSetVMRunCommand(pulumi.CustomResource):
         :param pulumi.Input[int] timeout_in_seconds: The timeout in seconds to execute the run command.
         :param pulumi.Input[str] vm_scale_set_name: The name of the VM scale set.
         """
-        pulumi.log.warn("VirtualMachineScaleSetVMRunCommand is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:compute:VirtualMachineScaleSetVMRunCommand'.")
+        pulumi.log.warn("""VirtualMachineScaleSetVMRunCommand is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:compute:VirtualMachineScaleSetVMRunCommand'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -130,6 +130,21 @@ class VirtualMachineScaleSetVMRunCommand(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["async_execution"] = None
+        __props__["error_blob_uri"] = None
+        __props__["instance_view"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["output_blob_uri"] = None
+        __props__["parameters"] = None
+        __props__["protected_parameters"] = None
+        __props__["provisioning_state"] = None
+        __props__["run_as_password"] = None
+        __props__["run_as_user"] = None
+        __props__["source"] = None
+        __props__["tags"] = None
+        __props__["timeout_in_seconds"] = None
+        __props__["type"] = None
         return VirtualMachineScaleSetVMRunCommand(resource_name, opts=opts, __props__=__props__)
 
     @property

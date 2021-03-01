@@ -107,7 +107,7 @@ def list_notification_hub_keys(authorization_rule_name: Optional[str] = None,
     :param str notification_hub_name: The notification hub name.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("list_notification_hub_keys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:notificationhubs:listNotificationHubKeys'.")
+    pulumi.log.warn("""list_notification_hub_keys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:notificationhubs:listNotificationHubKeys'.""")
     __args__ = dict()
     __args__['authorizationRuleName'] = authorization_rule_name
     __args__['namespaceName'] = namespace_name

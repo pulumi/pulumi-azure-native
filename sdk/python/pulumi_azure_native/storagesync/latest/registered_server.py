@@ -51,7 +51,7 @@ class RegisteredServer(pulumi.CustomResource):
         :param pulumi.Input[str] server_role: Registered Server serverRole
         :param pulumi.Input[str] storage_sync_service_name: Name of Storage Sync Service resource.
         """
-        pulumi.log.warn("RegisteredServer is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storagesync:RegisteredServer'.")
+        pulumi.log.warn("""RegisteredServer is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storagesync:RegisteredServer'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -121,6 +121,28 @@ class RegisteredServer(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["agent_version"] = None
+        __props__["cluster_id"] = None
+        __props__["cluster_name"] = None
+        __props__["discovery_endpoint_uri"] = None
+        __props__["friendly_name"] = None
+        __props__["last_heart_beat"] = None
+        __props__["last_operation_name"] = None
+        __props__["last_workflow_id"] = None
+        __props__["management_endpoint_uri"] = None
+        __props__["monitoring_configuration"] = None
+        __props__["monitoring_endpoint_uri"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["resource_location"] = None
+        __props__["server_certificate"] = None
+        __props__["server_id"] = None
+        __props__["server_management_error_code"] = None
+        __props__["server_os_version"] = None
+        __props__["server_role"] = None
+        __props__["service_location"] = None
+        __props__["storage_sync_service_uid"] = None
+        __props__["type"] = None
         return RegisteredServer(resource_name, opts=opts, __props__=__props__)
 
     @property

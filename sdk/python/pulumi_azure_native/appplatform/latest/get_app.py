@@ -120,7 +120,7 @@ def get_app(app_name: Optional[str] = None,
     :param str service_name: The name of the Service resource.
     :param str sync_status: Indicates whether sync status
     """
-    pulumi.log.warn("get_app is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:appplatform:getApp'.")
+    pulumi.log.warn("""get_app is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:appplatform:getApp'.""")
     __args__ = dict()
     __args__['appName'] = app_name
     __args__['resourceGroupName'] = resource_group_name

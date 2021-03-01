@@ -260,7 +260,7 @@ def get_cache(cache_name: Optional[str] = None,
     :param str cache_name: Name of Cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
     :param str resource_group_name: Target resource group.
     """
-    pulumi.log.warn("get_cache is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storagecache:getCache'.")
+    pulumi.log.warn("""get_cache is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storagecache:getCache'.""")
     __args__ = dict()
     __args__['cacheName'] = cache_name
     __args__['resourceGroupName'] = resource_group_name

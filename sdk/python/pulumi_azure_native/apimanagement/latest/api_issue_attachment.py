@@ -45,7 +45,7 @@ class ApiIssueAttachment(pulumi.CustomResource):
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input[str] title: Filename by which the binary data will be saved.
         """
-        pulumi.log.warn("ApiIssueAttachment is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:ApiIssueAttachment'.")
+        pulumi.log.warn("""ApiIssueAttachment is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:ApiIssueAttachment'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -111,6 +111,11 @@ class ApiIssueAttachment(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["content"] = None
+        __props__["content_format"] = None
+        __props__["name"] = None
+        __props__["title"] = None
+        __props__["type"] = None
         return ApiIssueAttachment(resource_name, opts=opts, __props__=__props__)
 
     @property

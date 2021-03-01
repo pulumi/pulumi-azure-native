@@ -95,6 +95,13 @@ class ApplicationGatewayPrivateEndpointConnection(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["etag"] = None
+        __props__["link_identifier"] = None
+        __props__["name"] = None
+        __props__["private_endpoint"] = None
+        __props__["private_link_service_connection_state"] = None
+        __props__["provisioning_state"] = None
+        __props__["type"] = None
         return ApplicationGatewayPrivateEndpointConnection(resource_name, opts=opts, __props__=__props__)
 
     @property

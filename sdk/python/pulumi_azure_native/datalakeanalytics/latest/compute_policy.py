@@ -44,7 +44,7 @@ class ComputePolicy(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'AADObjectType']] object_type: The type of AAD object the object identifier refers to.
         :param pulumi.Input[str] resource_group_name: The name of the Azure resource group.
         """
-        pulumi.log.warn("ComputePolicy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:datalakeanalytics:ComputePolicy'.")
+        pulumi.log.warn("""ComputePolicy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:datalakeanalytics:ComputePolicy'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -103,6 +103,12 @@ class ComputePolicy(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["max_degree_of_parallelism_per_job"] = None
+        __props__["min_priority_per_job"] = None
+        __props__["name"] = None
+        __props__["object_id"] = None
+        __props__["object_type"] = None
+        __props__["type"] = None
         return ComputePolicy(resource_name, opts=opts, __props__=__props__)
 
     @property

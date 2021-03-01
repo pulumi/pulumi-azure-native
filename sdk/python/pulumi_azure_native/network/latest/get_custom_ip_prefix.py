@@ -202,7 +202,7 @@ def get_custom_ip_prefix(custom_ip_prefix_name: Optional[str] = None,
     :param str expand: Expands referenced resources.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("get_custom_ip_prefix is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getCustomIPPrefix'.")
+    pulumi.log.warn("""get_custom_ip_prefix is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getCustomIPPrefix'.""")
     __args__ = dict()
     __args__['customIpPrefixName'] = custom_ip_prefix_name
     __args__['expand'] = expand

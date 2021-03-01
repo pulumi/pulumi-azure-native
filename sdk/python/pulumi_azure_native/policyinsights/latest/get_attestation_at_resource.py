@@ -200,7 +200,7 @@ def get_attestation_at_resource(attestation_name: Optional[str] = None,
     :param str attestation_name: The name of the attestation.
     :param str resource_id: Resource ID.
     """
-    pulumi.log.warn("get_attestation_at_resource is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:policyinsights:getAttestationAtResource'.")
+    pulumi.log.warn("""get_attestation_at_resource is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:policyinsights:getAttestationAtResource'.""")
     __args__ = dict()
     __args__['attestationName'] = attestation_name
     __args__['resourceId'] = resource_id

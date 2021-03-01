@@ -158,6 +158,30 @@ class Assessment(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["azure_hybrid_use_benefit"] = None
+        __props__["azure_location"] = None
+        __props__["azure_offer_code"] = None
+        __props__["azure_pricing_tier"] = None
+        __props__["azure_storage_redundancy"] = None
+        __props__["confidence_rating_in_percentage"] = None
+        __props__["created_timestamp"] = None
+        __props__["currency"] = None
+        __props__["discount_percentage"] = None
+        __props__["e_tag"] = None
+        __props__["monthly_bandwidth_cost"] = None
+        __props__["monthly_compute_cost"] = None
+        __props__["monthly_storage_cost"] = None
+        __props__["name"] = None
+        __props__["number_of_machines"] = None
+        __props__["percentile"] = None
+        __props__["prices_timestamp"] = None
+        __props__["scaling_factor"] = None
+        __props__["sizing_criterion"] = None
+        __props__["stage"] = None
+        __props__["status"] = None
+        __props__["time_range"] = None
+        __props__["type"] = None
+        __props__["updated_timestamp"] = None
         return Assessment(resource_name, opts=opts, __props__=__props__)
 
     @property

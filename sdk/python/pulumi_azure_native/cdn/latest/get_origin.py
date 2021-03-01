@@ -264,7 +264,7 @@ def get_origin(endpoint_name: Optional[str] = None,
     :param str profile_name: Name of the CDN profile which is unique within the resource group.
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
-    pulumi.log.warn("get_origin is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:cdn:getOrigin'.")
+    pulumi.log.warn("""get_origin is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:cdn:getOrigin'.""")
     __args__ = dict()
     __args__['endpointName'] = endpoint_name
     __args__['originName'] = origin_name

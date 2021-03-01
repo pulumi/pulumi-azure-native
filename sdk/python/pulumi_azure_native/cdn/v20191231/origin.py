@@ -110,6 +110,17 @@ class Origin(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["enabled"] = None
+        __props__["host_name"] = None
+        __props__["http_port"] = None
+        __props__["https_port"] = None
+        __props__["name"] = None
+        __props__["origin_host_header"] = None
+        __props__["priority"] = None
+        __props__["provisioning_state"] = None
+        __props__["resource_state"] = None
+        __props__["type"] = None
+        __props__["weight"] = None
         return Origin(resource_name, opts=opts, __props__=__props__)
 
     @property

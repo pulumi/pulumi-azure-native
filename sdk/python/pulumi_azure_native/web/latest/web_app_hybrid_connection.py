@@ -55,7 +55,7 @@ class WebAppHybridConnection(pulumi.CustomResource):
         :param pulumi.Input[str] service_bus_namespace: The name of the Service Bus namespace.
         :param pulumi.Input[str] service_bus_suffix: The suffix for the service bus endpoint. By default this is .servicebus.windows.net
         """
-        pulumi.log.warn("WebAppHybridConnection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppHybridConnection'.")
+        pulumi.log.warn("""WebAppHybridConnection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppHybridConnection'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -117,6 +117,18 @@ class WebAppHybridConnection(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["hostname"] = None
+        __props__["kind"] = None
+        __props__["name"] = None
+        __props__["port"] = None
+        __props__["relay_arm_uri"] = None
+        __props__["relay_name"] = None
+        __props__["send_key_name"] = None
+        __props__["send_key_value"] = None
+        __props__["service_bus_namespace"] = None
+        __props__["service_bus_suffix"] = None
+        __props__["system_data"] = None
+        __props__["type"] = None
         return WebAppHybridConnection(resource_name, opts=opts, __props__=__props__)
 
     @property

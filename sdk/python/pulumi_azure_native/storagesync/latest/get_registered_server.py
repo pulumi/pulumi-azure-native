@@ -321,7 +321,7 @@ def get_registered_server(resource_group_name: Optional[str] = None,
     :param str server_id: GUID identifying the on-premises server.
     :param str storage_sync_service_name: Name of Storage Sync Service resource.
     """
-    pulumi.log.warn("get_registered_server is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storagesync:getRegisteredServer'.")
+    pulumi.log.warn("""get_registered_server is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storagesync:getRegisteredServer'.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['serverId'] = server_id

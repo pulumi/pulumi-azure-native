@@ -117,6 +117,19 @@ class ApplianceDefinition(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["artifacts"] = None
+        __props__["authorizations"] = None
+        __props__["description"] = None
+        __props__["display_name"] = None
+        __props__["identity"] = None
+        __props__["location"] = None
+        __props__["lock_level"] = None
+        __props__["managed_by"] = None
+        __props__["name"] = None
+        __props__["package_file_uri"] = None
+        __props__["sku"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
         return ApplianceDefinition(resource_name, opts=opts, __props__=__props__)
 
     @property

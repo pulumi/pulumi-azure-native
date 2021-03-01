@@ -206,7 +206,7 @@ def get_sql_pool_sensitivity_label(column_name: Optional[str] = None,
     :param str table_name: The name of the table.
     :param str workspace_name: The name of the workspace
     """
-    pulumi.log.warn("get_sql_pool_sensitivity_label is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:synapse:getSqlPoolSensitivityLabel'.")
+    pulumi.log.warn("""get_sql_pool_sensitivity_label is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:synapse:getSqlPoolSensitivityLabel'.""")
     __args__ = dict()
     __args__['columnName'] = column_name
     __args__['resourceGroupName'] = resource_group_name

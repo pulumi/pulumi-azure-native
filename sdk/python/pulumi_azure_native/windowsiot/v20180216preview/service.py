@@ -95,6 +95,16 @@ class Service(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["admin_domain_name"] = None
+        __props__["billing_domain_name"] = None
+        __props__["etag"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["notes"] = None
+        __props__["quantity"] = None
+        __props__["start_date"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
         return Service(resource_name, opts=opts, __props__=__props__)
 
     @property

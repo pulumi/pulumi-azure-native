@@ -64,7 +64,7 @@ class Snapshot(pulumi.CustomResource):
         :param pulumi.Input[str] snapshot_name: The name of the snapshot that is being created. The name can't be changed after the snapshot is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The max name length is 80 characters.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
-        pulumi.log.warn("Snapshot is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:compute:Snapshot'.")
+        pulumi.log.warn("""Snapshot is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:compute:Snapshot'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -134,6 +134,28 @@ class Snapshot(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["creation_data"] = None
+        __props__["disk_access_id"] = None
+        __props__["disk_size_bytes"] = None
+        __props__["disk_size_gb"] = None
+        __props__["disk_state"] = None
+        __props__["encryption"] = None
+        __props__["encryption_settings_collection"] = None
+        __props__["extended_location"] = None
+        __props__["hyper_v_generation"] = None
+        __props__["incremental"] = None
+        __props__["location"] = None
+        __props__["managed_by"] = None
+        __props__["name"] = None
+        __props__["network_access_policy"] = None
+        __props__["os_type"] = None
+        __props__["provisioning_state"] = None
+        __props__["purchase_plan"] = None
+        __props__["sku"] = None
+        __props__["tags"] = None
+        __props__["time_created"] = None
+        __props__["type"] = None
+        __props__["unique_id"] = None
         return Snapshot(resource_name, opts=opts, __props__=__props__)
 
     @property

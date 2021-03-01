@@ -110,6 +110,16 @@ class SiteSourceControlSlot(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["branch"] = None
+        __props__["deployment_rollback_enabled"] = None
+        __props__["is_manual_integration"] = None
+        __props__["is_mercurial"] = None
+        __props__["kind"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["repo_url"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
         return SiteSourceControlSlot(resource_name, opts=opts, __props__=__props__)
 
     @property

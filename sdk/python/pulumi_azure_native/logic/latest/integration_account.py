@@ -46,7 +46,7 @@ class IntegrationAccount(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'WorkflowState']] state: The workflow state.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         """
-        pulumi.log.warn("IntegrationAccount is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:logic:IntegrationAccount'.")
+        pulumi.log.warn("""IntegrationAccount is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:logic:IntegrationAccount'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -99,6 +99,13 @@ class IntegrationAccount(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["integration_service_environment"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["sku"] = None
+        __props__["state"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
         return IntegrationAccount(resource_name, opts=opts, __props__=__props__)
 
     @property

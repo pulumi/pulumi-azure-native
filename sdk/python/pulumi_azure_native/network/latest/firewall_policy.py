@@ -58,7 +58,7 @@ class FirewallPolicy(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['FirewallPolicyThreatIntelWhitelistArgs']] threat_intel_whitelist: ThreatIntel Whitelist for Firewall Policy.
         :param pulumi.Input[pulumi.InputType['FirewallPolicyTransportSecurityArgs']] transport_security: TLS Configuration definition.
         """
-        pulumi.log.warn("FirewallPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:FirewallPolicy'.")
+        pulumi.log.warn("""FirewallPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:FirewallPolicy'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -122,6 +122,23 @@ class FirewallPolicy(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["base_policy"] = None
+        __props__["child_policies"] = None
+        __props__["dns_settings"] = None
+        __props__["etag"] = None
+        __props__["firewalls"] = None
+        __props__["identity"] = None
+        __props__["intrusion_detection"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["rule_collection_groups"] = None
+        __props__["sku"] = None
+        __props__["tags"] = None
+        __props__["threat_intel_mode"] = None
+        __props__["threat_intel_whitelist"] = None
+        __props__["transport_security"] = None
+        __props__["type"] = None
         return FirewallPolicy(resource_name, opts=opts, __props__=__props__)
 
     @property

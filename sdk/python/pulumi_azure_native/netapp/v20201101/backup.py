@@ -102,6 +102,16 @@ class Backup(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["backup_id"] = None
+        __props__["backup_type"] = None
+        __props__["creation_date"] = None
+        __props__["failure_reason"] = None
+        __props__["label"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["size"] = None
+        __props__["type"] = None
         return Backup(resource_name, opts=opts, __props__=__props__)
 
     @property

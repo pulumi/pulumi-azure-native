@@ -46,7 +46,7 @@ class Connector(pulumi.CustomResource):
         :param pulumi.Input[bool] is_internal: If this is an internal connector.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         """
-        pulumi.log.warn("Connector is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:customerinsights:Connector'.")
+        pulumi.log.warn("""Connector is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:customerinsights:Connector'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -111,6 +111,19 @@ class Connector(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["connector_id"] = None
+        __props__["connector_name"] = None
+        __props__["connector_properties"] = None
+        __props__["connector_type"] = None
+        __props__["created"] = None
+        __props__["description"] = None
+        __props__["display_name"] = None
+        __props__["is_internal"] = None
+        __props__["last_modified"] = None
+        __props__["name"] = None
+        __props__["state"] = None
+        __props__["tenant_id"] = None
+        __props__["type"] = None
         return Connector(resource_name, opts=opts, __props__=__props__)
 
     @property

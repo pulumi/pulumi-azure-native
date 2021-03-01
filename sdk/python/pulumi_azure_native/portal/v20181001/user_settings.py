@@ -76,6 +76,7 @@ class UserSettings(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["properties"] = None
         return UserSettings(resource_name, opts=opts, __props__=__props__)
 
     @property

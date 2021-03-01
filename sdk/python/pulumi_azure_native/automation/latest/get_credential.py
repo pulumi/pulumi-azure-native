@@ -129,7 +129,7 @@ def get_credential(automation_account_name: Optional[str] = None,
     :param str credential_name: The name of credential.
     :param str resource_group_name: Name of an Azure Resource group.
     """
-    pulumi.log.warn("get_credential is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:automation:getCredential'.")
+    pulumi.log.warn("""get_credential is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:automation:getCredential'.""")
     __args__ = dict()
     __args__['automationAccountName'] = automation_account_name
     __args__['credentialName'] = credential_name

@@ -111,6 +111,20 @@ class Subscription(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["created_date"] = None
+        __props__["display_name"] = None
+        __props__["end_date"] = None
+        __props__["expiration_date"] = None
+        __props__["name"] = None
+        __props__["notification_date"] = None
+        __props__["primary_key"] = None
+        __props__["product_id"] = None
+        __props__["secondary_key"] = None
+        __props__["start_date"] = None
+        __props__["state"] = None
+        __props__["state_comment"] = None
+        __props__["type"] = None
+        __props__["user_id"] = None
         return Subscription(resource_name, opts=opts, __props__=__props__)
 
     @property

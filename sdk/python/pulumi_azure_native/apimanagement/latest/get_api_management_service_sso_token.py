@@ -55,7 +55,7 @@ def get_api_management_service_sso_token(resource_group_name: Optional[str] = No
     :param str resource_group_name: The name of the resource group.
     :param str service_name: The name of the API Management service.
     """
-    pulumi.log.warn("get_api_management_service_sso_token is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getApiManagementServiceSsoToken'.")
+    pulumi.log.warn("""get_api_management_service_sso_token is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getApiManagementServiceSsoToken'.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['serviceName'] = service_name

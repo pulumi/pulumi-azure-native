@@ -38,7 +38,7 @@ class ResourceGroup(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group to create or update. Can include alphanumeric, underscore, parentheses, hyphen, period (except at end), and Unicode characters that match the allowed characters.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags attached to the resource group.
         """
-        pulumi.log.warn("ResourceGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:resources:ResourceGroup'.")
+        pulumi.log.warn("""ResourceGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:resources:ResourceGroup'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -87,6 +87,12 @@ class ResourceGroup(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["location"] = None
+        __props__["managed_by"] = None
+        __props__["name"] = None
+        __props__["properties"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
         return ResourceGroup(resource_name, opts=opts, __props__=__props__)
 
     @property

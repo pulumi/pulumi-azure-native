@@ -41,7 +41,7 @@ class LinkedWorkspace(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Name of the resource group in which workspace is located.
         :param pulumi.Input[str] workspace_name: Name of Azure Machine Learning workspace.
         """
-        pulumi.log.warn("LinkedWorkspace is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:machinelearningservices:LinkedWorkspace'.")
+        pulumi.log.warn("""LinkedWorkspace is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:machinelearningservices:LinkedWorkspace'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -93,6 +93,9 @@ class LinkedWorkspace(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["name"] = None
+        __props__["properties"] = None
+        __props__["type"] = None
         return LinkedWorkspace(resource_name, opts=opts, __props__=__props__)
 
     @property

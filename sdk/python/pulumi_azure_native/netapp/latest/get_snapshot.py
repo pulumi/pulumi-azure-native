@@ -133,7 +133,7 @@ def get_snapshot(account_name: Optional[str] = None,
     :param str snapshot_name: The name of the mount target
     :param str volume_name: The name of the volume
     """
-    pulumi.log.warn("get_snapshot is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:netapp:getSnapshot'.")
+    pulumi.log.warn("""get_snapshot is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:netapp:getSnapshot'.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['poolName'] = pool_name

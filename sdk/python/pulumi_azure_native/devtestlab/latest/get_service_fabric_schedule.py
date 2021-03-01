@@ -244,7 +244,7 @@ def get_service_fabric_schedule(expand: Optional[str] = None,
     :param str service_fabric_name: The name of the service fabric.
     :param str user_name: The name of the user profile.
     """
-    pulumi.log.warn("get_service_fabric_schedule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devtestlab:getServiceFabricSchedule'.")
+    pulumi.log.warn("""get_service_fabric_schedule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devtestlab:getServiceFabricSchedule'.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['labName'] = lab_name

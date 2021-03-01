@@ -60,7 +60,7 @@ class LoadBalancer(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['LoadBalancerSkuArgs']] sku: The load balancer SKU.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.log.warn("LoadBalancer is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:LoadBalancer'.")
+        pulumi.log.warn("""LoadBalancer is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:LoadBalancer'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -123,6 +123,22 @@ class LoadBalancer(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["backend_address_pools"] = None
+        __props__["etag"] = None
+        __props__["extended_location"] = None
+        __props__["frontend_ip_configurations"] = None
+        __props__["inbound_nat_pools"] = None
+        __props__["inbound_nat_rules"] = None
+        __props__["load_balancing_rules"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["outbound_rules"] = None
+        __props__["probes"] = None
+        __props__["provisioning_state"] = None
+        __props__["resource_guid"] = None
+        __props__["sku"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
         return LoadBalancer(resource_name, opts=opts, __props__=__props__)
 
     @property

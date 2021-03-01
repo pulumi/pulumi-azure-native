@@ -166,7 +166,7 @@ def get_storage_account(device_name: Optional[str] = None,
     :param str resource_group_name: The resource group name.
     :param str storage_account_name: The storage account name.
     """
-    pulumi.log.warn("get_storage_account is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:databoxedge:getStorageAccount'.")
+    pulumi.log.warn("""get_storage_account is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:databoxedge:getStorageAccount'.""")
     __args__ = dict()
     __args__['deviceName'] = device_name
     __args__['resourceGroupName'] = resource_group_name

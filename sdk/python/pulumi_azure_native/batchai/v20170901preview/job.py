@@ -148,6 +148,33 @@ class Job(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["caffe_settings"] = None
+        __props__["chainer_settings"] = None
+        __props__["cluster"] = None
+        __props__["cntk_settings"] = None
+        __props__["constraints"] = None
+        __props__["container_settings"] = None
+        __props__["creation_time"] = None
+        __props__["custom_toolkit_settings"] = None
+        __props__["environment_variables"] = None
+        __props__["execution_info"] = None
+        __props__["execution_state"] = None
+        __props__["execution_state_transition_time"] = None
+        __props__["experiment_name"] = None
+        __props__["input_directories"] = None
+        __props__["job_preparation"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["node_count"] = None
+        __props__["output_directories"] = None
+        __props__["priority"] = None
+        __props__["provisioning_state"] = None
+        __props__["provisioning_state_transition_time"] = None
+        __props__["std_out_err_path_prefix"] = None
+        __props__["tags"] = None
+        __props__["tensor_flow_settings"] = None
+        __props__["tool_type"] = None
+        __props__["type"] = None
         return Job(resource_name, opts=opts, __props__=__props__)
 
     @property

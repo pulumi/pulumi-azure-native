@@ -118,7 +118,7 @@ def get_virtual_hub_route_table_v2(resource_group_name: Optional[str] = None,
     :param str route_table_name: The name of the VirtualHubRouteTableV2.
     :param str virtual_hub_name: The name of the VirtualHub.
     """
-    pulumi.log.warn("get_virtual_hub_route_table_v2 is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getVirtualHubRouteTableV2'.")
+    pulumi.log.warn("""get_virtual_hub_route_table_v2 is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getVirtualHubRouteTableV2'.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['routeTableName'] = route_table_name

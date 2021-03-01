@@ -368,7 +368,7 @@ def get_virtual_machine(resource_group_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group
     :param str virtual_machine_name: virtual machine name
     """
-    pulumi.log.warn("get_virtual_machine is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:vmwarecloudsimple:getVirtualMachine'.")
+    pulumi.log.warn("""get_virtual_machine is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:vmwarecloudsimple:getVirtualMachine'.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['virtualMachineName'] = virtual_machine_name

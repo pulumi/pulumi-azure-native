@@ -152,7 +152,7 @@ def get_web_app_diagnostic_logs_configuration(name: Optional[str] = None,
     :param str name: Name of the app.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
-    pulumi.log.warn("get_web_app_diagnostic_logs_configuration is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getWebAppDiagnosticLogsConfiguration'.")
+    pulumi.log.warn("""get_web_app_diagnostic_logs_configuration is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getWebAppDiagnosticLogsConfiguration'.""")
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name

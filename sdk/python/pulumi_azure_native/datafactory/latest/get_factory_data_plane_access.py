@@ -90,7 +90,7 @@ def get_factory_data_plane_access(access_resource_path: Optional[str] = None,
     :param str resource_group_name: The resource group name.
     :param str start_time: Start time for the token. If not specified the current time will be used.
     """
-    pulumi.log.warn("get_factory_data_plane_access is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datafactory:getFactoryDataPlaneAccess'.")
+    pulumi.log.warn("""get_factory_data_plane_access is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datafactory:getFactoryDataPlaneAccess'.""")
     __args__ = dict()
     __args__['accessResourcePath'] = access_resource_path
     __args__['expireTime'] = expire_time

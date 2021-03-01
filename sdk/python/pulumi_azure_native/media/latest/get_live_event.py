@@ -274,7 +274,7 @@ def get_live_event(account_name: Optional[str] = None,
     :param str live_event_name: The name of the live event, maximum length is 32.
     :param str resource_group_name: The name of the resource group within the Azure subscription.
     """
-    pulumi.log.warn("get_live_event is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:media:getLiveEvent'.")
+    pulumi.log.warn("""get_live_event is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:media:getLiveEvent'.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['liveEventName'] = live_event_name

@@ -45,7 +45,7 @@ class Controller(pulumi.CustomResource):
         :param pulumi.Input[str] target_container_host_credentials_base64: Credentials of the target container host (base64).
         :param pulumi.Input[str] target_container_host_resource_id: Resource ID of the target container host
         """
-        pulumi.log.warn("Controller is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devspaces:Controller'.")
+        pulumi.log.warn("""Controller is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devspaces:Controller'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -107,6 +107,17 @@ class Controller(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["data_plane_fqdn"] = None
+        __props__["host_suffix"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["sku"] = None
+        __props__["tags"] = None
+        __props__["target_container_host_api_server_fqdn"] = None
+        __props__["target_container_host_credentials_base64"] = None
+        __props__["target_container_host_resource_id"] = None
+        __props__["type"] = None
         return Controller(resource_name, opts=opts, __props__=__props__)
 
     @property

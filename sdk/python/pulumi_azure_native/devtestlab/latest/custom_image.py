@@ -60,7 +60,7 @@ class CustomImage(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['CustomImagePropertiesCustomArgs']] vhd: The VHD from which the image is to be created.
         :param pulumi.Input[pulumi.InputType['CustomImagePropertiesFromVmArgs']] vm: The virtual machine from which the image is to be created.
         """
-        pulumi.log.warn("CustomImage is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devtestlab:CustomImage'.")
+        pulumi.log.warn("""CustomImage is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devtestlab:CustomImage'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -124,6 +124,22 @@ class CustomImage(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["author"] = None
+        __props__["creation_date"] = None
+        __props__["custom_image_plan"] = None
+        __props__["data_disk_storage_info"] = None
+        __props__["description"] = None
+        __props__["is_plan_authorized"] = None
+        __props__["location"] = None
+        __props__["managed_image_id"] = None
+        __props__["managed_snapshot_id"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["unique_identifier"] = None
+        __props__["vhd"] = None
+        __props__["vm"] = None
         return CustomImage(resource_name, opts=opts, __props__=__props__)
 
     @property

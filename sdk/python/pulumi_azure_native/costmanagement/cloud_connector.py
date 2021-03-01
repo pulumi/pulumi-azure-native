@@ -105,6 +105,24 @@ class CloudConnector(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["billing_model"] = None
+        __props__["collection_info"] = None
+        __props__["created_on"] = None
+        __props__["credentials_key"] = None
+        __props__["credentials_secret"] = None
+        __props__["days_trial_remaining"] = None
+        __props__["default_management_group_id"] = None
+        __props__["display_name"] = None
+        __props__["external_billing_account_id"] = None
+        __props__["kind"] = None
+        __props__["modified_on"] = None
+        __props__["name"] = None
+        __props__["provider_billing_account_display_name"] = None
+        __props__["provider_billing_account_id"] = None
+        __props__["report_id"] = None
+        __props__["status"] = None
+        __props__["subscription_id"] = None
+        __props__["type"] = None
         return CloudConnector(resource_name, opts=opts, __props__=__props__)
 
     @property

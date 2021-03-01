@@ -105,6 +105,16 @@ class StorageTarget(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["clfs"] = None
+        __props__["junctions"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["nfs3"] = None
+        __props__["provisioning_state"] = None
+        __props__["system_data"] = None
+        __props__["target_type"] = None
+        __props__["type"] = None
+        __props__["unknown"] = None
         return StorageTarget(resource_name, opts=opts, __props__=__props__)
 
     @property

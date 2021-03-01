@@ -298,7 +298,7 @@ def get_incident(incident_id: Optional[str] = None,
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     :param str workspace_name: The name of the workspace.
     """
-    pulumi.log.warn("get_incident is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:securityinsights:getIncident'.")
+    pulumi.log.warn("""get_incident is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:securityinsights:getIncident'.""")
     __args__ = dict()
     __args__['incidentId'] = incident_id
     __args__['resourceGroupName'] = resource_group_name

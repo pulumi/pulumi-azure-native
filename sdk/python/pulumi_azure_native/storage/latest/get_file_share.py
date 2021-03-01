@@ -263,7 +263,7 @@ def get_file_share(account_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     :param str share_name: The name of the file share within the specified storage account. File share names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
     """
-    pulumi.log.warn("get_file_share is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storage:getFileShare'.")
+    pulumi.log.warn("""get_file_share is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storage:getFileShare'.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['expand'] = expand

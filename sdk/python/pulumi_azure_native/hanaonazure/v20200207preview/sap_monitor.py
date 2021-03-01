@@ -99,6 +99,18 @@ class SapMonitor(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["enable_customer_analytics"] = None
+        __props__["location"] = None
+        __props__["log_analytics_workspace_arm_id"] = None
+        __props__["log_analytics_workspace_id"] = None
+        __props__["log_analytics_workspace_shared_key"] = None
+        __props__["managed_resource_group_name"] = None
+        __props__["monitor_subnet"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["sap_monitor_collector_version"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
         return SapMonitor(resource_name, opts=opts, __props__=__props__)
 
     @property

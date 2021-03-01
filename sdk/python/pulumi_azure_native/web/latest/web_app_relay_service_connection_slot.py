@@ -45,7 +45,7 @@ class WebAppRelayServiceConnectionSlot(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
         :param pulumi.Input[str] slot: Name of the deployment slot. If a slot is not specified, the API will create or update a hybrid connection for the production slot.
         """
-        pulumi.log.warn("WebAppRelayServiceConnectionSlot is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppRelayServiceConnectionSlot'.")
+        pulumi.log.warn("""WebAppRelayServiceConnectionSlot is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppRelayServiceConnectionSlot'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -106,6 +106,17 @@ class WebAppRelayServiceConnectionSlot(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["biztalk_uri"] = None
+        __props__["entity_connection_string"] = None
+        __props__["entity_name"] = None
+        __props__["hostname"] = None
+        __props__["kind"] = None
+        __props__["name"] = None
+        __props__["port"] = None
+        __props__["resource_connection_string"] = None
+        __props__["resource_type"] = None
+        __props__["system_data"] = None
+        __props__["type"] = None
         return WebAppRelayServiceConnectionSlot(resource_name, opts=opts, __props__=__props__)
 
     @property

@@ -106,6 +106,15 @@ class WebAppBackupConfigurationSlot(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["backup_name"] = None
+        __props__["backup_schedule"] = None
+        __props__["databases"] = None
+        __props__["enabled"] = None
+        __props__["kind"] = None
+        __props__["name"] = None
+        __props__["storage_account_url"] = None
+        __props__["system_data"] = None
+        __props__["type"] = None
         return WebAppBackupConfigurationSlot(resource_name, opts=opts, __props__=__props__)
 
     @property

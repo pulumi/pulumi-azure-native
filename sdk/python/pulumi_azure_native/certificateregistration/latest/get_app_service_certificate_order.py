@@ -356,7 +356,7 @@ def get_app_service_certificate_order(certificate_order_name: Optional[str] = No
     :param str certificate_order_name: Name of the certificate order..
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
-    pulumi.log.warn("get_app_service_certificate_order is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:certificateregistration:getAppServiceCertificateOrder'.")
+    pulumi.log.warn("""get_app_service_certificate_order is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:certificateregistration:getAppServiceCertificateOrder'.""")
     __args__ = dict()
     __args__['certificateOrderName'] = certificate_order_name
     __args__['resourceGroupName'] = resource_group_name

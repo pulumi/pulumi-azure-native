@@ -92,6 +92,10 @@ class Policy(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["format"] = None
+        __props__["name"] = None
+        __props__["type"] = None
+        __props__["value"] = None
         return Policy(resource_name, opts=opts, __props__=__props__)
 
     @property

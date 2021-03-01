@@ -37,7 +37,7 @@ class NotificationRegistration(pulumi.CustomResource):
         :param pulumi.Input[str] notification_registration_name: The notification registration.
         :param pulumi.Input[str] provider_namespace: The name of the resource provider hosted within ProviderHub.
         """
-        pulumi.log.warn("NotificationRegistration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:providerhub:NotificationRegistration'.")
+        pulumi.log.warn("""NotificationRegistration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:providerhub:NotificationRegistration'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -86,6 +86,9 @@ class NotificationRegistration(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["name"] = None
+        __props__["properties"] = None
+        __props__["type"] = None
         return NotificationRegistration(resource_name, opts=opts, __props__=__props__)
 
     @property

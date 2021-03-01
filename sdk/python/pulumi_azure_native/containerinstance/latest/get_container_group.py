@@ -287,7 +287,7 @@ def get_container_group(container_group_name: Optional[str] = None,
     :param str container_group_name: The name of the container group.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("get_container_group is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:containerinstance:getContainerGroup'.")
+    pulumi.log.warn("""get_container_group is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:containerinstance:getContainerGroup'.""")
     __args__ = dict()
     __args__['containerGroupName'] = container_group_name
     __args__['resourceGroupName'] = resource_group_name

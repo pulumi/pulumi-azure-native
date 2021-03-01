@@ -69,7 +69,7 @@ class Pool(pulumi.CustomResource):
         :param pulumi.Input[int] task_slots_per_node: The default value is 1. The maximum value is the smaller of 4 times the number of cores of the vmSize of the pool or 256.
         :param pulumi.Input[str] vm_size: For information about available sizes of virtual machines for Cloud Services pools (pools created with cloudServiceConfiguration), see Sizes for Cloud Services (https://azure.microsoft.com/documentation/articles/cloud-services-sizes-specs/). Batch supports all Cloud Services VM sizes except ExtraSmall. For information about available VM sizes for pools using images from the Virtual Machines Marketplace (pools created with virtualMachineConfiguration) see Sizes for Virtual Machines (Linux) (https://azure.microsoft.com/documentation/articles/virtual-machines-linux-sizes/) or Sizes for Virtual Machines (Windows) (https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/). Batch supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).
         """
-        pulumi.log.warn("Pool is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:batch:Pool'.")
+        pulumi.log.warn("""Pool is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:batch:Pool'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -147,6 +147,35 @@ class Pool(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["allocation_state"] = None
+        __props__["allocation_state_transition_time"] = None
+        __props__["application_licenses"] = None
+        __props__["application_packages"] = None
+        __props__["auto_scale_run"] = None
+        __props__["certificates"] = None
+        __props__["creation_time"] = None
+        __props__["current_dedicated_nodes"] = None
+        __props__["current_low_priority_nodes"] = None
+        __props__["deployment_configuration"] = None
+        __props__["display_name"] = None
+        __props__["etag"] = None
+        __props__["identity"] = None
+        __props__["inter_node_communication"] = None
+        __props__["last_modified"] = None
+        __props__["metadata"] = None
+        __props__["mount_configuration"] = None
+        __props__["name"] = None
+        __props__["network_configuration"] = None
+        __props__["provisioning_state"] = None
+        __props__["provisioning_state_transition_time"] = None
+        __props__["resize_operation_status"] = None
+        __props__["scale_settings"] = None
+        __props__["start_task"] = None
+        __props__["task_scheduling_policy"] = None
+        __props__["task_slots_per_node"] = None
+        __props__["type"] = None
+        __props__["user_accounts"] = None
+        __props__["vm_size"] = None
         return Pool(resource_name, opts=opts, __props__=__props__)
 
     @property

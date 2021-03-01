@@ -141,6 +141,32 @@ class Domain(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["auth_code"] = None
+        __props__["auto_renew"] = None
+        __props__["consent"] = None
+        __props__["contact_admin"] = None
+        __props__["contact_billing"] = None
+        __props__["contact_registrant"] = None
+        __props__["contact_tech"] = None
+        __props__["created_time"] = None
+        __props__["dns_type"] = None
+        __props__["dns_zone_id"] = None
+        __props__["domain_not_renewable_reasons"] = None
+        __props__["expiration_time"] = None
+        __props__["kind"] = None
+        __props__["last_renewed_time"] = None
+        __props__["location"] = None
+        __props__["managed_host_names"] = None
+        __props__["name"] = None
+        __props__["name_servers"] = None
+        __props__["privacy"] = None
+        __props__["provisioning_state"] = None
+        __props__["ready_for_dns_record_management"] = None
+        __props__["registration_status"] = None
+        __props__["system_data"] = None
+        __props__["tags"] = None
+        __props__["target_dns_type"] = None
+        __props__["type"] = None
         return Domain(resource_name, opts=opts, __props__=__props__)
 
     @property

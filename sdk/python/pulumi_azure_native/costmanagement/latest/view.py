@@ -58,7 +58,7 @@ class View(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'ReportType']] type: The type of the report. Usage represents actual usage, forecast represents forecasted data and UsageAndForecast represents both usage and forecasted data. Actual usage and forecasted data can be differentiated based on dates.
         :param pulumi.Input[str] view_name: View name
         """
-        pulumi.log.warn("View is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:costmanagement:View'.")
+        pulumi.log.warn("""View is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:costmanagement:View'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -123,6 +123,24 @@ class View(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["accumulated"] = None
+        __props__["chart"] = None
+        __props__["created_on"] = None
+        __props__["currency"] = None
+        __props__["data_set"] = None
+        __props__["date_range"] = None
+        __props__["display_name"] = None
+        __props__["e_tag"] = None
+        __props__["include_monetary_commitment"] = None
+        __props__["kpis"] = None
+        __props__["metric"] = None
+        __props__["modified_on"] = None
+        __props__["name"] = None
+        __props__["pivots"] = None
+        __props__["scope"] = None
+        __props__["time_period"] = None
+        __props__["timeframe"] = None
+        __props__["type"] = None
         return View(resource_name, opts=opts, __props__=__props__)
 
     @property

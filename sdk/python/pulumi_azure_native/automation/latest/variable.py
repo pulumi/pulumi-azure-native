@@ -43,7 +43,7 @@ class Variable(pulumi.CustomResource):
         :param pulumi.Input[str] value: Gets or sets the value of the variable.
         :param pulumi.Input[str] variable_name: The variable name.
         """
-        pulumi.log.warn("Variable is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:automation:Variable'.")
+        pulumi.log.warn("""Variable is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:automation:Variable'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -101,6 +101,13 @@ class Variable(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["creation_time"] = None
+        __props__["description"] = None
+        __props__["is_encrypted"] = None
+        __props__["last_modified_time"] = None
+        __props__["name"] = None
+        __props__["type"] = None
+        __props__["value"] = None
         return Variable(resource_name, opts=opts, __props__=__props__)
 
     @property

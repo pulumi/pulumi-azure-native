@@ -193,7 +193,7 @@ def get_certificate(account_name: Optional[str] = None,
     :param str certificate_name: The identifier for the certificate. This must be made up of algorithm and thumbprint separated by a dash, and must match the certificate data in the request. For example SHA1-a3d1c5.
     :param str resource_group_name: The name of the resource group that contains the Batch account.
     """
-    pulumi.log.warn("get_certificate is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:batch:getCertificate'.")
+    pulumi.log.warn("""get_certificate is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:batch:getCertificate'.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['certificateName'] = certificate_name

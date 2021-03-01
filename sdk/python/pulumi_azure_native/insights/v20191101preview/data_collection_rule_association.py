@@ -85,6 +85,12 @@ class DataCollectionRuleAssociation(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["data_collection_rule_id"] = None
+        __props__["description"] = None
+        __props__["etag"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["type"] = None
         return DataCollectionRuleAssociation(resource_name, opts=opts, __props__=__props__)
 
     @property

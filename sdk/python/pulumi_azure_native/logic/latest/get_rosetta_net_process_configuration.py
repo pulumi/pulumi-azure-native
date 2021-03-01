@@ -226,7 +226,7 @@ def get_rosetta_net_process_configuration(integration_account_name: Optional[str
     :param str resource_group_name: The resource group name.
     :param str rosetta_net_process_configuration_name: The integration account RosettaNetProcessConfiguration name.
     """
-    pulumi.log.warn("get_rosetta_net_process_configuration is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:logic:getRosettaNetProcessConfiguration'.")
+    pulumi.log.warn("""get_rosetta_net_process_configuration is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:logic:getRosettaNetProcessConfiguration'.""")
     __args__ = dict()
     __args__['integrationAccountName'] = integration_account_name
     __args__['resourceGroupName'] = resource_group_name

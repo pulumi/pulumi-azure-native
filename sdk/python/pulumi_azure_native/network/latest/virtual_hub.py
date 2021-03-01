@@ -69,7 +69,7 @@ class VirtualHub(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] virtual_wan: The VirtualWAN to which the VirtualHub belongs.
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] vpn_gateway: The VpnGateway associated with this VirtualHub.
         """
-        pulumi.log.warn("VirtualHub is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:VirtualHub'.")
+        pulumi.log.warn("""VirtualHub is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:VirtualHub'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -139,6 +139,29 @@ class VirtualHub(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["address_prefix"] = None
+        __props__["allow_branch_to_branch_traffic"] = None
+        __props__["azure_firewall"] = None
+        __props__["bgp_connections"] = None
+        __props__["etag"] = None
+        __props__["express_route_gateway"] = None
+        __props__["ip_configurations"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["p2_s_vpn_gateway"] = None
+        __props__["provisioning_state"] = None
+        __props__["route_table"] = None
+        __props__["routing_state"] = None
+        __props__["security_partner_provider"] = None
+        __props__["security_provider_name"] = None
+        __props__["sku"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["virtual_hub_route_table_v2s"] = None
+        __props__["virtual_router_asn"] = None
+        __props__["virtual_router_ips"] = None
+        __props__["virtual_wan"] = None
+        __props__["vpn_gateway"] = None
         return VirtualHub(resource_name, opts=opts, __props__=__props__)
 
     @property

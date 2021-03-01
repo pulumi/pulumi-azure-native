@@ -46,7 +46,7 @@ class EventHub(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Name of the resource group within the azure subscription.
         :param pulumi.Input['EntityStatus'] status: Enumerates the possible values for the status of the Event Hub.
         """
-        pulumi.log.warn("EventHub is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:eventhub:EventHub'.")
+        pulumi.log.warn("""EventHub is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:eventhub:EventHub'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -104,6 +104,15 @@ class EventHub(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["capture_description"] = None
+        __props__["created_at"] = None
+        __props__["message_retention_in_days"] = None
+        __props__["name"] = None
+        __props__["partition_count"] = None
+        __props__["partition_ids"] = None
+        __props__["status"] = None
+        __props__["type"] = None
+        __props__["updated_at"] = None
         return EventHub(resource_name, opts=opts, __props__=__props__)
 
     @property

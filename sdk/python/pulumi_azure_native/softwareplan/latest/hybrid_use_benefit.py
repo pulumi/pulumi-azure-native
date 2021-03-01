@@ -37,7 +37,7 @@ class HybridUseBenefit(pulumi.CustomResource):
         :param pulumi.Input[str] scope: The scope at which the operation is performed. This is limited to Microsoft.Compute/virtualMachines and Microsoft.Compute/hostGroups/hosts for now
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: Hybrid use benefit SKU
         """
-        pulumi.log.warn("HybridUseBenefit is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:softwareplan:HybridUseBenefit'.")
+        pulumi.log.warn("""HybridUseBenefit is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:softwareplan:HybridUseBenefit'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -92,6 +92,13 @@ class HybridUseBenefit(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["created_date"] = None
+        __props__["etag"] = None
+        __props__["last_updated_date"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["sku"] = None
+        __props__["type"] = None
         return HybridUseBenefit(resource_name, opts=opts, __props__=__props__)
 
     @property

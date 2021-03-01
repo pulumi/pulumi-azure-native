@@ -117,6 +117,24 @@ class View(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["accumulated"] = None
+        __props__["chart"] = None
+        __props__["created_on"] = None
+        __props__["currency"] = None
+        __props__["data_set"] = None
+        __props__["date_range"] = None
+        __props__["display_name"] = None
+        __props__["e_tag"] = None
+        __props__["include_monetary_commitment"] = None
+        __props__["kpis"] = None
+        __props__["metric"] = None
+        __props__["modified_on"] = None
+        __props__["name"] = None
+        __props__["pivots"] = None
+        __props__["scope"] = None
+        __props__["time_period"] = None
+        __props__["timeframe"] = None
+        __props__["type"] = None
         return View(resource_name, opts=opts, __props__=__props__)
 
     @property

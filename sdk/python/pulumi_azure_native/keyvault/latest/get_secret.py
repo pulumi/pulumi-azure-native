@@ -118,7 +118,7 @@ def get_secret(resource_group_name: Optional[str] = None,
     :param str secret_name: The name of the secret.
     :param str vault_name: The name of the vault.
     """
-    pulumi.log.warn("get_secret is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:keyvault:getSecret'.")
+    pulumi.log.warn("""get_secret is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:keyvault:getSecret'.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['secretName'] = secret_name

@@ -176,7 +176,7 @@ def get_remediation_at_resource_group(remediation_name: Optional[str] = None,
     :param str remediation_name: The name of the remediation.
     :param str resource_group_name: Resource group name.
     """
-    pulumi.log.warn("get_remediation_at_resource_group is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:policyinsights:getRemediationAtResourceGroup'.")
+    pulumi.log.warn("""get_remediation_at_resource_group is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:policyinsights:getRemediationAtResourceGroup'.""")
     __args__ = dict()
     __args__['remediationName'] = remediation_name
     __args__['resourceGroupName'] = resource_group_name

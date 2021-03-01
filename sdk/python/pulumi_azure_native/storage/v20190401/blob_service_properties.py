@@ -97,6 +97,13 @@ class BlobServiceProperties(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["automatic_snapshot_policy_enabled"] = None
+        __props__["change_feed"] = None
+        __props__["cors"] = None
+        __props__["default_service_version"] = None
+        __props__["delete_retention_policy"] = None
+        __props__["name"] = None
+        __props__["type"] = None
         return BlobServiceProperties(resource_name, opts=opts, __props__=__props__)
 
     @property

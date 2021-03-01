@@ -272,7 +272,7 @@ def get_namespace(namespace_name: Optional[str] = None,
     :param str namespace_name: The namespace name.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("get_namespace is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:notificationhubs:getNamespace'.")
+    pulumi.log.warn("""get_namespace is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:notificationhubs:getNamespace'.""")
     __args__ = dict()
     __args__['namespaceName'] = namespace_name
     __args__['resourceGroupName'] = resource_group_name

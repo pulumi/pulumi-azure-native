@@ -49,7 +49,7 @@ class SqlPoolWorkloadGroup(pulumi.CustomResource):
         :param pulumi.Input[str] workload_group_name: The name of the workload group.
         :param pulumi.Input[str] workspace_name: The name of the workspace
         """
-        pulumi.log.warn("SqlPoolWorkloadGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:synapse:SqlPoolWorkloadGroup'.")
+        pulumi.log.warn("""SqlPoolWorkloadGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:synapse:SqlPoolWorkloadGroup'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -115,6 +115,14 @@ class SqlPoolWorkloadGroup(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["importance"] = None
+        __props__["max_resource_percent"] = None
+        __props__["max_resource_percent_per_request"] = None
+        __props__["min_resource_percent"] = None
+        __props__["min_resource_percent_per_request"] = None
+        __props__["name"] = None
+        __props__["query_execution_timeout"] = None
+        __props__["type"] = None
         return SqlPoolWorkloadGroup(resource_name, opts=opts, __props__=__props__)
 
     @property

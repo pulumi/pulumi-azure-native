@@ -105,6 +105,19 @@ class Connector(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["connector_id"] = None
+        __props__["connector_name"] = None
+        __props__["connector_properties"] = None
+        __props__["connector_type"] = None
+        __props__["created"] = None
+        __props__["description"] = None
+        __props__["display_name"] = None
+        __props__["is_internal"] = None
+        __props__["last_modified"] = None
+        __props__["name"] = None
+        __props__["state"] = None
+        __props__["tenant_id"] = None
+        __props__["type"] = None
         return Connector(resource_name, opts=opts, __props__=__props__)
 
     @property

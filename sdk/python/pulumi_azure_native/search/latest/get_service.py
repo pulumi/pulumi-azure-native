@@ -248,7 +248,7 @@ def get_service(resource_group_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str search_service_name: The name of the Azure Cognitive Search service associated with the specified resource group.
     """
-    pulumi.log.warn("get_service is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:search:getService'.")
+    pulumi.log.warn("""get_service is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:search:getService'.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['searchServiceName'] = search_service_name

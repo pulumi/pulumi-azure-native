@@ -92,6 +92,19 @@ class IotSensor(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["connectivity_time"] = None
+        __props__["creation_time"] = None
+        __props__["dynamic_learning"] = None
+        __props__["is_enterprise_sensor"] = None
+        __props__["learning_mode"] = None
+        __props__["name"] = None
+        __props__["sensor_status"] = None
+        __props__["sensor_version"] = None
+        __props__["ti_automatic_updates"] = None
+        __props__["ti_status"] = None
+        __props__["ti_version"] = None
+        __props__["type"] = None
+        __props__["zone"] = None
         return IotSensor(resource_name, opts=opts, __props__=__props__)
 
     @property

@@ -62,7 +62,7 @@ class MetricAlert(pulumi.CustomResource):
         :param pulumi.Input[str] target_resource_type: the resource type of the target resource(s) on which the alert is created/updated. Mandatory if the scope contains a subscription, resource group, or more than one resource.
         :param pulumi.Input[str] window_size: the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold.
         """
-        pulumi.log.warn("MetricAlert is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:insights:MetricAlert'.")
+        pulumi.log.warn("""MetricAlert is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:insights:MetricAlert'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -137,6 +137,23 @@ class MetricAlert(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["actions"] = None
+        __props__["auto_mitigate"] = None
+        __props__["criteria"] = None
+        __props__["description"] = None
+        __props__["enabled"] = None
+        __props__["evaluation_frequency"] = None
+        __props__["is_migrated"] = None
+        __props__["last_updated_time"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["scopes"] = None
+        __props__["severity"] = None
+        __props__["tags"] = None
+        __props__["target_resource_region"] = None
+        __props__["target_resource_type"] = None
+        __props__["type"] = None
+        __props__["window_size"] = None
         return MetricAlert(resource_name, opts=opts, __props__=__props__)
 
     @property

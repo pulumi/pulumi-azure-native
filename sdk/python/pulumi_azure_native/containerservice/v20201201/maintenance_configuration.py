@@ -90,6 +90,11 @@ class MaintenanceConfiguration(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["name"] = None
+        __props__["not_allowed_time"] = None
+        __props__["system_data"] = None
+        __props__["time_in_week"] = None
+        __props__["type"] = None
         return MaintenanceConfiguration(resource_name, opts=opts, __props__=__props__)
 
     @property

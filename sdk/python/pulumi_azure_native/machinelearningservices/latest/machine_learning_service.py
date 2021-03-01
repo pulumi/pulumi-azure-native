@@ -52,7 +52,7 @@ class MachineLearningService(pulumi.CustomResource):
         :param pulumi.Input[str] service_name: Name of the Azure Machine Learning service.
         :param pulumi.Input[str] workspace_name: Name of Azure Machine Learning workspace.
         """
-        pulumi.log.warn("MachineLearningService is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:machinelearningservices:MachineLearningService'.")
+        pulumi.log.warn("""MachineLearningService is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:machinelearningservices:MachineLearningService'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -116,6 +116,14 @@ class MachineLearningService(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["identity"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["properties"] = None
+        __props__["sku"] = None
+        __props__["system_data"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
         return MachineLearningService(resource_name, opts=opts, __props__=__props__)
 
     @property

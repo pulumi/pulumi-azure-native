@@ -63,7 +63,7 @@ class Subscription(pulumi.CustomResource):
         :param pulumi.Input[str] subscription_name: The subscription name.
         :param pulumi.Input[str] topic_name: The topic name.
         """
-        pulumi.log.warn("Subscription is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:servicebus:Subscription'.")
+        pulumi.log.warn("""Subscription is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:servicebus:Subscription'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -134,6 +134,25 @@ class Subscription(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["accessed_at"] = None
+        __props__["auto_delete_on_idle"] = None
+        __props__["count_details"] = None
+        __props__["created_at"] = None
+        __props__["dead_lettering_on_filter_evaluation_exceptions"] = None
+        __props__["dead_lettering_on_message_expiration"] = None
+        __props__["default_message_time_to_live"] = None
+        __props__["duplicate_detection_history_time_window"] = None
+        __props__["enable_batched_operations"] = None
+        __props__["forward_dead_lettered_messages_to"] = None
+        __props__["forward_to"] = None
+        __props__["lock_duration"] = None
+        __props__["max_delivery_count"] = None
+        __props__["message_count"] = None
+        __props__["name"] = None
+        __props__["requires_session"] = None
+        __props__["status"] = None
+        __props__["type"] = None
+        __props__["updated_at"] = None
         return Subscription(resource_name, opts=opts, __props__=__props__)
 
     @property

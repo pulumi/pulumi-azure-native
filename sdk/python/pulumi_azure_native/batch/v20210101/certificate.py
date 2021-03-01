@@ -106,6 +106,18 @@ class Certificate(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["delete_certificate_error"] = None
+        __props__["etag"] = None
+        __props__["format"] = None
+        __props__["name"] = None
+        __props__["previous_provisioning_state"] = None
+        __props__["previous_provisioning_state_transition_time"] = None
+        __props__["provisioning_state"] = None
+        __props__["provisioning_state_transition_time"] = None
+        __props__["public_data"] = None
+        __props__["thumbprint"] = None
+        __props__["thumbprint_algorithm"] = None
+        __props__["type"] = None
         return Certificate(resource_name, opts=opts, __props__=__props__)
 
     @property

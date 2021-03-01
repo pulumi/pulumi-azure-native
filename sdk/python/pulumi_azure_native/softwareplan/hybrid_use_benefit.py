@@ -87,6 +87,13 @@ class HybridUseBenefit(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["created_date"] = None
+        __props__["etag"] = None
+        __props__["last_updated_date"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["sku"] = None
+        __props__["type"] = None
         return HybridUseBenefit(resource_name, opts=opts, __props__=__props__)
 
     @property

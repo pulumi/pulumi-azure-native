@@ -36,7 +36,7 @@ class WebAppSiteExtension(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
         :param pulumi.Input[str] site_extension_id: Site extension name.
         """
-        pulumi.log.warn("WebAppSiteExtension is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppSiteExtension'.")
+        pulumi.log.warn("""WebAppSiteExtension is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppSiteExtension'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -108,6 +108,30 @@ class WebAppSiteExtension(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["authors"] = None
+        __props__["comment"] = None
+        __props__["description"] = None
+        __props__["download_count"] = None
+        __props__["extension_id"] = None
+        __props__["extension_type"] = None
+        __props__["extension_url"] = None
+        __props__["feed_url"] = None
+        __props__["icon_url"] = None
+        __props__["installed_date_time"] = None
+        __props__["installer_command_line_params"] = None
+        __props__["kind"] = None
+        __props__["license_url"] = None
+        __props__["local_is_latest_version"] = None
+        __props__["local_path"] = None
+        __props__["name"] = None
+        __props__["project_url"] = None
+        __props__["provisioning_state"] = None
+        __props__["published_date_time"] = None
+        __props__["summary"] = None
+        __props__["system_data"] = None
+        __props__["title"] = None
+        __props__["type"] = None
+        __props__["version"] = None
         return WebAppSiteExtension(resource_name, opts=opts, __props__=__props__)
 
     @property

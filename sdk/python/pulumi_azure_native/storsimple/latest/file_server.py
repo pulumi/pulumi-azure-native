@@ -45,7 +45,7 @@ class FileServer(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The resource group name
         :param pulumi.Input[str] storage_domain_id: The storage domain id.
         """
-        pulumi.log.warn("FileServer is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storsimple:FileServer'.")
+        pulumi.log.warn("""FileServer is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storsimple:FileServer'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -109,6 +109,12 @@ class FileServer(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["backup_schedule_group_id"] = None
+        __props__["description"] = None
+        __props__["domain_name"] = None
+        __props__["name"] = None
+        __props__["storage_domain_id"] = None
+        __props__["type"] = None
         return FileServer(resource_name, opts=opts, __props__=__props__)
 
     @property

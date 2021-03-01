@@ -72,7 +72,7 @@ def list_storage_account_sas_tokens(account_name: Optional[str] = None,
     :param str resource_group_name: The name of the Azure resource group.
     :param str storage_account_name: The name of the Azure storage account for which the SAS token is being requested.
     """
-    pulumi.log.warn("list_storage_account_sas_tokens is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datalakeanalytics:listStorageAccountSasTokens'.")
+    pulumi.log.warn("""list_storage_account_sas_tokens is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datalakeanalytics:listStorageAccountSasTokens'.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['containerName'] = container_name

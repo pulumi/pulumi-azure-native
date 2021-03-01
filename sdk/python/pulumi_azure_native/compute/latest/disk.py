@@ -78,7 +78,7 @@ class Disk(pulumi.CustomResource):
         :param pulumi.Input[str] tier: Performance tier of the disk (e.g, P4, S10) as described here: https://azure.microsoft.com/en-us/pricing/details/managed-disks/. Does not apply to Ultra disks.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: The Logical zone list for Disk.
         """
-        pulumi.log.warn("Disk is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:compute:Disk'.")
+        pulumi.log.warn("""Disk is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:compute:Disk'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -157,6 +157,37 @@ class Disk(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["bursting_enabled"] = None
+        __props__["creation_data"] = None
+        __props__["disk_access_id"] = None
+        __props__["disk_iops_read_only"] = None
+        __props__["disk_iops_read_write"] = None
+        __props__["disk_m_bps_read_only"] = None
+        __props__["disk_m_bps_read_write"] = None
+        __props__["disk_size_bytes"] = None
+        __props__["disk_size_gb"] = None
+        __props__["disk_state"] = None
+        __props__["encryption"] = None
+        __props__["encryption_settings_collection"] = None
+        __props__["extended_location"] = None
+        __props__["hyper_v_generation"] = None
+        __props__["location"] = None
+        __props__["managed_by"] = None
+        __props__["managed_by_extended"] = None
+        __props__["max_shares"] = None
+        __props__["name"] = None
+        __props__["network_access_policy"] = None
+        __props__["os_type"] = None
+        __props__["provisioning_state"] = None
+        __props__["purchase_plan"] = None
+        __props__["share_info"] = None
+        __props__["sku"] = None
+        __props__["tags"] = None
+        __props__["tier"] = None
+        __props__["time_created"] = None
+        __props__["type"] = None
+        __props__["unique_id"] = None
+        __props__["zones"] = None
         return Disk(resource_name, opts=opts, __props__=__props__)
 
     @property

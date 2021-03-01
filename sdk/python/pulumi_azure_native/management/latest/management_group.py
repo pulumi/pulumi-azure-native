@@ -39,7 +39,7 @@ class ManagementGroup(pulumi.CustomResource):
         :param pulumi.Input[str] group_id: Management Group ID.
         :param pulumi.Input[str] name: The name of the management group. For example, 00000000-0000-0000-0000-000000000000
         """
-        pulumi.log.warn("ManagementGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:management:ManagementGroup'.")
+        pulumi.log.warn("""ManagementGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:management:ManagementGroup'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -89,6 +89,13 @@ class ManagementGroup(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["children"] = None
+        __props__["details"] = None
+        __props__["display_name"] = None
+        __props__["name"] = None
+        __props__["path"] = None
+        __props__["tenant_id"] = None
+        __props__["type"] = None
         return ManagementGroup(resource_name, opts=opts, __props__=__props__)
 
     @property

@@ -106,7 +106,7 @@ def get_rules_engine(front_door_name: Optional[str] = None,
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     :param str rules_engine_name: Name of the Rules Engine which is unique within the Front Door.
     """
-    pulumi.log.warn("get_rules_engine is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getRulesEngine'.")
+    pulumi.log.warn("""get_rules_engine is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getRulesEngine'.""")
     __args__ = dict()
     __args__['frontDoorName'] = front_door_name
     __args__['resourceGroupName'] = resource_group_name

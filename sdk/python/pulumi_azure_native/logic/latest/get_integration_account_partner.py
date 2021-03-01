@@ -166,7 +166,7 @@ def get_integration_account_partner(integration_account_name: Optional[str] = No
     :param str partner_name: The integration account partner name.
     :param str resource_group_name: The resource group name.
     """
-    pulumi.log.warn("get_integration_account_partner is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:logic:getIntegrationAccountPartner'.")
+    pulumi.log.warn("""get_integration_account_partner is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:logic:getIntegrationAccountPartner'.""")
     __args__ = dict()
     __args__['integrationAccountName'] = integration_account_name
     __args__['partnerName'] = partner_name

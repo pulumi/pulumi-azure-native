@@ -116,6 +116,23 @@ class Workspace(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["created_date"] = None
+        __props__["customer_id"] = None
+        __props__["e_tag"] = None
+        __props__["features"] = None
+        __props__["force_cmk_for_query"] = None
+        __props__["location"] = None
+        __props__["modified_date"] = None
+        __props__["name"] = None
+        __props__["private_link_scoped_resources"] = None
+        __props__["provisioning_state"] = None
+        __props__["public_network_access_for_ingestion"] = None
+        __props__["public_network_access_for_query"] = None
+        __props__["retention_in_days"] = None
+        __props__["sku"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["workspace_capping"] = None
         return Workspace(resource_name, opts=opts, __props__=__props__)
 
     @property

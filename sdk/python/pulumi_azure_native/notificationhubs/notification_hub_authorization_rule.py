@@ -106,6 +106,20 @@ class NotificationHubAuthorizationRule(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["claim_type"] = None
+        __props__["claim_value"] = None
+        __props__["created_time"] = None
+        __props__["key_name"] = None
+        __props__["location"] = None
+        __props__["modified_time"] = None
+        __props__["name"] = None
+        __props__["primary_key"] = None
+        __props__["revision"] = None
+        __props__["rights"] = None
+        __props__["secondary_key"] = None
+        __props__["sku"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
         return NotificationHubAuthorizationRule(resource_name, opts=opts, __props__=__props__)
 
     @property

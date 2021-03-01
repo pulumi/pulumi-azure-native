@@ -54,7 +54,7 @@ class MachineExtension(pulumi.CustomResource):
         :param pulumi.Input[str] type: Specifies the type of the extension; an example is "CustomScriptExtension".
         :param pulumi.Input[str] type_handler_version: Specifies the version of the script handler.
         """
-        pulumi.log.warn("MachineExtension is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:hybridcompute:MachineExtension'.")
+        pulumi.log.warn("""MachineExtension is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:hybridcompute:MachineExtension'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -114,6 +114,18 @@ class MachineExtension(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["auto_upgrade_minor_version"] = None
+        __props__["force_update_tag"] = None
+        __props__["instance_view"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["protected_settings"] = None
+        __props__["provisioning_state"] = None
+        __props__["publisher"] = None
+        __props__["settings"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["type_handler_version"] = None
         return MachineExtension(resource_name, opts=opts, __props__=__props__)
 
     @property

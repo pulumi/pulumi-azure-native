@@ -104,6 +104,19 @@ class StaticSite(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["branch"] = None
+        __props__["build_properties"] = None
+        __props__["custom_domains"] = None
+        __props__["default_hostname"] = None
+        __props__["kind"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["repository_token"] = None
+        __props__["repository_url"] = None
+        __props__["sku"] = None
+        __props__["system_data"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
         return StaticSite(resource_name, opts=opts, __props__=__props__)
 
     @property

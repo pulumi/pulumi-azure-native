@@ -96,7 +96,7 @@ class AgentPool(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'ContainerServiceVMSizeTypes']] vm_size: Size of agent VMs.
         :param pulumi.Input[str] vnet_subnet_id: VNet SubnetID specifies the VNet's subnet identifier for nodes and maybe pods
         """
-        pulumi.log.warn("AgentPool is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:containerservice:AgentPool'.")
+        pulumi.log.warn("""AgentPool is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:containerservice:AgentPool'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -178,6 +178,39 @@ class AgentPool(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["availability_zones"] = None
+        __props__["count"] = None
+        __props__["enable_auto_scaling"] = None
+        __props__["enable_encryption_at_host"] = None
+        __props__["enable_node_public_ip"] = None
+        __props__["kubelet_config"] = None
+        __props__["kubelet_disk_type"] = None
+        __props__["linux_os_config"] = None
+        __props__["max_count"] = None
+        __props__["max_pods"] = None
+        __props__["min_count"] = None
+        __props__["mode"] = None
+        __props__["name"] = None
+        __props__["node_image_version"] = None
+        __props__["node_labels"] = None
+        __props__["node_public_ip_prefix_id"] = None
+        __props__["node_taints"] = None
+        __props__["orchestrator_version"] = None
+        __props__["os_disk_size_gb"] = None
+        __props__["os_disk_type"] = None
+        __props__["os_type"] = None
+        __props__["pod_subnet_id"] = None
+        __props__["power_state"] = None
+        __props__["provisioning_state"] = None
+        __props__["proximity_placement_group_id"] = None
+        __props__["scale_set_eviction_policy"] = None
+        __props__["scale_set_priority"] = None
+        __props__["spot_max_price"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["upgrade_settings"] = None
+        __props__["vm_size"] = None
+        __props__["vnet_subnet_id"] = None
         return AgentPool(resource_name, opts=opts, __props__=__props__)
 
     @property

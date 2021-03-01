@@ -118,7 +118,7 @@ def list_workflow_trigger_callback_url(resource_group_name: Optional[str] = None
     :param str trigger_name: The workflow trigger name.
     :param str workflow_name: The workflow name.
     """
-    pulumi.log.warn("list_workflow_trigger_callback_url is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:logic:listWorkflowTriggerCallbackUrl'.")
+    pulumi.log.warn("""list_workflow_trigger_callback_url is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:logic:listWorkflowTriggerCallbackUrl'.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['triggerName'] = trigger_name

@@ -125,7 +125,7 @@ def get_hyper_v_site(resource_group_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str site_name: Site name.
     """
-    pulumi.log.warn("get_hyper_v_site is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:offazure:getHyperVSite'.")
+    pulumi.log.warn("""get_hyper_v_site is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:offazure:getHyperVSite'.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['siteName'] = site_name

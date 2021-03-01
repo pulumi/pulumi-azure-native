@@ -140,7 +140,7 @@ def get_move_collection(move_collection_name: Optional[str] = None,
     :param str move_collection_name: The Move Collection Name.
     :param str resource_group_name: The Resource Group Name.
     """
-    pulumi.log.warn("get_move_collection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:migrate:getMoveCollection'.")
+    pulumi.log.warn("""get_move_collection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:migrate:getMoveCollection'.""")
     __args__ = dict()
     __args__['moveCollectionName'] = move_collection_name
     __args__['resourceGroupName'] = resource_group_name

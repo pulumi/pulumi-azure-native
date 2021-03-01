@@ -56,7 +56,7 @@ class ApiDiagnostic(pulumi.CustomResource):
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input[Union[str, 'Verbosity']] verbosity: The verbosity level applied to traces emitted by trace policies.
         """
-        pulumi.log.warn("ApiDiagnostic is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:ApiDiagnostic'.")
+        pulumi.log.warn("""ApiDiagnostic is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:ApiDiagnostic'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -120,6 +120,16 @@ class ApiDiagnostic(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["always_log"] = None
+        __props__["backend"] = None
+        __props__["frontend"] = None
+        __props__["http_correlation_protocol"] = None
+        __props__["log_client_ip"] = None
+        __props__["logger_id"] = None
+        __props__["name"] = None
+        __props__["sampling"] = None
+        __props__["type"] = None
+        __props__["verbosity"] = None
         return ApiDiagnostic(resource_name, opts=opts, __props__=__props__)
 
     @property

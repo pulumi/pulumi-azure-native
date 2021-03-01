@@ -119,6 +119,23 @@ class Cluster(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["allocation_state"] = None
+        __props__["allocation_state_transition_time"] = None
+        __props__["creation_time"] = None
+        __props__["current_node_count"] = None
+        __props__["errors"] = None
+        __props__["name"] = None
+        __props__["node_setup"] = None
+        __props__["node_state_counts"] = None
+        __props__["provisioning_state"] = None
+        __props__["provisioning_state_transition_time"] = None
+        __props__["scale_settings"] = None
+        __props__["subnet"] = None
+        __props__["type"] = None
+        __props__["user_account_settings"] = None
+        __props__["virtual_machine_configuration"] = None
+        __props__["vm_priority"] = None
+        __props__["vm_size"] = None
         return Cluster(resource_name, opts=opts, __props__=__props__)
 
     @property

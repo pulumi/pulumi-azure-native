@@ -139,7 +139,7 @@ def get_application_security_group(application_security_group_name: Optional[str
     :param str application_security_group_name: The name of the application security group.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("get_application_security_group is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getApplicationSecurityGroup'.")
+    pulumi.log.warn("""get_application_security_group is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getApplicationSecurityGroup'.""")
     __args__ = dict()
     __args__['applicationSecurityGroupName'] = application_security_group_name
     __args__['resourceGroupName'] = resource_group_name

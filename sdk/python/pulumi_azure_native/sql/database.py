@@ -199,6 +199,47 @@ class Database(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["auto_pause_delay"] = None
+        __props__["catalog_collation"] = None
+        __props__["collation"] = None
+        __props__["create_mode"] = None
+        __props__["creation_date"] = None
+        __props__["current_service_objective_name"] = None
+        __props__["current_sku"] = None
+        __props__["database_id"] = None
+        __props__["default_secondary_location"] = None
+        __props__["earliest_restore_date"] = None
+        __props__["elastic_pool_id"] = None
+        __props__["failover_group_id"] = None
+        __props__["high_availability_replica_count"] = None
+        __props__["kind"] = None
+        __props__["license_type"] = None
+        __props__["location"] = None
+        __props__["long_term_retention_backup_resource_id"] = None
+        __props__["maintenance_configuration_id"] = None
+        __props__["managed_by"] = None
+        __props__["max_log_size_bytes"] = None
+        __props__["max_size_bytes"] = None
+        __props__["min_capacity"] = None
+        __props__["name"] = None
+        __props__["paused_date"] = None
+        __props__["read_scale"] = None
+        __props__["recoverable_database_id"] = None
+        __props__["recovery_services_recovery_point_id"] = None
+        __props__["requested_service_objective_name"] = None
+        __props__["restorable_dropped_database_id"] = None
+        __props__["restore_point_in_time"] = None
+        __props__["resumed_date"] = None
+        __props__["sample_name"] = None
+        __props__["secondary_type"] = None
+        __props__["sku"] = None
+        __props__["source_database_deletion_date"] = None
+        __props__["source_database_id"] = None
+        __props__["status"] = None
+        __props__["storage_account_type"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["zone_redundant"] = None
         return Database(resource_name, opts=opts, __props__=__props__)
 
     @property

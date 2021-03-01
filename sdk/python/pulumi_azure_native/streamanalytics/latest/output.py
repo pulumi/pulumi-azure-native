@@ -44,7 +44,7 @@ class Output(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[Union[pulumi.InputType['AvroSerializationArgs'], pulumi.InputType['CsvSerializationArgs'], pulumi.InputType['JsonSerializationArgs']]] serialization: Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
         """
-        pulumi.log.warn("Output is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:streamanalytics:Output'.")
+        pulumi.log.warn("""Output is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:streamanalytics:Output'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -99,6 +99,12 @@ class Output(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["datasource"] = None
+        __props__["diagnostics"] = None
+        __props__["etag"] = None
+        __props__["name"] = None
+        __props__["serialization"] = None
+        __props__["type"] = None
         return Output(resource_name, opts=opts, __props__=__props__)
 
     @property

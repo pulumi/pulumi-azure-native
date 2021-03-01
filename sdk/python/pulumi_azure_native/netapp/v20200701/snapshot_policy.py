@@ -104,6 +104,16 @@ class SnapshotPolicy(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["daily_schedule"] = None
+        __props__["enabled"] = None
+        __props__["hourly_schedule"] = None
+        __props__["location"] = None
+        __props__["monthly_schedule"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["weekly_schedule"] = None
         return SnapshotPolicy(resource_name, opts=opts, __props__=__props__)
 
     @property

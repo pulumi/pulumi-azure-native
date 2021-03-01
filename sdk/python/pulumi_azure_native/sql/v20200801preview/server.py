@@ -107,6 +107,21 @@ class Server(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["administrator_login"] = None
+        __props__["administrator_login_password"] = None
+        __props__["fully_qualified_domain_name"] = None
+        __props__["identity"] = None
+        __props__["kind"] = None
+        __props__["location"] = None
+        __props__["minimal_tls_version"] = None
+        __props__["name"] = None
+        __props__["private_endpoint_connections"] = None
+        __props__["public_network_access"] = None
+        __props__["state"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["version"] = None
+        __props__["workspace_feature"] = None
         return Server(resource_name, opts=opts, __props__=__props__)
 
     @property

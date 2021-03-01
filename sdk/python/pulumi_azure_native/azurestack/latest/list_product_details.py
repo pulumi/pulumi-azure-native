@@ -178,7 +178,7 @@ def list_product_details(product_name: Optional[str] = None,
     :param str registration_name: Name of the Azure Stack registration.
     :param str resource_group: Name of the resource group.
     """
-    pulumi.log.warn("list_product_details is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:azurestack:listProductDetails'.")
+    pulumi.log.warn("""list_product_details is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:azurestack:listProductDetails'.""")
     __args__ = dict()
     __args__['productName'] = product_name
     __args__['registrationName'] = registration_name

@@ -48,7 +48,7 @@ class Rule(pulumi.CustomResource):
         :param pulumi.Input[str] rule_name: Name of the delivery rule which is unique within the endpoint.
         :param pulumi.Input[str] rule_set_name: Name of the rule set under the profile.
         """
-        pulumi.log.warn("Rule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:cdn:Rule'.")
+        pulumi.log.warn("""Rule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:cdn:Rule'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -113,6 +113,15 @@ class Rule(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["actions"] = None
+        __props__["conditions"] = None
+        __props__["deployment_status"] = None
+        __props__["match_processing_behavior"] = None
+        __props__["name"] = None
+        __props__["order"] = None
+        __props__["provisioning_state"] = None
+        __props__["system_data"] = None
+        __props__["type"] = None
         return Rule(resource_name, opts=opts, __props__=__props__)
 
     @property

@@ -123,6 +123,15 @@ class BackupSchedule(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["backup_type"] = None
+        __props__["kind"] = None
+        __props__["last_successful_run"] = None
+        __props__["name"] = None
+        __props__["retention_count"] = None
+        __props__["schedule_recurrence"] = None
+        __props__["schedule_status"] = None
+        __props__["start_time"] = None
+        __props__["type"] = None
         return BackupSchedule(resource_name, opts=opts, __props__=__props__)
 
     @property

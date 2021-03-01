@@ -115,6 +115,21 @@ class MaintenanceConfiguration(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["duration"] = None
+        __props__["expiration_date_time"] = None
+        __props__["extension_properties"] = None
+        __props__["install_patches"] = None
+        __props__["location"] = None
+        __props__["maintenance_scope"] = None
+        __props__["name"] = None
+        __props__["namespace"] = None
+        __props__["recur_every"] = None
+        __props__["start_date_time"] = None
+        __props__["system_data"] = None
+        __props__["tags"] = None
+        __props__["time_zone"] = None
+        __props__["type"] = None
+        __props__["visibility"] = None
         return MaintenanceConfiguration(resource_name, opts=opts, __props__=__props__)
 
     @property

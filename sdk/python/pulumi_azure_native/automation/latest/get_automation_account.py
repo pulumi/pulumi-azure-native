@@ -188,7 +188,7 @@ def get_automation_account(automation_account_name: Optional[str] = None,
     :param str automation_account_name: The name of the automation account.
     :param str resource_group_name: Name of an Azure Resource group.
     """
-    pulumi.log.warn("get_automation_account is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:automation:getAutomationAccount'.")
+    pulumi.log.warn("""get_automation_account is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:automation:getAutomationAccount'.""")
     __args__ = dict()
     __args__['automationAccountName'] = automation_account_name
     __args__['resourceGroupName'] = resource_group_name

@@ -107,6 +107,16 @@ class GalleryApplication(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["description"] = None
+        __props__["end_of_life_date"] = None
+        __props__["eula"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["privacy_statement_uri"] = None
+        __props__["release_note_uri"] = None
+        __props__["supported_os_type"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
         return GalleryApplication(resource_name, opts=opts, __props__=__props__)
 
     @property

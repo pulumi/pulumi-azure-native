@@ -152,6 +152,30 @@ class VirtualMachineResource(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["artifact_deployment_status"] = None
+        __props__["artifacts"] = None
+        __props__["compute_id"] = None
+        __props__["created_by_user"] = None
+        __props__["created_by_user_id"] = None
+        __props__["custom_image_id"] = None
+        __props__["disallow_public_ip_address"] = None
+        __props__["fqdn"] = None
+        __props__["gallery_image_reference"] = None
+        __props__["is_authentication_with_ssh_key"] = None
+        __props__["lab_subnet_name"] = None
+        __props__["lab_virtual_network_id"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["notes"] = None
+        __props__["os_type"] = None
+        __props__["owner_object_id"] = None
+        __props__["password"] = None
+        __props__["provisioning_state"] = None
+        __props__["size"] = None
+        __props__["ssh_key"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["user_name"] = None
         return VirtualMachineResource(resource_name, opts=opts, __props__=__props__)
 
     @property

@@ -51,7 +51,7 @@ class StaticSite(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SkuDescriptionArgs']] sku: Description of a SKU for a scalable resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.log.warn("StaticSite is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:StaticSite'.")
+        pulumi.log.warn("""StaticSite is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:StaticSite'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -109,6 +109,19 @@ class StaticSite(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["branch"] = None
+        __props__["build_properties"] = None
+        __props__["custom_domains"] = None
+        __props__["default_hostname"] = None
+        __props__["kind"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["repository_token"] = None
+        __props__["repository_url"] = None
+        __props__["sku"] = None
+        __props__["system_data"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
         return StaticSite(resource_name, opts=opts, __props__=__props__)
 
     @property

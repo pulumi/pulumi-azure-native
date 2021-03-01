@@ -52,7 +52,7 @@ class FileShare(pulumi.CustomResource):
         :param pulumi.Input[str] share_name: The file share name.
         :param pulumi.Input['ShareStatus'] share_status: The Share Status
         """
-        pulumi.log.warn("FileShare is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storsimple:FileShare'.")
+        pulumi.log.warn("""FileShare is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storsimple:FileShare'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -127,6 +127,16 @@ class FileShare(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["admin_user"] = None
+        __props__["data_policy"] = None
+        __props__["description"] = None
+        __props__["local_used_capacity_in_bytes"] = None
+        __props__["monitoring_status"] = None
+        __props__["name"] = None
+        __props__["provisioned_capacity_in_bytes"] = None
+        __props__["share_status"] = None
+        __props__["type"] = None
+        __props__["used_capacity_in_bytes"] = None
         return FileShare(resource_name, opts=opts, __props__=__props__)
 
     @property

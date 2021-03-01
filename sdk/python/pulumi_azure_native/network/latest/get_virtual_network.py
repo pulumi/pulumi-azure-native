@@ -262,7 +262,7 @@ def get_virtual_network(expand: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     :param str virtual_network_name: The name of the virtual network.
     """
-    pulumi.log.warn("get_virtual_network is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getVirtualNetwork'.")
+    pulumi.log.warn("""get_virtual_network is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getVirtualNetwork'.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['resourceGroupName'] = resource_group_name

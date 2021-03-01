@@ -140,7 +140,7 @@ def get_iot_dps_resource(provisioning_service_name: Optional[str] = None,
     :param str provisioning_service_name: Name of the provisioning service to retrieve.
     :param str resource_group_name: Resource group name.
     """
-    pulumi.log.warn("get_iot_dps_resource is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devices:getIotDpsResource'.")
+    pulumi.log.warn("""get_iot_dps_resource is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devices:getIotDpsResource'.""")
     __args__ = dict()
     __args__['provisioningServiceName'] = provisioning_service_name
     __args__['resourceGroupName'] = resource_group_name

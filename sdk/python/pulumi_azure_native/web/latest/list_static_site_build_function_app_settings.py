@@ -118,7 +118,7 @@ def list_static_site_build_function_app_settings(name: Optional[str] = None,
     :param str pr_id: The stage site identifier.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
-    pulumi.log.warn("list_static_site_build_function_app_settings is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listStaticSiteBuildFunctionAppSettings'.")
+    pulumi.log.warn("""list_static_site_build_function_app_settings is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listStaticSiteBuildFunctionAppSettings'.""")
     __args__ = dict()
     __args__['name'] = name
     __args__['prId'] = pr_id

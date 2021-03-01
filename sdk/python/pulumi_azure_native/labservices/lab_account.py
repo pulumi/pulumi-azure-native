@@ -94,6 +94,15 @@ class LabAccount(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["enabled_region_selection"] = None
+        __props__["latest_operation_result"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["size_configuration"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["unique_identifier"] = None
         return LabAccount(resource_name, opts=opts, __props__=__props__)
 
     @property

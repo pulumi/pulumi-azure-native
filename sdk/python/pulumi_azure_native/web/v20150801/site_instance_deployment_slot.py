@@ -127,6 +127,20 @@ class SiteInstanceDeploymentSlot(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["active"] = None
+        __props__["author"] = None
+        __props__["author_email"] = None
+        __props__["deployer"] = None
+        __props__["details"] = None
+        __props__["end_time"] = None
+        __props__["kind"] = None
+        __props__["location"] = None
+        __props__["message"] = None
+        __props__["name"] = None
+        __props__["start_time"] = None
+        __props__["status"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
         return SiteInstanceDeploymentSlot(resource_name, opts=opts, __props__=__props__)
 
     @property

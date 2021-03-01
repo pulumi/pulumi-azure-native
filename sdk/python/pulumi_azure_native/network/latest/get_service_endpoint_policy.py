@@ -166,7 +166,7 @@ def get_service_endpoint_policy(expand: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     :param str service_endpoint_policy_name: The name of the service endpoint policy.
     """
-    pulumi.log.warn("get_service_endpoint_policy is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getServiceEndpointPolicy'.")
+    pulumi.log.warn("""get_service_endpoint_policy is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getServiceEndpointPolicy'.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['resourceGroupName'] = resource_group_name

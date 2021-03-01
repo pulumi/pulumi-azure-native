@@ -164,6 +164,30 @@ class Cluster(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["add_on_features"] = None
+        __props__["available_cluster_versions"] = None
+        __props__["azure_active_directory"] = None
+        __props__["certificate"] = None
+        __props__["client_certificate_common_names"] = None
+        __props__["client_certificate_thumbprints"] = None
+        __props__["cluster_code_version"] = None
+        __props__["cluster_endpoint"] = None
+        __props__["cluster_id"] = None
+        __props__["cluster_state"] = None
+        __props__["diagnostics_storage_account_config"] = None
+        __props__["fabric_settings"] = None
+        __props__["location"] = None
+        __props__["management_endpoint"] = None
+        __props__["name"] = None
+        __props__["node_types"] = None
+        __props__["provisioning_state"] = None
+        __props__["reliability_level"] = None
+        __props__["reverse_proxy_certificate"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["upgrade_description"] = None
+        __props__["upgrade_mode"] = None
+        __props__["vm_image"] = None
         return Cluster(resource_name, opts=opts, __props__=__props__)
 
     @property

@@ -154,7 +154,7 @@ def get_machine_learning_compute(compute_name: Optional[str] = None,
     :param str resource_group_name: Name of the resource group in which workspace is located.
     :param str workspace_name: Name of Azure Machine Learning workspace.
     """
-    pulumi.log.warn("get_machine_learning_compute is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:machinelearningservices:getMachineLearningCompute'.")
+    pulumi.log.warn("""get_machine_learning_compute is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:machinelearningservices:getMachineLearningCompute'.""")
     __args__ = dict()
     __args__['computeName'] = compute_name
     __args__['resourceGroupName'] = resource_group_name

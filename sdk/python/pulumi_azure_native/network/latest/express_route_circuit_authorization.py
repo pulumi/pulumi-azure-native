@@ -44,7 +44,7 @@ class ExpressRouteCircuitAuthorization(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         """
-        pulumi.log.warn("ExpressRouteCircuitAuthorization is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:ExpressRouteCircuitAuthorization'.")
+        pulumi.log.warn("""ExpressRouteCircuitAuthorization is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:ExpressRouteCircuitAuthorization'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -100,6 +100,12 @@ class ExpressRouteCircuitAuthorization(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["authorization_key"] = None
+        __props__["authorization_use_status"] = None
+        __props__["etag"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["type"] = None
         return ExpressRouteCircuitAuthorization(resource_name, opts=opts, __props__=__props__)
 
     @property

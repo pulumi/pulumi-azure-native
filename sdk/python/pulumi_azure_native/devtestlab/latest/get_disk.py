@@ -229,7 +229,7 @@ def get_disk(expand: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     :param str user_name: The name of the user profile.
     """
-    pulumi.log.warn("get_disk is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devtestlab:getDisk'.")
+    pulumi.log.warn("""get_disk is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devtestlab:getDisk'.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['labName'] = lab_name

@@ -46,7 +46,7 @@ class FirewallPolicyRuleGroup(pulumi.CustomResource):
         :param pulumi.Input[str] rule_group_name: The name of the FirewallPolicyRuleGroup.
         :param pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['FirewallPolicyFilterRuleArgs'], pulumi.InputType['FirewallPolicyNatRuleArgs']]]]] rules: Group of Firewall Policy rules.
         """
-        pulumi.log.warn("FirewallPolicyRuleGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:FirewallPolicyRuleGroup'.")
+        pulumi.log.warn("""FirewallPolicyRuleGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:FirewallPolicyRuleGroup'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -102,6 +102,12 @@ class FirewallPolicyRuleGroup(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["etag"] = None
+        __props__["name"] = None
+        __props__["priority"] = None
+        __props__["provisioning_state"] = None
+        __props__["rules"] = None
+        __props__["type"] = None
         return FirewallPolicyRuleGroup(resource_name, opts=opts, __props__=__props__)
 
     @property

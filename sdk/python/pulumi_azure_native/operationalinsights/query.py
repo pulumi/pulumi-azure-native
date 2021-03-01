@@ -109,6 +109,18 @@ class Query(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["author"] = None
+        __props__["body"] = None
+        __props__["description"] = None
+        __props__["display_name"] = None
+        __props__["name"] = None
+        __props__["properties"] = None
+        __props__["related"] = None
+        __props__["system_data"] = None
+        __props__["tags"] = None
+        __props__["time_created"] = None
+        __props__["time_modified"] = None
+        __props__["type"] = None
         return Query(resource_name, opts=opts, __props__=__props__)
 
     @property

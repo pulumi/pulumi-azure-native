@@ -39,7 +39,7 @@ class ApiDiagnosticLogger(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         """
-        pulumi.log.warn("ApiDiagnosticLogger is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:ApiDiagnosticLogger'.")
+        pulumi.log.warn("""ApiDiagnosticLogger is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:ApiDiagnosticLogger'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -100,6 +100,12 @@ class ApiDiagnosticLogger(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["credentials"] = None
+        __props__["description"] = None
+        __props__["is_buffered"] = None
+        __props__["logger_type"] = None
+        __props__["name"] = None
+        __props__["type"] = None
         return ApiDiagnosticLogger(resource_name, opts=opts, __props__=__props__)
 
     @property

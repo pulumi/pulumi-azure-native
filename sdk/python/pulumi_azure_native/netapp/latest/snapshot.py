@@ -41,7 +41,7 @@ class Snapshot(pulumi.CustomResource):
         :param pulumi.Input[str] snapshot_name: The name of the mount target
         :param pulumi.Input[str] volume_name: The name of the volume
         """
-        pulumi.log.warn("Snapshot is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:netapp:Snapshot'.")
+        pulumi.log.warn("""Snapshot is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:netapp:Snapshot'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -102,6 +102,12 @@ class Snapshot(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["created"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["snapshot_id"] = None
+        __props__["type"] = None
         return Snapshot(resource_name, opts=opts, __props__=__props__)
 
     @property

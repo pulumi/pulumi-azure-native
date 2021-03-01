@@ -133,6 +133,26 @@ class Endpoint(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["content_types_to_compress"] = None
+        __props__["delivery_policy"] = None
+        __props__["geo_filters"] = None
+        __props__["host_name"] = None
+        __props__["is_compression_enabled"] = None
+        __props__["is_http_allowed"] = None
+        __props__["is_https_allowed"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["optimization_type"] = None
+        __props__["origin_host_header"] = None
+        __props__["origin_path"] = None
+        __props__["origins"] = None
+        __props__["probe_path"] = None
+        __props__["provisioning_state"] = None
+        __props__["query_string_caching_behavior"] = None
+        __props__["resource_state"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["web_application_firewall_policy_link"] = None
         return Endpoint(resource_name, opts=opts, __props__=__props__)
 
     @property

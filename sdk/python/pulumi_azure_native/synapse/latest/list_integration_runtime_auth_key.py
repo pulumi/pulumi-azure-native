@@ -69,7 +69,7 @@ def list_integration_runtime_auth_key(integration_runtime_name: Optional[str] = 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace.
     """
-    pulumi.log.warn("list_integration_runtime_auth_key is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:synapse:listIntegrationRuntimeAuthKey'.")
+    pulumi.log.warn("""list_integration_runtime_auth_key is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:synapse:listIntegrationRuntimeAuthKey'.""")
     __args__ = dict()
     __args__['integrationRuntimeName'] = integration_runtime_name
     __args__['resourceGroupName'] = resource_group_name

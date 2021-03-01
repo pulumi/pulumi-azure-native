@@ -126,6 +126,29 @@ class Account(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["account_id"] = None
+        __props__["creation_time"] = None
+        __props__["current_tier"] = None
+        __props__["default_group"] = None
+        __props__["encryption_config"] = None
+        __props__["encryption_provisioning_state"] = None
+        __props__["encryption_state"] = None
+        __props__["endpoint"] = None
+        __props__["firewall_allow_azure_ips"] = None
+        __props__["firewall_rules"] = None
+        __props__["firewall_state"] = None
+        __props__["identity"] = None
+        __props__["last_modified_time"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["new_tier"] = None
+        __props__["provisioning_state"] = None
+        __props__["state"] = None
+        __props__["tags"] = None
+        __props__["trusted_id_provider_state"] = None
+        __props__["trusted_id_providers"] = None
+        __props__["type"] = None
+        __props__["virtual_network_rules"] = None
         return Account(resource_name, opts=opts, __props__=__props__)
 
     @property

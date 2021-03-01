@@ -212,7 +212,7 @@ def get_virtual_machine_image_template(image_template_name: Optional[str] = None
     :param str image_template_name: The name of the image Template
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("get_virtual_machine_image_template is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:virtualmachineimages:getVirtualMachineImageTemplate'.")
+    pulumi.log.warn("""get_virtual_machine_image_template is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:virtualmachineimages:getVirtualMachineImageTemplate'.""")
     __args__ = dict()
     __args__['imageTemplateName'] = image_template_name
     __args__['resourceGroupName'] = resource_group_name

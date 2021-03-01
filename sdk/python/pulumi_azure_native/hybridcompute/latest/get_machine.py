@@ -343,7 +343,7 @@ def get_machine(expand: Optional[str] = None,
     :param str name: The name of the hybrid machine.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("get_machine is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:hybridcompute:getMachine'.")
+    pulumi.log.warn("""get_machine is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:hybridcompute:getMachine'.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['name'] = name

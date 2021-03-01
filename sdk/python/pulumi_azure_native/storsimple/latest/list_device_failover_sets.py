@@ -58,7 +58,7 @@ def list_device_failover_sets(device_name: Optional[str] = None,
     :param str manager_name: The manager name
     :param str resource_group_name: The resource group name
     """
-    pulumi.log.warn("list_device_failover_sets is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storsimple:listDeviceFailoverSets'.")
+    pulumi.log.warn("""list_device_failover_sets is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storsimple:listDeviceFailoverSets'.""")
     __args__ = dict()
     __args__['deviceName'] = device_name
     __args__['managerName'] = manager_name

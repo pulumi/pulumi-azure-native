@@ -50,7 +50,7 @@ class Topic(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags of the resource.
         :param pulumi.Input[str] topic_name: Name of the topic.
         """
-        pulumi.log.warn("Topic is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:eventgrid:Topic'.")
+        pulumi.log.warn("""Topic is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:eventgrid:Topic'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -113,6 +113,19 @@ class Topic(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["endpoint"] = None
+        __props__["inbound_ip_rules"] = None
+        __props__["input_schema"] = None
+        __props__["input_schema_mapping"] = None
+        __props__["location"] = None
+        __props__["metric_resource_id"] = None
+        __props__["name"] = None
+        __props__["private_endpoint_connections"] = None
+        __props__["provisioning_state"] = None
+        __props__["public_network_access"] = None
+        __props__["system_data"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
         return Topic(resource_name, opts=opts, __props__=__props__)
 
     @property

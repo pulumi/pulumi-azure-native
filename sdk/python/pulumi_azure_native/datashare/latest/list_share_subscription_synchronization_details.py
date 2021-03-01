@@ -78,7 +78,7 @@ def list_share_subscription_synchronization_details(account_name: Optional[str] 
     :param str skip_token: Continuation token
     :param str synchronization_id: Synchronization id
     """
-    pulumi.log.warn("list_share_subscription_synchronization_details is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datashare:listShareSubscriptionSynchronizationDetails'.")
+    pulumi.log.warn("""list_share_subscription_synchronization_details is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datashare:listShareSubscriptionSynchronizationDetails'.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['filter'] = filter

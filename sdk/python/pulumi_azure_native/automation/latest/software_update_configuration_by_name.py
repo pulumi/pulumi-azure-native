@@ -46,7 +46,7 @@ class SoftwareUpdateConfigurationByName(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SoftwareUpdateConfigurationTasksArgs']] tasks: Tasks information for the Software update configuration.
         :param pulumi.Input[pulumi.InputType['UpdateConfigurationArgs']] update_configuration: update specific properties for the Software update configuration
         """
-        pulumi.log.warn("SoftwareUpdateConfigurationByName is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:automation:SoftwareUpdateConfigurationByName'.")
+        pulumi.log.warn("""SoftwareUpdateConfigurationByName is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:automation:SoftwareUpdateConfigurationByName'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -110,6 +110,17 @@ class SoftwareUpdateConfigurationByName(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["created_by"] = None
+        __props__["creation_time"] = None
+        __props__["error"] = None
+        __props__["last_modified_by"] = None
+        __props__["last_modified_time"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["schedule_info"] = None
+        __props__["tasks"] = None
+        __props__["type"] = None
+        __props__["update_configuration"] = None
         return SoftwareUpdateConfigurationByName(resource_name, opts=opts, __props__=__props__)
 
     @property

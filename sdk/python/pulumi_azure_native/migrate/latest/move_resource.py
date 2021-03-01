@@ -40,7 +40,7 @@ class MoveResource(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['MoveResourcePropertiesArgs']] properties: Defines the move resource properties.
         :param pulumi.Input[str] resource_group_name: The Resource Group Name.
         """
-        pulumi.log.warn("MoveResource is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:migrate:MoveResource'.")
+        pulumi.log.warn("""MoveResource is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:migrate:MoveResource'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -92,6 +92,9 @@ class MoveResource(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["name"] = None
+        __props__["properties"] = None
+        __props__["type"] = None
         return MoveResource(resource_name, opts=opts, __props__=__props__)
 
     @property

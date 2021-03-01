@@ -80,6 +80,11 @@ class HierarchySetting(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["default_management_group"] = None
+        __props__["name"] = None
+        __props__["require_authorization_for_group_creation"] = None
+        __props__["tenant_id"] = None
+        __props__["type"] = None
         return HierarchySetting(resource_name, opts=opts, __props__=__props__)
 
     @property

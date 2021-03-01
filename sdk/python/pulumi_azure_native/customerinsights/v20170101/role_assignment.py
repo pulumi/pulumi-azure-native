@@ -140,6 +140,28 @@ class RoleAssignment(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["assignment_name"] = None
+        __props__["conflation_policies"] = None
+        __props__["connectors"] = None
+        __props__["description"] = None
+        __props__["display_name"] = None
+        __props__["interactions"] = None
+        __props__["kpis"] = None
+        __props__["links"] = None
+        __props__["name"] = None
+        __props__["principals"] = None
+        __props__["profiles"] = None
+        __props__["provisioning_state"] = None
+        __props__["relationship_links"] = None
+        __props__["relationships"] = None
+        __props__["role"] = None
+        __props__["role_assignments"] = None
+        __props__["sas_policies"] = None
+        __props__["segments"] = None
+        __props__["tenant_id"] = None
+        __props__["type"] = None
+        __props__["views"] = None
+        __props__["widget_types"] = None
         return RoleAssignment(resource_name, opts=opts, __props__=__props__)
 
     @property

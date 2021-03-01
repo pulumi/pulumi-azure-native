@@ -124,6 +124,23 @@ class Application(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["etag"] = None
+        __props__["identity"] = None
+        __props__["location"] = None
+        __props__["managed_identities"] = None
+        __props__["maximum_nodes"] = None
+        __props__["metrics"] = None
+        __props__["minimum_nodes"] = None
+        __props__["name"] = None
+        __props__["parameters"] = None
+        __props__["provisioning_state"] = None
+        __props__["remove_application_capacity"] = None
+        __props__["system_data"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["type_name"] = None
+        __props__["type_version"] = None
+        __props__["upgrade_policy"] = None
         return Application(resource_name, opts=opts, __props__=__props__)
 
     @property

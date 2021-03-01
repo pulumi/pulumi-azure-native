@@ -56,7 +56,7 @@ def get_global_user_operation_batch_status(urls: Optional[Sequence[str]] = None,
     :param Sequence[str] urls: The operation url of long running operation
     :param str user_name: The name of the user.
     """
-    pulumi.log.warn("get_global_user_operation_batch_status is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:labservices:getGlobalUserOperationBatchStatus'.")
+    pulumi.log.warn("""get_global_user_operation_batch_status is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:labservices:getGlobalUserOperationBatchStatus'.""")
     __args__ = dict()
     __args__['urls'] = urls
     __args__['userName'] = user_name

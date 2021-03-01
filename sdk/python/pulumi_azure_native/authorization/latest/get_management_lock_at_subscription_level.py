@@ -114,7 +114,7 @@ def get_management_lock_at_subscription_level(lock_name: Optional[str] = None,
 
     :param str lock_name: The name of the lock to get.
     """
-    pulumi.log.warn("get_management_lock_at_subscription_level is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:authorization:getManagementLockAtSubscriptionLevel'.")
+    pulumi.log.warn("""get_management_lock_at_subscription_level is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:authorization:getManagementLockAtSubscriptionLevel'.""")
     __args__ = dict()
     __args__['lockName'] = lock_name
     if opts is None:

@@ -66,7 +66,7 @@ def list_site_identifiers_assigned_to_host_name(name: Optional[str] = None,
 
     :param str name: Name of the object.
     """
-    pulumi.log.warn("list_site_identifiers_assigned_to_host_name is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listSiteIdentifiersAssignedToHostName'.")
+    pulumi.log.warn("""list_site_identifiers_assigned_to_host_name is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listSiteIdentifiersAssignedToHostName'.""")
     __args__ = dict()
     __args__['name'] = name
     if opts is None:

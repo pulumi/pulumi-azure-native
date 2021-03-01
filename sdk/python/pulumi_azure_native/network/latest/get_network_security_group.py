@@ -202,7 +202,7 @@ def get_network_security_group(expand: Optional[str] = None,
     :param str network_security_group_name: The name of the network security group.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("get_network_security_group is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getNetworkSecurityGroup'.")
+    pulumi.log.warn("""get_network_security_group is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getNetworkSecurityGroup'.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['networkSecurityGroupName'] = network_security_group_name

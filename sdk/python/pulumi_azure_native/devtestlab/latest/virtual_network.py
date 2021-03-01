@@ -50,7 +50,7 @@ class VirtualNetwork(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubnetOverrideArgs']]]] subnet_overrides: The subnet overrides of the virtual network.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         """
-        pulumi.log.warn("VirtualNetwork is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devtestlab:VirtualNetwork'.")
+        pulumi.log.warn("""VirtualNetwork is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:devtestlab:VirtualNetwork'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -110,6 +110,18 @@ class VirtualNetwork(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["allowed_subnets"] = None
+        __props__["created_date"] = None
+        __props__["description"] = None
+        __props__["external_provider_resource_id"] = None
+        __props__["external_subnets"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["subnet_overrides"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["unique_identifier"] = None
         return VirtualNetwork(resource_name, opts=opts, __props__=__props__)
 
     @property

@@ -101,6 +101,17 @@ class P2sVpnGateway(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["etag"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["p2_s_vpn_server_configuration"] = None
+        __props__["provisioning_state"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["virtual_hub"] = None
+        __props__["vpn_client_address_pool"] = None
+        __props__["vpn_client_connection_health"] = None
+        __props__["vpn_gateway_scale_unit"] = None
         return P2sVpnGateway(resource_name, opts=opts, __props__=__props__)
 
     @property

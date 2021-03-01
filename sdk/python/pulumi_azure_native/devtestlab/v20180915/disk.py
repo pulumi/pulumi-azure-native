@@ -115,6 +115,20 @@ class Disk(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["created_date"] = None
+        __props__["disk_blob_name"] = None
+        __props__["disk_size_gi_b"] = None
+        __props__["disk_type"] = None
+        __props__["disk_uri"] = None
+        __props__["host_caching"] = None
+        __props__["leased_by_lab_vm_id"] = None
+        __props__["location"] = None
+        __props__["managed_disk_id"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["unique_identifier"] = None
         return Disk(resource_name, opts=opts, __props__=__props__)
 
     @property

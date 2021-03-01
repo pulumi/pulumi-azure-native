@@ -54,7 +54,7 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[str] server_farm_id: Resource ID of the associated App Service plan, formatted as: "/subscriptions/{subscriptionID}/resourceGroups/{groupName}/providers/Microsoft.Web/serverfarms/{appServicePlanName}".
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.log.warn("Certificate is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:Certificate'.")
+        pulumi.log.warn("""Certificate is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:Certificate'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -127,6 +127,32 @@ class Certificate(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["canonical_name"] = None
+        __props__["cer_blob"] = None
+        __props__["expiration_date"] = None
+        __props__["friendly_name"] = None
+        __props__["host_names"] = None
+        __props__["hosting_environment_profile"] = None
+        __props__["issue_date"] = None
+        __props__["issuer"] = None
+        __props__["key_vault_id"] = None
+        __props__["key_vault_secret_name"] = None
+        __props__["key_vault_secret_status"] = None
+        __props__["kind"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["password"] = None
+        __props__["pfx_blob"] = None
+        __props__["public_key_hash"] = None
+        __props__["self_link"] = None
+        __props__["server_farm_id"] = None
+        __props__["site_name"] = None
+        __props__["subject_name"] = None
+        __props__["system_data"] = None
+        __props__["tags"] = None
+        __props__["thumbprint"] = None
+        __props__["type"] = None
+        __props__["valid"] = None
         return Certificate(resource_name, opts=opts, __props__=__props__)
 
     @property

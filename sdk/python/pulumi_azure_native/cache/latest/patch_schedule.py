@@ -40,7 +40,7 @@ class PatchSchedule(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScheduleEntryArgs']]]] schedule_entries: List of patch schedules for a Redis cache.
         """
-        pulumi.log.warn("PatchSchedule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:cache:PatchSchedule'.")
+        pulumi.log.warn("""PatchSchedule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:cache:PatchSchedule'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -93,6 +93,9 @@ class PatchSchedule(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["name"] = None
+        __props__["schedule_entries"] = None
+        __props__["type"] = None
         return PatchSchedule(resource_name, opts=opts, __props__=__props__)
 
     @property

@@ -154,6 +154,33 @@ class AgentPool(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["availability_zones"] = None
+        __props__["count"] = None
+        __props__["enable_auto_scaling"] = None
+        __props__["enable_node_public_ip"] = None
+        __props__["max_count"] = None
+        __props__["max_pods"] = None
+        __props__["min_count"] = None
+        __props__["mode"] = None
+        __props__["name"] = None
+        __props__["node_image_version"] = None
+        __props__["node_labels"] = None
+        __props__["node_taints"] = None
+        __props__["orchestrator_version"] = None
+        __props__["os_disk_size_gb"] = None
+        __props__["os_disk_type"] = None
+        __props__["os_type"] = None
+        __props__["power_state"] = None
+        __props__["provisioning_state"] = None
+        __props__["proximity_placement_group_id"] = None
+        __props__["scale_set_eviction_policy"] = None
+        __props__["scale_set_priority"] = None
+        __props__["spot_max_price"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["upgrade_settings"] = None
+        __props__["vm_size"] = None
+        __props__["vnet_subnet_id"] = None
         return AgentPool(resource_name, opts=opts, __props__=__props__)
 
     @property

@@ -49,7 +49,7 @@ class VirtualRouter(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] virtual_router_ips: VirtualRouter IPs.
         :param pulumi.Input[str] virtual_router_name: The name of the Virtual Router.
         """
-        pulumi.log.warn("VirtualRouter is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:VirtualRouter'.")
+        pulumi.log.warn("""VirtualRouter is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:VirtualRouter'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -107,6 +107,17 @@ class VirtualRouter(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["etag"] = None
+        __props__["hosted_gateway"] = None
+        __props__["hosted_subnet"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["peerings"] = None
+        __props__["provisioning_state"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["virtual_router_asn"] = None
+        __props__["virtual_router_ips"] = None
         return VirtualRouter(resource_name, opts=opts, __props__=__props__)
 
     @property

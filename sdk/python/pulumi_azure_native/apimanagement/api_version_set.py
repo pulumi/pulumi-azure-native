@@ -101,6 +101,13 @@ class ApiVersionSet(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["description"] = None
+        __props__["display_name"] = None
+        __props__["name"] = None
+        __props__["type"] = None
+        __props__["version_header_name"] = None
+        __props__["version_query_name"] = None
+        __props__["versioning_scheme"] = None
         return ApiVersionSet(resource_name, opts=opts, __props__=__props__)
 
     @property

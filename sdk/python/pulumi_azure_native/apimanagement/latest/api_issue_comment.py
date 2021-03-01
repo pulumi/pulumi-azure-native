@@ -45,7 +45,7 @@ class ApiIssueComment(pulumi.CustomResource):
         :param pulumi.Input[str] text: Comment text.
         :param pulumi.Input[str] user_id: A resource identifier for the user who left the comment.
         """
-        pulumi.log.warn("ApiIssueComment is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:ApiIssueComment'.")
+        pulumi.log.warn("""ApiIssueComment is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:ApiIssueComment'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -109,6 +109,11 @@ class ApiIssueComment(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["created_date"] = None
+        __props__["name"] = None
+        __props__["text"] = None
+        __props__["type"] = None
+        __props__["user_id"] = None
         return ApiIssueComment(resource_name, opts=opts, __props__=__props__)
 
     @property

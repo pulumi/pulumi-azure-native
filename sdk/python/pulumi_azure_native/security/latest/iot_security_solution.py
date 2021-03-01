@@ -60,7 +60,7 @@ class IotSecuritySolution(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['UserDefinedResourcesPropertiesArgs']] user_defined_resources: Properties of the IoT Security solution's user defined resources.
         :param pulumi.Input[str] workspace: Workspace resource ID
         """
-        pulumi.log.warn("IotSecuritySolution is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:security:IotSecuritySolution'.")
+        pulumi.log.warn("""IotSecuritySolution is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:security:IotSecuritySolution'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -130,6 +130,22 @@ class IotSecuritySolution(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["additional_workspaces"] = None
+        __props__["auto_discovered_resources"] = None
+        __props__["disabled_data_sources"] = None
+        __props__["display_name"] = None
+        __props__["export"] = None
+        __props__["iot_hubs"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["recommendations_configuration"] = None
+        __props__["status"] = None
+        __props__["system_data"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["unmasked_ip_logging_status"] = None
+        __props__["user_defined_resources"] = None
+        __props__["workspace"] = None
         return IotSecuritySolution(resource_name, opts=opts, __props__=__props__)
 
     @property

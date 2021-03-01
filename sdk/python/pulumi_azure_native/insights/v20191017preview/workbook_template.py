@@ -102,6 +102,15 @@ class WorkbookTemplate(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["author"] = None
+        __props__["galleries"] = None
+        __props__["localized"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["priority"] = None
+        __props__["tags"] = None
+        __props__["template_data"] = None
+        __props__["type"] = None
         return WorkbookTemplate(resource_name, opts=opts, __props__=__props__)
 
     @property

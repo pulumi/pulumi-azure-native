@@ -110,6 +110,21 @@ class Lab(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["created_by_object_id"] = None
+        __props__["created_by_user_principal_name"] = None
+        __props__["created_date"] = None
+        __props__["invitation_code"] = None
+        __props__["latest_operation_result"] = None
+        __props__["location"] = None
+        __props__["max_users_in_lab"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["unique_identifier"] = None
+        __props__["usage_quota"] = None
+        __props__["user_access_mode"] = None
+        __props__["user_quota"] = None
         return Lab(resource_name, opts=opts, __props__=__props__)
 
     @property

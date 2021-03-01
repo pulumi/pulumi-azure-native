@@ -54,7 +54,7 @@ def get_console(console_name: Optional[str] = None,
 
     :param str console_name: The name of the console
     """
-    pulumi.log.warn("get_console is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:portal:getConsole'.")
+    pulumi.log.warn("""get_console is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:portal:getConsole'.""")
     __args__ = dict()
     __args__['consoleName'] = console_name
     if opts is None:

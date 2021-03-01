@@ -173,7 +173,7 @@ def get_partner(partner_id: Optional[str] = None,
 
     :param str partner_id: Id of the Partner
     """
-    pulumi.log.warn("get_partner is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:managementpartner:getPartner'.")
+    pulumi.log.warn("""get_partner is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:managementpartner:getPartner'.""")
     __args__ = dict()
     __args__['partnerId'] = partner_id
     if opts is None:

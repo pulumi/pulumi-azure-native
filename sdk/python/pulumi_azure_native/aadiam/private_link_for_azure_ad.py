@@ -99,6 +99,15 @@ class PrivateLinkForAzureAd(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["all_tenants"] = None
+        __props__["name"] = None
+        __props__["owner_tenant_id"] = None
+        __props__["resource_group"] = None
+        __props__["resource_name"] = None
+        __props__["subscription_id"] = None
+        __props__["tags"] = None
+        __props__["tenants"] = None
+        __props__["type"] = None
         return PrivateLinkForAzureAd(resource_name, opts=opts, __props__=__props__)
 
     @property

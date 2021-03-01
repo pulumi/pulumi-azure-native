@@ -56,7 +56,7 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
         :param pulumi.Input[float] virtual_appliance_asn: VirtualAppliance ASN.
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] virtual_hub: The Virtual Hub where Network Virtual Appliance is being deployed.
         """
-        pulumi.log.warn("NetworkVirtualAppliance is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:NetworkVirtualAppliance'.")
+        pulumi.log.warn("""NetworkVirtualAppliance is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:NetworkVirtualAppliance'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -120,6 +120,23 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["address_prefix"] = None
+        __props__["boot_strap_configuration_blobs"] = None
+        __props__["cloud_init_configuration"] = None
+        __props__["cloud_init_configuration_blobs"] = None
+        __props__["etag"] = None
+        __props__["identity"] = None
+        __props__["inbound_security_rules"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["nva_sku"] = None
+        __props__["provisioning_state"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["virtual_appliance_asn"] = None
+        __props__["virtual_appliance_nics"] = None
+        __props__["virtual_appliance_sites"] = None
+        __props__["virtual_hub"] = None
         return NetworkVirtualAppliance(resource_name, opts=opts, __props__=__props__)
 
     @property

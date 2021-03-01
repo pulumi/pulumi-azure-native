@@ -116,6 +116,14 @@ class SensitivityLabel(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["information_type"] = None
+        __props__["information_type_id"] = None
+        __props__["is_disabled"] = None
+        __props__["label_id"] = None
+        __props__["label_name"] = None
+        __props__["name"] = None
+        __props__["rank"] = None
+        __props__["type"] = None
         return SensitivityLabel(resource_name, opts=opts, __props__=__props__)
 
     @property

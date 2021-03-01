@@ -50,7 +50,7 @@ class StorageTarget(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'StorageTargetType']] target_type: Type of the Storage Target.
         :param pulumi.Input[pulumi.InputType['UnknownTargetArgs']] unknown: Properties when targetType is unknown.
         """
-        pulumi.log.warn("StorageTarget is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storagecache:StorageTarget'.")
+        pulumi.log.warn("""StorageTarget is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storagecache:StorageTarget'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -111,6 +111,16 @@ class StorageTarget(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["clfs"] = None
+        __props__["junctions"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["nfs3"] = None
+        __props__["provisioning_state"] = None
+        __props__["system_data"] = None
+        __props__["target_type"] = None
+        __props__["type"] = None
+        __props__["unknown"] = None
         return StorageTarget(resource_name, opts=opts, __props__=__props__)
 
     @property

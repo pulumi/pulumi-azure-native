@@ -103,6 +103,22 @@ class Account(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["cloud_connectors"] = None
+        __props__["created_at"] = None
+        __props__["created_by"] = None
+        __props__["created_by_object_id"] = None
+        __props__["endpoints"] = None
+        __props__["friendly_name"] = None
+        __props__["identity"] = None
+        __props__["location"] = None
+        __props__["managed_resources"] = None
+        __props__["name"] = None
+        __props__["private_endpoint_connections"] = None
+        __props__["provisioning_state"] = None
+        __props__["public_network_access"] = None
+        __props__["sku"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
         return Account(resource_name, opts=opts, __props__=__props__)
 
     @property

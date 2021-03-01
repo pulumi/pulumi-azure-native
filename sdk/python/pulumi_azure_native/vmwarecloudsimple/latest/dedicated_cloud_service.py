@@ -39,7 +39,7 @@ class DedicatedCloudService(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The list of tags
         """
-        pulumi.log.warn("DedicatedCloudService is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:vmwarecloudsimple:DedicatedCloudService'.")
+        pulumi.log.warn("""DedicatedCloudService is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:vmwarecloudsimple:DedicatedCloudService'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -95,6 +95,14 @@ class DedicatedCloudService(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["gateway_subnet"] = None
+        __props__["is_account_onboarded"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["nodes"] = None
+        __props__["service_url"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
         return DedicatedCloudService(resource_name, opts=opts, __props__=__props__)
 
     @property

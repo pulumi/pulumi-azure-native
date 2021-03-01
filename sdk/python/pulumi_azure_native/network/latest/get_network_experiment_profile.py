@@ -139,7 +139,7 @@ def get_network_experiment_profile(profile_name: Optional[str] = None,
     :param str profile_name: The Profile identifier associated with the Tenant and Partner
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
-    pulumi.log.warn("get_network_experiment_profile is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getNetworkExperimentProfile'.")
+    pulumi.log.warn("""get_network_experiment_profile is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getNetworkExperimentProfile'.""")
     __args__ = dict()
     __args__['profileName'] = profile_name
     __args__['resourceGroupName'] = resource_group_name

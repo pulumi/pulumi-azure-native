@@ -165,7 +165,7 @@ def get_rule(profile_name: Optional[str] = None,
     :param str rule_name: Name of the delivery rule which is unique within the endpoint.
     :param str rule_set_name: Name of the rule set under the profile.
     """
-    pulumi.log.warn("get_rule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:cdn:getRule'.")
+    pulumi.log.warn("""get_rule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:cdn:getRule'.""")
     __args__ = dict()
     __args__['profileName'] = profile_name
     __args__['resourceGroupName'] = resource_group_name

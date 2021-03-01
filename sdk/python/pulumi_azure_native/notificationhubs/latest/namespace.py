@@ -68,7 +68,7 @@ class Namespace(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[str] updated_at: The time the namespace was updated.
         """
-        pulumi.log.warn("Namespace is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:notificationhubs:Namespace'.")
+        pulumi.log.warn("""Namespace is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:notificationhubs:Namespace'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -132,6 +132,24 @@ class Namespace(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["created_at"] = None
+        __props__["critical"] = None
+        __props__["data_center"] = None
+        __props__["enabled"] = None
+        __props__["location"] = None
+        __props__["metric_id"] = None
+        __props__["name"] = None
+        __props__["namespace_type"] = None
+        __props__["provisioning_state"] = None
+        __props__["region"] = None
+        __props__["scale_unit"] = None
+        __props__["service_bus_endpoint"] = None
+        __props__["sku"] = None
+        __props__["status"] = None
+        __props__["subscription_id"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["updated_at"] = None
         return Namespace(resource_name, opts=opts, __props__=__props__)
 
     @property

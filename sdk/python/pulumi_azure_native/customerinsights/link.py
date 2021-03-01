@@ -126,6 +126,21 @@ class Link(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["description"] = None
+        __props__["display_name"] = None
+        __props__["link_name"] = None
+        __props__["mappings"] = None
+        __props__["name"] = None
+        __props__["operation_type"] = None
+        __props__["participant_property_references"] = None
+        __props__["provisioning_state"] = None
+        __props__["reference_only"] = None
+        __props__["source_entity_type"] = None
+        __props__["source_entity_type_name"] = None
+        __props__["target_entity_type"] = None
+        __props__["target_entity_type_name"] = None
+        __props__["tenant_id"] = None
+        __props__["type"] = None
         return Link(resource_name, opts=opts, __props__=__props__)
 
     @property

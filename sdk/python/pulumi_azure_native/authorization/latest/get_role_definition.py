@@ -140,7 +140,7 @@ def get_role_definition(role_definition_id: Optional[str] = None,
     :param str role_definition_id: The ID of the role definition.
     :param str scope: The scope of the role definition.
     """
-    pulumi.log.warn("get_role_definition is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:authorization:getRoleDefinition'.")
+    pulumi.log.warn("""get_role_definition is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:authorization:getRoleDefinition'.""")
     __args__ = dict()
     __args__['roleDefinitionId'] = role_definition_id
     __args__['scope'] = scope

@@ -250,7 +250,7 @@ def get_python2_package(automation_account_name: Optional[str] = None,
     :param str package_name: The python package name.
     :param str resource_group_name: Name of an Azure Resource group.
     """
-    pulumi.log.warn("get_python2_package is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:automation:getPython2Package'.")
+    pulumi.log.warn("""get_python2_package is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:automation:getPython2Package'.""")
     __args__ = dict()
     __args__['automationAccountName'] = automation_account_name
     __args__['packageName'] = package_name

@@ -346,7 +346,7 @@ def get_endpoint(endpoint_name: Optional[str] = None,
     :param str profile_name: Name of the CDN profile which is unique within the resource group.
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
-    pulumi.log.warn("get_endpoint is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:cdn:getEndpoint'.")
+    pulumi.log.warn("""get_endpoint is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:cdn:getEndpoint'.""")
     __args__ = dict()
     __args__['endpointName'] = endpoint_name
     __args__['profileName'] = profile_name

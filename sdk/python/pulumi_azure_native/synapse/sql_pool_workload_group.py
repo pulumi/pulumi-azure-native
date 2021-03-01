@@ -110,6 +110,14 @@ class SqlPoolWorkloadGroup(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["importance"] = None
+        __props__["max_resource_percent"] = None
+        __props__["max_resource_percent_per_request"] = None
+        __props__["min_resource_percent"] = None
+        __props__["min_resource_percent_per_request"] = None
+        __props__["name"] = None
+        __props__["query_execution_timeout"] = None
+        __props__["type"] = None
         return SqlPoolWorkloadGroup(resource_name, opts=opts, __props__=__props__)
 
     @property

@@ -144,7 +144,7 @@ def get_private_link_service_private_endpoint_connection(expand: Optional[str] =
     :param str resource_group_name: The name of the resource group.
     :param str service_name: The name of the private link service.
     """
-    pulumi.log.warn("get_private_link_service_private_endpoint_connection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getPrivateLinkServicePrivateEndpointConnection'.")
+    pulumi.log.warn("""get_private_link_service_private_endpoint_connection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getPrivateLinkServicePrivateEndpointConnection'.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['peConnectionName'] = pe_connection_name

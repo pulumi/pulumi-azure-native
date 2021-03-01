@@ -141,6 +141,35 @@ class Pool(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["allocation_state"] = None
+        __props__["allocation_state_transition_time"] = None
+        __props__["application_licenses"] = None
+        __props__["application_packages"] = None
+        __props__["auto_scale_run"] = None
+        __props__["certificates"] = None
+        __props__["creation_time"] = None
+        __props__["current_dedicated_nodes"] = None
+        __props__["current_low_priority_nodes"] = None
+        __props__["deployment_configuration"] = None
+        __props__["display_name"] = None
+        __props__["etag"] = None
+        __props__["identity"] = None
+        __props__["inter_node_communication"] = None
+        __props__["last_modified"] = None
+        __props__["metadata"] = None
+        __props__["mount_configuration"] = None
+        __props__["name"] = None
+        __props__["network_configuration"] = None
+        __props__["provisioning_state"] = None
+        __props__["provisioning_state_transition_time"] = None
+        __props__["resize_operation_status"] = None
+        __props__["scale_settings"] = None
+        __props__["start_task"] = None
+        __props__["task_scheduling_policy"] = None
+        __props__["task_slots_per_node"] = None
+        __props__["type"] = None
+        __props__["user_accounts"] = None
+        __props__["vm_size"] = None
         return Pool(resource_name, opts=opts, __props__=__props__)
 
     @property

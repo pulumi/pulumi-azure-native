@@ -82,7 +82,7 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['TensorFlowSettingsArgs']] tensor_flow_settings: Settings for Tensor Flow job.
         :param pulumi.Input[str] workspace_name: The name of the workspace. Workspace names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
         """
-        pulumi.log.warn("Job is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:batchai:Job'.")
+        pulumi.log.warn("""Job is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:batchai:Job'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -173,6 +173,37 @@ class Job(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["caffe2_settings"] = None
+        __props__["caffe_settings"] = None
+        __props__["chainer_settings"] = None
+        __props__["cluster"] = None
+        __props__["cntk_settings"] = None
+        __props__["constraints"] = None
+        __props__["container_settings"] = None
+        __props__["creation_time"] = None
+        __props__["custom_mpi_settings"] = None
+        __props__["custom_toolkit_settings"] = None
+        __props__["environment_variables"] = None
+        __props__["execution_info"] = None
+        __props__["execution_state"] = None
+        __props__["execution_state_transition_time"] = None
+        __props__["horovod_settings"] = None
+        __props__["input_directories"] = None
+        __props__["job_output_directory_path_segment"] = None
+        __props__["job_preparation"] = None
+        __props__["mount_volumes"] = None
+        __props__["name"] = None
+        __props__["node_count"] = None
+        __props__["output_directories"] = None
+        __props__["provisioning_state"] = None
+        __props__["provisioning_state_transition_time"] = None
+        __props__["py_torch_settings"] = None
+        __props__["scheduling_priority"] = None
+        __props__["secrets"] = None
+        __props__["std_out_err_path_prefix"] = None
+        __props__["tensor_flow_settings"] = None
+        __props__["tool_type"] = None
+        __props__["type"] = None
         return Job(resource_name, opts=opts, __props__=__props__)
 
     @property

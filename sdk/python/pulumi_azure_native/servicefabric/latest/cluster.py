@@ -87,7 +87,7 @@ class Cluster(pulumi.CustomResource):
                  - Manual - The cluster will not be automatically upgraded to the latest Service Fabric runtime version. The cluster is upgraded by setting the **clusterCodeVersion** property in the cluster resource.
         :param pulumi.Input[str] vm_image: The VM image VMSS has been configured with. Generic names such as Windows or Linux can be used.
         """
-        pulumi.log.warn("Cluster is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:servicefabric:Cluster'.")
+        pulumi.log.warn("""Cluster is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:servicefabric:Cluster'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -166,6 +166,35 @@ class Cluster(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["add_on_features"] = None
+        __props__["application_type_versions_cleanup_policy"] = None
+        __props__["available_cluster_versions"] = None
+        __props__["azure_active_directory"] = None
+        __props__["certificate"] = None
+        __props__["certificate_common_names"] = None
+        __props__["client_certificate_common_names"] = None
+        __props__["client_certificate_thumbprints"] = None
+        __props__["cluster_code_version"] = None
+        __props__["cluster_endpoint"] = None
+        __props__["cluster_id"] = None
+        __props__["cluster_state"] = None
+        __props__["diagnostics_storage_account_config"] = None
+        __props__["etag"] = None
+        __props__["event_store_service_enabled"] = None
+        __props__["fabric_settings"] = None
+        __props__["location"] = None
+        __props__["management_endpoint"] = None
+        __props__["name"] = None
+        __props__["node_types"] = None
+        __props__["provisioning_state"] = None
+        __props__["reliability_level"] = None
+        __props__["reverse_proxy_certificate"] = None
+        __props__["reverse_proxy_certificate_common_names"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["upgrade_description"] = None
+        __props__["upgrade_mode"] = None
+        __props__["vm_image"] = None
         return Cluster(resource_name, opts=opts, __props__=__props__)
 
     @property

@@ -105,6 +105,12 @@ class Rule(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["action"] = None
+        __props__["correlation_filter"] = None
+        __props__["filter_type"] = None
+        __props__["name"] = None
+        __props__["sql_filter"] = None
+        __props__["type"] = None
         return Rule(resource_name, opts=opts, __props__=__props__)
 
     @property

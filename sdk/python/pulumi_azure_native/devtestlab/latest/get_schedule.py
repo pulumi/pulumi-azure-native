@@ -240,7 +240,7 @@ def get_schedule(expand: Optional[str] = None,
     :param str name: The name of the schedule.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("get_schedule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devtestlab:getSchedule'.")
+    pulumi.log.warn("""get_schedule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devtestlab:getSchedule'.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['labName'] = lab_name

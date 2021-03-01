@@ -106,7 +106,7 @@ def get_guest_configuration_hcrpassignment(guest_configuration_assignment_name: 
     :param str machine_name: The name of the ARC machine.
     :param str resource_group_name: The resource group name.
     """
-    pulumi.log.warn("get_guest_configuration_hcrpassignment is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:guestconfiguration:getGuestConfigurationHCRPAssignment'.")
+    pulumi.log.warn("""get_guest_configuration_hcrpassignment is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:guestconfiguration:getGuestConfigurationHCRPAssignment'.""")
     __args__ = dict()
     __args__['guestConfigurationAssignmentName'] = guest_configuration_assignment_name
     __args__['machineName'] = machine_name

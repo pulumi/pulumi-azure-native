@@ -117,7 +117,7 @@ def get_event_source(environment_name: Optional[str] = None,
     :param str event_source_name: The name of the Time Series Insights event source associated with the specified environment.
     :param str resource_group_name: Name of an Azure Resource group.
     """
-    pulumi.log.warn("get_event_source is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:timeseriesinsights:getEventSource'.")
+    pulumi.log.warn("""get_event_source is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:timeseriesinsights:getEventSource'.""")
     __args__ = dict()
     __args__['environmentName'] = environment_name
     __args__['eventSourceName'] = event_source_name

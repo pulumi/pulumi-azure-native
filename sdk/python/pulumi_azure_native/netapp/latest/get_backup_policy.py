@@ -202,7 +202,7 @@ def get_backup_policy(account_name: Optional[str] = None,
     :param str backup_policy_name: Backup policy Name which uniquely identify backup policy.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("get_backup_policy is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:netapp:getBackupPolicy'.")
+    pulumi.log.warn("""get_backup_policy is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:netapp:getBackupPolicy'.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['backupPolicyName'] = backup_policy_name

@@ -131,7 +131,7 @@ def get_blob_container_immutability_policy(account_name: Optional[str] = None,
     :param str immutability_policy_name: The name of the blob container immutabilityPolicy within the specified storage account. ImmutabilityPolicy Name must be 'default'
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     """
-    pulumi.log.warn("get_blob_container_immutability_policy is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storage:getBlobContainerImmutabilityPolicy'.")
+    pulumi.log.warn("""get_blob_container_immutability_policy is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storage:getBlobContainerImmutabilityPolicy'.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['containerName'] = container_name

@@ -68,7 +68,7 @@ def list_registry_credentials(registry_name: Optional[str] = None,
     :param str registry_name: The name of the container registry.
     :param str resource_group_name: The name of the resource group to which the container registry belongs.
     """
-    pulumi.log.warn("list_registry_credentials is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:containerregistry:listRegistryCredentials'.")
+    pulumi.log.warn("""list_registry_credentials is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:containerregistry:listRegistryCredentials'.""")
     __args__ = dict()
     __args__['registryName'] = registry_name
     __args__['resourceGroupName'] = resource_group_name

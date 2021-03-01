@@ -189,7 +189,7 @@ def get_pool(account_name: Optional[str] = None,
     :param str pool_name: The name of the capacity pool
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("get_pool is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:netapp:getPool'.")
+    pulumi.log.warn("""get_pool is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:netapp:getPool'.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['poolName'] = pool_name

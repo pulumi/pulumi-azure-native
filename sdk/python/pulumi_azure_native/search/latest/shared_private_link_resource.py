@@ -40,7 +40,7 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
         :param pulumi.Input[str] search_service_name: The name of the Azure Cognitive Search service associated with the specified resource group.
         :param pulumi.Input[str] shared_private_link_resource_name: The name of the shared private link resource managed by the Azure Cognitive Search service within the specified resource group.
         """
-        pulumi.log.warn("SharedPrivateLinkResource is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:search:SharedPrivateLinkResource'.")
+        pulumi.log.warn("""SharedPrivateLinkResource is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:search:SharedPrivateLinkResource'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -92,6 +92,9 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["name"] = None
+        __props__["properties"] = None
+        __props__["type"] = None
         return SharedPrivateLinkResource(resource_name, opts=opts, __props__=__props__)
 
     @property

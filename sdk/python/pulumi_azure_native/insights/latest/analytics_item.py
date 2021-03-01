@@ -52,7 +52,7 @@ class AnalyticsItem(pulumi.CustomResource):
         :param pulumi.Input[str] scope_path: Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component.
         :param pulumi.Input[Union[str, 'ItemType']] type: Enum indicating the type of the Analytics item.
         """
-        pulumi.log.warn("AnalyticsItem is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:insights:AnalyticsItem'.")
+        pulumi.log.warn("""AnalyticsItem is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:insights:AnalyticsItem'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -113,6 +113,14 @@ class AnalyticsItem(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["content"] = None
+        __props__["name"] = None
+        __props__["properties"] = None
+        __props__["scope"] = None
+        __props__["time_created"] = None
+        __props__["time_modified"] = None
+        __props__["type"] = None
+        __props__["version"] = None
         return AnalyticsItem(resource_name, opts=opts, __props__=__props__)
 
     @property

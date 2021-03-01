@@ -123,6 +123,22 @@ class ExpressRouteCircuit(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["allow_classic_operations"] = None
+        __props__["authorizations"] = None
+        __props__["circuit_provisioning_state"] = None
+        __props__["etag"] = None
+        __props__["gateway_manager_etag"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["peerings"] = None
+        __props__["provisioning_state"] = None
+        __props__["service_key"] = None
+        __props__["service_provider_notes"] = None
+        __props__["service_provider_properties"] = None
+        __props__["service_provider_provisioning_state"] = None
+        __props__["sku"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
         return ExpressRouteCircuit(resource_name, opts=opts, __props__=__props__)
 
     @property

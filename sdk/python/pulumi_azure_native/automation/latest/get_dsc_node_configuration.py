@@ -154,7 +154,7 @@ def get_dsc_node_configuration(automation_account_name: Optional[str] = None,
     :param str node_configuration_name: The Dsc node configuration name.
     :param str resource_group_name: Name of an Azure Resource group.
     """
-    pulumi.log.warn("get_dsc_node_configuration is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:automation:getDscNodeConfiguration'.")
+    pulumi.log.warn("""get_dsc_node_configuration is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:automation:getDscNodeConfiguration'.""")
     __args__ = dict()
     __args__['automationAccountName'] = automation_account_name
     __args__['nodeConfigurationName'] = node_configuration_name

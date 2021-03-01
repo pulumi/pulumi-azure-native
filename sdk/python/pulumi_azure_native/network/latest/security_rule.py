@@ -74,7 +74,7 @@ class SecurityRule(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] source_port_ranges: The source port ranges.
         :param pulumi.Input[str] type: The type of the resource.
         """
-        pulumi.log.warn("SecurityRule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:SecurityRule'.")
+        pulumi.log.warn("""SecurityRule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:SecurityRule'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -149,6 +149,25 @@ class SecurityRule(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["access"] = None
+        __props__["description"] = None
+        __props__["destination_address_prefix"] = None
+        __props__["destination_address_prefixes"] = None
+        __props__["destination_application_security_groups"] = None
+        __props__["destination_port_range"] = None
+        __props__["destination_port_ranges"] = None
+        __props__["direction"] = None
+        __props__["etag"] = None
+        __props__["name"] = None
+        __props__["priority"] = None
+        __props__["protocol"] = None
+        __props__["provisioning_state"] = None
+        __props__["source_address_prefix"] = None
+        __props__["source_address_prefixes"] = None
+        __props__["source_application_security_groups"] = None
+        __props__["source_port_range"] = None
+        __props__["source_port_ranges"] = None
+        __props__["type"] = None
         return SecurityRule(resource_name, opts=opts, __props__=__props__)
 
     @property

@@ -92,6 +92,17 @@ class AdaptiveApplicationControl(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["configuration_status"] = None
+        __props__["enforcement_mode"] = None
+        __props__["issues"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["path_recommendations"] = None
+        __props__["protection_mode"] = None
+        __props__["recommendation_status"] = None
+        __props__["source_system"] = None
+        __props__["type"] = None
+        __props__["vm_recommendations"] = None
         return AdaptiveApplicationControl(resource_name, opts=opts, __props__=__props__)
 
     @property

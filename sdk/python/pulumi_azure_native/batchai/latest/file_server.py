@@ -46,7 +46,7 @@ class FileServer(pulumi.CustomResource):
         :param pulumi.Input[str] vm_size: The size of the virtual machine for the File Server. For information about available VM sizes from the Virtual Machines Marketplace, see Sizes for Virtual Machines (Linux).
         :param pulumi.Input[str] workspace_name: The name of the workspace. Workspace names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
         """
-        pulumi.log.warn("FileServer is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:batchai:FileServer'.")
+        pulumi.log.warn("""FileServer is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:batchai:FileServer'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -111,6 +111,16 @@ class FileServer(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["creation_time"] = None
+        __props__["data_disks"] = None
+        __props__["mount_settings"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["provisioning_state_transition_time"] = None
+        __props__["ssh_configuration"] = None
+        __props__["subnet"] = None
+        __props__["type"] = None
+        __props__["vm_size"] = None
         return FileServer(resource_name, opts=opts, __props__=__props__)
 
     @property

@@ -97,7 +97,7 @@ def get_serial_port(parent_resource: Optional[str] = None,
     :param str resource_provider_namespace: The namespace of the resource provider.
     :param str serial_port: The name of the serial port to connect to.
     """
-    pulumi.log.warn("get_serial_port is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:serialconsole:getSerialPort'.")
+    pulumi.log.warn("""get_serial_port is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:serialconsole:getSerialPort'.""")
     __args__ = dict()
     __args__['parentResource'] = parent_resource
     __args__['parentResourceType'] = parent_resource_type

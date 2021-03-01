@@ -117,6 +117,20 @@ class NetworkInterface(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["dns_settings"] = None
+        __props__["enable_ip_forwarding"] = None
+        __props__["etag"] = None
+        __props__["ip_configurations"] = None
+        __props__["location"] = None
+        __props__["mac_address"] = None
+        __props__["name"] = None
+        __props__["network_security_group"] = None
+        __props__["primary"] = None
+        __props__["provisioning_state"] = None
+        __props__["resource_guid"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["virtual_machine"] = None
         return NetworkInterface(resource_name, opts=opts, __props__=__props__)
 
     @property

@@ -39,7 +39,7 @@ class WorkspaceCollection(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Azure resource group
         :param pulumi.Input[str] workspace_collection_name: Power BI Embedded Workspace Collection name
         """
-        pulumi.log.warn("WorkspaceCollection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:powerbi:WorkspaceCollection'.")
+        pulumi.log.warn("""WorkspaceCollection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:powerbi:WorkspaceCollection'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -91,6 +91,12 @@ class WorkspaceCollection(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["properties"] = None
+        __props__["sku"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
         return WorkspaceCollection(resource_name, opts=opts, __props__=__props__)
 
     @property

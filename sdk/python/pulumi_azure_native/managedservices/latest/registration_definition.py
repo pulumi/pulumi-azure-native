@@ -39,7 +39,7 @@ class RegistrationDefinition(pulumi.CustomResource):
         :param pulumi.Input[str] registration_definition_id: Guid of the registration definition.
         :param pulumi.Input[str] scope: Scope of the resource.
         """
-        pulumi.log.warn("RegistrationDefinition is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:managedservices:RegistrationDefinition'.")
+        pulumi.log.warn("""RegistrationDefinition is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:managedservices:RegistrationDefinition'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -89,6 +89,10 @@ class RegistrationDefinition(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["name"] = None
+        __props__["plan"] = None
+        __props__["properties"] = None
+        __props__["type"] = None
         return RegistrationDefinition(resource_name, opts=opts, __props__=__props__)
 
     @property

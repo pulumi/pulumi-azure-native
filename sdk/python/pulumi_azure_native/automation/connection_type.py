@@ -98,6 +98,13 @@ class ConnectionType(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["creation_time"] = None
+        __props__["description"] = None
+        __props__["field_definitions"] = None
+        __props__["is_global"] = None
+        __props__["last_modified_time"] = None
+        __props__["name"] = None
+        __props__["type"] = None
         return ConnectionType(resource_name, opts=opts, __props__=__props__)
 
     @property

@@ -111,6 +111,21 @@ class OperationalizationCluster(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["app_insights"] = None
+        __props__["cluster_type"] = None
+        __props__["container_registry"] = None
+        __props__["container_service"] = None
+        __props__["created_on"] = None
+        __props__["description"] = None
+        __props__["global_service_configuration"] = None
+        __props__["location"] = None
+        __props__["modified_on"] = None
+        __props__["name"] = None
+        __props__["provisioning_errors"] = None
+        __props__["provisioning_state"] = None
+        __props__["storage_account"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
         return OperationalizationCluster(resource_name, opts=opts, __props__=__props__)
 
     @property

@@ -108,6 +108,25 @@ class BlobContainer(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["default_encryption_scope"] = None
+        __props__["deleted"] = None
+        __props__["deleted_time"] = None
+        __props__["deny_encryption_scope_override"] = None
+        __props__["etag"] = None
+        __props__["has_immutability_policy"] = None
+        __props__["has_legal_hold"] = None
+        __props__["immutability_policy"] = None
+        __props__["last_modified_time"] = None
+        __props__["lease_duration"] = None
+        __props__["lease_state"] = None
+        __props__["lease_status"] = None
+        __props__["legal_hold"] = None
+        __props__["metadata"] = None
+        __props__["name"] = None
+        __props__["public_access"] = None
+        __props__["remaining_retention_days"] = None
+        __props__["type"] = None
+        __props__["version"] = None
         return BlobContainer(resource_name, opts=opts, __props__=__props__)
 
     @property

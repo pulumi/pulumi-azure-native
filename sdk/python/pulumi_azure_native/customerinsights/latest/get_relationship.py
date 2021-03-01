@@ -226,7 +226,7 @@ def get_relationship(hub_name: Optional[str] = None,
     :param str relationship_name: The name of the relationship.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("get_relationship is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:customerinsights:getRelationship'.")
+    pulumi.log.warn("""get_relationship is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:customerinsights:getRelationship'.""")
     __args__ = dict()
     __args__['hubName'] = hub_name
     __args__['relationshipName'] = relationship_name

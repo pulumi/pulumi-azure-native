@@ -42,7 +42,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Name of the resource group that contains the key vault.
         :param pulumi.Input[str] vault_name: The name of the key vault.
         """
-        pulumi.log.warn("PrivateEndpointConnection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:keyvault:PrivateEndpointConnection'.")
+        pulumi.log.warn("""PrivateEndpointConnection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:keyvault:PrivateEndpointConnection'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -99,6 +99,14 @@ class PrivateEndpointConnection(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["etag"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["private_endpoint"] = None
+        __props__["private_link_service_connection_state"] = None
+        __props__["provisioning_state"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
         return PrivateEndpointConnection(resource_name, opts=opts, __props__=__props__)
 
     @property

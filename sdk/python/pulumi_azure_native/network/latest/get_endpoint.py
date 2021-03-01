@@ -216,7 +216,7 @@ def get_endpoint(endpoint_name: Optional[str] = None,
     :param str profile_name: The name of the Traffic Manager profile.
     :param str resource_group_name: The name of the resource group containing the Traffic Manager endpoint.
     """
-    pulumi.log.warn("get_endpoint is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getEndpoint'.")
+    pulumi.log.warn("""get_endpoint is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getEndpoint'.""")
     __args__ = dict()
     __args__['endpointName'] = endpoint_name
     __args__['endpointType'] = endpoint_type

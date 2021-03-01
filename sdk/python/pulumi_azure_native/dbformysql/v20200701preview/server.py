@@ -140,6 +140,34 @@ class Server(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["administrator_login"] = None
+        __props__["administrator_login_password"] = None
+        __props__["availability_zone"] = None
+        __props__["byok_enforcement"] = None
+        __props__["create_mode"] = None
+        __props__["delegated_subnet_arguments"] = None
+        __props__["earliest_restore_date"] = None
+        __props__["fully_qualified_domain_name"] = None
+        __props__["ha_enabled"] = None
+        __props__["ha_state"] = None
+        __props__["identity"] = None
+        __props__["infrastructure_encryption"] = None
+        __props__["location"] = None
+        __props__["maintenance_window"] = None
+        __props__["name"] = None
+        __props__["public_network_access"] = None
+        __props__["replica_capacity"] = None
+        __props__["replication_role"] = None
+        __props__["restore_point_in_time"] = None
+        __props__["sku"] = None
+        __props__["source_server_id"] = None
+        __props__["ssl_enforcement"] = None
+        __props__["standby_availability_zone"] = None
+        __props__["state"] = None
+        __props__["storage_profile"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["version"] = None
         return Server(resource_name, opts=opts, __props__=__props__)
 
     @property

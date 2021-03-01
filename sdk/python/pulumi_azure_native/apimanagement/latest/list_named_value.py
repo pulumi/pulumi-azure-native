@@ -57,7 +57,7 @@ def list_named_value(named_value_id: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     :param str service_name: The name of the API Management service.
     """
-    pulumi.log.warn("list_named_value is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:listNamedValue'.")
+    pulumi.log.warn("""list_named_value is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:listNamedValue'.""")
     __args__ = dict()
     __args__['namedValueId'] = named_value_id
     __args__['resourceGroupName'] = resource_group_name

@@ -48,7 +48,7 @@ class WebAppBackupConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
         :param pulumi.Input[str] storage_account_url: SAS URL to the container.
         """
-        pulumi.log.warn("WebAppBackupConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppBackupConfiguration'.")
+        pulumi.log.warn("""WebAppBackupConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppBackupConfiguration'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -106,6 +106,15 @@ class WebAppBackupConfiguration(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["backup_name"] = None
+        __props__["backup_schedule"] = None
+        __props__["databases"] = None
+        __props__["enabled"] = None
+        __props__["kind"] = None
+        __props__["name"] = None
+        __props__["storage_account_url"] = None
+        __props__["system_data"] = None
+        __props__["type"] = None
         return WebAppBackupConfiguration(resource_name, opts=opts, __props__=__props__)
 
     @property

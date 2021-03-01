@@ -141,7 +141,7 @@ def get_workspace_connection(connection_name: Optional[str] = None,
     :param str resource_group_name: Name of the resource group in which workspace is located.
     :param str workspace_name: Name of Azure Machine Learning workspace.
     """
-    pulumi.log.warn("get_workspace_connection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:machinelearningservices:getWorkspaceConnection'.")
+    pulumi.log.warn("""get_workspace_connection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:machinelearningservices:getWorkspaceConnection'.""")
     __args__ = dict()
     __args__['connectionName'] = connection_name
     __args__['resourceGroupName'] = resource_group_name

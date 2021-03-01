@@ -40,7 +40,7 @@ class PrivateEndpointConnectionsAdtAPI(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the service instance.
         :param pulumi.Input[str] resource_name_: The name of the service instance.
         """
-        pulumi.log.warn("PrivateEndpointConnectionsAdtAPI is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:securityandcompliance:PrivateEndpointConnectionsAdtAPI'.")
+        pulumi.log.warn("""PrivateEndpointConnectionsAdtAPI is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:securityandcompliance:PrivateEndpointConnectionsAdtAPI'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -97,6 +97,12 @@ class PrivateEndpointConnectionsAdtAPI(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["name"] = None
+        __props__["private_endpoint"] = None
+        __props__["private_link_service_connection_state"] = None
+        __props__["provisioning_state"] = None
+        __props__["system_data"] = None
+        __props__["type"] = None
         return PrivateEndpointConnectionsAdtAPI(resource_name, opts=opts, __props__=__props__)
 
     @property

@@ -99,6 +99,15 @@ class WorkloadNetworkPortMirroring(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["destination"] = None
+        __props__["direction"] = None
+        __props__["display_name"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["revision"] = None
+        __props__["source"] = None
+        __props__["status"] = None
+        __props__["type"] = None
         return WorkloadNetworkPortMirroring(resource_name, opts=opts, __props__=__props__)
 
     @property

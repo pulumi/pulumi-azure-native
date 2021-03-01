@@ -50,7 +50,7 @@ class PacketCapture(pulumi.CustomResource):
         :param pulumi.Input[int] time_limit_in_seconds: Maximum duration of the capture session in seconds.
         :param pulumi.Input[float] total_bytes_per_session: Maximum size of the capture output.
         """
-        pulumi.log.warn("PacketCapture is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:PacketCapture'.")
+        pulumi.log.warn("""PacketCapture is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:PacketCapture'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -118,6 +118,15 @@ class PacketCapture(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["bytes_to_capture_per_packet"] = None
+        __props__["etag"] = None
+        __props__["filters"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["storage_location"] = None
+        __props__["target"] = None
+        __props__["time_limit_in_seconds"] = None
+        __props__["total_bytes_per_session"] = None
         return PacketCapture(resource_name, opts=opts, __props__=__props__)
 
     @property

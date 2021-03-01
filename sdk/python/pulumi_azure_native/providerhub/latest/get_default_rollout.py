@@ -92,7 +92,7 @@ def get_default_rollout(provider_namespace: Optional[str] = None,
     :param str provider_namespace: The name of the resource provider hosted within ProviderHub.
     :param str rollout_name: The rollout name.
     """
-    pulumi.log.warn("get_default_rollout is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:providerhub:getDefaultRollout'.")
+    pulumi.log.warn("""get_default_rollout is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:providerhub:getDefaultRollout'.""")
     __args__ = dict()
     __args__['providerNamespace'] = provider_namespace
     __args__['rolloutName'] = rollout_name

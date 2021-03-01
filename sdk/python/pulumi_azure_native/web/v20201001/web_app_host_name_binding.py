@@ -110,6 +110,19 @@ class WebAppHostNameBinding(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["azure_resource_name"] = None
+        __props__["azure_resource_type"] = None
+        __props__["custom_host_name_dns_record_type"] = None
+        __props__["domain_id"] = None
+        __props__["host_name_type"] = None
+        __props__["kind"] = None
+        __props__["name"] = None
+        __props__["site_name"] = None
+        __props__["ssl_state"] = None
+        __props__["system_data"] = None
+        __props__["thumbprint"] = None
+        __props__["type"] = None
+        __props__["virtual_ip"] = None
         return WebAppHostNameBinding(resource_name, opts=opts, __props__=__props__)
 
     @property

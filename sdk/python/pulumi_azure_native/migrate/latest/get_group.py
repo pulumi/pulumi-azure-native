@@ -106,7 +106,7 @@ def get_group(group_name: Optional[str] = None,
     :param str project_name: Name of the Azure Migrate project.
     :param str resource_group_name: Name of the Azure Resource Group that project is part of.
     """
-    pulumi.log.warn("get_group is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:migrate:getGroup'.")
+    pulumi.log.warn("""get_group is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:migrate:getGroup'.""")
     __args__ = dict()
     __args__['groupName'] = group_name
     __args__['projectName'] = project_name

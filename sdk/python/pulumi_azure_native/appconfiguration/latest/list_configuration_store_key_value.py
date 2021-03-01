@@ -147,7 +147,7 @@ def list_configuration_store_key_value(config_store_name: Optional[str] = None,
     :param str label: The label of the key.
     :param str resource_group_name: The name of the resource group to which the container registry belongs.
     """
-    pulumi.log.warn("list_configuration_store_key_value is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:appconfiguration:listConfigurationStoreKeyValue'.")
+    pulumi.log.warn("""list_configuration_store_key_value is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:appconfiguration:listConfigurationStoreKeyValue'.""")
     __args__ = dict()
     __args__['configStoreName'] = config_store_name
     __args__['key'] = key

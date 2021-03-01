@@ -130,7 +130,7 @@ def get_virtual_appliance_site(network_virtual_appliance_name: Optional[str] = N
     :param str resource_group_name: The name of the resource group.
     :param str site_name: The name of the site.
     """
-    pulumi.log.warn("get_virtual_appliance_site is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getVirtualApplianceSite'.")
+    pulumi.log.warn("""get_virtual_appliance_site is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getVirtualApplianceSite'.""")
     __args__ = dict()
     __args__['networkVirtualApplianceName'] = network_virtual_appliance_name
     __args__['resourceGroupName'] = resource_group_name

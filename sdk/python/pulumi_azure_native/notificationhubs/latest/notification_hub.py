@@ -62,7 +62,7 @@ class NotificationHub(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[pulumi.InputType['WnsCredentialArgs']] wns_credential: The WnsCredential of the created NotificationHub
         """
-        pulumi.log.warn("NotificationHub is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:notificationhubs:NotificationHub'.")
+        pulumi.log.warn("""NotificationHub is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:notificationhubs:NotificationHub'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -124,6 +124,19 @@ class NotificationHub(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["adm_credential"] = None
+        __props__["apns_credential"] = None
+        __props__["authorization_rules"] = None
+        __props__["baidu_credential"] = None
+        __props__["gcm_credential"] = None
+        __props__["location"] = None
+        __props__["mpns_credential"] = None
+        __props__["name"] = None
+        __props__["registration_ttl"] = None
+        __props__["sku"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["wns_credential"] = None
         return NotificationHub(resource_name, opts=opts, __props__=__props__)
 
     @property

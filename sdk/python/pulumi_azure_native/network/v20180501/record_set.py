@@ -131,6 +131,24 @@ class RecordSet(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["a_records"] = None
+        __props__["aaaa_records"] = None
+        __props__["caa_records"] = None
+        __props__["cname_record"] = None
+        __props__["etag"] = None
+        __props__["fqdn"] = None
+        __props__["metadata"] = None
+        __props__["mx_records"] = None
+        __props__["name"] = None
+        __props__["ns_records"] = None
+        __props__["provisioning_state"] = None
+        __props__["ptr_records"] = None
+        __props__["soa_record"] = None
+        __props__["srv_records"] = None
+        __props__["target_resource"] = None
+        __props__["ttl"] = None
+        __props__["txt_records"] = None
+        __props__["type"] = None
         return RecordSet(resource_name, opts=opts, __props__=__props__)
 
     @property

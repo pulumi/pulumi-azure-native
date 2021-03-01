@@ -115,7 +115,7 @@ def get_rule_set(profile_name: Optional[str] = None,
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     :param str rule_set_name: Name of the rule set under the profile which is unique globally.
     """
-    pulumi.log.warn("get_rule_set is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:cdn:getRuleSet'.")
+    pulumi.log.warn("""get_rule_set is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:cdn:getRuleSet'.""")
     __args__ = dict()
     __args__['profileName'] = profile_name
     __args__['resourceGroupName'] = resource_group_name

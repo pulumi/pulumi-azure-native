@@ -99,6 +99,16 @@ class PrivateEndpoint(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["etag"] = None
+        __props__["location"] = None
+        __props__["manual_private_link_service_connections"] = None
+        __props__["name"] = None
+        __props__["network_interfaces"] = None
+        __props__["private_link_service_connections"] = None
+        __props__["provisioning_state"] = None
+        __props__["subnet"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
         return PrivateEndpoint(resource_name, opts=opts, __props__=__props__)
 
     @property

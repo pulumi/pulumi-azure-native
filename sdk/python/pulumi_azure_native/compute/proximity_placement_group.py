@@ -94,6 +94,15 @@ class ProximityPlacementGroup(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["availability_sets"] = None
+        __props__["colocation_status"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["proximity_placement_group_type"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["virtual_machine_scale_sets"] = None
+        __props__["virtual_machines"] = None
         return ProximityPlacementGroup(resource_name, opts=opts, __props__=__props__)
 
     @property

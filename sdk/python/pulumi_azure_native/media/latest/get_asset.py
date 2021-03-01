@@ -190,7 +190,7 @@ def get_asset(account_name: Optional[str] = None,
     :param str asset_name: The Asset name.
     :param str resource_group_name: The name of the resource group within the Azure subscription.
     """
-    pulumi.log.warn("get_asset is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:media:getAsset'.")
+    pulumi.log.warn("""get_asset is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:media:getAsset'.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['assetName'] = asset_name

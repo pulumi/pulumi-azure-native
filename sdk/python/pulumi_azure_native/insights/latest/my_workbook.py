@@ -64,7 +64,7 @@ class MyWorkbook(pulumi.CustomResource):
         :param pulumi.Input[str] type: Azure resource type
         :param pulumi.Input[str] version: This instance's version of the data model. This can change as new features are added that can be marked private workbook.
         """
-        pulumi.log.warn("MyWorkbook is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:insights:MyWorkbook'.")
+        pulumi.log.warn("""MyWorkbook is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:insights:MyWorkbook'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -132,6 +132,21 @@ class MyWorkbook(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["category"] = None
+        __props__["display_name"] = None
+        __props__["etag"] = None
+        __props__["identity"] = None
+        __props__["kind"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["serialized_data"] = None
+        __props__["source_id"] = None
+        __props__["storage_uri"] = None
+        __props__["tags"] = None
+        __props__["time_modified"] = None
+        __props__["type"] = None
+        __props__["user_id"] = None
+        __props__["version"] = None
         return MyWorkbook(resource_name, opts=opts, __props__=__props__)
 
     @property

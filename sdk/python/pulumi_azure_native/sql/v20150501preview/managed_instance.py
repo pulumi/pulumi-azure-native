@@ -153,6 +153,32 @@ class ManagedInstance(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["administrator_login"] = None
+        __props__["administrator_login_password"] = None
+        __props__["collation"] = None
+        __props__["dns_zone"] = None
+        __props__["dns_zone_partner"] = None
+        __props__["fully_qualified_domain_name"] = None
+        __props__["identity"] = None
+        __props__["instance_pool_id"] = None
+        __props__["license_type"] = None
+        __props__["location"] = None
+        __props__["maintenance_configuration_id"] = None
+        __props__["managed_instance_create_mode"] = None
+        __props__["minimal_tls_version"] = None
+        __props__["name"] = None
+        __props__["proxy_override"] = None
+        __props__["public_data_endpoint_enabled"] = None
+        __props__["restore_point_in_time"] = None
+        __props__["sku"] = None
+        __props__["source_managed_instance_id"] = None
+        __props__["state"] = None
+        __props__["storage_size_in_gb"] = None
+        __props__["subnet_id"] = None
+        __props__["tags"] = None
+        __props__["timezone_id"] = None
+        __props__["type"] = None
+        __props__["v_cores"] = None
         return ManagedInstance(resource_name, opts=opts, __props__=__props__)
 
     @property

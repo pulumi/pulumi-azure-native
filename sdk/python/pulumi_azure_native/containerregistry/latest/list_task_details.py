@@ -228,7 +228,7 @@ def list_task_details(registry_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group to which the container registry belongs.
     :param str task_name: The name of the container registry task.
     """
-    pulumi.log.warn("list_task_details is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:containerregistry:listTaskDetails'.")
+    pulumi.log.warn("""list_task_details is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:containerregistry:listTaskDetails'.""")
     __args__ = dict()
     __args__['registryName'] = registry_name
     __args__['resourceGroupName'] = resource_group_name

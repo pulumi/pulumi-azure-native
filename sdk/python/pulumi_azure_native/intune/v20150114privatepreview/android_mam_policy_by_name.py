@@ -142,6 +142,30 @@ class AndroidMAMPolicyByName(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["access_recheck_offline_timeout"] = None
+        __props__["access_recheck_online_timeout"] = None
+        __props__["app_sharing_from_level"] = None
+        __props__["app_sharing_to_level"] = None
+        __props__["authentication"] = None
+        __props__["clipboard_sharing_level"] = None
+        __props__["data_backup"] = None
+        __props__["description"] = None
+        __props__["device_compliance"] = None
+        __props__["file_encryption"] = None
+        __props__["file_sharing_save_as"] = None
+        __props__["friendly_name"] = None
+        __props__["group_status"] = None
+        __props__["last_modified_time"] = None
+        __props__["location"] = None
+        __props__["managed_browser"] = None
+        __props__["name"] = None
+        __props__["num_of_apps"] = None
+        __props__["offline_wipe_timeout"] = None
+        __props__["pin"] = None
+        __props__["pin_num_retry"] = None
+        __props__["screen_capture"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
         return AndroidMAMPolicyByName(resource_name, opts=opts, __props__=__props__)
 
     @property

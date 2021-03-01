@@ -114,6 +114,20 @@ class MachineExtension(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["auto_upgrade_minor_version"] = None
+        __props__["force_update_tag"] = None
+        __props__["instance_view"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["principal_id"] = None
+        __props__["protected_settings"] = None
+        __props__["provisioning_state"] = None
+        __props__["publisher"] = None
+        __props__["settings"] = None
+        __props__["tags"] = None
+        __props__["tenant_id"] = None
+        __props__["type"] = None
+        __props__["type_handler_version"] = None
         return MachineExtension(resource_name, opts=opts, __props__=__props__)
 
     @property

@@ -60,7 +60,7 @@ def list_device_failover_tars(manager_name: Optional[str] = None,
     :param str source_device_name: The source device name on which failover is performed.
     :param Sequence[str] volume_containers: The list of path IDs of the volume containers that needs to be failed-over, for which we want to fetch the eligible targets.
     """
-    pulumi.log.warn("list_device_failover_tars is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storsimple:listDeviceFailoverTars'.")
+    pulumi.log.warn("""list_device_failover_tars is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storsimple:listDeviceFailoverTars'.""")
     __args__ = dict()
     __args__['managerName'] = manager_name
     __args__['resourceGroupName'] = resource_group_name

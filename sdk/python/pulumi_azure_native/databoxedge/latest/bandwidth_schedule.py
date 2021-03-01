@@ -45,7 +45,7 @@ class BandwidthSchedule(pulumi.CustomResource):
         :param pulumi.Input[str] start: The start time of the schedule in UTC.
         :param pulumi.Input[str] stop: The stop time of the schedule in UTC.
         """
-        pulumi.log.warn("BandwidthSchedule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:databoxedge:BandwidthSchedule'.")
+        pulumi.log.warn("""BandwidthSchedule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:databoxedge:BandwidthSchedule'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -108,6 +108,13 @@ class BandwidthSchedule(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["days"] = None
+        __props__["name"] = None
+        __props__["rate_in_mbps"] = None
+        __props__["start"] = None
+        __props__["stop"] = None
+        __props__["system_data"] = None
+        __props__["type"] = None
         return BandwidthSchedule(resource_name, opts=opts, __props__=__props__)
 
     @property

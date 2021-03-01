@@ -119,7 +119,7 @@ def get_sql_resource_sql_user_defined_function(account_name: Optional[str] = Non
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str user_defined_function_name: Cosmos DB userDefinedFunction name.
     """
-    pulumi.log.warn("get_sql_resource_sql_user_defined_function is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:documentdb:getSqlResourceSqlUserDefinedFunction'.")
+    pulumi.log.warn("""get_sql_resource_sql_user_defined_function is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:documentdb:getSqlResourceSqlUserDefinedFunction'.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['containerName'] = container_name

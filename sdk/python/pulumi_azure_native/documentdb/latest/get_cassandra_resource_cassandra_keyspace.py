@@ -124,7 +124,7 @@ def get_cassandra_resource_cassandra_keyspace(account_name: Optional[str] = None
     :param str keyspace_name: Cosmos DB keyspace name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    pulumi.log.warn("get_cassandra_resource_cassandra_keyspace is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:documentdb:getCassandraResourceCassandraKeyspace'.")
+    pulumi.log.warn("""get_cassandra_resource_cassandra_keyspace is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:documentdb:getCassandraResourceCassandraKeyspace'.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['keyspaceName'] = keyspace_name

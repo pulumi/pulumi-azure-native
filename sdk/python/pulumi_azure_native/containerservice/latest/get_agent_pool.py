@@ -454,7 +454,7 @@ def get_agent_pool(agent_pool_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     :param str resource_name: The name of the managed cluster resource.
     """
-    pulumi.log.warn("get_agent_pool is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:containerservice:getAgentPool'.")
+    pulumi.log.warn("""get_agent_pool is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:containerservice:getAgentPool'.""")
     __args__ = dict()
     __args__['agentPoolName'] = agent_pool_name
     __args__['resourceGroupName'] = resource_group_name

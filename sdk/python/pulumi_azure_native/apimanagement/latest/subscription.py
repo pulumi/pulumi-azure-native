@@ -56,7 +56,7 @@ class Subscription(pulumi.CustomResource):
         :param pulumi.Input[str] sid: Subscription entity Identifier. The entity represents the association between a user and a product in API Management.
         :param pulumi.Input['SubscriptionState'] state: Initial subscription state. If no value is specified, subscription is created with Submitted state. Possible states are * active – the subscription is active, * suspended – the subscription is blocked, and the subscriber cannot call any APIs of the product, * submitted – the subscription request has been made by the developer, but has not yet been approved or rejected, * rejected – the subscription request has been denied by an administrator, * cancelled – the subscription has been cancelled by the developer or administrator, * expired – the subscription reached its expiration date and was deactivated.
         """
-        pulumi.log.warn("Subscription is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:Subscription'.")
+        pulumi.log.warn("""Subscription is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:Subscription'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -126,6 +126,21 @@ class Subscription(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["allow_tracing"] = None
+        __props__["created_date"] = None
+        __props__["display_name"] = None
+        __props__["end_date"] = None
+        __props__["expiration_date"] = None
+        __props__["name"] = None
+        __props__["notification_date"] = None
+        __props__["owner_id"] = None
+        __props__["primary_key"] = None
+        __props__["scope"] = None
+        __props__["secondary_key"] = None
+        __props__["start_date"] = None
+        __props__["state"] = None
+        __props__["state_comment"] = None
+        __props__["type"] = None
         return Subscription(resource_name, opts=opts, __props__=__props__)
 
     @property

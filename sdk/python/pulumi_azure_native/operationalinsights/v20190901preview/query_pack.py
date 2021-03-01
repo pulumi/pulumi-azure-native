@@ -85,6 +85,14 @@ class QueryPack(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["query_pack_id"] = None
+        __props__["tags"] = None
+        __props__["time_created"] = None
+        __props__["time_modified"] = None
+        __props__["type"] = None
         return QueryPack(resource_name, opts=opts, __props__=__props__)
 
     @property

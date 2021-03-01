@@ -44,7 +44,7 @@ class WebAppAuthSettingsV2Slot(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
         :param pulumi.Input[str] slot: Name of web app slot. If not specified then will default to production slot.
         """
-        pulumi.log.warn("WebAppAuthSettingsV2Slot is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppAuthSettingsV2Slot'.")
+        pulumi.log.warn("""WebAppAuthSettingsV2Slot is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppAuthSettingsV2Slot'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -103,6 +103,15 @@ class WebAppAuthSettingsV2Slot(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["global_validation"] = None
+        __props__["http_settings"] = None
+        __props__["identity_providers"] = None
+        __props__["kind"] = None
+        __props__["login"] = None
+        __props__["name"] = None
+        __props__["platform"] = None
+        __props__["system_data"] = None
+        __props__["type"] = None
         return WebAppAuthSettingsV2Slot(resource_name, opts=opts, __props__=__props__)
 
     @property

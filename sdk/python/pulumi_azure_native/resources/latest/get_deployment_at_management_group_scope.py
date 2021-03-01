@@ -116,7 +116,7 @@ def get_deployment_at_management_group_scope(deployment_name: Optional[str] = No
     :param str deployment_name: The name of the deployment.
     :param str group_id: The management group ID.
     """
-    pulumi.log.warn("get_deployment_at_management_group_scope is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:resources:getDeploymentAtManagementGroupScope'.")
+    pulumi.log.warn("""get_deployment_at_management_group_scope is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:resources:getDeploymentAtManagementGroupScope'.""")
     __args__ = dict()
     __args__['deploymentName'] = deployment_name
     __args__['groupId'] = group_id

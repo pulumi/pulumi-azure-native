@@ -123,6 +123,16 @@ class User(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["email"] = None
+        __props__["first_name"] = None
+        __props__["groups"] = None
+        __props__["identities"] = None
+        __props__["last_name"] = None
+        __props__["name"] = None
+        __props__["note"] = None
+        __props__["registration_date"] = None
+        __props__["state"] = None
+        __props__["type"] = None
         return User(resource_name, opts=opts, __props__=__props__)
 
     @property

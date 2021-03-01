@@ -56,7 +56,7 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         :param pulumi.Input[pulumi.InputType['ThrottlingInformationArgs']] throttling: The alert rule throttling information.
         """
-        pulumi.log.warn("SmartDetectorAlertRule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:alertsmanagement:SmartDetectorAlertRule'.")
+        pulumi.log.warn("""SmartDetectorAlertRule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:alertsmanagement:SmartDetectorAlertRule'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -128,6 +128,18 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["action_groups"] = None
+        __props__["description"] = None
+        __props__["detector"] = None
+        __props__["frequency"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["scope"] = None
+        __props__["severity"] = None
+        __props__["state"] = None
+        __props__["tags"] = None
+        __props__["throttling"] = None
+        __props__["type"] = None
         return SmartDetectorAlertRule(resource_name, opts=opts, __props__=__props__)
 
     @property

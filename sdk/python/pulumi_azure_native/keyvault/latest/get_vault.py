@@ -116,7 +116,7 @@ def get_vault(resource_group_name: Optional[str] = None,
     :param str resource_group_name: The name of the Resource Group to which the vault belongs.
     :param str vault_name: The name of the vault.
     """
-    pulumi.log.warn("get_vault is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:keyvault:getVault'.")
+    pulumi.log.warn("""get_vault is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:keyvault:getVault'.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['vaultName'] = vault_name

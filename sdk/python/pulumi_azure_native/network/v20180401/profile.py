@@ -112,6 +112,17 @@ class Profile(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["dns_config"] = None
+        __props__["endpoints"] = None
+        __props__["location"] = None
+        __props__["max_return"] = None
+        __props__["monitor_config"] = None
+        __props__["name"] = None
+        __props__["profile_status"] = None
+        __props__["tags"] = None
+        __props__["traffic_routing_method"] = None
+        __props__["traffic_view_enrollment_status"] = None
+        __props__["type"] = None
         return Profile(resource_name, opts=opts, __props__=__props__)
 
     @property

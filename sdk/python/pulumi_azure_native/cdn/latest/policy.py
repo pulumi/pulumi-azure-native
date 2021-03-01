@@ -52,7 +52,7 @@ class Policy(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The pricing tier (defines a CDN provider, feature list and rate) of the CdnWebApplicationFirewallPolicy.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.log.warn("Policy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:cdn:Policy'.")
+        pulumi.log.warn("""Policy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:cdn:Policy'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -114,6 +114,20 @@ class Policy(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["custom_rules"] = None
+        __props__["endpoint_links"] = None
+        __props__["etag"] = None
+        __props__["location"] = None
+        __props__["managed_rules"] = None
+        __props__["name"] = None
+        __props__["policy_settings"] = None
+        __props__["provisioning_state"] = None
+        __props__["rate_limit_rules"] = None
+        __props__["resource_state"] = None
+        __props__["sku"] = None
+        __props__["system_data"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
         return Policy(resource_name, opts=opts, __props__=__props__)
 
     @property

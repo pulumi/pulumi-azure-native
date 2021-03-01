@@ -70,7 +70,7 @@ def get_products(product_name: Optional[str] = None,
     :param str registration_name: Name of the Azure Stack registration.
     :param str resource_group: Name of the resource group.
     """
-    pulumi.log.warn("get_products is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:azurestack:getProducts'.")
+    pulumi.log.warn("""get_products is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:azurestack:getProducts'.""")
     __args__ = dict()
     __args__['productName'] = product_name
     __args__['registrationName'] = registration_name

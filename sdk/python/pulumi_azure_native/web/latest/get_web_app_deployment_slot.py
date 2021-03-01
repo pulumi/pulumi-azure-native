@@ -216,7 +216,7 @@ def get_web_app_deployment_slot(id: Optional[str] = None,
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     :param str slot: Name of the deployment slot. If a slot is not specified, the API gets a deployment for the production slot.
     """
-    pulumi.log.warn("get_web_app_deployment_slot is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getWebAppDeploymentSlot'.")
+    pulumi.log.warn("""get_web_app_deployment_slot is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getWebAppDeploymentSlot'.""")
     __args__ = dict()
     __args__['id'] = id
     __args__['name'] = name

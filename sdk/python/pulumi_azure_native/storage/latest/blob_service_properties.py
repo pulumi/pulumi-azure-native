@@ -56,7 +56,7 @@ class BlobServiceProperties(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         :param pulumi.Input[pulumi.InputType['RestorePolicyPropertiesArgs']] restore_policy: The blob service properties for blob restore policy.
         """
-        pulumi.log.warn("BlobServiceProperties is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storage:BlobServiceProperties'.")
+        pulumi.log.warn("""BlobServiceProperties is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storage:BlobServiceProperties'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -117,6 +117,18 @@ class BlobServiceProperties(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["automatic_snapshot_policy_enabled"] = None
+        __props__["change_feed"] = None
+        __props__["container_delete_retention_policy"] = None
+        __props__["cors"] = None
+        __props__["default_service_version"] = None
+        __props__["delete_retention_policy"] = None
+        __props__["is_versioning_enabled"] = None
+        __props__["last_access_time_tracking_policy"] = None
+        __props__["name"] = None
+        __props__["restore_policy"] = None
+        __props__["sku"] = None
+        __props__["type"] = None
         return BlobServiceProperties(resource_name, opts=opts, __props__=__props__)
 
     @property

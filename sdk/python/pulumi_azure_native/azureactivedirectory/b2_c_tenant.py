@@ -95,6 +95,13 @@ class B2CTenant(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["billing_config"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["sku"] = None
+        __props__["tags"] = None
+        __props__["tenant_id"] = None
+        __props__["type"] = None
         return B2CTenant(resource_name, opts=opts, __props__=__props__)
 
     @property

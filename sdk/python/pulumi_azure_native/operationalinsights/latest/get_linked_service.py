@@ -129,7 +129,7 @@ def get_linked_service(linked_service_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace.
     """
-    pulumi.log.warn("get_linked_service is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:operationalinsights:getLinkedService'.")
+    pulumi.log.warn("""get_linked_service is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:operationalinsights:getLinkedService'.""")
     __args__ = dict()
     __args__['linkedServiceName'] = linked_service_name
     __args__['resourceGroupName'] = resource_group_name

@@ -212,7 +212,7 @@ def get_policy_assignment(policy_assignment_name: Optional[str] = None,
     :param str policy_assignment_name: The name of the policy assignment to get.
     :param str scope: The scope of the policy assignment. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
     """
-    pulumi.log.warn("get_policy_assignment is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:authorization:getPolicyAssignment'.")
+    pulumi.log.warn("""get_policy_assignment is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:authorization:getPolicyAssignment'.""")
     __args__ = dict()
     __args__['policyAssignmentName'] = policy_assignment_name
     __args__['scope'] = scope

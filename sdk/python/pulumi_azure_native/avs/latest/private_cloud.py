@@ -54,7 +54,7 @@ class PrivateCloud(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[str] vcenter_password: Optionally, set the vCenter admin password when the private cloud is created
         """
-        pulumi.log.warn("PrivateCloud is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:avs:PrivateCloud'.")
+        pulumi.log.warn("""PrivateCloud is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:avs:PrivateCloud'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -127,6 +127,25 @@ class PrivateCloud(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["circuit"] = None
+        __props__["endpoints"] = None
+        __props__["identity_sources"] = None
+        __props__["internet"] = None
+        __props__["location"] = None
+        __props__["management_cluster"] = None
+        __props__["management_network"] = None
+        __props__["name"] = None
+        __props__["network_block"] = None
+        __props__["nsxt_certificate_thumbprint"] = None
+        __props__["nsxt_password"] = None
+        __props__["provisioning_network"] = None
+        __props__["provisioning_state"] = None
+        __props__["sku"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["vcenter_certificate_thumbprint"] = None
+        __props__["vcenter_password"] = None
+        __props__["vmotion_network"] = None
         return PrivateCloud(resource_name, opts=opts, __props__=__props__)
 
     @property

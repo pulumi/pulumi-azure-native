@@ -47,7 +47,7 @@ class Logger(pulumi.CustomResource):
         :param pulumi.Input[str] resource_id: Azure Resource Id of a log target (either Azure Event Hub resource or Azure Application Insights resource).
         :param pulumi.Input[str] service_name: The name of the API Management service.
         """
-        pulumi.log.warn("Logger is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:Logger'.")
+        pulumi.log.warn("""Logger is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:Logger'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -107,6 +107,13 @@ class Logger(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["credentials"] = None
+        __props__["description"] = None
+        __props__["is_buffered"] = None
+        __props__["logger_type"] = None
+        __props__["name"] = None
+        __props__["resource_id"] = None
+        __props__["type"] = None
         return Logger(resource_name, opts=opts, __props__=__props__)
 
     @property

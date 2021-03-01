@@ -76,6 +76,7 @@ class Console(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["properties"] = None
         return Console(resource_name, opts=opts, __props__=__props__)
 
     @property

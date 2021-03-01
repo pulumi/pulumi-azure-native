@@ -123,6 +123,21 @@ class SqlPool(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["collation"] = None
+        __props__["create_mode"] = None
+        __props__["creation_date"] = None
+        __props__["location"] = None
+        __props__["max_size_bytes"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["recoverable_database_id"] = None
+        __props__["restore_point_in_time"] = None
+        __props__["sku"] = None
+        __props__["source_database_id"] = None
+        __props__["status"] = None
+        __props__["storage_account_type"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
         return SqlPool(resource_name, opts=opts, __props__=__props__)
 
     @property

@@ -245,6 +245,47 @@ class WebAppAuthSettings(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["aad_claims_authorization"] = None
+        __props__["additional_login_params"] = None
+        __props__["allowed_audiences"] = None
+        __props__["allowed_external_redirect_urls"] = None
+        __props__["auth_file_path"] = None
+        __props__["client_id"] = None
+        __props__["client_secret"] = None
+        __props__["client_secret_certificate_thumbprint"] = None
+        __props__["client_secret_setting_name"] = None
+        __props__["default_provider"] = None
+        __props__["enabled"] = None
+        __props__["facebook_app_id"] = None
+        __props__["facebook_app_secret"] = None
+        __props__["facebook_app_secret_setting_name"] = None
+        __props__["facebook_o_auth_scopes"] = None
+        __props__["git_hub_client_id"] = None
+        __props__["git_hub_client_secret"] = None
+        __props__["git_hub_client_secret_setting_name"] = None
+        __props__["git_hub_o_auth_scopes"] = None
+        __props__["google_client_id"] = None
+        __props__["google_client_secret"] = None
+        __props__["google_client_secret_setting_name"] = None
+        __props__["google_o_auth_scopes"] = None
+        __props__["is_auth_from_file"] = None
+        __props__["issuer"] = None
+        __props__["kind"] = None
+        __props__["microsoft_account_client_id"] = None
+        __props__["microsoft_account_client_secret"] = None
+        __props__["microsoft_account_client_secret_setting_name"] = None
+        __props__["microsoft_account_o_auth_scopes"] = None
+        __props__["name"] = None
+        __props__["runtime_version"] = None
+        __props__["system_data"] = None
+        __props__["token_refresh_extension_hours"] = None
+        __props__["token_store_enabled"] = None
+        __props__["twitter_consumer_key"] = None
+        __props__["twitter_consumer_secret"] = None
+        __props__["twitter_consumer_secret_setting_name"] = None
+        __props__["type"] = None
+        __props__["unauthenticated_client_action"] = None
+        __props__["validate_issuer"] = None
         return WebAppAuthSettings(resource_name, opts=opts, __props__=__props__)
 
     @property

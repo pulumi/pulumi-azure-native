@@ -90,7 +90,7 @@ def get_tag_at_scope(scope: Optional[str] = None,
 
     :param str scope: The resource scope.
     """
-    pulumi.log.warn("get_tag_at_scope is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:resources:getTagAtScope'.")
+    pulumi.log.warn("""get_tag_at_scope is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:resources:getTagAtScope'.""")
     __args__ = dict()
     __args__['scope'] = scope
     if opts is None:

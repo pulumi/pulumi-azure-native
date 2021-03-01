@@ -216,7 +216,7 @@ def get_virtual_machine_extension(expand: Optional[str] = None,
     :param str vm_extension_name: The name of the virtual machine extension.
     :param str vm_name: The name of the virtual machine containing the extension.
     """
-    pulumi.log.warn("get_virtual_machine_extension is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:compute:getVirtualMachineExtension'.")
+    pulumi.log.warn("""get_virtual_machine_extension is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:compute:getVirtualMachineExtension'.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['resourceGroupName'] = resource_group_name

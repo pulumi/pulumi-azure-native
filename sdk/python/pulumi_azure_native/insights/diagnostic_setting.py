@@ -101,6 +101,16 @@ class DiagnosticSetting(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["event_hub_authorization_rule_id"] = None
+        __props__["event_hub_name"] = None
+        __props__["log_analytics_destination_type"] = None
+        __props__["logs"] = None
+        __props__["metrics"] = None
+        __props__["name"] = None
+        __props__["service_bus_rule_id"] = None
+        __props__["storage_account_id"] = None
+        __props__["type"] = None
+        __props__["workspace_id"] = None
         return DiagnosticSetting(resource_name, opts=opts, __props__=__props__)
 
     @property

@@ -366,7 +366,7 @@ def get_domain(domain_name: Optional[str] = None,
     :param str domain_name: Name of the domain.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
-    pulumi.log.warn("get_domain is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:domainregistration:getDomain'.")
+    pulumi.log.warn("""get_domain is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:domainregistration:getDomain'.""")
     __args__ = dict()
     __args__['domainName'] = domain_name
     __args__['resourceGroupName'] = resource_group_name

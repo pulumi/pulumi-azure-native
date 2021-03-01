@@ -50,7 +50,7 @@ class AttestationAtResourceGroup(pulumi.CustomResource):
         :param pulumi.Input[str] policy_definition_reference_id: The policy definition reference ID from a policy set definition that the attestation is setting the state for. If the policy assignment assigns a policy set definition the attestation can choose a definition within the set definition with this property or omit this and set the state for the entire set definition.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         """
-        pulumi.log.warn("AttestationAtResourceGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:policyinsights:AttestationAtResourceGroup'.")
+        pulumi.log.warn("""AttestationAtResourceGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:policyinsights:AttestationAtResourceGroup'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -110,6 +110,18 @@ class AttestationAtResourceGroup(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["comments"] = None
+        __props__["compliance_state"] = None
+        __props__["evidence"] = None
+        __props__["expires_on"] = None
+        __props__["last_compliance_state_change_at"] = None
+        __props__["name"] = None
+        __props__["owner"] = None
+        __props__["policy_assignment_id"] = None
+        __props__["policy_definition_reference_id"] = None
+        __props__["provisioning_state"] = None
+        __props__["system_data"] = None
+        __props__["type"] = None
         return AttestationAtResourceGroup(resource_name, opts=opts, __props__=__props__)
 
     @property

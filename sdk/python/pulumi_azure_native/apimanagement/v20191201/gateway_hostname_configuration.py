@@ -94,6 +94,11 @@ class GatewayHostnameConfiguration(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["certificate_id"] = None
+        __props__["hostname"] = None
+        __props__["name"] = None
+        __props__["negotiate_client_certificate"] = None
+        __props__["type"] = None
         return GatewayHostnameConfiguration(resource_name, opts=opts, __props__=__props__)
 
     @property

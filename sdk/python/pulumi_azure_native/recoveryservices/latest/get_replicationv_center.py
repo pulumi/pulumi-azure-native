@@ -108,7 +108,7 @@ def get_replicationv_center(fabric_name: Optional[str] = None,
     :param str resource_name: The name of the recovery services vault.
     :param str v_center_name: vCenter name.
     """
-    pulumi.log.warn("get_replicationv_center is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:recoveryservices:getReplicationvCenter'.")
+    pulumi.log.warn("""get_replicationv_center is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:recoveryservices:getReplicationvCenter'.""")
     __args__ = dict()
     __args__['fabricName'] = fabric_name
     __args__['resourceGroupName'] = resource_group_name

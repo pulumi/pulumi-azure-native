@@ -105,6 +105,15 @@ class DataExport(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["created_date"] = None
+        __props__["data_export_id"] = None
+        __props__["enable"] = None
+        __props__["event_hub_name"] = None
+        __props__["last_modified_date"] = None
+        __props__["name"] = None
+        __props__["resource_id"] = None
+        __props__["table_names"] = None
+        __props__["type"] = None
         return DataExport(resource_name, opts=opts, __props__=__props__)
 
     @property

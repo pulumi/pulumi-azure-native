@@ -71,7 +71,7 @@ def get_bastion_shareable_link(bastion_host_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     :param Sequence[pulumi.InputType['BastionShareableLinkArgs']] vms: List of VM references.
     """
-    pulumi.log.warn("get_bastion_shareable_link is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getBastionShareableLink'.")
+    pulumi.log.warn("""get_bastion_shareable_link is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getBastionShareableLink'.""")
     __args__ = dict()
     __args__['bastionHostName'] = bastion_host_name
     __args__['resourceGroupName'] = resource_group_name

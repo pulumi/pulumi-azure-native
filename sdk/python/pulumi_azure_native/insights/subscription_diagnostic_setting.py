@@ -93,6 +93,15 @@ class SubscriptionDiagnosticSetting(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["event_hub_authorization_rule_id"] = None
+        __props__["event_hub_name"] = None
+        __props__["location"] = None
+        __props__["logs"] = None
+        __props__["name"] = None
+        __props__["service_bus_rule_id"] = None
+        __props__["storage_account_id"] = None
+        __props__["type"] = None
+        __props__["workspace_id"] = None
         return SubscriptionDiagnosticSetting(resource_name, opts=opts, __props__=__props__)
 
     @property

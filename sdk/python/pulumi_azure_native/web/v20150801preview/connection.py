@@ -128,6 +128,23 @@ class Connection(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["api"] = None
+        __props__["changed_time"] = None
+        __props__["created_time"] = None
+        __props__["custom_parameter_values"] = None
+        __props__["display_name"] = None
+        __props__["first_expiration_time"] = None
+        __props__["keywords"] = None
+        __props__["kind"] = None
+        __props__["location"] = None
+        __props__["metadata"] = None
+        __props__["name"] = None
+        __props__["non_secret_parameter_values"] = None
+        __props__["parameter_values"] = None
+        __props__["statuses"] = None
+        __props__["tags"] = None
+        __props__["tenant_id"] = None
+        __props__["type"] = None
         return Connection(resource_name, opts=opts, __props__=__props__)
 
     @property

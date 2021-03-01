@@ -44,7 +44,7 @@ class ServerAzureADAdministrator(pulumi.CustomResource):
         :param pulumi.Input[str] sid: The server administrator Sid (Secure ID).
         :param pulumi.Input[str] tenant_id: The server Active Directory Administrator tenant id.
         """
-        pulumi.log.warn("ServerAzureADAdministrator is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:sql:ServerAzureADAdministrator'.")
+        pulumi.log.warn("""ServerAzureADAdministrator is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:sql:ServerAzureADAdministrator'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -107,6 +107,12 @@ class ServerAzureADAdministrator(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["administrator_type"] = None
+        __props__["login"] = None
+        __props__["name"] = None
+        __props__["sid"] = None
+        __props__["tenant_id"] = None
+        __props__["type"] = None
         return ServerAzureADAdministrator(resource_name, opts=opts, __props__=__props__)
 
     @property

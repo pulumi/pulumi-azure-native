@@ -127,7 +127,7 @@ def get_secret(profile_name: Optional[str] = None,
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     :param str secret_name: Name of the Secret under the profile.
     """
-    pulumi.log.warn("get_secret is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:cdn:getSecret'.")
+    pulumi.log.warn("""get_secret is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:cdn:getSecret'.""")
     __args__ = dict()
     __args__['profileName'] = profile_name
     __args__['resourceGroupName'] = resource_group_name

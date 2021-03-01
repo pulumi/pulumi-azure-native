@@ -62,7 +62,7 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[str] type_version: The version of the application type as defined in the application manifest.
         :param pulumi.Input[pulumi.InputType['ApplicationUpgradePolicyArgs']] upgrade_policy: Describes the policy for a monitored application upgrade.
         """
-        pulumi.log.warn("Application is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:servicefabric:Application'.")
+        pulumi.log.warn("""Application is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:servicefabric:Application'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -129,6 +129,22 @@ class Application(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["etag"] = None
+        __props__["identity"] = None
+        __props__["location"] = None
+        __props__["managed_identities"] = None
+        __props__["maximum_nodes"] = None
+        __props__["metrics"] = None
+        __props__["minimum_nodes"] = None
+        __props__["name"] = None
+        __props__["parameters"] = None
+        __props__["provisioning_state"] = None
+        __props__["remove_application_capacity"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["type_name"] = None
+        __props__["type_version"] = None
+        __props__["upgrade_policy"] = None
         return Application(resource_name, opts=opts, __props__=__props__)
 
     @property

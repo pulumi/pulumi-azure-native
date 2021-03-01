@@ -51,7 +51,7 @@ class Lab(pulumi.CustomResource):
         :param pulumi.Input[str] usage_quota: Maximum duration a user can use an environment for in the lab.
         :param pulumi.Input[Union[str, 'LabUserAccessMode']] user_access_mode: Lab user access mode (open to all vs. restricted to those listed on the lab).
         """
-        pulumi.log.warn("Lab is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:labservices:Lab'.")
+        pulumi.log.warn("""Lab is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:labservices:Lab'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -115,6 +115,21 @@ class Lab(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["created_by_object_id"] = None
+        __props__["created_by_user_principal_name"] = None
+        __props__["created_date"] = None
+        __props__["invitation_code"] = None
+        __props__["latest_operation_result"] = None
+        __props__["location"] = None
+        __props__["max_users_in_lab"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["unique_identifier"] = None
+        __props__["usage_quota"] = None
+        __props__["user_access_mode"] = None
+        __props__["user_quota"] = None
         return Lab(resource_name, opts=opts, __props__=__props__)
 
     @property

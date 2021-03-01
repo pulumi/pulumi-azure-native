@@ -120,6 +120,20 @@ class VirtualNetworkPeering(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["allow_forwarded_traffic"] = None
+        __props__["allow_gateway_transit"] = None
+        __props__["allow_virtual_network_access"] = None
+        __props__["do_not_verify_remote_gateways"] = None
+        __props__["etag"] = None
+        __props__["name"] = None
+        __props__["peering_state"] = None
+        __props__["provisioning_state"] = None
+        __props__["remote_address_space"] = None
+        __props__["remote_bgp_communities"] = None
+        __props__["remote_virtual_network"] = None
+        __props__["resource_guid"] = None
+        __props__["type"] = None
+        __props__["use_remote_gateways"] = None
         return VirtualNetworkPeering(resource_name, opts=opts, __props__=__props__)
 
     @property

@@ -82,6 +82,7 @@ class UserSettingsWithLocation(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["properties"] = None
         return UserSettingsWithLocation(resource_name, opts=opts, __props__=__props__)
 
     @property

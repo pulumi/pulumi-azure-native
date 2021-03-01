@@ -46,7 +46,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[str] unique_identifier: The unique immutable identifier of a resource (Guid).
         :param pulumi.Input[str] user_name: The name of the user.
         """
-        pulumi.log.warn("User is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:labservices:User'.")
+        pulumi.log.warn("""User is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:labservices:User'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -110,6 +110,18 @@ class User(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["email"] = None
+        __props__["family_name"] = None
+        __props__["given_name"] = None
+        __props__["latest_operation_result"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["tags"] = None
+        __props__["tenant_id"] = None
+        __props__["total_usage"] = None
+        __props__["type"] = None
+        __props__["unique_identifier"] = None
         return User(resource_name, opts=opts, __props__=__props__)
 
     @property

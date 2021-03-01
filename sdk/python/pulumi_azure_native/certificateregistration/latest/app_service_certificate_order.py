@@ -56,7 +56,7 @@ class AppServiceCertificateOrder(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[int] validity_in_years: Duration in years (must be between 1 and 3).
         """
-        pulumi.log.warn("AppServiceCertificateOrder is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:certificateregistration:AppServiceCertificateOrder'.")
+        pulumi.log.warn("""AppServiceCertificateOrder is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:certificateregistration:AppServiceCertificateOrder'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -135,6 +135,31 @@ class AppServiceCertificateOrder(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["app_service_certificate_not_renewable_reasons"] = None
+        __props__["auto_renew"] = None
+        __props__["certificates"] = None
+        __props__["csr"] = None
+        __props__["distinguished_name"] = None
+        __props__["domain_verification_token"] = None
+        __props__["expiration_time"] = None
+        __props__["intermediate"] = None
+        __props__["is_private_key_external"] = None
+        __props__["key_size"] = None
+        __props__["kind"] = None
+        __props__["last_certificate_issuance_time"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["next_auto_renewal_time_stamp"] = None
+        __props__["product_type"] = None
+        __props__["provisioning_state"] = None
+        __props__["root"] = None
+        __props__["serial_number"] = None
+        __props__["signed_certificate"] = None
+        __props__["status"] = None
+        __props__["system_data"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["validity_in_years"] = None
         return AppServiceCertificateOrder(resource_name, opts=opts, __props__=__props__)
 
     @property

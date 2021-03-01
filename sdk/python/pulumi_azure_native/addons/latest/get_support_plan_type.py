@@ -91,7 +91,7 @@ def get_support_plan_type(plan_type_name: Optional[str] = None,
     :param str plan_type_name: The Canonical support plan type.
     :param str provider_name: The support plan type. For now the only valid type is "canonical".
     """
-    pulumi.log.warn("get_support_plan_type is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:addons:getSupportPlanType'.")
+    pulumi.log.warn("""get_support_plan_type is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:addons:getSupportPlanType'.""")
     __args__ = dict()
     __args__['planTypeName'] = plan_type_name
     __args__['providerName'] = provider_name

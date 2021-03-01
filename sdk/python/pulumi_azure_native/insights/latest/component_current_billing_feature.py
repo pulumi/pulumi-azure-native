@@ -39,7 +39,7 @@ class ComponentCurrentBillingFeature(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] resource_name_: The name of the Application Insights component resource.
         """
-        pulumi.log.warn("ComponentCurrentBillingFeature is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:insights:ComponentCurrentBillingFeature'.")
+        pulumi.log.warn("""ComponentCurrentBillingFeature is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:insights:ComponentCurrentBillingFeature'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -89,6 +89,8 @@ class ComponentCurrentBillingFeature(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["current_billing_features"] = None
+        __props__["data_volume_cap"] = None
         return ComponentCurrentBillingFeature(resource_name, opts=opts, __props__=__props__)
 
     @property

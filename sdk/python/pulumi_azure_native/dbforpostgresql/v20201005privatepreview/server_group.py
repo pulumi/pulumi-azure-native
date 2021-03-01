@@ -143,6 +143,33 @@ class ServerGroup(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["administrator_login"] = None
+        __props__["administrator_login_password"] = None
+        __props__["availability_zone"] = None
+        __props__["backup_retention_days"] = None
+        __props__["citus_version"] = None
+        __props__["create_mode"] = None
+        __props__["delegated_subnet_arguments"] = None
+        __props__["earliest_restore_time"] = None
+        __props__["enable_mx"] = None
+        __props__["enable_shards_on_coordinator"] = None
+        __props__["enable_zfs"] = None
+        __props__["location"] = None
+        __props__["maintenance_window"] = None
+        __props__["name"] = None
+        __props__["point_in_time_utc"] = None
+        __props__["postgresql_version"] = None
+        __props__["resource_provider_type"] = None
+        __props__["server_role_groups"] = None
+        __props__["source_location"] = None
+        __props__["source_resource_group_name"] = None
+        __props__["source_server_group_name"] = None
+        __props__["source_subscription_id"] = None
+        __props__["standby_availability_zone"] = None
+        __props__["state"] = None
+        __props__["system_data"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
         return ServerGroup(resource_name, opts=opts, __props__=__props__)
 
     @property

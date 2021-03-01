@@ -125,6 +125,31 @@ class DomainService(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["deployment_id"] = None
+        __props__["domain_configuration_type"] = None
+        __props__["domain_controller_ip_address"] = None
+        __props__["domain_name"] = None
+        __props__["domain_security_settings"] = None
+        __props__["etag"] = None
+        __props__["filtered_sync"] = None
+        __props__["health_alerts"] = None
+        __props__["health_last_evaluated"] = None
+        __props__["health_monitors"] = None
+        __props__["ldaps_settings"] = None
+        __props__["location"] = None
+        __props__["migration_properties"] = None
+        __props__["name"] = None
+        __props__["notification_settings"] = None
+        __props__["provisioning_state"] = None
+        __props__["resource_forest_settings"] = None
+        __props__["service_status"] = None
+        __props__["sku"] = None
+        __props__["subnet_id"] = None
+        __props__["tags"] = None
+        __props__["tenant_id"] = None
+        __props__["type"] = None
+        __props__["version"] = None
+        __props__["vnet_site_id"] = None
         return DomainService(resource_name, opts=opts, __props__=__props__)
 
     @property

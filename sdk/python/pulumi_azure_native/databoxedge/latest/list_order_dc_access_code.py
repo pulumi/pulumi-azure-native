@@ -55,7 +55,7 @@ def list_order_dc_access_code(device_name: Optional[str] = None,
     :param str device_name: The device name
     :param str resource_group_name: The resource group name.
     """
-    pulumi.log.warn("list_order_dc_access_code is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:databoxedge:listOrderDCAccessCode'.")
+    pulumi.log.warn("""list_order_dc_access_code is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:databoxedge:listOrderDCAccessCode'.""")
     __args__ = dict()
     __args__['deviceName'] = device_name
     __args__['resourceGroupName'] = resource_group_name

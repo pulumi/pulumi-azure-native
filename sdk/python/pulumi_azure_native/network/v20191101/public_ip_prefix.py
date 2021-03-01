@@ -108,6 +108,21 @@ class PublicIPPrefix(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["etag"] = None
+        __props__["ip_prefix"] = None
+        __props__["ip_tags"] = None
+        __props__["load_balancer_frontend_ip_configuration"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["prefix_length"] = None
+        __props__["provisioning_state"] = None
+        __props__["public_ip_address_version"] = None
+        __props__["public_ip_addresses"] = None
+        __props__["resource_guid"] = None
+        __props__["sku"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["zones"] = None
         return PublicIPPrefix(resource_name, opts=opts, __props__=__props__)
 
     @property

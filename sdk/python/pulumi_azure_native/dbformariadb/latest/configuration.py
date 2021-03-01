@@ -39,7 +39,7 @@ class Configuration(pulumi.CustomResource):
         :param pulumi.Input[str] source: Source of the configuration.
         :param pulumi.Input[str] value: Value of the configuration.
         """
-        pulumi.log.warn("Configuration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:dbformariadb:Configuration'.")
+        pulumi.log.warn("""Configuration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:dbformariadb:Configuration'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -96,6 +96,14 @@ class Configuration(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["allowed_values"] = None
+        __props__["data_type"] = None
+        __props__["default_value"] = None
+        __props__["description"] = None
+        __props__["name"] = None
+        __props__["source"] = None
+        __props__["type"] = None
+        __props__["value"] = None
         return Configuration(resource_name, opts=opts, __props__=__props__)
 
     @property

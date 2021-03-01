@@ -50,7 +50,7 @@ class Registry(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['StorageAccountPropertiesArgs']] storage_account: The properties of the storage account for the container registry. Only applicable to Classic SKU.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         """
-        pulumi.log.warn("Registry is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:containerregistry:Registry'.")
+        pulumi.log.warn("""Registry is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:containerregistry:Registry'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -113,6 +113,19 @@ class Registry(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["admin_user_enabled"] = None
+        __props__["creation_date"] = None
+        __props__["location"] = None
+        __props__["login_server"] = None
+        __props__["name"] = None
+        __props__["network_rule_set"] = None
+        __props__["policies"] = None
+        __props__["provisioning_state"] = None
+        __props__["sku"] = None
+        __props__["status"] = None
+        __props__["storage_account"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
         return Registry(resource_name, opts=opts, __props__=__props__)
 
     @property

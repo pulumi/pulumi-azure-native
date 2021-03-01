@@ -175,7 +175,7 @@ def get_adaptive_application_control(asc_location: Optional[str] = None,
     :param str asc_location: The location where ASC stores the data of the subscription. can be retrieved from Get locations
     :param str group_name: Name of an application control machine group
     """
-    pulumi.log.warn("get_adaptive_application_control is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:security:getAdaptiveApplicationControl'.")
+    pulumi.log.warn("""get_adaptive_application_control is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:security:getAdaptiveApplicationControl'.""")
     __args__ = dict()
     __args__['ascLocation'] = asc_location
     __args__['groupName'] = group_name

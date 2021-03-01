@@ -178,7 +178,7 @@ def get_user(resource_group_name: Optional[str] = None,
     :param str service_name: The name of the API Management service.
     :param str user_id: User identifier. Must be unique in the current API Management service instance.
     """
-    pulumi.log.warn("get_user is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getUser'.")
+    pulumi.log.warn("""get_user is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getUser'.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['serviceName'] = service_name

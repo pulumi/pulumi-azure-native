@@ -85,6 +85,14 @@ class DigitalTwin(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["created_time"] = None
+        __props__["host_name"] = None
+        __props__["last_updated_time"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
         return DigitalTwin(resource_name, opts=opts, __props__=__props__)
 
     @property

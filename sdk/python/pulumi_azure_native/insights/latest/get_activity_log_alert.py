@@ -164,7 +164,7 @@ def get_activity_log_alert(activity_log_alert_name: Optional[str] = None,
     :param str activity_log_alert_name: The name of the Activity Log Alert rule.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    pulumi.log.warn("get_activity_log_alert is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:insights:getActivityLogAlert'.")
+    pulumi.log.warn("""get_activity_log_alert is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:insights:getActivityLogAlert'.""")
     __args__ = dict()
     __args__['activityLogAlertName'] = activity_log_alert_name
     __args__['resourceGroupName'] = resource_group_name

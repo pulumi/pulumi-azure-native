@@ -56,7 +56,7 @@ def list_managed_cluster_monitoring_user_credentials(resource_group_name: Option
     :param str resource_group_name: The name of the resource group.
     :param str resource_name: The name of the managed cluster resource.
     """
-    pulumi.log.warn("list_managed_cluster_monitoring_user_credentials is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:containerservice:listManagedClusterMonitoringUserCredentials'.")
+    pulumi.log.warn("""list_managed_cluster_monitoring_user_credentials is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:containerservice:listManagedClusterMonitoringUserCredentials'.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name

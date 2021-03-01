@@ -37,7 +37,7 @@ class TrustedIdProvider(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the Azure resource group.
         :param pulumi.Input[str] trusted_id_provider_name: The name of the trusted identity provider. This is used for differentiation of providers in the account.
         """
-        pulumi.log.warn("TrustedIdProvider is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:datalakestore:TrustedIdProvider'.")
+        pulumi.log.warn("""TrustedIdProvider is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:datalakestore:TrustedIdProvider'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -91,6 +91,9 @@ class TrustedIdProvider(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["id_provider"] = None
+        __props__["name"] = None
+        __props__["type"] = None
         return TrustedIdProvider(resource_name, opts=opts, __props__=__props__)
 
     @property

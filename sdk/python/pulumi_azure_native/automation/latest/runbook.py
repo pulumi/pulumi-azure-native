@@ -58,7 +58,7 @@ class Runbook(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'RunbookTypeEnum']] runbook_type: Gets or sets the type of the runbook.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets the tags attached to the resource.
         """
-        pulumi.log.warn("Runbook is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:automation:Runbook'.")
+        pulumi.log.warn("""Runbook is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:automation:Runbook'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -129,6 +129,26 @@ class Runbook(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["creation_time"] = None
+        __props__["description"] = None
+        __props__["draft"] = None
+        __props__["etag"] = None
+        __props__["job_count"] = None
+        __props__["last_modified_by"] = None
+        __props__["last_modified_time"] = None
+        __props__["location"] = None
+        __props__["log_activity_trace"] = None
+        __props__["log_progress"] = None
+        __props__["log_verbose"] = None
+        __props__["name"] = None
+        __props__["output_types"] = None
+        __props__["parameters"] = None
+        __props__["provisioning_state"] = None
+        __props__["publish_content_link"] = None
+        __props__["runbook_type"] = None
+        __props__["state"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
         return Runbook(resource_name, opts=opts, __props__=__props__)
 
     @property

@@ -48,7 +48,7 @@ class DataStore(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The Resource Group Name
         :param pulumi.Input['State'] state: State of the data source.
         """
-        pulumi.log.warn("DataStore is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:hybriddata:DataStore'.")
+        pulumi.log.warn("""DataStore is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:hybriddata:DataStore'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -108,6 +108,13 @@ class DataStore(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["customer_secrets"] = None
+        __props__["data_store_type_id"] = None
+        __props__["extended_properties"] = None
+        __props__["name"] = None
+        __props__["repository_id"] = None
+        __props__["state"] = None
+        __props__["type"] = None
         return DataStore(resource_name, opts=opts, __props__=__props__)
 
     @property

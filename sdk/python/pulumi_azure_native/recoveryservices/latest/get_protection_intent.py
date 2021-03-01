@@ -132,7 +132,7 @@ def get_protection_intent(fabric_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group where the recovery services vault is present.
     :param str vault_name: The name of the recovery services vault.
     """
-    pulumi.log.warn("get_protection_intent is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:recoveryservices:getProtectionIntent'.")
+    pulumi.log.warn("""get_protection_intent is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:recoveryservices:getProtectionIntent'.""")
     __args__ = dict()
     __args__['fabricName'] = fabric_name
     __args__['intentObjectName'] = intent_object_name

@@ -166,7 +166,7 @@ def get_network_profile(expand: Optional[str] = None,
     :param str network_profile_name: The name of the public IP prefix.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("get_network_profile is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getNetworkProfile'.")
+    pulumi.log.warn("""get_network_profile is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getNetworkProfile'.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['networkProfileName'] = network_profile_name

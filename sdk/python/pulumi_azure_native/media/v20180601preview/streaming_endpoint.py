@@ -127,6 +127,26 @@ class StreamingEndpoint(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["access_control"] = None
+        __props__["availability_set_name"] = None
+        __props__["cdn_enabled"] = None
+        __props__["cdn_profile"] = None
+        __props__["cdn_provider"] = None
+        __props__["created"] = None
+        __props__["cross_site_access_policies"] = None
+        __props__["custom_host_names"] = None
+        __props__["description"] = None
+        __props__["free_trial_end_time"] = None
+        __props__["host_name"] = None
+        __props__["last_modified"] = None
+        __props__["location"] = None
+        __props__["max_cache_age"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["resource_state"] = None
+        __props__["scale_units"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
         return StreamingEndpoint(resource_name, opts=opts, __props__=__props__)
 
     @property

@@ -138,7 +138,7 @@ def get_peer_asn(peer_asn_name: Optional[str] = None,
 
     :param str peer_asn_name: The peer ASN name.
     """
-    pulumi.log.warn("get_peer_asn is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:peering:getPeerAsn'.")
+    pulumi.log.warn("""get_peer_asn is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:peering:getPeerAsn'.""")
     __args__ = dict()
     __args__['peerAsnName'] = peer_asn_name
     if opts is None:

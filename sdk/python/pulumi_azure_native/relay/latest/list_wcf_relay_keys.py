@@ -107,7 +107,7 @@ def list_wcf_relay_keys(authorization_rule_name: Optional[str] = None,
     :param str relay_name: The relay name.
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
-    pulumi.log.warn("list_wcf_relay_keys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:relay:listWCFRelayKeys'.")
+    pulumi.log.warn("""list_wcf_relay_keys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:relay:listWCFRelayKeys'.""")
     __args__ = dict()
     __args__['authorizationRuleName'] = authorization_rule_name
     __args__['namespaceName'] = namespace_name

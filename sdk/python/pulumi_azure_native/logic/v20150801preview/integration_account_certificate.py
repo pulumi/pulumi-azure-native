@@ -105,6 +105,15 @@ class IntegrationAccountCertificate(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["changed_time"] = None
+        __props__["created_time"] = None
+        __props__["key"] = None
+        __props__["location"] = None
+        __props__["metadata"] = None
+        __props__["name"] = None
+        __props__["public_certificate"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
         return IntegrationAccountCertificate(resource_name, opts=opts, __props__=__props__)
 
     @property

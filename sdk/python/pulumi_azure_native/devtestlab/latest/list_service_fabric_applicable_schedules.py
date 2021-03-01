@@ -132,7 +132,7 @@ def list_service_fabric_applicable_schedules(lab_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     :param str user_name: The name of the user profile.
     """
-    pulumi.log.warn("list_service_fabric_applicable_schedules is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devtestlab:listServiceFabricApplicableSchedules'.")
+    pulumi.log.warn("""list_service_fabric_applicable_schedules is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devtestlab:listServiceFabricApplicableSchedules'.""")
     __args__ = dict()
     __args__['labName'] = lab_name
     __args__['name'] = name

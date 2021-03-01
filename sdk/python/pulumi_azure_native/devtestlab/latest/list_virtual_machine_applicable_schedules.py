@@ -130,7 +130,7 @@ def list_virtual_machine_applicable_schedules(lab_name: Optional[str] = None,
     :param str name: The name of the virtual machine.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("list_virtual_machine_applicable_schedules is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devtestlab:listVirtualMachineApplicableSchedules'.")
+    pulumi.log.warn("""list_virtual_machine_applicable_schedules is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devtestlab:listVirtualMachineApplicableSchedules'.""")
     __args__ = dict()
     __args__['labName'] = lab_name
     __args__['name'] = name

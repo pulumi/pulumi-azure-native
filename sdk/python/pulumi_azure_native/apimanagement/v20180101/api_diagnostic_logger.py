@@ -94,6 +94,12 @@ class ApiDiagnosticLogger(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["credentials"] = None
+        __props__["description"] = None
+        __props__["is_buffered"] = None
+        __props__["logger_type"] = None
+        __props__["name"] = None
+        __props__["type"] = None
         return ApiDiagnosticLogger(resource_name, opts=opts, __props__=__props__)
 
     @property

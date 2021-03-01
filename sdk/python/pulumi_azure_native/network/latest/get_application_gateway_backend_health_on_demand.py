@@ -88,7 +88,7 @@ def get_application_gateway_backend_health_on_demand(application_gateway_name: O
     :param str resource_group_name: The name of the resource group.
     :param int timeout: The probe timeout in seconds. Probe marked as failed if valid response is not received with this timeout period. Acceptable values are from 1 second to 86400 seconds.
     """
-    pulumi.log.warn("get_application_gateway_backend_health_on_demand is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getApplicationGatewayBackendHealthOnDemand'.")
+    pulumi.log.warn("""get_application_gateway_backend_health_on_demand is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getApplicationGatewayBackendHealthOnDemand'.""")
     __args__ = dict()
     __args__['applicationGatewayName'] = application_gateway_name
     __args__['backendAddressPool'] = backend_address_pool

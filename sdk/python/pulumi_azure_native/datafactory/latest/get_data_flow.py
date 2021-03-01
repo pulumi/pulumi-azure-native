@@ -106,7 +106,7 @@ def get_data_flow(data_flow_name: Optional[str] = None,
     :param str factory_name: The factory name.
     :param str resource_group_name: The resource group name.
     """
-    pulumi.log.warn("get_data_flow is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datafactory:getDataFlow'.")
+    pulumi.log.warn("""get_data_flow is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datafactory:getDataFlow'.""")
     __args__ = dict()
     __args__['dataFlowName'] = data_flow_name
     __args__['factoryName'] = factory_name

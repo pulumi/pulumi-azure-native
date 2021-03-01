@@ -49,7 +49,7 @@ def get_api_management_service_domain_ownership_identifier(opts: Optional[pulumi
     Response of the GetDomainOwnershipIdentifier operation.
     Latest API Version: 2020-12-01.
     """
-    pulumi.log.warn("get_api_management_service_domain_ownership_identifier is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getApiManagementServiceDomainOwnershipIdentifier'.")
+    pulumi.log.warn("""get_api_management_service_domain_ownership_identifier is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getApiManagementServiceDomainOwnershipIdentifier'.""")
     __args__ = dict()
     if opts is None:
         opts = pulumi.InvokeOptions()

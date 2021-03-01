@@ -100,6 +100,17 @@ class CloudEndpoint(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["backup_enabled"] = None
+        __props__["friendly_name"] = None
+        __props__["last_operation_name"] = None
+        __props__["last_workflow_id"] = None
+        __props__["name"] = None
+        __props__["partnership_id"] = None
+        __props__["provisioning_state"] = None
+        __props__["storage_account_resource_id"] = None
+        __props__["storage_account_share_name"] = None
+        __props__["storage_account_tenant_id"] = None
+        __props__["type"] = None
         return CloudEndpoint(resource_name, opts=opts, __props__=__props__)
 
     @property

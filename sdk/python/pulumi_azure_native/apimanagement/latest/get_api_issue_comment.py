@@ -121,7 +121,7 @@ def get_api_issue_comment(api_id: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     :param str service_name: The name of the API Management service.
     """
-    pulumi.log.warn("get_api_issue_comment is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getApiIssueComment'.")
+    pulumi.log.warn("""get_api_issue_comment is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getApiIssueComment'.""")
     __args__ = dict()
     __args__['apiId'] = api_id
     __args__['commentId'] = comment_id

@@ -127,7 +127,7 @@ def get_connection_gateway(connection_gateway_name: Optional[str] = None,
     :param str resource_group_name: The resource group
     :param str subscription_id: Subscription Id
     """
-    pulumi.log.warn("get_connection_gateway is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getConnectionGateway'.")
+    pulumi.log.warn("""get_connection_gateway is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getConnectionGateway'.""")
     __args__ = dict()
     __args__['connectionGatewayName'] = connection_gateway_name
     __args__['resourceGroupName'] = resource_group_name

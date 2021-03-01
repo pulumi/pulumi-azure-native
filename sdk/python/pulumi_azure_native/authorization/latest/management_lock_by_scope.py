@@ -42,7 +42,7 @@ class ManagementLockByScope(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ManagementLockOwnerArgs']]]] owners: The owners of the lock.
         :param pulumi.Input[str] scope: The scope for the lock. When providing a scope for the assignment, use '/subscriptions/{subscriptionId}' for subscriptions, '/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}' for resource groups, and '/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{parentResourcePathIfPresent}/{resourceType}/{resourceName}' for resources.
         """
-        pulumi.log.warn("ManagementLockByScope is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:authorization:ManagementLockByScope'.")
+        pulumi.log.warn("""ManagementLockByScope is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:authorization:ManagementLockByScope'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -95,6 +95,11 @@ class ManagementLockByScope(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["level"] = None
+        __props__["name"] = None
+        __props__["notes"] = None
+        __props__["owners"] = None
+        __props__["type"] = None
         return ManagementLockByScope(resource_name, opts=opts, __props__=__props__)
 
     @property

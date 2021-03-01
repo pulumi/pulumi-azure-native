@@ -108,7 +108,7 @@ def get_managed_private_endpoint(factory_name: Optional[str] = None,
     :param str managed_virtual_network_name: Managed virtual network name
     :param str resource_group_name: The resource group name.
     """
-    pulumi.log.warn("get_managed_private_endpoint is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datafactory:getManagedPrivateEndpoint'.")
+    pulumi.log.warn("""get_managed_private_endpoint is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datafactory:getManagedPrivateEndpoint'.""")
     __args__ = dict()
     __args__['factoryName'] = factory_name
     __args__['managedPrivateEndpointName'] = managed_private_endpoint_name

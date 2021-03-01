@@ -70,7 +70,7 @@ def list_remediation_deployments_at_resource(remediation_name: Optional[str] = N
     :param str resource_id: Resource ID.
     :param int top: Maximum number of records to return.
     """
-    pulumi.log.warn("list_remediation_deployments_at_resource is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:policyinsights:listRemediationDeploymentsAtResource'.")
+    pulumi.log.warn("""list_remediation_deployments_at_resource is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:policyinsights:listRemediationDeploymentsAtResource'.""")
     __args__ = dict()
     __args__['remediationName'] = remediation_name
     __args__['resourceId'] = resource_id

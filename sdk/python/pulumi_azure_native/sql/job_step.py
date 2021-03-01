@@ -118,6 +118,14 @@ class JobStep(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["action"] = None
+        __props__["credential"] = None
+        __props__["execution_options"] = None
+        __props__["name"] = None
+        __props__["output"] = None
+        __props__["step_id"] = None
+        __props__["target_group"] = None
+        __props__["type"] = None
         return JobStep(resource_name, opts=opts, __props__=__props__)
 
     @property

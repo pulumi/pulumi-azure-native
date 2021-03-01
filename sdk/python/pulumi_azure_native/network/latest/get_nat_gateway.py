@@ -214,7 +214,7 @@ def get_nat_gateway(expand: Optional[str] = None,
     :param str nat_gateway_name: The name of the nat gateway.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("get_nat_gateway is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getNatGateway'.")
+    pulumi.log.warn("""get_nat_gateway is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getNatGateway'.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['natGatewayName'] = nat_gateway_name

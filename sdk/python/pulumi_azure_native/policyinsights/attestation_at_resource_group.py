@@ -105,6 +105,18 @@ class AttestationAtResourceGroup(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["comments"] = None
+        __props__["compliance_state"] = None
+        __props__["evidence"] = None
+        __props__["expires_on"] = None
+        __props__["last_compliance_state_change_at"] = None
+        __props__["name"] = None
+        __props__["owner"] = None
+        __props__["policy_assignment_id"] = None
+        __props__["policy_definition_reference_id"] = None
+        __props__["provisioning_state"] = None
+        __props__["system_data"] = None
+        __props__["type"] = None
         return AttestationAtResourceGroup(resource_name, opts=opts, __props__=__props__)
 
     @property

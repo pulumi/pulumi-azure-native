@@ -288,7 +288,7 @@ def get_subscription(namespace_name: Optional[str] = None,
     :param str subscription_name: The subscription name.
     :param str topic_name: The topic name.
     """
-    pulumi.log.warn("get_subscription is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:servicebus:getSubscription'.")
+    pulumi.log.warn("""get_subscription is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:servicebus:getSubscription'.""")
     __args__ = dict()
     __args__['namespaceName'] = namespace_name
     __args__['resourceGroupName'] = resource_group_name

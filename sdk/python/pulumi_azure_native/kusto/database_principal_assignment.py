@@ -108,6 +108,15 @@ class DatabasePrincipalAssignment(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["name"] = None
+        __props__["principal_id"] = None
+        __props__["principal_name"] = None
+        __props__["principal_type"] = None
+        __props__["provisioning_state"] = None
+        __props__["role"] = None
+        __props__["tenant_id"] = None
+        __props__["tenant_name"] = None
+        __props__["type"] = None
         return DatabasePrincipalAssignment(resource_name, opts=opts, __props__=__props__)
 
     @property

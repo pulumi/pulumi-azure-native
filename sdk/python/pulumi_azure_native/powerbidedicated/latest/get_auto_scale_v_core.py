@@ -164,7 +164,7 @@ def get_auto_scale_v_core(resource_group_name: Optional[str] = None,
     :param str resource_group_name: The name of the Azure Resource group of which a given PowerBIDedicated capacity is part. This name must be at least 1 character in length, and no more than 90.
     :param str vcore_name: The name of the auto scale v-core. It must be a minimum of 3 characters, and a maximum of 63.
     """
-    pulumi.log.warn("get_auto_scale_v_core is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:powerbidedicated:getAutoScaleVCore'.")
+    pulumi.log.warn("""get_auto_scale_v_core is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:powerbidedicated:getAutoScaleVCore'.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['vcoreName'] = vcore_name

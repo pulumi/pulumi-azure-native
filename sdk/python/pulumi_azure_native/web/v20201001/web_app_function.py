@@ -123,6 +123,23 @@ class WebAppFunction(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["config"] = None
+        __props__["config_href"] = None
+        __props__["files"] = None
+        __props__["function_app_id"] = None
+        __props__["href"] = None
+        __props__["invoke_url_template"] = None
+        __props__["is_disabled"] = None
+        __props__["kind"] = None
+        __props__["language"] = None
+        __props__["name"] = None
+        __props__["script_href"] = None
+        __props__["script_root_path_href"] = None
+        __props__["secrets_file_href"] = None
+        __props__["system_data"] = None
+        __props__["test_data"] = None
+        __props__["test_data_href"] = None
+        __props__["type"] = None
         return WebAppFunction(resource_name, opts=opts, __props__=__props__)
 
     @property

@@ -69,7 +69,7 @@ def list_subscription_secrets(resource_group_name: Optional[str] = None,
     :param str service_name: The name of the API Management service.
     :param str sid: Subscription entity Identifier. The entity represents the association between a user and a product in API Management.
     """
-    pulumi.log.warn("list_subscription_secrets is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:listSubscriptionSecrets'.")
+    pulumi.log.warn("""list_subscription_secrets is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:listSubscriptionSecrets'.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['serviceName'] = service_name

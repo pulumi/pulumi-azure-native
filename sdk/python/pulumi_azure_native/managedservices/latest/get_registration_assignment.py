@@ -94,7 +94,7 @@ def get_registration_assignment(expand_registration_definition: Optional[bool] =
     :param str registration_assignment_id: Guid of the registration assignment.
     :param str scope: Scope of the resource.
     """
-    pulumi.log.warn("get_registration_assignment is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:managedservices:getRegistrationAssignment'.")
+    pulumi.log.warn("""get_registration_assignment is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:managedservices:getRegistrationAssignment'.""")
     __args__ = dict()
     __args__['expandRegistrationDefinition'] = expand_registration_definition
     __args__['registrationAssignmentId'] = registration_assignment_id

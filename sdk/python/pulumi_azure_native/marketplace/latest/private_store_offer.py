@@ -46,7 +46,7 @@ class PrivateStoreOffer(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] specific_plan_ids_limitation: Plan ids limitation for this offer
         :param pulumi.Input[bool] update_suppressed_due_idempotence: Indicating whether the offer was not updated to db (true = not updated). If the allow list is identical to the existed one in db, the offer would not be updated.
         """
-        pulumi.log.warn("PrivateStoreOffer is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:marketplace:PrivateStoreOffer'.")
+        pulumi.log.warn("""PrivateStoreOffer is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:marketplace:PrivateStoreOffer'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -104,6 +104,19 @@ class PrivateStoreOffer(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["created_at"] = None
+        __props__["e_tag"] = None
+        __props__["icon_file_uris"] = None
+        __props__["modified_at"] = None
+        __props__["name"] = None
+        __props__["offer_display_name"] = None
+        __props__["plans"] = None
+        __props__["private_store_id"] = None
+        __props__["publisher_display_name"] = None
+        __props__["specific_plan_ids_limitation"] = None
+        __props__["type"] = None
+        __props__["unique_offer_id"] = None
+        __props__["update_suppressed_due_idempotence"] = None
         return PrivateStoreOffer(resource_name, opts=opts, __props__=__props__)
 
     @property

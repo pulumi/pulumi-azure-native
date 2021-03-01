@@ -89,7 +89,7 @@ def get_notification_registration(notification_registration_name: Optional[str] 
     :param str notification_registration_name: The notification registration.
     :param str provider_namespace: The name of the resource provider hosted within ProviderHub.
     """
-    pulumi.log.warn("get_notification_registration is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:providerhub:getNotificationRegistration'.")
+    pulumi.log.warn("""get_notification_registration is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:providerhub:getNotificationRegistration'.""")
     __args__ = dict()
     __args__['notificationRegistrationName'] = notification_registration_name
     __args__['providerNamespace'] = provider_namespace

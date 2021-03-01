@@ -94,7 +94,7 @@ def get_iot_dps_resource_private_endpoint_connection(private_endpoint_connection
     :param str resource_group_name: The name of the resource group that contains the provisioning service.
     :param str resource_name: The name of the provisioning service.
     """
-    pulumi.log.warn("get_iot_dps_resource_private_endpoint_connection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devices:getIotDpsResourcePrivateEndpointConnection'.")
+    pulumi.log.warn("""get_iot_dps_resource_private_endpoint_connection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devices:getIotDpsResourcePrivateEndpointConnection'.""")
     __args__ = dict()
     __args__['privateEndpointConnectionName'] = private_endpoint_connection_name
     __args__['resourceGroupName'] = resource_group_name

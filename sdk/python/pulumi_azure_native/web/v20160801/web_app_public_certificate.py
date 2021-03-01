@@ -90,6 +90,12 @@ class WebAppPublicCertificate(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["blob"] = None
+        __props__["kind"] = None
+        __props__["name"] = None
+        __props__["public_certificate_location"] = None
+        __props__["thumbprint"] = None
+        __props__["type"] = None
         return WebAppPublicCertificate(resource_name, opts=opts, __props__=__props__)
 
     @property

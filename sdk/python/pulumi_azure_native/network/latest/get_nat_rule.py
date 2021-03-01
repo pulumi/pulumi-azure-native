@@ -178,7 +178,7 @@ def get_nat_rule(gateway_name: Optional[str] = None,
     :param str nat_rule_name: The name of the nat rule.
     :param str resource_group_name: The resource group name of the VpnGateway.
     """
-    pulumi.log.warn("get_nat_rule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getNatRule'.")
+    pulumi.log.warn("""get_nat_rule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getNatRule'.""")
     __args__ = dict()
     __args__['gatewayName'] = gateway_name
     __args__['natRuleName'] = nat_rule_name

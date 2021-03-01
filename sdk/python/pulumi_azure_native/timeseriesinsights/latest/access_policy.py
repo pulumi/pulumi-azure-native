@@ -42,7 +42,7 @@ class AccessPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'AccessPolicyRole']]]] roles: The list of roles the principal is assigned on the environment.
         """
-        pulumi.log.warn("AccessPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:timeseriesinsights:AccessPolicy'.")
+        pulumi.log.warn("""AccessPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:timeseriesinsights:AccessPolicy'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -96,6 +96,11 @@ class AccessPolicy(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["description"] = None
+        __props__["name"] = None
+        __props__["principal_object_id"] = None
+        __props__["roles"] = None
+        __props__["type"] = None
         return AccessPolicy(resource_name, opts=opts, __props__=__props__)
 
     @property

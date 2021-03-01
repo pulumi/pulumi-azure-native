@@ -106,7 +106,7 @@ def get_dataset(dataset_name: Optional[str] = None,
     :param str factory_name: The factory name.
     :param str resource_group_name: The resource group name.
     """
-    pulumi.log.warn("get_dataset is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datafactory:getDataset'.")
+    pulumi.log.warn("""get_dataset is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datafactory:getDataset'.""")
     __args__ = dict()
     __args__['datasetName'] = dataset_name
     __args__['factoryName'] = factory_name

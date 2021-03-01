@@ -51,7 +51,7 @@ class Webhook(pulumi.CustomResource):
         :param pulumi.Input[str] uri: Gets or sets the uri.
         :param pulumi.Input[str] webhook_name: The webhook name.
         """
-        pulumi.log.warn("Webhook is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:automation:Webhook'.")
+        pulumi.log.warn("""Webhook is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:automation:Webhook'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -115,6 +115,19 @@ class Webhook(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["creation_time"] = None
+        __props__["description"] = None
+        __props__["expiry_time"] = None
+        __props__["is_enabled"] = None
+        __props__["last_invoked_time"] = None
+        __props__["last_modified_by"] = None
+        __props__["last_modified_time"] = None
+        __props__["name"] = None
+        __props__["parameters"] = None
+        __props__["run_on"] = None
+        __props__["runbook"] = None
+        __props__["type"] = None
+        __props__["uri"] = None
         return Webhook(resource_name, opts=opts, __props__=__props__)
 
     @property

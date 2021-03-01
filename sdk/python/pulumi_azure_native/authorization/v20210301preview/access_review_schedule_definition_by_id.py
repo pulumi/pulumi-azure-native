@@ -137,6 +137,34 @@ class AccessReviewScheduleDefinitionById(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["auto_apply_decisions_enabled"] = None
+        __props__["backup_reviewers"] = None
+        __props__["default_decision"] = None
+        __props__["default_decision_enabled"] = None
+        __props__["description_for_admins"] = None
+        __props__["description_for_reviewers"] = None
+        __props__["display_name"] = None
+        __props__["end_date"] = None
+        __props__["instance_duration_in_days"] = None
+        __props__["instances"] = None
+        __props__["interval"] = None
+        __props__["justification_required_on_approval"] = None
+        __props__["mail_notifications_enabled"] = None
+        __props__["name"] = None
+        __props__["number_of_occurrences"] = None
+        __props__["principal_id"] = None
+        __props__["principal_name"] = None
+        __props__["principal_type"] = None
+        __props__["recommendations_enabled"] = None
+        __props__["reminder_notifications_enabled"] = None
+        __props__["resource_id"] = None
+        __props__["reviewers"] = None
+        __props__["reviewers_type"] = None
+        __props__["role_definition_id"] = None
+        __props__["start_date"] = None
+        __props__["status"] = None
+        __props__["type"] = None
+        __props__["user_principal_name"] = None
         return AccessReviewScheduleDefinitionById(resource_name, opts=opts, __props__=__props__)
 
     @property

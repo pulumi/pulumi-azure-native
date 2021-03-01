@@ -44,7 +44,7 @@ class LinkedService(pulumi.CustomResource):
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         :param pulumi.Input[str] write_access_resource_id: The resource id of the resource that will be linked to the workspace. This should be used for linking resources which require write access
         """
-        pulumi.log.warn("LinkedService is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:operationalinsights:LinkedService'.")
+        pulumi.log.warn("""LinkedService is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:operationalinsights:LinkedService'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -99,6 +99,12 @@ class LinkedService(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["resource_id"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["write_access_resource_id"] = None
         return LinkedService(resource_name, opts=opts, __props__=__props__)
 
     @property

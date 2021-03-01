@@ -126,7 +126,7 @@ def get_resource_group(resource_group_name: Optional[str] = None,
 
     :param str resource_group_name: The name of the resource group to get. The name is case insensitive.
     """
-    pulumi.log.warn("get_resource_group is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:resources:getResourceGroup'.")
+    pulumi.log.warn("""get_resource_group is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:resources:getResourceGroup'.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:

@@ -113,6 +113,17 @@ class Endpoint(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["endpoint_location"] = None
+        __props__["endpoint_monitor_status"] = None
+        __props__["endpoint_status"] = None
+        __props__["geo_mapping"] = None
+        __props__["min_child_endpoints"] = None
+        __props__["name"] = None
+        __props__["priority"] = None
+        __props__["target"] = None
+        __props__["target_resource_id"] = None
+        __props__["type"] = None
+        __props__["weight"] = None
         return Endpoint(resource_name, opts=opts, __props__=__props__)
 
     @property

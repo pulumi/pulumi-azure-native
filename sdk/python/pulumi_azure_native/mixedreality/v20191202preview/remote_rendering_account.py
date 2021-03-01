@@ -89,6 +89,13 @@ class RemoteRenderingAccount(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["account_domain"] = None
+        __props__["account_id"] = None
+        __props__["identity"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
         return RemoteRenderingAccount(resource_name, opts=opts, __props__=__props__)
 
     @property

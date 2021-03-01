@@ -94,6 +94,13 @@ class WebAppDiagnosticLogsConfiguration(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["application_logs"] = None
+        __props__["detailed_error_messages"] = None
+        __props__["failed_requests_tracing"] = None
+        __props__["http_logs"] = None
+        __props__["kind"] = None
+        __props__["name"] = None
+        __props__["type"] = None
         return WebAppDiagnosticLogsConfiguration(resource_name, opts=opts, __props__=__props__)
 
     @property

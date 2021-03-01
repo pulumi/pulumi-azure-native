@@ -119,6 +119,19 @@ class Task(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["agent_configuration"] = None
+        __props__["creation_date"] = None
+        __props__["credentials"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["platform"] = None
+        __props__["provisioning_state"] = None
+        __props__["status"] = None
+        __props__["step"] = None
+        __props__["tags"] = None
+        __props__["timeout"] = None
+        __props__["trigger"] = None
+        __props__["type"] = None
         return Task(resource_name, opts=opts, __props__=__props__)
 
     @property

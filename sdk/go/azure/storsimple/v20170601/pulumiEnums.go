@@ -70,6 +70,51 @@ func (e DayOfWeek) ToStringPtrOutputWithContext(ctx context.Context) pulumi.Stri
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// DayOfWeekArrayInput is an input type that accepts DayOfWeekArray and DayOfWeekArrayOutput values.
+// You can construct a concrete instance of `DayOfWeekArrayInput` via:
+//
+//          DayOfWeekArray{ DayOfWeekArgs{...} }
+type DayOfWeekArrayInput interface {
+	pulumi.Input
+
+	ToDayOfWeekArrayOutput() DayOfWeekArrayOutput
+	ToDayOfWeekArrayOutputWithContext(context.Context) DayOfWeekArrayOutput
+}
+
+type DayOfWeekArray []DayOfWeek
+
+func (DayOfWeekArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DayOfWeek)(nil)).Elem()
+}
+
+func (i DayOfWeekArray) ToDayOfWeekArrayOutput() DayOfWeekArrayOutput {
+	return i.ToDayOfWeekArrayOutputWithContext(context.Background())
+}
+
+func (i DayOfWeekArray) ToDayOfWeekArrayOutputWithContext(ctx context.Context) DayOfWeekArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DayOfWeekArrayOutput)
+}
+
+type DayOfWeekArrayOutput struct{ *pulumi.OutputState }
+
+func (DayOfWeekArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DayOfWeek)(nil)).Elem()
+}
+
+func (o DayOfWeekArrayOutput) ToDayOfWeekArrayOutput() DayOfWeekArrayOutput {
+	return o
+}
+
+func (o DayOfWeekArrayOutput) ToDayOfWeekArrayOutputWithContext(ctx context.Context) DayOfWeekArrayOutput {
+	return o
+}
+
+func (o DayOfWeekArrayOutput) Index(i pulumi.IntInput) pulumi.StringOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) pulumi.StringOutput {
+		return vs[0].([]DayOfWeek)[vs[1].(int)].ToStringOutput()
+	}).(pulumi.StringOutput)
+}
+
 // The algorithm used to encrypt "Value".
 type EncryptionAlgorithm pulumi.String
 

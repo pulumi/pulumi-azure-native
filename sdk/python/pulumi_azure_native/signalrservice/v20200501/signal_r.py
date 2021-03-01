@@ -115,6 +115,24 @@ class SignalR(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["cors"] = None
+        __props__["external_ip"] = None
+        __props__["features"] = None
+        __props__["host_name"] = None
+        __props__["host_name_prefix"] = None
+        __props__["kind"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["network_acls"] = None
+        __props__["private_endpoint_connections"] = None
+        __props__["provisioning_state"] = None
+        __props__["public_port"] = None
+        __props__["server_port"] = None
+        __props__["sku"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["upstream"] = None
+        __props__["version"] = None
         return SignalR(resource_name, opts=opts, __props__=__props__)
 
     @property

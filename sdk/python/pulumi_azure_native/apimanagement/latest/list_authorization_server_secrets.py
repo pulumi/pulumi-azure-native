@@ -57,7 +57,7 @@ def list_authorization_server_secrets(authsid: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     :param str service_name: The name of the API Management service.
     """
-    pulumi.log.warn("list_authorization_server_secrets is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:listAuthorizationServerSecrets'.")
+    pulumi.log.warn("""list_authorization_server_secrets is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:listAuthorizationServerSecrets'.""")
     __args__ = dict()
     __args__['authsid'] = authsid
     __args__['resourceGroupName'] = resource_group_name

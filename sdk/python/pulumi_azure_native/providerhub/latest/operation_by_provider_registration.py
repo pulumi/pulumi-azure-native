@@ -33,7 +33,7 @@ class OperationByProviderRegistration(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] provider_namespace: The name of the resource provider hosted within ProviderHub.
         """
-        pulumi.log.warn("OperationByProviderRegistration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:providerhub:OperationByProviderRegistration'.")
+        pulumi.log.warn("""OperationByProviderRegistration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:providerhub:OperationByProviderRegistration'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -88,6 +88,13 @@ class OperationByProviderRegistration(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["action_type"] = None
+        __props__["display"] = None
+        __props__["is_data_action"] = None
+        __props__["name"] = None
+        __props__["origin"] = None
+        __props__["properties"] = None
+        __props__["type"] = None
         return OperationByProviderRegistration(resource_name, opts=opts, __props__=__props__)
 
     @property

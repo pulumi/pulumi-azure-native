@@ -99,6 +99,13 @@ class WorkspaceConnection(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["auth_type"] = None
+        __props__["category"] = None
+        __props__["name"] = None
+        __props__["target"] = None
+        __props__["type"] = None
+        __props__["value"] = None
+        __props__["value_format"] = None
         return WorkspaceConnection(resource_name, opts=opts, __props__=__props__)
 
     @property

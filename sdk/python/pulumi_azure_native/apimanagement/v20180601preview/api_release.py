@@ -90,6 +90,12 @@ class ApiRelease(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["api_id"] = None
+        __props__["created_date_time"] = None
+        __props__["name"] = None
+        __props__["notes"] = None
+        __props__["type"] = None
+        __props__["updated_date_time"] = None
         return ApiRelease(resource_name, opts=opts, __props__=__props__)
 
     @property

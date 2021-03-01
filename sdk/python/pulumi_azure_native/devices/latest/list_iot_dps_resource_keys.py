@@ -68,7 +68,7 @@ def list_iot_dps_resource_keys(provisioning_service_name: Optional[str] = None,
     :param str provisioning_service_name: The provisioning service name to get the shared access keys for.
     :param str resource_group_name: resource group name
     """
-    pulumi.log.warn("list_iot_dps_resource_keys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devices:listIotDpsResourceKeys'.")
+    pulumi.log.warn("""list_iot_dps_resource_keys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devices:listIotDpsResourceKeys'.""")
     __args__ = dict()
     __args__['provisioningServiceName'] = provisioning_service_name
     __args__['resourceGroupName'] = resource_group_name

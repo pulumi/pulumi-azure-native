@@ -36,7 +36,7 @@ class ResourceTypeRegistration(pulumi.CustomResource):
         :param pulumi.Input[str] provider_namespace: The name of the resource provider hosted within ProviderHub.
         :param pulumi.Input[str] resource_type: The resource type.
         """
-        pulumi.log.warn("ResourceTypeRegistration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:providerhub:ResourceTypeRegistration'.")
+        pulumi.log.warn("""ResourceTypeRegistration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:providerhub:ResourceTypeRegistration'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -85,6 +85,9 @@ class ResourceTypeRegistration(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["name"] = None
+        __props__["properties"] = None
+        __props__["type"] = None
         return ResourceTypeRegistration(resource_name, opts=opts, __props__=__props__)
 
     @property

@@ -87,7 +87,7 @@ def get_v_mware_collector(project_name: Optional[str] = None,
     :param str resource_group_name: Name of the Azure Resource Group that project is part of.
     :param str vm_ware_collector_name: Unique name of a VMware collector within a project.
     """
-    pulumi.log.warn("get_v_mware_collector is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:migrate:getVMwareCollector'.")
+    pulumi.log.warn("""get_v_mware_collector is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:migrate:getVMwareCollector'.""")
     __args__ = dict()
     __args__['projectName'] = project_name
     __args__['resourceGroupName'] = resource_group_name

@@ -91,6 +91,16 @@ class BatchAccount(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["account_endpoint"] = None
+        __props__["active_job_and_job_schedule_quota"] = None
+        __props__["auto_storage"] = None
+        __props__["core_quota"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["pool_quota"] = None
+        __props__["provisioning_state"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
         return BatchAccount(resource_name, opts=opts, __props__=__props__)
 
     @property

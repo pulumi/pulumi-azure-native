@@ -106,7 +106,7 @@ def get_management_policy(account_name: Optional[str] = None,
     :param str management_policy_name: The name of the Storage Account Management Policy. It should always be 'default'
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     """
-    pulumi.log.warn("get_management_policy is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storage:getManagementPolicy'.")
+    pulumi.log.warn("""get_management_policy is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storage:getManagementPolicy'.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['managementPolicyName'] = management_policy_name

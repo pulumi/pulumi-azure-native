@@ -70,7 +70,7 @@ def get_integration_runtime_status(factory_name: Optional[str] = None,
     :param str integration_runtime_name: The integration runtime name.
     :param str resource_group_name: The resource group name.
     """
-    pulumi.log.warn("get_integration_runtime_status is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datafactory:getIntegrationRuntimeStatus'.")
+    pulumi.log.warn("""get_integration_runtime_status is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datafactory:getIntegrationRuntimeStatus'.""")
     __args__ = dict()
     __args__['factoryName'] = factory_name
     __args__['integrationRuntimeName'] = integration_runtime_name

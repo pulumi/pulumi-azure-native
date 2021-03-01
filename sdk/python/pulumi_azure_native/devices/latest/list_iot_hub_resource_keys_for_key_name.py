@@ -93,7 +93,7 @@ def list_iot_hub_resource_keys_for_key_name(key_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group that contains the IoT hub.
     :param str resource_name: The name of the IoT hub.
     """
-    pulumi.log.warn("list_iot_hub_resource_keys_for_key_name is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devices:listIotHubResourceKeysForKeyName'.")
+    pulumi.log.warn("""list_iot_hub_resource_keys_for_key_name is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devices:listIotHubResourceKeysForKeyName'.""")
     __args__ = dict()
     __args__['keyName'] = key_name
     __args__['resourceGroupName'] = resource_group_name

@@ -116,6 +116,18 @@ class InboundNatRule(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["backend_ip_configuration"] = None
+        __props__["backend_port"] = None
+        __props__["enable_floating_ip"] = None
+        __props__["enable_tcp_reset"] = None
+        __props__["etag"] = None
+        __props__["frontend_ip_configuration"] = None
+        __props__["frontend_port"] = None
+        __props__["idle_timeout_in_minutes"] = None
+        __props__["name"] = None
+        __props__["protocol"] = None
+        __props__["provisioning_state"] = None
+        __props__["type"] = None
         return InboundNatRule(resource_name, opts=opts, __props__=__props__)
 
     @property

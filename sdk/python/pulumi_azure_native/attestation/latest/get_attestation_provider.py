@@ -164,7 +164,7 @@ def get_attestation_provider(provider_name: Optional[str] = None,
     :param str provider_name: Name of the attestation provider.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    pulumi.log.warn("get_attestation_provider is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:attestation:getAttestationProvider'.")
+    pulumi.log.warn("""get_attestation_provider is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:attestation:getAttestationProvider'.""")
     __args__ = dict()
     __args__['providerName'] = provider_name
     __args__['resourceGroupName'] = resource_group_name

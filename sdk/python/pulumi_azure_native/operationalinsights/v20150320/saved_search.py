@@ -106,6 +106,14 @@ class SavedSearch(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["category"] = None
+        __props__["display_name"] = None
+        __props__["e_tag"] = None
+        __props__["name"] = None
+        __props__["query"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["version"] = None
         return SavedSearch(resource_name, opts=opts, __props__=__props__)
 
     @property

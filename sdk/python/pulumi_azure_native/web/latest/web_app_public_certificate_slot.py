@@ -45,7 +45,7 @@ class WebAppPublicCertificateSlot(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
         :param pulumi.Input[str] slot: Name of the deployment slot. If a slot is not specified, the API will create a binding for the production slot.
         """
-        pulumi.log.warn("WebAppPublicCertificateSlot is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppPublicCertificateSlot'.")
+        pulumi.log.warn("""WebAppPublicCertificateSlot is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppPublicCertificateSlot'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -103,6 +103,13 @@ class WebAppPublicCertificateSlot(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["blob"] = None
+        __props__["kind"] = None
+        __props__["name"] = None
+        __props__["public_certificate_location"] = None
+        __props__["system_data"] = None
+        __props__["thumbprint"] = None
+        __props__["type"] = None
         return WebAppPublicCertificateSlot(resource_name, opts=opts, __props__=__props__)
 
     @property

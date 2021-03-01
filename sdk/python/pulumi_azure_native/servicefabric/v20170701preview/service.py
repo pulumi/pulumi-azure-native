@@ -118,6 +118,18 @@ class Service(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["correlation_scheme"] = None
+        __props__["default_move_cost"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["partition_description"] = None
+        __props__["placement_constraints"] = None
+        __props__["provisioning_state"] = None
+        __props__["service_kind"] = None
+        __props__["service_load_metrics"] = None
+        __props__["service_placement_policies"] = None
+        __props__["service_type_name"] = None
+        __props__["type"] = None
         return Service(resource_name, opts=opts, __props__=__props__)
 
     @property

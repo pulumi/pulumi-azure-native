@@ -104,6 +104,14 @@ class DscNodeConfiguration(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["configuration"] = None
+        __props__["creation_time"] = None
+        __props__["increment_node_configuration_build"] = None
+        __props__["last_modified_time"] = None
+        __props__["name"] = None
+        __props__["node_count"] = None
+        __props__["source"] = None
+        __props__["type"] = None
         return DscNodeConfiguration(resource_name, opts=opts, __props__=__props__)
 
     @property

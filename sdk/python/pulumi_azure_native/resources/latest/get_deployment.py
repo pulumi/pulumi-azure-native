@@ -116,7 +116,7 @@ def get_deployment(deployment_name: Optional[str] = None,
     :param str deployment_name: The name of the deployment.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    pulumi.log.warn("get_deployment is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:resources:getDeployment'.")
+    pulumi.log.warn("""get_deployment is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:resources:getDeployment'.""")
     __args__ = dict()
     __args__['deploymentName'] = deployment_name
     __args__['resourceGroupName'] = resource_group_name

@@ -92,6 +92,15 @@ class Hub(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["api_endpoint"] = None
+        __props__["hub_billing_info"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["tags"] = None
+        __props__["tenant_features"] = None
+        __props__["type"] = None
+        __props__["web_endpoint"] = None
         return Hub(resource_name, opts=opts, __props__=__props__)
 
     @property

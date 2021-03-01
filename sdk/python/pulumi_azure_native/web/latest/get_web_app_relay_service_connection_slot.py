@@ -171,7 +171,7 @@ def get_web_app_relay_service_connection_slot(entity_name: Optional[str] = None,
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     :param str slot: Name of the deployment slot. If a slot is not specified, the API will get a hybrid connection for the production slot.
     """
-    pulumi.log.warn("get_web_app_relay_service_connection_slot is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getWebAppRelayServiceConnectionSlot'.")
+    pulumi.log.warn("""get_web_app_relay_service_connection_slot is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getWebAppRelayServiceConnectionSlot'.""")
     __args__ = dict()
     __args__['entityName'] = entity_name
     __args__['name'] = name

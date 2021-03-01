@@ -71,7 +71,7 @@ def get_exposure_control_feature_value_by_factory(factory_name: Optional[str] = 
     :param str feature_type: The feature type.
     :param str resource_group_name: The resource group name.
     """
-    pulumi.log.warn("get_exposure_control_feature_value_by_factory is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datafactory:getExposureControlFeatureValueByFactory'.")
+    pulumi.log.warn("""get_exposure_control_feature_value_by_factory is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datafactory:getExposureControlFeatureValueByFactory'.""")
     __args__ = dict()
     __args__['factoryName'] = factory_name
     __args__['featureName'] = feature_name

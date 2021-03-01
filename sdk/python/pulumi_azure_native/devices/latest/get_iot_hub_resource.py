@@ -140,7 +140,7 @@ def get_iot_hub_resource(resource_group_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group that contains the IoT hub.
     :param str resource_name: The name of the IoT hub.
     """
-    pulumi.log.warn("get_iot_hub_resource is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devices:getIotHubResource'.")
+    pulumi.log.warn("""get_iot_hub_resource is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:devices:getIotHubResource'.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name

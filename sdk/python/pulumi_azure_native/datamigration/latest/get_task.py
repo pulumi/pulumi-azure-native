@@ -110,7 +110,7 @@ def get_task(expand: Optional[str] = None,
     :param str service_name: Name of the service
     :param str task_name: Name of the Task
     """
-    pulumi.log.warn("get_task is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datamigration:getTask'.")
+    pulumi.log.warn("""get_task is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datamigration:getTask'.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['groupName'] = group_name

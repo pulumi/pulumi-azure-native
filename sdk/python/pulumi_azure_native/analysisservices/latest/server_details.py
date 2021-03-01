@@ -56,7 +56,7 @@ class ServerDetails(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ResourceSkuArgs']] sku: The SKU of the Analysis Services resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of additional resource provisioning properties.
         """
-        pulumi.log.warn("ServerDetails is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:analysisservices:ServerDetails'.")
+        pulumi.log.warn("""ServerDetails is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:analysisservices:ServerDetails'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -125,6 +125,21 @@ class ServerDetails(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["as_administrators"] = None
+        __props__["backup_blob_container_uri"] = None
+        __props__["gateway_details"] = None
+        __props__["ip_v4_firewall_settings"] = None
+        __props__["location"] = None
+        __props__["managed_mode"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["querypool_connection_mode"] = None
+        __props__["server_full_name"] = None
+        __props__["server_monitor_mode"] = None
+        __props__["sku"] = None
+        __props__["state"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
         return ServerDetails(resource_name, opts=opts, __props__=__props__)
 
     @property

@@ -81,6 +81,11 @@ class ConfigurationProfile(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["identity"] = None
+        __props__["name"] = None
+        __props__["properties"] = None
+        __props__["system_data"] = None
+        __props__["type"] = None
         return ConfigurationProfile(resource_name, opts=opts, __props__=__props__)
 
     @property

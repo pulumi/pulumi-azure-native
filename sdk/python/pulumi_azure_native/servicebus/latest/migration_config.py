@@ -39,7 +39,7 @@ class MigrationConfig(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
         :param pulumi.Input[str] target_namespace: Existing premium Namespace ARM Id name which has no entities, will be used for migration
         """
-        pulumi.log.warn("MigrationConfig is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:servicebus:MigrationConfig'.")
+        pulumi.log.warn("""MigrationConfig is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:servicebus:MigrationConfig'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -99,6 +99,13 @@ class MigrationConfig(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["migration_state"] = None
+        __props__["name"] = None
+        __props__["pending_replication_operations_count"] = None
+        __props__["post_migration_name"] = None
+        __props__["provisioning_state"] = None
+        __props__["target_namespace"] = None
+        __props__["type"] = None
         return MigrationConfig(resource_name, opts=opts, __props__=__props__)
 
     @property

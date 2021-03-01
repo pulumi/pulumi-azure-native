@@ -100,6 +100,11 @@ class Action(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["etag"] = None
+        __props__["logic_app_resource_id"] = None
+        __props__["name"] = None
+        __props__["type"] = None
+        __props__["workflow_id"] = None
         return Action(resource_name, opts=opts, __props__=__props__)
 
     @property

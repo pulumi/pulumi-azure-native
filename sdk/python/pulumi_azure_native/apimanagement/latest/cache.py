@@ -41,7 +41,7 @@ class Cache(pulumi.CustomResource):
         :param pulumi.Input[str] resource_id: Original uri of entity in external system cache points to
         :param pulumi.Input[str] service_name: The name of the API Management service.
         """
-        pulumi.log.warn("Cache is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:Cache'.")
+        pulumi.log.warn("""Cache is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:Cache'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -97,6 +97,11 @@ class Cache(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["connection_string"] = None
+        __props__["description"] = None
+        __props__["name"] = None
+        __props__["resource_id"] = None
+        __props__["type"] = None
         return Cache(resource_name, opts=opts, __props__=__props__)
 
     @property

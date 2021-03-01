@@ -56,7 +56,7 @@ def list_database_account_connection_strings(account_name: Optional[str] = None,
     :param str account_name: Cosmos DB database account name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    pulumi.log.warn("list_database_account_connection_strings is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:documentdb:listDatabaseAccountConnectionStrings'.")
+    pulumi.log.warn("""list_database_account_connection_strings is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:documentdb:listDatabaseAccountConnectionStrings'.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['resourceGroupName'] = resource_group_name

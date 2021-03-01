@@ -93,7 +93,7 @@ def get_trusted_id_provider(account_name: Optional[str] = None,
     :param str resource_group_name: The name of the Azure resource group.
     :param str trusted_id_provider_name: The name of the trusted identity provider to retrieve.
     """
-    pulumi.log.warn("get_trusted_id_provider is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datalakestore:getTrustedIdProvider'.")
+    pulumi.log.warn("""get_trusted_id_provider is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datalakestore:getTrustedIdProvider'.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['resourceGroupName'] = resource_group_name

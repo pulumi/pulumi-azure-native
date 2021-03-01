@@ -261,7 +261,7 @@ def get_route(endpoint_name: Optional[str] = None,
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     :param str route_name: Name of the routing rule.
     """
-    pulumi.log.warn("get_route is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:cdn:getRoute'.")
+    pulumi.log.warn("""get_route is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:cdn:getRoute'.""")
     __args__ = dict()
     __args__['endpointName'] = endpoint_name
     __args__['profileName'] = profile_name

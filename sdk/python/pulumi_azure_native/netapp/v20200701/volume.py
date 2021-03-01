@@ -160,6 +160,29 @@ class Volume(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["backup_id"] = None
+        __props__["baremetal_tenant_id"] = None
+        __props__["creation_token"] = None
+        __props__["data_protection"] = None
+        __props__["export_policy"] = None
+        __props__["file_system_id"] = None
+        __props__["is_restoring"] = None
+        __props__["kerberos_enabled"] = None
+        __props__["location"] = None
+        __props__["mount_targets"] = None
+        __props__["name"] = None
+        __props__["protocol_types"] = None
+        __props__["provisioning_state"] = None
+        __props__["security_style"] = None
+        __props__["service_level"] = None
+        __props__["snapshot_directory_visible"] = None
+        __props__["snapshot_id"] = None
+        __props__["subnet_id"] = None
+        __props__["tags"] = None
+        __props__["throughput_mibps"] = None
+        __props__["type"] = None
+        __props__["usage_threshold"] = None
+        __props__["volume_type"] = None
         return Volume(resource_name, opts=opts, __props__=__props__)
 
     @property

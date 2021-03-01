@@ -142,6 +142,28 @@ class HostPool(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["application_group_references"] = None
+        __props__["custom_rdp_property"] = None
+        __props__["description"] = None
+        __props__["friendly_name"] = None
+        __props__["host_pool_type"] = None
+        __props__["load_balancer_type"] = None
+        __props__["location"] = None
+        __props__["max_session_limit"] = None
+        __props__["name"] = None
+        __props__["personal_desktop_assignment_type"] = None
+        __props__["preferred_app_group_type"] = None
+        __props__["registration_info"] = None
+        __props__["ring"] = None
+        __props__["sso_client_id"] = None
+        __props__["sso_client_secret_key_vault_path"] = None
+        __props__["sso_secret_type"] = None
+        __props__["ssoadfs_authority"] = None
+        __props__["start_vm_on_connect"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["validation_environment"] = None
+        __props__["vm_template"] = None
         return HostPool(resource_name, opts=opts, __props__=__props__)
 
     @property

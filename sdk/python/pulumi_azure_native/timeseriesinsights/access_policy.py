@@ -91,6 +91,11 @@ class AccessPolicy(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["description"] = None
+        __props__["name"] = None
+        __props__["principal_object_id"] = None
+        __props__["roles"] = None
+        __props__["type"] = None
         return AccessPolicy(resource_name, opts=opts, __props__=__props__)
 
     @property

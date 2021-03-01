@@ -43,7 +43,7 @@ class ObjectReplicationPolicy(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ObjectReplicationPolicyRuleArgs']]]] rules: The storage account object replication rules.
         :param pulumi.Input[str] source_account: Required. Source account name.
         """
-        pulumi.log.warn("ObjectReplicationPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storage:ObjectReplicationPolicy'.")
+        pulumi.log.warn("""ObjectReplicationPolicy is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storage:ObjectReplicationPolicy'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -103,6 +103,13 @@ class ObjectReplicationPolicy(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["destination_account"] = None
+        __props__["enabled_time"] = None
+        __props__["name"] = None
+        __props__["policy_id"] = None
+        __props__["rules"] = None
+        __props__["source_account"] = None
+        __props__["type"] = None
         return ObjectReplicationPolicy(resource_name, opts=opts, __props__=__props__)
 
     @property

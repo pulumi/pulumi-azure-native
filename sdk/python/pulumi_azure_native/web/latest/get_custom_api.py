@@ -130,7 +130,7 @@ def get_custom_api(api_name: Optional[str] = None,
     :param str resource_group_name: The resource group
     :param str subscription_id: Subscription Id
     """
-    pulumi.log.warn("get_custom_api is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getCustomApi'.")
+    pulumi.log.warn("""get_custom_api is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getCustomApi'.""")
     __args__ = dict()
     __args__['apiName'] = api_name
     __args__['resourceGroupName'] = resource_group_name

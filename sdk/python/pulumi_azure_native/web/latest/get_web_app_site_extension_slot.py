@@ -345,7 +345,7 @@ def get_web_app_site_extension_slot(name: Optional[str] = None,
     :param str site_extension_id: Site extension name.
     :param str slot: Name of the deployment slot. If a slot is not specified, the API uses the production slot.
     """
-    pulumi.log.warn("get_web_app_site_extension_slot is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getWebAppSiteExtensionSlot'.")
+    pulumi.log.warn("""get_web_app_site_extension_slot is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getWebAppSiteExtensionSlot'.""")
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name

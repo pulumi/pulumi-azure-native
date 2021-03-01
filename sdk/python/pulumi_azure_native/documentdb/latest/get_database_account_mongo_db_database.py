@@ -105,7 +105,7 @@ def get_database_account_mongo_db_database(account_name: Optional[str] = None,
     :param str database_name: Cosmos DB database name.
     :param str resource_group_name: Name of an Azure resource group.
     """
-    pulumi.log.warn("get_database_account_mongo_db_database is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:documentdb:getDatabaseAccountMongoDBDatabase'.")
+    pulumi.log.warn("""get_database_account_mongo_db_database is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:documentdb:getDatabaseAccountMongoDBDatabase'.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['databaseName'] = database_name

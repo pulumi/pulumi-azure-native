@@ -68,7 +68,7 @@ class ApiManagementService(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['VirtualNetworkConfigurationArgs']] virtual_network_configuration: Virtual network configuration of the API Management service.
         :param pulumi.Input[Union[str, 'VirtualNetworkType']] virtual_network_type: The type of VPN in which API Management service needs to be configured in. None (Default Value) means the API Management service is not part of any Virtual Network, External means the API Management deployment is set up inside a Virtual Network having an Internet Facing Endpoint, and Internal means that API Management deployment is setup inside a Virtual Network having an Intranet Facing Endpoint only.
         """
-        pulumi.log.warn("ApiManagementService is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:ApiManagementService'.")
+        pulumi.log.warn("""ApiManagementService is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:ApiManagementService'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -156,6 +156,36 @@ class ApiManagementService(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["additional_locations"] = None
+        __props__["api_version_constraint"] = None
+        __props__["certificates"] = None
+        __props__["created_at_utc"] = None
+        __props__["custom_properties"] = None
+        __props__["developer_portal_url"] = None
+        __props__["disable_gateway"] = None
+        __props__["enable_client_certificate"] = None
+        __props__["etag"] = None
+        __props__["gateway_regional_url"] = None
+        __props__["gateway_url"] = None
+        __props__["hostname_configurations"] = None
+        __props__["identity"] = None
+        __props__["location"] = None
+        __props__["management_api_url"] = None
+        __props__["name"] = None
+        __props__["notification_sender_email"] = None
+        __props__["portal_url"] = None
+        __props__["private_ip_addresses"] = None
+        __props__["provisioning_state"] = None
+        __props__["public_ip_addresses"] = None
+        __props__["publisher_email"] = None
+        __props__["publisher_name"] = None
+        __props__["scm_url"] = None
+        __props__["sku"] = None
+        __props__["tags"] = None
+        __props__["target_provisioning_state"] = None
+        __props__["type"] = None
+        __props__["virtual_network_configuration"] = None
+        __props__["virtual_network_type"] = None
         return ApiManagementService(resource_name, opts=opts, __props__=__props__)
 
     @property

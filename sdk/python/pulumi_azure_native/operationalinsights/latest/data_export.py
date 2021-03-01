@@ -49,7 +49,7 @@ class DataExport(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] table_names: An array of tables to export, for example: [“Heartbeat, SecurityEvent”].
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         """
-        pulumi.log.warn("DataExport is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:operationalinsights:DataExport'.")
+        pulumi.log.warn("""DataExport is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:operationalinsights:DataExport'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -111,6 +111,15 @@ class DataExport(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["created_date"] = None
+        __props__["data_export_id"] = None
+        __props__["enable"] = None
+        __props__["event_hub_name"] = None
+        __props__["last_modified_date"] = None
+        __props__["name"] = None
+        __props__["resource_id"] = None
+        __props__["table_names"] = None
+        __props__["type"] = None
         return DataExport(resource_name, opts=opts, __props__=__props__)
 
     @property

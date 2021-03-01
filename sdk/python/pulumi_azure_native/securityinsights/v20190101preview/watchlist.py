@@ -154,6 +154,29 @@ class Watchlist(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["content_type"] = None
+        __props__["created"] = None
+        __props__["created_by"] = None
+        __props__["default_duration"] = None
+        __props__["description"] = None
+        __props__["display_name"] = None
+        __props__["etag"] = None
+        __props__["is_deleted"] = None
+        __props__["labels"] = None
+        __props__["name"] = None
+        __props__["number_of_lines_to_skip"] = None
+        __props__["provider"] = None
+        __props__["raw_content"] = None
+        __props__["source"] = None
+        __props__["tenant_id"] = None
+        __props__["type"] = None
+        __props__["updated"] = None
+        __props__["updated_by"] = None
+        __props__["upload_status"] = None
+        __props__["watchlist_alias"] = None
+        __props__["watchlist_id"] = None
+        __props__["watchlist_items_count"] = None
+        __props__["watchlist_type"] = None
         return Watchlist(resource_name, opts=opts, __props__=__props__)
 
     @property

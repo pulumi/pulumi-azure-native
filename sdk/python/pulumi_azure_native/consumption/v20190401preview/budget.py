@@ -108,6 +108,16 @@ class Budget(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["amount"] = None
+        __props__["category"] = None
+        __props__["current_spend"] = None
+        __props__["e_tag"] = None
+        __props__["filters"] = None
+        __props__["name"] = None
+        __props__["notifications"] = None
+        __props__["time_grain"] = None
+        __props__["time_period"] = None
+        __props__["type"] = None
         return Budget(resource_name, opts=opts, __props__=__props__)
 
     @property

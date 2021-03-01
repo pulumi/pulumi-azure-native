@@ -48,7 +48,7 @@ class IntegrationAccountPartner(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         """
-        pulumi.log.warn("IntegrationAccountPartner is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:logic:IntegrationAccountPartner'.")
+        pulumi.log.warn("""IntegrationAccountPartner is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:logic:IntegrationAccountPartner'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -110,6 +110,15 @@ class IntegrationAccountPartner(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["changed_time"] = None
+        __props__["content"] = None
+        __props__["created_time"] = None
+        __props__["location"] = None
+        __props__["metadata"] = None
+        __props__["name"] = None
+        __props__["partner_type"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
         return IntegrationAccountPartner(resource_name, opts=opts, __props__=__props__)
 
     @property

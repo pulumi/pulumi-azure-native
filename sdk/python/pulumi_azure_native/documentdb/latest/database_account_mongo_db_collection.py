@@ -43,7 +43,7 @@ class DatabaseAccountMongoDBCollection(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['MongoDBCollectionResourceArgs']] resource: The standard JSON format of a MongoDB collection
         :param pulumi.Input[str] resource_group_name: Name of an Azure resource group.
         """
-        pulumi.log.warn("DatabaseAccountMongoDBCollection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:documentdb:DatabaseAccountMongoDBCollection'.")
+        pulumi.log.warn("""DatabaseAccountMongoDBCollection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:documentdb:DatabaseAccountMongoDBCollection'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -107,6 +107,12 @@ class DatabaseAccountMongoDBCollection(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["indexes"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["shard_key"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
         return DatabaseAccountMongoDBCollection(resource_name, opts=opts, __props__=__props__)
 
     @property

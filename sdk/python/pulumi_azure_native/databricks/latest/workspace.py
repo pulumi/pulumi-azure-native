@@ -50,7 +50,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[str] ui_definition_uri: The blob URI where the UI definition file is located.
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         """
-        pulumi.log.warn("Workspace is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:databricks:Workspace'.")
+        pulumi.log.warn("""Workspace is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:databricks:Workspace'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -114,6 +114,22 @@ class Workspace(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["authorizations"] = None
+        __props__["created_by"] = None
+        __props__["created_date_time"] = None
+        __props__["location"] = None
+        __props__["managed_resource_group_id"] = None
+        __props__["name"] = None
+        __props__["parameters"] = None
+        __props__["provisioning_state"] = None
+        __props__["sku"] = None
+        __props__["storage_account_identity"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["ui_definition_uri"] = None
+        __props__["updated_by"] = None
+        __props__["workspace_id"] = None
+        __props__["workspace_url"] = None
         return Workspace(resource_name, opts=opts, __props__=__props__)
 
     @property

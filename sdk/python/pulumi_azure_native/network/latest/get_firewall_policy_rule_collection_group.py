@@ -130,7 +130,7 @@ def get_firewall_policy_rule_collection_group(firewall_policy_name: Optional[str
     :param str resource_group_name: The name of the resource group.
     :param str rule_collection_group_name: The name of the FirewallPolicyRuleCollectionGroup.
     """
-    pulumi.log.warn("get_firewall_policy_rule_collection_group is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getFirewallPolicyRuleCollectionGroup'.")
+    pulumi.log.warn("""get_firewall_policy_rule_collection_group is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getFirewallPolicyRuleCollectionGroup'.""")
     __args__ = dict()
     __args__['firewallPolicyName'] = firewall_policy_name
     __args__['resourceGroupName'] = resource_group_name

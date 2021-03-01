@@ -98,6 +98,11 @@ class TableResourceTable(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["resource"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
         return TableResourceTable(resource_name, opts=opts, __props__=__props__)
 
     @property

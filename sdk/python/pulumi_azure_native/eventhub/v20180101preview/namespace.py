@@ -113,6 +113,23 @@ class Namespace(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["cluster_arm_id"] = None
+        __props__["created_at"] = None
+        __props__["encryption"] = None
+        __props__["identity"] = None
+        __props__["is_auto_inflate_enabled"] = None
+        __props__["kafka_enabled"] = None
+        __props__["location"] = None
+        __props__["maximum_throughput_units"] = None
+        __props__["metric_id"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["service_bus_endpoint"] = None
+        __props__["sku"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["updated_at"] = None
+        __props__["zone_redundant"] = None
         return Namespace(resource_name, opts=opts, __props__=__props__)
 
     @property

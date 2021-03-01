@@ -100,6 +100,17 @@ class Key(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["attributes"] = None
+        __props__["curve_name"] = None
+        __props__["key_ops"] = None
+        __props__["key_size"] = None
+        __props__["key_uri"] = None
+        __props__["key_uri_with_version"] = None
+        __props__["kty"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
         return Key(resource_name, opts=opts, __props__=__props__)
 
     @property

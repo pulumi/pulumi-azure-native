@@ -42,7 +42,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['PrivateEndpointConnectionPropertiesArgs']] properties: Resource properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         """
-        pulumi.log.warn("PrivateEndpointConnection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:cognitiveservices:PrivateEndpointConnection'.")
+        pulumi.log.warn("""PrivateEndpointConnection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:cognitiveservices:PrivateEndpointConnection'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -96,6 +96,11 @@ class PrivateEndpointConnection(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["etag"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["properties"] = None
+        __props__["type"] = None
         return PrivateEndpointConnection(resource_name, opts=opts, __props__=__props__)
 
     @property

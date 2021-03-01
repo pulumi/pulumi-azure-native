@@ -56,7 +56,7 @@ def get_user_settings_with_location(location: Optional[str] = None,
     :param str location: The provider location
     :param str user_settings_name: The name of the user settings
     """
-    pulumi.log.warn("get_user_settings_with_location is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:portal:getUserSettingsWithLocation'.")
+    pulumi.log.warn("""get_user_settings_with_location is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:portal:getUserSettingsWithLocation'.""")
     __args__ = dict()
     __args__['location'] = location
     __args__['userSettingsName'] = user_settings_name

@@ -117,7 +117,7 @@ def get_access_control_record(access_control_record_name: Optional[str] = None,
     :param str manager_name: The manager name
     :param str resource_group_name: The resource group name
     """
-    pulumi.log.warn("get_access_control_record is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storsimple:getAccessControlRecord'.")
+    pulumi.log.warn("""get_access_control_record is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storsimple:getAccessControlRecord'.""")
     __args__ = dict()
     __args__['accessControlRecordName'] = access_control_record_name
     __args__['managerName'] = manager_name

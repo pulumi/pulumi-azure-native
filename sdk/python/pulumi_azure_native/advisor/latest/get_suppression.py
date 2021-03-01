@@ -117,7 +117,7 @@ def get_suppression(name: Optional[str] = None,
     :param str recommendation_id: The recommendation ID.
     :param str resource_uri: The fully qualified Azure Resource Manager identifier of the resource to which the recommendation applies.
     """
-    pulumi.log.warn("get_suppression is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:advisor:getSuppression'.")
+    pulumi.log.warn("""get_suppression is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:advisor:getSuppression'.""")
     __args__ = dict()
     __args__['name'] = name
     __args__['recommendationId'] = recommendation_id

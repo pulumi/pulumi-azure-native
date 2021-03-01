@@ -119,7 +119,7 @@ def get_action(action_id: Optional[str] = None,
     :param str rule_id: Alert rule ID
     :param str workspace_name: The name of the workspace.
     """
-    pulumi.log.warn("get_action is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:securityinsights:getAction'.")
+    pulumi.log.warn("""get_action is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:securityinsights:getAction'.""")
     __args__ = dict()
     __args__['actionId'] = action_id
     __args__['resourceGroupName'] = resource_group_name

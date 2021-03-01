@@ -43,7 +43,7 @@ class PrivateLinkServicePrivateEndpointConnection(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] service_name: The name of the private link service.
         """
-        pulumi.log.warn("PrivateLinkServicePrivateEndpointConnection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:PrivateLinkServicePrivateEndpointConnection'.")
+        pulumi.log.warn("""PrivateLinkServicePrivateEndpointConnection is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:PrivateLinkServicePrivateEndpointConnection'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -100,6 +100,13 @@ class PrivateLinkServicePrivateEndpointConnection(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["etag"] = None
+        __props__["link_identifier"] = None
+        __props__["name"] = None
+        __props__["private_endpoint"] = None
+        __props__["private_link_service_connection_state"] = None
+        __props__["provisioning_state"] = None
+        __props__["type"] = None
         return PrivateLinkServicePrivateEndpointConnection(resource_name, opts=opts, __props__=__props__)
 
     @property

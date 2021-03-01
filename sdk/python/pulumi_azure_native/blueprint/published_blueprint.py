@@ -103,6 +103,16 @@ class PublishedBlueprint(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["blueprint_name"] = None
+        __props__["change_notes"] = None
+        __props__["description"] = None
+        __props__["display_name"] = None
+        __props__["name"] = None
+        __props__["parameters"] = None
+        __props__["resource_groups"] = None
+        __props__["status"] = None
+        __props__["target_scope"] = None
+        __props__["type"] = None
         return PublishedBlueprint(resource_name, opts=opts, __props__=__props__)
 
     @property

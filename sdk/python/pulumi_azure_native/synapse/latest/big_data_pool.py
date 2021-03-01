@@ -78,7 +78,7 @@ class BigDataPool(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] workspace_name: The name of the workspace
         """
-        pulumi.log.warn("BigDataPool is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:synapse:BigDataPool'.")
+        pulumi.log.warn("""BigDataPool is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:synapse:BigDataPool'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -150,6 +150,28 @@ class BigDataPool(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["auto_pause"] = None
+        __props__["auto_scale"] = None
+        __props__["cache_size"] = None
+        __props__["creation_date"] = None
+        __props__["custom_libraries"] = None
+        __props__["default_spark_log_folder"] = None
+        __props__["dynamic_executor_allocation"] = None
+        __props__["is_compute_isolation_enabled"] = None
+        __props__["last_succeeded_timestamp"] = None
+        __props__["library_requirements"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["node_count"] = None
+        __props__["node_size"] = None
+        __props__["node_size_family"] = None
+        __props__["provisioning_state"] = None
+        __props__["session_level_packages_enabled"] = None
+        __props__["spark_config_properties"] = None
+        __props__["spark_events_folder"] = None
+        __props__["spark_version"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
         return BigDataPool(resource_name, opts=opts, __props__=__props__)
 
     @property

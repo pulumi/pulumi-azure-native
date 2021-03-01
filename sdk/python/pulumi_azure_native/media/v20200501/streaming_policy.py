@@ -100,6 +100,15 @@ class StreamingPolicy(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["common_encryption_cbcs"] = None
+        __props__["common_encryption_cenc"] = None
+        __props__["created"] = None
+        __props__["default_content_key_policy_name"] = None
+        __props__["envelope_encryption"] = None
+        __props__["name"] = None
+        __props__["no_encryption"] = None
+        __props__["system_data"] = None
+        __props__["type"] = None
         return StreamingPolicy(resource_name, opts=opts, __props__=__props__)
 
     @property

@@ -50,7 +50,7 @@ class EventSubscription(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['RetryPolicyArgs']] retry_policy: The retry policy for events. This can be used to configure maximum number of delivery attempts and time to live for events.
         :param pulumi.Input[str] scope: The identifier of the resource to which the event subscription needs to be created or updated. The scope can be a subscription, or a resource group, or a top level resource belonging to a resource provider namespace, or an EventGrid topic. For example, use '/subscriptions/{subscriptionId}/' for a subscription, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for a resource group, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}' for a resource, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/topics/{topicName}' for an EventGrid topic.
         """
-        pulumi.log.warn("EventSubscription is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:eventgrid:EventSubscription'.")
+        pulumi.log.warn("""EventSubscription is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:eventgrid:EventSubscription'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -110,6 +110,18 @@ class EventSubscription(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["dead_letter_destination"] = None
+        __props__["destination"] = None
+        __props__["event_delivery_schema"] = None
+        __props__["expiration_time_utc"] = None
+        __props__["filter"] = None
+        __props__["labels"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["retry_policy"] = None
+        __props__["system_data"] = None
+        __props__["topic"] = None
+        __props__["type"] = None
         return EventSubscription(resource_name, opts=opts, __props__=__props__)
 
     @property

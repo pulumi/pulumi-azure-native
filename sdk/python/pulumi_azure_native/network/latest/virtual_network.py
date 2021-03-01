@@ -62,7 +62,7 @@ class VirtualNetwork(pulumi.CustomResource):
         :param pulumi.Input[str] virtual_network_name: The name of the virtual network.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkPeeringArgs']]]] virtual_network_peerings: A list of peerings in a Virtual Network.
         """
-        pulumi.log.warn("VirtualNetwork is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:VirtualNetwork'.")
+        pulumi.log.warn("""VirtualNetwork is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:VirtualNetwork'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -130,6 +130,23 @@ class VirtualNetwork(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["address_space"] = None
+        __props__["bgp_communities"] = None
+        __props__["ddos_protection_plan"] = None
+        __props__["dhcp_options"] = None
+        __props__["enable_ddos_protection"] = None
+        __props__["enable_vm_protection"] = None
+        __props__["etag"] = None
+        __props__["extended_location"] = None
+        __props__["ip_allocations"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["resource_guid"] = None
+        __props__["subnets"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["virtual_network_peerings"] = None
         return VirtualNetwork(resource_name, opts=opts, __props__=__props__)
 
     @property

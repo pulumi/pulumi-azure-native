@@ -106,6 +106,17 @@ class CertificateCsr(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["csr_string"] = None
+        __props__["distinguished_name"] = None
+        __props__["hosting_environment"] = None
+        __props__["kind"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["password"] = None
+        __props__["pfx_blob"] = None
+        __props__["public_key_hash"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
         return CertificateCsr(resource_name, opts=opts, __props__=__props__)
 
     @property

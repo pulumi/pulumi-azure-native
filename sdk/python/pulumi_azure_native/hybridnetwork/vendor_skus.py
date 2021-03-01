@@ -98,6 +98,15 @@ class VendorSkus(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["deployment_mode"] = None
+        __props__["managed_application_parameters"] = None
+        __props__["managed_application_template"] = None
+        __props__["name"] = None
+        __props__["network_function_template"] = None
+        __props__["preview"] = None
+        __props__["provisioning_state"] = None
+        __props__["sku_type"] = None
+        __props__["type"] = None
         return VendorSkus(resource_name, opts=opts, __props__=__props__)
 
     @property

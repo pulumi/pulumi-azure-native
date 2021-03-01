@@ -89,6 +89,10 @@ class Gateway(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["description"] = None
+        __props__["location_data"] = None
+        __props__["name"] = None
+        __props__["type"] = None
         return Gateway(resource_name, opts=opts, __props__=__props__)
 
     @property

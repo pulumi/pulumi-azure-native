@@ -131,7 +131,7 @@ def get_file_server(device_name: Optional[str] = None,
     :param str manager_name: The manager name
     :param str resource_group_name: The resource group name
     """
-    pulumi.log.warn("get_file_server is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storsimple:getFileServer'.")
+    pulumi.log.warn("""get_file_server is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storsimple:getFileServer'.""")
     __args__ = dict()
     __args__['deviceName'] = device_name
     __args__['fileServerName'] = file_server_name

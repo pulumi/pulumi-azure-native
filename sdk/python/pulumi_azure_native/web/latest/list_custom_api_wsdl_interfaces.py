@@ -66,7 +66,7 @@ def list_custom_api_wsdl_interfaces(content: Optional[str] = None,
     :param str subscription_id: Subscription Id
     :param str url: The WSDL URL
     """
-    pulumi.log.warn("list_custom_api_wsdl_interfaces is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listCustomApiWsdlInterfaces'.")
+    pulumi.log.warn("""list_custom_api_wsdl_interfaces is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listCustomApiWsdlInterfaces'.""")
     __args__ = dict()
     __args__['content'] = content
     __args__['importMethod'] = import_method

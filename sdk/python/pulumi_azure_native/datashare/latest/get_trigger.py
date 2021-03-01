@@ -108,7 +108,7 @@ def get_trigger(account_name: Optional[str] = None,
     :param str share_subscription_name: The name of the shareSubscription.
     :param str trigger_name: The name of the trigger.
     """
-    pulumi.log.warn("get_trigger is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datashare:getTrigger'.")
+    pulumi.log.warn("""get_trigger is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datashare:getTrigger'.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['resourceGroupName'] = resource_group_name

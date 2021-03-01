@@ -110,6 +110,19 @@ class NatGateway(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["etag"] = None
+        __props__["idle_timeout_in_minutes"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["public_ip_addresses"] = None
+        __props__["public_ip_prefixes"] = None
+        __props__["resource_guid"] = None
+        __props__["sku"] = None
+        __props__["subnets"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["zones"] = None
         return NatGateway(resource_name, opts=opts, __props__=__props__)
 
     @property

@@ -166,7 +166,7 @@ def get_assessment(assessment_name: Optional[str] = None,
     :param str expand: OData expand. Optional.
     :param str resource_id: The identifier of the resource.
     """
-    pulumi.log.warn("get_assessment is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:security:getAssessment'.")
+    pulumi.log.warn("""get_assessment is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:security:getAssessment'.""")
     __args__ = dict()
     __args__['assessmentName'] = assessment_name
     __args__['expand'] = expand

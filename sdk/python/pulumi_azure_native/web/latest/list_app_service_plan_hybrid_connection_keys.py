@@ -132,7 +132,7 @@ def list_app_service_plan_hybrid_connection_keys(name: Optional[str] = None,
     :param str relay_name: The name of the Service Bus relay.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
-    pulumi.log.warn("list_app_service_plan_hybrid_connection_keys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listAppServicePlanHybridConnectionKeys'.")
+    pulumi.log.warn("""list_app_service_plan_hybrid_connection_keys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listAppServicePlanHybridConnectionKeys'.""")
     __args__ = dict()
     __args__['name'] = name
     __args__['namespaceName'] = namespace_name

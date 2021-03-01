@@ -55,7 +55,7 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
         :param pulumi.Input[str] vm_scale_set_name: The name of the VM scale set where the extension should be create or updated.
         :param pulumi.Input[str] vmss_extension_name: The name of the VM scale set extension.
         """
-        pulumi.log.warn("VirtualMachineScaleSetExtension is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:compute:VirtualMachineScaleSetExtension'.")
+        pulumi.log.warn("""VirtualMachineScaleSetExtension is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:compute:VirtualMachineScaleSetExtension'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -115,6 +115,17 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["auto_upgrade_minor_version"] = None
+        __props__["enable_automatic_upgrade"] = None
+        __props__["force_update_tag"] = None
+        __props__["name"] = None
+        __props__["protected_settings"] = None
+        __props__["provision_after_extensions"] = None
+        __props__["provisioning_state"] = None
+        __props__["publisher"] = None
+        __props__["settings"] = None
+        __props__["type"] = None
+        __props__["type_handler_version"] = None
         return VirtualMachineScaleSetExtension(resource_name, opts=opts, __props__=__props__)
 
     @property

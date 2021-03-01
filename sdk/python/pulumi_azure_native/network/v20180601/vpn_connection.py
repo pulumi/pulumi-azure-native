@@ -108,6 +108,18 @@ class VpnConnection(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["connection_bandwidth_in_mbps"] = None
+        __props__["connection_status"] = None
+        __props__["egress_bytes_transferred"] = None
+        __props__["enable_bgp"] = None
+        __props__["etag"] = None
+        __props__["ingress_bytes_transferred"] = None
+        __props__["ipsec_policies"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["remote_vpn_site"] = None
+        __props__["routing_weight"] = None
+        __props__["shared_key"] = None
         return VpnConnection(resource_name, opts=opts, __props__=__props__)
 
     @property

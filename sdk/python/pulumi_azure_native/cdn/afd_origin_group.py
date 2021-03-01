@@ -102,6 +102,16 @@ class AFDOriginGroup(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["deployment_status"] = None
+        __props__["health_probe_settings"] = None
+        __props__["load_balancing_settings"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["response_based_afd_origin_error_detection_settings"] = None
+        __props__["session_affinity_state"] = None
+        __props__["system_data"] = None
+        __props__["traffic_restoration_time_to_healed_or_new_endpoints_in_minutes"] = None
+        __props__["type"] = None
         return AFDOriginGroup(resource_name, opts=opts, __props__=__props__)
 
     @property

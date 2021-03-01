@@ -105,6 +105,13 @@ class AppServicePlanRouteForVnet(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["end_address"] = None
+        __props__["kind"] = None
+        __props__["name"] = None
+        __props__["route_type"] = None
+        __props__["start_address"] = None
+        __props__["type"] = None
+        __props__["vnet_route_name"] = None
         return AppServicePlanRouteForVnet(resource_name, opts=opts, __props__=__props__)
 
     @property

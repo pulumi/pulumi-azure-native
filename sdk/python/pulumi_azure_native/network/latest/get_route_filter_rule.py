@@ -141,7 +141,7 @@ def get_route_filter_rule(resource_group_name: Optional[str] = None,
     :param str route_filter_name: The name of the route filter.
     :param str rule_name: The name of the rule.
     """
-    pulumi.log.warn("get_route_filter_rule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getRouteFilterRule'.")
+    pulumi.log.warn("""get_route_filter_rule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getRouteFilterRule'.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['routeFilterName'] = route_filter_name

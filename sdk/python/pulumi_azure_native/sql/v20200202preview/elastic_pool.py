@@ -113,6 +113,18 @@ class ElasticPool(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["creation_date"] = None
+        __props__["kind"] = None
+        __props__["license_type"] = None
+        __props__["location"] = None
+        __props__["max_size_bytes"] = None
+        __props__["name"] = None
+        __props__["per_database_settings"] = None
+        __props__["sku"] = None
+        __props__["state"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["zone_redundant"] = None
         return ElasticPool(resource_name, opts=opts, __props__=__props__)
 
     @property

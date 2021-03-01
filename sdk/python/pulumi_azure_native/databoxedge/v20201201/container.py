@@ -96,6 +96,13 @@ class Container(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["container_status"] = None
+        __props__["created_date_time"] = None
+        __props__["data_format"] = None
+        __props__["name"] = None
+        __props__["refresh_details"] = None
+        __props__["system_data"] = None
+        __props__["type"] = None
         return Container(resource_name, opts=opts, __props__=__props__)
 
     @property

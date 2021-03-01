@@ -236,7 +236,7 @@ def get_vpn_site(resource_group_name: Optional[str] = None,
     :param str resource_group_name: The resource group name of the VpnSite.
     :param str vpn_site_name: The name of the VpnSite being retrieved.
     """
-    pulumi.log.warn("get_vpn_site is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getVpnSite'.")
+    pulumi.log.warn("""get_vpn_site is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getVpnSite'.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['vpnSiteName'] = vpn_site_name

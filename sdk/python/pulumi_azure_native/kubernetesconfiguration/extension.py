@@ -127,6 +127,23 @@ class Extension(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["auto_upgrade_minor_version"] = None
+        __props__["configuration_protected_settings"] = None
+        __props__["configuration_settings"] = None
+        __props__["creation_time"] = None
+        __props__["error_info"] = None
+        __props__["extension_type"] = None
+        __props__["identity"] = None
+        __props__["install_state"] = None
+        __props__["last_modified_time"] = None
+        __props__["last_status_time"] = None
+        __props__["name"] = None
+        __props__["release_train"] = None
+        __props__["scope"] = None
+        __props__["statuses"] = None
+        __props__["system_data"] = None
+        __props__["type"] = None
+        __props__["version"] = None
         return Extension(resource_name, opts=opts, __props__=__props__)
 
     @property

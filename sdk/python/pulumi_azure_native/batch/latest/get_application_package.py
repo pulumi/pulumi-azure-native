@@ -155,7 +155,7 @@ def get_application_package(account_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group that contains the Batch account.
     :param str version_name: The version of the application.
     """
-    pulumi.log.warn("get_application_package is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:batch:getApplicationPackage'.")
+    pulumi.log.warn("""get_application_package is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:batch:getApplicationPackage'.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['applicationName'] = application_name

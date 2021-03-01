@@ -93,6 +93,11 @@ class Certificate(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["expiration_date"] = None
+        __props__["name"] = None
+        __props__["subject"] = None
+        __props__["thumbprint"] = None
+        __props__["type"] = None
         return Certificate(resource_name, opts=opts, __props__=__props__)
 
     @property

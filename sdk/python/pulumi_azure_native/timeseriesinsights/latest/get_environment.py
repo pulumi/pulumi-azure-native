@@ -130,7 +130,7 @@ def get_environment(environment_name: Optional[str] = None,
     :param str expand: Setting $expand=status will include the status of the internal services of the environment in the Time Series Insights service.
     :param str resource_group_name: Name of an Azure Resource group.
     """
-    pulumi.log.warn("get_environment is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:timeseriesinsights:getEnvironment'.")
+    pulumi.log.warn("""get_environment is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:timeseriesinsights:getEnvironment'.""")
     __args__ = dict()
     __args__['environmentName'] = environment_name
     __args__['expand'] = expand

@@ -167,7 +167,7 @@ def get_database_principal_assignment(cluster_name: Optional[str] = None,
     :param str principal_assignment_name: The name of the Kusto principalAssignment.
     :param str resource_group_name: The name of the resource group containing the Kusto cluster.
     """
-    pulumi.log.warn("get_database_principal_assignment is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:kusto:getDatabasePrincipalAssignment'.")
+    pulumi.log.warn("""get_database_principal_assignment is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:kusto:getDatabasePrincipalAssignment'.""")
     __args__ = dict()
     __args__['clusterName'] = cluster_name
     __args__['databaseName'] = database_name

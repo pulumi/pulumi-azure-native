@@ -40,7 +40,7 @@ class AccessControlRecord(pulumi.CustomResource):
         :param pulumi.Input[str] manager_name: The manager name
         :param pulumi.Input[str] resource_group_name: The resource group name
         """
-        pulumi.log.warn("AccessControlRecord is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storsimple:AccessControlRecord'.")
+        pulumi.log.warn("""AccessControlRecord is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storsimple:AccessControlRecord'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -96,6 +96,11 @@ class AccessControlRecord(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["initiator_name"] = None
+        __props__["kind"] = None
+        __props__["name"] = None
+        __props__["type"] = None
+        __props__["volume_count"] = None
         return AccessControlRecord(resource_name, opts=opts, __props__=__props__)
 
     @property

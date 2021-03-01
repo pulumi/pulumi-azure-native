@@ -270,7 +270,7 @@ def get_view(view_name: Optional[str] = None,
 
     :param str view_name: View name
     """
-    pulumi.log.warn("get_view is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:costmanagement:getView'.")
+    pulumi.log.warn("""get_view is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:costmanagement:getView'.""")
     __args__ = dict()
     __args__['viewName'] = view_name
     if opts is None:

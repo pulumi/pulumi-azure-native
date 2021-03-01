@@ -90,7 +90,7 @@ def get_alias(alias_name: Optional[str] = None,
 
     :param str alias_name: Alias Name
     """
-    pulumi.log.warn("get_alias is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:subscription:getAlias'.")
+    pulumi.log.warn("""get_alias is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:subscription:getAlias'.""")
     __args__ = dict()
     __args__['aliasName'] = alias_name
     if opts is None:

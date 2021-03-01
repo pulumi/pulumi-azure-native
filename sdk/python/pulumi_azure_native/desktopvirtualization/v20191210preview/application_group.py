@@ -99,6 +99,15 @@ class ApplicationGroup(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["application_group_type"] = None
+        __props__["description"] = None
+        __props__["friendly_name"] = None
+        __props__["host_pool_arm_path"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["workspace_arm_path"] = None
         return ApplicationGroup(resource_name, opts=opts, __props__=__props__)
 
     @property

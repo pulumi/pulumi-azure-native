@@ -169,6 +169,51 @@ func (e CertificateVisibility) ToStringPtrOutputWithContext(ctx context.Context)
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// CertificateVisibilityArrayInput is an input type that accepts CertificateVisibilityArray and CertificateVisibilityArrayOutput values.
+// You can construct a concrete instance of `CertificateVisibilityArrayInput` via:
+//
+//          CertificateVisibilityArray{ CertificateVisibilityArgs{...} }
+type CertificateVisibilityArrayInput interface {
+	pulumi.Input
+
+	ToCertificateVisibilityArrayOutput() CertificateVisibilityArrayOutput
+	ToCertificateVisibilityArrayOutputWithContext(context.Context) CertificateVisibilityArrayOutput
+}
+
+type CertificateVisibilityArray []CertificateVisibility
+
+func (CertificateVisibilityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CertificateVisibility)(nil)).Elem()
+}
+
+func (i CertificateVisibilityArray) ToCertificateVisibilityArrayOutput() CertificateVisibilityArrayOutput {
+	return i.ToCertificateVisibilityArrayOutputWithContext(context.Background())
+}
+
+func (i CertificateVisibilityArray) ToCertificateVisibilityArrayOutputWithContext(ctx context.Context) CertificateVisibilityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateVisibilityArrayOutput)
+}
+
+type CertificateVisibilityArrayOutput struct{ *pulumi.OutputState }
+
+func (CertificateVisibilityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CertificateVisibility)(nil)).Elem()
+}
+
+func (o CertificateVisibilityArrayOutput) ToCertificateVisibilityArrayOutput() CertificateVisibilityArrayOutput {
+	return o
+}
+
+func (o CertificateVisibilityArrayOutput) ToCertificateVisibilityArrayOutputWithContext(ctx context.Context) CertificateVisibilityArrayOutput {
+	return o
+}
+
+func (o CertificateVisibilityArrayOutput) Index(i pulumi.IntInput) pulumi.StringOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) pulumi.StringOutput {
+		return vs[0].([]CertificateVisibility)[vs[1].(int)].ToStringOutput()
+	}).(pulumi.StringOutput)
+}
+
 // If omitted, the default value is Requeue.
 type ComputeNodeDeallocationOption pulumi.String
 
@@ -316,6 +361,51 @@ func (e DiskEncryptionTarget) ToStringPtrOutput() pulumi.StringPtrOutput {
 
 func (e DiskEncryptionTarget) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// DiskEncryptionTargetArrayInput is an input type that accepts DiskEncryptionTargetArray and DiskEncryptionTargetArrayOutput values.
+// You can construct a concrete instance of `DiskEncryptionTargetArrayInput` via:
+//
+//          DiskEncryptionTargetArray{ DiskEncryptionTargetArgs{...} }
+type DiskEncryptionTargetArrayInput interface {
+	pulumi.Input
+
+	ToDiskEncryptionTargetArrayOutput() DiskEncryptionTargetArrayOutput
+	ToDiskEncryptionTargetArrayOutputWithContext(context.Context) DiskEncryptionTargetArrayOutput
+}
+
+type DiskEncryptionTargetArray []DiskEncryptionTarget
+
+func (DiskEncryptionTargetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DiskEncryptionTarget)(nil)).Elem()
+}
+
+func (i DiskEncryptionTargetArray) ToDiskEncryptionTargetArrayOutput() DiskEncryptionTargetArrayOutput {
+	return i.ToDiskEncryptionTargetArrayOutputWithContext(context.Background())
+}
+
+func (i DiskEncryptionTargetArray) ToDiskEncryptionTargetArrayOutputWithContext(ctx context.Context) DiskEncryptionTargetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiskEncryptionTargetArrayOutput)
+}
+
+type DiskEncryptionTargetArrayOutput struct{ *pulumi.OutputState }
+
+func (DiskEncryptionTargetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DiskEncryptionTarget)(nil)).Elem()
+}
+
+func (o DiskEncryptionTargetArrayOutput) ToDiskEncryptionTargetArrayOutput() DiskEncryptionTargetArrayOutput {
+	return o
+}
+
+func (o DiskEncryptionTargetArrayOutput) ToDiskEncryptionTargetArrayOutputWithContext(ctx context.Context) DiskEncryptionTargetArrayOutput {
+	return o
+}
+
+func (o DiskEncryptionTargetArrayOutput) Index(i pulumi.IntInput) pulumi.StringOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) pulumi.StringOutput {
+		return vs[0].([]DiskEncryptionTarget)[vs[1].(int)].ToStringOutput()
+	}).(pulumi.StringOutput)
 }
 
 // nonAdmin - The auto user is a standard user without elevated access. admin - The auto user is a user with elevated access and operates with full Administrator permissions. The default value is nonAdmin.

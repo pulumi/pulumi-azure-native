@@ -106,6 +106,14 @@ class MachineGroup(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["count"] = None
+        __props__["display_name"] = None
+        __props__["etag"] = None
+        __props__["group_type"] = None
+        __props__["kind"] = None
+        __props__["machines"] = None
+        __props__["name"] = None
+        __props__["type"] = None
         return MachineGroup(resource_name, opts=opts, __props__=__props__)
 
     @property

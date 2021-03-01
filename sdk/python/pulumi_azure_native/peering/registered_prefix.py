@@ -88,6 +88,13 @@ class RegisteredPrefix(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["error_message"] = None
+        __props__["name"] = None
+        __props__["peering_service_prefix_key"] = None
+        __props__["prefix"] = None
+        __props__["prefix_validation_state"] = None
+        __props__["provisioning_state"] = None
+        __props__["type"] = None
         return RegisteredPrefix(resource_name, opts=opts, __props__=__props__)
 
     @property

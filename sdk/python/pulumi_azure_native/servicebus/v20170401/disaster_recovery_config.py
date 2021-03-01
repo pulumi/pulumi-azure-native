@@ -89,6 +89,13 @@ class DisasterRecoveryConfig(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["alternate_name"] = None
+        __props__["name"] = None
+        __props__["partner_namespace"] = None
+        __props__["pending_replication_operations_count"] = None
+        __props__["provisioning_state"] = None
+        __props__["role"] = None
+        __props__["type"] = None
         return DisasterRecoveryConfig(resource_name, opts=opts, __props__=__props__)
 
     @property

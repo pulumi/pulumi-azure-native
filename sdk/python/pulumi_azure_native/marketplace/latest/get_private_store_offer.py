@@ -212,7 +212,7 @@ def get_private_store_offer(offer_id: Optional[str] = None,
     :param str offer_id: The offer ID to update or delete
     :param str private_store_id: The store ID - must use the tenant ID
     """
-    pulumi.log.warn("get_private_store_offer is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:marketplace:getPrivateStoreOffer'.")
+    pulumi.log.warn("""get_private_store_offer is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:marketplace:getPrivateStoreOffer'.""")
     __args__ = dict()
     __args__['offerId'] = offer_id
     __args__['privateStoreId'] = private_store_id

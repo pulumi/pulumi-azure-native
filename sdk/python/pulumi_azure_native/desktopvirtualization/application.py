@@ -119,6 +119,21 @@ class Application(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["application_type"] = None
+        __props__["command_line_arguments"] = None
+        __props__["command_line_setting"] = None
+        __props__["description"] = None
+        __props__["file_path"] = None
+        __props__["friendly_name"] = None
+        __props__["icon_content"] = None
+        __props__["icon_hash"] = None
+        __props__["icon_index"] = None
+        __props__["icon_path"] = None
+        __props__["msix_package_application_id"] = None
+        __props__["msix_package_family_name"] = None
+        __props__["name"] = None
+        __props__["show_in_portal"] = None
+        __props__["type"] = None
         return Application(resource_name, opts=opts, __props__=__props__)
 
     @property

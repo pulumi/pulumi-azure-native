@@ -41,7 +41,7 @@ class BackupScheduleGroup(pulumi.CustomResource):
         :param pulumi.Input[str] schedule_group_name: The name of the schedule group.
         :param pulumi.Input[pulumi.InputType['TimeArgs']] start_time: The start time. When this field is specified we will generate Default GrandFather Father Son Backup Schedules.
         """
-        pulumi.log.warn("BackupScheduleGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storsimple:BackupScheduleGroup'.")
+        pulumi.log.warn("""BackupScheduleGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storsimple:BackupScheduleGroup'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -98,6 +98,9 @@ class BackupScheduleGroup(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["name"] = None
+        __props__["start_time"] = None
+        __props__["type"] = None
         return BackupScheduleGroup(resource_name, opts=opts, __props__=__props__)
 
     @property

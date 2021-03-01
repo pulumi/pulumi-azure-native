@@ -96,6 +96,13 @@ class SiteSlotConfigNames(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["app_setting_names"] = None
+        __props__["connection_string_names"] = None
+        __props__["kind"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
         return SiteSlotConfigNames(resource_name, opts=opts, __props__=__props__)
 
     @property

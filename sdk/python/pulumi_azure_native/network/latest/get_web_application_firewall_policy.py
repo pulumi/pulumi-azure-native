@@ -212,7 +212,7 @@ def get_web_application_firewall_policy(policy_name: Optional[str] = None,
     :param str policy_name: The name of the policy.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("get_web_application_firewall_policy is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getWebApplicationFirewallPolicy'.")
+    pulumi.log.warn("""get_web_application_firewall_policy is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getWebApplicationFirewallPolicy'.""")
     __args__ = dict()
     __args__['policyName'] = policy_name
     __args__['resourceGroupName'] = resource_group_name

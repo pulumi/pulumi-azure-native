@@ -140,7 +140,7 @@ def get_report_config_by_resource_group_name(report_config_name: Optional[str] =
     :param str report_config_name: Report Config Name.
     :param str resource_group_name: Azure Resource Group Name.
     """
-    pulumi.log.warn("get_report_config_by_resource_group_name is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:costmanagement:getReportConfigByResourceGroupName'.")
+    pulumi.log.warn("""get_report_config_by_resource_group_name is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:costmanagement:getReportConfigByResourceGroupName'.""")
     __args__ = dict()
     __args__['reportConfigName'] = report_config_name
     __args__['resourceGroupName'] = resource_group_name

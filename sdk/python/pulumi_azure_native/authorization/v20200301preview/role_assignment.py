@@ -105,6 +105,20 @@ class RoleAssignment(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["can_delegate"] = None
+        __props__["condition"] = None
+        __props__["condition_version"] = None
+        __props__["created_by"] = None
+        __props__["created_on"] = None
+        __props__["delegated_managed_identity_resource_id"] = None
+        __props__["name"] = None
+        __props__["principal_id"] = None
+        __props__["principal_type"] = None
+        __props__["role_definition_id"] = None
+        __props__["scope"] = None
+        __props__["type"] = None
+        __props__["updated_by"] = None
+        __props__["updated_on"] = None
         return RoleAssignment(resource_name, opts=opts, __props__=__props__)
 
     @property

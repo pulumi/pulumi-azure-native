@@ -44,7 +44,7 @@ class StorageDomain(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] storage_account_credential_ids: The storage account credentials.
         :param pulumi.Input[str] storage_domain_name: The storage domain name.
         """
-        pulumi.log.warn("StorageDomain is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storsimple:StorageDomain'.")
+        pulumi.log.warn("""StorageDomain is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storsimple:StorageDomain'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -102,6 +102,11 @@ class StorageDomain(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["encryption_key"] = None
+        __props__["encryption_status"] = None
+        __props__["name"] = None
+        __props__["storage_account_credential_ids"] = None
+        __props__["type"] = None
         return StorageDomain(resource_name, opts=opts, __props__=__props__)
 
     @property

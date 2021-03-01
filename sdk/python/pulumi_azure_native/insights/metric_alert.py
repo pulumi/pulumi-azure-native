@@ -132,6 +132,23 @@ class MetricAlert(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["actions"] = None
+        __props__["auto_mitigate"] = None
+        __props__["criteria"] = None
+        __props__["description"] = None
+        __props__["enabled"] = None
+        __props__["evaluation_frequency"] = None
+        __props__["is_migrated"] = None
+        __props__["last_updated_time"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["scopes"] = None
+        __props__["severity"] = None
+        __props__["tags"] = None
+        __props__["target_resource_region"] = None
+        __props__["target_resource_type"] = None
+        __props__["type"] = None
+        __props__["window_size"] = None
         return MetricAlert(resource_name, opts=opts, __props__=__props__)
 
     @property

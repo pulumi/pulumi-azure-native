@@ -51,7 +51,7 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags of the resource.
         """
-        pulumi.log.warn("Domain is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:eventgrid:Domain'.")
+        pulumi.log.warn("""Domain is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:eventgrid:Domain'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -114,6 +114,19 @@ class Domain(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["endpoint"] = None
+        __props__["inbound_ip_rules"] = None
+        __props__["input_schema"] = None
+        __props__["input_schema_mapping"] = None
+        __props__["location"] = None
+        __props__["metric_resource_id"] = None
+        __props__["name"] = None
+        __props__["private_endpoint_connections"] = None
+        __props__["provisioning_state"] = None
+        __props__["public_network_access"] = None
+        __props__["system_data"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
         return Domain(resource_name, opts=opts, __props__=__props__)
 
     @property

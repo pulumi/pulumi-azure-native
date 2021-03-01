@@ -97,6 +97,19 @@ class Project(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["created_timestamp"] = None
+        __props__["customer_workspace_id"] = None
+        __props__["discovery_status"] = None
+        __props__["e_tag"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["number_of_assessments"] = None
+        __props__["number_of_groups"] = None
+        __props__["number_of_machines"] = None
+        __props__["provisioning_state"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["updated_timestamp"] = None
         return Project(resource_name, opts=opts, __props__=__props__)
 
     @property

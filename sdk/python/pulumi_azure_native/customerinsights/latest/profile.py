@@ -68,7 +68,7 @@ class Profile(pulumi.CustomResource):
         :param pulumi.Input[str] timestamp_field_name: The timestamp property name. Represents the time when the interaction or profile update happened.
         :param pulumi.Input[str] type_name: The name of the entity.
         """
-        pulumi.log.warn("Profile is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:customerinsights:Profile'.")
+        pulumi.log.warn("""Profile is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:customerinsights:Profile'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -137,6 +137,26 @@ class Profile(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["api_entity_set_name"] = None
+        __props__["attributes"] = None
+        __props__["description"] = None
+        __props__["display_name"] = None
+        __props__["entity_type"] = None
+        __props__["fields"] = None
+        __props__["instances_count"] = None
+        __props__["large_image"] = None
+        __props__["last_changed_utc"] = None
+        __props__["localized_attributes"] = None
+        __props__["medium_image"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["schema_item_type_link"] = None
+        __props__["small_image"] = None
+        __props__["strong_ids"] = None
+        __props__["tenant_id"] = None
+        __props__["timestamp_field_name"] = None
+        __props__["type"] = None
+        __props__["type_name"] = None
         return Profile(resource_name, opts=opts, __props__=__props__)
 
     @property

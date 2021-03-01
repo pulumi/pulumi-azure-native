@@ -45,7 +45,7 @@ class HubRouteTable(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HubRouteArgs']]]] routes: List of all routes.
         :param pulumi.Input[str] virtual_hub_name: The name of the VirtualHub.
         """
-        pulumi.log.warn("HubRouteTable is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:HubRouteTable'.")
+        pulumi.log.warn("""HubRouteTable is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:HubRouteTable'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -103,6 +103,14 @@ class HubRouteTable(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["associated_connections"] = None
+        __props__["etag"] = None
+        __props__["labels"] = None
+        __props__["name"] = None
+        __props__["propagating_connections"] = None
+        __props__["provisioning_state"] = None
+        __props__["routes"] = None
+        __props__["type"] = None
         return HubRouteTable(resource_name, opts=opts, __props__=__props__)
 
     @property

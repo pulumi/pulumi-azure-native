@@ -103,6 +103,14 @@ class AutoscaleSetting(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["enabled"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["notifications"] = None
+        __props__["profiles"] = None
+        __props__["tags"] = None
+        __props__["target_resource_uri"] = None
+        __props__["type"] = None
         return AutoscaleSetting(resource_name, opts=opts, __props__=__props__)
 
     @property

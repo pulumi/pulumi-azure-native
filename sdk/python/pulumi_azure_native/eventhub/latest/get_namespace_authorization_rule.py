@@ -93,7 +93,7 @@ def get_namespace_authorization_rule(authorization_rule_name: Optional[str] = No
     :param str namespace_name: The Namespace name
     :param str resource_group_name: Name of the resource group within the azure subscription.
     """
-    pulumi.log.warn("get_namespace_authorization_rule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:eventhub:getNamespaceAuthorizationRule'.")
+    pulumi.log.warn("""get_namespace_authorization_rule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:eventhub:getNamespaceAuthorizationRule'.""")
     __args__ = dict()
     __args__['authorizationRuleName'] = authorization_rule_name
     __args__['namespaceName'] = namespace_name

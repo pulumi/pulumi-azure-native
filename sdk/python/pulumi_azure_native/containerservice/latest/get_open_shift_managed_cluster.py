@@ -236,7 +236,7 @@ def get_open_shift_managed_cluster(resource_group_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     :param str resource_name: The name of the OpenShift managed cluster resource.
     """
-    pulumi.log.warn("get_open_shift_managed_cluster is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:containerservice:getOpenShiftManagedCluster'.")
+    pulumi.log.warn("""get_open_shift_managed_cluster is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:containerservice:getOpenShiftManagedCluster'.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name

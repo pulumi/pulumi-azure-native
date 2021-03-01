@@ -37,7 +37,7 @@ class ServerCommunicationLink(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] server_name: The name of the server.
         """
-        pulumi.log.warn("ServerCommunicationLink is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:sql:ServerCommunicationLink'.")
+        pulumi.log.warn("""ServerCommunicationLink is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:sql:ServerCommunicationLink'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -94,6 +94,12 @@ class ServerCommunicationLink(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["kind"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["partner_server"] = None
+        __props__["state"] = None
+        __props__["type"] = None
         return ServerCommunicationLink(resource_name, opts=opts, __props__=__props__)
 
     @property

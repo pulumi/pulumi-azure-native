@@ -119,7 +119,7 @@ def get_consumer_group(consumer_group_name: Optional[str] = None,
     :param str namespace_name: The Namespace name
     :param str resource_group_name: Name of the resource group within the azure subscription.
     """
-    pulumi.log.warn("get_consumer_group is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:eventhub:getConsumerGroup'.")
+    pulumi.log.warn("""get_consumer_group is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:eventhub:getConsumerGroup'.""")
     __args__ = dict()
     __args__['consumerGroupName'] = consumer_group_name
     __args__['eventHubName'] = event_hub_name

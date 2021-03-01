@@ -111,6 +111,18 @@ class SqlServerInstance(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["container_resource_id"] = None
+        __props__["create_time"] = None
+        __props__["edition"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["status"] = None
+        __props__["system_data"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["update_time"] = None
+        __props__["v_core"] = None
+        __props__["version"] = None
         return SqlServerInstance(resource_name, opts=opts, __props__=__props__)
 
     @property

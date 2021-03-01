@@ -145,6 +145,28 @@ class ServerEndpoint(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["byte_progress"] = None
+        __props__["byte_total"] = None
+        __props__["cloud_tiering"] = None
+        __props__["current_progress_type"] = None
+        __props__["friendly_name"] = None
+        __props__["item_download_error_count"] = None
+        __props__["item_progress_count"] = None
+        __props__["item_total_count"] = None
+        __props__["item_upload_error_count"] = None
+        __props__["last_sync_success"] = None
+        __props__["last_workflow_id"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["server_local_path"] = None
+        __props__["server_resource_id"] = None
+        __props__["sync_error_context"] = None
+        __props__["sync_error_direction"] = None
+        __props__["sync_error_state"] = None
+        __props__["sync_error_state_timestamp"] = None
+        __props__["total_progress"] = None
+        __props__["type"] = None
+        __props__["volume_free_space_percent"] = None
         return ServerEndpoint(resource_name, opts=opts, __props__=__props__)
 
     @property

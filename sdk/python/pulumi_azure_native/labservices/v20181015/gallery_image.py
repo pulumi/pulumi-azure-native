@@ -109,6 +109,22 @@ class GalleryImage(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["author"] = None
+        __props__["created_date"] = None
+        __props__["description"] = None
+        __props__["icon"] = None
+        __props__["image_reference"] = None
+        __props__["is_enabled"] = None
+        __props__["is_override"] = None
+        __props__["is_plan_authorized"] = None
+        __props__["latest_operation_result"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["plan_id"] = None
+        __props__["provisioning_state"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["unique_identifier"] = None
         return GalleryImage(resource_name, opts=opts, __props__=__props__)
 
     @property

@@ -190,7 +190,7 @@ def get_software_update_configuration_by_name(automation_account_name: Optional[
     :param str resource_group_name: Name of an Azure Resource group.
     :param str software_update_configuration_name: The name of the software update configuration to be created.
     """
-    pulumi.log.warn("get_software_update_configuration_by_name is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:automation:getSoftwareUpdateConfigurationByName'.")
+    pulumi.log.warn("""get_software_update_configuration_by_name is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:automation:getSoftwareUpdateConfigurationByName'.""")
     __args__ = dict()
     __args__['automationAccountName'] = automation_account_name
     __args__['resourceGroupName'] = resource_group_name

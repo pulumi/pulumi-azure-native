@@ -105,6 +105,18 @@ class VirtualNetwork(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["allowed_subnets"] = None
+        __props__["created_date"] = None
+        __props__["description"] = None
+        __props__["external_provider_resource_id"] = None
+        __props__["external_subnets"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["subnet_overrides"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["unique_identifier"] = None
         return VirtualNetwork(resource_name, opts=opts, __props__=__props__)
 
     @property

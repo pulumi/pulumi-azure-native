@@ -100,6 +100,15 @@ class Export(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["definition"] = None
+        __props__["delivery_info"] = None
+        __props__["e_tag"] = None
+        __props__["format"] = None
+        __props__["name"] = None
+        __props__["next_run_time_estimate"] = None
+        __props__["run_history"] = None
+        __props__["schedule"] = None
+        __props__["type"] = None
         return Export(resource_name, opts=opts, __props__=__props__)
 
     @property

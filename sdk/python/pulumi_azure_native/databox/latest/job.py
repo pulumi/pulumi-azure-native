@@ -52,7 +52,7 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups).
         :param pulumi.Input[Union[str, 'TransferType']] transfer_type: Type of the data transfer.
         """
-        pulumi.log.warn("Job is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:databox:Job'.")
+        pulumi.log.warn("""Job is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:databox:Job'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -124,6 +124,26 @@ class Job(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["cancellation_reason"] = None
+        __props__["delivery_info"] = None
+        __props__["delivery_type"] = None
+        __props__["details"] = None
+        __props__["error"] = None
+        __props__["identity"] = None
+        __props__["is_cancellable"] = None
+        __props__["is_cancellable_without_fee"] = None
+        __props__["is_deletable"] = None
+        __props__["is_prepare_to_ship_enabled"] = None
+        __props__["is_shipping_address_editable"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["sku"] = None
+        __props__["start_time"] = None
+        __props__["status"] = None
+        __props__["system_data"] = None
+        __props__["tags"] = None
+        __props__["transfer_type"] = None
+        __props__["type"] = None
         return Job(resource_name, opts=opts, __props__=__props__)
 
     @property

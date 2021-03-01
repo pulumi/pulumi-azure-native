@@ -48,7 +48,7 @@ class App(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         :param pulumi.Input[str] template: The ID of the application template, which is a blueprint that defines the characteristics and behaviors of an application. Optional; if not specified, defaults to a blank blueprint and allows the application to be defined from scratch.
         """
-        pulumi.log.warn("App is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:iotcentral:App'.")
+        pulumi.log.warn("""App is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:iotcentral:App'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -105,6 +105,15 @@ class App(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["application_id"] = None
+        __props__["display_name"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["sku"] = None
+        __props__["subdomain"] = None
+        __props__["tags"] = None
+        __props__["template"] = None
+        __props__["type"] = None
         return App(resource_name, opts=opts, __props__=__props__)
 
     @property

@@ -117,7 +117,7 @@ def get_registered_asn(peering_name: Optional[str] = None,
     :param str registered_asn_name: The name of the registered ASN.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("get_registered_asn is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:peering:getRegisteredAsn'.")
+    pulumi.log.warn("""get_registered_asn is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:peering:getRegisteredAsn'.""")
     __args__ = dict()
     __args__['peeringName'] = peering_name
     __args__['registeredAsnName'] = registered_asn_name

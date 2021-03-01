@@ -108,6 +108,21 @@ class NetworkFunction(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["device"] = None
+        __props__["etag"] = None
+        __props__["location"] = None
+        __props__["managed_application"] = None
+        __props__["managed_application_parameters"] = None
+        __props__["name"] = None
+        __props__["network_function_user_configurations"] = None
+        __props__["provisioning_state"] = None
+        __props__["service_key"] = None
+        __props__["sku_name"] = None
+        __props__["sku_type"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["vendor_name"] = None
+        __props__["vendor_provisioning_state"] = None
         return NetworkFunction(resource_name, opts=opts, __props__=__props__)
 
     @property

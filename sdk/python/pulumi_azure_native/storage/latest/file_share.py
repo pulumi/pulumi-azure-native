@@ -48,7 +48,7 @@ class FileShare(pulumi.CustomResource):
         :param pulumi.Input[str] share_name: The name of the file share within the specified storage account. File share names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
         :param pulumi.Input[int] share_quota: The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5TB (5120). For Large File Shares, the maximum size is 102400.
         """
-        pulumi.log.warn("FileShare is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storage:FileShare'.")
+        pulumi.log.warn("""FileShare is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storage:FileShare'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -115,6 +115,23 @@ class FileShare(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["access_tier"] = None
+        __props__["access_tier_change_time"] = None
+        __props__["access_tier_status"] = None
+        __props__["deleted"] = None
+        __props__["deleted_time"] = None
+        __props__["enabled_protocols"] = None
+        __props__["etag"] = None
+        __props__["last_modified_time"] = None
+        __props__["metadata"] = None
+        __props__["name"] = None
+        __props__["remaining_retention_days"] = None
+        __props__["root_squash"] = None
+        __props__["share_quota"] = None
+        __props__["share_usage_bytes"] = None
+        __props__["snapshot_time"] = None
+        __props__["type"] = None
+        __props__["version"] = None
         return FileShare(resource_name, opts=opts, __props__=__props__)
 
     @property

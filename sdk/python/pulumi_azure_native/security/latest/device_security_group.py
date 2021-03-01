@@ -43,7 +43,7 @@ class DeviceSecurityGroup(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThresholdCustomAlertRuleArgs']]]] threshold_rules: The list of custom alert threshold rules.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TimeWindowCustomAlertRuleArgs']]]] time_window_rules: The list of custom alert time-window rules.
         """
-        pulumi.log.warn("DeviceSecurityGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:security:DeviceSecurityGroup'.")
+        pulumi.log.warn("""DeviceSecurityGroup is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:security:DeviceSecurityGroup'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -95,6 +95,12 @@ class DeviceSecurityGroup(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["allowlist_rules"] = None
+        __props__["denylist_rules"] = None
+        __props__["name"] = None
+        __props__["threshold_rules"] = None
+        __props__["time_window_rules"] = None
+        __props__["type"] = None
         return DeviceSecurityGroup(resource_name, opts=opts, __props__=__props__)
 
     @property

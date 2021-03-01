@@ -53,7 +53,7 @@ class ExportConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] resource_name_: The name of the Application Insights component resource.
         """
-        pulumi.log.warn("ExportConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:insights:ExportConfiguration'.")
+        pulumi.log.warn("""ExportConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:insights:ExportConfiguration'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -123,6 +123,25 @@ class ExportConfiguration(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["application_name"] = None
+        __props__["container_name"] = None
+        __props__["destination_account_id"] = None
+        __props__["destination_storage_location_id"] = None
+        __props__["destination_storage_subscription_id"] = None
+        __props__["destination_type"] = None
+        __props__["export_id"] = None
+        __props__["export_status"] = None
+        __props__["instrumentation_key"] = None
+        __props__["is_user_enabled"] = None
+        __props__["last_gap_time"] = None
+        __props__["last_success_time"] = None
+        __props__["last_user_update"] = None
+        __props__["notification_queue_enabled"] = None
+        __props__["permanent_error_reason"] = None
+        __props__["record_types"] = None
+        __props__["resource_group"] = None
+        __props__["storage_name"] = None
+        __props__["subscription_id"] = None
         return ExportConfiguration(resource_name, opts=opts, __props__=__props__)
 
     @property

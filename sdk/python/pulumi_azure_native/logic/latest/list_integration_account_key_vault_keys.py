@@ -73,7 +73,7 @@ def list_integration_account_key_vault_keys(integration_account_name: Optional[s
     :param str resource_group_name: The resource group name.
     :param str skip_token: The skip token.
     """
-    pulumi.log.warn("list_integration_account_key_vault_keys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:logic:listIntegrationAccountKeyVaultKeys'.")
+    pulumi.log.warn("""list_integration_account_key_vault_keys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:logic:listIntegrationAccountKeyVaultKeys'.""")
     __args__ = dict()
     __args__['integrationAccountName'] = integration_account_name
     __args__['keyVault'] = key_vault

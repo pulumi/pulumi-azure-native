@@ -48,7 +48,7 @@ class PolicyDefinition(pulumi.CustomResource):
         :param Any policy_rule: The policy rule.
         :param pulumi.Input[Union[str, 'PolicyType']] policy_type: The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
         """
-        pulumi.log.warn("PolicyDefinition is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:authorization:PolicyDefinition'.")
+        pulumi.log.warn("""PolicyDefinition is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:authorization:PolicyDefinition'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -102,6 +102,15 @@ class PolicyDefinition(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["description"] = None
+        __props__["display_name"] = None
+        __props__["metadata"] = None
+        __props__["mode"] = None
+        __props__["name"] = None
+        __props__["parameters"] = None
+        __props__["policy_rule"] = None
+        __props__["policy_type"] = None
+        __props__["type"] = None
         return PolicyDefinition(resource_name, opts=opts, __props__=__props__)
 
     @property

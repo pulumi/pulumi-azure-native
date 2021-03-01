@@ -38,7 +38,7 @@ class Skus(pulumi.CustomResource):
         :param pulumi.Input[str] resource_type: The resource type.
         :param pulumi.Input[str] sku: The SKU.
         """
-        pulumi.log.warn("Skus is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:providerhub:Skus'.")
+        pulumi.log.warn("""Skus is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:providerhub:Skus'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -93,6 +93,9 @@ class Skus(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["name"] = None
+        __props__["properties"] = None
+        __props__["type"] = None
         return Skus(resource_name, opts=opts, __props__=__props__)
 
     @property

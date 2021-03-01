@@ -42,7 +42,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[Union[str, 'UserType']] user_type: Type of the user.
         """
-        pulumi.log.warn("User is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:databoxedge:User'.")
+        pulumi.log.warn("""User is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:databoxedge:User'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -98,6 +98,12 @@ class User(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["encrypted_password"] = None
+        __props__["name"] = None
+        __props__["share_access_rights"] = None
+        __props__["system_data"] = None
+        __props__["type"] = None
+        __props__["user_type"] = None
         return User(resource_name, opts=opts, __props__=__props__)
 
     @property

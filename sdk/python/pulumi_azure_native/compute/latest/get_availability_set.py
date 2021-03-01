@@ -176,7 +176,7 @@ def get_availability_set(availability_set_name: Optional[str] = None,
     :param str availability_set_name: The name of the availability set.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("get_availability_set is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:compute:getAvailabilitySet'.")
+    pulumi.log.warn("""get_availability_set is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:compute:getAvailabilitySet'.""")
     __args__ = dict()
     __args__['availabilitySetName'] = availability_set_name
     __args__['resourceGroupName'] = resource_group_name

@@ -42,7 +42,7 @@ class WebAppDomainOwnershipIdentifierSlot(pulumi.CustomResource):
         :param pulumi.Input[str] slot: Name of the deployment slot. If a slot is not specified, the API will delete the binding for the production slot.
         :param pulumi.Input[str] value: String representation of the identity.
         """
-        pulumi.log.warn("WebAppDomainOwnershipIdentifierSlot is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppDomainOwnershipIdentifierSlot'.")
+        pulumi.log.warn("""WebAppDomainOwnershipIdentifierSlot is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppDomainOwnershipIdentifierSlot'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -98,6 +98,11 @@ class WebAppDomainOwnershipIdentifierSlot(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["kind"] = None
+        __props__["name"] = None
+        __props__["system_data"] = None
+        __props__["type"] = None
+        __props__["value"] = None
         return WebAppDomainOwnershipIdentifierSlot(resource_name, opts=opts, __props__=__props__)
 
     @property

@@ -113,6 +113,18 @@ class ActionGroup(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["automation_runbook_receivers"] = None
+        __props__["azure_app_push_receivers"] = None
+        __props__["email_receivers"] = None
+        __props__["enabled"] = None
+        __props__["group_short_name"] = None
+        __props__["itsm_receivers"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["sms_receivers"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["webhook_receivers"] = None
         return ActionGroup(resource_name, opts=opts, __props__=__props__)
 
     @property

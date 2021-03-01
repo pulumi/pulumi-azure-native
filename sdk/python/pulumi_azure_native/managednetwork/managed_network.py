@@ -90,6 +90,14 @@ class ManagedNetwork(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["connectivity"] = None
+        __props__["etag"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["scope"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
         return ManagedNetwork(resource_name, opts=opts, __props__=__props__)
 
     @property

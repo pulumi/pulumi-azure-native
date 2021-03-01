@@ -50,7 +50,7 @@ class VirtualHubIpConfiguration(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SubnetArgs']] subnet: The reference to the subnet resource.
         :param pulumi.Input[str] virtual_hub_name: The name of the VirtualHub.
         """
-        pulumi.log.warn("VirtualHubIpConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:VirtualHubIpConfiguration'.")
+        pulumi.log.warn("""VirtualHubIpConfiguration is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:VirtualHubIpConfiguration'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -108,6 +108,14 @@ class VirtualHubIpConfiguration(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["etag"] = None
+        __props__["name"] = None
+        __props__["private_ip_address"] = None
+        __props__["private_ip_allocation_method"] = None
+        __props__["provisioning_state"] = None
+        __props__["public_ip_address"] = None
+        __props__["subnet"] = None
+        __props__["type"] = None
         return VirtualHubIpConfiguration(resource_name, opts=opts, __props__=__props__)
 
     @property

@@ -112,6 +112,23 @@ class Redis(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["access_keys"] = None
+        __props__["enable_non_ssl_port"] = None
+        __props__["host_name"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["port"] = None
+        __props__["provisioning_state"] = None
+        __props__["redis_configuration"] = None
+        __props__["redis_version"] = None
+        __props__["shard_count"] = None
+        __props__["sku"] = None
+        __props__["ssl_port"] = None
+        __props__["static_ip"] = None
+        __props__["subnet_id"] = None
+        __props__["tags"] = None
+        __props__["tenant_settings"] = None
+        __props__["type"] = None
         return Redis(resource_name, opts=opts, __props__=__props__)
 
     @property

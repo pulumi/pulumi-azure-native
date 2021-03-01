@@ -95,6 +95,10 @@ class ProductSetting(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["etag"] = None
+        __props__["kind"] = None
+        __props__["name"] = None
+        __props__["type"] = None
         return ProductSetting(resource_name, opts=opts, __props__=__props__)
 
     @property

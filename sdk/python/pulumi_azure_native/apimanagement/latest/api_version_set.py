@@ -46,7 +46,7 @@ class ApiVersionSet(pulumi.CustomResource):
         :param pulumi.Input[str] version_set_id: Api Version Set identifier. Must be unique in the current API Management service instance.
         :param pulumi.Input[Union[str, 'VersioningScheme']] versioning_scheme: An value that determines where the API Version identifier will be located in a HTTP request.
         """
-        pulumi.log.warn("ApiVersionSet is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:ApiVersionSet'.")
+        pulumi.log.warn("""ApiVersionSet is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:ApiVersionSet'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -106,6 +106,13 @@ class ApiVersionSet(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["description"] = None
+        __props__["display_name"] = None
+        __props__["name"] = None
+        __props__["type"] = None
+        __props__["version_header_name"] = None
+        __props__["version_query_name"] = None
+        __props__["versioning_scheme"] = None
         return ApiVersionSet(resource_name, opts=opts, __props__=__props__)
 
     @property

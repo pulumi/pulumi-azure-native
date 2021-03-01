@@ -230,7 +230,7 @@ def get_environment_setting(environment_setting_name: Optional[str] = None,
     :param str lab_name: The name of the lab.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("get_environment_setting is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:labservices:getEnvironmentSetting'.")
+    pulumi.log.warn("""get_environment_setting is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:labservices:getEnvironmentSetting'.""")
     __args__ = dict()
     __args__['environmentSettingName'] = environment_setting_name
     __args__['expand'] = expand

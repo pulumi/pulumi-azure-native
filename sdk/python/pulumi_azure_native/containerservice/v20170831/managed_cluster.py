@@ -101,6 +101,17 @@ class ManagedCluster(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["agent_pool_profiles"] = None
+        __props__["dns_prefix"] = None
+        __props__["fqdn"] = None
+        __props__["kubernetes_version"] = None
+        __props__["linux_profile"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["service_principal_profile"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
         return ManagedCluster(resource_name, opts=opts, __props__=__props__)
 
     @property

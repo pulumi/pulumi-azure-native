@@ -101,6 +101,14 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["attached_database_names"] = None
+        __props__["cluster_resource_id"] = None
+        __props__["database_name"] = None
+        __props__["default_principals_modification_kind"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["type"] = None
         return AttachedDatabaseConfiguration(resource_name, opts=opts, __props__=__props__)
 
     @property

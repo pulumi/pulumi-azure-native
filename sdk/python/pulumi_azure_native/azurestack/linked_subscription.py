@@ -100,6 +100,20 @@ class LinkedSubscription(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["device_connection_status"] = None
+        __props__["device_id"] = None
+        __props__["device_link_state"] = None
+        __props__["device_object_id"] = None
+        __props__["etag"] = None
+        __props__["kind"] = None
+        __props__["last_connected_time"] = None
+        __props__["linked_subscription_id"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["registration_resource_id"] = None
+        __props__["system_data"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
         return LinkedSubscription(resource_name, opts=opts, __props__=__props__)
 
     @property

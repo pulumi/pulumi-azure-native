@@ -124,7 +124,7 @@ def get_management_lock_at_resource_level(lock_name: Optional[str] = None,
     :param str resource_provider_namespace: The namespace of the resource provider.
     :param str resource_type: The type of the resource.
     """
-    pulumi.log.warn("get_management_lock_at_resource_level is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:authorization:getManagementLockAtResourceLevel'.")
+    pulumi.log.warn("""get_management_lock_at_resource_level is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:authorization:getManagementLockAtResourceLevel'.""")
     __args__ = dict()
     __args__['lockName'] = lock_name
     __args__['parentResourcePath'] = parent_resource_path

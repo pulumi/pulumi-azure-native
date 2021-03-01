@@ -129,7 +129,7 @@ def get_compute_policy(account_name: Optional[str] = None,
     :param str compute_policy_name: The name of the compute policy to retrieve.
     :param str resource_group_name: The name of the Azure resource group.
     """
-    pulumi.log.warn("get_compute_policy is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datalakeanalytics:getComputePolicy'.")
+    pulumi.log.warn("""get_compute_policy is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:datalakeanalytics:getComputePolicy'.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['computePolicyName'] = compute_policy_name

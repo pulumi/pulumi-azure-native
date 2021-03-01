@@ -73,7 +73,7 @@ def get_log_analytic_export_request_rate_by_interval(blob_container_sas_uri: Opt
     :param str location: The location upon which virtual-machine-sizes is queried.
     :param str to_time: To time of the query
     """
-    pulumi.log.warn("get_log_analytic_export_request_rate_by_interval is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:compute:getLogAnalyticExportRequestRateByInterval'.")
+    pulumi.log.warn("""get_log_analytic_export_request_rate_by_interval is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:compute:getLogAnalyticExportRequestRateByInterval'.""")
     __args__ = dict()
     __args__['blobContainerSasUri'] = blob_container_sas_uri
     __args__['fromTime'] = from_time

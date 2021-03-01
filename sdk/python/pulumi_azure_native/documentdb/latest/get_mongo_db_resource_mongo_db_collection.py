@@ -126,7 +126,7 @@ def get_mongo_db_resource_mongo_db_collection(account_name: Optional[str] = None
     :param str database_name: Cosmos DB database name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    pulumi.log.warn("get_mongo_db_resource_mongo_db_collection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:documentdb:getMongoDBResourceMongoDBCollection'.")
+    pulumi.log.warn("""get_mongo_db_resource_mongo_db_collection is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:documentdb:getMongoDBResourceMongoDBCollection'.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['collectionName'] = collection_name

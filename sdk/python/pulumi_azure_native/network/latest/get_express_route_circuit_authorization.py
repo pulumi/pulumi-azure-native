@@ -129,7 +129,7 @@ def get_express_route_circuit_authorization(authorization_name: Optional[str] = 
     :param str circuit_name: The name of the express route circuit.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("get_express_route_circuit_authorization is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getExpressRouteCircuitAuthorization'.")
+    pulumi.log.warn("""get_express_route_circuit_authorization is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getExpressRouteCircuitAuthorization'.""")
     __args__ = dict()
     __args__['authorizationName'] = authorization_name
     __args__['circuitName'] = circuit_name

@@ -200,7 +200,7 @@ def get_redis_enterprise(cluster_name: Optional[str] = None,
     :param str cluster_name: The name of the RedisEnterprise cluster.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    pulumi.log.warn("get_redis_enterprise is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:cache:getRedisEnterprise'.")
+    pulumi.log.warn("""get_redis_enterprise is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:cache:getRedisEnterprise'.""")
     __args__ = dict()
     __args__['clusterName'] = cluster_name
     __args__['resourceGroupName'] = resource_group_name

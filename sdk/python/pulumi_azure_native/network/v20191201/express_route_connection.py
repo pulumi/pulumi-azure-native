@@ -103,6 +103,12 @@ class ExpressRouteConnection(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["authorization_key"] = None
+        __props__["enable_internet_security"] = None
+        __props__["express_route_circuit_peering"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["routing_weight"] = None
         return ExpressRouteConnection(resource_name, opts=opts, __props__=__props__)
 
     @property

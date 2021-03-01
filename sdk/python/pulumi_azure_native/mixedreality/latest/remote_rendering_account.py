@@ -50,7 +50,7 @@ class RemoteRenderingAccount(pulumi.CustomResource):
         :param pulumi.Input[str] storage_account_name: The name of the storage account associated with this accountId
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.log.warn("RemoteRenderingAccount is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:mixedreality:RemoteRenderingAccount'.")
+        pulumi.log.warn("""RemoteRenderingAccount is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:mixedreality:RemoteRenderingAccount'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -108,6 +108,18 @@ class RemoteRenderingAccount(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["account_domain"] = None
+        __props__["account_id"] = None
+        __props__["identity"] = None
+        __props__["kind"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["plan"] = None
+        __props__["sku"] = None
+        __props__["storage_account_name"] = None
+        __props__["system_data"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
         return RemoteRenderingAccount(resource_name, opts=opts, __props__=__props__)
 
     @property

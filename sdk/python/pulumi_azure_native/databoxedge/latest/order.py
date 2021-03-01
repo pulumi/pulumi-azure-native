@@ -42,7 +42,7 @@ class Order(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'ShipmentType']] shipment_type: ShipmentType of the order
         :param pulumi.Input[pulumi.InputType['AddressArgs']] shipping_address: The shipping address.
         """
-        pulumi.log.warn("Order is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:databoxedge:Order'.")
+        pulumi.log.warn("""Order is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:databoxedge:Order'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -102,6 +102,16 @@ class Order(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["contact_information"] = None
+        __props__["current_status"] = None
+        __props__["delivery_tracking_info"] = None
+        __props__["name"] = None
+        __props__["order_history"] = None
+        __props__["return_tracking_info"] = None
+        __props__["serial_number"] = None
+        __props__["shipment_type"] = None
+        __props__["shipping_address"] = None
+        __props__["type"] = None
         return Order(resource_name, opts=opts, __props__=__props__)
 
     @property

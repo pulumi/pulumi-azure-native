@@ -95,7 +95,7 @@ def get_tag_by_product(product_id: Optional[str] = None,
     :param str service_name: The name of the API Management service.
     :param str tag_id: Tag identifier. Must be unique in the current API Management service instance.
     """
-    pulumi.log.warn("get_tag_by_product is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getTagByProduct'.")
+    pulumi.log.warn("""get_tag_by_product is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getTagByProduct'.""")
     __args__ = dict()
     __args__['productId'] = product_id
     __args__['resourceGroupName'] = resource_group_name

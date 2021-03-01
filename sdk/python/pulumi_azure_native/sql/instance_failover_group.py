@@ -104,6 +104,14 @@ class InstanceFailoverGroup(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["managed_instance_pairs"] = None
+        __props__["name"] = None
+        __props__["partner_regions"] = None
+        __props__["read_only_endpoint"] = None
+        __props__["read_write_endpoint"] = None
+        __props__["replication_role"] = None
+        __props__["replication_state"] = None
+        __props__["type"] = None
         return InstanceFailoverGroup(resource_name, opts=opts, __props__=__props__)
 
     @property

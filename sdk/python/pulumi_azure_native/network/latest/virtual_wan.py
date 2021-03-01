@@ -48,7 +48,7 @@ class VirtualWan(pulumi.CustomResource):
         :param pulumi.Input[str] type: The type of the VirtualWAN.
         :param pulumi.Input[str] virtual_wan_name: The name of the VirtualWAN being created or updated.
         """
-        pulumi.log.warn("VirtualWan is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:VirtualWan'.")
+        pulumi.log.warn("""VirtualWan is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:VirtualWan'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -107,6 +107,18 @@ class VirtualWan(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["allow_branch_to_branch_traffic"] = None
+        __props__["allow_vnet_to_vnet_traffic"] = None
+        __props__["disable_vpn_encryption"] = None
+        __props__["etag"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["office365_local_breakout_category"] = None
+        __props__["provisioning_state"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["virtual_hubs"] = None
+        __props__["vpn_sites"] = None
         return VirtualWan(resource_name, opts=opts, __props__=__props__)
 
     @property

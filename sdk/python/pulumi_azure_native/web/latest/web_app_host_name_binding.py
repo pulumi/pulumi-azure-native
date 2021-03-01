@@ -55,7 +55,7 @@ class WebAppHostNameBinding(pulumi.CustomResource):
         :param pulumi.Input['SslState'] ssl_state: SSL type
         :param pulumi.Input[str] thumbprint: SSL certificate thumbprint
         """
-        pulumi.log.warn("WebAppHostNameBinding is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppHostNameBinding'.")
+        pulumi.log.warn("""WebAppHostNameBinding is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppHostNameBinding'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -116,6 +116,19 @@ class WebAppHostNameBinding(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["azure_resource_name"] = None
+        __props__["azure_resource_type"] = None
+        __props__["custom_host_name_dns_record_type"] = None
+        __props__["domain_id"] = None
+        __props__["host_name_type"] = None
+        __props__["kind"] = None
+        __props__["name"] = None
+        __props__["site_name"] = None
+        __props__["ssl_state"] = None
+        __props__["system_data"] = None
+        __props__["thumbprint"] = None
+        __props__["type"] = None
+        __props__["virtual_ip"] = None
         return WebAppHostNameBinding(resource_name, opts=opts, __props__=__props__)
 
     @property

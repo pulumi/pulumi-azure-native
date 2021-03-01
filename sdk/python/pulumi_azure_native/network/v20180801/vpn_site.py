@@ -109,6 +109,19 @@ class VpnSite(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["address_space"] = None
+        __props__["bgp_properties"] = None
+        __props__["device_properties"] = None
+        __props__["etag"] = None
+        __props__["ip_address"] = None
+        __props__["is_security_site"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["site_key"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["virtual_wan"] = None
         return VpnSite(resource_name, opts=opts, __props__=__props__)
 
     @property

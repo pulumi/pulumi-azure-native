@@ -194,7 +194,7 @@ def get_virtual_machine_scale_set_vm_extension(expand: Optional[str] = None,
     :param str vm_extension_name: The name of the virtual machine extension.
     :param str vm_scale_set_name: The name of the VM scale set.
     """
-    pulumi.log.warn("get_virtual_machine_scale_set_vm_extension is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:compute:getVirtualMachineScaleSetVMExtension'.")
+    pulumi.log.warn("""get_virtual_machine_scale_set_vm_extension is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:compute:getVirtualMachineScaleSetVMExtension'.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['instanceId'] = instance_id

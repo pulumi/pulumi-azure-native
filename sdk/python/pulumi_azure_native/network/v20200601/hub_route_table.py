@@ -97,6 +97,14 @@ class HubRouteTable(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["associated_connections"] = None
+        __props__["etag"] = None
+        __props__["labels"] = None
+        __props__["name"] = None
+        __props__["propagating_connections"] = None
+        __props__["provisioning_state"] = None
+        __props__["routes"] = None
+        __props__["type"] = None
         return HubRouteTable(resource_name, opts=opts, __props__=__props__)
 
     @property

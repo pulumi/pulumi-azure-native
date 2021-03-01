@@ -93,6 +93,11 @@ class User(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["encrypted_password"] = None
+        __props__["name"] = None
+        __props__["share_access_rights"] = None
+        __props__["type"] = None
+        __props__["user_type"] = None
         return User(resource_name, opts=opts, __props__=__props__)
 
     @property

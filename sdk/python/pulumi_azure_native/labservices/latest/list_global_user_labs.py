@@ -54,7 +54,7 @@ def list_global_user_labs(user_name: Optional[str] = None,
 
     :param str user_name: The name of the user.
     """
-    pulumi.log.warn("list_global_user_labs is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:labservices:listGlobalUserLabs'.")
+    pulumi.log.warn("""list_global_user_labs is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:labservices:listGlobalUserLabs'.""")
     __args__ = dict()
     __args__['userName'] = user_name
     if opts is None:

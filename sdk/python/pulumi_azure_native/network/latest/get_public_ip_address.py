@@ -334,7 +334,7 @@ def get_public_ip_address(expand: Optional[str] = None,
     :param str public_ip_address_name: The name of the public IP address.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("get_public_ip_address is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getPublicIPAddress'.")
+    pulumi.log.warn("""get_public_ip_address is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getPublicIPAddress'.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['publicIpAddressName'] = public_ip_address_name

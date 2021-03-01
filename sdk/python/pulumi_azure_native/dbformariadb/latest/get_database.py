@@ -105,7 +105,7 @@ def get_database(database_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str server_name: The name of the server.
     """
-    pulumi.log.warn("get_database is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:dbformariadb:getDatabase'.")
+    pulumi.log.warn("""get_database is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:dbformariadb:getDatabase'.""")
     __args__ = dict()
     __args__['databaseName'] = database_name
     __args__['resourceGroupName'] = resource_group_name

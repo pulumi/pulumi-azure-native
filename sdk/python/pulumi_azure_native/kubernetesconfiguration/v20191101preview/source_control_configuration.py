@@ -124,6 +124,19 @@ class SourceControlConfiguration(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["compliance_status"] = None
+        __props__["enable_helm_operator"] = None
+        __props__["helm_operator_properties"] = None
+        __props__["name"] = None
+        __props__["operator_instance_name"] = None
+        __props__["operator_namespace"] = None
+        __props__["operator_params"] = None
+        __props__["operator_scope"] = None
+        __props__["operator_type"] = None
+        __props__["provisioning_state"] = None
+        __props__["repository_public_key"] = None
+        __props__["repository_url"] = None
+        __props__["type"] = None
         return SourceControlConfiguration(resource_name, opts=opts, __props__=__props__)
 
     @property

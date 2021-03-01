@@ -56,7 +56,7 @@ class InboundNatRule(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'TransportProtocol']] protocol: The reference to the transport protocol used by the load balancing rule.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         """
-        pulumi.log.warn("InboundNatRule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:InboundNatRule'.")
+        pulumi.log.warn("""InboundNatRule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:InboundNatRule'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -118,6 +118,18 @@ class InboundNatRule(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["backend_ip_configuration"] = None
+        __props__["backend_port"] = None
+        __props__["enable_floating_ip"] = None
+        __props__["enable_tcp_reset"] = None
+        __props__["etag"] = None
+        __props__["frontend_ip_configuration"] = None
+        __props__["frontend_port"] = None
+        __props__["idle_timeout_in_minutes"] = None
+        __props__["name"] = None
+        __props__["protocol"] = None
+        __props__["provisioning_state"] = None
+        __props__["type"] = None
         return InboundNatRule(resource_name, opts=opts, __props__=__props__)
 
     @property

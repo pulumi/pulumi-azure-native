@@ -48,7 +48,7 @@ class RouteFilterRule(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'RouteFilterRuleType']] route_filter_rule_type: The rule type of the rule.
         :param pulumi.Input[str] rule_name: The name of the route filter rule.
         """
-        pulumi.log.warn("RouteFilterRule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:RouteFilterRule'.")
+        pulumi.log.warn("""RouteFilterRule is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:RouteFilterRule'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -111,6 +111,13 @@ class RouteFilterRule(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["access"] = None
+        __props__["communities"] = None
+        __props__["etag"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["provisioning_state"] = None
+        __props__["route_filter_rule_type"] = None
         return RouteFilterRule(resource_name, opts=opts, __props__=__props__)
 
     @property

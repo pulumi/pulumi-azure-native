@@ -260,7 +260,7 @@ def get_front_door(front_door_name: Optional[str] = None,
     :param str front_door_name: Name of the Front Door which is globally unique.
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
-    pulumi.log.warn("get_front_door is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getFrontDoor'.")
+    pulumi.log.warn("""get_front_door is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getFrontDoor'.""")
     __args__ = dict()
     __args__['frontDoorName'] = front_door_name
     __args__['resourceGroupName'] = resource_group_name

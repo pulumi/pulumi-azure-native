@@ -83,6 +83,10 @@ class Queue(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["approximate_message_count"] = None
+        __props__["metadata"] = None
+        __props__["name"] = None
+        __props__["type"] = None
         return Queue(resource_name, opts=opts, __props__=__props__)
 
     @property

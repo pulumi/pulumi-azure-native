@@ -105,7 +105,7 @@ def get_firewall_rule(cache_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     :param str rule_name: The name of the firewall rule.
     """
-    pulumi.log.warn("get_firewall_rule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:cache:getFirewallRule'.")
+    pulumi.log.warn("""get_firewall_rule is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:cache:getFirewallRule'.""")
     __args__ = dict()
     __args__['cacheName'] = cache_name
     __args__['resourceGroupName'] = resource_group_name

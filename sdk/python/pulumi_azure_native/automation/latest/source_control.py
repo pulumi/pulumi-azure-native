@@ -53,7 +53,7 @@ class SourceControl(pulumi.CustomResource):
         :param pulumi.Input[str] source_control_name: The source control name.
         :param pulumi.Input[Union[str, 'SourceType']] source_type: The source type. Must be one of VsoGit, VsoTfvc, GitHub, case sensitive.
         """
-        pulumi.log.warn("SourceControl is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:automation:SourceControl'.")
+        pulumi.log.warn("""SourceControl is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:automation:SourceControl'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -114,6 +114,17 @@ class SourceControl(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["auto_sync"] = None
+        __props__["branch"] = None
+        __props__["creation_time"] = None
+        __props__["description"] = None
+        __props__["folder_path"] = None
+        __props__["last_modified_time"] = None
+        __props__["name"] = None
+        __props__["publish_runbook"] = None
+        __props__["repo_url"] = None
+        __props__["source_type"] = None
+        __props__["type"] = None
         return SourceControl(resource_name, opts=opts, __props__=__props__)
 
     @property

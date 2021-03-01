@@ -108,6 +108,51 @@ func (e DayOfWeek) ToStringPtrOutputWithContext(ctx context.Context) pulumi.Stri
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// DayOfWeekArrayInput is an input type that accepts DayOfWeekArray and DayOfWeekArrayOutput values.
+// You can construct a concrete instance of `DayOfWeekArrayInput` via:
+//
+//          DayOfWeekArray{ DayOfWeekArgs{...} }
+type DayOfWeekArrayInput interface {
+	pulumi.Input
+
+	ToDayOfWeekArrayOutput() DayOfWeekArrayOutput
+	ToDayOfWeekArrayOutputWithContext(context.Context) DayOfWeekArrayOutput
+}
+
+type DayOfWeekArray []DayOfWeek
+
+func (DayOfWeekArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DayOfWeek)(nil)).Elem()
+}
+
+func (i DayOfWeekArray) ToDayOfWeekArrayOutput() DayOfWeekArrayOutput {
+	return i.ToDayOfWeekArrayOutputWithContext(context.Background())
+}
+
+func (i DayOfWeekArray) ToDayOfWeekArrayOutputWithContext(ctx context.Context) DayOfWeekArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DayOfWeekArrayOutput)
+}
+
+type DayOfWeekArrayOutput struct{ *pulumi.OutputState }
+
+func (DayOfWeekArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DayOfWeek)(nil)).Elem()
+}
+
+func (o DayOfWeekArrayOutput) ToDayOfWeekArrayOutput() DayOfWeekArrayOutput {
+	return o
+}
+
+func (o DayOfWeekArrayOutput) ToDayOfWeekArrayOutputWithContext(ctx context.Context) DayOfWeekArrayOutput {
+	return o
+}
+
+func (o DayOfWeekArrayOutput) Index(i pulumi.IntInput) pulumi.StringOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) pulumi.StringOutput {
+		return vs[0].([]DayOfWeek)[vs[1].(int)].ToStringOutput()
+	}).(pulumi.StringOutput)
+}
+
 type MonthOfYear pulumi.String
 
 const (
@@ -144,6 +189,51 @@ func (e MonthOfYear) ToStringPtrOutput() pulumi.StringPtrOutput {
 
 func (e MonthOfYear) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// MonthOfYearArrayInput is an input type that accepts MonthOfYearArray and MonthOfYearArrayOutput values.
+// You can construct a concrete instance of `MonthOfYearArrayInput` via:
+//
+//          MonthOfYearArray{ MonthOfYearArgs{...} }
+type MonthOfYearArrayInput interface {
+	pulumi.Input
+
+	ToMonthOfYearArrayOutput() MonthOfYearArrayOutput
+	ToMonthOfYearArrayOutputWithContext(context.Context) MonthOfYearArrayOutput
+}
+
+type MonthOfYearArray []MonthOfYear
+
+func (MonthOfYearArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MonthOfYear)(nil)).Elem()
+}
+
+func (i MonthOfYearArray) ToMonthOfYearArrayOutput() MonthOfYearArrayOutput {
+	return i.ToMonthOfYearArrayOutputWithContext(context.Background())
+}
+
+func (i MonthOfYearArray) ToMonthOfYearArrayOutputWithContext(ctx context.Context) MonthOfYearArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonthOfYearArrayOutput)
+}
+
+type MonthOfYearArrayOutput struct{ *pulumi.OutputState }
+
+func (MonthOfYearArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MonthOfYear)(nil)).Elem()
+}
+
+func (o MonthOfYearArrayOutput) ToMonthOfYearArrayOutput() MonthOfYearArrayOutput {
+	return o
+}
+
+func (o MonthOfYearArrayOutput) ToMonthOfYearArrayOutputWithContext(ctx context.Context) MonthOfYearArrayOutput {
+	return o
+}
+
+func (o MonthOfYearArrayOutput) Index(i pulumi.IntInput) pulumi.StringOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) pulumi.StringOutput {
+		return vs[0].([]MonthOfYear)[vs[1].(int)].ToStringOutput()
+	}).(pulumi.StringOutput)
 }
 
 // The backup state of the backup item.
@@ -383,4 +473,49 @@ func (e WeekOfMonth) ToStringPtrOutput() pulumi.StringPtrOutput {
 
 func (e WeekOfMonth) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// WeekOfMonthArrayInput is an input type that accepts WeekOfMonthArray and WeekOfMonthArrayOutput values.
+// You can construct a concrete instance of `WeekOfMonthArrayInput` via:
+//
+//          WeekOfMonthArray{ WeekOfMonthArgs{...} }
+type WeekOfMonthArrayInput interface {
+	pulumi.Input
+
+	ToWeekOfMonthArrayOutput() WeekOfMonthArrayOutput
+	ToWeekOfMonthArrayOutputWithContext(context.Context) WeekOfMonthArrayOutput
+}
+
+type WeekOfMonthArray []WeekOfMonth
+
+func (WeekOfMonthArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WeekOfMonth)(nil)).Elem()
+}
+
+func (i WeekOfMonthArray) ToWeekOfMonthArrayOutput() WeekOfMonthArrayOutput {
+	return i.ToWeekOfMonthArrayOutputWithContext(context.Background())
+}
+
+func (i WeekOfMonthArray) ToWeekOfMonthArrayOutputWithContext(ctx context.Context) WeekOfMonthArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WeekOfMonthArrayOutput)
+}
+
+type WeekOfMonthArrayOutput struct{ *pulumi.OutputState }
+
+func (WeekOfMonthArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WeekOfMonth)(nil)).Elem()
+}
+
+func (o WeekOfMonthArrayOutput) ToWeekOfMonthArrayOutput() WeekOfMonthArrayOutput {
+	return o
+}
+
+func (o WeekOfMonthArrayOutput) ToWeekOfMonthArrayOutputWithContext(ctx context.Context) WeekOfMonthArrayOutput {
+	return o
+}
+
+func (o WeekOfMonthArrayOutput) Index(i pulumi.IntInput) pulumi.StringOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) pulumi.StringOutput {
+		return vs[0].([]WeekOfMonth)[vs[1].(int)].ToStringOutput()
+	}).(pulumi.StringOutput)
 }

@@ -165,6 +165,39 @@ class DatabaseAccount(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["api_properties"] = None
+        __props__["backup_policy"] = None
+        __props__["capabilities"] = None
+        __props__["connector_offer"] = None
+        __props__["consistency_policy"] = None
+        __props__["cors"] = None
+        __props__["database_account_offer_type"] = None
+        __props__["disable_key_based_metadata_write_access"] = None
+        __props__["document_endpoint"] = None
+        __props__["enable_analytical_storage"] = None
+        __props__["enable_automatic_failover"] = None
+        __props__["enable_cassandra_connector"] = None
+        __props__["enable_free_tier"] = None
+        __props__["enable_multiple_write_locations"] = None
+        __props__["failover_policies"] = None
+        __props__["identity"] = None
+        __props__["ip_rules"] = None
+        __props__["is_virtual_network_filter_enabled"] = None
+        __props__["key_vault_key_uri"] = None
+        __props__["kind"] = None
+        __props__["location"] = None
+        __props__["locations"] = None
+        __props__["name"] = None
+        __props__["network_acl_bypass"] = None
+        __props__["network_acl_bypass_resource_ids"] = None
+        __props__["private_endpoint_connections"] = None
+        __props__["provisioning_state"] = None
+        __props__["public_network_access"] = None
+        __props__["read_locations"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["virtual_network_rules"] = None
+        __props__["write_locations"] = None
         return DatabaseAccount(resource_name, opts=opts, __props__=__props__)
 
     @property

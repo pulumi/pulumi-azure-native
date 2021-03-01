@@ -96,6 +96,16 @@ class KeyValue(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["content_type"] = None
+        __props__["e_tag"] = None
+        __props__["key"] = None
+        __props__["label"] = None
+        __props__["last_modified"] = None
+        __props__["locked"] = None
+        __props__["name"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
+        __props__["value"] = None
         return KeyValue(resource_name, opts=opts, __props__=__props__)
 
     @property

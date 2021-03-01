@@ -70,7 +70,7 @@ def list_static_site_users(authprovider: Optional[str] = None,
     :param str name: Name of the static site.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
-    pulumi.log.warn("list_static_site_users is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listStaticSiteUsers'.")
+    pulumi.log.warn("""list_static_site_users is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listStaticSiteUsers'.""")
     __args__ = dict()
     __args__['authprovider'] = authprovider
     __args__['name'] = name

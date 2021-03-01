@@ -66,7 +66,7 @@ class StreamingJob(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[pulumi.InputType['TransformationArgs']] transformation: Indicates the query and the number of streaming units to use for the streaming job. The name property of the transformation is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual transformation.
         """
-        pulumi.log.warn("StreamingJob is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:streamanalytics:StreamingJob'.")
+        pulumi.log.warn("""StreamingJob is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:streamanalytics:StreamingJob'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -135,6 +135,29 @@ class StreamingJob(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["compatibility_level"] = None
+        __props__["created_date"] = None
+        __props__["data_locale"] = None
+        __props__["etag"] = None
+        __props__["events_late_arrival_max_delay_in_seconds"] = None
+        __props__["events_out_of_order_max_delay_in_seconds"] = None
+        __props__["events_out_of_order_policy"] = None
+        __props__["functions"] = None
+        __props__["inputs"] = None
+        __props__["job_id"] = None
+        __props__["job_state"] = None
+        __props__["last_output_event_time"] = None
+        __props__["location"] = None
+        __props__["name"] = None
+        __props__["output_error_policy"] = None
+        __props__["output_start_mode"] = None
+        __props__["output_start_time"] = None
+        __props__["outputs"] = None
+        __props__["provisioning_state"] = None
+        __props__["sku"] = None
+        __props__["tags"] = None
+        __props__["transformation"] = None
+        __props__["type"] = None
         return StreamingJob(resource_name, opts=opts, __props__=__props__)
 
     @property

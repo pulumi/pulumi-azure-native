@@ -47,7 +47,7 @@ class StorageInsightConfig(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         """
-        pulumi.log.warn("StorageInsightConfig is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:operationalinsights:StorageInsightConfig'.")
+        pulumi.log.warn("""StorageInsightConfig is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:operationalinsights:StorageInsightConfig'.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -106,6 +106,14 @@ class StorageInsightConfig(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["containers"] = None
+        __props__["e_tag"] = None
+        __props__["name"] = None
+        __props__["status"] = None
+        __props__["storage_account"] = None
+        __props__["tables"] = None
+        __props__["tags"] = None
+        __props__["type"] = None
         return StorageInsightConfig(resource_name, opts=opts, __props__=__props__)
 
     @property

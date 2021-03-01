@@ -97,6 +97,15 @@ class Order(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["contact_information"] = None
+        __props__["current_status"] = None
+        __props__["delivery_tracking_info"] = None
+        __props__["name"] = None
+        __props__["order_history"] = None
+        __props__["return_tracking_info"] = None
+        __props__["serial_number"] = None
+        __props__["shipping_address"] = None
+        __props__["type"] = None
         return Order(resource_name, opts=opts, __props__=__props__)
 
     @property

@@ -101,6 +101,13 @@ class ServerAzureADAdministrator(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["administrator_type"] = None
+        __props__["azure_ad_only_authentication"] = None
+        __props__["login"] = None
+        __props__["name"] = None
+        __props__["sid"] = None
+        __props__["tenant_id"] = None
+        __props__["type"] = None
         return ServerAzureADAdministrator(resource_name, opts=opts, __props__=__props__)
 
     @property

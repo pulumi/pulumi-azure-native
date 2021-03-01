@@ -118,7 +118,7 @@ def list_web_app_function_keys(function_name: Optional[str] = None,
     :param str name: Site name.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
-    pulumi.log.warn("list_web_app_function_keys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listWebAppFunctionKeys'.")
+    pulumi.log.warn("""list_web_app_function_keys is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listWebAppFunctionKeys'.""")
     __args__ = dict()
     __args__['functionName'] = function_name
     __args__['name'] = name

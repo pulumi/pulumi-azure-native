@@ -128,7 +128,7 @@ def get_private_link_hub(private_link_hub_name: Optional[str] = None,
     :param str private_link_hub_name: Name of the privateLinkHub
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    pulumi.log.warn("get_private_link_hub is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:synapse:getPrivateLinkHub'.")
+    pulumi.log.warn("""get_private_link_hub is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:synapse:getPrivateLinkHub'.""")
     __args__ = dict()
     __args__['privateLinkHubName'] = private_link_hub_name
     __args__['resourceGroupName'] = resource_group_name
