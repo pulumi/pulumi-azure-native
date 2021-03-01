@@ -11,28 +11,115 @@ import (
 )
 
 // The name of the Azure pricing tier to which the SKU applies.
-type SkuTier pulumi.String
+type CapacitySkuTier pulumi.String
 
 const (
-	SkuTier_PBIE_Azure = SkuTier("PBIE_Azure")
+	CapacitySkuTier_PBIE_Azure     = CapacitySkuTier("PBIE_Azure")
+	CapacitySkuTierPremium         = CapacitySkuTier("Premium")
+	CapacitySkuTierAutoPremiumHost = CapacitySkuTier("AutoPremiumHost")
 )
 
-func (SkuTier) ElementType() reflect.Type {
+func (CapacitySkuTier) ElementType() reflect.Type {
 	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
-func (e SkuTier) ToStringOutput() pulumi.StringOutput {
+func (e CapacitySkuTier) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e SkuTier) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e CapacitySkuTier) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e SkuTier) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e CapacitySkuTier) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e SkuTier) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e CapacitySkuTier) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// The type of identity that last modified the resource
+type IdentityType pulumi.String
+
+const (
+	IdentityTypeUser            = IdentityType("User")
+	IdentityTypeApplication     = IdentityType("Application")
+	IdentityTypeManagedIdentity = IdentityType("ManagedIdentity")
+	IdentityTypeKey             = IdentityType("Key")
+)
+
+func (IdentityType) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e IdentityType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IdentityType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IdentityType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e IdentityType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// The capacity mode.
+type Mode pulumi.String
+
+const (
+	ModeGen1 = Mode("Gen1")
+	ModeGen2 = Mode("Gen2")
+)
+
+func (Mode) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e Mode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e Mode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e Mode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e Mode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// The name of the Azure pricing tier to which the SKU applies.
+type VCoreSkuTier pulumi.String
+
+const (
+	VCoreSkuTierAutoScale = VCoreSkuTier("AutoScale")
+)
+
+func (VCoreSkuTier) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e VCoreSkuTier) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VCoreSkuTier) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VCoreSkuTier) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e VCoreSkuTier) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }

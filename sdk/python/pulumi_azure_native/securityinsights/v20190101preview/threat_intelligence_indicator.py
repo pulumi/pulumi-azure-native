@@ -20,12 +20,14 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
                  confidence: Optional[pulumi.Input[int]] = None,
                  created: Optional[pulumi.Input[str]] = None,
                  created_by_ref: Optional[pulumi.Input[str]] = None,
+                 defanged: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  etag: Optional[pulumi.Input[str]] = None,
                  extensions: Optional[Any] = None,
                  external_id: Optional[pulumi.Input[str]] = None,
-                 external_references: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 external_last_updated_time_utc: Optional[pulumi.Input[str]] = None,
+                 external_references: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThreatIntelligenceExternalReferenceArgs']]]]] = None,
                  granular_markings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThreatIntelligenceGranularMarkingModelArgs']]]]] = None,
                  indicator_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  kill_chain_phases: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThreatIntelligenceKillChainPhaseArgs']]]]] = None,
@@ -35,10 +37,12 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
                  last_updated_time_utc: Optional[pulumi.Input[str]] = None,
                  modified: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 object_marking_refs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,
                  parsed_pattern: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThreatIntelligenceParsedPatternArgs']]]]] = None,
                  pattern: Optional[pulumi.Input[str]] = None,
                  pattern_type: Optional[pulumi.Input[str]] = None,
+                 pattern_version: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  revoked: Optional[pulumi.Input[bool]] = None,
                  source: Optional[pulumi.Input[str]] = None,
@@ -58,12 +62,14 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
         :param pulumi.Input[int] confidence: Confidence of threat intelligence entity
         :param pulumi.Input[str] created: Created by
         :param pulumi.Input[str] created_by_ref: Created by reference of threat intelligence entity
+        :param pulumi.Input[bool] defanged: Is threat intelligence entity defanged
         :param pulumi.Input[str] description: Description of a threat intelligence entity
         :param pulumi.Input[str] display_name: Display name of a threat intelligence entity
         :param pulumi.Input[str] etag: Etag of the azure resource
         :param Any extensions: Extensions map
         :param pulumi.Input[str] external_id: External ID of threat intelligence entity
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_references: External References
+        :param pulumi.Input[str] external_last_updated_time_utc: External last updated time in UTC
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThreatIntelligenceExternalReferenceArgs']]]] external_references: External References
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThreatIntelligenceGranularMarkingModelArgs']]]] granular_markings: Granular Markings
         :param pulumi.Input[Sequence[pulumi.Input[str]]] indicator_types: Indicator types of threat intelligence entities
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThreatIntelligenceKillChainPhaseArgs']]]] kill_chain_phases: Kill chain phases
@@ -73,10 +79,12 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
         :param pulumi.Input[str] last_updated_time_utc: Last updated time in UTC
         :param pulumi.Input[str] modified: Modified by
         :param pulumi.Input[str] name: Threat intelligence indicator name field.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] object_marking_refs: Threat intelligence entity object marking references
         :param pulumi.Input[str] operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThreatIntelligenceParsedPatternArgs']]]] parsed_pattern: Parsed patterns
         :param pulumi.Input[str] pattern: Pattern of a threat intelligence entity
         :param pulumi.Input[str] pattern_type: Pattern type of a threat intelligence entity
+        :param pulumi.Input[str] pattern_version: Pattern version of a threat intelligence entity
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         :param pulumi.Input[bool] revoked: Is threat intelligence entity revoked
         :param pulumi.Input[str] source: Source of a threat intelligence entity
@@ -106,11 +114,13 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
             __props__['confidence'] = confidence
             __props__['created'] = created
             __props__['created_by_ref'] = created_by_ref
+            __props__['defanged'] = defanged
             __props__['description'] = description
             __props__['display_name'] = display_name
             __props__['etag'] = etag
             __props__['extensions'] = extensions
             __props__['external_id'] = external_id
+            __props__['external_last_updated_time_utc'] = external_last_updated_time_utc
             __props__['external_references'] = external_references
             __props__['granular_markings'] = granular_markings
             __props__['indicator_types'] = indicator_types
@@ -123,12 +133,14 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
             __props__['last_updated_time_utc'] = last_updated_time_utc
             __props__['modified'] = modified
             __props__['name'] = name
+            __props__['object_marking_refs'] = object_marking_refs
             if operational_insights_resource_provider is None and not opts.urn:
                 raise TypeError("Missing required property 'operational_insights_resource_provider'")
             __props__['operational_insights_resource_provider'] = operational_insights_resource_provider
             __props__['parsed_pattern'] = parsed_pattern
             __props__['pattern'] = pattern
             __props__['pattern_type'] = pattern_type
+            __props__['pattern_version'] = pattern_version
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name

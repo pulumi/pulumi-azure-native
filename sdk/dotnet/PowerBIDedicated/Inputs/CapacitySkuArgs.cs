@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNative.PowerBIDedicated.Latest.Inputs
+namespace Pulumi.AzureNative.PowerBIDedicated.Inputs
 {
 
     /// <summary>
-    /// Represents the SKU name and Azure pricing tier for PowerBI Dedicated resource.
+    /// Represents the SKU name and Azure pricing tier for PowerBI Dedicated capacity resource.
     /// </summary>
-    public sealed class ResourceSkuArgs : Pulumi.ResourceArgs
+    public sealed class CapacitySkuArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the SKU level.
@@ -25,9 +25,9 @@ namespace Pulumi.AzureNative.PowerBIDedicated.Latest.Inputs
         /// The name of the Azure pricing tier to which the SKU applies.
         /// </summary>
         [Input("tier")]
-        public InputUnion<string, Pulumi.AzureNative.PowerBIDedicated.Latest.SkuTier>? Tier { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.PowerBIDedicated.CapacitySkuTier>? Tier { get; set; }
 
-        public ResourceSkuArgs()
+        public CapacitySkuArgs()
         {
         }
     }

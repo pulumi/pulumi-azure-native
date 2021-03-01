@@ -228,6 +228,7 @@ const (
 	WorkspaceSkuNameEnumPerGB2018           = WorkspaceSkuNameEnum("PerGB2018")
 	WorkspaceSkuNameEnumStandalone          = WorkspaceSkuNameEnum("Standalone")
 	WorkspaceSkuNameEnumCapacityReservation = WorkspaceSkuNameEnum("CapacityReservation")
+	WorkspaceSkuNameEnumLACluster           = WorkspaceSkuNameEnum("LACluster")
 )
 
 func (WorkspaceSkuNameEnum) ElementType() reflect.Type {

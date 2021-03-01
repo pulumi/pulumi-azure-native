@@ -112,6 +112,10 @@ export interface GetJobResult {
      */
     readonly status: string;
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData: outputs.databox.SystemDataResponse;
+    /**
      * The list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups).
      */
     readonly tags?: {[key: string]: string};

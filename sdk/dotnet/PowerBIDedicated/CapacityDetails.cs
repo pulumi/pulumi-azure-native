@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.PowerBIDedicated
 {
     /// <summary>
     /// Represents an instance of a Dedicated Capacity resource.
-    /// API Version: 2017-10-01.
+    /// API Version: 2021-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:powerbidedicated:CapacityDetails")]
     public partial class CapacityDetails : Pulumi.CustomResource
@@ -29,6 +29,12 @@ namespace Pulumi.AzureNative.PowerBIDedicated
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
+        /// The capacity mode.
+        /// </summary>
+        [Output("mode")]
+        public Output<string?> Mode { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the PowerBI Dedicated resource.
         /// </summary>
         [Output("name")]
@@ -41,16 +47,22 @@ namespace Pulumi.AzureNative.PowerBIDedicated
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// The SKU of the PowerBI Dedicated resource.
+        /// The SKU of the PowerBI Dedicated capacity resource.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.ResourceSkuResponse> Sku { get; private set; } = null!;
+        public Output<Outputs.CapacitySkuResponse> Sku { get; private set; } = null!;
 
         /// <summary>
         /// The current state of PowerBI Dedicated resource. The state is to indicate more states outside of resource provisioning.
         /// </summary>
         [Output("state")]
         public Output<string> State { get; private set; } = null!;
+
+        /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse?> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Key-value pairs of additional resource provisioning properties.
@@ -93,6 +105,8 @@ namespace Pulumi.AzureNative.PowerBIDedicated
                     new Pulumi.Alias { Type = "azure-nextgen:powerbidedicated/latest:CapacityDetails"},
                     new Pulumi.Alias { Type = "azure-native:powerbidedicated/v20171001:CapacityDetails"},
                     new Pulumi.Alias { Type = "azure-nextgen:powerbidedicated/v20171001:CapacityDetails"},
+                    new Pulumi.Alias { Type = "azure-native:powerbidedicated/v20210101:CapacityDetails"},
+                    new Pulumi.Alias { Type = "azure-nextgen:powerbidedicated/v20210101:CapacityDetails"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -135,16 +149,28 @@ namespace Pulumi.AzureNative.PowerBIDedicated
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// The capacity mode.
+        /// </summary>
+        [Input("mode")]
+        public InputUnion<string, Pulumi.AzureNative.PowerBIDedicated.Mode>? Mode { get; set; }
+
+        /// <summary>
         /// The name of the Azure Resource group of which a given PowerBIDedicated capacity is part. This name must be at least 1 character in length, and no more than 90.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The SKU of the PowerBI Dedicated resource.
+        /// The SKU of the PowerBI Dedicated capacity resource.
         /// </summary>
         [Input("sku", required: true)]
-        public Input<Inputs.ResourceSkuArgs> Sku { get; set; } = null!;
+        public Input<Inputs.CapacitySkuArgs> Sku { get; set; } = null!;
+
+        /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        [Input("systemData")]
+        public Input<Inputs.SystemDataArgs>? SystemData { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

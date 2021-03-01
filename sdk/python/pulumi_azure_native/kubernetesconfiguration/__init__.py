@@ -4,6 +4,8 @@
 
 # Export this package's modules as members:
 from ._enums import *
+from .extension import *
+from .get_extension import *
 from .get_source_control_configuration import *
 from .source_control_configuration import *
 from ._inputs import *
@@ -13,6 +15,7 @@ from . import outputs
 from . import (
     latest,
     v20191101preview,
+    v20200701preview,
     v20201001preview,
     v20210301,
 )
@@ -29,7 +32,9 @@ def _register_module():
             return Module._version
 
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
-            if typ == "azure-native:kubernetesconfiguration:SourceControlConfiguration":
+            if typ == "azure-native:kubernetesconfiguration:Extension":
+                return Extension(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:kubernetesconfiguration:SourceControlConfiguration":
                 return SourceControlConfiguration(name, pulumi.ResourceOptions(urn=urn))
             else:
                 raise Exception(f"unknown resource type {typ}")

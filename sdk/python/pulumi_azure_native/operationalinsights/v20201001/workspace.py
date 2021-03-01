@@ -19,6 +19,7 @@ class Workspace(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  e_tag: Optional[pulumi.Input[str]] = None,
+                 features: Optional[Any] = None,
                  force_cmk_for_query: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  provisioning_state: Optional[pulumi.Input[Union[str, 'WorkspaceEntityStatus']]] = None,
@@ -39,13 +40,14 @@ class Workspace(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] e_tag: The ETag of the workspace.
+        :param Any features: Workspace features.
         :param pulumi.Input[bool] force_cmk_for_query: Indicates whether customer managed storage is mandatory for query management.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Union[str, 'WorkspaceEntityStatus']] provisioning_state: The provisioning state of the workspace.
         :param pulumi.Input[Union[str, 'PublicNetworkAccessType']] public_network_access_for_ingestion: The network access type for accessing Log Analytics ingestion.
         :param pulumi.Input[Union[str, 'PublicNetworkAccessType']] public_network_access_for_query: The network access type for accessing Log Analytics query.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[int] retention_in_days: The workspace data retention in days, between 30 and 730.
+        :param pulumi.Input[int] retention_in_days: The workspace data retention in days. Allowed values are per pricing plan. See pricing tiers documentation for details.
         :param pulumi.Input[pulumi.InputType['WorkspaceSkuArgs']] sku: The SKU of the workspace.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[pulumi.InputType['WorkspaceCappingArgs']] workspace_capping: The daily volume cap for ingestion.
@@ -69,6 +71,7 @@ class Workspace(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['e_tag'] = e_tag
+            __props__['features'] = features
             __props__['force_cmk_for_query'] = force_cmk_for_query
             __props__['location'] = location
             __props__['provisioning_state'] = provisioning_state
@@ -82,7 +85,9 @@ class Workspace(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['workspace_capping'] = workspace_capping
             __props__['workspace_name'] = workspace_name
+            __props__['created_date'] = None
             __props__['customer_id'] = None
+            __props__['modified_date'] = None
             __props__['name'] = None
             __props__['private_link_scoped_resources'] = None
             __props__['type'] = None
@@ -113,6 +118,14 @@ class Workspace(pulumi.CustomResource):
         return Workspace(resource_name, opts=opts, __props__=__props__)
 
     @property
+    @pulumi.getter(name="createdDate")
+    def created_date(self) -> pulumi.Output[str]:
+        """
+        Workspace creation date.
+        """
+        return pulumi.get(self, "created_date")
+
+    @property
     @pulumi.getter(name="customerId")
     def customer_id(self) -> pulumi.Output[str]:
         """
@@ -129,6 +142,14 @@ class Workspace(pulumi.CustomResource):
         return pulumi.get(self, "e_tag")
 
     @property
+    @pulumi.getter
+    def features(self) -> pulumi.Output[Optional[Any]]:
+        """
+        Workspace features.
+        """
+        return pulumi.get(self, "features")
+
+    @property
     @pulumi.getter(name="forceCmkForQuery")
     def force_cmk_for_query(self) -> pulumi.Output[Optional[bool]]:
         """
@@ -143,6 +164,14 @@ class Workspace(pulumi.CustomResource):
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="modifiedDate")
+    def modified_date(self) -> pulumi.Output[str]:
+        """
+        Workspace modification date.
+        """
+        return pulumi.get(self, "modified_date")
 
     @property
     @pulumi.getter
@@ -188,7 +217,7 @@ class Workspace(pulumi.CustomResource):
     @pulumi.getter(name="retentionInDays")
     def retention_in_days(self) -> pulumi.Output[Optional[int]]:
         """
-        The workspace data retention in days, between 30 and 730.
+        The workspace data retention in days. Allowed values are per pricing plan. See pricing tiers documentation for details.
         """
         return pulumi.get(self, "retention_in_days")
 

@@ -17,6 +17,12 @@ namespace Pulumi.AzureNative.OperationalInsights
     public partial class Workspace : Pulumi.CustomResource
     {
         /// <summary>
+        /// Workspace creation date.
+        /// </summary>
+        [Output("createdDate")]
+        public Output<string> CreatedDate { get; private set; } = null!;
+
+        /// <summary>
         /// This is a read-only property. Represents the ID associated with the workspace.
         /// </summary>
         [Output("customerId")]
@@ -29,6 +35,12 @@ namespace Pulumi.AzureNative.OperationalInsights
         public Output<string?> ETag { get; private set; } = null!;
 
         /// <summary>
+        /// Workspace features.
+        /// </summary>
+        [Output("features")]
+        public Output<object?> Features { get; private set; } = null!;
+
+        /// <summary>
         /// Indicates whether customer managed storage is mandatory for query management.
         /// </summary>
         [Output("forceCmkForQuery")]
@@ -39,6 +51,12 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
+
+        /// <summary>
+        /// Workspace modification date.
+        /// </summary>
+        [Output("modifiedDate")]
+        public Output<string> ModifiedDate { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -71,7 +89,7 @@ namespace Pulumi.AzureNative.OperationalInsights
         public Output<string?> PublicNetworkAccessForQuery { get; private set; } = null!;
 
         /// <summary>
-        /// The workspace data retention in days, between 30 and 730.
+        /// The workspace data retention in days. Allowed values are per pricing plan. See pricing tiers documentation for details.
         /// </summary>
         [Output("retentionInDays")]
         public Output<int?> RetentionInDays { get; private set; } = null!;
@@ -165,6 +183,12 @@ namespace Pulumi.AzureNative.OperationalInsights
         public Input<string>? ETag { get; set; }
 
         /// <summary>
+        /// Workspace features.
+        /// </summary>
+        [Input("features")]
+        public Input<object>? Features { get; set; }
+
+        /// <summary>
         /// Indicates whether customer managed storage is mandatory for query management.
         /// </summary>
         [Input("forceCmkForQuery")]
@@ -201,7 +225,7 @@ namespace Pulumi.AzureNative.OperationalInsights
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The workspace data retention in days, between 30 and 730.
+        /// The workspace data retention in days. Allowed values are per pricing plan. See pricing tiers documentation for details.
         /// </summary>
         [Input("retentionInDays")]
         public Input<int>? RetentionInDays { get; set; }

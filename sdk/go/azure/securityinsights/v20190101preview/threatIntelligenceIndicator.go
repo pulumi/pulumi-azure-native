@@ -107,6 +107,8 @@ type threatIntelligenceIndicatorArgs struct {
 	Created *string `pulumi:"created"`
 	// Created by reference of threat intelligence entity
 	CreatedByRef *string `pulumi:"createdByRef"`
+	// Is threat intelligence entity defanged
+	Defanged *bool `pulumi:"defanged"`
 	// Description of a threat intelligence entity
 	Description *string `pulumi:"description"`
 	// Display name of a threat intelligence entity
@@ -117,8 +119,10 @@ type threatIntelligenceIndicatorArgs struct {
 	Extensions interface{} `pulumi:"extensions"`
 	// External ID of threat intelligence entity
 	ExternalId *string `pulumi:"externalId"`
+	// External last updated time in UTC
+	ExternalLastUpdatedTimeUtc *string `pulumi:"externalLastUpdatedTimeUtc"`
 	// External References
-	ExternalReferences []string `pulumi:"externalReferences"`
+	ExternalReferences []ThreatIntelligenceExternalReference `pulumi:"externalReferences"`
 	// Granular Markings
 	GranularMarkings []ThreatIntelligenceGranularMarkingModel `pulumi:"granularMarkings"`
 	// Indicator types of threat intelligence entities
@@ -137,6 +141,8 @@ type threatIntelligenceIndicatorArgs struct {
 	Modified *string `pulumi:"modified"`
 	// Threat intelligence indicator name field.
 	Name *string `pulumi:"name"`
+	// Threat intelligence entity object marking references
+	ObjectMarkingRefs []string `pulumi:"objectMarkingRefs"`
 	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
 	OperationalInsightsResourceProvider string `pulumi:"operationalInsightsResourceProvider"`
 	// Parsed patterns
@@ -145,6 +151,8 @@ type threatIntelligenceIndicatorArgs struct {
 	Pattern *string `pulumi:"pattern"`
 	// Pattern type of a threat intelligence entity
 	PatternType *string `pulumi:"patternType"`
+	// Pattern version of a threat intelligence entity
+	PatternVersion *string `pulumi:"patternVersion"`
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Is threat intelligence entity revoked
@@ -171,6 +179,8 @@ type ThreatIntelligenceIndicatorArgs struct {
 	Created pulumi.StringPtrInput
 	// Created by reference of threat intelligence entity
 	CreatedByRef pulumi.StringPtrInput
+	// Is threat intelligence entity defanged
+	Defanged pulumi.BoolPtrInput
 	// Description of a threat intelligence entity
 	Description pulumi.StringPtrInput
 	// Display name of a threat intelligence entity
@@ -181,8 +191,10 @@ type ThreatIntelligenceIndicatorArgs struct {
 	Extensions pulumi.Input
 	// External ID of threat intelligence entity
 	ExternalId pulumi.StringPtrInput
+	// External last updated time in UTC
+	ExternalLastUpdatedTimeUtc pulumi.StringPtrInput
 	// External References
-	ExternalReferences pulumi.StringArrayInput
+	ExternalReferences ThreatIntelligenceExternalReferenceArrayInput
 	// Granular Markings
 	GranularMarkings ThreatIntelligenceGranularMarkingModelArrayInput
 	// Indicator types of threat intelligence entities
@@ -201,6 +213,8 @@ type ThreatIntelligenceIndicatorArgs struct {
 	Modified pulumi.StringPtrInput
 	// Threat intelligence indicator name field.
 	Name pulumi.StringPtrInput
+	// Threat intelligence entity object marking references
+	ObjectMarkingRefs pulumi.StringArrayInput
 	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
 	OperationalInsightsResourceProvider pulumi.StringInput
 	// Parsed patterns
@@ -209,6 +223,8 @@ type ThreatIntelligenceIndicatorArgs struct {
 	Pattern pulumi.StringPtrInput
 	// Pattern type of a threat intelligence entity
 	PatternType pulumi.StringPtrInput
+	// Pattern version of a threat intelligence entity
+	PatternVersion pulumi.StringPtrInput
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// Is threat intelligence entity revoked

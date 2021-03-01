@@ -8,6 +8,38 @@ using Pulumi;
 namespace Pulumi.AzureNative.KubernetesConfiguration
 {
     /// <summary>
+    /// Level of the status.
+    /// </summary>
+    [EnumType]
+    public readonly struct LevelType : IEquatable<LevelType>
+    {
+        private readonly string _value;
+
+        private LevelType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LevelType Error { get; } = new LevelType("Error");
+        public static LevelType Warning { get; } = new LevelType("Warning");
+        public static LevelType Information { get; } = new LevelType("Information");
+
+        public static bool operator ==(LevelType left, LevelType right) => left.Equals(right);
+        public static bool operator !=(LevelType left, LevelType right) => !left.Equals(right);
+
+        public static explicit operator string(LevelType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LevelType other && Equals(other);
+        public bool Equals(LevelType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Scope at which the operator will be installed.
     /// </summary>
     [EnumType]
@@ -61,6 +93,37 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is OperatorType other && Equals(other);
         public bool Equals(OperatorType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of identity used for the configuration. Type 'SystemAssigned' will use an implicitly created identity. Type 'None' will not use Managed Identity for the configuration.
+    /// </summary>
+    [EnumType]
+    public readonly struct ResourceIdentityType : IEquatable<ResourceIdentityType>
+    {
+        private readonly string _value;
+
+        private ResourceIdentityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ResourceIdentityType SystemAssigned { get; } = new ResourceIdentityType("SystemAssigned");
+        public static ResourceIdentityType None { get; } = new ResourceIdentityType("None");
+
+        public static bool operator ==(ResourceIdentityType left, ResourceIdentityType right) => left.Equals(right);
+        public static bool operator !=(ResourceIdentityType left, ResourceIdentityType right) => !left.Equals(right);
+
+        public static explicit operator string(ResourceIdentityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ResourceIdentityType other && Equals(other);
+        public bool Equals(ResourceIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

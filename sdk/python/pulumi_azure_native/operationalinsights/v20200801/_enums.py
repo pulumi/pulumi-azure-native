@@ -111,3 +111,4 @@ class WorkspaceSkuNameEnum(str, Enum):
     PER_GB2018 = "PerGB2018"
     STANDALONE = "Standalone"
     CAPACITY_RESERVATION = "CapacityReservation"
+    LA_CLUSTER = "LACluster"

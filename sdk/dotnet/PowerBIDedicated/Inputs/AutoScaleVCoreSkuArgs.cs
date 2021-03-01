@@ -11,10 +11,16 @@ namespace Pulumi.AzureNative.PowerBIDedicated.Inputs
 {
 
     /// <summary>
-    /// Represents the SKU name and Azure pricing tier for PowerBI Dedicated resource.
+    /// Represents the SKU name and Azure pricing tier for auto scale v-core resource.
     /// </summary>
-    public sealed class ResourceSkuArgs : Pulumi.ResourceArgs
+    public sealed class AutoScaleVCoreSkuArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The capacity of an auto scale v-core resource.
+        /// </summary>
+        [Input("capacity")]
+        public Input<int>? Capacity { get; set; }
+
         /// <summary>
         /// Name of the SKU level.
         /// </summary>
@@ -25,9 +31,9 @@ namespace Pulumi.AzureNative.PowerBIDedicated.Inputs
         /// The name of the Azure pricing tier to which the SKU applies.
         /// </summary>
         [Input("tier")]
-        public InputUnion<string, Pulumi.AzureNative.PowerBIDedicated.SkuTier>? Tier { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.PowerBIDedicated.VCoreSkuTier>? Tier { get; set; }
 
-        public ResourceSkuArgs()
+        public AutoScaleVCoreSkuArgs()
         {
         }
     }

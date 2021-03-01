@@ -509,7 +509,7 @@ class ClusterResourceResponseProperties(dict):
                  external_seed_nodes: Optional[Sequence['outputs.SeedNodeResponse']] = None,
                  hours_between_backups: Optional[int] = None,
                  initial_cassandra_admin_password: Optional[str] = None,
-                 prometheus_endpoint: Optional[str] = None,
+                 prometheus_endpoint: Optional['outputs.SeedNodeResponse'] = None,
                  provisioning_state: Optional[str] = None,
                  repair_enabled: Optional[bool] = None,
                  restore_from_backup_id: Optional[str] = None):
@@ -526,7 +526,7 @@ class ClusterResourceResponseProperties(dict):
         :param Sequence['SeedNodeResponseArgs'] external_seed_nodes: List of IP addresses of seed nodes in unmanaged data centers. These will be added to the seed node lists of all managed nodes.
         :param int hours_between_backups: Number of hours to wait between taking a backup of the cluster. To disable backups, set this property to 0.
         :param str initial_cassandra_admin_password: Initial password for clients connecting as admin to the cluster. Should be changed after cluster creation. Returns null on GET. This field only applies when the authenticationMethod field is 'Cassandra'.
-        :param str prometheus_endpoint: Hostname or IP address where the Prometheus endpoint containing data about the managed Cassandra nodes can be reached.
+        :param 'SeedNodeResponseArgs' prometheus_endpoint: Hostname or IP address where the Prometheus endpoint containing data about the managed Cassandra nodes can be reached.
         :param str provisioning_state: The status of the resource at the time the operation was called.
         :param bool repair_enabled: Should automatic repairs run on this cluster? If omitted, this is true, and should stay true unless you are running a hybrid cluster where you are already doing your own repairs.
         :param str restore_from_backup_id: To create an empty cluster, omit this field or set it to null. To restore a backup into a new cluster, set this field to the resource id of the backup.
@@ -650,7 +650,7 @@ class ClusterResourceResponseProperties(dict):
 
     @property
     @pulumi.getter(name="prometheusEndpoint")
-    def prometheus_endpoint(self) -> Optional[str]:
+    def prometheus_endpoint(self) -> Optional['outputs.SeedNodeResponse']:
         """
         Hostname or IP address where the Prometheus endpoint containing data about the managed Cassandra nodes can be reached.
         """

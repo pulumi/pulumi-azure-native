@@ -91,7 +91,7 @@ namespace Pulumi.AzureNative.DocumentDB.Inputs
         /// Hostname or IP address where the Prometheus endpoint containing data about the managed Cassandra nodes can be reached.
         /// </summary>
         [Input("prometheusEndpoint")]
-        public Input<string>? PrometheusEndpoint { get; set; }
+        public Input<Inputs.SeedNodeArgs>? PrometheusEndpoint { get; set; }
 
         /// <summary>
         /// The status of the resource at the time the operation was called.

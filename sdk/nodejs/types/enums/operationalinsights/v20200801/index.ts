@@ -113,6 +113,7 @@ export const WorkspaceSkuNameEnum = {
     PerGB2018: "PerGB2018",
     Standalone: "Standalone",
     CapacityReservation: "CapacityReservation",
+    LACluster: "LACluster",
 } as const;
 
 /**

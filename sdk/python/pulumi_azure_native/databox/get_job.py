@@ -20,7 +20,7 @@ class GetJobResult:
     """
     Job Resource.
     """
-    def __init__(__self__, cancellation_reason=None, delivery_info=None, delivery_type=None, details=None, error=None, id=None, identity=None, is_cancellable=None, is_cancellable_without_fee=None, is_deletable=None, is_prepare_to_ship_enabled=None, is_shipping_address_editable=None, location=None, name=None, sku=None, start_time=None, status=None, tags=None, transfer_type=None, type=None):
+    def __init__(__self__, cancellation_reason=None, delivery_info=None, delivery_type=None, details=None, error=None, id=None, identity=None, is_cancellable=None, is_cancellable_without_fee=None, is_deletable=None, is_prepare_to_ship_enabled=None, is_shipping_address_editable=None, location=None, name=None, sku=None, start_time=None, status=None, system_data=None, tags=None, transfer_type=None, type=None):
         if cancellation_reason and not isinstance(cancellation_reason, str):
             raise TypeError("Expected argument 'cancellation_reason' to be a str")
         pulumi.set(__self__, "cancellation_reason", cancellation_reason)
@@ -72,6 +72,9 @@ class GetJobResult:
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -219,6 +222,14 @@ class GetJobResult:
         return pulumi.get(self, "status")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
@@ -266,6 +277,7 @@ class AwaitableGetJobResult(GetJobResult):
             sku=self.sku,
             start_time=self.start_time,
             status=self.status,
+            system_data=self.system_data,
             tags=self.tags,
             transfer_type=self.transfer_type,
             type=self.type)
@@ -312,6 +324,7 @@ def get_job(expand: Optional[str] = None,
         sku=__ret__.sku,
         start_time=__ret__.start_time,
         status=__ret__.status,
+        system_data=__ret__.system_data,
         tags=__ret__.tags,
         transfer_type=__ret__.transfer_type,
         type=__ret__.type)

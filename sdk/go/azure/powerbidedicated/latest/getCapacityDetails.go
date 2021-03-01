@@ -8,7 +8,7 @@ import (
 )
 
 // Represents an instance of a Dedicated Capacity resource.
-// Latest API Version: 2017-10-01.
+// Latest API Version: 2021-01-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:powerbidedicated:getCapacityDetails'.
 func LookupCapacityDetails(ctx *pulumi.Context, args *LookupCapacityDetailsArgs, opts ...pulumi.InvokeOption) (*LookupCapacityDetailsResult, error) {
@@ -35,14 +35,18 @@ type LookupCapacityDetailsResult struct {
 	Id string `pulumi:"id"`
 	// Location of the PowerBI Dedicated resource.
 	Location string `pulumi:"location"`
+	// The capacity mode.
+	Mode *string `pulumi:"mode"`
 	// The name of the PowerBI Dedicated resource.
 	Name string `pulumi:"name"`
 	// The current deployment state of PowerBI Dedicated resource. The provisioningState is to indicate states for resource provisioning.
 	ProvisioningState string `pulumi:"provisioningState"`
-	// The SKU of the PowerBI Dedicated resource.
-	Sku ResourceSkuResponse `pulumi:"sku"`
+	// The SKU of the PowerBI Dedicated capacity resource.
+	Sku CapacitySkuResponse `pulumi:"sku"`
 	// The current state of PowerBI Dedicated resource. The state is to indicate more states outside of resource provisioning.
 	State string `pulumi:"state"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Key-value pairs of additional resource provisioning properties.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the PowerBI Dedicated resource.

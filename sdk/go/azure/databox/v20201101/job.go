@@ -47,6 +47,8 @@ type Job struct {
 	StartTime pulumi.StringOutput `pulumi:"startTime"`
 	// Name of the stage which is in progress.
 	Status pulumi.StringOutput `pulumi:"status"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups).
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Type of the data transfer.
@@ -161,6 +163,8 @@ type jobState struct {
 	StartTime *string `pulumi:"startTime"`
 	// Name of the stage which is in progress.
 	Status *string `pulumi:"status"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// The list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups).
 	Tags map[string]string `pulumi:"tags"`
 	// Type of the data transfer.
@@ -202,6 +206,8 @@ type JobState struct {
 	StartTime pulumi.StringPtrInput
 	// Name of the stage which is in progress.
 	Status pulumi.StringPtrInput
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponsePtrInput
 	// The list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups).
 	Tags pulumi.StringMapInput
 	// Type of the data transfer.

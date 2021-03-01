@@ -64,6 +64,10 @@ export class Workspace extends pulumi.CustomResource {
      */
     public readonly storageAccount!: pulumi.Output<string | undefined>;
     /**
+     * System metadata
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.quantum.v20191104preview.SystemDataResponse>;
+    /**
      * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -100,6 +104,7 @@ export class Workspace extends pulumi.CustomResource {
             inputs["endpointUri"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["usable"] = undefined /*out*/;
         } else {
@@ -110,6 +115,7 @@ export class Workspace extends pulumi.CustomResource {
             inputs["providers"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["storageAccount"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["usable"] = undefined /*out*/;

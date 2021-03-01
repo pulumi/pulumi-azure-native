@@ -98,6 +98,7 @@ class Job(pulumi.CustomResource):
             __props__['name'] = None
             __props__['start_time'] = None
             __props__['status'] = None
+            __props__['system_data'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:databox:Job"), pulumi.Alias(type_="azure-nextgen:databox:Job"), pulumi.Alias(type_="azure-native:databox/v20180101:Job"), pulumi.Alias(type_="azure-nextgen:databox/v20180101:Job"), pulumi.Alias(type_="azure-native:databox/v20190901:Job"), pulumi.Alias(type_="azure-nextgen:databox/v20190901:Job"), pulumi.Alias(type_="azure-native:databox/v20200401:Job"), pulumi.Alias(type_="azure-nextgen:databox/v20200401:Job"), pulumi.Alias(type_="azure-native:databox/v20201101:Job"), pulumi.Alias(type_="azure-nextgen:databox/v20201101:Job")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -252,6 +253,14 @@ class Job(pulumi.CustomResource):
         Name of the stage which is in progress.
         """
         return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

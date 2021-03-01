@@ -109,6 +109,12 @@ namespace Pulumi.AzureNative.SecurityInsights
         public Input<string>? CreatedByRef { get; set; }
 
         /// <summary>
+        /// Is threat intelligence entity defanged
+        /// </summary>
+        [Input("defanged")]
+        public Input<bool>? Defanged { get; set; }
+
+        /// <summary>
         /// Description of a threat intelligence entity
         /// </summary>
         [Input("description")]
@@ -138,15 +144,21 @@ namespace Pulumi.AzureNative.SecurityInsights
         [Input("externalId")]
         public Input<string>? ExternalId { get; set; }
 
+        /// <summary>
+        /// External last updated time in UTC
+        /// </summary>
+        [Input("externalLastUpdatedTimeUtc")]
+        public Input<string>? ExternalLastUpdatedTimeUtc { get; set; }
+
         [Input("externalReferences")]
-        private InputList<string>? _externalReferences;
+        private InputList<Inputs.ThreatIntelligenceExternalReferenceArgs>? _externalReferences;
 
         /// <summary>
         /// External References
         /// </summary>
-        public InputList<string> ExternalReferences
+        public InputList<Inputs.ThreatIntelligenceExternalReferenceArgs> ExternalReferences
         {
-            get => _externalReferences ?? (_externalReferences = new InputList<string>());
+            get => _externalReferences ?? (_externalReferences = new InputList<Inputs.ThreatIntelligenceExternalReferenceArgs>());
             set => _externalReferences = value;
         }
 
@@ -228,6 +240,18 @@ namespace Pulumi.AzureNative.SecurityInsights
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("objectMarkingRefs")]
+        private InputList<string>? _objectMarkingRefs;
+
+        /// <summary>
+        /// Threat intelligence entity object marking references
+        /// </summary>
+        public InputList<string> ObjectMarkingRefs
+        {
+            get => _objectMarkingRefs ?? (_objectMarkingRefs = new InputList<string>());
+            set => _objectMarkingRefs = value;
+        }
+
         /// <summary>
         /// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
         /// </summary>
@@ -257,6 +281,12 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         [Input("patternType")]
         public Input<string>? PatternType { get; set; }
+
+        /// <summary>
+        /// Pattern version of a threat intelligence entity
+        /// </summary>
+        [Input("patternVersion")]
+        public Input<string>? PatternVersion { get; set; }
 
         /// <summary>
         /// The name of the resource group within the user's subscription. The name is case insensitive.

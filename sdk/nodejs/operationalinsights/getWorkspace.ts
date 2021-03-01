@@ -39,6 +39,10 @@ export interface GetWorkspaceArgs {
  */
 export interface GetWorkspaceResult {
     /**
+     * Workspace creation date.
+     */
+    readonly createdDate: string;
+    /**
      * This is a read-only property. Represents the ID associated with the workspace.
      */
     readonly customerId: string;
@@ -46,6 +50,10 @@ export interface GetWorkspaceResult {
      * The ETag of the workspace.
      */
     readonly eTag?: string;
+    /**
+     * Workspace features.
+     */
+    readonly features?: any;
     /**
      * Indicates whether customer managed storage is mandatory for query management.
      */
@@ -58,6 +66,10 @@ export interface GetWorkspaceResult {
      * The geo-location where the resource lives
      */
     readonly location: string;
+    /**
+     * Workspace modification date.
+     */
+    readonly modifiedDate: string;
     /**
      * The name of the resource
      */
@@ -79,7 +91,7 @@ export interface GetWorkspaceResult {
      */
     readonly publicNetworkAccessForQuery?: string;
     /**
-     * The workspace data retention in days, between 30 and 730.
+     * The workspace data retention in days. Allowed values are per pricing plan. See pricing tiers documentation for details.
      */
     readonly retentionInDays?: number;
     /**

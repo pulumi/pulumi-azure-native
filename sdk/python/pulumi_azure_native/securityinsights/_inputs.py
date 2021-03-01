@@ -13,6 +13,7 @@ __all__ = [
     'IncidentInfoArgs',
     'IncidentLabelArgs',
     'IncidentOwnerInfoArgs',
+    'ThreatIntelligenceExternalReferenceArgs',
     'ThreatIntelligenceGranularMarkingModelArgs',
     'ThreatIntelligenceKillChainPhaseArgs',
     'ThreatIntelligenceParsedPatternArgs',
@@ -185,6 +186,94 @@ class IncidentOwnerInfoArgs:
     @user_principal_name.setter
     def user_principal_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "user_principal_name", value)
+
+
+@pulumi.input_type
+class ThreatIntelligenceExternalReferenceArgs:
+    def __init__(__self__, *,
+                 description: Optional[pulumi.Input[str]] = None,
+                 external_id: Optional[pulumi.Input[str]] = None,
+                 hashes: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 source_name: Optional[pulumi.Input[str]] = None,
+                 url: Optional[pulumi.Input[str]] = None):
+        """
+        Describes external reference
+        :param pulumi.Input[str] description: External reference description
+        :param pulumi.Input[str] external_id: External reference ID
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] hashes: External reference hashes
+        :param pulumi.Input[str] source_name: External reference source name
+        :param pulumi.Input[str] url: External reference URL
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if external_id is not None:
+            pulumi.set(__self__, "external_id", external_id)
+        if hashes is not None:
+            pulumi.set(__self__, "hashes", hashes)
+        if source_name is not None:
+            pulumi.set(__self__, "source_name", source_name)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        External reference description
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="externalId")
+    def external_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        External reference ID
+        """
+        return pulumi.get(self, "external_id")
+
+    @external_id.setter
+    def external_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "external_id", value)
+
+    @property
+    @pulumi.getter
+    def hashes(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        External reference hashes
+        """
+        return pulumi.get(self, "hashes")
+
+    @hashes.setter
+    def hashes(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "hashes", value)
+
+    @property
+    @pulumi.getter(name="sourceName")
+    def source_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        External reference source name
+        """
+        return pulumi.get(self, "source_name")
+
+    @source_name.setter
+    def source_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_name", value)
+
+    @property
+    @pulumi.getter
+    def url(self) -> Optional[pulumi.Input[str]]:
+        """
+        External reference URL
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "url", value)
 
 
 @pulumi.input_type

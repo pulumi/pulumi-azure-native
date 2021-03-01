@@ -7,11 +7,11 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNative.PowerBIDedicated.Latest.Outputs
+namespace Pulumi.AzureNative.PowerBIDedicated.V20210101.Outputs
 {
 
     [OutputType]
-    public sealed class ResourceSkuResponse
+    public sealed class CapacitySkuResponse
     {
         /// <summary>
         /// Name of the SKU level.
@@ -23,7 +23,7 @@ namespace Pulumi.AzureNative.PowerBIDedicated.Latest.Outputs
         public readonly string? Tier;
 
         [OutputConstructor]
-        private ResourceSkuResponse(
+        private CapacitySkuResponse(
             string name,
 
             string? tier)

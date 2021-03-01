@@ -16,12 +16,6 @@ namespace Pulumi.AzureNative.Quantum.Inputs
     public sealed class ProviderArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The provider's marketplace application display name.
-        /// </summary>
-        [Input("applicationName")]
-        public Input<string>? ApplicationName { get; set; }
-
-        /// <summary>
         /// A Uri identifying the specific instance of this provider.
         /// </summary>
         [Input("instanceUri")]
@@ -44,12 +38,6 @@ namespace Pulumi.AzureNative.Quantum.Inputs
         /// </summary>
         [Input("provisioningState")]
         public InputUnion<string, Pulumi.AzureNative.Quantum.Status>? ProvisioningState { get; set; }
-
-        /// <summary>
-        /// Id to track resource usage for the provider.
-        /// </summary>
-        [Input("resourceUsageId")]
-        public Input<string>? ResourceUsageId { get; set; }
 
         public ProviderArgs()
         {

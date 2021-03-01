@@ -12,8 +12,6 @@ import (
 
 // Information about a Provider. A Provider is an entity that offers Targets to run Azure Quantum Jobs.
 type Provider struct {
-	// The provider's marketplace application display name.
-	ApplicationName *string `pulumi:"applicationName"`
 	// A Uri identifying the specific instance of this provider.
 	InstanceUri *string `pulumi:"instanceUri"`
 	// Unique id of this provider.
@@ -22,8 +20,6 @@ type Provider struct {
 	ProviderSku *string `pulumi:"providerSku"`
 	// Provisioning status field
 	ProvisioningState *string `pulumi:"provisioningState"`
-	// Id to track resource usage for the provider.
-	ResourceUsageId *string `pulumi:"resourceUsageId"`
 }
 
 // ProviderInput is an input type that accepts ProviderArgs and ProviderOutput values.
@@ -39,8 +35,6 @@ type ProviderInput interface {
 
 // Information about a Provider. A Provider is an entity that offers Targets to run Azure Quantum Jobs.
 type ProviderArgs struct {
-	// The provider's marketplace application display name.
-	ApplicationName pulumi.StringPtrInput `pulumi:"applicationName"`
 	// A Uri identifying the specific instance of this provider.
 	InstanceUri pulumi.StringPtrInput `pulumi:"instanceUri"`
 	// Unique id of this provider.
@@ -49,8 +43,6 @@ type ProviderArgs struct {
 	ProviderSku pulumi.StringPtrInput `pulumi:"providerSku"`
 	// Provisioning status field
 	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
-	// Id to track resource usage for the provider.
-	ResourceUsageId pulumi.StringPtrInput `pulumi:"resourceUsageId"`
 }
 
 func (ProviderArgs) ElementType() reflect.Type {
@@ -105,11 +97,6 @@ func (o ProviderOutput) ToProviderOutputWithContext(ctx context.Context) Provide
 	return o
 }
 
-// The provider's marketplace application display name.
-func (o ProviderOutput) ApplicationName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Provider) *string { return v.ApplicationName }).(pulumi.StringPtrOutput)
-}
-
 // A Uri identifying the specific instance of this provider.
 func (o ProviderOutput) InstanceUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Provider) *string { return v.InstanceUri }).(pulumi.StringPtrOutput)
@@ -128,11 +115,6 @@ func (o ProviderOutput) ProviderSku() pulumi.StringPtrOutput {
 // Provisioning status field
 func (o ProviderOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Provider) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
-}
-
-// Id to track resource usage for the provider.
-func (o ProviderOutput) ResourceUsageId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Provider) *string { return v.ResourceUsageId }).(pulumi.StringPtrOutput)
 }
 
 type ProviderArrayOutput struct{ *pulumi.OutputState }
@@ -158,7 +140,7 @@ func (o ProviderArrayOutput) Index(i pulumi.IntInput) ProviderOutput {
 // Information about a Provider. A Provider is an entity that offers Targets to run Azure Quantum Jobs.
 type ProviderResponse struct {
 	// The provider's marketplace application display name.
-	ApplicationName *string `pulumi:"applicationName"`
+	ApplicationName string `pulumi:"applicationName"`
 	// A Uri identifying the specific instance of this provider.
 	InstanceUri *string `pulumi:"instanceUri"`
 	// Unique id of this provider.
@@ -168,7 +150,7 @@ type ProviderResponse struct {
 	// Provisioning status field
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// Id to track resource usage for the provider.
-	ResourceUsageId *string `pulumi:"resourceUsageId"`
+	ResourceUsageId string `pulumi:"resourceUsageId"`
 }
 
 // ProviderResponseInput is an input type that accepts ProviderResponseArgs and ProviderResponseOutput values.
@@ -185,7 +167,7 @@ type ProviderResponseInput interface {
 // Information about a Provider. A Provider is an entity that offers Targets to run Azure Quantum Jobs.
 type ProviderResponseArgs struct {
 	// The provider's marketplace application display name.
-	ApplicationName pulumi.StringPtrInput `pulumi:"applicationName"`
+	ApplicationName pulumi.StringInput `pulumi:"applicationName"`
 	// A Uri identifying the specific instance of this provider.
 	InstanceUri pulumi.StringPtrInput `pulumi:"instanceUri"`
 	// Unique id of this provider.
@@ -195,7 +177,7 @@ type ProviderResponseArgs struct {
 	// Provisioning status field
 	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
 	// Id to track resource usage for the provider.
-	ResourceUsageId pulumi.StringPtrInput `pulumi:"resourceUsageId"`
+	ResourceUsageId pulumi.StringInput `pulumi:"resourceUsageId"`
 }
 
 func (ProviderResponseArgs) ElementType() reflect.Type {
@@ -251,8 +233,8 @@ func (o ProviderResponseOutput) ToProviderResponseOutputWithContext(ctx context.
 }
 
 // The provider's marketplace application display name.
-func (o ProviderResponseOutput) ApplicationName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProviderResponse) *string { return v.ApplicationName }).(pulumi.StringPtrOutput)
+func (o ProviderResponseOutput) ApplicationName() pulumi.StringOutput {
+	return o.ApplyT(func(v ProviderResponse) string { return v.ApplicationName }).(pulumi.StringOutput)
 }
 
 // A Uri identifying the specific instance of this provider.
@@ -276,8 +258,8 @@ func (o ProviderResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
 }
 
 // Id to track resource usage for the provider.
-func (o ProviderResponseOutput) ResourceUsageId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProviderResponse) *string { return v.ResourceUsageId }).(pulumi.StringPtrOutput)
+func (o ProviderResponseOutput) ResourceUsageId() pulumi.StringOutput {
+	return o.ApplyT(func(v ProviderResponse) string { return v.ResourceUsageId }).(pulumi.StringOutput)
 }
 
 type ProviderResponseArrayOutput struct{ *pulumi.OutputState }
@@ -606,6 +588,235 @@ func (o QuantumWorkspaceResponseIdentityPtrOutput) Type() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataResponse struct {
+	// The timestamp of resource creation (UTC).
+	CreatedAt *string `pulumi:"createdAt"`
+	// The identity that created the resource.
+	CreatedBy *string `pulumi:"createdBy"`
+	// The type of identity that created the resource.
+	CreatedByType *string `pulumi:"createdByType"`
+	// The timestamp of resource last modification (UTC)
+	LastModifiedAt *string `pulumi:"lastModifiedAt"`
+	// The identity that last modified the resource.
+	LastModifiedBy *string `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource.
+	LastModifiedByType *string `pulumi:"lastModifiedByType"`
+}
+
+// SystemDataResponseInput is an input type that accepts SystemDataResponseArgs and SystemDataResponseOutput values.
+// You can construct a concrete instance of `SystemDataResponseInput` via:
+//
+//          SystemDataResponseArgs{...}
+type SystemDataResponseInput interface {
+	pulumi.Input
+
+	ToSystemDataResponseOutput() SystemDataResponseOutput
+	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataResponseArgs struct {
+	// The timestamp of resource creation (UTC).
+	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
+	// The identity that created the resource.
+	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
+	// The type of identity that created the resource.
+	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
+	// The timestamp of resource last modification (UTC)
+	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	// The identity that last modified the resource.
+	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource.
+	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
+}
+
+func (SystemDataResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponseOutput() SystemDataResponseOutput {
+	return i.ToSystemDataResponseOutputWithContext(context.Background())
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput)
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput).ToSystemDataResponsePtrOutputWithContext(ctx)
+}
+
+// SystemDataResponsePtrInput is an input type that accepts SystemDataResponseArgs, SystemDataResponsePtr and SystemDataResponsePtrOutput values.
+// You can construct a concrete instance of `SystemDataResponsePtrInput` via:
+//
+//          SystemDataResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type SystemDataResponsePtrInput interface {
+	pulumi.Input
+
+	ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput
+	ToSystemDataResponsePtrOutputWithContext(context.Context) SystemDataResponsePtrOutput
+}
+
+type systemDataResponsePtrType SystemDataResponseArgs
+
+func SystemDataResponsePtr(v *SystemDataResponseArgs) SystemDataResponsePtrInput {
+	return (*systemDataResponsePtrType)(v)
+}
+
+func (*systemDataResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
+}
+
+func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataResponseOutput struct{ *pulumi.OutputState }
+
+func (SystemDataResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponseOutput() SystemDataResponseOutput {
+	return o
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
+	return o
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return o.ToSystemDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
+		return &v
+	}).(SystemDataResponsePtrOutput)
+}
+
+// The timestamp of resource creation (UTC).
+func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that created the resource.
+func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that created the resource.
+func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
+}
+
+// The timestamp of resource last modification (UTC)
+func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that last modified the resource.
+func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
+}
+
+type SystemDataResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SystemDataResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
+}
+
+func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return o
+}
+
+func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return o
+}
+
+func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
+}
+
+// The timestamp of resource creation (UTC).
+func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedAt
+	}).(pulumi.StringPtrOutput)
+}
+
+// The identity that created the resource.
+func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedBy
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that created the resource.
+func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedByType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The timestamp of resource last modification (UTC)
+func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedAt
+	}).(pulumi.StringPtrOutput)
+}
+
+// The identity that last modified the resource.
+func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedBy
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedByType
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ProviderOutput{})
 	pulumi.RegisterOutputType(ProviderArrayOutput{})
@@ -615,4 +826,6 @@ func init() {
 	pulumi.RegisterOutputType(QuantumWorkspaceIdentityPtrOutput{})
 	pulumi.RegisterOutputType(QuantumWorkspaceResponseIdentityOutput{})
 	pulumi.RegisterOutputType(QuantumWorkspaceResponseIdentityPtrOutput{})
+	pulumi.RegisterOutputType(SystemDataResponseOutput{})
+	pulumi.RegisterOutputType(SystemDataResponsePtrOutput{})
 }

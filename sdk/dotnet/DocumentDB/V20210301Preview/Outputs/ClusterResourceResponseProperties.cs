@@ -56,7 +56,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20210301Preview.Outputs
         /// <summary>
         /// Hostname or IP address where the Prometheus endpoint containing data about the managed Cassandra nodes can be reached.
         /// </summary>
-        public readonly string? PrometheusEndpoint;
+        public readonly Outputs.SeedNodeResponse? PrometheusEndpoint;
         /// <summary>
         /// The status of the resource at the time the operation was called.
         /// </summary>
@@ -96,7 +96,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20210301Preview.Outputs
 
             string? initialCassandraAdminPassword,
 
-            string? prometheusEndpoint,
+            Outputs.SeedNodeResponse? prometheusEndpoint,
 
             string? provisioningState,
 

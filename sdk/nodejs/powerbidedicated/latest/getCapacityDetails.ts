@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents an instance of a Dedicated Capacity resource.
- * Latest API Version: 2017-10-01.
+ * Latest API Version: 2021-01-01.
  */
 /** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:powerbidedicated:getCapacityDetails'. */
 export function getCapacityDetails(args: GetCapacityDetailsArgs, opts?: pulumi.InvokeOptions): Promise<GetCapacityDetailsResult> {
@@ -53,6 +53,10 @@ export interface GetCapacityDetailsResult {
      */
     readonly location: string;
     /**
+     * The capacity mode.
+     */
+    readonly mode?: string;
+    /**
      * The name of the PowerBI Dedicated resource.
      */
     readonly name: string;
@@ -61,13 +65,17 @@ export interface GetCapacityDetailsResult {
      */
     readonly provisioningState: string;
     /**
-     * The SKU of the PowerBI Dedicated resource.
+     * The SKU of the PowerBI Dedicated capacity resource.
      */
-    readonly sku: outputs.powerbidedicated.latest.ResourceSkuResponse;
+    readonly sku: outputs.powerbidedicated.latest.CapacitySkuResponse;
     /**
      * The current state of PowerBI Dedicated resource. The state is to indicate more states outside of resource provisioning.
      */
     readonly state: string;
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData?: outputs.powerbidedicated.latest.SystemDataResponse;
     /**
      * Key-value pairs of additional resource provisioning properties.
      */
