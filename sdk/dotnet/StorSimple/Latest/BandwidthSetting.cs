@@ -72,6 +72,7 @@ namespace Pulumi.AzureNative.StorSimple.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:storsimple/latest:BandwidthSetting"},
                     new Pulumi.Alias { Type = "azure-native:storsimple:BandwidthSetting"},
                     new Pulumi.Alias { Type = "azure-nextgen:storsimple:BandwidthSetting"},
                     new Pulumi.Alias { Type = "azure-native:storsimple/v20170601:BandwidthSetting"},

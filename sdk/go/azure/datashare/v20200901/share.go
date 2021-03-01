@@ -52,6 +52,9 @@ func NewShare(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:datashare/v20200901:Share"),
+		},
+		{
 			Type: pulumi.String("azure-native:datashare:Share"),
 		},
 		{

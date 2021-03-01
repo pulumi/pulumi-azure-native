@@ -34,6 +34,9 @@ func NewConsole(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:portal/latest:Console"),
+		},
+		{
 			Type: pulumi.String("azure-native:portal:Console"),
 		},
 		{

@@ -43,6 +43,9 @@ func NewCommitmentPlan(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:machinelearning/v20160501preview:CommitmentPlan"),
+		},
+		{
 			Type: pulumi.String("azure-native:machinelearning:CommitmentPlan"),
 		},
 		{

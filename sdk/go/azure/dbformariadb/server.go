@@ -67,6 +67,9 @@ func NewServer(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:dbformariadb:Server"),
+		},
+		{
 			Type: pulumi.String("azure-native:dbformariadb/latest:Server"),
 		},
 		{

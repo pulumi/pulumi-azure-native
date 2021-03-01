@@ -57,6 +57,9 @@ func NewWorkloadClassifier(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:sql/v20190601preview:WorkloadClassifier"),
+		},
+		{
 			Type: pulumi.String("azure-native:sql:WorkloadClassifier"),
 		},
 		{

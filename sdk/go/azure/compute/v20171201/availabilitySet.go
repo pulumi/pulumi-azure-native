@@ -47,6 +47,9 @@ func NewAvailabilitySet(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:compute/v20171201:AvailabilitySet"),
+		},
+		{
 			Type: pulumi.String("azure-native:compute:AvailabilitySet"),
 		},
 		{

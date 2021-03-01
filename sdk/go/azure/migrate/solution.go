@@ -41,6 +41,9 @@ func NewSolution(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:migrate:Solution"),
+		},
+		{
 			Type: pulumi.String("azure-native:migrate/v20180901preview:Solution"),
 		},
 		{

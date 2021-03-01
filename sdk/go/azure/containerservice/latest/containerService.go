@@ -67,6 +67,9 @@ func NewContainerService(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:containerservice/latest:ContainerService"),
+		},
+		{
 			Type: pulumi.String("azure-native:containerservice:ContainerService"),
 		},
 		{

@@ -66,6 +66,9 @@ func NewBackupSchedule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:storsimple:BackupSchedule"),
+		},
+		{
 			Type: pulumi.String("azure-native:storsimple/latest:BackupSchedule"),
 		},
 		{

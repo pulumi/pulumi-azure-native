@@ -53,6 +53,9 @@ func NewServerKey(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:sql/v20150501preview:ServerKey"),
+		},
+		{
 			Type: pulumi.String("azure-native:sql:ServerKey"),
 		},
 		{

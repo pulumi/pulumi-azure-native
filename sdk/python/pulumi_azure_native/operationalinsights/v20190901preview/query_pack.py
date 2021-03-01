@@ -61,7 +61,7 @@ class QueryPack(pulumi.CustomResource):
             __props__['time_created'] = None
             __props__['time_modified'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:operationalinsights:QueryPack"), pulumi.Alias(type_="azure-nextgen:operationalinsights:QueryPack")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:operationalinsights/v20190901preview:QueryPack"), pulumi.Alias(type_="azure-native:operationalinsights:QueryPack"), pulumi.Alias(type_="azure-nextgen:operationalinsights:QueryPack")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(QueryPack, __self__).__init__(
             'azure-native:operationalinsights/v20190901preview:QueryPack',

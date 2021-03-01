@@ -148,6 +148,7 @@ namespace Pulumi.AzureNative.Cdn.V20170402
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:cdn/v20170402:Endpoint"},
                     new Pulumi.Alias { Type = "azure-native:cdn:Endpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn:Endpoint"},
                     new Pulumi.Alias { Type = "azure-native:cdn/latest:Endpoint"},

@@ -72,6 +72,7 @@ namespace Pulumi.AzureNative.Web.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:web/latest:WebAppAzureStorageAccounts"},
                     new Pulumi.Alias { Type = "azure-native:web:WebAppAzureStorageAccounts"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:WebAppAzureStorageAccounts"},
                     new Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppAzureStorageAccounts"},

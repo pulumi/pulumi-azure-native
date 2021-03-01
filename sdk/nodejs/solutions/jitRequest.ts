@@ -139,7 +139,7 @@ export class JitRequest extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:solutions/latest:JitRequest" }, { type: "azure-nextgen:solutions/latest:JitRequest" }, { type: "azure-native:solutions/v20190701:JitRequest" }, { type: "azure-nextgen:solutions/v20190701:JitRequest" }, { type: "azure-native:solutions/v20200821preview:JitRequest" }, { type: "azure-nextgen:solutions/v20200821preview:JitRequest" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:solutions:JitRequest" }, { type: "azure-native:solutions/latest:JitRequest" }, { type: "azure-nextgen:solutions/latest:JitRequest" }, { type: "azure-native:solutions/v20190701:JitRequest" }, { type: "azure-nextgen:solutions/v20190701:JitRequest" }, { type: "azure-native:solutions/v20200821preview:JitRequest" }, { type: "azure-nextgen:solutions/v20200821preview:JitRequest" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(JitRequest.__pulumiType, name, inputs, opts);
     }

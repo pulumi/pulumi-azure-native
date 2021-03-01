@@ -97,6 +97,7 @@ namespace Pulumi.AzureNative.Security
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:security:AdaptiveApplicationControl"},
                     new Pulumi.Alias { Type = "azure-native:security/latest:AdaptiveApplicationControl"},
                     new Pulumi.Alias { Type = "azure-nextgen:security/latest:AdaptiveApplicationControl"},
                     new Pulumi.Alias { Type = "azure-native:security/v20150601preview:AdaptiveApplicationControl"},

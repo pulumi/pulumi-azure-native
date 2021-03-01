@@ -112,6 +112,7 @@ namespace Pulumi.AzureNative.Network.V20190201
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190201:ConnectionMonitor"},
                     new Pulumi.Alias { Type = "azure-native:network:ConnectionMonitor"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:ConnectionMonitor"},
                     new Pulumi.Alias { Type = "azure-native:network/latest:ConnectionMonitor"},

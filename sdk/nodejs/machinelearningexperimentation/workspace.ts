@@ -124,7 +124,7 @@ export class Workspace extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningexperimentation/v20170501preview:Workspace" }, { type: "azure-nextgen:machinelearningexperimentation/v20170501preview:Workspace" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:machinelearningexperimentation:Workspace" }, { type: "azure-native:machinelearningexperimentation/v20170501preview:Workspace" }, { type: "azure-nextgen:machinelearningexperimentation/v20170501preview:Workspace" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Workspace.__pulumiType, name, inputs, opts);
     }

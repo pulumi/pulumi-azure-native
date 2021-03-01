@@ -53,6 +53,9 @@ func NewDedicatedHsm(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:hardwaresecuritymodules:DedicatedHsm"),
+		},
+		{
 			Type: pulumi.String("azure-native:hardwaresecuritymodules/v20181031preview:DedicatedHsm"),
 		},
 		{

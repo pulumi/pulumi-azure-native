@@ -64,6 +64,7 @@ namespace Pulumi.AzureNative.Cache.V20171001
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:cache/v20171001:FirewallRule"},
                     new Pulumi.Alias { Type = "azure-native:cache:FirewallRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache:FirewallRule"},
                     new Pulumi.Alias { Type = "azure-native:cache/latest:FirewallRule"},

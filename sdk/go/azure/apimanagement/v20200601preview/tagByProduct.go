@@ -41,6 +41,9 @@ func NewTagByProduct(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:apimanagement/v20200601preview:TagByProduct"),
+		},
+		{
 			Type: pulumi.String("azure-native:apimanagement:TagByProduct"),
 		},
 		{

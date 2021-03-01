@@ -89,6 +89,7 @@ namespace Pulumi.AzureNative.Synapse
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:synapse:SqlPoolWorkloadClassifier"},
                     new Pulumi.Alias { Type = "azure-native:synapse/latest:SqlPoolWorkloadClassifier"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/latest:SqlPoolWorkloadClassifier"},
                     new Pulumi.Alias { Type = "azure-native:synapse/v20190601preview:SqlPoolWorkloadClassifier"},

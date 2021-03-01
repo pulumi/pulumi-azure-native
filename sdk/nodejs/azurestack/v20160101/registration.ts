@@ -109,7 +109,7 @@ export class Registration extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:azurestack:Registration" }, { type: "azure-nextgen:azurestack:Registration" }, { type: "azure-native:azurestack/latest:Registration" }, { type: "azure-nextgen:azurestack/latest:Registration" }, { type: "azure-native:azurestack/v20170601:Registration" }, { type: "azure-nextgen:azurestack/v20170601:Registration" }, { type: "azure-native:azurestack/v20200601preview:Registration" }, { type: "azure-nextgen:azurestack/v20200601preview:Registration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:azurestack/v20160101:Registration" }, { type: "azure-native:azurestack:Registration" }, { type: "azure-nextgen:azurestack:Registration" }, { type: "azure-native:azurestack/latest:Registration" }, { type: "azure-nextgen:azurestack/latest:Registration" }, { type: "azure-native:azurestack/v20170601:Registration" }, { type: "azure-nextgen:azurestack/v20170601:Registration" }, { type: "azure-native:azurestack/v20200601preview:Registration" }, { type: "azure-nextgen:azurestack/v20200601preview:Registration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Registration.__pulumiType, name, inputs, opts);
     }

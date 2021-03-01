@@ -77,6 +77,7 @@ namespace Pulumi.AzureNative.EnterpriseKnowledgeGraph
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:enterpriseknowledgegraph:EnterpriseKnowledgeGraph"},
                     new Pulumi.Alias { Type = "azure-native:enterpriseknowledgegraph/latest:EnterpriseKnowledgeGraph"},
                     new Pulumi.Alias { Type = "azure-nextgen:enterpriseknowledgegraph/latest:EnterpriseKnowledgeGraph"},
                     new Pulumi.Alias { Type = "azure-native:enterpriseknowledgegraph/v20181203:EnterpriseKnowledgeGraph"},

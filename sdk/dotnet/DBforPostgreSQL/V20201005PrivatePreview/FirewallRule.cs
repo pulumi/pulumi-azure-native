@@ -68,6 +68,10 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20201005PrivatePreview
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql/v20201005privatepreview:FirewallRule"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

@@ -119,6 +119,7 @@ namespace Pulumi.AzureNative.Aad
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:aad:OuContainer"},
                     new Pulumi.Alias { Type = "azure-native:aad/latest:OuContainer"},
                     new Pulumi.Alias { Type = "azure-nextgen:aad/latest:OuContainer"},
                     new Pulumi.Alias { Type = "azure-native:aad/v20170601:OuContainer"},

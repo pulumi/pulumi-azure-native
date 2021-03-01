@@ -134,7 +134,7 @@ export class PrivateStoreOffer extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:marketplace:PrivateStoreOffer" }, { type: "azure-nextgen:marketplace:PrivateStoreOffer" }, { type: "azure-native:marketplace/latest:PrivateStoreOffer" }, { type: "azure-nextgen:marketplace/latest:PrivateStoreOffer" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:marketplace/v20200101:PrivateStoreOffer" }, { type: "azure-native:marketplace:PrivateStoreOffer" }, { type: "azure-nextgen:marketplace:PrivateStoreOffer" }, { type: "azure-native:marketplace/latest:PrivateStoreOffer" }, { type: "azure-nextgen:marketplace/latest:PrivateStoreOffer" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateStoreOffer.__pulumiType, name, inputs, opts);
     }

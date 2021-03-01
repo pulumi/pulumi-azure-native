@@ -60,7 +60,7 @@ class ServiceTopology(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:deploymentmanager:ServiceTopology"), pulumi.Alias(type_="azure-nextgen:deploymentmanager:ServiceTopology"), pulumi.Alias(type_="azure-native:deploymentmanager/v20191101preview:ServiceTopology"), pulumi.Alias(type_="azure-nextgen:deploymentmanager/v20191101preview:ServiceTopology")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:deploymentmanager/v20180901preview:ServiceTopology"), pulumi.Alias(type_="azure-native:deploymentmanager:ServiceTopology"), pulumi.Alias(type_="azure-nextgen:deploymentmanager:ServiceTopology"), pulumi.Alias(type_="azure-native:deploymentmanager/v20191101preview:ServiceTopology"), pulumi.Alias(type_="azure-nextgen:deploymentmanager/v20191101preview:ServiceTopology")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ServiceTopology, __self__).__init__(
             'azure-native:deploymentmanager/v20180901preview:ServiceTopology',

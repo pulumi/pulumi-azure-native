@@ -50,6 +50,12 @@ func NewPublishedBlueprint(ctx *pulumi.Context,
 	if args.ManagementGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ManagementGroupName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:blueprint/v20171111preview:PublishedBlueprint"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource PublishedBlueprint
 	err := ctx.RegisterResource("azure-native:blueprint/v20171111preview:PublishedBlueprint", name, args, &resource, opts...)
 	if err != nil {

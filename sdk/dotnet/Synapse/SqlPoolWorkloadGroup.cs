@@ -89,6 +89,7 @@ namespace Pulumi.AzureNative.Synapse
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:synapse:SqlPoolWorkloadGroup"},
                     new Pulumi.Alias { Type = "azure-native:synapse/latest:SqlPoolWorkloadGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/latest:SqlPoolWorkloadGroup"},
                     new Pulumi.Alias { Type = "azure-native:synapse/v20190601preview:SqlPoolWorkloadGroup"},

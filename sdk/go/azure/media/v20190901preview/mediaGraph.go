@@ -54,6 +54,9 @@ func NewMediaGraph(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:media/v20190901preview:MediaGraph"),
+		},
+		{
 			Type: pulumi.String("azure-native:media:MediaGraph"),
 		},
 		{

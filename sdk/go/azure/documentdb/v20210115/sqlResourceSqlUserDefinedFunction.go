@@ -50,6 +50,9 @@ func NewSqlResourceSqlUserDefinedFunction(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:documentdb/v20210115:SqlResourceSqlUserDefinedFunction"),
+		},
+		{
 			Type: pulumi.String("azure-native:documentdb:SqlResourceSqlUserDefinedFunction"),
 		},
 		{

@@ -76,6 +76,7 @@ namespace Pulumi.AzureNative.Portal.V20181001Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:portal/v20181001preview:Dashboard"},
                     new Pulumi.Alias { Type = "azure-native:portal:Dashboard"},
                     new Pulumi.Alias { Type = "azure-nextgen:portal:Dashboard"},
                     new Pulumi.Alias { Type = "azure-native:portal/v20150801preview:Dashboard"},

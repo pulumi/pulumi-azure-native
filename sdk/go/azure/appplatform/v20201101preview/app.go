@@ -42,6 +42,9 @@ func NewApp(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:appplatform/v20201101preview:App"),
+		},
+		{
 			Type: pulumi.String("azure-native:appplatform:App"),
 		},
 		{

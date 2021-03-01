@@ -148,6 +148,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20201201
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20201201:AuthorizationServer"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement:AuthorizationServer"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement:AuthorizationServer"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/latest:AuthorizationServer"},

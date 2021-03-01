@@ -78,7 +78,7 @@ class WorkbookTemplate(pulumi.CustomResource):
             __props__['template_data'] = template_data
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:insights:WorkbookTemplate"), pulumi.Alias(type_="azure-nextgen:insights:WorkbookTemplate")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:insights/v20191017preview:WorkbookTemplate"), pulumi.Alias(type_="azure-native:insights:WorkbookTemplate"), pulumi.Alias(type_="azure-nextgen:insights:WorkbookTemplate")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WorkbookTemplate, __self__).__init__(
             'azure-native:insights/v20191017preview:WorkbookTemplate',

@@ -82,6 +82,7 @@ namespace Pulumi.AzureNative.NetApp.V20190701
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:netapp/v20190701:Snapshot"},
                     new Pulumi.Alias { Type = "azure-native:netapp:Snapshot"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp:Snapshot"},
                     new Pulumi.Alias { Type = "azure-native:netapp/latest:Snapshot"},

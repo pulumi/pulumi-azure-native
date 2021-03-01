@@ -82,6 +82,7 @@ namespace Pulumi.AzureNative.AppConfiguration.V20190201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:appconfiguration/v20190201preview:ConfigurationStore"},
                     new Pulumi.Alias { Type = "azure-native:appconfiguration:ConfigurationStore"},
                     new Pulumi.Alias { Type = "azure-nextgen:appconfiguration:ConfigurationStore"},
                     new Pulumi.Alias { Type = "azure-native:appconfiguration/latest:ConfigurationStore"},

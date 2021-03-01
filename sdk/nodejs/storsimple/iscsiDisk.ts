@@ -145,7 +145,7 @@ export class IscsiDisk extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:storsimple/latest:IscsiDisk" }, { type: "azure-nextgen:storsimple/latest:IscsiDisk" }, { type: "azure-native:storsimple/v20161001:IscsiDisk" }, { type: "azure-nextgen:storsimple/v20161001:IscsiDisk" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:storsimple:IscsiDisk" }, { type: "azure-native:storsimple/latest:IscsiDisk" }, { type: "azure-nextgen:storsimple/latest:IscsiDisk" }, { type: "azure-native:storsimple/v20161001:IscsiDisk" }, { type: "azure-nextgen:storsimple/v20161001:IscsiDisk" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IscsiDisk.__pulumiType, name, inputs, opts);
     }

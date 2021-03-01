@@ -160,6 +160,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20190801
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190801:Device"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge:Device"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge:Device"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/latest:Device"},

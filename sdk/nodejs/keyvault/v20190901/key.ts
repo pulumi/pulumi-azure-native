@@ -128,7 +128,7 @@ export class Key extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:keyvault:Key" }, { type: "azure-nextgen:keyvault:Key" }, { type: "azure-native:keyvault/latest:Key" }, { type: "azure-nextgen:keyvault/latest:Key" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:keyvault/v20190901:Key" }, { type: "azure-native:keyvault:Key" }, { type: "azure-nextgen:keyvault:Key" }, { type: "azure-native:keyvault/latest:Key" }, { type: "azure-nextgen:keyvault/latest:Key" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Key.__pulumiType, name, inputs, opts);
     }

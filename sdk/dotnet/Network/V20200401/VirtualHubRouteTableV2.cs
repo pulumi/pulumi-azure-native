@@ -70,6 +70,7 @@ namespace Pulumi.AzureNative.Network.V20200401
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:VirtualHubRouteTableV2"},
                     new Pulumi.Alias { Type = "azure-native:network:VirtualHubRouteTableV2"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:VirtualHubRouteTableV2"},
                     new Pulumi.Alias { Type = "azure-native:network/latest:VirtualHubRouteTableV2"},

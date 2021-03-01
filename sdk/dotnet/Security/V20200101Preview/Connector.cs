@@ -64,6 +64,7 @@ namespace Pulumi.AzureNative.Security.V20200101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:security/v20200101preview:Connector"},
                     new Pulumi.Alias { Type = "azure-native:security:Connector"},
                     new Pulumi.Alias { Type = "azure-nextgen:security:Connector"},
                 },

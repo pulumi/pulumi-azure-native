@@ -70,6 +70,7 @@ namespace Pulumi.AzureNative.HanaOnAzure.V20200207Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:hanaonazure/v20200207preview:ProviderInstance"},
                     new Pulumi.Alias { Type = "azure-native:hanaonazure:ProviderInstance"},
                     new Pulumi.Alias { Type = "azure-nextgen:hanaonazure:ProviderInstance"},
                 },

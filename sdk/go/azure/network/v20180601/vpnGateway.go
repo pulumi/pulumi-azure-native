@@ -49,6 +49,9 @@ func NewVpnGateway(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:network/v20180601:VpnGateway"),
+		},
+		{
 			Type: pulumi.String("azure-native:network:VpnGateway"),
 		},
 		{

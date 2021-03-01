@@ -77,6 +77,9 @@ func NewAdminRule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:network:AdminRule"),
+		},
+		{
 			Type: pulumi.String("azure-native:network/v20210201preview:AdminRule"),
 		},
 		{

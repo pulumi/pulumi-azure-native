@@ -101,6 +101,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge:Order"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/latest:Order"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/latest:Order"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20190301:Order"},

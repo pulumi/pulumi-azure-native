@@ -226,6 +226,7 @@ namespace Pulumi.AzureNative.Web.V20150801
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20150801:SiteAuthSettingsSlot"},
                     new Pulumi.Alias { Type = "azure-native:web:SiteAuthSettingsSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:SiteAuthSettingsSlot"},
                     new Pulumi.Alias { Type = "azure-native:web/latest:SiteAuthSettingsSlot"},

@@ -66,6 +66,7 @@ namespace Pulumi.AzureNative.AVS.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:avs/latest:HcxEnterpriseSite"},
                     new Pulumi.Alias { Type = "azure-native:avs:HcxEnterpriseSite"},
                     new Pulumi.Alias { Type = "azure-nextgen:avs:HcxEnterpriseSite"},
                     new Pulumi.Alias { Type = "azure-native:avs/v20200320:HcxEnterpriseSite"},

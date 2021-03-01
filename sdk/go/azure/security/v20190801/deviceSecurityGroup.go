@@ -41,6 +41,9 @@ func NewDeviceSecurityGroup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:security/v20190801:DeviceSecurityGroup"),
+		},
+		{
 			Type: pulumi.String("azure-native:security:DeviceSecurityGroup"),
 		},
 		{

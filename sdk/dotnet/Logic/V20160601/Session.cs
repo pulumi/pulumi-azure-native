@@ -82,6 +82,7 @@ namespace Pulumi.AzureNative.Logic.V20160601
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:logic/v20160601:Session"},
                     new Pulumi.Alias { Type = "azure-native:logic:Session"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic:Session"},
                     new Pulumi.Alias { Type = "azure-native:logic/latest:Session"},

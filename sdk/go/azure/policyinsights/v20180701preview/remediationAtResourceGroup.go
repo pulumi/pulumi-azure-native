@@ -47,6 +47,9 @@ func NewRemediationAtResourceGroup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:policyinsights/v20180701preview:RemediationAtResourceGroup"),
+		},
+		{
 			Type: pulumi.String("azure-native:policyinsights:RemediationAtResourceGroup"),
 		},
 		{

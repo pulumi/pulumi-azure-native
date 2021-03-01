@@ -44,6 +44,9 @@ func NewProtectionPolicy(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:recoveryservices/v20210101:ProtectionPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-native:recoveryservices:ProtectionPolicy"),
 		},
 		{

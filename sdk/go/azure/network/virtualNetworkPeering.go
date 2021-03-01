@@ -61,6 +61,9 @@ func NewVirtualNetworkPeering(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:network:VirtualNetworkPeering"),
+		},
+		{
 			Type: pulumi.String("azure-native:network/latest:VirtualNetworkPeering"),
 		},
 		{

@@ -47,6 +47,9 @@ func NewDdosCustomPolicy(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:network/v20181101:DdosCustomPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-native:network:DdosCustomPolicy"),
 		},
 		{

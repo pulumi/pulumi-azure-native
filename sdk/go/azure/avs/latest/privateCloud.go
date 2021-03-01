@@ -82,6 +82,9 @@ func NewPrivateCloud(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:avs/latest:PrivateCloud"),
+		},
+		{
 			Type: pulumi.String("azure-native:avs:PrivateCloud"),
 		},
 		{

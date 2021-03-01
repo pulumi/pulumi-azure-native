@@ -44,6 +44,9 @@ func NewSecret(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:cdn:Secret"),
+		},
+		{
 			Type: pulumi.String("azure-native:cdn/latest:Secret"),
 		},
 		{

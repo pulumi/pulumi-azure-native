@@ -142,6 +142,7 @@ namespace Pulumi.AzureNative.Network.V20200701
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:ExpressRouteCrossConnectionPeering"},
                     new Pulumi.Alias { Type = "azure-native:network:ExpressRouteCrossConnectionPeering"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:ExpressRouteCrossConnectionPeering"},
                     new Pulumi.Alias { Type = "azure-native:network/latest:ExpressRouteCrossConnectionPeering"},

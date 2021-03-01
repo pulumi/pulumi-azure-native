@@ -83,6 +83,7 @@ namespace Pulumi.AzureNative.Automation
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:automation:Connection"},
                     new Pulumi.Alias { Type = "azure-native:automation/latest:Connection"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/latest:Connection"},
                     new Pulumi.Alias { Type = "azure-native:automation/v20151031:Connection"},

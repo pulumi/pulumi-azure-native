@@ -100,6 +100,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20191201
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201:ApiOperation"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement:ApiOperation"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement:ApiOperation"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/latest:ApiOperation"},

@@ -41,6 +41,9 @@ func NewPostgresInstance(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:azuredata/v20190724preview:PostgresInstance"),
+		},
+		{
 			Type: pulumi.String("azure-native:azuredata:PostgresInstance"),
 		},
 		{

@@ -50,6 +50,9 @@ func NewSqlResourceSqlTrigger(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:documentdb/v20210115:SqlResourceSqlTrigger"),
+		},
+		{
 			Type: pulumi.String("azure-native:documentdb:SqlResourceSqlTrigger"),
 		},
 		{

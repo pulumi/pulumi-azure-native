@@ -89,7 +89,7 @@ export class DataFlow extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:datafactory/latest:DataFlow" }, { type: "azure-nextgen:datafactory/latest:DataFlow" }, { type: "azure-native:datafactory/v20180601:DataFlow" }, { type: "azure-nextgen:datafactory/v20180601:DataFlow" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:datafactory:DataFlow" }, { type: "azure-native:datafactory/latest:DataFlow" }, { type: "azure-nextgen:datafactory/latest:DataFlow" }, { type: "azure-native:datafactory/v20180601:DataFlow" }, { type: "azure-nextgen:datafactory/v20180601:DataFlow" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DataFlow.__pulumiType, name, inputs, opts);
     }

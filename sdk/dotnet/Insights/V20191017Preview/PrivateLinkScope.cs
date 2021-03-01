@@ -76,6 +76,7 @@ namespace Pulumi.AzureNative.Insights.V20191017Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:insights/v20191017preview:PrivateLinkScope"},
                     new Pulumi.Alias { Type = "azure-native:insights:PrivateLinkScope"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights:PrivateLinkScope"},
                 },

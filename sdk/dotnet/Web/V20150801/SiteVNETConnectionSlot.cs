@@ -107,6 +107,7 @@ namespace Pulumi.AzureNative.Web.V20150801
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20150801:SiteVNETConnectionSlot"},
                     new Pulumi.Alias { Type = "azure-native:web:SiteVNETConnectionSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:SiteVNETConnectionSlot"},
                     new Pulumi.Alias { Type = "azure-native:web/latest:SiteVNETConnectionSlot"},

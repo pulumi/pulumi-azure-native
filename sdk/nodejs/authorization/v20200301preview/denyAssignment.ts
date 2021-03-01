@@ -157,7 +157,7 @@ export class DenyAssignment extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:authorization:DenyAssignment" }, { type: "azure-nextgen:authorization:DenyAssignment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:authorization/v20200301preview:DenyAssignment" }, { type: "azure-native:authorization:DenyAssignment" }, { type: "azure-nextgen:authorization:DenyAssignment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DenyAssignment.__pulumiType, name, inputs, opts);
     }

@@ -101,6 +101,7 @@ namespace Pulumi.AzureNative.Sql
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:sql:DisasterRecoveryConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:sql/latest:DisasterRecoveryConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/latest:DisasterRecoveryConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20140401:DisasterRecoveryConfiguration"},

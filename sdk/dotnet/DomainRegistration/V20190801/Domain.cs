@@ -188,6 +188,7 @@ namespace Pulumi.AzureNative.DomainRegistration.V20190801
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:domainregistration/v20190801:Domain"},
                     new Pulumi.Alias { Type = "azure-native:domainregistration:Domain"},
                     new Pulumi.Alias { Type = "azure-nextgen:domainregistration:Domain"},
                     new Pulumi.Alias { Type = "azure-native:domainregistration/latest:Domain"},

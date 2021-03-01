@@ -43,6 +43,9 @@ func NewSubscriptionDiagnosticSetting(ctx *pulumi.Context,
 
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:insights/v20170501preview:SubscriptionDiagnosticSetting"),
+		},
+		{
 			Type: pulumi.String("azure-native:insights:SubscriptionDiagnosticSetting"),
 		},
 		{

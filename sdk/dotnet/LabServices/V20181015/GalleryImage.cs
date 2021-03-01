@@ -136,6 +136,7 @@ namespace Pulumi.AzureNative.LabServices.V20181015
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:labservices/v20181015:GalleryImage"},
                     new Pulumi.Alias { Type = "azure-native:labservices:GalleryImage"},
                     new Pulumi.Alias { Type = "azure-nextgen:labservices:GalleryImage"},
                     new Pulumi.Alias { Type = "azure-native:labservices/latest:GalleryImage"},

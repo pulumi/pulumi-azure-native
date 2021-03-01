@@ -88,6 +88,7 @@ namespace Pulumi.AzureNative.Network.V20190601
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190601:BastionHost"},
                     new Pulumi.Alias { Type = "azure-native:network:BastionHost"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:BastionHost"},
                     new Pulumi.Alias { Type = "azure-native:network/latest:BastionHost"},

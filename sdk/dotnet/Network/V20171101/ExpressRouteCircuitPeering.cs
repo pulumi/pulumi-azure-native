@@ -154,6 +154,7 @@ namespace Pulumi.AzureNative.Network.V20171101
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20171101:ExpressRouteCircuitPeering"},
                     new Pulumi.Alias { Type = "azure-native:network:ExpressRouteCircuitPeering"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:ExpressRouteCircuitPeering"},
                     new Pulumi.Alias { Type = "azure-native:network/latest:ExpressRouteCircuitPeering"},

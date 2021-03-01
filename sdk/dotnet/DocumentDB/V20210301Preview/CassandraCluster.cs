@@ -76,6 +76,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20210301Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20210301preview:CassandraCluster"},
                     new Pulumi.Alias { Type = "azure-native:documentdb:CassandraCluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb:CassandraCluster"},
                 },

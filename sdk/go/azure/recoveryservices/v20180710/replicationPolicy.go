@@ -40,6 +40,9 @@ func NewReplicationPolicy(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:recoveryservices/v20180710:ReplicationPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-native:recoveryservices:ReplicationPolicy"),
 		},
 		{

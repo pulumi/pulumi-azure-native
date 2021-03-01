@@ -76,6 +76,7 @@ namespace Pulumi.AzureNative.Web.V20160601
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20160601:CustomApi"},
                     new Pulumi.Alias { Type = "azure-native:web:CustomApi"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:CustomApi"},
                     new Pulumi.Alias { Type = "azure-native:web/latest:CustomApi"},

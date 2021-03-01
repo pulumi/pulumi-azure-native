@@ -165,7 +165,7 @@ export class Cluster extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:batchai/v20180301:Cluster" }, { type: "azure-nextgen:batchai/v20180301:Cluster" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:batchai/v20170901preview:Cluster" }, { type: "azure-native:batchai/v20180301:Cluster" }, { type: "azure-nextgen:batchai/v20180301:Cluster" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Cluster.__pulumiType, name, inputs, opts);
     }

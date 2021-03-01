@@ -69,7 +69,7 @@ class Application(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hdinsight/v20150301preview:Application"), pulumi.Alias(type_="azure-nextgen:hdinsight/v20150301preview:Application"), pulumi.Alias(type_="azure-native:hdinsight/v20180601preview:Application"), pulumi.Alias(type_="azure-nextgen:hdinsight/v20180601preview:Application")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:hdinsight:Application"), pulumi.Alias(type_="azure-native:hdinsight/v20150301preview:Application"), pulumi.Alias(type_="azure-nextgen:hdinsight/v20150301preview:Application"), pulumi.Alias(type_="azure-native:hdinsight/v20180601preview:Application"), pulumi.Alias(type_="azure-nextgen:hdinsight/v20180601preview:Application")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Application, __self__).__init__(
             'azure-native:hdinsight:Application',

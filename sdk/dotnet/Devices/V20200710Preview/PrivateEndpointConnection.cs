@@ -58,6 +58,7 @@ namespace Pulumi.AzureNative.Devices.V20200710Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:devices/v20200710preview:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:devices:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:devices/latest:PrivateEndpointConnection"},

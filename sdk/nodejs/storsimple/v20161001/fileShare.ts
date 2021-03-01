@@ -144,7 +144,7 @@ export class FileShare extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:storsimple:FileShare" }, { type: "azure-nextgen:storsimple:FileShare" }, { type: "azure-native:storsimple/latest:FileShare" }, { type: "azure-nextgen:storsimple/latest:FileShare" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:storsimple/v20161001:FileShare" }, { type: "azure-native:storsimple:FileShare" }, { type: "azure-nextgen:storsimple:FileShare" }, { type: "azure-native:storsimple/latest:FileShare" }, { type: "azure-nextgen:storsimple/latest:FileShare" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(FileShare.__pulumiType, name, inputs, opts);
     }

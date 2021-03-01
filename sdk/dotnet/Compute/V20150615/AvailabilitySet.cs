@@ -88,6 +88,7 @@ namespace Pulumi.AzureNative.Compute.V20150615
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20150615:AvailabilitySet"},
                     new Pulumi.Alias { Type = "azure-native:compute:AvailabilitySet"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute:AvailabilitySet"},
                     new Pulumi.Alias { Type = "azure-native:compute/latest:AvailabilitySet"},

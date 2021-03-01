@@ -52,6 +52,9 @@ func NewTaskRun(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:containerregistry:TaskRun"),
+		},
+		{
 			Type: pulumi.String("azure-native:containerregistry/v20190601preview:TaskRun"),
 		},
 		{

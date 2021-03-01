@@ -38,6 +38,9 @@ func NewDefaultRollout(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:providerhub/latest:DefaultRollout"),
+		},
+		{
 			Type: pulumi.String("azure-native:providerhub:DefaultRollout"),
 		},
 		{

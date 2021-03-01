@@ -38,6 +38,9 @@ func NewTagAtScope(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:resources/v20191001:TagAtScope"),
+		},
+		{
 			Type: pulumi.String("azure-native:resources:TagAtScope"),
 		},
 		{

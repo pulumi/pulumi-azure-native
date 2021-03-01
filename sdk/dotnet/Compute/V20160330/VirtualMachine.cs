@@ -142,6 +142,7 @@ namespace Pulumi.AzureNative.Compute.V20160330
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20160330:VirtualMachine"},
                     new Pulumi.Alias { Type = "azure-native:compute:VirtualMachine"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute:VirtualMachine"},
                     new Pulumi.Alias { Type = "azure-native:compute/latest:VirtualMachine"},

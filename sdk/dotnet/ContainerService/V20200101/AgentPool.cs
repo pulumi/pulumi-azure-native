@@ -160,6 +160,7 @@ namespace Pulumi.AzureNative.ContainerService.V20200101
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20200101:AgentPool"},
                     new Pulumi.Alias { Type = "azure-native:containerservice:AgentPool"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice:AgentPool"},
                     new Pulumi.Alias { Type = "azure-native:containerservice/latest:AgentPool"},

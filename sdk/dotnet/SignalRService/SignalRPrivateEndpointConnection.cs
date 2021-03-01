@@ -71,6 +71,7 @@ namespace Pulumi.AzureNative.SignalRService
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:signalrservice:SignalRPrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:signalrservice/latest:SignalRPrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:signalrservice/latest:SignalRPrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:signalrservice/v20200501:SignalRPrivateEndpointConnection"},

@@ -112,6 +112,7 @@ namespace Pulumi.AzureNative.ServiceBus.V20140901
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20140901:Namespace"},
                     new Pulumi.Alias { Type = "azure-native:servicebus:Namespace"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus:Namespace"},
                     new Pulumi.Alias { Type = "azure-native:servicebus/latest:Namespace"},

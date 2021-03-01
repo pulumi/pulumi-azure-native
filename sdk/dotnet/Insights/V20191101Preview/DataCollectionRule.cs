@@ -101,6 +101,7 @@ namespace Pulumi.AzureNative.Insights.V20191101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:insights/v20191101preview:DataCollectionRule"},
                     new Pulumi.Alias { Type = "azure-native:insights:DataCollectionRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights:DataCollectionRule"},
                 },

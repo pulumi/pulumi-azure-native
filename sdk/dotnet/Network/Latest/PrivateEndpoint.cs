@@ -114,6 +114,7 @@ namespace Pulumi.AzureNative.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:PrivateEndpoint"},
                     new Pulumi.Alias { Type = "azure-native:network:PrivateEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:PrivateEndpoint"},
                     new Pulumi.Alias { Type = "azure-native:network/v20190401:PrivateEndpoint"},

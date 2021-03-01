@@ -64,6 +64,7 @@ namespace Pulumi.AzureNative.Devices.V20190322
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:devices/v20190322:IotHubResourceEventHubConsumerGroup"},
                     new Pulumi.Alias { Type = "azure-native:devices:IotHubResourceEventHubConsumerGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices:IotHubResourceEventHubConsumerGroup"},
                     new Pulumi.Alias { Type = "azure-native:devices/latest:IotHubResourceEventHubConsumerGroup"},

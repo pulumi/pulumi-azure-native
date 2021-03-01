@@ -47,6 +47,9 @@ func NewWebAppAuthSettingsV2Slot(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppAuthSettingsV2Slot"),
+		},
+		{
 			Type: pulumi.String("azure-native:web:WebAppAuthSettingsV2Slot"),
 		},
 		{

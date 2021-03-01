@@ -72,6 +72,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql/latest:VirtualNetworkRule"},
                     new Pulumi.Alias { Type = "azure-native:dbforpostgresql:VirtualNetworkRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql:VirtualNetworkRule"},
                     new Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20171201:VirtualNetworkRule"},

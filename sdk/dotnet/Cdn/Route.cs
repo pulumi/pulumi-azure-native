@@ -140,6 +140,7 @@ namespace Pulumi.AzureNative.Cdn
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:cdn:Route"},
                     new Pulumi.Alias { Type = "azure-native:cdn/latest:Route"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/latest:Route"},
                     new Pulumi.Alias { Type = "azure-native:cdn/v20200901:Route"},

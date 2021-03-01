@@ -71,7 +71,7 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
             __props__['virtual_network_rules'] = virtual_network_rules
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:servicebus:NamespaceNetworkRuleSet"), pulumi.Alias(type_="azure-nextgen:servicebus:NamespaceNetworkRuleSet"), pulumi.Alias(type_="azure-native:servicebus/v20170401:NamespaceNetworkRuleSet"), pulumi.Alias(type_="azure-nextgen:servicebus/v20170401:NamespaceNetworkRuleSet"), pulumi.Alias(type_="azure-native:servicebus/v20180101preview:NamespaceNetworkRuleSet"), pulumi.Alias(type_="azure-nextgen:servicebus/v20180101preview:NamespaceNetworkRuleSet")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:servicebus/latest:NamespaceNetworkRuleSet"), pulumi.Alias(type_="azure-native:servicebus:NamespaceNetworkRuleSet"), pulumi.Alias(type_="azure-nextgen:servicebus:NamespaceNetworkRuleSet"), pulumi.Alias(type_="azure-native:servicebus/v20170401:NamespaceNetworkRuleSet"), pulumi.Alias(type_="azure-nextgen:servicebus/v20170401:NamespaceNetworkRuleSet"), pulumi.Alias(type_="azure-native:servicebus/v20180101preview:NamespaceNetworkRuleSet"), pulumi.Alias(type_="azure-nextgen:servicebus/v20180101preview:NamespaceNetworkRuleSet")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NamespaceNetworkRuleSet, __self__).__init__(
             'azure-native:servicebus/latest:NamespaceNetworkRuleSet',

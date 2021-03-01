@@ -96,7 +96,7 @@ export class IoTSpace extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:iotspaces:IoTSpace" }, { type: "azure-nextgen:iotspaces:IoTSpace" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:iotspaces/v20171001preview:IoTSpace" }, { type: "azure-native:iotspaces:IoTSpace" }, { type: "azure-nextgen:iotspaces:IoTSpace" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IoTSpace.__pulumiType, name, inputs, opts);
     }

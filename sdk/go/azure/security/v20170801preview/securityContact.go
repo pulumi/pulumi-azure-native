@@ -47,6 +47,9 @@ func NewSecurityContact(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:security/v20170801preview:SecurityContact"),
+		},
+		{
 			Type: pulumi.String("azure-native:security:SecurityContact"),
 		},
 		{

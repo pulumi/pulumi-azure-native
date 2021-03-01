@@ -55,6 +55,9 @@ func NewIncidentRelation(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:securityinsights/v20190101preview:IncidentRelation"),
+		},
+		{
 			Type: pulumi.String("azure-native:securityinsights:IncidentRelation"),
 		},
 		{

@@ -96,7 +96,7 @@ class SystemTopicEventSubscription(pulumi.CustomResource):
             __props__['system_data'] = None
             __props__['topic'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:eventgrid/v20200401preview:SystemTopicEventSubscription"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20200401preview:SystemTopicEventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20201015preview:SystemTopicEventSubscription"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20201015preview:SystemTopicEventSubscription")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:eventgrid:SystemTopicEventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20200401preview:SystemTopicEventSubscription"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20200401preview:SystemTopicEventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20201015preview:SystemTopicEventSubscription"), pulumi.Alias(type_="azure-nextgen:eventgrid/v20201015preview:SystemTopicEventSubscription")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SystemTopicEventSubscription, __self__).__init__(
             'azure-native:eventgrid:SystemTopicEventSubscription',

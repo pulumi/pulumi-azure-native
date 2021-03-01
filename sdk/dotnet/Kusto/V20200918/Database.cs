@@ -64,6 +64,7 @@ namespace Pulumi.AzureNative.Kusto.V20200918
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:kusto/v20200918:Database"},
                     new Pulumi.Alias { Type = "azure-native:kusto:Database"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto:Database"},
                     new Pulumi.Alias { Type = "azure-native:kusto/latest:Database"},

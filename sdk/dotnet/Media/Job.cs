@@ -119,6 +119,7 @@ namespace Pulumi.AzureNative.Media
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:media:Job"},
                     new Pulumi.Alias { Type = "azure-native:media/latest:Job"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/latest:Job"},
                     new Pulumi.Alias { Type = "azure-native:media/v20180330preview:Job"},

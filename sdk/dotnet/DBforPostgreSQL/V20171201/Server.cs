@@ -166,6 +166,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20171201
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql/v20171201:Server"},
                     new Pulumi.Alias { Type = "azure-native:dbforpostgresql:Server"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql:Server"},
                     new Pulumi.Alias { Type = "azure-native:dbforpostgresql/latest:Server"},

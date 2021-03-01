@@ -58,6 +58,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20191201
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201:TagByOperation"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement:TagByOperation"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement:TagByOperation"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/latest:TagByOperation"},

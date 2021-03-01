@@ -109,6 +109,7 @@ namespace Pulumi.AzureNative.Sql.V20200202Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20200202preview:ManagedDatabaseSensitivityLabel"},
                     new Pulumi.Alias { Type = "azure-native:sql:ManagedDatabaseSensitivityLabel"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql:ManagedDatabaseSensitivityLabel"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20180601preview:ManagedDatabaseSensitivityLabel"},

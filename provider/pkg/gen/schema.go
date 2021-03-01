@@ -499,7 +499,9 @@ func (g *packageGenerator) genResources(prov, typeName string, resource *openapi
 	}
 
 	// Add an alias for each API version that has the same path in it.
-	var aliases []pschema.AliasSpec
+	// Also, add an alias to the same version in azure-nextgen and all other versions in azure-nextgen.
+	alias := fmt.Sprintf("%s:%s:%s", "azure-nextgen", module, typeName)
+	aliases := []pschema.AliasSpec {{Type: &alias}}
 	for _, version := range resource.CompatibleVersions {
 		moduleName := providerApiToModule(prov, version)
 		alias := fmt.Sprintf("%s:%s:%s", g.pkg.Name, moduleName, typeName)

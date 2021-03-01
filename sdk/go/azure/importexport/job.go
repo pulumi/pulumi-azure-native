@@ -44,6 +44,9 @@ func NewJob(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:importexport:Job"),
+		},
+		{
 			Type: pulumi.String("azure-native:importexport/latest:Job"),
 		},
 		{

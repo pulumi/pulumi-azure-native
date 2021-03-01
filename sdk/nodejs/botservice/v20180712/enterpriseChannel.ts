@@ -105,7 +105,7 @@ export class EnterpriseChannel extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:botservice:EnterpriseChannel" }, { type: "azure-nextgen:botservice:EnterpriseChannel" }, { type: "azure-native:botservice/latest:EnterpriseChannel" }, { type: "azure-nextgen:botservice/latest:EnterpriseChannel" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:botservice/v20180712:EnterpriseChannel" }, { type: "azure-native:botservice:EnterpriseChannel" }, { type: "azure-nextgen:botservice:EnterpriseChannel" }, { type: "azure-native:botservice/latest:EnterpriseChannel" }, { type: "azure-nextgen:botservice/latest:EnterpriseChannel" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(EnterpriseChannel.__pulumiType, name, inputs, opts);
     }

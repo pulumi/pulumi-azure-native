@@ -41,6 +41,9 @@ func NewRoleAssignment(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:authorization/v20171001preview:RoleAssignment"),
+		},
+		{
 			Type: pulumi.String("azure-native:authorization:RoleAssignment"),
 		},
 		{

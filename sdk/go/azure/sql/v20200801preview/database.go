@@ -132,6 +132,9 @@ func NewDatabase(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:sql/v20200801preview:Database"),
+		},
+		{
 			Type: pulumi.String("azure-native:sql:Database"),
 		},
 		{

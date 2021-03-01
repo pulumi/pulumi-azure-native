@@ -67,6 +67,9 @@ func NewSystemTopicEventSubscription(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:eventgrid/v20201015preview:SystemTopicEventSubscription"),
+		},
+		{
 			Type: pulumi.String("azure-native:eventgrid:SystemTopicEventSubscription"),
 		},
 		{

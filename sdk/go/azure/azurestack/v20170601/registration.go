@@ -48,6 +48,9 @@ func NewRegistration(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:azurestack/v20170601:Registration"),
+		},
+		{
 			Type: pulumi.String("azure-native:azurestack:Registration"),
 		},
 		{

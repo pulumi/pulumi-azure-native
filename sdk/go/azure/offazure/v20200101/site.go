@@ -40,6 +40,9 @@ func NewSite(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:offazure/v20200101:Site"),
+		},
+		{
 			Type: pulumi.String("azure-native:offazure:Site"),
 		},
 		{

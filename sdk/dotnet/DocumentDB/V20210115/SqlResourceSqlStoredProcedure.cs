@@ -67,6 +67,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20210115
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20210115:SqlResourceSqlStoredProcedure"},
                     new Pulumi.Alias { Type = "azure-native:documentdb:SqlResourceSqlStoredProcedure"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb:SqlResourceSqlStoredProcedure"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/latest:SqlResourceSqlStoredProcedure"},

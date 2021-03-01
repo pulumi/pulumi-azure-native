@@ -31,6 +31,9 @@ func NewTenantConfiguration(ctx *pulumi.Context,
 
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:portal/v20200901preview:TenantConfiguration"),
+		},
+		{
 			Type: pulumi.String("azure-native:portal:TenantConfiguration"),
 		},
 		{

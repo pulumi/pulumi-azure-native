@@ -64,7 +64,7 @@ class Account(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:engagementfabric:Account"), pulumi.Alias(type_="azure-nextgen:engagementfabric:Account")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:engagementfabric/v20180901preview:Account"), pulumi.Alias(type_="azure-native:engagementfabric:Account"), pulumi.Alias(type_="azure-nextgen:engagementfabric:Account")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Account, __self__).__init__(
             'azure-native:engagementfabric/v20180901preview:Account',

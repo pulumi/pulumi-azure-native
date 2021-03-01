@@ -100,6 +100,7 @@ namespace Pulumi.AzureNative.HardwareSecurityModules.V20181031Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:hardwaresecuritymodules/v20181031preview:DedicatedHsm"},
                     new Pulumi.Alias { Type = "azure-native:hardwaresecuritymodules:DedicatedHsm"},
                     new Pulumi.Alias { Type = "azure-nextgen:hardwaresecuritymodules:DedicatedHsm"},
                 },

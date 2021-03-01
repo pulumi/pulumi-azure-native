@@ -97,6 +97,9 @@ func NewDomain(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:domainregistration/v20150401:Domain"),
+		},
+		{
 			Type: pulumi.String("azure-native:domainregistration:Domain"),
 		},
 		{

@@ -76,6 +76,7 @@ namespace Pulumi.AzureNative.Web.V20201001
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:WebAppSwiftVirtualNetworkConnectionSlot"},
                     new Pulumi.Alias { Type = "azure-native:web:WebAppSwiftVirtualNetworkConnectionSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:WebAppSwiftVirtualNetworkConnectionSlot"},
                     new Pulumi.Alias { Type = "azure-native:web/latest:WebAppSwiftVirtualNetworkConnectionSlot"},

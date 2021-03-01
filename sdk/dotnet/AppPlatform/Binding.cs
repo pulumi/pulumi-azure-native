@@ -59,6 +59,7 @@ namespace Pulumi.AzureNative.AppPlatform
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:appplatform:Binding"},
                     new Pulumi.Alias { Type = "azure-native:appplatform/latest:Binding"},
                     new Pulumi.Alias { Type = "azure-nextgen:appplatform/latest:Binding"},
                     new Pulumi.Alias { Type = "azure-native:appplatform/v20190501preview:Binding"},

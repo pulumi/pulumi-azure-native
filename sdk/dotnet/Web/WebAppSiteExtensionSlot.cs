@@ -182,6 +182,7 @@ namespace Pulumi.AzureNative.Web
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:web:WebAppSiteExtensionSlot"},
                     new Pulumi.Alias { Type = "azure-native:web/latest:WebAppSiteExtensionSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/latest:WebAppSiteExtensionSlot"},
                     new Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppSiteExtensionSlot"},

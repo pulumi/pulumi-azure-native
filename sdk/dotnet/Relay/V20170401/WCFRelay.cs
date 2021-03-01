@@ -100,6 +100,7 @@ namespace Pulumi.AzureNative.Relay.V20170401
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:relay/v20170401:WCFRelay"},
                     new Pulumi.Alias { Type = "azure-native:relay:WCFRelay"},
                     new Pulumi.Alias { Type = "azure-nextgen:relay:WCFRelay"},
                     new Pulumi.Alias { Type = "azure-native:relay/latest:WCFRelay"},

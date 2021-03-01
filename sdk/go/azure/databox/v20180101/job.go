@@ -58,6 +58,9 @@ func NewJob(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:databox/v20180101:Job"),
+		},
+		{
 			Type: pulumi.String("azure-native:databox:Job"),
 		},
 		{

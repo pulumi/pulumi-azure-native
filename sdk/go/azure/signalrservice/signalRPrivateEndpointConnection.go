@@ -43,6 +43,9 @@ func NewSignalRPrivateEndpointConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:signalrservice:SignalRPrivateEndpointConnection"),
+		},
+		{
 			Type: pulumi.String("azure-native:signalrservice/latest:SignalRPrivateEndpointConnection"),
 		},
 		{

@@ -104,7 +104,7 @@ export class Workspace extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:batchai:Workspace" }, { type: "azure-nextgen:batchai:Workspace" }, { type: "azure-native:batchai/v20180501:Workspace" }, { type: "azure-nextgen:batchai/v20180501:Workspace" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:batchai/latest:Workspace" }, { type: "azure-native:batchai:Workspace" }, { type: "azure-nextgen:batchai:Workspace" }, { type: "azure-native:batchai/v20180501:Workspace" }, { type: "azure-nextgen:batchai/v20180501:Workspace" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Workspace.__pulumiType, name, inputs, opts);
     }

@@ -205,6 +205,7 @@ namespace Pulumi.AzureNative.Sql.V20180601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20180601preview:ManagedInstance"},
                     new Pulumi.Alias { Type = "azure-native:sql:ManagedInstance"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql:ManagedInstance"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20150501preview:ManagedInstance"},

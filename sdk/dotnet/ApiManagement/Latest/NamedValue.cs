@@ -78,6 +78,7 @@ namespace Pulumi.AzureNative.ApiManagement.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:NamedValue"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement:NamedValue"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement:NamedValue"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:NamedValue"},

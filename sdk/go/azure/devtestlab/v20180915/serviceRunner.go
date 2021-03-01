@@ -42,6 +42,9 @@ func NewServiceRunner(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:devtestlab/v20180915:ServiceRunner"),
+		},
+		{
 			Type: pulumi.String("azure-native:devtestlab:ServiceRunner"),
 		},
 		{

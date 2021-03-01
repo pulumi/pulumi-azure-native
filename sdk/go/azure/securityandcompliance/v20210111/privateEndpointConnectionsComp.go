@@ -47,6 +47,9 @@ func NewPrivateEndpointConnectionsComp(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:securityandcompliance/v20210111:PrivateEndpointConnectionsComp"),
+		},
+		{
 			Type: pulumi.String("azure-native:securityandcompliance:PrivateEndpointConnectionsComp"),
 		},
 		{

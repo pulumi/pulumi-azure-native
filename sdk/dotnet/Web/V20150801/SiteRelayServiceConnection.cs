@@ -91,6 +91,7 @@ namespace Pulumi.AzureNative.Web.V20150801
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20150801:SiteRelayServiceConnection"},
                     new Pulumi.Alias { Type = "azure-native:web:SiteRelayServiceConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:SiteRelayServiceConnection"},
                     new Pulumi.Alias { Type = "azure-native:web/latest:SiteRelayServiceConnection"},

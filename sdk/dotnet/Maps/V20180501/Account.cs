@@ -76,6 +76,7 @@ namespace Pulumi.AzureNative.Maps.V20180501
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:maps/v20180501:Account"},
                     new Pulumi.Alias { Type = "azure-native:maps:Account"},
                     new Pulumi.Alias { Type = "azure-nextgen:maps:Account"},
                     new Pulumi.Alias { Type = "azure-native:maps/latest:Account"},

@@ -50,6 +50,9 @@ func NewLinkedServer(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:cache/v20190701:LinkedServer"),
+		},
+		{
 			Type: pulumi.String("azure-native:cache:LinkedServer"),
 		},
 		{

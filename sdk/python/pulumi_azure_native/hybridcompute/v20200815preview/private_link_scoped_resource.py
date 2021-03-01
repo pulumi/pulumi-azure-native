@@ -59,7 +59,7 @@ class PrivateLinkScopedResource(pulumi.CustomResource):
             __props__['scope_name'] = scope_name
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybridcompute:PrivateLinkScopedResource"), pulumi.Alias(type_="azure-nextgen:hybridcompute:PrivateLinkScopedResource")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:hybridcompute/v20200815preview:PrivateLinkScopedResource"), pulumi.Alias(type_="azure-native:hybridcompute:PrivateLinkScopedResource"), pulumi.Alias(type_="azure-nextgen:hybridcompute:PrivateLinkScopedResource")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateLinkScopedResource, __self__).__init__(
             'azure-native:hybridcompute/v20200815preview:PrivateLinkScopedResource',

@@ -112,6 +112,7 @@ namespace Pulumi.AzureNative.NetApp.V20200801
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200801:BackupPolicy"},
                     new Pulumi.Alias { Type = "azure-native:netapp:BackupPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp:BackupPolicy"},
                     new Pulumi.Alias { Type = "azure-native:netapp/latest:BackupPolicy"},

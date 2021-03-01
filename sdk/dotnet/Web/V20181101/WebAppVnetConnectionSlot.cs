@@ -101,6 +101,7 @@ namespace Pulumi.AzureNative.Web.V20181101
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20181101:WebAppVnetConnectionSlot"},
                     new Pulumi.Alias { Type = "azure-native:web:WebAppVnetConnectionSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:WebAppVnetConnectionSlot"},
                     new Pulumi.Alias { Type = "azure-native:web/latest:WebAppVnetConnectionSlot"},

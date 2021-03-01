@@ -66,6 +66,7 @@ namespace Pulumi.AzureNative.AppPlatform.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:appplatform/latest:Deployment"},
                     new Pulumi.Alias { Type = "azure-native:appplatform:Deployment"},
                     new Pulumi.Alias { Type = "azure-nextgen:appplatform:Deployment"},
                     new Pulumi.Alias { Type = "azure-native:appplatform/v20190501preview:Deployment"},

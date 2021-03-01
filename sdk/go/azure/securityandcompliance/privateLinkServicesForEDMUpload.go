@@ -48,6 +48,9 @@ func NewPrivateLinkServicesForEDMUpload(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:securityandcompliance:privateLinkServicesForEDMUpload"),
+		},
+		{
 			Type: pulumi.String("azure-native:securityandcompliance/latest:privateLinkServicesForEDMUpload"),
 		},
 		{

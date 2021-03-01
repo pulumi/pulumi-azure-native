@@ -102,6 +102,9 @@ func NewSiteSlot(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:web/v20150801:SiteSlot"),
+		},
+		{
 			Type: pulumi.String("azure-native:web:SiteSlot"),
 		},
 		{

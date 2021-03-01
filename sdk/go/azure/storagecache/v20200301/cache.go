@@ -61,6 +61,9 @@ func NewCache(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:storagecache/v20200301:Cache"),
+		},
+		{
 			Type: pulumi.String("azure-native:storagecache:Cache"),
 		},
 		{

@@ -58,6 +58,7 @@ namespace Pulumi.AzureNative.SerialConsole.V20180501
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:serialconsole/v20180501:SerialPort"},
                     new Pulumi.Alias { Type = "azure-native:serialconsole:SerialPort"},
                     new Pulumi.Alias { Type = "azure-nextgen:serialconsole:SerialPort"},
                     new Pulumi.Alias { Type = "azure-native:serialconsole/latest:SerialPort"},

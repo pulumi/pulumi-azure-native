@@ -130,6 +130,7 @@ namespace Pulumi.AzureNative.Network.V20181101
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20181101:PublicIPPrefix"},
                     new Pulumi.Alias { Type = "azure-native:network:PublicIPPrefix"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:PublicIPPrefix"},
                     new Pulumi.Alias { Type = "azure-native:network/latest:PublicIPPrefix"},

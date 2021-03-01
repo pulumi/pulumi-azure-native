@@ -94,6 +94,7 @@ namespace Pulumi.AzureNative.Peering.V20201001
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:peering/v20201001:Prefix"},
                     new Pulumi.Alias { Type = "azure-native:peering:Prefix"},
                     new Pulumi.Alias { Type = "azure-nextgen:peering:Prefix"},
                     new Pulumi.Alias { Type = "azure-native:peering/latest:Prefix"},

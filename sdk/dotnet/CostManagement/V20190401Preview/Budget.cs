@@ -100,6 +100,7 @@ namespace Pulumi.AzureNative.CostManagement.V20190401Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:costmanagement/v20190401preview:Budget"},
                     new Pulumi.Alias { Type = "azure-native:costmanagement:Budget"},
                     new Pulumi.Alias { Type = "azure-nextgen:costmanagement:Budget"},
                 },

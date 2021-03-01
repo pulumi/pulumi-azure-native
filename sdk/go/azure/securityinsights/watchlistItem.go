@@ -68,6 +68,9 @@ func NewWatchlistItem(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:securityinsights:WatchlistItem"),
+		},
+		{
 			Type: pulumi.String("azure-native:securityinsights/v20190101preview:WatchlistItem"),
 		},
 		{

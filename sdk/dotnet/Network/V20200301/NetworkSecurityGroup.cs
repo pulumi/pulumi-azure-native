@@ -112,6 +112,7 @@ namespace Pulumi.AzureNative.Network.V20200301
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200301:NetworkSecurityGroup"},
                     new Pulumi.Alias { Type = "azure-native:network:NetworkSecurityGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:NetworkSecurityGroup"},
                     new Pulumi.Alias { Type = "azure-native:network/latest:NetworkSecurityGroup"},

@@ -43,6 +43,9 @@ func NewIntegrationServiceEnvironmentManagedApi(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:logic:IntegrationServiceEnvironmentManagedApi"),
+		},
+		{
 			Type: pulumi.String("azure-native:logic/latest:IntegrationServiceEnvironmentManagedApi"),
 		},
 		{

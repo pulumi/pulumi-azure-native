@@ -37,6 +37,9 @@ func NewResourceGroup(ctx *pulumi.Context,
 
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:resources/v20200601:ResourceGroup"),
+		},
+		{
 			Type: pulumi.String("azure-native:resources:ResourceGroup"),
 		},
 		{

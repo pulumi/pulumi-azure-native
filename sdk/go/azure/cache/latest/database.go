@@ -55,6 +55,9 @@ func NewDatabase(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:cache/latest:Database"),
+		},
+		{
 			Type: pulumi.String("azure-native:cache:Database"),
 		},
 		{

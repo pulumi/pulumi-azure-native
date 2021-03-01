@@ -70,6 +70,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20210301Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20210301preview:SqlResourceSqlRoleDefinition"},
                     new Pulumi.Alias { Type = "azure-native:documentdb:SqlResourceSqlRoleDefinition"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb:SqlResourceSqlRoleDefinition"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20200601preview:SqlResourceSqlRoleDefinition"},

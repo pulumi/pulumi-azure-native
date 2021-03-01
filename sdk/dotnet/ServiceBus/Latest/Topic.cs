@@ -150,6 +150,7 @@ namespace Pulumi.AzureNative.ServiceBus.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:servicebus/latest:Topic"},
                     new Pulumi.Alias { Type = "azure-native:servicebus:Topic"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus:Topic"},
                     new Pulumi.Alias { Type = "azure-native:servicebus/v20140901:Topic"},

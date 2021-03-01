@@ -43,6 +43,9 @@ func NewWebService(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:machinelearning:WebService"),
+		},
+		{
 			Type: pulumi.String("azure-native:machinelearning/latest:WebService"),
 		},
 		{

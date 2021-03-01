@@ -52,6 +52,9 @@ func NewPipeline(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:devops:Pipeline"),
+		},
+		{
 			Type: pulumi.String("azure-native:devops/v20190701preview:Pipeline"),
 		},
 		{

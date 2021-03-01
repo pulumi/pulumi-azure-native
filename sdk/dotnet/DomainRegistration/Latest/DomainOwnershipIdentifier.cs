@@ -72,6 +72,7 @@ namespace Pulumi.AzureNative.DomainRegistration.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:domainregistration/latest:DomainOwnershipIdentifier"},
                     new Pulumi.Alias { Type = "azure-native:domainregistration:DomainOwnershipIdentifier"},
                     new Pulumi.Alias { Type = "azure-nextgen:domainregistration:DomainOwnershipIdentifier"},
                     new Pulumi.Alias { Type = "azure-native:domainregistration/v20150401:DomainOwnershipIdentifier"},

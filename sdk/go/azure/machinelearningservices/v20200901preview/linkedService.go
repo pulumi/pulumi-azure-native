@@ -42,6 +42,9 @@ func NewLinkedService(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:machinelearningservices/v20200901preview:LinkedService"),
+		},
+		{
 			Type: pulumi.String("azure-native:machinelearningservices:LinkedService"),
 		},
 		{

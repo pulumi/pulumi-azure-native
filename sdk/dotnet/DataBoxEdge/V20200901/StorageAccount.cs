@@ -94,6 +94,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200901
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901:StorageAccount"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge:StorageAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge:StorageAccount"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/latest:StorageAccount"},

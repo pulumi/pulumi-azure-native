@@ -63,6 +63,9 @@ func NewJobStep(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:sql/v20200202preview:JobStep"),
+		},
+		{
 			Type: pulumi.String("azure-native:sql:JobStep"),
 		},
 		{

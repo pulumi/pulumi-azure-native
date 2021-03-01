@@ -44,6 +44,9 @@ func NewWCFRelayAuthorizationRule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:relay/v20170401:WCFRelayAuthorizationRule"),
+		},
+		{
 			Type: pulumi.String("azure-native:relay:WCFRelayAuthorizationRule"),
 		},
 		{

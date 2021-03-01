@@ -102,7 +102,7 @@ export class Report extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:costmanagement/v20180801preview:Report" }, { type: "azure-nextgen:costmanagement/v20180801preview:Report" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:costmanagement:Report" }, { type: "azure-native:costmanagement/v20180801preview:Report" }, { type: "azure-nextgen:costmanagement/v20180801preview:Report" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Report.__pulumiType, name, inputs, opts);
     }

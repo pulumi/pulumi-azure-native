@@ -82,6 +82,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:securityinsights/v20190101preview:BookmarkRelation"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights:BookmarkRelation"},
                     new Pulumi.Alias { Type = "azure-nextgen:securityinsights:BookmarkRelation"},
                 },

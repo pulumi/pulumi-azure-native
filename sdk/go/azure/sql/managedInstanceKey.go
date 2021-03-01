@@ -50,6 +50,9 @@ func NewManagedInstanceKey(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:sql:ManagedInstanceKey"),
+		},
+		{
 			Type: pulumi.String("azure-native:sql/v20171001preview:ManagedInstanceKey"),
 		},
 		{

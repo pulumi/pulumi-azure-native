@@ -87,7 +87,7 @@ class FileServer(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['provisioning_state_transition_time'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:batchai:FileServer"), pulumi.Alias(type_="azure-nextgen:batchai:FileServer"), pulumi.Alias(type_="azure-native:batchai/v20180501:FileServer"), pulumi.Alias(type_="azure-nextgen:batchai/v20180501:FileServer")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:batchai/latest:FileServer"), pulumi.Alias(type_="azure-native:batchai:FileServer"), pulumi.Alias(type_="azure-nextgen:batchai:FileServer"), pulumi.Alias(type_="azure-native:batchai/v20180501:FileServer"), pulumi.Alias(type_="azure-nextgen:batchai/v20180501:FileServer")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(FileServer, __self__).__init__(
             'azure-native:batchai/latest:FileServer',

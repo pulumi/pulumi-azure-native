@@ -67,6 +67,9 @@ func NewModule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:automation/v20151031:Module"),
+		},
+		{
 			Type: pulumi.String("azure-native:automation:Module"),
 		},
 		{

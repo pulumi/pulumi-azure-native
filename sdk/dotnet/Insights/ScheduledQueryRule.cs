@@ -137,6 +137,7 @@ namespace Pulumi.AzureNative.Insights
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:insights:ScheduledQueryRule"},
                     new Pulumi.Alias { Type = "azure-native:insights/latest:ScheduledQueryRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights/latest:ScheduledQueryRule"},
                     new Pulumi.Alias { Type = "azure-native:insights/v20180416:ScheduledQueryRule"},

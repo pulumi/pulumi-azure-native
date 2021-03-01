@@ -113,7 +113,7 @@ export class IncidentRelation extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:IncidentRelation" }, { type: "azure-nextgen:securityinsights:IncidentRelation" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:securityinsights/v20190101preview:IncidentRelation" }, { type: "azure-native:securityinsights:IncidentRelation" }, { type: "azure-nextgen:securityinsights:IncidentRelation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IncidentRelation.__pulumiType, name, inputs, opts);
     }

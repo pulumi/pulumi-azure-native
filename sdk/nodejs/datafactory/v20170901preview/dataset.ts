@@ -88,7 +88,7 @@ export class Dataset extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:datafactory:Dataset" }, { type: "azure-nextgen:datafactory:Dataset" }, { type: "azure-native:datafactory/latest:Dataset" }, { type: "azure-nextgen:datafactory/latest:Dataset" }, { type: "azure-native:datafactory/v20180601:Dataset" }, { type: "azure-nextgen:datafactory/v20180601:Dataset" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:datafactory/v20170901preview:Dataset" }, { type: "azure-native:datafactory:Dataset" }, { type: "azure-nextgen:datafactory:Dataset" }, { type: "azure-native:datafactory/latest:Dataset" }, { type: "azure-nextgen:datafactory/latest:Dataset" }, { type: "azure-native:datafactory/v20180601:Dataset" }, { type: "azure-nextgen:datafactory/v20180601:Dataset" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Dataset.__pulumiType, name, inputs, opts);
     }

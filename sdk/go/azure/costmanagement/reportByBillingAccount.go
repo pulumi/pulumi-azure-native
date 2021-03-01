@@ -50,6 +50,9 @@ func NewReportByBillingAccount(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:costmanagement:ReportByBillingAccount"),
+		},
+		{
 			Type: pulumi.String("azure-native:costmanagement/v20180801preview:ReportByBillingAccount"),
 		},
 		{

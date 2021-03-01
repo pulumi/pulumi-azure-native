@@ -82,6 +82,9 @@ func NewSubnet(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:network/v20200801:Subnet"),
+		},
+		{
 			Type: pulumi.String("azure-native:network:Subnet"),
 		},
 		{

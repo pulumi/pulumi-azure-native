@@ -50,6 +50,9 @@ func NewExpressRouteConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:network/v20200301:ExpressRouteConnection"),
+		},
+		{
 			Type: pulumi.String("azure-native:network:ExpressRouteConnection"),
 		},
 		{

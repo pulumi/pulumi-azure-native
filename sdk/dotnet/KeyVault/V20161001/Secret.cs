@@ -70,6 +70,7 @@ namespace Pulumi.AzureNative.KeyVault.V20161001
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:keyvault/v20161001:Secret"},
                     new Pulumi.Alias { Type = "azure-native:keyvault:Secret"},
                     new Pulumi.Alias { Type = "azure-nextgen:keyvault:Secret"},
                     new Pulumi.Alias { Type = "azure-native:keyvault/latest:Secret"},

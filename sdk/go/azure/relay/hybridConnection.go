@@ -47,6 +47,9 @@ func NewHybridConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:relay:HybridConnection"),
+		},
+		{
 			Type: pulumi.String("azure-native:relay/latest:HybridConnection"),
 		},
 		{

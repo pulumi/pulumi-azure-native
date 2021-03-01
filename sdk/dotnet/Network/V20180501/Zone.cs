@@ -112,6 +112,7 @@ namespace Pulumi.AzureNative.Network.V20180501
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180501:Zone"},
                     new Pulumi.Alias { Type = "azure-native:network:Zone"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:Zone"},
                     new Pulumi.Alias { Type = "azure-native:network/latest:Zone"},

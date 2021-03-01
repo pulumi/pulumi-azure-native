@@ -94,6 +94,7 @@ namespace Pulumi.AzureNative.Logic.V20180701Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:logic/v20180701preview:IntegrationAccountPartner"},
                     new Pulumi.Alias { Type = "azure-native:logic:IntegrationAccountPartner"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic:IntegrationAccountPartner"},
                     new Pulumi.Alias { Type = "azure-native:logic/latest:IntegrationAccountPartner"},

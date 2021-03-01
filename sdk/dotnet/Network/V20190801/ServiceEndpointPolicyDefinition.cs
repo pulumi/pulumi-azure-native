@@ -76,6 +76,7 @@ namespace Pulumi.AzureNative.Network.V20190801
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190801:ServiceEndpointPolicyDefinition"},
                     new Pulumi.Alias { Type = "azure-native:network:ServiceEndpointPolicyDefinition"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:ServiceEndpointPolicyDefinition"},
                     new Pulumi.Alias { Type = "azure-native:network/latest:ServiceEndpointPolicyDefinition"},

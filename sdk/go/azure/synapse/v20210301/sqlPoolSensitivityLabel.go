@@ -67,6 +67,9 @@ func NewSqlPoolSensitivityLabel(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:synapse/v20210301:SqlPoolSensitivityLabel"),
+		},
+		{
 			Type: pulumi.String("azure-native:synapse:SqlPoolSensitivityLabel"),
 		},
 		{

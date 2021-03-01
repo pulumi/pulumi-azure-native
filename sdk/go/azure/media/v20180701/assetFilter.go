@@ -45,6 +45,9 @@ func NewAssetFilter(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:media/v20180701:AssetFilter"),
+		},
+		{
 			Type: pulumi.String("azure-native:media:AssetFilter"),
 		},
 		{

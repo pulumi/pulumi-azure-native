@@ -48,6 +48,9 @@ func NewIscsiTarget(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:storagepool:IscsiTarget"),
+		},
+		{
 			Type: pulumi.String("azure-native:storagepool/v20200315preview:IscsiTarget"),
 		},
 		{

@@ -52,6 +52,9 @@ func NewSiteSourceControl(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:web/v20150801:SiteSourceControl"),
+		},
+		{
 			Type: pulumi.String("azure-native:web:SiteSourceControl"),
 		},
 		{

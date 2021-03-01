@@ -82,6 +82,7 @@ namespace Pulumi.AzureNative.ServiceBus.V20170401
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20170401:DisasterRecoveryConfig"},
                     new Pulumi.Alias { Type = "azure-native:servicebus:DisasterRecoveryConfig"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus:DisasterRecoveryConfig"},
                     new Pulumi.Alias { Type = "azure-native:servicebus/latest:DisasterRecoveryConfig"},

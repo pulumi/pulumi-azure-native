@@ -46,6 +46,9 @@ func NewFirewallRule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:cache/v20180301:FirewallRule"),
+		},
+		{
 			Type: pulumi.String("azure-native:cache:FirewallRule"),
 		},
 		{

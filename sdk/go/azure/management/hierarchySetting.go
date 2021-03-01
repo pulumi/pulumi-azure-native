@@ -40,6 +40,9 @@ func NewHierarchySetting(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:management:HierarchySetting"),
+		},
+		{
 			Type: pulumi.String("azure-native:management/latest:HierarchySetting"),
 		},
 		{

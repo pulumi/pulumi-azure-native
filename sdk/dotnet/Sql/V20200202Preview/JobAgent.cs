@@ -82,6 +82,7 @@ namespace Pulumi.AzureNative.Sql.V20200202Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20200202preview:JobAgent"},
                     new Pulumi.Alias { Type = "azure-native:sql:JobAgent"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql:JobAgent"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20170301preview:JobAgent"},

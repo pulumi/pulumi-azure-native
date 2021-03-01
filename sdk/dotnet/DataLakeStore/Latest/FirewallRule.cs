@@ -66,6 +66,7 @@ namespace Pulumi.AzureNative.DataLakeStore.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:datalakestore/latest:FirewallRule"},
                     new Pulumi.Alias { Type = "azure-native:datalakestore:FirewallRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:datalakestore:FirewallRule"},
                     new Pulumi.Alias { Type = "azure-native:datalakestore/v20161101:FirewallRule"},

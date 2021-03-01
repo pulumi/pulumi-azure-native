@@ -136,6 +136,7 @@ namespace Pulumi.AzureNative.Web.V20150801Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20150801preview:Connection"},
                     new Pulumi.Alias { Type = "azure-native:web:Connection"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:Connection"},
                     new Pulumi.Alias { Type = "azure-native:web/latest:Connection"},

@@ -48,6 +48,9 @@ func NewSyncAgent(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:sql/v20150501preview:SyncAgent"),
+		},
+		{
 			Type: pulumi.String("azure-native:sql:SyncAgent"),
 		},
 		{

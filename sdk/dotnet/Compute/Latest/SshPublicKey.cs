@@ -72,6 +72,7 @@ namespace Pulumi.AzureNative.Compute.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/latest:SshPublicKey"},
                     new Pulumi.Alias { Type = "azure-native:compute:SshPublicKey"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute:SshPublicKey"},
                     new Pulumi.Alias { Type = "azure-native:compute/v20191201:SshPublicKey"},

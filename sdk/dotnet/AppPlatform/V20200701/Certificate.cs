@@ -58,6 +58,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20200701
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:appplatform/v20200701:Certificate"},
                     new Pulumi.Alias { Type = "azure-native:appplatform:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:appplatform:Certificate"},
                     new Pulumi.Alias { Type = "azure-native:appplatform/latest:Certificate"},

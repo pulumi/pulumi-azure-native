@@ -92,7 +92,7 @@ class Appliance(pulumi.CustomResource):
             __props__['outputs'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:solutions/v20160901preview:Appliance"), pulumi.Alias(type_="azure-nextgen:solutions/v20160901preview:Appliance")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:solutions:Appliance"), pulumi.Alias(type_="azure-native:solutions/v20160901preview:Appliance"), pulumi.Alias(type_="azure-nextgen:solutions/v20160901preview:Appliance")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Appliance, __self__).__init__(
             'azure-native:solutions:Appliance',

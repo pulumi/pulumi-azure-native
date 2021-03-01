@@ -178,7 +178,7 @@ export class MetricAlert extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:insights/latest:MetricAlert" }, { type: "azure-nextgen:insights/latest:MetricAlert" }, { type: "azure-native:insights/v20180301:MetricAlert" }, { type: "azure-nextgen:insights/v20180301:MetricAlert" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:insights:MetricAlert" }, { type: "azure-native:insights/latest:MetricAlert" }, { type: "azure-nextgen:insights/latest:MetricAlert" }, { type: "azure-native:insights/v20180301:MetricAlert" }, { type: "azure-nextgen:insights/v20180301:MetricAlert" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MetricAlert.__pulumiType, name, inputs, opts);
     }

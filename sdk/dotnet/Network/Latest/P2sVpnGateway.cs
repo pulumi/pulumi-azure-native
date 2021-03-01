@@ -120,6 +120,7 @@ namespace Pulumi.AzureNative.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:P2sVpnGateway"},
                     new Pulumi.Alias { Type = "azure-native:network:P2sVpnGateway"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:P2sVpnGateway"},
                     new Pulumi.Alias { Type = "azure-native:network/v20180801:P2sVpnGateway"},

@@ -92,7 +92,7 @@ export class ManagedPrivateEndpoint extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:datafactory:ManagedPrivateEndpoint" }, { type: "azure-nextgen:datafactory:ManagedPrivateEndpoint" }, { type: "azure-native:datafactory/latest:ManagedPrivateEndpoint" }, { type: "azure-nextgen:datafactory/latest:ManagedPrivateEndpoint" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:datafactory/v20180601:ManagedPrivateEndpoint" }, { type: "azure-native:datafactory:ManagedPrivateEndpoint" }, { type: "azure-nextgen:datafactory:ManagedPrivateEndpoint" }, { type: "azure-native:datafactory/latest:ManagedPrivateEndpoint" }, { type: "azure-nextgen:datafactory/latest:ManagedPrivateEndpoint" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ManagedPrivateEndpoint.__pulumiType, name, inputs, opts);
     }

@@ -136,7 +136,7 @@ export class MachineLearningDatastore extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices:MachineLearningDatastore" }, { type: "azure-nextgen:machinelearningservices:MachineLearningDatastore" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:machinelearningservices/v20200501preview:MachineLearningDatastore" }, { type: "azure-native:machinelearningservices:MachineLearningDatastore" }, { type: "azure-nextgen:machinelearningservices:MachineLearningDatastore" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MachineLearningDatastore.__pulumiType, name, inputs, opts);
     }

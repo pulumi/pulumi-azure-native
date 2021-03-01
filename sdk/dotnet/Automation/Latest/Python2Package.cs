@@ -138,6 +138,7 @@ namespace Pulumi.AzureNative.Automation.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:automation/latest:Python2Package"},
                     new Pulumi.Alias { Type = "azure-native:automation:Python2Package"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation:Python2Package"},
                     new Pulumi.Alias { Type = "azure-native:automation/v20180630:Python2Package"},

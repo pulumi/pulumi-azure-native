@@ -66,6 +66,9 @@ func NewEnvironmentSetting(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:labservices/v20181015:EnvironmentSetting"),
+		},
+		{
 			Type: pulumi.String("azure-native:labservices:EnvironmentSetting"),
 		},
 		{

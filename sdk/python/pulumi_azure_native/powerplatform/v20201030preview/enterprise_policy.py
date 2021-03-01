@@ -68,7 +68,7 @@ class EnterprisePolicy(pulumi.CustomResource):
             __props__['name'] = None
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:powerplatform:EnterprisePolicy"), pulumi.Alias(type_="azure-nextgen:powerplatform:EnterprisePolicy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:powerplatform/v20201030preview:EnterprisePolicy"), pulumi.Alias(type_="azure-native:powerplatform:EnterprisePolicy"), pulumi.Alias(type_="azure-nextgen:powerplatform:EnterprisePolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(EnterprisePolicy, __self__).__init__(
             'azure-native:powerplatform/v20201030preview:EnterprisePolicy',

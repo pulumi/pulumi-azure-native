@@ -110,7 +110,7 @@ export class PrivateLinkForAzureAd extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:aadiam:privateLinkForAzureAd" }, { type: "azure-nextgen:aadiam:privateLinkForAzureAd" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:aadiam/v20200301preview:privateLinkForAzureAd" }, { type: "azure-native:aadiam:privateLinkForAzureAd" }, { type: "azure-nextgen:aadiam:privateLinkForAzureAd" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateLinkForAzureAd.__pulumiType, name, inputs, opts);
     }

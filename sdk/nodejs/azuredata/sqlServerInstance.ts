@@ -145,7 +145,7 @@ export class SqlServerInstance extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:azuredata/v20190724preview:SqlServerInstance" }, { type: "azure-nextgen:azuredata/v20190724preview:SqlServerInstance" }, { type: "azure-native:azuredata/v20200908preview:SqlServerInstance" }, { type: "azure-nextgen:azuredata/v20200908preview:SqlServerInstance" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:azuredata:SqlServerInstance" }, { type: "azure-native:azuredata/v20190724preview:SqlServerInstance" }, { type: "azure-nextgen:azuredata/v20190724preview:SqlServerInstance" }, { type: "azure-native:azuredata/v20200908preview:SqlServerInstance" }, { type: "azure-nextgen:azuredata/v20200908preview:SqlServerInstance" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SqlServerInstance.__pulumiType, name, inputs, opts);
     }

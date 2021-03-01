@@ -210,6 +210,7 @@ namespace Pulumi.AzureNative.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:VirtualNetworkGatewayConnection"},
                     new Pulumi.Alias { Type = "azure-native:network:VirtualNetworkGatewayConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:VirtualNetworkGatewayConnection"},
                     new Pulumi.Alias { Type = "azure-native:network/v20150615:VirtualNetworkGatewayConnection"},

@@ -46,6 +46,9 @@ func NewTemplateSpec(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:resources:TemplateSpec"),
+		},
+		{
 			Type: pulumi.String("azure-native:resources/v20190601preview:TemplateSpec"),
 		},
 		{

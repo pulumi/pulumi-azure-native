@@ -43,6 +43,9 @@ func NewRoleDefinition(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:authorization/v20180101preview:RoleDefinition"),
+		},
+		{
 			Type: pulumi.String("azure-native:authorization:RoleDefinition"),
 		},
 		{

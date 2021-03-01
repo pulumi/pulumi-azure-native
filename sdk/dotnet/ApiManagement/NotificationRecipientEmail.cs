@@ -59,6 +59,7 @@ namespace Pulumi.AzureNative.ApiManagement
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement:NotificationRecipientEmail"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/latest:NotificationRecipientEmail"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:NotificationRecipientEmail"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:NotificationRecipientEmail"},

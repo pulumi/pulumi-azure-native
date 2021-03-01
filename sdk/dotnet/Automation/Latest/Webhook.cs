@@ -120,6 +120,7 @@ namespace Pulumi.AzureNative.Automation.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:automation/latest:Webhook"},
                     new Pulumi.Alias { Type = "azure-native:automation:Webhook"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation:Webhook"},
                     new Pulumi.Alias { Type = "azure-native:automation/v20151031:Webhook"},

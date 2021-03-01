@@ -52,7 +52,7 @@ class SupportPlanType(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:addons:SupportPlanType"), pulumi.Alias(type_="azure-nextgen:addons:SupportPlanType"), pulumi.Alias(type_="azure-native:addons/latest:SupportPlanType"), pulumi.Alias(type_="azure-nextgen:addons/latest:SupportPlanType"), pulumi.Alias(type_="azure-native:addons/v20170515:SupportPlanType"), pulumi.Alias(type_="azure-nextgen:addons/v20170515:SupportPlanType")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:addons/v20180301:SupportPlanType"), pulumi.Alias(type_="azure-native:addons:SupportPlanType"), pulumi.Alias(type_="azure-nextgen:addons:SupportPlanType"), pulumi.Alias(type_="azure-native:addons/latest:SupportPlanType"), pulumi.Alias(type_="azure-nextgen:addons/latest:SupportPlanType"), pulumi.Alias(type_="azure-native:addons/v20170515:SupportPlanType"), pulumi.Alias(type_="azure-nextgen:addons/v20170515:SupportPlanType")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SupportPlanType, __self__).__init__(
             'azure-native:addons/v20180301:SupportPlanType',

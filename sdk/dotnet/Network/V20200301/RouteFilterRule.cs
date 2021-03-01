@@ -82,6 +82,7 @@ namespace Pulumi.AzureNative.Network.V20200301
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200301:RouteFilterRule"},
                     new Pulumi.Alias { Type = "azure-native:network:RouteFilterRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:RouteFilterRule"},
                     new Pulumi.Alias { Type = "azure-native:network/latest:RouteFilterRule"},

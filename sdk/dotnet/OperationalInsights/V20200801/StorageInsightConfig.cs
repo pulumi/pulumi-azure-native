@@ -88,6 +88,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20200801
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20200801:StorageInsightConfig"},
                     new Pulumi.Alias { Type = "azure-native:operationalinsights:StorageInsightConfig"},
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights:StorageInsightConfig"},
                     new Pulumi.Alias { Type = "azure-native:operationalinsights/latest:StorageInsightConfig"},

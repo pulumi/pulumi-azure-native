@@ -82,6 +82,7 @@ namespace Pulumi.AzureNative.CostManagement.V20180801Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:costmanagement/v20180801preview:ReportByBillingAccount"},
                     new Pulumi.Alias { Type = "azure-native:costmanagement:ReportByBillingAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:costmanagement:ReportByBillingAccount"},
                 },

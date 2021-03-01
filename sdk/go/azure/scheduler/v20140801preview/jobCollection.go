@@ -38,6 +38,9 @@ func NewJobCollection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:scheduler/v20140801preview:JobCollection"),
+		},
+		{
 			Type: pulumi.String("azure-native:scheduler:JobCollection"),
 		},
 		{

@@ -58,6 +58,7 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:storsimple/v20161001:ChapSetting"},
                     new Pulumi.Alias { Type = "azure-native:storsimple:ChapSetting"},
                     new Pulumi.Alias { Type = "azure-nextgen:storsimple:ChapSetting"},
                     new Pulumi.Alias { Type = "azure-native:storsimple/latest:ChapSetting"},

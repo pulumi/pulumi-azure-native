@@ -106,6 +106,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20200601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20200601preview:ApiDiagnostic"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement:ApiDiagnostic"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement:ApiDiagnostic"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/latest:ApiDiagnostic"},

@@ -127,7 +127,7 @@ export class ScheduleResource extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:devtestlab:ScheduleResource" }, { type: "azure-nextgen:devtestlab:ScheduleResource" }, { type: "azure-native:devtestlab/latest:ScheduleResource" }, { type: "azure-nextgen:devtestlab/latest:ScheduleResource" }, { type: "azure-native:devtestlab/v20160515:ScheduleResource" }, { type: "azure-nextgen:devtestlab/v20160515:ScheduleResource" }, { type: "azure-native:devtestlab/v20180915:ScheduleResource" }, { type: "azure-nextgen:devtestlab/v20180915:ScheduleResource" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:devtestlab/v20150521preview:ScheduleResource" }, { type: "azure-native:devtestlab:ScheduleResource" }, { type: "azure-nextgen:devtestlab:ScheduleResource" }, { type: "azure-native:devtestlab/latest:ScheduleResource" }, { type: "azure-nextgen:devtestlab/latest:ScheduleResource" }, { type: "azure-native:devtestlab/v20160515:ScheduleResource" }, { type: "azure-nextgen:devtestlab/v20160515:ScheduleResource" }, { type: "azure-native:devtestlab/v20180915:ScheduleResource" }, { type: "azure-nextgen:devtestlab/v20180915:ScheduleResource" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ScheduleResource.__pulumiType, name, inputs, opts);
     }

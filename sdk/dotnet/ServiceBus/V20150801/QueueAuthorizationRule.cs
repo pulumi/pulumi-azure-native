@@ -64,6 +64,7 @@ namespace Pulumi.AzureNative.ServiceBus.V20150801
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20150801:QueueAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-native:servicebus:QueueAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus:QueueAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-native:servicebus/latest:QueueAuthorizationRule"},

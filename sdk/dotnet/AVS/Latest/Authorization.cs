@@ -72,6 +72,7 @@ namespace Pulumi.AzureNative.AVS.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:avs/latest:Authorization"},
                     new Pulumi.Alias { Type = "azure-native:avs:Authorization"},
                     new Pulumi.Alias { Type = "azure-nextgen:avs:Authorization"},
                     new Pulumi.Alias { Type = "azure-native:avs/v20200320:Authorization"},

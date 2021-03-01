@@ -65,6 +65,9 @@ func NewDatabaseAccountSqlContainer(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:documentdb/v20150401:DatabaseAccountSqlContainer"),
+		},
+		{
 			Type: pulumi.String("azure-native:documentdb:DatabaseAccountSqlContainer"),
 		},
 		{

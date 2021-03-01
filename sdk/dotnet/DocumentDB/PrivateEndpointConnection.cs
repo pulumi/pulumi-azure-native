@@ -77,6 +77,7 @@ namespace Pulumi.AzureNative.DocumentDB
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/latest:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/latest:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20190801preview:PrivateEndpointConnection"},

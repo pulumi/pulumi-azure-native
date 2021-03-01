@@ -221,6 +221,7 @@ namespace Pulumi.AzureNative.DataLakeAnalytics
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:datalakeanalytics:Account"},
                     new Pulumi.Alias { Type = "azure-native:datalakeanalytics/latest:Account"},
                     new Pulumi.Alias { Type = "azure-nextgen:datalakeanalytics/latest:Account"},
                     new Pulumi.Alias { Type = "azure-native:datalakeanalytics/v20151001preview:Account"},

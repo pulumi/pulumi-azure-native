@@ -94,7 +94,7 @@ export class Channel extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:engagementfabric/v20180901preview:Channel" }, { type: "azure-nextgen:engagementfabric/v20180901preview:Channel" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:engagementfabric:Channel" }, { type: "azure-native:engagementfabric/v20180901preview:Channel" }, { type: "azure-nextgen:engagementfabric/v20180901preview:Channel" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Channel.__pulumiType, name, inputs, opts);
     }

@@ -100,6 +100,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20180601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180601preview:IdentityProvider"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement:IdentityProvider"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement:IdentityProvider"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/latest:IdentityProvider"},

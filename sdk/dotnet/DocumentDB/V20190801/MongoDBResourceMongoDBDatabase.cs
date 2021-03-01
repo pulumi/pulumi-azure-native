@@ -67,6 +67,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20190801
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20190801:MongoDBResourceMongoDBDatabase"},
                     new Pulumi.Alias { Type = "azure-native:documentdb:MongoDBResourceMongoDBDatabase"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb:MongoDBResourceMongoDBDatabase"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/latest:MongoDBResourceMongoDBDatabase"},

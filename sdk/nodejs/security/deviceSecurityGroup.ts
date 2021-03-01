@@ -94,7 +94,7 @@ export class DeviceSecurityGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:security/latest:DeviceSecurityGroup" }, { type: "azure-nextgen:security/latest:DeviceSecurityGroup" }, { type: "azure-native:security/v20170801preview:DeviceSecurityGroup" }, { type: "azure-nextgen:security/v20170801preview:DeviceSecurityGroup" }, { type: "azure-native:security/v20190801:DeviceSecurityGroup" }, { type: "azure-nextgen:security/v20190801:DeviceSecurityGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:security:DeviceSecurityGroup" }, { type: "azure-native:security/latest:DeviceSecurityGroup" }, { type: "azure-nextgen:security/latest:DeviceSecurityGroup" }, { type: "azure-native:security/v20170801preview:DeviceSecurityGroup" }, { type: "azure-nextgen:security/v20170801preview:DeviceSecurityGroup" }, { type: "azure-native:security/v20190801:DeviceSecurityGroup" }, { type: "azure-nextgen:security/v20190801:DeviceSecurityGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DeviceSecurityGroup.__pulumiType, name, inputs, opts);
     }

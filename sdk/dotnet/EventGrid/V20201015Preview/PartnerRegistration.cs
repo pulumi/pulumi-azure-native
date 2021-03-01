@@ -156,6 +156,7 @@ namespace Pulumi.AzureNative.EventGrid.V20201015Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20201015preview:PartnerRegistration"},
                     new Pulumi.Alias { Type = "azure-native:eventgrid:PartnerRegistration"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid:PartnerRegistration"},
                     new Pulumi.Alias { Type = "azure-native:eventgrid/v20200401preview:PartnerRegistration"},

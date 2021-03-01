@@ -114,6 +114,7 @@ namespace Pulumi.AzureNative.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:VirtualWan"},
                     new Pulumi.Alias { Type = "azure-native:network:VirtualWan"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:VirtualWan"},
                     new Pulumi.Alias { Type = "azure-native:network/v20180401:VirtualWan"},

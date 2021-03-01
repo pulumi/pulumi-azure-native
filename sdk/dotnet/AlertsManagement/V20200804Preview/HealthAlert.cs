@@ -100,6 +100,7 @@ namespace Pulumi.AzureNative.AlertsManagement.V20200804Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:alertsmanagement/v20200804preview:HealthAlert"},
                     new Pulumi.Alias { Type = "azure-native:alertsmanagement:HealthAlert"},
                     new Pulumi.Alias { Type = "azure-nextgen:alertsmanagement:HealthAlert"},
                 },

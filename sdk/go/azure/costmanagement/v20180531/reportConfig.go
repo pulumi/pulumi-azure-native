@@ -46,6 +46,9 @@ func NewReportConfig(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:costmanagement/v20180531:ReportConfig"),
+		},
+		{
 			Type: pulumi.String("azure-native:costmanagement:ReportConfig"),
 		},
 		{

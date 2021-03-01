@@ -65,6 +65,7 @@ namespace Pulumi.AzureNative.HybridNetwork
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:hybridnetwork:Vendor"},
                     new Pulumi.Alias { Type = "azure-native:hybridnetwork/v20200101preview:Vendor"},
                     new Pulumi.Alias { Type = "azure-nextgen:hybridnetwork/v20200101preview:Vendor"},
                 },

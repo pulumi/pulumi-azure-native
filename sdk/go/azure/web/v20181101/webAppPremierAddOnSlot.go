@@ -55,6 +55,9 @@ func NewWebAppPremierAddOnSlot(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:web/v20181101:WebAppPremierAddOnSlot"),
+		},
+		{
 			Type: pulumi.String("azure-native:web:WebAppPremierAddOnSlot"),
 		},
 		{

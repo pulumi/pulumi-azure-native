@@ -114,6 +114,7 @@ namespace Pulumi.AzureNative.DocumentDB.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/latest:DatabaseAccountSqlContainer"},
                     new Pulumi.Alias { Type = "azure-native:documentdb:DatabaseAccountSqlContainer"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb:DatabaseAccountSqlContainer"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20150401:DatabaseAccountSqlContainer"},

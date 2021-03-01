@@ -64,6 +64,7 @@ namespace Pulumi.AzureNative.Authorization.V20150101
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:authorization/v20150101:ManagementLock"},
                     new Pulumi.Alias { Type = "azure-native:authorization:ManagementLock"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization:ManagementLock"},
                     new Pulumi.Alias { Type = "azure-native:authorization/latest:ManagementLock"},

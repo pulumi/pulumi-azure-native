@@ -96,6 +96,7 @@ namespace Pulumi.AzureNative.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:VirtualNetworkLink"},
                     new Pulumi.Alias { Type = "azure-native:network:VirtualNetworkLink"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:VirtualNetworkLink"},
                     new Pulumi.Alias { Type = "azure-native:network/v20180901:VirtualNetworkLink"},

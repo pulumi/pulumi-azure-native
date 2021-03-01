@@ -106,7 +106,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid:PrivateEndpointConnection" }, { type: "azure-nextgen:eventgrid:PrivateEndpointConnection" }, { type: "azure-native:eventgrid/v20200401preview:PrivateEndpointConnection" }, { type: "azure-nextgen:eventgrid/v20200401preview:PrivateEndpointConnection" }, { type: "azure-native:eventgrid/v20200601:PrivateEndpointConnection" }, { type: "azure-nextgen:eventgrid/v20200601:PrivateEndpointConnection" }, { type: "azure-native:eventgrid/v20201015preview:PrivateEndpointConnection" }, { type: "azure-nextgen:eventgrid/v20201015preview:PrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:eventgrid/latest:PrivateEndpointConnection" }, { type: "azure-native:eventgrid:PrivateEndpointConnection" }, { type: "azure-nextgen:eventgrid:PrivateEndpointConnection" }, { type: "azure-native:eventgrid/v20200401preview:PrivateEndpointConnection" }, { type: "azure-nextgen:eventgrid/v20200401preview:PrivateEndpointConnection" }, { type: "azure-native:eventgrid/v20200601:PrivateEndpointConnection" }, { type: "azure-nextgen:eventgrid/v20200601:PrivateEndpointConnection" }, { type: "azure-native:eventgrid/v20201015preview:PrivateEndpointConnection" }, { type: "azure-nextgen:eventgrid/v20201015preview:PrivateEndpointConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateEndpointConnection.__pulumiType, name, inputs, opts);
     }

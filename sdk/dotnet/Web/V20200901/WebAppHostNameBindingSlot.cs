@@ -118,6 +118,7 @@ namespace Pulumi.AzureNative.Web.V20200901
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:WebAppHostNameBindingSlot"},
                     new Pulumi.Alias { Type = "azure-native:web:WebAppHostNameBindingSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:WebAppHostNameBindingSlot"},
                     new Pulumi.Alias { Type = "azure-native:web/latest:WebAppHostNameBindingSlot"},

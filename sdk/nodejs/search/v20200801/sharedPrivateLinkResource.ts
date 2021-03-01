@@ -79,7 +79,7 @@ export class SharedPrivateLinkResource extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:search:SharedPrivateLinkResource" }, { type: "azure-nextgen:search:SharedPrivateLinkResource" }, { type: "azure-native:search/latest:SharedPrivateLinkResource" }, { type: "azure-nextgen:search/latest:SharedPrivateLinkResource" }, { type: "azure-native:search/v20200801preview:SharedPrivateLinkResource" }, { type: "azure-nextgen:search/v20200801preview:SharedPrivateLinkResource" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:search/v20200801:SharedPrivateLinkResource" }, { type: "azure-native:search:SharedPrivateLinkResource" }, { type: "azure-nextgen:search:SharedPrivateLinkResource" }, { type: "azure-native:search/latest:SharedPrivateLinkResource" }, { type: "azure-nextgen:search/latest:SharedPrivateLinkResource" }, { type: "azure-native:search/v20200801preview:SharedPrivateLinkResource" }, { type: "azure-nextgen:search/v20200801preview:SharedPrivateLinkResource" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SharedPrivateLinkResource.__pulumiType, name, inputs, opts);
     }

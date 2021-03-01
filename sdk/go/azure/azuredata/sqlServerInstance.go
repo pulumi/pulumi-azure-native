@@ -69,6 +69,9 @@ func NewSqlServerInstance(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:azuredata:SqlServerInstance"),
+		},
+		{
 			Type: pulumi.String("azure-native:azuredata/v20190724preview:SqlServerInstance"),
 		},
 		{

@@ -40,6 +40,9 @@ func NewManagementGroup(ctx *pulumi.Context,
 
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:management:ManagementGroup"),
+		},
+		{
 			Type: pulumi.String("azure-native:management/latest:ManagementGroup"),
 		},
 		{

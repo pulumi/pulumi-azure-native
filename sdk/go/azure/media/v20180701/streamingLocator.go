@@ -62,6 +62,9 @@ func NewStreamingLocator(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:media/v20180701:StreamingLocator"),
+		},
+		{
 			Type: pulumi.String("azure-native:media:StreamingLocator"),
 		},
 		{

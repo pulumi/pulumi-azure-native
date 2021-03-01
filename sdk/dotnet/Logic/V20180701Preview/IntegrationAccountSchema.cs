@@ -124,6 +124,7 @@ namespace Pulumi.AzureNative.Logic.V20180701Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:logic/v20180701preview:IntegrationAccountSchema"},
                     new Pulumi.Alias { Type = "azure-native:logic:IntegrationAccountSchema"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic:IntegrationAccountSchema"},
                     new Pulumi.Alias { Type = "azure-native:logic/latest:IntegrationAccountSchema"},

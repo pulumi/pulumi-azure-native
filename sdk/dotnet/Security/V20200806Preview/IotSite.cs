@@ -64,6 +64,7 @@ namespace Pulumi.AzureNative.Security.V20200806Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:security/v20200806preview:IotSite"},
                     new Pulumi.Alias { Type = "azure-native:security:IotSite"},
                     new Pulumi.Alias { Type = "azure-nextgen:security:IotSite"},
                 },

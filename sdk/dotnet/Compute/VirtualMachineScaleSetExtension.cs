@@ -107,6 +107,7 @@ namespace Pulumi.AzureNative.Compute
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:compute:VirtualMachineScaleSetExtension"},
                     new Pulumi.Alias { Type = "azure-native:compute/latest:VirtualMachineScaleSetExtension"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/latest:VirtualMachineScaleSetExtension"},
                     new Pulumi.Alias { Type = "azure-native:compute/v20170330:VirtualMachineScaleSetExtension"},

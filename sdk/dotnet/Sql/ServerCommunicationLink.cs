@@ -77,6 +77,7 @@ namespace Pulumi.AzureNative.Sql
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:sql:ServerCommunicationLink"},
                     new Pulumi.Alias { Type = "azure-native:sql/latest:ServerCommunicationLink"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/latest:ServerCommunicationLink"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20140401:ServerCommunicationLink"},

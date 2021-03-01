@@ -51,6 +51,9 @@ func NewNamedValue(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:apimanagement:NamedValue"),
+		},
+		{
 			Type: pulumi.String("azure-native:apimanagement/latest:NamedValue"),
 		},
 		{

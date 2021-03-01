@@ -100,6 +100,7 @@ namespace Pulumi.AzureNative.Consumption.V20181001
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:consumption/v20181001:BudgetByResourceGroupName"},
                     new Pulumi.Alias { Type = "azure-native:consumption:BudgetByResourceGroupName"},
                     new Pulumi.Alias { Type = "azure-nextgen:consumption:BudgetByResourceGroupName"},
                     new Pulumi.Alias { Type = "azure-native:consumption/latest:BudgetByResourceGroupName"},

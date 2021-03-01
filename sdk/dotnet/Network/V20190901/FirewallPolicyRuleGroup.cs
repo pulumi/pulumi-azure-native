@@ -76,6 +76,7 @@ namespace Pulumi.AzureNative.Network.V20190901
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190901:FirewallPolicyRuleGroup"},
                     new Pulumi.Alias { Type = "azure-native:network:FirewallPolicyRuleGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:FirewallPolicyRuleGroup"},
                     new Pulumi.Alias { Type = "azure-native:network/latest:FirewallPolicyRuleGroup"},

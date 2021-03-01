@@ -58,6 +58,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20190501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:appplatform/v20190501preview:CustomDomain"},
                     new Pulumi.Alias { Type = "azure-native:appplatform:CustomDomain"},
                     new Pulumi.Alias { Type = "azure-nextgen:appplatform:CustomDomain"},
                     new Pulumi.Alias { Type = "azure-native:appplatform/latest:CustomDomain"},

@@ -62,6 +62,9 @@ func NewServerDetails(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:analysisservices/v20160516:ServerDetails"),
+		},
+		{
 			Type: pulumi.String("azure-native:analysisservices:ServerDetails"),
 		},
 		{

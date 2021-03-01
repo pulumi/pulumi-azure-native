@@ -47,6 +47,9 @@ func NewDatabaseAccountCassandraKeyspace(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:documentdb:DatabaseAccountCassandraKeyspace"),
+		},
+		{
 			Type: pulumi.String("azure-native:documentdb/latest:DatabaseAccountCassandraKeyspace"),
 		},
 		{

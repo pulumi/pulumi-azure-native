@@ -106,6 +106,7 @@ namespace Pulumi.AzureNative.BatchAI.V20180301
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:batchai/v20180301:FileServer"},
                     new Pulumi.Alias { Type = "azure-native:batchai/v20170901preview:FileServer"},
                     new Pulumi.Alias { Type = "azure-nextgen:batchai/v20170901preview:FileServer"},
                 },

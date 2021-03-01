@@ -88,6 +88,7 @@ namespace Pulumi.AzureNative.BotService.V20180712
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:botservice/v20180712:Bot"},
                     new Pulumi.Alias { Type = "azure-native:botservice:Bot"},
                     new Pulumi.Alias { Type = "azure-nextgen:botservice:Bot"},
                     new Pulumi.Alias { Type = "azure-native:botservice/latest:Bot"},

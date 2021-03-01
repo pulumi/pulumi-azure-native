@@ -71,7 +71,7 @@ class Variable(pulumi.CustomResource):
             __props__['creation_time'] = None
             __props__['last_modified_time'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:automation:Variable"), pulumi.Alias(type_="azure-nextgen:automation:Variable"), pulumi.Alias(type_="azure-native:automation/latest:Variable"), pulumi.Alias(type_="azure-nextgen:automation/latest:Variable"), pulumi.Alias(type_="azure-native:automation/v20151031:Variable"), pulumi.Alias(type_="azure-nextgen:automation/v20151031:Variable"), pulumi.Alias(type_="azure-native:automation/v20200113preview:Variable"), pulumi.Alias(type_="azure-nextgen:automation/v20200113preview:Variable")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:automation/v20190601:Variable"), pulumi.Alias(type_="azure-native:automation:Variable"), pulumi.Alias(type_="azure-nextgen:automation:Variable"), pulumi.Alias(type_="azure-native:automation/latest:Variable"), pulumi.Alias(type_="azure-nextgen:automation/latest:Variable"), pulumi.Alias(type_="azure-native:automation/v20151031:Variable"), pulumi.Alias(type_="azure-nextgen:automation/v20151031:Variable"), pulumi.Alias(type_="azure-native:automation/v20200113preview:Variable"), pulumi.Alias(type_="azure-nextgen:automation/v20200113preview:Variable")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Variable, __self__).__init__(
             'azure-native:automation/v20190601:Variable',

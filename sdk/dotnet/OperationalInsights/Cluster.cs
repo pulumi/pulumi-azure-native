@@ -137,6 +137,7 @@ namespace Pulumi.AzureNative.OperationalInsights
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:operationalinsights:Cluster"},
                     new Pulumi.Alias { Type = "azure-native:operationalinsights/latest:Cluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/latest:Cluster"},
                     new Pulumi.Alias { Type = "azure-native:operationalinsights/v20190801preview:Cluster"},

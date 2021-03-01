@@ -112,6 +112,7 @@ namespace Pulumi.AzureNative.AnalysisServices.V20160516
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:analysisservices/v20160516:ServerDetails"},
                     new Pulumi.Alias { Type = "azure-native:analysisservices:ServerDetails"},
                     new Pulumi.Alias { Type = "azure-nextgen:analysisservices:ServerDetails"},
                     new Pulumi.Alias { Type = "azure-native:analysisservices/latest:ServerDetails"},

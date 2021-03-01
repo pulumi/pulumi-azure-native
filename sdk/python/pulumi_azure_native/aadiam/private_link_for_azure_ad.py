@@ -75,7 +75,7 @@ class PrivateLinkForAzureAd(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['tenants'] = tenants
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:aadiam/v20200301preview:privateLinkForAzureAd"), pulumi.Alias(type_="azure-nextgen:aadiam/v20200301preview:privateLinkForAzureAd")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:aadiam:privateLinkForAzureAd"), pulumi.Alias(type_="azure-native:aadiam/v20200301preview:privateLinkForAzureAd"), pulumi.Alias(type_="azure-nextgen:aadiam/v20200301preview:privateLinkForAzureAd")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateLinkForAzureAd, __self__).__init__(
             'azure-native:aadiam:privateLinkForAzureAd',

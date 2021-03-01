@@ -64,6 +64,7 @@ namespace Pulumi.AzureNative.Batch.V20170501
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:batch/v20170501:Application"},
                     new Pulumi.Alias { Type = "azure-native:batch:Application"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch:Application"},
                     new Pulumi.Alias { Type = "azure-native:batch/latest:Application"},

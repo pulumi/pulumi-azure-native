@@ -76,6 +76,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210201
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20210201:ProtectedItem"},
                     new Pulumi.Alias { Type = "azure-native:recoveryservices:ProtectedItem"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices:ProtectedItem"},
                     new Pulumi.Alias { Type = "azure-native:recoveryservices/latest:ProtectedItem"},

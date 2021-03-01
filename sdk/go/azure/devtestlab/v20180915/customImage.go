@@ -64,6 +64,9 @@ func NewCustomImage(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:devtestlab/v20180915:CustomImage"),
+		},
+		{
 			Type: pulumi.String("azure-native:devtestlab:CustomImage"),
 		},
 		{

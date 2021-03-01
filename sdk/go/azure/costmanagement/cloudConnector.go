@@ -62,6 +62,9 @@ func NewCloudConnector(ctx *pulumi.Context,
 
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:costmanagement:CloudConnector"),
+		},
+		{
 			Type: pulumi.String("azure-native:costmanagement/v20190301preview:CloudConnector"),
 		},
 		{

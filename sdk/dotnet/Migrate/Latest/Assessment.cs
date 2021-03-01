@@ -66,6 +66,7 @@ namespace Pulumi.AzureNative.Migrate.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:migrate/latest:Assessment"},
                     new Pulumi.Alias { Type = "azure-native:migrate:Assessment"},
                     new Pulumi.Alias { Type = "azure-nextgen:migrate:Assessment"},
                     new Pulumi.Alias { Type = "azure-native:migrate/v20191001:Assessment"},

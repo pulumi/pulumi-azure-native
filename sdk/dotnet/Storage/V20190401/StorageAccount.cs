@@ -214,6 +214,7 @@ namespace Pulumi.AzureNative.Storage.V20190401
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20190401:StorageAccount"},
                     new Pulumi.Alias { Type = "azure-native:storage:StorageAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage:StorageAccount"},
                     new Pulumi.Alias { Type = "azure-native:storage/latest:StorageAccount"},

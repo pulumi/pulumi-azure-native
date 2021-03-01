@@ -56,6 +56,9 @@ func NewWebAppDeployment(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:web/v20180201:WebAppDeployment"),
+		},
+		{
 			Type: pulumi.String("azure-native:web:WebAppDeployment"),
 		},
 		{

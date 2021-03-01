@@ -84,6 +84,7 @@ namespace Pulumi.AzureNative.ApiManagement.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:OpenIdConnectProvider"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement:OpenIdConnectProvider"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement:OpenIdConnectProvider"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20160707:OpenIdConnectProvider"},

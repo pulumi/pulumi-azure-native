@@ -125,6 +125,7 @@ namespace Pulumi.AzureNative.Web
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:web:SiteInstanceDeployment"},
                     new Pulumi.Alias { Type = "azure-native:web/latest:SiteInstanceDeployment"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/latest:SiteInstanceDeployment"},
                     new Pulumi.Alias { Type = "azure-native:web/v20150801:SiteInstanceDeployment"},

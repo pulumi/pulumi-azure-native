@@ -71,6 +71,7 @@ namespace Pulumi.AzureNative.Web
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:web:WebAppConnectionStrings"},
                     new Pulumi.Alias { Type = "azure-native:web/latest:WebAppConnectionStrings"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/latest:WebAppConnectionStrings"},
                     new Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppConnectionStrings"},

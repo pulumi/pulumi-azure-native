@@ -111,7 +111,7 @@ export class Partner extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:managementpartner:Partner" }, { type: "azure-nextgen:managementpartner:Partner" }, { type: "azure-native:managementpartner/latest:Partner" }, { type: "azure-nextgen:managementpartner/latest:Partner" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:managementpartner/v20180201:Partner" }, { type: "azure-native:managementpartner:Partner" }, { type: "azure-nextgen:managementpartner:Partner" }, { type: "azure-native:managementpartner/latest:Partner" }, { type: "azure-nextgen:managementpartner/latest:Partner" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Partner.__pulumiType, name, inputs, opts);
     }

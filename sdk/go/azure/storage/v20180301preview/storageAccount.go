@@ -82,6 +82,9 @@ func NewStorageAccount(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:storage/v20180301preview:StorageAccount"),
+		},
+		{
 			Type: pulumi.String("azure-native:storage:StorageAccount"),
 		},
 		{

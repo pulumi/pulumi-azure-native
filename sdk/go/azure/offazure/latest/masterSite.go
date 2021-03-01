@@ -42,6 +42,9 @@ func NewMasterSite(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:offazure/latest:MasterSite"),
+		},
+		{
 			Type: pulumi.String("azure-native:offazure:MasterSite"),
 		},
 		{

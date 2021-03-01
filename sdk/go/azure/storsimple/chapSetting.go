@@ -45,6 +45,9 @@ func NewChapSetting(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:storsimple:ChapSetting"),
+		},
+		{
 			Type: pulumi.String("azure-native:storsimple/latest:ChapSetting"),
 		},
 		{

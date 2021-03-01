@@ -190,6 +190,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200601
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20200601:Workspace"},
                     new Pulumi.Alias { Type = "azure-native:machinelearningservices:Workspace"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices:Workspace"},
                     new Pulumi.Alias { Type = "azure-native:machinelearningservices/latest:Workspace"},

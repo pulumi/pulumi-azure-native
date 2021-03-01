@@ -84,7 +84,7 @@ export class PrivateLinkScopedResource extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:hybridcompute/v20200815preview:PrivateLinkScopedResource" }, { type: "azure-nextgen:hybridcompute/v20200815preview:PrivateLinkScopedResource" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:hybridcompute:PrivateLinkScopedResource" }, { type: "azure-native:hybridcompute/v20200815preview:PrivateLinkScopedResource" }, { type: "azure-nextgen:hybridcompute/v20200815preview:PrivateLinkScopedResource" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateLinkScopedResource.__pulumiType, name, inputs, opts);
     }

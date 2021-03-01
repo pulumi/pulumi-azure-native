@@ -70,6 +70,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20210115
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20210115:GremlinResourceGremlinDatabase"},
                     new Pulumi.Alias { Type = "azure-native:documentdb:GremlinResourceGremlinDatabase"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb:GremlinResourceGremlinDatabase"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/latest:GremlinResourceGremlinDatabase"},

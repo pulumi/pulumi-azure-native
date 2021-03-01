@@ -131,6 +131,7 @@ namespace Pulumi.AzureNative.Sql
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:sql:Server"},
                     new Pulumi.Alias { Type = "azure-native:sql/latest:Server"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/latest:Server"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20140401:Server"},

@@ -43,6 +43,9 @@ func NewPrivateAtlase(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:maps:PrivateAtlase"),
+		},
+		{
 			Type: pulumi.String("azure-native:maps/v20200201preview:PrivateAtlase"),
 		},
 		{

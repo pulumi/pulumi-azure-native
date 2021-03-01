@@ -38,6 +38,9 @@ func NewLinkedWorkspace(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:machinelearningservices/v20200501preview:LinkedWorkspace"),
+		},
+		{
 			Type: pulumi.String("azure-native:machinelearningservices/v20200515preview:LinkedWorkspace"),
 		},
 		{

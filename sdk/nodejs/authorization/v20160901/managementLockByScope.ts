@@ -90,7 +90,7 @@ export class ManagementLockByScope extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:authorization:ManagementLockByScope" }, { type: "azure-nextgen:authorization:ManagementLockByScope" }, { type: "azure-native:authorization/latest:ManagementLockByScope" }, { type: "azure-nextgen:authorization/latest:ManagementLockByScope" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:authorization/v20160901:ManagementLockByScope" }, { type: "azure-native:authorization:ManagementLockByScope" }, { type: "azure-nextgen:authorization:ManagementLockByScope" }, { type: "azure-native:authorization/latest:ManagementLockByScope" }, { type: "azure-nextgen:authorization/latest:ManagementLockByScope" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ManagementLockByScope.__pulumiType, name, inputs, opts);
     }

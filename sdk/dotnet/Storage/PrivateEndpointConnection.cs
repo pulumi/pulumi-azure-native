@@ -71,6 +71,7 @@ namespace Pulumi.AzureNative.Storage
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:storage:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:storage/latest:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/latest:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20190601:PrivateEndpointConnection"},

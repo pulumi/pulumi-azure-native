@@ -47,6 +47,9 @@ func NewPrivateEndpointConnectionsForSCCPowershell(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:securityandcompliance/v20210111:PrivateEndpointConnectionsForSCCPowershell"),
+		},
+		{
 			Type: pulumi.String("azure-native:securityandcompliance:PrivateEndpointConnectionsForSCCPowershell"),
 		},
 		{

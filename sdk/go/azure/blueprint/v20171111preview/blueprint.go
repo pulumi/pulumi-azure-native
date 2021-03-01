@@ -50,6 +50,12 @@ func NewBlueprint(ctx *pulumi.Context,
 	if args.TargetScope == nil {
 		return nil, errors.New("invalid value for required argument 'TargetScope'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:blueprint/v20171111preview:Blueprint"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Blueprint
 	err := ctx.RegisterResource("azure-native:blueprint/v20171111preview:Blueprint", name, args, &resource, opts...)
 	if err != nil {

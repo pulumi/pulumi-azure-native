@@ -41,6 +41,9 @@ func NewPrivateLinkScopedResource(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:insights:PrivateLinkScopedResource"),
+		},
+		{
 			Type: pulumi.String("azure-native:insights/v20191017preview:PrivateLinkScopedResource"),
 		},
 		{

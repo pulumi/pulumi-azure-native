@@ -54,6 +54,9 @@ func NewAlertsSuppressionRule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:security:AlertsSuppressionRule"),
+		},
+		{
 			Type: pulumi.String("azure-native:security/v20190101preview:AlertsSuppressionRule"),
 		},
 		{

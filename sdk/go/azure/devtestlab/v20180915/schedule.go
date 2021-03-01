@@ -62,6 +62,9 @@ func NewSchedule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:devtestlab/v20180915:Schedule"),
+		},
+		{
 			Type: pulumi.String("azure-native:devtestlab:Schedule"),
 		},
 		{

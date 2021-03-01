@@ -94,6 +94,7 @@ namespace Pulumi.AzureNative.Compute.V20190701
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20190701:ProximityPlacementGroup"},
                     new Pulumi.Alias { Type = "azure-native:compute:ProximityPlacementGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute:ProximityPlacementGroup"},
                     new Pulumi.Alias { Type = "azure-native:compute/latest:ProximityPlacementGroup"},

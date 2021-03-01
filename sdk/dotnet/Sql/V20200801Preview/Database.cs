@@ -312,6 +312,7 @@ namespace Pulumi.AzureNative.Sql.V20200801Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20200801preview:Database"},
                     new Pulumi.Alias { Type = "azure-native:sql:Database"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql:Database"},
                     new Pulumi.Alias { Type = "azure-native:sql/latest:Database"},

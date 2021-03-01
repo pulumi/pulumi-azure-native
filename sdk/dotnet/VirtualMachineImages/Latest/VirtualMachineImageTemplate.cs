@@ -120,6 +120,7 @@ namespace Pulumi.AzureNative.VirtualMachineImages.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:virtualmachineimages/latest:VirtualMachineImageTemplate"},
                     new Pulumi.Alias { Type = "azure-native:virtualmachineimages:VirtualMachineImageTemplate"},
                     new Pulumi.Alias { Type = "azure-nextgen:virtualmachineimages:VirtualMachineImageTemplate"},
                     new Pulumi.Alias { Type = "azure-native:virtualmachineimages/v20180201preview:VirtualMachineImageTemplate"},

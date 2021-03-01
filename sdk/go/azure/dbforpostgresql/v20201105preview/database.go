@@ -38,6 +38,12 @@ func NewDatabase(ctx *pulumi.Context,
 	if args.ServerName == nil {
 		return nil, errors.New("invalid value for required argument 'ServerName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:dbforpostgresql/v20201105preview:Database"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Database
 	err := ctx.RegisterResource("azure-native:dbforpostgresql/v20201105preview:Database", name, args, &resource, opts...)
 	if err != nil {

@@ -40,6 +40,9 @@ func NewDatabase(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:dbformariadb/v20180601:Database"),
+		},
+		{
 			Type: pulumi.String("azure-native:dbformariadb:Database"),
 		},
 		{

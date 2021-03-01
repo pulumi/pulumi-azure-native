@@ -90,6 +90,7 @@ namespace Pulumi.AzureNative.NetApp.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:netapp/latest:Account"},
                     new Pulumi.Alias { Type = "azure-native:netapp:Account"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp:Account"},
                     new Pulumi.Alias { Type = "azure-native:netapp/v20170815:Account"},

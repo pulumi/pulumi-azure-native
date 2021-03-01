@@ -72,6 +72,7 @@ namespace Pulumi.AzureNative.Media.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:media/latest:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:media:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:media:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:media/v20200501:PrivateEndpointConnection"},

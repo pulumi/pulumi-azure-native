@@ -95,6 +95,7 @@ namespace Pulumi.AzureNative.EdgeOrder
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:edgeorder:OrderByName"},
                     new Pulumi.Alias { Type = "azure-native:edgeorder/v20201201preview:OrderByName"},
                     new Pulumi.Alias { Type = "azure-nextgen:edgeorder/v20201201preview:OrderByName"},
                 },

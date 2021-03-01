@@ -136,6 +136,7 @@ namespace Pulumi.AzureNative.ContainerService.V20180801Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20180801preview:ManagedCluster"},
                     new Pulumi.Alias { Type = "azure-native:containerservice:ManagedCluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice:ManagedCluster"},
                     new Pulumi.Alias { Type = "azure-native:containerservice/latest:ManagedCluster"},

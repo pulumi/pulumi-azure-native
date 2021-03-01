@@ -70,6 +70,7 @@ namespace Pulumi.AzureNative.Peering.V20200101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:peering/v20200101preview:RegisteredAsn"},
                     new Pulumi.Alias { Type = "azure-native:peering:RegisteredAsn"},
                     new Pulumi.Alias { Type = "azure-nextgen:peering:RegisteredAsn"},
                     new Pulumi.Alias { Type = "azure-native:peering/latest:RegisteredAsn"},

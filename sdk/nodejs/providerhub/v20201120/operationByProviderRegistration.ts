@@ -90,7 +90,7 @@ export class OperationByProviderRegistration extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:providerhub:OperationByProviderRegistration" }, { type: "azure-nextgen:providerhub:OperationByProviderRegistration" }, { type: "azure-native:providerhub/latest:OperationByProviderRegistration" }, { type: "azure-nextgen:providerhub/latest:OperationByProviderRegistration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:providerhub/v20201120:OperationByProviderRegistration" }, { type: "azure-native:providerhub:OperationByProviderRegistration" }, { type: "azure-nextgen:providerhub:OperationByProviderRegistration" }, { type: "azure-native:providerhub/latest:OperationByProviderRegistration" }, { type: "azure-nextgen:providerhub/latest:OperationByProviderRegistration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(OperationByProviderRegistration.__pulumiType, name, inputs, opts);
     }

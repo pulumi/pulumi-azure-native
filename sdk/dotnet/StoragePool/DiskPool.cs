@@ -113,6 +113,7 @@ namespace Pulumi.AzureNative.StoragePool
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:storagepool:DiskPool"},
                     new Pulumi.Alias { Type = "azure-native:storagepool/v20200315preview:DiskPool"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagepool/v20200315preview:DiskPool"},
                 },

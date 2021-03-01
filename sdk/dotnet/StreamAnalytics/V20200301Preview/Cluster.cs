@@ -82,6 +82,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20200301Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:streamanalytics/v20200301preview:Cluster"},
                     new Pulumi.Alias { Type = "azure-native:streamanalytics:Cluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:streamanalytics:Cluster"},
                 },

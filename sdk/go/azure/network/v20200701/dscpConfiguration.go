@@ -59,6 +59,9 @@ func NewDscpConfiguration(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:network/v20200701:DscpConfiguration"),
+		},
+		{
 			Type: pulumi.String("azure-native:network:DscpConfiguration"),
 		},
 		{

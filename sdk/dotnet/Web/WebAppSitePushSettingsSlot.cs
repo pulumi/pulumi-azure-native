@@ -92,6 +92,7 @@ namespace Pulumi.AzureNative.Web
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:web:WebAppSitePushSettingsSlot"},
                     new Pulumi.Alias { Type = "azure-native:web/latest:WebAppSitePushSettingsSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/latest:WebAppSitePushSettingsSlot"},
                     new Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppSitePushSettingsSlot"},

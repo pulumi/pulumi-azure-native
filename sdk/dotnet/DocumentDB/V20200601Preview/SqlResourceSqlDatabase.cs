@@ -76,6 +76,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20200601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200601preview:SqlResourceSqlDatabase"},
                     new Pulumi.Alias { Type = "azure-native:documentdb:SqlResourceSqlDatabase"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb:SqlResourceSqlDatabase"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/latest:SqlResourceSqlDatabase"},

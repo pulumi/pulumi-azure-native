@@ -104,7 +104,7 @@ export class QueryPack extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:operationalinsights:QueryPack" }, { type: "azure-nextgen:operationalinsights:QueryPack" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:operationalinsights/v20190901preview:QueryPack" }, { type: "azure-native:operationalinsights:QueryPack" }, { type: "azure-nextgen:operationalinsights:QueryPack" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(QueryPack.__pulumiType, name, inputs, opts);
     }

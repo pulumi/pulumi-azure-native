@@ -72,7 +72,7 @@ class Token(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:containerregistry/v20190501preview:Token"), pulumi.Alias(type_="azure-nextgen:containerregistry/v20190501preview:Token"), pulumi.Alias(type_="azure-native:containerregistry/v20201101preview:Token"), pulumi.Alias(type_="azure-nextgen:containerregistry/v20201101preview:Token")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:containerregistry:Token"), pulumi.Alias(type_="azure-native:containerregistry/v20190501preview:Token"), pulumi.Alias(type_="azure-nextgen:containerregistry/v20190501preview:Token"), pulumi.Alias(type_="azure-native:containerregistry/v20201101preview:Token"), pulumi.Alias(type_="azure-nextgen:containerregistry/v20201101preview:Token")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Token, __self__).__init__(
             'azure-native:containerregistry:Token',

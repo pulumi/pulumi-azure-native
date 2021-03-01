@@ -43,6 +43,9 @@ func NewAccessPolicy(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:timeseriesinsights:AccessPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-native:timeseriesinsights/latest:AccessPolicy"),
 		},
 		{

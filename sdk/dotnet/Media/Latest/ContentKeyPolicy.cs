@@ -90,6 +90,7 @@ namespace Pulumi.AzureNative.Media.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:media/latest:ContentKeyPolicy"},
                     new Pulumi.Alias { Type = "azure-native:media:ContentKeyPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:media:ContentKeyPolicy"},
                     new Pulumi.Alias { Type = "azure-native:media/v20180330preview:ContentKeyPolicy"},

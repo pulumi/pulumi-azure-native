@@ -78,6 +78,7 @@ namespace Pulumi.AzureNative.DataLakeAnalytics.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:datalakeanalytics/latest:ComputePolicy"},
                     new Pulumi.Alias { Type = "azure-native:datalakeanalytics:ComputePolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:datalakeanalytics:ComputePolicy"},
                     new Pulumi.Alias { Type = "azure-native:datalakeanalytics/v20151001preview:ComputePolicy"},

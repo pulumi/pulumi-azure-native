@@ -46,6 +46,9 @@ func NewPolicyDefinition(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:authorization/v20200901:PolicyDefinition"),
+		},
+		{
 			Type: pulumi.String("azure-native:authorization:PolicyDefinition"),
 		},
 		{

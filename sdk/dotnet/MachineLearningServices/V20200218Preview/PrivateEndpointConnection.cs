@@ -94,6 +94,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200218Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20200218preview:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:machinelearningservices:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:machinelearningservices/latest:PrivateEndpointConnection"},

@@ -66,6 +66,9 @@ func NewSyncMember(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:sql/v20200202preview:SyncMember"),
+		},
+		{
 			Type: pulumi.String("azure-native:sql:SyncMember"),
 		},
 		{

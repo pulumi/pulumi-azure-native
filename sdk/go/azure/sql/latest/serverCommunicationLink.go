@@ -50,6 +50,9 @@ func NewServerCommunicationLink(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:sql/latest:ServerCommunicationLink"),
+		},
+		{
 			Type: pulumi.String("azure-native:sql:ServerCommunicationLink"),
 		},
 		{

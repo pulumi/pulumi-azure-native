@@ -80,6 +80,9 @@ func NewDevice(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:databoxedge:Device"),
+		},
+		{
 			Type: pulumi.String("azure-native:databoxedge/latest:Device"),
 		},
 		{

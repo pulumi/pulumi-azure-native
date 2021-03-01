@@ -108,6 +108,7 @@ namespace Pulumi.AzureNative.Insights.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:insights/latest:Favorite"},
                     new Pulumi.Alias { Type = "azure-native:insights:Favorite"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights:Favorite"},
                     new Pulumi.Alias { Type = "azure-native:insights/v20150501:Favorite"},

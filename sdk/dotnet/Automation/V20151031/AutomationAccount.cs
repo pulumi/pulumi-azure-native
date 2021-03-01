@@ -106,6 +106,7 @@ namespace Pulumi.AzureNative.Automation.V20151031
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:automation/v20151031:AutomationAccount"},
                     new Pulumi.Alias { Type = "azure-native:automation:AutomationAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation:AutomationAccount"},
                     new Pulumi.Alias { Type = "azure-native:automation/latest:AutomationAccount"},

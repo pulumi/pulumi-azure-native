@@ -48,6 +48,9 @@ func NewLabAccount(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:labservices:LabAccount"),
+		},
+		{
 			Type: pulumi.String("azure-native:labservices/latest:LabAccount"),
 		},
 		{

@@ -52,6 +52,9 @@ func NewPublishedBlueprint(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:blueprint/v20181101preview:PublishedBlueprint"),
+		},
+		{
 			Type: pulumi.String("azure-native:blueprint:PublishedBlueprint"),
 		},
 		{

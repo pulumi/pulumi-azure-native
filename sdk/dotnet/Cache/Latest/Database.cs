@@ -102,6 +102,7 @@ namespace Pulumi.AzureNative.Cache.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:cache/latest:Database"},
                     new Pulumi.Alias { Type = "azure-native:cache:Database"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache:Database"},
                     new Pulumi.Alias { Type = "azure-native:cache/v20201001preview:Database"},

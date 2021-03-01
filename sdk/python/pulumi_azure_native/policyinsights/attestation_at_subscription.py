@@ -76,7 +76,7 @@ class AttestationAtSubscription(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:policyinsights/latest:AttestationAtSubscription"), pulumi.Alias(type_="azure-nextgen:policyinsights/latest:AttestationAtSubscription"), pulumi.Alias(type_="azure-native:policyinsights/v20210101:AttestationAtSubscription"), pulumi.Alias(type_="azure-nextgen:policyinsights/v20210101:AttestationAtSubscription")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:policyinsights:AttestationAtSubscription"), pulumi.Alias(type_="azure-native:policyinsights/latest:AttestationAtSubscription"), pulumi.Alias(type_="azure-nextgen:policyinsights/latest:AttestationAtSubscription"), pulumi.Alias(type_="azure-native:policyinsights/v20210101:AttestationAtSubscription"), pulumi.Alias(type_="azure-nextgen:policyinsights/v20210101:AttestationAtSubscription")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AttestationAtSubscription, __self__).__init__(
             'azure-native:policyinsights:AttestationAtSubscription',

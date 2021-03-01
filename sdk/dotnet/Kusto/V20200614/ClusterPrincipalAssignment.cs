@@ -94,6 +94,7 @@ namespace Pulumi.AzureNative.Kusto.V20200614
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:kusto/v20200614:ClusterPrincipalAssignment"},
                     new Pulumi.Alias { Type = "azure-native:kusto:ClusterPrincipalAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto:ClusterPrincipalAssignment"},
                     new Pulumi.Alias { Type = "azure-native:kusto/latest:ClusterPrincipalAssignment"},

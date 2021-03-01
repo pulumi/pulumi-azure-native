@@ -47,6 +47,9 @@ func NewDataPool(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:autonomousdevelopmentplatform/v20210201preview:DataPool"),
+		},
+		{
 			Type: pulumi.String("azure-native:autonomousdevelopmentplatform:DataPool"),
 		},
 		{

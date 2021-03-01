@@ -49,6 +49,9 @@ func NewApiPolicy(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:apimanagement/v20180601preview:ApiPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-native:apimanagement:ApiPolicy"),
 		},
 		{

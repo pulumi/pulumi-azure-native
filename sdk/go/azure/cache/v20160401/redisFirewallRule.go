@@ -46,6 +46,9 @@ func NewRedisFirewallRule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:cache/v20160401:RedisFirewallRule"),
+		},
+		{
 			Type: pulumi.String("azure-native:cache:RedisFirewallRule"),
 		},
 		{

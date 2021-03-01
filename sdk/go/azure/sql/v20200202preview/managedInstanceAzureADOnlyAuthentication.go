@@ -41,6 +41,9 @@ func NewManagedInstanceAzureADOnlyAuthentication(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:sql/v20200202preview:ManagedInstanceAzureADOnlyAuthentication"),
+		},
+		{
 			Type: pulumi.String("azure-native:sql:ManagedInstanceAzureADOnlyAuthentication"),
 		},
 		{

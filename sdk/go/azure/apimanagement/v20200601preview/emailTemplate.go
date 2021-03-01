@@ -48,6 +48,9 @@ func NewEmailTemplate(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:apimanagement/v20200601preview:EmailTemplate"),
+		},
+		{
 			Type: pulumi.String("azure-native:apimanagement:EmailTemplate"),
 		},
 		{

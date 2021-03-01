@@ -112,6 +112,7 @@ namespace Pulumi.AzureNative.Security.V20190101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:security/v20190101preview:AssessmentsMetadataSubscription"},
                     new Pulumi.Alias { Type = "azure-native:security:AssessmentsMetadataSubscription"},
                     new Pulumi.Alias { Type = "azure-nextgen:security:AssessmentsMetadataSubscription"},
                     new Pulumi.Alias { Type = "azure-native:security/latest:AssessmentsMetadataSubscription"},

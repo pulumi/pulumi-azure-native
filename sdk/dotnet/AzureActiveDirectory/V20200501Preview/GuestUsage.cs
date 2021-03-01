@@ -70,6 +70,7 @@ namespace Pulumi.AzureNative.AzureActiveDirectory.V20200501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:azureactivedirectory/v20200501preview:GuestUsage"},
                     new Pulumi.Alias { Type = "azure-native:azureactivedirectory:GuestUsage"},
                     new Pulumi.Alias { Type = "azure-nextgen:azureactivedirectory:GuestUsage"},
                 },

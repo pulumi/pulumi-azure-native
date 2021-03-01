@@ -156,7 +156,7 @@ export class CustomImage extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:devtestlab:CustomImage" }, { type: "azure-nextgen:devtestlab:CustomImage" }, { type: "azure-native:devtestlab/latest:CustomImage" }, { type: "azure-nextgen:devtestlab/latest:CustomImage" }, { type: "azure-native:devtestlab/v20150521preview:CustomImage" }, { type: "azure-nextgen:devtestlab/v20150521preview:CustomImage" }, { type: "azure-native:devtestlab/v20160515:CustomImage" }, { type: "azure-nextgen:devtestlab/v20160515:CustomImage" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:devtestlab/v20180915:CustomImage" }, { type: "azure-native:devtestlab:CustomImage" }, { type: "azure-nextgen:devtestlab:CustomImage" }, { type: "azure-native:devtestlab/latest:CustomImage" }, { type: "azure-nextgen:devtestlab/latest:CustomImage" }, { type: "azure-native:devtestlab/v20150521preview:CustomImage" }, { type: "azure-nextgen:devtestlab/v20150521preview:CustomImage" }, { type: "azure-native:devtestlab/v20160515:CustomImage" }, { type: "azure-nextgen:devtestlab/v20160515:CustomImage" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CustomImage.__pulumiType, name, inputs, opts);
     }

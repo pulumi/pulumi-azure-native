@@ -100,6 +100,7 @@ namespace Pulumi.AzureNative.Network.V20151101
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20151101:Endpoint"},
                     new Pulumi.Alias { Type = "azure-native:network:Endpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:Endpoint"},
                     new Pulumi.Alias { Type = "azure-native:network/latest:Endpoint"},

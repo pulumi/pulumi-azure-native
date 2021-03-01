@@ -53,6 +53,9 @@ func NewDataSource(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:operationalinsights/latest:DataSource"),
+		},
+		{
 			Type: pulumi.String("azure-native:operationalinsights:DataSource"),
 		},
 		{

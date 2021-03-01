@@ -79,7 +79,7 @@ class Database(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['resource_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cache:Database"), pulumi.Alias(type_="azure-nextgen:cache:Database"), pulumi.Alias(type_="azure-native:cache/latest:Database"), pulumi.Alias(type_="azure-nextgen:cache/latest:Database"), pulumi.Alias(type_="azure-native:cache/v20201001preview:Database"), pulumi.Alias(type_="azure-nextgen:cache/v20201001preview:Database"), pulumi.Alias(type_="azure-native:cache/v20210201preview:Database"), pulumi.Alias(type_="azure-nextgen:cache/v20210201preview:Database")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:cache/v20210301:Database"), pulumi.Alias(type_="azure-native:cache:Database"), pulumi.Alias(type_="azure-nextgen:cache:Database"), pulumi.Alias(type_="azure-native:cache/latest:Database"), pulumi.Alias(type_="azure-nextgen:cache/latest:Database"), pulumi.Alias(type_="azure-native:cache/v20201001preview:Database"), pulumi.Alias(type_="azure-nextgen:cache/v20201001preview:Database"), pulumi.Alias(type_="azure-native:cache/v20210201preview:Database"), pulumi.Alias(type_="azure-nextgen:cache/v20210201preview:Database")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Database, __self__).__init__(
             'azure-native:cache/v20210301:Database',

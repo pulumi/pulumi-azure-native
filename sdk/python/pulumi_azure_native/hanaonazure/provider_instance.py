@@ -66,7 +66,7 @@ class ProviderInstance(pulumi.CustomResource):
             __props__['type'] = type
             __props__['name'] = None
             __props__['provisioning_state'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hanaonazure/v20200207preview:ProviderInstance"), pulumi.Alias(type_="azure-nextgen:hanaonazure/v20200207preview:ProviderInstance")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:hanaonazure:ProviderInstance"), pulumi.Alias(type_="azure-native:hanaonazure/v20200207preview:ProviderInstance"), pulumi.Alias(type_="azure-nextgen:hanaonazure/v20200207preview:ProviderInstance")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ProviderInstance, __self__).__init__(
             'azure-native:hanaonazure:ProviderInstance',

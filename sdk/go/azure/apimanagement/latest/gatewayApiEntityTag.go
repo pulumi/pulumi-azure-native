@@ -78,6 +78,9 @@ func NewGatewayApiEntityTag(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:apimanagement/latest:GatewayApiEntityTag"),
+		},
+		{
 			Type: pulumi.String("azure-native:apimanagement:GatewayApiEntityTag"),
 		},
 		{

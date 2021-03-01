@@ -96,7 +96,7 @@ export class IpFirewallRule extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:synapse:IpFirewallRule" }, { type: "azure-nextgen:synapse:IpFirewallRule" }, { type: "azure-native:synapse/v20190601preview:IpFirewallRule" }, { type: "azure-nextgen:synapse/v20190601preview:IpFirewallRule" }, { type: "azure-native:synapse/v20201201:IpFirewallRule" }, { type: "azure-nextgen:synapse/v20201201:IpFirewallRule" }, { type: "azure-native:synapse/v20210301:IpFirewallRule" }, { type: "azure-nextgen:synapse/v20210301:IpFirewallRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:synapse/latest:IpFirewallRule" }, { type: "azure-native:synapse:IpFirewallRule" }, { type: "azure-nextgen:synapse:IpFirewallRule" }, { type: "azure-native:synapse/v20190601preview:IpFirewallRule" }, { type: "azure-nextgen:synapse/v20190601preview:IpFirewallRule" }, { type: "azure-native:synapse/v20201201:IpFirewallRule" }, { type: "azure-nextgen:synapse/v20201201:IpFirewallRule" }, { type: "azure-native:synapse/v20210301:IpFirewallRule" }, { type: "azure-nextgen:synapse/v20210301:IpFirewallRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IpFirewallRule.__pulumiType, name, inputs, opts);
     }

@@ -240,6 +240,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20201201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20201201preview:Cluster"},
                     new Pulumi.Alias { Type = "azure-native:servicefabric:Cluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicefabric:Cluster"},
                     new Pulumi.Alias { Type = "azure-native:servicefabric/latest:Cluster"},

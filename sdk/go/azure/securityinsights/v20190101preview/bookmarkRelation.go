@@ -55,6 +55,9 @@ func NewBookmarkRelation(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:securityinsights/v20190101preview:BookmarkRelation"),
+		},
+		{
 			Type: pulumi.String("azure-native:securityinsights:BookmarkRelation"),
 		},
 		{

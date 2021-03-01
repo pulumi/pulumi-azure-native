@@ -45,6 +45,9 @@ func NewManager(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:storsimple/v20161001:Manager"),
+		},
+		{
 			Type: pulumi.String("azure-native:storsimple:Manager"),
 		},
 		{

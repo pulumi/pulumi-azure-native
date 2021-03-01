@@ -100,6 +100,7 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:storsimple/v20161001:IscsiDisk"},
                     new Pulumi.Alias { Type = "azure-native:storsimple:IscsiDisk"},
                     new Pulumi.Alias { Type = "azure-nextgen:storsimple:IscsiDisk"},
                     new Pulumi.Alias { Type = "azure-native:storsimple/latest:IscsiDisk"},

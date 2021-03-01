@@ -82,6 +82,7 @@ namespace Pulumi.AzureNative.Storage.V20210101
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20210101:ObjectReplicationPolicy"},
                     new Pulumi.Alias { Type = "azure-native:storage:ObjectReplicationPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage:ObjectReplicationPolicy"},
                     new Pulumi.Alias { Type = "azure-native:storage/latest:ObjectReplicationPolicy"},

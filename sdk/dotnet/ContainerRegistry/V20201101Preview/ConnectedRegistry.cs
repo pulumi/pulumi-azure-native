@@ -124,6 +124,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20201101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20201101preview:ConnectedRegistry"},
                     new Pulumi.Alias { Type = "azure-native:containerregistry:ConnectedRegistry"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry:ConnectedRegistry"},
                 },

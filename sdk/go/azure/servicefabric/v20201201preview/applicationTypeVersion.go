@@ -56,6 +56,9 @@ func NewApplicationTypeVersion(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:servicefabric/v20201201preview:ApplicationTypeVersion"),
+		},
+		{
 			Type: pulumi.String("azure-native:servicefabric:ApplicationTypeVersion"),
 		},
 		{

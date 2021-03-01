@@ -78,6 +78,7 @@ namespace Pulumi.AzureNative.Synapse.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:synapse/latest:WorkspaceAadAdmin"},
                     new Pulumi.Alias { Type = "azure-native:synapse:WorkspaceAadAdmin"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse:WorkspaceAadAdmin"},
                     new Pulumi.Alias { Type = "azure-native:synapse/v20190601preview:WorkspaceAadAdmin"},

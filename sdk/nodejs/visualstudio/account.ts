@@ -90,7 +90,7 @@ export class Account extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:visualstudio/v20140401preview:Account" }, { type: "azure-nextgen:visualstudio/v20140401preview:Account" }, { type: "azure-native:visualstudio/v20171101preview:Account" }, { type: "azure-nextgen:visualstudio/v20171101preview:Account" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:visualstudio:Account" }, { type: "azure-native:visualstudio/v20140401preview:Account" }, { type: "azure-nextgen:visualstudio/v20140401preview:Account" }, { type: "azure-native:visualstudio/v20171101preview:Account" }, { type: "azure-nextgen:visualstudio/v20171101preview:Account" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Account.__pulumiType, name, inputs, opts);
     }

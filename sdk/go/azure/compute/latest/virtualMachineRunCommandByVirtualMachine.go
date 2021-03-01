@@ -68,6 +68,9 @@ func NewVirtualMachineRunCommandByVirtualMachine(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:compute/latest:VirtualMachineRunCommandByVirtualMachine"),
+		},
+		{
 			Type: pulumi.String("azure-native:compute:VirtualMachineRunCommandByVirtualMachine"),
 		},
 		{

@@ -49,6 +49,9 @@ func NewDataSet(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:datashare/latest:DataSet"),
+		},
+		{
 			Type: pulumi.String("azure-native:datashare:DataSet"),
 		},
 		{

@@ -106,6 +106,7 @@ namespace Pulumi.AzureNative.NetApp.V20201101
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:netapp/v20201101:Pool"},
                     new Pulumi.Alias { Type = "azure-native:netapp:Pool"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp:Pool"},
                     new Pulumi.Alias { Type = "azure-native:netapp/latest:Pool"},

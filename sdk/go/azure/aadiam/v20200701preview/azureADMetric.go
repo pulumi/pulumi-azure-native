@@ -38,6 +38,9 @@ func NewAzureADMetric(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:aadiam/v20200701preview:azureADMetric"),
+		},
+		{
 			Type: pulumi.String("azure-native:aadiam:azureADMetric"),
 		},
 		{

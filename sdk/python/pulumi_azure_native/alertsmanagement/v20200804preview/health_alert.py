@@ -82,7 +82,7 @@ class HealthAlert(pulumi.CustomResource):
             __props__['last_updated_time'] = None
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:alertsmanagement:HealthAlert"), pulumi.Alias(type_="azure-nextgen:alertsmanagement:HealthAlert")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:alertsmanagement/v20200804preview:HealthAlert"), pulumi.Alias(type_="azure-native:alertsmanagement:HealthAlert"), pulumi.Alias(type_="azure-nextgen:alertsmanagement:HealthAlert")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(HealthAlert, __self__).__init__(
             'azure-native:alertsmanagement/v20200804preview:HealthAlert',

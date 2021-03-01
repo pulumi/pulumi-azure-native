@@ -180,7 +180,7 @@ export class PrivateCloud extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:avs:PrivateCloud" }, { type: "azure-nextgen:avs:PrivateCloud" }, { type: "azure-native:avs/latest:PrivateCloud" }, { type: "azure-nextgen:avs/latest:PrivateCloud" }, { type: "azure-native:avs/v20200320:PrivateCloud" }, { type: "azure-nextgen:avs/v20200320:PrivateCloud" }, { type: "azure-native:avs/v20210101preview:PrivateCloud" }, { type: "azure-nextgen:avs/v20210101preview:PrivateCloud" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:avs/v20200717preview:PrivateCloud" }, { type: "azure-native:avs:PrivateCloud" }, { type: "azure-nextgen:avs:PrivateCloud" }, { type: "azure-native:avs/latest:PrivateCloud" }, { type: "azure-nextgen:avs/latest:PrivateCloud" }, { type: "azure-native:avs/v20200320:PrivateCloud" }, { type: "azure-nextgen:avs/v20200320:PrivateCloud" }, { type: "azure-native:avs/v20210101preview:PrivateCloud" }, { type: "azure-nextgen:avs/v20210101preview:PrivateCloud" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateCloud.__pulumiType, name, inputs, opts);
     }

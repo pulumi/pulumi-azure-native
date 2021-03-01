@@ -138,6 +138,7 @@ namespace Pulumi.AzureNative.DevTestLab.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:devtestlab/latest:CustomImage"},
                     new Pulumi.Alias { Type = "azure-native:devtestlab:CustomImage"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab:CustomImage"},
                     new Pulumi.Alias { Type = "azure-native:devtestlab/v20150521preview:CustomImage"},

@@ -106,6 +106,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20150521preview:FormulaResource"},
                     new Pulumi.Alias { Type = "azure-native:devtestlab:FormulaResource"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab:FormulaResource"},
                     new Pulumi.Alias { Type = "azure-native:devtestlab/latest:FormulaResource"},

@@ -48,6 +48,9 @@ func NewPrivateLinkServicesForO365ManagementActivityAPI(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:securityandcompliance:privateLinkServicesForO365ManagementActivityAPI"),
+		},
+		{
 			Type: pulumi.String("azure-native:securityandcompliance/latest:privateLinkServicesForO365ManagementActivityAPI"),
 		},
 		{

@@ -190,6 +190,7 @@ namespace Pulumi.AzureNative.StorageSync.V20200901
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20200901:RegisteredServer"},
                     new Pulumi.Alias { Type = "azure-native:storagesync:RegisteredServer"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagesync:RegisteredServer"},
                     new Pulumi.Alias { Type = "azure-native:storagesync/latest:RegisteredServer"},

@@ -78,6 +78,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:streamanalytics/latest:Output"},
                     new Pulumi.Alias { Type = "azure-native:streamanalytics:Output"},
                     new Pulumi.Alias { Type = "azure-nextgen:streamanalytics:Output"},
                     new Pulumi.Alias { Type = "azure-native:streamanalytics/v20160301:Output"},

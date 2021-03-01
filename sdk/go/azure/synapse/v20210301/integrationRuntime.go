@@ -43,6 +43,9 @@ func NewIntegrationRuntime(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:synapse/v20210301:IntegrationRuntime"),
+		},
+		{
 			Type: pulumi.String("azure-native:synapse:IntegrationRuntime"),
 		},
 		{

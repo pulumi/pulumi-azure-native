@@ -56,6 +56,10 @@ namespace Pulumi.AzureNative.Network.V20170901Preview
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20170901preview:TrafficManagerUserMetricsKey"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

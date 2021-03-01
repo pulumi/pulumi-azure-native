@@ -108,6 +108,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/latest:StorageAccountCredential"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge:StorageAccountCredential"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge:StorageAccountCredential"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20190301:StorageAccountCredential"},

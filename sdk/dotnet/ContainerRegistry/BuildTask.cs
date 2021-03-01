@@ -107,6 +107,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:containerregistry:BuildTask"},
                     new Pulumi.Alias { Type = "azure-native:containerregistry/v20180201preview:BuildTask"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20180201preview:BuildTask"},
                 },

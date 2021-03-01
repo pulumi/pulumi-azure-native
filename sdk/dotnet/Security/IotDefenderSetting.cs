@@ -65,6 +65,7 @@ namespace Pulumi.AzureNative.Security
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:security:IotDefenderSetting"},
                     new Pulumi.Alias { Type = "azure-native:security/v20200806preview:IotDefenderSetting"},
                     new Pulumi.Alias { Type = "azure-nextgen:security/v20200806preview:IotDefenderSetting"},
                 },

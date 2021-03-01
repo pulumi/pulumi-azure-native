@@ -143,6 +143,7 @@ namespace Pulumi.AzureNative.Web.V20150801
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20150801:ServerFarm"},
                     new Pulumi.Alias { Type = "azure-native:web:ServerFarm"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:ServerFarm"},
                     new Pulumi.Alias { Type = "azure-native:web/latest:ServerFarm"},

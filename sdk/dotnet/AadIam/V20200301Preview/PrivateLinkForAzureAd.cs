@@ -94,6 +94,7 @@ namespace Pulumi.AzureNative.AadIam.V20200301Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:aadiam/v20200301preview:privateLinkForAzureAd"},
                     new Pulumi.Alias { Type = "azure-native:aadiam:privateLinkForAzureAd"},
                     new Pulumi.Alias { Type = "azure-nextgen:aadiam:privateLinkForAzureAd"},
                 },

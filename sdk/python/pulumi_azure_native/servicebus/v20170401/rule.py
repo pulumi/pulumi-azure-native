@@ -81,7 +81,7 @@ class Rule(pulumi.CustomResource):
             __props__['topic_name'] = topic_name
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:servicebus:Rule"), pulumi.Alias(type_="azure-nextgen:servicebus:Rule"), pulumi.Alias(type_="azure-native:servicebus/latest:Rule"), pulumi.Alias(type_="azure-nextgen:servicebus/latest:Rule"), pulumi.Alias(type_="azure-native:servicebus/v20180101preview:Rule"), pulumi.Alias(type_="azure-nextgen:servicebus/v20180101preview:Rule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:servicebus/v20170401:Rule"), pulumi.Alias(type_="azure-native:servicebus:Rule"), pulumi.Alias(type_="azure-nextgen:servicebus:Rule"), pulumi.Alias(type_="azure-native:servicebus/latest:Rule"), pulumi.Alias(type_="azure-nextgen:servicebus/latest:Rule"), pulumi.Alias(type_="azure-native:servicebus/v20180101preview:Rule"), pulumi.Alias(type_="azure-nextgen:servicebus/v20180101preview:Rule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Rule, __self__).__init__(
             'azure-native:servicebus/v20170401:Rule',

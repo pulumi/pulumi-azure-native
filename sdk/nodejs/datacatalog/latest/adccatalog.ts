@@ -129,7 +129,7 @@ export class ADCCatalog extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:datacatalog:ADCCatalog" }, { type: "azure-nextgen:datacatalog:ADCCatalog" }, { type: "azure-native:datacatalog/v20160330:ADCCatalog" }, { type: "azure-nextgen:datacatalog/v20160330:ADCCatalog" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:datacatalog/latest:ADCCatalog" }, { type: "azure-native:datacatalog:ADCCatalog" }, { type: "azure-nextgen:datacatalog:ADCCatalog" }, { type: "azure-native:datacatalog/v20160330:ADCCatalog" }, { type: "azure-nextgen:datacatalog/v20160330:ADCCatalog" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ADCCatalog.__pulumiType, name, inputs, opts);
     }

@@ -51,6 +51,9 @@ func NewADCCatalog(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:datacatalog/v20160330:ADCCatalog"),
+		},
+		{
 			Type: pulumi.String("azure-native:datacatalog:ADCCatalog"),
 		},
 		{

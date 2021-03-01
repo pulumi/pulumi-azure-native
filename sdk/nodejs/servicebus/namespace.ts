@@ -118,7 +118,7 @@ export class Namespace extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:servicebus/latest:Namespace" }, { type: "azure-nextgen:servicebus/latest:Namespace" }, { type: "azure-native:servicebus/v20140901:Namespace" }, { type: "azure-nextgen:servicebus/v20140901:Namespace" }, { type: "azure-native:servicebus/v20150801:Namespace" }, { type: "azure-nextgen:servicebus/v20150801:Namespace" }, { type: "azure-native:servicebus/v20170401:Namespace" }, { type: "azure-nextgen:servicebus/v20170401:Namespace" }, { type: "azure-native:servicebus/v20180101preview:Namespace" }, { type: "azure-nextgen:servicebus/v20180101preview:Namespace" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:servicebus:Namespace" }, { type: "azure-native:servicebus/latest:Namespace" }, { type: "azure-nextgen:servicebus/latest:Namespace" }, { type: "azure-native:servicebus/v20140901:Namespace" }, { type: "azure-nextgen:servicebus/v20140901:Namespace" }, { type: "azure-native:servicebus/v20150801:Namespace" }, { type: "azure-nextgen:servicebus/v20150801:Namespace" }, { type: "azure-native:servicebus/v20170401:Namespace" }, { type: "azure-nextgen:servicebus/v20170401:Namespace" }, { type: "azure-native:servicebus/v20180101preview:Namespace" }, { type: "azure-nextgen:servicebus/v20180101preview:Namespace" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Namespace.__pulumiType, name, inputs, opts);
     }

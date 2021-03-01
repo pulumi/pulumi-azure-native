@@ -47,6 +47,9 @@ func NewVirtualApplianceSite(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:network/latest:VirtualApplianceSite"),
+		},
+		{
 			Type: pulumi.String("azure-native:network:VirtualApplianceSite"),
 		},
 		{

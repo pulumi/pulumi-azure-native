@@ -46,6 +46,7 @@ namespace Pulumi.AzureNative.Portal.V20181001
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:portal/v20181001:ConsoleWithLocation"},
                     new Pulumi.Alias { Type = "azure-native:portal:ConsoleWithLocation"},
                     new Pulumi.Alias { Type = "azure-nextgen:portal:ConsoleWithLocation"},
                     new Pulumi.Alias { Type = "azure-native:portal/latest:ConsoleWithLocation"},

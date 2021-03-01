@@ -72,7 +72,7 @@ class BlobInventoryPolicy(pulumi.CustomResource):
             __props__['name'] = None
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:storage:BlobInventoryPolicy"), pulumi.Alias(type_="azure-nextgen:storage:BlobInventoryPolicy"), pulumi.Alias(type_="azure-native:storage/v20190601:BlobInventoryPolicy"), pulumi.Alias(type_="azure-nextgen:storage/v20190601:BlobInventoryPolicy"), pulumi.Alias(type_="azure-native:storage/v20200801preview:BlobInventoryPolicy"), pulumi.Alias(type_="azure-nextgen:storage/v20200801preview:BlobInventoryPolicy"), pulumi.Alias(type_="azure-native:storage/v20210101:BlobInventoryPolicy"), pulumi.Alias(type_="azure-nextgen:storage/v20210101:BlobInventoryPolicy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storage/latest:BlobInventoryPolicy"), pulumi.Alias(type_="azure-native:storage:BlobInventoryPolicy"), pulumi.Alias(type_="azure-nextgen:storage:BlobInventoryPolicy"), pulumi.Alias(type_="azure-native:storage/v20190601:BlobInventoryPolicy"), pulumi.Alias(type_="azure-nextgen:storage/v20190601:BlobInventoryPolicy"), pulumi.Alias(type_="azure-native:storage/v20200801preview:BlobInventoryPolicy"), pulumi.Alias(type_="azure-nextgen:storage/v20200801preview:BlobInventoryPolicy"), pulumi.Alias(type_="azure-native:storage/v20210101:BlobInventoryPolicy"), pulumi.Alias(type_="azure-nextgen:storage/v20210101:BlobInventoryPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BlobInventoryPolicy, __self__).__init__(
             'azure-native:storage/latest:BlobInventoryPolicy',

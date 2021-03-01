@@ -66,6 +66,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/latest:Role"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge:Role"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge:Role"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20190301:Role"},

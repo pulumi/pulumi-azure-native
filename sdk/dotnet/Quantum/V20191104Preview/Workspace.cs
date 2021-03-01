@@ -106,6 +106,7 @@ namespace Pulumi.AzureNative.Quantum.V20191104Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:quantum/v20191104preview:Workspace"},
                     new Pulumi.Alias { Type = "azure-native:quantum:Workspace"},
                     new Pulumi.Alias { Type = "azure-nextgen:quantum:Workspace"},
                 },

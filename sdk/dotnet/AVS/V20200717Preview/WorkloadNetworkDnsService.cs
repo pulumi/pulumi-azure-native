@@ -100,6 +100,7 @@ namespace Pulumi.AzureNative.AVS.V20200717Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:avs/v20200717preview:WorkloadNetworkDnsService"},
                     new Pulumi.Alias { Type = "azure-native:avs:WorkloadNetworkDnsService"},
                     new Pulumi.Alias { Type = "azure-nextgen:avs:WorkloadNetworkDnsService"},
                     new Pulumi.Alias { Type = "azure-native:avs/v20210101preview:WorkloadNetworkDnsService"},

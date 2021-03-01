@@ -112,6 +112,7 @@ namespace Pulumi.AzureNative.Storage.V20200801Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20200801preview:BlobServiceProperties"},
                     new Pulumi.Alias { Type = "azure-native:storage:BlobServiceProperties"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage:BlobServiceProperties"},
                     new Pulumi.Alias { Type = "azure-native:storage/latest:BlobServiceProperties"},

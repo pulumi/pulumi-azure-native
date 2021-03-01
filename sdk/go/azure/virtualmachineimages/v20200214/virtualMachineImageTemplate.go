@@ -67,6 +67,9 @@ func NewVirtualMachineImageTemplate(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:virtualmachineimages/v20200214:VirtualMachineImageTemplate"),
+		},
+		{
 			Type: pulumi.String("azure-native:virtualmachineimages:VirtualMachineImageTemplate"),
 		},
 		{

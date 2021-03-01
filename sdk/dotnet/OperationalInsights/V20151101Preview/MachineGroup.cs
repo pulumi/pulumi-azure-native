@@ -96,6 +96,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20151101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20151101preview:MachineGroup"},
                     new Pulumi.Alias { Type = "azure-native:operationalinsights:MachineGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights:MachineGroup"},
                 },

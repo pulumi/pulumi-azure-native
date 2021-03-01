@@ -58,6 +58,7 @@ namespace Pulumi.AzureNative.ServiceBus.V20180101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20180101preview:TopicAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-native:servicebus:TopicAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus:TopicAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-native:servicebus/latest:TopicAuthorizationRule"},

@@ -54,6 +54,9 @@ func NewWebhook(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:containerregistry/v20171001:Webhook"),
+		},
+		{
 			Type: pulumi.String("azure-native:containerregistry:Webhook"),
 		},
 		{

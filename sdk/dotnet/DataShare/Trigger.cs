@@ -65,6 +65,7 @@ namespace Pulumi.AzureNative.DataShare
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:datashare:Trigger"},
                     new Pulumi.Alias { Type = "azure-native:datashare/latest:Trigger"},
                     new Pulumi.Alias { Type = "azure-nextgen:datashare/latest:Trigger"},
                     new Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:Trigger"},

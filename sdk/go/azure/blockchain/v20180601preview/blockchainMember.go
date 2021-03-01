@@ -67,6 +67,9 @@ func NewBlockchainMember(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:blockchain/v20180601preview:BlockchainMember"),
+		},
+		{
 			Type: pulumi.String("azure-native:blockchain:BlockchainMember"),
 		},
 		{

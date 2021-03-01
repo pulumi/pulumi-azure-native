@@ -40,6 +40,9 @@ func NewDomainOwnershipIdentifier(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:domainregistration/v20180201:DomainOwnershipIdentifier"),
+		},
+		{
 			Type: pulumi.String("azure-native:domainregistration:DomainOwnershipIdentifier"),
 		},
 		{

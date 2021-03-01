@@ -71,6 +71,7 @@ namespace Pulumi.AzureNative.Authorization
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:authorization:ManagementLockByScope"},
                     new Pulumi.Alias { Type = "azure-native:authorization/latest:ManagementLockByScope"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/latest:ManagementLockByScope"},
                     new Pulumi.Alias { Type = "azure-native:authorization/v20160901:ManagementLockByScope"},

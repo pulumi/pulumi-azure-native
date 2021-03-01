@@ -55,6 +55,7 @@ namespace Pulumi.AzureNative.Scheduler.V20140801Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:scheduler/v20140801preview:Job"},
                     new Pulumi.Alias { Type = "azure-native:scheduler:Job"},
                     new Pulumi.Alias { Type = "azure-nextgen:scheduler:Job"},
                     new Pulumi.Alias { Type = "azure-native:scheduler/latest:Job"},

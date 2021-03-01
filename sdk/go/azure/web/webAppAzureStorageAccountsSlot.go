@@ -46,6 +46,9 @@ func NewWebAppAzureStorageAccountsSlot(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:web:WebAppAzureStorageAccountsSlot"),
+		},
+		{
 			Type: pulumi.String("azure-native:web/latest:WebAppAzureStorageAccountsSlot"),
 		},
 		{

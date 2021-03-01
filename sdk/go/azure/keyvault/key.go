@@ -57,6 +57,9 @@ func NewKey(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:keyvault:Key"),
+		},
+		{
 			Type: pulumi.String("azure-native:keyvault/latest:Key"),
 		},
 		{

@@ -43,6 +43,9 @@ func NewMoveCollection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:migrate/v20210101:MoveCollection"),
+		},
+		{
 			Type: pulumi.String("azure-native:migrate:MoveCollection"),
 		},
 		{

@@ -41,6 +41,9 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:search/latest:PrivateEndpointConnection"),
+		},
+		{
 			Type: pulumi.String("azure-native:search:PrivateEndpointConnection"),
 		},
 		{

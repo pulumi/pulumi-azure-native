@@ -51,6 +51,9 @@ func NewService(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:deploymentmanager:Service"),
+		},
+		{
 			Type: pulumi.String("azure-native:deploymentmanager/v20180901preview:Service"),
 		},
 		{

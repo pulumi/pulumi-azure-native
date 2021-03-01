@@ -72,7 +72,7 @@ class ReportByBillingAccount(pulumi.CustomResource):
             __props__['name'] = None
             __props__['tags'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:costmanagement/v20180801preview:ReportByBillingAccount"), pulumi.Alias(type_="azure-nextgen:costmanagement/v20180801preview:ReportByBillingAccount")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:costmanagement:ReportByBillingAccount"), pulumi.Alias(type_="azure-native:costmanagement/v20180801preview:ReportByBillingAccount"), pulumi.Alias(type_="azure-nextgen:costmanagement/v20180801preview:ReportByBillingAccount")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ReportByBillingAccount, __self__).__init__(
             'azure-native:costmanagement:ReportByBillingAccount',

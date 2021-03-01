@@ -103,7 +103,7 @@ class Extension(pulumi.CustomResource):
             __props__['name'] = None
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:kubernetesconfiguration/v20200701preview:Extension"), pulumi.Alias(type_="azure-nextgen:kubernetesconfiguration/v20200701preview:Extension")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:kubernetesconfiguration:Extension"), pulumi.Alias(type_="azure-native:kubernetesconfiguration/v20200701preview:Extension"), pulumi.Alias(type_="azure-nextgen:kubernetesconfiguration/v20200701preview:Extension")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Extension, __self__).__init__(
             'azure-native:kubernetesconfiguration:Extension',

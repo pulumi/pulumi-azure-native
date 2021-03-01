@@ -69,7 +69,7 @@ class ObjectAnchorsAccount(pulumi.CustomResource):
             __props__['name'] = None
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:mixedreality/v20210301preview:ObjectAnchorsAccount"), pulumi.Alias(type_="azure-nextgen:mixedreality/v20210301preview:ObjectAnchorsAccount")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:mixedreality:ObjectAnchorsAccount"), pulumi.Alias(type_="azure-native:mixedreality/v20210301preview:ObjectAnchorsAccount"), pulumi.Alias(type_="azure-nextgen:mixedreality/v20210301preview:ObjectAnchorsAccount")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ObjectAnchorsAccount, __self__).__init__(
             'azure-native:mixedreality:ObjectAnchorsAccount',

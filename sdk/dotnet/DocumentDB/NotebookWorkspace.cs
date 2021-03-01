@@ -65,6 +65,7 @@ namespace Pulumi.AzureNative.DocumentDB
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb:NotebookWorkspace"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/latest:NotebookWorkspace"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/latest:NotebookWorkspace"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20190801:NotebookWorkspace"},

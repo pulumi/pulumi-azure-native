@@ -43,6 +43,9 @@ func NewGuestDiagnosticsSettingsAssociation(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:insights:GuestDiagnosticsSettingsAssociation"),
+		},
+		{
 			Type: pulumi.String("azure-native:insights/v20180601preview:GuestDiagnosticsSettingsAssociation"),
 		},
 		{

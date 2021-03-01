@@ -43,6 +43,9 @@ func NewHcxEnterpriseSite(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:avs/latest:HcxEnterpriseSite"),
+		},
+		{
 			Type: pulumi.String("azure-native:avs:HcxEnterpriseSite"),
 		},
 		{

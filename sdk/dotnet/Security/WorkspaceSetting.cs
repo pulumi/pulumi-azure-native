@@ -65,6 +65,7 @@ namespace Pulumi.AzureNative.Security
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:security:WorkspaceSetting"},
                     new Pulumi.Alias { Type = "azure-native:security/v20170801preview:WorkspaceSetting"},
                     new Pulumi.Alias { Type = "azure-nextgen:security/v20170801preview:WorkspaceSetting"},
                 },

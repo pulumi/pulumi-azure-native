@@ -66,7 +66,7 @@ class BackupPolicy(pulumi.CustomResource):
             __props__['name'] = None
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dataprotection:BackupPolicy"), pulumi.Alias(type_="azure-nextgen:dataprotection:BackupPolicy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:dataprotection/v20210201preview:BackupPolicy"), pulumi.Alias(type_="azure-native:dataprotection:BackupPolicy"), pulumi.Alias(type_="azure-nextgen:dataprotection:BackupPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BackupPolicy, __self__).__init__(
             'azure-native:dataprotection/v20210201preview:BackupPolicy',

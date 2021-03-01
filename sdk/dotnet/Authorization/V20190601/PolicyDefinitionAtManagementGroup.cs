@@ -94,6 +94,7 @@ namespace Pulumi.AzureNative.Authorization.V20190601
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:authorization/v20190601:PolicyDefinitionAtManagementGroup"},
                     new Pulumi.Alias { Type = "azure-native:authorization:PolicyDefinitionAtManagementGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization:PolicyDefinitionAtManagementGroup"},
                     new Pulumi.Alias { Type = "azure-native:authorization/latest:PolicyDefinitionAtManagementGroup"},

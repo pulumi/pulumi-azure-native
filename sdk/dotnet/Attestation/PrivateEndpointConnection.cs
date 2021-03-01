@@ -71,6 +71,7 @@ namespace Pulumi.AzureNative.Attestation
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:attestation:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:attestation/latest:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:attestation/latest:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:attestation/v20201001:PrivateEndpointConnection"},

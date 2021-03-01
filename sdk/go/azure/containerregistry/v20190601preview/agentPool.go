@@ -53,6 +53,9 @@ func NewAgentPool(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:containerregistry/v20190601preview:AgentPool"),
+		},
+		{
 			Type: pulumi.String("azure-native:containerregistry:AgentPool"),
 		},
 		{

@@ -69,6 +69,7 @@ namespace Pulumi.AzureNative.DocumentDB.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/latest:SqlResourceSqlTrigger"},
                     new Pulumi.Alias { Type = "azure-native:documentdb:SqlResourceSqlTrigger"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb:SqlResourceSqlTrigger"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20190801:SqlResourceSqlTrigger"},

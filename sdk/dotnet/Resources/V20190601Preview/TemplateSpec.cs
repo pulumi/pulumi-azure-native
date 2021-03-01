@@ -88,6 +88,7 @@ namespace Pulumi.AzureNative.Resources.V20190601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:resources/v20190601preview:TemplateSpec"},
                     new Pulumi.Alias { Type = "azure-native:resources:TemplateSpec"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources:TemplateSpec"},
                 },

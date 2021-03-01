@@ -131,6 +131,7 @@ namespace Pulumi.AzureNative.Network
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network:VpnSite"},
                     new Pulumi.Alias { Type = "azure-native:network/latest:VpnSite"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/latest:VpnSite"},
                     new Pulumi.Alias { Type = "azure-native:network/v20180401:VpnSite"},

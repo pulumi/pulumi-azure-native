@@ -47,6 +47,9 @@ func NewServerKey(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:dbformysql/v20200101privatepreview:ServerKey"),
+		},
+		{
 			Type: pulumi.String("azure-native:dbformysql:ServerKey"),
 		},
 		{

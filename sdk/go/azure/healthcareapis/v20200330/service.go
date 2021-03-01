@@ -45,6 +45,9 @@ func NewService(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:healthcareapis/v20200330:Service"),
+		},
+		{
 			Type: pulumi.String("azure-native:healthcareapis:Service"),
 		},
 		{

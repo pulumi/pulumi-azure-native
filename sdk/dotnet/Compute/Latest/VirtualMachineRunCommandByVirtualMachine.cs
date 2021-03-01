@@ -132,6 +132,7 @@ namespace Pulumi.AzureNative.Compute.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/latest:VirtualMachineRunCommandByVirtualMachine"},
                     new Pulumi.Alias { Type = "azure-native:compute:VirtualMachineRunCommandByVirtualMachine"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute:VirtualMachineRunCommandByVirtualMachine"},
                     new Pulumi.Alias { Type = "azure-native:compute/v20200601:VirtualMachineRunCommandByVirtualMachine"},

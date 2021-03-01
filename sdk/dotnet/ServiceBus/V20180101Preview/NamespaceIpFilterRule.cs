@@ -70,6 +70,7 @@ namespace Pulumi.AzureNative.ServiceBus.V20180101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20180101preview:NamespaceIpFilterRule"},
                     new Pulumi.Alias { Type = "azure-native:servicebus:NamespaceIpFilterRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus:NamespaceIpFilterRule"},
                 },

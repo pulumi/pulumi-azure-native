@@ -72,6 +72,9 @@ func NewLiveEvent(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:media:LiveEvent"),
+		},
+		{
 			Type: pulumi.String("azure-native:media/latest:LiveEvent"),
 		},
 		{

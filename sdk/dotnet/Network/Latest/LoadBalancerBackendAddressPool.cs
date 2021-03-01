@@ -102,6 +102,7 @@ namespace Pulumi.AzureNative.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:LoadBalancerBackendAddressPool"},
                     new Pulumi.Alias { Type = "azure-native:network:LoadBalancerBackendAddressPool"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:LoadBalancerBackendAddressPool"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200401:LoadBalancerBackendAddressPool"},

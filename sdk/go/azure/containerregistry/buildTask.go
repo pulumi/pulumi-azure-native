@@ -67,6 +67,9 @@ func NewBuildTask(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:containerregistry:BuildTask"),
+		},
+		{
 			Type: pulumi.String("azure-native:containerregistry/v20180201preview:BuildTask"),
 		},
 		{

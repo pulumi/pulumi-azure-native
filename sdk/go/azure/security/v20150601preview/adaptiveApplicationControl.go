@@ -47,6 +47,9 @@ func NewAdaptiveApplicationControl(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:security/v20150601preview:AdaptiveApplicationControl"),
+		},
+		{
 			Type: pulumi.String("azure-native:security:AdaptiveApplicationControl"),
 		},
 		{

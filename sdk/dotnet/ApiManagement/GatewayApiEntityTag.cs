@@ -161,6 +161,7 @@ namespace Pulumi.AzureNative.ApiManagement
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement:GatewayApiEntityTag"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/latest:GatewayApiEntityTag"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:GatewayApiEntityTag"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:GatewayApiEntityTag"},

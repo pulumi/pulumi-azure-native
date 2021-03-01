@@ -51,6 +51,9 @@ func NewInterfaceEndpoint(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:network/v20190201:InterfaceEndpoint"),
+		},
+		{
 			Type: pulumi.String("azure-native:network:InterfaceEndpoint"),
 		},
 		{

@@ -82,6 +82,7 @@ namespace Pulumi.AzureNative.ServiceBus.V20170401
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20170401:MigrationConfig"},
                     new Pulumi.Alias { Type = "azure-native:servicebus:MigrationConfig"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus:MigrationConfig"},
                     new Pulumi.Alias { Type = "azure-native:servicebus/latest:MigrationConfig"},

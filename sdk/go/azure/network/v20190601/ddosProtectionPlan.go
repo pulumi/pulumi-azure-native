@@ -45,6 +45,9 @@ func NewDdosProtectionPlan(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:network/v20190601:DdosProtectionPlan"),
+		},
+		{
 			Type: pulumi.String("azure-native:network:DdosProtectionPlan"),
 		},
 		{

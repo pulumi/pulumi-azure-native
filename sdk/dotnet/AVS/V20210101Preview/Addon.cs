@@ -70,6 +70,7 @@ namespace Pulumi.AzureNative.AVS.V20210101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:avs/v20210101preview:Addon"},
                     new Pulumi.Alias { Type = "azure-native:avs:Addon"},
                     new Pulumi.Alias { Type = "azure-nextgen:avs:Addon"},
                     new Pulumi.Alias { Type = "azure-native:avs/v20200717preview:Addon"},
