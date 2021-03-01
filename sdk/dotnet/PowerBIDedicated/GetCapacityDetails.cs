@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.PowerBIDedicated
     {
         /// <summary>
         /// Represents an instance of a Dedicated Capacity resource.
-        /// API Version: 2017-10-01.
+        /// API Version: 2021-01-01.
         /// </summary>
         public static Task<GetCapacityDetailsResult> InvokeAsync(GetCapacityDetailsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCapacityDetailsResult>("azure-native:powerbidedicated:getCapacityDetails", args ?? new GetCapacityDetailsArgs(), options.WithVersion());
@@ -56,6 +56,10 @@ namespace Pulumi.AzureNative.PowerBIDedicated
         /// </summary>
         public readonly string Location;
         /// <summary>
+        /// The capacity mode.
+        /// </summary>
+        public readonly string? Mode;
+        /// <summary>
         /// The name of the PowerBI Dedicated resource.
         /// </summary>
         public readonly string Name;
@@ -64,13 +68,17 @@ namespace Pulumi.AzureNative.PowerBIDedicated
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// The SKU of the PowerBI Dedicated resource.
+        /// The SKU of the PowerBI Dedicated capacity resource.
         /// </summary>
-        public readonly Outputs.ResourceSkuResponse Sku;
+        public readonly Outputs.CapacitySkuResponse Sku;
         /// <summary>
         /// The current state of PowerBI Dedicated resource. The state is to indicate more states outside of resource provisioning.
         /// </summary>
         public readonly string State;
+        /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse? SystemData;
         /// <summary>
         /// Key-value pairs of additional resource provisioning properties.
         /// </summary>
@@ -88,13 +96,17 @@ namespace Pulumi.AzureNative.PowerBIDedicated
 
             string location,
 
+            string? mode,
+
             string name,
 
             string provisioningState,
 
-            Outputs.ResourceSkuResponse sku,
+            Outputs.CapacitySkuResponse sku,
 
             string state,
+
+            Outputs.SystemDataResponse? systemData,
 
             ImmutableDictionary<string, string>? tags,
 
@@ -103,10 +115,12 @@ namespace Pulumi.AzureNative.PowerBIDedicated
             Administration = administration;
             Id = id;
             Location = location;
+            Mode = mode;
             Name = name;
             ProvisioningState = provisioningState;
             Sku = sku;
             State = state;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
         }

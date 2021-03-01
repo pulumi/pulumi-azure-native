@@ -117,6 +117,10 @@ namespace Pulumi.AzureNative.DataBox.V20201101
         /// </summary>
         public readonly string Status;
         /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// The list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups).
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -165,6 +169,8 @@ namespace Pulumi.AzureNative.DataBox.V20201101
 
             string status,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string transferType,
@@ -188,6 +194,7 @@ namespace Pulumi.AzureNative.DataBox.V20201101
             Sku = sku;
             StartTime = startTime;
             Status = status;
+            SystemData = systemData;
             Tags = tags;
             TransferType = transferType;
             Type = type;

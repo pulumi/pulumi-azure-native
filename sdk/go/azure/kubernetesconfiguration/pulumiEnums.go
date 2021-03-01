@@ -10,6 +10,35 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Level of the status.
+type LevelType pulumi.String
+
+const (
+	LevelTypeError       = LevelType("Error")
+	LevelTypeWarning     = LevelType("Warning")
+	LevelTypeInformation = LevelType("Information")
+)
+
+func (LevelType) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e LevelType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LevelType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LevelType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e LevelType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // Scope at which the operator will be installed.
 type OperatorScopeType pulumi.String
 
@@ -62,5 +91,33 @@ func (e OperatorType) ToStringPtrOutput() pulumi.StringPtrOutput {
 }
 
 func (e OperatorType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// The type of identity used for the configuration. Type 'SystemAssigned' will use an implicitly created identity. Type 'None' will not use Managed Identity for the configuration.
+type ResourceIdentityType pulumi.String
+
+const (
+	ResourceIdentityTypeSystemAssigned = ResourceIdentityType("SystemAssigned")
+	ResourceIdentityTypeNone           = ResourceIdentityType("None")
+)
+
+func (ResourceIdentityType) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e ResourceIdentityType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ResourceIdentityType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ResourceIdentityType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ResourceIdentityType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }

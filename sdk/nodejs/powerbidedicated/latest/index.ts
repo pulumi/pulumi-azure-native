@@ -5,19 +5,24 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export * from "./autoScaleVCore";
 export * from "./capacityDetails";
+export * from "./getAutoScaleVCore";
 export * from "./getCapacityDetails";
 
 // Export enums:
 export * from "../../types/enums/powerbidedicated/latest";
 
 // Import resources to register:
+import { AutoScaleVCore } from "./autoScaleVCore";
 import { CapacityDetails } from "./capacityDetails";
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:powerbidedicated/latest:AutoScaleVCore":
+                return new AutoScaleVCore(name, <any>undefined, { urn })
             case "azure-native:powerbidedicated/latest:CapacityDetails":
                 return new CapacityDetails(name, <any>undefined, { urn })
             default:

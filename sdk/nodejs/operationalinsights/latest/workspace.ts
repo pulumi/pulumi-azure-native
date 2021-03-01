@@ -40,6 +40,10 @@ export class Workspace extends pulumi.CustomResource {
     }
 
     /**
+     * Workspace creation date.
+     */
+    public /*out*/ readonly createdDate!: pulumi.Output<string>;
+    /**
      * This is a read-only property. Represents the ID associated with the workspace.
      */
     public /*out*/ readonly customerId!: pulumi.Output<string>;
@@ -48,6 +52,10 @@ export class Workspace extends pulumi.CustomResource {
      */
     public readonly eTag!: pulumi.Output<string | undefined>;
     /**
+     * Workspace features.
+     */
+    public readonly features!: pulumi.Output<any | undefined>;
+    /**
      * Indicates whether customer managed storage is mandatory for query management.
      */
     public readonly forceCmkForQuery!: pulumi.Output<boolean | undefined>;
@@ -55,6 +63,10 @@ export class Workspace extends pulumi.CustomResource {
      * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
+    /**
+     * Workspace modification date.
+     */
+    public /*out*/ readonly modifiedDate!: pulumi.Output<string>;
     /**
      * The name of the resource
      */
@@ -76,7 +88,7 @@ export class Workspace extends pulumi.CustomResource {
      */
     public readonly publicNetworkAccessForQuery!: pulumi.Output<string | undefined>;
     /**
-     * The workspace data retention in days, between 30 and 730.
+     * The workspace data retention in days. Allowed values are per pricing plan. See pricing tiers documentation for details.
      */
     public readonly retentionInDays!: pulumi.Output<number | undefined>;
     /**
@@ -113,6 +125,7 @@ export class Workspace extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["eTag"] = args ? args.eTag : undefined;
+            inputs["features"] = args ? args.features : undefined;
             inputs["forceCmkForQuery"] = args ? args.forceCmkForQuery : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["provisioningState"] = args ? args.provisioningState : undefined;
@@ -124,15 +137,20 @@ export class Workspace extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["workspaceCapping"] = args ? args.workspaceCapping : undefined;
             inputs["workspaceName"] = args ? args.workspaceName : undefined;
+            inputs["createdDate"] = undefined /*out*/;
             inputs["customerId"] = undefined /*out*/;
+            inputs["modifiedDate"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["privateLinkScopedResources"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
+            inputs["createdDate"] = undefined /*out*/;
             inputs["customerId"] = undefined /*out*/;
             inputs["eTag"] = undefined /*out*/;
+            inputs["features"] = undefined /*out*/;
             inputs["forceCmkForQuery"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
+            inputs["modifiedDate"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["privateLinkScopedResources"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
@@ -162,6 +180,10 @@ export interface WorkspaceArgs {
      */
     readonly eTag?: pulumi.Input<string>;
     /**
+     * Workspace features.
+     */
+    readonly features?: any;
+    /**
      * Indicates whether customer managed storage is mandatory for query management.
      */
     readonly forceCmkForQuery?: pulumi.Input<boolean>;
@@ -186,7 +208,7 @@ export interface WorkspaceArgs {
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * The workspace data retention in days, between 30 and 730.
+     * The workspace data retention in days. Allowed values are per pricing plan. See pricing tiers documentation for details.
      */
     readonly retentionInDays?: pulumi.Input<number>;
     /**

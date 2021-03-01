@@ -50,6 +50,7 @@ __all__ = [
     'ShippingAddressResponse',
     'SkuResponse',
     'StorageAccountDetailsResponse',
+    'SystemDataResponse',
     'TransferAllDetailsResponse',
     'TransferConfigurationResponse',
     'TransferConfigurationResponseTransferAllDetails',
@@ -2766,6 +2767,86 @@ class StorageAccountDetailsResponse(dict):
         Password for all the shares to be created on the device. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\-$%^!+=;:_()]+
         """
         return pulumi.get(self, "share_password")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SystemDataResponse(dict):
+    """
+    Provides details about resource creation and update time
+    """
+    def __init__(__self__, *,
+                 created_at: str,
+                 created_by: str,
+                 created_by_type: str,
+                 last_modified_at: str,
+                 last_modified_by: str,
+                 last_modified_by_type: str):
+        """
+        Provides details about resource creation and update time
+        :param str created_at: The timestamp of resource creation (UTC)
+        :param str created_by: A string identifier for the identity that created the resource
+        :param str created_by_type: The type of identity that created the resource: user, application, managedIdentity
+        :param str last_modified_at: The timestamp of resource last modification (UTC)
+        :param str last_modified_by: A string identifier for the identity that last modified the resource
+        :param str last_modified_by_type: The type of identity that last modified the resource: user, application, managedIdentity
+        """
+        pulumi.set(__self__, "created_at", created_at)
+        pulumi.set(__self__, "created_by", created_by)
+        pulumi.set(__self__, "created_by_type", created_by_type)
+        pulumi.set(__self__, "last_modified_at", last_modified_at)
+        pulumi.set(__self__, "last_modified_by", last_modified_by)
+        pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> str:
+        """
+        The timestamp of resource creation (UTC)
+        """
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> str:
+        """
+        A string identifier for the identity that created the resource
+        """
+        return pulumi.get(self, "created_by")
+
+    @property
+    @pulumi.getter(name="createdByType")
+    def created_by_type(self) -> str:
+        """
+        The type of identity that created the resource: user, application, managedIdentity
+        """
+        return pulumi.get(self, "created_by_type")
+
+    @property
+    @pulumi.getter(name="lastModifiedAt")
+    def last_modified_at(self) -> str:
+        """
+        The timestamp of resource last modification (UTC)
+        """
+        return pulumi.get(self, "last_modified_at")
+
+    @property
+    @pulumi.getter(name="lastModifiedBy")
+    def last_modified_by(self) -> str:
+        """
+        A string identifier for the identity that last modified the resource
+        """
+        return pulumi.get(self, "last_modified_by")
+
+    @property
+    @pulumi.getter(name="lastModifiedByType")
+    def last_modified_by_type(self) -> str:
+        """
+        The type of identity that last modified the resource: user, application, managedIdentity
+        """
+        return pulumi.get(self, "last_modified_by_type")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

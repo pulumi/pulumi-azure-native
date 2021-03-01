@@ -20,7 +20,7 @@ class GetCapacityDetailsResult:
     """
     Represents an instance of a Dedicated Capacity resource.
     """
-    def __init__(__self__, administration=None, id=None, location=None, name=None, provisioning_state=None, sku=None, state=None, tags=None, type=None):
+    def __init__(__self__, administration=None, id=None, location=None, mode=None, name=None, provisioning_state=None, sku=None, state=None, system_data=None, tags=None, type=None):
         if administration and not isinstance(administration, dict):
             raise TypeError("Expected argument 'administration' to be a dict")
         pulumi.set(__self__, "administration", administration)
@@ -30,6 +30,9 @@ class GetCapacityDetailsResult:
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
+        if mode and not isinstance(mode, str):
+            raise TypeError("Expected argument 'mode' to be a str")
+        pulumi.set(__self__, "mode", mode)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -42,6 +45,9 @@ class GetCapacityDetailsResult:
         if state and not isinstance(state, str):
             raise TypeError("Expected argument 'state' to be a str")
         pulumi.set(__self__, "state", state)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -75,6 +81,14 @@ class GetCapacityDetailsResult:
 
     @property
     @pulumi.getter
+    def mode(self) -> Optional[str]:
+        """
+        The capacity mode.
+        """
+        return pulumi.get(self, "mode")
+
+    @property
+    @pulumi.getter
     def name(self) -> str:
         """
         The name of the PowerBI Dedicated resource.
@@ -91,9 +105,9 @@ class GetCapacityDetailsResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> 'outputs.ResourceSkuResponse':
+    def sku(self) -> 'outputs.CapacitySkuResponse':
         """
-        The SKU of the PowerBI Dedicated resource.
+        The SKU of the PowerBI Dedicated capacity resource.
         """
         return pulumi.get(self, "sku")
 
@@ -104,6 +118,14 @@ class GetCapacityDetailsResult:
         The current state of PowerBI Dedicated resource. The state is to indicate more states outside of resource provisioning.
         """
         return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> Optional['outputs.SystemDataResponse']:
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -131,10 +153,12 @@ class AwaitableGetCapacityDetailsResult(GetCapacityDetailsResult):
             administration=self.administration,
             id=self.id,
             location=self.location,
+            mode=self.mode,
             name=self.name,
             provisioning_state=self.provisioning_state,
             sku=self.sku,
             state=self.state,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type)
 
@@ -144,7 +168,7 @@ def get_capacity_details(dedicated_capacity_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCapacityDetailsResult:
     """
     Represents an instance of a Dedicated Capacity resource.
-    API Version: 2017-10-01.
+    API Version: 2021-01-01.
 
 
     :param str dedicated_capacity_name: The name of the dedicated capacity. It must be a minimum of 3 characters, and a maximum of 63.
@@ -163,9 +187,11 @@ def get_capacity_details(dedicated_capacity_name: Optional[str] = None,
         administration=__ret__.administration,
         id=__ret__.id,
         location=__ret__.location,
+        mode=__ret__.mode,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
         sku=__ret__.sku,
         state=__ret__.state,
+        system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)

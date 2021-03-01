@@ -364,7 +364,7 @@ class ClusterResourcePropertiesArgs:
                  external_seed_nodes: Optional[pulumi.Input[Sequence[pulumi.Input['SeedNodeArgs']]]] = None,
                  hours_between_backups: Optional[pulumi.Input[int]] = None,
                  initial_cassandra_admin_password: Optional[pulumi.Input[str]] = None,
-                 prometheus_endpoint: Optional[pulumi.Input[str]] = None,
+                 prometheus_endpoint: Optional[pulumi.Input['SeedNodeArgs']] = None,
                  provisioning_state: Optional[pulumi.Input[Union[str, 'ManagedCassandraProvisioningState']]] = None,
                  repair_enabled: Optional[pulumi.Input[bool]] = None,
                  restore_from_backup_id: Optional[pulumi.Input[str]] = None):
@@ -379,7 +379,7 @@ class ClusterResourcePropertiesArgs:
         :param pulumi.Input[Sequence[pulumi.Input['SeedNodeArgs']]] external_seed_nodes: List of IP addresses of seed nodes in unmanaged data centers. These will be added to the seed node lists of all managed nodes.
         :param pulumi.Input[int] hours_between_backups: Number of hours to wait between taking a backup of the cluster. To disable backups, set this property to 0.
         :param pulumi.Input[str] initial_cassandra_admin_password: Initial password for clients connecting as admin to the cluster. Should be changed after cluster creation. Returns null on GET. This field only applies when the authenticationMethod field is 'Cassandra'.
-        :param pulumi.Input[str] prometheus_endpoint: Hostname or IP address where the Prometheus endpoint containing data about the managed Cassandra nodes can be reached.
+        :param pulumi.Input['SeedNodeArgs'] prometheus_endpoint: Hostname or IP address where the Prometheus endpoint containing data about the managed Cassandra nodes can be reached.
         :param pulumi.Input[Union[str, 'ManagedCassandraProvisioningState']] provisioning_state: The status of the resource at the time the operation was called.
         :param pulumi.Input[bool] repair_enabled: Should automatic repairs run on this cluster? If omitted, this is true, and should stay true unless you are running a hybrid cluster where you are already doing your own repairs.
         :param pulumi.Input[str] restore_from_backup_id: To create an empty cluster, omit this field or set it to null. To restore a backup into a new cluster, set this field to the resource id of the backup.
@@ -521,14 +521,14 @@ class ClusterResourcePropertiesArgs:
 
     @property
     @pulumi.getter(name="prometheusEndpoint")
-    def prometheus_endpoint(self) -> Optional[pulumi.Input[str]]:
+    def prometheus_endpoint(self) -> Optional[pulumi.Input['SeedNodeArgs']]:
         """
         Hostname or IP address where the Prometheus endpoint containing data about the managed Cassandra nodes can be reached.
         """
         return pulumi.get(self, "prometheus_endpoint")
 
     @prometheus_endpoint.setter
-    def prometheus_endpoint(self, value: Optional[pulumi.Input[str]]):
+    def prometheus_endpoint(self, value: Optional[pulumi.Input['SeedNodeArgs']]):
         pulumi.set(self, "prometheus_endpoint", value)
 
     @property

@@ -26,16 +26,22 @@ type LookupWorkspaceArgs struct {
 
 // The top level Workspace resource container.
 type LookupWorkspaceResult struct {
+	// Workspace creation date.
+	CreatedDate string `pulumi:"createdDate"`
 	// This is a read-only property. Represents the ID associated with the workspace.
 	CustomerId string `pulumi:"customerId"`
 	// The ETag of the workspace.
 	ETag *string `pulumi:"eTag"`
+	// Workspace features.
+	Features interface{} `pulumi:"features"`
 	// Indicates whether customer managed storage is mandatory for query management.
 	ForceCmkForQuery *bool `pulumi:"forceCmkForQuery"`
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
+	// Workspace modification date.
+	ModifiedDate string `pulumi:"modifiedDate"`
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// List of linked private link scope resources.
@@ -46,7 +52,7 @@ type LookupWorkspaceResult struct {
 	PublicNetworkAccessForIngestion *string `pulumi:"publicNetworkAccessForIngestion"`
 	// The network access type for accessing Log Analytics query.
 	PublicNetworkAccessForQuery *string `pulumi:"publicNetworkAccessForQuery"`
-	// The workspace data retention in days, between 30 and 730.
+	// The workspace data retention in days. Allowed values are per pricing plan. See pricing tiers documentation for details.
 	RetentionInDays *int `pulumi:"retentionInDays"`
 	// The SKU of the workspace.
 	Sku *WorkspaceSkuResponse `pulumi:"sku"`

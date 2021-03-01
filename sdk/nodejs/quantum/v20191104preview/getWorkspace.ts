@@ -70,6 +70,10 @@ export interface GetWorkspaceResult {
      */
     readonly storageAccount?: string;
     /**
+     * System metadata
+     */
+    readonly systemData: outputs.quantum.v20191104preview.SystemDataResponse;
+    /**
      * Resource tags.
      */
     readonly tags?: {[key: string]: string};

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents an instance of a Dedicated Capacity resource.
- * API Version: 2017-10-01.
+ * API Version: 2021-01-01.
  */
 export class CapacityDetails extends pulumi.CustomResource {
     /**
@@ -45,6 +45,10 @@ export class CapacityDetails extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
+     * The capacity mode.
+     */
+    public readonly mode!: pulumi.Output<string | undefined>;
+    /**
      * The name of the PowerBI Dedicated resource.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
@@ -53,13 +57,17 @@ export class CapacityDetails extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * The SKU of the PowerBI Dedicated resource.
+     * The SKU of the PowerBI Dedicated capacity resource.
      */
-    public readonly sku!: pulumi.Output<outputs.powerbidedicated.ResourceSkuResponse>;
+    public readonly sku!: pulumi.Output<outputs.powerbidedicated.CapacitySkuResponse>;
     /**
      * The current state of PowerBI Dedicated resource. The state is to indicate more states outside of resource provisioning.
      */
     public /*out*/ readonly state!: pulumi.Output<string>;
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    public readonly systemData!: pulumi.Output<outputs.powerbidedicated.SystemDataResponse | undefined>;
     /**
      * Key-value pairs of additional resource provisioning properties.
      */
@@ -89,8 +97,10 @@ export class CapacityDetails extends pulumi.CustomResource {
             inputs["administration"] = args ? args.administration : undefined;
             inputs["dedicatedCapacityName"] = args ? args.dedicatedCapacityName : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["mode"] = args ? args.mode : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
+            inputs["systemData"] = args ? args.systemData : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
@@ -99,17 +109,19 @@ export class CapacityDetails extends pulumi.CustomResource {
         } else {
             inputs["administration"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
+            inputs["mode"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["sku"] = undefined /*out*/;
             inputs["state"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:powerbidedicated/latest:CapacityDetails" }, { type: "azure-nextgen:powerbidedicated/latest:CapacityDetails" }, { type: "azure-native:powerbidedicated/v20171001:CapacityDetails" }, { type: "azure-nextgen:powerbidedicated/v20171001:CapacityDetails" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:powerbidedicated/latest:CapacityDetails" }, { type: "azure-nextgen:powerbidedicated/latest:CapacityDetails" }, { type: "azure-native:powerbidedicated/v20171001:CapacityDetails" }, { type: "azure-nextgen:powerbidedicated/v20171001:CapacityDetails" }, { type: "azure-native:powerbidedicated/v20210101:CapacityDetails" }, { type: "azure-nextgen:powerbidedicated/v20210101:CapacityDetails" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CapacityDetails.__pulumiType, name, inputs, opts);
     }
@@ -132,13 +144,21 @@ export interface CapacityDetailsArgs {
      */
     readonly location?: pulumi.Input<string>;
     /**
+     * The capacity mode.
+     */
+    readonly mode?: pulumi.Input<string | enums.powerbidedicated.Mode>;
+    /**
      * The name of the Azure Resource group of which a given PowerBIDedicated capacity is part. This name must be at least 1 character in length, and no more than 90.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * The SKU of the PowerBI Dedicated resource.
+     * The SKU of the PowerBI Dedicated capacity resource.
      */
-    readonly sku: pulumi.Input<inputs.powerbidedicated.ResourceSku>;
+    readonly sku: pulumi.Input<inputs.powerbidedicated.CapacitySku>;
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData?: pulumi.Input<inputs.powerbidedicated.SystemData>;
     /**
      * Key-value pairs of additional resource provisioning properties.
      */

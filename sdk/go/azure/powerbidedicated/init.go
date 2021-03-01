@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "azure-native:powerbidedicated:AutoScaleVCore":
+		r, err = NewAutoScaleVCore(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:powerbidedicated:CapacityDetails":
 		r, err = NewCapacityDetails(ctx, name, nil, pulumi.URN_(urn))
 	default:

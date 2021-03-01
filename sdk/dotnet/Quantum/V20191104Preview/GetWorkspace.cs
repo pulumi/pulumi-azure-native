@@ -75,6 +75,10 @@ namespace Pulumi.AzureNative.Quantum.V20191104Preview
         /// </summary>
         public readonly string? StorageAccount;
         /// <summary>
+        /// System metadata
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -105,6 +109,8 @@ namespace Pulumi.AzureNative.Quantum.V20191104Preview
 
             string? storageAccount,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string type,
@@ -119,6 +125,7 @@ namespace Pulumi.AzureNative.Quantum.V20191104Preview
             Providers = providers;
             ProvisioningState = provisioningState;
             StorageAccount = storageAccount;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
             Usable = usable;

@@ -20,19 +20,31 @@ class GetWorkspaceResult:
     """
     The top level Workspace resource container.
     """
-    def __init__(__self__, customer_id=None, e_tag=None, id=None, location=None, name=None, private_link_scoped_resources=None, provisioning_state=None, public_network_access_for_ingestion=None, public_network_access_for_query=None, retention_in_days=None, sku=None, tags=None, type=None, workspace_capping=None):
+    def __init__(__self__, created_date=None, customer_id=None, e_tag=None, features=None, force_cmk_for_query=None, id=None, location=None, modified_date=None, name=None, private_link_scoped_resources=None, provisioning_state=None, public_network_access_for_ingestion=None, public_network_access_for_query=None, retention_in_days=None, sku=None, tags=None, type=None, workspace_capping=None):
+        if created_date and not isinstance(created_date, str):
+            raise TypeError("Expected argument 'created_date' to be a str")
+        pulumi.set(__self__, "created_date", created_date)
         if customer_id and not isinstance(customer_id, str):
             raise TypeError("Expected argument 'customer_id' to be a str")
         pulumi.set(__self__, "customer_id", customer_id)
         if e_tag and not isinstance(e_tag, str):
             raise TypeError("Expected argument 'e_tag' to be a str")
         pulumi.set(__self__, "e_tag", e_tag)
+        if features and not isinstance(features, dict):
+            raise TypeError("Expected argument 'features' to be a dict")
+        pulumi.set(__self__, "features", features)
+        if force_cmk_for_query and not isinstance(force_cmk_for_query, bool):
+            raise TypeError("Expected argument 'force_cmk_for_query' to be a bool")
+        pulumi.set(__self__, "force_cmk_for_query", force_cmk_for_query)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
+        if modified_date and not isinstance(modified_date, str):
+            raise TypeError("Expected argument 'modified_date' to be a str")
+        pulumi.set(__self__, "modified_date", modified_date)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -65,6 +77,14 @@ class GetWorkspaceResult:
         pulumi.set(__self__, "workspace_capping", workspace_capping)
 
     @property
+    @pulumi.getter(name="createdDate")
+    def created_date(self) -> str:
+        """
+        Workspace creation date.
+        """
+        return pulumi.get(self, "created_date")
+
+    @property
     @pulumi.getter(name="customerId")
     def customer_id(self) -> str:
         """
@@ -82,6 +102,22 @@ class GetWorkspaceResult:
 
     @property
     @pulumi.getter
+    def features(self) -> Optional[Any]:
+        """
+        Workspace features.
+        """
+        return pulumi.get(self, "features")
+
+    @property
+    @pulumi.getter(name="forceCmkForQuery")
+    def force_cmk_for_query(self) -> Optional[bool]:
+        """
+        Indicates whether customer managed storage is mandatory for query management.
+        """
+        return pulumi.get(self, "force_cmk_for_query")
+
+    @property
+    @pulumi.getter
     def id(self) -> str:
         """
         Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
@@ -95,6 +131,14 @@ class GetWorkspaceResult:
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="modifiedDate")
+    def modified_date(self) -> str:
+        """
+        Workspace modification date.
+        """
+        return pulumi.get(self, "modified_date")
 
     @property
     @pulumi.getter
@@ -140,7 +184,7 @@ class GetWorkspaceResult:
     @pulumi.getter(name="retentionInDays")
     def retention_in_days(self) -> Optional[int]:
         """
-        The workspace data retention in days, between 30 and 730.
+        The workspace data retention in days. Allowed values are per pricing plan. See pricing tiers documentation for details.
         """
         return pulumi.get(self, "retention_in_days")
 
@@ -183,10 +227,14 @@ class AwaitableGetWorkspaceResult(GetWorkspaceResult):
         if False:
             yield self
         return GetWorkspaceResult(
+            created_date=self.created_date,
             customer_id=self.customer_id,
             e_tag=self.e_tag,
+            features=self.features,
+            force_cmk_for_query=self.force_cmk_for_query,
             id=self.id,
             location=self.location,
+            modified_date=self.modified_date,
             name=self.name,
             private_link_scoped_resources=self.private_link_scoped_resources,
             provisioning_state=self.provisioning_state,
@@ -219,10 +267,14 @@ def get_workspace(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:operationalinsights/v20200801:getWorkspace', __args__, opts=opts, typ=GetWorkspaceResult).value
 
     return AwaitableGetWorkspaceResult(
+        created_date=__ret__.created_date,
         customer_id=__ret__.customer_id,
         e_tag=__ret__.e_tag,
+        features=__ret__.features,
+        force_cmk_for_query=__ret__.force_cmk_for_query,
         id=__ret__.id,
         location=__ret__.location,
+        modified_date=__ret__.modified_date,
         name=__ret__.name,
         private_link_scoped_resources=__ret__.private_link_scoped_resources,
         provisioning_state=__ret__.provisioning_state,

@@ -2781,7 +2781,7 @@ type ClusterResourceProperties struct {
 	// Initial password for clients connecting as admin to the cluster. Should be changed after cluster creation. Returns null on GET. This field only applies when the authenticationMethod field is 'Cassandra'.
 	InitialCassandraAdminPassword *string `pulumi:"initialCassandraAdminPassword"`
 	// Hostname or IP address where the Prometheus endpoint containing data about the managed Cassandra nodes can be reached.
-	PrometheusEndpoint *string `pulumi:"prometheusEndpoint"`
+	PrometheusEndpoint *SeedNode `pulumi:"prometheusEndpoint"`
 	// The status of the resource at the time the operation was called.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// Should automatic repairs run on this cluster? If omitted, this is true, and should stay true unless you are running a hybrid cluster where you are already doing your own repairs.
@@ -2822,7 +2822,7 @@ type ClusterResourcePropertiesArgs struct {
 	// Initial password for clients connecting as admin to the cluster. Should be changed after cluster creation. Returns null on GET. This field only applies when the authenticationMethod field is 'Cassandra'.
 	InitialCassandraAdminPassword pulumi.StringPtrInput `pulumi:"initialCassandraAdminPassword"`
 	// Hostname or IP address where the Prometheus endpoint containing data about the managed Cassandra nodes can be reached.
-	PrometheusEndpoint pulumi.StringPtrInput `pulumi:"prometheusEndpoint"`
+	PrometheusEndpoint SeedNodePtrInput `pulumi:"prometheusEndpoint"`
 	// The status of the resource at the time the operation was called.
 	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
 	// Should automatic repairs run on this cluster? If omitted, this is true, and should stay true unless you are running a hybrid cluster where you are already doing your own repairs.
@@ -2955,8 +2955,8 @@ func (o ClusterResourcePropertiesOutput) InitialCassandraAdminPassword() pulumi.
 }
 
 // Hostname or IP address where the Prometheus endpoint containing data about the managed Cassandra nodes can be reached.
-func (o ClusterResourcePropertiesOutput) PrometheusEndpoint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterResourceProperties) *string { return v.PrometheusEndpoint }).(pulumi.StringPtrOutput)
+func (o ClusterResourcePropertiesOutput) PrometheusEndpoint() SeedNodePtrOutput {
+	return o.ApplyT(func(v ClusterResourceProperties) *SeedNode { return v.PrometheusEndpoint }).(SeedNodePtrOutput)
 }
 
 // The status of the resource at the time the operation was called.
@@ -3083,13 +3083,13 @@ func (o ClusterResourcePropertiesPtrOutput) InitialCassandraAdminPassword() pulu
 }
 
 // Hostname or IP address where the Prometheus endpoint containing data about the managed Cassandra nodes can be reached.
-func (o ClusterResourcePropertiesPtrOutput) PrometheusEndpoint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterResourceProperties) *string {
+func (o ClusterResourcePropertiesPtrOutput) PrometheusEndpoint() SeedNodePtrOutput {
+	return o.ApplyT(func(v *ClusterResourceProperties) *SeedNode {
 		if v == nil {
 			return nil
 		}
 		return v.PrometheusEndpoint
-	}).(pulumi.StringPtrOutput)
+	}).(SeedNodePtrOutput)
 }
 
 // The status of the resource at the time the operation was called.
@@ -3145,7 +3145,7 @@ type ClusterResourceResponseProperties struct {
 	// Initial password for clients connecting as admin to the cluster. Should be changed after cluster creation. Returns null on GET. This field only applies when the authenticationMethod field is 'Cassandra'.
 	InitialCassandraAdminPassword *string `pulumi:"initialCassandraAdminPassword"`
 	// Hostname or IP address where the Prometheus endpoint containing data about the managed Cassandra nodes can be reached.
-	PrometheusEndpoint *string `pulumi:"prometheusEndpoint"`
+	PrometheusEndpoint *SeedNodeResponse `pulumi:"prometheusEndpoint"`
 	// The status of the resource at the time the operation was called.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// Should automatic repairs run on this cluster? If omitted, this is true, and should stay true unless you are running a hybrid cluster where you are already doing your own repairs.
@@ -3190,7 +3190,7 @@ type ClusterResourceResponsePropertiesArgs struct {
 	// Initial password for clients connecting as admin to the cluster. Should be changed after cluster creation. Returns null on GET. This field only applies when the authenticationMethod field is 'Cassandra'.
 	InitialCassandraAdminPassword pulumi.StringPtrInput `pulumi:"initialCassandraAdminPassword"`
 	// Hostname or IP address where the Prometheus endpoint containing data about the managed Cassandra nodes can be reached.
-	PrometheusEndpoint pulumi.StringPtrInput `pulumi:"prometheusEndpoint"`
+	PrometheusEndpoint SeedNodeResponsePtrInput `pulumi:"prometheusEndpoint"`
 	// The status of the resource at the time the operation was called.
 	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
 	// Should automatic repairs run on this cluster? If omitted, this is true, and should stay true unless you are running a hybrid cluster where you are already doing your own repairs.
@@ -3330,8 +3330,8 @@ func (o ClusterResourceResponsePropertiesOutput) InitialCassandraAdminPassword()
 }
 
 // Hostname or IP address where the Prometheus endpoint containing data about the managed Cassandra nodes can be reached.
-func (o ClusterResourceResponsePropertiesOutput) PrometheusEndpoint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterResourceResponseProperties) *string { return v.PrometheusEndpoint }).(pulumi.StringPtrOutput)
+func (o ClusterResourceResponsePropertiesOutput) PrometheusEndpoint() SeedNodeResponsePtrOutput {
+	return o.ApplyT(func(v ClusterResourceResponseProperties) *SeedNodeResponse { return v.PrometheusEndpoint }).(SeedNodeResponsePtrOutput)
 }
 
 // The status of the resource at the time the operation was called.
@@ -3473,13 +3473,13 @@ func (o ClusterResourceResponsePropertiesPtrOutput) InitialCassandraAdminPasswor
 }
 
 // Hostname or IP address where the Prometheus endpoint containing data about the managed Cassandra nodes can be reached.
-func (o ClusterResourceResponsePropertiesPtrOutput) PrometheusEndpoint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterResourceResponseProperties) *string {
+func (o ClusterResourceResponsePropertiesPtrOutput) PrometheusEndpoint() SeedNodeResponsePtrOutput {
+	return o.ApplyT(func(v *ClusterResourceResponseProperties) *SeedNodeResponse {
 		if v == nil {
 			return nil
 		}
 		return v.PrometheusEndpoint
-	}).(pulumi.StringPtrOutput)
+	}).(SeedNodeResponsePtrOutput)
 }
 
 // The status of the resource at the time the operation was called.
@@ -13836,6 +13836,47 @@ func (i SeedNodeArgs) ToSeedNodeOutputWithContext(ctx context.Context) SeedNodeO
 	return pulumi.ToOutputWithContext(ctx, i).(SeedNodeOutput)
 }
 
+func (i SeedNodeArgs) ToSeedNodePtrOutput() SeedNodePtrOutput {
+	return i.ToSeedNodePtrOutputWithContext(context.Background())
+}
+
+func (i SeedNodeArgs) ToSeedNodePtrOutputWithContext(ctx context.Context) SeedNodePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SeedNodeOutput).ToSeedNodePtrOutputWithContext(ctx)
+}
+
+// SeedNodePtrInput is an input type that accepts SeedNodeArgs, SeedNodePtr and SeedNodePtrOutput values.
+// You can construct a concrete instance of `SeedNodePtrInput` via:
+//
+//          SeedNodeArgs{...}
+//
+//  or:
+//
+//          nil
+type SeedNodePtrInput interface {
+	pulumi.Input
+
+	ToSeedNodePtrOutput() SeedNodePtrOutput
+	ToSeedNodePtrOutputWithContext(context.Context) SeedNodePtrOutput
+}
+
+type seedNodePtrType SeedNodeArgs
+
+func SeedNodePtr(v *SeedNodeArgs) SeedNodePtrInput {
+	return (*seedNodePtrType)(v)
+}
+
+func (*seedNodePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SeedNode)(nil)).Elem()
+}
+
+func (i *seedNodePtrType) ToSeedNodePtrOutput() SeedNodePtrOutput {
+	return i.ToSeedNodePtrOutputWithContext(context.Background())
+}
+
+func (i *seedNodePtrType) ToSeedNodePtrOutputWithContext(ctx context.Context) SeedNodePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SeedNodePtrOutput)
+}
+
 // SeedNodeArrayInput is an input type that accepts SeedNodeArray and SeedNodeArrayOutput values.
 // You can construct a concrete instance of `SeedNodeArrayInput` via:
 //
@@ -13875,9 +13916,47 @@ func (o SeedNodeOutput) ToSeedNodeOutputWithContext(ctx context.Context) SeedNod
 	return o
 }
 
+func (o SeedNodeOutput) ToSeedNodePtrOutput() SeedNodePtrOutput {
+	return o.ToSeedNodePtrOutputWithContext(context.Background())
+}
+
+func (o SeedNodeOutput) ToSeedNodePtrOutputWithContext(ctx context.Context) SeedNodePtrOutput {
+	return o.ApplyT(func(v SeedNode) *SeedNode {
+		return &v
+	}).(SeedNodePtrOutput)
+}
+
 // IP address of this seed node.
 func (o SeedNodeOutput) IpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SeedNode) *string { return v.IpAddress }).(pulumi.StringPtrOutput)
+}
+
+type SeedNodePtrOutput struct{ *pulumi.OutputState }
+
+func (SeedNodePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SeedNode)(nil)).Elem()
+}
+
+func (o SeedNodePtrOutput) ToSeedNodePtrOutput() SeedNodePtrOutput {
+	return o
+}
+
+func (o SeedNodePtrOutput) ToSeedNodePtrOutputWithContext(ctx context.Context) SeedNodePtrOutput {
+	return o
+}
+
+func (o SeedNodePtrOutput) Elem() SeedNodeOutput {
+	return o.ApplyT(func(v *SeedNode) SeedNode { return *v }).(SeedNodeOutput)
+}
+
+// IP address of this seed node.
+func (o SeedNodePtrOutput) IpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SeedNode) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IpAddress
+	}).(pulumi.StringPtrOutput)
 }
 
 type SeedNodeArrayOutput struct{ *pulumi.OutputState }
@@ -13933,6 +14012,47 @@ func (i SeedNodeResponseArgs) ToSeedNodeResponseOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(SeedNodeResponseOutput)
 }
 
+func (i SeedNodeResponseArgs) ToSeedNodeResponsePtrOutput() SeedNodeResponsePtrOutput {
+	return i.ToSeedNodeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i SeedNodeResponseArgs) ToSeedNodeResponsePtrOutputWithContext(ctx context.Context) SeedNodeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SeedNodeResponseOutput).ToSeedNodeResponsePtrOutputWithContext(ctx)
+}
+
+// SeedNodeResponsePtrInput is an input type that accepts SeedNodeResponseArgs, SeedNodeResponsePtr and SeedNodeResponsePtrOutput values.
+// You can construct a concrete instance of `SeedNodeResponsePtrInput` via:
+//
+//          SeedNodeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type SeedNodeResponsePtrInput interface {
+	pulumi.Input
+
+	ToSeedNodeResponsePtrOutput() SeedNodeResponsePtrOutput
+	ToSeedNodeResponsePtrOutputWithContext(context.Context) SeedNodeResponsePtrOutput
+}
+
+type seedNodeResponsePtrType SeedNodeResponseArgs
+
+func SeedNodeResponsePtr(v *SeedNodeResponseArgs) SeedNodeResponsePtrInput {
+	return (*seedNodeResponsePtrType)(v)
+}
+
+func (*seedNodeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SeedNodeResponse)(nil)).Elem()
+}
+
+func (i *seedNodeResponsePtrType) ToSeedNodeResponsePtrOutput() SeedNodeResponsePtrOutput {
+	return i.ToSeedNodeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *seedNodeResponsePtrType) ToSeedNodeResponsePtrOutputWithContext(ctx context.Context) SeedNodeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SeedNodeResponsePtrOutput)
+}
+
 // SeedNodeResponseArrayInput is an input type that accepts SeedNodeResponseArray and SeedNodeResponseArrayOutput values.
 // You can construct a concrete instance of `SeedNodeResponseArrayInput` via:
 //
@@ -13972,9 +14092,47 @@ func (o SeedNodeResponseOutput) ToSeedNodeResponseOutputWithContext(ctx context.
 	return o
 }
 
+func (o SeedNodeResponseOutput) ToSeedNodeResponsePtrOutput() SeedNodeResponsePtrOutput {
+	return o.ToSeedNodeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o SeedNodeResponseOutput) ToSeedNodeResponsePtrOutputWithContext(ctx context.Context) SeedNodeResponsePtrOutput {
+	return o.ApplyT(func(v SeedNodeResponse) *SeedNodeResponse {
+		return &v
+	}).(SeedNodeResponsePtrOutput)
+}
+
 // IP address of this seed node.
 func (o SeedNodeResponseOutput) IpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SeedNodeResponse) *string { return v.IpAddress }).(pulumi.StringPtrOutput)
+}
+
+type SeedNodeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SeedNodeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SeedNodeResponse)(nil)).Elem()
+}
+
+func (o SeedNodeResponsePtrOutput) ToSeedNodeResponsePtrOutput() SeedNodeResponsePtrOutput {
+	return o
+}
+
+func (o SeedNodeResponsePtrOutput) ToSeedNodeResponsePtrOutputWithContext(ctx context.Context) SeedNodeResponsePtrOutput {
+	return o
+}
+
+func (o SeedNodeResponsePtrOutput) Elem() SeedNodeResponseOutput {
+	return o.ApplyT(func(v *SeedNodeResponse) SeedNodeResponse { return *v }).(SeedNodeResponseOutput)
+}
+
+// IP address of this seed node.
+func (o SeedNodeResponsePtrOutput) IpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SeedNodeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IpAddress
+	}).(pulumi.StringPtrOutput)
 }
 
 type SeedNodeResponseArrayOutput struct{ *pulumi.OutputState }
@@ -18152,8 +18310,10 @@ func init() {
 	pulumi.RegisterOutputType(RestoreParametersResponsePtrOutput{})
 	pulumi.RegisterOutputType(RestoreReqeustDatabaseAccountCreateUpdatePropertiesOutput{})
 	pulumi.RegisterOutputType(SeedNodeOutput{})
+	pulumi.RegisterOutputType(SeedNodePtrOutput{})
 	pulumi.RegisterOutputType(SeedNodeArrayOutput{})
 	pulumi.RegisterOutputType(SeedNodeResponseOutput{})
+	pulumi.RegisterOutputType(SeedNodeResponsePtrOutput{})
 	pulumi.RegisterOutputType(SeedNodeResponseArrayOutput{})
 	pulumi.RegisterOutputType(SpatialSpecOutput{})
 	pulumi.RegisterOutputType(SpatialSpecArrayOutput{})

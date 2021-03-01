@@ -5,12 +5,42 @@
 from enum import Enum
 
 __all__ = [
-    'SkuTier',
+    'CapacitySkuTier',
+    'IdentityType',
+    'Mode',
+    'VCoreSkuTier',
 ]
 
 
-class SkuTier(str, Enum):
+class CapacitySkuTier(str, Enum):
     """
     The name of the Azure pricing tier to which the SKU applies.
     """
     PBI_E_AZURE = "PBIE_Azure"
+    PREMIUM = "Premium"
+    AUTO_PREMIUM_HOST = "AutoPremiumHost"
+
+
+class IdentityType(str, Enum):
+    """
+    The type of identity that last modified the resource
+    """
+    USER = "User"
+    APPLICATION = "Application"
+    MANAGED_IDENTITY = "ManagedIdentity"
+    KEY = "Key"
+
+
+class Mode(str, Enum):
+    """
+    The capacity mode.
+    """
+    GEN1 = "Gen1"
+    GEN2 = "Gen2"
+
+
+class VCoreSkuTier(str, Enum):
+    """
+    The name of the Azure pricing tier to which the SKU applies.
+    """
+    AUTO_SCALE = "AutoScale"

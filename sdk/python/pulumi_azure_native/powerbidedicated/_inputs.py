@@ -10,9 +10,105 @@ from .. import _utilities, _tables
 from ._enums import *
 
 __all__ = [
+    'AutoScaleVCoreSkuArgs',
+    'CapacitySkuArgs',
     'DedicatedCapacityAdministratorsArgs',
-    'ResourceSkuArgs',
+    'SystemDataArgs',
 ]
+
+@pulumi.input_type
+class AutoScaleVCoreSkuArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 capacity: Optional[pulumi.Input[int]] = None,
+                 tier: Optional[pulumi.Input[Union[str, 'VCoreSkuTier']]] = None):
+        """
+        Represents the SKU name and Azure pricing tier for auto scale v-core resource.
+        :param pulumi.Input[str] name: Name of the SKU level.
+        :param pulumi.Input[int] capacity: The capacity of an auto scale v-core resource.
+        :param pulumi.Input[Union[str, 'VCoreSkuTier']] tier: The name of the Azure pricing tier to which the SKU applies.
+        """
+        pulumi.set(__self__, "name", name)
+        if capacity is not None:
+            pulumi.set(__self__, "capacity", capacity)
+        if tier is not None:
+            pulumi.set(__self__, "tier", tier)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Name of the SKU level.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def capacity(self) -> Optional[pulumi.Input[int]]:
+        """
+        The capacity of an auto scale v-core resource.
+        """
+        return pulumi.get(self, "capacity")
+
+    @capacity.setter
+    def capacity(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "capacity", value)
+
+    @property
+    @pulumi.getter
+    def tier(self) -> Optional[pulumi.Input[Union[str, 'VCoreSkuTier']]]:
+        """
+        The name of the Azure pricing tier to which the SKU applies.
+        """
+        return pulumi.get(self, "tier")
+
+    @tier.setter
+    def tier(self, value: Optional[pulumi.Input[Union[str, 'VCoreSkuTier']]]):
+        pulumi.set(self, "tier", value)
+
+
+@pulumi.input_type
+class CapacitySkuArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 tier: Optional[pulumi.Input[Union[str, 'CapacitySkuTier']]] = None):
+        """
+        Represents the SKU name and Azure pricing tier for PowerBI Dedicated capacity resource.
+        :param pulumi.Input[str] name: Name of the SKU level.
+        :param pulumi.Input[Union[str, 'CapacitySkuTier']] tier: The name of the Azure pricing tier to which the SKU applies.
+        """
+        pulumi.set(__self__, "name", name)
+        if tier is not None:
+            pulumi.set(__self__, "tier", tier)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Name of the SKU level.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def tier(self) -> Optional[pulumi.Input[Union[str, 'CapacitySkuTier']]]:
+        """
+        The name of the Azure pricing tier to which the SKU applies.
+        """
+        return pulumi.get(self, "tier")
+
+    @tier.setter
+    def tier(self, value: Optional[pulumi.Input[Union[str, 'CapacitySkuTier']]]):
+        pulumi.set(self, "tier", value)
+
 
 @pulumi.input_type
 class DedicatedCapacityAdministratorsArgs:
@@ -39,41 +135,106 @@ class DedicatedCapacityAdministratorsArgs:
 
 
 @pulumi.input_type
-class ResourceSkuArgs:
+class SystemDataArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str],
-                 tier: Optional[pulumi.Input[Union[str, 'SkuTier']]] = None):
+                 created_at: Optional[pulumi.Input[str]] = None,
+                 created_by: Optional[pulumi.Input[str]] = None,
+                 created_by_type: Optional[pulumi.Input[Union[str, 'IdentityType']]] = None,
+                 last_modified_at: Optional[pulumi.Input[str]] = None,
+                 last_modified_by: Optional[pulumi.Input[str]] = None,
+                 last_modified_by_type: Optional[pulumi.Input[Union[str, 'IdentityType']]] = None):
         """
-        Represents the SKU name and Azure pricing tier for PowerBI Dedicated resource.
-        :param pulumi.Input[str] name: Name of the SKU level.
-        :param pulumi.Input[Union[str, 'SkuTier']] tier: The name of the Azure pricing tier to which the SKU applies.
+        Metadata pertaining to creation and last modification of the resource.
+        :param pulumi.Input[str] created_at: The timestamp of resource creation (UTC)
+        :param pulumi.Input[str] created_by: An identifier for the identity that created the resource
+        :param pulumi.Input[Union[str, 'IdentityType']] created_by_type: The type of identity that created the resource
+        :param pulumi.Input[str] last_modified_at: The timestamp of resource last modification (UTC)
+        :param pulumi.Input[str] last_modified_by: An identifier for the identity that last modified the resource
+        :param pulumi.Input[Union[str, 'IdentityType']] last_modified_by_type: The type of identity that last modified the resource
         """
-        pulumi.set(__self__, "name", name)
-        if tier is not None:
-            pulumi.set(__self__, "tier", tier)
+        if created_at is not None:
+            pulumi.set(__self__, "created_at", created_at)
+        if created_by is not None:
+            pulumi.set(__self__, "created_by", created_by)
+        if created_by_type is not None:
+            pulumi.set(__self__, "created_by_type", created_by_type)
+        if last_modified_at is not None:
+            pulumi.set(__self__, "last_modified_at", last_modified_at)
+        if last_modified_by is not None:
+            pulumi.set(__self__, "last_modified_by", last_modified_by)
+        if last_modified_by_type is not None:
+            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
 
     @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the SKU level.
+        The timestamp of resource creation (UTC)
         """
-        return pulumi.get(self, "name")
+        return pulumi.get(self, "created_at")
 
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
+    @created_at.setter
+    def created_at(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "created_at", value)
 
     @property
-    @pulumi.getter
-    def tier(self) -> Optional[pulumi.Input[Union[str, 'SkuTier']]]:
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the Azure pricing tier to which the SKU applies.
+        An identifier for the identity that created the resource
         """
-        return pulumi.get(self, "tier")
+        return pulumi.get(self, "created_by")
 
-    @tier.setter
-    def tier(self, value: Optional[pulumi.Input[Union[str, 'SkuTier']]]):
-        pulumi.set(self, "tier", value)
+    @created_by.setter
+    def created_by(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "created_by", value)
+
+    @property
+    @pulumi.getter(name="createdByType")
+    def created_by_type(self) -> Optional[pulumi.Input[Union[str, 'IdentityType']]]:
+        """
+        The type of identity that created the resource
+        """
+        return pulumi.get(self, "created_by_type")
+
+    @created_by_type.setter
+    def created_by_type(self, value: Optional[pulumi.Input[Union[str, 'IdentityType']]]):
+        pulumi.set(self, "created_by_type", value)
+
+    @property
+    @pulumi.getter(name="lastModifiedAt")
+    def last_modified_at(self) -> Optional[pulumi.Input[str]]:
+        """
+        The timestamp of resource last modification (UTC)
+        """
+        return pulumi.get(self, "last_modified_at")
+
+    @last_modified_at.setter
+    def last_modified_at(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "last_modified_at", value)
+
+    @property
+    @pulumi.getter(name="lastModifiedBy")
+    def last_modified_by(self) -> Optional[pulumi.Input[str]]:
+        """
+        An identifier for the identity that last modified the resource
+        """
+        return pulumi.get(self, "last_modified_by")
+
+    @last_modified_by.setter
+    def last_modified_by(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "last_modified_by", value)
+
+    @property
+    @pulumi.getter(name="lastModifiedByType")
+    def last_modified_by_type(self) -> Optional[pulumi.Input[Union[str, 'IdentityType']]]:
+        """
+        The type of identity that last modified the resource
+        """
+        return pulumi.get(self, "last_modified_by_type")
+
+    @last_modified_by_type.setter
+    def last_modified_by_type(self, value: Optional[pulumi.Input[Union[str, 'IdentityType']]]):
+        pulumi.set(self, "last_modified_by_type", value)
 
 

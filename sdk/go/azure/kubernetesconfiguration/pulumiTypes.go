@@ -201,6 +201,737 @@ func (o ComplianceStatusResponsePtrOutput) MessageLevel() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// Identity for the managed cluster.
+type ConfigurationIdentity struct {
+	// The type of identity used for the configuration. Type 'SystemAssigned' will use an implicitly created identity. Type 'None' will not use Managed Identity for the configuration.
+	Type *string `pulumi:"type"`
+}
+
+// ConfigurationIdentityInput is an input type that accepts ConfigurationIdentityArgs and ConfigurationIdentityOutput values.
+// You can construct a concrete instance of `ConfigurationIdentityInput` via:
+//
+//          ConfigurationIdentityArgs{...}
+type ConfigurationIdentityInput interface {
+	pulumi.Input
+
+	ToConfigurationIdentityOutput() ConfigurationIdentityOutput
+	ToConfigurationIdentityOutputWithContext(context.Context) ConfigurationIdentityOutput
+}
+
+// Identity for the managed cluster.
+type ConfigurationIdentityArgs struct {
+	// The type of identity used for the configuration. Type 'SystemAssigned' will use an implicitly created identity. Type 'None' will not use Managed Identity for the configuration.
+	Type *ResourceIdentityType `pulumi:"type"`
+}
+
+func (ConfigurationIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationIdentity)(nil)).Elem()
+}
+
+func (i ConfigurationIdentityArgs) ToConfigurationIdentityOutput() ConfigurationIdentityOutput {
+	return i.ToConfigurationIdentityOutputWithContext(context.Background())
+}
+
+func (i ConfigurationIdentityArgs) ToConfigurationIdentityOutputWithContext(ctx context.Context) ConfigurationIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationIdentityOutput)
+}
+
+func (i ConfigurationIdentityArgs) ToConfigurationIdentityPtrOutput() ConfigurationIdentityPtrOutput {
+	return i.ToConfigurationIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i ConfigurationIdentityArgs) ToConfigurationIdentityPtrOutputWithContext(ctx context.Context) ConfigurationIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationIdentityOutput).ToConfigurationIdentityPtrOutputWithContext(ctx)
+}
+
+// ConfigurationIdentityPtrInput is an input type that accepts ConfigurationIdentityArgs, ConfigurationIdentityPtr and ConfigurationIdentityPtrOutput values.
+// You can construct a concrete instance of `ConfigurationIdentityPtrInput` via:
+//
+//          ConfigurationIdentityArgs{...}
+//
+//  or:
+//
+//          nil
+type ConfigurationIdentityPtrInput interface {
+	pulumi.Input
+
+	ToConfigurationIdentityPtrOutput() ConfigurationIdentityPtrOutput
+	ToConfigurationIdentityPtrOutputWithContext(context.Context) ConfigurationIdentityPtrOutput
+}
+
+type configurationIdentityPtrType ConfigurationIdentityArgs
+
+func ConfigurationIdentityPtr(v *ConfigurationIdentityArgs) ConfigurationIdentityPtrInput {
+	return (*configurationIdentityPtrType)(v)
+}
+
+func (*configurationIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationIdentity)(nil)).Elem()
+}
+
+func (i *configurationIdentityPtrType) ToConfigurationIdentityPtrOutput() ConfigurationIdentityPtrOutput {
+	return i.ToConfigurationIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *configurationIdentityPtrType) ToConfigurationIdentityPtrOutputWithContext(ctx context.Context) ConfigurationIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationIdentityPtrOutput)
+}
+
+// Identity for the managed cluster.
+type ConfigurationIdentityOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationIdentity)(nil)).Elem()
+}
+
+func (o ConfigurationIdentityOutput) ToConfigurationIdentityOutput() ConfigurationIdentityOutput {
+	return o
+}
+
+func (o ConfigurationIdentityOutput) ToConfigurationIdentityOutputWithContext(ctx context.Context) ConfigurationIdentityOutput {
+	return o
+}
+
+func (o ConfigurationIdentityOutput) ToConfigurationIdentityPtrOutput() ConfigurationIdentityPtrOutput {
+	return o.ToConfigurationIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o ConfigurationIdentityOutput) ToConfigurationIdentityPtrOutputWithContext(ctx context.Context) ConfigurationIdentityPtrOutput {
+	return o.ApplyT(func(v ConfigurationIdentity) *ConfigurationIdentity {
+		return &v
+	}).(ConfigurationIdentityPtrOutput)
+}
+
+// The type of identity used for the configuration. Type 'SystemAssigned' will use an implicitly created identity. Type 'None' will not use Managed Identity for the configuration.
+func (o ConfigurationIdentityOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfigurationIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type ConfigurationIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationIdentity)(nil)).Elem()
+}
+
+func (o ConfigurationIdentityPtrOutput) ToConfigurationIdentityPtrOutput() ConfigurationIdentityPtrOutput {
+	return o
+}
+
+func (o ConfigurationIdentityPtrOutput) ToConfigurationIdentityPtrOutputWithContext(ctx context.Context) ConfigurationIdentityPtrOutput {
+	return o
+}
+
+func (o ConfigurationIdentityPtrOutput) Elem() ConfigurationIdentityOutput {
+	return o.ApplyT(func(v *ConfigurationIdentity) ConfigurationIdentity { return *v }).(ConfigurationIdentityOutput)
+}
+
+// The type of identity used for the configuration. Type 'SystemAssigned' will use an implicitly created identity. Type 'None' will not use Managed Identity for the configuration.
+func (o ConfigurationIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// Identity for the managed cluster.
+type ConfigurationIdentityResponse struct {
+	// The principal id of the system assigned identity which is used by the configuration.
+	PrincipalId string `pulumi:"principalId"`
+	// The tenant id of the system assigned identity which is used by the configuration.
+	TenantId string `pulumi:"tenantId"`
+	// The type of identity used for the configuration. Type 'SystemAssigned' will use an implicitly created identity. Type 'None' will not use Managed Identity for the configuration.
+	Type *string `pulumi:"type"`
+}
+
+// ConfigurationIdentityResponseInput is an input type that accepts ConfigurationIdentityResponseArgs and ConfigurationIdentityResponseOutput values.
+// You can construct a concrete instance of `ConfigurationIdentityResponseInput` via:
+//
+//          ConfigurationIdentityResponseArgs{...}
+type ConfigurationIdentityResponseInput interface {
+	pulumi.Input
+
+	ToConfigurationIdentityResponseOutput() ConfigurationIdentityResponseOutput
+	ToConfigurationIdentityResponseOutputWithContext(context.Context) ConfigurationIdentityResponseOutput
+}
+
+// Identity for the managed cluster.
+type ConfigurationIdentityResponseArgs struct {
+	// The principal id of the system assigned identity which is used by the configuration.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The tenant id of the system assigned identity which is used by the configuration.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	// The type of identity used for the configuration. Type 'SystemAssigned' will use an implicitly created identity. Type 'None' will not use Managed Identity for the configuration.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (ConfigurationIdentityResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationIdentityResponse)(nil)).Elem()
+}
+
+func (i ConfigurationIdentityResponseArgs) ToConfigurationIdentityResponseOutput() ConfigurationIdentityResponseOutput {
+	return i.ToConfigurationIdentityResponseOutputWithContext(context.Background())
+}
+
+func (i ConfigurationIdentityResponseArgs) ToConfigurationIdentityResponseOutputWithContext(ctx context.Context) ConfigurationIdentityResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationIdentityResponseOutput)
+}
+
+func (i ConfigurationIdentityResponseArgs) ToConfigurationIdentityResponsePtrOutput() ConfigurationIdentityResponsePtrOutput {
+	return i.ToConfigurationIdentityResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ConfigurationIdentityResponseArgs) ToConfigurationIdentityResponsePtrOutputWithContext(ctx context.Context) ConfigurationIdentityResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationIdentityResponseOutput).ToConfigurationIdentityResponsePtrOutputWithContext(ctx)
+}
+
+// ConfigurationIdentityResponsePtrInput is an input type that accepts ConfigurationIdentityResponseArgs, ConfigurationIdentityResponsePtr and ConfigurationIdentityResponsePtrOutput values.
+// You can construct a concrete instance of `ConfigurationIdentityResponsePtrInput` via:
+//
+//          ConfigurationIdentityResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ConfigurationIdentityResponsePtrInput interface {
+	pulumi.Input
+
+	ToConfigurationIdentityResponsePtrOutput() ConfigurationIdentityResponsePtrOutput
+	ToConfigurationIdentityResponsePtrOutputWithContext(context.Context) ConfigurationIdentityResponsePtrOutput
+}
+
+type configurationIdentityResponsePtrType ConfigurationIdentityResponseArgs
+
+func ConfigurationIdentityResponsePtr(v *ConfigurationIdentityResponseArgs) ConfigurationIdentityResponsePtrInput {
+	return (*configurationIdentityResponsePtrType)(v)
+}
+
+func (*configurationIdentityResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationIdentityResponse)(nil)).Elem()
+}
+
+func (i *configurationIdentityResponsePtrType) ToConfigurationIdentityResponsePtrOutput() ConfigurationIdentityResponsePtrOutput {
+	return i.ToConfigurationIdentityResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *configurationIdentityResponsePtrType) ToConfigurationIdentityResponsePtrOutputWithContext(ctx context.Context) ConfigurationIdentityResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationIdentityResponsePtrOutput)
+}
+
+// Identity for the managed cluster.
+type ConfigurationIdentityResponseOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationIdentityResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationIdentityResponse)(nil)).Elem()
+}
+
+func (o ConfigurationIdentityResponseOutput) ToConfigurationIdentityResponseOutput() ConfigurationIdentityResponseOutput {
+	return o
+}
+
+func (o ConfigurationIdentityResponseOutput) ToConfigurationIdentityResponseOutputWithContext(ctx context.Context) ConfigurationIdentityResponseOutput {
+	return o
+}
+
+func (o ConfigurationIdentityResponseOutput) ToConfigurationIdentityResponsePtrOutput() ConfigurationIdentityResponsePtrOutput {
+	return o.ToConfigurationIdentityResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ConfigurationIdentityResponseOutput) ToConfigurationIdentityResponsePtrOutputWithContext(ctx context.Context) ConfigurationIdentityResponsePtrOutput {
+	return o.ApplyT(func(v ConfigurationIdentityResponse) *ConfigurationIdentityResponse {
+		return &v
+	}).(ConfigurationIdentityResponsePtrOutput)
+}
+
+// The principal id of the system assigned identity which is used by the configuration.
+func (o ConfigurationIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfigurationIdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The tenant id of the system assigned identity which is used by the configuration.
+func (o ConfigurationIdentityResponseOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfigurationIdentityResponse) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// The type of identity used for the configuration. Type 'SystemAssigned' will use an implicitly created identity. Type 'None' will not use Managed Identity for the configuration.
+func (o ConfigurationIdentityResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfigurationIdentityResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type ConfigurationIdentityResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationIdentityResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationIdentityResponse)(nil)).Elem()
+}
+
+func (o ConfigurationIdentityResponsePtrOutput) ToConfigurationIdentityResponsePtrOutput() ConfigurationIdentityResponsePtrOutput {
+	return o
+}
+
+func (o ConfigurationIdentityResponsePtrOutput) ToConfigurationIdentityResponsePtrOutputWithContext(ctx context.Context) ConfigurationIdentityResponsePtrOutput {
+	return o
+}
+
+func (o ConfigurationIdentityResponsePtrOutput) Elem() ConfigurationIdentityResponseOutput {
+	return o.ApplyT(func(v *ConfigurationIdentityResponse) ConfigurationIdentityResponse { return *v }).(ConfigurationIdentityResponseOutput)
+}
+
+// The principal id of the system assigned identity which is used by the configuration.
+func (o ConfigurationIdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationIdentityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The tenant id of the system assigned identity which is used by the configuration.
+func (o ConfigurationIdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationIdentityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of identity used for the configuration. Type 'SystemAssigned' will use an implicitly created identity. Type 'None' will not use Managed Identity for the configuration.
+func (o ConfigurationIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationIdentityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// Error definition.
+type ErrorDefinitionResponse struct {
+	// Service specific error code which serves as the substatus for the HTTP error code.
+	Code string `pulumi:"code"`
+	// Description of the error.
+	Message string `pulumi:"message"`
+}
+
+// ErrorDefinitionResponseInput is an input type that accepts ErrorDefinitionResponseArgs and ErrorDefinitionResponseOutput values.
+// You can construct a concrete instance of `ErrorDefinitionResponseInput` via:
+//
+//          ErrorDefinitionResponseArgs{...}
+type ErrorDefinitionResponseInput interface {
+	pulumi.Input
+
+	ToErrorDefinitionResponseOutput() ErrorDefinitionResponseOutput
+	ToErrorDefinitionResponseOutputWithContext(context.Context) ErrorDefinitionResponseOutput
+}
+
+// Error definition.
+type ErrorDefinitionResponseArgs struct {
+	// Service specific error code which serves as the substatus for the HTTP error code.
+	Code pulumi.StringInput `pulumi:"code"`
+	// Description of the error.
+	Message pulumi.StringInput `pulumi:"message"`
+}
+
+func (ErrorDefinitionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ErrorDefinitionResponse)(nil)).Elem()
+}
+
+func (i ErrorDefinitionResponseArgs) ToErrorDefinitionResponseOutput() ErrorDefinitionResponseOutput {
+	return i.ToErrorDefinitionResponseOutputWithContext(context.Background())
+}
+
+func (i ErrorDefinitionResponseArgs) ToErrorDefinitionResponseOutputWithContext(ctx context.Context) ErrorDefinitionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ErrorDefinitionResponseOutput)
+}
+
+func (i ErrorDefinitionResponseArgs) ToErrorDefinitionResponsePtrOutput() ErrorDefinitionResponsePtrOutput {
+	return i.ToErrorDefinitionResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ErrorDefinitionResponseArgs) ToErrorDefinitionResponsePtrOutputWithContext(ctx context.Context) ErrorDefinitionResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ErrorDefinitionResponseOutput).ToErrorDefinitionResponsePtrOutputWithContext(ctx)
+}
+
+// ErrorDefinitionResponsePtrInput is an input type that accepts ErrorDefinitionResponseArgs, ErrorDefinitionResponsePtr and ErrorDefinitionResponsePtrOutput values.
+// You can construct a concrete instance of `ErrorDefinitionResponsePtrInput` via:
+//
+//          ErrorDefinitionResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ErrorDefinitionResponsePtrInput interface {
+	pulumi.Input
+
+	ToErrorDefinitionResponsePtrOutput() ErrorDefinitionResponsePtrOutput
+	ToErrorDefinitionResponsePtrOutputWithContext(context.Context) ErrorDefinitionResponsePtrOutput
+}
+
+type errorDefinitionResponsePtrType ErrorDefinitionResponseArgs
+
+func ErrorDefinitionResponsePtr(v *ErrorDefinitionResponseArgs) ErrorDefinitionResponsePtrInput {
+	return (*errorDefinitionResponsePtrType)(v)
+}
+
+func (*errorDefinitionResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ErrorDefinitionResponse)(nil)).Elem()
+}
+
+func (i *errorDefinitionResponsePtrType) ToErrorDefinitionResponsePtrOutput() ErrorDefinitionResponsePtrOutput {
+	return i.ToErrorDefinitionResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *errorDefinitionResponsePtrType) ToErrorDefinitionResponsePtrOutputWithContext(ctx context.Context) ErrorDefinitionResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ErrorDefinitionResponsePtrOutput)
+}
+
+// Error definition.
+type ErrorDefinitionResponseOutput struct{ *pulumi.OutputState }
+
+func (ErrorDefinitionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ErrorDefinitionResponse)(nil)).Elem()
+}
+
+func (o ErrorDefinitionResponseOutput) ToErrorDefinitionResponseOutput() ErrorDefinitionResponseOutput {
+	return o
+}
+
+func (o ErrorDefinitionResponseOutput) ToErrorDefinitionResponseOutputWithContext(ctx context.Context) ErrorDefinitionResponseOutput {
+	return o
+}
+
+func (o ErrorDefinitionResponseOutput) ToErrorDefinitionResponsePtrOutput() ErrorDefinitionResponsePtrOutput {
+	return o.ToErrorDefinitionResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ErrorDefinitionResponseOutput) ToErrorDefinitionResponsePtrOutputWithContext(ctx context.Context) ErrorDefinitionResponsePtrOutput {
+	return o.ApplyT(func(v ErrorDefinitionResponse) *ErrorDefinitionResponse {
+		return &v
+	}).(ErrorDefinitionResponsePtrOutput)
+}
+
+// Service specific error code which serves as the substatus for the HTTP error code.
+func (o ErrorDefinitionResponseOutput) Code() pulumi.StringOutput {
+	return o.ApplyT(func(v ErrorDefinitionResponse) string { return v.Code }).(pulumi.StringOutput)
+}
+
+// Description of the error.
+func (o ErrorDefinitionResponseOutput) Message() pulumi.StringOutput {
+	return o.ApplyT(func(v ErrorDefinitionResponse) string { return v.Message }).(pulumi.StringOutput)
+}
+
+type ErrorDefinitionResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ErrorDefinitionResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ErrorDefinitionResponse)(nil)).Elem()
+}
+
+func (o ErrorDefinitionResponsePtrOutput) ToErrorDefinitionResponsePtrOutput() ErrorDefinitionResponsePtrOutput {
+	return o
+}
+
+func (o ErrorDefinitionResponsePtrOutput) ToErrorDefinitionResponsePtrOutputWithContext(ctx context.Context) ErrorDefinitionResponsePtrOutput {
+	return o
+}
+
+func (o ErrorDefinitionResponsePtrOutput) Elem() ErrorDefinitionResponseOutput {
+	return o.ApplyT(func(v *ErrorDefinitionResponse) ErrorDefinitionResponse { return *v }).(ErrorDefinitionResponseOutput)
+}
+
+// Service specific error code which serves as the substatus for the HTTP error code.
+func (o ErrorDefinitionResponsePtrOutput) Code() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ErrorDefinitionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Code
+	}).(pulumi.StringPtrOutput)
+}
+
+// Description of the error.
+func (o ErrorDefinitionResponsePtrOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ErrorDefinitionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Message
+	}).(pulumi.StringPtrOutput)
+}
+
+// Status from this instance of the extension.
+type ExtensionStatus struct {
+	// Status code provided by the Extension
+	Code *string `pulumi:"code"`
+	// Short description of status of this instance of the extension.
+	DisplayStatus *string `pulumi:"displayStatus"`
+	// Level of the status.
+	Level *string `pulumi:"level"`
+	// Detailed message of the status from the Extension instance.
+	Message *string `pulumi:"message"`
+	// DateLiteral (per ISO8601) noting the time of installation status.
+	Time *string `pulumi:"time"`
+}
+
+// ExtensionStatusInput is an input type that accepts ExtensionStatusArgs and ExtensionStatusOutput values.
+// You can construct a concrete instance of `ExtensionStatusInput` via:
+//
+//          ExtensionStatusArgs{...}
+type ExtensionStatusInput interface {
+	pulumi.Input
+
+	ToExtensionStatusOutput() ExtensionStatusOutput
+	ToExtensionStatusOutputWithContext(context.Context) ExtensionStatusOutput
+}
+
+// Status from this instance of the extension.
+type ExtensionStatusArgs struct {
+	// Status code provided by the Extension
+	Code pulumi.StringPtrInput `pulumi:"code"`
+	// Short description of status of this instance of the extension.
+	DisplayStatus pulumi.StringPtrInput `pulumi:"displayStatus"`
+	// Level of the status.
+	Level pulumi.StringPtrInput `pulumi:"level"`
+	// Detailed message of the status from the Extension instance.
+	Message pulumi.StringPtrInput `pulumi:"message"`
+	// DateLiteral (per ISO8601) noting the time of installation status.
+	Time pulumi.StringPtrInput `pulumi:"time"`
+}
+
+func (ExtensionStatusArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExtensionStatus)(nil)).Elem()
+}
+
+func (i ExtensionStatusArgs) ToExtensionStatusOutput() ExtensionStatusOutput {
+	return i.ToExtensionStatusOutputWithContext(context.Background())
+}
+
+func (i ExtensionStatusArgs) ToExtensionStatusOutputWithContext(ctx context.Context) ExtensionStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExtensionStatusOutput)
+}
+
+// ExtensionStatusArrayInput is an input type that accepts ExtensionStatusArray and ExtensionStatusArrayOutput values.
+// You can construct a concrete instance of `ExtensionStatusArrayInput` via:
+//
+//          ExtensionStatusArray{ ExtensionStatusArgs{...} }
+type ExtensionStatusArrayInput interface {
+	pulumi.Input
+
+	ToExtensionStatusArrayOutput() ExtensionStatusArrayOutput
+	ToExtensionStatusArrayOutputWithContext(context.Context) ExtensionStatusArrayOutput
+}
+
+type ExtensionStatusArray []ExtensionStatusInput
+
+func (ExtensionStatusArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ExtensionStatus)(nil)).Elem()
+}
+
+func (i ExtensionStatusArray) ToExtensionStatusArrayOutput() ExtensionStatusArrayOutput {
+	return i.ToExtensionStatusArrayOutputWithContext(context.Background())
+}
+
+func (i ExtensionStatusArray) ToExtensionStatusArrayOutputWithContext(ctx context.Context) ExtensionStatusArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExtensionStatusArrayOutput)
+}
+
+// Status from this instance of the extension.
+type ExtensionStatusOutput struct{ *pulumi.OutputState }
+
+func (ExtensionStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExtensionStatus)(nil)).Elem()
+}
+
+func (o ExtensionStatusOutput) ToExtensionStatusOutput() ExtensionStatusOutput {
+	return o
+}
+
+func (o ExtensionStatusOutput) ToExtensionStatusOutputWithContext(ctx context.Context) ExtensionStatusOutput {
+	return o
+}
+
+// Status code provided by the Extension
+func (o ExtensionStatusOutput) Code() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExtensionStatus) *string { return v.Code }).(pulumi.StringPtrOutput)
+}
+
+// Short description of status of this instance of the extension.
+func (o ExtensionStatusOutput) DisplayStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExtensionStatus) *string { return v.DisplayStatus }).(pulumi.StringPtrOutput)
+}
+
+// Level of the status.
+func (o ExtensionStatusOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExtensionStatus) *string { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+// Detailed message of the status from the Extension instance.
+func (o ExtensionStatusOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExtensionStatus) *string { return v.Message }).(pulumi.StringPtrOutput)
+}
+
+// DateLiteral (per ISO8601) noting the time of installation status.
+func (o ExtensionStatusOutput) Time() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExtensionStatus) *string { return v.Time }).(pulumi.StringPtrOutput)
+}
+
+type ExtensionStatusArrayOutput struct{ *pulumi.OutputState }
+
+func (ExtensionStatusArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ExtensionStatus)(nil)).Elem()
+}
+
+func (o ExtensionStatusArrayOutput) ToExtensionStatusArrayOutput() ExtensionStatusArrayOutput {
+	return o
+}
+
+func (o ExtensionStatusArrayOutput) ToExtensionStatusArrayOutputWithContext(ctx context.Context) ExtensionStatusArrayOutput {
+	return o
+}
+
+func (o ExtensionStatusArrayOutput) Index(i pulumi.IntInput) ExtensionStatusOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ExtensionStatus {
+		return vs[0].([]ExtensionStatus)[vs[1].(int)]
+	}).(ExtensionStatusOutput)
+}
+
+// Status from this instance of the extension.
+type ExtensionStatusResponse struct {
+	// Status code provided by the Extension
+	Code *string `pulumi:"code"`
+	// Short description of status of this instance of the extension.
+	DisplayStatus *string `pulumi:"displayStatus"`
+	// Level of the status.
+	Level *string `pulumi:"level"`
+	// Detailed message of the status from the Extension instance.
+	Message *string `pulumi:"message"`
+	// DateLiteral (per ISO8601) noting the time of installation status.
+	Time *string `pulumi:"time"`
+}
+
+// ExtensionStatusResponseInput is an input type that accepts ExtensionStatusResponseArgs and ExtensionStatusResponseOutput values.
+// You can construct a concrete instance of `ExtensionStatusResponseInput` via:
+//
+//          ExtensionStatusResponseArgs{...}
+type ExtensionStatusResponseInput interface {
+	pulumi.Input
+
+	ToExtensionStatusResponseOutput() ExtensionStatusResponseOutput
+	ToExtensionStatusResponseOutputWithContext(context.Context) ExtensionStatusResponseOutput
+}
+
+// Status from this instance of the extension.
+type ExtensionStatusResponseArgs struct {
+	// Status code provided by the Extension
+	Code pulumi.StringPtrInput `pulumi:"code"`
+	// Short description of status of this instance of the extension.
+	DisplayStatus pulumi.StringPtrInput `pulumi:"displayStatus"`
+	// Level of the status.
+	Level pulumi.StringPtrInput `pulumi:"level"`
+	// Detailed message of the status from the Extension instance.
+	Message pulumi.StringPtrInput `pulumi:"message"`
+	// DateLiteral (per ISO8601) noting the time of installation status.
+	Time pulumi.StringPtrInput `pulumi:"time"`
+}
+
+func (ExtensionStatusResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExtensionStatusResponse)(nil)).Elem()
+}
+
+func (i ExtensionStatusResponseArgs) ToExtensionStatusResponseOutput() ExtensionStatusResponseOutput {
+	return i.ToExtensionStatusResponseOutputWithContext(context.Background())
+}
+
+func (i ExtensionStatusResponseArgs) ToExtensionStatusResponseOutputWithContext(ctx context.Context) ExtensionStatusResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExtensionStatusResponseOutput)
+}
+
+// ExtensionStatusResponseArrayInput is an input type that accepts ExtensionStatusResponseArray and ExtensionStatusResponseArrayOutput values.
+// You can construct a concrete instance of `ExtensionStatusResponseArrayInput` via:
+//
+//          ExtensionStatusResponseArray{ ExtensionStatusResponseArgs{...} }
+type ExtensionStatusResponseArrayInput interface {
+	pulumi.Input
+
+	ToExtensionStatusResponseArrayOutput() ExtensionStatusResponseArrayOutput
+	ToExtensionStatusResponseArrayOutputWithContext(context.Context) ExtensionStatusResponseArrayOutput
+}
+
+type ExtensionStatusResponseArray []ExtensionStatusResponseInput
+
+func (ExtensionStatusResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ExtensionStatusResponse)(nil)).Elem()
+}
+
+func (i ExtensionStatusResponseArray) ToExtensionStatusResponseArrayOutput() ExtensionStatusResponseArrayOutput {
+	return i.ToExtensionStatusResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ExtensionStatusResponseArray) ToExtensionStatusResponseArrayOutputWithContext(ctx context.Context) ExtensionStatusResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExtensionStatusResponseArrayOutput)
+}
+
+// Status from this instance of the extension.
+type ExtensionStatusResponseOutput struct{ *pulumi.OutputState }
+
+func (ExtensionStatusResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExtensionStatusResponse)(nil)).Elem()
+}
+
+func (o ExtensionStatusResponseOutput) ToExtensionStatusResponseOutput() ExtensionStatusResponseOutput {
+	return o
+}
+
+func (o ExtensionStatusResponseOutput) ToExtensionStatusResponseOutputWithContext(ctx context.Context) ExtensionStatusResponseOutput {
+	return o
+}
+
+// Status code provided by the Extension
+func (o ExtensionStatusResponseOutput) Code() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExtensionStatusResponse) *string { return v.Code }).(pulumi.StringPtrOutput)
+}
+
+// Short description of status of this instance of the extension.
+func (o ExtensionStatusResponseOutput) DisplayStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExtensionStatusResponse) *string { return v.DisplayStatus }).(pulumi.StringPtrOutput)
+}
+
+// Level of the status.
+func (o ExtensionStatusResponseOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExtensionStatusResponse) *string { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+// Detailed message of the status from the Extension instance.
+func (o ExtensionStatusResponseOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExtensionStatusResponse) *string { return v.Message }).(pulumi.StringPtrOutput)
+}
+
+// DateLiteral (per ISO8601) noting the time of installation status.
+func (o ExtensionStatusResponseOutput) Time() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExtensionStatusResponse) *string { return v.Time }).(pulumi.StringPtrOutput)
+}
+
+type ExtensionStatusResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ExtensionStatusResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ExtensionStatusResponse)(nil)).Elem()
+}
+
+func (o ExtensionStatusResponseArrayOutput) ToExtensionStatusResponseArrayOutput() ExtensionStatusResponseArrayOutput {
+	return o
+}
+
+func (o ExtensionStatusResponseArrayOutput) ToExtensionStatusResponseArrayOutputWithContext(ctx context.Context) ExtensionStatusResponseArrayOutput {
+	return o
+}
+
+func (o ExtensionStatusResponseArrayOutput) Index(i pulumi.IntInput) ExtensionStatusResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ExtensionStatusResponse {
+		return vs[0].([]ExtensionStatusResponse)[vs[1].(int)]
+	}).(ExtensionStatusResponseOutput)
+}
+
 // Properties for Helm operator.
 type HelmOperatorProperties struct {
 	// Values override for the operator Helm chart.
@@ -507,6 +1238,848 @@ func (o HelmOperatorPropertiesResponsePtrOutput) ChartVersion() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// Scope of the extensionInstance. It can be either Cluster or Namespace; but not both.
+type Scope struct {
+	// Specifies that the scope of the extensionInstance is Cluster
+	Cluster *ScopeCluster `pulumi:"cluster"`
+	// Specifies that the scope of the extensionInstance is Namespace
+	Namespace *ScopeNamespace `pulumi:"namespace"`
+}
+
+// ScopeInput is an input type that accepts ScopeArgs and ScopeOutput values.
+// You can construct a concrete instance of `ScopeInput` via:
+//
+//          ScopeArgs{...}
+type ScopeInput interface {
+	pulumi.Input
+
+	ToScopeOutput() ScopeOutput
+	ToScopeOutputWithContext(context.Context) ScopeOutput
+}
+
+// Scope of the extensionInstance. It can be either Cluster or Namespace; but not both.
+type ScopeArgs struct {
+	// Specifies that the scope of the extensionInstance is Cluster
+	Cluster ScopeClusterPtrInput `pulumi:"cluster"`
+	// Specifies that the scope of the extensionInstance is Namespace
+	Namespace ScopeNamespacePtrInput `pulumi:"namespace"`
+}
+
+func (ScopeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Scope)(nil)).Elem()
+}
+
+func (i ScopeArgs) ToScopeOutput() ScopeOutput {
+	return i.ToScopeOutputWithContext(context.Background())
+}
+
+func (i ScopeArgs) ToScopeOutputWithContext(ctx context.Context) ScopeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScopeOutput)
+}
+
+func (i ScopeArgs) ToScopePtrOutput() ScopePtrOutput {
+	return i.ToScopePtrOutputWithContext(context.Background())
+}
+
+func (i ScopeArgs) ToScopePtrOutputWithContext(ctx context.Context) ScopePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScopeOutput).ToScopePtrOutputWithContext(ctx)
+}
+
+// ScopePtrInput is an input type that accepts ScopeArgs, ScopePtr and ScopePtrOutput values.
+// You can construct a concrete instance of `ScopePtrInput` via:
+//
+//          ScopeArgs{...}
+//
+//  or:
+//
+//          nil
+type ScopePtrInput interface {
+	pulumi.Input
+
+	ToScopePtrOutput() ScopePtrOutput
+	ToScopePtrOutputWithContext(context.Context) ScopePtrOutput
+}
+
+type scopePtrType ScopeArgs
+
+func ScopePtr(v *ScopeArgs) ScopePtrInput {
+	return (*scopePtrType)(v)
+}
+
+func (*scopePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Scope)(nil)).Elem()
+}
+
+func (i *scopePtrType) ToScopePtrOutput() ScopePtrOutput {
+	return i.ToScopePtrOutputWithContext(context.Background())
+}
+
+func (i *scopePtrType) ToScopePtrOutputWithContext(ctx context.Context) ScopePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScopePtrOutput)
+}
+
+// Scope of the extensionInstance. It can be either Cluster or Namespace; but not both.
+type ScopeOutput struct{ *pulumi.OutputState }
+
+func (ScopeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Scope)(nil)).Elem()
+}
+
+func (o ScopeOutput) ToScopeOutput() ScopeOutput {
+	return o
+}
+
+func (o ScopeOutput) ToScopeOutputWithContext(ctx context.Context) ScopeOutput {
+	return o
+}
+
+func (o ScopeOutput) ToScopePtrOutput() ScopePtrOutput {
+	return o.ToScopePtrOutputWithContext(context.Background())
+}
+
+func (o ScopeOutput) ToScopePtrOutputWithContext(ctx context.Context) ScopePtrOutput {
+	return o.ApplyT(func(v Scope) *Scope {
+		return &v
+	}).(ScopePtrOutput)
+}
+
+// Specifies that the scope of the extensionInstance is Cluster
+func (o ScopeOutput) Cluster() ScopeClusterPtrOutput {
+	return o.ApplyT(func(v Scope) *ScopeCluster { return v.Cluster }).(ScopeClusterPtrOutput)
+}
+
+// Specifies that the scope of the extensionInstance is Namespace
+func (o ScopeOutput) Namespace() ScopeNamespacePtrOutput {
+	return o.ApplyT(func(v Scope) *ScopeNamespace { return v.Namespace }).(ScopeNamespacePtrOutput)
+}
+
+type ScopePtrOutput struct{ *pulumi.OutputState }
+
+func (ScopePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Scope)(nil)).Elem()
+}
+
+func (o ScopePtrOutput) ToScopePtrOutput() ScopePtrOutput {
+	return o
+}
+
+func (o ScopePtrOutput) ToScopePtrOutputWithContext(ctx context.Context) ScopePtrOutput {
+	return o
+}
+
+func (o ScopePtrOutput) Elem() ScopeOutput {
+	return o.ApplyT(func(v *Scope) Scope { return *v }).(ScopeOutput)
+}
+
+// Specifies that the scope of the extensionInstance is Cluster
+func (o ScopePtrOutput) Cluster() ScopeClusterPtrOutput {
+	return o.ApplyT(func(v *Scope) *ScopeCluster {
+		if v == nil {
+			return nil
+		}
+		return v.Cluster
+	}).(ScopeClusterPtrOutput)
+}
+
+// Specifies that the scope of the extensionInstance is Namespace
+func (o ScopePtrOutput) Namespace() ScopeNamespacePtrOutput {
+	return o.ApplyT(func(v *Scope) *ScopeNamespace {
+		if v == nil {
+			return nil
+		}
+		return v.Namespace
+	}).(ScopeNamespacePtrOutput)
+}
+
+// Specifies that the scope of the extensionInstance is Cluster
+type ScopeCluster struct {
+	// Namespace where the extension Release must be placed, for a Cluster scoped extensionInstance.  If this namespace does not exist, it will be created
+	ReleaseNamespace *string `pulumi:"releaseNamespace"`
+}
+
+// ScopeClusterInput is an input type that accepts ScopeClusterArgs and ScopeClusterOutput values.
+// You can construct a concrete instance of `ScopeClusterInput` via:
+//
+//          ScopeClusterArgs{...}
+type ScopeClusterInput interface {
+	pulumi.Input
+
+	ToScopeClusterOutput() ScopeClusterOutput
+	ToScopeClusterOutputWithContext(context.Context) ScopeClusterOutput
+}
+
+// Specifies that the scope of the extensionInstance is Cluster
+type ScopeClusterArgs struct {
+	// Namespace where the extension Release must be placed, for a Cluster scoped extensionInstance.  If this namespace does not exist, it will be created
+	ReleaseNamespace pulumi.StringPtrInput `pulumi:"releaseNamespace"`
+}
+
+func (ScopeClusterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScopeCluster)(nil)).Elem()
+}
+
+func (i ScopeClusterArgs) ToScopeClusterOutput() ScopeClusterOutput {
+	return i.ToScopeClusterOutputWithContext(context.Background())
+}
+
+func (i ScopeClusterArgs) ToScopeClusterOutputWithContext(ctx context.Context) ScopeClusterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScopeClusterOutput)
+}
+
+func (i ScopeClusterArgs) ToScopeClusterPtrOutput() ScopeClusterPtrOutput {
+	return i.ToScopeClusterPtrOutputWithContext(context.Background())
+}
+
+func (i ScopeClusterArgs) ToScopeClusterPtrOutputWithContext(ctx context.Context) ScopeClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScopeClusterOutput).ToScopeClusterPtrOutputWithContext(ctx)
+}
+
+// ScopeClusterPtrInput is an input type that accepts ScopeClusterArgs, ScopeClusterPtr and ScopeClusterPtrOutput values.
+// You can construct a concrete instance of `ScopeClusterPtrInput` via:
+//
+//          ScopeClusterArgs{...}
+//
+//  or:
+//
+//          nil
+type ScopeClusterPtrInput interface {
+	pulumi.Input
+
+	ToScopeClusterPtrOutput() ScopeClusterPtrOutput
+	ToScopeClusterPtrOutputWithContext(context.Context) ScopeClusterPtrOutput
+}
+
+type scopeClusterPtrType ScopeClusterArgs
+
+func ScopeClusterPtr(v *ScopeClusterArgs) ScopeClusterPtrInput {
+	return (*scopeClusterPtrType)(v)
+}
+
+func (*scopeClusterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScopeCluster)(nil)).Elem()
+}
+
+func (i *scopeClusterPtrType) ToScopeClusterPtrOutput() ScopeClusterPtrOutput {
+	return i.ToScopeClusterPtrOutputWithContext(context.Background())
+}
+
+func (i *scopeClusterPtrType) ToScopeClusterPtrOutputWithContext(ctx context.Context) ScopeClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScopeClusterPtrOutput)
+}
+
+// Specifies that the scope of the extensionInstance is Cluster
+type ScopeClusterOutput struct{ *pulumi.OutputState }
+
+func (ScopeClusterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScopeCluster)(nil)).Elem()
+}
+
+func (o ScopeClusterOutput) ToScopeClusterOutput() ScopeClusterOutput {
+	return o
+}
+
+func (o ScopeClusterOutput) ToScopeClusterOutputWithContext(ctx context.Context) ScopeClusterOutput {
+	return o
+}
+
+func (o ScopeClusterOutput) ToScopeClusterPtrOutput() ScopeClusterPtrOutput {
+	return o.ToScopeClusterPtrOutputWithContext(context.Background())
+}
+
+func (o ScopeClusterOutput) ToScopeClusterPtrOutputWithContext(ctx context.Context) ScopeClusterPtrOutput {
+	return o.ApplyT(func(v ScopeCluster) *ScopeCluster {
+		return &v
+	}).(ScopeClusterPtrOutput)
+}
+
+// Namespace where the extension Release must be placed, for a Cluster scoped extensionInstance.  If this namespace does not exist, it will be created
+func (o ScopeClusterOutput) ReleaseNamespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScopeCluster) *string { return v.ReleaseNamespace }).(pulumi.StringPtrOutput)
+}
+
+type ScopeClusterPtrOutput struct{ *pulumi.OutputState }
+
+func (ScopeClusterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScopeCluster)(nil)).Elem()
+}
+
+func (o ScopeClusterPtrOutput) ToScopeClusterPtrOutput() ScopeClusterPtrOutput {
+	return o
+}
+
+func (o ScopeClusterPtrOutput) ToScopeClusterPtrOutputWithContext(ctx context.Context) ScopeClusterPtrOutput {
+	return o
+}
+
+func (o ScopeClusterPtrOutput) Elem() ScopeClusterOutput {
+	return o.ApplyT(func(v *ScopeCluster) ScopeCluster { return *v }).(ScopeClusterOutput)
+}
+
+// Namespace where the extension Release must be placed, for a Cluster scoped extensionInstance.  If this namespace does not exist, it will be created
+func (o ScopeClusterPtrOutput) ReleaseNamespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScopeCluster) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ReleaseNamespace
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies that the scope of the extensionInstance is Cluster
+type ScopeClusterResponse struct {
+	// Namespace where the extension Release must be placed, for a Cluster scoped extensionInstance.  If this namespace does not exist, it will be created
+	ReleaseNamespace *string `pulumi:"releaseNamespace"`
+}
+
+// ScopeClusterResponseInput is an input type that accepts ScopeClusterResponseArgs and ScopeClusterResponseOutput values.
+// You can construct a concrete instance of `ScopeClusterResponseInput` via:
+//
+//          ScopeClusterResponseArgs{...}
+type ScopeClusterResponseInput interface {
+	pulumi.Input
+
+	ToScopeClusterResponseOutput() ScopeClusterResponseOutput
+	ToScopeClusterResponseOutputWithContext(context.Context) ScopeClusterResponseOutput
+}
+
+// Specifies that the scope of the extensionInstance is Cluster
+type ScopeClusterResponseArgs struct {
+	// Namespace where the extension Release must be placed, for a Cluster scoped extensionInstance.  If this namespace does not exist, it will be created
+	ReleaseNamespace pulumi.StringPtrInput `pulumi:"releaseNamespace"`
+}
+
+func (ScopeClusterResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScopeClusterResponse)(nil)).Elem()
+}
+
+func (i ScopeClusterResponseArgs) ToScopeClusterResponseOutput() ScopeClusterResponseOutput {
+	return i.ToScopeClusterResponseOutputWithContext(context.Background())
+}
+
+func (i ScopeClusterResponseArgs) ToScopeClusterResponseOutputWithContext(ctx context.Context) ScopeClusterResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScopeClusterResponseOutput)
+}
+
+func (i ScopeClusterResponseArgs) ToScopeClusterResponsePtrOutput() ScopeClusterResponsePtrOutput {
+	return i.ToScopeClusterResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ScopeClusterResponseArgs) ToScopeClusterResponsePtrOutputWithContext(ctx context.Context) ScopeClusterResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScopeClusterResponseOutput).ToScopeClusterResponsePtrOutputWithContext(ctx)
+}
+
+// ScopeClusterResponsePtrInput is an input type that accepts ScopeClusterResponseArgs, ScopeClusterResponsePtr and ScopeClusterResponsePtrOutput values.
+// You can construct a concrete instance of `ScopeClusterResponsePtrInput` via:
+//
+//          ScopeClusterResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ScopeClusterResponsePtrInput interface {
+	pulumi.Input
+
+	ToScopeClusterResponsePtrOutput() ScopeClusterResponsePtrOutput
+	ToScopeClusterResponsePtrOutputWithContext(context.Context) ScopeClusterResponsePtrOutput
+}
+
+type scopeClusterResponsePtrType ScopeClusterResponseArgs
+
+func ScopeClusterResponsePtr(v *ScopeClusterResponseArgs) ScopeClusterResponsePtrInput {
+	return (*scopeClusterResponsePtrType)(v)
+}
+
+func (*scopeClusterResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScopeClusterResponse)(nil)).Elem()
+}
+
+func (i *scopeClusterResponsePtrType) ToScopeClusterResponsePtrOutput() ScopeClusterResponsePtrOutput {
+	return i.ToScopeClusterResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *scopeClusterResponsePtrType) ToScopeClusterResponsePtrOutputWithContext(ctx context.Context) ScopeClusterResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScopeClusterResponsePtrOutput)
+}
+
+// Specifies that the scope of the extensionInstance is Cluster
+type ScopeClusterResponseOutput struct{ *pulumi.OutputState }
+
+func (ScopeClusterResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScopeClusterResponse)(nil)).Elem()
+}
+
+func (o ScopeClusterResponseOutput) ToScopeClusterResponseOutput() ScopeClusterResponseOutput {
+	return o
+}
+
+func (o ScopeClusterResponseOutput) ToScopeClusterResponseOutputWithContext(ctx context.Context) ScopeClusterResponseOutput {
+	return o
+}
+
+func (o ScopeClusterResponseOutput) ToScopeClusterResponsePtrOutput() ScopeClusterResponsePtrOutput {
+	return o.ToScopeClusterResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ScopeClusterResponseOutput) ToScopeClusterResponsePtrOutputWithContext(ctx context.Context) ScopeClusterResponsePtrOutput {
+	return o.ApplyT(func(v ScopeClusterResponse) *ScopeClusterResponse {
+		return &v
+	}).(ScopeClusterResponsePtrOutput)
+}
+
+// Namespace where the extension Release must be placed, for a Cluster scoped extensionInstance.  If this namespace does not exist, it will be created
+func (o ScopeClusterResponseOutput) ReleaseNamespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScopeClusterResponse) *string { return v.ReleaseNamespace }).(pulumi.StringPtrOutput)
+}
+
+type ScopeClusterResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ScopeClusterResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScopeClusterResponse)(nil)).Elem()
+}
+
+func (o ScopeClusterResponsePtrOutput) ToScopeClusterResponsePtrOutput() ScopeClusterResponsePtrOutput {
+	return o
+}
+
+func (o ScopeClusterResponsePtrOutput) ToScopeClusterResponsePtrOutputWithContext(ctx context.Context) ScopeClusterResponsePtrOutput {
+	return o
+}
+
+func (o ScopeClusterResponsePtrOutput) Elem() ScopeClusterResponseOutput {
+	return o.ApplyT(func(v *ScopeClusterResponse) ScopeClusterResponse { return *v }).(ScopeClusterResponseOutput)
+}
+
+// Namespace where the extension Release must be placed, for a Cluster scoped extensionInstance.  If this namespace does not exist, it will be created
+func (o ScopeClusterResponsePtrOutput) ReleaseNamespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScopeClusterResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ReleaseNamespace
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies that the scope of the extensionInstance is Namespace
+type ScopeNamespace struct {
+	// Namespace where the extensionInstance will be created for an Namespace scoped extensionInstance.  If this namespace does not exist, it will be created
+	TargetNamespace *string `pulumi:"targetNamespace"`
+}
+
+// ScopeNamespaceInput is an input type that accepts ScopeNamespaceArgs and ScopeNamespaceOutput values.
+// You can construct a concrete instance of `ScopeNamespaceInput` via:
+//
+//          ScopeNamespaceArgs{...}
+type ScopeNamespaceInput interface {
+	pulumi.Input
+
+	ToScopeNamespaceOutput() ScopeNamespaceOutput
+	ToScopeNamespaceOutputWithContext(context.Context) ScopeNamespaceOutput
+}
+
+// Specifies that the scope of the extensionInstance is Namespace
+type ScopeNamespaceArgs struct {
+	// Namespace where the extensionInstance will be created for an Namespace scoped extensionInstance.  If this namespace does not exist, it will be created
+	TargetNamespace pulumi.StringPtrInput `pulumi:"targetNamespace"`
+}
+
+func (ScopeNamespaceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScopeNamespace)(nil)).Elem()
+}
+
+func (i ScopeNamespaceArgs) ToScopeNamespaceOutput() ScopeNamespaceOutput {
+	return i.ToScopeNamespaceOutputWithContext(context.Background())
+}
+
+func (i ScopeNamespaceArgs) ToScopeNamespaceOutputWithContext(ctx context.Context) ScopeNamespaceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScopeNamespaceOutput)
+}
+
+func (i ScopeNamespaceArgs) ToScopeNamespacePtrOutput() ScopeNamespacePtrOutput {
+	return i.ToScopeNamespacePtrOutputWithContext(context.Background())
+}
+
+func (i ScopeNamespaceArgs) ToScopeNamespacePtrOutputWithContext(ctx context.Context) ScopeNamespacePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScopeNamespaceOutput).ToScopeNamespacePtrOutputWithContext(ctx)
+}
+
+// ScopeNamespacePtrInput is an input type that accepts ScopeNamespaceArgs, ScopeNamespacePtr and ScopeNamespacePtrOutput values.
+// You can construct a concrete instance of `ScopeNamespacePtrInput` via:
+//
+//          ScopeNamespaceArgs{...}
+//
+//  or:
+//
+//          nil
+type ScopeNamespacePtrInput interface {
+	pulumi.Input
+
+	ToScopeNamespacePtrOutput() ScopeNamespacePtrOutput
+	ToScopeNamespacePtrOutputWithContext(context.Context) ScopeNamespacePtrOutput
+}
+
+type scopeNamespacePtrType ScopeNamespaceArgs
+
+func ScopeNamespacePtr(v *ScopeNamespaceArgs) ScopeNamespacePtrInput {
+	return (*scopeNamespacePtrType)(v)
+}
+
+func (*scopeNamespacePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScopeNamespace)(nil)).Elem()
+}
+
+func (i *scopeNamespacePtrType) ToScopeNamespacePtrOutput() ScopeNamespacePtrOutput {
+	return i.ToScopeNamespacePtrOutputWithContext(context.Background())
+}
+
+func (i *scopeNamespacePtrType) ToScopeNamespacePtrOutputWithContext(ctx context.Context) ScopeNamespacePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScopeNamespacePtrOutput)
+}
+
+// Specifies that the scope of the extensionInstance is Namespace
+type ScopeNamespaceOutput struct{ *pulumi.OutputState }
+
+func (ScopeNamespaceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScopeNamespace)(nil)).Elem()
+}
+
+func (o ScopeNamespaceOutput) ToScopeNamespaceOutput() ScopeNamespaceOutput {
+	return o
+}
+
+func (o ScopeNamespaceOutput) ToScopeNamespaceOutputWithContext(ctx context.Context) ScopeNamespaceOutput {
+	return o
+}
+
+func (o ScopeNamespaceOutput) ToScopeNamespacePtrOutput() ScopeNamespacePtrOutput {
+	return o.ToScopeNamespacePtrOutputWithContext(context.Background())
+}
+
+func (o ScopeNamespaceOutput) ToScopeNamespacePtrOutputWithContext(ctx context.Context) ScopeNamespacePtrOutput {
+	return o.ApplyT(func(v ScopeNamespace) *ScopeNamespace {
+		return &v
+	}).(ScopeNamespacePtrOutput)
+}
+
+// Namespace where the extensionInstance will be created for an Namespace scoped extensionInstance.  If this namespace does not exist, it will be created
+func (o ScopeNamespaceOutput) TargetNamespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScopeNamespace) *string { return v.TargetNamespace }).(pulumi.StringPtrOutput)
+}
+
+type ScopeNamespacePtrOutput struct{ *pulumi.OutputState }
+
+func (ScopeNamespacePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScopeNamespace)(nil)).Elem()
+}
+
+func (o ScopeNamespacePtrOutput) ToScopeNamespacePtrOutput() ScopeNamespacePtrOutput {
+	return o
+}
+
+func (o ScopeNamespacePtrOutput) ToScopeNamespacePtrOutputWithContext(ctx context.Context) ScopeNamespacePtrOutput {
+	return o
+}
+
+func (o ScopeNamespacePtrOutput) Elem() ScopeNamespaceOutput {
+	return o.ApplyT(func(v *ScopeNamespace) ScopeNamespace { return *v }).(ScopeNamespaceOutput)
+}
+
+// Namespace where the extensionInstance will be created for an Namespace scoped extensionInstance.  If this namespace does not exist, it will be created
+func (o ScopeNamespacePtrOutput) TargetNamespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScopeNamespace) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TargetNamespace
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies that the scope of the extensionInstance is Namespace
+type ScopeNamespaceResponse struct {
+	// Namespace where the extensionInstance will be created for an Namespace scoped extensionInstance.  If this namespace does not exist, it will be created
+	TargetNamespace *string `pulumi:"targetNamespace"`
+}
+
+// ScopeNamespaceResponseInput is an input type that accepts ScopeNamespaceResponseArgs and ScopeNamespaceResponseOutput values.
+// You can construct a concrete instance of `ScopeNamespaceResponseInput` via:
+//
+//          ScopeNamespaceResponseArgs{...}
+type ScopeNamespaceResponseInput interface {
+	pulumi.Input
+
+	ToScopeNamespaceResponseOutput() ScopeNamespaceResponseOutput
+	ToScopeNamespaceResponseOutputWithContext(context.Context) ScopeNamespaceResponseOutput
+}
+
+// Specifies that the scope of the extensionInstance is Namespace
+type ScopeNamespaceResponseArgs struct {
+	// Namespace where the extensionInstance will be created for an Namespace scoped extensionInstance.  If this namespace does not exist, it will be created
+	TargetNamespace pulumi.StringPtrInput `pulumi:"targetNamespace"`
+}
+
+func (ScopeNamespaceResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScopeNamespaceResponse)(nil)).Elem()
+}
+
+func (i ScopeNamespaceResponseArgs) ToScopeNamespaceResponseOutput() ScopeNamespaceResponseOutput {
+	return i.ToScopeNamespaceResponseOutputWithContext(context.Background())
+}
+
+func (i ScopeNamespaceResponseArgs) ToScopeNamespaceResponseOutputWithContext(ctx context.Context) ScopeNamespaceResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScopeNamespaceResponseOutput)
+}
+
+func (i ScopeNamespaceResponseArgs) ToScopeNamespaceResponsePtrOutput() ScopeNamespaceResponsePtrOutput {
+	return i.ToScopeNamespaceResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ScopeNamespaceResponseArgs) ToScopeNamespaceResponsePtrOutputWithContext(ctx context.Context) ScopeNamespaceResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScopeNamespaceResponseOutput).ToScopeNamespaceResponsePtrOutputWithContext(ctx)
+}
+
+// ScopeNamespaceResponsePtrInput is an input type that accepts ScopeNamespaceResponseArgs, ScopeNamespaceResponsePtr and ScopeNamespaceResponsePtrOutput values.
+// You can construct a concrete instance of `ScopeNamespaceResponsePtrInput` via:
+//
+//          ScopeNamespaceResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ScopeNamespaceResponsePtrInput interface {
+	pulumi.Input
+
+	ToScopeNamespaceResponsePtrOutput() ScopeNamespaceResponsePtrOutput
+	ToScopeNamespaceResponsePtrOutputWithContext(context.Context) ScopeNamespaceResponsePtrOutput
+}
+
+type scopeNamespaceResponsePtrType ScopeNamespaceResponseArgs
+
+func ScopeNamespaceResponsePtr(v *ScopeNamespaceResponseArgs) ScopeNamespaceResponsePtrInput {
+	return (*scopeNamespaceResponsePtrType)(v)
+}
+
+func (*scopeNamespaceResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScopeNamespaceResponse)(nil)).Elem()
+}
+
+func (i *scopeNamespaceResponsePtrType) ToScopeNamespaceResponsePtrOutput() ScopeNamespaceResponsePtrOutput {
+	return i.ToScopeNamespaceResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *scopeNamespaceResponsePtrType) ToScopeNamespaceResponsePtrOutputWithContext(ctx context.Context) ScopeNamespaceResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScopeNamespaceResponsePtrOutput)
+}
+
+// Specifies that the scope of the extensionInstance is Namespace
+type ScopeNamespaceResponseOutput struct{ *pulumi.OutputState }
+
+func (ScopeNamespaceResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScopeNamespaceResponse)(nil)).Elem()
+}
+
+func (o ScopeNamespaceResponseOutput) ToScopeNamespaceResponseOutput() ScopeNamespaceResponseOutput {
+	return o
+}
+
+func (o ScopeNamespaceResponseOutput) ToScopeNamespaceResponseOutputWithContext(ctx context.Context) ScopeNamespaceResponseOutput {
+	return o
+}
+
+func (o ScopeNamespaceResponseOutput) ToScopeNamespaceResponsePtrOutput() ScopeNamespaceResponsePtrOutput {
+	return o.ToScopeNamespaceResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ScopeNamespaceResponseOutput) ToScopeNamespaceResponsePtrOutputWithContext(ctx context.Context) ScopeNamespaceResponsePtrOutput {
+	return o.ApplyT(func(v ScopeNamespaceResponse) *ScopeNamespaceResponse {
+		return &v
+	}).(ScopeNamespaceResponsePtrOutput)
+}
+
+// Namespace where the extensionInstance will be created for an Namespace scoped extensionInstance.  If this namespace does not exist, it will be created
+func (o ScopeNamespaceResponseOutput) TargetNamespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScopeNamespaceResponse) *string { return v.TargetNamespace }).(pulumi.StringPtrOutput)
+}
+
+type ScopeNamespaceResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ScopeNamespaceResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScopeNamespaceResponse)(nil)).Elem()
+}
+
+func (o ScopeNamespaceResponsePtrOutput) ToScopeNamespaceResponsePtrOutput() ScopeNamespaceResponsePtrOutput {
+	return o
+}
+
+func (o ScopeNamespaceResponsePtrOutput) ToScopeNamespaceResponsePtrOutputWithContext(ctx context.Context) ScopeNamespaceResponsePtrOutput {
+	return o
+}
+
+func (o ScopeNamespaceResponsePtrOutput) Elem() ScopeNamespaceResponseOutput {
+	return o.ApplyT(func(v *ScopeNamespaceResponse) ScopeNamespaceResponse { return *v }).(ScopeNamespaceResponseOutput)
+}
+
+// Namespace where the extensionInstance will be created for an Namespace scoped extensionInstance.  If this namespace does not exist, it will be created
+func (o ScopeNamespaceResponsePtrOutput) TargetNamespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScopeNamespaceResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TargetNamespace
+	}).(pulumi.StringPtrOutput)
+}
+
+// Scope of the extensionInstance. It can be either Cluster or Namespace; but not both.
+type ScopeResponse struct {
+	// Specifies that the scope of the extensionInstance is Cluster
+	Cluster *ScopeClusterResponse `pulumi:"cluster"`
+	// Specifies that the scope of the extensionInstance is Namespace
+	Namespace *ScopeNamespaceResponse `pulumi:"namespace"`
+}
+
+// ScopeResponseInput is an input type that accepts ScopeResponseArgs and ScopeResponseOutput values.
+// You can construct a concrete instance of `ScopeResponseInput` via:
+//
+//          ScopeResponseArgs{...}
+type ScopeResponseInput interface {
+	pulumi.Input
+
+	ToScopeResponseOutput() ScopeResponseOutput
+	ToScopeResponseOutputWithContext(context.Context) ScopeResponseOutput
+}
+
+// Scope of the extensionInstance. It can be either Cluster or Namespace; but not both.
+type ScopeResponseArgs struct {
+	// Specifies that the scope of the extensionInstance is Cluster
+	Cluster ScopeClusterResponsePtrInput `pulumi:"cluster"`
+	// Specifies that the scope of the extensionInstance is Namespace
+	Namespace ScopeNamespaceResponsePtrInput `pulumi:"namespace"`
+}
+
+func (ScopeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScopeResponse)(nil)).Elem()
+}
+
+func (i ScopeResponseArgs) ToScopeResponseOutput() ScopeResponseOutput {
+	return i.ToScopeResponseOutputWithContext(context.Background())
+}
+
+func (i ScopeResponseArgs) ToScopeResponseOutputWithContext(ctx context.Context) ScopeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScopeResponseOutput)
+}
+
+func (i ScopeResponseArgs) ToScopeResponsePtrOutput() ScopeResponsePtrOutput {
+	return i.ToScopeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ScopeResponseArgs) ToScopeResponsePtrOutputWithContext(ctx context.Context) ScopeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScopeResponseOutput).ToScopeResponsePtrOutputWithContext(ctx)
+}
+
+// ScopeResponsePtrInput is an input type that accepts ScopeResponseArgs, ScopeResponsePtr and ScopeResponsePtrOutput values.
+// You can construct a concrete instance of `ScopeResponsePtrInput` via:
+//
+//          ScopeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ScopeResponsePtrInput interface {
+	pulumi.Input
+
+	ToScopeResponsePtrOutput() ScopeResponsePtrOutput
+	ToScopeResponsePtrOutputWithContext(context.Context) ScopeResponsePtrOutput
+}
+
+type scopeResponsePtrType ScopeResponseArgs
+
+func ScopeResponsePtr(v *ScopeResponseArgs) ScopeResponsePtrInput {
+	return (*scopeResponsePtrType)(v)
+}
+
+func (*scopeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScopeResponse)(nil)).Elem()
+}
+
+func (i *scopeResponsePtrType) ToScopeResponsePtrOutput() ScopeResponsePtrOutput {
+	return i.ToScopeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *scopeResponsePtrType) ToScopeResponsePtrOutputWithContext(ctx context.Context) ScopeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScopeResponsePtrOutput)
+}
+
+// Scope of the extensionInstance. It can be either Cluster or Namespace; but not both.
+type ScopeResponseOutput struct{ *pulumi.OutputState }
+
+func (ScopeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScopeResponse)(nil)).Elem()
+}
+
+func (o ScopeResponseOutput) ToScopeResponseOutput() ScopeResponseOutput {
+	return o
+}
+
+func (o ScopeResponseOutput) ToScopeResponseOutputWithContext(ctx context.Context) ScopeResponseOutput {
+	return o
+}
+
+func (o ScopeResponseOutput) ToScopeResponsePtrOutput() ScopeResponsePtrOutput {
+	return o.ToScopeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ScopeResponseOutput) ToScopeResponsePtrOutputWithContext(ctx context.Context) ScopeResponsePtrOutput {
+	return o.ApplyT(func(v ScopeResponse) *ScopeResponse {
+		return &v
+	}).(ScopeResponsePtrOutput)
+}
+
+// Specifies that the scope of the extensionInstance is Cluster
+func (o ScopeResponseOutput) Cluster() ScopeClusterResponsePtrOutput {
+	return o.ApplyT(func(v ScopeResponse) *ScopeClusterResponse { return v.Cluster }).(ScopeClusterResponsePtrOutput)
+}
+
+// Specifies that the scope of the extensionInstance is Namespace
+func (o ScopeResponseOutput) Namespace() ScopeNamespaceResponsePtrOutput {
+	return o.ApplyT(func(v ScopeResponse) *ScopeNamespaceResponse { return v.Namespace }).(ScopeNamespaceResponsePtrOutput)
+}
+
+type ScopeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ScopeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScopeResponse)(nil)).Elem()
+}
+
+func (o ScopeResponsePtrOutput) ToScopeResponsePtrOutput() ScopeResponsePtrOutput {
+	return o
+}
+
+func (o ScopeResponsePtrOutput) ToScopeResponsePtrOutputWithContext(ctx context.Context) ScopeResponsePtrOutput {
+	return o
+}
+
+func (o ScopeResponsePtrOutput) Elem() ScopeResponseOutput {
+	return o.ApplyT(func(v *ScopeResponse) ScopeResponse { return *v }).(ScopeResponseOutput)
+}
+
+// Specifies that the scope of the extensionInstance is Cluster
+func (o ScopeResponsePtrOutput) Cluster() ScopeClusterResponsePtrOutput {
+	return o.ApplyT(func(v *ScopeResponse) *ScopeClusterResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Cluster
+	}).(ScopeClusterResponsePtrOutput)
+}
+
+// Specifies that the scope of the extensionInstance is Namespace
+func (o ScopeResponsePtrOutput) Namespace() ScopeNamespaceResponsePtrOutput {
+	return o.ApplyT(func(v *ScopeResponse) *ScopeNamespaceResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Namespace
+	}).(ScopeNamespaceResponsePtrOutput)
+}
+
 // Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
 	// The timestamp of resource creation (UTC).
@@ -739,10 +2312,32 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 func init() {
 	pulumi.RegisterOutputType(ComplianceStatusResponseOutput{})
 	pulumi.RegisterOutputType(ComplianceStatusResponsePtrOutput{})
+	pulumi.RegisterOutputType(ConfigurationIdentityOutput{})
+	pulumi.RegisterOutputType(ConfigurationIdentityPtrOutput{})
+	pulumi.RegisterOutputType(ConfigurationIdentityResponseOutput{})
+	pulumi.RegisterOutputType(ConfigurationIdentityResponsePtrOutput{})
+	pulumi.RegisterOutputType(ErrorDefinitionResponseOutput{})
+	pulumi.RegisterOutputType(ErrorDefinitionResponsePtrOutput{})
+	pulumi.RegisterOutputType(ExtensionStatusOutput{})
+	pulumi.RegisterOutputType(ExtensionStatusArrayOutput{})
+	pulumi.RegisterOutputType(ExtensionStatusResponseOutput{})
+	pulumi.RegisterOutputType(ExtensionStatusResponseArrayOutput{})
 	pulumi.RegisterOutputType(HelmOperatorPropertiesOutput{})
 	pulumi.RegisterOutputType(HelmOperatorPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(HelmOperatorPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(HelmOperatorPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(ScopeOutput{})
+	pulumi.RegisterOutputType(ScopePtrOutput{})
+	pulumi.RegisterOutputType(ScopeClusterOutput{})
+	pulumi.RegisterOutputType(ScopeClusterPtrOutput{})
+	pulumi.RegisterOutputType(ScopeClusterResponseOutput{})
+	pulumi.RegisterOutputType(ScopeClusterResponsePtrOutput{})
+	pulumi.RegisterOutputType(ScopeNamespaceOutput{})
+	pulumi.RegisterOutputType(ScopeNamespacePtrOutput{})
+	pulumi.RegisterOutputType(ScopeNamespaceResponseOutput{})
+	pulumi.RegisterOutputType(ScopeNamespaceResponsePtrOutput{})
+	pulumi.RegisterOutputType(ScopeResponseOutput{})
+	pulumi.RegisterOutputType(ScopeResponsePtrOutput{})
 	pulumi.RegisterOutputType(SystemDataResponseOutput{})
 	pulumi.RegisterOutputType(SystemDataResponsePtrOutput{})
 }

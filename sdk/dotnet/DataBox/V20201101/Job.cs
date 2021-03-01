@@ -112,6 +112,12 @@ namespace Pulumi.AzureNative.DataBox.V20201101
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
         /// The list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups).
         /// </summary>
         [Output("tags")]

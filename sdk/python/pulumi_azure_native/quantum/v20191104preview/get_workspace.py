@@ -20,7 +20,7 @@ class GetWorkspaceResult:
     """
     The resource proxy definition object for quantum workspace.
     """
-    def __init__(__self__, endpoint_uri=None, id=None, identity=None, location=None, name=None, providers=None, provisioning_state=None, storage_account=None, tags=None, type=None, usable=None):
+    def __init__(__self__, endpoint_uri=None, id=None, identity=None, location=None, name=None, providers=None, provisioning_state=None, storage_account=None, system_data=None, tags=None, type=None, usable=None):
         if endpoint_uri and not isinstance(endpoint_uri, str):
             raise TypeError("Expected argument 'endpoint_uri' to be a str")
         pulumi.set(__self__, "endpoint_uri", endpoint_uri)
@@ -45,6 +45,9 @@ class GetWorkspaceResult:
         if storage_account and not isinstance(storage_account, str):
             raise TypeError("Expected argument 'storage_account' to be a str")
         pulumi.set(__self__, "storage_account", storage_account)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -120,6 +123,14 @@ class GetWorkspaceResult:
         return pulumi.get(self, "storage_account")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        System metadata
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
@@ -158,6 +169,7 @@ class AwaitableGetWorkspaceResult(GetWorkspaceResult):
             providers=self.providers,
             provisioning_state=self.provisioning_state,
             storage_account=self.storage_account,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type,
             usable=self.usable)
@@ -191,6 +203,7 @@ def get_workspace(resource_group_name: Optional[str] = None,
         providers=__ret__.providers,
         provisioning_state=__ret__.provisioning_state,
         storage_account=__ret__.storage_account,
+        system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type,
         usable=__ret__.usable)

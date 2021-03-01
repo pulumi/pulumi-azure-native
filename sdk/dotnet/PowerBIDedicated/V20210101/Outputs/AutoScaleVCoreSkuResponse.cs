@@ -7,12 +7,16 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNative.PowerBIDedicated.Outputs
+namespace Pulumi.AzureNative.PowerBIDedicated.V20210101.Outputs
 {
 
     [OutputType]
-    public sealed class ResourceSkuResponse
+    public sealed class AutoScaleVCoreSkuResponse
     {
+        /// <summary>
+        /// The capacity of an auto scale v-core resource.
+        /// </summary>
+        public readonly int? Capacity;
         /// <summary>
         /// Name of the SKU level.
         /// </summary>
@@ -23,11 +27,14 @@ namespace Pulumi.AzureNative.PowerBIDedicated.Outputs
         public readonly string? Tier;
 
         [OutputConstructor]
-        private ResourceSkuResponse(
+        private AutoScaleVCoreSkuResponse(
+            int? capacity,
+
             string name,
 
             string? tier)
         {
+            Capacity = capacity;
             Name = name;
             Tier = tier;
         }

@@ -256,6 +256,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20200801
         public static WorkspaceSkuNameEnum PerGB2018 { get; } = new WorkspaceSkuNameEnum("PerGB2018");
         public static WorkspaceSkuNameEnum Standalone { get; } = new WorkspaceSkuNameEnum("Standalone");
         public static WorkspaceSkuNameEnum CapacityReservation { get; } = new WorkspaceSkuNameEnum("CapacityReservation");
+        public static WorkspaceSkuNameEnum LACluster { get; } = new WorkspaceSkuNameEnum("LACluster");
 
         public static bool operator ==(WorkspaceSkuNameEnum left, WorkspaceSkuNameEnum right) => left.Equals(right);
         public static bool operator !=(WorkspaceSkuNameEnum left, WorkspaceSkuNameEnum right) => !left.Equals(right);

@@ -71,6 +71,7 @@ class Workspace(pulumi.CustomResource):
             __props__['endpoint_uri'] = None
             __props__['name'] = None
             __props__['provisioning_state'] = None
+            __props__['system_data'] = None
             __props__['type'] = None
             __props__['usable'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:quantum/v20191104preview:Workspace"), pulumi.Alias(type_="azure-nextgen:quantum/v20191104preview:Workspace")])
@@ -154,6 +155,14 @@ class Workspace(pulumi.CustomResource):
         ARM Resource Id of the storage account associated with this workspace.
         """
         return pulumi.get(self, "storage_account")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        System metadata
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

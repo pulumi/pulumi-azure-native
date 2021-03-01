@@ -2544,6 +2544,142 @@ func (o SecurityAlertTimelineItemResponseOutput) TimeGenerated() pulumi.StringOu
 	return o.ApplyT(func(v SecurityAlertTimelineItemResponse) string { return v.TimeGenerated }).(pulumi.StringOutput)
 }
 
+// Describes external reference
+type ThreatIntelligenceExternalReference struct {
+	// External reference description
+	Description *string `pulumi:"description"`
+	// External reference ID
+	ExternalId *string `pulumi:"externalId"`
+	// External reference hashes
+	Hashes map[string]string `pulumi:"hashes"`
+	// External reference source name
+	SourceName *string `pulumi:"sourceName"`
+	// External reference URL
+	Url *string `pulumi:"url"`
+}
+
+// ThreatIntelligenceExternalReferenceInput is an input type that accepts ThreatIntelligenceExternalReferenceArgs and ThreatIntelligenceExternalReferenceOutput values.
+// You can construct a concrete instance of `ThreatIntelligenceExternalReferenceInput` via:
+//
+//          ThreatIntelligenceExternalReferenceArgs{...}
+type ThreatIntelligenceExternalReferenceInput interface {
+	pulumi.Input
+
+	ToThreatIntelligenceExternalReferenceOutput() ThreatIntelligenceExternalReferenceOutput
+	ToThreatIntelligenceExternalReferenceOutputWithContext(context.Context) ThreatIntelligenceExternalReferenceOutput
+}
+
+// Describes external reference
+type ThreatIntelligenceExternalReferenceArgs struct {
+	// External reference description
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// External reference ID
+	ExternalId pulumi.StringPtrInput `pulumi:"externalId"`
+	// External reference hashes
+	Hashes pulumi.StringMapInput `pulumi:"hashes"`
+	// External reference source name
+	SourceName pulumi.StringPtrInput `pulumi:"sourceName"`
+	// External reference URL
+	Url pulumi.StringPtrInput `pulumi:"url"`
+}
+
+func (ThreatIntelligenceExternalReferenceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThreatIntelligenceExternalReference)(nil)).Elem()
+}
+
+func (i ThreatIntelligenceExternalReferenceArgs) ToThreatIntelligenceExternalReferenceOutput() ThreatIntelligenceExternalReferenceOutput {
+	return i.ToThreatIntelligenceExternalReferenceOutputWithContext(context.Background())
+}
+
+func (i ThreatIntelligenceExternalReferenceArgs) ToThreatIntelligenceExternalReferenceOutputWithContext(ctx context.Context) ThreatIntelligenceExternalReferenceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThreatIntelligenceExternalReferenceOutput)
+}
+
+// ThreatIntelligenceExternalReferenceArrayInput is an input type that accepts ThreatIntelligenceExternalReferenceArray and ThreatIntelligenceExternalReferenceArrayOutput values.
+// You can construct a concrete instance of `ThreatIntelligenceExternalReferenceArrayInput` via:
+//
+//          ThreatIntelligenceExternalReferenceArray{ ThreatIntelligenceExternalReferenceArgs{...} }
+type ThreatIntelligenceExternalReferenceArrayInput interface {
+	pulumi.Input
+
+	ToThreatIntelligenceExternalReferenceArrayOutput() ThreatIntelligenceExternalReferenceArrayOutput
+	ToThreatIntelligenceExternalReferenceArrayOutputWithContext(context.Context) ThreatIntelligenceExternalReferenceArrayOutput
+}
+
+type ThreatIntelligenceExternalReferenceArray []ThreatIntelligenceExternalReferenceInput
+
+func (ThreatIntelligenceExternalReferenceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ThreatIntelligenceExternalReference)(nil)).Elem()
+}
+
+func (i ThreatIntelligenceExternalReferenceArray) ToThreatIntelligenceExternalReferenceArrayOutput() ThreatIntelligenceExternalReferenceArrayOutput {
+	return i.ToThreatIntelligenceExternalReferenceArrayOutputWithContext(context.Background())
+}
+
+func (i ThreatIntelligenceExternalReferenceArray) ToThreatIntelligenceExternalReferenceArrayOutputWithContext(ctx context.Context) ThreatIntelligenceExternalReferenceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThreatIntelligenceExternalReferenceArrayOutput)
+}
+
+// Describes external reference
+type ThreatIntelligenceExternalReferenceOutput struct{ *pulumi.OutputState }
+
+func (ThreatIntelligenceExternalReferenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThreatIntelligenceExternalReference)(nil)).Elem()
+}
+
+func (o ThreatIntelligenceExternalReferenceOutput) ToThreatIntelligenceExternalReferenceOutput() ThreatIntelligenceExternalReferenceOutput {
+	return o
+}
+
+func (o ThreatIntelligenceExternalReferenceOutput) ToThreatIntelligenceExternalReferenceOutputWithContext(ctx context.Context) ThreatIntelligenceExternalReferenceOutput {
+	return o
+}
+
+// External reference description
+func (o ThreatIntelligenceExternalReferenceOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ThreatIntelligenceExternalReference) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// External reference ID
+func (o ThreatIntelligenceExternalReferenceOutput) ExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ThreatIntelligenceExternalReference) *string { return v.ExternalId }).(pulumi.StringPtrOutput)
+}
+
+// External reference hashes
+func (o ThreatIntelligenceExternalReferenceOutput) Hashes() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ThreatIntelligenceExternalReference) map[string]string { return v.Hashes }).(pulumi.StringMapOutput)
+}
+
+// External reference source name
+func (o ThreatIntelligenceExternalReferenceOutput) SourceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ThreatIntelligenceExternalReference) *string { return v.SourceName }).(pulumi.StringPtrOutput)
+}
+
+// External reference URL
+func (o ThreatIntelligenceExternalReferenceOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ThreatIntelligenceExternalReference) *string { return v.Url }).(pulumi.StringPtrOutput)
+}
+
+type ThreatIntelligenceExternalReferenceArrayOutput struct{ *pulumi.OutputState }
+
+func (ThreatIntelligenceExternalReferenceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ThreatIntelligenceExternalReference)(nil)).Elem()
+}
+
+func (o ThreatIntelligenceExternalReferenceArrayOutput) ToThreatIntelligenceExternalReferenceArrayOutput() ThreatIntelligenceExternalReferenceArrayOutput {
+	return o
+}
+
+func (o ThreatIntelligenceExternalReferenceArrayOutput) ToThreatIntelligenceExternalReferenceArrayOutputWithContext(ctx context.Context) ThreatIntelligenceExternalReferenceArrayOutput {
+	return o
+}
+
+func (o ThreatIntelligenceExternalReferenceArrayOutput) Index(i pulumi.IntInput) ThreatIntelligenceExternalReferenceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ThreatIntelligenceExternalReference {
+		return vs[0].([]ThreatIntelligenceExternalReference)[vs[1].(int)]
+	}).(ThreatIntelligenceExternalReferenceOutput)
+}
+
 // Describes threat granular marking model entity
 type ThreatIntelligenceGranularMarkingModel struct {
 	// Language granular marking model
@@ -3629,6 +3765,8 @@ func init() {
 	pulumi.RegisterOutputType(InsightsTableResultResponseColumnsOutput{})
 	pulumi.RegisterOutputType(InsightsTableResultResponseColumnsArrayOutput{})
 	pulumi.RegisterOutputType(SecurityAlertTimelineItemResponseOutput{})
+	pulumi.RegisterOutputType(ThreatIntelligenceExternalReferenceOutput{})
+	pulumi.RegisterOutputType(ThreatIntelligenceExternalReferenceArrayOutput{})
 	pulumi.RegisterOutputType(ThreatIntelligenceGranularMarkingModelOutput{})
 	pulumi.RegisterOutputType(ThreatIntelligenceGranularMarkingModelArrayOutput{})
 	pulumi.RegisterOutputType(ThreatIntelligenceKillChainPhaseOutput{})

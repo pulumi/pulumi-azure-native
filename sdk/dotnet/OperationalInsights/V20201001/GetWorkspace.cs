@@ -43,6 +43,10 @@ namespace Pulumi.AzureNative.OperationalInsights.V20201001
     public sealed class GetWorkspaceResult
     {
         /// <summary>
+        /// Workspace creation date.
+        /// </summary>
+        public readonly string CreatedDate;
+        /// <summary>
         /// This is a read-only property. Represents the ID associated with the workspace.
         /// </summary>
         public readonly string CustomerId;
@@ -50,6 +54,10 @@ namespace Pulumi.AzureNative.OperationalInsights.V20201001
         /// The ETag of the workspace.
         /// </summary>
         public readonly string? ETag;
+        /// <summary>
+        /// Workspace features.
+        /// </summary>
+        public readonly object? Features;
         /// <summary>
         /// Indicates whether customer managed storage is mandatory for query management.
         /// </summary>
@@ -62,6 +70,10 @@ namespace Pulumi.AzureNative.OperationalInsights.V20201001
         /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
+        /// <summary>
+        /// Workspace modification date.
+        /// </summary>
+        public readonly string ModifiedDate;
         /// <summary>
         /// The name of the resource
         /// </summary>
@@ -83,7 +95,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20201001
         /// </summary>
         public readonly string? PublicNetworkAccessForQuery;
         /// <summary>
-        /// The workspace data retention in days, between 30 and 730.
+        /// The workspace data retention in days. Allowed values are per pricing plan. See pricing tiers documentation for details.
         /// </summary>
         public readonly int? RetentionInDays;
         /// <summary>
@@ -105,15 +117,21 @@ namespace Pulumi.AzureNative.OperationalInsights.V20201001
 
         [OutputConstructor]
         private GetWorkspaceResult(
+            string createdDate,
+
             string customerId,
 
             string? eTag,
+
+            object? features,
 
             bool? forceCmkForQuery,
 
             string id,
 
             string location,
+
+            string modifiedDate,
 
             string name,
 
@@ -135,11 +153,14 @@ namespace Pulumi.AzureNative.OperationalInsights.V20201001
 
             Outputs.WorkspaceCappingResponse? workspaceCapping)
         {
+            CreatedDate = createdDate;
             CustomerId = customerId;
             ETag = eTag;
+            Features = features;
             ForceCmkForQuery = forceCmkForQuery;
             Id = id;
             Location = location;
+            ModifiedDate = modifiedDate;
             Name = name;
             PrivateLinkScopedResources = privateLinkScopedResources;
             ProvisioningState = provisioningState;

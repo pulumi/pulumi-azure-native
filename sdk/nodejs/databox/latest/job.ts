@@ -104,6 +104,10 @@ export class Job extends pulumi.CustomResource {
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.databox.latest.SystemDataResponse>;
+    /**
      * The list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups).
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -158,6 +162,7 @@ export class Job extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["startTime"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["cancellationReason"] = undefined /*out*/;
@@ -176,6 +181,7 @@ export class Job extends pulumi.CustomResource {
             inputs["sku"] = undefined /*out*/;
             inputs["startTime"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["transferType"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;

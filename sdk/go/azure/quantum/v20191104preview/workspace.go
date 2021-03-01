@@ -29,6 +29,8 @@ type Workspace struct {
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// ARM Resource Id of the storage account associated with this workspace.
 	StorageAccount pulumi.StringPtrOutput `pulumi:"storageAccount"`
+	// System metadata
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -92,6 +94,8 @@ type workspaceState struct {
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// ARM Resource Id of the storage account associated with this workspace.
 	StorageAccount *string `pulumi:"storageAccount"`
+	// System metadata
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -115,6 +119,8 @@ type WorkspaceState struct {
 	ProvisioningState pulumi.StringPtrInput
 	// ARM Resource Id of the storage account associated with this workspace.
 	StorageAccount pulumi.StringPtrInput
+	// System metadata
+	SystemData SystemDataResponsePtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"

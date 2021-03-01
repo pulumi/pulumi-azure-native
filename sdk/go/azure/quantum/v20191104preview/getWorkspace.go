@@ -42,6 +42,8 @@ type LookupWorkspaceResult struct {
 	ProvisioningState string `pulumi:"provisioningState"`
 	// ARM Resource Id of the storage account associated with this workspace.
 	StorageAccount *string `pulumi:"storageAccount"`
+	// System metadata
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"

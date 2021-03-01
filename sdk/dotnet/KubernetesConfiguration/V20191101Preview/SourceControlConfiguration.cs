@@ -122,6 +122,8 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.V20191101Preview
                     new Pulumi.Alias { Type = "azure-nextgen:kubernetesconfiguration:SourceControlConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/latest:SourceControlConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:kubernetesconfiguration/latest:SourceControlConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20200701preview:SourceControlConfiguration"},
+                    new Pulumi.Alias { Type = "azure-nextgen:kubernetesconfiguration/v20200701preview:SourceControlConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20201001preview:SourceControlConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:kubernetesconfiguration/v20201001preview:SourceControlConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20210301:SourceControlConfiguration"},

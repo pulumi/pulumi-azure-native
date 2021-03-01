@@ -12,7 +12,7 @@ import (
 )
 
 // Represents an instance of a Dedicated Capacity resource.
-// Latest API Version: 2017-10-01.
+// Latest API Version: 2021-01-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:powerbidedicated:CapacityDetails'.
 type CapacityDetails struct {
@@ -22,14 +22,18 @@ type CapacityDetails struct {
 	Administration DedicatedCapacityAdministratorsResponsePtrOutput `pulumi:"administration"`
 	// Location of the PowerBI Dedicated resource.
 	Location pulumi.StringOutput `pulumi:"location"`
+	// The capacity mode.
+	Mode pulumi.StringPtrOutput `pulumi:"mode"`
 	// The name of the PowerBI Dedicated resource.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The current deployment state of PowerBI Dedicated resource. The provisioningState is to indicate states for resource provisioning.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The SKU of the PowerBI Dedicated resource.
-	Sku ResourceSkuResponseOutput `pulumi:"sku"`
+	// The SKU of the PowerBI Dedicated capacity resource.
+	Sku CapacitySkuResponseOutput `pulumi:"sku"`
 	// The current state of PowerBI Dedicated resource. The state is to indicate more states outside of resource provisioning.
 	State pulumi.StringOutput `pulumi:"state"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponsePtrOutput `pulumi:"systemData"`
 	// Key-value pairs of additional resource provisioning properties.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The type of the PowerBI Dedicated resource.
@@ -62,6 +66,12 @@ func NewCapacityDetails(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:powerbidedicated/v20171001:CapacityDetails"),
 		},
+		{
+			Type: pulumi.String("azure-native:powerbidedicated/v20210101:CapacityDetails"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:powerbidedicated/v20210101:CapacityDetails"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource CapacityDetails
@@ -90,14 +100,18 @@ type capacityDetailsState struct {
 	Administration *DedicatedCapacityAdministratorsResponse `pulumi:"administration"`
 	// Location of the PowerBI Dedicated resource.
 	Location *string `pulumi:"location"`
+	// The capacity mode.
+	Mode *string `pulumi:"mode"`
 	// The name of the PowerBI Dedicated resource.
 	Name *string `pulumi:"name"`
 	// The current deployment state of PowerBI Dedicated resource. The provisioningState is to indicate states for resource provisioning.
 	ProvisioningState *string `pulumi:"provisioningState"`
-	// The SKU of the PowerBI Dedicated resource.
-	Sku *ResourceSkuResponse `pulumi:"sku"`
+	// The SKU of the PowerBI Dedicated capacity resource.
+	Sku *CapacitySkuResponse `pulumi:"sku"`
 	// The current state of PowerBI Dedicated resource. The state is to indicate more states outside of resource provisioning.
 	State *string `pulumi:"state"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Key-value pairs of additional resource provisioning properties.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the PowerBI Dedicated resource.
@@ -109,14 +123,18 @@ type CapacityDetailsState struct {
 	Administration DedicatedCapacityAdministratorsResponsePtrInput
 	// Location of the PowerBI Dedicated resource.
 	Location pulumi.StringPtrInput
+	// The capacity mode.
+	Mode pulumi.StringPtrInput
 	// The name of the PowerBI Dedicated resource.
 	Name pulumi.StringPtrInput
 	// The current deployment state of PowerBI Dedicated resource. The provisioningState is to indicate states for resource provisioning.
 	ProvisioningState pulumi.StringPtrInput
-	// The SKU of the PowerBI Dedicated resource.
-	Sku ResourceSkuResponsePtrInput
+	// The SKU of the PowerBI Dedicated capacity resource.
+	Sku CapacitySkuResponsePtrInput
 	// The current state of PowerBI Dedicated resource. The state is to indicate more states outside of resource provisioning.
 	State pulumi.StringPtrInput
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponsePtrInput
 	// Key-value pairs of additional resource provisioning properties.
 	Tags pulumi.StringMapInput
 	// The type of the PowerBI Dedicated resource.
@@ -134,10 +152,14 @@ type capacityDetailsArgs struct {
 	DedicatedCapacityName *string `pulumi:"dedicatedCapacityName"`
 	// Location of the PowerBI Dedicated resource.
 	Location *string `pulumi:"location"`
+	// The capacity mode.
+	Mode *string `pulumi:"mode"`
 	// The name of the Azure Resource group of which a given PowerBIDedicated capacity is part. This name must be at least 1 character in length, and no more than 90.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The SKU of the PowerBI Dedicated resource.
-	Sku ResourceSku `pulumi:"sku"`
+	// The SKU of the PowerBI Dedicated capacity resource.
+	Sku CapacitySku `pulumi:"sku"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData *SystemData `pulumi:"systemData"`
 	// Key-value pairs of additional resource provisioning properties.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -150,10 +172,14 @@ type CapacityDetailsArgs struct {
 	DedicatedCapacityName pulumi.StringPtrInput
 	// Location of the PowerBI Dedicated resource.
 	Location pulumi.StringPtrInput
+	// The capacity mode.
+	Mode pulumi.StringPtrInput
 	// The name of the Azure Resource group of which a given PowerBIDedicated capacity is part. This name must be at least 1 character in length, and no more than 90.
 	ResourceGroupName pulumi.StringInput
-	// The SKU of the PowerBI Dedicated resource.
-	Sku ResourceSkuInput
+	// The SKU of the PowerBI Dedicated capacity resource.
+	Sku CapacitySkuInput
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataPtrInput
 	// Key-value pairs of additional resource provisioning properties.
 	Tags pulumi.StringMapInput
 }

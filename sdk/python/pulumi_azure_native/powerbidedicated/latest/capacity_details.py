@@ -25,23 +25,27 @@ class CapacityDetails(pulumi.CustomResource):
                  administration: Optional[pulumi.Input[pulumi.InputType['DedicatedCapacityAdministratorsArgs']]] = None,
                  dedicated_capacity_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 mode: Optional[pulumi.Input[Union[str, 'Mode']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['ResourceSkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['CapacitySkuArgs']]] = None,
+                 system_data: Optional[pulumi.Input[pulumi.InputType['SystemDataArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
         """
         Represents an instance of a Dedicated Capacity resource.
-        Latest API Version: 2017-10-01.
+        Latest API Version: 2021-01-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['DedicatedCapacityAdministratorsArgs']] administration: A collection of Dedicated capacity administrators
         :param pulumi.Input[str] dedicated_capacity_name: The name of the Dedicated capacity. It must be a minimum of 3 characters, and a maximum of 63.
         :param pulumi.Input[str] location: Location of the PowerBI Dedicated resource.
+        :param pulumi.Input[Union[str, 'Mode']] mode: The capacity mode.
         :param pulumi.Input[str] resource_group_name: The name of the Azure Resource group of which a given PowerBIDedicated capacity is part. This name must be at least 1 character in length, and no more than 90.
-        :param pulumi.Input[pulumi.InputType['ResourceSkuArgs']] sku: The SKU of the PowerBI Dedicated resource.
+        :param pulumi.Input[pulumi.InputType['CapacitySkuArgs']] sku: The SKU of the PowerBI Dedicated capacity resource.
+        :param pulumi.Input[pulumi.InputType['SystemDataArgs']] system_data: Metadata pertaining to creation and last modification of the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of additional resource provisioning properties.
         """
         pulumi.log.warn("CapacityDetails is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:powerbidedicated:CapacityDetails'.")
@@ -65,18 +69,20 @@ class CapacityDetails(pulumi.CustomResource):
             __props__['administration'] = administration
             __props__['dedicated_capacity_name'] = dedicated_capacity_name
             __props__['location'] = location
+            __props__['mode'] = mode
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__['sku'] = sku
+            __props__['system_data'] = system_data
             __props__['tags'] = tags
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:powerbidedicated:CapacityDetails"), pulumi.Alias(type_="azure-nextgen:powerbidedicated:CapacityDetails"), pulumi.Alias(type_="azure-native:powerbidedicated/v20171001:CapacityDetails"), pulumi.Alias(type_="azure-nextgen:powerbidedicated/v20171001:CapacityDetails")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:powerbidedicated:CapacityDetails"), pulumi.Alias(type_="azure-nextgen:powerbidedicated:CapacityDetails"), pulumi.Alias(type_="azure-native:powerbidedicated/v20171001:CapacityDetails"), pulumi.Alias(type_="azure-nextgen:powerbidedicated/v20171001:CapacityDetails"), pulumi.Alias(type_="azure-native:powerbidedicated/v20210101:CapacityDetails"), pulumi.Alias(type_="azure-nextgen:powerbidedicated/v20210101:CapacityDetails")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(CapacityDetails, __self__).__init__(
             'azure-native:powerbidedicated/latest:CapacityDetails',
@@ -120,6 +126,14 @@ class CapacityDetails(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def mode(self) -> pulumi.Output[Optional[str]]:
+        """
+        The capacity mode.
+        """
+        return pulumi.get(self, "mode")
+
+    @property
+    @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
         The name of the PowerBI Dedicated resource.
@@ -136,9 +150,9 @@ class CapacityDetails(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sku(self) -> pulumi.Output['outputs.ResourceSkuResponse']:
+    def sku(self) -> pulumi.Output['outputs.CapacitySkuResponse']:
         """
-        The SKU of the PowerBI Dedicated resource.
+        The SKU of the PowerBI Dedicated capacity resource.
         """
         return pulumi.get(self, "sku")
 
@@ -149,6 +163,14 @@ class CapacityDetails(pulumi.CustomResource):
         The current state of PowerBI Dedicated resource. The state is to indicate more states outside of resource provisioning.
         """
         return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output[Optional['outputs.SystemDataResponse']]:
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

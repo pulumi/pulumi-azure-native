@@ -59,6 +59,12 @@ namespace Pulumi.AzureNative.Quantum
         public Output<string?> StorageAccount { get; private set; } = null!;
 
         /// <summary>
+        /// System metadata
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
         /// Resource tags.
         /// </summary>
         [Output("tags")]
