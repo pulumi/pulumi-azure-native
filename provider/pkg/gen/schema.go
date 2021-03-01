@@ -28,8 +28,8 @@ import (
 	"github.com/go-openapi/spec"
 	"github.com/pkg/errors"
 
-	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/openapi"
-	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/resources"
+	"github.com/pulumi/pulumi-azure-native/provider/pkg/openapi"
+	"github.com/pulumi/pulumi-azure-native/provider/pkg/resources"
 	"github.com/pulumi/pulumi/pkg/v2/codegen"
 	"github.com/pulumi/pulumi/pkg/v2/codegen/schema"
 	pschema "github.com/pulumi/pulumi/pkg/v2/codegen/schema"
@@ -37,7 +37,7 @@ import (
 )
 
 // Note - this needs to be kept in sync with the layout in the SDK package
-const goBasePath = "github.com/pulumi/pulumi-azure-nextgen/sdk/go/azure"
+const goBasePath = "github.com/pulumi/pulumi-azure-native/sdk/go/azure"
 
 // PulumiSchema will generate a Pulumi schema for the given Azure providers and resources map.
 func PulumiSchema(providerMap openapi.AzureProviders) (*pschema.PackageSpec, *resources.AzureAPIMetadata, map[string][]resources.AzureAPIExample, error) {
@@ -969,7 +969,7 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 		}
 
 		if name == "clusterID" && property.Description == "The deprecated identity" {
-			// TODO: Get rid of this in https://github.com/pulumi/pulumi-azure-nextgen-provider/issues/331
+			// TODO: Get rid of this in https://github.com/pulumi/pulumi-azure-native/issues/331
 			continue
 		}
 

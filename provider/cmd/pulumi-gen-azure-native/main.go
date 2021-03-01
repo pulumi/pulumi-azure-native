@@ -13,10 +13,10 @@ import (
 
 	"github.com/pkg/errors"
 
-	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/debug"
-	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/gen"
-	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/openapi"
-	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/resources"
+	"github.com/pulumi/pulumi-azure-native/provider/pkg/debug"
+	"github.com/pulumi/pulumi-azure-native/provider/pkg/gen"
+	"github.com/pulumi/pulumi-azure-native/provider/pkg/openapi"
+	"github.com/pulumi/pulumi-azure-native/provider/pkg/resources"
 	dotnetgen "github.com/pulumi/pulumi/pkg/v2/codegen/dotnet"
 	gogen "github.com/pulumi/pulumi/pkg/v2/codegen/go"
 	nodejsgen "github.com/pulumi/pulumi/pkg/v2/codegen/nodejs"

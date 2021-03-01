@@ -7,7 +7,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/resources"
+	"github.com/pulumi/pulumi-azure-native/provider/pkg/resources"
 	"github.com/stretchr/testify/require"
 )
 
