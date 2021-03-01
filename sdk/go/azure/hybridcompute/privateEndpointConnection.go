@@ -12,18 +12,16 @@ import (
 )
 
 // A private endpoint connection
-// API Version: 2020-08-15-preview.
+// API Version: 2021-01-28-preview.
 type PrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Private endpoint which the connection belongs to.
-	PrivateEndpoint PrivateEndpointPropertyResponsePtrOutput `pulumi:"privateEndpoint"`
-	// Connection state of the private endpoint connection.
-	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStatePropertyResponsePtrOutput `pulumi:"privateLinkServiceConnectionState"`
-	// State of the private endpoint connection.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// Resource properties.
+	Properties PrivateEndpointConnectionPropertiesResponseOutput `pulumi:"properties"`
+	// The system meta data relating to this resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -47,6 +45,12 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:hybridcompute/v20200815preview:PrivateEndpointConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:hybridcompute/v20210128preview:PrivateEndpointConnection"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:hybridcompute/v20210128preview:PrivateEndpointConnection"),
 		},
 	})
 	opts = append(opts, aliases)
@@ -74,12 +78,10 @@ func GetPrivateEndpointConnection(ctx *pulumi.Context,
 type privateEndpointConnectionState struct {
 	// The name of the resource
 	Name *string `pulumi:"name"`
-	// Private endpoint which the connection belongs to.
-	PrivateEndpoint *PrivateEndpointPropertyResponse `pulumi:"privateEndpoint"`
-	// Connection state of the private endpoint connection.
-	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionStatePropertyResponse `pulumi:"privateLinkServiceConnectionState"`
-	// State of the private endpoint connection.
-	ProvisioningState *string `pulumi:"provisioningState"`
+	// Resource properties.
+	Properties *PrivateEndpointConnectionPropertiesResponse `pulumi:"properties"`
+	// The system meta data relating to this resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
@@ -87,12 +89,10 @@ type privateEndpointConnectionState struct {
 type PrivateEndpointConnectionState struct {
 	// The name of the resource
 	Name pulumi.StringPtrInput
-	// Private endpoint which the connection belongs to.
-	PrivateEndpoint PrivateEndpointPropertyResponsePtrInput
-	// Connection state of the private endpoint connection.
-	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStatePropertyResponsePtrInput
-	// State of the private endpoint connection.
-	ProvisioningState pulumi.StringPtrInput
+	// Resource properties.
+	Properties PrivateEndpointConnectionPropertiesResponsePtrInput
+	// The system meta data relating to this resource.
+	SystemData SystemDataResponsePtrInput
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
@@ -102,13 +102,11 @@ func (PrivateEndpointConnectionState) ElementType() reflect.Type {
 }
 
 type privateEndpointConnectionArgs struct {
-	// Private endpoint which the connection belongs to.
-	PrivateEndpoint *PrivateEndpointProperty `pulumi:"privateEndpoint"`
 	// The name of the private endpoint connection.
 	PrivateEndpointConnectionName *string `pulumi:"privateEndpointConnectionName"`
-	// Connection state of the private endpoint connection.
-	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionStateProperty `pulumi:"privateLinkServiceConnectionState"`
-	// The name of the resource group.
+	// Resource properties.
+	Properties *PrivateEndpointConnectionProperties `pulumi:"properties"`
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the Azure Arc PrivateLinkScope resource.
 	ScopeName string `pulumi:"scopeName"`
@@ -116,13 +114,11 @@ type privateEndpointConnectionArgs struct {
 
 // The set of arguments for constructing a PrivateEndpointConnection resource.
 type PrivateEndpointConnectionArgs struct {
-	// Private endpoint which the connection belongs to.
-	PrivateEndpoint PrivateEndpointPropertyPtrInput
 	// The name of the private endpoint connection.
 	PrivateEndpointConnectionName pulumi.StringPtrInput
-	// Connection state of the private endpoint connection.
-	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStatePropertyPtrInput
-	// The name of the resource group.
+	// Resource properties.
+	Properties PrivateEndpointConnectionPropertiesPtrInput
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// The name of the Azure Arc PrivateLinkScope resource.
 	ScopeName pulumi.StringInput

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Access Review Schedule Definition.
- * API Version: 2018-05-01-preview.
+ * API Version: 2021-03-01-preview.
  */
 export function getAccessReviewScheduleDefinitionById(args: GetAccessReviewScheduleDefinitionByIdArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessReviewScheduleDefinitionByIdResult> {
     if (!opts) {
@@ -37,6 +37,10 @@ export interface GetAccessReviewScheduleDefinitionByIdResult {
      * Flag to indicate whether auto-apply capability, to automatically change the target object access resource, is enabled. If not enabled, a user must, after the review completes, apply the access review.
      */
     readonly autoApplyDecisionsEnabled?: boolean;
+    /**
+     * This is the collection of backup reviewers.
+     */
+    readonly backupReviewers?: outputs.authorization.AccessReviewReviewerResponse[];
     /**
      * This specifies the behavior for the autoReview feature when an access review completes.
      */

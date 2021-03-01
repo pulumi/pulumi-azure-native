@@ -12,7 +12,7 @@ import (
 )
 
 // An Azure Cosmos DB SQL Role Definition.
-// API Version: 2020-06-01-preview.
+// API Version: 2021-03-01-preview.
 type SqlResourceSqlRoleDefinition struct {
 	pulumi.CustomResourceState
 
@@ -47,6 +47,12 @@ func NewSqlResourceSqlRoleDefinition(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20200601preview:SqlResourceSqlRoleDefinition"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20210301preview:SqlResourceSqlRoleDefinition"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:documentdb/v20210301preview:SqlResourceSqlRoleDefinition"),
 		},
 	})
 	opts = append(opts, aliases)

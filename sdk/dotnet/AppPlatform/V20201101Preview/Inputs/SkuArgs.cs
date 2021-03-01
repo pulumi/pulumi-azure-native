@@ -35,6 +35,8 @@ namespace Pulumi.AzureNative.AppPlatform.V20201101Preview.Inputs
 
         public SkuArgs()
         {
+            Name = "S0";
+            Tier = "Standard";
         }
     }
 }

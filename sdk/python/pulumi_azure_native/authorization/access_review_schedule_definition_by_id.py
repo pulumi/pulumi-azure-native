@@ -19,6 +19,7 @@ class AccessReviewScheduleDefinitionById(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_apply_decisions_enabled: Optional[pulumi.Input[bool]] = None,
+                 backup_reviewers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccessReviewReviewerArgs']]]]] = None,
                  default_decision: Optional[pulumi.Input[Union[str, 'DefaultDecisionType']]] = None,
                  default_decision_enabled: Optional[pulumi.Input[bool]] = None,
                  description_for_admins: Optional[pulumi.Input[str]] = None,
@@ -42,11 +43,12 @@ class AccessReviewScheduleDefinitionById(pulumi.CustomResource):
                  __opts__=None):
         """
         Access Review Schedule Definition.
-        API Version: 2018-05-01-preview.
+        API Version: 2021-03-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_apply_decisions_enabled: Flag to indicate whether auto-apply capability, to automatically change the target object access resource, is enabled. If not enabled, a user must, after the review completes, apply the access review.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccessReviewReviewerArgs']]]] backup_reviewers: This is the collection of backup reviewers.
         :param pulumi.Input[Union[str, 'DefaultDecisionType']] default_decision: This specifies the behavior for the autoReview feature when an access review completes.
         :param pulumi.Input[bool] default_decision_enabled: Flag to indicate whether reviewers are required to provide a justification when reviewing access.
         :param pulumi.Input[str] description_for_admins: The description provided by the access review creator and visible to admins.
@@ -84,6 +86,7 @@ class AccessReviewScheduleDefinitionById(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['auto_apply_decisions_enabled'] = auto_apply_decisions_enabled
+            __props__['backup_reviewers'] = backup_reviewers
             __props__['default_decision'] = default_decision
             __props__['default_decision_enabled'] = default_decision_enabled
             __props__['description_for_admins'] = description_for_admins
@@ -144,6 +147,14 @@ class AccessReviewScheduleDefinitionById(pulumi.CustomResource):
         Flag to indicate whether auto-apply capability, to automatically change the target object access resource, is enabled. If not enabled, a user must, after the review completes, apply the access review.
         """
         return pulumi.get(self, "auto_apply_decisions_enabled")
+
+    @property
+    @pulumi.getter(name="backupReviewers")
+    def backup_reviewers(self) -> pulumi.Output[Optional[Sequence['outputs.AccessReviewReviewerResponse']]]:
+        """
+        This is the collection of backup reviewers.
+        """
+        return pulumi.get(self, "backup_reviewers")
 
     @property
     @pulumi.getter(name="defaultDecision")

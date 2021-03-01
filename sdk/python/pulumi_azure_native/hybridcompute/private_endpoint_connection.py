@@ -17,9 +17,8 @@ class PrivateEndpointConnection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 private_endpoint: Optional[pulumi.Input[pulumi.InputType['PrivateEndpointPropertyArgs']]] = None,
                  private_endpoint_connection_name: Optional[pulumi.Input[str]] = None,
-                 private_link_service_connection_state: Optional[pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionStatePropertyArgs']]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['PrivateEndpointConnectionPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scope_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -27,14 +26,13 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                  __opts__=None):
         """
         A private endpoint connection
-        API Version: 2020-08-15-preview.
+        API Version: 2021-01-28-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['PrivateEndpointPropertyArgs']] private_endpoint: Private endpoint which the connection belongs to.
         :param pulumi.Input[str] private_endpoint_connection_name: The name of the private endpoint connection.
-        :param pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionStatePropertyArgs']] private_link_service_connection_state: Connection state of the private endpoint connection.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[pulumi.InputType['PrivateEndpointConnectionPropertiesArgs']] properties: Resource properties.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] scope_name: The name of the Azure Arc PrivateLinkScope resource.
         """
         if __name__ is not None:
@@ -54,9 +52,8 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            __props__['private_endpoint'] = private_endpoint
             __props__['private_endpoint_connection_name'] = private_endpoint_connection_name
-            __props__['private_link_service_connection_state'] = private_link_service_connection_state
+            __props__['properties'] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -64,9 +61,9 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                 raise TypeError("Missing required property 'scope_name'")
             __props__['scope_name'] = scope_name
             __props__['name'] = None
-            __props__['provisioning_state'] = None
+            __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybridcompute/v20200815preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:hybridcompute/v20200815preview:PrivateEndpointConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybridcompute/v20200815preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:hybridcompute/v20200815preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:hybridcompute/v20210128preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:hybridcompute/v20210128preview:PrivateEndpointConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateEndpointConnection, __self__).__init__(
             'azure-native:hybridcompute:PrivateEndpointConnection',
@@ -101,28 +98,20 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="privateEndpoint")
-    def private_endpoint(self) -> pulumi.Output[Optional['outputs.PrivateEndpointPropertyResponse']]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.PrivateEndpointConnectionPropertiesResponse']:
         """
-        Private endpoint which the connection belongs to.
+        Resource properties.
         """
-        return pulumi.get(self, "private_endpoint")
+        return pulumi.get(self, "properties")
 
     @property
-    @pulumi.getter(name="privateLinkServiceConnectionState")
-    def private_link_service_connection_state(self) -> pulumi.Output[Optional['outputs.PrivateLinkServiceConnectionStatePropertyResponse']]:
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        Connection state of the private endpoint connection.
+        The system meta data relating to this resource.
         """
-        return pulumi.get(self, "private_link_service_connection_state")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[str]:
-        """
-        State of the private endpoint connection.
-        """
-        return pulumi.get(self, "provisioning_state")
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

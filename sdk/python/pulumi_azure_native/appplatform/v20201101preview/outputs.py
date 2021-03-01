@@ -1067,8 +1067,12 @@ class SkuResponse(dict):
         """
         if capacity is not None:
             pulumi.set(__self__, "capacity", capacity)
+        if name is None:
+            name = 'S0'
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if tier is None:
+            tier = 'Standard'
         if tier is not None:
             pulumi.set(__self__, "tier", tier)
 

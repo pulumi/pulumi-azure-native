@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * An Azure Cosmos DB Role Assignment
- * API Version: 2020-06-01-preview.
+ * API Version: 2021-03-01-preview.
  */
 export class SqlResourceSqlRoleAssignment extends pulumi.CustomResource {
     /**
@@ -91,7 +91,7 @@ export class SqlResourceSqlRoleAssignment extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:documentdb/v20200601preview:SqlResourceSqlRoleAssignment" }, { type: "azure-nextgen:documentdb/v20200601preview:SqlResourceSqlRoleAssignment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:documentdb/v20200601preview:SqlResourceSqlRoleAssignment" }, { type: "azure-nextgen:documentdb/v20200601preview:SqlResourceSqlRoleAssignment" }, { type: "azure-native:documentdb/v20210301preview:SqlResourceSqlRoleAssignment" }, { type: "azure-nextgen:documentdb/v20210301preview:SqlResourceSqlRoleAssignment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SqlResourceSqlRoleAssignment.__pulumiType, name, inputs, opts);
     }

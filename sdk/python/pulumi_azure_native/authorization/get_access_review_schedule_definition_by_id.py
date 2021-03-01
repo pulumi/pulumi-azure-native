@@ -20,10 +20,13 @@ class GetAccessReviewScheduleDefinitionByIdResult:
     """
     Access Review Schedule Definition.
     """
-    def __init__(__self__, auto_apply_decisions_enabled=None, default_decision=None, default_decision_enabled=None, description_for_admins=None, description_for_reviewers=None, display_name=None, end_date=None, id=None, instance_duration_in_days=None, instances=None, interval=None, justification_required_on_approval=None, mail_notifications_enabled=None, name=None, number_of_occurrences=None, principal_id=None, principal_name=None, principal_type=None, recommendations_enabled=None, reminder_notifications_enabled=None, resource_id=None, reviewers=None, reviewers_type=None, role_definition_id=None, start_date=None, status=None, type=None, user_principal_name=None):
+    def __init__(__self__, auto_apply_decisions_enabled=None, backup_reviewers=None, default_decision=None, default_decision_enabled=None, description_for_admins=None, description_for_reviewers=None, display_name=None, end_date=None, id=None, instance_duration_in_days=None, instances=None, interval=None, justification_required_on_approval=None, mail_notifications_enabled=None, name=None, number_of_occurrences=None, principal_id=None, principal_name=None, principal_type=None, recommendations_enabled=None, reminder_notifications_enabled=None, resource_id=None, reviewers=None, reviewers_type=None, role_definition_id=None, start_date=None, status=None, type=None, user_principal_name=None):
         if auto_apply_decisions_enabled and not isinstance(auto_apply_decisions_enabled, bool):
             raise TypeError("Expected argument 'auto_apply_decisions_enabled' to be a bool")
         pulumi.set(__self__, "auto_apply_decisions_enabled", auto_apply_decisions_enabled)
+        if backup_reviewers and not isinstance(backup_reviewers, list):
+            raise TypeError("Expected argument 'backup_reviewers' to be a list")
+        pulumi.set(__self__, "backup_reviewers", backup_reviewers)
         if default_decision and not isinstance(default_decision, str):
             raise TypeError("Expected argument 'default_decision' to be a str")
         pulumi.set(__self__, "default_decision", default_decision)
@@ -113,6 +116,14 @@ class GetAccessReviewScheduleDefinitionByIdResult:
         Flag to indicate whether auto-apply capability, to automatically change the target object access resource, is enabled. If not enabled, a user must, after the review completes, apply the access review.
         """
         return pulumi.get(self, "auto_apply_decisions_enabled")
+
+    @property
+    @pulumi.getter(name="backupReviewers")
+    def backup_reviewers(self) -> Optional[Sequence['outputs.AccessReviewReviewerResponse']]:
+        """
+        This is the collection of backup reviewers.
+        """
+        return pulumi.get(self, "backup_reviewers")
 
     @property
     @pulumi.getter(name="defaultDecision")
@@ -338,6 +349,7 @@ class AwaitableGetAccessReviewScheduleDefinitionByIdResult(GetAccessReviewSchedu
             yield self
         return GetAccessReviewScheduleDefinitionByIdResult(
             auto_apply_decisions_enabled=self.auto_apply_decisions_enabled,
+            backup_reviewers=self.backup_reviewers,
             default_decision=self.default_decision,
             default_decision_enabled=self.default_decision_enabled,
             description_for_admins=self.description_for_admins,
@@ -371,7 +383,7 @@ def get_access_review_schedule_definition_by_id(schedule_definition_id: Optional
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccessReviewScheduleDefinitionByIdResult:
     """
     Access Review Schedule Definition.
-    API Version: 2018-05-01-preview.
+    API Version: 2021-03-01-preview.
 
 
     :param str schedule_definition_id: The id of the access review schedule definition.
@@ -386,6 +398,7 @@ def get_access_review_schedule_definition_by_id(schedule_definition_id: Optional
 
     return AwaitableGetAccessReviewScheduleDefinitionByIdResult(
         auto_apply_decisions_enabled=__ret__.auto_apply_decisions_enabled,
+        backup_reviewers=__ret__.backup_reviewers,
         default_decision=__ret__.default_decision,
         default_decision_enabled=__ret__.default_decision_enabled,
         description_for_admins=__ret__.description_for_admins,

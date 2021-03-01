@@ -5,6 +5,7 @@
 from enum import Enum
 
 __all__ = [
+    'AuthenticationMethod',
     'BackupPolicyType',
     'CompositePathSortOrder',
     'ConflictResolutionMode',
@@ -15,6 +16,7 @@ __all__ = [
     'DefaultConsistencyLevel',
     'IndexKind',
     'IndexingMode',
+    'ManagedCassandraProvisioningState',
     'NetworkAclBypass',
     'PartitionKind',
     'PublicNetworkAccess',
@@ -25,6 +27,14 @@ __all__ = [
     'TriggerOperation',
     'TriggerType',
 ]
+
+
+class AuthenticationMethod(str, Enum):
+    """
+    Which authentication method Cassandra should use to authenticate clients. 'None' turns off authentication, so should not be used except in emergencies. 'Cassandra' is the default password based authentication. The default is 'Cassandra'.
+    """
+    NONE = "None"
+    CASSANDRA = "Cassandra"
 
 
 class BackupPolicyType(str, Enum):
@@ -113,6 +123,18 @@ class IndexingMode(str, Enum):
     CONSISTENT = "consistent"
     LAZY = "lazy"
     NONE = "none"
+
+
+class ManagedCassandraProvisioningState(str, Enum):
+    """
+    The status of the resource at the time the operation was called.
+    """
+    CREATING = "Creating"
+    UPDATING = "Updating"
+    DELETING = "Deleting"
+    SUCCEEDED = "Succeeded"
+    FAILED = "Failed"
+    CANCELED = "Canceled"
 
 
 class NetworkAclBypass(str, Enum):

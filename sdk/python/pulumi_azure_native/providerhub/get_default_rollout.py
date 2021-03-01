@@ -20,22 +20,16 @@ class GetDefaultRolloutResult:
     """
     Default rollout definition.
     """
-    def __init__(__self__, id=None, name=None, provisioning_state=None, specification=None, status=None, type=None):
+    def __init__(__self__, id=None, name=None, properties=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if specification and not isinstance(specification, dict):
-            raise TypeError("Expected argument 'specification' to be a dict")
-        pulumi.set(__self__, "specification", specification)
-        if status and not isinstance(status, dict):
-            raise TypeError("Expected argument 'status' to be a dict")
-        pulumi.set(__self__, "status", status)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -57,19 +51,12 @@ class GetDefaultRolloutResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
-        return pulumi.get(self, "provisioning_state")
-
-    @property
     @pulumi.getter
-    def specification(self) -> Optional['outputs.DefaultRolloutPropertiesResponseSpecification']:
-        return pulumi.get(self, "specification")
-
-    @property
-    @pulumi.getter
-    def status(self) -> Optional['outputs.DefaultRolloutPropertiesResponseStatus']:
-        return pulumi.get(self, "status")
+    def properties(self) -> 'outputs.DefaultRolloutResponseProperties':
+        """
+        Properties of the rollout.
+        """
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -88,9 +75,7 @@ class AwaitableGetDefaultRolloutResult(GetDefaultRolloutResult):
         return GetDefaultRolloutResult(
             id=self.id,
             name=self.name,
-            provisioning_state=self.provisioning_state,
-            specification=self.specification,
-            status=self.status,
+            properties=self.properties,
             type=self.type)
 
 
@@ -117,7 +102,5 @@ def get_default_rollout(provider_namespace: Optional[str] = None,
     return AwaitableGetDefaultRolloutResult(
         id=__ret__.id,
         name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        specification=__ret__.specification,
-        status=__ret__.status,
+        properties=__ret__.properties,
         type=__ret__.type)

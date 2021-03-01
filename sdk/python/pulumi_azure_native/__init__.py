@@ -58,6 +58,7 @@ from . import (
     datalakeanalytics,
     datalakestore,
     datamigration,
+    dataprotection,
     datashare,
     dbformariadb,
     dbformysql,

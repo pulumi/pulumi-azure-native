@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.HybridCompute
 {
     /// <summary>
     /// A private endpoint connection
-    /// API Version: 2020-08-15-preview.
+    /// API Version: 2021-01-28-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridcompute:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
@@ -23,22 +23,16 @@ namespace Pulumi.AzureNative.HybridCompute
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Private endpoint which the connection belongs to.
+        /// Resource properties.
         /// </summary>
-        [Output("privateEndpoint")]
-        public Output<Outputs.PrivateEndpointPropertyResponse?> PrivateEndpoint { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.PrivateEndpointConnectionPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
-        /// Connection state of the private endpoint connection.
+        /// The system meta data relating to this resource.
         /// </summary>
-        [Output("privateLinkServiceConnectionState")]
-        public Output<Outputs.PrivateLinkServiceConnectionStatePropertyResponse?> PrivateLinkServiceConnectionState { get; private set; } = null!;
-
-        /// <summary>
-        /// State of the private endpoint connection.
-        /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -73,6 +67,8 @@ namespace Pulumi.AzureNative.HybridCompute
                 {
                     new Pulumi.Alias { Type = "azure-native:hybridcompute/v20200815preview:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:hybridcompute/v20200815preview:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:hybridcompute/v20210128preview:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:hybridcompute/v20210128preview:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -97,25 +93,19 @@ namespace Pulumi.AzureNative.HybridCompute
     public sealed class PrivateEndpointConnectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Private endpoint which the connection belongs to.
-        /// </summary>
-        [Input("privateEndpoint")]
-        public Input<Inputs.PrivateEndpointPropertyArgs>? PrivateEndpoint { get; set; }
-
-        /// <summary>
         /// The name of the private endpoint connection.
         /// </summary>
         [Input("privateEndpointConnectionName")]
         public Input<string>? PrivateEndpointConnectionName { get; set; }
 
         /// <summary>
-        /// Connection state of the private endpoint connection.
+        /// Resource properties.
         /// </summary>
-        [Input("privateLinkServiceConnectionState")]
-        public Input<Inputs.PrivateLinkServiceConnectionStatePropertyArgs>? PrivateLinkServiceConnectionState { get; set; }
+        [Input("properties")]
+        public Input<Inputs.PrivateEndpointConnectionPropertiesArgs>? Properties { get; set; }
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

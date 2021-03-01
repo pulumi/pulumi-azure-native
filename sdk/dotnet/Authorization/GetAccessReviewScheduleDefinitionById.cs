@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Authorization
     {
         /// <summary>
         /// Access Review Schedule Definition.
-        /// API Version: 2018-05-01-preview.
+        /// API Version: 2021-03-01-preview.
         /// </summary>
         public static Task<GetAccessReviewScheduleDefinitionByIdResult> InvokeAsync(GetAccessReviewScheduleDefinitionByIdArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAccessReviewScheduleDefinitionByIdResult>("azure-native:authorization:getAccessReviewScheduleDefinitionById", args ?? new GetAccessReviewScheduleDefinitionByIdArgs(), options.WithVersion());
@@ -41,6 +41,10 @@ namespace Pulumi.AzureNative.Authorization
         /// Flag to indicate whether auto-apply capability, to automatically change the target object access resource, is enabled. If not enabled, a user must, after the review completes, apply the access review.
         /// </summary>
         public readonly bool? AutoApplyDecisionsEnabled;
+        /// <summary>
+        /// This is the collection of backup reviewers.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.AccessReviewReviewerResponse> BackupReviewers;
         /// <summary>
         /// This specifies the behavior for the autoReview feature when an access review completes.
         /// </summary>
@@ -154,6 +158,8 @@ namespace Pulumi.AzureNative.Authorization
         private GetAccessReviewScheduleDefinitionByIdResult(
             bool? autoApplyDecisionsEnabled,
 
+            ImmutableArray<Outputs.AccessReviewReviewerResponse> backupReviewers,
+
             string? defaultDecision,
 
             bool? defaultDecisionEnabled,
@@ -209,6 +215,7 @@ namespace Pulumi.AzureNative.Authorization
             string userPrincipalName)
         {
             AutoApplyDecisionsEnabled = autoApplyDecisionsEnabled;
+            BackupReviewers = backupReviewers;
             DefaultDecision = defaultDecision;
             DefaultDecisionEnabled = defaultDecisionEnabled;
             DescriptionForAdmins = descriptionForAdmins;

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HybridCompute
     {
         /// <summary>
         /// A private endpoint connection
-        /// API Version: 2020-08-15-preview.
+        /// API Version: 2021-01-28-preview.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionResult> InvokeAsync(GetPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionResult>("azure-native:hybridcompute:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionArgs(), options.WithVersion());
@@ -29,7 +29,7 @@ namespace Pulumi.AzureNative.HybridCompute
         public string PrivateEndpointConnectionName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -58,17 +58,13 @@ namespace Pulumi.AzureNative.HybridCompute
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Private endpoint which the connection belongs to.
+        /// Resource properties.
         /// </summary>
-        public readonly Outputs.PrivateEndpointPropertyResponse? PrivateEndpoint;
+        public readonly Outputs.PrivateEndpointConnectionPropertiesResponse Properties;
         /// <summary>
-        /// Connection state of the private endpoint connection.
+        /// The system meta data relating to this resource.
         /// </summary>
-        public readonly Outputs.PrivateLinkServiceConnectionStatePropertyResponse? PrivateLinkServiceConnectionState;
-        /// <summary>
-        /// State of the private endpoint connection.
-        /// </summary>
-        public readonly string ProvisioningState;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
@@ -80,19 +76,16 @@ namespace Pulumi.AzureNative.HybridCompute
 
             string name,
 
-            Outputs.PrivateEndpointPropertyResponse? privateEndpoint,
+            Outputs.PrivateEndpointConnectionPropertiesResponse properties,
 
-            Outputs.PrivateLinkServiceConnectionStatePropertyResponse? privateLinkServiceConnectionState,
-
-            string provisioningState,
+            Outputs.SystemDataResponse systemData,
 
             string type)
         {
             Id = id;
             Name = name;
-            PrivateEndpoint = privateEndpoint;
-            PrivateLinkServiceConnectionState = privateLinkServiceConnectionState;
-            ProvisioningState = provisioningState;
+            Properties = properties;
+            SystemData = systemData;
             Type = type;
         }
     }

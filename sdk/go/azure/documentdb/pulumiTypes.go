@@ -2329,6 +2329,200 @@ func (o CassandraTableResourcePtrOutput) Schema() CassandraSchemaPtrOutput {
 	}).(CassandraSchemaPtrOutput)
 }
 
+type Certificate struct {
+	// PEM formatted public key.
+	Pem *string `pulumi:"pem"`
+}
+
+// CertificateInput is an input type that accepts CertificateArgs and CertificateOutput values.
+// You can construct a concrete instance of `CertificateInput` via:
+//
+//          CertificateArgs{...}
+type CertificateInput interface {
+	pulumi.Input
+
+	ToCertificateOutput() CertificateOutput
+	ToCertificateOutputWithContext(context.Context) CertificateOutput
+}
+
+type CertificateArgs struct {
+	// PEM formatted public key.
+	Pem pulumi.StringPtrInput `pulumi:"pem"`
+}
+
+func (CertificateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Certificate)(nil)).Elem()
+}
+
+func (i CertificateArgs) ToCertificateOutput() CertificateOutput {
+	return i.ToCertificateOutputWithContext(context.Background())
+}
+
+func (i CertificateArgs) ToCertificateOutputWithContext(ctx context.Context) CertificateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateOutput)
+}
+
+// CertificateArrayInput is an input type that accepts CertificateArray and CertificateArrayOutput values.
+// You can construct a concrete instance of `CertificateArrayInput` via:
+//
+//          CertificateArray{ CertificateArgs{...} }
+type CertificateArrayInput interface {
+	pulumi.Input
+
+	ToCertificateArrayOutput() CertificateArrayOutput
+	ToCertificateArrayOutputWithContext(context.Context) CertificateArrayOutput
+}
+
+type CertificateArray []CertificateInput
+
+func (CertificateArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Certificate)(nil)).Elem()
+}
+
+func (i CertificateArray) ToCertificateArrayOutput() CertificateArrayOutput {
+	return i.ToCertificateArrayOutputWithContext(context.Background())
+}
+
+func (i CertificateArray) ToCertificateArrayOutputWithContext(ctx context.Context) CertificateArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateArrayOutput)
+}
+
+type CertificateOutput struct{ *pulumi.OutputState }
+
+func (CertificateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Certificate)(nil)).Elem()
+}
+
+func (o CertificateOutput) ToCertificateOutput() CertificateOutput {
+	return o
+}
+
+func (o CertificateOutput) ToCertificateOutputWithContext(ctx context.Context) CertificateOutput {
+	return o
+}
+
+// PEM formatted public key.
+func (o CertificateOutput) Pem() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Certificate) *string { return v.Pem }).(pulumi.StringPtrOutput)
+}
+
+type CertificateArrayOutput struct{ *pulumi.OutputState }
+
+func (CertificateArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Certificate)(nil)).Elem()
+}
+
+func (o CertificateArrayOutput) ToCertificateArrayOutput() CertificateArrayOutput {
+	return o
+}
+
+func (o CertificateArrayOutput) ToCertificateArrayOutputWithContext(ctx context.Context) CertificateArrayOutput {
+	return o
+}
+
+func (o CertificateArrayOutput) Index(i pulumi.IntInput) CertificateOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Certificate {
+		return vs[0].([]Certificate)[vs[1].(int)]
+	}).(CertificateOutput)
+}
+
+type CertificateResponse struct {
+	// PEM formatted public key.
+	Pem *string `pulumi:"pem"`
+}
+
+// CertificateResponseInput is an input type that accepts CertificateResponseArgs and CertificateResponseOutput values.
+// You can construct a concrete instance of `CertificateResponseInput` via:
+//
+//          CertificateResponseArgs{...}
+type CertificateResponseInput interface {
+	pulumi.Input
+
+	ToCertificateResponseOutput() CertificateResponseOutput
+	ToCertificateResponseOutputWithContext(context.Context) CertificateResponseOutput
+}
+
+type CertificateResponseArgs struct {
+	// PEM formatted public key.
+	Pem pulumi.StringPtrInput `pulumi:"pem"`
+}
+
+func (CertificateResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateResponse)(nil)).Elem()
+}
+
+func (i CertificateResponseArgs) ToCertificateResponseOutput() CertificateResponseOutput {
+	return i.ToCertificateResponseOutputWithContext(context.Background())
+}
+
+func (i CertificateResponseArgs) ToCertificateResponseOutputWithContext(ctx context.Context) CertificateResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateResponseOutput)
+}
+
+// CertificateResponseArrayInput is an input type that accepts CertificateResponseArray and CertificateResponseArrayOutput values.
+// You can construct a concrete instance of `CertificateResponseArrayInput` via:
+//
+//          CertificateResponseArray{ CertificateResponseArgs{...} }
+type CertificateResponseArrayInput interface {
+	pulumi.Input
+
+	ToCertificateResponseArrayOutput() CertificateResponseArrayOutput
+	ToCertificateResponseArrayOutputWithContext(context.Context) CertificateResponseArrayOutput
+}
+
+type CertificateResponseArray []CertificateResponseInput
+
+func (CertificateResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CertificateResponse)(nil)).Elem()
+}
+
+func (i CertificateResponseArray) ToCertificateResponseArrayOutput() CertificateResponseArrayOutput {
+	return i.ToCertificateResponseArrayOutputWithContext(context.Background())
+}
+
+func (i CertificateResponseArray) ToCertificateResponseArrayOutputWithContext(ctx context.Context) CertificateResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateResponseArrayOutput)
+}
+
+type CertificateResponseOutput struct{ *pulumi.OutputState }
+
+func (CertificateResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateResponse)(nil)).Elem()
+}
+
+func (o CertificateResponseOutput) ToCertificateResponseOutput() CertificateResponseOutput {
+	return o
+}
+
+func (o CertificateResponseOutput) ToCertificateResponseOutputWithContext(ctx context.Context) CertificateResponseOutput {
+	return o
+}
+
+// PEM formatted public key.
+func (o CertificateResponseOutput) Pem() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateResponse) *string { return v.Pem }).(pulumi.StringPtrOutput)
+}
+
+type CertificateResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (CertificateResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CertificateResponse)(nil)).Elem()
+}
+
+func (o CertificateResponseArrayOutput) ToCertificateResponseArrayOutput() CertificateResponseArrayOutput {
+	return o
+}
+
+func (o CertificateResponseArrayOutput) ToCertificateResponseArrayOutputWithContext(ctx context.Context) CertificateResponseArrayOutput {
+	return o
+}
+
+func (o CertificateResponseArrayOutput) Index(i pulumi.IntInput) CertificateResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CertificateResponse {
+		return vs[0].([]CertificateResponse)[vs[1].(int)]
+	}).(CertificateResponseOutput)
+}
+
 // Cosmos DB Cassandra table cluster key
 type ClusterKey struct {
 	// Name of the Cosmos DB Cassandra table cluster key
@@ -2545,6 +2739,768 @@ func (o ClusterKeyResponseArrayOutput) Index(i pulumi.IntInput) ClusterKeyRespon
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterKeyResponse {
 		return vs[0].([]ClusterKeyResponse)[vs[1].(int)]
 	}).(ClusterKeyResponseOutput)
+}
+
+// Properties of a managed Cassandra cluster.
+type ClusterResourceProperties struct {
+	// Which authentication method Cassandra should use to authenticate clients. 'None' turns off authentication, so should not be used except in emergencies. 'Cassandra' is the default password based authentication. The default is 'Cassandra'.
+	AuthenticationMethod *string `pulumi:"authenticationMethod"`
+	// Which version of Cassandra should this cluster converge to running (e.g., 3.11). When updated, the cluster may take some time to migrate to the new version.
+	CassandraVersion *string `pulumi:"cassandraVersion"`
+	// List of TLS certificates used to authorize clients connecting to the cluster. All connections are TLS encrypted whether clientCertificates is set or not, but if clientCertificates is set, the managed Cassandra cluster will reject all connections not bearing a TLS client certificate that can be validated from one or more of the public certificates in this property.
+	ClientCertificates []Certificate `pulumi:"clientCertificates"`
+	// If you need to set the clusterName property in cassandra.yaml to something besides the resource name of the cluster, set the value to use on this property.
+	ClusterNameOverride *string `pulumi:"clusterNameOverride"`
+	// Resource id of a subnet that this cluster's management service should have its network interface attached to. The subnet must be routable to all subnets that will be delegated to data centers. The resource id must be of the form '/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Network/virtualNetworks/<virtual network>/subnets/<subnet>'
+	DelegatedManagementSubnetId *string `pulumi:"delegatedManagementSubnetId"`
+	// List of TLS certificates used to authorize gossip from unmanaged data centers. The TLS certificates of all nodes in unmanaged data centers must be verifiable using one of the certificates provided in this property.
+	ExternalGossipCertificates []Certificate `pulumi:"externalGossipCertificates"`
+	// List of IP addresses of seed nodes in unmanaged data centers. These will be added to the seed node lists of all managed nodes.
+	ExternalSeedNodes []SeedNode `pulumi:"externalSeedNodes"`
+	// Number of hours to wait between taking a backup of the cluster. To disable backups, set this property to 0.
+	HoursBetweenBackups *int `pulumi:"hoursBetweenBackups"`
+	// Initial password for clients connecting as admin to the cluster. Should be changed after cluster creation. Returns null on GET. This field only applies when the authenticationMethod field is 'Cassandra'.
+	InitialCassandraAdminPassword *string `pulumi:"initialCassandraAdminPassword"`
+	// Hostname or IP address where the Prometheus endpoint containing data about the managed Cassandra nodes can be reached.
+	PrometheusEndpoint *string `pulumi:"prometheusEndpoint"`
+	// The status of the resource at the time the operation was called.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Should automatic repairs run on this cluster? If omitted, this is true, and should stay true unless you are running a hybrid cluster where you are already doing your own repairs.
+	RepairEnabled *bool `pulumi:"repairEnabled"`
+	// To create an empty cluster, omit this field or set it to null. To restore a backup into a new cluster, set this field to the resource id of the backup.
+	RestoreFromBackupId *string `pulumi:"restoreFromBackupId"`
+}
+
+// ClusterResourcePropertiesInput is an input type that accepts ClusterResourcePropertiesArgs and ClusterResourcePropertiesOutput values.
+// You can construct a concrete instance of `ClusterResourcePropertiesInput` via:
+//
+//          ClusterResourcePropertiesArgs{...}
+type ClusterResourcePropertiesInput interface {
+	pulumi.Input
+
+	ToClusterResourcePropertiesOutput() ClusterResourcePropertiesOutput
+	ToClusterResourcePropertiesOutputWithContext(context.Context) ClusterResourcePropertiesOutput
+}
+
+// Properties of a managed Cassandra cluster.
+type ClusterResourcePropertiesArgs struct {
+	// Which authentication method Cassandra should use to authenticate clients. 'None' turns off authentication, so should not be used except in emergencies. 'Cassandra' is the default password based authentication. The default is 'Cassandra'.
+	AuthenticationMethod pulumi.StringPtrInput `pulumi:"authenticationMethod"`
+	// Which version of Cassandra should this cluster converge to running (e.g., 3.11). When updated, the cluster may take some time to migrate to the new version.
+	CassandraVersion pulumi.StringPtrInput `pulumi:"cassandraVersion"`
+	// List of TLS certificates used to authorize clients connecting to the cluster. All connections are TLS encrypted whether clientCertificates is set or not, but if clientCertificates is set, the managed Cassandra cluster will reject all connections not bearing a TLS client certificate that can be validated from one or more of the public certificates in this property.
+	ClientCertificates CertificateArrayInput `pulumi:"clientCertificates"`
+	// If you need to set the clusterName property in cassandra.yaml to something besides the resource name of the cluster, set the value to use on this property.
+	ClusterNameOverride pulumi.StringPtrInput `pulumi:"clusterNameOverride"`
+	// Resource id of a subnet that this cluster's management service should have its network interface attached to. The subnet must be routable to all subnets that will be delegated to data centers. The resource id must be of the form '/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Network/virtualNetworks/<virtual network>/subnets/<subnet>'
+	DelegatedManagementSubnetId pulumi.StringPtrInput `pulumi:"delegatedManagementSubnetId"`
+	// List of TLS certificates used to authorize gossip from unmanaged data centers. The TLS certificates of all nodes in unmanaged data centers must be verifiable using one of the certificates provided in this property.
+	ExternalGossipCertificates CertificateArrayInput `pulumi:"externalGossipCertificates"`
+	// List of IP addresses of seed nodes in unmanaged data centers. These will be added to the seed node lists of all managed nodes.
+	ExternalSeedNodes SeedNodeArrayInput `pulumi:"externalSeedNodes"`
+	// Number of hours to wait between taking a backup of the cluster. To disable backups, set this property to 0.
+	HoursBetweenBackups pulumi.IntPtrInput `pulumi:"hoursBetweenBackups"`
+	// Initial password for clients connecting as admin to the cluster. Should be changed after cluster creation. Returns null on GET. This field only applies when the authenticationMethod field is 'Cassandra'.
+	InitialCassandraAdminPassword pulumi.StringPtrInput `pulumi:"initialCassandraAdminPassword"`
+	// Hostname or IP address where the Prometheus endpoint containing data about the managed Cassandra nodes can be reached.
+	PrometheusEndpoint pulumi.StringPtrInput `pulumi:"prometheusEndpoint"`
+	// The status of the resource at the time the operation was called.
+	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
+	// Should automatic repairs run on this cluster? If omitted, this is true, and should stay true unless you are running a hybrid cluster where you are already doing your own repairs.
+	RepairEnabled pulumi.BoolPtrInput `pulumi:"repairEnabled"`
+	// To create an empty cluster, omit this field or set it to null. To restore a backup into a new cluster, set this field to the resource id of the backup.
+	RestoreFromBackupId pulumi.StringPtrInput `pulumi:"restoreFromBackupId"`
+}
+
+func (ClusterResourcePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterResourceProperties)(nil)).Elem()
+}
+
+func (i ClusterResourcePropertiesArgs) ToClusterResourcePropertiesOutput() ClusterResourcePropertiesOutput {
+	return i.ToClusterResourcePropertiesOutputWithContext(context.Background())
+}
+
+func (i ClusterResourcePropertiesArgs) ToClusterResourcePropertiesOutputWithContext(ctx context.Context) ClusterResourcePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterResourcePropertiesOutput)
+}
+
+func (i ClusterResourcePropertiesArgs) ToClusterResourcePropertiesPtrOutput() ClusterResourcePropertiesPtrOutput {
+	return i.ToClusterResourcePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterResourcePropertiesArgs) ToClusterResourcePropertiesPtrOutputWithContext(ctx context.Context) ClusterResourcePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterResourcePropertiesOutput).ToClusterResourcePropertiesPtrOutputWithContext(ctx)
+}
+
+// ClusterResourcePropertiesPtrInput is an input type that accepts ClusterResourcePropertiesArgs, ClusterResourcePropertiesPtr and ClusterResourcePropertiesPtrOutput values.
+// You can construct a concrete instance of `ClusterResourcePropertiesPtrInput` via:
+//
+//          ClusterResourcePropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type ClusterResourcePropertiesPtrInput interface {
+	pulumi.Input
+
+	ToClusterResourcePropertiesPtrOutput() ClusterResourcePropertiesPtrOutput
+	ToClusterResourcePropertiesPtrOutputWithContext(context.Context) ClusterResourcePropertiesPtrOutput
+}
+
+type clusterResourcePropertiesPtrType ClusterResourcePropertiesArgs
+
+func ClusterResourcePropertiesPtr(v *ClusterResourcePropertiesArgs) ClusterResourcePropertiesPtrInput {
+	return (*clusterResourcePropertiesPtrType)(v)
+}
+
+func (*clusterResourcePropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterResourceProperties)(nil)).Elem()
+}
+
+func (i *clusterResourcePropertiesPtrType) ToClusterResourcePropertiesPtrOutput() ClusterResourcePropertiesPtrOutput {
+	return i.ToClusterResourcePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterResourcePropertiesPtrType) ToClusterResourcePropertiesPtrOutputWithContext(ctx context.Context) ClusterResourcePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterResourcePropertiesPtrOutput)
+}
+
+// Properties of a managed Cassandra cluster.
+type ClusterResourcePropertiesOutput struct{ *pulumi.OutputState }
+
+func (ClusterResourcePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterResourceProperties)(nil)).Elem()
+}
+
+func (o ClusterResourcePropertiesOutput) ToClusterResourcePropertiesOutput() ClusterResourcePropertiesOutput {
+	return o
+}
+
+func (o ClusterResourcePropertiesOutput) ToClusterResourcePropertiesOutputWithContext(ctx context.Context) ClusterResourcePropertiesOutput {
+	return o
+}
+
+func (o ClusterResourcePropertiesOutput) ToClusterResourcePropertiesPtrOutput() ClusterResourcePropertiesPtrOutput {
+	return o.ToClusterResourcePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterResourcePropertiesOutput) ToClusterResourcePropertiesPtrOutputWithContext(ctx context.Context) ClusterResourcePropertiesPtrOutput {
+	return o.ApplyT(func(v ClusterResourceProperties) *ClusterResourceProperties {
+		return &v
+	}).(ClusterResourcePropertiesPtrOutput)
+}
+
+// Which authentication method Cassandra should use to authenticate clients. 'None' turns off authentication, so should not be used except in emergencies. 'Cassandra' is the default password based authentication. The default is 'Cassandra'.
+func (o ClusterResourcePropertiesOutput) AuthenticationMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterResourceProperties) *string { return v.AuthenticationMethod }).(pulumi.StringPtrOutput)
+}
+
+// Which version of Cassandra should this cluster converge to running (e.g., 3.11). When updated, the cluster may take some time to migrate to the new version.
+func (o ClusterResourcePropertiesOutput) CassandraVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterResourceProperties) *string { return v.CassandraVersion }).(pulumi.StringPtrOutput)
+}
+
+// List of TLS certificates used to authorize clients connecting to the cluster. All connections are TLS encrypted whether clientCertificates is set or not, but if clientCertificates is set, the managed Cassandra cluster will reject all connections not bearing a TLS client certificate that can be validated from one or more of the public certificates in this property.
+func (o ClusterResourcePropertiesOutput) ClientCertificates() CertificateArrayOutput {
+	return o.ApplyT(func(v ClusterResourceProperties) []Certificate { return v.ClientCertificates }).(CertificateArrayOutput)
+}
+
+// If you need to set the clusterName property in cassandra.yaml to something besides the resource name of the cluster, set the value to use on this property.
+func (o ClusterResourcePropertiesOutput) ClusterNameOverride() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterResourceProperties) *string { return v.ClusterNameOverride }).(pulumi.StringPtrOutput)
+}
+
+// Resource id of a subnet that this cluster's management service should have its network interface attached to. The subnet must be routable to all subnets that will be delegated to data centers. The resource id must be of the form '/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Network/virtualNetworks/<virtual network>/subnets/<subnet>'
+func (o ClusterResourcePropertiesOutput) DelegatedManagementSubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterResourceProperties) *string { return v.DelegatedManagementSubnetId }).(pulumi.StringPtrOutput)
+}
+
+// List of TLS certificates used to authorize gossip from unmanaged data centers. The TLS certificates of all nodes in unmanaged data centers must be verifiable using one of the certificates provided in this property.
+func (o ClusterResourcePropertiesOutput) ExternalGossipCertificates() CertificateArrayOutput {
+	return o.ApplyT(func(v ClusterResourceProperties) []Certificate { return v.ExternalGossipCertificates }).(CertificateArrayOutput)
+}
+
+// List of IP addresses of seed nodes in unmanaged data centers. These will be added to the seed node lists of all managed nodes.
+func (o ClusterResourcePropertiesOutput) ExternalSeedNodes() SeedNodeArrayOutput {
+	return o.ApplyT(func(v ClusterResourceProperties) []SeedNode { return v.ExternalSeedNodes }).(SeedNodeArrayOutput)
+}
+
+// Number of hours to wait between taking a backup of the cluster. To disable backups, set this property to 0.
+func (o ClusterResourcePropertiesOutput) HoursBetweenBackups() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterResourceProperties) *int { return v.HoursBetweenBackups }).(pulumi.IntPtrOutput)
+}
+
+// Initial password for clients connecting as admin to the cluster. Should be changed after cluster creation. Returns null on GET. This field only applies when the authenticationMethod field is 'Cassandra'.
+func (o ClusterResourcePropertiesOutput) InitialCassandraAdminPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterResourceProperties) *string { return v.InitialCassandraAdminPassword }).(pulumi.StringPtrOutput)
+}
+
+// Hostname or IP address where the Prometheus endpoint containing data about the managed Cassandra nodes can be reached.
+func (o ClusterResourcePropertiesOutput) PrometheusEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterResourceProperties) *string { return v.PrometheusEndpoint }).(pulumi.StringPtrOutput)
+}
+
+// The status of the resource at the time the operation was called.
+func (o ClusterResourcePropertiesOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterResourceProperties) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// Should automatic repairs run on this cluster? If omitted, this is true, and should stay true unless you are running a hybrid cluster where you are already doing your own repairs.
+func (o ClusterResourcePropertiesOutput) RepairEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ClusterResourceProperties) *bool { return v.RepairEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// To create an empty cluster, omit this field or set it to null. To restore a backup into a new cluster, set this field to the resource id of the backup.
+func (o ClusterResourcePropertiesOutput) RestoreFromBackupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterResourceProperties) *string { return v.RestoreFromBackupId }).(pulumi.StringPtrOutput)
+}
+
+type ClusterResourcePropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterResourcePropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterResourceProperties)(nil)).Elem()
+}
+
+func (o ClusterResourcePropertiesPtrOutput) ToClusterResourcePropertiesPtrOutput() ClusterResourcePropertiesPtrOutput {
+	return o
+}
+
+func (o ClusterResourcePropertiesPtrOutput) ToClusterResourcePropertiesPtrOutputWithContext(ctx context.Context) ClusterResourcePropertiesPtrOutput {
+	return o
+}
+
+func (o ClusterResourcePropertiesPtrOutput) Elem() ClusterResourcePropertiesOutput {
+	return o.ApplyT(func(v *ClusterResourceProperties) ClusterResourceProperties { return *v }).(ClusterResourcePropertiesOutput)
+}
+
+// Which authentication method Cassandra should use to authenticate clients. 'None' turns off authentication, so should not be used except in emergencies. 'Cassandra' is the default password based authentication. The default is 'Cassandra'.
+func (o ClusterResourcePropertiesPtrOutput) AuthenticationMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterResourceProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AuthenticationMethod
+	}).(pulumi.StringPtrOutput)
+}
+
+// Which version of Cassandra should this cluster converge to running (e.g., 3.11). When updated, the cluster may take some time to migrate to the new version.
+func (o ClusterResourcePropertiesPtrOutput) CassandraVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterResourceProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CassandraVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// List of TLS certificates used to authorize clients connecting to the cluster. All connections are TLS encrypted whether clientCertificates is set or not, but if clientCertificates is set, the managed Cassandra cluster will reject all connections not bearing a TLS client certificate that can be validated from one or more of the public certificates in this property.
+func (o ClusterResourcePropertiesPtrOutput) ClientCertificates() CertificateArrayOutput {
+	return o.ApplyT(func(v *ClusterResourceProperties) []Certificate {
+		if v == nil {
+			return nil
+		}
+		return v.ClientCertificates
+	}).(CertificateArrayOutput)
+}
+
+// If you need to set the clusterName property in cassandra.yaml to something besides the resource name of the cluster, set the value to use on this property.
+func (o ClusterResourcePropertiesPtrOutput) ClusterNameOverride() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterResourceProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClusterNameOverride
+	}).(pulumi.StringPtrOutput)
+}
+
+// Resource id of a subnet that this cluster's management service should have its network interface attached to. The subnet must be routable to all subnets that will be delegated to data centers. The resource id must be of the form '/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Network/virtualNetworks/<virtual network>/subnets/<subnet>'
+func (o ClusterResourcePropertiesPtrOutput) DelegatedManagementSubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterResourceProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DelegatedManagementSubnetId
+	}).(pulumi.StringPtrOutput)
+}
+
+// List of TLS certificates used to authorize gossip from unmanaged data centers. The TLS certificates of all nodes in unmanaged data centers must be verifiable using one of the certificates provided in this property.
+func (o ClusterResourcePropertiesPtrOutput) ExternalGossipCertificates() CertificateArrayOutput {
+	return o.ApplyT(func(v *ClusterResourceProperties) []Certificate {
+		if v == nil {
+			return nil
+		}
+		return v.ExternalGossipCertificates
+	}).(CertificateArrayOutput)
+}
+
+// List of IP addresses of seed nodes in unmanaged data centers. These will be added to the seed node lists of all managed nodes.
+func (o ClusterResourcePropertiesPtrOutput) ExternalSeedNodes() SeedNodeArrayOutput {
+	return o.ApplyT(func(v *ClusterResourceProperties) []SeedNode {
+		if v == nil {
+			return nil
+		}
+		return v.ExternalSeedNodes
+	}).(SeedNodeArrayOutput)
+}
+
+// Number of hours to wait between taking a backup of the cluster. To disable backups, set this property to 0.
+func (o ClusterResourcePropertiesPtrOutput) HoursBetweenBackups() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ClusterResourceProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return v.HoursBetweenBackups
+	}).(pulumi.IntPtrOutput)
+}
+
+// Initial password for clients connecting as admin to the cluster. Should be changed after cluster creation. Returns null on GET. This field only applies when the authenticationMethod field is 'Cassandra'.
+func (o ClusterResourcePropertiesPtrOutput) InitialCassandraAdminPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterResourceProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InitialCassandraAdminPassword
+	}).(pulumi.StringPtrOutput)
+}
+
+// Hostname or IP address where the Prometheus endpoint containing data about the managed Cassandra nodes can be reached.
+func (o ClusterResourcePropertiesPtrOutput) PrometheusEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterResourceProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrometheusEndpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+// The status of the resource at the time the operation was called.
+func (o ClusterResourcePropertiesPtrOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterResourceProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProvisioningState
+	}).(pulumi.StringPtrOutput)
+}
+
+// Should automatic repairs run on this cluster? If omitted, this is true, and should stay true unless you are running a hybrid cluster where you are already doing your own repairs.
+func (o ClusterResourcePropertiesPtrOutput) RepairEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClusterResourceProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RepairEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// To create an empty cluster, omit this field or set it to null. To restore a backup into a new cluster, set this field to the resource id of the backup.
+func (o ClusterResourcePropertiesPtrOutput) RestoreFromBackupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterResourceProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RestoreFromBackupId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Properties of a managed Cassandra cluster.
+type ClusterResourceResponseProperties struct {
+	// Which authentication method Cassandra should use to authenticate clients. 'None' turns off authentication, so should not be used except in emergencies. 'Cassandra' is the default password based authentication. The default is 'Cassandra'.
+	AuthenticationMethod *string `pulumi:"authenticationMethod"`
+	// Which version of Cassandra should this cluster converge to running (e.g., 3.11). When updated, the cluster may take some time to migrate to the new version.
+	CassandraVersion *string `pulumi:"cassandraVersion"`
+	// List of TLS certificates used to authorize clients connecting to the cluster. All connections are TLS encrypted whether clientCertificates is set or not, but if clientCertificates is set, the managed Cassandra cluster will reject all connections not bearing a TLS client certificate that can be validated from one or more of the public certificates in this property.
+	ClientCertificates []CertificateResponse `pulumi:"clientCertificates"`
+	// If you need to set the clusterName property in cassandra.yaml to something besides the resource name of the cluster, set the value to use on this property.
+	ClusterNameOverride *string `pulumi:"clusterNameOverride"`
+	// Resource id of a subnet that this cluster's management service should have its network interface attached to. The subnet must be routable to all subnets that will be delegated to data centers. The resource id must be of the form '/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Network/virtualNetworks/<virtual network>/subnets/<subnet>'
+	DelegatedManagementSubnetId *string `pulumi:"delegatedManagementSubnetId"`
+	// List of TLS certificates used to authorize gossip from unmanaged data centers. The TLS certificates of all nodes in unmanaged data centers must be verifiable using one of the certificates provided in this property.
+	ExternalGossipCertificates []CertificateResponse `pulumi:"externalGossipCertificates"`
+	// List of IP addresses of seed nodes in unmanaged data centers. These will be added to the seed node lists of all managed nodes.
+	ExternalSeedNodes []SeedNodeResponse `pulumi:"externalSeedNodes"`
+	// List of TLS certificates that unmanaged nodes must trust for gossip with managed nodes. All managed nodes will present TLS client certificates that are verifiable using one of the certificates provided in this property.
+	GossipCertificates []CertificateResponse `pulumi:"gossipCertificates"`
+	// Number of hours to wait between taking a backup of the cluster. To disable backups, set this property to 0.
+	HoursBetweenBackups *int `pulumi:"hoursBetweenBackups"`
+	// Initial password for clients connecting as admin to the cluster. Should be changed after cluster creation. Returns null on GET. This field only applies when the authenticationMethod field is 'Cassandra'.
+	InitialCassandraAdminPassword *string `pulumi:"initialCassandraAdminPassword"`
+	// Hostname or IP address where the Prometheus endpoint containing data about the managed Cassandra nodes can be reached.
+	PrometheusEndpoint *string `pulumi:"prometheusEndpoint"`
+	// The status of the resource at the time the operation was called.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Should automatic repairs run on this cluster? If omitted, this is true, and should stay true unless you are running a hybrid cluster where you are already doing your own repairs.
+	RepairEnabled *bool `pulumi:"repairEnabled"`
+	// To create an empty cluster, omit this field or set it to null. To restore a backup into a new cluster, set this field to the resource id of the backup.
+	RestoreFromBackupId *string `pulumi:"restoreFromBackupId"`
+	// List of IP addresses of seed nodes in the managed data centers. These should be added to the seed node lists of all unmanaged nodes.
+	SeedNodes []SeedNodeResponse `pulumi:"seedNodes"`
+}
+
+// ClusterResourceResponsePropertiesInput is an input type that accepts ClusterResourceResponsePropertiesArgs and ClusterResourceResponsePropertiesOutput values.
+// You can construct a concrete instance of `ClusterResourceResponsePropertiesInput` via:
+//
+//          ClusterResourceResponsePropertiesArgs{...}
+type ClusterResourceResponsePropertiesInput interface {
+	pulumi.Input
+
+	ToClusterResourceResponsePropertiesOutput() ClusterResourceResponsePropertiesOutput
+	ToClusterResourceResponsePropertiesOutputWithContext(context.Context) ClusterResourceResponsePropertiesOutput
+}
+
+// Properties of a managed Cassandra cluster.
+type ClusterResourceResponsePropertiesArgs struct {
+	// Which authentication method Cassandra should use to authenticate clients. 'None' turns off authentication, so should not be used except in emergencies. 'Cassandra' is the default password based authentication. The default is 'Cassandra'.
+	AuthenticationMethod pulumi.StringPtrInput `pulumi:"authenticationMethod"`
+	// Which version of Cassandra should this cluster converge to running (e.g., 3.11). When updated, the cluster may take some time to migrate to the new version.
+	CassandraVersion pulumi.StringPtrInput `pulumi:"cassandraVersion"`
+	// List of TLS certificates used to authorize clients connecting to the cluster. All connections are TLS encrypted whether clientCertificates is set or not, but if clientCertificates is set, the managed Cassandra cluster will reject all connections not bearing a TLS client certificate that can be validated from one or more of the public certificates in this property.
+	ClientCertificates CertificateResponseArrayInput `pulumi:"clientCertificates"`
+	// If you need to set the clusterName property in cassandra.yaml to something besides the resource name of the cluster, set the value to use on this property.
+	ClusterNameOverride pulumi.StringPtrInput `pulumi:"clusterNameOverride"`
+	// Resource id of a subnet that this cluster's management service should have its network interface attached to. The subnet must be routable to all subnets that will be delegated to data centers. The resource id must be of the form '/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Network/virtualNetworks/<virtual network>/subnets/<subnet>'
+	DelegatedManagementSubnetId pulumi.StringPtrInput `pulumi:"delegatedManagementSubnetId"`
+	// List of TLS certificates used to authorize gossip from unmanaged data centers. The TLS certificates of all nodes in unmanaged data centers must be verifiable using one of the certificates provided in this property.
+	ExternalGossipCertificates CertificateResponseArrayInput `pulumi:"externalGossipCertificates"`
+	// List of IP addresses of seed nodes in unmanaged data centers. These will be added to the seed node lists of all managed nodes.
+	ExternalSeedNodes SeedNodeResponseArrayInput `pulumi:"externalSeedNodes"`
+	// List of TLS certificates that unmanaged nodes must trust for gossip with managed nodes. All managed nodes will present TLS client certificates that are verifiable using one of the certificates provided in this property.
+	GossipCertificates CertificateResponseArrayInput `pulumi:"gossipCertificates"`
+	// Number of hours to wait between taking a backup of the cluster. To disable backups, set this property to 0.
+	HoursBetweenBackups pulumi.IntPtrInput `pulumi:"hoursBetweenBackups"`
+	// Initial password for clients connecting as admin to the cluster. Should be changed after cluster creation. Returns null on GET. This field only applies when the authenticationMethod field is 'Cassandra'.
+	InitialCassandraAdminPassword pulumi.StringPtrInput `pulumi:"initialCassandraAdminPassword"`
+	// Hostname or IP address where the Prometheus endpoint containing data about the managed Cassandra nodes can be reached.
+	PrometheusEndpoint pulumi.StringPtrInput `pulumi:"prometheusEndpoint"`
+	// The status of the resource at the time the operation was called.
+	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
+	// Should automatic repairs run on this cluster? If omitted, this is true, and should stay true unless you are running a hybrid cluster where you are already doing your own repairs.
+	RepairEnabled pulumi.BoolPtrInput `pulumi:"repairEnabled"`
+	// To create an empty cluster, omit this field or set it to null. To restore a backup into a new cluster, set this field to the resource id of the backup.
+	RestoreFromBackupId pulumi.StringPtrInput `pulumi:"restoreFromBackupId"`
+	// List of IP addresses of seed nodes in the managed data centers. These should be added to the seed node lists of all unmanaged nodes.
+	SeedNodes SeedNodeResponseArrayInput `pulumi:"seedNodes"`
+}
+
+func (ClusterResourceResponsePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterResourceResponseProperties)(nil)).Elem()
+}
+
+func (i ClusterResourceResponsePropertiesArgs) ToClusterResourceResponsePropertiesOutput() ClusterResourceResponsePropertiesOutput {
+	return i.ToClusterResourceResponsePropertiesOutputWithContext(context.Background())
+}
+
+func (i ClusterResourceResponsePropertiesArgs) ToClusterResourceResponsePropertiesOutputWithContext(ctx context.Context) ClusterResourceResponsePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterResourceResponsePropertiesOutput)
+}
+
+func (i ClusterResourceResponsePropertiesArgs) ToClusterResourceResponsePropertiesPtrOutput() ClusterResourceResponsePropertiesPtrOutput {
+	return i.ToClusterResourceResponsePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterResourceResponsePropertiesArgs) ToClusterResourceResponsePropertiesPtrOutputWithContext(ctx context.Context) ClusterResourceResponsePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterResourceResponsePropertiesOutput).ToClusterResourceResponsePropertiesPtrOutputWithContext(ctx)
+}
+
+// ClusterResourceResponsePropertiesPtrInput is an input type that accepts ClusterResourceResponsePropertiesArgs, ClusterResourceResponsePropertiesPtr and ClusterResourceResponsePropertiesPtrOutput values.
+// You can construct a concrete instance of `ClusterResourceResponsePropertiesPtrInput` via:
+//
+//          ClusterResourceResponsePropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type ClusterResourceResponsePropertiesPtrInput interface {
+	pulumi.Input
+
+	ToClusterResourceResponsePropertiesPtrOutput() ClusterResourceResponsePropertiesPtrOutput
+	ToClusterResourceResponsePropertiesPtrOutputWithContext(context.Context) ClusterResourceResponsePropertiesPtrOutput
+}
+
+type clusterResourceResponsePropertiesPtrType ClusterResourceResponsePropertiesArgs
+
+func ClusterResourceResponsePropertiesPtr(v *ClusterResourceResponsePropertiesArgs) ClusterResourceResponsePropertiesPtrInput {
+	return (*clusterResourceResponsePropertiesPtrType)(v)
+}
+
+func (*clusterResourceResponsePropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterResourceResponseProperties)(nil)).Elem()
+}
+
+func (i *clusterResourceResponsePropertiesPtrType) ToClusterResourceResponsePropertiesPtrOutput() ClusterResourceResponsePropertiesPtrOutput {
+	return i.ToClusterResourceResponsePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterResourceResponsePropertiesPtrType) ToClusterResourceResponsePropertiesPtrOutputWithContext(ctx context.Context) ClusterResourceResponsePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterResourceResponsePropertiesPtrOutput)
+}
+
+// Properties of a managed Cassandra cluster.
+type ClusterResourceResponsePropertiesOutput struct{ *pulumi.OutputState }
+
+func (ClusterResourceResponsePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterResourceResponseProperties)(nil)).Elem()
+}
+
+func (o ClusterResourceResponsePropertiesOutput) ToClusterResourceResponsePropertiesOutput() ClusterResourceResponsePropertiesOutput {
+	return o
+}
+
+func (o ClusterResourceResponsePropertiesOutput) ToClusterResourceResponsePropertiesOutputWithContext(ctx context.Context) ClusterResourceResponsePropertiesOutput {
+	return o
+}
+
+func (o ClusterResourceResponsePropertiesOutput) ToClusterResourceResponsePropertiesPtrOutput() ClusterResourceResponsePropertiesPtrOutput {
+	return o.ToClusterResourceResponsePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterResourceResponsePropertiesOutput) ToClusterResourceResponsePropertiesPtrOutputWithContext(ctx context.Context) ClusterResourceResponsePropertiesPtrOutput {
+	return o.ApplyT(func(v ClusterResourceResponseProperties) *ClusterResourceResponseProperties {
+		return &v
+	}).(ClusterResourceResponsePropertiesPtrOutput)
+}
+
+// Which authentication method Cassandra should use to authenticate clients. 'None' turns off authentication, so should not be used except in emergencies. 'Cassandra' is the default password based authentication. The default is 'Cassandra'.
+func (o ClusterResourceResponsePropertiesOutput) AuthenticationMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterResourceResponseProperties) *string { return v.AuthenticationMethod }).(pulumi.StringPtrOutput)
+}
+
+// Which version of Cassandra should this cluster converge to running (e.g., 3.11). When updated, the cluster may take some time to migrate to the new version.
+func (o ClusterResourceResponsePropertiesOutput) CassandraVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterResourceResponseProperties) *string { return v.CassandraVersion }).(pulumi.StringPtrOutput)
+}
+
+// List of TLS certificates used to authorize clients connecting to the cluster. All connections are TLS encrypted whether clientCertificates is set or not, but if clientCertificates is set, the managed Cassandra cluster will reject all connections not bearing a TLS client certificate that can be validated from one or more of the public certificates in this property.
+func (o ClusterResourceResponsePropertiesOutput) ClientCertificates() CertificateResponseArrayOutput {
+	return o.ApplyT(func(v ClusterResourceResponseProperties) []CertificateResponse { return v.ClientCertificates }).(CertificateResponseArrayOutput)
+}
+
+// If you need to set the clusterName property in cassandra.yaml to something besides the resource name of the cluster, set the value to use on this property.
+func (o ClusterResourceResponsePropertiesOutput) ClusterNameOverride() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterResourceResponseProperties) *string { return v.ClusterNameOverride }).(pulumi.StringPtrOutput)
+}
+
+// Resource id of a subnet that this cluster's management service should have its network interface attached to. The subnet must be routable to all subnets that will be delegated to data centers. The resource id must be of the form '/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Network/virtualNetworks/<virtual network>/subnets/<subnet>'
+func (o ClusterResourceResponsePropertiesOutput) DelegatedManagementSubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterResourceResponseProperties) *string { return v.DelegatedManagementSubnetId }).(pulumi.StringPtrOutput)
+}
+
+// List of TLS certificates used to authorize gossip from unmanaged data centers. The TLS certificates of all nodes in unmanaged data centers must be verifiable using one of the certificates provided in this property.
+func (o ClusterResourceResponsePropertiesOutput) ExternalGossipCertificates() CertificateResponseArrayOutput {
+	return o.ApplyT(func(v ClusterResourceResponseProperties) []CertificateResponse { return v.ExternalGossipCertificates }).(CertificateResponseArrayOutput)
+}
+
+// List of IP addresses of seed nodes in unmanaged data centers. These will be added to the seed node lists of all managed nodes.
+func (o ClusterResourceResponsePropertiesOutput) ExternalSeedNodes() SeedNodeResponseArrayOutput {
+	return o.ApplyT(func(v ClusterResourceResponseProperties) []SeedNodeResponse { return v.ExternalSeedNodes }).(SeedNodeResponseArrayOutput)
+}
+
+// List of TLS certificates that unmanaged nodes must trust for gossip with managed nodes. All managed nodes will present TLS client certificates that are verifiable using one of the certificates provided in this property.
+func (o ClusterResourceResponsePropertiesOutput) GossipCertificates() CertificateResponseArrayOutput {
+	return o.ApplyT(func(v ClusterResourceResponseProperties) []CertificateResponse { return v.GossipCertificates }).(CertificateResponseArrayOutput)
+}
+
+// Number of hours to wait between taking a backup of the cluster. To disable backups, set this property to 0.
+func (o ClusterResourceResponsePropertiesOutput) HoursBetweenBackups() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterResourceResponseProperties) *int { return v.HoursBetweenBackups }).(pulumi.IntPtrOutput)
+}
+
+// Initial password for clients connecting as admin to the cluster. Should be changed after cluster creation. Returns null on GET. This field only applies when the authenticationMethod field is 'Cassandra'.
+func (o ClusterResourceResponsePropertiesOutput) InitialCassandraAdminPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterResourceResponseProperties) *string { return v.InitialCassandraAdminPassword }).(pulumi.StringPtrOutput)
+}
+
+// Hostname or IP address where the Prometheus endpoint containing data about the managed Cassandra nodes can be reached.
+func (o ClusterResourceResponsePropertiesOutput) PrometheusEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterResourceResponseProperties) *string { return v.PrometheusEndpoint }).(pulumi.StringPtrOutput)
+}
+
+// The status of the resource at the time the operation was called.
+func (o ClusterResourceResponsePropertiesOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterResourceResponseProperties) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// Should automatic repairs run on this cluster? If omitted, this is true, and should stay true unless you are running a hybrid cluster where you are already doing your own repairs.
+func (o ClusterResourceResponsePropertiesOutput) RepairEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ClusterResourceResponseProperties) *bool { return v.RepairEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// To create an empty cluster, omit this field or set it to null. To restore a backup into a new cluster, set this field to the resource id of the backup.
+func (o ClusterResourceResponsePropertiesOutput) RestoreFromBackupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterResourceResponseProperties) *string { return v.RestoreFromBackupId }).(pulumi.StringPtrOutput)
+}
+
+// List of IP addresses of seed nodes in the managed data centers. These should be added to the seed node lists of all unmanaged nodes.
+func (o ClusterResourceResponsePropertiesOutput) SeedNodes() SeedNodeResponseArrayOutput {
+	return o.ApplyT(func(v ClusterResourceResponseProperties) []SeedNodeResponse { return v.SeedNodes }).(SeedNodeResponseArrayOutput)
+}
+
+type ClusterResourceResponsePropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterResourceResponsePropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterResourceResponseProperties)(nil)).Elem()
+}
+
+func (o ClusterResourceResponsePropertiesPtrOutput) ToClusterResourceResponsePropertiesPtrOutput() ClusterResourceResponsePropertiesPtrOutput {
+	return o
+}
+
+func (o ClusterResourceResponsePropertiesPtrOutput) ToClusterResourceResponsePropertiesPtrOutputWithContext(ctx context.Context) ClusterResourceResponsePropertiesPtrOutput {
+	return o
+}
+
+func (o ClusterResourceResponsePropertiesPtrOutput) Elem() ClusterResourceResponsePropertiesOutput {
+	return o.ApplyT(func(v *ClusterResourceResponseProperties) ClusterResourceResponseProperties { return *v }).(ClusterResourceResponsePropertiesOutput)
+}
+
+// Which authentication method Cassandra should use to authenticate clients. 'None' turns off authentication, so should not be used except in emergencies. 'Cassandra' is the default password based authentication. The default is 'Cassandra'.
+func (o ClusterResourceResponsePropertiesPtrOutput) AuthenticationMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterResourceResponseProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AuthenticationMethod
+	}).(pulumi.StringPtrOutput)
+}
+
+// Which version of Cassandra should this cluster converge to running (e.g., 3.11). When updated, the cluster may take some time to migrate to the new version.
+func (o ClusterResourceResponsePropertiesPtrOutput) CassandraVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterResourceResponseProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CassandraVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// List of TLS certificates used to authorize clients connecting to the cluster. All connections are TLS encrypted whether clientCertificates is set or not, but if clientCertificates is set, the managed Cassandra cluster will reject all connections not bearing a TLS client certificate that can be validated from one or more of the public certificates in this property.
+func (o ClusterResourceResponsePropertiesPtrOutput) ClientCertificates() CertificateResponseArrayOutput {
+	return o.ApplyT(func(v *ClusterResourceResponseProperties) []CertificateResponse {
+		if v == nil {
+			return nil
+		}
+		return v.ClientCertificates
+	}).(CertificateResponseArrayOutput)
+}
+
+// If you need to set the clusterName property in cassandra.yaml to something besides the resource name of the cluster, set the value to use on this property.
+func (o ClusterResourceResponsePropertiesPtrOutput) ClusterNameOverride() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterResourceResponseProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClusterNameOverride
+	}).(pulumi.StringPtrOutput)
+}
+
+// Resource id of a subnet that this cluster's management service should have its network interface attached to. The subnet must be routable to all subnets that will be delegated to data centers. The resource id must be of the form '/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Network/virtualNetworks/<virtual network>/subnets/<subnet>'
+func (o ClusterResourceResponsePropertiesPtrOutput) DelegatedManagementSubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterResourceResponseProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DelegatedManagementSubnetId
+	}).(pulumi.StringPtrOutput)
+}
+
+// List of TLS certificates used to authorize gossip from unmanaged data centers. The TLS certificates of all nodes in unmanaged data centers must be verifiable using one of the certificates provided in this property.
+func (o ClusterResourceResponsePropertiesPtrOutput) ExternalGossipCertificates() CertificateResponseArrayOutput {
+	return o.ApplyT(func(v *ClusterResourceResponseProperties) []CertificateResponse {
+		if v == nil {
+			return nil
+		}
+		return v.ExternalGossipCertificates
+	}).(CertificateResponseArrayOutput)
+}
+
+// List of IP addresses of seed nodes in unmanaged data centers. These will be added to the seed node lists of all managed nodes.
+func (o ClusterResourceResponsePropertiesPtrOutput) ExternalSeedNodes() SeedNodeResponseArrayOutput {
+	return o.ApplyT(func(v *ClusterResourceResponseProperties) []SeedNodeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.ExternalSeedNodes
+	}).(SeedNodeResponseArrayOutput)
+}
+
+// List of TLS certificates that unmanaged nodes must trust for gossip with managed nodes. All managed nodes will present TLS client certificates that are verifiable using one of the certificates provided in this property.
+func (o ClusterResourceResponsePropertiesPtrOutput) GossipCertificates() CertificateResponseArrayOutput {
+	return o.ApplyT(func(v *ClusterResourceResponseProperties) []CertificateResponse {
+		if v == nil {
+			return nil
+		}
+		return v.GossipCertificates
+	}).(CertificateResponseArrayOutput)
+}
+
+// Number of hours to wait between taking a backup of the cluster. To disable backups, set this property to 0.
+func (o ClusterResourceResponsePropertiesPtrOutput) HoursBetweenBackups() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ClusterResourceResponseProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return v.HoursBetweenBackups
+	}).(pulumi.IntPtrOutput)
+}
+
+// Initial password for clients connecting as admin to the cluster. Should be changed after cluster creation. Returns null on GET. This field only applies when the authenticationMethod field is 'Cassandra'.
+func (o ClusterResourceResponsePropertiesPtrOutput) InitialCassandraAdminPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterResourceResponseProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InitialCassandraAdminPassword
+	}).(pulumi.StringPtrOutput)
+}
+
+// Hostname or IP address where the Prometheus endpoint containing data about the managed Cassandra nodes can be reached.
+func (o ClusterResourceResponsePropertiesPtrOutput) PrometheusEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterResourceResponseProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrometheusEndpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+// The status of the resource at the time the operation was called.
+func (o ClusterResourceResponsePropertiesPtrOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterResourceResponseProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProvisioningState
+	}).(pulumi.StringPtrOutput)
+}
+
+// Should automatic repairs run on this cluster? If omitted, this is true, and should stay true unless you are running a hybrid cluster where you are already doing your own repairs.
+func (o ClusterResourceResponsePropertiesPtrOutput) RepairEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClusterResourceResponseProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RepairEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// To create an empty cluster, omit this field or set it to null. To restore a backup into a new cluster, set this field to the resource id of the backup.
+func (o ClusterResourceResponsePropertiesPtrOutput) RestoreFromBackupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterResourceResponseProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RestoreFromBackupId
+	}).(pulumi.StringPtrOutput)
+}
+
+// List of IP addresses of seed nodes in the managed data centers. These should be added to the seed node lists of all unmanaged nodes.
+func (o ClusterResourceResponsePropertiesPtrOutput) SeedNodes() SeedNodeResponseArrayOutput {
+	return o.ApplyT(func(v *ClusterResourceResponseProperties) []SeedNodeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.SeedNodes
+	}).(SeedNodeResponseArrayOutput)
 }
 
 // Cosmos DB Cassandra table column
@@ -4567,6 +5523,445 @@ func (o CreateUpdateOptionsPtrOutput) Throughput() pulumi.IntPtrOutput {
 		}
 		return v.Throughput
 	}).(pulumi.IntPtrOutput)
+}
+
+// Properties of a managed Cassandra data center.
+type DataCenterResourceProperties struct {
+	// A fragment of a cassandra.yaml configuration file to be included in the cassandra.yaml for all nodes in this data center. The fragment should be Base64 encoded, and only a subset of keys are allowed.
+	Base64EncodedCassandraYamlFragment *string `pulumi:"base64EncodedCassandraYamlFragment"`
+	// The region this data center should be created in.
+	DataCenterLocation *string `pulumi:"dataCenterLocation"`
+	// Resource id of a subnet the nodes in this data center should have their network interfaces connected to. The subnet must be in the same region specified in 'dataCenterLocation' and must be able to route to the subnet specified in the cluster's 'delegatedManagementSubnetId' property. This resource id will be of the form '/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Network/virtualNetworks/<virtual network>/subnets/<subnet>'.
+	DelegatedSubnetId *string `pulumi:"delegatedSubnetId"`
+	// The number of nodes the data center should have. This is the desired number. After it is set, it may take some time for the data center to be scaled to match. To monitor the number of nodes and their status, use the fetchNodeStatus method on the cluster.
+	NodeCount *int `pulumi:"nodeCount"`
+	// The status of the resource at the time the operation was called.
+	ProvisioningState *string `pulumi:"provisioningState"`
+}
+
+// DataCenterResourcePropertiesInput is an input type that accepts DataCenterResourcePropertiesArgs and DataCenterResourcePropertiesOutput values.
+// You can construct a concrete instance of `DataCenterResourcePropertiesInput` via:
+//
+//          DataCenterResourcePropertiesArgs{...}
+type DataCenterResourcePropertiesInput interface {
+	pulumi.Input
+
+	ToDataCenterResourcePropertiesOutput() DataCenterResourcePropertiesOutput
+	ToDataCenterResourcePropertiesOutputWithContext(context.Context) DataCenterResourcePropertiesOutput
+}
+
+// Properties of a managed Cassandra data center.
+type DataCenterResourcePropertiesArgs struct {
+	// A fragment of a cassandra.yaml configuration file to be included in the cassandra.yaml for all nodes in this data center. The fragment should be Base64 encoded, and only a subset of keys are allowed.
+	Base64EncodedCassandraYamlFragment pulumi.StringPtrInput `pulumi:"base64EncodedCassandraYamlFragment"`
+	// The region this data center should be created in.
+	DataCenterLocation pulumi.StringPtrInput `pulumi:"dataCenterLocation"`
+	// Resource id of a subnet the nodes in this data center should have their network interfaces connected to. The subnet must be in the same region specified in 'dataCenterLocation' and must be able to route to the subnet specified in the cluster's 'delegatedManagementSubnetId' property. This resource id will be of the form '/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Network/virtualNetworks/<virtual network>/subnets/<subnet>'.
+	DelegatedSubnetId pulumi.StringPtrInput `pulumi:"delegatedSubnetId"`
+	// The number of nodes the data center should have. This is the desired number. After it is set, it may take some time for the data center to be scaled to match. To monitor the number of nodes and their status, use the fetchNodeStatus method on the cluster.
+	NodeCount pulumi.IntPtrInput `pulumi:"nodeCount"`
+	// The status of the resource at the time the operation was called.
+	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
+}
+
+func (DataCenterResourcePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataCenterResourceProperties)(nil)).Elem()
+}
+
+func (i DataCenterResourcePropertiesArgs) ToDataCenterResourcePropertiesOutput() DataCenterResourcePropertiesOutput {
+	return i.ToDataCenterResourcePropertiesOutputWithContext(context.Background())
+}
+
+func (i DataCenterResourcePropertiesArgs) ToDataCenterResourcePropertiesOutputWithContext(ctx context.Context) DataCenterResourcePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCenterResourcePropertiesOutput)
+}
+
+func (i DataCenterResourcePropertiesArgs) ToDataCenterResourcePropertiesPtrOutput() DataCenterResourcePropertiesPtrOutput {
+	return i.ToDataCenterResourcePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i DataCenterResourcePropertiesArgs) ToDataCenterResourcePropertiesPtrOutputWithContext(ctx context.Context) DataCenterResourcePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCenterResourcePropertiesOutput).ToDataCenterResourcePropertiesPtrOutputWithContext(ctx)
+}
+
+// DataCenterResourcePropertiesPtrInput is an input type that accepts DataCenterResourcePropertiesArgs, DataCenterResourcePropertiesPtr and DataCenterResourcePropertiesPtrOutput values.
+// You can construct a concrete instance of `DataCenterResourcePropertiesPtrInput` via:
+//
+//          DataCenterResourcePropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type DataCenterResourcePropertiesPtrInput interface {
+	pulumi.Input
+
+	ToDataCenterResourcePropertiesPtrOutput() DataCenterResourcePropertiesPtrOutput
+	ToDataCenterResourcePropertiesPtrOutputWithContext(context.Context) DataCenterResourcePropertiesPtrOutput
+}
+
+type dataCenterResourcePropertiesPtrType DataCenterResourcePropertiesArgs
+
+func DataCenterResourcePropertiesPtr(v *DataCenterResourcePropertiesArgs) DataCenterResourcePropertiesPtrInput {
+	return (*dataCenterResourcePropertiesPtrType)(v)
+}
+
+func (*dataCenterResourcePropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataCenterResourceProperties)(nil)).Elem()
+}
+
+func (i *dataCenterResourcePropertiesPtrType) ToDataCenterResourcePropertiesPtrOutput() DataCenterResourcePropertiesPtrOutput {
+	return i.ToDataCenterResourcePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *dataCenterResourcePropertiesPtrType) ToDataCenterResourcePropertiesPtrOutputWithContext(ctx context.Context) DataCenterResourcePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCenterResourcePropertiesPtrOutput)
+}
+
+// Properties of a managed Cassandra data center.
+type DataCenterResourcePropertiesOutput struct{ *pulumi.OutputState }
+
+func (DataCenterResourcePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataCenterResourceProperties)(nil)).Elem()
+}
+
+func (o DataCenterResourcePropertiesOutput) ToDataCenterResourcePropertiesOutput() DataCenterResourcePropertiesOutput {
+	return o
+}
+
+func (o DataCenterResourcePropertiesOutput) ToDataCenterResourcePropertiesOutputWithContext(ctx context.Context) DataCenterResourcePropertiesOutput {
+	return o
+}
+
+func (o DataCenterResourcePropertiesOutput) ToDataCenterResourcePropertiesPtrOutput() DataCenterResourcePropertiesPtrOutput {
+	return o.ToDataCenterResourcePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o DataCenterResourcePropertiesOutput) ToDataCenterResourcePropertiesPtrOutputWithContext(ctx context.Context) DataCenterResourcePropertiesPtrOutput {
+	return o.ApplyT(func(v DataCenterResourceProperties) *DataCenterResourceProperties {
+		return &v
+	}).(DataCenterResourcePropertiesPtrOutput)
+}
+
+// A fragment of a cassandra.yaml configuration file to be included in the cassandra.yaml for all nodes in this data center. The fragment should be Base64 encoded, and only a subset of keys are allowed.
+func (o DataCenterResourcePropertiesOutput) Base64EncodedCassandraYamlFragment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataCenterResourceProperties) *string { return v.Base64EncodedCassandraYamlFragment }).(pulumi.StringPtrOutput)
+}
+
+// The region this data center should be created in.
+func (o DataCenterResourcePropertiesOutput) DataCenterLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataCenterResourceProperties) *string { return v.DataCenterLocation }).(pulumi.StringPtrOutput)
+}
+
+// Resource id of a subnet the nodes in this data center should have their network interfaces connected to. The subnet must be in the same region specified in 'dataCenterLocation' and must be able to route to the subnet specified in the cluster's 'delegatedManagementSubnetId' property. This resource id will be of the form '/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Network/virtualNetworks/<virtual network>/subnets/<subnet>'.
+func (o DataCenterResourcePropertiesOutput) DelegatedSubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataCenterResourceProperties) *string { return v.DelegatedSubnetId }).(pulumi.StringPtrOutput)
+}
+
+// The number of nodes the data center should have. This is the desired number. After it is set, it may take some time for the data center to be scaled to match. To monitor the number of nodes and their status, use the fetchNodeStatus method on the cluster.
+func (o DataCenterResourcePropertiesOutput) NodeCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DataCenterResourceProperties) *int { return v.NodeCount }).(pulumi.IntPtrOutput)
+}
+
+// The status of the resource at the time the operation was called.
+func (o DataCenterResourcePropertiesOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataCenterResourceProperties) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+type DataCenterResourcePropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (DataCenterResourcePropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataCenterResourceProperties)(nil)).Elem()
+}
+
+func (o DataCenterResourcePropertiesPtrOutput) ToDataCenterResourcePropertiesPtrOutput() DataCenterResourcePropertiesPtrOutput {
+	return o
+}
+
+func (o DataCenterResourcePropertiesPtrOutput) ToDataCenterResourcePropertiesPtrOutputWithContext(ctx context.Context) DataCenterResourcePropertiesPtrOutput {
+	return o
+}
+
+func (o DataCenterResourcePropertiesPtrOutput) Elem() DataCenterResourcePropertiesOutput {
+	return o.ApplyT(func(v *DataCenterResourceProperties) DataCenterResourceProperties { return *v }).(DataCenterResourcePropertiesOutput)
+}
+
+// A fragment of a cassandra.yaml configuration file to be included in the cassandra.yaml for all nodes in this data center. The fragment should be Base64 encoded, and only a subset of keys are allowed.
+func (o DataCenterResourcePropertiesPtrOutput) Base64EncodedCassandraYamlFragment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataCenterResourceProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Base64EncodedCassandraYamlFragment
+	}).(pulumi.StringPtrOutput)
+}
+
+// The region this data center should be created in.
+func (o DataCenterResourcePropertiesPtrOutput) DataCenterLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataCenterResourceProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DataCenterLocation
+	}).(pulumi.StringPtrOutput)
+}
+
+// Resource id of a subnet the nodes in this data center should have their network interfaces connected to. The subnet must be in the same region specified in 'dataCenterLocation' and must be able to route to the subnet specified in the cluster's 'delegatedManagementSubnetId' property. This resource id will be of the form '/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Network/virtualNetworks/<virtual network>/subnets/<subnet>'.
+func (o DataCenterResourcePropertiesPtrOutput) DelegatedSubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataCenterResourceProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DelegatedSubnetId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The number of nodes the data center should have. This is the desired number. After it is set, it may take some time for the data center to be scaled to match. To monitor the number of nodes and their status, use the fetchNodeStatus method on the cluster.
+func (o DataCenterResourcePropertiesPtrOutput) NodeCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DataCenterResourceProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NodeCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// The status of the resource at the time the operation was called.
+func (o DataCenterResourcePropertiesPtrOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataCenterResourceProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProvisioningState
+	}).(pulumi.StringPtrOutput)
+}
+
+// Properties of a managed Cassandra data center.
+type DataCenterResourceResponseProperties struct {
+	// A fragment of a cassandra.yaml configuration file to be included in the cassandra.yaml for all nodes in this data center. The fragment should be Base64 encoded, and only a subset of keys are allowed.
+	Base64EncodedCassandraYamlFragment *string `pulumi:"base64EncodedCassandraYamlFragment"`
+	// The region this data center should be created in.
+	DataCenterLocation *string `pulumi:"dataCenterLocation"`
+	// Resource id of a subnet the nodes in this data center should have their network interfaces connected to. The subnet must be in the same region specified in 'dataCenterLocation' and must be able to route to the subnet specified in the cluster's 'delegatedManagementSubnetId' property. This resource id will be of the form '/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Network/virtualNetworks/<virtual network>/subnets/<subnet>'.
+	DelegatedSubnetId *string `pulumi:"delegatedSubnetId"`
+	// The number of nodes the data center should have. This is the desired number. After it is set, it may take some time for the data center to be scaled to match. To monitor the number of nodes and their status, use the fetchNodeStatus method on the cluster.
+	NodeCount *int `pulumi:"nodeCount"`
+	// The status of the resource at the time the operation was called.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// IP addresses for seed nodes in this data center. This is for reference. Generally you will want to use the seedNodes property on the cluster, which aggregates the seed nodes from all data centers in the cluster.
+	SeedNodes []SeedNodeResponse `pulumi:"seedNodes"`
+}
+
+// DataCenterResourceResponsePropertiesInput is an input type that accepts DataCenterResourceResponsePropertiesArgs and DataCenterResourceResponsePropertiesOutput values.
+// You can construct a concrete instance of `DataCenterResourceResponsePropertiesInput` via:
+//
+//          DataCenterResourceResponsePropertiesArgs{...}
+type DataCenterResourceResponsePropertiesInput interface {
+	pulumi.Input
+
+	ToDataCenterResourceResponsePropertiesOutput() DataCenterResourceResponsePropertiesOutput
+	ToDataCenterResourceResponsePropertiesOutputWithContext(context.Context) DataCenterResourceResponsePropertiesOutput
+}
+
+// Properties of a managed Cassandra data center.
+type DataCenterResourceResponsePropertiesArgs struct {
+	// A fragment of a cassandra.yaml configuration file to be included in the cassandra.yaml for all nodes in this data center. The fragment should be Base64 encoded, and only a subset of keys are allowed.
+	Base64EncodedCassandraYamlFragment pulumi.StringPtrInput `pulumi:"base64EncodedCassandraYamlFragment"`
+	// The region this data center should be created in.
+	DataCenterLocation pulumi.StringPtrInput `pulumi:"dataCenterLocation"`
+	// Resource id of a subnet the nodes in this data center should have their network interfaces connected to. The subnet must be in the same region specified in 'dataCenterLocation' and must be able to route to the subnet specified in the cluster's 'delegatedManagementSubnetId' property. This resource id will be of the form '/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Network/virtualNetworks/<virtual network>/subnets/<subnet>'.
+	DelegatedSubnetId pulumi.StringPtrInput `pulumi:"delegatedSubnetId"`
+	// The number of nodes the data center should have. This is the desired number. After it is set, it may take some time for the data center to be scaled to match. To monitor the number of nodes and their status, use the fetchNodeStatus method on the cluster.
+	NodeCount pulumi.IntPtrInput `pulumi:"nodeCount"`
+	// The status of the resource at the time the operation was called.
+	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
+	// IP addresses for seed nodes in this data center. This is for reference. Generally you will want to use the seedNodes property on the cluster, which aggregates the seed nodes from all data centers in the cluster.
+	SeedNodes SeedNodeResponseArrayInput `pulumi:"seedNodes"`
+}
+
+func (DataCenterResourceResponsePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataCenterResourceResponseProperties)(nil)).Elem()
+}
+
+func (i DataCenterResourceResponsePropertiesArgs) ToDataCenterResourceResponsePropertiesOutput() DataCenterResourceResponsePropertiesOutput {
+	return i.ToDataCenterResourceResponsePropertiesOutputWithContext(context.Background())
+}
+
+func (i DataCenterResourceResponsePropertiesArgs) ToDataCenterResourceResponsePropertiesOutputWithContext(ctx context.Context) DataCenterResourceResponsePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCenterResourceResponsePropertiesOutput)
+}
+
+func (i DataCenterResourceResponsePropertiesArgs) ToDataCenterResourceResponsePropertiesPtrOutput() DataCenterResourceResponsePropertiesPtrOutput {
+	return i.ToDataCenterResourceResponsePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i DataCenterResourceResponsePropertiesArgs) ToDataCenterResourceResponsePropertiesPtrOutputWithContext(ctx context.Context) DataCenterResourceResponsePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCenterResourceResponsePropertiesOutput).ToDataCenterResourceResponsePropertiesPtrOutputWithContext(ctx)
+}
+
+// DataCenterResourceResponsePropertiesPtrInput is an input type that accepts DataCenterResourceResponsePropertiesArgs, DataCenterResourceResponsePropertiesPtr and DataCenterResourceResponsePropertiesPtrOutput values.
+// You can construct a concrete instance of `DataCenterResourceResponsePropertiesPtrInput` via:
+//
+//          DataCenterResourceResponsePropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type DataCenterResourceResponsePropertiesPtrInput interface {
+	pulumi.Input
+
+	ToDataCenterResourceResponsePropertiesPtrOutput() DataCenterResourceResponsePropertiesPtrOutput
+	ToDataCenterResourceResponsePropertiesPtrOutputWithContext(context.Context) DataCenterResourceResponsePropertiesPtrOutput
+}
+
+type dataCenterResourceResponsePropertiesPtrType DataCenterResourceResponsePropertiesArgs
+
+func DataCenterResourceResponsePropertiesPtr(v *DataCenterResourceResponsePropertiesArgs) DataCenterResourceResponsePropertiesPtrInput {
+	return (*dataCenterResourceResponsePropertiesPtrType)(v)
+}
+
+func (*dataCenterResourceResponsePropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataCenterResourceResponseProperties)(nil)).Elem()
+}
+
+func (i *dataCenterResourceResponsePropertiesPtrType) ToDataCenterResourceResponsePropertiesPtrOutput() DataCenterResourceResponsePropertiesPtrOutput {
+	return i.ToDataCenterResourceResponsePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *dataCenterResourceResponsePropertiesPtrType) ToDataCenterResourceResponsePropertiesPtrOutputWithContext(ctx context.Context) DataCenterResourceResponsePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCenterResourceResponsePropertiesPtrOutput)
+}
+
+// Properties of a managed Cassandra data center.
+type DataCenterResourceResponsePropertiesOutput struct{ *pulumi.OutputState }
+
+func (DataCenterResourceResponsePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataCenterResourceResponseProperties)(nil)).Elem()
+}
+
+func (o DataCenterResourceResponsePropertiesOutput) ToDataCenterResourceResponsePropertiesOutput() DataCenterResourceResponsePropertiesOutput {
+	return o
+}
+
+func (o DataCenterResourceResponsePropertiesOutput) ToDataCenterResourceResponsePropertiesOutputWithContext(ctx context.Context) DataCenterResourceResponsePropertiesOutput {
+	return o
+}
+
+func (o DataCenterResourceResponsePropertiesOutput) ToDataCenterResourceResponsePropertiesPtrOutput() DataCenterResourceResponsePropertiesPtrOutput {
+	return o.ToDataCenterResourceResponsePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o DataCenterResourceResponsePropertiesOutput) ToDataCenterResourceResponsePropertiesPtrOutputWithContext(ctx context.Context) DataCenterResourceResponsePropertiesPtrOutput {
+	return o.ApplyT(func(v DataCenterResourceResponseProperties) *DataCenterResourceResponseProperties {
+		return &v
+	}).(DataCenterResourceResponsePropertiesPtrOutput)
+}
+
+// A fragment of a cassandra.yaml configuration file to be included in the cassandra.yaml for all nodes in this data center. The fragment should be Base64 encoded, and only a subset of keys are allowed.
+func (o DataCenterResourceResponsePropertiesOutput) Base64EncodedCassandraYamlFragment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataCenterResourceResponseProperties) *string { return v.Base64EncodedCassandraYamlFragment }).(pulumi.StringPtrOutput)
+}
+
+// The region this data center should be created in.
+func (o DataCenterResourceResponsePropertiesOutput) DataCenterLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataCenterResourceResponseProperties) *string { return v.DataCenterLocation }).(pulumi.StringPtrOutput)
+}
+
+// Resource id of a subnet the nodes in this data center should have their network interfaces connected to. The subnet must be in the same region specified in 'dataCenterLocation' and must be able to route to the subnet specified in the cluster's 'delegatedManagementSubnetId' property. This resource id will be of the form '/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Network/virtualNetworks/<virtual network>/subnets/<subnet>'.
+func (o DataCenterResourceResponsePropertiesOutput) DelegatedSubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataCenterResourceResponseProperties) *string { return v.DelegatedSubnetId }).(pulumi.StringPtrOutput)
+}
+
+// The number of nodes the data center should have. This is the desired number. After it is set, it may take some time for the data center to be scaled to match. To monitor the number of nodes and their status, use the fetchNodeStatus method on the cluster.
+func (o DataCenterResourceResponsePropertiesOutput) NodeCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DataCenterResourceResponseProperties) *int { return v.NodeCount }).(pulumi.IntPtrOutput)
+}
+
+// The status of the resource at the time the operation was called.
+func (o DataCenterResourceResponsePropertiesOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataCenterResourceResponseProperties) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// IP addresses for seed nodes in this data center. This is for reference. Generally you will want to use the seedNodes property on the cluster, which aggregates the seed nodes from all data centers in the cluster.
+func (o DataCenterResourceResponsePropertiesOutput) SeedNodes() SeedNodeResponseArrayOutput {
+	return o.ApplyT(func(v DataCenterResourceResponseProperties) []SeedNodeResponse { return v.SeedNodes }).(SeedNodeResponseArrayOutput)
+}
+
+type DataCenterResourceResponsePropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (DataCenterResourceResponsePropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataCenterResourceResponseProperties)(nil)).Elem()
+}
+
+func (o DataCenterResourceResponsePropertiesPtrOutput) ToDataCenterResourceResponsePropertiesPtrOutput() DataCenterResourceResponsePropertiesPtrOutput {
+	return o
+}
+
+func (o DataCenterResourceResponsePropertiesPtrOutput) ToDataCenterResourceResponsePropertiesPtrOutputWithContext(ctx context.Context) DataCenterResourceResponsePropertiesPtrOutput {
+	return o
+}
+
+func (o DataCenterResourceResponsePropertiesPtrOutput) Elem() DataCenterResourceResponsePropertiesOutput {
+	return o.ApplyT(func(v *DataCenterResourceResponseProperties) DataCenterResourceResponseProperties { return *v }).(DataCenterResourceResponsePropertiesOutput)
+}
+
+// A fragment of a cassandra.yaml configuration file to be included in the cassandra.yaml for all nodes in this data center. The fragment should be Base64 encoded, and only a subset of keys are allowed.
+func (o DataCenterResourceResponsePropertiesPtrOutput) Base64EncodedCassandraYamlFragment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataCenterResourceResponseProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Base64EncodedCassandraYamlFragment
+	}).(pulumi.StringPtrOutput)
+}
+
+// The region this data center should be created in.
+func (o DataCenterResourceResponsePropertiesPtrOutput) DataCenterLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataCenterResourceResponseProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DataCenterLocation
+	}).(pulumi.StringPtrOutput)
+}
+
+// Resource id of a subnet the nodes in this data center should have their network interfaces connected to. The subnet must be in the same region specified in 'dataCenterLocation' and must be able to route to the subnet specified in the cluster's 'delegatedManagementSubnetId' property. This resource id will be of the form '/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Network/virtualNetworks/<virtual network>/subnets/<subnet>'.
+func (o DataCenterResourceResponsePropertiesPtrOutput) DelegatedSubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataCenterResourceResponseProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DelegatedSubnetId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The number of nodes the data center should have. This is the desired number. After it is set, it may take some time for the data center to be scaled to match. To monitor the number of nodes and their status, use the fetchNodeStatus method on the cluster.
+func (o DataCenterResourceResponsePropertiesPtrOutput) NodeCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DataCenterResourceResponseProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NodeCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// The status of the resource at the time the operation was called.
+func (o DataCenterResourceResponsePropertiesPtrOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataCenterResourceResponseProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProvisioningState
+	}).(pulumi.StringPtrOutput)
+}
+
+// IP addresses for seed nodes in this data center. This is for reference. Generally you will want to use the seedNodes property on the cluster, which aggregates the seed nodes from all data centers in the cluster.
+func (o DataCenterResourceResponsePropertiesPtrOutput) SeedNodes() SeedNodeResponseArrayOutput {
+	return o.ApplyT(func(v *DataCenterResourceResponseProperties) []SeedNodeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.SeedNodes
+	}).(SeedNodeResponseArrayOutput)
 }
 
 // Connection string for the Cosmos DB account
@@ -11240,6 +12635,200 @@ func (o PrivateLinkServiceConnectionStatePropertyResponsePtrOutput) Status() pul
 	}).(pulumi.StringPtrOutput)
 }
 
+type SeedNode struct {
+	// IP address of this seed node.
+	IpAddress *string `pulumi:"ipAddress"`
+}
+
+// SeedNodeInput is an input type that accepts SeedNodeArgs and SeedNodeOutput values.
+// You can construct a concrete instance of `SeedNodeInput` via:
+//
+//          SeedNodeArgs{...}
+type SeedNodeInput interface {
+	pulumi.Input
+
+	ToSeedNodeOutput() SeedNodeOutput
+	ToSeedNodeOutputWithContext(context.Context) SeedNodeOutput
+}
+
+type SeedNodeArgs struct {
+	// IP address of this seed node.
+	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
+}
+
+func (SeedNodeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SeedNode)(nil)).Elem()
+}
+
+func (i SeedNodeArgs) ToSeedNodeOutput() SeedNodeOutput {
+	return i.ToSeedNodeOutputWithContext(context.Background())
+}
+
+func (i SeedNodeArgs) ToSeedNodeOutputWithContext(ctx context.Context) SeedNodeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SeedNodeOutput)
+}
+
+// SeedNodeArrayInput is an input type that accepts SeedNodeArray and SeedNodeArrayOutput values.
+// You can construct a concrete instance of `SeedNodeArrayInput` via:
+//
+//          SeedNodeArray{ SeedNodeArgs{...} }
+type SeedNodeArrayInput interface {
+	pulumi.Input
+
+	ToSeedNodeArrayOutput() SeedNodeArrayOutput
+	ToSeedNodeArrayOutputWithContext(context.Context) SeedNodeArrayOutput
+}
+
+type SeedNodeArray []SeedNodeInput
+
+func (SeedNodeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SeedNode)(nil)).Elem()
+}
+
+func (i SeedNodeArray) ToSeedNodeArrayOutput() SeedNodeArrayOutput {
+	return i.ToSeedNodeArrayOutputWithContext(context.Background())
+}
+
+func (i SeedNodeArray) ToSeedNodeArrayOutputWithContext(ctx context.Context) SeedNodeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SeedNodeArrayOutput)
+}
+
+type SeedNodeOutput struct{ *pulumi.OutputState }
+
+func (SeedNodeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SeedNode)(nil)).Elem()
+}
+
+func (o SeedNodeOutput) ToSeedNodeOutput() SeedNodeOutput {
+	return o
+}
+
+func (o SeedNodeOutput) ToSeedNodeOutputWithContext(ctx context.Context) SeedNodeOutput {
+	return o
+}
+
+// IP address of this seed node.
+func (o SeedNodeOutput) IpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SeedNode) *string { return v.IpAddress }).(pulumi.StringPtrOutput)
+}
+
+type SeedNodeArrayOutput struct{ *pulumi.OutputState }
+
+func (SeedNodeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SeedNode)(nil)).Elem()
+}
+
+func (o SeedNodeArrayOutput) ToSeedNodeArrayOutput() SeedNodeArrayOutput {
+	return o
+}
+
+func (o SeedNodeArrayOutput) ToSeedNodeArrayOutputWithContext(ctx context.Context) SeedNodeArrayOutput {
+	return o
+}
+
+func (o SeedNodeArrayOutput) Index(i pulumi.IntInput) SeedNodeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SeedNode {
+		return vs[0].([]SeedNode)[vs[1].(int)]
+	}).(SeedNodeOutput)
+}
+
+type SeedNodeResponse struct {
+	// IP address of this seed node.
+	IpAddress *string `pulumi:"ipAddress"`
+}
+
+// SeedNodeResponseInput is an input type that accepts SeedNodeResponseArgs and SeedNodeResponseOutput values.
+// You can construct a concrete instance of `SeedNodeResponseInput` via:
+//
+//          SeedNodeResponseArgs{...}
+type SeedNodeResponseInput interface {
+	pulumi.Input
+
+	ToSeedNodeResponseOutput() SeedNodeResponseOutput
+	ToSeedNodeResponseOutputWithContext(context.Context) SeedNodeResponseOutput
+}
+
+type SeedNodeResponseArgs struct {
+	// IP address of this seed node.
+	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
+}
+
+func (SeedNodeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SeedNodeResponse)(nil)).Elem()
+}
+
+func (i SeedNodeResponseArgs) ToSeedNodeResponseOutput() SeedNodeResponseOutput {
+	return i.ToSeedNodeResponseOutputWithContext(context.Background())
+}
+
+func (i SeedNodeResponseArgs) ToSeedNodeResponseOutputWithContext(ctx context.Context) SeedNodeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SeedNodeResponseOutput)
+}
+
+// SeedNodeResponseArrayInput is an input type that accepts SeedNodeResponseArray and SeedNodeResponseArrayOutput values.
+// You can construct a concrete instance of `SeedNodeResponseArrayInput` via:
+//
+//          SeedNodeResponseArray{ SeedNodeResponseArgs{...} }
+type SeedNodeResponseArrayInput interface {
+	pulumi.Input
+
+	ToSeedNodeResponseArrayOutput() SeedNodeResponseArrayOutput
+	ToSeedNodeResponseArrayOutputWithContext(context.Context) SeedNodeResponseArrayOutput
+}
+
+type SeedNodeResponseArray []SeedNodeResponseInput
+
+func (SeedNodeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SeedNodeResponse)(nil)).Elem()
+}
+
+func (i SeedNodeResponseArray) ToSeedNodeResponseArrayOutput() SeedNodeResponseArrayOutput {
+	return i.ToSeedNodeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i SeedNodeResponseArray) ToSeedNodeResponseArrayOutputWithContext(ctx context.Context) SeedNodeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SeedNodeResponseArrayOutput)
+}
+
+type SeedNodeResponseOutput struct{ *pulumi.OutputState }
+
+func (SeedNodeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SeedNodeResponse)(nil)).Elem()
+}
+
+func (o SeedNodeResponseOutput) ToSeedNodeResponseOutput() SeedNodeResponseOutput {
+	return o
+}
+
+func (o SeedNodeResponseOutput) ToSeedNodeResponseOutputWithContext(ctx context.Context) SeedNodeResponseOutput {
+	return o
+}
+
+// IP address of this seed node.
+func (o SeedNodeResponseOutput) IpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SeedNodeResponse) *string { return v.IpAddress }).(pulumi.StringPtrOutput)
+}
+
+type SeedNodeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (SeedNodeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SeedNodeResponse)(nil)).Elem()
+}
+
+func (o SeedNodeResponseArrayOutput) ToSeedNodeResponseArrayOutput() SeedNodeResponseArrayOutput {
+	return o
+}
+
+func (o SeedNodeResponseArrayOutput) ToSeedNodeResponseArrayOutputWithContext(ctx context.Context) SeedNodeResponseArrayOutput {
+	return o
+}
+
+func (o SeedNodeResponseArrayOutput) Index(i pulumi.IntInput) SeedNodeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SeedNodeResponse {
+		return vs[0].([]SeedNodeResponse)[vs[1].(int)]
+	}).(SeedNodeResponseOutput)
+}
+
 type SpatialSpec struct {
 	// The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
 	Path *string `pulumi:"path"`
@@ -15021,10 +16610,18 @@ func init() {
 	pulumi.RegisterOutputType(CassandraTableGetPropertiesResponseResourcePtrOutput{})
 	pulumi.RegisterOutputType(CassandraTableResourceOutput{})
 	pulumi.RegisterOutputType(CassandraTableResourcePtrOutput{})
+	pulumi.RegisterOutputType(CertificateOutput{})
+	pulumi.RegisterOutputType(CertificateArrayOutput{})
+	pulumi.RegisterOutputType(CertificateResponseOutput{})
+	pulumi.RegisterOutputType(CertificateResponseArrayOutput{})
 	pulumi.RegisterOutputType(ClusterKeyOutput{})
 	pulumi.RegisterOutputType(ClusterKeyArrayOutput{})
 	pulumi.RegisterOutputType(ClusterKeyResponseOutput{})
 	pulumi.RegisterOutputType(ClusterKeyResponseArrayOutput{})
+	pulumi.RegisterOutputType(ClusterResourcePropertiesOutput{})
+	pulumi.RegisterOutputType(ClusterResourcePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ClusterResourceResponsePropertiesOutput{})
+	pulumi.RegisterOutputType(ClusterResourceResponsePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ColumnOutput{})
 	pulumi.RegisterOutputType(ColumnArrayOutput{})
 	pulumi.RegisterOutputType(ColumnResponseOutput{})
@@ -15053,6 +16650,10 @@ func init() {
 	pulumi.RegisterOutputType(CorsPolicyResponseArrayOutput{})
 	pulumi.RegisterOutputType(CreateUpdateOptionsOutput{})
 	pulumi.RegisterOutputType(CreateUpdateOptionsPtrOutput{})
+	pulumi.RegisterOutputType(DataCenterResourcePropertiesOutput{})
+	pulumi.RegisterOutputType(DataCenterResourcePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(DataCenterResourceResponsePropertiesOutput{})
+	pulumi.RegisterOutputType(DataCenterResourceResponsePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(DatabaseAccountConnectionStringResponseOutput{})
 	pulumi.RegisterOutputType(DatabaseAccountConnectionStringResponseArrayOutput{})
 	pulumi.RegisterOutputType(ExcludedPathOutput{})
@@ -15143,6 +16744,10 @@ func init() {
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStatePropertyPtrOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStatePropertyResponseOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStatePropertyResponsePtrOutput{})
+	pulumi.RegisterOutputType(SeedNodeOutput{})
+	pulumi.RegisterOutputType(SeedNodeArrayOutput{})
+	pulumi.RegisterOutputType(SeedNodeResponseOutput{})
+	pulumi.RegisterOutputType(SeedNodeResponseArrayOutput{})
 	pulumi.RegisterOutputType(SpatialSpecOutput{})
 	pulumi.RegisterOutputType(SpatialSpecArrayOutput{})
 	pulumi.RegisterOutputType(SpatialSpecResponseOutput{})

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HybridCompute
     {
         /// <summary>
         /// An Azure Arc PrivateLinkScope definition.
-        /// API Version: 2020-08-15-preview.
+        /// API Version: 2021-01-28-preview.
         /// </summary>
         public static Task<GetPrivateLinkScopeResult> InvokeAsync(GetPrivateLinkScopeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateLinkScopeResult>("azure-native:hybridcompute:getPrivateLinkScope", args ?? new GetPrivateLinkScopeArgs(), options.WithVersion());
@@ -23,7 +23,7 @@ namespace Pulumi.AzureNative.HybridCompute
     public sealed class GetPrivateLinkScopeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -56,17 +56,13 @@ namespace Pulumi.AzureNative.HybridCompute
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// List of private endpoint connections.
+        /// Properties that define a Azure Arc PrivateLinkScope resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
+        public readonly Outputs.HybridComputePrivateLinkScopePropertiesResponse Properties;
         /// <summary>
-        /// Current state of this PrivateLinkScope: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Provisioning ,Succeeded, Canceled and Failed.
+        /// The system meta data relating to this resource.
         /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints.
-        /// </summary>
-        public readonly string? PublicNetworkAccess;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -84,11 +80,9 @@ namespace Pulumi.AzureNative.HybridCompute
 
             string name,
 
-            ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
+            Outputs.HybridComputePrivateLinkScopePropertiesResponse properties,
 
-            string provisioningState,
-
-            string? publicNetworkAccess,
+            Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
@@ -97,9 +91,8 @@ namespace Pulumi.AzureNative.HybridCompute
             Id = id;
             Location = location;
             Name = name;
-            PrivateEndpointConnections = privateEndpointConnections;
-            ProvisioningState = provisioningState;
-            PublicNetworkAccess = publicNetworkAccess;
+            Properties = properties;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
         }

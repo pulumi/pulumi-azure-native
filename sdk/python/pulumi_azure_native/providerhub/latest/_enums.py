@@ -23,9 +23,11 @@ __all__ = [
     'RoutingType',
     'SkuScaleType',
     'SubscriptionNotificationOperation',
+    'SubscriptionReregistrationResult',
     'SubscriptionState',
     'SubscriptionTransitioningState',
     'ThrottlingMetricType',
+    'TrafficRegionCategory',
 ]
 
 
@@ -175,6 +177,13 @@ class SubscriptionNotificationOperation(str, Enum):
     UNDO_SOFT_DELETE = "UndoSoftDelete"
 
 
+class SubscriptionReregistrationResult(str, Enum):
+    NOT_APPLICABLE = "NotApplicable"
+    CONDITIONAL_UPDATE = "ConditionalUpdate"
+    FORCED_UPDATE = "ForcedUpdate"
+    FAILED = "Failed"
+
+
 class SubscriptionState(str, Enum):
     NOT_DEFINED = "NotDefined"
     ENABLED = "Enabled"
@@ -204,3 +213,14 @@ class ThrottlingMetricType(str, Enum):
     NOT_SPECIFIED = "NotSpecified"
     NUMBER_OF_REQUESTS = "NumberOfRequests"
     NUMBER_OF_RESOURCES = "NumberOfResources"
+
+
+class TrafficRegionCategory(str, Enum):
+    NOT_SPECIFIED = "NotSpecified"
+    CANARY = "Canary"
+    LOW_TRAFFIC = "LowTraffic"
+    MEDIUM_TRAFFIC = "MediumTraffic"
+    HIGH_TRAFFIC = "HighTraffic"
+    NONE = "None"
+    REST_OF_THE_WORLD_GROUP_ONE = "RestOfTheWorldGroupOne"
+    REST_OF_THE_WORLD_GROUP_TWO = "RestOfTheWorldGroupTwo"

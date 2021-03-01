@@ -8,7 +8,7 @@ import (
 )
 
 // Access Review Schedule Definition.
-// API Version: 2018-05-01-preview.
+// API Version: 2021-03-01-preview.
 func LookupAccessReviewScheduleDefinitionById(ctx *pulumi.Context, args *LookupAccessReviewScheduleDefinitionByIdArgs, opts ...pulumi.InvokeOption) (*LookupAccessReviewScheduleDefinitionByIdResult, error) {
 	var rv LookupAccessReviewScheduleDefinitionByIdResult
 	err := ctx.Invoke("azure-native:authorization:getAccessReviewScheduleDefinitionById", args, &rv, opts...)
@@ -27,6 +27,8 @@ type LookupAccessReviewScheduleDefinitionByIdArgs struct {
 type LookupAccessReviewScheduleDefinitionByIdResult struct {
 	// Flag to indicate whether auto-apply capability, to automatically change the target object access resource, is enabled. If not enabled, a user must, after the review completes, apply the access review.
 	AutoApplyDecisionsEnabled *bool `pulumi:"autoApplyDecisionsEnabled"`
+	// This is the collection of backup reviewers.
+	BackupReviewers []AccessReviewReviewerResponse `pulumi:"backupReviewers"`
 	// This specifies the behavior for the autoReview feature when an access review completes.
 	DefaultDecision *string `pulumi:"defaultDecision"`
 	// Flag to indicate whether reviewers are required to provide a justification when reviewing access.

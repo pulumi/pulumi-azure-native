@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * An Azure Cosmos DB SQL Role Definition.
- * API Version: 2020-06-01-preview.
+ * API Version: 2021-03-01-preview.
  */
 export class SqlResourceSqlRoleDefinition extends pulumi.CustomResource {
     /**
@@ -92,7 +92,7 @@ export class SqlResourceSqlRoleDefinition extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:documentdb/v20200601preview:SqlResourceSqlRoleDefinition" }, { type: "azure-nextgen:documentdb/v20200601preview:SqlResourceSqlRoleDefinition" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:documentdb/v20200601preview:SqlResourceSqlRoleDefinition" }, { type: "azure-nextgen:documentdb/v20200601preview:SqlResourceSqlRoleDefinition" }, { type: "azure-native:documentdb/v20210301preview:SqlResourceSqlRoleDefinition" }, { type: "azure-nextgen:documentdb/v20210301preview:SqlResourceSqlRoleDefinition" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SqlResourceSqlRoleDefinition.__pulumiType, name, inputs, opts);
     }

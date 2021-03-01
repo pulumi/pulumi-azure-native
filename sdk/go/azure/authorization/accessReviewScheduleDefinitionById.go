@@ -11,12 +11,14 @@ import (
 )
 
 // Access Review Schedule Definition.
-// API Version: 2018-05-01-preview.
+// API Version: 2021-03-01-preview.
 type AccessReviewScheduleDefinitionById struct {
 	pulumi.CustomResourceState
 
 	// Flag to indicate whether auto-apply capability, to automatically change the target object access resource, is enabled. If not enabled, a user must, after the review completes, apply the access review.
 	AutoApplyDecisionsEnabled pulumi.BoolPtrOutput `pulumi:"autoApplyDecisionsEnabled"`
+	// This is the collection of backup reviewers.
+	BackupReviewers AccessReviewReviewerResponseArrayOutput `pulumi:"backupReviewers"`
 	// This specifies the behavior for the autoReview feature when an access review completes.
 	DefaultDecision pulumi.StringPtrOutput `pulumi:"defaultDecision"`
 	// Flag to indicate whether reviewers are required to provide a justification when reviewing access.
@@ -117,6 +119,8 @@ func GetAccessReviewScheduleDefinitionById(ctx *pulumi.Context,
 type accessReviewScheduleDefinitionByIdState struct {
 	// Flag to indicate whether auto-apply capability, to automatically change the target object access resource, is enabled. If not enabled, a user must, after the review completes, apply the access review.
 	AutoApplyDecisionsEnabled *bool `pulumi:"autoApplyDecisionsEnabled"`
+	// This is the collection of backup reviewers.
+	BackupReviewers []AccessReviewReviewerResponse `pulumi:"backupReviewers"`
 	// This specifies the behavior for the autoReview feature when an access review completes.
 	DefaultDecision *string `pulumi:"defaultDecision"`
 	// Flag to indicate whether reviewers are required to provide a justification when reviewing access.
@@ -174,6 +178,8 @@ type accessReviewScheduleDefinitionByIdState struct {
 type AccessReviewScheduleDefinitionByIdState struct {
 	// Flag to indicate whether auto-apply capability, to automatically change the target object access resource, is enabled. If not enabled, a user must, after the review completes, apply the access review.
 	AutoApplyDecisionsEnabled pulumi.BoolPtrInput
+	// This is the collection of backup reviewers.
+	BackupReviewers AccessReviewReviewerResponseArrayInput
 	// This specifies the behavior for the autoReview feature when an access review completes.
 	DefaultDecision pulumi.StringPtrInput
 	// Flag to indicate whether reviewers are required to provide a justification when reviewing access.
@@ -235,6 +241,8 @@ func (AccessReviewScheduleDefinitionByIdState) ElementType() reflect.Type {
 type accessReviewScheduleDefinitionByIdArgs struct {
 	// Flag to indicate whether auto-apply capability, to automatically change the target object access resource, is enabled. If not enabled, a user must, after the review completes, apply the access review.
 	AutoApplyDecisionsEnabled *bool `pulumi:"autoApplyDecisionsEnabled"`
+	// This is the collection of backup reviewers.
+	BackupReviewers []AccessReviewReviewer `pulumi:"backupReviewers"`
 	// This specifies the behavior for the autoReview feature when an access review completes.
 	DefaultDecision *string `pulumi:"defaultDecision"`
 	// Flag to indicate whether reviewers are required to provide a justification when reviewing access.
@@ -277,6 +285,8 @@ type accessReviewScheduleDefinitionByIdArgs struct {
 type AccessReviewScheduleDefinitionByIdArgs struct {
 	// Flag to indicate whether auto-apply capability, to automatically change the target object access resource, is enabled. If not enabled, a user must, after the review completes, apply the access review.
 	AutoApplyDecisionsEnabled pulumi.BoolPtrInput
+	// This is the collection of backup reviewers.
+	BackupReviewers AccessReviewReviewerArrayInput
 	// This specifies the behavior for the autoReview feature when an access review completes.
 	DefaultDecision pulumi.StringPtrInput
 	// Flag to indicate whether reviewers are required to provide a justification when reviewing access.

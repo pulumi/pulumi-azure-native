@@ -8,7 +8,7 @@ import (
 )
 
 // An Azure Cosmos DB Role Assignment
-// API Version: 2020-06-01-preview.
+// API Version: 2021-03-01-preview.
 func LookupSqlResourceSqlRoleAssignment(ctx *pulumi.Context, args *LookupSqlResourceSqlRoleAssignmentArgs, opts ...pulumi.InvokeOption) (*LookupSqlResourceSqlRoleAssignmentResult, error) {
 	var rv LookupSqlResourceSqlRoleAssignmentResult
 	err := ctx.Invoke("azure-native:documentdb:getSqlResourceSqlRoleAssignment", args, &rv, opts...)

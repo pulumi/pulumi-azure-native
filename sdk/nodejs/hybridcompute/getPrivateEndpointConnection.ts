@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A private endpoint connection
- * API Version: 2020-08-15-preview.
+ * API Version: 2021-01-28-preview.
  */
 export function getPrivateEndpointConnection(args: GetPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionResult> {
     if (!opts) {
@@ -30,7 +30,7 @@ export interface GetPrivateEndpointConnectionArgs {
      */
     readonly privateEndpointConnectionName: string;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: string;
     /**
@@ -52,17 +52,13 @@ export interface GetPrivateEndpointConnectionResult {
      */
     readonly name: string;
     /**
-     * Private endpoint which the connection belongs to.
+     * Resource properties.
      */
-    readonly privateEndpoint?: outputs.hybridcompute.PrivateEndpointPropertyResponse;
+    readonly properties: outputs.hybridcompute.PrivateEndpointConnectionPropertiesResponse;
     /**
-     * Connection state of the private endpoint connection.
+     * The system meta data relating to this resource.
      */
-    readonly privateLinkServiceConnectionState?: outputs.hybridcompute.PrivateLinkServiceConnectionStatePropertyResponse;
-    /**
-     * State of the private endpoint connection.
-     */
-    readonly provisioningState: string;
+    readonly systemData: outputs.hybridcompute.SystemDataResponse;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */

@@ -61,6 +61,12 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20190801preview:PrivateEndpointConnection"),
 		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20210301preview:PrivateEndpointConnection"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:documentdb/v20210301preview:PrivateEndpointConnection"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource PrivateEndpointConnection

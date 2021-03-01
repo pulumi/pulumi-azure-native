@@ -47,6 +47,12 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:hybridcompute:PrivateEndpointConnection"),
 		},
+		{
+			Type: pulumi.String("azure-native:hybridcompute/v20210128preview:PrivateEndpointConnection"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:hybridcompute/v20210128preview:PrivateEndpointConnection"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource PrivateEndpointConnection
