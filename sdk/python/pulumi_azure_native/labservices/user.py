@@ -81,7 +81,7 @@ class User(pulumi.CustomResource):
             __props__['tenant_id'] = None
             __props__['total_usage'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:labservices/latest:User"), pulumi.Alias(type_="azure-nextgen:labservices/latest:User"), pulumi.Alias(type_="azure-native:labservices/v20181015:User"), pulumi.Alias(type_="azure-nextgen:labservices/v20181015:User")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:labservices:User"), pulumi.Alias(type_="azure-native:labservices/latest:User"), pulumi.Alias(type_="azure-nextgen:labservices/latest:User"), pulumi.Alias(type_="azure-native:labservices/v20181015:User"), pulumi.Alias(type_="azure-nextgen:labservices/v20181015:User")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(User, __self__).__init__(
             'azure-native:labservices:User',

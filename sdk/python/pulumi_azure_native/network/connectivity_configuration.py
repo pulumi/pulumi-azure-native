@@ -86,7 +86,7 @@ class ConnectivityConfiguration(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20210201preview:ConnectivityConfiguration"), pulumi.Alias(type_="azure-nextgen:network/v20210201preview:ConnectivityConfiguration")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network:ConnectivityConfiguration"), pulumi.Alias(type_="azure-native:network/v20210201preview:ConnectivityConfiguration"), pulumi.Alias(type_="azure-nextgen:network/v20210201preview:ConnectivityConfiguration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ConnectivityConfiguration, __self__).__init__(
             'azure-native:network:ConnectivityConfiguration',

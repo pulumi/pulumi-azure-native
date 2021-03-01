@@ -79,7 +79,7 @@ class AgentPool(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:containerregistry:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerregistry:AgentPool")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:containerregistry/v20190601preview:AgentPool"), pulumi.Alias(type_="azure-native:containerregistry:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerregistry:AgentPool")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AgentPool, __self__).__init__(
             'azure-native:containerregistry/v20190601preview:AgentPool',

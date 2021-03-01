@@ -67,7 +67,7 @@ class DataPool(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:autonomousdevelopmentplatform/v20200701preview:DataPool"), pulumi.Alias(type_="azure-nextgen:autonomousdevelopmentplatform/v20200701preview:DataPool"), pulumi.Alias(type_="azure-native:autonomousdevelopmentplatform/v20210201preview:DataPool"), pulumi.Alias(type_="azure-nextgen:autonomousdevelopmentplatform/v20210201preview:DataPool")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:autonomousdevelopmentplatform:DataPool"), pulumi.Alias(type_="azure-native:autonomousdevelopmentplatform/v20200701preview:DataPool"), pulumi.Alias(type_="azure-nextgen:autonomousdevelopmentplatform/v20200701preview:DataPool"), pulumi.Alias(type_="azure-native:autonomousdevelopmentplatform/v20210201preview:DataPool"), pulumi.Alias(type_="azure-nextgen:autonomousdevelopmentplatform/v20210201preview:DataPool")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DataPool, __self__).__init__(
             'azure-native:autonomousdevelopmentplatform:DataPool',

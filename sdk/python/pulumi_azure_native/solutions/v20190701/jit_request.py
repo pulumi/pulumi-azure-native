@@ -79,7 +79,7 @@ class JitRequest(pulumi.CustomResource):
             __props__['publisher_tenant_id'] = None
             __props__['type'] = None
             __props__['updated_by'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:solutions:JitRequest"), pulumi.Alias(type_="azure-nextgen:solutions:JitRequest"), pulumi.Alias(type_="azure-native:solutions/latest:JitRequest"), pulumi.Alias(type_="azure-nextgen:solutions/latest:JitRequest"), pulumi.Alias(type_="azure-native:solutions/v20200821preview:JitRequest"), pulumi.Alias(type_="azure-nextgen:solutions/v20200821preview:JitRequest")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:solutions/v20190701:JitRequest"), pulumi.Alias(type_="azure-native:solutions:JitRequest"), pulumi.Alias(type_="azure-nextgen:solutions:JitRequest"), pulumi.Alias(type_="azure-native:solutions/latest:JitRequest"), pulumi.Alias(type_="azure-nextgen:solutions/latest:JitRequest"), pulumi.Alias(type_="azure-native:solutions/v20200821preview:JitRequest"), pulumi.Alias(type_="azure-nextgen:solutions/v20200821preview:JitRequest")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(JitRequest, __self__).__init__(
             'azure-native:solutions/v20190701:JitRequest',

@@ -74,7 +74,7 @@ class VendorSkus(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybridnetwork/v20200101preview:VendorSkus"), pulumi.Alias(type_="azure-nextgen:hybridnetwork/v20200101preview:VendorSkus")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:hybridnetwork:VendorSkus"), pulumi.Alias(type_="azure-native:hybridnetwork/v20200101preview:VendorSkus"), pulumi.Alias(type_="azure-nextgen:hybridnetwork/v20200101preview:VendorSkus")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VendorSkus, __self__).__init__(
             'azure-native:hybridnetwork:VendorSkus',

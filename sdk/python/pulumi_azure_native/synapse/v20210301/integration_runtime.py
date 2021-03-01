@@ -65,7 +65,7 @@ class IntegrationRuntime(pulumi.CustomResource):
             __props__['etag'] = None
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:synapse:IntegrationRuntime"), pulumi.Alias(type_="azure-nextgen:synapse:IntegrationRuntime"), pulumi.Alias(type_="azure-native:synapse/latest:IntegrationRuntime"), pulumi.Alias(type_="azure-nextgen:synapse/latest:IntegrationRuntime"), pulumi.Alias(type_="azure-native:synapse/v20190601preview:IntegrationRuntime"), pulumi.Alias(type_="azure-nextgen:synapse/v20190601preview:IntegrationRuntime"), pulumi.Alias(type_="azure-native:synapse/v20201201:IntegrationRuntime"), pulumi.Alias(type_="azure-nextgen:synapse/v20201201:IntegrationRuntime")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:synapse/v20210301:IntegrationRuntime"), pulumi.Alias(type_="azure-native:synapse:IntegrationRuntime"), pulumi.Alias(type_="azure-nextgen:synapse:IntegrationRuntime"), pulumi.Alias(type_="azure-native:synapse/latest:IntegrationRuntime"), pulumi.Alias(type_="azure-nextgen:synapse/latest:IntegrationRuntime"), pulumi.Alias(type_="azure-native:synapse/v20190601preview:IntegrationRuntime"), pulumi.Alias(type_="azure-nextgen:synapse/v20190601preview:IntegrationRuntime"), pulumi.Alias(type_="azure-native:synapse/v20201201:IntegrationRuntime"), pulumi.Alias(type_="azure-nextgen:synapse/v20201201:IntegrationRuntime")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IntegrationRuntime, __self__).__init__(
             'azure-native:synapse/v20210301:IntegrationRuntime',

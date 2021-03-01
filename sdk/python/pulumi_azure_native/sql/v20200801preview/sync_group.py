@@ -97,7 +97,7 @@ class SyncGroup(pulumi.CustomResource):
             __props__['private_endpoint_name'] = None
             __props__['sync_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql:SyncGroup"), pulumi.Alias(type_="azure-nextgen:sql:SyncGroup"), pulumi.Alias(type_="azure-native:sql/v20150501preview:SyncGroup"), pulumi.Alias(type_="azure-nextgen:sql/v20150501preview:SyncGroup"), pulumi.Alias(type_="azure-native:sql/v20190601preview:SyncGroup"), pulumi.Alias(type_="azure-nextgen:sql/v20190601preview:SyncGroup"), pulumi.Alias(type_="azure-native:sql/v20200202preview:SyncGroup"), pulumi.Alias(type_="azure-nextgen:sql/v20200202preview:SyncGroup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:sql/v20200801preview:SyncGroup"), pulumi.Alias(type_="azure-native:sql:SyncGroup"), pulumi.Alias(type_="azure-nextgen:sql:SyncGroup"), pulumi.Alias(type_="azure-native:sql/v20150501preview:SyncGroup"), pulumi.Alias(type_="azure-nextgen:sql/v20150501preview:SyncGroup"), pulumi.Alias(type_="azure-native:sql/v20190601preview:SyncGroup"), pulumi.Alias(type_="azure-nextgen:sql/v20190601preview:SyncGroup"), pulumi.Alias(type_="azure-native:sql/v20200202preview:SyncGroup"), pulumi.Alias(type_="azure-nextgen:sql/v20200202preview:SyncGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SyncGroup, __self__).__init__(
             'azure-native:sql/v20200801preview:SyncGroup',

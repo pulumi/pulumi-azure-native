@@ -70,7 +70,7 @@ class MigrationConfig(pulumi.CustomResource):
             __props__['pending_replication_operations_count'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:servicebus/latest:MigrationConfig"), pulumi.Alias(type_="azure-nextgen:servicebus/latest:MigrationConfig"), pulumi.Alias(type_="azure-native:servicebus/v20170401:MigrationConfig"), pulumi.Alias(type_="azure-nextgen:servicebus/v20170401:MigrationConfig"), pulumi.Alias(type_="azure-native:servicebus/v20180101preview:MigrationConfig"), pulumi.Alias(type_="azure-nextgen:servicebus/v20180101preview:MigrationConfig")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:servicebus:MigrationConfig"), pulumi.Alias(type_="azure-native:servicebus/latest:MigrationConfig"), pulumi.Alias(type_="azure-nextgen:servicebus/latest:MigrationConfig"), pulumi.Alias(type_="azure-native:servicebus/v20170401:MigrationConfig"), pulumi.Alias(type_="azure-nextgen:servicebus/v20170401:MigrationConfig"), pulumi.Alias(type_="azure-native:servicebus/v20180101preview:MigrationConfig"), pulumi.Alias(type_="azure-nextgen:servicebus/v20180101preview:MigrationConfig")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(MigrationConfig, __self__).__init__(
             'azure-native:servicebus:MigrationConfig',

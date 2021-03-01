@@ -67,7 +67,7 @@ class PrivateEndpointConnectionsForSCCPowershell(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityandcompliance:PrivateEndpointConnectionsForSCCPowershell"), pulumi.Alias(type_="azure-nextgen:securityandcompliance:PrivateEndpointConnectionsForSCCPowershell"), pulumi.Alias(type_="azure-native:securityandcompliance/latest:PrivateEndpointConnectionsForSCCPowershell"), pulumi.Alias(type_="azure-nextgen:securityandcompliance/latest:PrivateEndpointConnectionsForSCCPowershell")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:securityandcompliance/v20210111:PrivateEndpointConnectionsForSCCPowershell"), pulumi.Alias(type_="azure-native:securityandcompliance:PrivateEndpointConnectionsForSCCPowershell"), pulumi.Alias(type_="azure-nextgen:securityandcompliance:PrivateEndpointConnectionsForSCCPowershell"), pulumi.Alias(type_="azure-native:securityandcompliance/latest:PrivateEndpointConnectionsForSCCPowershell"), pulumi.Alias(type_="azure-nextgen:securityandcompliance/latest:PrivateEndpointConnectionsForSCCPowershell")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateEndpointConnectionsForSCCPowershell, __self__).__init__(
             'azure-native:securityandcompliance/v20210111:PrivateEndpointConnectionsForSCCPowershell',

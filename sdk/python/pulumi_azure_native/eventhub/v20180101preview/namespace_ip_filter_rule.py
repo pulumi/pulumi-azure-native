@@ -66,7 +66,7 @@ class NamespaceIpFilterRule(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:eventhub:NamespaceIpFilterRule"), pulumi.Alias(type_="azure-nextgen:eventhub:NamespaceIpFilterRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:eventhub/v20180101preview:NamespaceIpFilterRule"), pulumi.Alias(type_="azure-native:eventhub:NamespaceIpFilterRule"), pulumi.Alias(type_="azure-nextgen:eventhub:NamespaceIpFilterRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NamespaceIpFilterRule, __self__).__init__(
             'azure-native:eventhub/v20180101preview:NamespaceIpFilterRule',
