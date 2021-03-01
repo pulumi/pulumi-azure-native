@@ -62,6 +62,9 @@ func NewOperationalizationCluster(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:machinelearningcompute/v20170801preview:OperationalizationCluster"),
+		},
+		{
 			Type: pulumi.String("azure-native:machinelearningcompute:OperationalizationCluster"),
 		},
 		{

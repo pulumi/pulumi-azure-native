@@ -64,6 +64,7 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:datashare/v20201001preview:SynchronizationSetting"},
                     new Pulumi.Alias { Type = "azure-native:datashare:SynchronizationSetting"},
                     new Pulumi.Alias { Type = "azure-nextgen:datashare:SynchronizationSetting"},
                     new Pulumi.Alias { Type = "azure-native:datashare/latest:SynchronizationSetting"},

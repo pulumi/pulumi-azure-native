@@ -114,6 +114,7 @@ namespace Pulumi.AzureNative.Sql.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:sql/latest:DatabaseThreatDetectionPolicy"},
                     new Pulumi.Alias { Type = "azure-native:sql:DatabaseThreatDetectionPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql:DatabaseThreatDetectionPolicy"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20140401:DatabaseThreatDetectionPolicy"},

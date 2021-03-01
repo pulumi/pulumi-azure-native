@@ -100,6 +100,7 @@ namespace Pulumi.AzureNative.WindowsIoT.V20190601
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:windowsiot/v20190601:Service"},
                     new Pulumi.Alias { Type = "azure-native:windowsiot:Service"},
                     new Pulumi.Alias { Type = "azure-nextgen:windowsiot:Service"},
                     new Pulumi.Alias { Type = "azure-native:windowsiot/latest:Service"},

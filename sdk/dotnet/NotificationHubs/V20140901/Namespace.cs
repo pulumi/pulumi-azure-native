@@ -70,6 +70,7 @@ namespace Pulumi.AzureNative.NotificationHubs.V20140901
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:notificationhubs/v20140901:Namespace"},
                     new Pulumi.Alias { Type = "azure-native:notificationhubs:Namespace"},
                     new Pulumi.Alias { Type = "azure-nextgen:notificationhubs:Namespace"},
                     new Pulumi.Alias { Type = "azure-native:notificationhubs/latest:Namespace"},

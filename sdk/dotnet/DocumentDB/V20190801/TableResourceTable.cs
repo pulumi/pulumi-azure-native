@@ -67,6 +67,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20190801
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20190801:TableResourceTable"},
                     new Pulumi.Alias { Type = "azure-native:documentdb:TableResourceTable"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb:TableResourceTable"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/latest:TableResourceTable"},

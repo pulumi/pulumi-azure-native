@@ -105,7 +105,7 @@ class Bookmark(pulumi.CustomResource):
             __props__['workspace_name'] = workspace_name
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights:Bookmark"), pulumi.Alias(type_="azure-nextgen:securityinsights:Bookmark"), pulumi.Alias(type_="azure-native:securityinsights/latest:Bookmark"), pulumi.Alias(type_="azure-nextgen:securityinsights/latest:Bookmark")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:securityinsights/v20200101:Bookmark"), pulumi.Alias(type_="azure-native:securityinsights:Bookmark"), pulumi.Alias(type_="azure-nextgen:securityinsights:Bookmark"), pulumi.Alias(type_="azure-native:securityinsights/latest:Bookmark"), pulumi.Alias(type_="azure-nextgen:securityinsights/latest:Bookmark")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Bookmark, __self__).__init__(
             'azure-native:securityinsights/v20200101:Bookmark',

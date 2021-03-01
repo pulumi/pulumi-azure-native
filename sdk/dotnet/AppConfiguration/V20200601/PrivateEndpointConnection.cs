@@ -70,6 +70,7 @@ namespace Pulumi.AzureNative.AppConfiguration.V20200601
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:appconfiguration/v20200601:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:appconfiguration:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:appconfiguration:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:appconfiguration/latest:PrivateEndpointConnection"},

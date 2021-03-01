@@ -45,6 +45,12 @@ func NewServerKey(ctx *pulumi.Context,
 	if args.ServerName == nil {
 		return nil, errors.New("invalid value for required argument 'ServerName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:dbforpostgresql/v20200214privatepreview:ServerKey"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ServerKey
 	err := ctx.RegisterResource("azure-native:dbforpostgresql/v20200214privatepreview:ServerKey", name, args, &resource, opts...)
 	if err != nil {

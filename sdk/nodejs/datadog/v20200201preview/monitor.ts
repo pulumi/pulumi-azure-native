@@ -84,7 +84,7 @@ export class Monitor extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:datadog:Monitor" }, { type: "azure-nextgen:datadog:Monitor" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:datadog/v20200201preview:Monitor" }, { type: "azure-native:datadog:Monitor" }, { type: "azure-nextgen:datadog:Monitor" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Monitor.__pulumiType, name, inputs, opts);
     }

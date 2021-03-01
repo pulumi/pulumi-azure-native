@@ -178,6 +178,7 @@ namespace Pulumi.AzureNative.Network.V20170601
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20170601:ApplicationGateway"},
                     new Pulumi.Alias { Type = "azure-native:network:ApplicationGateway"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:ApplicationGateway"},
                     new Pulumi.Alias { Type = "azure-native:network/latest:ApplicationGateway"},

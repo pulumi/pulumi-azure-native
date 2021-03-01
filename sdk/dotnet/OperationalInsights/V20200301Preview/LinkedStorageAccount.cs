@@ -64,6 +64,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20200301Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20200301preview:LinkedStorageAccount"},
                     new Pulumi.Alias { Type = "azure-native:operationalinsights:LinkedStorageAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights:LinkedStorageAccount"},
                     new Pulumi.Alias { Type = "azure-native:operationalinsights/latest:LinkedStorageAccount"},

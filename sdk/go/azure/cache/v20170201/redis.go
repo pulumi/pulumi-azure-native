@@ -68,6 +68,9 @@ func NewRedis(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:cache/v20170201:Redis"),
+		},
+		{
 			Type: pulumi.String("azure-native:cache:Redis"),
 		},
 		{

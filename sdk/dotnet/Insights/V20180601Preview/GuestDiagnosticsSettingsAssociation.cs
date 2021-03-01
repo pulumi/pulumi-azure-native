@@ -70,6 +70,7 @@ namespace Pulumi.AzureNative.Insights.V20180601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:insights/v20180601preview:GuestDiagnosticsSettingsAssociation"},
                     new Pulumi.Alias { Type = "azure-native:insights:GuestDiagnosticsSettingsAssociation"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights:GuestDiagnosticsSettingsAssociation"},
                 },

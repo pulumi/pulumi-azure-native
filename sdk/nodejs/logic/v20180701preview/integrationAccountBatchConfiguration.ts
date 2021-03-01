@@ -94,7 +94,7 @@ export class IntegrationAccountBatchConfiguration extends pulumi.CustomResource 
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:logic:IntegrationAccountBatchConfiguration" }, { type: "azure-nextgen:logic:IntegrationAccountBatchConfiguration" }, { type: "azure-native:logic/latest:IntegrationAccountBatchConfiguration" }, { type: "azure-nextgen:logic/latest:IntegrationAccountBatchConfiguration" }, { type: "azure-native:logic/v20160601:IntegrationAccountBatchConfiguration" }, { type: "azure-nextgen:logic/v20160601:IntegrationAccountBatchConfiguration" }, { type: "azure-native:logic/v20190501:IntegrationAccountBatchConfiguration" }, { type: "azure-nextgen:logic/v20190501:IntegrationAccountBatchConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:logic/v20180701preview:IntegrationAccountBatchConfiguration" }, { type: "azure-native:logic:IntegrationAccountBatchConfiguration" }, { type: "azure-nextgen:logic:IntegrationAccountBatchConfiguration" }, { type: "azure-native:logic/latest:IntegrationAccountBatchConfiguration" }, { type: "azure-nextgen:logic/latest:IntegrationAccountBatchConfiguration" }, { type: "azure-native:logic/v20160601:IntegrationAccountBatchConfiguration" }, { type: "azure-nextgen:logic/v20160601:IntegrationAccountBatchConfiguration" }, { type: "azure-native:logic/v20190501:IntegrationAccountBatchConfiguration" }, { type: "azure-nextgen:logic/v20190501:IntegrationAccountBatchConfiguration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IntegrationAccountBatchConfiguration.__pulumiType, name, inputs, opts);
     }

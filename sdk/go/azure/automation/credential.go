@@ -54,6 +54,9 @@ func NewCredential(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:automation:Credential"),
+		},
+		{
 			Type: pulumi.String("azure-native:automation/latest:Credential"),
 		},
 		{

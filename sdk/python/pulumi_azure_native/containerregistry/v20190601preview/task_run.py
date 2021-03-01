@@ -75,7 +75,7 @@ class TaskRun(pulumi.CustomResource):
             __props__['run_result'] = None
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:containerregistry:TaskRun"), pulumi.Alias(type_="azure-nextgen:containerregistry:TaskRun")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:containerregistry/v20190601preview:TaskRun"), pulumi.Alias(type_="azure-native:containerregistry:TaskRun"), pulumi.Alias(type_="azure-nextgen:containerregistry:TaskRun")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(TaskRun, __self__).__init__(
             'azure-native:containerregistry/v20190601preview:TaskRun',

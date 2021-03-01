@@ -45,6 +45,9 @@ func NewIpGroup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:network/v20191101:IpGroup"),
+		},
+		{
 			Type: pulumi.String("azure-native:network:IpGroup"),
 		},
 		{

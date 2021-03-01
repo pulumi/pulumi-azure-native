@@ -106,7 +106,7 @@ export class PrivateEndpointConnectionsForEDM extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:securityandcompliance:PrivateEndpointConnectionsForEDM" }, { type: "azure-nextgen:securityandcompliance:PrivateEndpointConnectionsForEDM" }, { type: "azure-native:securityandcompliance/v20210111:PrivateEndpointConnectionsForEDM" }, { type: "azure-nextgen:securityandcompliance/v20210111:PrivateEndpointConnectionsForEDM" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:securityandcompliance/latest:PrivateEndpointConnectionsForEDM" }, { type: "azure-native:securityandcompliance:PrivateEndpointConnectionsForEDM" }, { type: "azure-nextgen:securityandcompliance:PrivateEndpointConnectionsForEDM" }, { type: "azure-native:securityandcompliance/v20210111:PrivateEndpointConnectionsForEDM" }, { type: "azure-nextgen:securityandcompliance/v20210111:PrivateEndpointConnectionsForEDM" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateEndpointConnectionsForEDM.__pulumiType, name, inputs, opts);
     }

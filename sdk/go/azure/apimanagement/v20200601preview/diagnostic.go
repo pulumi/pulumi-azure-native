@@ -57,6 +57,9 @@ func NewDiagnostic(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:apimanagement/v20200601preview:Diagnostic"),
+		},
+		{
 			Type: pulumi.String("azure-native:apimanagement:Diagnostic"),
 		},
 		{

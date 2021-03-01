@@ -125,6 +125,7 @@ namespace Pulumi.AzureNative.Logic
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:logic:RosettaNetProcessConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:logic/latest:RosettaNetProcessConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic/latest:RosettaNetProcessConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:logic/v20160601:RosettaNetProcessConfiguration"},

@@ -38,6 +38,9 @@ func NewNotebookProxy(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:notebooks:NotebookProxy"),
+		},
+		{
 			Type: pulumi.String("azure-native:notebooks/v20191011preview:NotebookProxy"),
 		},
 		{

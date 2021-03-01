@@ -56,6 +56,9 @@ func NewOrder(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:databoxedge/v20200501preview:Order"),
+		},
+		{
 			Type: pulumi.String("azure-native:databoxedge:Order"),
 		},
 		{

@@ -86,7 +86,7 @@ export class ChapSetting extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:storsimple:ChapSetting" }, { type: "azure-nextgen:storsimple:ChapSetting" }, { type: "azure-native:storsimple/latest:ChapSetting" }, { type: "azure-nextgen:storsimple/latest:ChapSetting" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:storsimple/v20161001:ChapSetting" }, { type: "azure-native:storsimple:ChapSetting" }, { type: "azure-nextgen:storsimple:ChapSetting" }, { type: "azure-native:storsimple/latest:ChapSetting" }, { type: "azure-nextgen:storsimple/latest:ChapSetting" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ChapSetting.__pulumiType, name, inputs, opts);
     }

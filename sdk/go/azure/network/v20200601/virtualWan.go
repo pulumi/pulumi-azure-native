@@ -53,6 +53,9 @@ func NewVirtualWan(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:network/v20200601:VirtualWan"),
+		},
+		{
 			Type: pulumi.String("azure-native:network:VirtualWan"),
 		},
 		{

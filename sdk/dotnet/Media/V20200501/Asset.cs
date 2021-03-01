@@ -106,6 +106,7 @@ namespace Pulumi.AzureNative.Media.V20200501
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:media/v20200501:Asset"},
                     new Pulumi.Alias { Type = "azure-native:media:Asset"},
                     new Pulumi.Alias { Type = "azure-nextgen:media:Asset"},
                     new Pulumi.Alias { Type = "azure-native:media/latest:Asset"},

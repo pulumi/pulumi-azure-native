@@ -105,7 +105,7 @@ export class Bot extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:botservice:Bot" }, { type: "azure-nextgen:botservice:Bot" }, { type: "azure-native:botservice/latest:Bot" }, { type: "azure-nextgen:botservice/latest:Bot" }, { type: "azure-native:botservice/v20171201:Bot" }, { type: "azure-nextgen:botservice/v20171201:Bot" }, { type: "azure-native:botservice/v20200602:Bot" }, { type: "azure-nextgen:botservice/v20200602:Bot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:botservice/v20180712:Bot" }, { type: "azure-native:botservice:Bot" }, { type: "azure-nextgen:botservice:Bot" }, { type: "azure-native:botservice/latest:Bot" }, { type: "azure-nextgen:botservice/latest:Bot" }, { type: "azure-native:botservice/v20171201:Bot" }, { type: "azure-nextgen:botservice/v20171201:Bot" }, { type: "azure-native:botservice/v20200602:Bot" }, { type: "azure-nextgen:botservice/v20200602:Bot" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Bot.__pulumiType, name, inputs, opts);
     }

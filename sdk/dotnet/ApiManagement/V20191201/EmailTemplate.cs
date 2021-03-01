@@ -88,6 +88,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20191201
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201:EmailTemplate"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement:EmailTemplate"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement:EmailTemplate"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/latest:EmailTemplate"},

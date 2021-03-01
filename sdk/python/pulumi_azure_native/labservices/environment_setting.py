@@ -95,7 +95,7 @@ class EnvironmentSetting(pulumi.CustomResource):
             __props__['name'] = None
             __props__['publishing_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:labservices/latest:EnvironmentSetting"), pulumi.Alias(type_="azure-nextgen:labservices/latest:EnvironmentSetting"), pulumi.Alias(type_="azure-native:labservices/v20181015:EnvironmentSetting"), pulumi.Alias(type_="azure-nextgen:labservices/v20181015:EnvironmentSetting")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:labservices:EnvironmentSetting"), pulumi.Alias(type_="azure-native:labservices/latest:EnvironmentSetting"), pulumi.Alias(type_="azure-nextgen:labservices/latest:EnvironmentSetting"), pulumi.Alias(type_="azure-native:labservices/v20181015:EnvironmentSetting"), pulumi.Alias(type_="azure-nextgen:labservices/v20181015:EnvironmentSetting")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(EnvironmentSetting, __self__).__init__(
             'azure-native:labservices:EnvironmentSetting',

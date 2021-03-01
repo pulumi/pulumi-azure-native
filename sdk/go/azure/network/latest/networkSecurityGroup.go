@@ -56,6 +56,9 @@ func NewNetworkSecurityGroup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:network/latest:NetworkSecurityGroup"),
+		},
+		{
 			Type: pulumi.String("azure-native:network:NetworkSecurityGroup"),
 		},
 		{

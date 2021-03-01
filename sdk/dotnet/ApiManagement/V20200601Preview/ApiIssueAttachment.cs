@@ -70,6 +70,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20200601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20200601preview:ApiIssueAttachment"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement:ApiIssueAttachment"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement:ApiIssueAttachment"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/latest:ApiIssueAttachment"},

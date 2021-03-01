@@ -160,6 +160,7 @@ namespace Pulumi.AzureNative.Solutions.V20190701
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:solutions/v20190701:ApplicationDefinition"},
                     new Pulumi.Alias { Type = "azure-native:solutions:ApplicationDefinition"},
                     new Pulumi.Alias { Type = "azure-nextgen:solutions:ApplicationDefinition"},
                     new Pulumi.Alias { Type = "azure-native:solutions/latest:ApplicationDefinition"},

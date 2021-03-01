@@ -104,6 +104,7 @@ namespace Pulumi.AzureNative.AppConfiguration.V20200701Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:appconfiguration/v20200701preview:KeyValue"},
                     new Pulumi.Alias { Type = "azure-native:appconfiguration:KeyValue"},
                     new Pulumi.Alias { Type = "azure-nextgen:appconfiguration:KeyValue"},
                 },

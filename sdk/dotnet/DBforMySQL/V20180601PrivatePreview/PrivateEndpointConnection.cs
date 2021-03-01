@@ -70,6 +70,7 @@ namespace Pulumi.AzureNative.DBforMySQL.V20180601PrivatePreview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:dbformysql/v20180601privatepreview:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:dbformysql:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbformysql:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:dbformysql/latest:PrivateEndpointConnection"},

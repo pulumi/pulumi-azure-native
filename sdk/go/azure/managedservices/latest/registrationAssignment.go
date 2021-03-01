@@ -38,6 +38,9 @@ func NewRegistrationAssignment(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:managedservices/latest:RegistrationAssignment"),
+		},
+		{
 			Type: pulumi.String("azure-native:managedservices:RegistrationAssignment"),
 		},
 		{

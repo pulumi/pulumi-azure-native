@@ -55,6 +55,9 @@ func NewServerAzureADAdministrator(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:sql/v20200801preview:ServerAzureADAdministrator"),
+		},
+		{
 			Type: pulumi.String("azure-native:sql:ServerAzureADAdministrator"),
 		},
 		{

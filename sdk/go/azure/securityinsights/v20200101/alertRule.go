@@ -43,6 +43,9 @@ func NewAlertRule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:securityinsights/v20200101:AlertRule"),
+		},
+		{
 			Type: pulumi.String("azure-native:securityinsights:AlertRule"),
 		},
 		{

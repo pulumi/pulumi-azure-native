@@ -148,7 +148,7 @@ export class SiteInstanceDeployment extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:web/latest:SiteInstanceDeployment" }, { type: "azure-nextgen:web/latest:SiteInstanceDeployment" }, { type: "azure-native:web/v20150801:SiteInstanceDeployment" }, { type: "azure-nextgen:web/v20150801:SiteInstanceDeployment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:SiteInstanceDeployment" }, { type: "azure-native:web/latest:SiteInstanceDeployment" }, { type: "azure-nextgen:web/latest:SiteInstanceDeployment" }, { type: "azure-native:web/v20150801:SiteInstanceDeployment" }, { type: "azure-nextgen:web/v20150801:SiteInstanceDeployment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SiteInstanceDeployment.__pulumiType, name, inputs, opts);
     }

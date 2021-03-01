@@ -47,6 +47,9 @@ func NewProtectionContainer(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:recoveryservices/v20210101:ProtectionContainer"),
+		},
+		{
 			Type: pulumi.String("azure-native:recoveryservices:ProtectionContainer"),
 		},
 		{

@@ -42,6 +42,9 @@ func NewMaintenanceConfiguration(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:containerservice/v20210201:MaintenanceConfiguration"),
+		},
+		{
 			Type: pulumi.String("azure-native:containerservice:MaintenanceConfiguration"),
 		},
 		{

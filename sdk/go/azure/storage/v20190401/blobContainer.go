@@ -58,6 +58,9 @@ func NewBlobContainer(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:storage/v20190401:BlobContainer"),
+		},
+		{
 			Type: pulumi.String("azure-native:storage:BlobContainer"),
 		},
 		{

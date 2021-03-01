@@ -61,6 +61,9 @@ func NewPolicy(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:devtestlab/v20160515:Policy"),
+		},
+		{
 			Type: pulumi.String("azure-native:devtestlab:Policy"),
 		},
 		{

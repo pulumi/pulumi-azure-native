@@ -95,6 +95,7 @@ namespace Pulumi.AzureNative.Synapse
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:synapse:SqlDatabase"},
                     new Pulumi.Alias { Type = "azure-native:synapse/v20200401preview:SqlDatabase"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/v20200401preview:SqlDatabase"},
                 },

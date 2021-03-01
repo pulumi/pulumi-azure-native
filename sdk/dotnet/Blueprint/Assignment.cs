@@ -119,6 +119,7 @@ namespace Pulumi.AzureNative.Blueprint
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:blueprint:Assignment"},
                     new Pulumi.Alias { Type = "azure-native:blueprint/v20181101preview:Assignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:blueprint/v20181101preview:Assignment"},
                 },

@@ -140,7 +140,7 @@ export class NotificationHub extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:notificationhubs/latest:NotificationHub" }, { type: "azure-nextgen:notificationhubs/latest:NotificationHub" }, { type: "azure-native:notificationhubs/v20140901:NotificationHub" }, { type: "azure-nextgen:notificationhubs/v20140901:NotificationHub" }, { type: "azure-native:notificationhubs/v20160301:NotificationHub" }, { type: "azure-nextgen:notificationhubs/v20160301:NotificationHub" }, { type: "azure-native:notificationhubs/v20170401:NotificationHub" }, { type: "azure-nextgen:notificationhubs/v20170401:NotificationHub" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:notificationhubs:NotificationHub" }, { type: "azure-native:notificationhubs/latest:NotificationHub" }, { type: "azure-nextgen:notificationhubs/latest:NotificationHub" }, { type: "azure-native:notificationhubs/v20140901:NotificationHub" }, { type: "azure-nextgen:notificationhubs/v20140901:NotificationHub" }, { type: "azure-native:notificationhubs/v20160301:NotificationHub" }, { type: "azure-nextgen:notificationhubs/v20160301:NotificationHub" }, { type: "azure-native:notificationhubs/v20170401:NotificationHub" }, { type: "azure-nextgen:notificationhubs/v20170401:NotificationHub" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NotificationHub.__pulumiType, name, inputs, opts);
     }

@@ -48,6 +48,9 @@ func NewChannel(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:botservice/v20171201:Channel"),
+		},
+		{
 			Type: pulumi.String("azure-native:botservice:Channel"),
 		},
 		{

@@ -43,6 +43,9 @@ func NewRole(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:databoxedge/v20200901preview:Role"),
+		},
+		{
 			Type: pulumi.String("azure-native:databoxedge:Role"),
 		},
 		{

@@ -83,6 +83,7 @@ namespace Pulumi.AzureNative.StorSimple
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:storsimple:StorageAccountCredential"},
                     new Pulumi.Alias { Type = "azure-native:storsimple/latest:StorageAccountCredential"},
                     new Pulumi.Alias { Type = "azure-nextgen:storsimple/latest:StorageAccountCredential"},
                     new Pulumi.Alias { Type = "azure-native:storsimple/v20161001:StorageAccountCredential"},

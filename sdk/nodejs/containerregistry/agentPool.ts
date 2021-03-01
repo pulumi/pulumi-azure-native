@@ -123,7 +123,7 @@ export class AgentPool extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:containerregistry/v20190601preview:AgentPool" }, { type: "azure-nextgen:containerregistry/v20190601preview:AgentPool" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:containerregistry:AgentPool" }, { type: "azure-native:containerregistry/v20190601preview:AgentPool" }, { type: "azure-nextgen:containerregistry/v20190601preview:AgentPool" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AgentPool.__pulumiType, name, inputs, opts);
     }

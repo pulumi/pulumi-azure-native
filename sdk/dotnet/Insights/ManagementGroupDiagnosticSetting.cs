@@ -95,6 +95,7 @@ namespace Pulumi.AzureNative.Insights
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:insights:ManagementGroupDiagnosticSetting"},
                     new Pulumi.Alias { Type = "azure-native:insights/v20200101preview:ManagementGroupDiagnosticSetting"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights/v20200101preview:ManagementGroupDiagnosticSetting"},
                 },

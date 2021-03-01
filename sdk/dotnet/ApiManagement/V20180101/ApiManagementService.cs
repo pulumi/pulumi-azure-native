@@ -196,6 +196,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20180101
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180101:ApiManagementService"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement:ApiManagementService"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement:ApiManagementService"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/latest:ApiManagementService"},

@@ -51,6 +51,9 @@ func NewWorkloadNetworkPortMirroring(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:avs:WorkloadNetworkPortMirroring"),
+		},
+		{
 			Type: pulumi.String("azure-native:avs/v20200717preview:WorkloadNetworkPortMirroring"),
 		},
 		{

@@ -58,6 +58,7 @@ namespace Pulumi.AzureNative.DigitalTwins.V20201201
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:digitaltwins/v20201201:DigitalTwinsEndpoint"},
                     new Pulumi.Alias { Type = "azure-native:digitaltwins:DigitalTwinsEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:digitaltwins:DigitalTwinsEndpoint"},
                     new Pulumi.Alias { Type = "azure-native:digitaltwins/latest:DigitalTwinsEndpoint"},

@@ -84,6 +84,7 @@ namespace Pulumi.AzureNative.Resources.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:resources/latest:DeploymentScript"},
                     new Pulumi.Alias { Type = "azure-native:resources:DeploymentScript"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources:DeploymentScript"},
                     new Pulumi.Alias { Type = "azure-native:resources/v20191001preview:DeploymentScript"},

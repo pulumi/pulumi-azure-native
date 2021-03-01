@@ -43,6 +43,9 @@ func NewDiskAccess(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:compute/v20200630:DiskAccess"),
+		},
+		{
 			Type: pulumi.String("azure-native:compute:DiskAccess"),
 		},
 		{

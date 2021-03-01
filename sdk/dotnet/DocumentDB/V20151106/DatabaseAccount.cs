@@ -160,6 +160,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20151106
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20151106:DatabaseAccount"},
                     new Pulumi.Alias { Type = "azure-native:documentdb:DatabaseAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb:DatabaseAccount"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/latest:DatabaseAccount"},

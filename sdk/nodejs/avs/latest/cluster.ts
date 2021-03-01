@@ -115,7 +115,7 @@ export class Cluster extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:avs:Cluster" }, { type: "azure-nextgen:avs:Cluster" }, { type: "azure-native:avs/v20200320:Cluster" }, { type: "azure-nextgen:avs/v20200320:Cluster" }, { type: "azure-native:avs/v20200717preview:Cluster" }, { type: "azure-nextgen:avs/v20200717preview:Cluster" }, { type: "azure-native:avs/v20210101preview:Cluster" }, { type: "azure-nextgen:avs/v20210101preview:Cluster" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:avs/latest:Cluster" }, { type: "azure-native:avs:Cluster" }, { type: "azure-nextgen:avs:Cluster" }, { type: "azure-native:avs/v20200320:Cluster" }, { type: "azure-nextgen:avs/v20200320:Cluster" }, { type: "azure-native:avs/v20200717preview:Cluster" }, { type: "azure-nextgen:avs/v20200717preview:Cluster" }, { type: "azure-native:avs/v20210101preview:Cluster" }, { type: "azure-nextgen:avs/v20210101preview:Cluster" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Cluster.__pulumiType, name, inputs, opts);
     }

@@ -41,6 +41,9 @@ func NewGatewayCertificateAuthority(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:apimanagement/v20201201:GatewayCertificateAuthority"),
+		},
+		{
 			Type: pulumi.String("azure-native:apimanagement:GatewayCertificateAuthority"),
 		},
 		{

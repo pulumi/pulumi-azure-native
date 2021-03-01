@@ -76,6 +76,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20200101
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql/v20200101:ServerKey"},
                     new Pulumi.Alias { Type = "azure-native:dbforpostgresql:ServerKey"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql:ServerKey"},
                     new Pulumi.Alias { Type = "azure-native:dbforpostgresql/latest:ServerKey"},

@@ -101,6 +101,7 @@ namespace Pulumi.AzureNative.Confluent
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:confluent:Organization"},
                     new Pulumi.Alias { Type = "azure-native:confluent/latest:Organization"},
                     new Pulumi.Alias { Type = "azure-nextgen:confluent/latest:Organization"},
                     new Pulumi.Alias { Type = "azure-native:confluent/v20200301:Organization"},

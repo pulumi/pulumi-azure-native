@@ -72,6 +72,7 @@ namespace Pulumi.AzureNative.Web.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:web/latest:WebAppDomainOwnershipIdentifier"},
                     new Pulumi.Alias { Type = "azure-native:web:WebAppDomainOwnershipIdentifier"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:WebAppDomainOwnershipIdentifier"},
                     new Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppDomainOwnershipIdentifier"},

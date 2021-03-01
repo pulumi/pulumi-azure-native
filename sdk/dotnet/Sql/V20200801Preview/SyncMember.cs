@@ -124,6 +124,7 @@ namespace Pulumi.AzureNative.Sql.V20200801Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20200801preview:SyncMember"},
                     new Pulumi.Alias { Type = "azure-native:sql:SyncMember"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql:SyncMember"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20150501preview:SyncMember"},

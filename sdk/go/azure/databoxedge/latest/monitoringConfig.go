@@ -47,6 +47,9 @@ func NewMonitoringConfig(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:databoxedge/latest:MonitoringConfig"),
+		},
+		{
 			Type: pulumi.String("azure-native:databoxedge:MonitoringConfig"),
 		},
 		{

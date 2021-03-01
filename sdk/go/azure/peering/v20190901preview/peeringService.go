@@ -43,6 +43,9 @@ func NewPeeringService(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:peering/v20190901preview:PeeringService"),
+		},
+		{
 			Type: pulumi.String("azure-native:peering:PeeringService"),
 		},
 		{

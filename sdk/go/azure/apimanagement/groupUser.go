@@ -56,6 +56,9 @@ func NewGroupUser(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:apimanagement:GroupUser"),
+		},
+		{
 			Type: pulumi.String("azure-native:apimanagement/latest:GroupUser"),
 		},
 		{

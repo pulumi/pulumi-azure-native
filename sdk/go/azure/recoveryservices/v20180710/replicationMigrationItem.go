@@ -49,6 +49,9 @@ func NewReplicationMigrationItem(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:recoveryservices/v20180710:ReplicationMigrationItem"),
+		},
+		{
 			Type: pulumi.String("azure-native:recoveryservices:ReplicationMigrationItem"),
 		},
 		{

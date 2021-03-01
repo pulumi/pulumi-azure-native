@@ -66,6 +66,7 @@ namespace Pulumi.AzureNative.DataFactory.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:datafactory/latest:DataFlow"},
                     new Pulumi.Alias { Type = "azure-native:datafactory:DataFlow"},
                     new Pulumi.Alias { Type = "azure-nextgen:datafactory:DataFlow"},
                     new Pulumi.Alias { Type = "azure-native:datafactory/v20180601:DataFlow"},

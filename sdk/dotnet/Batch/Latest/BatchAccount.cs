@@ -150,6 +150,7 @@ namespace Pulumi.AzureNative.Batch.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:batch/latest:BatchAccount"},
                     new Pulumi.Alias { Type = "azure-native:batch:BatchAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch:BatchAccount"},
                     new Pulumi.Alias { Type = "azure-native:batch/v20151201:BatchAccount"},

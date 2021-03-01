@@ -138,6 +138,7 @@ namespace Pulumi.AzureNative.SecurityInsights.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:securityinsights/latest:Bookmark"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights:Bookmark"},
                     new Pulumi.Alias { Type = "azure-nextgen:securityinsights:Bookmark"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20200101:Bookmark"},

@@ -64,6 +64,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:securityinsights/v20190101preview:ThreatIntelligenceIndicator"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights:ThreatIntelligenceIndicator"},
                     new Pulumi.Alias { Type = "azure-nextgen:securityinsights:ThreatIntelligenceIndicator"},
                 },

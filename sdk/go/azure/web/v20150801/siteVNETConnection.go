@@ -55,6 +55,9 @@ func NewSiteVNETConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:web/v20150801:SiteVNETConnection"),
+		},
+		{
 			Type: pulumi.String("azure-native:web:SiteVNETConnection"),
 		},
 		{

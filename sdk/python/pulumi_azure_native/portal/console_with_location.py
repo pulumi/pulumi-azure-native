@@ -52,7 +52,7 @@ class ConsoleWithLocation(pulumi.CustomResource):
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['properties'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:portal/latest:ConsoleWithLocation"), pulumi.Alias(type_="azure-nextgen:portal/latest:ConsoleWithLocation"), pulumi.Alias(type_="azure-native:portal/v20181001:ConsoleWithLocation"), pulumi.Alias(type_="azure-nextgen:portal/v20181001:ConsoleWithLocation")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:portal:ConsoleWithLocation"), pulumi.Alias(type_="azure-native:portal/latest:ConsoleWithLocation"), pulumi.Alias(type_="azure-nextgen:portal/latest:ConsoleWithLocation"), pulumi.Alias(type_="azure-native:portal/v20181001:ConsoleWithLocation"), pulumi.Alias(type_="azure-nextgen:portal/v20181001:ConsoleWithLocation")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ConsoleWithLocation, __self__).__init__(
             'azure-native:portal:ConsoleWithLocation',

@@ -82,6 +82,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200515Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20200515preview:MachineLearningService"},
                     new Pulumi.Alias { Type = "azure-native:machinelearningservices:MachineLearningService"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices:MachineLearningService"},
                     new Pulumi.Alias { Type = "azure-native:machinelearningservices/latest:MachineLearningService"},

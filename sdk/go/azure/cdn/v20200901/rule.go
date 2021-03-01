@@ -58,6 +58,9 @@ func NewRule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:cdn/v20200901:Rule"),
+		},
+		{
 			Type: pulumi.String("azure-native:cdn:Rule"),
 		},
 		{

@@ -136,6 +136,7 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.V20200701Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:kubernetesconfiguration/v20200701preview:SourceControlConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:kubernetesconfiguration:SourceControlConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:kubernetesconfiguration:SourceControlConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/latest:SourceControlConfiguration"},

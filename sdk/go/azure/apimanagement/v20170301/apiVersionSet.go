@@ -52,6 +52,9 @@ func NewApiVersionSet(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:apimanagement/v20170301:ApiVersionSet"),
+		},
+		{
 			Type: pulumi.String("azure-native:apimanagement:ApiVersionSet"),
 		},
 		{

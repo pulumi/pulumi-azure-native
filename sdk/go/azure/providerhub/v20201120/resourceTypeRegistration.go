@@ -33,6 +33,9 @@ func NewResourceTypeRegistration(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:providerhub/v20201120:ResourceTypeRegistration"),
+		},
+		{
 			Type: pulumi.String("azure-native:providerhub:ResourceTypeRegistration"),
 		},
 		{

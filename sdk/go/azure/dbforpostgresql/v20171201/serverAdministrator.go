@@ -56,6 +56,9 @@ func NewServerAdministrator(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:dbforpostgresql/v20171201:ServerAdministrator"),
+		},
+		{
 			Type: pulumi.String("azure-native:dbforpostgresql:ServerAdministrator"),
 		},
 		{

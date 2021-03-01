@@ -70,6 +70,9 @@ func NewExportConfiguration(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:insights/v20150501:ExportConfiguration"),
+		},
+		{
 			Type: pulumi.String("azure-native:insights:ExportConfiguration"),
 		},
 		{

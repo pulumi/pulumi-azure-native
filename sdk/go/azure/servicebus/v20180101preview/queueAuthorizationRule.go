@@ -44,6 +44,9 @@ func NewQueueAuthorizationRule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:servicebus/v20180101preview:QueueAuthorizationRule"),
+		},
+		{
 			Type: pulumi.String("azure-native:servicebus:QueueAuthorizationRule"),
 		},
 		{

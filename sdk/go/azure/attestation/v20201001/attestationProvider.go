@@ -50,6 +50,9 @@ func NewAttestationProvider(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:attestation/v20201001:AttestationProvider"),
+		},
+		{
 			Type: pulumi.String("azure-native:attestation:AttestationProvider"),
 		},
 		{

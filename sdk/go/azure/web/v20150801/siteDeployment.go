@@ -60,6 +60,9 @@ func NewSiteDeployment(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:web/v20150801:SiteDeployment"),
+		},
+		{
 			Type: pulumi.String("azure-native:web:SiteDeployment"),
 		},
 		{

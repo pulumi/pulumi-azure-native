@@ -76,7 +76,7 @@ class CapacityDetails(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:powerbidedicated:CapacityDetails"), pulumi.Alias(type_="azure-nextgen:powerbidedicated:CapacityDetails"), pulumi.Alias(type_="azure-native:powerbidedicated/latest:CapacityDetails"), pulumi.Alias(type_="azure-nextgen:powerbidedicated/latest:CapacityDetails"), pulumi.Alias(type_="azure-native:powerbidedicated/v20171001:CapacityDetails"), pulumi.Alias(type_="azure-nextgen:powerbidedicated/v20171001:CapacityDetails")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:powerbidedicated/v20210101:CapacityDetails"), pulumi.Alias(type_="azure-native:powerbidedicated:CapacityDetails"), pulumi.Alias(type_="azure-nextgen:powerbidedicated:CapacityDetails"), pulumi.Alias(type_="azure-native:powerbidedicated/latest:CapacityDetails"), pulumi.Alias(type_="azure-nextgen:powerbidedicated/latest:CapacityDetails"), pulumi.Alias(type_="azure-native:powerbidedicated/v20171001:CapacityDetails"), pulumi.Alias(type_="azure-nextgen:powerbidedicated/v20171001:CapacityDetails")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(CapacityDetails, __self__).__init__(
             'azure-native:powerbidedicated/v20210101:CapacityDetails',

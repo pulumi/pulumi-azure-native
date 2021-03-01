@@ -42,6 +42,9 @@ func NewLedger(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:confidentialledger:Ledger"),
+		},
+		{
 			Type: pulumi.String("azure-native:confidentialledger/v20201201preview:Ledger"),
 		},
 		{

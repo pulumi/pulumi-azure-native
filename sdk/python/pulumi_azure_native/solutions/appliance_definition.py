@@ -94,7 +94,7 @@ class ApplianceDefinition(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:solutions/v20160901preview:ApplianceDefinition"), pulumi.Alias(type_="azure-nextgen:solutions/v20160901preview:ApplianceDefinition")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:solutions:ApplianceDefinition"), pulumi.Alias(type_="azure-native:solutions/v20160901preview:ApplianceDefinition"), pulumi.Alias(type_="azure-nextgen:solutions/v20160901preview:ApplianceDefinition")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ApplianceDefinition, __self__).__init__(
             'azure-native:solutions:ApplianceDefinition',

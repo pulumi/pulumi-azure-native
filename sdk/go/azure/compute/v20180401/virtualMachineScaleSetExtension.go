@@ -50,6 +50,9 @@ func NewVirtualMachineScaleSetExtension(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:compute/v20180401:VirtualMachineScaleSetExtension"),
+		},
+		{
 			Type: pulumi.String("azure-native:compute:VirtualMachineScaleSetExtension"),
 		},
 		{

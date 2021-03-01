@@ -42,6 +42,9 @@ func NewSecret(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:servicefabricmesh/v20180901preview:Secret"),
+		},
+		{
 			Type: pulumi.String("azure-native:servicefabricmesh:Secret"),
 		},
 		{

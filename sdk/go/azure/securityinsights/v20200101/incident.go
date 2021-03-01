@@ -81,6 +81,9 @@ func NewIncident(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:securityinsights/v20200101:Incident"),
+		},
+		{
 			Type: pulumi.String("azure-native:securityinsights:Incident"),
 		},
 		{

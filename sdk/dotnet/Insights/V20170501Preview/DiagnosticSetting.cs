@@ -100,6 +100,7 @@ namespace Pulumi.AzureNative.Insights.V20170501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:insights/v20170501preview:DiagnosticSetting"},
                     new Pulumi.Alias { Type = "azure-native:insights:DiagnosticSetting"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights:DiagnosticSetting"},
                 },

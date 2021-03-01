@@ -63,6 +63,9 @@ func NewDiskPool(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:storagepool:DiskPool"),
+		},
+		{
 			Type: pulumi.String("azure-native:storagepool/v20200315preview:DiskPool"),
 		},
 		{

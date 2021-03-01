@@ -127,7 +127,7 @@ export class RemediationAtManagementGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:policyinsights:RemediationAtManagementGroup" }, { type: "azure-nextgen:policyinsights:RemediationAtManagementGroup" }, { type: "azure-native:policyinsights/v20180701preview:RemediationAtManagementGroup" }, { type: "azure-nextgen:policyinsights/v20180701preview:RemediationAtManagementGroup" }, { type: "azure-native:policyinsights/v20190701:RemediationAtManagementGroup" }, { type: "azure-nextgen:policyinsights/v20190701:RemediationAtManagementGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:policyinsights/latest:RemediationAtManagementGroup" }, { type: "azure-native:policyinsights:RemediationAtManagementGroup" }, { type: "azure-nextgen:policyinsights:RemediationAtManagementGroup" }, { type: "azure-native:policyinsights/v20180701preview:RemediationAtManagementGroup" }, { type: "azure-nextgen:policyinsights/v20180701preview:RemediationAtManagementGroup" }, { type: "azure-native:policyinsights/v20190701:RemediationAtManagementGroup" }, { type: "azure-nextgen:policyinsights/v20190701:RemediationAtManagementGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RemediationAtManagementGroup.__pulumiType, name, inputs, opts);
     }

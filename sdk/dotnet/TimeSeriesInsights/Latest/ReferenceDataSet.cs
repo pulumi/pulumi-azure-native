@@ -90,6 +90,7 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights/latest:ReferenceDataSet"},
                     new Pulumi.Alias { Type = "azure-native:timeseriesinsights:ReferenceDataSet"},
                     new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights:ReferenceDataSet"},
                     new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20170228preview:ReferenceDataSet"},

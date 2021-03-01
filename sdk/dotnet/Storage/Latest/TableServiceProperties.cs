@@ -60,6 +60,7 @@ namespace Pulumi.AzureNative.Storage.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:storage/latest:TableServiceProperties"},
                     new Pulumi.Alias { Type = "azure-native:storage:TableServiceProperties"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage:TableServiceProperties"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20190601:TableServiceProperties"},

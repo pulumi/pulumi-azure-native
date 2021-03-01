@@ -40,6 +40,9 @@ func NewWorkspaceSetting(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:security/v20170801preview:WorkspaceSetting"),
+		},
+		{
 			Type: pulumi.String("azure-native:security:WorkspaceSetting"),
 		},
 		{

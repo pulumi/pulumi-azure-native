@@ -85,7 +85,7 @@ export class ManagedNetworkPeeringPolicy extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:managednetwork:ManagedNetworkPeeringPolicy" }, { type: "azure-nextgen:managednetwork:ManagedNetworkPeeringPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:managednetwork/v20190601preview:ManagedNetworkPeeringPolicy" }, { type: "azure-native:managednetwork:ManagedNetworkPeeringPolicy" }, { type: "azure-nextgen:managednetwork:ManagedNetworkPeeringPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ManagedNetworkPeeringPolicy.__pulumiType, name, inputs, opts);
     }

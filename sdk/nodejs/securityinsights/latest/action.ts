@@ -107,7 +107,7 @@ export class Action extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:Action" }, { type: "azure-nextgen:securityinsights:Action" }, { type: "azure-native:securityinsights/v20200101:Action" }, { type: "azure-nextgen:securityinsights/v20200101:Action" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:securityinsights/latest:Action" }, { type: "azure-native:securityinsights:Action" }, { type: "azure-nextgen:securityinsights:Action" }, { type: "azure-native:securityinsights/v20200101:Action" }, { type: "azure-nextgen:securityinsights/v20200101:Action" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Action.__pulumiType, name, inputs, opts);
     }

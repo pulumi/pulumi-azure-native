@@ -206,6 +206,8 @@ export class Incident extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:securityinsights/v20190101preview:Incident" }] };
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Incident.__pulumiType, name, inputs, opts);
     }
 }

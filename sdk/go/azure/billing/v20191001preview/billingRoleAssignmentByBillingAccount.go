@@ -53,6 +53,9 @@ func NewBillingRoleAssignmentByBillingAccount(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:billing/v20191001preview:BillingRoleAssignmentByBillingAccount"),
+		},
+		{
 			Type: pulumi.String("azure-native:billing:BillingRoleAssignmentByBillingAccount"),
 		},
 		{

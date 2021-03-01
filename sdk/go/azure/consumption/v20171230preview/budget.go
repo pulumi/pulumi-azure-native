@@ -56,6 +56,9 @@ func NewBudget(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:consumption/v20171230preview:Budget"),
+		},
+		{
 			Type: pulumi.String("azure-native:consumption/v20180131:Budget"),
 		},
 		{

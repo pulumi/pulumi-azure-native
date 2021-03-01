@@ -84,6 +84,7 @@ namespace Pulumi.AzureNative.Web.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:web/latest:WebAppPublicCertificate"},
                     new Pulumi.Alias { Type = "azure-native:web:WebAppPublicCertificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:WebAppPublicCertificate"},
                     new Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppPublicCertificate"},

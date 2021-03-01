@@ -46,6 +46,9 @@ func NewConsumerGroup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:eventhub:ConsumerGroup"),
+		},
+		{
 			Type: pulumi.String("azure-native:eventhub/latest:ConsumerGroup"),
 		},
 		{

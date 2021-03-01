@@ -118,6 +118,7 @@ namespace Pulumi.AzureNative.Network.V20200601
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:NatGateway"},
                     new Pulumi.Alias { Type = "azure-native:network:NatGateway"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:NatGateway"},
                     new Pulumi.Alias { Type = "azure-native:network/latest:NatGateway"},

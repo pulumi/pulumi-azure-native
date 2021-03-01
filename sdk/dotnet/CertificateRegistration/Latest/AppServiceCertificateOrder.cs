@@ -192,6 +192,7 @@ namespace Pulumi.AzureNative.CertificateRegistration.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:certificateregistration/latest:AppServiceCertificateOrder"},
                     new Pulumi.Alias { Type = "azure-native:certificateregistration:AppServiceCertificateOrder"},
                     new Pulumi.Alias { Type = "azure-nextgen:certificateregistration:AppServiceCertificateOrder"},
                     new Pulumi.Alias { Type = "azure-native:certificateregistration/v20150801:AppServiceCertificateOrder"},

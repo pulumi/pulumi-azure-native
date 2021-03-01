@@ -90,6 +90,7 @@ namespace Pulumi.AzureNative.Insights.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:insights/latest:AutoscaleSetting"},
                     new Pulumi.Alias { Type = "azure-native:insights:AutoscaleSetting"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights:AutoscaleSetting"},
                     new Pulumi.Alias { Type = "azure-native:insights/v20150401:AutoscaleSetting"},

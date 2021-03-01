@@ -57,6 +57,9 @@ func NewApiIssueAttachment(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:apimanagement/v20200601preview:ApiIssueAttachment"),
+		},
+		{
 			Type: pulumi.String("azure-native:apimanagement:ApiIssueAttachment"),
 		},
 		{

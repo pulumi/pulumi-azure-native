@@ -52,6 +52,9 @@ func NewCommunicationService(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:communication/v20200820preview:CommunicationService"),
+		},
+		{
 			Type: pulumi.String("azure-native:communication:CommunicationService"),
 		},
 		{

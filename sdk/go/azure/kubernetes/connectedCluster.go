@@ -72,6 +72,9 @@ func NewConnectedCluster(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:kubernetes:ConnectedCluster"),
+		},
+		{
 			Type: pulumi.String("azure-native:kubernetes/latest:ConnectedCluster"),
 		},
 		{

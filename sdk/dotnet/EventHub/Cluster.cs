@@ -95,6 +95,7 @@ namespace Pulumi.AzureNative.EventHub
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:eventhub:Cluster"},
                     new Pulumi.Alias { Type = "azure-native:eventhub/v20180101preview:Cluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventhub/v20180101preview:Cluster"},
                 },

@@ -109,6 +109,9 @@ func NewJob(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:batchai/v20180501:Job"),
+		},
+		{
 			Type: pulumi.String("azure-native:batchai:Job"),
 		},
 		{

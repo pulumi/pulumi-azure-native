@@ -61,6 +61,9 @@ func NewGateway(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:servicefabricmesh/v20180901preview:Gateway"),
+		},
+		{
 			Type: pulumi.String("azure-native:servicefabricmesh:Gateway"),
 		},
 		{

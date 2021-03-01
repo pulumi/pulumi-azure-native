@@ -83,6 +83,7 @@ namespace Pulumi.AzureNative.ApiManagement
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement:ApiTagDescription"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/latest:ApiTagDescription"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:ApiTagDescription"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:ApiTagDescription"},

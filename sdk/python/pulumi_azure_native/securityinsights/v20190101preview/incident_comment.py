@@ -78,7 +78,7 @@ class IncidentComment(pulumi.CustomResource):
             __props__['last_modified_time_utc'] = None
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights:IncidentComment"), pulumi.Alias(type_="azure-nextgen:securityinsights:IncidentComment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:securityinsights/v20190101preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights:IncidentComment"), pulumi.Alias(type_="azure-nextgen:securityinsights:IncidentComment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IncidentComment, __self__).__init__(
             'azure-native:securityinsights/v20190101preview:IncidentComment',

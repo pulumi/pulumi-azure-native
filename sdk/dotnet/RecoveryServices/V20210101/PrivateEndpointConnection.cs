@@ -76,6 +76,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210101
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20210101:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:recoveryservices:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:recoveryservices/latest:PrivateEndpointConnection"},

@@ -49,6 +49,9 @@ func NewReportByDepartment(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:costmanagement/v20180801preview:ReportByDepartment"),
+		},
+		{
 			Type: pulumi.String("azure-native:costmanagement:ReportByDepartment"),
 		},
 		{

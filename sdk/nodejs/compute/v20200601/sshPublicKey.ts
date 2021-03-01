@@ -86,7 +86,7 @@ export class SshPublicKey extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:compute:SshPublicKey" }, { type: "azure-nextgen:compute:SshPublicKey" }, { type: "azure-native:compute/latest:SshPublicKey" }, { type: "azure-nextgen:compute/latest:SshPublicKey" }, { type: "azure-native:compute/v20191201:SshPublicKey" }, { type: "azure-nextgen:compute/v20191201:SshPublicKey" }, { type: "azure-native:compute/v20201201:SshPublicKey" }, { type: "azure-nextgen:compute/v20201201:SshPublicKey" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute/v20200601:SshPublicKey" }, { type: "azure-native:compute:SshPublicKey" }, { type: "azure-nextgen:compute:SshPublicKey" }, { type: "azure-native:compute/latest:SshPublicKey" }, { type: "azure-nextgen:compute/latest:SshPublicKey" }, { type: "azure-native:compute/v20191201:SshPublicKey" }, { type: "azure-nextgen:compute/v20191201:SshPublicKey" }, { type: "azure-native:compute/v20201201:SshPublicKey" }, { type: "azure-nextgen:compute/v20201201:SshPublicKey" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SshPublicKey.__pulumiType, name, inputs, opts);
     }

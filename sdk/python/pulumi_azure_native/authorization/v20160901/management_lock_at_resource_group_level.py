@@ -65,7 +65,7 @@ class ManagementLockAtResourceGroupLevel(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:authorization:ManagementLockAtResourceGroupLevel"), pulumi.Alias(type_="azure-nextgen:authorization:ManagementLockAtResourceGroupLevel"), pulumi.Alias(type_="azure-native:authorization/latest:ManagementLockAtResourceGroupLevel"), pulumi.Alias(type_="azure-nextgen:authorization/latest:ManagementLockAtResourceGroupLevel"), pulumi.Alias(type_="azure-native:authorization/v20150101:ManagementLockAtResourceGroupLevel"), pulumi.Alias(type_="azure-nextgen:authorization/v20150101:ManagementLockAtResourceGroupLevel")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:authorization/v20160901:ManagementLockAtResourceGroupLevel"), pulumi.Alias(type_="azure-native:authorization:ManagementLockAtResourceGroupLevel"), pulumi.Alias(type_="azure-nextgen:authorization:ManagementLockAtResourceGroupLevel"), pulumi.Alias(type_="azure-native:authorization/latest:ManagementLockAtResourceGroupLevel"), pulumi.Alias(type_="azure-nextgen:authorization/latest:ManagementLockAtResourceGroupLevel"), pulumi.Alias(type_="azure-native:authorization/v20150101:ManagementLockAtResourceGroupLevel"), pulumi.Alias(type_="azure-nextgen:authorization/v20150101:ManagementLockAtResourceGroupLevel")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ManagementLockAtResourceGroupLevel, __self__).__init__(
             'azure-native:authorization/v20160901:ManagementLockAtResourceGroupLevel',

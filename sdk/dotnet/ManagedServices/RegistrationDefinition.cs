@@ -65,6 +65,7 @@ namespace Pulumi.AzureNative.ManagedServices
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:managedservices:RegistrationDefinition"},
                     new Pulumi.Alias { Type = "azure-native:managedservices/latest:RegistrationDefinition"},
                     new Pulumi.Alias { Type = "azure-nextgen:managedservices/latest:RegistrationDefinition"},
                     new Pulumi.Alias { Type = "azure-native:managedservices/v20180601preview:RegistrationDefinition"},

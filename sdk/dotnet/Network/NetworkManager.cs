@@ -107,6 +107,7 @@ namespace Pulumi.AzureNative.Network
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network:NetworkManager"},
                     new Pulumi.Alias { Type = "azure-native:network/v20210201preview:NetworkManager"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20210201preview:NetworkManager"},
                 },

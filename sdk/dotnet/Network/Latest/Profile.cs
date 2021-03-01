@@ -108,6 +108,7 @@ namespace Pulumi.AzureNative.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:Profile"},
                     new Pulumi.Alias { Type = "azure-native:network:Profile"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:Profile"},
                     new Pulumi.Alias { Type = "azure-native:network/v20151101:Profile"},

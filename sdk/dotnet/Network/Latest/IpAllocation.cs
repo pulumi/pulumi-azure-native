@@ -114,6 +114,7 @@ namespace Pulumi.AzureNative.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:IpAllocation"},
                     new Pulumi.Alias { Type = "azure-native:network:IpAllocation"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:IpAllocation"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200301:IpAllocation"},

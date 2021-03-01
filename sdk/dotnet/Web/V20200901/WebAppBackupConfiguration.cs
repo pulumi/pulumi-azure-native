@@ -94,6 +94,7 @@ namespace Pulumi.AzureNative.Web.V20200901
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:WebAppBackupConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:web:WebAppBackupConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:WebAppBackupConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:web/latest:WebAppBackupConfiguration"},

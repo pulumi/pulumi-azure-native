@@ -64,6 +64,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:datafactory/v20170901preview:Dataset"},
                     new Pulumi.Alias { Type = "azure-native:datafactory:Dataset"},
                     new Pulumi.Alias { Type = "azure-nextgen:datafactory:Dataset"},
                     new Pulumi.Alias { Type = "azure-native:datafactory/latest:Dataset"},

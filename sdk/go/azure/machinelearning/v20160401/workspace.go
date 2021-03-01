@@ -59,6 +59,9 @@ func NewWorkspace(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:machinelearning/v20160401:Workspace"),
+		},
+		{
 			Type: pulumi.String("azure-native:machinelearning:Workspace"),
 		},
 		{

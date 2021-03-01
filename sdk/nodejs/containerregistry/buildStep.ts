@@ -84,7 +84,7 @@ export class BuildStep extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:containerregistry/v20180201preview:BuildStep" }, { type: "azure-nextgen:containerregistry/v20180201preview:BuildStep" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:containerregistry:BuildStep" }, { type: "azure-native:containerregistry/v20180201preview:BuildStep" }, { type: "azure-nextgen:containerregistry/v20180201preview:BuildStep" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BuildStep.__pulumiType, name, inputs, opts);
     }

@@ -45,6 +45,9 @@ func NewSerialPort(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:serialconsole:SerialPort"),
+		},
+		{
 			Type: pulumi.String("azure-native:serialconsole/latest:SerialPort"),
 		},
 		{

@@ -71,6 +71,9 @@ func NewSecurityRule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:network/v20160901:SecurityRule"),
+		},
+		{
 			Type: pulumi.String("azure-native:network:SecurityRule"),
 		},
 		{

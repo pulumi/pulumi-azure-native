@@ -107,6 +107,7 @@ namespace Pulumi.AzureNative.DataCatalog
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:datacatalog:ADCCatalog"},
                     new Pulumi.Alias { Type = "azure-native:datacatalog/latest:ADCCatalog"},
                     new Pulumi.Alias { Type = "azure-nextgen:datacatalog/latest:ADCCatalog"},
                     new Pulumi.Alias { Type = "azure-native:datacatalog/v20160330:ADCCatalog"},

@@ -57,6 +57,9 @@ func NewSiteHostNameBindingSlot(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:web/v20150801:SiteHostNameBindingSlot"),
+		},
+		{
 			Type: pulumi.String("azure-native:web:SiteHostNameBindingSlot"),
 		},
 		{

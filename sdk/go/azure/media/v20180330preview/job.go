@@ -59,6 +59,9 @@ func NewJob(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:media/v20180330preview:Job"),
+		},
+		{
 			Type: pulumi.String("azure-native:media:Job"),
 		},
 		{

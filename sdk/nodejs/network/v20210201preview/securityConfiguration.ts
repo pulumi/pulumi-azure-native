@@ -121,7 +121,7 @@ export class SecurityConfiguration extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:network:SecurityConfiguration" }, { type: "azure-nextgen:network:SecurityConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20210201preview:SecurityConfiguration" }, { type: "azure-native:network:SecurityConfiguration" }, { type: "azure-nextgen:network:SecurityConfiguration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SecurityConfiguration.__pulumiType, name, inputs, opts);
     }

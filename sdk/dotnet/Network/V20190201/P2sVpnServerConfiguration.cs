@@ -112,6 +112,7 @@ namespace Pulumi.AzureNative.Network.V20190201
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190201:P2sVpnServerConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:network:P2sVpnServerConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:P2sVpnServerConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:network/latest:P2sVpnServerConfiguration"},

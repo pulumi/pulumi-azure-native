@@ -160,7 +160,7 @@ export class Module extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:automation:Module" }, { type: "azure-nextgen:automation:Module" }, { type: "azure-native:automation/latest:Module" }, { type: "azure-nextgen:automation/latest:Module" }, { type: "azure-native:automation/v20190601:Module" }, { type: "azure-nextgen:automation/v20190601:Module" }, { type: "azure-native:automation/v20200113preview:Module" }, { type: "azure-nextgen:automation/v20200113preview:Module" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:automation/v20151031:Module" }, { type: "azure-native:automation:Module" }, { type: "azure-nextgen:automation:Module" }, { type: "azure-native:automation/latest:Module" }, { type: "azure-nextgen:automation/latest:Module" }, { type: "azure-native:automation/v20190601:Module" }, { type: "azure-nextgen:automation/v20190601:Module" }, { type: "azure-native:automation/v20200113preview:Module" }, { type: "azure-nextgen:automation/v20200113preview:Module" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Module.__pulumiType, name, inputs, opts);
     }

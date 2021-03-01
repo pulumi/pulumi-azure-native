@@ -70,6 +70,7 @@ namespace Pulumi.AzureNative.Storage.V20190601
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20190601:FileServiceProperties"},
                     new Pulumi.Alias { Type = "azure-native:storage:FileServiceProperties"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage:FileServiceProperties"},
                     new Pulumi.Alias { Type = "azure-native:storage/latest:FileServiceProperties"},

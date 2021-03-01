@@ -94,6 +94,7 @@ namespace Pulumi.AzureNative.Network.V20200701
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:DdosCustomPolicy"},
                     new Pulumi.Alias { Type = "azure-native:network:DdosCustomPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:DdosCustomPolicy"},
                     new Pulumi.Alias { Type = "azure-native:network/latest:DdosCustomPolicy"},

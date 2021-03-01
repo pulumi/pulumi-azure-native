@@ -33,6 +33,9 @@ func NewManagementLock(ctx *pulumi.Context,
 
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:authorization/v20150101:ManagementLock"),
+		},
+		{
 			Type: pulumi.String("azure-native:authorization:ManagementLock"),
 		},
 		{

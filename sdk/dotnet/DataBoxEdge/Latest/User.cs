@@ -78,6 +78,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/latest:User"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge:User"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge:User"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20190301:User"},

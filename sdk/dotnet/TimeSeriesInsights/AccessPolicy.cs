@@ -71,6 +71,7 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights:AccessPolicy"},
                     new Pulumi.Alias { Type = "azure-native:timeseriesinsights/latest:AccessPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights/latest:AccessPolicy"},
                     new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20170228preview:AccessPolicy"},

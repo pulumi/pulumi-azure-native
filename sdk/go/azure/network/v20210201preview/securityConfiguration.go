@@ -52,6 +52,9 @@ func NewSecurityConfiguration(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:network/v20210201preview:SecurityConfiguration"),
+		},
+		{
 			Type: pulumi.String("azure-native:network:SecurityConfiguration"),
 		},
 		{

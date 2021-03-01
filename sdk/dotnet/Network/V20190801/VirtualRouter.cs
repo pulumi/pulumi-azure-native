@@ -106,6 +106,7 @@ namespace Pulumi.AzureNative.Network.V20190801
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190801:VirtualRouter"},
                     new Pulumi.Alias { Type = "azure-native:network:VirtualRouter"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:VirtualRouter"},
                     new Pulumi.Alias { Type = "azure-native:network/latest:VirtualRouter"},

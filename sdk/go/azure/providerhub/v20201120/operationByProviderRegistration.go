@@ -42,6 +42,9 @@ func NewOperationByProviderRegistration(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:providerhub/v20201120:OperationByProviderRegistration"),
+		},
+		{
 			Type: pulumi.String("azure-native:providerhub:OperationByProviderRegistration"),
 		},
 		{

@@ -154,6 +154,7 @@ namespace Pulumi.AzureNative.DataBox.V20200401
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:databox/v20200401:Job"},
                     new Pulumi.Alias { Type = "azure-native:databox:Job"},
                     new Pulumi.Alias { Type = "azure-nextgen:databox:Job"},
                     new Pulumi.Alias { Type = "azure-native:databox/latest:Job"},

@@ -155,7 +155,7 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
                 raise TypeError("Missing required property 'workspace_name'")
             __props__['workspace_name'] = workspace_name
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:ThreatIntelligenceIndicator"), pulumi.Alias(type_="azure-nextgen:securityinsights/v20190101preview:ThreatIntelligenceIndicator")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:securityinsights:ThreatIntelligenceIndicator"), pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:ThreatIntelligenceIndicator"), pulumi.Alias(type_="azure-nextgen:securityinsights/v20190101preview:ThreatIntelligenceIndicator")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ThreatIntelligenceIndicator, __self__).__init__(
             'azure-native:securityinsights:ThreatIntelligenceIndicator',

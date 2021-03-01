@@ -63,6 +63,9 @@ func NewVolumeContainer(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:storsimple/latest:VolumeContainer"),
+		},
+		{
 			Type: pulumi.String("azure-native:storsimple:VolumeContainer"),
 		},
 		{

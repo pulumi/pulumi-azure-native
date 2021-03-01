@@ -54,6 +54,9 @@ func NewWebAppBackupConfigurationSlot(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:web/v20190801:WebAppBackupConfigurationSlot"),
+		},
+		{
 			Type: pulumi.String("azure-native:web:WebAppBackupConfigurationSlot"),
 		},
 		{

@@ -95,6 +95,7 @@ namespace Pulumi.AzureNative.Compute
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:compute:DiskEncryptionSet"},
                     new Pulumi.Alias { Type = "azure-native:compute/latest:DiskEncryptionSet"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/latest:DiskEncryptionSet"},
                     new Pulumi.Alias { Type = "azure-native:compute/v20190701:DiskEncryptionSet"},

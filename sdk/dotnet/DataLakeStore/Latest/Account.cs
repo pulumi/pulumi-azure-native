@@ -180,6 +180,7 @@ namespace Pulumi.AzureNative.DataLakeStore.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:datalakestore/latest:Account"},
                     new Pulumi.Alias { Type = "azure-native:datalakestore:Account"},
                     new Pulumi.Alias { Type = "azure-nextgen:datalakestore:Account"},
                     new Pulumi.Alias { Type = "azure-native:datalakestore/v20161101:Account"},

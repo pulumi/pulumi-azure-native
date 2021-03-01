@@ -44,6 +44,9 @@ func NewReplication(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:containerregistry/v20190501:Replication"),
+		},
+		{
 			Type: pulumi.String("azure-native:containerregistry:Replication"),
 		},
 		{

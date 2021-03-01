@@ -52,6 +52,9 @@ func NewWebAppSourceControl(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppSourceControl"),
+		},
+		{
 			Type: pulumi.String("azure-native:web:WebAppSourceControl"),
 		},
 		{

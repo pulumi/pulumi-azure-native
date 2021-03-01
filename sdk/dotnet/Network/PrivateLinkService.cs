@@ -137,6 +137,7 @@ namespace Pulumi.AzureNative.Network
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network:PrivateLinkService"},
                     new Pulumi.Alias { Type = "azure-native:network/latest:PrivateLinkService"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/latest:PrivateLinkService"},
                     new Pulumi.Alias { Type = "azure-native:network/v20190401:PrivateLinkService"},

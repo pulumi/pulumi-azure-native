@@ -71,6 +71,7 @@ namespace Pulumi.AzureNative.HealthcareApis
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:healthcareapis:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:healthcareapis/latest:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:healthcareapis/latest:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:healthcareapis/v20200330:PrivateEndpointConnection"},

@@ -78,7 +78,7 @@ class EnterpriseChannel(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:botservice:EnterpriseChannel"), pulumi.Alias(type_="azure-nextgen:botservice:EnterpriseChannel"), pulumi.Alias(type_="azure-native:botservice/v20180712:EnterpriseChannel"), pulumi.Alias(type_="azure-nextgen:botservice/v20180712:EnterpriseChannel")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:botservice/latest:EnterpriseChannel"), pulumi.Alias(type_="azure-native:botservice:EnterpriseChannel"), pulumi.Alias(type_="azure-nextgen:botservice:EnterpriseChannel"), pulumi.Alias(type_="azure-native:botservice/v20180712:EnterpriseChannel"), pulumi.Alias(type_="azure-nextgen:botservice/v20180712:EnterpriseChannel")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(EnterpriseChannel, __self__).__init__(
             'azure-native:botservice/latest:EnterpriseChannel',

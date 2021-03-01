@@ -160,7 +160,7 @@ export class Python2Package extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:automation:Python2Package" }, { type: "azure-nextgen:automation:Python2Package" }, { type: "azure-native:automation/latest:Python2Package" }, { type: "azure-nextgen:automation/latest:Python2Package" }, { type: "azure-native:automation/v20180630:Python2Package" }, { type: "azure-nextgen:automation/v20180630:Python2Package" }, { type: "azure-native:automation/v20190601:Python2Package" }, { type: "azure-nextgen:automation/v20190601:Python2Package" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:automation/v20200113preview:Python2Package" }, { type: "azure-native:automation:Python2Package" }, { type: "azure-nextgen:automation:Python2Package" }, { type: "azure-native:automation/latest:Python2Package" }, { type: "azure-nextgen:automation/latest:Python2Package" }, { type: "azure-native:automation/v20180630:Python2Package" }, { type: "azure-nextgen:automation/v20180630:Python2Package" }, { type: "azure-native:automation/v20190601:Python2Package" }, { type: "azure-nextgen:automation/v20190601:Python2Package" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Python2Package.__pulumiType, name, inputs, opts);
     }

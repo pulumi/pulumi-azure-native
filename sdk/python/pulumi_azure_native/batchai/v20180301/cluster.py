@@ -95,7 +95,7 @@ class Cluster(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['provisioning_state_transition_time'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:batchai/v20170901preview:Cluster"), pulumi.Alias(type_="azure-nextgen:batchai/v20170901preview:Cluster")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:batchai/v20180301:Cluster"), pulumi.Alias(type_="azure-native:batchai/v20170901preview:Cluster"), pulumi.Alias(type_="azure-nextgen:batchai/v20170901preview:Cluster")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Cluster, __self__).__init__(
             'azure-native:batchai/v20180301:Cluster',

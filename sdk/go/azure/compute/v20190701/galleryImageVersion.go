@@ -54,6 +54,9 @@ func NewGalleryImageVersion(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:compute/v20190701:GalleryImageVersion"),
+		},
+		{
 			Type: pulumi.String("azure-native:compute:GalleryImageVersion"),
 		},
 		{

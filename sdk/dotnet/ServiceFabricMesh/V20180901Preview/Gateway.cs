@@ -118,6 +118,7 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:servicefabricmesh/v20180901preview:Gateway"},
                     new Pulumi.Alias { Type = "azure-native:servicefabricmesh:Gateway"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicefabricmesh:Gateway"},
                 },

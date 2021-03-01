@@ -53,6 +53,9 @@ func NewApplicationGroup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20201102preview:ApplicationGroup"),
+		},
+		{
 			Type: pulumi.String("azure-native:desktopvirtualization:ApplicationGroup"),
 		},
 		{

@@ -227,6 +227,7 @@ namespace Pulumi.AzureNative.BatchAI
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:batchai:Job"},
                     new Pulumi.Alias { Type = "azure-native:batchai/latest:Job"},
                     new Pulumi.Alias { Type = "azure-nextgen:batchai/latest:Job"},
                     new Pulumi.Alias { Type = "azure-native:batchai/v20180501:Job"},

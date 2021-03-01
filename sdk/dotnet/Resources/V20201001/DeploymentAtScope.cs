@@ -70,6 +70,7 @@ namespace Pulumi.AzureNative.Resources.V20201001
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:resources/v20201001:DeploymentAtScope"},
                     new Pulumi.Alias { Type = "azure-native:resources:DeploymentAtScope"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources:DeploymentAtScope"},
                     new Pulumi.Alias { Type = "azure-native:resources/latest:DeploymentAtScope"},

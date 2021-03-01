@@ -143,6 +143,7 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:kubernetesconfiguration:Extension"},
                     new Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20200701preview:Extension"},
                     new Pulumi.Alias { Type = "azure-nextgen:kubernetesconfiguration/v20200701preview:Extension"},
                 },

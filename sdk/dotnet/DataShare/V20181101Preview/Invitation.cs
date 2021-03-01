@@ -108,6 +108,7 @@ namespace Pulumi.AzureNative.DataShare.V20181101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:datashare/v20181101preview:Invitation"},
                     new Pulumi.Alias { Type = "azure-native:datashare:Invitation"},
                     new Pulumi.Alias { Type = "azure-nextgen:datashare:Invitation"},
                     new Pulumi.Alias { Type = "azure-native:datashare/latest:Invitation"},

@@ -106,6 +106,7 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20170228Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights/v20170228preview:Environment"},
                     new Pulumi.Alias { Type = "azure-native:timeseriesinsights:Environment"},
                     new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights:Environment"},
                     new Pulumi.Alias { Type = "azure-native:timeseriesinsights/latest:Environment"},

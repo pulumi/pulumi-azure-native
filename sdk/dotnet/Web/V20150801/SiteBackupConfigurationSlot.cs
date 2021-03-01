@@ -94,6 +94,7 @@ namespace Pulumi.AzureNative.Web.V20150801
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20150801:SiteBackupConfigurationSlot"},
                     new Pulumi.Alias { Type = "azure-native:web:SiteBackupConfigurationSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:SiteBackupConfigurationSlot"},
                     new Pulumi.Alias { Type = "azure-native:web/latest:SiteBackupConfigurationSlot"},

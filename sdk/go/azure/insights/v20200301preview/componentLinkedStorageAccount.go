@@ -38,6 +38,9 @@ func NewComponentLinkedStorageAccount(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:insights/v20200301preview:ComponentLinkedStorageAccount"),
+		},
+		{
 			Type: pulumi.String("azure-native:insights:ComponentLinkedStorageAccount"),
 		},
 		{

@@ -174,6 +174,7 @@ namespace Pulumi.AzureNative.Synapse.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:synapse/latest:BigDataPool"},
                     new Pulumi.Alias { Type = "azure-native:synapse:BigDataPool"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse:BigDataPool"},
                     new Pulumi.Alias { Type = "azure-native:synapse/v20190601preview:BigDataPool"},

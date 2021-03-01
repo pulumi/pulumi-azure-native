@@ -59,6 +59,7 @@ namespace Pulumi.AzureNative.Addons
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:addons:SupportPlanType"},
                     new Pulumi.Alias { Type = "azure-native:addons/latest:SupportPlanType"},
                     new Pulumi.Alias { Type = "azure-nextgen:addons/latest:SupportPlanType"},
                     new Pulumi.Alias { Type = "azure-native:addons/v20170515:SupportPlanType"},

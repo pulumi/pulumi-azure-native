@@ -43,6 +43,9 @@ func NewAuthorization(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:avs:Authorization"),
+		},
+		{
 			Type: pulumi.String("azure-native:avs/latest:Authorization"),
 		},
 		{

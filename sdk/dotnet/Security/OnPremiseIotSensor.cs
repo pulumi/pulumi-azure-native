@@ -53,6 +53,7 @@ namespace Pulumi.AzureNative.Security
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:security:OnPremiseIotSensor"},
                     new Pulumi.Alias { Type = "azure-native:security/v20200806preview:OnPremiseIotSensor"},
                     new Pulumi.Alias { Type = "azure-nextgen:security/v20200806preview:OnPremiseIotSensor"},
                 },

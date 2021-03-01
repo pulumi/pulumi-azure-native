@@ -77,6 +77,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:containerregistry:Replication"},
                     new Pulumi.Alias { Type = "azure-native:containerregistry/latest:Replication"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry/latest:Replication"},
                     new Pulumi.Alias { Type = "azure-native:containerregistry/v20170601preview:Replication"},

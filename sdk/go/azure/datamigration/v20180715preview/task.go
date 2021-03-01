@@ -43,6 +43,9 @@ func NewTask(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:datamigration/v20180715preview:Task"),
+		},
+		{
 			Type: pulumi.String("azure-native:datamigration:Task"),
 		},
 		{

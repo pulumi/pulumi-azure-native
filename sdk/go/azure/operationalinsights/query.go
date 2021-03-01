@@ -63,6 +63,9 @@ func NewQuery(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:operationalinsights:Query"),
+		},
+		{
 			Type: pulumi.String("azure-native:operationalinsights/v20190901preview:Query"),
 		},
 		{

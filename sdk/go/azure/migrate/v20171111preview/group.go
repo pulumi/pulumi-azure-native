@@ -49,6 +49,9 @@ func NewGroup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:migrate/v20171111preview:Group"),
+		},
+		{
 			Type: pulumi.String("azure-native:migrate/v20180202:Group"),
 		},
 		{

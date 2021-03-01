@@ -100,6 +100,7 @@ namespace Pulumi.AzureNative.AzureStack.V20200601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:azurestack/v20200601preview:Registration"},
                     new Pulumi.Alias { Type = "azure-native:azurestack:Registration"},
                     new Pulumi.Alias { Type = "azure-nextgen:azurestack:Registration"},
                     new Pulumi.Alias { Type = "azure-native:azurestack/latest:Registration"},

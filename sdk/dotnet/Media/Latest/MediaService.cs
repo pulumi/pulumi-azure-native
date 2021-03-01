@@ -99,6 +99,7 @@ namespace Pulumi.AzureNative.Media.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:media/latest:MediaService"},
                     new Pulumi.Alias { Type = "azure-native:media:MediaService"},
                     new Pulumi.Alias { Type = "azure-nextgen:media:MediaService"},
                     new Pulumi.Alias { Type = "azure-native:media/v20151001:MediaService"},

@@ -56,6 +56,9 @@ func NewDataCollectionRule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:insights/v20191101preview:DataCollectionRule"),
+		},
+		{
 			Type: pulumi.String("azure-native:insights:DataCollectionRule"),
 		},
 		{

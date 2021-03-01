@@ -68,7 +68,7 @@ class HybridConnectionAuthorizationRule(pulumi.CustomResource):
             __props__['rights'] = rights
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:relay/latest:HybridConnectionAuthorizationRule"), pulumi.Alias(type_="azure-nextgen:relay/latest:HybridConnectionAuthorizationRule"), pulumi.Alias(type_="azure-native:relay/v20160701:HybridConnectionAuthorizationRule"), pulumi.Alias(type_="azure-nextgen:relay/v20160701:HybridConnectionAuthorizationRule"), pulumi.Alias(type_="azure-native:relay/v20170401:HybridConnectionAuthorizationRule"), pulumi.Alias(type_="azure-nextgen:relay/v20170401:HybridConnectionAuthorizationRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:relay:HybridConnectionAuthorizationRule"), pulumi.Alias(type_="azure-native:relay/latest:HybridConnectionAuthorizationRule"), pulumi.Alias(type_="azure-nextgen:relay/latest:HybridConnectionAuthorizationRule"), pulumi.Alias(type_="azure-native:relay/v20160701:HybridConnectionAuthorizationRule"), pulumi.Alias(type_="azure-nextgen:relay/v20160701:HybridConnectionAuthorizationRule"), pulumi.Alias(type_="azure-native:relay/v20170401:HybridConnectionAuthorizationRule"), pulumi.Alias(type_="azure-nextgen:relay/v20170401:HybridConnectionAuthorizationRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(HybridConnectionAuthorizationRule, __self__).__init__(
             'azure-native:relay:HybridConnectionAuthorizationRule',

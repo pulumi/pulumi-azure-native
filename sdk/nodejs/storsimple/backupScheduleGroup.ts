@@ -87,7 +87,7 @@ export class BackupScheduleGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:storsimple/latest:BackupScheduleGroup" }, { type: "azure-nextgen:storsimple/latest:BackupScheduleGroup" }, { type: "azure-native:storsimple/v20161001:BackupScheduleGroup" }, { type: "azure-nextgen:storsimple/v20161001:BackupScheduleGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:storsimple:BackupScheduleGroup" }, { type: "azure-native:storsimple/latest:BackupScheduleGroup" }, { type: "azure-nextgen:storsimple/latest:BackupScheduleGroup" }, { type: "azure-native:storsimple/v20161001:BackupScheduleGroup" }, { type: "azure-nextgen:storsimple/v20161001:BackupScheduleGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BackupScheduleGroup.__pulumiType, name, inputs, opts);
     }

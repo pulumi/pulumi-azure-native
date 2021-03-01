@@ -112,6 +112,7 @@ namespace Pulumi.AzureNative.MixedReality.V20200406Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:mixedreality/v20200406preview:RemoteRenderingAccount"},
                     new Pulumi.Alias { Type = "azure-native:mixedreality:RemoteRenderingAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:mixedreality:RemoteRenderingAccount"},
                     new Pulumi.Alias { Type = "azure-native:mixedreality/latest:RemoteRenderingAccount"},

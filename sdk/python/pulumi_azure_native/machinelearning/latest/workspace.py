@@ -81,7 +81,7 @@ class Workspace(pulumi.CustomResource):
             __props__['workspace_id'] = None
             __props__['workspace_state'] = None
             __props__['workspace_type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearning:Workspace"), pulumi.Alias(type_="azure-nextgen:machinelearning:Workspace"), pulumi.Alias(type_="azure-native:machinelearning/v20160401:Workspace"), pulumi.Alias(type_="azure-nextgen:machinelearning/v20160401:Workspace"), pulumi.Alias(type_="azure-native:machinelearning/v20191001:Workspace"), pulumi.Alias(type_="azure-nextgen:machinelearning/v20191001:Workspace")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:machinelearning/latest:Workspace"), pulumi.Alias(type_="azure-native:machinelearning:Workspace"), pulumi.Alias(type_="azure-nextgen:machinelearning:Workspace"), pulumi.Alias(type_="azure-native:machinelearning/v20160401:Workspace"), pulumi.Alias(type_="azure-nextgen:machinelearning/v20160401:Workspace"), pulumi.Alias(type_="azure-native:machinelearning/v20191001:Workspace"), pulumi.Alias(type_="azure-nextgen:machinelearning/v20191001:Workspace")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Workspace, __self__).__init__(
             'azure-native:machinelearning/latest:Workspace',

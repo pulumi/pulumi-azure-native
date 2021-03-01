@@ -94,6 +94,7 @@ namespace Pulumi.AzureNative.Kusto.V20191109
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:kusto/v20191109:DatabasePrincipalAssignment"},
                     new Pulumi.Alias { Type = "azure-native:kusto:DatabasePrincipalAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto:DatabasePrincipalAssignment"},
                     new Pulumi.Alias { Type = "azure-native:kusto/latest:DatabasePrincipalAssignment"},

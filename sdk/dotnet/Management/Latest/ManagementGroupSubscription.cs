@@ -78,6 +78,7 @@ namespace Pulumi.AzureNative.Management.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:management/latest:ManagementGroupSubscription"},
                     new Pulumi.Alias { Type = "azure-native:management:ManagementGroupSubscription"},
                     new Pulumi.Alias { Type = "azure-nextgen:management:ManagementGroupSubscription"},
                     new Pulumi.Alias { Type = "azure-native:management/v20200501:ManagementGroupSubscription"},

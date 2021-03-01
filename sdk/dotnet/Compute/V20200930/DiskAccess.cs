@@ -82,6 +82,7 @@ namespace Pulumi.AzureNative.Compute.V20200930
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20200930:DiskAccess"},
                     new Pulumi.Alias { Type = "azure-native:compute:DiskAccess"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute:DiskAccess"},
                     new Pulumi.Alias { Type = "azure-native:compute/latest:DiskAccess"},

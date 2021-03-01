@@ -82,6 +82,7 @@ namespace Pulumi.AzureNative.HybridCompute.V20210128Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:hybridcompute/v20210128preview:Machine"},
                     new Pulumi.Alias { Type = "azure-native:hybridcompute:Machine"},
                     new Pulumi.Alias { Type = "azure-nextgen:hybridcompute:Machine"},
                     new Pulumi.Alias { Type = "azure-native:hybridcompute/latest:Machine"},

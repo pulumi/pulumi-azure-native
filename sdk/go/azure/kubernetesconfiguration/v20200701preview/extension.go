@@ -72,6 +72,9 @@ func NewExtension(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:kubernetesconfiguration/v20200701preview:Extension"),
+		},
+		{
 			Type: pulumi.String("azure-native:kubernetesconfiguration:Extension"),
 		},
 		{

@@ -88,6 +88,7 @@ namespace Pulumi.AzureNative.Network.V20200801
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:VirtualHubIpConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:network:VirtualHubIpConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:VirtualHubIpConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:network/latest:VirtualHubIpConfiguration"},

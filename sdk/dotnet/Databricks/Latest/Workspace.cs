@@ -138,6 +138,7 @@ namespace Pulumi.AzureNative.Databricks.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:databricks/latest:Workspace"},
                     new Pulumi.Alias { Type = "azure-native:databricks:Workspace"},
                     new Pulumi.Alias { Type = "azure-nextgen:databricks:Workspace"},
                     new Pulumi.Alias { Type = "azure-native:databricks/v20180401:Workspace"},

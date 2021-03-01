@@ -46,6 +46,9 @@ func NewManagedNetwork(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:managednetwork:ManagedNetwork"),
+		},
+		{
 			Type: pulumi.String("azure-native:managednetwork/v20190601preview:ManagedNetwork"),
 		},
 		{

@@ -180,6 +180,7 @@ namespace Pulumi.AzureNative.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:NetworkInterface"},
                     new Pulumi.Alias { Type = "azure-native:network:NetworkInterface"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:NetworkInterface"},
                     new Pulumi.Alias { Type = "azure-native:network/v20150501preview:NetworkInterface"},

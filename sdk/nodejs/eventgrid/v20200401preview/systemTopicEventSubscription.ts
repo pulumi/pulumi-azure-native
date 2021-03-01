@@ -149,7 +149,7 @@ export class SystemTopicEventSubscription extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid:SystemTopicEventSubscription" }, { type: "azure-nextgen:eventgrid:SystemTopicEventSubscription" }, { type: "azure-native:eventgrid/v20201015preview:SystemTopicEventSubscription" }, { type: "azure-nextgen:eventgrid/v20201015preview:SystemTopicEventSubscription" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:eventgrid/v20200401preview:SystemTopicEventSubscription" }, { type: "azure-native:eventgrid:SystemTopicEventSubscription" }, { type: "azure-nextgen:eventgrid:SystemTopicEventSubscription" }, { type: "azure-native:eventgrid/v20201015preview:SystemTopicEventSubscription" }, { type: "azure-nextgen:eventgrid/v20201015preview:SystemTopicEventSubscription" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SystemTopicEventSubscription.__pulumiType, name, inputs, opts);
     }

@@ -88,6 +88,7 @@ namespace Pulumi.AzureNative.Network.V20181001
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20181001:PacketCapture"},
                     new Pulumi.Alias { Type = "azure-native:network:PacketCapture"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:PacketCapture"},
                     new Pulumi.Alias { Type = "azure-native:network/latest:PacketCapture"},

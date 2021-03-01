@@ -76,6 +76,7 @@ namespace Pulumi.AzureNative.PowerPlatform.V20201030Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:powerplatform/v20201030preview:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:powerplatform:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:powerplatform:PrivateEndpointConnection"},
                 },

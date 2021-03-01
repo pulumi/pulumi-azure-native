@@ -70,6 +70,7 @@ namespace Pulumi.AzureNative.Advisor.V20200101
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:advisor/v20200101:Suppression"},
                     new Pulumi.Alias { Type = "azure-native:advisor:Suppression"},
                     new Pulumi.Alias { Type = "azure-nextgen:advisor:Suppression"},
                     new Pulumi.Alias { Type = "azure-native:advisor/latest:Suppression"},

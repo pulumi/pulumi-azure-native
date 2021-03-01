@@ -55,6 +55,9 @@ func NewVpnSite(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:network/v20190201:VpnSite"),
+		},
+		{
 			Type: pulumi.String("azure-native:network:VpnSite"),
 		},
 		{

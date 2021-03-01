@@ -38,6 +38,9 @@ func NewNamespaceVirtualNetworkRule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:servicebus/v20180101preview:NamespaceVirtualNetworkRule"),
+		},
+		{
 			Type: pulumi.String("azure-native:servicebus:NamespaceVirtualNetworkRule"),
 		},
 		{

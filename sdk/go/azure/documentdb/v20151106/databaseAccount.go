@@ -75,6 +75,9 @@ func NewDatabaseAccount(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:documentdb/v20151106:DatabaseAccount"),
+		},
+		{
 			Type: pulumi.String("azure-native:documentdb:DatabaseAccount"),
 		},
 		{

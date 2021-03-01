@@ -108,7 +108,7 @@ export class DeploymentScript extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:resources:DeploymentScript" }, { type: "azure-nextgen:resources:DeploymentScript" }, { type: "azure-native:resources/v20191001preview:DeploymentScript" }, { type: "azure-nextgen:resources/v20191001preview:DeploymentScript" }, { type: "azure-native:resources/v20201001:DeploymentScript" }, { type: "azure-nextgen:resources/v20201001:DeploymentScript" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:resources/latest:DeploymentScript" }, { type: "azure-native:resources:DeploymentScript" }, { type: "azure-nextgen:resources:DeploymentScript" }, { type: "azure-native:resources/v20191001preview:DeploymentScript" }, { type: "azure-nextgen:resources/v20191001preview:DeploymentScript" }, { type: "azure-native:resources/v20201001:DeploymentScript" }, { type: "azure-nextgen:resources/v20201001:DeploymentScript" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DeploymentScript.__pulumiType, name, inputs, opts);
     }

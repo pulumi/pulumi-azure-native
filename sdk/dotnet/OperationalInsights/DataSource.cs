@@ -77,6 +77,7 @@ namespace Pulumi.AzureNative.OperationalInsights
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:operationalinsights:DataSource"},
                     new Pulumi.Alias { Type = "azure-native:operationalinsights/latest:DataSource"},
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/latest:DataSource"},
                     new Pulumi.Alias { Type = "azure-native:operationalinsights/v20151101preview:DataSource"},

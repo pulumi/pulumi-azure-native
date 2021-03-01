@@ -110,6 +110,7 @@ namespace Pulumi.AzureNative.WindowsESU
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:windowsesu:MultipleActivationKey"},
                     new Pulumi.Alias { Type = "azure-native:windowsesu/v20190916preview:MultipleActivationKey"},
                     new Pulumi.Alias { Type = "azure-nextgen:windowsesu/v20190916preview:MultipleActivationKey"},
                 },

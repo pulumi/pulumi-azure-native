@@ -76,6 +76,7 @@ namespace Pulumi.AzureNative.AutonomousDevelopmentPlatform.V20200701Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:autonomousdevelopmentplatform/v20200701preview:DataPool"},
                     new Pulumi.Alias { Type = "azure-native:autonomousdevelopmentplatform:DataPool"},
                     new Pulumi.Alias { Type = "azure-nextgen:autonomousdevelopmentplatform:DataPool"},
                     new Pulumi.Alias { Type = "azure-native:autonomousdevelopmentplatform/v20210201preview:DataPool"},

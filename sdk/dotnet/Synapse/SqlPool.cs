@@ -131,6 +131,7 @@ namespace Pulumi.AzureNative.Synapse
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:synapse:SqlPool"},
                     new Pulumi.Alias { Type = "azure-native:synapse/latest:SqlPool"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/latest:SqlPool"},
                     new Pulumi.Alias { Type = "azure-native:synapse/v20190601preview:SqlPool"},

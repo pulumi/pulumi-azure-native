@@ -55,6 +55,9 @@ func NewIscsiServer(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:storsimple/v20161001:IscsiServer"),
+		},
+		{
 			Type: pulumi.String("azure-native:storsimple:IscsiServer"),
 		},
 		{

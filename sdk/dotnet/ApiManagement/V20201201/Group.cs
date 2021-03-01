@@ -76,6 +76,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20201201
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20201201:Group"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement:Group"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement:Group"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/latest:Group"},

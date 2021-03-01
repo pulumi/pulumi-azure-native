@@ -70,6 +70,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20180601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180601preview:ApiIssueComment"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement:ApiIssueComment"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement:ApiIssueComment"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/latest:ApiIssueComment"},

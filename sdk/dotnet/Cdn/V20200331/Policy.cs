@@ -115,6 +115,7 @@ namespace Pulumi.AzureNative.Cdn.V20200331
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:cdn/v20200331:Policy"},
                     new Pulumi.Alias { Type = "azure-native:cdn:Policy"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn:Policy"},
                     new Pulumi.Alias { Type = "azure-native:cdn/latest:Policy"},

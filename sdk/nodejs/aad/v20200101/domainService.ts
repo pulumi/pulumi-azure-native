@@ -177,7 +177,7 @@ export class DomainService extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:aad:DomainService" }, { type: "azure-nextgen:aad:DomainService" }, { type: "azure-native:aad/latest:DomainService" }, { type: "azure-nextgen:aad/latest:DomainService" }, { type: "azure-native:aad/v20170101:DomainService" }, { type: "azure-nextgen:aad/v20170101:DomainService" }, { type: "azure-native:aad/v20170601:DomainService" }, { type: "azure-nextgen:aad/v20170601:DomainService" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:aad/v20200101:DomainService" }, { type: "azure-native:aad:DomainService" }, { type: "azure-nextgen:aad:DomainService" }, { type: "azure-native:aad/latest:DomainService" }, { type: "azure-nextgen:aad/latest:DomainService" }, { type: "azure-native:aad/v20170101:DomainService" }, { type: "azure-nextgen:aad/v20170101:DomainService" }, { type: "azure-native:aad/v20170601:DomainService" }, { type: "azure-nextgen:aad/v20170601:DomainService" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DomainService.__pulumiType, name, inputs, opts);
     }

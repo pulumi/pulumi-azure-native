@@ -46,6 +46,9 @@ func NewBandwidthSetting(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:storsimple:BandwidthSetting"),
+		},
+		{
 			Type: pulumi.String("azure-native:storsimple/latest:BandwidthSetting"),
 		},
 		{

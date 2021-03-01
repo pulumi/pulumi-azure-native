@@ -78,6 +78,7 @@ namespace Pulumi.AzureNative.StorSimple.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:storsimple/latest:FileServer"},
                     new Pulumi.Alias { Type = "azure-native:storsimple:FileServer"},
                     new Pulumi.Alias { Type = "azure-nextgen:storsimple:FileServer"},
                     new Pulumi.Alias { Type = "azure-native:storsimple/v20161001:FileServer"},

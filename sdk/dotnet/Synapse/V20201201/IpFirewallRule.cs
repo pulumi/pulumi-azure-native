@@ -70,6 +70,7 @@ namespace Pulumi.AzureNative.Synapse.V20201201
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:synapse/v20201201:IpFirewallRule"},
                     new Pulumi.Alias { Type = "azure-native:synapse:IpFirewallRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse:IpFirewallRule"},
                     new Pulumi.Alias { Type = "azure-native:synapse/latest:IpFirewallRule"},

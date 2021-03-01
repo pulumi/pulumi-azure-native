@@ -94,6 +94,7 @@ namespace Pulumi.AzureNative.DelegatedNetwork.V20200808Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:delegatednetwork/v20200808preview:ControllerDetails"},
                     new Pulumi.Alias { Type = "azure-native:delegatednetwork:ControllerDetails"},
                     new Pulumi.Alias { Type = "azure-nextgen:delegatednetwork:ControllerDetails"},
                 },

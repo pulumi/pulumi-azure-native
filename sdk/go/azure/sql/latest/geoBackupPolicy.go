@@ -50,6 +50,9 @@ func NewGeoBackupPolicy(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:sql/latest:GeoBackupPolicy"),
+		},
+		{
 			Type: pulumi.String("azure-native:sql:GeoBackupPolicy"),
 		},
 		{

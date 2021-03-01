@@ -120,6 +120,7 @@ namespace Pulumi.AzureNative.Web.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:web/latest:StaticSite"},
                     new Pulumi.Alias { Type = "azure-native:web:StaticSite"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:StaticSite"},
                     new Pulumi.Alias { Type = "azure-native:web/v20190801:StaticSite"},

@@ -79,6 +79,9 @@ func NewRosettaNetProcessConfiguration(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:logic:RosettaNetProcessConfiguration"),
+		},
+		{
 			Type: pulumi.String("azure-native:logic/latest:RosettaNetProcessConfiguration"),
 		},
 		{

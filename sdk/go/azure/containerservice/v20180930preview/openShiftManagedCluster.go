@@ -60,6 +60,9 @@ func NewOpenShiftManagedCluster(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:containerservice/v20180930preview:OpenShiftManagedCluster"),
+		},
+		{
 			Type: pulumi.String("azure-native:containerservice:OpenShiftManagedCluster"),
 		},
 		{

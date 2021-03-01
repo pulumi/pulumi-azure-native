@@ -70,6 +70,7 @@ namespace Pulumi.AzureNative.ContainerService.V20201201
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20201201:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:containerservice:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:containerservice/latest:PrivateEndpointConnection"},

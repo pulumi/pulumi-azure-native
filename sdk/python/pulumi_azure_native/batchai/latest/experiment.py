@@ -65,7 +65,7 @@ class Experiment(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['provisioning_state_transition_time'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:batchai:Experiment"), pulumi.Alias(type_="azure-nextgen:batchai:Experiment"), pulumi.Alias(type_="azure-native:batchai/v20180501:Experiment"), pulumi.Alias(type_="azure-nextgen:batchai/v20180501:Experiment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:batchai/latest:Experiment"), pulumi.Alias(type_="azure-native:batchai:Experiment"), pulumi.Alias(type_="azure-nextgen:batchai:Experiment"), pulumi.Alias(type_="azure-native:batchai/v20180501:Experiment"), pulumi.Alias(type_="azure-nextgen:batchai/v20180501:Experiment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Experiment, __self__).__init__(
             'azure-native:batchai/latest:Experiment',

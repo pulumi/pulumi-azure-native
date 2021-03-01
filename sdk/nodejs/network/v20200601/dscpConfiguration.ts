@@ -148,7 +148,7 @@ export class DscpConfiguration extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:network:DscpConfiguration" }, { type: "azure-nextgen:network:DscpConfiguration" }, { type: "azure-native:network/latest:DscpConfiguration" }, { type: "azure-nextgen:network/latest:DscpConfiguration" }, { type: "azure-native:network/v20200701:DscpConfiguration" }, { type: "azure-nextgen:network/v20200701:DscpConfiguration" }, { type: "azure-native:network/v20200801:DscpConfiguration" }, { type: "azure-nextgen:network/v20200801:DscpConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20200601:DscpConfiguration" }, { type: "azure-native:network:DscpConfiguration" }, { type: "azure-nextgen:network:DscpConfiguration" }, { type: "azure-native:network/latest:DscpConfiguration" }, { type: "azure-nextgen:network/latest:DscpConfiguration" }, { type: "azure-native:network/v20200701:DscpConfiguration" }, { type: "azure-nextgen:network/v20200701:DscpConfiguration" }, { type: "azure-native:network/v20200801:DscpConfiguration" }, { type: "azure-nextgen:network/v20200801:DscpConfiguration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DscpConfiguration.__pulumiType, name, inputs, opts);
     }

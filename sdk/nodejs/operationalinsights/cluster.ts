@@ -154,7 +154,7 @@ export class Cluster extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:operationalinsights/latest:Cluster" }, { type: "azure-nextgen:operationalinsights/latest:Cluster" }, { type: "azure-native:operationalinsights/v20190801preview:Cluster" }, { type: "azure-nextgen:operationalinsights/v20190801preview:Cluster" }, { type: "azure-native:operationalinsights/v20200301preview:Cluster" }, { type: "azure-nextgen:operationalinsights/v20200301preview:Cluster" }, { type: "azure-native:operationalinsights/v20200801:Cluster" }, { type: "azure-nextgen:operationalinsights/v20200801:Cluster" }, { type: "azure-native:operationalinsights/v20201001:Cluster" }, { type: "azure-nextgen:operationalinsights/v20201001:Cluster" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:operationalinsights:Cluster" }, { type: "azure-native:operationalinsights/latest:Cluster" }, { type: "azure-nextgen:operationalinsights/latest:Cluster" }, { type: "azure-native:operationalinsights/v20190801preview:Cluster" }, { type: "azure-nextgen:operationalinsights/v20190801preview:Cluster" }, { type: "azure-native:operationalinsights/v20200301preview:Cluster" }, { type: "azure-nextgen:operationalinsights/v20200301preview:Cluster" }, { type: "azure-native:operationalinsights/v20200801:Cluster" }, { type: "azure-nextgen:operationalinsights/v20200801:Cluster" }, { type: "azure-native:operationalinsights/v20201001:Cluster" }, { type: "azure-nextgen:operationalinsights/v20201001:Cluster" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Cluster.__pulumiType, name, inputs, opts);
     }

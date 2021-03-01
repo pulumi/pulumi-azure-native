@@ -160,6 +160,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20191201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20191201preview:Registry"},
                     new Pulumi.Alias { Type = "azure-native:containerregistry:Registry"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry:Registry"},
                     new Pulumi.Alias { Type = "azure-native:containerregistry/latest:Registry"},

@@ -88,6 +88,7 @@ namespace Pulumi.AzureNative.Network.V20200401
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:HubRouteTable"},
                     new Pulumi.Alias { Type = "azure-native:network:HubRouteTable"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:HubRouteTable"},
                     new Pulumi.Alias { Type = "azure-native:network/latest:HubRouteTable"},

@@ -59,6 +59,9 @@ func NewOriginGroup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:cdn/latest:OriginGroup"),
+		},
+		{
 			Type: pulumi.String("azure-native:cdn:OriginGroup"),
 		},
 		{

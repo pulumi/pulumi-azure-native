@@ -58,6 +58,7 @@ namespace Pulumi.AzureNative.DataLakeStore.V20161101
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:datalakestore/v20161101:TrustedIdProvider"},
                     new Pulumi.Alias { Type = "azure-native:datalakestore:TrustedIdProvider"},
                     new Pulumi.Alias { Type = "azure-nextgen:datalakestore:TrustedIdProvider"},
                     new Pulumi.Alias { Type = "azure-native:datalakestore/latest:TrustedIdProvider"},

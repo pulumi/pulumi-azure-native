@@ -95,6 +95,7 @@ namespace Pulumi.AzureNative.Insights
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:insights:SubscriptionDiagnosticSetting"},
                     new Pulumi.Alias { Type = "azure-native:insights/v20170501preview:SubscriptionDiagnosticSetting"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights/v20170501preview:SubscriptionDiagnosticSetting"},
                 },

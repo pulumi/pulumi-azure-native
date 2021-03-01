@@ -69,6 +69,9 @@ func NewDomainService(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:aad/v20200101:DomainService"),
+		},
+		{
 			Type: pulumi.String("azure-native:aad:DomainService"),
 		},
 		{

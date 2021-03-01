@@ -65,6 +65,7 @@ namespace Pulumi.AzureNative.Devices
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:devices:Certificate"},
                     new Pulumi.Alias { Type = "azure-native:devices/latest:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices/latest:Certificate"},
                     new Pulumi.Alias { Type = "azure-native:devices/v20170701:Certificate"},

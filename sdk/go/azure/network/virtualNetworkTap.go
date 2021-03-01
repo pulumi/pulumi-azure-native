@@ -52,6 +52,9 @@ func NewVirtualNetworkTap(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:network:VirtualNetworkTap"),
+		},
+		{
 			Type: pulumi.String("azure-native:network/latest:VirtualNetworkTap"),
 		},
 		{

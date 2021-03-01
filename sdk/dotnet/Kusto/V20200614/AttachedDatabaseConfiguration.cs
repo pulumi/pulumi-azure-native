@@ -88,6 +88,7 @@ namespace Pulumi.AzureNative.Kusto.V20200614
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:kusto/v20200614:AttachedDatabaseConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:kusto:AttachedDatabaseConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto:AttachedDatabaseConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:kusto/latest:AttachedDatabaseConfiguration"},

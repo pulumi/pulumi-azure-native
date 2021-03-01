@@ -65,6 +65,9 @@ func NewNetworkInterface(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:network/v20191201:NetworkInterface"),
+		},
+		{
 			Type: pulumi.String("azure-native:network:NetworkInterface"),
 		},
 		{

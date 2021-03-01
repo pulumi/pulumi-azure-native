@@ -38,6 +38,9 @@ func NewMonitor(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:datadog/v20200201preview:Monitor"),
+		},
+		{
 			Type: pulumi.String("azure-native:datadog:Monitor"),
 		},
 		{

@@ -120,6 +120,9 @@ func NewVolume(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:netapp:Volume"),
+		},
+		{
 			Type: pulumi.String("azure-native:netapp/latest:Volume"),
 		},
 		{

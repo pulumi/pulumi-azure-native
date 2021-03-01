@@ -42,6 +42,9 @@ func NewTag(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:apimanagement:Tag"),
+		},
+		{
 			Type: pulumi.String("azure-native:apimanagement/latest:Tag"),
 		},
 		{

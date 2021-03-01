@@ -64,6 +64,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901preview:Trigger"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge:Trigger"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge:Trigger"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/latest:Trigger"},

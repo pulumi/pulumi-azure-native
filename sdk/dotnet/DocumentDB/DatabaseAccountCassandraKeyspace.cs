@@ -65,6 +65,7 @@ namespace Pulumi.AzureNative.DocumentDB
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb:DatabaseAccountCassandraKeyspace"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/latest:DatabaseAccountCassandraKeyspace"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/latest:DatabaseAccountCassandraKeyspace"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20150401:DatabaseAccountCassandraKeyspace"},

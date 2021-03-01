@@ -51,6 +51,9 @@ func NewStorageInsightConfig(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:operationalinsights/v20200301preview:StorageInsightConfig"),
+		},
+		{
 			Type: pulumi.String("azure-native:operationalinsights:StorageInsightConfig"),
 		},
 		{

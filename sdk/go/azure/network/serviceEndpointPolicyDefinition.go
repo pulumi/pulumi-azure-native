@@ -45,6 +45,9 @@ func NewServiceEndpointPolicyDefinition(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:network:ServiceEndpointPolicyDefinition"),
+		},
+		{
 			Type: pulumi.String("azure-native:network/latest:ServiceEndpointPolicyDefinition"),
 		},
 		{

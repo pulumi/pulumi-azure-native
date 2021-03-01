@@ -89,6 +89,7 @@ namespace Pulumi.AzureNative.Sql
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:sql:WorkloadClassifier"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20190601preview:WorkloadClassifier"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20190601preview:WorkloadClassifier"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20200202preview:WorkloadClassifier"},

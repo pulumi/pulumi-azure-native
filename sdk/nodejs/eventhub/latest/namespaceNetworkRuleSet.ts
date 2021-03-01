@@ -96,7 +96,7 @@ export class NamespaceNetworkRuleSet extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:eventhub:NamespaceNetworkRuleSet" }, { type: "azure-nextgen:eventhub:NamespaceNetworkRuleSet" }, { type: "azure-native:eventhub/v20170401:NamespaceNetworkRuleSet" }, { type: "azure-nextgen:eventhub/v20170401:NamespaceNetworkRuleSet" }, { type: "azure-native:eventhub/v20180101preview:NamespaceNetworkRuleSet" }, { type: "azure-nextgen:eventhub/v20180101preview:NamespaceNetworkRuleSet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:eventhub/latest:NamespaceNetworkRuleSet" }, { type: "azure-native:eventhub:NamespaceNetworkRuleSet" }, { type: "azure-nextgen:eventhub:NamespaceNetworkRuleSet" }, { type: "azure-native:eventhub/v20170401:NamespaceNetworkRuleSet" }, { type: "azure-nextgen:eventhub/v20170401:NamespaceNetworkRuleSet" }, { type: "azure-native:eventhub/v20180101preview:NamespaceNetworkRuleSet" }, { type: "azure-nextgen:eventhub/v20180101preview:NamespaceNetworkRuleSet" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NamespaceNetworkRuleSet.__pulumiType, name, inputs, opts);
     }

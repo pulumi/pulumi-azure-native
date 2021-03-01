@@ -85,6 +85,9 @@ func NewManagedCluster(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:servicefabric/v20200101preview:ManagedCluster"),
+		},
+		{
 			Type: pulumi.String("azure-native:servicefabric:ManagedCluster"),
 		},
 		{

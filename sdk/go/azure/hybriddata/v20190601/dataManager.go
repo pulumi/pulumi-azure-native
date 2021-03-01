@@ -44,6 +44,9 @@ func NewDataManager(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:hybriddata/v20190601:DataManager"),
+		},
+		{
 			Type: pulumi.String("azure-native:hybriddata:DataManager"),
 		},
 		{

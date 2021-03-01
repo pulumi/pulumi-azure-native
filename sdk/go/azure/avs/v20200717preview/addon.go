@@ -42,6 +42,9 @@ func NewAddon(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:avs/v20200717preview:Addon"),
+		},
+		{
 			Type: pulumi.String("azure-native:avs:Addon"),
 		},
 		{

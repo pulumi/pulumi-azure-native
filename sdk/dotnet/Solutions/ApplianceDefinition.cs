@@ -119,6 +119,7 @@ namespace Pulumi.AzureNative.Solutions
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:solutions:ApplianceDefinition"},
                     new Pulumi.Alias { Type = "azure-native:solutions/v20160901preview:ApplianceDefinition"},
                     new Pulumi.Alias { Type = "azure-nextgen:solutions/v20160901preview:ApplianceDefinition"},
                 },

@@ -113,7 +113,7 @@ export class ServiceUnit extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:deploymentmanager:ServiceUnit" }, { type: "azure-nextgen:deploymentmanager:ServiceUnit" }, { type: "azure-native:deploymentmanager/v20191101preview:ServiceUnit" }, { type: "azure-nextgen:deploymentmanager/v20191101preview:ServiceUnit" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:deploymentmanager/v20180901preview:ServiceUnit" }, { type: "azure-native:deploymentmanager:ServiceUnit" }, { type: "azure-nextgen:deploymentmanager:ServiceUnit" }, { type: "azure-native:deploymentmanager/v20191101preview:ServiceUnit" }, { type: "azure-nextgen:deploymentmanager/v20191101preview:ServiceUnit" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ServiceUnit.__pulumiType, name, inputs, opts);
     }

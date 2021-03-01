@@ -32,6 +32,9 @@ func NewUserSettings(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:portal:UserSettings"),
+		},
+		{
 			Type: pulumi.String("azure-native:portal/latest:UserSettings"),
 		},
 		{

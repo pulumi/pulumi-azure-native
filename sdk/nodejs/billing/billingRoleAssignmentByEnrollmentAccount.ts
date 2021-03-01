@@ -133,7 +133,7 @@ export class BillingRoleAssignmentByEnrollmentAccount extends pulumi.CustomResou
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:billing/v20191001preview:BillingRoleAssignmentByEnrollmentAccount" }, { type: "azure-nextgen:billing/v20191001preview:BillingRoleAssignmentByEnrollmentAccount" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:billing:BillingRoleAssignmentByEnrollmentAccount" }, { type: "azure-native:billing/v20191001preview:BillingRoleAssignmentByEnrollmentAccount" }, { type: "azure-nextgen:billing/v20191001preview:BillingRoleAssignmentByEnrollmentAccount" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BillingRoleAssignmentByEnrollmentAccount.__pulumiType, name, inputs, opts);
     }

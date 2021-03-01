@@ -58,6 +58,7 @@ namespace Pulumi.AzureNative.Migrate.V20191001Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:migrate/v20191001preview:MoveResource"},
                     new Pulumi.Alias { Type = "azure-native:migrate:MoveResource"},
                     new Pulumi.Alias { Type = "azure-nextgen:migrate:MoveResource"},
                     new Pulumi.Alias { Type = "azure-native:migrate/latest:MoveResource"},

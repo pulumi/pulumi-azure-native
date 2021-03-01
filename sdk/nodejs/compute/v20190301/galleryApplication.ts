@@ -124,7 +124,7 @@ export class GalleryApplication extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:compute:GalleryApplication" }, { type: "azure-nextgen:compute:GalleryApplication" }, { type: "azure-native:compute/latest:GalleryApplication" }, { type: "azure-nextgen:compute/latest:GalleryApplication" }, { type: "azure-native:compute/v20190701:GalleryApplication" }, { type: "azure-nextgen:compute/v20190701:GalleryApplication" }, { type: "azure-native:compute/v20191201:GalleryApplication" }, { type: "azure-nextgen:compute/v20191201:GalleryApplication" }, { type: "azure-native:compute/v20200930:GalleryApplication" }, { type: "azure-nextgen:compute/v20200930:GalleryApplication" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute/v20190301:GalleryApplication" }, { type: "azure-native:compute:GalleryApplication" }, { type: "azure-nextgen:compute:GalleryApplication" }, { type: "azure-native:compute/latest:GalleryApplication" }, { type: "azure-nextgen:compute/latest:GalleryApplication" }, { type: "azure-native:compute/v20190701:GalleryApplication" }, { type: "azure-nextgen:compute/v20190701:GalleryApplication" }, { type: "azure-native:compute/v20191201:GalleryApplication" }, { type: "azure-nextgen:compute/v20191201:GalleryApplication" }, { type: "azure-native:compute/v20200930:GalleryApplication" }, { type: "azure-nextgen:compute/v20200930:GalleryApplication" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(GalleryApplication.__pulumiType, name, inputs, opts);
     }

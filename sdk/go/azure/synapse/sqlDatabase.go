@@ -51,6 +51,9 @@ func NewSqlDatabase(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:synapse:SqlDatabase"),
+		},
+		{
 			Type: pulumi.String("azure-native:synapse/v20200401preview:SqlDatabase"),
 		},
 		{

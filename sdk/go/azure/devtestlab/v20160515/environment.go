@@ -55,6 +55,9 @@ func NewEnvironment(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:devtestlab/v20160515:Environment"),
+		},
+		{
 			Type: pulumi.String("azure-native:devtestlab:Environment"),
 		},
 		{

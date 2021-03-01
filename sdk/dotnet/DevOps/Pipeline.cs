@@ -89,6 +89,7 @@ namespace Pulumi.AzureNative.DevOps
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:devops:Pipeline"},
                     new Pulumi.Alias { Type = "azure-native:devops/v20190701preview:Pipeline"},
                     new Pulumi.Alias { Type = "azure-nextgen:devops/v20190701preview:Pipeline"},
                     new Pulumi.Alias { Type = "azure-native:devops/v20200713preview:Pipeline"},

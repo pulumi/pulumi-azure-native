@@ -118,6 +118,7 @@ namespace Pulumi.AzureNative.Maintenance.V20200701Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:maintenance/v20200701preview:MaintenanceConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:maintenance:MaintenanceConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:maintenance:MaintenanceConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:maintenance/latest:MaintenanceConfiguration"},

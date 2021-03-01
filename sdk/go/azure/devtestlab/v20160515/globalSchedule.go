@@ -59,6 +59,9 @@ func NewGlobalSchedule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:devtestlab/v20160515:GlobalSchedule"),
+		},
+		{
 			Type: pulumi.String("azure-native:devtestlab:GlobalSchedule"),
 		},
 		{

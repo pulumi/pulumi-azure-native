@@ -43,6 +43,9 @@ func NewNamespaceIpFilterRule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:eventhub:NamespaceIpFilterRule"),
+		},
+		{
 			Type: pulumi.String("azure-native:eventhub/v20180101preview:NamespaceIpFilterRule"),
 		},
 		{

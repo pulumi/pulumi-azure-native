@@ -95,6 +95,7 @@ namespace Pulumi.AzureNative.Authorization
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:authorization:RoleManagementPolicy"},
                     new Pulumi.Alias { Type = "azure-native:authorization/v20201001preview:RoleManagementPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20201001preview:RoleManagementPolicy"},
                 },

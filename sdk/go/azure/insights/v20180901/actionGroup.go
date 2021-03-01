@@ -70,6 +70,9 @@ func NewActionGroup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:insights/v20180901:ActionGroup"),
+		},
+		{
 			Type: pulumi.String("azure-native:insights:ActionGroup"),
 		},
 		{

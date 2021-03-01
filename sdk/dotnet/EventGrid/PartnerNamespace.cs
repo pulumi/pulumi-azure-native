@@ -90,6 +90,7 @@ namespace Pulumi.AzureNative.EventGrid
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:eventgrid:PartnerNamespace"},
                     new Pulumi.Alias { Type = "azure-native:eventgrid/v20200401preview:PartnerNamespace"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20200401preview:PartnerNamespace"},
                     new Pulumi.Alias { Type = "azure-native:eventgrid/v20201015preview:PartnerNamespace"},

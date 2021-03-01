@@ -119,7 +119,7 @@ export class EventHubConnection extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:kusto:EventHubConnection" }, { type: "azure-nextgen:kusto:EventHubConnection" }, { type: "azure-native:kusto/v20170907privatepreview:EventHubConnection" }, { type: "azure-nextgen:kusto/v20170907privatepreview:EventHubConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:kusto/v20180907preview:EventHubConnection" }, { type: "azure-native:kusto:EventHubConnection" }, { type: "azure-nextgen:kusto:EventHubConnection" }, { type: "azure-native:kusto/v20170907privatepreview:EventHubConnection" }, { type: "azure-nextgen:kusto/v20170907privatepreview:EventHubConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(EventHubConnection.__pulumiType, name, inputs, opts);
     }

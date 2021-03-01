@@ -44,6 +44,9 @@ func NewIoTSpace(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:iotspaces/v20171001preview:IoTSpace"),
+		},
+		{
 			Type: pulumi.String("azure-native:iotspaces:IoTSpace"),
 		},
 		{

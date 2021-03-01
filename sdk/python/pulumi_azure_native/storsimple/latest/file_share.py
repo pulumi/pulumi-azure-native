@@ -103,7 +103,7 @@ class FileShare(pulumi.CustomResource):
             __props__['name'] = None
             __props__['type'] = None
             __props__['used_capacity_in_bytes'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:storsimple:FileShare"), pulumi.Alias(type_="azure-nextgen:storsimple:FileShare"), pulumi.Alias(type_="azure-native:storsimple/v20161001:FileShare"), pulumi.Alias(type_="azure-nextgen:storsimple/v20161001:FileShare")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storsimple/latest:FileShare"), pulumi.Alias(type_="azure-native:storsimple:FileShare"), pulumi.Alias(type_="azure-nextgen:storsimple:FileShare"), pulumi.Alias(type_="azure-native:storsimple/v20161001:FileShare"), pulumi.Alias(type_="azure-nextgen:storsimple/v20161001:FileShare")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(FileShare, __self__).__init__(
             'azure-native:storsimple/latest:FileShare',

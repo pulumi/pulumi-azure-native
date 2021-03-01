@@ -137,6 +137,7 @@ namespace Pulumi.AzureNative.Authorization
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:authorization:DenyAssignment"},
                     new Pulumi.Alias { Type = "azure-native:authorization/v20200301preview:DenyAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20200301preview:DenyAssignment"},
                 },

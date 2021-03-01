@@ -59,6 +59,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:containerregistry:BuildStep"},
                     new Pulumi.Alias { Type = "azure-native:containerregistry/v20180201preview:BuildStep"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20180201preview:BuildStep"},
                 },

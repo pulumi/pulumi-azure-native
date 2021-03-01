@@ -60,6 +60,7 @@ namespace Pulumi.AzureNative.ApiManagement.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:GatewayCertificateAuthority"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement:GatewayCertificateAuthority"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement:GatewayCertificateAuthority"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:GatewayCertificateAuthority"},

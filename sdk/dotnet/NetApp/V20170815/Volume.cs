@@ -106,6 +106,7 @@ namespace Pulumi.AzureNative.NetApp.V20170815
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:netapp/v20170815:Volume"},
                     new Pulumi.Alias { Type = "azure-native:netapp:Volume"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp:Volume"},
                     new Pulumi.Alias { Type = "azure-native:netapp/latest:Volume"},

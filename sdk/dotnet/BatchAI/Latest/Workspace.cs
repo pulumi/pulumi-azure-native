@@ -84,6 +84,7 @@ namespace Pulumi.AzureNative.BatchAI.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:batchai/latest:Workspace"},
                     new Pulumi.Alias { Type = "azure-native:batchai:Workspace"},
                     new Pulumi.Alias { Type = "azure-nextgen:batchai:Workspace"},
                     new Pulumi.Alias { Type = "azure-native:batchai/v20180501:Workspace"},

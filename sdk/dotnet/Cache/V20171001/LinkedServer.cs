@@ -76,6 +76,7 @@ namespace Pulumi.AzureNative.Cache.V20171001
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:cache/v20171001:LinkedServer"},
                     new Pulumi.Alias { Type = "azure-native:cache:LinkedServer"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache:LinkedServer"},
                     new Pulumi.Alias { Type = "azure-native:cache/latest:LinkedServer"},

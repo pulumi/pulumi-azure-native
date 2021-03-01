@@ -52,6 +52,9 @@ func NewOrigin(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:cdn/v20160402:Origin"),
+		},
+		{
 			Type: pulumi.String("azure-native:cdn:Origin"),
 		},
 		{

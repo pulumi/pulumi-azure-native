@@ -163,7 +163,7 @@ export class Origin extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:cdn:Origin" }, { type: "azure-nextgen:cdn:Origin" }, { type: "azure-native:cdn/latest:Origin" }, { type: "azure-nextgen:cdn/latest:Origin" }, { type: "azure-native:cdn/v20150601:Origin" }, { type: "azure-nextgen:cdn/v20150601:Origin" }, { type: "azure-native:cdn/v20160402:Origin" }, { type: "azure-nextgen:cdn/v20160402:Origin" }, { type: "azure-native:cdn/v20191231:Origin" }, { type: "azure-nextgen:cdn/v20191231:Origin" }, { type: "azure-native:cdn/v20200331:Origin" }, { type: "azure-nextgen:cdn/v20200331:Origin" }, { type: "azure-native:cdn/v20200901:Origin" }, { type: "azure-nextgen:cdn/v20200901:Origin" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:cdn/v20200415:Origin" }, { type: "azure-native:cdn:Origin" }, { type: "azure-nextgen:cdn:Origin" }, { type: "azure-native:cdn/latest:Origin" }, { type: "azure-nextgen:cdn/latest:Origin" }, { type: "azure-native:cdn/v20150601:Origin" }, { type: "azure-nextgen:cdn/v20150601:Origin" }, { type: "azure-native:cdn/v20160402:Origin" }, { type: "azure-nextgen:cdn/v20160402:Origin" }, { type: "azure-native:cdn/v20191231:Origin" }, { type: "azure-nextgen:cdn/v20191231:Origin" }, { type: "azure-native:cdn/v20200331:Origin" }, { type: "azure-nextgen:cdn/v20200331:Origin" }, { type: "azure-native:cdn/v20200901:Origin" }, { type: "azure-nextgen:cdn/v20200901:Origin" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Origin.__pulumiType, name, inputs, opts);
     }

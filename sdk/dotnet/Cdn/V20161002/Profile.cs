@@ -82,6 +82,7 @@ namespace Pulumi.AzureNative.Cdn.V20161002
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:cdn/v20161002:Profile"},
                     new Pulumi.Alias { Type = "azure-native:cdn:Profile"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn:Profile"},
                     new Pulumi.Alias { Type = "azure-native:cdn/latest:Profile"},

@@ -53,6 +53,9 @@ func NewDatabaseAccountMongoDBCollection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:documentdb/v20160319:DatabaseAccountMongoDBCollection"),
+		},
+		{
 			Type: pulumi.String("azure-native:documentdb:DatabaseAccountMongoDBCollection"),
 		},
 		{

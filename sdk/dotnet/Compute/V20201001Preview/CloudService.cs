@@ -70,6 +70,7 @@ namespace Pulumi.AzureNative.Compute.V20201001Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20201001preview:CloudService"},
                     new Pulumi.Alias { Type = "azure-native:compute:CloudService"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute:CloudService"},
                 },

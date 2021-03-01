@@ -40,6 +40,9 @@ func NewReplicationFabric(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:recoveryservices/v20160810:ReplicationFabric"),
+		},
+		{
 			Type: pulumi.String("azure-native:recoveryservices:ReplicationFabric"),
 		},
 		{

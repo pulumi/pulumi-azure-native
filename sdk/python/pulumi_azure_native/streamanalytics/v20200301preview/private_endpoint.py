@@ -62,7 +62,7 @@ class PrivateEndpoint(pulumi.CustomResource):
             __props__['etag'] = None
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:streamanalytics:PrivateEndpoint"), pulumi.Alias(type_="azure-nextgen:streamanalytics:PrivateEndpoint")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:streamanalytics/v20200301preview:PrivateEndpoint"), pulumi.Alias(type_="azure-native:streamanalytics:PrivateEndpoint"), pulumi.Alias(type_="azure-nextgen:streamanalytics:PrivateEndpoint")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateEndpoint, __self__).__init__(
             'azure-native:streamanalytics/v20200301preview:PrivateEndpoint',

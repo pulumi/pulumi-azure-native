@@ -71,6 +71,7 @@ namespace Pulumi.AzureNative.EventHub
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:eventhub:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:eventhub/v20180101preview:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventhub/v20180101preview:PrivateEndpointConnection"},
                 },

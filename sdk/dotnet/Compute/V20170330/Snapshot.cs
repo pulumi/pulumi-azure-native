@@ -112,6 +112,7 @@ namespace Pulumi.AzureNative.Compute.V20170330
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20170330:Snapshot"},
                     new Pulumi.Alias { Type = "azure-native:compute:Snapshot"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute:Snapshot"},
                     new Pulumi.Alias { Type = "azure-native:compute/latest:Snapshot"},

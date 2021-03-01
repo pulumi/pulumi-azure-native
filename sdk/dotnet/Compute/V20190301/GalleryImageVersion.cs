@@ -88,6 +88,7 @@ namespace Pulumi.AzureNative.Compute.V20190301
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20190301:GalleryImageVersion"},
                     new Pulumi.Alias { Type = "azure-native:compute:GalleryImageVersion"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute:GalleryImageVersion"},
                     new Pulumi.Alias { Type = "azure-native:compute/latest:GalleryImageVersion"},

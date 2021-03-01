@@ -174,6 +174,7 @@ namespace Pulumi.AzureNative.ServiceFabric
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:servicefabric:ManagedCluster"},
                     new Pulumi.Alias { Type = "azure-native:servicefabric/v20200101preview:ManagedCluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20200101preview:ManagedCluster"},
                 },

@@ -60,6 +60,9 @@ func NewBackend(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:apimanagement/v20190101:Backend"),
+		},
+		{
 			Type: pulumi.String("azure-native:apimanagement:Backend"),
 		},
 		{

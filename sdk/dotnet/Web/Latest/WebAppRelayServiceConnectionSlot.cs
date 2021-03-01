@@ -87,6 +87,7 @@ namespace Pulumi.AzureNative.Web.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:web/latest:WebAppRelayServiceConnectionSlot"},
                     new Pulumi.Alias { Type = "azure-native:web:WebAppRelayServiceConnectionSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:WebAppRelayServiceConnectionSlot"},
                     new Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppRelayServiceConnectionSlot"},

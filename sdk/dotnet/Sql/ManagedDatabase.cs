@@ -167,6 +167,7 @@ namespace Pulumi.AzureNative.Sql
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:sql:ManagedDatabase"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20170301preview:ManagedDatabase"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20170301preview:ManagedDatabase"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20180601preview:ManagedDatabase"},

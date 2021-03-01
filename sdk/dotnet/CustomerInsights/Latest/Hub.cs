@@ -96,6 +96,7 @@ namespace Pulumi.AzureNative.CustomerInsights.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:customerinsights/latest:Hub"},
                     new Pulumi.Alias { Type = "azure-native:customerinsights:Hub"},
                     new Pulumi.Alias { Type = "azure-nextgen:customerinsights:Hub"},
                     new Pulumi.Alias { Type = "azure-native:customerinsights/v20170101:Hub"},

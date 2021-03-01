@@ -82,6 +82,7 @@ namespace Pulumi.AzureNative.MachineLearning.V20160501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:machinelearning/v20160501preview:CommitmentPlan"},
                     new Pulumi.Alias { Type = "azure-native:machinelearning:CommitmentPlan"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearning:CommitmentPlan"},
                 },

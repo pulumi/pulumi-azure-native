@@ -73,7 +73,7 @@ class OrderByName(pulumi.CustomResource):
             __props__['start_time'] = None
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:edgeorder:OrderByName"), pulumi.Alias(type_="azure-nextgen:edgeorder:OrderByName")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:edgeorder/v20201201preview:OrderByName"), pulumi.Alias(type_="azure-native:edgeorder:OrderByName"), pulumi.Alias(type_="azure-nextgen:edgeorder:OrderByName")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(OrderByName, __self__).__init__(
             'azure-native:edgeorder/v20201201preview:OrderByName',

@@ -61,6 +61,9 @@ func NewAssessmentMetadataInSubscription(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:security/v20200101:AssessmentMetadataInSubscription"),
+		},
+		{
 			Type: pulumi.String("azure-native:security:AssessmentMetadataInSubscription"),
 		},
 		{

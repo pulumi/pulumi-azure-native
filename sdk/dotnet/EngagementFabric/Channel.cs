@@ -71,6 +71,7 @@ namespace Pulumi.AzureNative.EngagementFabric
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:engagementfabric:Channel"},
                     new Pulumi.Alias { Type = "azure-native:engagementfabric/v20180901preview:Channel"},
                     new Pulumi.Alias { Type = "azure-nextgen:engagementfabric/v20180901preview:Channel"},
                 },

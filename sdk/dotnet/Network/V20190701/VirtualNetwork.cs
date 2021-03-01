@@ -124,6 +124,7 @@ namespace Pulumi.AzureNative.Network.V20190701
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190701:VirtualNetwork"},
                     new Pulumi.Alias { Type = "azure-native:network:VirtualNetwork"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:VirtualNetwork"},
                     new Pulumi.Alias { Type = "azure-native:network/latest:VirtualNetwork"},

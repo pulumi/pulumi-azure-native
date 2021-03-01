@@ -42,6 +42,9 @@ func NewWebAppConnectionStrings(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppConnectionStrings"),
+		},
+		{
 			Type: pulumi.String("azure-native:web:WebAppConnectionStrings"),
 		},
 		{

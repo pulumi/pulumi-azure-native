@@ -89,6 +89,7 @@ namespace Pulumi.AzureNative.Web.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:web/latest:AppServicePlanRouteForVnet"},
                     new Pulumi.Alias { Type = "azure-native:web:AppServicePlanRouteForVnet"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:AppServicePlanRouteForVnet"},
                     new Pulumi.Alias { Type = "azure-native:web/v20150801:AppServicePlanRouteForVnet"},

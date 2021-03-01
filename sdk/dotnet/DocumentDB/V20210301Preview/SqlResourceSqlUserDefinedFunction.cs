@@ -73,6 +73,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20210301Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20210301preview:SqlResourceSqlUserDefinedFunction"},
                     new Pulumi.Alias { Type = "azure-native:documentdb:SqlResourceSqlUserDefinedFunction"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb:SqlResourceSqlUserDefinedFunction"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/latest:SqlResourceSqlUserDefinedFunction"},

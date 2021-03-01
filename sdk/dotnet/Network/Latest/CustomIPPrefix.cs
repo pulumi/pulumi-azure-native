@@ -114,6 +114,7 @@ namespace Pulumi.AzureNative.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:CustomIPPrefix"},
                     new Pulumi.Alias { Type = "azure-native:network:CustomIPPrefix"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:CustomIPPrefix"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200601:CustomIPPrefix"},

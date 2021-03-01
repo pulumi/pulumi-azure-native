@@ -52,6 +52,7 @@ namespace Pulumi.AzureNative.Migrate
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:migrate:HyperVCollector"},
                     new Pulumi.Alias { Type = "azure-native:migrate/latest:HyperVCollector"},
                     new Pulumi.Alias { Type = "azure-nextgen:migrate/latest:HyperVCollector"},
                     new Pulumi.Alias { Type = "azure-native:migrate/v20191001:HyperVCollector"},

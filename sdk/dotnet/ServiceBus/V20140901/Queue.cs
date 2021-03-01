@@ -190,6 +190,7 @@ namespace Pulumi.AzureNative.ServiceBus.V20140901
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20140901:Queue"},
                     new Pulumi.Alias { Type = "azure-native:servicebus:Queue"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus:Queue"},
                     new Pulumi.Alias { Type = "azure-native:servicebus/latest:Queue"},

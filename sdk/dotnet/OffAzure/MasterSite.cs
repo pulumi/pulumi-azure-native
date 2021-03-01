@@ -71,6 +71,7 @@ namespace Pulumi.AzureNative.OffAzure
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:offazure:MasterSite"},
                     new Pulumi.Alias { Type = "azure-native:offazure/latest:MasterSite"},
                     new Pulumi.Alias { Type = "azure-nextgen:offazure/latest:MasterSite"},
                     new Pulumi.Alias { Type = "azure-native:offazure/v20200707:MasterSite"},

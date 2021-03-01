@@ -52,6 +52,9 @@ func NewDisasterRecoveryConfiguration(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:sql/v20140401:DisasterRecoveryConfiguration"),
+		},
+		{
 			Type: pulumi.String("azure-native:sql:DisasterRecoveryConfiguration"),
 		},
 		{

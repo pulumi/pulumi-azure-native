@@ -195,7 +195,7 @@ export class Account extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:datalakestore:Account" }, { type: "azure-nextgen:datalakestore:Account" }, { type: "azure-native:datalakestore/latest:Account" }, { type: "azure-nextgen:datalakestore/latest:Account" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:datalakestore/v20161101:Account" }, { type: "azure-native:datalakestore:Account" }, { type: "azure-nextgen:datalakestore:Account" }, { type: "azure-native:datalakestore/latest:Account" }, { type: "azure-nextgen:datalakestore/latest:Account" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Account.__pulumiType, name, inputs, opts);
     }

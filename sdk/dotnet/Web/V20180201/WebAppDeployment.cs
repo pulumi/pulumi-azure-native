@@ -112,6 +112,7 @@ namespace Pulumi.AzureNative.Web.V20180201
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:WebAppDeployment"},
                     new Pulumi.Alias { Type = "azure-native:web:WebAppDeployment"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:WebAppDeployment"},
                     new Pulumi.Alias { Type = "azure-native:web/latest:WebAppDeployment"},

@@ -104,6 +104,7 @@ namespace Pulumi.AzureNative.Batch
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:batch:Certificate"},
                     new Pulumi.Alias { Type = "azure-native:batch/latest:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/latest:Certificate"},
                     new Pulumi.Alias { Type = "azure-native:batch/v20170901:Certificate"},

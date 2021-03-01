@@ -60,6 +60,7 @@ namespace Pulumi.AzureNative.StorSimple.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:storsimple/latest:BackupScheduleGroup"},
                     new Pulumi.Alias { Type = "azure-native:storsimple:BackupScheduleGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:storsimple:BackupScheduleGroup"},
                     new Pulumi.Alias { Type = "azure-native:storsimple/v20161001:BackupScheduleGroup"},

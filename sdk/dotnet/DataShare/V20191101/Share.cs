@@ -94,6 +94,7 @@ namespace Pulumi.AzureNative.DataShare.V20191101
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:datashare/v20191101:Share"},
                     new Pulumi.Alias { Type = "azure-native:datashare:Share"},
                     new Pulumi.Alias { Type = "azure-nextgen:datashare:Share"},
                     new Pulumi.Alias { Type = "azure-native:datashare/latest:Share"},

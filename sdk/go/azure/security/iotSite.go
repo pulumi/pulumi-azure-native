@@ -41,6 +41,9 @@ func NewIotSite(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:security:IotSite"),
+		},
+		{
 			Type: pulumi.String("azure-native:security/v20200806preview:IotSite"),
 		},
 		{

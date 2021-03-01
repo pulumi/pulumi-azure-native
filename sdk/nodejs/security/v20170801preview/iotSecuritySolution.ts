@@ -144,7 +144,7 @@ export class IotSecuritySolution extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:security:IotSecuritySolution" }, { type: "azure-nextgen:security:IotSecuritySolution" }, { type: "azure-native:security/latest:IotSecuritySolution" }, { type: "azure-nextgen:security/latest:IotSecuritySolution" }, { type: "azure-native:security/v20190801:IotSecuritySolution" }, { type: "azure-nextgen:security/v20190801:IotSecuritySolution" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:security/v20170801preview:IotSecuritySolution" }, { type: "azure-native:security:IotSecuritySolution" }, { type: "azure-nextgen:security:IotSecuritySolution" }, { type: "azure-native:security/latest:IotSecuritySolution" }, { type: "azure-nextgen:security/latest:IotSecuritySolution" }, { type: "azure-native:security/v20190801:IotSecuritySolution" }, { type: "azure-nextgen:security/v20190801:IotSecuritySolution" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IotSecuritySolution.__pulumiType, name, inputs, opts);
     }

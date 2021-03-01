@@ -40,6 +40,9 @@ func NewActionRuleByName(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:alertsmanagement:ActionRuleByName"),
+		},
+		{
 			Type: pulumi.String("azure-native:alertsmanagement/v20181102privatepreview:ActionRuleByName"),
 		},
 		{

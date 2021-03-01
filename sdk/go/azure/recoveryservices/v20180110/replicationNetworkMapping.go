@@ -46,6 +46,9 @@ func NewReplicationNetworkMapping(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:recoveryservices/v20180110:ReplicationNetworkMapping"),
+		},
+		{
 			Type: pulumi.String("azure-native:recoveryservices:ReplicationNetworkMapping"),
 		},
 		{

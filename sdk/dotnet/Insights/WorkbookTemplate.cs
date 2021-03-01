@@ -95,6 +95,7 @@ namespace Pulumi.AzureNative.Insights
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:insights:WorkbookTemplate"},
                     new Pulumi.Alias { Type = "azure-native:insights/v20191017preview:WorkbookTemplate"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights/v20191017preview:WorkbookTemplate"},
                 },

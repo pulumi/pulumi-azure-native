@@ -52,6 +52,9 @@ func NewDatabaseAccountGremlinDatabase(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:documentdb/v20151106:DatabaseAccountGremlinDatabase"),
+		},
+		{
 			Type: pulumi.String("azure-native:documentdb:DatabaseAccountGremlinDatabase"),
 		},
 		{

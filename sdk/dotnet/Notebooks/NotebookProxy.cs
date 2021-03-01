@@ -65,6 +65,7 @@ namespace Pulumi.AzureNative.Notebooks
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:notebooks:NotebookProxy"},
                     new Pulumi.Alias { Type = "azure-native:notebooks/v20191011preview:NotebookProxy"},
                     new Pulumi.Alias { Type = "azure-nextgen:notebooks/v20191011preview:NotebookProxy"},
                 },

@@ -42,6 +42,9 @@ func NewSolution(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:operationsmanagement:Solution"),
+		},
+		{
 			Type: pulumi.String("azure-native:operationsmanagement/v20151101preview:Solution"),
 		},
 		{

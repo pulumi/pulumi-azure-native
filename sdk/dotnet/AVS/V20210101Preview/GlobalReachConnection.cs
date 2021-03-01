@@ -82,6 +82,7 @@ namespace Pulumi.AzureNative.AVS.V20210101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:avs/v20210101preview:GlobalReachConnection"},
                     new Pulumi.Alias { Type = "azure-native:avs:GlobalReachConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:avs:GlobalReachConnection"},
                     new Pulumi.Alias { Type = "azure-native:avs/v20200717preview:GlobalReachConnection"},

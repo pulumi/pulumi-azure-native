@@ -57,7 +57,7 @@ class WorkspaceSetting(pulumi.CustomResource):
             __props__['workspace_setting_name'] = workspace_setting_name
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:security/v20170801preview:WorkspaceSetting"), pulumi.Alias(type_="azure-nextgen:security/v20170801preview:WorkspaceSetting")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:security:WorkspaceSetting"), pulumi.Alias(type_="azure-native:security/v20170801preview:WorkspaceSetting"), pulumi.Alias(type_="azure-nextgen:security/v20170801preview:WorkspaceSetting")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WorkspaceSetting, __self__).__init__(
             'azure-native:security:WorkspaceSetting',

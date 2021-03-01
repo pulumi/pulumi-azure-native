@@ -52,6 +52,9 @@ func NewRoute(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:network:Route"),
+		},
+		{
 			Type: pulumi.String("azure-native:network/latest:Route"),
 		},
 		{

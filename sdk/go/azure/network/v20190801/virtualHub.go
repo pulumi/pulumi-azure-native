@@ -59,6 +59,9 @@ func NewVirtualHub(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:network/v20190801:VirtualHub"),
+		},
+		{
 			Type: pulumi.String("azure-native:network:VirtualHub"),
 		},
 		{

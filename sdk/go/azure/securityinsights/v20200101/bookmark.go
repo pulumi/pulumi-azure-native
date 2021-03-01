@@ -70,6 +70,9 @@ func NewBookmark(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:securityinsights/v20200101:Bookmark"),
+		},
+		{
 			Type: pulumi.String("azure-native:securityinsights:Bookmark"),
 		},
 		{

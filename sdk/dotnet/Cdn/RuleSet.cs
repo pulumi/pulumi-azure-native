@@ -68,6 +68,7 @@ namespace Pulumi.AzureNative.Cdn
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:cdn:RuleSet"},
                     new Pulumi.Alias { Type = "azure-native:cdn/latest:RuleSet"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/latest:RuleSet"},
                     new Pulumi.Alias { Type = "azure-native:cdn/v20200901:RuleSet"},

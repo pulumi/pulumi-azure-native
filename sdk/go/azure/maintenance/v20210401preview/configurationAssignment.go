@@ -50,6 +50,9 @@ func NewConfigurationAssignment(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:maintenance/v20210401preview:ConfigurationAssignment"),
+		},
+		{
 			Type: pulumi.String("azure-native:maintenance:ConfigurationAssignment"),
 		},
 		{

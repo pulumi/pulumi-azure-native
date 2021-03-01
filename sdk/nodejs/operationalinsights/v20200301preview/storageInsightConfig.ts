@@ -112,7 +112,7 @@ export class StorageInsightConfig extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:operationalinsights:StorageInsightConfig" }, { type: "azure-nextgen:operationalinsights:StorageInsightConfig" }, { type: "azure-native:operationalinsights/latest:StorageInsightConfig" }, { type: "azure-nextgen:operationalinsights/latest:StorageInsightConfig" }, { type: "azure-native:operationalinsights/v20150320:StorageInsightConfig" }, { type: "azure-nextgen:operationalinsights/v20150320:StorageInsightConfig" }, { type: "azure-native:operationalinsights/v20200801:StorageInsightConfig" }, { type: "azure-nextgen:operationalinsights/v20200801:StorageInsightConfig" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:operationalinsights/v20200301preview:StorageInsightConfig" }, { type: "azure-native:operationalinsights:StorageInsightConfig" }, { type: "azure-nextgen:operationalinsights:StorageInsightConfig" }, { type: "azure-native:operationalinsights/latest:StorageInsightConfig" }, { type: "azure-nextgen:operationalinsights/latest:StorageInsightConfig" }, { type: "azure-native:operationalinsights/v20150320:StorageInsightConfig" }, { type: "azure-nextgen:operationalinsights/v20150320:StorageInsightConfig" }, { type: "azure-native:operationalinsights/v20200801:StorageInsightConfig" }, { type: "azure-nextgen:operationalinsights/v20200801:StorageInsightConfig" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(StorageInsightConfig.__pulumiType, name, inputs, opts);
     }

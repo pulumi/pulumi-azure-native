@@ -150,7 +150,7 @@ export class Relationship extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:customerinsights:Relationship" }, { type: "azure-nextgen:customerinsights:Relationship" }, { type: "azure-native:customerinsights/latest:Relationship" }, { type: "azure-nextgen:customerinsights/latest:Relationship" }, { type: "azure-native:customerinsights/v20170426:Relationship" }, { type: "azure-nextgen:customerinsights/v20170426:Relationship" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:customerinsights/v20170101:Relationship" }, { type: "azure-native:customerinsights:Relationship" }, { type: "azure-nextgen:customerinsights:Relationship" }, { type: "azure-native:customerinsights/latest:Relationship" }, { type: "azure-nextgen:customerinsights/latest:Relationship" }, { type: "azure-native:customerinsights/v20170426:Relationship" }, { type: "azure-nextgen:customerinsights/v20170426:Relationship" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Relationship.__pulumiType, name, inputs, opts);
     }

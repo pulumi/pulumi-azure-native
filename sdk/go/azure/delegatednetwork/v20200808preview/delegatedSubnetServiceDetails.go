@@ -45,6 +45,9 @@ func NewDelegatedSubnetServiceDetails(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:delegatednetwork/v20200808preview:DelegatedSubnetServiceDetails"),
+		},
+		{
 			Type: pulumi.String("azure-native:delegatednetwork:DelegatedSubnetServiceDetails"),
 		},
 		{

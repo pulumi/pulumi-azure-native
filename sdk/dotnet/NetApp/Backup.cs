@@ -101,6 +101,7 @@ namespace Pulumi.AzureNative.NetApp
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:netapp:Backup"},
                     new Pulumi.Alias { Type = "azure-native:netapp/latest:Backup"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/latest:Backup"},
                     new Pulumi.Alias { Type = "azure-native:netapp/v20200501:Backup"},

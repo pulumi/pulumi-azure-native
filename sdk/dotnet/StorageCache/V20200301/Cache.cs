@@ -136,6 +136,7 @@ namespace Pulumi.AzureNative.StorageCache.V20200301
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:storagecache/v20200301:Cache"},
                     new Pulumi.Alias { Type = "azure-native:storagecache:Cache"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagecache:Cache"},
                     new Pulumi.Alias { Type = "azure-native:storagecache/latest:Cache"},

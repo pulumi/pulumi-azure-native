@@ -90,6 +90,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:containerregistry/latest:Webhook"},
                     new Pulumi.Alias { Type = "azure-native:containerregistry:Webhook"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry:Webhook"},
                     new Pulumi.Alias { Type = "azure-native:containerregistry/v20170601preview:Webhook"},

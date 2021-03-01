@@ -77,6 +77,7 @@ namespace Pulumi.AzureNative.HybridCompute
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:hybridcompute:PrivateLinkScope"},
                     new Pulumi.Alias { Type = "azure-native:hybridcompute/v20200815preview:PrivateLinkScope"},
                     new Pulumi.Alias { Type = "azure-nextgen:hybridcompute/v20200815preview:PrivateLinkScope"},
                     new Pulumi.Alias { Type = "azure-native:hybridcompute/v20210128preview:PrivateLinkScope"},

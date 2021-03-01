@@ -109,7 +109,7 @@ export class Connection extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:automation:Connection" }, { type: "azure-nextgen:automation:Connection" }, { type: "azure-native:automation/latest:Connection" }, { type: "azure-nextgen:automation/latest:Connection" }, { type: "azure-native:automation/v20151031:Connection" }, { type: "azure-nextgen:automation/v20151031:Connection" }, { type: "azure-native:automation/v20190601:Connection" }, { type: "azure-nextgen:automation/v20190601:Connection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:automation/v20200113preview:Connection" }, { type: "azure-native:automation:Connection" }, { type: "azure-nextgen:automation:Connection" }, { type: "azure-native:automation/latest:Connection" }, { type: "azure-nextgen:automation/latest:Connection" }, { type: "azure-native:automation/v20151031:Connection" }, { type: "azure-nextgen:automation/v20151031:Connection" }, { type: "azure-native:automation/v20190601:Connection" }, { type: "azure-nextgen:automation/v20190601:Connection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Connection.__pulumiType, name, inputs, opts);
     }

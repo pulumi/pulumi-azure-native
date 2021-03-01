@@ -46,6 +46,7 @@ namespace Pulumi.AzureNative.Portal.V20181001
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:portal/v20181001:UserSettings"},
                     new Pulumi.Alias { Type = "azure-native:portal:UserSettings"},
                     new Pulumi.Alias { Type = "azure-nextgen:portal:UserSettings"},
                     new Pulumi.Alias { Type = "azure-native:portal/latest:UserSettings"},

@@ -184,6 +184,7 @@ namespace Pulumi.AzureNative.Batch.V20200901
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:batch/v20200901:Pool"},
                     new Pulumi.Alias { Type = "azure-native:batch:Pool"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch:Pool"},
                     new Pulumi.Alias { Type = "azure-native:batch/latest:Pool"},

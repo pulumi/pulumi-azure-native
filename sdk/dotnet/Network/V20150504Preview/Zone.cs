@@ -76,6 +76,7 @@ namespace Pulumi.AzureNative.Network.V20150504Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20150504preview:Zone"},
                     new Pulumi.Alias { Type = "azure-native:network:Zone"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:Zone"},
                     new Pulumi.Alias { Type = "azure-native:network/latest:Zone"},

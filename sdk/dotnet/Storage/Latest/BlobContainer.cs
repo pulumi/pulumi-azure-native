@@ -156,6 +156,7 @@ namespace Pulumi.AzureNative.Storage.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:storage/latest:BlobContainer"},
                     new Pulumi.Alias { Type = "azure-native:storage:BlobContainer"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage:BlobContainer"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20180201:BlobContainer"},

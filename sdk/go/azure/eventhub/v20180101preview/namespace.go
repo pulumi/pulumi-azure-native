@@ -63,6 +63,9 @@ func NewNamespace(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:eventhub/v20180101preview:Namespace"),
+		},
+		{
 			Type: pulumi.String("azure-native:eventhub:Namespace"),
 		},
 		{

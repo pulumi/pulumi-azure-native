@@ -86,7 +86,7 @@ export class RoleManagementPolicyAssignment extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:authorization/v20201001preview:RoleManagementPolicyAssignment" }, { type: "azure-nextgen:authorization/v20201001preview:RoleManagementPolicyAssignment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:authorization:RoleManagementPolicyAssignment" }, { type: "azure-native:authorization/v20201001preview:RoleManagementPolicyAssignment" }, { type: "azure-nextgen:authorization/v20201001preview:RoleManagementPolicyAssignment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RoleManagementPolicyAssignment.__pulumiType, name, inputs, opts);
     }

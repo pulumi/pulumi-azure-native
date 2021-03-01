@@ -42,6 +42,9 @@ func NewContentItem(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:apimanagement:ContentItem"),
+		},
+		{
 			Type: pulumi.String("azure-native:apimanagement/latest:ContentItem"),
 		},
 		{

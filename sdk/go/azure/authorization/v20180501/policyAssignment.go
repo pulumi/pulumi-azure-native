@@ -53,6 +53,9 @@ func NewPolicyAssignment(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:authorization/v20180501:PolicyAssignment"),
+		},
+		{
 			Type: pulumi.String("azure-native:authorization:PolicyAssignment"),
 		},
 		{

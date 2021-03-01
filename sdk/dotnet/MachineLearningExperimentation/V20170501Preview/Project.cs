@@ -112,6 +112,7 @@ namespace Pulumi.AzureNative.MachineLearningExperimentation.V20170501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:machinelearningexperimentation/v20170501preview:Project"},
                     new Pulumi.Alias { Type = "azure-native:machinelearningexperimentation:Project"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningexperimentation:Project"},
                 },

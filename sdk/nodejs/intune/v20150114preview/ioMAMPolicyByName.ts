@@ -143,7 +143,7 @@ export class IoMAMPolicyByName extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:intune:IoMAMPolicyByName" }, { type: "azure-nextgen:intune:IoMAMPolicyByName" }, { type: "azure-native:intune/v20150114privatepreview:IoMAMPolicyByName" }, { type: "azure-nextgen:intune/v20150114privatepreview:IoMAMPolicyByName" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:intune/v20150114preview:IoMAMPolicyByName" }, { type: "azure-native:intune:IoMAMPolicyByName" }, { type: "azure-nextgen:intune:IoMAMPolicyByName" }, { type: "azure-native:intune/v20150114privatepreview:IoMAMPolicyByName" }, { type: "azure-nextgen:intune/v20150114privatepreview:IoMAMPolicyByName" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IoMAMPolicyByName.__pulumiType, name, inputs, opts);
     }

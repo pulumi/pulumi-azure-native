@@ -106,6 +106,7 @@ namespace Pulumi.AzureNative.EventGrid.V20190201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20190201preview:EventSubscription"},
                     new Pulumi.Alias { Type = "azure-native:eventgrid:EventSubscription"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid:EventSubscription"},
                     new Pulumi.Alias { Type = "azure-native:eventgrid/latest:EventSubscription"},

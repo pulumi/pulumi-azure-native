@@ -53,6 +53,9 @@ func NewCassandraResourceCassandraTable(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:documentdb/v20200601preview:CassandraResourceCassandraTable"),
+		},
+		{
 			Type: pulumi.String("azure-native:documentdb:CassandraResourceCassandraTable"),
 		},
 		{

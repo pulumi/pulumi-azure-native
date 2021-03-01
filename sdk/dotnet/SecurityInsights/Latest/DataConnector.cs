@@ -66,6 +66,7 @@ namespace Pulumi.AzureNative.SecurityInsights.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:securityinsights/latest:DataConnector"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights:DataConnector"},
                     new Pulumi.Alias { Type = "azure-nextgen:securityinsights:DataConnector"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20200101:DataConnector"},

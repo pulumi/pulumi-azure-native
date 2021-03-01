@@ -118,6 +118,7 @@ namespace Pulumi.AzureNative.Sql.V20140401
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20140401:ElasticPool"},
                     new Pulumi.Alias { Type = "azure-native:sql:ElasticPool"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql:ElasticPool"},
                     new Pulumi.Alias { Type = "azure-native:sql/latest:ElasticPool"},

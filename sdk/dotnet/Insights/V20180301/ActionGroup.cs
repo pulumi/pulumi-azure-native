@@ -130,6 +130,7 @@ namespace Pulumi.AzureNative.Insights.V20180301
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:insights/v20180301:ActionGroup"},
                     new Pulumi.Alias { Type = "azure-native:insights:ActionGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights:ActionGroup"},
                     new Pulumi.Alias { Type = "azure-native:insights/latest:ActionGroup"},

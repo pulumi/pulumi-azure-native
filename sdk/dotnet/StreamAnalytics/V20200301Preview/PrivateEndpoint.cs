@@ -64,6 +64,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20200301Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:streamanalytics/v20200301preview:PrivateEndpoint"},
                     new Pulumi.Alias { Type = "azure-native:streamanalytics:PrivateEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:streamanalytics:PrivateEndpoint"},
                 },

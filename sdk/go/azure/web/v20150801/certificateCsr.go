@@ -51,6 +51,9 @@ func NewCertificateCsr(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:web/v20150801:CertificateCsr"),
+		},
+		{
 			Type: pulumi.String("azure-native:web:CertificateCsr"),
 		},
 		{

@@ -68,6 +68,9 @@ func NewVpnServerConfiguration(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:network/latest:VpnServerConfiguration"),
+		},
+		{
 			Type: pulumi.String("azure-native:network:VpnServerConfiguration"),
 		},
 		{

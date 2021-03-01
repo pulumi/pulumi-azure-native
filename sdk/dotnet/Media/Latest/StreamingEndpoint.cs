@@ -168,6 +168,7 @@ namespace Pulumi.AzureNative.Media.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:media/latest:StreamingEndpoint"},
                     new Pulumi.Alias { Type = "azure-native:media:StreamingEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:media:StreamingEndpoint"},
                     new Pulumi.Alias { Type = "azure-native:media/v20180330preview:StreamingEndpoint"},

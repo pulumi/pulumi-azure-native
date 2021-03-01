@@ -43,6 +43,9 @@ func NewRegisteredAsn(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:peering:RegisteredAsn"),
+		},
+		{
 			Type: pulumi.String("azure-native:peering/latest:RegisteredAsn"),
 		},
 		{

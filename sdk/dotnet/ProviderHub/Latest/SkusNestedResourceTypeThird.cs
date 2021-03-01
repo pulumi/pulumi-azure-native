@@ -56,6 +56,7 @@ namespace Pulumi.AzureNative.ProviderHub.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:providerhub/latest:SkusNestedResourceTypeThird"},
                     new Pulumi.Alias { Type = "azure-native:providerhub:SkusNestedResourceTypeThird"},
                     new Pulumi.Alias { Type = "azure-nextgen:providerhub:SkusNestedResourceTypeThird"},
                     new Pulumi.Alias { Type = "azure-native:providerhub/v20201120:SkusNestedResourceTypeThird"},

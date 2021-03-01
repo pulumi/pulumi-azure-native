@@ -108,6 +108,7 @@ namespace Pulumi.AzureNative.Automation.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:automation/latest:SourceControl"},
                     new Pulumi.Alias { Type = "azure-native:automation:SourceControl"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation:SourceControl"},
                     new Pulumi.Alias { Type = "azure-native:automation/v20170515preview:SourceControl"},

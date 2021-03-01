@@ -275,6 +275,7 @@ namespace Pulumi.AzureNative.DevTestLab
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:devtestlab:VirtualMachine"},
                     new Pulumi.Alias { Type = "azure-native:devtestlab/latest:VirtualMachine"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/latest:VirtualMachine"},
                     new Pulumi.Alias { Type = "azure-native:devtestlab/v20150521preview:VirtualMachine"},

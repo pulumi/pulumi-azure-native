@@ -40,6 +40,9 @@ func NewSyncGroup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:storagesync/v20190201:SyncGroup"),
+		},
+		{
 			Type: pulumi.String("azure-native:storagesync:SyncGroup"),
 		},
 		{

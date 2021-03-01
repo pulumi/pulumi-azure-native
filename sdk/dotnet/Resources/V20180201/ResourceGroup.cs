@@ -70,6 +70,7 @@ namespace Pulumi.AzureNative.Resources.V20180201
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:resources/v20180201:ResourceGroup"},
                     new Pulumi.Alias { Type = "azure-native:resources:ResourceGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources:ResourceGroup"},
                     new Pulumi.Alias { Type = "azure-native:resources/latest:ResourceGroup"},

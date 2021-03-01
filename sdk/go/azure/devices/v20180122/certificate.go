@@ -40,6 +40,9 @@ func NewCertificate(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:devices/v20180122:Certificate"),
+		},
+		{
 			Type: pulumi.String("azure-native:devices:Certificate"),
 		},
 		{

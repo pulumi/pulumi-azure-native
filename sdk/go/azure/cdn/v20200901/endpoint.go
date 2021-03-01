@@ -83,6 +83,9 @@ func NewEndpoint(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:cdn/v20200901:Endpoint"),
+		},
+		{
 			Type: pulumi.String("azure-native:cdn:Endpoint"),
 		},
 		{

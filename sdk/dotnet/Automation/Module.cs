@@ -137,6 +137,7 @@ namespace Pulumi.AzureNative.Automation
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:automation:Module"},
                     new Pulumi.Alias { Type = "azure-native:automation/latest:Module"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/latest:Module"},
                     new Pulumi.Alias { Type = "azure-native:automation/v20151031:Module"},

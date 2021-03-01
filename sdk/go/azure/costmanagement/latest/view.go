@@ -71,6 +71,9 @@ func NewView(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:costmanagement/latest:View"),
+		},
+		{
 			Type: pulumi.String("azure-native:costmanagement:View"),
 		},
 		{

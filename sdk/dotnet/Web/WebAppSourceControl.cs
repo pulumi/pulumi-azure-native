@@ -101,6 +101,7 @@ namespace Pulumi.AzureNative.Web
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-nextgen:web:WebAppSourceControl"},
                     new Pulumi.Alias { Type = "azure-native:web/latest:WebAppSourceControl"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/latest:WebAppSourceControl"},
                     new Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppSourceControl"},

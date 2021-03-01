@@ -37,6 +37,9 @@ func NewManagementConfiguration(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:operationsmanagement/v20151101preview:ManagementConfiguration"),
+		},
+		{
 			Type: pulumi.String("azure-native:operationsmanagement:ManagementConfiguration"),
 		},
 		{

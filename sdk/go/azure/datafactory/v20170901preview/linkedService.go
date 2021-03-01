@@ -43,6 +43,9 @@ func NewLinkedService(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-nextgen:datafactory/v20170901preview:LinkedService"),
+		},
+		{
 			Type: pulumi.String("azure-native:datafactory:LinkedService"),
 		},
 		{
