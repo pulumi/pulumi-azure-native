@@ -84,10 +84,6 @@ func main() {
 			}
 			// Remove the version again.
 			docsPkgSpec.Version = ""
-			// This module format switches off version breakdown in the docs.
-			docsPkgSpec.Meta = &schema.MetadataSpec{
-				ModuleFormat: "(.*)(?:/[^/]*)",
-			}
 			err = emitDocsSchema(docsPkgSpec, outdir)
 		default:
 			outdir := path.Join(".", "sdk", language)
