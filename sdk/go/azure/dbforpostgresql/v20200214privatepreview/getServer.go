@@ -61,8 +61,12 @@ type LookupServerResult struct {
 	PublicNetworkAccess string `pulumi:"publicNetworkAccess"`
 	// The SKU (pricing tier) of the server.
 	Sku *SkuResponse `pulumi:"sku"`
+	// The resource group name of source PostgreSQL server name to restore from.
+	SourceResourceGroupName *string `pulumi:"sourceResourceGroupName"`
 	// The source PostgreSQL server name to restore from.
 	SourceServerName *string `pulumi:"sourceServerName"`
+	// The subscription id of source PostgreSQL server name to restore from.
+	SourceSubscriptionId *string `pulumi:"sourceSubscriptionId"`
 	// availability Zone information of the server.
 	StandbyAvailabilityZone string `pulumi:"standbyAvailabilityZone"`
 	// A state of a server that is visible to user.

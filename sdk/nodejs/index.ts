@@ -68,6 +68,7 @@ import * as delegatednetwork from "./delegatednetwork";
 import * as deploymentmanager from "./deploymentmanager";
 import * as desktopvirtualization from "./desktopvirtualization";
 import * as devices from "./devices";
+import * as deviceupdate from "./deviceupdate";
 import * as devops from "./devops";
 import * as devspaces from "./devspaces";
 import * as devtestlab from "./devtestlab";
@@ -230,6 +231,7 @@ export {
     deploymentmanager,
     desktopvirtualization,
     devices,
+    deviceupdate,
     devops,
     devspaces,
     devtestlab,

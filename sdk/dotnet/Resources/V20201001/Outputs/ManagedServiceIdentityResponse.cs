@@ -14,6 +14,10 @@ namespace Pulumi.AzureNative.Resources.V20201001.Outputs
     public sealed class ManagedServiceIdentityResponse
     {
         /// <summary>
+        /// ID of the Azure Active Directory.
+        /// </summary>
+        public readonly string TenantId;
+        /// <summary>
         /// Type of the managed identity.
         /// </summary>
         public readonly string? Type;
@@ -24,10 +28,13 @@ namespace Pulumi.AzureNative.Resources.V20201001.Outputs
 
         [OutputConstructor]
         private ManagedServiceIdentityResponse(
+            string tenantId,
+
             string? type,
 
             ImmutableDictionary<string, Outputs.UserAssignedIdentityResponse>? userAssignedIdentities)
         {
+            TenantId = tenantId;
             Type = type;
             UserAssignedIdentities = userAssignedIdentities;
         }

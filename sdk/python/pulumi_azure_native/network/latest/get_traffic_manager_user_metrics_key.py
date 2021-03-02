@@ -83,7 +83,7 @@ class AwaitableGetTrafficManagerUserMetricsKeyResult(GetTrafficManagerUserMetric
 def get_traffic_manager_user_metrics_key(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTrafficManagerUserMetricsKeyResult:
     """
     Class representing Traffic Manager User Metrics.
-    Latest API Version: 2018-04-01.
+    Latest API Version: 2018-08-01.
     """
     pulumi.log.warn("""get_traffic_manager_user_metrics_key is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getTrafficManagerUserMetricsKey'.""")
     __args__ = dict()

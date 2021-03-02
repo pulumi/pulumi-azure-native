@@ -31,6 +31,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewConnectionMonitor(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:network/v20180801:DdosProtectionPlan":
 		r, err = NewDdosProtectionPlan(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-native:network/v20180801:Endpoint":
+		r, err = NewEndpoint(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:network/v20180801:ExpressRouteCircuit":
 		r, err = NewExpressRouteCircuit(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:network/v20180801:ExpressRouteCircuitAuthorization":
@@ -75,6 +77,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewPacketCapture(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:network/v20180801:Policy":
 		r, err = NewPolicy(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-native:network/v20180801:Profile":
+		r, err = NewProfile(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:network/v20180801:PublicIPAddress":
 		r, err = NewPublicIPAddress(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:network/v20180801:PublicIPPrefix":
@@ -95,6 +99,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewServiceEndpointPolicyDefinition(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:network/v20180801:Subnet":
 		r, err = NewSubnet(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-native:network/v20180801:TrafficManagerUserMetricsKey":
+		r, err = NewTrafficManagerUserMetricsKey(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:network/v20180801:VirtualHub":
 		r, err = NewVirtualHub(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:network/v20180801:VirtualNetwork":

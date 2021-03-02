@@ -2946,6 +2946,8 @@ func (o ManagedServiceIdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutp
 
 // Managed identity generic object.
 type ManagedServiceIdentityResponse struct {
+	// ID of the Azure Active Directory.
+	TenantId string `pulumi:"tenantId"`
 	// Type of the managed identity.
 	Type *string `pulumi:"type"`
 	// The list of user-assigned managed identities associated with the resource. Key is the Azure resource Id of the managed identity.
@@ -2965,6 +2967,8 @@ type ManagedServiceIdentityResponseInput interface {
 
 // Managed identity generic object.
 type ManagedServiceIdentityResponseArgs struct {
+	// ID of the Azure Active Directory.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
 	// Type of the managed identity.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 	// The list of user-assigned managed identities associated with the resource. Key is the Azure resource Id of the managed identity.
@@ -3049,6 +3053,11 @@ func (o ManagedServiceIdentityResponseOutput) ToManagedServiceIdentityResponsePt
 	}).(ManagedServiceIdentityResponsePtrOutput)
 }
 
+// ID of the Azure Active Directory.
+func (o ManagedServiceIdentityResponseOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedServiceIdentityResponse) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
 // Type of the managed identity.
 func (o ManagedServiceIdentityResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedServiceIdentityResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
@@ -3077,6 +3086,16 @@ func (o ManagedServiceIdentityResponsePtrOutput) ToManagedServiceIdentityRespons
 
 func (o ManagedServiceIdentityResponsePtrOutput) Elem() ManagedServiceIdentityResponseOutput {
 	return o.ApplyT(func(v *ManagedServiceIdentityResponse) ManagedServiceIdentityResponse { return *v }).(ManagedServiceIdentityResponseOutput)
+}
+
+// ID of the Azure Active Directory.
+func (o ManagedServiceIdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedServiceIdentityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TenantId
+	}).(pulumi.StringPtrOutput)
 }
 
 // Type of the managed identity.

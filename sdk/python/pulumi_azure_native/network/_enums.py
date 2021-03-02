@@ -8,6 +8,7 @@ __all__ = [
     'Access',
     'ActionType',
     'AddressPrefixType',
+    'AllowedEndpointRecordType',
     'ApplicationGatewayCookieBasedAffinity',
     'ApplicationGatewayCustomErrorStatusCode',
     'ApplicationGatewayFirewallMode',
@@ -200,6 +201,16 @@ class AddressPrefixType(str, Enum):
     """
     IP_PREFIX = "IPPrefix"
     SERVICE_TAG = "ServiceTag"
+
+
+class AllowedEndpointRecordType(str, Enum):
+    """
+    The allowed type DNS record types for this profile.
+    """
+    DOMAIN_NAME = "DomainName"
+    I_PV4_ADDRESS = "IPv4Address"
+    I_PV6_ADDRESS = "IPv6Address"
+    ANY = "Any"
 
 
 class ApplicationGatewayCookieBasedAffinity(str, Enum):

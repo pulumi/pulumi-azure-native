@@ -12,7 +12,7 @@ import (
 )
 
 // Class representing a Traffic Manager endpoint.
-// API Version: 2018-04-01.
+// API Version: 2018-08-01.
 type Endpoint struct {
 	pulumi.CustomResourceState
 
@@ -28,6 +28,10 @@ type Endpoint struct {
 	GeoMapping pulumi.StringArrayOutput `pulumi:"geoMapping"`
 	// The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
 	MinChildEndpoints pulumi.Float64PtrOutput `pulumi:"minChildEndpoints"`
+	// The minimum number of IPv4 (DNS record type A) endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
+	MinChildEndpointsIPv4 pulumi.Float64PtrOutput `pulumi:"minChildEndpointsIPv4"`
+	// The minimum number of IPv6 (DNS record type AAAA) endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
+	MinChildEndpointsIPv6 pulumi.Float64PtrOutput `pulumi:"minChildEndpointsIPv6"`
 	// The name of the resource
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// The priority of this endpoint when using the 'Priority' traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
@@ -106,6 +110,12 @@ func NewEndpoint(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:network/v20180401:Endpoint"),
 		},
+		{
+			Type: pulumi.String("azure-native:network/v20180801:Endpoint"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20180801:Endpoint"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Endpoint
@@ -142,6 +152,10 @@ type endpointState struct {
 	GeoMapping []string `pulumi:"geoMapping"`
 	// The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
 	MinChildEndpoints *float64 `pulumi:"minChildEndpoints"`
+	// The minimum number of IPv4 (DNS record type A) endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
+	MinChildEndpointsIPv4 *float64 `pulumi:"minChildEndpointsIPv4"`
+	// The minimum number of IPv6 (DNS record type AAAA) endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
+	MinChildEndpointsIPv6 *float64 `pulumi:"minChildEndpointsIPv6"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
 	// The priority of this endpoint when using the 'Priority' traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
@@ -171,6 +185,10 @@ type EndpointState struct {
 	GeoMapping pulumi.StringArrayInput
 	// The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
 	MinChildEndpoints pulumi.Float64PtrInput
+	// The minimum number of IPv4 (DNS record type A) endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
+	MinChildEndpointsIPv4 pulumi.Float64PtrInput
+	// The minimum number of IPv6 (DNS record type AAAA) endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
+	MinChildEndpointsIPv6 pulumi.Float64PtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
 	// The priority of this endpoint when using the 'Priority' traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
@@ -210,6 +228,10 @@ type endpointArgs struct {
 	Id *string `pulumi:"id"`
 	// The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
 	MinChildEndpoints *float64 `pulumi:"minChildEndpoints"`
+	// The minimum number of IPv4 (DNS record type A) endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
+	MinChildEndpointsIPv4 *float64 `pulumi:"minChildEndpointsIPv4"`
+	// The minimum number of IPv6 (DNS record type AAAA) endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
+	MinChildEndpointsIPv6 *float64 `pulumi:"minChildEndpointsIPv6"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
 	// The priority of this endpoint when using the 'Priority' traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
@@ -250,6 +272,10 @@ type EndpointArgs struct {
 	Id pulumi.StringPtrInput
 	// The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
 	MinChildEndpoints pulumi.Float64PtrInput
+	// The minimum number of IPv4 (DNS record type A) endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
+	MinChildEndpointsIPv4 pulumi.Float64PtrInput
+	// The minimum number of IPv6 (DNS record type AAAA) endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
+	MinChildEndpointsIPv6 pulumi.Float64PtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
 	// The priority of this endpoint when using the 'Priority' traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.

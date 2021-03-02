@@ -107,9 +107,17 @@ export interface GetServerResult {
      */
     readonly sku?: outputs.dbforpostgresql.v20200214preview.SkuResponse;
     /**
+     * The resource group name of source serve PostgreSQL server name to restore from.
+     */
+    readonly sourceResourceGroupName?: string;
+    /**
      * The source PostgreSQL server name to restore from.
      */
     readonly sourceServerName?: string;
+    /**
+     * The subscription id of source serve PostgreSQL server name to restore from.
+     */
+    readonly sourceSubscriptionId?: string;
     /**
      * availability Zone information of the server.
      */

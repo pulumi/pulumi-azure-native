@@ -356,6 +356,8 @@ class StorageAccountTypes(str, Enum):
     PREMIUM_LRS = "Premium_LRS"
     STANDARD_SS_D_LRS = "StandardSSD_LRS"
     ULTRA_SS_D_LRS = "UltraSSD_LRS"
+    PREMIUM_ZRS = "Premium_ZRS"
+    STANDARD_SS_D_ZRS = "StandardSSD_ZRS"
 
 
 class UpgradeMode(str, Enum):

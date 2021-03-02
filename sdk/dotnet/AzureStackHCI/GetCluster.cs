@@ -60,6 +60,18 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// </summary>
         public readonly string CloudId;
         /// <summary>
+        /// The timestamp of resource creation (UTC).
+        /// </summary>
+        public readonly string? CreatedAt;
+        /// <summary>
+        /// The identity that created the resource.
+        /// </summary>
+        public readonly string? CreatedBy;
+        /// <summary>
+        /// The type of identity that created the resource.
+        /// </summary>
+        public readonly string? CreatedByType;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -67,6 +79,18 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// Most recent billing meter timestamp.
         /// </summary>
         public readonly string LastBillingTimestamp;
+        /// <summary>
+        /// The timestamp of resource last modification (UTC)
+        /// </summary>
+        public readonly string? LastModifiedAt;
+        /// <summary>
+        /// The identity that last modified the resource.
+        /// </summary>
+        public readonly string? LastModifiedBy;
+        /// <summary>
+        /// The type of identity that last modified the resource.
+        /// </summary>
+        public readonly string? LastModifiedByType;
         /// <summary>
         /// Most recent cluster sync timestamp.
         /// </summary>
@@ -118,9 +142,21 @@ namespace Pulumi.AzureNative.AzureStackHCI
 
             string cloudId,
 
+            string? createdAt,
+
+            string? createdBy,
+
+            string? createdByType,
+
             string id,
 
             string lastBillingTimestamp,
+
+            string? lastModifiedAt,
+
+            string? lastModifiedBy,
+
+            string? lastModifiedByType,
 
             string lastSyncTimestamp,
 
@@ -146,8 +182,14 @@ namespace Pulumi.AzureNative.AzureStackHCI
             AadTenantId = aadTenantId;
             BillingModel = billingModel;
             CloudId = cloudId;
+            CreatedAt = createdAt;
+            CreatedBy = createdBy;
+            CreatedByType = createdByType;
             Id = id;
             LastBillingTimestamp = lastBillingTimestamp;
+            LastModifiedAt = lastModifiedAt;
+            LastModifiedBy = lastModifiedBy;
+            LastModifiedByType = lastModifiedByType;
             LastSyncTimestamp = lastSyncTimestamp;
             Location = location;
             Name = name;

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Class representing a Traffic Manager profile.
-        /// API Version: 2018-04-01.
+        /// API Version: 2018-08-01.
         /// </summary>
         public static Task<GetProfileResult> InvokeAsync(GetProfileArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetProfileResult>("azure-native:network:getProfile", args ?? new GetProfileArgs(), options.WithVersion());
@@ -43,6 +43,10 @@ namespace Pulumi.AzureNative.Network
     [OutputType]
     public sealed class GetProfileResult
     {
+        /// <summary>
+        /// The list of allowed endpoint record types.
+        /// </summary>
+        public readonly ImmutableArray<string> AllowedEndpointRecordTypes;
         /// <summary>
         /// The DNS settings of the Traffic Manager profile.
         /// </summary>
@@ -94,6 +98,8 @@ namespace Pulumi.AzureNative.Network
 
         [OutputConstructor]
         private GetProfileResult(
+            ImmutableArray<string> allowedEndpointRecordTypes,
+
             Outputs.DnsConfigResponse? dnsConfig,
 
             ImmutableArray<Outputs.EndpointResponse> endpoints,
@@ -118,6 +124,7 @@ namespace Pulumi.AzureNative.Network
 
             string? type)
         {
+            AllowedEndpointRecordTypes = allowedEndpointRecordTypes;
             DnsConfig = dnsConfig;
             Endpoints = endpoints;
             Id = id;

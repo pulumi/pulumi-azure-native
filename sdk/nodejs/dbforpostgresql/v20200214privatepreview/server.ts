@@ -101,9 +101,17 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly sku!: pulumi.Output<outputs.dbforpostgresql.v20200214privatepreview.SkuResponse | undefined>;
     /**
+     * The resource group name of source PostgreSQL server name to restore from.
+     */
+    public readonly sourceResourceGroupName!: pulumi.Output<string | undefined>;
+    /**
      * The source PostgreSQL server name to restore from.
      */
     public readonly sourceServerName!: pulumi.Output<string | undefined>;
+    /**
+     * The subscription id of source PostgreSQL server name to restore from.
+     */
+    public readonly sourceSubscriptionId!: pulumi.Output<string | undefined>;
     /**
      * availability Zone information of the server.
      */
@@ -157,7 +165,9 @@ export class Server extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serverName"] = args ? args.serverName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
+            inputs["sourceResourceGroupName"] = args ? args.sourceResourceGroupName : undefined;
             inputs["sourceServerName"] = args ? args.sourceServerName : undefined;
+            inputs["sourceSubscriptionId"] = args ? args.sourceSubscriptionId : undefined;
             inputs["storageProfile"] = args ? args.storageProfile : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["version"] = args ? args.version : undefined;
@@ -187,7 +197,9 @@ export class Server extends pulumi.CustomResource {
             inputs["pointInTimeUTC"] = undefined /*out*/;
             inputs["publicNetworkAccess"] = undefined /*out*/;
             inputs["sku"] = undefined /*out*/;
+            inputs["sourceResourceGroupName"] = undefined /*out*/;
             inputs["sourceServerName"] = undefined /*out*/;
+            inputs["sourceSubscriptionId"] = undefined /*out*/;
             inputs["standbyAvailabilityZone"] = undefined /*out*/;
             inputs["state"] = undefined /*out*/;
             inputs["storageProfile"] = undefined /*out*/;
@@ -262,9 +274,17 @@ export interface ServerArgs {
      */
     readonly sku?: pulumi.Input<inputs.dbforpostgresql.v20200214privatepreview.Sku>;
     /**
+     * The resource group name of source PostgreSQL server name to restore from.
+     */
+    readonly sourceResourceGroupName?: pulumi.Input<string>;
+    /**
      * The source PostgreSQL server name to restore from.
      */
     readonly sourceServerName?: pulumi.Input<string>;
+    /**
+     * The subscription id of source PostgreSQL server name to restore from.
+     */
+    readonly sourceSubscriptionId?: pulumi.Input<string>;
     /**
      * Storage profile of a server.
      */

@@ -5,6 +5,13 @@
 # Export this package's modules as members:
 from .defender_setting import *
 from .get_defender_setting import *
+from .get_on_premise_sensor import *
+from .get_sensor import *
+from .get_site import *
+from .on_premise_sensor import *
+from .sensor import *
+from .site import *
+from . import outputs
 
 # Make subpackages available:
 from . import (
@@ -25,6 +32,12 @@ def _register_module():
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
             if typ == "azure-native:iotsecurity:DefenderSetting":
                 return DefenderSetting(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:iotsecurity:OnPremiseSensor":
+                return OnPremiseSensor(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:iotsecurity:Sensor":
+                return Sensor(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:iotsecurity:Site":
+                return Site(name, pulumi.ResourceOptions(urn=urn))
             else:
                 raise Exception(f"unknown resource type {typ}")
 

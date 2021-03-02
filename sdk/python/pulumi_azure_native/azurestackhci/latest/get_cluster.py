@@ -22,7 +22,7 @@ class GetClusterResult:
     """
     Cluster details.
     """
-    def __init__(__self__, aad_client_id=None, aad_tenant_id=None, billing_model=None, cloud_id=None, id=None, last_billing_timestamp=None, last_sync_timestamp=None, location=None, name=None, provisioning_state=None, registration_timestamp=None, reported_properties=None, status=None, tags=None, trial_days_remaining=None, type=None):
+    def __init__(__self__, aad_client_id=None, aad_tenant_id=None, billing_model=None, cloud_id=None, created_at=None, created_by=None, created_by_type=None, id=None, last_billing_timestamp=None, last_modified_at=None, last_modified_by=None, last_modified_by_type=None, last_sync_timestamp=None, location=None, name=None, provisioning_state=None, registration_timestamp=None, reported_properties=None, status=None, tags=None, trial_days_remaining=None, type=None):
         if aad_client_id and not isinstance(aad_client_id, str):
             raise TypeError("Expected argument 'aad_client_id' to be a str")
         pulumi.set(__self__, "aad_client_id", aad_client_id)
@@ -35,12 +35,30 @@ class GetClusterResult:
         if cloud_id and not isinstance(cloud_id, str):
             raise TypeError("Expected argument 'cloud_id' to be a str")
         pulumi.set(__self__, "cloud_id", cloud_id)
+        if created_at and not isinstance(created_at, str):
+            raise TypeError("Expected argument 'created_at' to be a str")
+        pulumi.set(__self__, "created_at", created_at)
+        if created_by and not isinstance(created_by, str):
+            raise TypeError("Expected argument 'created_by' to be a str")
+        pulumi.set(__self__, "created_by", created_by)
+        if created_by_type and not isinstance(created_by_type, str):
+            raise TypeError("Expected argument 'created_by_type' to be a str")
+        pulumi.set(__self__, "created_by_type", created_by_type)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if last_billing_timestamp and not isinstance(last_billing_timestamp, str):
             raise TypeError("Expected argument 'last_billing_timestamp' to be a str")
         pulumi.set(__self__, "last_billing_timestamp", last_billing_timestamp)
+        if last_modified_at and not isinstance(last_modified_at, str):
+            raise TypeError("Expected argument 'last_modified_at' to be a str")
+        pulumi.set(__self__, "last_modified_at", last_modified_at)
+        if last_modified_by and not isinstance(last_modified_by, str):
+            raise TypeError("Expected argument 'last_modified_by' to be a str")
+        pulumi.set(__self__, "last_modified_by", last_modified_by)
+        if last_modified_by_type and not isinstance(last_modified_by_type, str):
+            raise TypeError("Expected argument 'last_modified_by_type' to be a str")
+        pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
         if last_sync_timestamp and not isinstance(last_sync_timestamp, str):
             raise TypeError("Expected argument 'last_sync_timestamp' to be a str")
         pulumi.set(__self__, "last_sync_timestamp", last_sync_timestamp)
@@ -105,6 +123,30 @@ class GetClusterResult:
         return pulumi.get(self, "cloud_id")
 
     @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[str]:
+        """
+        The timestamp of resource creation (UTC).
+        """
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> Optional[str]:
+        """
+        The identity that created the resource.
+        """
+        return pulumi.get(self, "created_by")
+
+    @property
+    @pulumi.getter(name="createdByType")
+    def created_by_type(self) -> Optional[str]:
+        """
+        The type of identity that created the resource.
+        """
+        return pulumi.get(self, "created_by_type")
+
+    @property
     @pulumi.getter
     def id(self) -> str:
         """
@@ -119,6 +161,30 @@ class GetClusterResult:
         Most recent billing meter timestamp.
         """
         return pulumi.get(self, "last_billing_timestamp")
+
+    @property
+    @pulumi.getter(name="lastModifiedAt")
+    def last_modified_at(self) -> Optional[str]:
+        """
+        The timestamp of resource last modification (UTC)
+        """
+        return pulumi.get(self, "last_modified_at")
+
+    @property
+    @pulumi.getter(name="lastModifiedBy")
+    def last_modified_by(self) -> Optional[str]:
+        """
+        The identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by")
+
+    @property
+    @pulumi.getter(name="lastModifiedByType")
+    def last_modified_by_type(self) -> Optional[str]:
+        """
+        The type of identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by_type")
 
     @property
     @pulumi.getter(name="lastSyncTimestamp")
@@ -211,8 +277,14 @@ class AwaitableGetClusterResult(GetClusterResult):
             aad_tenant_id=self.aad_tenant_id,
             billing_model=self.billing_model,
             cloud_id=self.cloud_id,
+            created_at=self.created_at,
+            created_by=self.created_by,
+            created_by_type=self.created_by_type,
             id=self.id,
             last_billing_timestamp=self.last_billing_timestamp,
+            last_modified_at=self.last_modified_at,
+            last_modified_by=self.last_modified_by,
+            last_modified_by_type=self.last_modified_by_type,
             last_sync_timestamp=self.last_sync_timestamp,
             location=self.location,
             name=self.name,
@@ -251,8 +323,14 @@ def get_cluster(cluster_name: Optional[str] = None,
         aad_tenant_id=__ret__.aad_tenant_id,
         billing_model=__ret__.billing_model,
         cloud_id=__ret__.cloud_id,
+        created_at=__ret__.created_at,
+        created_by=__ret__.created_by,
+        created_by_type=__ret__.created_by_type,
         id=__ret__.id,
         last_billing_timestamp=__ret__.last_billing_timestamp,
+        last_modified_at=__ret__.last_modified_at,
+        last_modified_by=__ret__.last_modified_by,
+        last_modified_by_type=__ret__.last_modified_by_type,
         last_sync_timestamp=__ret__.last_sync_timestamp,
         location=__ret__.location,
         name=__ret__.name,

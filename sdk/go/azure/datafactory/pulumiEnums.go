@@ -532,7 +532,9 @@ func (e DynamicsSinkWriteBehavior) ToStringPtrOutputWithContext(ctx context.Cont
 type FactoryIdentityType pulumi.String
 
 const (
-	FactoryIdentityTypeSystemAssigned = FactoryIdentityType("SystemAssigned")
+	FactoryIdentityTypeSystemAssigned               = FactoryIdentityType("SystemAssigned")
+	FactoryIdentityTypeUserAssigned                 = FactoryIdentityType("UserAssigned")
+	FactoryIdentityType_SystemAssigned_UserAssigned = FactoryIdentityType("SystemAssigned,UserAssigned")
 )
 
 func (FactoryIdentityType) ElementType() reflect.Type {

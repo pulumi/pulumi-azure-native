@@ -11,12 +11,18 @@ namespace Pulumi.AzureNative.Network.Latest
 {
     /// <summary>
     /// Class representing a Traffic Manager profile.
-    /// Latest API Version: 2018-04-01.
+    /// Latest API Version: 2018-08-01.
     /// </summary>
     [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:Profile'.")]
     [AzureNativeResourceType("azure-native:network/latest:Profile")]
     public partial class Profile : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The list of allowed endpoint record types.
+        /// </summary>
+        [Output("allowedEndpointRecordTypes")]
+        public Output<ImmutableArray<string>> AllowedEndpointRecordTypes { get; private set; } = null!;
+
         /// <summary>
         /// The DNS settings of the Traffic Manager profile.
         /// </summary>
@@ -123,6 +129,8 @@ namespace Pulumi.AzureNative.Network.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180301:Profile"},
                     new Pulumi.Alias { Type = "azure-native:network/v20180401:Profile"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180401:Profile"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180801:Profile"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180801:Profile"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -146,6 +154,18 @@ namespace Pulumi.AzureNative.Network.Latest
 
     public sealed class ProfileArgs : Pulumi.ResourceArgs
     {
+        [Input("allowedEndpointRecordTypes")]
+        private InputList<Union<string, Pulumi.AzureNative.Network.Latest.AllowedEndpointRecordType>>? _allowedEndpointRecordTypes;
+
+        /// <summary>
+        /// The list of allowed endpoint record types.
+        /// </summary>
+        public InputList<Union<string, Pulumi.AzureNative.Network.Latest.AllowedEndpointRecordType>> AllowedEndpointRecordTypes
+        {
+            get => _allowedEndpointRecordTypes ?? (_allowedEndpointRecordTypes = new InputList<Union<string, Pulumi.AzureNative.Network.Latest.AllowedEndpointRecordType>>());
+            set => _allowedEndpointRecordTypes = value;
+        }
+
         /// <summary>
         /// The DNS settings of the Traffic Manager profile.
         /// </summary>

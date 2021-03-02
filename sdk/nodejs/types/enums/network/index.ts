@@ -132,6 +132,18 @@ export const AddressPrefixType = {
  */
 export type AddressPrefixType = (typeof AddressPrefixType)[keyof typeof AddressPrefixType];
 
+export const AllowedEndpointRecordType = {
+    DomainName: "DomainName",
+    IPv4Address: "IPv4Address",
+    IPv6Address: "IPv6Address",
+    Any: "Any",
+} as const;
+
+/**
+ * The allowed type DNS record types for this profile.
+ */
+export type AllowedEndpointRecordType = (typeof AllowedEndpointRecordType)[keyof typeof AllowedEndpointRecordType];
+
 export const ApplicationGatewayCookieBasedAffinity = {
     Enabled: "Enabled",
     Disabled: "Disabled",

@@ -12,8 +12,6 @@ import (
 
 // Managed identity generic object.
 type ManagedServiceIdentity struct {
-	// ID of the Azure Active Directory.
-	TenantId *string `pulumi:"tenantId"`
 	// Type of the managed identity.
 	Type *string `pulumi:"type"`
 	// The list of user-assigned managed identities associated with the resource. Key is the Azure resource Id of the managed identity.
@@ -33,8 +31,6 @@ type ManagedServiceIdentityInput interface {
 
 // Managed identity generic object.
 type ManagedServiceIdentityArgs struct {
-	// ID of the Azure Active Directory.
-	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
 	// Type of the managed identity.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 	// The list of user-assigned managed identities associated with the resource. Key is the Azure resource Id of the managed identity.
@@ -119,11 +115,6 @@ func (o ManagedServiceIdentityOutput) ToManagedServiceIdentityPtrOutputWithConte
 	}).(ManagedServiceIdentityPtrOutput)
 }
 
-// ID of the Azure Active Directory.
-func (o ManagedServiceIdentityOutput) TenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ManagedServiceIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
-}
-
 // Type of the managed identity.
 func (o ManagedServiceIdentityOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedServiceIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
@@ -152,16 +143,6 @@ func (o ManagedServiceIdentityPtrOutput) Elem() ManagedServiceIdentityOutput {
 	return o.ApplyT(func(v *ManagedServiceIdentity) ManagedServiceIdentity { return *v }).(ManagedServiceIdentityOutput)
 }
 
-// ID of the Azure Active Directory.
-func (o ManagedServiceIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ManagedServiceIdentity) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TenantId
-	}).(pulumi.StringPtrOutput)
-}
-
 // Type of the managed identity.
 func (o ManagedServiceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedServiceIdentity) *string {
@@ -185,7 +166,7 @@ func (o ManagedServiceIdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutp
 // Managed identity generic object.
 type ManagedServiceIdentityResponse struct {
 	// ID of the Azure Active Directory.
-	TenantId *string `pulumi:"tenantId"`
+	TenantId string `pulumi:"tenantId"`
 	// Type of the managed identity.
 	Type *string `pulumi:"type"`
 	// The list of user-assigned managed identities associated with the resource. Key is the Azure resource Id of the managed identity.
@@ -206,7 +187,7 @@ type ManagedServiceIdentityResponseInput interface {
 // Managed identity generic object.
 type ManagedServiceIdentityResponseArgs struct {
 	// ID of the Azure Active Directory.
-	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
 	// Type of the managed identity.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 	// The list of user-assigned managed identities associated with the resource. Key is the Azure resource Id of the managed identity.
@@ -292,8 +273,8 @@ func (o ManagedServiceIdentityResponseOutput) ToManagedServiceIdentityResponsePt
 }
 
 // ID of the Azure Active Directory.
-func (o ManagedServiceIdentityResponseOutput) TenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ManagedServiceIdentityResponse) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+func (o ManagedServiceIdentityResponseOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedServiceIdentityResponse) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
 // Type of the managed identity.
@@ -332,7 +313,7 @@ func (o ManagedServiceIdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutp
 		if v == nil {
 			return nil
 		}
-		return v.TenantId
+		return &v.TenantId
 	}).(pulumi.StringPtrOutput)
 }
 

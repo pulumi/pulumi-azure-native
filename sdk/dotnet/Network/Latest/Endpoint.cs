@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network.Latest
 {
     /// <summary>
     /// Class representing a Traffic Manager endpoint.
-    /// Latest API Version: 2018-04-01.
+    /// Latest API Version: 2018-08-01.
     /// </summary>
     [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:Endpoint'.")]
     [AzureNativeResourceType("azure-native:network/latest:Endpoint")]
@@ -52,6 +52,18 @@ namespace Pulumi.AzureNative.Network.Latest
         /// </summary>
         [Output("minChildEndpoints")]
         public Output<double?> MinChildEndpoints { get; private set; } = null!;
+
+        /// <summary>
+        /// The minimum number of IPv4 (DNS record type A) endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
+        /// </summary>
+        [Output("minChildEndpointsIPv4")]
+        public Output<double?> MinChildEndpointsIPv4 { get; private set; } = null!;
+
+        /// <summary>
+        /// The minimum number of IPv6 (DNS record type AAAA) endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
+        /// </summary>
+        [Output("minChildEndpointsIPv6")]
+        public Output<double?> MinChildEndpointsIPv6 { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -135,6 +147,8 @@ namespace Pulumi.AzureNative.Network.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180301:Endpoint"},
                     new Pulumi.Alias { Type = "azure-native:network/v20180401:Endpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180401:Endpoint"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180801:Endpoint"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180801:Endpoint"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -223,6 +237,18 @@ namespace Pulumi.AzureNative.Network.Latest
         /// </summary>
         [Input("minChildEndpoints")]
         public Input<double>? MinChildEndpoints { get; set; }
+
+        /// <summary>
+        /// The minimum number of IPv4 (DNS record type A) endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
+        /// </summary>
+        [Input("minChildEndpointsIPv4")]
+        public Input<double>? MinChildEndpointsIPv4 { get; set; }
+
+        /// <summary>
+        /// The minimum number of IPv6 (DNS record type AAAA) endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
+        /// </summary>
+        [Input("minChildEndpointsIPv6")]
+        public Input<double>? MinChildEndpointsIPv6 { get; set; }
 
         /// <summary>
         /// The name of the resource

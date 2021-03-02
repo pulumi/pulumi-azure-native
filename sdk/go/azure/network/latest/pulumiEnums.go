@@ -68,6 +68,36 @@ func (e ActionType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.Str
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// The allowed type DNS record types for this profile.
+type AllowedEndpointRecordType pulumi.String
+
+const (
+	AllowedEndpointRecordTypeDomainName  = AllowedEndpointRecordType("DomainName")
+	AllowedEndpointRecordTypeIPv4Address = AllowedEndpointRecordType("IPv4Address")
+	AllowedEndpointRecordTypeIPv6Address = AllowedEndpointRecordType("IPv6Address")
+	AllowedEndpointRecordTypeAny         = AllowedEndpointRecordType("Any")
+)
+
+func (AllowedEndpointRecordType) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e AllowedEndpointRecordType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AllowedEndpointRecordType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AllowedEndpointRecordType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AllowedEndpointRecordType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // Cookie based affinity.
 type ApplicationGatewayCookieBasedAffinity pulumi.String
 

@@ -54,6 +54,18 @@ export interface GetClusterResult {
      */
     readonly cloudId: string;
     /**
+     * The timestamp of resource creation (UTC).
+     */
+    readonly createdAt?: string;
+    /**
+     * The identity that created the resource.
+     */
+    readonly createdBy?: string;
+    /**
+     * The type of identity that created the resource.
+     */
+    readonly createdByType?: string;
+    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
@@ -61,6 +73,18 @@ export interface GetClusterResult {
      * Most recent billing meter timestamp.
      */
     readonly lastBillingTimestamp: string;
+    /**
+     * The timestamp of resource last modification (UTC)
+     */
+    readonly lastModifiedAt?: string;
+    /**
+     * The identity that last modified the resource.
+     */
+    readonly lastModifiedBy?: string;
+    /**
+     * The type of identity that last modified the resource.
+     */
+    readonly lastModifiedByType?: string;
     /**
      * Most recent cluster sync timestamp.
      */

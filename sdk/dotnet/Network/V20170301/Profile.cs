@@ -109,6 +109,8 @@ namespace Pulumi.AzureNative.Network.V20170301
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180301:Profile"},
                     new Pulumi.Alias { Type = "azure-native:network/v20180401:Profile"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180401:Profile"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180801:Profile"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180801:Profile"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

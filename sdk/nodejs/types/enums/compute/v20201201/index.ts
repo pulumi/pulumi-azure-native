@@ -235,6 +235,8 @@ export const StorageAccountTypes = {
     Premium_LRS: "Premium_LRS",
     StandardSSD_LRS: "StandardSSD_LRS",
     UltraSSD_LRS: "UltraSSD_LRS",
+    Premium_ZRS: "Premium_ZRS",
+    StandardSSD_ZRS: "StandardSSD_ZRS",
 } as const;
 
 /**

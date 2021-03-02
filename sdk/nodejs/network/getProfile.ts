@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Class representing a Traffic Manager profile.
- * API Version: 2018-04-01.
+ * API Version: 2018-08-01.
  */
 export function getProfile(args: GetProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetProfileResult> {
     if (!opts) {
@@ -38,6 +38,10 @@ export interface GetProfileArgs {
  * Class representing a Traffic Manager profile.
  */
 export interface GetProfileResult {
+    /**
+     * The list of allowed endpoint record types.
+     */
+    readonly allowedEndpointRecordTypes?: string[];
     /**
      * The DNS settings of the Traffic Manager profile.
      */

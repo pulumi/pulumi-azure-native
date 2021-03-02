@@ -7034,6 +7034,8 @@ class EndpointArgs:
                  geo_mapping: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  min_child_endpoints: Optional[pulumi.Input[float]] = None,
+                 min_child_endpoints_i_pv4: Optional[pulumi.Input[float]] = None,
+                 min_child_endpoints_i_pv6: Optional[pulumi.Input[float]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[float]] = None,
                  subnets: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointPropertiesSubnetsArgs']]]] = None,
@@ -7050,6 +7052,8 @@ class EndpointArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] geo_mapping: The list of countries/regions mapped to this endpoint when using the 'Geographic' traffic routing method. Please consult Traffic Manager Geographic documentation for a full list of accepted values.
         :param pulumi.Input[str] id: Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{resourceName}
         :param pulumi.Input[float] min_child_endpoints: The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
+        :param pulumi.Input[float] min_child_endpoints_i_pv4: The minimum number of IPv4 (DNS record type A) endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
+        :param pulumi.Input[float] min_child_endpoints_i_pv6: The minimum number of IPv6 (DNS record type AAAA) endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
         :param pulumi.Input[str] name: The name of the resource
         :param pulumi.Input[float] priority: The priority of this endpoint when using the 'Priority' traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
         :param pulumi.Input[Sequence[pulumi.Input['EndpointPropertiesSubnetsArgs']]] subnets: The list of subnets, IP addresses, and/or address ranges mapped to this endpoint when using the 'Subnet' traffic routing method. An empty list will match all ranges not covered by other endpoints.
@@ -7072,6 +7076,10 @@ class EndpointArgs:
             pulumi.set(__self__, "id", id)
         if min_child_endpoints is not None:
             pulumi.set(__self__, "min_child_endpoints", min_child_endpoints)
+        if min_child_endpoints_i_pv4 is not None:
+            pulumi.set(__self__, "min_child_endpoints_i_pv4", min_child_endpoints_i_pv4)
+        if min_child_endpoints_i_pv6 is not None:
+            pulumi.set(__self__, "min_child_endpoints_i_pv6", min_child_endpoints_i_pv6)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if priority is not None:
@@ -7170,6 +7178,30 @@ class EndpointArgs:
     @min_child_endpoints.setter
     def min_child_endpoints(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "min_child_endpoints", value)
+
+    @property
+    @pulumi.getter(name="minChildEndpointsIPv4")
+    def min_child_endpoints_i_pv4(self) -> Optional[pulumi.Input[float]]:
+        """
+        The minimum number of IPv4 (DNS record type A) endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
+        """
+        return pulumi.get(self, "min_child_endpoints_i_pv4")
+
+    @min_child_endpoints_i_pv4.setter
+    def min_child_endpoints_i_pv4(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "min_child_endpoints_i_pv4", value)
+
+    @property
+    @pulumi.getter(name="minChildEndpointsIPv6")
+    def min_child_endpoints_i_pv6(self) -> Optional[pulumi.Input[float]]:
+        """
+        The minimum number of IPv6 (DNS record type AAAA) endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
+        """
+        return pulumi.get(self, "min_child_endpoints_i_pv6")
+
+    @min_child_endpoints_i_pv6.setter
+    def min_child_endpoints_i_pv6(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "min_child_endpoints_i_pv6", value)
 
     @property
     @pulumi.getter

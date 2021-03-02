@@ -26,8 +26,20 @@ type Cluster struct {
 	BillingModel pulumi.StringOutput `pulumi:"billingModel"`
 	// Unique, immutable resource id.
 	CloudId pulumi.StringOutput `pulumi:"cloudId"`
+	// The timestamp of resource creation (UTC).
+	CreatedAt pulumi.StringPtrOutput `pulumi:"createdAt"`
+	// The identity that created the resource.
+	CreatedBy pulumi.StringPtrOutput `pulumi:"createdBy"`
+	// The type of identity that created the resource.
+	CreatedByType pulumi.StringPtrOutput `pulumi:"createdByType"`
 	// Most recent billing meter timestamp.
 	LastBillingTimestamp pulumi.StringOutput `pulumi:"lastBillingTimestamp"`
+	// The timestamp of resource last modification (UTC)
+	LastModifiedAt pulumi.StringPtrOutput `pulumi:"lastModifiedAt"`
+	// The identity that last modified the resource.
+	LastModifiedBy pulumi.StringPtrOutput `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource.
+	LastModifiedByType pulumi.StringPtrOutput `pulumi:"lastModifiedByType"`
 	// Most recent cluster sync timestamp.
 	LastSyncTimestamp pulumi.StringOutput `pulumi:"lastSyncTimestamp"`
 	// The geo-location where the resource lives
@@ -120,8 +132,20 @@ type clusterState struct {
 	BillingModel *string `pulumi:"billingModel"`
 	// Unique, immutable resource id.
 	CloudId *string `pulumi:"cloudId"`
+	// The timestamp of resource creation (UTC).
+	CreatedAt *string `pulumi:"createdAt"`
+	// The identity that created the resource.
+	CreatedBy *string `pulumi:"createdBy"`
+	// The type of identity that created the resource.
+	CreatedByType *string `pulumi:"createdByType"`
 	// Most recent billing meter timestamp.
 	LastBillingTimestamp *string `pulumi:"lastBillingTimestamp"`
+	// The timestamp of resource last modification (UTC)
+	LastModifiedAt *string `pulumi:"lastModifiedAt"`
+	// The identity that last modified the resource.
+	LastModifiedBy *string `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource.
+	LastModifiedByType *string `pulumi:"lastModifiedByType"`
 	// Most recent cluster sync timestamp.
 	LastSyncTimestamp *string `pulumi:"lastSyncTimestamp"`
 	// The geo-location where the resource lives
@@ -153,8 +177,20 @@ type ClusterState struct {
 	BillingModel pulumi.StringPtrInput
 	// Unique, immutable resource id.
 	CloudId pulumi.StringPtrInput
+	// The timestamp of resource creation (UTC).
+	CreatedAt pulumi.StringPtrInput
+	// The identity that created the resource.
+	CreatedBy pulumi.StringPtrInput
+	// The type of identity that created the resource.
+	CreatedByType pulumi.StringPtrInput
 	// Most recent billing meter timestamp.
 	LastBillingTimestamp pulumi.StringPtrInput
+	// The timestamp of resource last modification (UTC)
+	LastModifiedAt pulumi.StringPtrInput
+	// The identity that last modified the resource.
+	LastModifiedBy pulumi.StringPtrInput
+	// The type of identity that last modified the resource.
+	LastModifiedByType pulumi.StringPtrInput
 	// Most recent cluster sync timestamp.
 	LastSyncTimestamp pulumi.StringPtrInput
 	// The geo-location where the resource lives
@@ -188,6 +224,18 @@ type clusterArgs struct {
 	AadTenantId string `pulumi:"aadTenantId"`
 	// The name of the cluster.
 	ClusterName *string `pulumi:"clusterName"`
+	// The timestamp of resource creation (UTC).
+	CreatedAt *string `pulumi:"createdAt"`
+	// The identity that created the resource.
+	CreatedBy *string `pulumi:"createdBy"`
+	// The type of identity that created the resource.
+	CreatedByType *string `pulumi:"createdByType"`
+	// The timestamp of resource last modification (UTC)
+	LastModifiedAt *string `pulumi:"lastModifiedAt"`
+	// The identity that last modified the resource.
+	LastModifiedBy *string `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource.
+	LastModifiedByType *string `pulumi:"lastModifiedByType"`
 	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
 	// The name of the resource group. The name is case insensitive.
@@ -204,6 +252,18 @@ type ClusterArgs struct {
 	AadTenantId pulumi.StringInput
 	// The name of the cluster.
 	ClusterName pulumi.StringPtrInput
+	// The timestamp of resource creation (UTC).
+	CreatedAt pulumi.StringPtrInput
+	// The identity that created the resource.
+	CreatedBy pulumi.StringPtrInput
+	// The type of identity that created the resource.
+	CreatedByType pulumi.StringPtrInput
+	// The timestamp of resource last modification (UTC)
+	LastModifiedAt pulumi.StringPtrInput
+	// The identity that last modified the resource.
+	LastModifiedBy pulumi.StringPtrInput
+	// The type of identity that last modified the resource.
+	LastModifiedByType pulumi.StringPtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
 	// The name of the resource group. The name is case insensitive.

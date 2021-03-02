@@ -16,6 +16,7 @@ import * as automation from "./automation";
 import * as avs from "./avs";
 import * as azureactivedirectory from "./azureactivedirectory";
 import * as azurestack from "./azurestack";
+import * as azurestackhci from "./azurestackhci";
 import * as batch from "./batch";
 import * as batchai from "./batchai";
 import * as blockchain from "./blockchain";
@@ -153,6 +154,7 @@ export {
     avs,
     azureactivedirectory,
     azurestack,
+    azurestackhci,
     batch,
     batchai,
     blockchain,
