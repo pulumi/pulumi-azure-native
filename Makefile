@@ -32,11 +32,11 @@ ensure:: init_submodules
 	@echo "GO111MODULE=on go mod tidy"; cd provider; GO111MODULE=on go mod tidy
 	@echo "GO111MODULE=on go mod download"; cd provider; GO111MODULE=on go mod download
 
-local_generate_code:: clean go_mod
+local_generate_code:: clean
 	$(WORKING_DIR)/bin/$(CODEGEN) schema,nodejs,dotnet,python,go ${VERSION}
 	echo "Finished generating."
 
-local_generate:: clean go_mod
+local_generate:: clean
 	$(WORKING_DIR)/bin/$(CODEGEN) schema,docs,nodejs,dotnet,python,go ${VERSION}
 	echo "Finished generating."
 
@@ -96,12 +96,12 @@ build_dotnet::
 		echo "azure-native\n${DOTNET_VERSION}" >version.txt && \
 		dotnet build /p:Version=${DOTNET_VERSION}
 
-go_mod::
+go_mod_touch::
 	touch sdk/nodejs/go.mod
 	touch sdk/python/go.mod
 	touch sdk/dotnet/go.mod
 
-generate_go:: go_mod
+generate_go::
 	$(WORKING_DIR)/bin/$(CODEGEN) go ${VERSION}
 
 build_go::
@@ -127,7 +127,7 @@ install_nodejs_sdk::
 test::
 	cd examples && go test -v -tags=all -timeout 2h
 
-build:: init_submodules clean codegen local_generate provider build_sdks install_sdks
+build:: init_submodules clean codegen local_generate provider go_mod_touch build_sdks install_sdks
 build_sdks: build_nodejs build_dotnet build_python build_go
 install_sdks:: install_dotnet_sdk install_python_sdk install_nodejs_sdk
 
