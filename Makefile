@@ -127,7 +127,7 @@ install_nodejs_sdk::
 test::
 	cd examples && go test -v -tags=all -timeout 2h
 
-build:: init_submodules clean m local_generate provider build_sdks install_sdks
+build:: init_submodules clean codegen local_generate provider build_sdks install_sdks
 build_sdks: build_nodejs build_dotnet build_python build_go
 install_sdks:: install_dotnet_sdk install_python_sdk install_nodejs_sdk
 
