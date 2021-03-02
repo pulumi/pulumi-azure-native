@@ -105,6 +105,8 @@ generate_go::
 	$(WORKING_DIR)/bin/$(CODEGEN) go ${VERSION}
 
 build_go::
+	cd sdk/ && \
+		go list github.com/pulumi/pulumi-azure-native/sdk/go/azure/... | grep -v "latest\|\/v.*"$ | xargs go build
 
 clean::
 	rm -rf sdk/nodejs
