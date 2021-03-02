@@ -10,11 +10,9 @@
 The native Azure Provider for Pulumi lets you use Azure resources in your cloud programs.
 This provider uses the Azure Resource Manager REST API directly and therefore provides full access to ARM API.
 
-The provider is currently in private preview:
-
-- Breaking changes are regularly introduced, including changes in SDKs, provider plugin, and state format
-- No artifacts are published in public package managers or Pulumi provider registry. You'll have to build them
-yourself in order to use the provider.
+The provider is currently in public preview, and is the recommended provider for new projects targeting Azure. We
+will attempt to minimize any breaking changes, but it is possible that there will be a few between now and GA (expected
+this spring).
 
 To use this package, please [install the Pulumi CLI first](https://pulumi.io/).
 
