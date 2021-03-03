@@ -50,6 +50,8 @@ export class Provider extends pulumi.ProviderResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
+        const aliasOpts = { aliases: [{ type: "pulumi:providers:azure-nextgen" }] };
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Provider.__pulumiType, name, inputs, opts);
     }
 }

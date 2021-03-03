@@ -3,7 +3,10 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
-(None)
+Fixes:
+
+- Support migration from `azure-nextgen` with custom providers.
+  [#617](https://github.com/pulumi/pulumi-azure-native/issues/617)
 
 ---
 
