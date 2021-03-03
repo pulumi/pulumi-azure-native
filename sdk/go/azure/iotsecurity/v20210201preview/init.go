@@ -23,6 +23,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "azure-native:iotsecurity/v20210201preview:DefenderSetting":
 		r, err = NewDefenderSetting(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-native:iotsecurity/v20210201preview:OnPremiseSensor":
+		r, err = NewOnPremiseSensor(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-native:iotsecurity/v20210201preview:Sensor":
+		r, err = NewSensor(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-native:iotsecurity/v20210201preview:Site":
+		r, err = NewSite(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

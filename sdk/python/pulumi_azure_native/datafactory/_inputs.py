@@ -27723,11 +27723,11 @@ class FactoryGitHubConfigurationArgs:
 @pulumi.input_type
 class FactoryIdentityArgs:
     def __init__(__self__, *,
-                 type: pulumi.Input['FactoryIdentityType'],
+                 type: pulumi.Input[Union[str, 'FactoryIdentityType']],
                  user_assigned_identities: Optional[pulumi.Input[Mapping[str, Any]]] = None):
         """
         Identity properties of the factory resource.
-        :param pulumi.Input['FactoryIdentityType'] type: The identity type.
+        :param pulumi.Input[Union[str, 'FactoryIdentityType']] type: The identity type.
         :param pulumi.Input[Mapping[str, Any]] user_assigned_identities: List of user assigned identities for the factory.
         """
         pulumi.set(__self__, "type", type)
@@ -27736,14 +27736,14 @@ class FactoryIdentityArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input['FactoryIdentityType']:
+    def type(self) -> pulumi.Input[Union[str, 'FactoryIdentityType']]:
         """
         The identity type.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input['FactoryIdentityType']):
+    def type(self, value: pulumi.Input[Union[str, 'FactoryIdentityType']]):
         pulumi.set(self, "type", value)
 
     @property

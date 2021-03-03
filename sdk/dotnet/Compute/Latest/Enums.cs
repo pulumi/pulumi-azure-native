@@ -1165,6 +1165,8 @@ namespace Pulumi.AzureNative.Compute.Latest
         public static StorageAccountTypes Premium_LRS { get; } = new StorageAccountTypes("Premium_LRS");
         public static StorageAccountTypes StandardSSD_LRS { get; } = new StorageAccountTypes("StandardSSD_LRS");
         public static StorageAccountTypes UltraSSD_LRS { get; } = new StorageAccountTypes("UltraSSD_LRS");
+        public static StorageAccountTypes Premium_ZRS { get; } = new StorageAccountTypes("Premium_ZRS");
+        public static StorageAccountTypes StandardSSD_ZRS { get; } = new StorageAccountTypes("StandardSSD_ZRS");
 
         public static bool operator ==(StorageAccountTypes left, StorageAccountTypes right) => left.Equals(right);
         public static bool operator !=(StorageAccountTypes left, StorageAccountTypes right) => !left.Equals(right);

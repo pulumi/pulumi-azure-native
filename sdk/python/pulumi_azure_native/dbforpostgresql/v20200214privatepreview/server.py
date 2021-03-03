@@ -32,7 +32,9 @@ class Server(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 source_resource_group_name: Optional[pulumi.Input[str]] = None,
                  source_server_name: Optional[pulumi.Input[str]] = None,
+                 source_subscription_id: Optional[pulumi.Input[str]] = None,
                  storage_profile: Optional[pulumi.Input[pulumi.InputType['StorageProfileArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  version: Optional[pulumi.Input[Union[str, 'ServerVersion']]] = None,
@@ -57,7 +59,9 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] server_name: The name of the server.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The SKU (pricing tier) of the server.
+        :param pulumi.Input[str] source_resource_group_name: The resource group name of source PostgreSQL server name to restore from.
         :param pulumi.Input[str] source_server_name: The source PostgreSQL server name to restore from.
+        :param pulumi.Input[str] source_subscription_id: The subscription id of source PostgreSQL server name to restore from.
         :param pulumi.Input[pulumi.InputType['StorageProfileArgs']] storage_profile: Storage profile of a server.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[Union[str, 'ServerVersion']] version: PostgreSQL Server version.
@@ -95,7 +99,9 @@ class Server(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['server_name'] = server_name
             __props__['sku'] = sku
+            __props__['source_resource_group_name'] = source_resource_group_name
             __props__['source_server_name'] = source_server_name
+            __props__['source_subscription_id'] = source_subscription_id
             __props__['storage_profile'] = storage_profile
             __props__['tags'] = tags
             __props__['version'] = version
@@ -148,7 +154,9 @@ class Server(pulumi.CustomResource):
         __props__["point_in_time_utc"] = None
         __props__["public_network_access"] = None
         __props__["sku"] = None
+        __props__["source_resource_group_name"] = None
         __props__["source_server_name"] = None
+        __props__["source_subscription_id"] = None
         __props__["standby_availability_zone"] = None
         __props__["state"] = None
         __props__["storage_profile"] = None
@@ -291,12 +299,28 @@ class Server(pulumi.CustomResource):
         return pulumi.get(self, "sku")
 
     @property
+    @pulumi.getter(name="sourceResourceGroupName")
+    def source_resource_group_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The resource group name of source PostgreSQL server name to restore from.
+        """
+        return pulumi.get(self, "source_resource_group_name")
+
+    @property
     @pulumi.getter(name="sourceServerName")
     def source_server_name(self) -> pulumi.Output[Optional[str]]:
         """
         The source PostgreSQL server name to restore from.
         """
         return pulumi.get(self, "source_server_name")
+
+    @property
+    @pulumi.getter(name="sourceSubscriptionId")
+    def source_subscription_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The subscription id of source PostgreSQL server name to restore from.
+        """
+        return pulumi.get(self, "source_subscription_id")
 
     @property
     @pulumi.getter(name="standbyAvailabilityZone")

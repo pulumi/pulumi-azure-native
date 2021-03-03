@@ -48,8 +48,12 @@ type Server struct {
 	PublicNetworkAccess pulumi.StringOutput `pulumi:"publicNetworkAccess"`
 	// The SKU (pricing tier) of the server.
 	Sku SkuResponsePtrOutput `pulumi:"sku"`
+	// The resource group name of source serve PostgreSQL server name to restore from.
+	SourceResourceGroupName pulumi.StringPtrOutput `pulumi:"sourceResourceGroupName"`
 	// The source PostgreSQL server name to restore from.
 	SourceServerName pulumi.StringPtrOutput `pulumi:"sourceServerName"`
+	// The subscription id of source serve PostgreSQL server name to restore from.
+	SourceSubscriptionId pulumi.StringPtrOutput `pulumi:"sourceSubscriptionId"`
 	// availability Zone information of the server.
 	StandbyAvailabilityZone pulumi.StringOutput `pulumi:"standbyAvailabilityZone"`
 	// A state of a server that is visible to user.
@@ -141,8 +145,12 @@ type serverState struct {
 	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// The SKU (pricing tier) of the server.
 	Sku *SkuResponse `pulumi:"sku"`
+	// The resource group name of source serve PostgreSQL server name to restore from.
+	SourceResourceGroupName *string `pulumi:"sourceResourceGroupName"`
 	// The source PostgreSQL server name to restore from.
 	SourceServerName *string `pulumi:"sourceServerName"`
+	// The subscription id of source serve PostgreSQL server name to restore from.
+	SourceSubscriptionId *string `pulumi:"sourceSubscriptionId"`
 	// availability Zone information of the server.
 	StandbyAvailabilityZone *string `pulumi:"standbyAvailabilityZone"`
 	// A state of a server that is visible to user.
@@ -191,8 +199,12 @@ type ServerState struct {
 	PublicNetworkAccess pulumi.StringPtrInput
 	// The SKU (pricing tier) of the server.
 	Sku SkuResponsePtrInput
+	// The resource group name of source serve PostgreSQL server name to restore from.
+	SourceResourceGroupName pulumi.StringPtrInput
 	// The source PostgreSQL server name to restore from.
 	SourceServerName pulumi.StringPtrInput
+	// The subscription id of source serve PostgreSQL server name to restore from.
+	SourceSubscriptionId pulumi.StringPtrInput
 	// availability Zone information of the server.
 	StandbyAvailabilityZone pulumi.StringPtrInput
 	// A state of a server that is visible to user.
@@ -239,8 +251,12 @@ type serverArgs struct {
 	ServerName *string `pulumi:"serverName"`
 	// The SKU (pricing tier) of the server.
 	Sku *Sku `pulumi:"sku"`
+	// The resource group name of source serve PostgreSQL server name to restore from.
+	SourceResourceGroupName *string `pulumi:"sourceResourceGroupName"`
 	// The source PostgreSQL server name to restore from.
 	SourceServerName *string `pulumi:"sourceServerName"`
+	// The subscription id of source serve PostgreSQL server name to restore from.
+	SourceSubscriptionId *string `pulumi:"sourceSubscriptionId"`
 	// Storage profile of a server.
 	StorageProfile *StorageProfile `pulumi:"storageProfile"`
 	// Resource tags.
@@ -278,8 +294,12 @@ type ServerArgs struct {
 	ServerName pulumi.StringPtrInput
 	// The SKU (pricing tier) of the server.
 	Sku SkuPtrInput
+	// The resource group name of source serve PostgreSQL server name to restore from.
+	SourceResourceGroupName pulumi.StringPtrInput
 	// The source PostgreSQL server name to restore from.
 	SourceServerName pulumi.StringPtrInput
+	// The subscription id of source serve PostgreSQL server name to restore from.
+	SourceSubscriptionId pulumi.StringPtrInput
 	// Storage profile of a server.
 	StorageProfile StorageProfilePtrInput
 	// Resource tags.

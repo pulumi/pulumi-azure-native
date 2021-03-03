@@ -1040,6 +1040,8 @@ const (
 	StorageAccountTypes_Premium_LRS     = StorageAccountTypes("Premium_LRS")
 	StorageAccountTypes_StandardSSD_LRS = StorageAccountTypes("StandardSSD_LRS")
 	StorageAccountTypes_UltraSSD_LRS    = StorageAccountTypes("UltraSSD_LRS")
+	StorageAccountTypes_Premium_ZRS     = StorageAccountTypes("Premium_ZRS")
+	StorageAccountTypes_StandardSSD_ZRS = StorageAccountTypes("StandardSSD_ZRS")
 )
 
 func (StorageAccountTypes) ElementType() reflect.Type {

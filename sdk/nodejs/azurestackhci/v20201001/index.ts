@@ -8,6 +8,9 @@ import * as utilities from "../../utilities";
 export * from "./cluster";
 export * from "./getCluster";
 
+// Export enums:
+export * from "../../types/enums/azurestackhci/v20201001";
+
 // Import resources to register:
 import { Cluster } from "./cluster";
 

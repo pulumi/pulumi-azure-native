@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Class representing a Traffic Manager endpoint.
- * API Version: 2018-04-01.
+ * API Version: 2018-08-01.
  */
 export class Endpoint extends pulumi.CustomResource {
     /**
@@ -60,6 +60,14 @@ export class Endpoint extends pulumi.CustomResource {
      * The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
      */
     public readonly minChildEndpoints!: pulumi.Output<number | undefined>;
+    /**
+     * The minimum number of IPv4 (DNS record type A) endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
+     */
+    public readonly minChildEndpointsIPv4!: pulumi.Output<number | undefined>;
+    /**
+     * The minimum number of IPv6 (DNS record type AAAA) endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
+     */
+    public readonly minChildEndpointsIPv6!: pulumi.Output<number | undefined>;
     /**
      * The name of the resource
      */
@@ -118,6 +126,8 @@ export class Endpoint extends pulumi.CustomResource {
             inputs["geoMapping"] = args ? args.geoMapping : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["minChildEndpoints"] = args ? args.minChildEndpoints : undefined;
+            inputs["minChildEndpointsIPv4"] = args ? args.minChildEndpointsIPv4 : undefined;
+            inputs["minChildEndpointsIPv6"] = args ? args.minChildEndpointsIPv6 : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["priority"] = args ? args.priority : undefined;
             inputs["profileName"] = args ? args.profileName : undefined;
@@ -134,6 +144,8 @@ export class Endpoint extends pulumi.CustomResource {
             inputs["endpointStatus"] = undefined /*out*/;
             inputs["geoMapping"] = undefined /*out*/;
             inputs["minChildEndpoints"] = undefined /*out*/;
+            inputs["minChildEndpointsIPv4"] = undefined /*out*/;
+            inputs["minChildEndpointsIPv6"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["priority"] = undefined /*out*/;
             inputs["subnets"] = undefined /*out*/;
@@ -145,7 +157,7 @@ export class Endpoint extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network:Endpoint" }, { type: "azure-native:network/latest:Endpoint" }, { type: "azure-nextgen:network/latest:Endpoint" }, { type: "azure-native:network/v20151101:Endpoint" }, { type: "azure-nextgen:network/v20151101:Endpoint" }, { type: "azure-native:network/v20170301:Endpoint" }, { type: "azure-nextgen:network/v20170301:Endpoint" }, { type: "azure-native:network/v20170501:Endpoint" }, { type: "azure-nextgen:network/v20170501:Endpoint" }, { type: "azure-native:network/v20180201:Endpoint" }, { type: "azure-nextgen:network/v20180201:Endpoint" }, { type: "azure-native:network/v20180301:Endpoint" }, { type: "azure-nextgen:network/v20180301:Endpoint" }, { type: "azure-native:network/v20180401:Endpoint" }, { type: "azure-nextgen:network/v20180401:Endpoint" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network:Endpoint" }, { type: "azure-native:network/latest:Endpoint" }, { type: "azure-nextgen:network/latest:Endpoint" }, { type: "azure-native:network/v20151101:Endpoint" }, { type: "azure-nextgen:network/v20151101:Endpoint" }, { type: "azure-native:network/v20170301:Endpoint" }, { type: "azure-nextgen:network/v20170301:Endpoint" }, { type: "azure-native:network/v20170501:Endpoint" }, { type: "azure-nextgen:network/v20170501:Endpoint" }, { type: "azure-native:network/v20180201:Endpoint" }, { type: "azure-nextgen:network/v20180201:Endpoint" }, { type: "azure-native:network/v20180301:Endpoint" }, { type: "azure-nextgen:network/v20180301:Endpoint" }, { type: "azure-native:network/v20180401:Endpoint" }, { type: "azure-nextgen:network/v20180401:Endpoint" }, { type: "azure-native:network/v20180801:Endpoint" }, { type: "azure-nextgen:network/v20180801:Endpoint" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Endpoint.__pulumiType, name, inputs, opts);
     }
@@ -191,6 +203,14 @@ export interface EndpointArgs {
      * The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
      */
     readonly minChildEndpoints?: pulumi.Input<number>;
+    /**
+     * The minimum number of IPv4 (DNS record type A) endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
+     */
+    readonly minChildEndpointsIPv4?: pulumi.Input<number>;
+    /**
+     * The minimum number of IPv6 (DNS record type AAAA) endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
+     */
+    readonly minChildEndpointsIPv6?: pulumi.Input<number>;
     /**
      * The name of the resource
      */

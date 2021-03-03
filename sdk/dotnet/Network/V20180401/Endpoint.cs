@@ -133,6 +133,8 @@ namespace Pulumi.AzureNative.Network.V20180401
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180201:Endpoint"},
                     new Pulumi.Alias { Type = "azure-native:network/v20180301:Endpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180301:Endpoint"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180801:Endpoint"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180801:Endpoint"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

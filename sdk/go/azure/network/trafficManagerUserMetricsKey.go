@@ -11,7 +11,7 @@ import (
 )
 
 // Class representing Traffic Manager User Metrics.
-// API Version: 2018-04-01.
+// API Version: 2018-08-01.
 type TrafficManagerUserMetricsKey struct {
 	pulumi.CustomResourceState
 
@@ -45,6 +45,12 @@ func NewTrafficManagerUserMetricsKey(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20180401:TrafficManagerUserMetricsKey"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20180801:TrafficManagerUserMetricsKey"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20180801:TrafficManagerUserMetricsKey"),
 		},
 	})
 	opts = append(opts, aliases)

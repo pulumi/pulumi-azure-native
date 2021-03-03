@@ -7,9 +7,18 @@ import * as utilities from "../../utilities";
 // Export members:
 export * from "./defenderSetting";
 export * from "./getDefenderSetting";
+export * from "./getOnPremiseSensor";
+export * from "./getSensor";
+export * from "./getSite";
+export * from "./onPremiseSensor";
+export * from "./sensor";
+export * from "./site";
 
 // Import resources to register:
 import { DefenderSetting } from "./defenderSetting";
+import { OnPremiseSensor } from "./onPremiseSensor";
+import { Sensor } from "./sensor";
+import { Site } from "./site";
 
 const _module = {
     version: utilities.getVersion(),
@@ -17,6 +26,12 @@ const _module = {
         switch (type) {
             case "azure-native:iotsecurity/v20210201preview:DefenderSetting":
                 return new DefenderSetting(name, <any>undefined, { urn })
+            case "azure-native:iotsecurity/v20210201preview:OnPremiseSensor":
+                return new OnPremiseSensor(name, <any>undefined, { urn })
+            case "azure-native:iotsecurity/v20210201preview:Sensor":
+                return new Sensor(name, <any>undefined, { urn })
+            case "azure-native:iotsecurity/v20210201preview:Site":
+                return new Site(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

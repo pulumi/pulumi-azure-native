@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// Class representing Traffic Manager User Metrics.
-    /// API Version: 2018-04-01.
+    /// API Version: 2018-08-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:TrafficManagerUserMetricsKey")]
     public partial class TrafficManagerUserMetricsKey : Pulumi.CustomResource
@@ -64,6 +64,8 @@ namespace Pulumi.AzureNative.Network
                     new Pulumi.Alias { Type = "azure-nextgen:network/latest:TrafficManagerUserMetricsKey"},
                     new Pulumi.Alias { Type = "azure-native:network/v20180401:TrafficManagerUserMetricsKey"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180401:TrafficManagerUserMetricsKey"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180801:TrafficManagerUserMetricsKey"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180801:TrafficManagerUserMetricsKey"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

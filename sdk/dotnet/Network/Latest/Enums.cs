@@ -72,6 +72,39 @@ namespace Pulumi.AzureNative.Network.Latest
     }
 
     /// <summary>
+    /// The allowed type DNS record types for this profile.
+    /// </summary>
+    [EnumType]
+    public readonly struct AllowedEndpointRecordType : IEquatable<AllowedEndpointRecordType>
+    {
+        private readonly string _value;
+
+        private AllowedEndpointRecordType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AllowedEndpointRecordType DomainName { get; } = new AllowedEndpointRecordType("DomainName");
+        public static AllowedEndpointRecordType IPv4Address { get; } = new AllowedEndpointRecordType("IPv4Address");
+        public static AllowedEndpointRecordType IPv6Address { get; } = new AllowedEndpointRecordType("IPv6Address");
+        public static AllowedEndpointRecordType Any { get; } = new AllowedEndpointRecordType("Any");
+
+        public static bool operator ==(AllowedEndpointRecordType left, AllowedEndpointRecordType right) => left.Equals(right);
+        public static bool operator !=(AllowedEndpointRecordType left, AllowedEndpointRecordType right) => !left.Equals(right);
+
+        public static explicit operator string(AllowedEndpointRecordType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AllowedEndpointRecordType other && Equals(other);
+        public bool Equals(AllowedEndpointRecordType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Cookie based affinity.
     /// </summary>
     [EnumType]

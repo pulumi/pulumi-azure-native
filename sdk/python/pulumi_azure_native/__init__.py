@@ -67,6 +67,7 @@ from . import (
     deploymentmanager,
     desktopvirtualization,
     devices,
+    deviceupdate,
     devops,
     devspaces,
     devtestlab,

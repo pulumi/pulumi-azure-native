@@ -20,7 +20,7 @@ class GetServerResult:
     """
     Represents a server.
     """
-    def __init__(__self__, administrator_login=None, administrator_login_password=None, availability_zone=None, byok_enforcement=None, create_mode=None, delegated_subnet_arguments=None, display_name=None, fully_qualified_domain_name=None, ha_enabled=None, ha_state=None, id=None, identity=None, location=None, maintenance_window=None, name=None, point_in_time_utc=None, public_network_access=None, sku=None, source_server_name=None, standby_availability_zone=None, state=None, storage_profile=None, tags=None, type=None, version=None):
+    def __init__(__self__, administrator_login=None, administrator_login_password=None, availability_zone=None, byok_enforcement=None, create_mode=None, delegated_subnet_arguments=None, display_name=None, fully_qualified_domain_name=None, ha_enabled=None, ha_state=None, id=None, identity=None, location=None, maintenance_window=None, name=None, point_in_time_utc=None, public_network_access=None, sku=None, source_resource_group_name=None, source_server_name=None, source_subscription_id=None, standby_availability_zone=None, state=None, storage_profile=None, tags=None, type=None, version=None):
         if administrator_login and not isinstance(administrator_login, str):
             raise TypeError("Expected argument 'administrator_login' to be a str")
         pulumi.set(__self__, "administrator_login", administrator_login)
@@ -75,9 +75,15 @@ class GetServerResult:
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
+        if source_resource_group_name and not isinstance(source_resource_group_name, str):
+            raise TypeError("Expected argument 'source_resource_group_name' to be a str")
+        pulumi.set(__self__, "source_resource_group_name", source_resource_group_name)
         if source_server_name and not isinstance(source_server_name, str):
             raise TypeError("Expected argument 'source_server_name' to be a str")
         pulumi.set(__self__, "source_server_name", source_server_name)
+        if source_subscription_id and not isinstance(source_subscription_id, str):
+            raise TypeError("Expected argument 'source_subscription_id' to be a str")
+        pulumi.set(__self__, "source_subscription_id", source_subscription_id)
         if standby_availability_zone and not isinstance(standby_availability_zone, str):
             raise TypeError("Expected argument 'standby_availability_zone' to be a str")
         pulumi.set(__self__, "standby_availability_zone", standby_availability_zone)
@@ -239,12 +245,28 @@ class GetServerResult:
         return pulumi.get(self, "sku")
 
     @property
+    @pulumi.getter(name="sourceResourceGroupName")
+    def source_resource_group_name(self) -> Optional[str]:
+        """
+        The resource group name of source serve PostgreSQL server name to restore from.
+        """
+        return pulumi.get(self, "source_resource_group_name")
+
+    @property
     @pulumi.getter(name="sourceServerName")
     def source_server_name(self) -> Optional[str]:
         """
         The source PostgreSQL server name to restore from.
         """
         return pulumi.get(self, "source_server_name")
+
+    @property
+    @pulumi.getter(name="sourceSubscriptionId")
+    def source_subscription_id(self) -> Optional[str]:
+        """
+        The subscription id of source serve PostgreSQL server name to restore from.
+        """
+        return pulumi.get(self, "source_subscription_id")
 
     @property
     @pulumi.getter(name="standbyAvailabilityZone")
@@ -319,7 +341,9 @@ class AwaitableGetServerResult(GetServerResult):
             point_in_time_utc=self.point_in_time_utc,
             public_network_access=self.public_network_access,
             sku=self.sku,
+            source_resource_group_name=self.source_resource_group_name,
             source_server_name=self.source_server_name,
+            source_subscription_id=self.source_subscription_id,
             standby_availability_zone=self.standby_availability_zone,
             state=self.state,
             storage_profile=self.storage_profile,
@@ -366,7 +390,9 @@ def get_server(resource_group_name: Optional[str] = None,
         point_in_time_utc=__ret__.point_in_time_utc,
         public_network_access=__ret__.public_network_access,
         sku=__ret__.sku,
+        source_resource_group_name=__ret__.source_resource_group_name,
         source_server_name=__ret__.source_server_name,
+        source_subscription_id=__ret__.source_subscription_id,
         standby_availability_zone=__ret__.standby_availability_zone,
         state=__ret__.state,
         storage_profile=__ret__.storage_profile,

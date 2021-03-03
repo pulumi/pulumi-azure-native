@@ -7,6 +7,7 @@ from enum import Enum
 __all__ = [
     'Access',
     'Action',
+    'AllowedEndpointRecordType',
     'ApplicationGatewayCookieBasedAffinity',
     'ApplicationGatewayCustomErrorStatusCode',
     'ApplicationGatewayFirewallMode',
@@ -27,6 +28,8 @@ __all__ = [
     'DhGroup',
     'DynamicCompressionEnabled',
     'EnabledState',
+    'EndpointMonitorStatus',
+    'EndpointStatus',
     'ExpressRouteCircuitPeeringAdvertisedPublicPrefixState',
     'ExpressRouteCircuitPeeringState',
     'ExpressRouteCircuitSkuFamily',
@@ -48,10 +51,13 @@ __all__ = [
     'LoadBalancerSkuName',
     'LoadDistribution',
     'Mode',
+    'MonitorProtocol',
     'Operator',
     'PcProtocol',
     'PfsGroup',
     'ProbeProtocol',
+    'ProfileMonitorStatus',
+    'ProfileStatus',
     'PublicIPAddressSkuName',
     'PublicIPPrefixSkuName',
     'RouteFilterRuleType',
@@ -63,6 +69,8 @@ __all__ = [
     'SecurityRuleProtocol',
     'ServiceProviderProvisioningState',
     'SessionAffinityEnabledState',
+    'TrafficRoutingMethod',
+    'TrafficViewEnrollmentStatus',
     'Transform',
     'TransportProtocol',
     'VirtualNetworkGatewayConnectionProtocol',
@@ -92,6 +100,16 @@ class Action(str, Enum):
     ALLOW = "Allow"
     BLOCK = "Block"
     LOG = "Log"
+
+
+class AllowedEndpointRecordType(str, Enum):
+    """
+    The allowed type DNS record types for this profile.
+    """
+    DOMAIN_NAME = "DomainName"
+    I_PV4_ADDRESS = "IPv4Address"
+    I_PV6_ADDRESS = "IPv6Address"
+    ANY = "Any"
 
 
 class ApplicationGatewayCookieBasedAffinity(str, Enum):
@@ -299,6 +317,26 @@ class EnabledState(str, Enum):
     ENABLED = "Enabled"
 
 
+class EndpointMonitorStatus(str, Enum):
+    """
+    The monitoring status of the endpoint.
+    """
+    CHECKING_ENDPOINT = "CheckingEndpoint"
+    ONLINE = "Online"
+    DEGRADED = "Degraded"
+    DISABLED = "Disabled"
+    INACTIVE = "Inactive"
+    STOPPED = "Stopped"
+
+
+class EndpointStatus(str, Enum):
+    """
+    The status of the endpoint. If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+
+
 class ExpressRouteCircuitPeeringAdvertisedPublicPrefixState(str, Enum):
     """
     AdvertisedPublicPrefixState of the Peering resource. Possible values are 'NotConfigured', 'Configuring', 'Configured', and 'ValidationNeeded'.
@@ -493,6 +531,15 @@ class Mode(str, Enum):
     DETECTION = "Detection"
 
 
+class MonitorProtocol(str, Enum):
+    """
+    The protocol (HTTP, HTTPS or TCP) used to probe for endpoint health.
+    """
+    HTTP = "HTTP"
+    HTTPS = "HTTPS"
+    TCP = "TCP"
+
+
 class Operator(str, Enum):
     """
     Describes operator to be matched
@@ -541,6 +588,25 @@ class ProbeProtocol(str, Enum):
     HTTP = "Http"
     TCP = "Tcp"
     HTTPS = "Https"
+
+
+class ProfileMonitorStatus(str, Enum):
+    """
+    The profile-level monitoring status of the Traffic Manager profile.
+    """
+    CHECKING_ENDPOINTS = "CheckingEndpoints"
+    ONLINE = "Online"
+    DEGRADED = "Degraded"
+    DISABLED = "Disabled"
+    INACTIVE = "Inactive"
+
+
+class ProfileStatus(str, Enum):
+    """
+    The status of the Traffic Manager profile.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 class PublicIPAddressSkuName(str, Enum):
@@ -630,6 +696,26 @@ class ServiceProviderProvisioningState(str, Enum):
 class SessionAffinityEnabledState(str, Enum):
     """
     Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+
+
+class TrafficRoutingMethod(str, Enum):
+    """
+    The traffic routing method of the Traffic Manager profile.
+    """
+    PERFORMANCE = "Performance"
+    PRIORITY = "Priority"
+    WEIGHTED = "Weighted"
+    GEOGRAPHIC = "Geographic"
+    MULTI_VALUE = "MultiValue"
+    SUBNET = "Subnet"
+
+
+class TrafficViewEnrollmentStatus(str, Enum):
+    """
+    Indicates whether Traffic View is 'Enabled' or 'Disabled' for the Traffic Manager profile. Null, indicates 'Disabled'. Enabling this feature will increase the cost of the Traffic Manage profile.
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"

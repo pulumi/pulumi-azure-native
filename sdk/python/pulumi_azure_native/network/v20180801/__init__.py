@@ -9,6 +9,7 @@ from .application_security_group import *
 from .azure_firewall import *
 from .connection_monitor import *
 from .ddos_protection_plan import *
+from .endpoint import *
 from .express_route_circuit import *
 from .express_route_circuit_authorization import *
 from .express_route_circuit_connection import *
@@ -23,6 +24,7 @@ from .get_application_security_group import *
 from .get_azure_firewall import *
 from .get_connection_monitor import *
 from .get_ddos_protection_plan import *
+from .get_endpoint import *
 from .get_express_route_circuit import *
 from .get_express_route_circuit_authorization import *
 from .get_express_route_circuit_connection import *
@@ -45,6 +47,7 @@ from .get_p2s_vpn_gateway import *
 from .get_p2s_vpn_server_configuration import *
 from .get_packet_capture import *
 from .get_policy import *
+from .get_profile import *
 from .get_public_ip_address import *
 from .get_public_ip_prefix import *
 from .get_route import *
@@ -55,6 +58,7 @@ from .get_security_rule import *
 from .get_service_endpoint_policy import *
 from .get_service_endpoint_policy_definition import *
 from .get_subnet import *
+from .get_traffic_manager_user_metrics_key import *
 from .get_virtual_hub import *
 from .get_virtual_network import *
 from .get_virtual_network_gateway import *
@@ -82,6 +86,7 @@ from .p2s_vpn_gateway import *
 from .p2s_vpn_server_configuration import *
 from .packet_capture import *
 from .policy import *
+from .profile import *
 from .public_ip_address import *
 from .public_ip_prefix import *
 from .route import *
@@ -92,6 +97,7 @@ from .security_rule import *
 from .service_endpoint_policy import *
 from .service_endpoint_policy_definition import *
 from .subnet import *
+from .traffic_manager_user_metrics_key import *
 from .virtual_hub import *
 from .virtual_network import *
 from .virtual_network_gateway import *
@@ -127,6 +133,8 @@ def _register_module():
                 return ConnectionMonitor(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:network/v20180801:DdosProtectionPlan":
                 return DdosProtectionPlan(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:network/v20180801:Endpoint":
+                return Endpoint(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:network/v20180801:ExpressRouteCircuit":
                 return ExpressRouteCircuit(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:network/v20180801:ExpressRouteCircuitAuthorization":
@@ -171,6 +179,8 @@ def _register_module():
                 return PacketCapture(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:network/v20180801:Policy":
                 return Policy(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:network/v20180801:Profile":
+                return Profile(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:network/v20180801:PublicIPAddress":
                 return PublicIPAddress(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:network/v20180801:PublicIPPrefix":
@@ -191,6 +201,8 @@ def _register_module():
                 return ServiceEndpointPolicyDefinition(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:network/v20180801:Subnet":
                 return Subnet(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:network/v20180801:TrafficManagerUserMetricsKey":
+                return TrafficManagerUserMetricsKey(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:network/v20180801:VirtualHub":
                 return VirtualHub(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:network/v20180801:VirtualNetwork":

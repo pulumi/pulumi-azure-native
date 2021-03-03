@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Class representing a Traffic Manager profile.
- * Latest API Version: 2018-04-01.
+ * Latest API Version: 2018-08-01.
  */
 /** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getProfile'. */
 export function getProfile(args: GetProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetProfileResult> {
@@ -40,6 +40,10 @@ export interface GetProfileArgs {
  * Class representing a Traffic Manager profile.
  */
 export interface GetProfileResult {
+    /**
+     * The list of allowed endpoint record types.
+     */
+    readonly allowedEndpointRecordTypes?: string[];
     /**
      * The DNS settings of the Traffic Manager profile.
      */

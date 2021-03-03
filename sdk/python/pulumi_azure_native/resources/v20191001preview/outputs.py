@@ -22,7 +22,7 @@ class ManagedServiceIdentityResponse(dict):
     Managed identity generic object.
     """
     def __init__(__self__, *,
-                 tenant_id: Optional[str] = None,
+                 tenant_id: str,
                  type: Optional[str] = None,
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
@@ -31,8 +31,7 @@ class ManagedServiceIdentityResponse(dict):
         :param str type: Type of the managed identity.
         :param Mapping[str, 'UserAssignedIdentityResponseArgs'] user_assigned_identities: The list of user-assigned managed identities associated with the resource. Key is the Azure resource Id of the managed identity.
         """
-        if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
         if type is not None:
             pulumi.set(__self__, "type", type)
         if user_assigned_identities is not None:
@@ -40,7 +39,7 @@ class ManagedServiceIdentityResponse(dict):
 
     @property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[str]:
+    def tenant_id(self) -> str:
         """
         ID of the Azure Active Directory.
         """

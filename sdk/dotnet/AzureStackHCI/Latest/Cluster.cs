@@ -42,10 +42,46 @@ namespace Pulumi.AzureNative.AzureStackHCI.Latest
         public Output<string> CloudId { get; private set; } = null!;
 
         /// <summary>
+        /// The timestamp of resource creation (UTC).
+        /// </summary>
+        [Output("createdAt")]
+        public Output<string?> CreatedAt { get; private set; } = null!;
+
+        /// <summary>
+        /// The identity that created the resource.
+        /// </summary>
+        [Output("createdBy")]
+        public Output<string?> CreatedBy { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of identity that created the resource.
+        /// </summary>
+        [Output("createdByType")]
+        public Output<string?> CreatedByType { get; private set; } = null!;
+
+        /// <summary>
         /// Most recent billing meter timestamp.
         /// </summary>
         [Output("lastBillingTimestamp")]
         public Output<string> LastBillingTimestamp { get; private set; } = null!;
+
+        /// <summary>
+        /// The timestamp of resource last modification (UTC)
+        /// </summary>
+        [Output("lastModifiedAt")]
+        public Output<string?> LastModifiedAt { get; private set; } = null!;
+
+        /// <summary>
+        /// The identity that last modified the resource.
+        /// </summary>
+        [Output("lastModifiedBy")]
+        public Output<string?> LastModifiedBy { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of identity that last modified the resource.
+        /// </summary>
+        [Output("lastModifiedByType")]
+        public Output<string?> LastModifiedByType { get; private set; } = null!;
 
         /// <summary>
         /// Most recent cluster sync timestamp.
@@ -179,6 +215,42 @@ namespace Pulumi.AzureNative.AzureStackHCI.Latest
         /// </summary>
         [Input("clusterName")]
         public Input<string>? ClusterName { get; set; }
+
+        /// <summary>
+        /// The timestamp of resource creation (UTC).
+        /// </summary>
+        [Input("createdAt")]
+        public Input<string>? CreatedAt { get; set; }
+
+        /// <summary>
+        /// The identity that created the resource.
+        /// </summary>
+        [Input("createdBy")]
+        public Input<string>? CreatedBy { get; set; }
+
+        /// <summary>
+        /// The type of identity that created the resource.
+        /// </summary>
+        [Input("createdByType")]
+        public InputUnion<string, Pulumi.AzureNative.AzureStackHCI.Latest.CreatedByType>? CreatedByType { get; set; }
+
+        /// <summary>
+        /// The timestamp of resource last modification (UTC)
+        /// </summary>
+        [Input("lastModifiedAt")]
+        public Input<string>? LastModifiedAt { get; set; }
+
+        /// <summary>
+        /// The identity that last modified the resource.
+        /// </summary>
+        [Input("lastModifiedBy")]
+        public Input<string>? LastModifiedBy { get; set; }
+
+        /// <summary>
+        /// The type of identity that last modified the resource.
+        /// </summary>
+        [Input("lastModifiedByType")]
+        public InputUnion<string, Pulumi.AzureNative.AzureStackHCI.Latest.CreatedByType>? LastModifiedByType { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives

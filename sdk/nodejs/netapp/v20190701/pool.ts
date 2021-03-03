@@ -40,7 +40,7 @@ export class Pool extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Pool Resource name
+     * Resource name
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**

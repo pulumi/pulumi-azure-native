@@ -8,7 +8,7 @@ import (
 )
 
 // Class representing a Traffic Manager endpoint.
-// Latest API Version: 2018-04-01.
+// Latest API Version: 2018-08-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getEndpoint'.
 func LookupEndpoint(ctx *pulumi.Context, args *LookupEndpointArgs, opts ...pulumi.InvokeOption) (*LookupEndpointResult, error) {
@@ -47,6 +47,10 @@ type LookupEndpointResult struct {
 	Id *string `pulumi:"id"`
 	// The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
 	MinChildEndpoints *float64 `pulumi:"minChildEndpoints"`
+	// The minimum number of IPv4 (DNS record type A) endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
+	MinChildEndpointsIPv4 *float64 `pulumi:"minChildEndpointsIPv4"`
+	// The minimum number of IPv6 (DNS record type AAAA) endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
+	MinChildEndpointsIPv6 *float64 `pulumi:"minChildEndpointsIPv6"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
 	// The priority of this endpoint when using the 'Priority' traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.

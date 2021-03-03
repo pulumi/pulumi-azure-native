@@ -7,6 +7,7 @@ from enum import Enum
 __all__ = [
     'Access',
     'ActionType',
+    'AllowedEndpointRecordType',
     'ApplicationGatewayCookieBasedAffinity',
     'ApplicationGatewayCustomErrorStatusCode',
     'ApplicationGatewayFirewallMode',
@@ -182,6 +183,16 @@ class ActionType(str, Enum):
     BLOCK = "Block"
     LOG = "Log"
     REDIRECT = "Redirect"
+
+
+class AllowedEndpointRecordType(str, Enum):
+    """
+    The allowed type DNS record types for this profile.
+    """
+    DOMAIN_NAME = "DomainName"
+    I_PV4_ADDRESS = "IPv4Address"
+    I_PV6_ADDRESS = "IPv6Address"
+    ANY = "Any"
 
 
 class ApplicationGatewayCookieBasedAffinity(str, Enum):

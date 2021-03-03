@@ -7,8 +7,10 @@ import * as utilities from "../../utilities";
 // Export members:
 export * from "./export";
 export * from "./getExport";
+export * from "./getSetting";
 export * from "./getView";
 export * from "./getViewByScope";
+export * from "./setting";
 export * from "./view";
 export * from "./viewByScope";
 
@@ -17,6 +19,7 @@ export * from "../../types/enums/costmanagement/v20191101";
 
 // Import resources to register:
 import { Export } from "./export";
+import { Setting } from "./setting";
 import { View } from "./view";
 import { ViewByScope } from "./viewByScope";
 
@@ -26,6 +29,8 @@ const _module = {
         switch (type) {
             case "azure-native:costmanagement/v20191101:Export":
                 return new Export(name, <any>undefined, { urn })
+            case "azure-native:costmanagement/v20191101:Setting":
+                return new Setting(name, <any>undefined, { urn })
             case "azure-native:costmanagement/v20191101:View":
                 return new View(name, <any>undefined, { urn })
             case "azure-native:costmanagement/v20191101:ViewByScope":

@@ -20,7 +20,10 @@ class GetProfileResult:
     """
     Class representing a Traffic Manager profile.
     """
-    def __init__(__self__, dns_config=None, endpoints=None, id=None, location=None, max_return=None, monitor_config=None, name=None, profile_status=None, tags=None, traffic_routing_method=None, traffic_view_enrollment_status=None, type=None):
+    def __init__(__self__, allowed_endpoint_record_types=None, dns_config=None, endpoints=None, id=None, location=None, max_return=None, monitor_config=None, name=None, profile_status=None, tags=None, traffic_routing_method=None, traffic_view_enrollment_status=None, type=None):
+        if allowed_endpoint_record_types and not isinstance(allowed_endpoint_record_types, list):
+            raise TypeError("Expected argument 'allowed_endpoint_record_types' to be a list")
+        pulumi.set(__self__, "allowed_endpoint_record_types", allowed_endpoint_record_types)
         if dns_config and not isinstance(dns_config, dict):
             raise TypeError("Expected argument 'dns_config' to be a dict")
         pulumi.set(__self__, "dns_config", dns_config)
@@ -57,6 +60,14 @@ class GetProfileResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="allowedEndpointRecordTypes")
+    def allowed_endpoint_record_types(self) -> Optional[Sequence[str]]:
+        """
+        The list of allowed endpoint record types.
+        """
+        return pulumi.get(self, "allowed_endpoint_record_types")
 
     @property
     @pulumi.getter(name="dnsConfig")
@@ -161,6 +172,7 @@ class AwaitableGetProfileResult(GetProfileResult):
         if False:
             yield self
         return GetProfileResult(
+            allowed_endpoint_record_types=self.allowed_endpoint_record_types,
             dns_config=self.dns_config,
             endpoints=self.endpoints,
             id=self.id,
@@ -180,7 +192,7 @@ def get_profile(profile_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProfileResult:
     """
     Class representing a Traffic Manager profile.
-    API Version: 2018-04-01.
+    API Version: 2018-08-01.
 
 
     :param str profile_name: The name of the Traffic Manager profile.
@@ -196,6 +208,7 @@ def get_profile(profile_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network:getProfile', __args__, opts=opts, typ=GetProfileResult).value
 
     return AwaitableGetProfileResult(
+        allowed_endpoint_record_types=__ret__.allowed_endpoint_record_types,
         dns_config=__ret__.dns_config,
         endpoints=__ret__.endpoints,
         id=__ret__.id,

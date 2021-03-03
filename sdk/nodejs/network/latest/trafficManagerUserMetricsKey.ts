@@ -6,7 +6,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Class representing Traffic Manager User Metrics.
- * Latest API Version: 2018-04-01.
+ * Latest API Version: 2018-08-01.
  *
  * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:TrafficManagerUserMetricsKey'.
  */
@@ -75,7 +75,7 @@ export class TrafficManagerUserMetricsKey extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/latest:TrafficManagerUserMetricsKey" }, { type: "azure-native:network:TrafficManagerUserMetricsKey" }, { type: "azure-nextgen:network:TrafficManagerUserMetricsKey" }, { type: "azure-native:network/v20180401:TrafficManagerUserMetricsKey" }, { type: "azure-nextgen:network/v20180401:TrafficManagerUserMetricsKey" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/latest:TrafficManagerUserMetricsKey" }, { type: "azure-native:network:TrafficManagerUserMetricsKey" }, { type: "azure-nextgen:network:TrafficManagerUserMetricsKey" }, { type: "azure-native:network/v20180401:TrafficManagerUserMetricsKey" }, { type: "azure-nextgen:network/v20180401:TrafficManagerUserMetricsKey" }, { type: "azure-native:network/v20180801:TrafficManagerUserMetricsKey" }, { type: "azure-nextgen:network/v20180801:TrafficManagerUserMetricsKey" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(TrafficManagerUserMetricsKey.__pulumiType, name, inputs, opts);
     }

@@ -67,6 +67,36 @@ func (e Action) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringP
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// The allowed type DNS record types for this profile.
+type AllowedEndpointRecordType pulumi.String
+
+const (
+	AllowedEndpointRecordTypeDomainName  = AllowedEndpointRecordType("DomainName")
+	AllowedEndpointRecordTypeIPv4Address = AllowedEndpointRecordType("IPv4Address")
+	AllowedEndpointRecordTypeIPv6Address = AllowedEndpointRecordType("IPv6Address")
+	AllowedEndpointRecordTypeAny         = AllowedEndpointRecordType("Any")
+)
+
+func (AllowedEndpointRecordType) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e AllowedEndpointRecordType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AllowedEndpointRecordType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AllowedEndpointRecordType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AllowedEndpointRecordType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // Cookie based affinity.
 type ApplicationGatewayCookieBasedAffinity pulumi.String
 
@@ -669,6 +699,66 @@ func (e EnabledState) ToStringPtrOutput() pulumi.StringPtrOutput {
 }
 
 func (e EnabledState) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// The monitoring status of the endpoint.
+type EndpointMonitorStatus pulumi.String
+
+const (
+	EndpointMonitorStatusCheckingEndpoint = EndpointMonitorStatus("CheckingEndpoint")
+	EndpointMonitorStatusOnline           = EndpointMonitorStatus("Online")
+	EndpointMonitorStatusDegraded         = EndpointMonitorStatus("Degraded")
+	EndpointMonitorStatusDisabled         = EndpointMonitorStatus("Disabled")
+	EndpointMonitorStatusInactive         = EndpointMonitorStatus("Inactive")
+	EndpointMonitorStatusStopped          = EndpointMonitorStatus("Stopped")
+)
+
+func (EndpointMonitorStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e EndpointMonitorStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EndpointMonitorStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EndpointMonitorStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e EndpointMonitorStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// The status of the endpoint. If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.
+type EndpointStatus pulumi.String
+
+const (
+	EndpointStatusEnabled  = EndpointStatus("Enabled")
+	EndpointStatusDisabled = EndpointStatus("Disabled")
+)
+
+func (EndpointStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e EndpointStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EndpointStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EndpointStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e EndpointStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
@@ -1286,6 +1376,35 @@ func (e Mode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtr
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// The protocol (HTTP, HTTPS or TCP) used to probe for endpoint health.
+type MonitorProtocol pulumi.String
+
+const (
+	MonitorProtocolHTTP  = MonitorProtocol("HTTP")
+	MonitorProtocolHTTPS = MonitorProtocol("HTTPS")
+	MonitorProtocolTCP   = MonitorProtocol("TCP")
+)
+
+func (MonitorProtocol) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e MonitorProtocol) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MonitorProtocol) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MonitorProtocol) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e MonitorProtocol) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // Describes operator to be matched
 type Operator pulumi.String
 
@@ -1413,6 +1532,65 @@ func (e ProbeProtocol) ToStringPtrOutput() pulumi.StringPtrOutput {
 }
 
 func (e ProbeProtocol) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// The profile-level monitoring status of the Traffic Manager profile.
+type ProfileMonitorStatus pulumi.String
+
+const (
+	ProfileMonitorStatusCheckingEndpoints = ProfileMonitorStatus("CheckingEndpoints")
+	ProfileMonitorStatusOnline            = ProfileMonitorStatus("Online")
+	ProfileMonitorStatusDegraded          = ProfileMonitorStatus("Degraded")
+	ProfileMonitorStatusDisabled          = ProfileMonitorStatus("Disabled")
+	ProfileMonitorStatusInactive          = ProfileMonitorStatus("Inactive")
+)
+
+func (ProfileMonitorStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e ProfileMonitorStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ProfileMonitorStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ProfileMonitorStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ProfileMonitorStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// The status of the Traffic Manager profile.
+type ProfileStatus pulumi.String
+
+const (
+	ProfileStatusEnabled  = ProfileStatus("Enabled")
+	ProfileStatusDisabled = ProfileStatus("Disabled")
+)
+
+func (ProfileStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e ProfileStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ProfileStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ProfileStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ProfileStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
@@ -1725,6 +1903,66 @@ func (e SessionAffinityEnabledState) ToStringPtrOutput() pulumi.StringPtrOutput 
 }
 
 func (e SessionAffinityEnabledState) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// The traffic routing method of the Traffic Manager profile.
+type TrafficRoutingMethod pulumi.String
+
+const (
+	TrafficRoutingMethodPerformance = TrafficRoutingMethod("Performance")
+	TrafficRoutingMethodPriority    = TrafficRoutingMethod("Priority")
+	TrafficRoutingMethodWeighted    = TrafficRoutingMethod("Weighted")
+	TrafficRoutingMethodGeographic  = TrafficRoutingMethod("Geographic")
+	TrafficRoutingMethodMultiValue  = TrafficRoutingMethod("MultiValue")
+	TrafficRoutingMethodSubnet      = TrafficRoutingMethod("Subnet")
+)
+
+func (TrafficRoutingMethod) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e TrafficRoutingMethod) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TrafficRoutingMethod) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TrafficRoutingMethod) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TrafficRoutingMethod) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// Indicates whether Traffic View is 'Enabled' or 'Disabled' for the Traffic Manager profile. Null, indicates 'Disabled'. Enabling this feature will increase the cost of the Traffic Manage profile.
+type TrafficViewEnrollmentStatus pulumi.String
+
+const (
+	TrafficViewEnrollmentStatusEnabled  = TrafficViewEnrollmentStatus("Enabled")
+	TrafficViewEnrollmentStatusDisabled = TrafficViewEnrollmentStatus("Disabled")
+)
+
+func (TrafficViewEnrollmentStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e TrafficViewEnrollmentStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TrafficViewEnrollmentStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TrafficViewEnrollmentStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TrafficViewEnrollmentStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 

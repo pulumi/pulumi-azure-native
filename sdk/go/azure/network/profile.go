@@ -12,10 +12,12 @@ import (
 )
 
 // Class representing a Traffic Manager profile.
-// API Version: 2018-04-01.
+// API Version: 2018-08-01.
 type Profile struct {
 	pulumi.CustomResourceState
 
+	// The list of allowed endpoint record types.
+	AllowedEndpointRecordTypes pulumi.StringArrayOutput `pulumi:"allowedEndpointRecordTypes"`
 	// The DNS settings of the Traffic Manager profile.
 	DnsConfig DnsConfigResponsePtrOutput `pulumi:"dnsConfig"`
 	// The list of endpoints in the Traffic Manager profile.
@@ -96,6 +98,12 @@ func NewProfile(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:network/v20180401:Profile"),
 		},
+		{
+			Type: pulumi.String("azure-native:network/v20180801:Profile"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20180801:Profile"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Profile
@@ -120,6 +128,8 @@ func GetProfile(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Profile resources.
 type profileState struct {
+	// The list of allowed endpoint record types.
+	AllowedEndpointRecordTypes []string `pulumi:"allowedEndpointRecordTypes"`
 	// The DNS settings of the Traffic Manager profile.
 	DnsConfig *DnsConfigResponse `pulumi:"dnsConfig"`
 	// The list of endpoints in the Traffic Manager profile.
@@ -145,6 +155,8 @@ type profileState struct {
 }
 
 type ProfileState struct {
+	// The list of allowed endpoint record types.
+	AllowedEndpointRecordTypes pulumi.StringArrayInput
 	// The DNS settings of the Traffic Manager profile.
 	DnsConfig DnsConfigResponsePtrInput
 	// The list of endpoints in the Traffic Manager profile.
@@ -174,6 +186,8 @@ func (ProfileState) ElementType() reflect.Type {
 }
 
 type profileArgs struct {
+	// The list of allowed endpoint record types.
+	AllowedEndpointRecordTypes []string `pulumi:"allowedEndpointRecordTypes"`
 	// The DNS settings of the Traffic Manager profile.
 	DnsConfig *DnsConfig `pulumi:"dnsConfig"`
 	// The list of endpoints in the Traffic Manager profile.
@@ -206,6 +220,8 @@ type profileArgs struct {
 
 // The set of arguments for constructing a Profile resource.
 type ProfileArgs struct {
+	// The list of allowed endpoint record types.
+	AllowedEndpointRecordTypes pulumi.StringArrayInput
 	// The DNS settings of the Traffic Manager profile.
 	DnsConfig DnsConfigPtrInput
 	// The list of endpoints in the Traffic Manager profile.

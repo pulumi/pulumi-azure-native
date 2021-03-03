@@ -8537,6 +8537,8 @@ class EndpointResponse(dict):
                  geo_mapping: Optional[Sequence[str]] = None,
                  id: Optional[str] = None,
                  min_child_endpoints: Optional[float] = None,
+                 min_child_endpoints_i_pv4: Optional[float] = None,
+                 min_child_endpoints_i_pv6: Optional[float] = None,
                  name: Optional[str] = None,
                  priority: Optional[float] = None,
                  subnets: Optional[Sequence['outputs.EndpointPropertiesResponseSubnets']] = None,
@@ -8553,6 +8555,8 @@ class EndpointResponse(dict):
         :param Sequence[str] geo_mapping: The list of countries/regions mapped to this endpoint when using the 'Geographic' traffic routing method. Please consult Traffic Manager Geographic documentation for a full list of accepted values.
         :param str id: Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{resourceName}
         :param float min_child_endpoints: The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
+        :param float min_child_endpoints_i_pv4: The minimum number of IPv4 (DNS record type A) endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
+        :param float min_child_endpoints_i_pv6: The minimum number of IPv6 (DNS record type AAAA) endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
         :param str name: The name of the resource
         :param float priority: The priority of this endpoint when using the 'Priority' traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
         :param Sequence['EndpointPropertiesResponseSubnetsArgs'] subnets: The list of subnets, IP addresses, and/or address ranges mapped to this endpoint when using the 'Subnet' traffic routing method. An empty list will match all ranges not covered by other endpoints.
@@ -8575,6 +8579,10 @@ class EndpointResponse(dict):
             pulumi.set(__self__, "id", id)
         if min_child_endpoints is not None:
             pulumi.set(__self__, "min_child_endpoints", min_child_endpoints)
+        if min_child_endpoints_i_pv4 is not None:
+            pulumi.set(__self__, "min_child_endpoints_i_pv4", min_child_endpoints_i_pv4)
+        if min_child_endpoints_i_pv6 is not None:
+            pulumi.set(__self__, "min_child_endpoints_i_pv6", min_child_endpoints_i_pv6)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if priority is not None:
@@ -8645,6 +8653,22 @@ class EndpointResponse(dict):
         The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
         """
         return pulumi.get(self, "min_child_endpoints")
+
+    @property
+    @pulumi.getter(name="minChildEndpointsIPv4")
+    def min_child_endpoints_i_pv4(self) -> Optional[float]:
+        """
+        The minimum number of IPv4 (DNS record type A) endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
+        """
+        return pulumi.get(self, "min_child_endpoints_i_pv4")
+
+    @property
+    @pulumi.getter(name="minChildEndpointsIPv6")
+    def min_child_endpoints_i_pv6(self) -> Optional[float]:
+        """
+        The minimum number of IPv6 (DNS record type AAAA) endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
+        """
+        return pulumi.get(self, "min_child_endpoints_i_pv6")
 
     @property
     @pulumi.getter

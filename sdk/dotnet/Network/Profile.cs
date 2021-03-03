@@ -11,11 +11,17 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// Class representing a Traffic Manager profile.
-    /// API Version: 2018-04-01.
+    /// API Version: 2018-08-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:Profile")]
     public partial class Profile : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The list of allowed endpoint record types.
+        /// </summary>
+        [Output("allowedEndpointRecordTypes")]
+        public Output<ImmutableArray<string>> AllowedEndpointRecordTypes { get; private set; } = null!;
+
         /// <summary>
         /// The DNS settings of the Traffic Manager profile.
         /// </summary>
@@ -122,6 +128,8 @@ namespace Pulumi.AzureNative.Network
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180301:Profile"},
                     new Pulumi.Alias { Type = "azure-native:network/v20180401:Profile"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180401:Profile"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180801:Profile"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180801:Profile"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -145,6 +153,18 @@ namespace Pulumi.AzureNative.Network
 
     public sealed class ProfileArgs : Pulumi.ResourceArgs
     {
+        [Input("allowedEndpointRecordTypes")]
+        private InputList<Union<string, Pulumi.AzureNative.Network.AllowedEndpointRecordType>>? _allowedEndpointRecordTypes;
+
+        /// <summary>
+        /// The list of allowed endpoint record types.
+        /// </summary>
+        public InputList<Union<string, Pulumi.AzureNative.Network.AllowedEndpointRecordType>> AllowedEndpointRecordTypes
+        {
+            get => _allowedEndpointRecordTypes ?? (_allowedEndpointRecordTypes = new InputList<Union<string, Pulumi.AzureNative.Network.AllowedEndpointRecordType>>());
+            set => _allowedEndpointRecordTypes = value;
+        }
+
         /// <summary>
         /// The DNS settings of the Traffic Manager profile.
         /// </summary>

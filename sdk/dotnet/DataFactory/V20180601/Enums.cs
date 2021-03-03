@@ -532,6 +532,8 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
         }
 
         public static FactoryIdentityType SystemAssigned { get; } = new FactoryIdentityType("SystemAssigned");
+        public static FactoryIdentityType UserAssigned { get; } = new FactoryIdentityType("UserAssigned");
+        public static FactoryIdentityType SystemAssigned_UserAssigned { get; } = new FactoryIdentityType("SystemAssigned,UserAssigned");
 
         public static bool operator ==(FactoryIdentityType left, FactoryIdentityType right) => left.Equals(right);
         public static bool operator !=(FactoryIdentityType left, FactoryIdentityType right) => !left.Equals(right);

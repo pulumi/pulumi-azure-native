@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "azure-native:costmanagement/v20191101:Export":
 		r, err = NewExport(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-native:costmanagement/v20191101:Setting":
+		r, err = NewSetting(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:costmanagement/v20191101:View":
 		r, err = NewView(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:costmanagement/v20191101:ViewByScope":

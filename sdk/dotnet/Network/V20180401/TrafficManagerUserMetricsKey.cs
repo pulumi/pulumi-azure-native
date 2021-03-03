@@ -63,6 +63,8 @@ namespace Pulumi.AzureNative.Network.V20180401
                     new Pulumi.Alias { Type = "azure-nextgen:network:TrafficManagerUserMetricsKey"},
                     new Pulumi.Alias { Type = "azure-native:network/latest:TrafficManagerUserMetricsKey"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/latest:TrafficManagerUserMetricsKey"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20180801:TrafficManagerUserMetricsKey"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180801:TrafficManagerUserMetricsKey"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -47,6 +47,7 @@ class CertificatePropertiesResponse(dict):
     The description of an X509 CA Certificate.
     """
     def __init__(__self__, *,
+                 certificate: str,
                  created: str,
                  expiry: str,
                  is_verified: bool,
@@ -55,6 +56,7 @@ class CertificatePropertiesResponse(dict):
                  updated: str):
         """
         The description of an X509 CA Certificate.
+        :param str certificate: base-64 representation of X509 certificate .cer file or just .pem file content.
         :param str created: The certificate's creation date and time.
         :param str expiry: The certificate's expiration date and time.
         :param bool is_verified: Determines whether certificate has been verified.
@@ -62,12 +64,21 @@ class CertificatePropertiesResponse(dict):
         :param str thumbprint: The certificate's thumbprint.
         :param str updated: The certificate's last update date and time.
         """
+        pulumi.set(__self__, "certificate", certificate)
         pulumi.set(__self__, "created", created)
         pulumi.set(__self__, "expiry", expiry)
         pulumi.set(__self__, "is_verified", is_verified)
         pulumi.set(__self__, "subject", subject)
         pulumi.set(__self__, "thumbprint", thumbprint)
         pulumi.set(__self__, "updated", updated)
+
+    @property
+    @pulumi.getter
+    def certificate(self) -> str:
+        """
+        base-64 representation of X509 certificate .cer file or just .pem file content.
+        """
+        return pulumi.get(self, "certificate")
 
     @property
     @pulumi.getter

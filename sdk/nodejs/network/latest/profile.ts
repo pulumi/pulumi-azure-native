@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Class representing a Traffic Manager profile.
- * Latest API Version: 2018-04-01.
+ * Latest API Version: 2018-08-01.
  *
  * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:Profile'.
  */
@@ -39,6 +39,10 @@ export class Profile extends pulumi.CustomResource {
         return obj['__pulumiType'] === Profile.__pulumiType;
     }
 
+    /**
+     * The list of allowed endpoint record types.
+     */
+    public readonly allowedEndpointRecordTypes!: pulumi.Output<string[] | undefined>;
     /**
      * The DNS settings of the Traffic Manager profile.
      */
@@ -100,6 +104,7 @@ export class Profile extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["allowedEndpointRecordTypes"] = args ? args.allowedEndpointRecordTypes : undefined;
             inputs["dnsConfig"] = args ? args.dnsConfig : undefined;
             inputs["endpoints"] = args ? args.endpoints : undefined;
             inputs["id"] = args ? args.id : undefined;
@@ -115,6 +120,7 @@ export class Profile extends pulumi.CustomResource {
             inputs["trafficViewEnrollmentStatus"] = args ? args.trafficViewEnrollmentStatus : undefined;
             inputs["type"] = args ? args.type : undefined;
         } else {
+            inputs["allowedEndpointRecordTypes"] = undefined /*out*/;
             inputs["dnsConfig"] = undefined /*out*/;
             inputs["endpoints"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
@@ -130,7 +136,7 @@ export class Profile extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/latest:Profile" }, { type: "azure-native:network:Profile" }, { type: "azure-nextgen:network:Profile" }, { type: "azure-native:network/v20151101:Profile" }, { type: "azure-nextgen:network/v20151101:Profile" }, { type: "azure-native:network/v20170301:Profile" }, { type: "azure-nextgen:network/v20170301:Profile" }, { type: "azure-native:network/v20170501:Profile" }, { type: "azure-nextgen:network/v20170501:Profile" }, { type: "azure-native:network/v20180201:Profile" }, { type: "azure-nextgen:network/v20180201:Profile" }, { type: "azure-native:network/v20180301:Profile" }, { type: "azure-nextgen:network/v20180301:Profile" }, { type: "azure-native:network/v20180401:Profile" }, { type: "azure-nextgen:network/v20180401:Profile" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/latest:Profile" }, { type: "azure-native:network:Profile" }, { type: "azure-nextgen:network:Profile" }, { type: "azure-native:network/v20151101:Profile" }, { type: "azure-nextgen:network/v20151101:Profile" }, { type: "azure-native:network/v20170301:Profile" }, { type: "azure-nextgen:network/v20170301:Profile" }, { type: "azure-native:network/v20170501:Profile" }, { type: "azure-nextgen:network/v20170501:Profile" }, { type: "azure-native:network/v20180201:Profile" }, { type: "azure-nextgen:network/v20180201:Profile" }, { type: "azure-native:network/v20180301:Profile" }, { type: "azure-nextgen:network/v20180301:Profile" }, { type: "azure-native:network/v20180401:Profile" }, { type: "azure-nextgen:network/v20180401:Profile" }, { type: "azure-native:network/v20180801:Profile" }, { type: "azure-nextgen:network/v20180801:Profile" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Profile.__pulumiType, name, inputs, opts);
     }
@@ -140,6 +146,10 @@ export class Profile extends pulumi.CustomResource {
  * The set of arguments for constructing a Profile resource.
  */
 export interface ProfileArgs {
+    /**
+     * The list of allowed endpoint record types.
+     */
+    readonly allowedEndpointRecordTypes?: pulumi.Input<pulumi.Input<string | enums.network.latest.AllowedEndpointRecordType>[]>;
     /**
      * The DNS settings of the Traffic Manager profile.
      */

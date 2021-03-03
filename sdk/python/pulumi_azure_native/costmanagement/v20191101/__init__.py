@@ -6,8 +6,10 @@
 from ._enums import *
 from .export import *
 from .get_export import *
+from .get_setting import *
 from .get_view import *
 from .get_view_by_scope import *
+from .setting import *
 from .view import *
 from .view_by_scope import *
 from ._inputs import *
@@ -27,6 +29,8 @@ def _register_module():
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
             if typ == "azure-native:costmanagement/v20191101:Export":
                 return Export(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:costmanagement/v20191101:Setting":
+                return Setting(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:costmanagement/v20191101:View":
                 return View(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:costmanagement/v20191101:ViewByScope":

@@ -115,10 +115,22 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20200214PrivatePreview
         public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
+        /// The resource group name of source PostgreSQL server name to restore from.
+        /// </summary>
+        [Output("sourceResourceGroupName")]
+        public Output<string?> SourceResourceGroupName { get; private set; } = null!;
+
+        /// <summary>
         /// The source PostgreSQL server name to restore from.
         /// </summary>
         [Output("sourceServerName")]
         public Output<string?> SourceServerName { get; private set; } = null!;
+
+        /// <summary>
+        /// The subscription id of source PostgreSQL server name to restore from.
+        /// </summary>
+        [Output("sourceSubscriptionId")]
+        public Output<string?> SourceSubscriptionId { get; private set; } = null!;
 
         /// <summary>
         /// availability Zone information of the server.
@@ -289,10 +301,22 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20200214PrivatePreview
         public Input<Inputs.SkuArgs>? Sku { get; set; }
 
         /// <summary>
+        /// The resource group name of source PostgreSQL server name to restore from.
+        /// </summary>
+        [Input("sourceResourceGroupName")]
+        public Input<string>? SourceResourceGroupName { get; set; }
+
+        /// <summary>
         /// The source PostgreSQL server name to restore from.
         /// </summary>
         [Input("sourceServerName")]
         public Input<string>? SourceServerName { get; set; }
+
+        /// <summary>
+        /// The subscription id of source PostgreSQL server name to restore from.
+        /// </summary>
+        [Input("sourceSubscriptionId")]
+        public Input<string>? SourceSubscriptionId { get; set; }
 
         /// <summary>
         /// Storage profile of a server.

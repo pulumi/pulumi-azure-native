@@ -57,7 +57,7 @@ namespace Pulumi.AzureNative.NetApp.V20191101
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// Pool Resource name
+        /// Resource name
         /// </summary>
         public readonly string Name;
         /// <summary>

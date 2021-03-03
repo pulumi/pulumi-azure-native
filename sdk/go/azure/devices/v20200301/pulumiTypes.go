@@ -12,6 +12,8 @@ import (
 
 // The description of an X509 CA Certificate.
 type CertificatePropertiesResponse struct {
+	// base-64 representation of X509 certificate .cer file or just .pem file content.
+	Certificate string `pulumi:"certificate"`
 	// The certificate's creation date and time.
 	Created string `pulumi:"created"`
 	// The certificate's expiration date and time.
@@ -39,6 +41,8 @@ type CertificatePropertiesResponseInput interface {
 
 // The description of an X509 CA Certificate.
 type CertificatePropertiesResponseArgs struct {
+	// base-64 representation of X509 certificate .cer file or just .pem file content.
+	Certificate pulumi.StringInput `pulumi:"certificate"`
 	// The certificate's creation date and time.
 	Created pulumi.StringInput `pulumi:"created"`
 	// The certificate's expiration date and time.
@@ -131,6 +135,11 @@ func (o CertificatePropertiesResponseOutput) ToCertificatePropertiesResponsePtrO
 	}).(CertificatePropertiesResponsePtrOutput)
 }
 
+// base-64 representation of X509 certificate .cer file or just .pem file content.
+func (o CertificatePropertiesResponseOutput) Certificate() pulumi.StringOutput {
+	return o.ApplyT(func(v CertificatePropertiesResponse) string { return v.Certificate }).(pulumi.StringOutput)
+}
+
 // The certificate's creation date and time.
 func (o CertificatePropertiesResponseOutput) Created() pulumi.StringOutput {
 	return o.ApplyT(func(v CertificatePropertiesResponse) string { return v.Created }).(pulumi.StringOutput)
@@ -177,6 +186,16 @@ func (o CertificatePropertiesResponsePtrOutput) ToCertificatePropertiesResponseP
 
 func (o CertificatePropertiesResponsePtrOutput) Elem() CertificatePropertiesResponseOutput {
 	return o.ApplyT(func(v *CertificatePropertiesResponse) CertificatePropertiesResponse { return *v }).(CertificatePropertiesResponseOutput)
+}
+
+// base-64 representation of X509 certificate .cer file or just .pem file content.
+func (o CertificatePropertiesResponsePtrOutput) Certificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificatePropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Certificate
+	}).(pulumi.StringPtrOutput)
 }
 
 // The certificate's creation date and time.

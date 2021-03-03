@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.Resources.V20191001Preview.Outputs
         /// <summary>
         /// ID of the Azure Active Directory.
         /// </summary>
-        public readonly string? TenantId;
+        public readonly string TenantId;
         /// <summary>
         /// Type of the managed identity.
         /// </summary>
@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.Resources.V20191001Preview.Outputs
 
         [OutputConstructor]
         private ManagedServiceIdentityResponse(
-            string? tenantId,
+            string tenantId,
 
             string? type,
 

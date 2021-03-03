@@ -24,6 +24,18 @@ export const ActionType = {
  */
 export type ActionType = (typeof ActionType)[keyof typeof ActionType];
 
+export const AllowedEndpointRecordType = {
+    DomainName: "DomainName",
+    IPv4Address: "IPv4Address",
+    IPv6Address: "IPv6Address",
+    Any: "Any",
+} as const;
+
+/**
+ * The allowed type DNS record types for this profile.
+ */
+export type AllowedEndpointRecordType = (typeof AllowedEndpointRecordType)[keyof typeof AllowedEndpointRecordType];
+
 export const ApplicationGatewayCookieBasedAffinity = {
     Enabled: "Enabled",
     Disabled: "Disabled",
