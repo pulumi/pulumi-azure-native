@@ -25,7 +25,6 @@ import (
 	"github.com/hashicorp/go-azure-helpers/authentication"
 	"github.com/hashicorp/go-azure-helpers/sender"
 	"github.com/pkg/errors"
-
 	"github.com/pulumi/pulumi-azure-native/provider/pkg/arm2pulumi"
 	"github.com/pulumi/pulumi-azure-native/provider/pkg/resources"
 	"github.com/pulumi/pulumi-azure-native/provider/pkg/version"
@@ -36,6 +35,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/common/util/contract"
 	"github.com/pulumi/pulumi/sdk/v2/go/common/util/logging"
 	rpc "github.com/pulumi/pulumi/sdk/v2/proto/go"
+	"google.golang.org/grpc/codes"
+	"google.golang.org/grpc/status"
 )
 
 const (
@@ -276,7 +277,7 @@ func (k *azureNativeProvider) Invoke(ctx context.Context, req *rpc.InvokeRequest
 // StreamInvoke dynamically executes a built-in function in the provider. The result is streamed
 // back as a series of messages.
 func (k *azureNativeProvider) StreamInvoke(_ *rpc.InvokeRequest, _ rpc.ResourceProvider_StreamInvokeServer) error {
-	panic("StreamInvoke not implemented")
+	return status.Error(codes.Unimplemented, "StreamInvoke is not yet implemented")
 }
 
 // Check validates that the given property bag is valid for a resource of the given type and returns
@@ -1132,7 +1133,7 @@ func (k *azureNativeProvider) Delete(ctx context.Context, req *rpc.DeleteRequest
 
 // Construct creates a new component resource.
 func (k *azureNativeProvider) Construct(_ context.Context, _ *rpc.ConstructRequest) (*rpc.ConstructResponse, error) {
-	panic("Construct not implemented")
+	return nil, status.Error(codes.Unimplemented, "Construct is not yet implemented")
 }
 
 // GetPluginInfo returns generic information about this plugin, like its version.
