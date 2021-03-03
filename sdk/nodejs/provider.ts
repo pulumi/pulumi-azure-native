@@ -34,7 +34,7 @@ export class Provider extends pulumi.ProviderResource {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         {
-            inputs["auxiliaryTenantIds"] = pulumi.output((args ? args.auxiliaryTenantIds : undefined) || <any>utilities.getEnv("ARM_AUXILIARY_TENANT_IDS")).apply(JSON.stringify);
+            inputs["auxiliaryTenantIds"] = pulumi.output(args ? args.auxiliaryTenantIds : undefined).apply(JSON.stringify);
             inputs["clientCertificatePassword"] = (args ? args.clientCertificatePassword : undefined) || utilities.getEnv("ARM_CLIENT_CERTIFICATE_PASSWORD");
             inputs["clientCertificatePath"] = (args ? args.clientCertificatePath : undefined) || utilities.getEnv("ARM_CLIENT_CERTIFICATE_PATH");
             inputs["clientId"] = (args ? args.clientId : undefined) || utilities.getEnv("ARM_CLIENT_ID");
@@ -58,6 +58,9 @@ export class Provider extends pulumi.ProviderResource {
  * The set of arguments for constructing a Provider resource.
  */
 export interface ProviderArgs {
+    /**
+     * Any additional Tenant IDs which should be used for authentication.
+     */
     readonly auxiliaryTenantIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client Certificate

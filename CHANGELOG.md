@@ -3,7 +3,9 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
-(None)
+#### Breaking Changes
+
+- Remove env var support for auxiliary tenant IDs (ARM_AUXILIARY_TENANT_IDS). This option can still be set directly as a Provider argument.
 
 ---
 

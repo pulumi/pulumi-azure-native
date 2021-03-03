@@ -22,9 +22,6 @@ func NewProvider(ctx *pulumi.Context,
 		args = &ProviderArgs{}
 	}
 
-	if args.AuxiliaryTenantIds == nil {
-		args.AuxiliaryTenantIds = pulumi.StringArray(getEnvOrDefault(pulumi.StringArray{}, parseEnvStringArray, "ARM_AUXILIARY_TENANT_IDS").(pulumi.StringArray))
-	}
 	if args.ClientCertificatePassword == nil {
 		args.ClientCertificatePassword = pulumi.StringPtr(getEnvOrDefault("", nil, "ARM_CLIENT_CERTIFICATE_PASSWORD").(string))
 	}
@@ -67,6 +64,7 @@ func NewProvider(ctx *pulumi.Context,
 }
 
 type providerArgs struct {
+	// Any additional Tenant IDs which should be used for authentication.
 	AuxiliaryTenantIds []string `pulumi:"auxiliaryTenantIds"`
 	// The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client Certificate
 	ClientCertificatePassword *string `pulumi:"clientCertificatePassword"`
@@ -94,6 +92,7 @@ type providerArgs struct {
 
 // The set of arguments for constructing a Provider resource.
 type ProviderArgs struct {
+	// Any additional Tenant IDs which should be used for authentication.
 	AuxiliaryTenantIds pulumi.StringArrayInput
 	// The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client Certificate
 	ClientCertificatePassword pulumi.StringPtrInput
