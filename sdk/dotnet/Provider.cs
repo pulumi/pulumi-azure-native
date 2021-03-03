@@ -44,6 +44,10 @@ namespace Pulumi.AzureNative
     {
         [Input("auxiliaryTenantIds", json: true)]
         private InputList<string>? _auxiliaryTenantIds;
+
+        /// <summary>
+        /// Any additional Tenant IDs which should be used for authentication.
+        /// </summary>
         public InputList<string> AuxiliaryTenantIds
         {
             get => _auxiliaryTenantIds ?? (_auxiliaryTenantIds = new InputList<string>());
@@ -118,7 +122,6 @@ namespace Pulumi.AzureNative
 
         public ProviderArgs()
         {
-            AuxiliaryTenantIds = Utilities.GetEnv("ARM_AUXILIARY_TENANT_IDS");
             ClientCertificatePassword = Utilities.GetEnv("ARM_CLIENT_CERTIFICATE_PASSWORD");
             ClientCertificatePath = Utilities.GetEnv("ARM_CLIENT_CERTIFICATE_PATH");
             ClientId = Utilities.GetEnv("ARM_CLIENT_ID");

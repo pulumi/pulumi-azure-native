@@ -144,11 +144,7 @@ func PulumiSchema(providerMap openapi.AzureProviders) (*pschema.PackageSpec, *re
 				},
 				"auxiliaryTenantIds": {
 					TypeSpec: pschema.TypeSpec{Type: "array", Items: &pschema.TypeSpec{Type: "string"}},
-					DefaultInfo: &pschema.DefaultSpec{
-						Environment: []string{
-							"ARM_AUXILIARY_TENANT_IDS",
-						},
-					},
+					Description: "Any additional Tenant IDs which should be used for authentication.",
 				},
 				"environment": {
 					TypeSpec: pschema.TypeSpec{Type: "string"},
