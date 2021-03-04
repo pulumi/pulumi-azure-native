@@ -96,20 +96,15 @@ build_dotnet::
 		echo "azure-native\n${DOTNET_VERSION}" >version.txt && \
 		dotnet build /p:Version=${DOTNET_VERSION}
 
-go_mod_touch::
-	touch sdk/nodejs/go.mod
-	touch sdk/python/go.mod
-	touch sdk/dotnet/go.mod
-
 generate_go::
 	$(WORKING_DIR)/bin/$(CODEGEN) go ${VERSION}
 
 build_go::
 
 clean::
-	rm -rf sdk/nodejs
-	rm -rf sdk/python
-	rm -rf sdk/dotnet
+	rm -rf sdk/nodejs && mkdir sdk/nodejs && touch sdk/nodejs/go.mod
+	rm -rf sdk/python && mkdir sdk/python && touch sdk/python/go.mod
+	rm -rf sdk/dotnet && mkdir sdk/dotnet && touch sdk/dotnet/go.mod
 	rm -rf sdk/go/azure
 	rm -rf sdk/schema
 
@@ -127,7 +122,7 @@ install_nodejs_sdk::
 test::
 	cd examples && go test -v -tags=all -timeout 2h
 
-build:: init_submodules clean codegen local_generate provider go_mod_touch build_sdks install_sdks
+build:: init_submodules clean codegen local_generate provider build_sdks install_sdks
 build_sdks: build_nodejs build_dotnet build_python build_go
 install_sdks:: install_dotnet_sdk install_python_sdk install_nodejs_sdk
 
