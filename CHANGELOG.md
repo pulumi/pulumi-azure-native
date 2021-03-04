@@ -7,6 +7,11 @@ CHANGELOG
 
 - Remove env var support for auxiliary tenant IDs (ARM_AUXILIARY_TENANT_IDS). This option can still be set directly as a Provider argument or config.
 
+#### Improvements
+
+- Upgrade to Go 1.16
+  [#630](https://github.com/pulumi/pulumi-azure-native/issues/630)
+
 #### Fixes
 
 - Support migration from `azure-nextgen` with custom providers.
