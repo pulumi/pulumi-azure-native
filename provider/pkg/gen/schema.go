@@ -41,6 +41,7 @@ const goBasePath = "github.com/pulumi/pulumi-azure-native/sdk/go/azure"
 
 // PulumiSchema will generate a Pulumi schema for the given Azure providers and resources map.
 func PulumiSchema(providerMap openapi.AzureProviders) (*pschema.PackageSpec, *resources.AzureAPIMetadata, map[string][]resources.AzureAPIExample, error) {
+	nextGenProvider := "pulumi:providers:azure-nextgen"
 	pkg := pschema.PackageSpec{
 		Name:        "azure-native",
 		Description: "A native Pulumi package for creating and managing Azure resources.",
@@ -213,6 +214,9 @@ func PulumiSchema(providerMap openapi.AzureProviders) (*pschema.PackageSpec, *re
 					Description: "This will disable the Pulumi Partner ID which is used if a custom `partnerId` isn't specified.",
 				},
 			},
+			Aliases: []schema.AliasSpec{{
+				Type: &nextGenProvider,
+			}},
 		},
 		Types:     map[string]pschema.ComplexTypeSpec{},
 		Resources: map[string]pschema.ResourceSpec{},

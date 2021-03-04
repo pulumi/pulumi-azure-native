@@ -99,6 +99,8 @@ class Provider(pulumi.ProviderResource):
             if use_msi is None:
                 use_msi = (_utilities.get_env_bool('ARM_USE_MSI') or False)
             __props__['use_msi'] = pulumi.Output.from_input(use_msi).apply(pulumi.runtime.to_json) if use_msi is not None else None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="pulumi:providers:azure-nextgen")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Provider, __self__).__init__(
             'azure-native',
             resource_name,

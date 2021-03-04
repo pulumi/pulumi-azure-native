@@ -55,6 +55,12 @@ func NewProvider(ctx *pulumi.Context,
 	if args.UseMsi == nil {
 		args.UseMsi = pulumi.BoolPtr(getEnvOrDefault(false, parseEnvBool, "ARM_USE_MSI").(bool))
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("pulumi:providers:azure-nextgen"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Provider
 	err := ctx.RegisterResource("pulumi:providers:azure-native", name, args, &resource, opts...)
 	if err != nil {
