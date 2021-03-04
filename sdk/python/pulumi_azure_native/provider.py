@@ -35,6 +35,7 @@ class Provider(pulumi.ProviderResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] auxiliary_tenant_ids: Any additional Tenant IDs which should be used for authentication.
         :param pulumi.Input[str] client_certificate_password: The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client Certificate
         :param pulumi.Input[str] client_certificate_path: The path to the Client Certificate associated with the Service Principal for use when authenticating as a Service Principal using a Client Certificate.
         :param pulumi.Input[str] client_id: The Client ID which should be used.
@@ -64,8 +65,6 @@ class Provider(pulumi.ProviderResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if auxiliary_tenant_ids is None:
-                auxiliary_tenant_ids = _utilities.get_env('ARM_AUXILIARY_TENANT_IDS')
             __props__['auxiliary_tenant_ids'] = pulumi.Output.from_input(auxiliary_tenant_ids).apply(pulumi.runtime.to_json) if auxiliary_tenant_ids is not None else None
             if client_certificate_password is None:
                 client_certificate_password = _utilities.get_env('ARM_CLIENT_CERTIFICATE_PASSWORD')

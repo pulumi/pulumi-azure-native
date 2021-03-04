@@ -22,4 +22,5 @@ require (
 	github.com/stretchr/testify v1.6.1
 	github.com/tombuildsstuff/giovanni v0.15.1
 	github.com/zclconf/go-cty v1.3.1
+	google.golang.org/grpc v1.29.1
 )
