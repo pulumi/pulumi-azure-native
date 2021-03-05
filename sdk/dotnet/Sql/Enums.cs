@@ -124,6 +124,37 @@ namespace Pulumi.AzureNative.Sql
     }
 
     /// <summary>
+    /// The state of the data masking policy.
+    /// </summary>
+    [EnumType]
+    public readonly struct DataMaskingState : IEquatable<DataMaskingState>
+    {
+        private readonly string _value;
+
+        private DataMaskingState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataMaskingState Disabled { get; } = new DataMaskingState("Disabled");
+        public static DataMaskingState Enabled { get; } = new DataMaskingState("Enabled");
+
+        public static bool operator ==(DataMaskingState left, DataMaskingState right) => left.Equals(right);
+        public static bool operator !=(DataMaskingState left, DataMaskingState right) => !left.Equals(right);
+
+        public static explicit operator string(DataMaskingState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataMaskingState other && Equals(other);
+        public bool Equals(DataMaskingState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The license type to apply for this database. `LicenseIncluded` if you need a license, or `BasePrice` if you have a license and are eligible for the Azure Hybrid Benefit.
     /// </summary>
     [EnumType]
