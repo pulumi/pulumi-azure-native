@@ -11,6 +11,8 @@ CHANGELOG
 
 - Upgrade to Go 1.16
   [#630](https://github.com/pulumi/pulumi-azure-native/issues/630)
+- New resource: `sql.DataMaskingPolicy`
+  [#605](https://github.com/pulumi/pulumi-azure-native/issues/605)
 
 #### Fixes
 
