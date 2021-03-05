@@ -5,6 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./dataMaskingPolicy";
 export * from "./database";
 export * from "./databaseSecurityAlertPolicy";
 export * from "./databaseVulnerabilityAssessment";
@@ -14,6 +15,7 @@ export * from "./elasticPool";
 export * from "./failoverGroup";
 export * from "./firewallRule";
 export * from "./geoBackupPolicy";
+export * from "./getDataMaskingPolicy";
 export * from "./getDatabase";
 export * from "./getDatabaseSecurityAlertPolicy";
 export * from "./getDatabaseVulnerabilityAssessment";
@@ -119,6 +121,7 @@ export {
 };
 
 // Import resources to register:
+import { DataMaskingPolicy } from "./dataMaskingPolicy";
 import { Database } from "./database";
 import { DatabaseSecurityAlertPolicy } from "./databaseSecurityAlertPolicy";
 import { DatabaseVulnerabilityAssessment } from "./databaseVulnerabilityAssessment";
@@ -167,6 +170,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:sql:DataMaskingPolicy":
+                return new DataMaskingPolicy(name, <any>undefined, { urn })
             case "azure-native:sql:Database":
                 return new Database(name, <any>undefined, { urn })
             case "azure-native:sql:DatabaseSecurityAlertPolicy":

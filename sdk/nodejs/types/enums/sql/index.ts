@@ -77,6 +77,16 @@ export const CreateMode = {
  */
 export type CreateMode = (typeof CreateMode)[keyof typeof CreateMode];
 
+export const DataMaskingState = {
+    Disabled: "Disabled",
+    Enabled: "Enabled",
+} as const;
+
+/**
+ * The state of the data masking policy.
+ */
+export type DataMaskingState = (typeof DataMaskingState)[keyof typeof DataMaskingState];
+
 export const DatabaseLicenseType = {
     LicenseIncluded: "LicenseIncluded",
     BasePrice: "BasePrice",
