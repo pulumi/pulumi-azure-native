@@ -4,6 +4,7 @@
 
 # Export this package's modules as members:
 from ._enums import *
+from .data_masking_policy import *
 from .database import *
 from .database_security_alert_policy import *
 from .database_vulnerability_assessment import *
@@ -13,6 +14,7 @@ from .elastic_pool import *
 from .failover_group import *
 from .firewall_rule import *
 from .geo_backup_policy import *
+from .get_data_masking_policy import *
 from .get_database import *
 from .get_database_security_alert_policy import *
 from .get_database_vulnerability_assessment import *
@@ -118,7 +120,9 @@ def _register_module():
             return Module._version
 
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
-            if typ == "azure-native:sql:Database":
+            if typ == "azure-native:sql:DataMaskingPolicy":
+                return DataMaskingPolicy(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:sql:Database":
                 return Database(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:sql:DatabaseSecurityAlertPolicy":
                 return DatabaseSecurityAlertPolicy(name, pulumi.ResourceOptions(urn=urn))

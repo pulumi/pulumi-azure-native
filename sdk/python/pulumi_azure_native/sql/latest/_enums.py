@@ -7,6 +7,7 @@ from enum import Enum
 __all__ = [
     'AdministratorType',
     'CreateMode',
+    'DataMaskingState',
     'DatabaseEdition',
     'ElasticPoolEdition',
     'GeoBackupPolicyState',
@@ -56,6 +57,14 @@ class CreateMode(str, Enum):
     RECOVERY = "Recovery"
     RESTORE = "Restore"
     RESTORE_LONG_TERM_RETENTION_BACKUP = "RestoreLongTermRetentionBackup"
+
+
+class DataMaskingState(str, Enum):
+    """
+    The state of the data masking policy.
+    """
+    DISABLED = "Disabled"
+    ENABLED = "Enabled"
 
 
 class DatabaseEdition(str, Enum):
