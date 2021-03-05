@@ -66,12 +66,19 @@ func newVersioner() (*versioner, error) {
 	return &versioner{lookup: result}, nil
 }
 
-// A manually-maintained list of stable versions where we want to promote a later preview version to be used for
+// A manually-maintained list of stable versions that we want to promote a later preview version to be used for
 // the top-level resource. These versions are "known" to be outdated but no newer stable versions were released yet.
 // However, there's no formal way to derive this from Open API specs, so we have to maintain this manual map.
 var deprecatedProviderVersions = map[string][]string{
 	"Authorization": {"v20150701"},
 	"Sql": {"v20140401", "v20150501"},
+}
+
+// A manually-maintained list of versions where we want to use for the top-level resource. The primary goal is to
+// avoid breaking changes within a single major version of the provider that could come with new API versions.
+// We reset this map every time we release a new major version (or a new 0.x minor version).
+// Currently populated for 0.7.* series.
+var lockedTypeVersions = map[string]string{
 }
 
 // calculateLatestVersions builds a map of latest versions per API paths from a map of all versions of a resource
@@ -113,6 +120,11 @@ func (c *versioner) calculateLatestVersions(provider string, versionMap Provider
 		}
 
 		for typeName, r := range res {
+			if lockedVersion, ok := lockedTypeVersions[typeName]; ok && lockedVersion != version {
+				// If we have a locked version for this resource, ignore all other versions.
+				continue
+			}
+
 			normalizedPath := normalizePath(r.Path)
 			isKnown := c.isKnown(provider, r.Path, version)
 			if !isKnown && knownResources.Has(normalizedPath) {
