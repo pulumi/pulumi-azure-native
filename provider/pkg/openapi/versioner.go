@@ -66,7 +66,7 @@ func newVersioner() (*versioner, error) {
 	return &versioner{lookup: result}, nil
 }
 
-// A manually-maintained list of stable versions where we want to promote a later preview version to be used for
+// A manually-maintained list of stable versions that we want to promote a later preview version to be used for
 // the top-level resource. These versions are "known" to be outdated but no newer stable versions were released yet.
 // However, there's no formal way to derive this from Open API specs, so we have to maintain this manual map.
 var deprecatedProviderVersions = map[string][]string{
