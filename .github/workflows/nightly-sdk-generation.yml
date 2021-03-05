@@ -50,19 +50,18 @@ jobs:
         run: make local_generate
       - name: Build provider binary
         run: make provider
-      - name: git status
-        run: git status
       - name: Git submodule commit hash
         id: vars
         run: echo ::set-output name=commit-hash::$(git rev-parse HEAD)
         working-directory: azure-rest-api-specs
-      - name: commit changes
-        uses: EndBug/add-and-commit@v4
-        with:
-          ref: "generate-sdk/${{ github.run_id }}-${{ github.run_number }}"
-          author_name: pulumi-bot
-          author_email: "bot@pulumi.com"
-          message: "Regenerating SDK based on azure-rest-api-specs @ ${{ steps.vars.outputs.commit-hash }}"
+      - name: Git Commit + Push to Branch
+        run: |
+          git config --local user.email "bot@pulumi.com"
+          git config --local user.name "pulumi-bot"
+          git checkout -b generate-sdk/${{ github.run_id }}-${{ github.run_number }}
+          git add .
+          git commit -m "Regenerating SDK based on azure-rest-api-specs @ ${{ steps.vars.outputs.commit-hash }}"
+          git push origin generate-sdk/${{ github.run_id }}-${{ github.run_number }}
       - name: pull-request
         uses: repo-sync/pull-request@v2
         with:
