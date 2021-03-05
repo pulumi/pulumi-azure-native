@@ -61,7 +61,7 @@ jobs:
           git checkout -b generate-sdk/${{ github.run_id }}-${{ github.run_number }}
           git add .
           git commit -m "Regenerating SDK based on azure-rest-api-specs @ ${{ steps.vars.outputs.commit-hash }}"
-          git push origin publish/${{ github.run_id }}-${{ github.run_number }}
+          git push origin generate-sdk/${{ github.run_id }}-${{ github.run_number }}
       - name: pull-request
         uses: repo-sync/pull-request@v2
         with:
