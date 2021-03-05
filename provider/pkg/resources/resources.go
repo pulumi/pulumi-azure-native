@@ -221,7 +221,13 @@ func AutoName(name, path string) (AutoNameKind, bool) {
 		return AutoNameRandom, true
 	}
 
-	return AutoNameCopy, true
+	switch name {
+	// Endpoints and custom domains both produce URIs, so they are globally unique.
+	case "endpointName", "customDomainName":
+		return AutoNameRandom, true
+	default:
+		return AutoNameCopy, true
+	}
 }
 
 func sliceHasPrefix(slice, subSlice []string) bool {

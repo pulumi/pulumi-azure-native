@@ -11,6 +11,8 @@ CHANGELOG
 
 - Upgrade to Go 1.16
   [#630](https://github.com/pulumi/pulumi-azure-native/issues/630)
+- `Endpoint` and `CustomDomain` resources are auto-named with a random suffix.
+  [#617](https://github.com/pulumi/pulumi-azure-native/issues/629)
 
 #### Fixes
 
