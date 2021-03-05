@@ -8,6 +8,7 @@ __all__ = [
     'AdministratorType',
     'CatalogCollationType',
     'CreateMode',
+    'DataMaskingState',
     'DatabaseLicenseType',
     'DatabaseReadScale',
     'ElasticPoolLicenseType',
@@ -87,6 +88,14 @@ class CreateMode(str, Enum):
     RESTORE_EXTERNAL_BACKUP_SECONDARY = "RestoreExternalBackupSecondary"
     RESTORE_LONG_TERM_RETENTION_BACKUP = "RestoreLongTermRetentionBackup"
     ONLINE_SECONDARY = "OnlineSecondary"
+
+
+class DataMaskingState(str, Enum):
+    """
+    The state of the data masking policy.
+    """
+    DISABLED = "Disabled"
+    ENABLED = "Enabled"
 
 
 class DatabaseLicenseType(str, Enum):
