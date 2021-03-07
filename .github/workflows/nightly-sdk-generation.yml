@@ -2,6 +2,7 @@ name: nightly-sdk-generation
 "on":
   schedule:
     - cron: 35 17 * * *
+  workflow_dispatch: {}
 
 env:
   GITHUB_TOKEN: ${{ secrets.PULUMI_BOT_TOKEN }}
@@ -35,13 +36,16 @@ jobs:
           creds: ${{ secrets.AZURE_RBAC_SERVICE_PRINCIPAL }}
       - name: Cleanup SDK folder
         run: make clean
+      - name: Preparing Git Branch
+        run: |
+          git config --local user.email "bot@pulumi.com"
+          git config --local user.name "pulumi-bot"
+          git checkout -b generate-sdk/${{ github.run_id }}-${{ github.run_number }}
       - name: commit changes
-        uses: EndBug/add-and-commit@v4
-        with:
-          ref: "generate-sdk/${{ github.run_id }}-${{ github.run_number }}"
-          author_name: pulumi-bot
-          author_email: "bot@pulumi.com"
-          message: "Preparing the SDK folder for regeneration"
+        run:
+          git add .
+          git commit -m "Preparing the SDK folder for regeneration"
+          git push origin generate-sdk/${{ github.run_id }}-${{ github.run_number }}
       - name: Update submodules
         run: make update_submodules
       - name: Build codegen binaries
@@ -54,11 +58,8 @@ jobs:
         id: vars
         run: echo ::set-output name=commit-hash::$(git rev-parse HEAD)
         working-directory: azure-rest-api-specs
-      - name: Git Commit + Push to Branch
+      - name: commit changes
         run: |
-          git config --local user.email "bot@pulumi.com"
-          git config --local user.name "pulumi-bot"
-          git checkout -b generate-sdk/${{ github.run_id }}-${{ github.run_number }}
           git add .
           git commit -m "Regenerating SDK based on azure-rest-api-specs @ ${{ steps.vars.outputs.commit-hash }}"
           git push origin generate-sdk/${{ github.run_id }}-${{ github.run_number }}
