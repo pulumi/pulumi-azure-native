@@ -42,7 +42,7 @@ jobs:
           git config --local user.name "pulumi-bot"
           git checkout -b generate-sdk/${{ github.run_id }}-${{ github.run_number }}
       - name: commit changes
-        run:
+        run: |
           git add .
           git commit -m "Preparing the SDK folder for regeneration"
           git push origin generate-sdk/${{ github.run_id }}-${{ github.run_number }}
