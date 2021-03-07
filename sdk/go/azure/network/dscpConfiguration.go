@@ -12,7 +12,7 @@ import (
 )
 
 // DSCP Configuration in a resource group.
-// API Version: 2020-08-01.
+// API Version: 2020-11-01.
 type DscpConfiguration struct {
 	pulumi.CustomResourceState
 
@@ -85,6 +85,12 @@ func NewDscpConfiguration(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200801:DscpConfiguration"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20201101:DscpConfiguration"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20201101:DscpConfiguration"),
 		},
 	})
 	opts = append(opts, aliases)

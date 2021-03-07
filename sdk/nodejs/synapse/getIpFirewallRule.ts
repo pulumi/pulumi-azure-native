@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * IP firewall rule
- * API Version: 2020-12-01.
+ * API Version: 2021-03-01.
  */
 export function getIpFirewallRule(args: GetIpFirewallRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetIpFirewallRuleResult> {
     if (!opts) {

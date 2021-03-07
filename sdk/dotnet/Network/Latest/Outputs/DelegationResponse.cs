@@ -37,10 +37,6 @@ namespace Pulumi.AzureNative.Network.Latest.Outputs
         /// The name of the service to whom the subnet should be delegated (e.g. Microsoft.Sql/servers).
         /// </summary>
         public readonly string? ServiceName;
-        /// <summary>
-        /// Resource type.
-        /// </summary>
-        public readonly string? Type;
 
         [OutputConstructor]
         private DelegationResponse(
@@ -54,9 +50,7 @@ namespace Pulumi.AzureNative.Network.Latest.Outputs
 
             string provisioningState,
 
-            string? serviceName,
-
-            string? type)
+            string? serviceName)
         {
             Actions = actions;
             Etag = etag;
@@ -64,7 +58,6 @@ namespace Pulumi.AzureNative.Network.Latest.Outputs
             Name = name;
             ProvisioningState = provisioningState;
             ServiceName = serviceName;
-            Type = type;
         }
     }
 }

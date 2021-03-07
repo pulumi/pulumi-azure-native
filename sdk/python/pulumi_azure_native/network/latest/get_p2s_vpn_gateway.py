@@ -206,7 +206,7 @@ def get_p2s_vpn_gateway(gateway_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetP2sVpnGatewayResult:
     """
     P2SVpnGateway Resource.
-    Latest API Version: 2020-08-01.
+    Latest API Version: 2020-11-01.
 
 
     :param str gateway_name: The name of the gateway.

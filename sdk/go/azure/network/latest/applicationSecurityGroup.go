@@ -12,7 +12,7 @@ import (
 )
 
 // An application security group in a resource group.
-// Latest API Version: 2020-08-01.
+// Latest API Version: 2020-11-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:ApplicationSecurityGroup'.
 type ApplicationSecurityGroup struct {
@@ -209,6 +209,12 @@ func NewApplicationSecurityGroup(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200801:ApplicationSecurityGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20201101:ApplicationSecurityGroup"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20201101:ApplicationSecurityGroup"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A Big Data pool
- * API Version: 2020-12-01.
+ * API Version: 2021-03-01.
  */
 export function getBigDataPool(args: GetBigDataPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetBigDataPoolResult> {
     if (!opts) {

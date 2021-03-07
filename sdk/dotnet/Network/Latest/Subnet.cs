@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network.Latest
 {
     /// <summary>
     /// Subnet in a virtual network resource.
-    /// Latest API Version: 2020-08-01.
+    /// Latest API Version: 2020-11-01.
     /// </summary>
     [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:Subnet'.")]
     [AzureNativeResourceType("azure-native:network/latest:Subnet")]
@@ -28,12 +28,6 @@ namespace Pulumi.AzureNative.Network.Latest
         /// </summary>
         [Output("addressPrefixes")]
         public Output<ImmutableArray<string>> AddressPrefixes { get; private set; } = null!;
-
-        /// <summary>
-        /// Application gateway IP configurations of virtual network resource.
-        /// </summary>
-        [Output("applicationGatewayIpConfigurations")]
-        public Output<ImmutableArray<Outputs.ApplicationGatewayIPConfigurationResponse>> ApplicationGatewayIpConfigurations { get; private set; } = null!;
 
         /// <summary>
         /// An array of references to the delegations on the subnet.
@@ -143,12 +137,6 @@ namespace Pulumi.AzureNative.Network.Latest
         [Output("serviceEndpoints")]
         public Output<ImmutableArray<Outputs.ServiceEndpointPropertiesFormatResponse>> ServiceEndpoints { get; private set; } = null!;
 
-        /// <summary>
-        /// Resource type.
-        /// </summary>
-        [Output("type")]
-        public Output<string?> Type { get; private set; } = null!;
-
 
         /// <summary>
         /// Create a Subnet resource with the given unique name, arguments, and options.
@@ -247,6 +235,8 @@ namespace Pulumi.AzureNative.Network.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:Subnet"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200801:Subnet"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:Subnet"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20201101:Subnet"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20201101:Subnet"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -286,18 +276,6 @@ namespace Pulumi.AzureNative.Network.Latest
         {
             get => _addressPrefixes ?? (_addressPrefixes = new InputList<string>());
             set => _addressPrefixes = value;
-        }
-
-        [Input("applicationGatewayIpConfigurations")]
-        private InputList<Inputs.ApplicationGatewayIPConfigurationArgs>? _applicationGatewayIpConfigurations;
-
-        /// <summary>
-        /// Application gateway IP configurations of virtual network resource.
-        /// </summary>
-        public InputList<Inputs.ApplicationGatewayIPConfigurationArgs> ApplicationGatewayIpConfigurations
-        {
-            get => _applicationGatewayIpConfigurations ?? (_applicationGatewayIpConfigurations = new InputList<Inputs.ApplicationGatewayIPConfigurationArgs>());
-            set => _applicationGatewayIpConfigurations = value;
         }
 
         [Input("delegations")]
@@ -352,13 +330,13 @@ namespace Pulumi.AzureNative.Network.Latest
         /// Enable or Disable apply network policies on private end point in the subnet.
         /// </summary>
         [Input("privateEndpointNetworkPolicies")]
-        public InputUnion<string, Pulumi.AzureNative.Network.Latest.VirtualNetworkPrivateEndpointNetworkPolicies>? PrivateEndpointNetworkPolicies { get; set; }
+        public Input<string>? PrivateEndpointNetworkPolicies { get; set; }
 
         /// <summary>
         /// Enable or Disable apply network policies on private link service in the subnet.
         /// </summary>
         [Input("privateLinkServiceNetworkPolicies")]
-        public InputUnion<string, Pulumi.AzureNative.Network.Latest.VirtualNetworkPrivateLinkServiceNetworkPolicies>? PrivateLinkServiceNetworkPolicies { get; set; }
+        public Input<string>? PrivateLinkServiceNetworkPolicies { get; set; }
 
         /// <summary>
         /// The name of the resource group.
@@ -403,12 +381,6 @@ namespace Pulumi.AzureNative.Network.Latest
         public Input<string>? SubnetName { get; set; }
 
         /// <summary>
-        /// Resource type.
-        /// </summary>
-        [Input("type")]
-        public Input<string>? Type { get; set; }
-
-        /// <summary>
         /// The name of the virtual network.
         /// </summary>
         [Input("virtualNetworkName", required: true)]
@@ -416,8 +388,6 @@ namespace Pulumi.AzureNative.Network.Latest
 
         public SubnetArgs()
         {
-            PrivateEndpointNetworkPolicies = "Enabled";
-            PrivateLinkServiceNetworkPolicies = "Enabled";
         }
     }
 }

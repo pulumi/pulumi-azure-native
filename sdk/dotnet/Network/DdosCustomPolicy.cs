@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// A DDoS custom policy in a resource group.
-    /// API Version: 2020-08-01.
+    /// API Version: 2020-11-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:DdosCustomPolicy")]
     public partial class DdosCustomPolicy : Pulumi.CustomResource
@@ -130,6 +130,8 @@ namespace Pulumi.AzureNative.Network
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:DdosCustomPolicy"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200801:DdosCustomPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:DdosCustomPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20201101:DdosCustomPolicy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20201101:DdosCustomPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

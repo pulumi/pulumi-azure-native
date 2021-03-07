@@ -158,7 +158,7 @@ def get_security_partner_provider(resource_group_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecurityPartnerProviderResult:
     """
     Security Partner Provider resource.
-    Latest API Version: 2020-08-01.
+    Latest API Version: 2020-11-01.
 
 
     :param str resource_group_name: The name of the resource group.

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Class representing a Traffic Manager endpoint.
-        /// API Version: 2018-04-01.
+        /// API Version: 2018-08-01.
         /// </summary>
         public static Task<GetEndpointResult> InvokeAsync(GetEndpointArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetEndpointResult>("azure-native:network:getEndpoint", args ?? new GetEndpointArgs(), options.WithVersion());
@@ -84,6 +84,14 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly double? MinChildEndpoints;
         /// <summary>
+        /// The minimum number of IPv4 (DNS record type A) endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
+        /// </summary>
+        public readonly double? MinChildEndpointsIPv4;
+        /// <summary>
+        /// The minimum number of IPv6 (DNS record type AAAA) endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
+        /// </summary>
+        public readonly double? MinChildEndpointsIPv6;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string? Name;
@@ -128,6 +136,10 @@ namespace Pulumi.AzureNative.Network
 
             double? minChildEndpoints,
 
+            double? minChildEndpointsIPv4,
+
+            double? minChildEndpointsIPv6,
+
             string? name,
 
             double? priority,
@@ -149,6 +161,8 @@ namespace Pulumi.AzureNative.Network
             GeoMapping = geoMapping;
             Id = id;
             MinChildEndpoints = minChildEndpoints;
+            MinChildEndpointsIPv4 = minChildEndpointsIPv4;
+            MinChildEndpointsIPv6 = minChildEndpointsIPv6;
             Name = name;
             Priority = priority;
             Subnets = subnets;

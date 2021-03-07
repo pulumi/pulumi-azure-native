@@ -20,7 +20,7 @@ class GetWorkspaceResult:
     """
     A workspace
     """
-    def __init__(__self__, adla_resource_id=None, connectivity_endpoints=None, default_data_lake_storage=None, encryption=None, extra_properties=None, id=None, identity=None, location=None, managed_resource_group_name=None, managed_virtual_network=None, managed_virtual_network_settings=None, name=None, private_endpoint_connections=None, provisioning_state=None, purview_configuration=None, sql_administrator_login=None, sql_administrator_login_password=None, tags=None, type=None, virtual_network_profile=None, workspace_repository_configuration=None, workspace_uid=None):
+    def __init__(__self__, adla_resource_id=None, connectivity_endpoints=None, default_data_lake_storage=None, encryption=None, extra_properties=None, id=None, identity=None, location=None, managed_resource_group_name=None, managed_virtual_network=None, managed_virtual_network_settings=None, name=None, network_settings=None, private_endpoint_connections=None, provisioning_state=None, purview_configuration=None, sql_administrator_login=None, sql_administrator_login_password=None, tags=None, type=None, virtual_network_profile=None, workspace_repository_configuration=None, workspace_uid=None):
         if adla_resource_id and not isinstance(adla_resource_id, str):
             raise TypeError("Expected argument 'adla_resource_id' to be a str")
         pulumi.set(__self__, "adla_resource_id", adla_resource_id)
@@ -57,6 +57,9 @@ class GetWorkspaceResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if network_settings and not isinstance(network_settings, dict):
+            raise TypeError("Expected argument 'network_settings' to be a dict")
+        pulumi.set(__self__, "network_settings", network_settings)
         if private_endpoint_connections and not isinstance(private_endpoint_connections, list):
             raise TypeError("Expected argument 'private_endpoint_connections' to be a list")
         pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
@@ -185,6 +188,14 @@ class GetWorkspaceResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="networkSettings")
+    def network_settings(self) -> Optional['outputs.NetworkSettingsResponse']:
+        """
+        Network Settings
+        """
+        return pulumi.get(self, "network_settings")
+
+    @property
     @pulumi.getter(name="privateEndpointConnections")
     def private_endpoint_connections(self) -> Optional[Sequence['outputs.PrivateEndpointConnectionResponse']]:
         """
@@ -283,6 +294,7 @@ class AwaitableGetWorkspaceResult(GetWorkspaceResult):
             managed_virtual_network=self.managed_virtual_network,
             managed_virtual_network_settings=self.managed_virtual_network_settings,
             name=self.name,
+            network_settings=self.network_settings,
             private_endpoint_connections=self.private_endpoint_connections,
             provisioning_state=self.provisioning_state,
             purview_configuration=self.purview_configuration,
@@ -300,7 +312,7 @@ def get_workspace(resource_group_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkspaceResult:
     """
     A workspace
-    API Version: 2020-12-01.
+    API Version: 2021-03-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -328,6 +340,7 @@ def get_workspace(resource_group_name: Optional[str] = None,
         managed_virtual_network=__ret__.managed_virtual_network,
         managed_virtual_network_settings=__ret__.managed_virtual_network_settings,
         name=__ret__.name,
+        network_settings=__ret__.network_settings,
         private_endpoint_connections=__ret__.private_endpoint_connections,
         provisioning_state=__ret__.provisioning_state,
         purview_configuration=__ret__.purview_configuration,

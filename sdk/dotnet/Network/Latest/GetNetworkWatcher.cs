@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Network.Latest
     {
         /// <summary>
         /// Network watcher in a resource group.
-        /// Latest API Version: 2020-08-01.
+        /// Latest API Version: 2020-11-01.
         /// </summary>
         public static Task<GetNetworkWatcherResult> InvokeAsync(GetNetworkWatcherArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkWatcherResult>("azure-native:network/latest:getNetworkWatcher", args ?? new GetNetworkWatcherArgs(), options.WithVersion());

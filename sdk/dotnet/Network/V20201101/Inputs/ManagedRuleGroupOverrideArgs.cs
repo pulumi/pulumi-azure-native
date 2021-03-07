@@ -15,20 +15,8 @@ namespace Pulumi.AzureNative.Network.V20201101.Inputs
     /// </summary>
     public sealed class ManagedRuleGroupOverrideArgs : Pulumi.ResourceArgs
     {
-        [Input("exclusions")]
-        private InputList<Inputs.ManagedRuleExclusionArgs>? _exclusions;
-
         /// <summary>
-        /// Describes the exclusions that are applied to all rules in the group.
-        /// </summary>
-        public InputList<Inputs.ManagedRuleExclusionArgs> Exclusions
-        {
-            get => _exclusions ?? (_exclusions = new InputList<Inputs.ManagedRuleExclusionArgs>());
-            set => _exclusions = value;
-        }
-
-        /// <summary>
-        /// Describes the managed rule group to override.
+        /// The managed rule group to override.
         /// </summary>
         [Input("ruleGroupName", required: true)]
         public Input<string> RuleGroupName { get; set; } = null!;

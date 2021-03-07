@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * VpnGatewayNatRule Resource.
- * API Version: 2020-08-01.
+ * API Version: 2020-11-01.
  */
 export function getNatRule(args: GetNatRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetNatRuleResult> {
     if (!opts) {

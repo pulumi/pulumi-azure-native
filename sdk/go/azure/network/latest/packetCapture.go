@@ -12,7 +12,7 @@ import (
 )
 
 // Information about packet capture session.
-// Latest API Version: 2020-08-01.
+// Latest API Version: 2020-11-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:PacketCapture'.
 type PacketCapture struct {
@@ -261,6 +261,12 @@ func NewPacketCapture(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200801:PacketCapture"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20201101:PacketCapture"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20201101:PacketCapture"),
 		},
 	})
 	opts = append(opts, aliases)

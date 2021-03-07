@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Network.Latest
     {
         /// <summary>
         /// Response for all the Bastion Shareable Link endpoints.
-        /// Latest API Version: 2020-08-01.
+        /// Latest API Version: 2020-11-01.
         /// </summary>
         public static Task<GetBastionShareableLinkResult> InvokeAsync(GetBastionShareableLinkArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBastionShareableLinkResult>("azure-native:network/latest:getBastionShareableLink", args ?? new GetBastionShareableLinkArgs(), options.WithVersion());

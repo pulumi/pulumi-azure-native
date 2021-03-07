@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A workspace key
- * API Version: 2020-12-01.
+ * API Version: 2021-03-01.
  */
 export function getKey(args: GetKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyResult> {
     if (!opts) {

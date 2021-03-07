@@ -57,6 +57,18 @@ namespace Pulumi.AzureNative.Network.Latest.Inputs
             set => _radiusServers = value;
         }
 
+        [Input("vpnAuthenticationTypes")]
+        private InputList<Union<string, Pulumi.AzureNative.Network.Latest.VpnAuthenticationType>>? _vpnAuthenticationTypes;
+
+        /// <summary>
+        /// VPN authentication types for the virtual network gateway..
+        /// </summary>
+        public InputList<Union<string, Pulumi.AzureNative.Network.Latest.VpnAuthenticationType>> VpnAuthenticationTypes
+        {
+            get => _vpnAuthenticationTypes ?? (_vpnAuthenticationTypes = new InputList<Union<string, Pulumi.AzureNative.Network.Latest.VpnAuthenticationType>>());
+            set => _vpnAuthenticationTypes = value;
+        }
+
         /// <summary>
         /// The reference to the address space resource which represents Address space for P2S VpnClient.
         /// </summary>

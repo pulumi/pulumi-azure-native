@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Network security rule.
-        /// API Version: 2020-08-01.
+        /// API Version: 2020-11-01.
         /// </summary>
         public static Task<GetSecurityRuleResult> InvokeAsync(GetSecurityRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSecurityRuleResult>("azure-native:network:getSecurityRule", args ?? new GetSecurityRuleArgs(), options.WithVersion());

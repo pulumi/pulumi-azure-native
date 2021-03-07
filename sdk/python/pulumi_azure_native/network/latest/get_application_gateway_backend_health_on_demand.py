@@ -73,7 +73,7 @@ def get_application_gateway_backend_health_on_demand(application_gateway_name: O
                                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationGatewayBackendHealthOnDemandResult:
     """
     Result of on demand test probe.
-    Latest API Version: 2020-08-01.
+    Latest API Version: 2020-11-01.
 
 
     :param str application_gateway_name: The name of the application gateway.

@@ -277,7 +277,7 @@ def get_security_rule(network_security_group_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecurityRuleResult:
     """
     Network security rule.
-    API Version: 2020-08-01.
+    API Version: 2020-11-01.
 
 
     :param str network_security_group_name: The name of the network security group.

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Pool of backend IP addresses.
- * API Version: 2020-08-01.
+ * API Version: 2020-11-01.
  */
 export class LoadBalancerBackendAddressPool extends pulumi.CustomResource {
     /**
@@ -123,7 +123,7 @@ export class LoadBalancerBackendAddressPool extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network:LoadBalancerBackendAddressPool" }, { type: "azure-native:network/latest:LoadBalancerBackendAddressPool" }, { type: "azure-nextgen:network/latest:LoadBalancerBackendAddressPool" }, { type: "azure-native:network/v20200401:LoadBalancerBackendAddressPool" }, { type: "azure-nextgen:network/v20200401:LoadBalancerBackendAddressPool" }, { type: "azure-native:network/v20200501:LoadBalancerBackendAddressPool" }, { type: "azure-nextgen:network/v20200501:LoadBalancerBackendAddressPool" }, { type: "azure-native:network/v20200601:LoadBalancerBackendAddressPool" }, { type: "azure-nextgen:network/v20200601:LoadBalancerBackendAddressPool" }, { type: "azure-native:network/v20200701:LoadBalancerBackendAddressPool" }, { type: "azure-nextgen:network/v20200701:LoadBalancerBackendAddressPool" }, { type: "azure-native:network/v20200801:LoadBalancerBackendAddressPool" }, { type: "azure-nextgen:network/v20200801:LoadBalancerBackendAddressPool" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network:LoadBalancerBackendAddressPool" }, { type: "azure-native:network/latest:LoadBalancerBackendAddressPool" }, { type: "azure-nextgen:network/latest:LoadBalancerBackendAddressPool" }, { type: "azure-native:network/v20200401:LoadBalancerBackendAddressPool" }, { type: "azure-nextgen:network/v20200401:LoadBalancerBackendAddressPool" }, { type: "azure-native:network/v20200501:LoadBalancerBackendAddressPool" }, { type: "azure-nextgen:network/v20200501:LoadBalancerBackendAddressPool" }, { type: "azure-native:network/v20200601:LoadBalancerBackendAddressPool" }, { type: "azure-nextgen:network/v20200601:LoadBalancerBackendAddressPool" }, { type: "azure-native:network/v20200701:LoadBalancerBackendAddressPool" }, { type: "azure-nextgen:network/v20200701:LoadBalancerBackendAddressPool" }, { type: "azure-native:network/v20200801:LoadBalancerBackendAddressPool" }, { type: "azure-nextgen:network/v20200801:LoadBalancerBackendAddressPool" }, { type: "azure-native:network/v20201101:LoadBalancerBackendAddressPool" }, { type: "azure-nextgen:network/v20201101:LoadBalancerBackendAddressPool" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(LoadBalancerBackendAddressPool.__pulumiType, name, inputs, opts);
     }

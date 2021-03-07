@@ -17,6 +17,7 @@ __all__ = [
     'SensitivityLabelRank',
     'StorageAccountType',
     'TransparentDataEncryptionStatus',
+    'WorkspacePublicNetworkAccess',
 ]
 
 
@@ -120,6 +121,14 @@ class StorageAccountType(str, Enum):
 class TransparentDataEncryptionStatus(str, Enum):
     """
     The status of the database transparent data encryption.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+
+
+class WorkspacePublicNetworkAccess(str, Enum):
+    """
+    Enable or Disable pubic network access to workspace
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"

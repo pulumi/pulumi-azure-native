@@ -123,7 +123,7 @@ class Pool(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Pool Resource name
+        Resource name
         """
         return pulumi.get(self, "name")
 

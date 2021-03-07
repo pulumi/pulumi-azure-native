@@ -8,7 +8,7 @@ import (
 )
 
 // Represents a scaling plan definition.
-// API Version: 2021-01-14-preview.
+// API Version: 2021-02-01-preview.
 func LookupScalingPlan(ctx *pulumi.Context, args *LookupScalingPlanArgs, opts ...pulumi.InvokeOption) (*LookupScalingPlanResult, error) {
 	var rv LookupScalingPlanResult
 	err := ctx.Invoke("azure-native:desktopvirtualization:getScalingPlan", args, &rv, opts...)
@@ -35,7 +35,7 @@ type LookupScalingPlanResult struct {
 	FriendlyName *string `pulumi:"friendlyName"`
 	// List of ScalingHostPoolReference definitions.
 	HostPoolReferences []ScalingHostPoolReferenceResponse `pulumi:"hostPoolReferences"`
-	// HostPool type for scaling plan.
+	// HostPool type for desktop.
 	HostPoolType *string `pulumi:"hostPoolType"`
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
@@ -43,6 +43,8 @@ type LookupScalingPlanResult struct {
 	Location string `pulumi:"location"`
 	// The name of the resource
 	Name string `pulumi:"name"`
+	// The ring number of scaling plan.
+	Ring *int `pulumi:"ring"`
 	// List of ScalingSchedule definitions.
 	Schedules []ScalingScheduleResponse `pulumi:"schedules"`
 	// Resource tags.

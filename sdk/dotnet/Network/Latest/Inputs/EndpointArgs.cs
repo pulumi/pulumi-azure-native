@@ -70,6 +70,18 @@ namespace Pulumi.AzureNative.Network.Latest.Inputs
         public Input<double>? MinChildEndpoints { get; set; }
 
         /// <summary>
+        /// The minimum number of IPv4 (DNS record type A) endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
+        /// </summary>
+        [Input("minChildEndpointsIPv4")]
+        public Input<double>? MinChildEndpointsIPv4 { get; set; }
+
+        /// <summary>
+        /// The minimum number of IPv6 (DNS record type AAAA) endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
+        /// </summary>
+        [Input("minChildEndpointsIPv6")]
+        public Input<double>? MinChildEndpointsIPv6 { get; set; }
+
+        /// <summary>
         /// The name of the resource
         /// </summary>
         [Input("name")]

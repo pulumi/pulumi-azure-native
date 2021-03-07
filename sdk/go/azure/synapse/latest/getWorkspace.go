@@ -8,7 +8,7 @@ import (
 )
 
 // A workspace
-// Latest API Version: 2020-12-01.
+// Latest API Version: 2021-03-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:synapse:getWorkspace'.
 func LookupWorkspace(ctx *pulumi.Context, args *LookupWorkspaceArgs, opts ...pulumi.InvokeOption) (*LookupWorkspaceResult, error) {
@@ -53,6 +53,8 @@ type LookupWorkspaceResult struct {
 	ManagedVirtualNetworkSettings *ManagedVirtualNetworkSettingsResponse `pulumi:"managedVirtualNetworkSettings"`
 	// The name of the resource
 	Name string `pulumi:"name"`
+	// Network Settings
+	NetworkSettings *NetworkSettingsResponse `pulumi:"networkSettings"`
 	// Private endpoint connections to the workspace
 	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
 	// Resource provisioning state

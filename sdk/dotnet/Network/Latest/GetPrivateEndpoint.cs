@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Network.Latest
     {
         /// <summary>
         /// Private endpoint resource.
-        /// Latest API Version: 2020-08-01.
+        /// Latest API Version: 2020-11-01.
         /// </summary>
         public static Task<GetPrivateEndpointResult> InvokeAsync(GetPrivateEndpointArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointResult>("azure-native:network/latest:getPrivateEndpoint", args ?? new GetPrivateEndpointArgs(), options.WithVersion());

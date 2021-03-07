@@ -8,7 +8,7 @@ import (
 )
 
 // Private Endpoint connection on an application gateway.
-// Latest API Version: 2020-08-01.
+// Latest API Version: 2020-11-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getApplicationGatewayPrivateEndpointConnection'.
 func LookupApplicationGatewayPrivateEndpointConnection(ctx *pulumi.Context, args *LookupApplicationGatewayPrivateEndpointConnectionArgs, opts ...pulumi.InvokeOption) (*LookupApplicationGatewayPrivateEndpointConnectionResult, error) {

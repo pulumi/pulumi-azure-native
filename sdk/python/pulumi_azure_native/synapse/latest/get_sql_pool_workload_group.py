@@ -147,7 +147,7 @@ def get_sql_pool_workload_group(resource_group_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSqlPoolWorkloadGroupResult:
     """
     Workload group operations for a sql pool
-    Latest API Version: 2020-12-01.
+    Latest API Version: 2021-03-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

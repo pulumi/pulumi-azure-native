@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Synapse.Latest
     {
         /// <summary>
         /// A private endpoint connection
-        /// Latest API Version: 2020-12-01.
+        /// Latest API Version: 2021-03-01.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionResult> InvokeAsync(GetPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionResult>("azure-native:synapse/latest:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionArgs(), options.WithVersion());

@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * VpnConnection Resource.
- * Latest API Version: 2020-08-01.
+ * Latest API Version: 2020-11-01.
  *
  * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:VpnConnection'.
  */
@@ -104,6 +104,10 @@ export class VpnConnection extends pulumi.CustomResource {
      */
     public readonly sharedKey!: pulumi.Output<string | undefined>;
     /**
+     * The Traffic Selector Policies to be considered by this connection.
+     */
+    public readonly trafficSelectorPolicies!: pulumi.Output<outputs.network.latest.TrafficSelectorPolicyResponse[] | undefined>;
+    /**
      * Use local azure ip to initiate connection.
      */
     public readonly useLocalAzureIpAddress!: pulumi.Output<boolean | undefined>;
@@ -154,6 +158,7 @@ export class VpnConnection extends pulumi.CustomResource {
             inputs["routingConfiguration"] = args ? args.routingConfiguration : undefined;
             inputs["routingWeight"] = args ? args.routingWeight : undefined;
             inputs["sharedKey"] = args ? args.sharedKey : undefined;
+            inputs["trafficSelectorPolicies"] = args ? args.trafficSelectorPolicies : undefined;
             inputs["useLocalAzureIpAddress"] = args ? args.useLocalAzureIpAddress : undefined;
             inputs["usePolicyBasedTrafficSelectors"] = args ? args.usePolicyBasedTrafficSelectors : undefined;
             inputs["vpnConnectionProtocolType"] = args ? args.vpnConnectionProtocolType : undefined;
@@ -180,6 +185,7 @@ export class VpnConnection extends pulumi.CustomResource {
             inputs["routingConfiguration"] = undefined /*out*/;
             inputs["routingWeight"] = undefined /*out*/;
             inputs["sharedKey"] = undefined /*out*/;
+            inputs["trafficSelectorPolicies"] = undefined /*out*/;
             inputs["useLocalAzureIpAddress"] = undefined /*out*/;
             inputs["usePolicyBasedTrafficSelectors"] = undefined /*out*/;
             inputs["vpnConnectionProtocolType"] = undefined /*out*/;
@@ -188,7 +194,7 @@ export class VpnConnection extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/latest:VpnConnection" }, { type: "azure-native:network:VpnConnection" }, { type: "azure-nextgen:network:VpnConnection" }, { type: "azure-native:network/v20180401:VpnConnection" }, { type: "azure-nextgen:network/v20180401:VpnConnection" }, { type: "azure-native:network/v20180601:VpnConnection" }, { type: "azure-nextgen:network/v20180601:VpnConnection" }, { type: "azure-native:network/v20180701:VpnConnection" }, { type: "azure-nextgen:network/v20180701:VpnConnection" }, { type: "azure-native:network/v20180801:VpnConnection" }, { type: "azure-nextgen:network/v20180801:VpnConnection" }, { type: "azure-native:network/v20181001:VpnConnection" }, { type: "azure-nextgen:network/v20181001:VpnConnection" }, { type: "azure-native:network/v20181101:VpnConnection" }, { type: "azure-nextgen:network/v20181101:VpnConnection" }, { type: "azure-native:network/v20181201:VpnConnection" }, { type: "azure-nextgen:network/v20181201:VpnConnection" }, { type: "azure-native:network/v20190201:VpnConnection" }, { type: "azure-nextgen:network/v20190201:VpnConnection" }, { type: "azure-native:network/v20190401:VpnConnection" }, { type: "azure-nextgen:network/v20190401:VpnConnection" }, { type: "azure-native:network/v20190601:VpnConnection" }, { type: "azure-nextgen:network/v20190601:VpnConnection" }, { type: "azure-native:network/v20190701:VpnConnection" }, { type: "azure-nextgen:network/v20190701:VpnConnection" }, { type: "azure-native:network/v20190801:VpnConnection" }, { type: "azure-nextgen:network/v20190801:VpnConnection" }, { type: "azure-native:network/v20190901:VpnConnection" }, { type: "azure-nextgen:network/v20190901:VpnConnection" }, { type: "azure-native:network/v20191101:VpnConnection" }, { type: "azure-nextgen:network/v20191101:VpnConnection" }, { type: "azure-native:network/v20191201:VpnConnection" }, { type: "azure-nextgen:network/v20191201:VpnConnection" }, { type: "azure-native:network/v20200301:VpnConnection" }, { type: "azure-nextgen:network/v20200301:VpnConnection" }, { type: "azure-native:network/v20200401:VpnConnection" }, { type: "azure-nextgen:network/v20200401:VpnConnection" }, { type: "azure-native:network/v20200501:VpnConnection" }, { type: "azure-nextgen:network/v20200501:VpnConnection" }, { type: "azure-native:network/v20200601:VpnConnection" }, { type: "azure-nextgen:network/v20200601:VpnConnection" }, { type: "azure-native:network/v20200701:VpnConnection" }, { type: "azure-nextgen:network/v20200701:VpnConnection" }, { type: "azure-native:network/v20200801:VpnConnection" }, { type: "azure-nextgen:network/v20200801:VpnConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/latest:VpnConnection" }, { type: "azure-native:network:VpnConnection" }, { type: "azure-nextgen:network:VpnConnection" }, { type: "azure-native:network/v20180401:VpnConnection" }, { type: "azure-nextgen:network/v20180401:VpnConnection" }, { type: "azure-native:network/v20180601:VpnConnection" }, { type: "azure-nextgen:network/v20180601:VpnConnection" }, { type: "azure-native:network/v20180701:VpnConnection" }, { type: "azure-nextgen:network/v20180701:VpnConnection" }, { type: "azure-native:network/v20180801:VpnConnection" }, { type: "azure-nextgen:network/v20180801:VpnConnection" }, { type: "azure-native:network/v20181001:VpnConnection" }, { type: "azure-nextgen:network/v20181001:VpnConnection" }, { type: "azure-native:network/v20181101:VpnConnection" }, { type: "azure-nextgen:network/v20181101:VpnConnection" }, { type: "azure-native:network/v20181201:VpnConnection" }, { type: "azure-nextgen:network/v20181201:VpnConnection" }, { type: "azure-native:network/v20190201:VpnConnection" }, { type: "azure-nextgen:network/v20190201:VpnConnection" }, { type: "azure-native:network/v20190401:VpnConnection" }, { type: "azure-nextgen:network/v20190401:VpnConnection" }, { type: "azure-native:network/v20190601:VpnConnection" }, { type: "azure-nextgen:network/v20190601:VpnConnection" }, { type: "azure-native:network/v20190701:VpnConnection" }, { type: "azure-nextgen:network/v20190701:VpnConnection" }, { type: "azure-native:network/v20190801:VpnConnection" }, { type: "azure-nextgen:network/v20190801:VpnConnection" }, { type: "azure-native:network/v20190901:VpnConnection" }, { type: "azure-nextgen:network/v20190901:VpnConnection" }, { type: "azure-native:network/v20191101:VpnConnection" }, { type: "azure-nextgen:network/v20191101:VpnConnection" }, { type: "azure-native:network/v20191201:VpnConnection" }, { type: "azure-nextgen:network/v20191201:VpnConnection" }, { type: "azure-native:network/v20200301:VpnConnection" }, { type: "azure-nextgen:network/v20200301:VpnConnection" }, { type: "azure-native:network/v20200401:VpnConnection" }, { type: "azure-nextgen:network/v20200401:VpnConnection" }, { type: "azure-native:network/v20200501:VpnConnection" }, { type: "azure-nextgen:network/v20200501:VpnConnection" }, { type: "azure-native:network/v20200601:VpnConnection" }, { type: "azure-nextgen:network/v20200601:VpnConnection" }, { type: "azure-native:network/v20200701:VpnConnection" }, { type: "azure-nextgen:network/v20200701:VpnConnection" }, { type: "azure-native:network/v20200801:VpnConnection" }, { type: "azure-nextgen:network/v20200801:VpnConnection" }, { type: "azure-native:network/v20201101:VpnConnection" }, { type: "azure-nextgen:network/v20201101:VpnConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VpnConnection.__pulumiType, name, inputs, opts);
     }
@@ -258,6 +264,10 @@ export interface VpnConnectionArgs {
      * SharedKey for the vpn connection.
      */
     readonly sharedKey?: pulumi.Input<string>;
+    /**
+     * The Traffic Selector Policies to be considered by this connection.
+     */
+    readonly trafficSelectorPolicies?: pulumi.Input<pulumi.Input<inputs.network.latest.TrafficSelectorPolicy>[]>;
     /**
      * Use local azure ip to initiate connection.
      */

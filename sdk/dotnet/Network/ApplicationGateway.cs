@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// Application gateway resource.
-    /// API Version: 2020-08-01.
+    /// API Version: 2020-11-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:ApplicationGateway")]
     public partial class ApplicationGateway : Pulumi.CustomResource
@@ -336,6 +336,8 @@ namespace Pulumi.AzureNative.Network
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:ApplicationGateway"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200801:ApplicationGateway"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:ApplicationGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20201101:ApplicationGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20201101:ApplicationGateway"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

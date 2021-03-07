@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Synapse.Latest
     {
         /// <summary>
         /// The integration runtime authentication keys.
-        /// Latest API Version: 2020-12-01.
+        /// Latest API Version: 2021-03-01.
         /// </summary>
         public static Task<ListIntegrationRuntimeAuthKeyResult> InvokeAsync(ListIntegrationRuntimeAuthKeyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListIntegrationRuntimeAuthKeyResult>("azure-native:synapse/latest:listIntegrationRuntimeAuthKey", args ?? new ListIntegrationRuntimeAuthKeyArgs(), options.WithVersion());

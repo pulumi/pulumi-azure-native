@@ -32,6 +32,7 @@ class CreateMode(str, Enum):
     """
     DEFAULT = "Default"
     POINT_IN_TIME_RESTORE = "PointInTimeRestore"
+    READ_REPLICA = "ReadReplica"
 
 
 class PostgreSQLVersion(str, Enum):

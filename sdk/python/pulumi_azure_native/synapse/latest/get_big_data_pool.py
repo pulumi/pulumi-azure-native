@@ -315,7 +315,7 @@ def get_big_data_pool(big_data_pool_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBigDataPoolResult:
     """
     A Big Data pool
-    Latest API Version: 2020-12-01.
+    Latest API Version: 2021-03-01.
 
 
     :param str big_data_pool_name: Big Data pool name

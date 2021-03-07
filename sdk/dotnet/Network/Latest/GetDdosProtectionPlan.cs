@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Network.Latest
     {
         /// <summary>
         /// A DDoS protection plan in a resource group.
-        /// Latest API Version: 2020-08-01.
+        /// Latest API Version: 2020-11-01.
         /// </summary>
         public static Task<GetDdosProtectionPlanResult> InvokeAsync(GetDdosProtectionPlanArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDdosProtectionPlanResult>("azure-native:network/latest:getDdosProtectionPlan", args ?? new GetDdosProtectionPlanArgs(), options.WithVersion());

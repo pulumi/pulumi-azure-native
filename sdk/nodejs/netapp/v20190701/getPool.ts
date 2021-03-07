@@ -51,7 +51,7 @@ export interface GetPoolResult {
      */
     readonly location: string;
     /**
-     * Pool Resource name
+     * Resource name
      */
     readonly name: string;
     /**

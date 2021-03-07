@@ -8,7 +8,7 @@ import (
 )
 
 // Inbound NAT rule of the load balancer.
-// API Version: 2020-08-01.
+// API Version: 2020-11-01.
 func LookupInboundNatRule(ctx *pulumi.Context, args *LookupInboundNatRuleArgs, opts ...pulumi.InvokeOption) (*LookupInboundNatRuleResult, error) {
 	var rv LookupInboundNatRuleResult
 	err := ctx.Invoke("azure-native:network:getInboundNatRule", args, &rv, opts...)

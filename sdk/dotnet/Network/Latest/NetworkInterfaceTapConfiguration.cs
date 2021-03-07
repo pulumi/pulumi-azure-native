@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network.Latest
 {
     /// <summary>
     /// Tap configuration in a Network Interface.
-    /// Latest API Version: 2020-08-01.
+    /// Latest API Version: 2020-11-01.
     /// </summary>
     [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:NetworkInterfaceTapConfiguration'.")]
     [AzureNativeResourceType("azure-native:network/latest:NetworkInterfaceTapConfiguration")]
@@ -111,6 +111,8 @@ namespace Pulumi.AzureNative.Network.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:NetworkInterfaceTapConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200801:NetworkInterfaceTapConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:NetworkInterfaceTapConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20201101:NetworkInterfaceTapConfiguration"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20201101:NetworkInterfaceTapConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

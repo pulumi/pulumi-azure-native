@@ -20,6 +20,7 @@ from .get_report_by_department import *
 from .get_report_by_resource_group_name import *
 from .get_report_config import *
 from .get_report_config_by_resource_group_name import *
+from .get_setting import *
 from .get_view import *
 from .get_view_by_scope import *
 from .report import *
@@ -28,6 +29,7 @@ from .report_by_department import *
 from .report_by_resource_group_name import *
 from .report_config import *
 from .report_config_by_resource_group_name import *
+from .setting import *
 from .view import *
 from .view_by_scope import *
 from ._inputs import *
@@ -82,6 +84,8 @@ def _register_module():
                 return ReportConfig(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:costmanagement:ReportConfigByResourceGroupName":
                 return ReportConfigByResourceGroupName(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:costmanagement:Setting":
+                return Setting(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:costmanagement:View":
                 return View(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:costmanagement:ViewByScope":

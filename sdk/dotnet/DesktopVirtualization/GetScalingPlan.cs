@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
     {
         /// <summary>
         /// Represents a scaling plan definition.
-        /// API Version: 2021-01-14-preview.
+        /// API Version: 2021-02-01-preview.
         /// </summary>
         public static Task<GetScalingPlanResult> InvokeAsync(GetScalingPlanArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetScalingPlanResult>("azure-native:desktopvirtualization:getScalingPlan", args ?? new GetScalingPlanArgs(), options.WithVersion());
@@ -60,7 +60,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// </summary>
         public readonly ImmutableArray<Outputs.ScalingHostPoolReferenceResponse> HostPoolReferences;
         /// <summary>
-        /// HostPool type for scaling plan.
+        /// HostPool type for desktop.
         /// </summary>
         public readonly string? HostPoolType;
         /// <summary>
@@ -75,6 +75,10 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// The name of the resource
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The ring number of scaling plan.
+        /// </summary>
+        public readonly int? Ring;
         /// <summary>
         /// List of ScalingSchedule definitions.
         /// </summary>
@@ -110,6 +114,8 @@ namespace Pulumi.AzureNative.DesktopVirtualization
 
             string name,
 
+            int? ring,
+
             ImmutableArray<Outputs.ScalingScheduleResponse> schedules,
 
             ImmutableDictionary<string, string>? tags,
@@ -126,6 +132,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
             Id = id;
             Location = location;
             Name = name;
+            Ring = ring;
             Schedules = schedules;
             Tags = tags;
             TimeZone = timeZone;

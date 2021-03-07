@@ -12,7 +12,7 @@ import (
 )
 
 // FirewallPolicy Resource.
-// API Version: 2020-08-01.
+// API Version: 2020-11-01.
 type FirewallPolicy struct {
 	pulumi.CustomResourceState
 
@@ -28,6 +28,8 @@ type FirewallPolicy struct {
 	Firewalls SubResourceResponseArrayOutput `pulumi:"firewalls"`
 	// The identity of the firewall policy.
 	Identity ManagedServiceIdentityResponsePtrOutput `pulumi:"identity"`
+	// Insights on Firewall Policy.
+	Insights FirewallPolicyInsightsResponsePtrOutput `pulumi:"insights"`
 	// The configuration for Intrusion detection.
 	IntrusionDetection FirewallPolicyIntrusionDetectionResponsePtrOutput `pulumi:"intrusionDetection"`
 	// Resource location.
@@ -40,6 +42,8 @@ type FirewallPolicy struct {
 	RuleCollectionGroups SubResourceResponseArrayOutput `pulumi:"ruleCollectionGroups"`
 	// The Firewall Policy SKU.
 	Sku FirewallPolicySkuResponsePtrOutput `pulumi:"sku"`
+	// The private IP addresses/IP ranges to which traffic will not be SNAT.
+	Snat FirewallPolicySNATResponsePtrOutput `pulumi:"snat"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The operation mode for Threat Intelligence.
@@ -144,6 +148,12 @@ func NewFirewallPolicy(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200801:FirewallPolicy"),
 		},
+		{
+			Type: pulumi.String("azure-native:network/v20201101:FirewallPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20201101:FirewallPolicy"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource FirewallPolicy
@@ -180,6 +190,8 @@ type firewallPolicyState struct {
 	Firewalls []SubResourceResponse `pulumi:"firewalls"`
 	// The identity of the firewall policy.
 	Identity *ManagedServiceIdentityResponse `pulumi:"identity"`
+	// Insights on Firewall Policy.
+	Insights *FirewallPolicyInsightsResponse `pulumi:"insights"`
 	// The configuration for Intrusion detection.
 	IntrusionDetection *FirewallPolicyIntrusionDetectionResponse `pulumi:"intrusionDetection"`
 	// Resource location.
@@ -192,6 +204,8 @@ type firewallPolicyState struct {
 	RuleCollectionGroups []SubResourceResponse `pulumi:"ruleCollectionGroups"`
 	// The Firewall Policy SKU.
 	Sku *FirewallPolicySkuResponse `pulumi:"sku"`
+	// The private IP addresses/IP ranges to which traffic will not be SNAT.
+	Snat *FirewallPolicySNATResponse `pulumi:"snat"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The operation mode for Threat Intelligence.
@@ -217,6 +231,8 @@ type FirewallPolicyState struct {
 	Firewalls SubResourceResponseArrayInput
 	// The identity of the firewall policy.
 	Identity ManagedServiceIdentityResponsePtrInput
+	// Insights on Firewall Policy.
+	Insights FirewallPolicyInsightsResponsePtrInput
 	// The configuration for Intrusion detection.
 	IntrusionDetection FirewallPolicyIntrusionDetectionResponsePtrInput
 	// Resource location.
@@ -229,6 +245,8 @@ type FirewallPolicyState struct {
 	RuleCollectionGroups SubResourceResponseArrayInput
 	// The Firewall Policy SKU.
 	Sku FirewallPolicySkuResponsePtrInput
+	// The private IP addresses/IP ranges to which traffic will not be SNAT.
+	Snat FirewallPolicySNATResponsePtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// The operation mode for Threat Intelligence.
@@ -256,6 +274,8 @@ type firewallPolicyArgs struct {
 	Id *string `pulumi:"id"`
 	// The identity of the firewall policy.
 	Identity *ManagedServiceIdentity `pulumi:"identity"`
+	// Insights on Firewall Policy.
+	Insights *FirewallPolicyInsights `pulumi:"insights"`
 	// The configuration for Intrusion detection.
 	IntrusionDetection *FirewallPolicyIntrusionDetection `pulumi:"intrusionDetection"`
 	// Resource location.
@@ -264,6 +284,8 @@ type firewallPolicyArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The Firewall Policy SKU.
 	Sku *FirewallPolicySku `pulumi:"sku"`
+	// The private IP addresses/IP ranges to which traffic will not be SNAT.
+	Snat *FirewallPolicySNAT `pulumi:"snat"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The operation mode for Threat Intelligence.
@@ -286,6 +308,8 @@ type FirewallPolicyArgs struct {
 	Id pulumi.StringPtrInput
 	// The identity of the firewall policy.
 	Identity ManagedServiceIdentityPtrInput
+	// Insights on Firewall Policy.
+	Insights FirewallPolicyInsightsPtrInput
 	// The configuration for Intrusion detection.
 	IntrusionDetection FirewallPolicyIntrusionDetectionPtrInput
 	// Resource location.
@@ -294,6 +318,8 @@ type FirewallPolicyArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// The Firewall Policy SKU.
 	Sku FirewallPolicySkuPtrInput
+	// The private IP addresses/IP ranges to which traffic will not be SNAT.
+	Snat FirewallPolicySNATPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// The operation mode for Threat Intelligence.

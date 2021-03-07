@@ -37,7 +37,7 @@ class IpAllocation(pulumi.CustomResource):
                  __opts__=None):
         """
         IpAllocation resource.
-        Latest API Version: 2020-08-01.
+        Latest API Version: 2020-11-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -90,7 +90,7 @@ class IpAllocation(pulumi.CustomResource):
             __props__['name'] = None
             __props__['subnet'] = None
             __props__['virtual_network'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/latest:IpAllocation"), pulumi.Alias(type_="azure-native:network:IpAllocation"), pulumi.Alias(type_="azure-nextgen:network:IpAllocation"), pulumi.Alias(type_="azure-native:network/v20200301:IpAllocation"), pulumi.Alias(type_="azure-nextgen:network/v20200301:IpAllocation"), pulumi.Alias(type_="azure-native:network/v20200401:IpAllocation"), pulumi.Alias(type_="azure-nextgen:network/v20200401:IpAllocation"), pulumi.Alias(type_="azure-native:network/v20200501:IpAllocation"), pulumi.Alias(type_="azure-nextgen:network/v20200501:IpAllocation"), pulumi.Alias(type_="azure-native:network/v20200601:IpAllocation"), pulumi.Alias(type_="azure-nextgen:network/v20200601:IpAllocation"), pulumi.Alias(type_="azure-native:network/v20200701:IpAllocation"), pulumi.Alias(type_="azure-nextgen:network/v20200701:IpAllocation"), pulumi.Alias(type_="azure-native:network/v20200801:IpAllocation"), pulumi.Alias(type_="azure-nextgen:network/v20200801:IpAllocation")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/latest:IpAllocation"), pulumi.Alias(type_="azure-native:network:IpAllocation"), pulumi.Alias(type_="azure-nextgen:network:IpAllocation"), pulumi.Alias(type_="azure-native:network/v20200301:IpAllocation"), pulumi.Alias(type_="azure-nextgen:network/v20200301:IpAllocation"), pulumi.Alias(type_="azure-native:network/v20200401:IpAllocation"), pulumi.Alias(type_="azure-nextgen:network/v20200401:IpAllocation"), pulumi.Alias(type_="azure-native:network/v20200501:IpAllocation"), pulumi.Alias(type_="azure-nextgen:network/v20200501:IpAllocation"), pulumi.Alias(type_="azure-native:network/v20200601:IpAllocation"), pulumi.Alias(type_="azure-nextgen:network/v20200601:IpAllocation"), pulumi.Alias(type_="azure-native:network/v20200701:IpAllocation"), pulumi.Alias(type_="azure-nextgen:network/v20200701:IpAllocation"), pulumi.Alias(type_="azure-native:network/v20200801:IpAllocation"), pulumi.Alias(type_="azure-nextgen:network/v20200801:IpAllocation"), pulumi.Alias(type_="azure-native:network/v20201101:IpAllocation"), pulumi.Alias(type_="azure-nextgen:network/v20201101:IpAllocation")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IpAllocation, __self__).__init__(
             'azure-native:network/latest:IpAllocation',

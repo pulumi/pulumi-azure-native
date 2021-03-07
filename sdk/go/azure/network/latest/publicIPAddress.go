@@ -12,7 +12,7 @@ import (
 )
 
 // Public IP address resource.
-// Latest API Version: 2020-08-01.
+// Latest API Version: 2020-11-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:PublicIPAddress'.
 type PublicIPAddress struct {
@@ -34,16 +34,10 @@ type PublicIPAddress struct {
 	IpConfiguration IPConfigurationResponseOutput `pulumi:"ipConfiguration"`
 	// The list of tags associated with the public IP address.
 	IpTags IpTagResponseArrayOutput `pulumi:"ipTags"`
-	// The source Public IP Address (IPv6) that links to this address (IPv4).
-	LinkedPublicIPAddress PublicIPAddressResponsePtrOutput `pulumi:"linkedPublicIPAddress"`
 	// Resource location.
 	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Migration phase of Public IP Address.
-	MigrationPhase pulumi.StringPtrOutput `pulumi:"migrationPhase"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The NatGateway for the Public IP address.
-	NatGateway NatGatewayResponsePtrOutput `pulumi:"natGateway"`
 	// The provisioning state of the public IP address resource.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// The public IP address version.
@@ -54,8 +48,6 @@ type PublicIPAddress struct {
 	PublicIPPrefix SubResourceResponsePtrOutput `pulumi:"publicIPPrefix"`
 	// The resource GUID property of the public IP address resource.
 	ResourceGuid pulumi.StringOutput `pulumi:"resourceGuid"`
-	// The service public IP address of the public IP address resource.
-	ServicePublicIPAddress PublicIPAddressResponsePtrOutput `pulumi:"servicePublicIPAddress"`
 	// The public IP address SKU.
 	Sku PublicIPAddressSkuResponsePtrOutput `pulumi:"sku"`
 	// Resource tags.
@@ -296,6 +288,12 @@ func NewPublicIPAddress(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200801:PublicIPAddress"),
 		},
+		{
+			Type: pulumi.String("azure-native:network/v20201101:PublicIPAddress"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20201101:PublicIPAddress"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource PublicIPAddress
@@ -336,16 +334,10 @@ type publicIPAddressState struct {
 	IpConfiguration *IPConfigurationResponse `pulumi:"ipConfiguration"`
 	// The list of tags associated with the public IP address.
 	IpTags []IpTagResponse `pulumi:"ipTags"`
-	// The source Public IP Address (IPv6) that links to this address (IPv4).
-	LinkedPublicIPAddress *PublicIPAddressResponse `pulumi:"linkedPublicIPAddress"`
 	// Resource location.
 	Location *string `pulumi:"location"`
-	// Migration phase of Public IP Address.
-	MigrationPhase *string `pulumi:"migrationPhase"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// The NatGateway for the Public IP address.
-	NatGateway *NatGatewayResponse `pulumi:"natGateway"`
 	// The provisioning state of the public IP address resource.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// The public IP address version.
@@ -356,8 +348,6 @@ type publicIPAddressState struct {
 	PublicIPPrefix *SubResourceResponse `pulumi:"publicIPPrefix"`
 	// The resource GUID property of the public IP address resource.
 	ResourceGuid *string `pulumi:"resourceGuid"`
-	// The service public IP address of the public IP address resource.
-	ServicePublicIPAddress *PublicIPAddressResponse `pulumi:"servicePublicIPAddress"`
 	// The public IP address SKU.
 	Sku *PublicIPAddressSkuResponse `pulumi:"sku"`
 	// Resource tags.
@@ -385,16 +375,10 @@ type PublicIPAddressState struct {
 	IpConfiguration IPConfigurationResponsePtrInput
 	// The list of tags associated with the public IP address.
 	IpTags IpTagResponseArrayInput
-	// The source Public IP Address (IPv6) that links to this address (IPv4).
-	LinkedPublicIPAddress PublicIPAddressResponsePtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
-	// Migration phase of Public IP Address.
-	MigrationPhase pulumi.StringPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// The NatGateway for the Public IP address.
-	NatGateway NatGatewayResponsePtrInput
 	// The provisioning state of the public IP address resource.
 	ProvisioningState pulumi.StringPtrInput
 	// The public IP address version.
@@ -405,8 +389,6 @@ type PublicIPAddressState struct {
 	PublicIPPrefix SubResourceResponsePtrInput
 	// The resource GUID property of the public IP address resource.
 	ResourceGuid pulumi.StringPtrInput
-	// The service public IP address of the public IP address resource.
-	ServicePublicIPAddress PublicIPAddressResponsePtrInput
 	// The public IP address SKU.
 	Sku PublicIPAddressSkuResponsePtrInput
 	// Resource tags.
@@ -436,14 +418,8 @@ type publicIPAddressArgs struct {
 	IpAddress *string `pulumi:"ipAddress"`
 	// The list of tags associated with the public IP address.
 	IpTags []IpTag `pulumi:"ipTags"`
-	// The source Public IP Address (IPv6) that links to this address (IPv4).
-	LinkedPublicIPAddress *PublicIPAddressType `pulumi:"linkedPublicIPAddress"`
 	// Resource location.
 	Location *string `pulumi:"location"`
-	// Migration phase of Public IP Address.
-	MigrationPhase *string `pulumi:"migrationPhase"`
-	// The NatGateway for the Public IP address.
-	NatGateway *NatGatewayType `pulumi:"natGateway"`
 	// The public IP address version.
 	PublicIPAddressVersion *string `pulumi:"publicIPAddressVersion"`
 	// The public IP address allocation method.
@@ -454,8 +430,6 @@ type publicIPAddressArgs struct {
 	PublicIpAddressName *string `pulumi:"publicIpAddressName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The service public IP address of the public IP address resource.
-	ServicePublicIPAddress *PublicIPAddressType `pulumi:"servicePublicIPAddress"`
 	// The public IP address SKU.
 	Sku *PublicIPAddressSku `pulumi:"sku"`
 	// Resource tags.
@@ -480,14 +454,8 @@ type PublicIPAddressArgs struct {
 	IpAddress pulumi.StringPtrInput
 	// The list of tags associated with the public IP address.
 	IpTags IpTagArrayInput
-	// The source Public IP Address (IPv6) that links to this address (IPv4).
-	LinkedPublicIPAddress PublicIPAddressTypePtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
-	// Migration phase of Public IP Address.
-	MigrationPhase pulumi.StringPtrInput
-	// The NatGateway for the Public IP address.
-	NatGateway NatGatewayTypePtrInput
 	// The public IP address version.
 	PublicIPAddressVersion pulumi.StringPtrInput
 	// The public IP address allocation method.
@@ -498,8 +466,6 @@ type PublicIPAddressArgs struct {
 	PublicIpAddressName pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
-	// The service public IP address of the public IP address resource.
-	ServicePublicIPAddress PublicIPAddressTypePtrInput
 	// The public IP address SKU.
 	Sku PublicIPAddressSkuPtrInput
 	// Resource tags.

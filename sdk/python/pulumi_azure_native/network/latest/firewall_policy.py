@@ -27,10 +27,12 @@ class FirewallPolicy(pulumi.CustomResource):
                  firewall_policy_name: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
+                 insights: Optional[pulumi.Input[pulumi.InputType['FirewallPolicyInsightsArgs']]] = None,
                  intrusion_detection: Optional[pulumi.Input[pulumi.InputType['FirewallPolicyIntrusionDetectionArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['FirewallPolicySkuArgs']]] = None,
+                 snat: Optional[pulumi.Input[pulumi.InputType['FirewallPolicySNATArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  threat_intel_mode: Optional[pulumi.Input[Union[str, 'AzureFirewallThreatIntelMode']]] = None,
                  threat_intel_whitelist: Optional[pulumi.Input[pulumi.InputType['FirewallPolicyThreatIntelWhitelistArgs']]] = None,
@@ -40,7 +42,7 @@ class FirewallPolicy(pulumi.CustomResource):
                  __opts__=None):
         """
         FirewallPolicy Resource.
-        Latest API Version: 2020-08-01.
+        Latest API Version: 2020-11-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -49,10 +51,12 @@ class FirewallPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] firewall_policy_name: The name of the Firewall Policy.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']] identity: The identity of the firewall policy.
+        :param pulumi.Input[pulumi.InputType['FirewallPolicyInsightsArgs']] insights: Insights on Firewall Policy.
         :param pulumi.Input[pulumi.InputType['FirewallPolicyIntrusionDetectionArgs']] intrusion_detection: The configuration for Intrusion detection.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[pulumi.InputType['FirewallPolicySkuArgs']] sku: The Firewall Policy SKU.
+        :param pulumi.Input[pulumi.InputType['FirewallPolicySNATArgs']] snat: The private IP addresses/IP ranges to which traffic will not be SNAT.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[Union[str, 'AzureFirewallThreatIntelMode']] threat_intel_mode: The operation mode for Threat Intelligence.
         :param pulumi.Input[pulumi.InputType['FirewallPolicyThreatIntelWhitelistArgs']] threat_intel_whitelist: ThreatIntel Whitelist for Firewall Policy.
@@ -81,12 +85,14 @@ class FirewallPolicy(pulumi.CustomResource):
             __props__['firewall_policy_name'] = firewall_policy_name
             __props__['id'] = id
             __props__['identity'] = identity
+            __props__['insights'] = insights
             __props__['intrusion_detection'] = intrusion_detection
             __props__['location'] = location
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['sku'] = sku
+            __props__['snat'] = snat
             __props__['tags'] = tags
             __props__['threat_intel_mode'] = threat_intel_mode
             __props__['threat_intel_whitelist'] = threat_intel_whitelist
@@ -98,7 +104,7 @@ class FirewallPolicy(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['rule_collection_groups'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/latest:FirewallPolicy"), pulumi.Alias(type_="azure-native:network:FirewallPolicy"), pulumi.Alias(type_="azure-nextgen:network:FirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20190601:FirewallPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20190601:FirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20190701:FirewallPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20190701:FirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20190801:FirewallPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20190801:FirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20190901:FirewallPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20190901:FirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20191101:FirewallPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20191101:FirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20191201:FirewallPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20191201:FirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20200301:FirewallPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20200301:FirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20200401:FirewallPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20200401:FirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20200501:FirewallPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20200501:FirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20200601:FirewallPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20200601:FirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20200701:FirewallPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20200701:FirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20200801:FirewallPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20200801:FirewallPolicy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/latest:FirewallPolicy"), pulumi.Alias(type_="azure-native:network:FirewallPolicy"), pulumi.Alias(type_="azure-nextgen:network:FirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20190601:FirewallPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20190601:FirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20190701:FirewallPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20190701:FirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20190801:FirewallPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20190801:FirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20190901:FirewallPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20190901:FirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20191101:FirewallPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20191101:FirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20191201:FirewallPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20191201:FirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20200301:FirewallPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20200301:FirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20200401:FirewallPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20200401:FirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20200501:FirewallPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20200501:FirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20200601:FirewallPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20200601:FirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20200701:FirewallPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20200701:FirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20200801:FirewallPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20200801:FirewallPolicy"), pulumi.Alias(type_="azure-native:network/v20201101:FirewallPolicy"), pulumi.Alias(type_="azure-nextgen:network/v20201101:FirewallPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(FirewallPolicy, __self__).__init__(
             'azure-native:network/latest:FirewallPolicy',
@@ -128,12 +134,14 @@ class FirewallPolicy(pulumi.CustomResource):
         __props__["etag"] = None
         __props__["firewalls"] = None
         __props__["identity"] = None
+        __props__["insights"] = None
         __props__["intrusion_detection"] = None
         __props__["location"] = None
         __props__["name"] = None
         __props__["provisioning_state"] = None
         __props__["rule_collection_groups"] = None
         __props__["sku"] = None
+        __props__["snat"] = None
         __props__["tags"] = None
         __props__["threat_intel_mode"] = None
         __props__["threat_intel_whitelist"] = None
@@ -190,6 +198,14 @@ class FirewallPolicy(pulumi.CustomResource):
         return pulumi.get(self, "identity")
 
     @property
+    @pulumi.getter
+    def insights(self) -> pulumi.Output[Optional['outputs.FirewallPolicyInsightsResponse']]:
+        """
+        Insights on Firewall Policy.
+        """
+        return pulumi.get(self, "insights")
+
+    @property
     @pulumi.getter(name="intrusionDetection")
     def intrusion_detection(self) -> pulumi.Output[Optional['outputs.FirewallPolicyIntrusionDetectionResponse']]:
         """
@@ -236,6 +252,14 @@ class FirewallPolicy(pulumi.CustomResource):
         The Firewall Policy SKU.
         """
         return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter
+    def snat(self) -> pulumi.Output[Optional['outputs.FirewallPolicySNATResponse']]:
+        """
+        The private IP addresses/IP ranges to which traffic will not be SNAT.
+        """
+        return pulumi.get(self, "snat")
 
     @property
     @pulumi.getter

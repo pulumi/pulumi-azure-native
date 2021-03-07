@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Synapse
     {
         /// <summary>
         /// A workspace
-        /// API Version: 2020-12-01.
+        /// API Version: 2021-03-01.
         /// </summary>
         public static Task<GetWorkspaceResult> InvokeAsync(GetWorkspaceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceResult>("azure-native:synapse:getWorkspace", args ?? new GetWorkspaceArgs(), options.WithVersion());
@@ -92,6 +92,10 @@ namespace Pulumi.AzureNative.Synapse
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// Network Settings
+        /// </summary>
+        public readonly Outputs.NetworkSettingsResponse? NetworkSettings;
+        /// <summary>
         /// Private endpoint connections to the workspace
         /// </summary>
         public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
@@ -158,6 +162,8 @@ namespace Pulumi.AzureNative.Synapse
 
             string name,
 
+            Outputs.NetworkSettingsResponse? networkSettings,
+
             ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
 
             string provisioningState,
@@ -190,6 +196,7 @@ namespace Pulumi.AzureNative.Synapse
             ManagedVirtualNetwork = managedVirtualNetwork;
             ManagedVirtualNetworkSettings = managedVirtualNetworkSettings;
             Name = name;
+            NetworkSettings = networkSettings;
             PrivateEndpointConnections = privateEndpointConnections;
             ProvisioningState = provisioningState;
             PurviewConfiguration = purviewConfiguration;

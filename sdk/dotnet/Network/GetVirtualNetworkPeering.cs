@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Peerings in a virtual network resource.
-        /// API Version: 2020-08-01.
+        /// API Version: 2020-11-01.
         /// </summary>
         public static Task<GetVirtualNetworkPeeringResult> InvokeAsync(GetVirtualNetworkPeeringArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkPeeringResult>("azure-native:network:getVirtualNetworkPeering", args ?? new GetVirtualNetworkPeeringArgs(), options.WithVersion());
@@ -62,10 +62,6 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly bool? AllowVirtualNetworkAccess;
         /// <summary>
-        /// If we need to verify the provisioning state of the remote gateway.
-        /// </summary>
-        public readonly bool? DoNotVerifyRemoteGateways;
-        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
@@ -98,14 +94,6 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly Outputs.SubResourceResponse? RemoteVirtualNetwork;
         /// <summary>
-        /// The resourceGuid property of the Virtual Network Peering resource.
-        /// </summary>
-        public readonly string ResourceGuid;
-        /// <summary>
-        /// Resource type.
-        /// </summary>
-        public readonly string? Type;
-        /// <summary>
         /// If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
         /// </summary>
         public readonly bool? UseRemoteGateways;
@@ -117,8 +105,6 @@ namespace Pulumi.AzureNative.Network
             bool? allowGatewayTransit,
 
             bool? allowVirtualNetworkAccess,
-
-            bool? doNotVerifyRemoteGateways,
 
             string etag,
 
@@ -136,16 +122,11 @@ namespace Pulumi.AzureNative.Network
 
             Outputs.SubResourceResponse? remoteVirtualNetwork,
 
-            string resourceGuid,
-
-            string? type,
-
             bool? useRemoteGateways)
         {
             AllowForwardedTraffic = allowForwardedTraffic;
             AllowGatewayTransit = allowGatewayTransit;
             AllowVirtualNetworkAccess = allowVirtualNetworkAccess;
-            DoNotVerifyRemoteGateways = doNotVerifyRemoteGateways;
             Etag = etag;
             Id = id;
             Name = name;
@@ -154,8 +135,6 @@ namespace Pulumi.AzureNative.Network
             RemoteAddressSpace = remoteAddressSpace;
             RemoteBgpCommunities = remoteBgpCommunities;
             RemoteVirtualNetwork = remoteVirtualNetwork;
-            ResourceGuid = resourceGuid;
-            Type = type;
             UseRemoteGateways = useRemoteGateways;
         }
     }

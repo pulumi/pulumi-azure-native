@@ -12,7 +12,7 @@ import (
 )
 
 // Nat Gateway resource.
-// API Version: 2020-08-01.
+// API Version: 2020-11-01.
 type NatGateway struct {
 	pulumi.CustomResourceState
 
@@ -147,6 +147,12 @@ func NewNatGateway(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200801:NatGateway"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20201101:NatGateway"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20201101:NatGateway"),
 		},
 	})
 	opts = append(opts, aliases)

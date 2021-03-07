@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * A common class for general resource information.
- * Latest API Version: 2020-08-01.
+ * Latest API Version: 2020-11-01.
  */
 /** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getVirtualNetworkGatewayConnection'. */
 export function getVirtualNetworkGatewayConnection(args: GetVirtualNetworkGatewayConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkGatewayConnectionResult> {

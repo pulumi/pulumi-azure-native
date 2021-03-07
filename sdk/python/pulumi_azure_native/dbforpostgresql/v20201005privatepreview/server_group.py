@@ -66,10 +66,10 @@ class ServerGroup(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] server_group_name: The name of the server group.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerRoleGroupArgs']]]] server_role_groups: The list of server role groups.
-        :param pulumi.Input[str] source_location: The source server group location to restore from. It's required when 'createMode' is 'PointInTimeRestore'
-        :param pulumi.Input[str] source_resource_group_name: The source resource group name to restore from. It's required when 'createMode' is 'PointInTimeRestore'
-        :param pulumi.Input[str] source_server_group_name: The source server group name to restore from. It's required when 'createMode' is 'PointInTimeRestore'
-        :param pulumi.Input[str] source_subscription_id: The source subscription id to restore from. It's required when 'createMode' is 'PointInTimeRestore'
+        :param pulumi.Input[str] source_location: The source server group location to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'ReadReplica'
+        :param pulumi.Input[str] source_resource_group_name: The source resource group name to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'ReadReplica'
+        :param pulumi.Input[str] source_server_group_name: The source server group name to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'ReadReplica'
+        :param pulumi.Input[str] source_subscription_id: The source subscription id to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'ReadReplica'
         :param pulumi.Input[str] standby_availability_zone: Standby Availability Zone information of the server group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -117,7 +117,9 @@ class ServerGroup(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['earliest_restore_time'] = None
             __props__['name'] = None
+            __props__['read_replicas'] = None
             __props__['resource_provider_type'] = None
+            __props__['source_server_group'] = None
             __props__['state'] = None
             __props__['system_data'] = None
             __props__['type'] = None
@@ -161,10 +163,12 @@ class ServerGroup(pulumi.CustomResource):
         __props__["name"] = None
         __props__["point_in_time_utc"] = None
         __props__["postgresql_version"] = None
+        __props__["read_replicas"] = None
         __props__["resource_provider_type"] = None
         __props__["server_role_groups"] = None
         __props__["source_location"] = None
         __props__["source_resource_group_name"] = None
+        __props__["source_server_group"] = None
         __props__["source_server_group_name"] = None
         __props__["source_subscription_id"] = None
         __props__["standby_availability_zone"] = None
@@ -303,6 +307,14 @@ class ServerGroup(pulumi.CustomResource):
         return pulumi.get(self, "postgresql_version")
 
     @property
+    @pulumi.getter(name="readReplicas")
+    def read_replicas(self) -> pulumi.Output[Sequence[str]]:
+        """
+        The array of read replica server groups.
+        """
+        return pulumi.get(self, "read_replicas")
+
+    @property
     @pulumi.getter(name="resourceProviderType")
     def resource_provider_type(self) -> pulumi.Output[str]:
         """
@@ -322,7 +334,7 @@ class ServerGroup(pulumi.CustomResource):
     @pulumi.getter(name="sourceLocation")
     def source_location(self) -> pulumi.Output[Optional[str]]:
         """
-        The source server group location to restore from. It's required when 'createMode' is 'PointInTimeRestore'
+        The source server group location to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'ReadReplica'
         """
         return pulumi.get(self, "source_location")
 
@@ -330,15 +342,23 @@ class ServerGroup(pulumi.CustomResource):
     @pulumi.getter(name="sourceResourceGroupName")
     def source_resource_group_name(self) -> pulumi.Output[Optional[str]]:
         """
-        The source resource group name to restore from. It's required when 'createMode' is 'PointInTimeRestore'
+        The source resource group name to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'ReadReplica'
         """
         return pulumi.get(self, "source_resource_group_name")
+
+    @property
+    @pulumi.getter(name="sourceServerGroup")
+    def source_server_group(self) -> pulumi.Output[str]:
+        """
+        The source server group id for read replica server groups.
+        """
+        return pulumi.get(self, "source_server_group")
 
     @property
     @pulumi.getter(name="sourceServerGroupName")
     def source_server_group_name(self) -> pulumi.Output[Optional[str]]:
         """
-        The source server group name to restore from. It's required when 'createMode' is 'PointInTimeRestore'
+        The source server group name to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'ReadReplica'
         """
         return pulumi.get(self, "source_server_group_name")
 
@@ -346,7 +366,7 @@ class ServerGroup(pulumi.CustomResource):
     @pulumi.getter(name="sourceSubscriptionId")
     def source_subscription_id(self) -> pulumi.Output[Optional[str]]:
         """
-        The source subscription id to restore from. It's required when 'createMode' is 'PointInTimeRestore'
+        The source subscription id to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'ReadReplica'
         """
         return pulumi.get(self, "source_subscription_id")
 

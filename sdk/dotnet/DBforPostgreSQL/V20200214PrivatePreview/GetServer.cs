@@ -112,9 +112,17 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20200214PrivatePreview
         /// </summary>
         public readonly Outputs.SkuResponse? Sku;
         /// <summary>
+        /// The resource group name of source PostgreSQL server name to restore from.
+        /// </summary>
+        public readonly string? SourceResourceGroupName;
+        /// <summary>
         /// The source PostgreSQL server name to restore from.
         /// </summary>
         public readonly string? SourceServerName;
+        /// <summary>
+        /// The subscription id of source PostgreSQL server name to restore from.
+        /// </summary>
+        public readonly string? SourceSubscriptionId;
         /// <summary>
         /// availability Zone information of the server.
         /// </summary>
@@ -178,7 +186,11 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20200214PrivatePreview
 
             Outputs.SkuResponse? sku,
 
+            string? sourceResourceGroupName,
+
             string? sourceServerName,
+
+            string? sourceSubscriptionId,
 
             string standbyAvailabilityZone,
 
@@ -210,7 +222,9 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20200214PrivatePreview
             PointInTimeUTC = pointInTimeUTC;
             PublicNetworkAccess = publicNetworkAccess;
             Sku = sku;
+            SourceResourceGroupName = sourceResourceGroupName;
             SourceServerName = sourceServerName;
+            SourceSubscriptionId = sourceSubscriptionId;
             StandbyAvailabilityZone = standbyAvailabilityZone;
             State = state;
             StorageProfile = storageProfile;

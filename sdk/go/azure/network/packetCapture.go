@@ -12,7 +12,7 @@ import (
 )
 
 // Information about packet capture session.
-// API Version: 2020-08-01.
+// API Version: 2020-11-01.
 type PacketCapture struct {
 	pulumi.CustomResourceState
 
@@ -259,6 +259,12 @@ func NewPacketCapture(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200801:PacketCapture"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20201101:PacketCapture"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20201101:PacketCapture"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -34,7 +34,7 @@ class SqlPoolWorkloadGroup(pulumi.CustomResource):
                  __opts__=None):
         """
         Workload group operations for a sql pool
-        Latest API Version: 2020-12-01.
+        Latest API Version: 2021-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

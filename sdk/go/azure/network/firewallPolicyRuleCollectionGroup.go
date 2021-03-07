@@ -12,7 +12,7 @@ import (
 )
 
 // Rule Collection Group resource.
-// API Version: 2020-08-01.
+// API Version: 2020-11-01.
 type FirewallPolicyRuleCollectionGroup struct {
 	pulumi.CustomResourceState
 
@@ -76,6 +76,12 @@ func NewFirewallPolicyRuleCollectionGroup(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200801:FirewallPolicyRuleCollectionGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20201101:FirewallPolicyRuleCollectionGroup"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20201101:FirewallPolicyRuleCollectionGroup"),
 		},
 	})
 	opts = append(opts, aliases)

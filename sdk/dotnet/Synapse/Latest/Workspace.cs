@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Synapse.Latest
 {
     /// <summary>
     /// A workspace
-    /// Latest API Version: 2020-12-01.
+    /// Latest API Version: 2021-03-01.
     /// </summary>
     [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:synapse:Workspace'.")]
     [AzureNativeResourceType("azure-native:synapse/latest:Workspace")]
@@ -82,6 +82,12 @@ namespace Pulumi.AzureNative.Synapse.Latest
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Network Settings
+        /// </summary>
+        [Output("networkSettings")]
+        public Output<Outputs.NetworkSettingsResponse?> NetworkSettings { get; private set; } = null!;
 
         /// <summary>
         /// Private endpoint connections to the workspace
@@ -253,6 +259,12 @@ namespace Pulumi.AzureNative.Synapse.Latest
         /// </summary>
         [Input("managedVirtualNetworkSettings")]
         public Input<Inputs.ManagedVirtualNetworkSettingsArgs>? ManagedVirtualNetworkSettings { get; set; }
+
+        /// <summary>
+        /// Network Settings
+        /// </summary>
+        [Input("networkSettings")]
+        public Input<Inputs.NetworkSettingsArgs>? NetworkSettings { get; set; }
 
         [Input("privateEndpointConnections")]
         private InputList<Inputs.PrivateEndpointConnectionArgs>? _privateEndpointConnections;

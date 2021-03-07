@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// A DDoS protection plan in a resource group.
-    /// API Version: 2020-08-01.
+    /// API Version: 2020-11-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:DdosProtectionPlan")]
     public partial class DdosProtectionPlan : Pulumi.CustomResource
@@ -136,6 +136,8 @@ namespace Pulumi.AzureNative.Network
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:DdosProtectionPlan"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200801:DdosProtectionPlan"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:DdosProtectionPlan"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20201101:DdosProtectionPlan"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20201101:DdosProtectionPlan"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

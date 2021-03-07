@@ -16,11 +16,11 @@ import (
 type CassandraDataCenter struct {
 	pulumi.CustomResourceState
 
-	// The name of the resource
+	// The name of the database account.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Properties of a managed Cassandra data center.
 	Properties DataCenterResourceResponsePropertiesOutput `pulumi:"properties"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	// The type of Azure resource.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -71,20 +71,20 @@ func GetCassandraDataCenter(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CassandraDataCenter resources.
 type cassandraDataCenterState struct {
-	// The name of the resource
+	// The name of the database account.
 	Name *string `pulumi:"name"`
 	// Properties of a managed Cassandra data center.
 	Properties *DataCenterResourceResponseProperties `pulumi:"properties"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	// The type of Azure resource.
 	Type *string `pulumi:"type"`
 }
 
 type CassandraDataCenterState struct {
-	// The name of the resource
+	// The name of the database account.
 	Name pulumi.StringPtrInput
 	// Properties of a managed Cassandra data center.
 	Properties DataCenterResourceResponsePropertiesPtrInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	// The type of Azure resource.
 	Type pulumi.StringPtrInput
 }
 

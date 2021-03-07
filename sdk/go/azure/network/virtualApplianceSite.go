@@ -12,7 +12,7 @@ import (
 )
 
 // Virtual Appliance Site resource.
-// API Version: 2020-08-01.
+// API Version: 2020-11-01.
 type VirtualApplianceSite struct {
 	pulumi.CustomResourceState
 
@@ -76,6 +76,12 @@ func NewVirtualApplianceSite(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200801:VirtualApplianceSite"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20201101:VirtualApplianceSite"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20201101:VirtualApplianceSite"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -147,7 +147,7 @@ def get_hub_virtual_network_connection(connection_name: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetHubVirtualNetworkConnectionResult:
     """
     HubVirtualNetworkConnection Resource.
-    Latest API Version: 2020-08-01.
+    Latest API Version: 2020-11-01.
 
 
     :param str connection_name: The name of the vpn connection.

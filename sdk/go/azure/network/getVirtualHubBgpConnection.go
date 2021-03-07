@@ -8,7 +8,7 @@ import (
 )
 
 // Virtual Appliance Site resource.
-// API Version: 2020-08-01.
+// API Version: 2020-11-01.
 func LookupVirtualHubBgpConnection(ctx *pulumi.Context, args *LookupVirtualHubBgpConnectionArgs, opts ...pulumi.InvokeOption) (*LookupVirtualHubBgpConnectionResult, error) {
 	var rv LookupVirtualHubBgpConnectionResult
 	err := ctx.Invoke("azure-native:network:getVirtualHubBgpConnection", args, &rv, opts...)

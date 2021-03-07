@@ -20,16 +20,13 @@ class GetSubnetResult:
     """
     Subnet in a virtual network resource.
     """
-    def __init__(__self__, address_prefix=None, address_prefixes=None, application_gateway_ip_configurations=None, delegations=None, etag=None, id=None, ip_allocations=None, ip_configuration_profiles=None, ip_configurations=None, name=None, nat_gateway=None, network_security_group=None, private_endpoint_network_policies=None, private_endpoints=None, private_link_service_network_policies=None, provisioning_state=None, purpose=None, resource_navigation_links=None, route_table=None, service_association_links=None, service_endpoint_policies=None, service_endpoints=None, type=None):
+    def __init__(__self__, address_prefix=None, address_prefixes=None, delegations=None, etag=None, id=None, ip_allocations=None, ip_configuration_profiles=None, ip_configurations=None, name=None, nat_gateway=None, network_security_group=None, private_endpoint_network_policies=None, private_endpoints=None, private_link_service_network_policies=None, provisioning_state=None, purpose=None, resource_navigation_links=None, route_table=None, service_association_links=None, service_endpoint_policies=None, service_endpoints=None):
         if address_prefix and not isinstance(address_prefix, str):
             raise TypeError("Expected argument 'address_prefix' to be a str")
         pulumi.set(__self__, "address_prefix", address_prefix)
         if address_prefixes and not isinstance(address_prefixes, list):
             raise TypeError("Expected argument 'address_prefixes' to be a list")
         pulumi.set(__self__, "address_prefixes", address_prefixes)
-        if application_gateway_ip_configurations and not isinstance(application_gateway_ip_configurations, list):
-            raise TypeError("Expected argument 'application_gateway_ip_configurations' to be a list")
-        pulumi.set(__self__, "application_gateway_ip_configurations", application_gateway_ip_configurations)
         if delegations and not isinstance(delegations, list):
             raise TypeError("Expected argument 'delegations' to be a list")
         pulumi.set(__self__, "delegations", delegations)
@@ -87,9 +84,6 @@ class GetSubnetResult:
         if service_endpoints and not isinstance(service_endpoints, list):
             raise TypeError("Expected argument 'service_endpoints' to be a list")
         pulumi.set(__self__, "service_endpoints", service_endpoints)
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="addressPrefix")
@@ -106,14 +100,6 @@ class GetSubnetResult:
         List of address prefixes for the subnet.
         """
         return pulumi.get(self, "address_prefixes")
-
-    @property
-    @pulumi.getter(name="applicationGatewayIpConfigurations")
-    def application_gateway_ip_configurations(self) -> Optional[Sequence['outputs.ApplicationGatewayIPConfigurationResponse']]:
-        """
-        Application gateway IP configurations of virtual network resource.
-        """
-        return pulumi.get(self, "application_gateway_ip_configurations")
 
     @property
     @pulumi.getter
@@ -267,14 +253,6 @@ class GetSubnetResult:
         """
         return pulumi.get(self, "service_endpoints")
 
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[str]:
-        """
-        Resource type.
-        """
-        return pulumi.get(self, "type")
-
 
 class AwaitableGetSubnetResult(GetSubnetResult):
     # pylint: disable=using-constant-test
@@ -284,7 +262,6 @@ class AwaitableGetSubnetResult(GetSubnetResult):
         return GetSubnetResult(
             address_prefix=self.address_prefix,
             address_prefixes=self.address_prefixes,
-            application_gateway_ip_configurations=self.application_gateway_ip_configurations,
             delegations=self.delegations,
             etag=self.etag,
             id=self.id,
@@ -303,8 +280,7 @@ class AwaitableGetSubnetResult(GetSubnetResult):
             route_table=self.route_table,
             service_association_links=self.service_association_links,
             service_endpoint_policies=self.service_endpoint_policies,
-            service_endpoints=self.service_endpoints,
-            type=self.type)
+            service_endpoints=self.service_endpoints)
 
 
 def get_subnet(expand: Optional[str] = None,
@@ -314,7 +290,7 @@ def get_subnet(expand: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSubnetResult:
     """
     Subnet in a virtual network resource.
-    API Version: 2020-08-01.
+    API Version: 2020-11-01.
 
 
     :param str expand: Expands referenced resources.
@@ -336,7 +312,6 @@ def get_subnet(expand: Optional[str] = None,
     return AwaitableGetSubnetResult(
         address_prefix=__ret__.address_prefix,
         address_prefixes=__ret__.address_prefixes,
-        application_gateway_ip_configurations=__ret__.application_gateway_ip_configurations,
         delegations=__ret__.delegations,
         etag=__ret__.etag,
         id=__ret__.id,
@@ -355,5 +330,4 @@ def get_subnet(expand: Optional[str] = None,
         route_table=__ret__.route_table,
         service_association_links=__ret__.service_association_links,
         service_endpoint_policies=__ret__.service_endpoint_policies,
-        service_endpoints=__ret__.service_endpoints,
-        type=__ret__.type)
+        service_endpoints=__ret__.service_endpoints)

@@ -31,7 +31,7 @@ class VirtualHubBgpConnection(pulumi.CustomResource):
                  __opts__=None):
         """
         Virtual Appliance Site resource.
-        Latest API Version: 2020-08-01.
+        Latest API Version: 2020-11-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -76,7 +76,7 @@ class VirtualHubBgpConnection(pulumi.CustomResource):
             __props__['etag'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/latest:VirtualHubBgpConnection"), pulumi.Alias(type_="azure-native:network:VirtualHubBgpConnection"), pulumi.Alias(type_="azure-nextgen:network:VirtualHubBgpConnection"), pulumi.Alias(type_="azure-native:network/v20200501:VirtualHubBgpConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200501:VirtualHubBgpConnection"), pulumi.Alias(type_="azure-native:network/v20200601:VirtualHubBgpConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200601:VirtualHubBgpConnection"), pulumi.Alias(type_="azure-native:network/v20200701:VirtualHubBgpConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200701:VirtualHubBgpConnection"), pulumi.Alias(type_="azure-native:network/v20200801:VirtualHubBgpConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200801:VirtualHubBgpConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/latest:VirtualHubBgpConnection"), pulumi.Alias(type_="azure-native:network:VirtualHubBgpConnection"), pulumi.Alias(type_="azure-nextgen:network:VirtualHubBgpConnection"), pulumi.Alias(type_="azure-native:network/v20200501:VirtualHubBgpConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200501:VirtualHubBgpConnection"), pulumi.Alias(type_="azure-native:network/v20200601:VirtualHubBgpConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200601:VirtualHubBgpConnection"), pulumi.Alias(type_="azure-native:network/v20200701:VirtualHubBgpConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200701:VirtualHubBgpConnection"), pulumi.Alias(type_="azure-native:network/v20200801:VirtualHubBgpConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200801:VirtualHubBgpConnection"), pulumi.Alias(type_="azure-native:network/v20201101:VirtualHubBgpConnection"), pulumi.Alias(type_="azure-nextgen:network/v20201101:VirtualHubBgpConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualHubBgpConnection, __self__).__init__(
             'azure-native:network/latest:VirtualHubBgpConnection',

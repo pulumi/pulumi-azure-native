@@ -20,6 +20,7 @@ export type CitusVersion = (typeof CitusVersion)[keyof typeof CitusVersion];
 export const CreateMode = {
     Default: "Default",
     PointInTimeRestore: "PointInTimeRestore",
+    ReadReplica: "ReadReplica",
 } as const;
 
 /**

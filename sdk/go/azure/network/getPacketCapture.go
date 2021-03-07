@@ -8,7 +8,7 @@ import (
 )
 
 // Information about packet capture session.
-// API Version: 2020-08-01.
+// API Version: 2020-11-01.
 func LookupPacketCapture(ctx *pulumi.Context, args *LookupPacketCaptureArgs, opts ...pulumi.InvokeOption) (*LookupPacketCaptureResult, error) {
 	var rv LookupPacketCaptureResult
 	err := ctx.Invoke("azure-native:network:getPacketCapture", args, &rv, opts...)

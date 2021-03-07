@@ -12,7 +12,7 @@ import (
 )
 
 // Route Filter Rule Resource.
-// Latest API Version: 2020-08-01.
+// Latest API Version: 2020-11-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:RouteFilterRule'.
 type RouteFilterRule struct {
@@ -245,6 +245,12 @@ func NewRouteFilterRule(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200801:RouteFilterRule"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20201101:RouteFilterRule"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20201101:RouteFilterRule"),
 		},
 	})
 	opts = append(opts, aliases)

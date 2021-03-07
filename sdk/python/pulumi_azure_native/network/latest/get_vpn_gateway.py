@@ -206,7 +206,7 @@ def get_vpn_gateway(gateway_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpnGatewayResult:
     """
     VpnGateway Resource.
-    Latest API Version: 2020-08-01.
+    Latest API Version: 2020-11-01.
 
 
     :param str gateway_name: The name of the gateway.

@@ -8,7 +8,7 @@ import (
 )
 
 // P2SVpnGateway Resource.
-// API Version: 2020-08-01.
+// API Version: 2020-11-01.
 func GetP2sVpnGatewayP2sVpnConnectionHealth(ctx *pulumi.Context, args *GetP2sVpnGatewayP2sVpnConnectionHealthArgs, opts ...pulumi.InvokeOption) (*GetP2sVpnGatewayP2sVpnConnectionHealthResult, error) {
 	var rv GetP2sVpnGatewayP2sVpnConnectionHealthResult
 	err := ctx.Invoke("azure-native:network:getP2sVpnGatewayP2sVpnConnectionHealth", args, &rv, opts...)

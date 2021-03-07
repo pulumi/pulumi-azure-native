@@ -8,7 +8,7 @@ import (
 )
 
 // Private link service resource.
-// API Version: 2020-08-01.
+// API Version: 2020-11-01.
 func LookupPrivateLinkService(ctx *pulumi.Context, args *LookupPrivateLinkServiceArgs, opts ...pulumi.InvokeOption) (*LookupPrivateLinkServiceResult, error) {
 	var rv LookupPrivateLinkServiceResult
 	err := ctx.Invoke("azure-native:network:getPrivateLinkService", args, &rv, opts...)

@@ -61,7 +61,7 @@ def get_integration_runtime_status(integration_runtime_name: Optional[str] = Non
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIntegrationRuntimeStatusResult:
     """
     Integration runtime status response.
-    API Version: 2020-12-01.
+    API Version: 2021-03-01.
 
 
     :param str integration_runtime_name: Integration runtime name

@@ -8,7 +8,7 @@ import (
 )
 
 // DSCP Configuration in a resource group.
-// API Version: 2020-08-01.
+// API Version: 2020-11-01.
 func LookupDscpConfiguration(ctx *pulumi.Context, args *LookupDscpConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupDscpConfigurationResult, error) {
 	var rv LookupDscpConfigurationResult
 	err := ctx.Invoke("azure-native:network:getDscpConfiguration", args, &rv, opts...)

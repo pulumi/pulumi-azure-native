@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Synapse.Latest
     {
         /// <summary>
         /// Workspace active directory administrator
-        /// Latest API Version: 2020-12-01.
+        /// Latest API Version: 2021-03-01.
         /// </summary>
         public static Task<GetWorkspaceSqlAadAdminResult> InvokeAsync(GetWorkspaceSqlAadAdminArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceSqlAadAdminResult>("azure-native:synapse/latest:getWorkspaceSqlAadAdmin", args ?? new GetWorkspaceSqlAadAdminArgs(), options.WithVersion());

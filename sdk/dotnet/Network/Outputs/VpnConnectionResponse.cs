@@ -82,6 +82,10 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// </summary>
         public readonly string? SharedKey;
         /// <summary>
+        /// The Traffic Selector Policies to be considered by this connection.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.TrafficSelectorPolicyResponse> TrafficSelectorPolicies;
+        /// <summary>
         /// Use local azure ip to initiate connection.
         /// </summary>
         public readonly bool? UseLocalAzureIpAddress;
@@ -134,6 +138,8 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             string? sharedKey,
 
+            ImmutableArray<Outputs.TrafficSelectorPolicyResponse> trafficSelectorPolicies,
+
             bool? useLocalAzureIpAddress,
 
             bool? usePolicyBasedTrafficSelectors,
@@ -159,6 +165,7 @@ namespace Pulumi.AzureNative.Network.Outputs
             RoutingConfiguration = routingConfiguration;
             RoutingWeight = routingWeight;
             SharedKey = sharedKey;
+            TrafficSelectorPolicies = trafficSelectorPolicies;
             UseLocalAzureIpAddress = useLocalAzureIpAddress;
             UsePolicyBasedTrafficSelectors = usePolicyBasedTrafficSelectors;
             VpnConnectionProtocolType = vpnConnectionProtocolType;

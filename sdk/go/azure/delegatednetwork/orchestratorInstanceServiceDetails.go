@@ -20,7 +20,7 @@ type OrchestratorInstanceServiceDetails struct {
 	ApiServerEndpoint pulumi.StringPtrOutput `pulumi:"apiServerEndpoint"`
 	// RootCA certificate of kubernetes cluster base64 encoded
 	ClusterRootCA pulumi.StringPtrOutput `pulumi:"clusterRootCA"`
-	// controller details
+	// Properties of the controller.
 	ControllerDetails ControllerDetailsResponseOutput `pulumi:"controllerDetails"`
 	// The identity of the orchestrator
 	Identity OrchestratorIdentityResponsePtrOutput `pulumi:"identity"`
@@ -98,7 +98,7 @@ type orchestratorInstanceServiceDetailsState struct {
 	ApiServerEndpoint *string `pulumi:"apiServerEndpoint"`
 	// RootCA certificate of kubernetes cluster base64 encoded
 	ClusterRootCA *string `pulumi:"clusterRootCA"`
-	// controller details
+	// Properties of the controller.
 	ControllerDetails *ControllerDetailsResponse `pulumi:"controllerDetails"`
 	// The identity of the orchestrator
 	Identity *OrchestratorIdentityResponse `pulumi:"identity"`
@@ -127,7 +127,7 @@ type OrchestratorInstanceServiceDetailsState struct {
 	ApiServerEndpoint pulumi.StringPtrInput
 	// RootCA certificate of kubernetes cluster base64 encoded
 	ClusterRootCA pulumi.StringPtrInput
-	// controller details
+	// Properties of the controller.
 	ControllerDetails ControllerDetailsResponsePtrInput
 	// The identity of the orchestrator
 	Identity OrchestratorIdentityResponsePtrInput
@@ -160,7 +160,7 @@ type orchestratorInstanceServiceDetailsArgs struct {
 	ApiServerEndpoint *string `pulumi:"apiServerEndpoint"`
 	// RootCA certificate of kubernetes cluster base64 encoded
 	ClusterRootCA *string `pulumi:"clusterRootCA"`
-	// controller details
+	// Properties of the controller.
 	ControllerDetails ControllerDetailsType `pulumi:"controllerDetails"`
 	// The identity of the orchestrator
 	Identity *OrchestratorIdentity `pulumi:"identity"`
@@ -172,7 +172,7 @@ type orchestratorInstanceServiceDetailsArgs struct {
 	OrchestratorAppId *string `pulumi:"orchestratorAppId"`
 	// TenantID of server App ID
 	OrchestratorTenantId *string `pulumi:"orchestratorTenantId"`
-	// The name of the Azure Resource group of which a given DelegatedNetwork resource is part. This name must be at least 1 character in length, and no more than 90.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the resource. It must be a minimum of 3 characters, and a maximum of 63.
 	ResourceName *string `pulumi:"resourceName"`
@@ -186,7 +186,7 @@ type OrchestratorInstanceServiceDetailsArgs struct {
 	ApiServerEndpoint pulumi.StringPtrInput
 	// RootCA certificate of kubernetes cluster base64 encoded
 	ClusterRootCA pulumi.StringPtrInput
-	// controller details
+	// Properties of the controller.
 	ControllerDetails ControllerDetailsTypeInput
 	// The identity of the orchestrator
 	Identity OrchestratorIdentityPtrInput
@@ -198,7 +198,7 @@ type OrchestratorInstanceServiceDetailsArgs struct {
 	OrchestratorAppId pulumi.StringPtrInput
 	// TenantID of server App ID
 	OrchestratorTenantId pulumi.StringPtrInput
-	// The name of the Azure Resource group of which a given DelegatedNetwork resource is part. This name must be at least 1 character in length, and no more than 90.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// The name of the resource. It must be a minimum of 3 characters, and a maximum of 63.
 	ResourceName pulumi.StringPtrInput

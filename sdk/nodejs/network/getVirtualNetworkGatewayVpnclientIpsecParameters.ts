@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * An IPSec parameters for a virtual network gateway P2S connection.
- * API Version: 2020-08-01.
+ * API Version: 2020-11-01.
  */
 export function getVirtualNetworkGatewayVpnclientIpsecParameters(args: GetVirtualNetworkGatewayVpnclientIpsecParametersArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkGatewayVpnclientIpsecParametersResult> {
     if (!opts) {

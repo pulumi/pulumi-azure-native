@@ -12,7 +12,7 @@ import (
 )
 
 // NetworkSecurityGroup resource.
-// API Version: 2020-08-01.
+// API Version: 2020-11-01.
 type NetworkSecurityGroup struct {
 	pulumi.CustomResourceState
 
@@ -271,6 +271,12 @@ func NewNetworkSecurityGroup(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200801:NetworkSecurityGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20201101:NetworkSecurityGroup"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20201101:NetworkSecurityGroup"),
 		},
 	})
 	opts = append(opts, aliases)

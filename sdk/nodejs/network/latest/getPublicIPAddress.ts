@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Public IP address resource.
- * Latest API Version: 2020-08-01.
+ * Latest API Version: 2020-11-01.
  */
 /** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getPublicIPAddress'. */
 export function getPublicIPAddress(args: GetPublicIPAddressArgs, opts?: pulumi.InvokeOptions): Promise<GetPublicIPAddressResult> {
@@ -82,25 +82,13 @@ export interface GetPublicIPAddressResult {
      */
     readonly ipTags?: outputs.network.latest.IpTagResponse[];
     /**
-     * The source Public IP Address (IPv6) that links to this address (IPv4).
-     */
-    readonly linkedPublicIPAddress?: outputs.network.latest.PublicIPAddressResponse;
-    /**
      * Resource location.
      */
     readonly location?: string;
     /**
-     * Migration phase of Public IP Address.
-     */
-    readonly migrationPhase?: string;
-    /**
      * Resource name.
      */
     readonly name: string;
-    /**
-     * The NatGateway for the Public IP address.
-     */
-    readonly natGateway?: outputs.network.latest.NatGatewayResponse;
     /**
      * The provisioning state of the public IP address resource.
      */
@@ -121,10 +109,6 @@ export interface GetPublicIPAddressResult {
      * The resource GUID property of the public IP address resource.
      */
     readonly resourceGuid: string;
-    /**
-     * The service public IP address of the public IP address resource.
-     */
-    readonly servicePublicIPAddress?: outputs.network.latest.PublicIPAddressResponse;
     /**
      * The public IP address SKU.
      */

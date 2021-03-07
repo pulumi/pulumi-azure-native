@@ -12,7 +12,7 @@ import (
 )
 
 // A workspace key
-// Latest API Version: 2020-12-01.
+// Latest API Version: 2021-03-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:synapse:Key'.
 type Key struct {

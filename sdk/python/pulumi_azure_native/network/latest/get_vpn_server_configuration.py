@@ -266,7 +266,7 @@ def get_vpn_server_configuration(resource_group_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpnServerConfigurationResult:
     """
     VpnServerConfiguration Resource.
-    Latest API Version: 2020-08-01.
+    Latest API Version: 2020-11-01.
 
 
     :param str resource_group_name: The resource group name of the VpnServerConfiguration.

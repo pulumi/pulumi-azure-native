@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * NetworkSecurityGroup resource.
- * API Version: 2020-08-01.
+ * API Version: 2020-11-01.
  */
 export function getNetworkSecurityGroup(args: GetNetworkSecurityGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkSecurityGroupResult> {
     if (!opts) {

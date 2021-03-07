@@ -12,7 +12,7 @@ import (
 )
 
 // Workload classifier operations for a data warehouse
-// API Version: 2020-12-01.
+// API Version: 2021-03-01.
 type SqlPoolWorkloadClassifier struct {
 	pulumi.CustomResourceState
 

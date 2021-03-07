@@ -270,6 +270,12 @@ func NewPublicIPAddress(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200801:PublicIPAddress"),
 		},
+		{
+			Type: pulumi.String("azure-native:network/v20201101:PublicIPAddress"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20201101:PublicIPAddress"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource PublicIPAddress

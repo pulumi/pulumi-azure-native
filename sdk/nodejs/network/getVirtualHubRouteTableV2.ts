@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * VirtualHubRouteTableV2 Resource.
- * API Version: 2020-08-01.
+ * API Version: 2020-11-01.
  */
 export function getVirtualHubRouteTableV2(args: GetVirtualHubRouteTableV2Args, opts?: pulumi.InvokeOptions): Promise<GetVirtualHubRouteTableV2Result> {
     if (!opts) {

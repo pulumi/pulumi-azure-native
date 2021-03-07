@@ -91,6 +91,12 @@ func NewSecurityPartnerProvider(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200701:SecurityPartnerProvider"),
 		},
+		{
+			Type: pulumi.String("azure-native:network/v20201101:SecurityPartnerProvider"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20201101:SecurityPartnerProvider"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource SecurityPartnerProvider

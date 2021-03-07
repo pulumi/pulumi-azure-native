@@ -12,7 +12,7 @@ import (
 )
 
 // Pool of backend IP addresses.
-// API Version: 2020-08-01.
+// API Version: 2020-11-01.
 type LoadBalancerBackendAddressPool struct {
 	pulumi.CustomResourceState
 
@@ -90,6 +90,12 @@ func NewLoadBalancerBackendAddressPool(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200801:LoadBalancerBackendAddressPool"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20201101:LoadBalancerBackendAddressPool"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20201101:LoadBalancerBackendAddressPool"),
 		},
 	})
 	opts = append(opts, aliases)

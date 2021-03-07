@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Route Filter Rule Resource.
- * API Version: 2020-08-01.
+ * API Version: 2020-11-01.
  */
 export function getRouteFilterRule(args: GetRouteFilterRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteFilterRuleResult> {
     if (!opts) {

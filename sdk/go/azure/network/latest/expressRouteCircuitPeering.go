@@ -12,7 +12,7 @@ import (
 )
 
 // Peering in an ExpressRouteCircuit resource.
-// Latest API Version: 2020-08-01.
+// Latest API Version: 2020-11-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:ExpressRouteCircuitPeering'.
 type ExpressRouteCircuitPeering struct {
@@ -298,6 +298,12 @@ func NewExpressRouteCircuitPeering(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200801:ExpressRouteCircuitPeering"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20201101:ExpressRouteCircuitPeering"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20201101:ExpressRouteCircuitPeering"),
 		},
 	})
 	opts = append(opts, aliases)

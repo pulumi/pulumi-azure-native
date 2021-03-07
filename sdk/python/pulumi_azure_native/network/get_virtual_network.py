@@ -253,7 +253,7 @@ def get_virtual_network(expand: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualNetworkResult:
     """
     Virtual Network resource.
-    API Version: 2020-08-01.
+    API Version: 2020-11-01.
 
 
     :param str expand: Expands referenced resources.

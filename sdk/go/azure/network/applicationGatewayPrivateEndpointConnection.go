@@ -12,7 +12,7 @@ import (
 )
 
 // Private Endpoint connection on an application gateway.
-// API Version: 2020-08-01.
+// API Version: 2020-11-01.
 type ApplicationGatewayPrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 
@@ -78,6 +78,12 @@ func NewApplicationGatewayPrivateEndpointConnection(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200801:ApplicationGatewayPrivateEndpointConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20201101:ApplicationGatewayPrivateEndpointConnection"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20201101:ApplicationGatewayPrivateEndpointConnection"),
 		},
 	})
 	opts = append(opts, aliases)

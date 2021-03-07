@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20210301Preview
     public partial class CassandraDataCenter : Pulumi.CustomResource
     {
         /// <summary>
-        /// The name of the resource
+        /// The name of the database account.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20210301Preview
         public Output<Outputs.DataCenterResourceResponseProperties> Properties { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        /// The type of Azure resource.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;

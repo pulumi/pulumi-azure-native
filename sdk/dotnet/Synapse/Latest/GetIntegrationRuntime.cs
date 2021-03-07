@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Synapse.Latest
     {
         /// <summary>
         /// Integration runtime resource type.
-        /// Latest API Version: 2020-12-01.
+        /// Latest API Version: 2021-03-01.
         /// </summary>
         public static Task<GetIntegrationRuntimeResult> InvokeAsync(GetIntegrationRuntimeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationRuntimeResult>("azure-native:synapse/latest:getIntegrationRuntime", args ?? new GetIntegrationRuntimeArgs(), options.WithVersion());

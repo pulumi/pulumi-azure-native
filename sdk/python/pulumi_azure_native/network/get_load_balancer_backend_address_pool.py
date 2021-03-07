@@ -169,7 +169,7 @@ def get_load_balancer_backend_address_pool(backend_address_pool_name: Optional[s
                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLoadBalancerBackendAddressPoolResult:
     """
     Pool of backend IP addresses.
-    API Version: 2020-08-01.
+    API Version: 2020-11-01.
 
 
     :param str backend_address_pool_name: The name of the backend address pool.

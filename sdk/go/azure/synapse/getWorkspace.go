@@ -8,7 +8,7 @@ import (
 )
 
 // A workspace
-// API Version: 2020-12-01.
+// API Version: 2021-03-01.
 func LookupWorkspace(ctx *pulumi.Context, args *LookupWorkspaceArgs, opts ...pulumi.InvokeOption) (*LookupWorkspaceResult, error) {
 	var rv LookupWorkspaceResult
 	err := ctx.Invoke("azure-native:synapse:getWorkspace", args, &rv, opts...)
@@ -51,6 +51,8 @@ type LookupWorkspaceResult struct {
 	ManagedVirtualNetworkSettings *ManagedVirtualNetworkSettingsResponse `pulumi:"managedVirtualNetworkSettings"`
 	// The name of the resource
 	Name string `pulumi:"name"`
+	// Network Settings
+	NetworkSettings *NetworkSettingsResponse `pulumi:"networkSettings"`
 	// Private endpoint connections to the workspace
 	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
 	// Resource provisioning state

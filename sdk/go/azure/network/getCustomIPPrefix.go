@@ -8,7 +8,7 @@ import (
 )
 
 // Custom IP prefix resource.
-// API Version: 2020-08-01.
+// API Version: 2020-11-01.
 func LookupCustomIPPrefix(ctx *pulumi.Context, args *LookupCustomIPPrefixArgs, opts ...pulumi.InvokeOption) (*LookupCustomIPPrefixResult, error) {
 	var rv LookupCustomIPPrefixResult
 	err := ctx.Invoke("azure-native:network:getCustomIPPrefix", args, &rv, opts...)

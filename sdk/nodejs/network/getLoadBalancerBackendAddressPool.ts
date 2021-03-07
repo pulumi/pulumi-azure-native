@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Pool of backend IP addresses.
- * API Version: 2020-08-01.
+ * API Version: 2020-11-01.
  */
 export function getLoadBalancerBackendAddressPool(args: GetLoadBalancerBackendAddressPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetLoadBalancerBackendAddressPoolResult> {
     if (!opts) {

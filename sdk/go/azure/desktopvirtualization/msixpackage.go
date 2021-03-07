@@ -12,7 +12,7 @@ import (
 )
 
 // Schema for MSIX Package properties.
-// API Version: 2021-01-14-preview.
+// API Version: 2021-02-01-preview.
 type MSIXPackage struct {
 	pulumi.CustomResourceState
 

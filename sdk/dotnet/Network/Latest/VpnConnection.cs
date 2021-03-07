@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network.Latest
 {
     /// <summary>
     /// VpnConnection Resource.
-    /// Latest API Version: 2020-08-01.
+    /// Latest API Version: 2020-11-01.
     /// </summary>
     [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:VpnConnection'.")]
     [AzureNativeResourceType("azure-native:network/latest:VpnConnection")]
@@ -114,6 +114,12 @@ namespace Pulumi.AzureNative.Network.Latest
         public Output<string?> SharedKey { get; private set; } = null!;
 
         /// <summary>
+        /// The Traffic Selector Policies to be considered by this connection.
+        /// </summary>
+        [Output("trafficSelectorPolicies")]
+        public Output<ImmutableArray<Outputs.TrafficSelectorPolicyResponse>> TrafficSelectorPolicies { get; private set; } = null!;
+
+        /// <summary>
         /// Use local azure ip to initiate connection.
         /// </summary>
         [Output("useLocalAzureIpAddress")]
@@ -207,6 +213,8 @@ namespace Pulumi.AzureNative.Network.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:VpnConnection"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200801:VpnConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:VpnConnection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20201101:VpnConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20201101:VpnConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -325,6 +333,18 @@ namespace Pulumi.AzureNative.Network.Latest
         /// </summary>
         [Input("sharedKey")]
         public Input<string>? SharedKey { get; set; }
+
+        [Input("trafficSelectorPolicies")]
+        private InputList<Inputs.TrafficSelectorPolicyArgs>? _trafficSelectorPolicies;
+
+        /// <summary>
+        /// The Traffic Selector Policies to be considered by this connection.
+        /// </summary>
+        public InputList<Inputs.TrafficSelectorPolicyArgs> TrafficSelectorPolicies
+        {
+            get => _trafficSelectorPolicies ?? (_trafficSelectorPolicies = new InputList<Inputs.TrafficSelectorPolicyArgs>());
+            set => _trafficSelectorPolicies = value;
+        }
 
         /// <summary>
         /// Use local azure ip to initiate connection.

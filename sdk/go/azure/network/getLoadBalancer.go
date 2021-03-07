@@ -8,7 +8,7 @@ import (
 )
 
 // LoadBalancer resource.
-// API Version: 2020-08-01.
+// API Version: 2020-11-01.
 func LookupLoadBalancer(ctx *pulumi.Context, args *LookupLoadBalancerArgs, opts ...pulumi.InvokeOption) (*LookupLoadBalancerResult, error) {
 	var rv LookupLoadBalancerResult
 	err := ctx.Invoke("azure-native:network:getLoadBalancer", args, &rv, opts...)

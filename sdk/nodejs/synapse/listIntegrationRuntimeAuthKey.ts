@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The integration runtime authentication keys.
- * API Version: 2020-12-01.
+ * API Version: 2021-03-01.
  */
 export function listIntegrationRuntimeAuthKey(args: ListIntegrationRuntimeAuthKeyArgs, opts?: pulumi.InvokeOptions): Promise<ListIntegrationRuntimeAuthKeyResult> {
     if (!opts) {

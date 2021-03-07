@@ -251,6 +251,8 @@ namespace Pulumi.AzureNative.Network.V20200801
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:NetworkInterface"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200701:NetworkInterface"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:NetworkInterface"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20201101:NetworkInterface"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20201101:NetworkInterface"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

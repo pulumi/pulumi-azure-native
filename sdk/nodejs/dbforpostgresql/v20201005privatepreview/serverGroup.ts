@@ -100,6 +100,10 @@ export class ServerGroup extends pulumi.CustomResource {
      */
     public readonly postgresqlVersion!: pulumi.Output<string | undefined>;
     /**
+     * The array of read replica server groups.
+     */
+    public /*out*/ readonly readReplicas!: pulumi.Output<string[]>;
+    /**
      * The resource provider type of server group.
      */
     public /*out*/ readonly resourceProviderType!: pulumi.Output<string>;
@@ -108,19 +112,23 @@ export class ServerGroup extends pulumi.CustomResource {
      */
     public readonly serverRoleGroups!: pulumi.Output<outputs.dbforpostgresql.v20201005privatepreview.ServerRoleGroupResponse[] | undefined>;
     /**
-     * The source server group location to restore from. It's required when 'createMode' is 'PointInTimeRestore'
+     * The source server group location to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'ReadReplica'
      */
     public readonly sourceLocation!: pulumi.Output<string | undefined>;
     /**
-     * The source resource group name to restore from. It's required when 'createMode' is 'PointInTimeRestore'
+     * The source resource group name to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'ReadReplica'
      */
     public readonly sourceResourceGroupName!: pulumi.Output<string | undefined>;
     /**
-     * The source server group name to restore from. It's required when 'createMode' is 'PointInTimeRestore'
+     * The source server group id for read replica server groups.
+     */
+    public /*out*/ readonly sourceServerGroup!: pulumi.Output<string>;
+    /**
+     * The source server group name to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'ReadReplica'
      */
     public readonly sourceServerGroupName!: pulumi.Output<string | undefined>;
     /**
-     * The source subscription id to restore from. It's required when 'createMode' is 'PointInTimeRestore'
+     * The source subscription id to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'ReadReplica'
      */
     public readonly sourceSubscriptionId!: pulumi.Output<string | undefined>;
     /**
@@ -183,7 +191,9 @@ export class ServerGroup extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["earliestRestoreTime"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["readReplicas"] = undefined /*out*/;
             inputs["resourceProviderType"] = undefined /*out*/;
+            inputs["sourceServerGroup"] = undefined /*out*/;
             inputs["state"] = undefined /*out*/;
             inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -204,10 +214,12 @@ export class ServerGroup extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["pointInTimeUTC"] = undefined /*out*/;
             inputs["postgresqlVersion"] = undefined /*out*/;
+            inputs["readReplicas"] = undefined /*out*/;
             inputs["resourceProviderType"] = undefined /*out*/;
             inputs["serverRoleGroups"] = undefined /*out*/;
             inputs["sourceLocation"] = undefined /*out*/;
             inputs["sourceResourceGroupName"] = undefined /*out*/;
+            inputs["sourceServerGroup"] = undefined /*out*/;
             inputs["sourceServerGroupName"] = undefined /*out*/;
             inputs["sourceSubscriptionId"] = undefined /*out*/;
             inputs["standbyAvailabilityZone"] = undefined /*out*/;
@@ -298,19 +310,19 @@ export interface ServerGroupArgs {
      */
     readonly serverRoleGroups?: pulumi.Input<pulumi.Input<inputs.dbforpostgresql.v20201005privatepreview.ServerRoleGroup>[]>;
     /**
-     * The source server group location to restore from. It's required when 'createMode' is 'PointInTimeRestore'
+     * The source server group location to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'ReadReplica'
      */
     readonly sourceLocation?: pulumi.Input<string>;
     /**
-     * The source resource group name to restore from. It's required when 'createMode' is 'PointInTimeRestore'
+     * The source resource group name to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'ReadReplica'
      */
     readonly sourceResourceGroupName?: pulumi.Input<string>;
     /**
-     * The source server group name to restore from. It's required when 'createMode' is 'PointInTimeRestore'
+     * The source server group name to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'ReadReplica'
      */
     readonly sourceServerGroupName?: pulumi.Input<string>;
     /**
-     * The source subscription id to restore from. It's required when 'createMode' is 'PointInTimeRestore'
+     * The source subscription id to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'ReadReplica'
      */
     readonly sourceSubscriptionId?: pulumi.Input<string>;
     /**

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * VpnGateway Resource.
- * API Version: 2020-08-01.
+ * API Version: 2020-11-01.
  */
 export function getVpnGateway(args: GetVpnGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetVpnGatewayResult> {
     if (!opts) {

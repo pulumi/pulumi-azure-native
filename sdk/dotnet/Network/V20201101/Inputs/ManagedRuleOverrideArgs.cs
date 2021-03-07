@@ -16,34 +16,16 @@ namespace Pulumi.AzureNative.Network.V20201101.Inputs
     public sealed class ManagedRuleOverrideArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Describes the override action to be applied when rule matches.
-        /// </summary>
-        [Input("action")]
-        public InputUnion<string, Pulumi.AzureNative.Network.V20201101.ActionType>? Action { get; set; }
-
-        /// <summary>
-        /// Describes if the managed rule is in enabled or disabled state. Defaults to Disabled if not specified.
-        /// </summary>
-        [Input("enabledState")]
-        public InputUnion<string, Pulumi.AzureNative.Network.V20201101.ManagedRuleEnabledState>? EnabledState { get; set; }
-
-        [Input("exclusions")]
-        private InputList<Inputs.ManagedRuleExclusionArgs>? _exclusions;
-
-        /// <summary>
-        /// Describes the exclusions that are applied to this specific rule.
-        /// </summary>
-        public InputList<Inputs.ManagedRuleExclusionArgs> Exclusions
-        {
-            get => _exclusions ?? (_exclusions = new InputList<Inputs.ManagedRuleExclusionArgs>());
-            set => _exclusions = value;
-        }
-
-        /// <summary>
         /// Identifier for the managed rule.
         /// </summary>
         [Input("ruleId", required: true)]
         public Input<string> RuleId { get; set; } = null!;
+
+        /// <summary>
+        /// The state of the managed rule. Defaults to Disabled if not specified.
+        /// </summary>
+        [Input("state")]
+        public InputUnion<string, Pulumi.AzureNative.Network.V20201101.ManagedRuleEnabledState>? State { get; set; }
 
         public ManagedRuleOverrideArgs()
         {

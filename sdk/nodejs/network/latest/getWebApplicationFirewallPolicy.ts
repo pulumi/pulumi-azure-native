@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Defines web application firewall policy.
- * Latest API Version: 2020-08-01.
+ * Latest API Version: 2020-11-01.
  */
 /** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getWebApplicationFirewallPolicy'. */
 export function getWebApplicationFirewallPolicy(args: GetWebApplicationFirewallPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetWebApplicationFirewallPolicyResult> {

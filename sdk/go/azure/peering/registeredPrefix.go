@@ -73,6 +73,12 @@ func NewRegisteredPrefix(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:peering/v20201001:RegisteredPrefix"),
 		},
+		{
+			Type: pulumi.String("azure-native:peering/v20210101:RegisteredPrefix"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:peering/v20210101:RegisteredPrefix"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource RegisteredPrefix

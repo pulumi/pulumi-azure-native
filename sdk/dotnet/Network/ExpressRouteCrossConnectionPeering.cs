@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// Peering in an ExpressRoute Cross Connection resource.
-    /// API Version: 2020-08-01.
+    /// API Version: 2020-11-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:ExpressRouteCrossConnectionPeering")]
     public partial class ExpressRouteCrossConnectionPeering : Pulumi.CustomResource
@@ -190,6 +190,8 @@ namespace Pulumi.AzureNative.Network
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:ExpressRouteCrossConnectionPeering"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200801:ExpressRouteCrossConnectionPeering"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:ExpressRouteCrossConnectionPeering"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20201101:ExpressRouteCrossConnectionPeering"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20201101:ExpressRouteCrossConnectionPeering"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * A common class for general resource information.
- * Latest API Version: 2020-08-01.
+ * Latest API Version: 2020-11-01.
  */
 /** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getVirtualNetworkGateway'. */
 export function getVirtualNetworkGateway(args: GetVirtualNetworkGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkGatewayResult> {
@@ -69,10 +69,6 @@ export interface GetVirtualNetworkGatewayResult {
      */
     readonly etag: string;
     /**
-     * The extended location of type local virtual network gateway.
-     */
-    readonly extendedLocation?: outputs.network.latest.ExtendedLocationResponse;
-    /**
      * The reference to the LocalNetworkGateway resource which represents local network site having default routes. Assign Null value in case of removing existing default site setting.
      */
     readonly gatewayDefaultSite?: outputs.network.latest.SubResourceResponse;
@@ -123,7 +119,11 @@ export interface GetVirtualNetworkGatewayResult {
     /**
      * MAS FIJI customer vnet resource id. VirtualNetworkGateway of type local gateway is associated with the customer vnet.
      */
-    readonly virtualNetworkExtendedLocationResourceId?: string;
+    readonly vNetExtendedLocationResourceId?: string;
+    /**
+     * The extended location of type local virtual network gateway.
+     */
+    readonly virtualNetworkExtendedLocation?: outputs.network.latest.ExtendedLocationResponse;
     /**
      * The reference to the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
      */

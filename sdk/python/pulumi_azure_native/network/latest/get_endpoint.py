@@ -22,7 +22,7 @@ class GetEndpointResult:
     """
     Class representing a Traffic Manager endpoint.
     """
-    def __init__(__self__, custom_headers=None, endpoint_location=None, endpoint_monitor_status=None, endpoint_status=None, geo_mapping=None, id=None, min_child_endpoints=None, name=None, priority=None, subnets=None, target=None, target_resource_id=None, type=None, weight=None):
+    def __init__(__self__, custom_headers=None, endpoint_location=None, endpoint_monitor_status=None, endpoint_status=None, geo_mapping=None, id=None, min_child_endpoints=None, min_child_endpoints_i_pv4=None, min_child_endpoints_i_pv6=None, name=None, priority=None, subnets=None, target=None, target_resource_id=None, type=None, weight=None):
         if custom_headers and not isinstance(custom_headers, list):
             raise TypeError("Expected argument 'custom_headers' to be a list")
         pulumi.set(__self__, "custom_headers", custom_headers)
@@ -44,6 +44,12 @@ class GetEndpointResult:
         if min_child_endpoints and not isinstance(min_child_endpoints, float):
             raise TypeError("Expected argument 'min_child_endpoints' to be a float")
         pulumi.set(__self__, "min_child_endpoints", min_child_endpoints)
+        if min_child_endpoints_i_pv4 and not isinstance(min_child_endpoints_i_pv4, float):
+            raise TypeError("Expected argument 'min_child_endpoints_i_pv4' to be a float")
+        pulumi.set(__self__, "min_child_endpoints_i_pv4", min_child_endpoints_i_pv4)
+        if min_child_endpoints_i_pv6 and not isinstance(min_child_endpoints_i_pv6, float):
+            raise TypeError("Expected argument 'min_child_endpoints_i_pv6' to be a float")
+        pulumi.set(__self__, "min_child_endpoints_i_pv6", min_child_endpoints_i_pv6)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -123,6 +129,22 @@ class GetEndpointResult:
         return pulumi.get(self, "min_child_endpoints")
 
     @property
+    @pulumi.getter(name="minChildEndpointsIPv4")
+    def min_child_endpoints_i_pv4(self) -> Optional[float]:
+        """
+        The minimum number of IPv4 (DNS record type A) endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
+        """
+        return pulumi.get(self, "min_child_endpoints_i_pv4")
+
+    @property
+    @pulumi.getter(name="minChildEndpointsIPv6")
+    def min_child_endpoints_i_pv6(self) -> Optional[float]:
+        """
+        The minimum number of IPv6 (DNS record type AAAA) endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
+        """
+        return pulumi.get(self, "min_child_endpoints_i_pv6")
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
@@ -192,6 +214,8 @@ class AwaitableGetEndpointResult(GetEndpointResult):
             geo_mapping=self.geo_mapping,
             id=self.id,
             min_child_endpoints=self.min_child_endpoints,
+            min_child_endpoints_i_pv4=self.min_child_endpoints_i_pv4,
+            min_child_endpoints_i_pv6=self.min_child_endpoints_i_pv6,
             name=self.name,
             priority=self.priority,
             subnets=self.subnets,
@@ -208,7 +232,7 @@ def get_endpoint(endpoint_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEndpointResult:
     """
     Class representing a Traffic Manager endpoint.
-    Latest API Version: 2018-04-01.
+    Latest API Version: 2018-08-01.
 
 
     :param str endpoint_name: The name of the Traffic Manager endpoint.
@@ -236,6 +260,8 @@ def get_endpoint(endpoint_name: Optional[str] = None,
         geo_mapping=__ret__.geo_mapping,
         id=__ret__.id,
         min_child_endpoints=__ret__.min_child_endpoints,
+        min_child_endpoints_i_pv4=__ret__.min_child_endpoints_i_pv4,
+        min_child_endpoints_i_pv6=__ret__.min_child_endpoints_i_pv6,
         name=__ret__.name,
         priority=__ret__.priority,
         subnets=__ret__.subnets,

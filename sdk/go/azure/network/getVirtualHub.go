@@ -8,7 +8,7 @@ import (
 )
 
 // VirtualHub Resource.
-// API Version: 2020-08-01.
+// API Version: 2020-11-01.
 func LookupVirtualHub(ctx *pulumi.Context, args *LookupVirtualHubArgs, opts ...pulumi.InvokeOption) (*LookupVirtualHubResult, error) {
 	var rv LookupVirtualHubResult
 	err := ctx.Invoke("azure-native:network:getVirtualHub", args, &rv, opts...)

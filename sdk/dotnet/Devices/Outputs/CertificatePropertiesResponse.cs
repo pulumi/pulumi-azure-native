@@ -14,6 +14,10 @@ namespace Pulumi.AzureNative.Devices.Outputs
     public sealed class CertificatePropertiesResponse
     {
         /// <summary>
+        /// base-64 representation of X509 certificate .cer file or just .pem file content.
+        /// </summary>
+        public readonly string Certificate;
+        /// <summary>
         /// The certificate's creation date and time.
         /// </summary>
         public readonly string Created;
@@ -40,6 +44,8 @@ namespace Pulumi.AzureNative.Devices.Outputs
 
         [OutputConstructor]
         private CertificatePropertiesResponse(
+            string certificate,
+
             string created,
 
             string expiry,
@@ -52,6 +58,7 @@ namespace Pulumi.AzureNative.Devices.Outputs
 
             string updated)
         {
+            Certificate = certificate;
             Created = created;
             Expiry = expiry;
             IsVerified = isVerified;

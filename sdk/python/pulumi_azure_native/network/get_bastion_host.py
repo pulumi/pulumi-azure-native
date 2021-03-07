@@ -144,7 +144,7 @@ def get_bastion_host(bastion_host_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBastionHostResult:
     """
     Bastion Host resource.
-    API Version: 2020-08-01.
+    API Version: 2020-11-01.
 
 
     :param str bastion_host_name: The name of the Bastion Host.

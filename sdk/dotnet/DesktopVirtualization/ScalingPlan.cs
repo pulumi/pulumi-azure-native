@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
 {
     /// <summary>
     /// Represents a scaling plan definition.
-    /// API Version: 2021-01-14-preview.
+    /// API Version: 2021-02-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:desktopvirtualization:ScalingPlan")]
     public partial class ScalingPlan : Pulumi.CustomResource
@@ -41,7 +41,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         public Output<ImmutableArray<Outputs.ScalingHostPoolReferenceResponse>> HostPoolReferences { get; private set; } = null!;
 
         /// <summary>
-        /// HostPool type for scaling plan.
+        /// HostPool type for desktop.
         /// </summary>
         [Output("hostPoolType")]
         public Output<string?> HostPoolType { get; private set; } = null!;
@@ -57,6 +57,12 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// The ring number of scaling plan.
+        /// </summary>
+        [Output("ring")]
+        public Output<int?> Ring { get; private set; } = null!;
 
         /// <summary>
         /// List of ScalingSchedule definitions.
@@ -168,7 +174,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         }
 
         /// <summary>
-        /// HostPool type for scaling plan.
+        /// HostPool type for desktop.
         /// </summary>
         [Input("hostPoolType")]
         public InputUnion<string, Pulumi.AzureNative.DesktopVirtualization.HostPoolType>? HostPoolType { get; set; }
@@ -184,6 +190,12 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The ring number of scaling plan.
+        /// </summary>
+        [Input("ring")]
+        public Input<int>? Ring { get; set; }
 
         /// <summary>
         /// The name of the scaling plan.

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network.Latest
 {
     /// <summary>
     /// A network interface in a resource group.
-    /// Latest API Version: 2020-08-01.
+    /// Latest API Version: 2020-11-01.
     /// </summary>
     [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:NetworkInterface'.")]
     [AzureNativeResourceType("azure-native:network/latest:NetworkInterface")]
@@ -78,12 +78,6 @@ namespace Pulumi.AzureNative.Network.Latest
         public Output<string> MacAddress { get; private set; } = null!;
 
         /// <summary>
-        /// Migration phase of Network Interface resource.
-        /// </summary>
-        [Output("migrationPhase")]
-        public Output<string?> MigrationPhase { get; private set; } = null!;
-
-        /// <summary>
         /// Resource name.
         /// </summary>
         [Output("name")]
@@ -96,12 +90,6 @@ namespace Pulumi.AzureNative.Network.Latest
         public Output<Outputs.NetworkSecurityGroupResponse?> NetworkSecurityGroup { get; private set; } = null!;
 
         /// <summary>
-        /// Type of Network Interface resource.
-        /// </summary>
-        [Output("nicType")]
-        public Output<string?> NicType { get; private set; } = null!;
-
-        /// <summary>
         /// Whether this is a primary network interface on a virtual machine.
         /// </summary>
         [Output("primary")]
@@ -112,12 +100,6 @@ namespace Pulumi.AzureNative.Network.Latest
         /// </summary>
         [Output("privateEndpoint")]
         public Output<Outputs.PrivateEndpointResponse> PrivateEndpoint { get; private set; } = null!;
-
-        /// <summary>
-        /// Privatelinkservice of the network interface resource.
-        /// </summary>
-        [Output("privateLinkService")]
-        public Output<Outputs.PrivateLinkServiceResponse?> PrivateLinkService { get; private set; } = null!;
 
         /// <summary>
         /// The provisioning state of the network interface resource.
@@ -253,6 +235,8 @@ namespace Pulumi.AzureNative.Network.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:NetworkInterface"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200801:NetworkInterface"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:NetworkInterface"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20201101:NetworkInterface"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20201101:NetworkInterface"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -325,12 +309,6 @@ namespace Pulumi.AzureNative.Network.Latest
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Migration phase of Network Interface resource.
-        /// </summary>
-        [Input("migrationPhase")]
-        public InputUnion<string, Pulumi.AzureNative.Network.Latest.NetworkInterfaceMigrationPhase>? MigrationPhase { get; set; }
-
-        /// <summary>
         /// The name of the network interface.
         /// </summary>
         [Input("networkInterfaceName")]
@@ -341,18 +319,6 @@ namespace Pulumi.AzureNative.Network.Latest
         /// </summary>
         [Input("networkSecurityGroup")]
         public Input<Inputs.NetworkSecurityGroupArgs>? NetworkSecurityGroup { get; set; }
-
-        /// <summary>
-        /// Type of Network Interface resource.
-        /// </summary>
-        [Input("nicType")]
-        public InputUnion<string, Pulumi.AzureNative.Network.Latest.NetworkInterfaceNicType>? NicType { get; set; }
-
-        /// <summary>
-        /// Privatelinkservice of the network interface resource.
-        /// </summary>
-        [Input("privateLinkService")]
-        public Input<Inputs.PrivateLinkServiceArgs>? PrivateLinkService { get; set; }
 
         /// <summary>
         /// The name of the resource group.
@@ -374,7 +340,6 @@ namespace Pulumi.AzureNative.Network.Latest
 
         public NetworkInterfaceArgs()
         {
-            NicType = "Standard";
         }
     }
 }

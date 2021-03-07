@@ -252,7 +252,7 @@ def get_express_route_port(express_route_port_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExpressRoutePortResult:
     """
     ExpressRoutePort resource definition.
-    API Version: 2020-08-01.
+    API Version: 2020-11-01.
 
 
     :param str express_route_port_name: The name of ExpressRoutePort.

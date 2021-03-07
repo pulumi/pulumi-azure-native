@@ -12,7 +12,7 @@ import (
 )
 
 // Virtual Network resource.
-// API Version: 2020-08-01.
+// API Version: 2020-11-01.
 type VirtualNetwork struct {
 	pulumi.CustomResourceState
 
@@ -287,6 +287,12 @@ func NewVirtualNetwork(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200801:VirtualNetwork"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20201101:VirtualNetwork"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20201101:VirtualNetwork"),
 		},
 	})
 	opts = append(opts, aliases)

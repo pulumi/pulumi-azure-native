@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Workspace active directory administrator
- * API Version: 2020-12-01.
+ * API Version: 2021-03-01.
  */
 export function getWorkspaceSqlAadAdmin(args: GetWorkspaceSqlAadAdminArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceSqlAadAdminResult> {
     if (!opts) {

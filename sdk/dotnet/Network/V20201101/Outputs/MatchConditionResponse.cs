@@ -14,25 +14,21 @@ namespace Pulumi.AzureNative.Network.V20201101.Outputs
     public sealed class MatchConditionResponse
     {
         /// <summary>
-        /// List of possible match values.
+        /// Match value.
         /// </summary>
-        public readonly ImmutableArray<string> MatchValue;
+        public readonly ImmutableArray<string> MatchValues;
         /// <summary>
-        /// Request variable to compare with.
+        /// List of match variables.
         /// </summary>
-        public readonly string MatchVariable;
+        public readonly ImmutableArray<Outputs.MatchVariableResponse> MatchVariables;
         /// <summary>
-        /// Describes if the result of this condition should be negated.
+        /// Whether this is negate condition or not.
         /// </summary>
-        public readonly bool? NegateCondition;
+        public readonly bool? NegationConditon;
         /// <summary>
-        /// Comparison type to use for matching with the variable value.
+        /// The operator to be matched.
         /// </summary>
         public readonly string Operator;
-        /// <summary>
-        /// Match against a specific key from the QueryString, PostArgs, RequestHeader or Cookies variables. Default is null.
-        /// </summary>
-        public readonly string? Selector;
         /// <summary>
         /// List of transforms.
         /// </summary>
@@ -40,23 +36,20 @@ namespace Pulumi.AzureNative.Network.V20201101.Outputs
 
         [OutputConstructor]
         private MatchConditionResponse(
-            ImmutableArray<string> matchValue,
+            ImmutableArray<string> matchValues,
 
-            string matchVariable,
+            ImmutableArray<Outputs.MatchVariableResponse> matchVariables,
 
-            bool? negateCondition,
+            bool? negationConditon,
 
             string @operator,
 
-            string? selector,
-
             ImmutableArray<string> transforms)
         {
-            MatchValue = matchValue;
-            MatchVariable = matchVariable;
-            NegateCondition = negateCondition;
+            MatchValues = matchValues;
+            MatchVariables = matchVariables;
+            NegationConditon = negationConditon;
             Operator = @operator;
-            Selector = selector;
             Transforms = transforms;
         }
     }

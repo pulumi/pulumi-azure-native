@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Private Endpoint connection on an application gateway.
- * Latest API Version: 2020-08-01.
+ * Latest API Version: 2020-11-01.
  */
 /** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getApplicationGatewayPrivateEndpointConnection'. */
 export function getApplicationGatewayPrivateEndpointConnection(args: GetApplicationGatewayPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationGatewayPrivateEndpointConnectionResult> {

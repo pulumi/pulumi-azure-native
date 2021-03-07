@@ -12,7 +12,7 @@ import (
 )
 
 // RouteTable resource in a virtual hub.
-// API Version: 2020-08-01.
+// API Version: 2020-11-01.
 type HubRouteTable struct {
 	pulumi.CustomResourceState
 
@@ -86,6 +86,12 @@ func NewHubRouteTable(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200801:HubRouteTable"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20201101:HubRouteTable"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20201101:HubRouteTable"),
 		},
 	})
 	opts = append(opts, aliases)

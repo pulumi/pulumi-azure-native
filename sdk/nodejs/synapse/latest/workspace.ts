@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * A workspace
- * Latest API Version: 2020-12-01.
+ * Latest API Version: 2021-03-01.
  *
  * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:synapse:Workspace'.
  */
@@ -84,6 +84,10 @@ export class Workspace extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * Network Settings
+     */
+    public readonly networkSettings!: pulumi.Output<outputs.synapse.latest.NetworkSettingsResponse | undefined>;
+    /**
      * Private endpoint connections to the workspace
      */
     public readonly privateEndpointConnections!: pulumi.Output<outputs.synapse.latest.PrivateEndpointConnectionResponse[] | undefined>;
@@ -148,6 +152,7 @@ export class Workspace extends pulumi.CustomResource {
             inputs["managedResourceGroupName"] = args ? args.managedResourceGroupName : undefined;
             inputs["managedVirtualNetwork"] = args ? args.managedVirtualNetwork : undefined;
             inputs["managedVirtualNetworkSettings"] = args ? args.managedVirtualNetworkSettings : undefined;
+            inputs["networkSettings"] = args ? args.networkSettings : undefined;
             inputs["privateEndpointConnections"] = args ? args.privateEndpointConnections : undefined;
             inputs["purviewConfiguration"] = args ? args.purviewConfiguration : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -175,6 +180,7 @@ export class Workspace extends pulumi.CustomResource {
             inputs["managedVirtualNetwork"] = undefined /*out*/;
             inputs["managedVirtualNetworkSettings"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["networkSettings"] = undefined /*out*/;
             inputs["privateEndpointConnections"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["purviewConfiguration"] = undefined /*out*/;
@@ -231,6 +237,10 @@ export interface WorkspaceArgs {
      * Managed Virtual Network Settings
      */
     readonly managedVirtualNetworkSettings?: pulumi.Input<inputs.synapse.latest.ManagedVirtualNetworkSettings>;
+    /**
+     * Network Settings
+     */
+    readonly networkSettings?: pulumi.Input<inputs.synapse.latest.NetworkSettings>;
     /**
      * Private endpoint connections to the workspace
      */

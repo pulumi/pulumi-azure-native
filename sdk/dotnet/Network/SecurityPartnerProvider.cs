@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// Security Partner Provider resource.
-    /// API Version: 2020-08-01.
+    /// API Version: 2020-11-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:SecurityPartnerProvider")]
     public partial class SecurityPartnerProvider : Pulumi.CustomResource
@@ -110,6 +110,8 @@ namespace Pulumi.AzureNative.Network
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:SecurityPartnerProvider"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200801:SecurityPartnerProvider"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:SecurityPartnerProvider"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20201101:SecurityPartnerProvider"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20201101:SecurityPartnerProvider"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

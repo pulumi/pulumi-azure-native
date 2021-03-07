@@ -39,13 +39,13 @@ class OrchestratorInstanceServiceDetails(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_server_endpoint: K8s APIServer url
         :param pulumi.Input[str] cluster_root_ca: RootCA certificate of kubernetes cluster base64 encoded
-        :param pulumi.Input[pulumi.InputType['ControllerDetailsArgs']] controller_details: controller details
+        :param pulumi.Input[pulumi.InputType['ControllerDetailsArgs']] controller_details: Properties of the controller.
         :param pulumi.Input[pulumi.InputType['OrchestratorIdentityArgs']] identity: The identity of the orchestrator
         :param pulumi.Input[Union[str, 'OrchestratorKind']] kind: The kind of workbook. Choices are user and shared.
         :param pulumi.Input[str] location: Location of the resource.
         :param pulumi.Input[str] orchestrator_app_id: AAD ID used with apiserver
         :param pulumi.Input[str] orchestrator_tenant_id: TenantID of server App ID
-        :param pulumi.Input[str] resource_group_name: The name of the Azure Resource group of which a given DelegatedNetwork resource is part. This name must be at least 1 character in length, and no more than 90.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] resource_name_: The name of the resource. It must be a minimum of 3 characters, and a maximum of 63.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         """
@@ -146,7 +146,7 @@ class OrchestratorInstanceServiceDetails(pulumi.CustomResource):
     @pulumi.getter(name="controllerDetails")
     def controller_details(self) -> pulumi.Output['outputs.ControllerDetailsResponse']:
         """
-        controller details
+        Properties of the controller.
         """
         return pulumi.get(self, "controller_details")
 

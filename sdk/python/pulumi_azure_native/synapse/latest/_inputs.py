@@ -34,6 +34,7 @@ __all__ = [
     'ManagedIdentityArgs',
     'ManagedIntegrationRuntimeArgs',
     'ManagedVirtualNetworkSettingsArgs',
+    'NetworkSettingsArgs',
     'PrivateEndpointConnectionArgs',
     'PrivateLinkServiceConnectionStateArgs',
     'PurviewConfigurationArgs',
@@ -1307,6 +1308,30 @@ class ManagedVirtualNetworkSettingsArgs:
     @prevent_data_exfiltration.setter
     def prevent_data_exfiltration(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "prevent_data_exfiltration", value)
+
+
+@pulumi.input_type
+class NetworkSettingsArgs:
+    def __init__(__self__, *,
+                 public_network_access: Optional[pulumi.Input[Union[str, 'WorkspacePublicNetworkAccess']]] = None):
+        """
+        Network Settings
+        :param pulumi.Input[Union[str, 'WorkspacePublicNetworkAccess']] public_network_access: Enable or Disable pubic network access to workspace
+        """
+        if public_network_access is not None:
+            pulumi.set(__self__, "public_network_access", public_network_access)
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[pulumi.Input[Union[str, 'WorkspacePublicNetworkAccess']]]:
+        """
+        Enable or Disable pubic network access to workspace
+        """
+        return pulumi.get(self, "public_network_access")
+
+    @public_network_access.setter
+    def public_network_access(self, value: Optional[pulumi.Input[Union[str, 'WorkspacePublicNetworkAccess']]]):
+        pulumi.set(self, "public_network_access", value)
 
 
 @pulumi.input_type

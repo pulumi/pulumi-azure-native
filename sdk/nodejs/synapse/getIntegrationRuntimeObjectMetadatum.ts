@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A list of SSIS object metadata.
- * API Version: 2020-12-01.
+ * API Version: 2021-03-01.
  */
 export function getIntegrationRuntimeObjectMetadatum(args: GetIntegrationRuntimeObjectMetadatumArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationRuntimeObjectMetadatumResult> {
     if (!opts) {

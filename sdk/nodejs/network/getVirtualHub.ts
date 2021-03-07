@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * VirtualHub Resource.
- * API Version: 2020-08-01.
+ * API Version: 2020-11-01.
  */
 export function getVirtualHub(args: GetVirtualHubArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualHubResult> {
     if (!opts) {

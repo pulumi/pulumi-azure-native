@@ -25,7 +25,7 @@ export function getOrchestratorInstanceServiceDetails(args: GetOrchestratorInsta
 
 export interface GetOrchestratorInstanceServiceDetailsArgs {
     /**
-     * The name of the Azure Resource group of which a given DelegatedNetwork resource is part. This name must be at least 1 character in length, and no more than 90.
+     * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: string;
     /**
@@ -47,7 +47,7 @@ export interface GetOrchestratorInstanceServiceDetailsResult {
      */
     readonly clusterRootCA?: string;
     /**
-     * controller details
+     * Properties of the controller.
      */
     readonly controllerDetails: outputs.delegatednetwork.ControllerDetailsResponse;
     /**

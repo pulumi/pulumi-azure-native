@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.DelegatedNetwork.V20200808Preview
     public partial class DelegatedSubnetServiceDetails : Pulumi.CustomResource
     {
         /// <summary>
-        /// controller details
+        /// Properties of the controller.
         /// </summary>
         [Output("controllerDetails")]
         public Output<Outputs.ControllerDetailsResponse?> ControllerDetails { get; private set; } = null!;
@@ -46,7 +46,7 @@ namespace Pulumi.AzureNative.DelegatedNetwork.V20200808Preview
         public Output<string> ResourceGuid { get; private set; } = null!;
 
         /// <summary>
-        /// orchestrator details
+        /// subnet details
         /// </summary>
         [Output("subnetDetails")]
         public Output<Outputs.SubnetDetailsResponse?> SubnetDetails { get; private set; } = null!;
@@ -115,7 +115,7 @@ namespace Pulumi.AzureNative.DelegatedNetwork.V20200808Preview
     public sealed class DelegatedSubnetServiceDetailsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// controller details
+        /// Properties of the controller.
         /// </summary>
         [Input("controllerDetails")]
         public Input<Inputs.ControllerDetailsArgs>? ControllerDetails { get; set; }
@@ -127,7 +127,7 @@ namespace Pulumi.AzureNative.DelegatedNetwork.V20200808Preview
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The name of the Azure Resource group of which a given DelegatedNetwork resource is part. This name must be at least 1 character in length, and no more than 90.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -139,7 +139,7 @@ namespace Pulumi.AzureNative.DelegatedNetwork.V20200808Preview
         public Input<string>? ResourceName { get; set; }
 
         /// <summary>
-        /// orchestrator details
+        /// subnet details
         /// </summary>
         [Input("subnetDetails")]
         public Input<Inputs.SubnetDetailsArgs>? SubnetDetails { get; set; }

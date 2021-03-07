@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Subnet in a virtual network resource.
- * Latest API Version: 2020-08-01.
+ * Latest API Version: 2020-11-01.
  *
  * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:Subnet'.
  */
@@ -47,10 +47,6 @@ export class Subnet extends pulumi.CustomResource {
      * List of address prefixes for the subnet.
      */
     public readonly addressPrefixes!: pulumi.Output<string[] | undefined>;
-    /**
-     * Application gateway IP configurations of virtual network resource.
-     */
-    public readonly applicationGatewayIpConfigurations!: pulumi.Output<outputs.network.latest.ApplicationGatewayIPConfigurationResponse[] | undefined>;
     /**
      * An array of references to the delegations on the subnet.
      */
@@ -123,10 +119,6 @@ export class Subnet extends pulumi.CustomResource {
      * An array of service endpoints.
      */
     public readonly serviceEndpoints!: pulumi.Output<outputs.network.latest.ServiceEndpointPropertiesFormatResponse[] | undefined>;
-    /**
-     * Resource type.
-     */
-    public readonly type!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Subnet resource with the given unique name, arguments, and options.
@@ -149,21 +141,19 @@ export class Subnet extends pulumi.CustomResource {
             }
             inputs["addressPrefix"] = args ? args.addressPrefix : undefined;
             inputs["addressPrefixes"] = args ? args.addressPrefixes : undefined;
-            inputs["applicationGatewayIpConfigurations"] = args ? args.applicationGatewayIpConfigurations : undefined;
             inputs["delegations"] = args ? args.delegations : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["ipAllocations"] = args ? args.ipAllocations : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["natGateway"] = args ? args.natGateway : undefined;
             inputs["networkSecurityGroup"] = args ? args.networkSecurityGroup : undefined;
-            inputs["privateEndpointNetworkPolicies"] = (args ? args.privateEndpointNetworkPolicies : undefined) || "Enabled";
-            inputs["privateLinkServiceNetworkPolicies"] = (args ? args.privateLinkServiceNetworkPolicies : undefined) || "Enabled";
+            inputs["privateEndpointNetworkPolicies"] = args ? args.privateEndpointNetworkPolicies : undefined;
+            inputs["privateLinkServiceNetworkPolicies"] = args ? args.privateLinkServiceNetworkPolicies : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["routeTable"] = args ? args.routeTable : undefined;
             inputs["serviceEndpointPolicies"] = args ? args.serviceEndpointPolicies : undefined;
             inputs["serviceEndpoints"] = args ? args.serviceEndpoints : undefined;
             inputs["subnetName"] = args ? args.subnetName : undefined;
-            inputs["type"] = args ? args.type : undefined;
             inputs["virtualNetworkName"] = args ? args.virtualNetworkName : undefined;
             inputs["etag"] = undefined /*out*/;
             inputs["ipConfigurationProfiles"] = undefined /*out*/;
@@ -176,7 +166,6 @@ export class Subnet extends pulumi.CustomResource {
         } else {
             inputs["addressPrefix"] = undefined /*out*/;
             inputs["addressPrefixes"] = undefined /*out*/;
-            inputs["applicationGatewayIpConfigurations"] = undefined /*out*/;
             inputs["delegations"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
             inputs["ipAllocations"] = undefined /*out*/;
@@ -195,12 +184,11 @@ export class Subnet extends pulumi.CustomResource {
             inputs["serviceAssociationLinks"] = undefined /*out*/;
             inputs["serviceEndpointPolicies"] = undefined /*out*/;
             inputs["serviceEndpoints"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/latest:Subnet" }, { type: "azure-native:network:Subnet" }, { type: "azure-nextgen:network:Subnet" }, { type: "azure-native:network/v20150501preview:Subnet" }, { type: "azure-nextgen:network/v20150501preview:Subnet" }, { type: "azure-native:network/v20150615:Subnet" }, { type: "azure-nextgen:network/v20150615:Subnet" }, { type: "azure-native:network/v20160330:Subnet" }, { type: "azure-nextgen:network/v20160330:Subnet" }, { type: "azure-native:network/v20160601:Subnet" }, { type: "azure-nextgen:network/v20160601:Subnet" }, { type: "azure-native:network/v20160901:Subnet" }, { type: "azure-nextgen:network/v20160901:Subnet" }, { type: "azure-native:network/v20161201:Subnet" }, { type: "azure-nextgen:network/v20161201:Subnet" }, { type: "azure-native:network/v20170301:Subnet" }, { type: "azure-nextgen:network/v20170301:Subnet" }, { type: "azure-native:network/v20170601:Subnet" }, { type: "azure-nextgen:network/v20170601:Subnet" }, { type: "azure-native:network/v20170801:Subnet" }, { type: "azure-nextgen:network/v20170801:Subnet" }, { type: "azure-native:network/v20170901:Subnet" }, { type: "azure-nextgen:network/v20170901:Subnet" }, { type: "azure-native:network/v20171001:Subnet" }, { type: "azure-nextgen:network/v20171001:Subnet" }, { type: "azure-native:network/v20171101:Subnet" }, { type: "azure-nextgen:network/v20171101:Subnet" }, { type: "azure-native:network/v20180101:Subnet" }, { type: "azure-nextgen:network/v20180101:Subnet" }, { type: "azure-native:network/v20180201:Subnet" }, { type: "azure-nextgen:network/v20180201:Subnet" }, { type: "azure-native:network/v20180401:Subnet" }, { type: "azure-nextgen:network/v20180401:Subnet" }, { type: "azure-native:network/v20180601:Subnet" }, { type: "azure-nextgen:network/v20180601:Subnet" }, { type: "azure-native:network/v20180701:Subnet" }, { type: "azure-nextgen:network/v20180701:Subnet" }, { type: "azure-native:network/v20180801:Subnet" }, { type: "azure-nextgen:network/v20180801:Subnet" }, { type: "azure-native:network/v20181001:Subnet" }, { type: "azure-nextgen:network/v20181001:Subnet" }, { type: "azure-native:network/v20181101:Subnet" }, { type: "azure-nextgen:network/v20181101:Subnet" }, { type: "azure-native:network/v20181201:Subnet" }, { type: "azure-nextgen:network/v20181201:Subnet" }, { type: "azure-native:network/v20190201:Subnet" }, { type: "azure-nextgen:network/v20190201:Subnet" }, { type: "azure-native:network/v20190401:Subnet" }, { type: "azure-nextgen:network/v20190401:Subnet" }, { type: "azure-native:network/v20190601:Subnet" }, { type: "azure-nextgen:network/v20190601:Subnet" }, { type: "azure-native:network/v20190701:Subnet" }, { type: "azure-nextgen:network/v20190701:Subnet" }, { type: "azure-native:network/v20190801:Subnet" }, { type: "azure-nextgen:network/v20190801:Subnet" }, { type: "azure-native:network/v20190901:Subnet" }, { type: "azure-nextgen:network/v20190901:Subnet" }, { type: "azure-native:network/v20191101:Subnet" }, { type: "azure-nextgen:network/v20191101:Subnet" }, { type: "azure-native:network/v20191201:Subnet" }, { type: "azure-nextgen:network/v20191201:Subnet" }, { type: "azure-native:network/v20200301:Subnet" }, { type: "azure-nextgen:network/v20200301:Subnet" }, { type: "azure-native:network/v20200401:Subnet" }, { type: "azure-nextgen:network/v20200401:Subnet" }, { type: "azure-native:network/v20200501:Subnet" }, { type: "azure-nextgen:network/v20200501:Subnet" }, { type: "azure-native:network/v20200601:Subnet" }, { type: "azure-nextgen:network/v20200601:Subnet" }, { type: "azure-native:network/v20200701:Subnet" }, { type: "azure-nextgen:network/v20200701:Subnet" }, { type: "azure-native:network/v20200801:Subnet" }, { type: "azure-nextgen:network/v20200801:Subnet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/latest:Subnet" }, { type: "azure-native:network:Subnet" }, { type: "azure-nextgen:network:Subnet" }, { type: "azure-native:network/v20150501preview:Subnet" }, { type: "azure-nextgen:network/v20150501preview:Subnet" }, { type: "azure-native:network/v20150615:Subnet" }, { type: "azure-nextgen:network/v20150615:Subnet" }, { type: "azure-native:network/v20160330:Subnet" }, { type: "azure-nextgen:network/v20160330:Subnet" }, { type: "azure-native:network/v20160601:Subnet" }, { type: "azure-nextgen:network/v20160601:Subnet" }, { type: "azure-native:network/v20160901:Subnet" }, { type: "azure-nextgen:network/v20160901:Subnet" }, { type: "azure-native:network/v20161201:Subnet" }, { type: "azure-nextgen:network/v20161201:Subnet" }, { type: "azure-native:network/v20170301:Subnet" }, { type: "azure-nextgen:network/v20170301:Subnet" }, { type: "azure-native:network/v20170601:Subnet" }, { type: "azure-nextgen:network/v20170601:Subnet" }, { type: "azure-native:network/v20170801:Subnet" }, { type: "azure-nextgen:network/v20170801:Subnet" }, { type: "azure-native:network/v20170901:Subnet" }, { type: "azure-nextgen:network/v20170901:Subnet" }, { type: "azure-native:network/v20171001:Subnet" }, { type: "azure-nextgen:network/v20171001:Subnet" }, { type: "azure-native:network/v20171101:Subnet" }, { type: "azure-nextgen:network/v20171101:Subnet" }, { type: "azure-native:network/v20180101:Subnet" }, { type: "azure-nextgen:network/v20180101:Subnet" }, { type: "azure-native:network/v20180201:Subnet" }, { type: "azure-nextgen:network/v20180201:Subnet" }, { type: "azure-native:network/v20180401:Subnet" }, { type: "azure-nextgen:network/v20180401:Subnet" }, { type: "azure-native:network/v20180601:Subnet" }, { type: "azure-nextgen:network/v20180601:Subnet" }, { type: "azure-native:network/v20180701:Subnet" }, { type: "azure-nextgen:network/v20180701:Subnet" }, { type: "azure-native:network/v20180801:Subnet" }, { type: "azure-nextgen:network/v20180801:Subnet" }, { type: "azure-native:network/v20181001:Subnet" }, { type: "azure-nextgen:network/v20181001:Subnet" }, { type: "azure-native:network/v20181101:Subnet" }, { type: "azure-nextgen:network/v20181101:Subnet" }, { type: "azure-native:network/v20181201:Subnet" }, { type: "azure-nextgen:network/v20181201:Subnet" }, { type: "azure-native:network/v20190201:Subnet" }, { type: "azure-nextgen:network/v20190201:Subnet" }, { type: "azure-native:network/v20190401:Subnet" }, { type: "azure-nextgen:network/v20190401:Subnet" }, { type: "azure-native:network/v20190601:Subnet" }, { type: "azure-nextgen:network/v20190601:Subnet" }, { type: "azure-native:network/v20190701:Subnet" }, { type: "azure-nextgen:network/v20190701:Subnet" }, { type: "azure-native:network/v20190801:Subnet" }, { type: "azure-nextgen:network/v20190801:Subnet" }, { type: "azure-native:network/v20190901:Subnet" }, { type: "azure-nextgen:network/v20190901:Subnet" }, { type: "azure-native:network/v20191101:Subnet" }, { type: "azure-nextgen:network/v20191101:Subnet" }, { type: "azure-native:network/v20191201:Subnet" }, { type: "azure-nextgen:network/v20191201:Subnet" }, { type: "azure-native:network/v20200301:Subnet" }, { type: "azure-nextgen:network/v20200301:Subnet" }, { type: "azure-native:network/v20200401:Subnet" }, { type: "azure-nextgen:network/v20200401:Subnet" }, { type: "azure-native:network/v20200501:Subnet" }, { type: "azure-nextgen:network/v20200501:Subnet" }, { type: "azure-native:network/v20200601:Subnet" }, { type: "azure-nextgen:network/v20200601:Subnet" }, { type: "azure-native:network/v20200701:Subnet" }, { type: "azure-nextgen:network/v20200701:Subnet" }, { type: "azure-native:network/v20200801:Subnet" }, { type: "azure-nextgen:network/v20200801:Subnet" }, { type: "azure-native:network/v20201101:Subnet" }, { type: "azure-nextgen:network/v20201101:Subnet" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Subnet.__pulumiType, name, inputs, opts);
     }
@@ -218,10 +206,6 @@ export interface SubnetArgs {
      * List of address prefixes for the subnet.
      */
     readonly addressPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Application gateway IP configurations of virtual network resource.
-     */
-    readonly applicationGatewayIpConfigurations?: pulumi.Input<pulumi.Input<inputs.network.latest.ApplicationGatewayIPConfiguration>[]>;
     /**
      * An array of references to the delegations on the subnet.
      */
@@ -249,11 +233,11 @@ export interface SubnetArgs {
     /**
      * Enable or Disable apply network policies on private end point in the subnet.
      */
-    readonly privateEndpointNetworkPolicies?: pulumi.Input<string | enums.network.latest.VirtualNetworkPrivateEndpointNetworkPolicies>;
+    readonly privateEndpointNetworkPolicies?: pulumi.Input<string>;
     /**
      * Enable or Disable apply network policies on private link service in the subnet.
      */
-    readonly privateLinkServiceNetworkPolicies?: pulumi.Input<string | enums.network.latest.VirtualNetworkPrivateLinkServiceNetworkPolicies>;
+    readonly privateLinkServiceNetworkPolicies?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
@@ -274,10 +258,6 @@ export interface SubnetArgs {
      * The name of the subnet.
      */
     readonly subnetName?: pulumi.Input<string>;
-    /**
-     * Resource type.
-     */
-    readonly type?: pulumi.Input<string>;
     /**
      * The name of the virtual network.
      */

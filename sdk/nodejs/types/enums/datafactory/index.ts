@@ -189,6 +189,8 @@ export type DynamicsSinkWriteBehavior = (typeof DynamicsSinkWriteBehavior)[keyof
 
 export const FactoryIdentityType = {
     SystemAssigned: "SystemAssigned",
+    UserAssigned: "UserAssigned",
+    SystemAssigned_UserAssigned: "SystemAssigned,UserAssigned",
 } as const;
 
 /**
@@ -580,6 +582,7 @@ export type ServiceNowAuthenticationType = (typeof ServiceNowAuthenticationType)
 export const SftpAuthenticationType = {
     Basic: "Basic",
     SshPublicKey: "SshPublicKey",
+    MultiFactor: "MultiFactor",
 } as const;
 
 /**

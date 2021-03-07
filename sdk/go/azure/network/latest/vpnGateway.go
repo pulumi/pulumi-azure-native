@@ -12,7 +12,7 @@ import (
 )
 
 // VpnGateway Resource.
-// Latest API Version: 2020-08-01.
+// Latest API Version: 2020-11-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:VpnGateway'.
 type VpnGateway struct {
@@ -191,6 +191,12 @@ func NewVpnGateway(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200801:VpnGateway"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20201101:VpnGateway"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20201101:VpnGateway"),
 		},
 	})
 	opts = append(opts, aliases)

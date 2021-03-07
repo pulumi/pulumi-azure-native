@@ -8,6 +8,9 @@ import * as utilities from "../utilities";
 export * from "./cluster";
 export * from "./getCluster";
 
+// Export enums:
+export * from "../types/enums/azurestackhci";
+
 // Export sub-modules:
 import * as latest from "./latest";
 import * as v20200301preview from "./v20200301preview";

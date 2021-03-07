@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Synapse
 {
     /// <summary>
     /// A workspace
-    /// API Version: 2020-12-01.
+    /// API Version: 2021-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:synapse:Workspace")]
     public partial class Workspace : Pulumi.CustomResource
@@ -81,6 +81,12 @@ namespace Pulumi.AzureNative.Synapse
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Network Settings
+        /// </summary>
+        [Output("networkSettings")]
+        public Output<Outputs.NetworkSettingsResponse?> NetworkSettings { get; private set; } = null!;
 
         /// <summary>
         /// Private endpoint connections to the workspace
@@ -252,6 +258,12 @@ namespace Pulumi.AzureNative.Synapse
         /// </summary>
         [Input("managedVirtualNetworkSettings")]
         public Input<Inputs.ManagedVirtualNetworkSettingsArgs>? ManagedVirtualNetworkSettings { get; set; }
+
+        /// <summary>
+        /// Network Settings
+        /// </summary>
+        [Input("networkSettings")]
+        public Input<Inputs.NetworkSettingsArgs>? NetworkSettings { get; set; }
 
         [Input("privateEndpointConnections")]
         private InputList<Inputs.PrivateEndpointConnectionArgs>? _privateEndpointConnections;

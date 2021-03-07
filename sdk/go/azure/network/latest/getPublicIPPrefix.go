@@ -8,7 +8,7 @@ import (
 )
 
 // Public IP prefix resource.
-// Latest API Version: 2020-08-01.
+// Latest API Version: 2020-11-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getPublicIPPrefix'.
 func LookupPublicIPPrefix(ctx *pulumi.Context, args *LookupPublicIPPrefixArgs, opts ...pulumi.InvokeOption) (*LookupPublicIPPrefixResult, error) {
@@ -49,8 +49,6 @@ type LookupPublicIPPrefixResult struct {
 	Location *string `pulumi:"location"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// NatGateway of Public IP Prefix.
-	NatGateway *NatGatewayResponse `pulumi:"natGateway"`
 	// The Length of the Public IP Prefix.
 	PrefixLength *int `pulumi:"prefixLength"`
 	// The provisioning state of the public IP prefix resource.

@@ -28,12 +28,12 @@ type LookupCassandraDataCenterArgs struct {
 
 // A managed Cassandra data center.
 type LookupCassandraDataCenterResult struct {
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	// The unique resource identifier of the database account.
 	Id string `pulumi:"id"`
-	// The name of the resource
+	// The name of the database account.
 	Name string `pulumi:"name"`
 	// Properties of a managed Cassandra data center.
 	Properties DataCenterResourceResponseProperties `pulumi:"properties"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	// The type of Azure resource.
 	Type string `pulumi:"type"`
 }

@@ -14,50 +14,43 @@ namespace Pulumi.AzureNative.Network.V20201101.Outputs
     public sealed class PolicySettingsResponse
     {
         /// <summary>
-        /// If the action type is block, customer can override the response body. The body must be specified in base64 encoding.
+        /// Maximum file upload size in Mb for WAF.
         /// </summary>
-        public readonly string? CustomBlockResponseBody;
+        public readonly int? FileUploadLimitInMb;
         /// <summary>
-        /// If the action type is block, customer can override the response status code.
+        /// Maximum request body size in Kb for WAF.
         /// </summary>
-        public readonly int? CustomBlockResponseStatusCode;
+        public readonly int? MaxRequestBodySizeInKb;
         /// <summary>
-        /// Describes if the policy is in enabled or disabled state. Defaults to Enabled if not specified.
-        /// </summary>
-        public readonly string? EnabledState;
-        /// <summary>
-        /// Describes if it is in detection mode or prevention mode at policy level.
+        /// The mode of the policy.
         /// </summary>
         public readonly string? Mode;
         /// <summary>
-        /// If action type is redirect, this field represents redirect URL for the client.
+        /// Whether to allow WAF to check request Body.
         /// </summary>
-        public readonly string? RedirectUrl;
+        public readonly bool? RequestBodyCheck;
         /// <summary>
-        /// Describes if policy managed rules will inspect the request body content.
+        /// The state of the policy.
         /// </summary>
-        public readonly string? RequestBodyCheck;
+        public readonly string? State;
 
         [OutputConstructor]
         private PolicySettingsResponse(
-            string? customBlockResponseBody,
+            int? fileUploadLimitInMb,
 
-            int? customBlockResponseStatusCode,
-
-            string? enabledState,
+            int? maxRequestBodySizeInKb,
 
             string? mode,
 
-            string? redirectUrl,
+            bool? requestBodyCheck,
 
-            string? requestBodyCheck)
+            string? state)
         {
-            CustomBlockResponseBody = customBlockResponseBody;
-            CustomBlockResponseStatusCode = customBlockResponseStatusCode;
-            EnabledState = enabledState;
+            FileUploadLimitInMb = fileUploadLimitInMb;
+            MaxRequestBodySizeInKb = maxRequestBodySizeInKb;
             Mode = mode;
-            RedirectUrl = redirectUrl;
             RequestBodyCheck = requestBodyCheck;
+            State = state;
         }
     }
 }

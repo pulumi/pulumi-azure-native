@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * LoadBalancer resource.
- * API Version: 2020-08-01.
+ * API Version: 2020-11-01.
  */
 export function getLoadBalancer(args: GetLoadBalancerArgs, opts?: pulumi.InvokeOptions): Promise<GetLoadBalancerResult> {
     if (!opts) {

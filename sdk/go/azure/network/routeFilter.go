@@ -12,7 +12,7 @@ import (
 )
 
 // Route Filter Resource.
-// API Version: 2020-08-01.
+// API Version: 2020-11-01.
 type RouteFilter struct {
 	pulumi.CustomResourceState
 
@@ -235,6 +235,12 @@ func NewRouteFilter(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200801:RouteFilter"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20201101:RouteFilter"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20201101:RouteFilter"),
 		},
 	})
 	opts = append(opts, aliases)

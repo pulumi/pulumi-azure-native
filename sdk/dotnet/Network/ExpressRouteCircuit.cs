@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// ExpressRouteCircuit resource.
-    /// API Version: 2020-08-01.
+    /// API Version: 2020-11-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:ExpressRouteCircuit")]
     public partial class ExpressRouteCircuit : Pulumi.CustomResource
@@ -234,6 +234,8 @@ namespace Pulumi.AzureNative.Network
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:ExpressRouteCircuit"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200801:ExpressRouteCircuit"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:ExpressRouteCircuit"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20201101:ExpressRouteCircuit"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20201101:ExpressRouteCircuit"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

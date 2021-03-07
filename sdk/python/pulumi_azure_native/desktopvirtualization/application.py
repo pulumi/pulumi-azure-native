@@ -35,7 +35,7 @@ class Application(pulumi.CustomResource):
                  __opts__=None):
         """
         Schema for Application properties.
-        API Version: 2021-01-14-preview.
+        API Version: 2021-02-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

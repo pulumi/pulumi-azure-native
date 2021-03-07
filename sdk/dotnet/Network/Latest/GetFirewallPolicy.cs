@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Network.Latest
     {
         /// <summary>
         /// FirewallPolicy Resource.
-        /// Latest API Version: 2020-08-01.
+        /// Latest API Version: 2020-11-01.
         /// </summary>
         public static Task<GetFirewallPolicyResult> InvokeAsync(GetFirewallPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFirewallPolicyResult>("azure-native:network/latest:getFirewallPolicy", args ?? new GetFirewallPolicyArgs(), options.WithVersion());
@@ -79,6 +79,10 @@ namespace Pulumi.AzureNative.Network.Latest
         /// </summary>
         public readonly Outputs.ManagedServiceIdentityResponse? Identity;
         /// <summary>
+        /// Insights on Firewall Policy.
+        /// </summary>
+        public readonly Outputs.FirewallPolicyInsightsResponse? Insights;
+        /// <summary>
         /// The configuration for Intrusion detection.
         /// </summary>
         public readonly Outputs.FirewallPolicyIntrusionDetectionResponse? IntrusionDetection;
@@ -102,6 +106,10 @@ namespace Pulumi.AzureNative.Network.Latest
         /// The Firewall Policy SKU.
         /// </summary>
         public readonly Outputs.FirewallPolicySkuResponse? Sku;
+        /// <summary>
+        /// The private IP addresses/IP ranges to which traffic will not be SNAT.
+        /// </summary>
+        public readonly Outputs.FirewallPolicySNATResponse? Snat;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -139,6 +147,8 @@ namespace Pulumi.AzureNative.Network.Latest
 
             Outputs.ManagedServiceIdentityResponse? identity,
 
+            Outputs.FirewallPolicyInsightsResponse? insights,
+
             Outputs.FirewallPolicyIntrusionDetectionResponse? intrusionDetection,
 
             string? location,
@@ -150,6 +160,8 @@ namespace Pulumi.AzureNative.Network.Latest
             ImmutableArray<Outputs.SubResourceResponse> ruleCollectionGroups,
 
             Outputs.FirewallPolicySkuResponse? sku,
+
+            Outputs.FirewallPolicySNATResponse? snat,
 
             ImmutableDictionary<string, string>? tags,
 
@@ -168,12 +180,14 @@ namespace Pulumi.AzureNative.Network.Latest
             Firewalls = firewalls;
             Id = id;
             Identity = identity;
+            Insights = insights;
             IntrusionDetection = intrusionDetection;
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;
             RuleCollectionGroups = ruleCollectionGroups;
             Sku = sku;
+            Snat = snat;
             Tags = tags;
             ThreatIntelMode = threatIntelMode;
             ThreatIntelWhitelist = threatIntelWhitelist;

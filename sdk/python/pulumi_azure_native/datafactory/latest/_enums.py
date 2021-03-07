@@ -222,6 +222,8 @@ class FactoryIdentityType(str, Enum):
     The identity type.
     """
     SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"
+    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
 
 
 class FtpAuthenticationType(str, Enum):
@@ -541,6 +543,7 @@ class SftpAuthenticationType(str, Enum):
     """
     BASIC = "Basic"
     SSH_PUBLIC_KEY = "SshPublicKey"
+    MULTI_FACTOR = "MultiFactor"
 
 
 class SparkAuthenticationType(str, Enum):

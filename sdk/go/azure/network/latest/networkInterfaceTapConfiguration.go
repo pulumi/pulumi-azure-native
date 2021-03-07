@@ -12,7 +12,7 @@ import (
 )
 
 // Tap configuration in a Network Interface.
-// Latest API Version: 2020-08-01.
+// Latest API Version: 2020-11-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:NetworkInterfaceTapConfiguration'.
 type NetworkInterfaceTapConfiguration struct {
@@ -160,6 +160,12 @@ func NewNetworkInterfaceTapConfiguration(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200801:NetworkInterfaceTapConfiguration"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20201101:NetworkInterfaceTapConfiguration"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20201101:NetworkInterfaceTapConfiguration"),
 		},
 	})
 	opts = append(opts, aliases)

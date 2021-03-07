@@ -31,11 +31,11 @@ class DelegatedSubnetServiceDetails(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ControllerDetailsArgs']] controller_details: controller details
+        :param pulumi.Input[pulumi.InputType['ControllerDetailsArgs']] controller_details: Properties of the controller.
         :param pulumi.Input[str] location: Location of the resource.
-        :param pulumi.Input[str] resource_group_name: The name of the Azure Resource group of which a given DelegatedNetwork resource is part. This name must be at least 1 character in length, and no more than 90.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] resource_name_: The name of the resource. It must be a minimum of 3 characters, and a maximum of 63.
-        :param pulumi.Input[pulumi.InputType['SubnetDetailsArgs']] subnet_details: orchestrator details
+        :param pulumi.Input[pulumi.InputType['SubnetDetailsArgs']] subnet_details: subnet details
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         """
         if __name__ is not None:
@@ -105,7 +105,7 @@ class DelegatedSubnetServiceDetails(pulumi.CustomResource):
     @pulumi.getter(name="controllerDetails")
     def controller_details(self) -> pulumi.Output[Optional['outputs.ControllerDetailsResponse']]:
         """
-        controller details
+        Properties of the controller.
         """
         return pulumi.get(self, "controller_details")
 
@@ -145,7 +145,7 @@ class DelegatedSubnetServiceDetails(pulumi.CustomResource):
     @pulumi.getter(name="subnetDetails")
     def subnet_details(self) -> pulumi.Output[Optional['outputs.SubnetDetailsResponse']]:
         """
-        orchestrator details
+        subnet details
         """
         return pulumi.get(self, "subnet_details")
 

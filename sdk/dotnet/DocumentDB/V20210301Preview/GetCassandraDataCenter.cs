@@ -49,11 +49,11 @@ namespace Pulumi.AzureNative.DocumentDB.V20210301Preview
     public sealed class GetCassandraDataCenterResult
     {
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// The unique resource identifier of the database account.
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The name of the resource
+        /// The name of the database account.
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -61,7 +61,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20210301Preview
         /// </summary>
         public readonly Outputs.DataCenterResourceResponseProperties Properties;
         /// <summary>
-        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        /// The type of Azure resource.
         /// </summary>
         public readonly string Type;
 

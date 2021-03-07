@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// FirewallPolicy Resource.
-    /// API Version: 2020-08-01.
+    /// API Version: 2020-11-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:FirewallPolicy")]
     public partial class FirewallPolicy : Pulumi.CustomResource
@@ -53,6 +53,12 @@ namespace Pulumi.AzureNative.Network
         public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
+        /// Insights on Firewall Policy.
+        /// </summary>
+        [Output("insights")]
+        public Output<Outputs.FirewallPolicyInsightsResponse?> Insights { get; private set; } = null!;
+
+        /// <summary>
         /// The configuration for Intrusion detection.
         /// </summary>
         [Output("intrusionDetection")]
@@ -87,6 +93,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("sku")]
         public Output<Outputs.FirewallPolicySkuResponse?> Sku { get; private set; } = null!;
+
+        /// <summary>
+        /// The private IP addresses/IP ranges to which traffic will not be SNAT.
+        /// </summary>
+        [Output("snat")]
+        public Output<Outputs.FirewallPolicySNATResponse?> Snat { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -170,6 +182,8 @@ namespace Pulumi.AzureNative.Network
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:FirewallPolicy"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200801:FirewallPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:FirewallPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20201101:FirewallPolicy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20201101:FirewallPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -224,6 +238,12 @@ namespace Pulumi.AzureNative.Network
         public Input<Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
+        /// Insights on Firewall Policy.
+        /// </summary>
+        [Input("insights")]
+        public Input<Inputs.FirewallPolicyInsightsArgs>? Insights { get; set; }
+
+        /// <summary>
         /// The configuration for Intrusion detection.
         /// </summary>
         [Input("intrusionDetection")]
@@ -246,6 +266,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Input("sku")]
         public Input<Inputs.FirewallPolicySkuArgs>? Sku { get; set; }
+
+        /// <summary>
+        /// The private IP addresses/IP ranges to which traffic will not be SNAT.
+        /// </summary>
+        [Input("snat")]
+        public Input<Inputs.FirewallPolicySNATArgs>? Snat { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

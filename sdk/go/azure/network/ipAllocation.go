@@ -12,7 +12,7 @@ import (
 )
 
 // IpAllocation resource.
-// API Version: 2020-08-01.
+// API Version: 2020-11-01.
 type IpAllocation struct {
 	pulumi.CustomResourceState
 
@@ -100,6 +100,12 @@ func NewIpAllocation(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200801:IpAllocation"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20201101:IpAllocation"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20201101:IpAllocation"),
 		},
 	})
 	opts = append(opts, aliases)

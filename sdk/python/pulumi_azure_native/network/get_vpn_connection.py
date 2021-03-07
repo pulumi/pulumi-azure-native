@@ -20,7 +20,7 @@ class GetVpnConnectionResult:
     """
     VpnConnection Resource.
     """
-    def __init__(__self__, connection_bandwidth=None, connection_status=None, dpd_timeout_seconds=None, egress_bytes_transferred=None, enable_bgp=None, enable_internet_security=None, enable_rate_limiting=None, etag=None, id=None, ingress_bytes_transferred=None, ipsec_policies=None, name=None, provisioning_state=None, remote_vpn_site=None, routing_configuration=None, routing_weight=None, shared_key=None, use_local_azure_ip_address=None, use_policy_based_traffic_selectors=None, vpn_connection_protocol_type=None, vpn_link_connections=None):
+    def __init__(__self__, connection_bandwidth=None, connection_status=None, dpd_timeout_seconds=None, egress_bytes_transferred=None, enable_bgp=None, enable_internet_security=None, enable_rate_limiting=None, etag=None, id=None, ingress_bytes_transferred=None, ipsec_policies=None, name=None, provisioning_state=None, remote_vpn_site=None, routing_configuration=None, routing_weight=None, shared_key=None, traffic_selector_policies=None, use_local_azure_ip_address=None, use_policy_based_traffic_selectors=None, vpn_connection_protocol_type=None, vpn_link_connections=None):
         if connection_bandwidth and not isinstance(connection_bandwidth, int):
             raise TypeError("Expected argument 'connection_bandwidth' to be a int")
         pulumi.set(__self__, "connection_bandwidth", connection_bandwidth)
@@ -72,6 +72,9 @@ class GetVpnConnectionResult:
         if shared_key and not isinstance(shared_key, str):
             raise TypeError("Expected argument 'shared_key' to be a str")
         pulumi.set(__self__, "shared_key", shared_key)
+        if traffic_selector_policies and not isinstance(traffic_selector_policies, list):
+            raise TypeError("Expected argument 'traffic_selector_policies' to be a list")
+        pulumi.set(__self__, "traffic_selector_policies", traffic_selector_policies)
         if use_local_azure_ip_address and not isinstance(use_local_azure_ip_address, bool):
             raise TypeError("Expected argument 'use_local_azure_ip_address' to be a bool")
         pulumi.set(__self__, "use_local_azure_ip_address", use_local_azure_ip_address)
@@ -222,6 +225,14 @@ class GetVpnConnectionResult:
         return pulumi.get(self, "shared_key")
 
     @property
+    @pulumi.getter(name="trafficSelectorPolicies")
+    def traffic_selector_policies(self) -> Optional[Sequence['outputs.TrafficSelectorPolicyResponse']]:
+        """
+        The Traffic Selector Policies to be considered by this connection.
+        """
+        return pulumi.get(self, "traffic_selector_policies")
+
+    @property
     @pulumi.getter(name="useLocalAzureIpAddress")
     def use_local_azure_ip_address(self) -> Optional[bool]:
         """
@@ -277,6 +288,7 @@ class AwaitableGetVpnConnectionResult(GetVpnConnectionResult):
             routing_configuration=self.routing_configuration,
             routing_weight=self.routing_weight,
             shared_key=self.shared_key,
+            traffic_selector_policies=self.traffic_selector_policies,
             use_local_azure_ip_address=self.use_local_azure_ip_address,
             use_policy_based_traffic_selectors=self.use_policy_based_traffic_selectors,
             vpn_connection_protocol_type=self.vpn_connection_protocol_type,
@@ -289,7 +301,7 @@ def get_vpn_connection(connection_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpnConnectionResult:
     """
     VpnConnection Resource.
-    API Version: 2020-08-01.
+    API Version: 2020-11-01.
 
 
     :param str connection_name: The name of the vpn connection.
@@ -324,6 +336,7 @@ def get_vpn_connection(connection_name: Optional[str] = None,
         routing_configuration=__ret__.routing_configuration,
         routing_weight=__ret__.routing_weight,
         shared_key=__ret__.shared_key,
+        traffic_selector_policies=__ret__.traffic_selector_policies,
         use_local_azure_ip_address=__ret__.use_local_azure_ip_address,
         use_policy_based_traffic_selectors=__ret__.use_policy_based_traffic_selectors,
         vpn_connection_protocol_type=__ret__.vpn_connection_protocol_type,

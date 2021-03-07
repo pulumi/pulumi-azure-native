@@ -12,7 +12,7 @@ import (
 )
 
 // Defines web application firewall policy.
-// Latest API Version: 2020-08-01.
+// Latest API Version: 2020-11-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:WebApplicationFirewallPolicy'.
 type WebApplicationFirewallPolicy struct {
@@ -158,6 +158,12 @@ func NewWebApplicationFirewallPolicy(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200801:WebApplicationFirewallPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20201101:WebApplicationFirewallPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20201101:WebApplicationFirewallPolicy"),
 		},
 	})
 	opts = append(opts, aliases)

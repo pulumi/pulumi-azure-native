@@ -38,6 +38,10 @@ namespace Pulumi.AzureNative.Network.Latest.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.RadiusServerResponse> RadiusServers;
         /// <summary>
+        /// VPN authentication types for the virtual network gateway..
+        /// </summary>
+        public readonly ImmutableArray<string> VpnAuthenticationTypes;
+        /// <summary>
         /// The reference to the address space resource which represents Address space for P2S VpnClient.
         /// </summary>
         public readonly Outputs.AddressSpaceResponse? VpnClientAddressPool;
@@ -72,6 +76,8 @@ namespace Pulumi.AzureNative.Network.Latest.Outputs
 
             ImmutableArray<Outputs.RadiusServerResponse> radiusServers,
 
+            ImmutableArray<string> vpnAuthenticationTypes,
+
             Outputs.AddressSpaceResponse? vpnClientAddressPool,
 
             ImmutableArray<Outputs.IpsecPolicyResponse> vpnClientIpsecPolicies,
@@ -88,6 +94,7 @@ namespace Pulumi.AzureNative.Network.Latest.Outputs
             RadiusServerAddress = radiusServerAddress;
             RadiusServerSecret = radiusServerSecret;
             RadiusServers = radiusServers;
+            VpnAuthenticationTypes = vpnAuthenticationTypes;
             VpnClientAddressPool = vpnClientAddressPool;
             VpnClientIpsecPolicies = vpnClientIpsecPolicies;
             VpnClientProtocols = vpnClientProtocols;

@@ -12,7 +12,7 @@ import (
 )
 
 // Network profile resource.
-// API Version: 2020-08-01.
+// API Version: 2020-11-01.
 type NetworkProfile struct {
 	pulumi.CustomResourceState
 
@@ -163,6 +163,12 @@ func NewNetworkProfile(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200801:NetworkProfile"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20201101:NetworkProfile"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20201101:NetworkProfile"),
 		},
 	})
 	opts = append(opts, aliases)

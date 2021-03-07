@@ -169,7 +169,7 @@ def get_nat_rule(gateway_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNatRuleResult:
     """
     VpnGatewayNatRule Resource.
-    API Version: 2020-08-01.
+    API Version: 2020-11-01.
 
 
     :param str gateway_name: The name of the gateway.

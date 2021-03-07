@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// An application security group in a resource group.
-    /// API Version: 2020-08-01.
+    /// API Version: 2020-11-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:ApplicationSecurityGroup")]
     public partial class ApplicationSecurityGroup : Pulumi.CustomResource
@@ -138,6 +138,8 @@ namespace Pulumi.AzureNative.Network
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:ApplicationSecurityGroup"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200801:ApplicationSecurityGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:ApplicationSecurityGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20201101:ApplicationSecurityGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20201101:ApplicationSecurityGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A workspace
- * API Version: 2020-12-01.
+ * API Version: 2021-03-01.
  */
 export function getWorkspace(args: GetWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceResult> {
     if (!opts) {
@@ -86,6 +86,10 @@ export interface GetWorkspaceResult {
      * The name of the resource
      */
     readonly name: string;
+    /**
+     * Network Settings
+     */
+    readonly networkSettings?: outputs.synapse.NetworkSettingsResponse;
     /**
      * Private endpoint connections to the workspace
      */

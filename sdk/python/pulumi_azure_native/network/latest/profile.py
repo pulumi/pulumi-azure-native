@@ -22,6 +22,7 @@ class Profile(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 allowed_endpoint_record_types: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AllowedEndpointRecordType']]]]] = None,
                  dns_config: Optional[pulumi.Input[pulumi.InputType['DnsConfigArgs']]] = None,
                  endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointArgs']]]]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -41,10 +42,11 @@ class Profile(pulumi.CustomResource):
                  __opts__=None):
         """
         Class representing a Traffic Manager profile.
-        Latest API Version: 2018-04-01.
+        Latest API Version: 2018-08-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'AllowedEndpointRecordType']]]] allowed_endpoint_record_types: The list of allowed endpoint record types.
         :param pulumi.Input[pulumi.InputType['DnsConfigArgs']] dns_config: The DNS settings of the Traffic Manager profile.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointArgs']]]] endpoints: The list of endpoints in the Traffic Manager profile.
         :param pulumi.Input[str] id: Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{resourceName}
@@ -78,6 +80,7 @@ class Profile(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['allowed_endpoint_record_types'] = allowed_endpoint_record_types
             __props__['dns_config'] = dns_config
             __props__['endpoints'] = endpoints
             __props__['id'] = id
@@ -94,7 +97,7 @@ class Profile(pulumi.CustomResource):
             __props__['traffic_routing_method'] = traffic_routing_method
             __props__['traffic_view_enrollment_status'] = traffic_view_enrollment_status
             __props__['type'] = type
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/latest:Profile"), pulumi.Alias(type_="azure-native:network:Profile"), pulumi.Alias(type_="azure-nextgen:network:Profile"), pulumi.Alias(type_="azure-native:network/v20151101:Profile"), pulumi.Alias(type_="azure-nextgen:network/v20151101:Profile"), pulumi.Alias(type_="azure-native:network/v20170301:Profile"), pulumi.Alias(type_="azure-nextgen:network/v20170301:Profile"), pulumi.Alias(type_="azure-native:network/v20170501:Profile"), pulumi.Alias(type_="azure-nextgen:network/v20170501:Profile"), pulumi.Alias(type_="azure-native:network/v20180201:Profile"), pulumi.Alias(type_="azure-nextgen:network/v20180201:Profile"), pulumi.Alias(type_="azure-native:network/v20180301:Profile"), pulumi.Alias(type_="azure-nextgen:network/v20180301:Profile"), pulumi.Alias(type_="azure-native:network/v20180401:Profile"), pulumi.Alias(type_="azure-nextgen:network/v20180401:Profile")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/latest:Profile"), pulumi.Alias(type_="azure-native:network:Profile"), pulumi.Alias(type_="azure-nextgen:network:Profile"), pulumi.Alias(type_="azure-native:network/v20151101:Profile"), pulumi.Alias(type_="azure-nextgen:network/v20151101:Profile"), pulumi.Alias(type_="azure-native:network/v20170301:Profile"), pulumi.Alias(type_="azure-nextgen:network/v20170301:Profile"), pulumi.Alias(type_="azure-native:network/v20170501:Profile"), pulumi.Alias(type_="azure-nextgen:network/v20170501:Profile"), pulumi.Alias(type_="azure-native:network/v20180201:Profile"), pulumi.Alias(type_="azure-nextgen:network/v20180201:Profile"), pulumi.Alias(type_="azure-native:network/v20180301:Profile"), pulumi.Alias(type_="azure-nextgen:network/v20180301:Profile"), pulumi.Alias(type_="azure-native:network/v20180401:Profile"), pulumi.Alias(type_="azure-nextgen:network/v20180401:Profile"), pulumi.Alias(type_="azure-native:network/v20180801:Profile"), pulumi.Alias(type_="azure-nextgen:network/v20180801:Profile")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Profile, __self__).__init__(
             'azure-native:network/latest:Profile',
@@ -118,6 +121,7 @@ class Profile(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["allowed_endpoint_record_types"] = None
         __props__["dns_config"] = None
         __props__["endpoints"] = None
         __props__["location"] = None
@@ -130,6 +134,14 @@ class Profile(pulumi.CustomResource):
         __props__["traffic_view_enrollment_status"] = None
         __props__["type"] = None
         return Profile(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="allowedEndpointRecordTypes")
+    def allowed_endpoint_record_types(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        The list of allowed endpoint record types.
+        """
+        return pulumi.get(self, "allowed_endpoint_record_types")
 
     @property
     @pulumi.getter(name="dnsConfig")

@@ -12,7 +12,7 @@ import (
 )
 
 // Azure Firewall resource.
-// Latest API Version: 2020-08-01.
+// Latest API Version: 2020-11-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:AzureFirewall'.
 type AzureFirewall struct {
@@ -203,6 +203,12 @@ func NewAzureFirewall(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200801:AzureFirewall"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20201101:AzureFirewall"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20201101:AzureFirewall"),
 		},
 	})
 	opts = append(opts, aliases)

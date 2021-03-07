@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a scaling plan definition.
- * API Version: 2021-01-14-preview.
+ * API Version: 2021-02-01-preview.
  */
 export class ScalingPlan extends pulumi.CustomResource {
     /**
@@ -53,7 +53,7 @@ export class ScalingPlan extends pulumi.CustomResource {
      */
     public readonly hostPoolReferences!: pulumi.Output<outputs.desktopvirtualization.ScalingHostPoolReferenceResponse[] | undefined>;
     /**
-     * HostPool type for scaling plan.
+     * HostPool type for desktop.
      */
     public readonly hostPoolType!: pulumi.Output<string | undefined>;
     /**
@@ -64,6 +64,10 @@ export class ScalingPlan extends pulumi.CustomResource {
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
+    /**
+     * The ring number of scaling plan.
+     */
+    public readonly ring!: pulumi.Output<number | undefined>;
     /**
      * List of ScalingSchedule definitions.
      */
@@ -102,6 +106,7 @@ export class ScalingPlan extends pulumi.CustomResource {
             inputs["hostPoolType"] = args ? args.hostPoolType : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["ring"] = args ? args.ring : undefined;
             inputs["scalingPlanName"] = args ? args.scalingPlanName : undefined;
             inputs["schedules"] = args ? args.schedules : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -116,6 +121,7 @@ export class ScalingPlan extends pulumi.CustomResource {
             inputs["hostPoolType"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["ring"] = undefined /*out*/;
             inputs["schedules"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["timeZone"] = undefined /*out*/;
@@ -151,7 +157,7 @@ export interface ScalingPlanArgs {
      */
     readonly hostPoolReferences?: pulumi.Input<pulumi.Input<inputs.desktopvirtualization.ScalingHostPoolReference>[]>;
     /**
-     * HostPool type for scaling plan.
+     * HostPool type for desktop.
      */
     readonly hostPoolType?: pulumi.Input<string | enums.desktopvirtualization.HostPoolType>;
     /**
@@ -162,6 +168,10 @@ export interface ScalingPlanArgs {
      * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The ring number of scaling plan.
+     */
+    readonly ring?: pulumi.Input<number>;
     /**
      * The name of the scaling plan.
      */

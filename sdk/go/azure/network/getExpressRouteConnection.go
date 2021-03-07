@@ -8,7 +8,7 @@ import (
 )
 
 // ExpressRouteConnection resource.
-// API Version: 2020-08-01.
+// API Version: 2020-11-01.
 func LookupExpressRouteConnection(ctx *pulumi.Context, args *LookupExpressRouteConnectionArgs, opts ...pulumi.InvokeOption) (*LookupExpressRouteConnectionResult, error) {
 	var rv LookupExpressRouteConnectionResult
 	err := ctx.Invoke("azure-native:network:getExpressRouteConnection", args, &rv, opts...)

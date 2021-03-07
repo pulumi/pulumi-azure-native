@@ -25,6 +25,7 @@ class ScalingPlan(pulumi.CustomResource):
                  host_pool_type: Optional[pulumi.Input[Union[str, 'HostPoolType']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 ring: Optional[pulumi.Input[int]] = None,
                  scaling_plan_name: Optional[pulumi.Input[str]] = None,
                  schedules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScalingScheduleArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -34,7 +35,7 @@ class ScalingPlan(pulumi.CustomResource):
                  __opts__=None):
         """
         Represents a scaling plan definition.
-        API Version: 2021-01-14-preview.
+        API Version: 2021-02-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -42,9 +43,10 @@ class ScalingPlan(pulumi.CustomResource):
         :param pulumi.Input[str] exclusion_tag: Exclusion tag for scaling plan.
         :param pulumi.Input[str] friendly_name: User friendly name of scaling plan.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScalingHostPoolReferenceArgs']]]] host_pool_references: List of ScalingHostPoolReference definitions.
-        :param pulumi.Input[Union[str, 'HostPoolType']] host_pool_type: HostPool type for scaling plan.
+        :param pulumi.Input[Union[str, 'HostPoolType']] host_pool_type: HostPool type for desktop.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[int] ring: The ring number of scaling plan.
         :param pulumi.Input[str] scaling_plan_name: The name of the scaling plan.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScalingScheduleArgs']]]] schedules: List of ScalingSchedule definitions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -76,6 +78,7 @@ class ScalingPlan(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['ring'] = ring
             __props__['scaling_plan_name'] = scaling_plan_name
             __props__['schedules'] = schedules
             __props__['tags'] = tags
@@ -113,6 +116,7 @@ class ScalingPlan(pulumi.CustomResource):
         __props__["host_pool_type"] = None
         __props__["location"] = None
         __props__["name"] = None
+        __props__["ring"] = None
         __props__["schedules"] = None
         __props__["tags"] = None
         __props__["time_zone"] = None
@@ -155,7 +159,7 @@ class ScalingPlan(pulumi.CustomResource):
     @pulumi.getter(name="hostPoolType")
     def host_pool_type(self) -> pulumi.Output[Optional[str]]:
         """
-        HostPool type for scaling plan.
+        HostPool type for desktop.
         """
         return pulumi.get(self, "host_pool_type")
 
@@ -174,6 +178,14 @@ class ScalingPlan(pulumi.CustomResource):
         The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def ring(self) -> pulumi.Output[Optional[int]]:
+        """
+        The ring number of scaling plan.
+        """
+        return pulumi.get(self, "ring")
 
     @property
     @pulumi.getter

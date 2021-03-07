@@ -28,6 +28,12 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         }
 
         /// <summary>
+        /// The additional HTTP headers in the request to RESTful API used for authorization. Type: object (or Expression with resultType object).
+        /// </summary>
+        [Input("authHeaders")]
+        public Input<object>? AuthHeaders { get; set; }
+
+        /// <summary>
         /// The authentication type to be used to connect to the HTTP server.
         /// </summary>
         [Input("authenticationType")]

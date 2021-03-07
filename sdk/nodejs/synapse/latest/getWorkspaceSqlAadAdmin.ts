@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Workspace active directory administrator
- * Latest API Version: 2020-12-01.
+ * Latest API Version: 2021-03-01.
  */
 /** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:synapse:getWorkspaceSqlAadAdmin'. */
 export function getWorkspaceSqlAadAdmin(args: GetWorkspaceSqlAadAdminArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceSqlAadAdminResult> {

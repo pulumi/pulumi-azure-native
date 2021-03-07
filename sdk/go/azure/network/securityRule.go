@@ -12,7 +12,7 @@ import (
 )
 
 // Network security rule.
-// API Version: 2020-08-01.
+// API Version: 2020-11-01.
 type SecurityRule struct {
 	pulumi.CustomResourceState
 
@@ -297,6 +297,12 @@ func NewSecurityRule(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200801:SecurityRule"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20201101:SecurityRule"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20201101:SecurityRule"),
 		},
 	})
 	opts = append(opts, aliases)

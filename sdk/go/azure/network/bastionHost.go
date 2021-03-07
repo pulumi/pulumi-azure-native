@@ -12,7 +12,7 @@ import (
 )
 
 // Bastion Host resource.
-// API Version: 2020-08-01.
+// API Version: 2020-11-01.
 type BastionHost struct {
 	pulumi.CustomResourceState
 
@@ -131,6 +131,12 @@ func NewBastionHost(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200801:BastionHost"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20201101:BastionHost"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20201101:BastionHost"),
 		},
 	})
 	opts = append(opts, aliases)

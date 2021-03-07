@@ -19,7 +19,7 @@ func LookupDelegatedSubnetServiceDetails(ctx *pulumi.Context, args *LookupDelega
 }
 
 type LookupDelegatedSubnetServiceDetailsArgs struct {
-	// The name of the Azure Resource group of which a given DelegatedNetwork resource is part. This name must be at least 1 character in length, and no more than 90.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the resource. It must be a minimum of 3 characters, and a maximum of 63.
 	ResourceName string `pulumi:"resourceName"`
@@ -27,7 +27,7 @@ type LookupDelegatedSubnetServiceDetailsArgs struct {
 
 // Represents an instance of a orchestrator.
 type LookupDelegatedSubnetServiceDetailsResult struct {
-	// controller details
+	// Properties of the controller.
 	ControllerDetails *ControllerDetailsResponse `pulumi:"controllerDetails"`
 	// An identifier that represents the resource.
 	Id string `pulumi:"id"`
@@ -39,7 +39,7 @@ type LookupDelegatedSubnetServiceDetailsResult struct {
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Resource guid.
 	ResourceGuid string `pulumi:"resourceGuid"`
-	// orchestrator details
+	// subnet details
 	SubnetDetails *SubnetDetailsResponse `pulumi:"subnetDetails"`
 	// The resource tags.
 	Tags map[string]string `pulumi:"tags"`

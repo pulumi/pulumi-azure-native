@@ -9,10 +9,12 @@ export * from "./export";
 export * from "./getExport";
 export * from "./getReportConfig";
 export * from "./getReportConfigByResourceGroupName";
+export * from "./getSetting";
 export * from "./getView";
 export * from "./getViewByScope";
 export * from "./reportConfig";
 export * from "./reportConfigByResourceGroupName";
+export * from "./setting";
 export * from "./view";
 export * from "./viewByScope";
 
@@ -23,6 +25,7 @@ export * from "../../types/enums/costmanagement/latest";
 import { Export } from "./export";
 import { ReportConfig } from "./reportConfig";
 import { ReportConfigByResourceGroupName } from "./reportConfigByResourceGroupName";
+import { Setting } from "./setting";
 import { View } from "./view";
 import { ViewByScope } from "./viewByScope";
 
@@ -36,6 +39,8 @@ const _module = {
                 return new ReportConfig(name, <any>undefined, { urn })
             case "azure-native:costmanagement/latest:ReportConfigByResourceGroupName":
                 return new ReportConfigByResourceGroupName(name, <any>undefined, { urn })
+            case "azure-native:costmanagement/latest:Setting":
+                return new Setting(name, <any>undefined, { urn })
             case "azure-native:costmanagement/latest:View":
                 return new View(name, <any>undefined, { urn })
             case "azure-native:costmanagement/latest:ViewByScope":

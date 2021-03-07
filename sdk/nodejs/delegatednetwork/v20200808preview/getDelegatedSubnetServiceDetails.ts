@@ -24,7 +24,7 @@ export function getDelegatedSubnetServiceDetails(args: GetDelegatedSubnetService
 
 export interface GetDelegatedSubnetServiceDetailsArgs {
     /**
-     * The name of the Azure Resource group of which a given DelegatedNetwork resource is part. This name must be at least 1 character in length, and no more than 90.
+     * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: string;
     /**
@@ -38,7 +38,7 @@ export interface GetDelegatedSubnetServiceDetailsArgs {
  */
 export interface GetDelegatedSubnetServiceDetailsResult {
     /**
-     * controller details
+     * Properties of the controller.
      */
     readonly controllerDetails?: outputs.delegatednetwork.v20200808preview.ControllerDetailsResponse;
     /**
@@ -62,7 +62,7 @@ export interface GetDelegatedSubnetServiceDetailsResult {
      */
     readonly resourceGuid: string;
     /**
-     * orchestrator details
+     * subnet details
      */
     readonly subnetDetails?: outputs.delegatednetwork.v20200808preview.SubnetDetailsResponse;
     /**

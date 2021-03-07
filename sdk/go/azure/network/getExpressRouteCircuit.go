@@ -8,7 +8,7 @@ import (
 )
 
 // ExpressRouteCircuit resource.
-// API Version: 2020-08-01.
+// API Version: 2020-11-01.
 func LookupExpressRouteCircuit(ctx *pulumi.Context, args *LookupExpressRouteCircuitArgs, opts ...pulumi.InvokeOption) (*LookupExpressRouteCircuitResult, error) {
 	var rv LookupExpressRouteCircuitResult
 	err := ctx.Invoke("azure-native:network:getExpressRouteCircuit", args, &rv, opts...)

@@ -18,6 +18,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly ImmutableArray<object> Annotations;
         /// <summary>
+        /// The additional HTTP headers in the request to RESTful API used for authorization. Type: object (or Expression with resultType object).
+        /// </summary>
+        public readonly object? AuthHeaders;
+        /// <summary>
         /// The authentication type to be used to connect to the HTTP server.
         /// </summary>
         public readonly string? AuthenticationType;
@@ -71,6 +75,8 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         private HttpLinkedServiceResponse(
             ImmutableArray<object> annotations,
 
+            object? authHeaders,
+
             string? authenticationType,
 
             object? certThumbprint,
@@ -96,6 +102,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             object? userName)
         {
             Annotations = annotations;
+            AuthHeaders = authHeaders;
             AuthenticationType = authenticationType;
             CertThumbprint = certThumbprint;
             ConnectVia = connectVia;

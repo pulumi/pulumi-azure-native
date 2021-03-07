@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * A common class for general resource information.
- * Latest API Version: 2020-08-01.
+ * Latest API Version: 2020-11-01.
  *
  * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:VirtualNetworkGateway'.
  */
@@ -68,10 +68,6 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
-     * The extended location of type local virtual network gateway.
-     */
-    public readonly extendedLocation!: pulumi.Output<outputs.network.latest.ExtendedLocationResponse | undefined>;
-    /**
      * The reference to the LocalNetworkGateway resource which represents local network site having default routes. Assign Null value in case of removing existing default site setting.
      */
     public readonly gatewayDefaultSite!: pulumi.Output<outputs.network.latest.SubResourceResponse | undefined>;
@@ -118,7 +114,11 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
     /**
      * MAS FIJI customer vnet resource id. VirtualNetworkGateway of type local gateway is associated with the customer vnet.
      */
-    public readonly virtualNetworkExtendedLocationResourceId!: pulumi.Output<string | undefined>;
+    public readonly vNetExtendedLocationResourceId!: pulumi.Output<string | undefined>;
+    /**
+     * The extended location of type local virtual network gateway.
+     */
+    public readonly virtualNetworkExtendedLocation!: pulumi.Output<outputs.network.latest.ExtendedLocationResponse | undefined>;
     /**
      * The reference to the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
      */
@@ -154,7 +154,6 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
             inputs["enableBgp"] = args ? args.enableBgp : undefined;
             inputs["enableDnsForwarding"] = args ? args.enableDnsForwarding : undefined;
             inputs["enablePrivateIpAddress"] = args ? args.enablePrivateIpAddress : undefined;
-            inputs["extendedLocation"] = args ? args.extendedLocation : undefined;
             inputs["gatewayDefaultSite"] = args ? args.gatewayDefaultSite : undefined;
             inputs["gatewayType"] = args ? args.gatewayType : undefined;
             inputs["id"] = args ? args.id : undefined;
@@ -163,7 +162,8 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["virtualNetworkExtendedLocationResourceId"] = args ? args.virtualNetworkExtendedLocationResourceId : undefined;
+            inputs["vNetExtendedLocationResourceId"] = args ? args.vNetExtendedLocationResourceId : undefined;
+            inputs["virtualNetworkExtendedLocation"] = args ? args.virtualNetworkExtendedLocation : undefined;
             inputs["virtualNetworkGatewayName"] = args ? args.virtualNetworkGatewayName : undefined;
             inputs["vpnClientConfiguration"] = args ? args.vpnClientConfiguration : undefined;
             inputs["vpnGatewayGeneration"] = args ? args.vpnGatewayGeneration : undefined;
@@ -182,7 +182,6 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
             inputs["enableDnsForwarding"] = undefined /*out*/;
             inputs["enablePrivateIpAddress"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
-            inputs["extendedLocation"] = undefined /*out*/;
             inputs["gatewayDefaultSite"] = undefined /*out*/;
             inputs["gatewayType"] = undefined /*out*/;
             inputs["inboundDnsForwardingEndpoint"] = undefined /*out*/;
@@ -194,7 +193,8 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
             inputs["sku"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
-            inputs["virtualNetworkExtendedLocationResourceId"] = undefined /*out*/;
+            inputs["vNetExtendedLocationResourceId"] = undefined /*out*/;
+            inputs["virtualNetworkExtendedLocation"] = undefined /*out*/;
             inputs["vpnClientConfiguration"] = undefined /*out*/;
             inputs["vpnGatewayGeneration"] = undefined /*out*/;
             inputs["vpnType"] = undefined /*out*/;
@@ -202,7 +202,7 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/latest:VirtualNetworkGateway" }, { type: "azure-native:network:VirtualNetworkGateway" }, { type: "azure-nextgen:network:VirtualNetworkGateway" }, { type: "azure-native:network/v20150615:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20150615:VirtualNetworkGateway" }, { type: "azure-native:network/v20160330:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20160330:VirtualNetworkGateway" }, { type: "azure-native:network/v20160601:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20160601:VirtualNetworkGateway" }, { type: "azure-native:network/v20160901:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20160901:VirtualNetworkGateway" }, { type: "azure-native:network/v20161201:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20161201:VirtualNetworkGateway" }, { type: "azure-native:network/v20170301:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20170301:VirtualNetworkGateway" }, { type: "azure-native:network/v20170601:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20170601:VirtualNetworkGateway" }, { type: "azure-native:network/v20170801:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20170801:VirtualNetworkGateway" }, { type: "azure-native:network/v20170901:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20170901:VirtualNetworkGateway" }, { type: "azure-native:network/v20171001:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20171001:VirtualNetworkGateway" }, { type: "azure-native:network/v20171101:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20171101:VirtualNetworkGateway" }, { type: "azure-native:network/v20180101:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20180101:VirtualNetworkGateway" }, { type: "azure-native:network/v20180201:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20180201:VirtualNetworkGateway" }, { type: "azure-native:network/v20180401:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20180401:VirtualNetworkGateway" }, { type: "azure-native:network/v20180601:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20180601:VirtualNetworkGateway" }, { type: "azure-native:network/v20180701:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20180701:VirtualNetworkGateway" }, { type: "azure-native:network/v20180801:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20180801:VirtualNetworkGateway" }, { type: "azure-native:network/v20181001:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20181001:VirtualNetworkGateway" }, { type: "azure-native:network/v20181101:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20181101:VirtualNetworkGateway" }, { type: "azure-native:network/v20181201:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20181201:VirtualNetworkGateway" }, { type: "azure-native:network/v20190201:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20190201:VirtualNetworkGateway" }, { type: "azure-native:network/v20190401:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20190401:VirtualNetworkGateway" }, { type: "azure-native:network/v20190601:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20190601:VirtualNetworkGateway" }, { type: "azure-native:network/v20190701:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20190701:VirtualNetworkGateway" }, { type: "azure-native:network/v20190801:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20190801:VirtualNetworkGateway" }, { type: "azure-native:network/v20190901:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20190901:VirtualNetworkGateway" }, { type: "azure-native:network/v20191101:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20191101:VirtualNetworkGateway" }, { type: "azure-native:network/v20191201:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20191201:VirtualNetworkGateway" }, { type: "azure-native:network/v20200301:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20200301:VirtualNetworkGateway" }, { type: "azure-native:network/v20200401:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20200401:VirtualNetworkGateway" }, { type: "azure-native:network/v20200501:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20200501:VirtualNetworkGateway" }, { type: "azure-native:network/v20200601:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20200601:VirtualNetworkGateway" }, { type: "azure-native:network/v20200701:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20200701:VirtualNetworkGateway" }, { type: "azure-native:network/v20200801:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20200801:VirtualNetworkGateway" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/latest:VirtualNetworkGateway" }, { type: "azure-native:network:VirtualNetworkGateway" }, { type: "azure-nextgen:network:VirtualNetworkGateway" }, { type: "azure-native:network/v20150615:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20150615:VirtualNetworkGateway" }, { type: "azure-native:network/v20160330:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20160330:VirtualNetworkGateway" }, { type: "azure-native:network/v20160601:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20160601:VirtualNetworkGateway" }, { type: "azure-native:network/v20160901:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20160901:VirtualNetworkGateway" }, { type: "azure-native:network/v20161201:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20161201:VirtualNetworkGateway" }, { type: "azure-native:network/v20170301:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20170301:VirtualNetworkGateway" }, { type: "azure-native:network/v20170601:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20170601:VirtualNetworkGateway" }, { type: "azure-native:network/v20170801:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20170801:VirtualNetworkGateway" }, { type: "azure-native:network/v20170901:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20170901:VirtualNetworkGateway" }, { type: "azure-native:network/v20171001:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20171001:VirtualNetworkGateway" }, { type: "azure-native:network/v20171101:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20171101:VirtualNetworkGateway" }, { type: "azure-native:network/v20180101:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20180101:VirtualNetworkGateway" }, { type: "azure-native:network/v20180201:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20180201:VirtualNetworkGateway" }, { type: "azure-native:network/v20180401:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20180401:VirtualNetworkGateway" }, { type: "azure-native:network/v20180601:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20180601:VirtualNetworkGateway" }, { type: "azure-native:network/v20180701:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20180701:VirtualNetworkGateway" }, { type: "azure-native:network/v20180801:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20180801:VirtualNetworkGateway" }, { type: "azure-native:network/v20181001:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20181001:VirtualNetworkGateway" }, { type: "azure-native:network/v20181101:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20181101:VirtualNetworkGateway" }, { type: "azure-native:network/v20181201:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20181201:VirtualNetworkGateway" }, { type: "azure-native:network/v20190201:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20190201:VirtualNetworkGateway" }, { type: "azure-native:network/v20190401:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20190401:VirtualNetworkGateway" }, { type: "azure-native:network/v20190601:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20190601:VirtualNetworkGateway" }, { type: "azure-native:network/v20190701:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20190701:VirtualNetworkGateway" }, { type: "azure-native:network/v20190801:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20190801:VirtualNetworkGateway" }, { type: "azure-native:network/v20190901:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20190901:VirtualNetworkGateway" }, { type: "azure-native:network/v20191101:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20191101:VirtualNetworkGateway" }, { type: "azure-native:network/v20191201:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20191201:VirtualNetworkGateway" }, { type: "azure-native:network/v20200301:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20200301:VirtualNetworkGateway" }, { type: "azure-native:network/v20200401:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20200401:VirtualNetworkGateway" }, { type: "azure-native:network/v20200501:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20200501:VirtualNetworkGateway" }, { type: "azure-native:network/v20200601:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20200601:VirtualNetworkGateway" }, { type: "azure-native:network/v20200701:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20200701:VirtualNetworkGateway" }, { type: "azure-native:network/v20200801:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20200801:VirtualNetworkGateway" }, { type: "azure-native:network/v20201101:VirtualNetworkGateway" }, { type: "azure-nextgen:network/v20201101:VirtualNetworkGateway" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualNetworkGateway.__pulumiType, name, inputs, opts);
     }
@@ -236,10 +236,6 @@ export interface VirtualNetworkGatewayArgs {
      * Whether private IP needs to be enabled on this gateway for connections or not.
      */
     readonly enablePrivateIpAddress?: pulumi.Input<boolean>;
-    /**
-     * The extended location of type local virtual network gateway.
-     */
-    readonly extendedLocation?: pulumi.Input<inputs.network.latest.ExtendedLocation>;
     /**
      * The reference to the LocalNetworkGateway resource which represents local network site having default routes. Assign Null value in case of removing existing default site setting.
      */
@@ -275,7 +271,11 @@ export interface VirtualNetworkGatewayArgs {
     /**
      * MAS FIJI customer vnet resource id. VirtualNetworkGateway of type local gateway is associated with the customer vnet.
      */
-    readonly virtualNetworkExtendedLocationResourceId?: pulumi.Input<string>;
+    readonly vNetExtendedLocationResourceId?: pulumi.Input<string>;
+    /**
+     * The extended location of type local virtual network gateway.
+     */
+    readonly virtualNetworkExtendedLocation?: pulumi.Input<inputs.network.latest.ExtendedLocation>;
     /**
      * The name of the virtual network gateway.
      */

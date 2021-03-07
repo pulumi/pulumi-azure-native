@@ -8,7 +8,7 @@ import (
 )
 
 // Service Endpoint policy definitions.
-// API Version: 2020-08-01.
+// API Version: 2020-11-01.
 func LookupServiceEndpointPolicyDefinition(ctx *pulumi.Context, args *LookupServiceEndpointPolicyDefinitionArgs, opts ...pulumi.InvokeOption) (*LookupServiceEndpointPolicyDefinitionResult, error) {
 	var rv LookupServiceEndpointPolicyDefinitionResult
 	err := ctx.Invoke("azure-native:network:getServiceEndpointPolicyDefinition", args, &rv, opts...)

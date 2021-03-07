@@ -8,7 +8,7 @@ import (
 )
 
 // IpConfigurations.
-// API Version: 2020-08-01.
+// API Version: 2020-11-01.
 func LookupVirtualHubIpConfiguration(ctx *pulumi.Context, args *LookupVirtualHubIpConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupVirtualHubIpConfigurationResult, error) {
 	var rv LookupVirtualHubIpConfigurationResult
 	err := ctx.Invoke("azure-native:network:getVirtualHubIpConfiguration", args, &rv, opts...)

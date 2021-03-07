@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Subnet in a virtual network resource.
- * Latest API Version: 2020-08-01.
+ * Latest API Version: 2020-11-01.
  */
 /** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getSubnet'. */
 export function getSubnet(args: GetSubnetArgs, opts?: pulumi.InvokeOptions): Promise<GetSubnetResult> {
@@ -58,10 +58,6 @@ export interface GetSubnetResult {
      * List of address prefixes for the subnet.
      */
     readonly addressPrefixes?: string[];
-    /**
-     * Application gateway IP configurations of virtual network resource.
-     */
-    readonly applicationGatewayIpConfigurations?: outputs.network.latest.ApplicationGatewayIPConfigurationResponse[];
     /**
      * An array of references to the delegations on the subnet.
      */
@@ -138,8 +134,4 @@ export interface GetSubnetResult {
      * An array of service endpoints.
      */
     readonly serviceEndpoints?: outputs.network.latest.ServiceEndpointPropertiesFormatResponse[];
-    /**
-     * Resource type.
-     */
-    readonly type?: string;
 }

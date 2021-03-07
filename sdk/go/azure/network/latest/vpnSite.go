@@ -12,7 +12,7 @@ import (
 )
 
 // VpnSite Resource.
-// Latest API Version: 2020-08-01.
+// Latest API Version: 2020-11-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:VpnSite'.
 type VpnSite struct {
@@ -195,6 +195,12 @@ func NewVpnSite(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200801:VpnSite"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20201101:VpnSite"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20201101:VpnSite"),
 		},
 	})
 	opts = append(opts, aliases)

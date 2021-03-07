@@ -19,7 +19,7 @@ func LookupOrchestratorInstanceServiceDetails(ctx *pulumi.Context, args *LookupO
 }
 
 type LookupOrchestratorInstanceServiceDetailsArgs struct {
-	// The name of the Azure Resource group of which a given DelegatedNetwork resource is part. This name must be at least 1 character in length, and no more than 90.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the resource. It must be a minimum of 3 characters, and a maximum of 63.
 	ResourceName string `pulumi:"resourceName"`
@@ -31,7 +31,7 @@ type LookupOrchestratorInstanceServiceDetailsResult struct {
 	ApiServerEndpoint *string `pulumi:"apiServerEndpoint"`
 	// RootCA certificate of kubernetes cluster base64 encoded
 	ClusterRootCA *string `pulumi:"clusterRootCA"`
-	// controller details
+	// Properties of the controller.
 	ControllerDetails ControllerDetailsResponse `pulumi:"controllerDetails"`
 	// An identifier that represents the resource.
 	Id string `pulumi:"id"`

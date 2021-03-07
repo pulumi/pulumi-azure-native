@@ -8,7 +8,7 @@ import (
 )
 
 // Subnet in a virtual network resource.
-// API Version: 2020-08-01.
+// API Version: 2020-11-01.
 func LookupSubnet(ctx *pulumi.Context, args *LookupSubnetArgs, opts ...pulumi.InvokeOption) (*LookupSubnetResult, error) {
 	var rv LookupSubnetResult
 	err := ctx.Invoke("azure-native:network:getSubnet", args, &rv, opts...)
@@ -35,8 +35,6 @@ type LookupSubnetResult struct {
 	AddressPrefix *string `pulumi:"addressPrefix"`
 	// List of address prefixes for the subnet.
 	AddressPrefixes []string `pulumi:"addressPrefixes"`
-	// Application gateway IP configurations of virtual network resource.
-	ApplicationGatewayIpConfigurations []ApplicationGatewayIPConfigurationResponse `pulumi:"applicationGatewayIpConfigurations"`
 	// An array of references to the delegations on the subnet.
 	Delegations []DelegationResponse `pulumi:"delegations"`
 	// A unique read-only string that changes whenever the resource is updated.
@@ -75,6 +73,4 @@ type LookupSubnetResult struct {
 	ServiceEndpointPolicies []ServiceEndpointPolicyResponse `pulumi:"serviceEndpointPolicies"`
 	// An array of service endpoints.
 	ServiceEndpoints []ServiceEndpointPropertiesFormatResponse `pulumi:"serviceEndpoints"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }

@@ -8,7 +8,7 @@ import (
 )
 
 // VpnGateway Resource.
-// API Version: 2020-08-01.
+// API Version: 2020-11-01.
 func LookupVpnGateway(ctx *pulumi.Context, args *LookupVpnGatewayArgs, opts ...pulumi.InvokeOption) (*LookupVpnGatewayResult, error) {
 	var rv LookupVpnGatewayResult
 	err := ctx.Invoke("azure-native:network:getVpnGateway", args, &rv, opts...)

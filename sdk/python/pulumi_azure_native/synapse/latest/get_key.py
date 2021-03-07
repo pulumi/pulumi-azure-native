@@ -98,7 +98,7 @@ def get_key(key_name: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetKeyResult:
     """
     A workspace key
-    Latest API Version: 2020-12-01.
+    Latest API Version: 2021-03-01.
 
 
     :param str key_name: The name of the workspace key

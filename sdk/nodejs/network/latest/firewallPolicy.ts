@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * FirewallPolicy Resource.
- * Latest API Version: 2020-08-01.
+ * Latest API Version: 2020-11-01.
  *
  * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:FirewallPolicy'.
  */
@@ -64,6 +64,10 @@ export class FirewallPolicy extends pulumi.CustomResource {
      */
     public readonly identity!: pulumi.Output<outputs.network.latest.ManagedServiceIdentityResponse | undefined>;
     /**
+     * Insights on Firewall Policy.
+     */
+    public readonly insights!: pulumi.Output<outputs.network.latest.FirewallPolicyInsightsResponse | undefined>;
+    /**
      * The configuration for Intrusion detection.
      */
     public readonly intrusionDetection!: pulumi.Output<outputs.network.latest.FirewallPolicyIntrusionDetectionResponse | undefined>;
@@ -87,6 +91,10 @@ export class FirewallPolicy extends pulumi.CustomResource {
      * The Firewall Policy SKU.
      */
     public readonly sku!: pulumi.Output<outputs.network.latest.FirewallPolicySkuResponse | undefined>;
+    /**
+     * The private IP addresses/IP ranges to which traffic will not be SNAT.
+     */
+    public readonly snat!: pulumi.Output<outputs.network.latest.FirewallPolicySNATResponse | undefined>;
     /**
      * Resource tags.
      */
@@ -129,10 +137,12 @@ export class FirewallPolicy extends pulumi.CustomResource {
             inputs["firewallPolicyName"] = args ? args.firewallPolicyName : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["identity"] = args ? args.identity : undefined;
+            inputs["insights"] = args ? args.insights : undefined;
             inputs["intrusionDetection"] = args ? args.intrusionDetection : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
+            inputs["snat"] = args ? args.snat : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["threatIntelMode"] = args ? args.threatIntelMode : undefined;
             inputs["threatIntelWhitelist"] = args ? args.threatIntelWhitelist : undefined;
@@ -151,12 +161,14 @@ export class FirewallPolicy extends pulumi.CustomResource {
             inputs["etag"] = undefined /*out*/;
             inputs["firewalls"] = undefined /*out*/;
             inputs["identity"] = undefined /*out*/;
+            inputs["insights"] = undefined /*out*/;
             inputs["intrusionDetection"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["ruleCollectionGroups"] = undefined /*out*/;
             inputs["sku"] = undefined /*out*/;
+            inputs["snat"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["threatIntelMode"] = undefined /*out*/;
             inputs["threatIntelWhitelist"] = undefined /*out*/;
@@ -166,7 +178,7 @@ export class FirewallPolicy extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/latest:FirewallPolicy" }, { type: "azure-native:network:FirewallPolicy" }, { type: "azure-nextgen:network:FirewallPolicy" }, { type: "azure-native:network/v20190601:FirewallPolicy" }, { type: "azure-nextgen:network/v20190601:FirewallPolicy" }, { type: "azure-native:network/v20190701:FirewallPolicy" }, { type: "azure-nextgen:network/v20190701:FirewallPolicy" }, { type: "azure-native:network/v20190801:FirewallPolicy" }, { type: "azure-nextgen:network/v20190801:FirewallPolicy" }, { type: "azure-native:network/v20190901:FirewallPolicy" }, { type: "azure-nextgen:network/v20190901:FirewallPolicy" }, { type: "azure-native:network/v20191101:FirewallPolicy" }, { type: "azure-nextgen:network/v20191101:FirewallPolicy" }, { type: "azure-native:network/v20191201:FirewallPolicy" }, { type: "azure-nextgen:network/v20191201:FirewallPolicy" }, { type: "azure-native:network/v20200301:FirewallPolicy" }, { type: "azure-nextgen:network/v20200301:FirewallPolicy" }, { type: "azure-native:network/v20200401:FirewallPolicy" }, { type: "azure-nextgen:network/v20200401:FirewallPolicy" }, { type: "azure-native:network/v20200501:FirewallPolicy" }, { type: "azure-nextgen:network/v20200501:FirewallPolicy" }, { type: "azure-native:network/v20200601:FirewallPolicy" }, { type: "azure-nextgen:network/v20200601:FirewallPolicy" }, { type: "azure-native:network/v20200701:FirewallPolicy" }, { type: "azure-nextgen:network/v20200701:FirewallPolicy" }, { type: "azure-native:network/v20200801:FirewallPolicy" }, { type: "azure-nextgen:network/v20200801:FirewallPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/latest:FirewallPolicy" }, { type: "azure-native:network:FirewallPolicy" }, { type: "azure-nextgen:network:FirewallPolicy" }, { type: "azure-native:network/v20190601:FirewallPolicy" }, { type: "azure-nextgen:network/v20190601:FirewallPolicy" }, { type: "azure-native:network/v20190701:FirewallPolicy" }, { type: "azure-nextgen:network/v20190701:FirewallPolicy" }, { type: "azure-native:network/v20190801:FirewallPolicy" }, { type: "azure-nextgen:network/v20190801:FirewallPolicy" }, { type: "azure-native:network/v20190901:FirewallPolicy" }, { type: "azure-nextgen:network/v20190901:FirewallPolicy" }, { type: "azure-native:network/v20191101:FirewallPolicy" }, { type: "azure-nextgen:network/v20191101:FirewallPolicy" }, { type: "azure-native:network/v20191201:FirewallPolicy" }, { type: "azure-nextgen:network/v20191201:FirewallPolicy" }, { type: "azure-native:network/v20200301:FirewallPolicy" }, { type: "azure-nextgen:network/v20200301:FirewallPolicy" }, { type: "azure-native:network/v20200401:FirewallPolicy" }, { type: "azure-nextgen:network/v20200401:FirewallPolicy" }, { type: "azure-native:network/v20200501:FirewallPolicy" }, { type: "azure-nextgen:network/v20200501:FirewallPolicy" }, { type: "azure-native:network/v20200601:FirewallPolicy" }, { type: "azure-nextgen:network/v20200601:FirewallPolicy" }, { type: "azure-native:network/v20200701:FirewallPolicy" }, { type: "azure-nextgen:network/v20200701:FirewallPolicy" }, { type: "azure-native:network/v20200801:FirewallPolicy" }, { type: "azure-nextgen:network/v20200801:FirewallPolicy" }, { type: "azure-native:network/v20201101:FirewallPolicy" }, { type: "azure-nextgen:network/v20201101:FirewallPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(FirewallPolicy.__pulumiType, name, inputs, opts);
     }
@@ -197,6 +209,10 @@ export interface FirewallPolicyArgs {
      */
     readonly identity?: pulumi.Input<inputs.network.latest.ManagedServiceIdentity>;
     /**
+     * Insights on Firewall Policy.
+     */
+    readonly insights?: pulumi.Input<inputs.network.latest.FirewallPolicyInsights>;
+    /**
      * The configuration for Intrusion detection.
      */
     readonly intrusionDetection?: pulumi.Input<inputs.network.latest.FirewallPolicyIntrusionDetection>;
@@ -212,6 +228,10 @@ export interface FirewallPolicyArgs {
      * The Firewall Policy SKU.
      */
     readonly sku?: pulumi.Input<inputs.network.latest.FirewallPolicySku>;
+    /**
+     * The private IP addresses/IP ranges to which traffic will not be SNAT.
+     */
+    readonly snat?: pulumi.Input<inputs.network.latest.FirewallPolicySNAT>;
     /**
      * Resource tags.
      */

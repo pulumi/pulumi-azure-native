@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Workload classifier operations for a data warehouse
- * API Version: 2020-12-01.
+ * API Version: 2021-03-01.
  */
 export class SqlPoolWorkloadClassifier extends pulumi.CustomResource {
     /**

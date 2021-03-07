@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * FirewallPolicy Resource.
- * Latest API Version: 2020-08-01.
+ * Latest API Version: 2020-11-01.
  */
 /** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getFirewallPolicy'. */
 export function getFirewallPolicy(args: GetFirewallPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallPolicyResult> {
@@ -74,6 +74,10 @@ export interface GetFirewallPolicyResult {
      */
     readonly identity?: outputs.network.latest.ManagedServiceIdentityResponse;
     /**
+     * Insights on Firewall Policy.
+     */
+    readonly insights?: outputs.network.latest.FirewallPolicyInsightsResponse;
+    /**
      * The configuration for Intrusion detection.
      */
     readonly intrusionDetection?: outputs.network.latest.FirewallPolicyIntrusionDetectionResponse;
@@ -97,6 +101,10 @@ export interface GetFirewallPolicyResult {
      * The Firewall Policy SKU.
      */
     readonly sku?: outputs.network.latest.FirewallPolicySkuResponse;
+    /**
+     * The private IP addresses/IP ranges to which traffic will not be SNAT.
+     */
+    readonly snat?: outputs.network.latest.FirewallPolicySNATResponse;
     /**
      * Resource tags.
      */

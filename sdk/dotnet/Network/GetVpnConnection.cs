@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// VpnConnection Resource.
-        /// API Version: 2020-08-01.
+        /// API Version: 2020-11-01.
         /// </summary>
         public static Task<GetVpnConnectionResult> InvokeAsync(GetVpnConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVpnConnectionResult>("azure-native:network:getVpnConnection", args ?? new GetVpnConnectionArgs(), options.WithVersion());
@@ -118,6 +118,10 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly string? SharedKey;
         /// <summary>
+        /// The Traffic Selector Policies to be considered by this connection.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.TrafficSelectorPolicyResponse> TrafficSelectorPolicies;
+        /// <summary>
         /// Use local azure ip to initiate connection.
         /// </summary>
         public readonly bool? UseLocalAzureIpAddress;
@@ -170,6 +174,8 @@ namespace Pulumi.AzureNative.Network
 
             string? sharedKey,
 
+            ImmutableArray<Outputs.TrafficSelectorPolicyResponse> trafficSelectorPolicies,
+
             bool? useLocalAzureIpAddress,
 
             bool? usePolicyBasedTrafficSelectors,
@@ -195,6 +201,7 @@ namespace Pulumi.AzureNative.Network
             RoutingConfiguration = routingConfiguration;
             RoutingWeight = routingWeight;
             SharedKey = sharedKey;
+            TrafficSelectorPolicies = trafficSelectorPolicies;
             UseLocalAzureIpAddress = useLocalAzureIpAddress;
             UsePolicyBasedTrafficSelectors = usePolicyBasedTrafficSelectors;
             VpnConnectionProtocolType = vpnConnectionProtocolType;

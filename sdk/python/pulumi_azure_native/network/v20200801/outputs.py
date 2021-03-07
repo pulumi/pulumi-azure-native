@@ -17904,7 +17904,6 @@ class VirtualNetworkGatewayResponse(dict):
                  enable_bgp: Optional[bool] = None,
                  enable_dns_forwarding: Optional[bool] = None,
                  enable_private_ip_address: Optional[bool] = None,
-                 extended_location: Optional['outputs.ExtendedLocationResponse'] = None,
                  gateway_default_site: Optional['outputs.SubResourceResponse'] = None,
                  gateway_type: Optional[str] = None,
                  id: Optional[str] = None,
@@ -17912,7 +17911,8 @@ class VirtualNetworkGatewayResponse(dict):
                  location: Optional[str] = None,
                  sku: Optional['outputs.VirtualNetworkGatewaySkuResponse'] = None,
                  tags: Optional[Mapping[str, str]] = None,
-                 virtual_network_extended_location_resource_id: Optional[str] = None,
+                 v_net_extended_location_resource_id: Optional[str] = None,
+                 virtual_network_extended_location: Optional['outputs.ExtendedLocationResponse'] = None,
                  vpn_client_configuration: Optional['outputs.VpnClientConfigurationResponse'] = None,
                  vpn_gateway_generation: Optional[str] = None,
                  vpn_type: Optional[str] = None):
@@ -17930,7 +17930,6 @@ class VirtualNetworkGatewayResponse(dict):
         :param bool enable_bgp: Whether BGP is enabled for this virtual network gateway or not.
         :param bool enable_dns_forwarding: Whether dns forwarding is enabled or not.
         :param bool enable_private_ip_address: Whether private IP needs to be enabled on this gateway for connections or not.
-        :param 'ExtendedLocationResponseArgs' extended_location: The extended location of type local virtual network gateway.
         :param 'SubResourceResponseArgs' gateway_default_site: The reference to the LocalNetworkGateway resource which represents local network site having default routes. Assign Null value in case of removing existing default site setting.
         :param str gateway_type: The type of this virtual network gateway.
         :param str id: Resource ID.
@@ -17938,7 +17937,8 @@ class VirtualNetworkGatewayResponse(dict):
         :param str location: Resource location.
         :param 'VirtualNetworkGatewaySkuResponseArgs' sku: The reference to the VirtualNetworkGatewaySku resource which represents the SKU selected for Virtual network gateway.
         :param Mapping[str, str] tags: Resource tags.
-        :param str virtual_network_extended_location_resource_id: MAS FIJI customer vnet resource id. VirtualNetworkGateway of type local gateway is associated with the customer vnet.
+        :param str v_net_extended_location_resource_id: MAS FIJI customer vnet resource id. VirtualNetworkGateway of type local gateway is associated with the customer vnet.
+        :param 'ExtendedLocationResponseArgs' virtual_network_extended_location: The extended location of type local virtual network gateway.
         :param 'VpnClientConfigurationResponseArgs' vpn_client_configuration: The reference to the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
         :param str vpn_gateway_generation: The generation for this VirtualNetworkGateway. Must be None if gatewayType is not VPN.
         :param str vpn_type: The type of this virtual network gateway.
@@ -17961,8 +17961,6 @@ class VirtualNetworkGatewayResponse(dict):
             pulumi.set(__self__, "enable_dns_forwarding", enable_dns_forwarding)
         if enable_private_ip_address is not None:
             pulumi.set(__self__, "enable_private_ip_address", enable_private_ip_address)
-        if extended_location is not None:
-            pulumi.set(__self__, "extended_location", extended_location)
         if gateway_default_site is not None:
             pulumi.set(__self__, "gateway_default_site", gateway_default_site)
         if gateway_type is not None:
@@ -17977,8 +17975,10 @@ class VirtualNetworkGatewayResponse(dict):
             pulumi.set(__self__, "sku", sku)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if virtual_network_extended_location_resource_id is not None:
-            pulumi.set(__self__, "virtual_network_extended_location_resource_id", virtual_network_extended_location_resource_id)
+        if v_net_extended_location_resource_id is not None:
+            pulumi.set(__self__, "v_net_extended_location_resource_id", v_net_extended_location_resource_id)
+        if virtual_network_extended_location is not None:
+            pulumi.set(__self__, "virtual_network_extended_location", virtual_network_extended_location)
         if vpn_client_configuration is not None:
             pulumi.set(__self__, "vpn_client_configuration", vpn_client_configuration)
         if vpn_gateway_generation is not None:
@@ -18083,14 +18083,6 @@ class VirtualNetworkGatewayResponse(dict):
         return pulumi.get(self, "enable_private_ip_address")
 
     @property
-    @pulumi.getter(name="extendedLocation")
-    def extended_location(self) -> Optional['outputs.ExtendedLocationResponse']:
-        """
-        The extended location of type local virtual network gateway.
-        """
-        return pulumi.get(self, "extended_location")
-
-    @property
     @pulumi.getter(name="gatewayDefaultSite")
     def gateway_default_site(self) -> Optional['outputs.SubResourceResponse']:
         """
@@ -18147,12 +18139,20 @@ class VirtualNetworkGatewayResponse(dict):
         return pulumi.get(self, "tags")
 
     @property
-    @pulumi.getter(name="virtualNetworkExtendedLocationResourceId")
-    def virtual_network_extended_location_resource_id(self) -> Optional[str]:
+    @pulumi.getter(name="vNetExtendedLocationResourceId")
+    def v_net_extended_location_resource_id(self) -> Optional[str]:
         """
         MAS FIJI customer vnet resource id. VirtualNetworkGateway of type local gateway is associated with the customer vnet.
         """
-        return pulumi.get(self, "virtual_network_extended_location_resource_id")
+        return pulumi.get(self, "v_net_extended_location_resource_id")
+
+    @property
+    @pulumi.getter(name="virtualNetworkExtendedLocation")
+    def virtual_network_extended_location(self) -> Optional['outputs.ExtendedLocationResponse']:
+        """
+        The extended location of type local virtual network gateway.
+        """
+        return pulumi.get(self, "virtual_network_extended_location")
 
     @property
     @pulumi.getter(name="vpnClientConfiguration")

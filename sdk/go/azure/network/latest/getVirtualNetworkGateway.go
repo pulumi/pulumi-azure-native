@@ -8,7 +8,7 @@ import (
 )
 
 // A common class for general resource information.
-// Latest API Version: 2020-08-01.
+// Latest API Version: 2020-11-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getVirtualNetworkGateway'.
 func LookupVirtualNetworkGateway(ctx *pulumi.Context, args *LookupVirtualNetworkGatewayArgs, opts ...pulumi.InvokeOption) (*LookupVirtualNetworkGatewayResult, error) {
@@ -43,8 +43,6 @@ type LookupVirtualNetworkGatewayResult struct {
 	EnablePrivateIpAddress *bool `pulumi:"enablePrivateIpAddress"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
-	// The extended location of type local virtual network gateway.
-	ExtendedLocation *ExtendedLocationResponse `pulumi:"extendedLocation"`
 	// The reference to the LocalNetworkGateway resource which represents local network site having default routes. Assign Null value in case of removing existing default site setting.
 	GatewayDefaultSite *SubResourceResponse `pulumi:"gatewayDefaultSite"`
 	// The type of this virtual network gateway.
@@ -70,7 +68,9 @@ type LookupVirtualNetworkGatewayResult struct {
 	// Resource type.
 	Type string `pulumi:"type"`
 	// MAS FIJI customer vnet resource id. VirtualNetworkGateway of type local gateway is associated with the customer vnet.
-	VirtualNetworkExtendedLocationResourceId *string `pulumi:"virtualNetworkExtendedLocationResourceId"`
+	VNetExtendedLocationResourceId *string `pulumi:"vNetExtendedLocationResourceId"`
+	// The extended location of type local virtual network gateway.
+	VirtualNetworkExtendedLocation *ExtendedLocationResponse `pulumi:"virtualNetworkExtendedLocation"`
 	// The reference to the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
 	VpnClientConfiguration *VpnClientConfigurationResponse `pulumi:"vpnClientConfiguration"`
 	// The generation for this VirtualNetworkGateway. Must be None if gatewayType is not VPN.

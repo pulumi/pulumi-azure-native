@@ -60,17 +60,21 @@ type LookupServerGroupResult struct {
 	PointInTimeUTC *string `pulumi:"pointInTimeUTC"`
 	// The PostgreSQL version of server group.
 	PostgresqlVersion *string `pulumi:"postgresqlVersion"`
+	// The array of read replica server groups.
+	ReadReplicas []string `pulumi:"readReplicas"`
 	// The resource provider type of server group.
 	ResourceProviderType string `pulumi:"resourceProviderType"`
 	// The list of server role groups.
 	ServerRoleGroups []ServerRoleGroupResponse `pulumi:"serverRoleGroups"`
-	// The source server group location to restore from. It's required when 'createMode' is 'PointInTimeRestore'
+	// The source server group location to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'ReadReplica'
 	SourceLocation *string `pulumi:"sourceLocation"`
-	// The source resource group name to restore from. It's required when 'createMode' is 'PointInTimeRestore'
+	// The source resource group name to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'ReadReplica'
 	SourceResourceGroupName *string `pulumi:"sourceResourceGroupName"`
-	// The source server group name to restore from. It's required when 'createMode' is 'PointInTimeRestore'
+	// The source server group id for read replica server groups.
+	SourceServerGroup string `pulumi:"sourceServerGroup"`
+	// The source server group name to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'ReadReplica'
 	SourceServerGroupName *string `pulumi:"sourceServerGroupName"`
-	// The source subscription id to restore from. It's required when 'createMode' is 'PointInTimeRestore'
+	// The source subscription id to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'ReadReplica'
 	SourceSubscriptionId *string `pulumi:"sourceSubscriptionId"`
 	// Standby Availability Zone information of the server group.
 	StandbyAvailabilityZone *string `pulumi:"standbyAvailabilityZone"`

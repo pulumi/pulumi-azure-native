@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Security Partner Provider resource.
- * Latest API Version: 2020-08-01.
+ * Latest API Version: 2020-11-01.
  *
  * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:SecurityPartnerProvider'.
  */
@@ -118,7 +118,7 @@ export class SecurityPartnerProvider extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/latest:SecurityPartnerProvider" }, { type: "azure-native:network:SecurityPartnerProvider" }, { type: "azure-nextgen:network:SecurityPartnerProvider" }, { type: "azure-native:network/v20200301:SecurityPartnerProvider" }, { type: "azure-nextgen:network/v20200301:SecurityPartnerProvider" }, { type: "azure-native:network/v20200401:SecurityPartnerProvider" }, { type: "azure-nextgen:network/v20200401:SecurityPartnerProvider" }, { type: "azure-native:network/v20200501:SecurityPartnerProvider" }, { type: "azure-nextgen:network/v20200501:SecurityPartnerProvider" }, { type: "azure-native:network/v20200601:SecurityPartnerProvider" }, { type: "azure-nextgen:network/v20200601:SecurityPartnerProvider" }, { type: "azure-native:network/v20200701:SecurityPartnerProvider" }, { type: "azure-nextgen:network/v20200701:SecurityPartnerProvider" }, { type: "azure-native:network/v20200801:SecurityPartnerProvider" }, { type: "azure-nextgen:network/v20200801:SecurityPartnerProvider" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/latest:SecurityPartnerProvider" }, { type: "azure-native:network:SecurityPartnerProvider" }, { type: "azure-nextgen:network:SecurityPartnerProvider" }, { type: "azure-native:network/v20200301:SecurityPartnerProvider" }, { type: "azure-nextgen:network/v20200301:SecurityPartnerProvider" }, { type: "azure-native:network/v20200401:SecurityPartnerProvider" }, { type: "azure-nextgen:network/v20200401:SecurityPartnerProvider" }, { type: "azure-native:network/v20200501:SecurityPartnerProvider" }, { type: "azure-nextgen:network/v20200501:SecurityPartnerProvider" }, { type: "azure-native:network/v20200601:SecurityPartnerProvider" }, { type: "azure-nextgen:network/v20200601:SecurityPartnerProvider" }, { type: "azure-native:network/v20200701:SecurityPartnerProvider" }, { type: "azure-nextgen:network/v20200701:SecurityPartnerProvider" }, { type: "azure-native:network/v20200801:SecurityPartnerProvider" }, { type: "azure-nextgen:network/v20200801:SecurityPartnerProvider" }, { type: "azure-native:network/v20201101:SecurityPartnerProvider" }, { type: "azure-nextgen:network/v20201101:SecurityPartnerProvider" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SecurityPartnerProvider.__pulumiType, name, inputs, opts);
     }

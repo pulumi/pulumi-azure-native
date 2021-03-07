@@ -30,6 +30,10 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// </summary>
         public readonly Outputs.SubResourceResponse NetworkInterfaceIPConfiguration;
         /// <summary>
+        /// Reference to an existing subnet.
+        /// </summary>
+        public readonly Outputs.SubResourceResponse? Subnet;
+        /// <summary>
         /// Reference to an existing virtual network.
         /// </summary>
         public readonly Outputs.SubResourceResponse? VirtualNetwork;
@@ -44,12 +48,15 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             Outputs.SubResourceResponse networkInterfaceIPConfiguration,
 
+            Outputs.SubResourceResponse? subnet,
+
             Outputs.SubResourceResponse? virtualNetwork)
         {
             IpAddress = ipAddress;
             LoadBalancerFrontendIPConfiguration = loadBalancerFrontendIPConfiguration;
             Name = name;
             NetworkInterfaceIPConfiguration = networkInterfaceIPConfiguration;
+            Subnet = subnet;
             VirtualNetwork = virtualNetwork;
         }
     }

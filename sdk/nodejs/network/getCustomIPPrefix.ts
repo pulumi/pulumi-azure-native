@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Custom IP prefix resource.
- * API Version: 2020-08-01.
+ * API Version: 2020-11-01.
  */
 export function getCustomIPPrefix(args: GetCustomIPPrefixArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomIPPrefixResult> {
     if (!opts) {

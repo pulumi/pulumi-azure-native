@@ -12,7 +12,7 @@ import (
 )
 
 // VpnConnection Resource.
-// Latest API Version: 2020-08-01.
+// Latest API Version: 2020-11-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:VpnConnection'.
 type VpnConnection struct {
@@ -50,6 +50,8 @@ type VpnConnection struct {
 	RoutingWeight pulumi.IntPtrOutput `pulumi:"routingWeight"`
 	// SharedKey for the vpn connection.
 	SharedKey pulumi.StringPtrOutput `pulumi:"sharedKey"`
+	// The Traffic Selector Policies to be considered by this connection.
+	TrafficSelectorPolicies TrafficSelectorPolicyResponseArrayOutput `pulumi:"trafficSelectorPolicies"`
 	// Use local azure ip to initiate connection.
 	UseLocalAzureIpAddress pulumi.BoolPtrOutput `pulumi:"useLocalAzureIpAddress"`
 	// Enable policy-based traffic selectors.
@@ -209,6 +211,12 @@ func NewVpnConnection(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200801:VpnConnection"),
 		},
+		{
+			Type: pulumi.String("azure-native:network/v20201101:VpnConnection"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20201101:VpnConnection"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource VpnConnection
@@ -265,6 +273,8 @@ type vpnConnectionState struct {
 	RoutingWeight *int `pulumi:"routingWeight"`
 	// SharedKey for the vpn connection.
 	SharedKey *string `pulumi:"sharedKey"`
+	// The Traffic Selector Policies to be considered by this connection.
+	TrafficSelectorPolicies []TrafficSelectorPolicyResponse `pulumi:"trafficSelectorPolicies"`
 	// Use local azure ip to initiate connection.
 	UseLocalAzureIpAddress *bool `pulumi:"useLocalAzureIpAddress"`
 	// Enable policy-based traffic selectors.
@@ -308,6 +318,8 @@ type VpnConnectionState struct {
 	RoutingWeight pulumi.IntPtrInput
 	// SharedKey for the vpn connection.
 	SharedKey pulumi.StringPtrInput
+	// The Traffic Selector Policies to be considered by this connection.
+	TrafficSelectorPolicies TrafficSelectorPolicyResponseArrayInput
 	// Use local azure ip to initiate connection.
 	UseLocalAzureIpAddress pulumi.BoolPtrInput
 	// Enable policy-based traffic selectors.
@@ -353,6 +365,8 @@ type vpnConnectionArgs struct {
 	RoutingWeight *int `pulumi:"routingWeight"`
 	// SharedKey for the vpn connection.
 	SharedKey *string `pulumi:"sharedKey"`
+	// The Traffic Selector Policies to be considered by this connection.
+	TrafficSelectorPolicies []TrafficSelectorPolicy `pulumi:"trafficSelectorPolicies"`
 	// Use local azure ip to initiate connection.
 	UseLocalAzureIpAddress *bool `pulumi:"useLocalAzureIpAddress"`
 	// Enable policy-based traffic selectors.
@@ -395,6 +409,8 @@ type VpnConnectionArgs struct {
 	RoutingWeight pulumi.IntPtrInput
 	// SharedKey for the vpn connection.
 	SharedKey pulumi.StringPtrInput
+	// The Traffic Selector Policies to be considered by this connection.
+	TrafficSelectorPolicies TrafficSelectorPolicyArrayInput
 	// Use local azure ip to initiate connection.
 	UseLocalAzureIpAddress pulumi.BoolPtrInput
 	// Enable policy-based traffic selectors.

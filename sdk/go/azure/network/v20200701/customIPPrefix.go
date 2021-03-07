@@ -77,6 +77,12 @@ func NewCustomIPPrefix(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200801:CustomIPPrefix"),
 		},
+		{
+			Type: pulumi.String("azure-native:network/v20201101:CustomIPPrefix"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20201101:CustomIPPrefix"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource CustomIPPrefix

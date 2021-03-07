@@ -99,6 +99,8 @@ namespace Pulumi.AzureNative.Network.V20200701
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:HubVirtualNetworkConnection"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200801:HubVirtualNetworkConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:HubVirtualNetworkConnection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20201101:HubVirtualNetworkConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20201101:HubVirtualNetworkConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

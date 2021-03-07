@@ -97,7 +97,7 @@ def get_sql_pool_transparent_data_encryption(resource_group_name: Optional[str] 
                                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSqlPoolTransparentDataEncryptionResult:
     """
     Represents a Sql pool transparent data encryption configuration.
-    API Version: 2020-12-01.
+    API Version: 2021-03-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

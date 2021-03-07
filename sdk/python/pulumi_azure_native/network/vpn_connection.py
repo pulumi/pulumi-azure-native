@@ -33,6 +33,7 @@ class VpnConnection(pulumi.CustomResource):
                  routing_configuration: Optional[pulumi.Input[pulumi.InputType['RoutingConfigurationArgs']]] = None,
                  routing_weight: Optional[pulumi.Input[int]] = None,
                  shared_key: Optional[pulumi.Input[str]] = None,
+                 traffic_selector_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrafficSelectorPolicyArgs']]]]] = None,
                  use_local_azure_ip_address: Optional[pulumi.Input[bool]] = None,
                  use_policy_based_traffic_selectors: Optional[pulumi.Input[bool]] = None,
                  vpn_connection_protocol_type: Optional[pulumi.Input[Union[str, 'VirtualNetworkGatewayConnectionProtocol']]] = None,
@@ -42,7 +43,7 @@ class VpnConnection(pulumi.CustomResource):
                  __opts__=None):
         """
         VpnConnection Resource.
-        API Version: 2020-08-01.
+        API Version: 2020-11-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -61,6 +62,7 @@ class VpnConnection(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['RoutingConfigurationArgs']] routing_configuration: The Routing Configuration indicating the associated and propagated route tables on this connection.
         :param pulumi.Input[int] routing_weight: Routing weight for vpn connection.
         :param pulumi.Input[str] shared_key: SharedKey for the vpn connection.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrafficSelectorPolicyArgs']]]] traffic_selector_policies: The Traffic Selector Policies to be considered by this connection.
         :param pulumi.Input[bool] use_local_azure_ip_address: Use local azure ip to initiate connection.
         :param pulumi.Input[bool] use_policy_based_traffic_selectors: Enable policy-based traffic selectors.
         :param pulumi.Input[Union[str, 'VirtualNetworkGatewayConnectionProtocol']] vpn_connection_protocol_type: Connection protocol used for this connection.
@@ -102,6 +104,7 @@ class VpnConnection(pulumi.CustomResource):
             __props__['routing_configuration'] = routing_configuration
             __props__['routing_weight'] = routing_weight
             __props__['shared_key'] = shared_key
+            __props__['traffic_selector_policies'] = traffic_selector_policies
             __props__['use_local_azure_ip_address'] = use_local_azure_ip_address
             __props__['use_policy_based_traffic_selectors'] = use_policy_based_traffic_selectors
             __props__['vpn_connection_protocol_type'] = vpn_connection_protocol_type
@@ -111,7 +114,7 @@ class VpnConnection(pulumi.CustomResource):
             __props__['etag'] = None
             __props__['ingress_bytes_transferred'] = None
             __props__['provisioning_state'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network:VpnConnection"), pulumi.Alias(type_="azure-native:network/latest:VpnConnection"), pulumi.Alias(type_="azure-nextgen:network/latest:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20180401:VpnConnection"), pulumi.Alias(type_="azure-nextgen:network/v20180401:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20180601:VpnConnection"), pulumi.Alias(type_="azure-nextgen:network/v20180601:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20180701:VpnConnection"), pulumi.Alias(type_="azure-nextgen:network/v20180701:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20180801:VpnConnection"), pulumi.Alias(type_="azure-nextgen:network/v20180801:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20181001:VpnConnection"), pulumi.Alias(type_="azure-nextgen:network/v20181001:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20181101:VpnConnection"), pulumi.Alias(type_="azure-nextgen:network/v20181101:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20181201:VpnConnection"), pulumi.Alias(type_="azure-nextgen:network/v20181201:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20190201:VpnConnection"), pulumi.Alias(type_="azure-nextgen:network/v20190201:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20190401:VpnConnection"), pulumi.Alias(type_="azure-nextgen:network/v20190401:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20190601:VpnConnection"), pulumi.Alias(type_="azure-nextgen:network/v20190601:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20190701:VpnConnection"), pulumi.Alias(type_="azure-nextgen:network/v20190701:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20190801:VpnConnection"), pulumi.Alias(type_="azure-nextgen:network/v20190801:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20190901:VpnConnection"), pulumi.Alias(type_="azure-nextgen:network/v20190901:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20191101:VpnConnection"), pulumi.Alias(type_="azure-nextgen:network/v20191101:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20191201:VpnConnection"), pulumi.Alias(type_="azure-nextgen:network/v20191201:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20200301:VpnConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200301:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20200401:VpnConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200401:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20200501:VpnConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200501:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20200601:VpnConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200601:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20200701:VpnConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200701:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20200801:VpnConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200801:VpnConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network:VpnConnection"), pulumi.Alias(type_="azure-native:network/latest:VpnConnection"), pulumi.Alias(type_="azure-nextgen:network/latest:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20180401:VpnConnection"), pulumi.Alias(type_="azure-nextgen:network/v20180401:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20180601:VpnConnection"), pulumi.Alias(type_="azure-nextgen:network/v20180601:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20180701:VpnConnection"), pulumi.Alias(type_="azure-nextgen:network/v20180701:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20180801:VpnConnection"), pulumi.Alias(type_="azure-nextgen:network/v20180801:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20181001:VpnConnection"), pulumi.Alias(type_="azure-nextgen:network/v20181001:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20181101:VpnConnection"), pulumi.Alias(type_="azure-nextgen:network/v20181101:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20181201:VpnConnection"), pulumi.Alias(type_="azure-nextgen:network/v20181201:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20190201:VpnConnection"), pulumi.Alias(type_="azure-nextgen:network/v20190201:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20190401:VpnConnection"), pulumi.Alias(type_="azure-nextgen:network/v20190401:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20190601:VpnConnection"), pulumi.Alias(type_="azure-nextgen:network/v20190601:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20190701:VpnConnection"), pulumi.Alias(type_="azure-nextgen:network/v20190701:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20190801:VpnConnection"), pulumi.Alias(type_="azure-nextgen:network/v20190801:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20190901:VpnConnection"), pulumi.Alias(type_="azure-nextgen:network/v20190901:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20191101:VpnConnection"), pulumi.Alias(type_="azure-nextgen:network/v20191101:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20191201:VpnConnection"), pulumi.Alias(type_="azure-nextgen:network/v20191201:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20200301:VpnConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200301:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20200401:VpnConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200401:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20200501:VpnConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200501:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20200601:VpnConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200601:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20200701:VpnConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200701:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20200801:VpnConnection"), pulumi.Alias(type_="azure-nextgen:network/v20200801:VpnConnection"), pulumi.Alias(type_="azure-native:network/v20201101:VpnConnection"), pulumi.Alias(type_="azure-nextgen:network/v20201101:VpnConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VpnConnection, __self__).__init__(
             'azure-native:network:VpnConnection',
@@ -151,6 +154,7 @@ class VpnConnection(pulumi.CustomResource):
         __props__["routing_configuration"] = None
         __props__["routing_weight"] = None
         __props__["shared_key"] = None
+        __props__["traffic_selector_policies"] = None
         __props__["use_local_azure_ip_address"] = None
         __props__["use_policy_based_traffic_selectors"] = None
         __props__["vpn_connection_protocol_type"] = None
@@ -284,6 +288,14 @@ class VpnConnection(pulumi.CustomResource):
         SharedKey for the vpn connection.
         """
         return pulumi.get(self, "shared_key")
+
+    @property
+    @pulumi.getter(name="trafficSelectorPolicies")
+    def traffic_selector_policies(self) -> pulumi.Output[Optional[Sequence['outputs.TrafficSelectorPolicyResponse']]]:
+        """
+        The Traffic Selector Policies to be considered by this connection.
+        """
+        return pulumi.get(self, "traffic_selector_policies")
 
     @property
     @pulumi.getter(name="useLocalAzureIpAddress")

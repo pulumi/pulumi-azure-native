@@ -532,6 +532,8 @@ namespace Pulumi.AzureNative.DataFactory
         }
 
         public static FactoryIdentityType SystemAssigned { get; } = new FactoryIdentityType("SystemAssigned");
+        public static FactoryIdentityType UserAssigned { get; } = new FactoryIdentityType("UserAssigned");
+        public static FactoryIdentityType SystemAssigned_UserAssigned { get; } = new FactoryIdentityType("SystemAssigned,UserAssigned");
 
         public static bool operator ==(FactoryIdentityType left, FactoryIdentityType right) => left.Equals(right);
         public static bool operator !=(FactoryIdentityType left, FactoryIdentityType right) => !left.Equals(right);
@@ -1679,6 +1681,7 @@ namespace Pulumi.AzureNative.DataFactory
 
         public static SftpAuthenticationType Basic { get; } = new SftpAuthenticationType("Basic");
         public static SftpAuthenticationType SshPublicKey { get; } = new SftpAuthenticationType("SshPublicKey");
+        public static SftpAuthenticationType MultiFactor { get; } = new SftpAuthenticationType("MultiFactor");
 
         public static bool operator ==(SftpAuthenticationType left, SftpAuthenticationType right) => left.Equals(right);
         public static bool operator !=(SftpAuthenticationType left, SftpAuthenticationType right) => !left.Equals(right);

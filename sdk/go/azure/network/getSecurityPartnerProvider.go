@@ -8,7 +8,7 @@ import (
 )
 
 // Security Partner Provider resource.
-// API Version: 2020-08-01.
+// API Version: 2020-11-01.
 func LookupSecurityPartnerProvider(ctx *pulumi.Context, args *LookupSecurityPartnerProviderArgs, opts ...pulumi.InvokeOption) (*LookupSecurityPartnerProviderResult, error) {
 	var rv LookupSecurityPartnerProviderResult
 	err := ctx.Invoke("azure-native:network:getSecurityPartnerProvider", args, &rv, opts...)

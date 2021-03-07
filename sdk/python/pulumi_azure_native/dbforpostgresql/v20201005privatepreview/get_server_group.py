@@ -20,7 +20,7 @@ class GetServerGroupResult:
     """
     Represents a server group for create.
     """
-    def __init__(__self__, administrator_login=None, administrator_login_password=None, availability_zone=None, backup_retention_days=None, citus_version=None, create_mode=None, delegated_subnet_arguments=None, earliest_restore_time=None, enable_mx=None, enable_shards_on_coordinator=None, enable_zfs=None, id=None, location=None, maintenance_window=None, name=None, point_in_time_utc=None, postgresql_version=None, resource_provider_type=None, server_role_groups=None, source_location=None, source_resource_group_name=None, source_server_group_name=None, source_subscription_id=None, standby_availability_zone=None, state=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, administrator_login=None, administrator_login_password=None, availability_zone=None, backup_retention_days=None, citus_version=None, create_mode=None, delegated_subnet_arguments=None, earliest_restore_time=None, enable_mx=None, enable_shards_on_coordinator=None, enable_zfs=None, id=None, location=None, maintenance_window=None, name=None, point_in_time_utc=None, postgresql_version=None, read_replicas=None, resource_provider_type=None, server_role_groups=None, source_location=None, source_resource_group_name=None, source_server_group=None, source_server_group_name=None, source_subscription_id=None, standby_availability_zone=None, state=None, system_data=None, tags=None, type=None):
         if administrator_login and not isinstance(administrator_login, str):
             raise TypeError("Expected argument 'administrator_login' to be a str")
         pulumi.set(__self__, "administrator_login", administrator_login)
@@ -72,6 +72,9 @@ class GetServerGroupResult:
         if postgresql_version and not isinstance(postgresql_version, str):
             raise TypeError("Expected argument 'postgresql_version' to be a str")
         pulumi.set(__self__, "postgresql_version", postgresql_version)
+        if read_replicas and not isinstance(read_replicas, list):
+            raise TypeError("Expected argument 'read_replicas' to be a list")
+        pulumi.set(__self__, "read_replicas", read_replicas)
         if resource_provider_type and not isinstance(resource_provider_type, str):
             raise TypeError("Expected argument 'resource_provider_type' to be a str")
         pulumi.set(__self__, "resource_provider_type", resource_provider_type)
@@ -84,6 +87,9 @@ class GetServerGroupResult:
         if source_resource_group_name and not isinstance(source_resource_group_name, str):
             raise TypeError("Expected argument 'source_resource_group_name' to be a str")
         pulumi.set(__self__, "source_resource_group_name", source_resource_group_name)
+        if source_server_group and not isinstance(source_server_group, str):
+            raise TypeError("Expected argument 'source_server_group' to be a str")
+        pulumi.set(__self__, "source_server_group", source_server_group)
         if source_server_group_name and not isinstance(source_server_group_name, str):
             raise TypeError("Expected argument 'source_server_group_name' to be a str")
         pulumi.set(__self__, "source_server_group_name", source_server_group_name)
@@ -243,6 +249,14 @@ class GetServerGroupResult:
         return pulumi.get(self, "postgresql_version")
 
     @property
+    @pulumi.getter(name="readReplicas")
+    def read_replicas(self) -> Sequence[str]:
+        """
+        The array of read replica server groups.
+        """
+        return pulumi.get(self, "read_replicas")
+
+    @property
     @pulumi.getter(name="resourceProviderType")
     def resource_provider_type(self) -> str:
         """
@@ -262,7 +276,7 @@ class GetServerGroupResult:
     @pulumi.getter(name="sourceLocation")
     def source_location(self) -> Optional[str]:
         """
-        The source server group location to restore from. It's required when 'createMode' is 'PointInTimeRestore'
+        The source server group location to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'ReadReplica'
         """
         return pulumi.get(self, "source_location")
 
@@ -270,15 +284,23 @@ class GetServerGroupResult:
     @pulumi.getter(name="sourceResourceGroupName")
     def source_resource_group_name(self) -> Optional[str]:
         """
-        The source resource group name to restore from. It's required when 'createMode' is 'PointInTimeRestore'
+        The source resource group name to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'ReadReplica'
         """
         return pulumi.get(self, "source_resource_group_name")
+
+    @property
+    @pulumi.getter(name="sourceServerGroup")
+    def source_server_group(self) -> str:
+        """
+        The source server group id for read replica server groups.
+        """
+        return pulumi.get(self, "source_server_group")
 
     @property
     @pulumi.getter(name="sourceServerGroupName")
     def source_server_group_name(self) -> Optional[str]:
         """
-        The source server group name to restore from. It's required when 'createMode' is 'PointInTimeRestore'
+        The source server group name to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'ReadReplica'
         """
         return pulumi.get(self, "source_server_group_name")
 
@@ -286,7 +308,7 @@ class GetServerGroupResult:
     @pulumi.getter(name="sourceSubscriptionId")
     def source_subscription_id(self) -> Optional[str]:
         """
-        The source subscription id to restore from. It's required when 'createMode' is 'PointInTimeRestore'
+        The source subscription id to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'ReadReplica'
         """
         return pulumi.get(self, "source_subscription_id")
 
@@ -354,10 +376,12 @@ class AwaitableGetServerGroupResult(GetServerGroupResult):
             name=self.name,
             point_in_time_utc=self.point_in_time_utc,
             postgresql_version=self.postgresql_version,
+            read_replicas=self.read_replicas,
             resource_provider_type=self.resource_provider_type,
             server_role_groups=self.server_role_groups,
             source_location=self.source_location,
             source_resource_group_name=self.source_resource_group_name,
+            source_server_group=self.source_server_group,
             source_server_group_name=self.source_server_group_name,
             source_subscription_id=self.source_subscription_id,
             standby_availability_zone=self.standby_availability_zone,
@@ -404,10 +428,12 @@ def get_server_group(resource_group_name: Optional[str] = None,
         name=__ret__.name,
         point_in_time_utc=__ret__.point_in_time_utc,
         postgresql_version=__ret__.postgresql_version,
+        read_replicas=__ret__.read_replicas,
         resource_provider_type=__ret__.resource_provider_type,
         server_role_groups=__ret__.server_role_groups,
         source_location=__ret__.source_location,
         source_resource_group_name=__ret__.source_resource_group_name,
+        source_server_group=__ret__.source_server_group,
         source_server_group_name=__ret__.source_server_group_name,
         source_subscription_id=__ret__.source_subscription_id,
         standby_availability_zone=__ret__.standby_availability_zone,

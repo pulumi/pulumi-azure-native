@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network.Latest
 {
     /// <summary>
     /// DSCP Configuration in a resource group.
-    /// Latest API Version: 2020-08-01.
+    /// Latest API Version: 2020-11-01.
     /// </summary>
     [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:DscpConfiguration'.")]
     [AzureNativeResourceType("azure-native:network/latest:DscpConfiguration")]
@@ -141,6 +141,8 @@ namespace Pulumi.AzureNative.Network.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:DscpConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200801:DscpConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:DscpConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20201101:DscpConfiguration"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20201101:DscpConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

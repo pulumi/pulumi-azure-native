@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * P2SVpnGateway Resource.
- * API Version: 2020-08-01.
+ * API Version: 2020-11-01.
  */
 export function getP2sVpnGatewayP2sVpnConnectionHealth(args: GetP2sVpnGatewayP2sVpnConnectionHealthArgs, opts?: pulumi.InvokeOptions): Promise<GetP2sVpnGatewayP2sVpnConnectionHealthResult> {
     if (!opts) {

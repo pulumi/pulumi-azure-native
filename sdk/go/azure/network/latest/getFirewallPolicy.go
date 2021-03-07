@@ -8,7 +8,7 @@ import (
 )
 
 // FirewallPolicy Resource.
-// Latest API Version: 2020-08-01.
+// Latest API Version: 2020-11-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getFirewallPolicy'.
 func LookupFirewallPolicy(ctx *pulumi.Context, args *LookupFirewallPolicyArgs, opts ...pulumi.InvokeOption) (*LookupFirewallPolicyResult, error) {
@@ -45,6 +45,8 @@ type LookupFirewallPolicyResult struct {
 	Id *string `pulumi:"id"`
 	// The identity of the firewall policy.
 	Identity *ManagedServiceIdentityResponse `pulumi:"identity"`
+	// Insights on Firewall Policy.
+	Insights *FirewallPolicyInsightsResponse `pulumi:"insights"`
 	// The configuration for Intrusion detection.
 	IntrusionDetection *FirewallPolicyIntrusionDetectionResponse `pulumi:"intrusionDetection"`
 	// Resource location.
@@ -57,6 +59,8 @@ type LookupFirewallPolicyResult struct {
 	RuleCollectionGroups []SubResourceResponse `pulumi:"ruleCollectionGroups"`
 	// The Firewall Policy SKU.
 	Sku *FirewallPolicySkuResponse `pulumi:"sku"`
+	// The private IP addresses/IP ranges to which traffic will not be SNAT.
+	Snat *FirewallPolicySNATResponse `pulumi:"snat"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The operation mode for Threat Intelligence.

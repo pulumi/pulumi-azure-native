@@ -112,6 +112,12 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20201005PrivatePreview
         public Output<string?> PostgresqlVersion { get; private set; } = null!;
 
         /// <summary>
+        /// The array of read replica server groups.
+        /// </summary>
+        [Output("readReplicas")]
+        public Output<ImmutableArray<string>> ReadReplicas { get; private set; } = null!;
+
+        /// <summary>
         /// The resource provider type of server group.
         /// </summary>
         [Output("resourceProviderType")]
@@ -124,25 +130,31 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20201005PrivatePreview
         public Output<ImmutableArray<Outputs.ServerRoleGroupResponse>> ServerRoleGroups { get; private set; } = null!;
 
         /// <summary>
-        /// The source server group location to restore from. It's required when 'createMode' is 'PointInTimeRestore'
+        /// The source server group location to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'ReadReplica'
         /// </summary>
         [Output("sourceLocation")]
         public Output<string?> SourceLocation { get; private set; } = null!;
 
         /// <summary>
-        /// The source resource group name to restore from. It's required when 'createMode' is 'PointInTimeRestore'
+        /// The source resource group name to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'ReadReplica'
         /// </summary>
         [Output("sourceResourceGroupName")]
         public Output<string?> SourceResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The source server group name to restore from. It's required when 'createMode' is 'PointInTimeRestore'
+        /// The source server group id for read replica server groups.
+        /// </summary>
+        [Output("sourceServerGroup")]
+        public Output<string> SourceServerGroup { get; private set; } = null!;
+
+        /// <summary>
+        /// The source server group name to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'ReadReplica'
         /// </summary>
         [Output("sourceServerGroupName")]
         public Output<string?> SourceServerGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The source subscription id to restore from. It's required when 'createMode' is 'PointInTimeRestore'
+        /// The source subscription id to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'ReadReplica'
         /// </summary>
         [Output("sourceSubscriptionId")]
         public Output<string?> SourceSubscriptionId { get; private set; } = null!;
@@ -335,25 +347,25 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20201005PrivatePreview
         }
 
         /// <summary>
-        /// The source server group location to restore from. It's required when 'createMode' is 'PointInTimeRestore'
+        /// The source server group location to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'ReadReplica'
         /// </summary>
         [Input("sourceLocation")]
         public Input<string>? SourceLocation { get; set; }
 
         /// <summary>
-        /// The source resource group name to restore from. It's required when 'createMode' is 'PointInTimeRestore'
+        /// The source resource group name to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'ReadReplica'
         /// </summary>
         [Input("sourceResourceGroupName")]
         public Input<string>? SourceResourceGroupName { get; set; }
 
         /// <summary>
-        /// The source server group name to restore from. It's required when 'createMode' is 'PointInTimeRestore'
+        /// The source server group name to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'ReadReplica'
         /// </summary>
         [Input("sourceServerGroupName")]
         public Input<string>? SourceServerGroupName { get; set; }
 
         /// <summary>
-        /// The source subscription id to restore from. It's required when 'createMode' is 'PointInTimeRestore'
+        /// The source subscription id to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'ReadReplica'
         /// </summary>
         [Input("sourceSubscriptionId")]
         public Input<string>? SourceSubscriptionId { get; set; }

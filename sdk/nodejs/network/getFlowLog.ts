@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A flow log resource.
- * API Version: 2020-08-01.
+ * API Version: 2020-11-01.
  */
 export function getFlowLog(args: GetFlowLogArgs, opts?: pulumi.InvokeOptions): Promise<GetFlowLogResult> {
     if (!opts) {

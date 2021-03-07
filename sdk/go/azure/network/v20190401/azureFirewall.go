@@ -187,6 +187,12 @@ func NewAzureFirewall(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200801:AzureFirewall"),
 		},
+		{
+			Type: pulumi.String("azure-native:network/v20201101:AzureFirewall"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20201101:AzureFirewall"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource AzureFirewall

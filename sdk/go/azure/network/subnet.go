@@ -12,7 +12,7 @@ import (
 )
 
 // Subnet in a virtual network resource.
-// API Version: 2020-08-01.
+// API Version: 2020-11-01.
 type Subnet struct {
 	pulumi.CustomResourceState
 
@@ -20,8 +20,6 @@ type Subnet struct {
 	AddressPrefix pulumi.StringPtrOutput `pulumi:"addressPrefix"`
 	// List of address prefixes for the subnet.
 	AddressPrefixes pulumi.StringArrayOutput `pulumi:"addressPrefixes"`
-	// Application gateway IP configurations of virtual network resource.
-	ApplicationGatewayIpConfigurations ApplicationGatewayIPConfigurationResponseArrayOutput `pulumi:"applicationGatewayIpConfigurations"`
 	// An array of references to the delegations on the subnet.
 	Delegations DelegationResponseArrayOutput `pulumi:"delegations"`
 	// A unique read-only string that changes whenever the resource is updated.
@@ -58,8 +56,6 @@ type Subnet struct {
 	ServiceEndpointPolicies ServiceEndpointPolicyResponseArrayOutput `pulumi:"serviceEndpointPolicies"`
 	// An array of service endpoints.
 	ServiceEndpoints ServiceEndpointPropertiesFormatResponseArrayOutput `pulumi:"serviceEndpoints"`
-	// Resource type.
-	Type pulumi.StringPtrOutput `pulumi:"type"`
 }
 
 // NewSubnet registers a new resource with the given unique name, arguments, and options.
@@ -74,12 +70,6 @@ func NewSubnet(ctx *pulumi.Context,
 	}
 	if args.VirtualNetworkName == nil {
 		return nil, errors.New("invalid value for required argument 'VirtualNetworkName'")
-	}
-	if args.PrivateEndpointNetworkPolicies == nil {
-		args.PrivateEndpointNetworkPolicies = pulumi.StringPtr("Enabled")
-	}
-	if args.PrivateLinkServiceNetworkPolicies == nil {
-		args.PrivateLinkServiceNetworkPolicies = pulumi.StringPtr("Enabled")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -301,6 +291,12 @@ func NewSubnet(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200801:Subnet"),
 		},
+		{
+			Type: pulumi.String("azure-native:network/v20201101:Subnet"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20201101:Subnet"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Subnet
@@ -329,8 +325,6 @@ type subnetState struct {
 	AddressPrefix *string `pulumi:"addressPrefix"`
 	// List of address prefixes for the subnet.
 	AddressPrefixes []string `pulumi:"addressPrefixes"`
-	// Application gateway IP configurations of virtual network resource.
-	ApplicationGatewayIpConfigurations []ApplicationGatewayIPConfigurationResponse `pulumi:"applicationGatewayIpConfigurations"`
 	// An array of references to the delegations on the subnet.
 	Delegations []DelegationResponse `pulumi:"delegations"`
 	// A unique read-only string that changes whenever the resource is updated.
@@ -367,8 +361,6 @@ type subnetState struct {
 	ServiceEndpointPolicies []ServiceEndpointPolicyResponse `pulumi:"serviceEndpointPolicies"`
 	// An array of service endpoints.
 	ServiceEndpoints []ServiceEndpointPropertiesFormatResponse `pulumi:"serviceEndpoints"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type SubnetState struct {
@@ -376,8 +368,6 @@ type SubnetState struct {
 	AddressPrefix pulumi.StringPtrInput
 	// List of address prefixes for the subnet.
 	AddressPrefixes pulumi.StringArrayInput
-	// Application gateway IP configurations of virtual network resource.
-	ApplicationGatewayIpConfigurations ApplicationGatewayIPConfigurationResponseArrayInput
 	// An array of references to the delegations on the subnet.
 	Delegations DelegationResponseArrayInput
 	// A unique read-only string that changes whenever the resource is updated.
@@ -414,8 +404,6 @@ type SubnetState struct {
 	ServiceEndpointPolicies ServiceEndpointPolicyResponseArrayInput
 	// An array of service endpoints.
 	ServiceEndpoints ServiceEndpointPropertiesFormatResponseArrayInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (SubnetState) ElementType() reflect.Type {
@@ -427,8 +415,6 @@ type subnetArgs struct {
 	AddressPrefix *string `pulumi:"addressPrefix"`
 	// List of address prefixes for the subnet.
 	AddressPrefixes []string `pulumi:"addressPrefixes"`
-	// Application gateway IP configurations of virtual network resource.
-	ApplicationGatewayIpConfigurations []ApplicationGatewayIPConfiguration `pulumi:"applicationGatewayIpConfigurations"`
 	// An array of references to the delegations on the subnet.
 	Delegations []Delegation `pulumi:"delegations"`
 	// Resource ID.
@@ -455,8 +441,6 @@ type subnetArgs struct {
 	ServiceEndpoints []ServiceEndpointPropertiesFormat `pulumi:"serviceEndpoints"`
 	// The name of the subnet.
 	SubnetName *string `pulumi:"subnetName"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 	// The name of the virtual network.
 	VirtualNetworkName string `pulumi:"virtualNetworkName"`
 }
@@ -467,8 +451,6 @@ type SubnetArgs struct {
 	AddressPrefix pulumi.StringPtrInput
 	// List of address prefixes for the subnet.
 	AddressPrefixes pulumi.StringArrayInput
-	// Application gateway IP configurations of virtual network resource.
-	ApplicationGatewayIpConfigurations ApplicationGatewayIPConfigurationArrayInput
 	// An array of references to the delegations on the subnet.
 	Delegations DelegationArrayInput
 	// Resource ID.
@@ -495,8 +477,6 @@ type SubnetArgs struct {
 	ServiceEndpoints ServiceEndpointPropertiesFormatArrayInput
 	// The name of the subnet.
 	SubnetName pulumi.StringPtrInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 	// The name of the virtual network.
 	VirtualNetworkName pulumi.StringInput
 }

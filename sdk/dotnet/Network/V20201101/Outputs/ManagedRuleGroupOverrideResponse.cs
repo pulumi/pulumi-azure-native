@@ -14,11 +14,7 @@ namespace Pulumi.AzureNative.Network.V20201101.Outputs
     public sealed class ManagedRuleGroupOverrideResponse
     {
         /// <summary>
-        /// Describes the exclusions that are applied to all rules in the group.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.ManagedRuleExclusionResponse> Exclusions;
-        /// <summary>
-        /// Describes the managed rule group to override.
+        /// The managed rule group to override.
         /// </summary>
         public readonly string RuleGroupName;
         /// <summary>
@@ -28,13 +24,10 @@ namespace Pulumi.AzureNative.Network.V20201101.Outputs
 
         [OutputConstructor]
         private ManagedRuleGroupOverrideResponse(
-            ImmutableArray<Outputs.ManagedRuleExclusionResponse> exclusions,
-
             string ruleGroupName,
 
             ImmutableArray<Outputs.ManagedRuleOverrideResponse> rules)
         {
-            Exclusions = exclusions;
             RuleGroupName = ruleGroupName;
             Rules = rules;
         }

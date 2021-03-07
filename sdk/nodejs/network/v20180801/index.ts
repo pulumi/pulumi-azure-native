@@ -10,6 +10,7 @@ export * from "./applicationSecurityGroup";
 export * from "./azureFirewall";
 export * from "./connectionMonitor";
 export * from "./ddosProtectionPlan";
+export * from "./endpoint";
 export * from "./expressRouteCircuit";
 export * from "./expressRouteCircuitAuthorization";
 export * from "./expressRouteCircuitConnection";
@@ -24,6 +25,7 @@ export * from "./getApplicationSecurityGroup";
 export * from "./getAzureFirewall";
 export * from "./getConnectionMonitor";
 export * from "./getDdosProtectionPlan";
+export * from "./getEndpoint";
 export * from "./getExpressRouteCircuit";
 export * from "./getExpressRouteCircuitAuthorization";
 export * from "./getExpressRouteCircuitConnection";
@@ -46,6 +48,7 @@ export * from "./getP2sVpnGateway";
 export * from "./getP2sVpnServerConfiguration";
 export * from "./getPacketCapture";
 export * from "./getPolicy";
+export * from "./getProfile";
 export * from "./getPublicIPAddress";
 export * from "./getPublicIPPrefix";
 export * from "./getRoute";
@@ -56,6 +59,7 @@ export * from "./getSecurityRule";
 export * from "./getServiceEndpointPolicy";
 export * from "./getServiceEndpointPolicyDefinition";
 export * from "./getSubnet";
+export * from "./getTrafficManagerUserMetricsKey";
 export * from "./getVirtualHub";
 export * from "./getVirtualNetwork";
 export * from "./getVirtualNetworkGateway";
@@ -83,6 +87,7 @@ export * from "./p2sVpnGateway";
 export * from "./p2sVpnServerConfiguration";
 export * from "./packetCapture";
 export * from "./policy";
+export * from "./profile";
 export * from "./publicIPAddress";
 export * from "./publicIPPrefix";
 export * from "./route";
@@ -93,6 +98,7 @@ export * from "./securityRule";
 export * from "./serviceEndpointPolicy";
 export * from "./serviceEndpointPolicyDefinition";
 export * from "./subnet";
+export * from "./trafficManagerUserMetricsKey";
 export * from "./virtualHub";
 export * from "./virtualNetwork";
 export * from "./virtualNetworkGateway";
@@ -113,6 +119,7 @@ import { ApplicationSecurityGroup } from "./applicationSecurityGroup";
 import { AzureFirewall } from "./azureFirewall";
 import { ConnectionMonitor } from "./connectionMonitor";
 import { DdosProtectionPlan } from "./ddosProtectionPlan";
+import { Endpoint } from "./endpoint";
 import { ExpressRouteCircuit } from "./expressRouteCircuit";
 import { ExpressRouteCircuitAuthorization } from "./expressRouteCircuitAuthorization";
 import { ExpressRouteCircuitConnection } from "./expressRouteCircuitConnection";
@@ -135,6 +142,7 @@ import { P2sVpnGateway } from "./p2sVpnGateway";
 import { P2sVpnServerConfiguration } from "./p2sVpnServerConfiguration";
 import { PacketCapture } from "./packetCapture";
 import { Policy } from "./policy";
+import { Profile } from "./profile";
 import { PublicIPAddress } from "./publicIPAddress";
 import { PublicIPPrefix } from "./publicIPPrefix";
 import { Route } from "./route";
@@ -145,6 +153,7 @@ import { SecurityRule } from "./securityRule";
 import { ServiceEndpointPolicy } from "./serviceEndpointPolicy";
 import { ServiceEndpointPolicyDefinition } from "./serviceEndpointPolicyDefinition";
 import { Subnet } from "./subnet";
+import { TrafficManagerUserMetricsKey } from "./trafficManagerUserMetricsKey";
 import { VirtualHub } from "./virtualHub";
 import { VirtualNetwork } from "./virtualNetwork";
 import { VirtualNetworkGateway } from "./virtualNetworkGateway";
@@ -170,6 +179,8 @@ const _module = {
                 return new ConnectionMonitor(name, <any>undefined, { urn })
             case "azure-native:network/v20180801:DdosProtectionPlan":
                 return new DdosProtectionPlan(name, <any>undefined, { urn })
+            case "azure-native:network/v20180801:Endpoint":
+                return new Endpoint(name, <any>undefined, { urn })
             case "azure-native:network/v20180801:ExpressRouteCircuit":
                 return new ExpressRouteCircuit(name, <any>undefined, { urn })
             case "azure-native:network/v20180801:ExpressRouteCircuitAuthorization":
@@ -214,6 +225,8 @@ const _module = {
                 return new PacketCapture(name, <any>undefined, { urn })
             case "azure-native:network/v20180801:Policy":
                 return new Policy(name, <any>undefined, { urn })
+            case "azure-native:network/v20180801:Profile":
+                return new Profile(name, <any>undefined, { urn })
             case "azure-native:network/v20180801:PublicIPAddress":
                 return new PublicIPAddress(name, <any>undefined, { urn })
             case "azure-native:network/v20180801:PublicIPPrefix":
@@ -234,6 +247,8 @@ const _module = {
                 return new ServiceEndpointPolicyDefinition(name, <any>undefined, { urn })
             case "azure-native:network/v20180801:Subnet":
                 return new Subnet(name, <any>undefined, { urn })
+            case "azure-native:network/v20180801:TrafficManagerUserMetricsKey":
+                return new TrafficManagerUserMetricsKey(name, <any>undefined, { urn })
             case "azure-native:network/v20180801:VirtualHub":
                 return new VirtualHub(name, <any>undefined, { urn })
             case "azure-native:network/v20180801:VirtualNetwork":

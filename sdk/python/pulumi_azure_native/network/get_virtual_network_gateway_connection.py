@@ -384,7 +384,7 @@ def get_virtual_network_gateway_connection(resource_group_name: Optional[str] = 
                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualNetworkGatewayConnectionResult:
     """
     A common class for general resource information.
-    API Version: 2020-08-01.
+    API Version: 2020-11-01.
 
 
     :param str resource_group_name: The name of the resource group.

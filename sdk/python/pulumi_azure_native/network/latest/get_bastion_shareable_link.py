@@ -64,7 +64,7 @@ def get_bastion_shareable_link(bastion_host_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBastionShareableLinkResult:
     """
     Response for all the Bastion Shareable Link endpoints.
-    Latest API Version: 2020-08-01.
+    Latest API Version: 2020-11-01.
 
 
     :param str bastion_host_name: The name of the Bastion Host.

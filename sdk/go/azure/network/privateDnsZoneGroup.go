@@ -12,7 +12,7 @@ import (
 )
 
 // Private dns zone group resource.
-// API Version: 2020-08-01.
+// API Version: 2020-11-01.
 type PrivateDnsZoneGroup struct {
 	pulumi.CustomResourceState
 
@@ -84,6 +84,12 @@ func NewPrivateDnsZoneGroup(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200801:PrivateDnsZoneGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20201101:PrivateDnsZoneGroup"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20201101:PrivateDnsZoneGroup"),
 		},
 	})
 	opts = append(opts, aliases)

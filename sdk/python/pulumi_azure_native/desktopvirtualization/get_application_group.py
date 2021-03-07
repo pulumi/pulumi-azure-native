@@ -155,7 +155,7 @@ def get_application_group(application_group_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationGroupResult:
     """
     Represents a ApplicationGroup definition.
-    API Version: 2021-01-14-preview.
+    API Version: 2021-02-01-preview.
 
 
     :param str application_group_name: The name of the application group

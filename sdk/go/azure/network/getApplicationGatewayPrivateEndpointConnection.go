@@ -8,7 +8,7 @@ import (
 )
 
 // Private Endpoint connection on an application gateway.
-// API Version: 2020-08-01.
+// API Version: 2020-11-01.
 func LookupApplicationGatewayPrivateEndpointConnection(ctx *pulumi.Context, args *LookupApplicationGatewayPrivateEndpointConnectionArgs, opts ...pulumi.InvokeOption) (*LookupApplicationGatewayPrivateEndpointConnectionResult, error) {
 	var rv LookupApplicationGatewayPrivateEndpointConnectionResult
 	err := ctx.Invoke("azure-native:network:getApplicationGatewayPrivateEndpointConnection", args, &rv, opts...)

@@ -130,3 +130,13 @@ export const TransparentDataEncryptionStatus = {
  * The status of the database transparent data encryption.
  */
 export type TransparentDataEncryptionStatus = (typeof TransparentDataEncryptionStatus)[keyof typeof TransparentDataEncryptionStatus];
+
+export const WorkspacePublicNetworkAccess = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Enable or Disable pubic network access to workspace
+ */
+export type WorkspacePublicNetworkAccess = (typeof WorkspacePublicNetworkAccess)[keyof typeof WorkspacePublicNetworkAccess];

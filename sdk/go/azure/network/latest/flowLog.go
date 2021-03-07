@@ -12,7 +12,7 @@ import (
 )
 
 // A flow log resource.
-// Latest API Version: 2020-08-01.
+// Latest API Version: 2020-11-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:FlowLog'.
 type FlowLog struct {
@@ -122,6 +122,12 @@ func NewFlowLog(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200801:FlowLog"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20201101:FlowLog"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20201101:FlowLog"),
 		},
 	})
 	opts = append(opts, aliases)

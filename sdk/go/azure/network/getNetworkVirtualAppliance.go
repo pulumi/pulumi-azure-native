@@ -8,7 +8,7 @@ import (
 )
 
 // NetworkVirtualAppliance Resource.
-// API Version: 2020-08-01.
+// API Version: 2020-11-01.
 func LookupNetworkVirtualAppliance(ctx *pulumi.Context, args *LookupNetworkVirtualApplianceArgs, opts ...pulumi.InvokeOption) (*LookupNetworkVirtualApplianceResult, error) {
 	var rv LookupNetworkVirtualApplianceResult
 	err := ctx.Invoke("azure-native:network:getNetworkVirtualAppliance", args, &rv, opts...)

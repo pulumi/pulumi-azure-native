@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Network.Latest
     {
         /// <summary>
         /// Public IP prefix resource.
-        /// Latest API Version: 2020-08-01.
+        /// Latest API Version: 2020-11-01.
         /// </summary>
         public static Task<GetPublicIPPrefixResult> InvokeAsync(GetPublicIPPrefixArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPublicIPPrefixResult>("azure-native:network/latest:getPublicIPPrefix", args ?? new GetPublicIPPrefixArgs(), options.WithVersion());
@@ -87,10 +87,6 @@ namespace Pulumi.AzureNative.Network.Latest
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// NatGateway of Public IP Prefix.
-        /// </summary>
-        public readonly Outputs.NatGatewayResponse? NatGateway;
-        /// <summary>
         /// The Length of the Public IP Prefix.
         /// </summary>
         public readonly int? PrefixLength;
@@ -147,8 +143,6 @@ namespace Pulumi.AzureNative.Network.Latest
 
             string name,
 
-            Outputs.NatGatewayResponse? natGateway,
-
             int? prefixLength,
 
             string provisioningState,
@@ -176,7 +170,6 @@ namespace Pulumi.AzureNative.Network.Latest
             LoadBalancerFrontendIpConfiguration = loadBalancerFrontendIpConfiguration;
             Location = location;
             Name = name;
-            NatGateway = natGateway;
             PrefixLength = prefixLength;
             ProvisioningState = provisioningState;
             PublicIPAddressVersion = publicIPAddressVersion;

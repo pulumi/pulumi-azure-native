@@ -106,6 +106,10 @@ export interface GetServerGroupResult {
      */
     readonly postgresqlVersion?: string;
     /**
+     * The array of read replica server groups.
+     */
+    readonly readReplicas: string[];
+    /**
      * The resource provider type of server group.
      */
     readonly resourceProviderType: string;
@@ -114,19 +118,23 @@ export interface GetServerGroupResult {
      */
     readonly serverRoleGroups?: outputs.dbforpostgresql.v20201005privatepreview.ServerRoleGroupResponse[];
     /**
-     * The source server group location to restore from. It's required when 'createMode' is 'PointInTimeRestore'
+     * The source server group location to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'ReadReplica'
      */
     readonly sourceLocation?: string;
     /**
-     * The source resource group name to restore from. It's required when 'createMode' is 'PointInTimeRestore'
+     * The source resource group name to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'ReadReplica'
      */
     readonly sourceResourceGroupName?: string;
     /**
-     * The source server group name to restore from. It's required when 'createMode' is 'PointInTimeRestore'
+     * The source server group id for read replica server groups.
+     */
+    readonly sourceServerGroup: string;
+    /**
+     * The source server group name to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'ReadReplica'
      */
     readonly sourceServerGroupName?: string;
     /**
-     * The source subscription id to restore from. It's required when 'createMode' is 'PointInTimeRestore'
+     * The source subscription id to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'ReadReplica'
      */
     readonly sourceSubscriptionId?: string;
     /**

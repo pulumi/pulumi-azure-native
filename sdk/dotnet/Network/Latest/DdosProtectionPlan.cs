@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network.Latest
 {
     /// <summary>
     /// A DDoS protection plan in a resource group.
-    /// Latest API Version: 2020-08-01.
+    /// Latest API Version: 2020-11-01.
     /// </summary>
     [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:DdosProtectionPlan'.")]
     [AzureNativeResourceType("azure-native:network/latest:DdosProtectionPlan")]
@@ -137,6 +137,8 @@ namespace Pulumi.AzureNative.Network.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:DdosProtectionPlan"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200801:DdosProtectionPlan"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:DdosProtectionPlan"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20201101:DdosProtectionPlan"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20201101:DdosProtectionPlan"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

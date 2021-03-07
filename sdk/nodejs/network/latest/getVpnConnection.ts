@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * VpnConnection Resource.
- * Latest API Version: 2020-08-01.
+ * Latest API Version: 2020-11-01.
  */
 /** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getVpnConnection'. */
 export function getVpnConnection(args: GetVpnConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetVpnConnectionResult> {
@@ -113,6 +113,10 @@ export interface GetVpnConnectionResult {
      * SharedKey for the vpn connection.
      */
     readonly sharedKey?: string;
+    /**
+     * The Traffic Selector Policies to be considered by this connection.
+     */
+    readonly trafficSelectorPolicies?: outputs.network.latest.TrafficSelectorPolicyResponse[];
     /**
      * Use local azure ip to initiate connection.
      */

@@ -11,45 +11,39 @@ namespace Pulumi.AzureNative.Network.V20201101.Inputs
 {
 
     /// <summary>
-    /// Defines top-level WebApplicationFirewallPolicy configuration settings.
+    /// Defines contents of a web application firewall global configuration.
     /// </summary>
     public sealed class PolicySettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// If the action type is block, customer can override the response body. The body must be specified in base64 encoding.
+        /// Maximum file upload size in Mb for WAF.
         /// </summary>
-        [Input("customBlockResponseBody")]
-        public Input<string>? CustomBlockResponseBody { get; set; }
+        [Input("fileUploadLimitInMb")]
+        public Input<int>? FileUploadLimitInMb { get; set; }
 
         /// <summary>
-        /// If the action type is block, customer can override the response status code.
+        /// Maximum request body size in Kb for WAF.
         /// </summary>
-        [Input("customBlockResponseStatusCode")]
-        public Input<int>? CustomBlockResponseStatusCode { get; set; }
+        [Input("maxRequestBodySizeInKb")]
+        public Input<int>? MaxRequestBodySizeInKb { get; set; }
 
         /// <summary>
-        /// Describes if the policy is in enabled or disabled state. Defaults to Enabled if not specified.
-        /// </summary>
-        [Input("enabledState")]
-        public InputUnion<string, Pulumi.AzureNative.Network.V20201101.PolicyEnabledState>? EnabledState { get; set; }
-
-        /// <summary>
-        /// Describes if it is in detection mode or prevention mode at policy level.
+        /// The mode of the policy.
         /// </summary>
         [Input("mode")]
-        public InputUnion<string, Pulumi.AzureNative.Network.V20201101.PolicyMode>? Mode { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.V20201101.WebApplicationFirewallMode>? Mode { get; set; }
 
         /// <summary>
-        /// If action type is redirect, this field represents redirect URL for the client.
-        /// </summary>
-        [Input("redirectUrl")]
-        public Input<string>? RedirectUrl { get; set; }
-
-        /// <summary>
-        /// Describes if policy managed rules will inspect the request body content.
+        /// Whether to allow WAF to check request Body.
         /// </summary>
         [Input("requestBodyCheck")]
-        public InputUnion<string, Pulumi.AzureNative.Network.V20201101.PolicyRequestBodyCheck>? RequestBodyCheck { get; set; }
+        public Input<bool>? RequestBodyCheck { get; set; }
+
+        /// <summary>
+        /// The state of the policy.
+        /// </summary>
+        [Input("state")]
+        public InputUnion<string, Pulumi.AzureNative.Network.V20201101.WebApplicationFirewallEnabledState>? State { get; set; }
 
         public PolicySettingsArgs()
         {

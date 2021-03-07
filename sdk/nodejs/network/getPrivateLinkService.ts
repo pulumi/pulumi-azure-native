@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Private link service resource.
- * API Version: 2020-08-01.
+ * API Version: 2020-11-01.
  */
 export function getPrivateLinkService(args: GetPrivateLinkServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateLinkServiceResult> {
     if (!opts) {

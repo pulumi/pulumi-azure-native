@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// Nat Gateway resource.
-    /// API Version: 2020-08-01.
+    /// API Version: 2020-11-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:NatGateway")]
     public partial class NatGateway : Pulumi.CustomResource
@@ -150,6 +150,8 @@ namespace Pulumi.AzureNative.Network
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:NatGateway"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200801:NatGateway"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:NatGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20201101:NatGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20201101:NatGateway"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

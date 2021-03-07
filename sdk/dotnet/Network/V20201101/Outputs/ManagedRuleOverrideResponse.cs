@@ -14,36 +14,22 @@ namespace Pulumi.AzureNative.Network.V20201101.Outputs
     public sealed class ManagedRuleOverrideResponse
     {
         /// <summary>
-        /// Describes the override action to be applied when rule matches.
-        /// </summary>
-        public readonly string? Action;
-        /// <summary>
-        /// Describes if the managed rule is in enabled or disabled state. Defaults to Disabled if not specified.
-        /// </summary>
-        public readonly string? EnabledState;
-        /// <summary>
-        /// Describes the exclusions that are applied to this specific rule.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.ManagedRuleExclusionResponse> Exclusions;
-        /// <summary>
         /// Identifier for the managed rule.
         /// </summary>
         public readonly string RuleId;
+        /// <summary>
+        /// The state of the managed rule. Defaults to Disabled if not specified.
+        /// </summary>
+        public readonly string? State;
 
         [OutputConstructor]
         private ManagedRuleOverrideResponse(
-            string? action,
+            string ruleId,
 
-            string? enabledState,
-
-            ImmutableArray<Outputs.ManagedRuleExclusionResponse> exclusions,
-
-            string ruleId)
+            string? state)
         {
-            Action = action;
-            EnabledState = enabledState;
-            Exclusions = exclusions;
             RuleId = ruleId;
+            State = state;
         }
     }
 }

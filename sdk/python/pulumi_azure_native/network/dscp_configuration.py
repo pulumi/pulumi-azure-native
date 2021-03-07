@@ -34,7 +34,7 @@ class DscpConfiguration(pulumi.CustomResource):
                  __opts__=None):
         """
         DSCP Configuration in a resource group.
-        API Version: 2020-08-01.
+        API Version: 2020-11-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -87,7 +87,7 @@ class DscpConfiguration(pulumi.CustomResource):
             __props__['qos_collection_id'] = None
             __props__['resource_guid'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network:DscpConfiguration"), pulumi.Alias(type_="azure-native:network/latest:DscpConfiguration"), pulumi.Alias(type_="azure-nextgen:network/latest:DscpConfiguration"), pulumi.Alias(type_="azure-native:network/v20200601:DscpConfiguration"), pulumi.Alias(type_="azure-nextgen:network/v20200601:DscpConfiguration"), pulumi.Alias(type_="azure-native:network/v20200701:DscpConfiguration"), pulumi.Alias(type_="azure-nextgen:network/v20200701:DscpConfiguration"), pulumi.Alias(type_="azure-native:network/v20200801:DscpConfiguration"), pulumi.Alias(type_="azure-nextgen:network/v20200801:DscpConfiguration")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network:DscpConfiguration"), pulumi.Alias(type_="azure-native:network/latest:DscpConfiguration"), pulumi.Alias(type_="azure-nextgen:network/latest:DscpConfiguration"), pulumi.Alias(type_="azure-native:network/v20200601:DscpConfiguration"), pulumi.Alias(type_="azure-nextgen:network/v20200601:DscpConfiguration"), pulumi.Alias(type_="azure-native:network/v20200701:DscpConfiguration"), pulumi.Alias(type_="azure-nextgen:network/v20200701:DscpConfiguration"), pulumi.Alias(type_="azure-native:network/v20200801:DscpConfiguration"), pulumi.Alias(type_="azure-nextgen:network/v20200801:DscpConfiguration"), pulumi.Alias(type_="azure-native:network/v20201101:DscpConfiguration"), pulumi.Alias(type_="azure-nextgen:network/v20201101:DscpConfiguration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DscpConfiguration, __self__).__init__(
             'azure-native:network:DscpConfiguration',

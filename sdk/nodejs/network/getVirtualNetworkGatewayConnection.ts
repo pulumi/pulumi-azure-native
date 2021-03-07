@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A common class for general resource information.
- * API Version: 2020-08-01.
+ * API Version: 2020-11-01.
  */
 export function getVirtualNetworkGatewayConnection(args: GetVirtualNetworkGatewayConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkGatewayConnectionResult> {
     if (!opts) {

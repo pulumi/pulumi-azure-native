@@ -95,7 +95,7 @@ class CassandraDataCenter(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the resource
+        The name of the database account.
         """
         return pulumi.get(self, "name")
 
@@ -111,7 +111,7 @@ class CassandraDataCenter(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        The type of Azure resource.
         """
         return pulumi.get(self, "type")
 

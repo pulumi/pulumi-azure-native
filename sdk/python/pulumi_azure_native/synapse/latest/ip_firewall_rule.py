@@ -29,7 +29,7 @@ class IpFirewallRule(pulumi.CustomResource):
                  __opts__=None):
         """
         IP firewall rule
-        Latest API Version: 2020-12-01.
+        Latest API Version: 2021-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

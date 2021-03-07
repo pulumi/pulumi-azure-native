@@ -29052,6 +29052,7 @@ class HttpLinkedServiceResponse(dict):
                  type: str,
                  url: Any,
                  annotations: Optional[Sequence[Any]] = None,
+                 auth_headers: Optional[Any] = None,
                  authentication_type: Optional[str] = None,
                  cert_thumbprint: Optional[Any] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
@@ -29068,6 +29069,7 @@ class HttpLinkedServiceResponse(dict):
                Expected value is 'HttpServer'.
         :param Any url: The base URL of the HTTP endpoint, e.g. http://www.microsoft.com. Type: string (or Expression with resultType string).
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
+        :param Any auth_headers: The additional HTTP headers in the request to RESTful API used for authorization. Type: object (or Expression with resultType object).
         :param str authentication_type: The authentication type to be used to connect to the HTTP server.
         :param Any cert_thumbprint: Thumbprint of certificate for ClientCertificate authentication. Only valid for on-premises copy. For on-premises copy with ClientCertificate authentication, either CertThumbprint or EmbeddedCertData/Password should be specified. Type: string (or Expression with resultType string).
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
@@ -29083,6 +29085,8 @@ class HttpLinkedServiceResponse(dict):
         pulumi.set(__self__, "url", url)
         if annotations is not None:
             pulumi.set(__self__, "annotations", annotations)
+        if auth_headers is not None:
+            pulumi.set(__self__, "auth_headers", auth_headers)
         if authentication_type is not None:
             pulumi.set(__self__, "authentication_type", authentication_type)
         if cert_thumbprint is not None:
@@ -29128,6 +29132,14 @@ class HttpLinkedServiceResponse(dict):
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
+
+    @property
+    @pulumi.getter(name="authHeaders")
+    def auth_headers(self) -> Optional[Any]:
+        """
+        The additional HTTP headers in the request to RESTful API used for authorization. Type: object (or Expression with resultType object).
+        """
+        return pulumi.get(self, "auth_headers")
 
     @property
     @pulumi.getter(name="authenticationType")
@@ -36858,6 +36870,7 @@ class ODataLinkedServiceResponse(dict):
                  aad_resource_id: Optional[Any] = None,
                  aad_service_principal_credential_type: Optional[str] = None,
                  annotations: Optional[Sequence[Any]] = None,
+                 auth_headers: Optional[Any] = None,
                  authentication_type: Optional[str] = None,
                  azure_cloud_type: Optional[Any] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
@@ -36879,6 +36892,7 @@ class ODataLinkedServiceResponse(dict):
         :param Any aad_resource_id: Specify the resource you are requesting authorization to use Directory. Type: string (or Expression with resultType string).
         :param str aad_service_principal_credential_type: Specify the credential type (key or cert) is used for service principal.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
+        :param Any auth_headers: The additional HTTP headers in the request to RESTful API used for authorization. Type: object (or Expression with resultType object).
         :param str authentication_type: Type of authentication used to connect to the OData service.
         :param Any azure_cloud_type: Indicates the azure cloud type of the service principle auth. Allowed values are AzurePublic, AzureChina, AzureUsGovernment, AzureGermany. Default value is the data factory regions’ cloud type. Type: string (or Expression with resultType string).
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
@@ -36901,6 +36915,8 @@ class ODataLinkedServiceResponse(dict):
             pulumi.set(__self__, "aad_service_principal_credential_type", aad_service_principal_credential_type)
         if annotations is not None:
             pulumi.set(__self__, "annotations", annotations)
+        if auth_headers is not None:
+            pulumi.set(__self__, "auth_headers", auth_headers)
         if authentication_type is not None:
             pulumi.set(__self__, "authentication_type", authentication_type)
         if azure_cloud_type is not None:
@@ -36968,6 +36984,14 @@ class ODataLinkedServiceResponse(dict):
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
+
+    @property
+    @pulumi.getter(name="authHeaders")
+    def auth_headers(self) -> Optional[Any]:
+        """
+        The additional HTTP headers in the request to RESTful API used for authorization. Type: object (or Expression with resultType object).
+        """
+        return pulumi.get(self, "auth_headers")
 
     @property
     @pulumi.getter(name="authenticationType")
@@ -43293,6 +43317,7 @@ class RestServiceLinkedServiceResponse(dict):
                  url: Any,
                  aad_resource_id: Optional[Any] = None,
                  annotations: Optional[Sequence[Any]] = None,
+                 auth_headers: Optional[Any] = None,
                  azure_cloud_type: Optional[Any] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
@@ -43312,6 +43337,7 @@ class RestServiceLinkedServiceResponse(dict):
         :param Any url: The base URL of the REST service.
         :param Any aad_resource_id: The resource you are requesting authorization to use.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
+        :param Any auth_headers: The additional HTTP headers in the request to RESTful API used for authorization. Type: object (or Expression with resultType object).
         :param Any azure_cloud_type: Indicates the azure cloud type of the service principle auth. Allowed values are AzurePublic, AzureChina, AzureUsGovernment, AzureGermany. Default value is the data factory regions’ cloud type. Type: string (or Expression with resultType string).
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
@@ -43331,6 +43357,8 @@ class RestServiceLinkedServiceResponse(dict):
             pulumi.set(__self__, "aad_resource_id", aad_resource_id)
         if annotations is not None:
             pulumi.set(__self__, "annotations", annotations)
+        if auth_headers is not None:
+            pulumi.set(__self__, "auth_headers", auth_headers)
         if azure_cloud_type is not None:
             pulumi.set(__self__, "azure_cloud_type", azure_cloud_type)
         if connect_via is not None:
@@ -43394,6 +43422,14 @@ class RestServiceLinkedServiceResponse(dict):
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
+
+    @property
+    @pulumi.getter(name="authHeaders")
+    def auth_headers(self) -> Optional[Any]:
+        """
+        The additional HTTP headers in the request to RESTful API used for authorization. Type: object (or Expression with resultType object).
+        """
+        return pulumi.get(self, "auth_headers")
 
     @property
     @pulumi.getter(name="azureCloudType")

@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Class representing a Traffic Manager endpoint.
- * Latest API Version: 2018-04-01.
+ * Latest API Version: 2018-08-01.
  */
 /** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getEndpoint'. */
 export function getEndpoint(args: GetEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetEndpointResult> {
@@ -78,6 +78,14 @@ export interface GetEndpointResult {
      * The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
      */
     readonly minChildEndpoints?: number;
+    /**
+     * The minimum number of IPv4 (DNS record type A) endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
+     */
+    readonly minChildEndpointsIPv4?: number;
+    /**
+     * The minimum number of IPv6 (DNS record type AAAA) endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
+     */
+    readonly minChildEndpointsIPv6?: number;
     /**
      * The name of the resource
      */

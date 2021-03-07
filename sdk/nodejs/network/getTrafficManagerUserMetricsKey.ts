@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Class representing Traffic Manager User Metrics.
- * API Version: 2018-04-01.
+ * API Version: 2018-08-01.
  */
 export function getTrafficManagerUserMetricsKey(args?: GetTrafficManagerUserMetricsKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetTrafficManagerUserMetricsKeyResult> {
     args = args || {};

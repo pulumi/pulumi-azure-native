@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// Information about the connection monitor.
-    /// API Version: 2020-08-01.
+    /// API Version: 2020-11-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:ConnectionMonitor")]
     public partial class ConnectionMonitor : Pulumi.CustomResource
@@ -202,6 +202,8 @@ namespace Pulumi.AzureNative.Network
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:ConnectionMonitor"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200801:ConnectionMonitor"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:ConnectionMonitor"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20201101:ConnectionMonitor"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20201101:ConnectionMonitor"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

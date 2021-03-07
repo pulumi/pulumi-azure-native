@@ -12,7 +12,7 @@ import (
 )
 
 // A DDoS protection plan in a resource group.
-// API Version: 2020-08-01.
+// API Version: 2020-11-01.
 type DdosProtectionPlan struct {
 	pulumi.CustomResourceState
 
@@ -185,6 +185,12 @@ func NewDdosProtectionPlan(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200801:DdosProtectionPlan"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20201101:DdosProtectionPlan"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20201101:DdosProtectionPlan"),
 		},
 	})
 	opts = append(opts, aliases)

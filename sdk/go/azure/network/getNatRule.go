@@ -8,7 +8,7 @@ import (
 )
 
 // VpnGatewayNatRule Resource.
-// API Version: 2020-08-01.
+// API Version: 2020-11-01.
 func LookupNatRule(ctx *pulumi.Context, args *LookupNatRuleArgs, opts ...pulumi.InvokeOption) (*LookupNatRuleResult, error) {
 	var rv LookupNatRuleResult
 	err := ctx.Invoke("azure-native:network:getNatRule", args, &rv, opts...)

@@ -12,7 +12,7 @@ import (
 )
 
 // IpAllocation resource.
-// Latest API Version: 2020-08-01.
+// Latest API Version: 2020-11-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:IpAllocation'.
 type IpAllocation struct {
@@ -102,6 +102,12 @@ func NewIpAllocation(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200801:IpAllocation"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20201101:IpAllocation"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20201101:IpAllocation"),
 		},
 	})
 	opts = append(opts, aliases)

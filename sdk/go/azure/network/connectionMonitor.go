@@ -12,7 +12,7 @@ import (
 )
 
 // Information about the connection monitor.
-// API Version: 2020-08-01.
+// API Version: 2020-11-01.
 type ConnectionMonitor struct {
 	pulumi.CustomResourceState
 
@@ -232,6 +232,12 @@ func NewConnectionMonitor(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200801:ConnectionMonitor"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20201101:ConnectionMonitor"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20201101:ConnectionMonitor"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -297,6 +297,12 @@ func NewSecurityRule(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200701:SecurityRule"),
 		},
+		{
+			Type: pulumi.String("azure-native:network/v20201101:SecurityRule"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20201101:SecurityRule"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource SecurityRule

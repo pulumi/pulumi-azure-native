@@ -45,7 +45,7 @@ export class OrchestratorInstanceServiceDetails extends pulumi.CustomResource {
      */
     public readonly clusterRootCA!: pulumi.Output<string | undefined>;
     /**
-     * controller details
+     * Properties of the controller.
      */
     public readonly controllerDetails!: pulumi.Output<outputs.delegatednetwork.ControllerDetailsResponse>;
     /**
@@ -161,7 +161,7 @@ export interface OrchestratorInstanceServiceDetailsArgs {
      */
     readonly clusterRootCA?: pulumi.Input<string>;
     /**
-     * controller details
+     * Properties of the controller.
      */
     readonly controllerDetails: pulumi.Input<inputs.delegatednetwork.ControllerDetails>;
     /**
@@ -185,7 +185,7 @@ export interface OrchestratorInstanceServiceDetailsArgs {
      */
     readonly orchestratorTenantId?: pulumi.Input<string>;
     /**
-     * The name of the Azure Resource group of which a given DelegatedNetwork resource is part. This name must be at least 1 character in length, and no more than 90.
+     * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**

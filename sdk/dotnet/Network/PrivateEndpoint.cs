@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// Private endpoint resource.
-    /// API Version: 2020-08-01.
+    /// API Version: 2020-11-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:PrivateEndpoint")]
     public partial class PrivateEndpoint : Pulumi.CustomResource
@@ -142,6 +142,8 @@ namespace Pulumi.AzureNative.Network
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:PrivateEndpoint"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200801:PrivateEndpoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:PrivateEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20201101:PrivateEndpoint"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20201101:PrivateEndpoint"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

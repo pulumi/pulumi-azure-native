@@ -26,6 +26,7 @@ class Workspace(pulumi.CustomResource):
                  managed_resource_group_name: Optional[pulumi.Input[str]] = None,
                  managed_virtual_network: Optional[pulumi.Input[str]] = None,
                  managed_virtual_network_settings: Optional[pulumi.Input[pulumi.InputType['ManagedVirtualNetworkSettingsArgs']]] = None,
+                 network_settings: Optional[pulumi.Input[pulumi.InputType['NetworkSettingsArgs']]] = None,
                  private_endpoint_connections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrivateEndpointConnectionArgs']]]]] = None,
                  purview_configuration: Optional[pulumi.Input[pulumi.InputType['PurviewConfigurationArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -40,7 +41,7 @@ class Workspace(pulumi.CustomResource):
                  __opts__=None):
         """
         A workspace
-        API Version: 2020-12-01.
+        API Version: 2021-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -52,6 +53,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[str] managed_resource_group_name: Workspace managed resource group. The resource group name uniquely identifies the resource group within the user subscriptionId. The resource group name must be no longer than 90 characters long, and must be alphanumeric characters (Char.IsLetterOrDigit()) and '-', '_', '(', ')' and'.'. Note that the name cannot end with '.'
         :param pulumi.Input[str] managed_virtual_network: Setting this to 'default' will ensure that all compute for this workspace is in a virtual network managed on behalf of the user.
         :param pulumi.Input[pulumi.InputType['ManagedVirtualNetworkSettingsArgs']] managed_virtual_network_settings: Managed Virtual Network Settings
+        :param pulumi.Input[pulumi.InputType['NetworkSettingsArgs']] network_settings: Network Settings
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrivateEndpointConnectionArgs']]]] private_endpoint_connections: Private endpoint connections to the workspace
         :param pulumi.Input[pulumi.InputType['PurviewConfigurationArgs']] purview_configuration: Purview Configuration
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -87,6 +89,7 @@ class Workspace(pulumi.CustomResource):
             __props__['managed_resource_group_name'] = managed_resource_group_name
             __props__['managed_virtual_network'] = managed_virtual_network
             __props__['managed_virtual_network_settings'] = managed_virtual_network_settings
+            __props__['network_settings'] = network_settings
             __props__['private_endpoint_connections'] = private_endpoint_connections
             __props__['purview_configuration'] = purview_configuration
             if resource_group_name is None and not opts.urn:
@@ -139,6 +142,7 @@ class Workspace(pulumi.CustomResource):
         __props__["managed_virtual_network"] = None
         __props__["managed_virtual_network_settings"] = None
         __props__["name"] = None
+        __props__["network_settings"] = None
         __props__["private_endpoint_connections"] = None
         __props__["provisioning_state"] = None
         __props__["purview_configuration"] = None
@@ -238,6 +242,14 @@ class Workspace(pulumi.CustomResource):
         The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="networkSettings")
+    def network_settings(self) -> pulumi.Output[Optional['outputs.NetworkSettingsResponse']]:
+        """
+        Network Settings
+        """
+        return pulumi.get(self, "network_settings")
 
     @property
     @pulumi.getter(name="privateEndpointConnections")

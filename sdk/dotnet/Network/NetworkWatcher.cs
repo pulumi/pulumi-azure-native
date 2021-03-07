@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// Network watcher in a resource group.
-    /// API Version: 2020-08-01.
+    /// API Version: 2020-11-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:NetworkWatcher")]
     public partial class NetworkWatcher : Pulumi.CustomResource
@@ -142,6 +142,8 @@ namespace Pulumi.AzureNative.Network
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:NetworkWatcher"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200801:NetworkWatcher"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:NetworkWatcher"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20201101:NetworkWatcher"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20201101:NetworkWatcher"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

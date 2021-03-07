@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// RouteTable resource in a virtual hub.
-    /// API Version: 2020-08-01.
+    /// API Version: 2020-11-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:HubRouteTable")]
     public partial class HubRouteTable : Pulumi.CustomResource
@@ -102,6 +102,8 @@ namespace Pulumi.AzureNative.Network
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:HubRouteTable"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200801:HubRouteTable"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:HubRouteTable"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20201101:HubRouteTable"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20201101:HubRouteTable"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

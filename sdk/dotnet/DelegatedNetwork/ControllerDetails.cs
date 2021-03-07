@@ -128,7 +128,7 @@ namespace Pulumi.AzureNative.DelegatedNetwork
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The name of the Azure Resource group of which a given DelegatedNetwork resource is part. This name must be at least 1 character in length, and no more than 90.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

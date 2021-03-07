@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network.Latest
 {
     /// <summary>
     /// Information about the connection monitor.
-    /// Latest API Version: 2020-08-01.
+    /// Latest API Version: 2020-11-01.
     /// </summary>
     [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:ConnectionMonitor'.")]
     [AzureNativeResourceType("azure-native:network/latest:ConnectionMonitor")]
@@ -203,6 +203,8 @@ namespace Pulumi.AzureNative.Network.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:ConnectionMonitor"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200801:ConnectionMonitor"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:ConnectionMonitor"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20201101:ConnectionMonitor"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20201101:ConnectionMonitor"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

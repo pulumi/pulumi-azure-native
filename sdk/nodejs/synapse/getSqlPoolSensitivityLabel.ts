@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A sensitivity label.
- * API Version: 2020-12-01.
+ * API Version: 2021-03-01.
  */
 export function getSqlPoolSensitivityLabel(args: GetSqlPoolSensitivityLabelArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlPoolSensitivityLabelResult> {
     if (!opts) {

@@ -12,7 +12,7 @@ import (
 )
 
 // P2SVpnGateway Resource.
-// Latest API Version: 2020-08-01.
+// Latest API Version: 2020-11-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:P2sVpnGateway'.
 type P2sVpnGateway struct {
@@ -173,6 +173,12 @@ func NewP2sVpnGateway(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200801:P2sVpnGateway"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20201101:P2sVpnGateway"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20201101:P2sVpnGateway"),
 		},
 	})
 	opts = append(opts, aliases)

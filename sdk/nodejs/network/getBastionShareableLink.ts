@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Response for all the Bastion Shareable Link endpoints.
- * API Version: 2020-08-01.
+ * API Version: 2020-11-01.
  */
 export function getBastionShareableLink(args: GetBastionShareableLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetBastionShareableLinkResult> {
     if (!opts) {

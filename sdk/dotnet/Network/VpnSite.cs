@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// VpnSite Resource.
-    /// API Version: 2020-08-01.
+    /// API Version: 2020-11-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:VpnSite")]
     public partial class VpnSite : Pulumi.CustomResource
@@ -176,6 +176,8 @@ namespace Pulumi.AzureNative.Network
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:VpnSite"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200801:VpnSite"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:VpnSite"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20201101:VpnSite"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20201101:VpnSite"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

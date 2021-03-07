@@ -64,7 +64,7 @@ def get_integration_runtime_object_metadatum(integration_runtime_name: Optional[
                                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIntegrationRuntimeObjectMetadatumResult:
     """
     A list of SSIS object metadata.
-    Latest API Version: 2020-12-01.
+    Latest API Version: 2021-03-01.
 
 
     :param str integration_runtime_name: Integration runtime name

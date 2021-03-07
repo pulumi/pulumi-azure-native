@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// Route Filter Resource.
-    /// API Version: 2020-08-01.
+    /// API Version: 2020-11-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:RouteFilter")]
     public partial class RouteFilter : Pulumi.CustomResource
@@ -158,6 +158,8 @@ namespace Pulumi.AzureNative.Network
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:RouteFilter"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200801:RouteFilter"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:RouteFilter"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20201101:RouteFilter"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20201101:RouteFilter"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -38,7 +38,7 @@ class GetCassandraDataCenterResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        The unique resource identifier of the database account.
         """
         return pulumi.get(self, "id")
 
@@ -46,7 +46,7 @@ class GetCassandraDataCenterResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the resource
+        The name of the database account.
         """
         return pulumi.get(self, "name")
 
@@ -62,7 +62,7 @@ class GetCassandraDataCenterResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        The type of Azure resource.
         """
         return pulumi.get(self, "type")
 

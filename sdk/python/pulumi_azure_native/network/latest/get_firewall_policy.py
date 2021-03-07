@@ -22,7 +22,7 @@ class GetFirewallPolicyResult:
     """
     FirewallPolicy Resource.
     """
-    def __init__(__self__, base_policy=None, child_policies=None, dns_settings=None, etag=None, firewalls=None, id=None, identity=None, intrusion_detection=None, location=None, name=None, provisioning_state=None, rule_collection_groups=None, sku=None, tags=None, threat_intel_mode=None, threat_intel_whitelist=None, transport_security=None, type=None):
+    def __init__(__self__, base_policy=None, child_policies=None, dns_settings=None, etag=None, firewalls=None, id=None, identity=None, insights=None, intrusion_detection=None, location=None, name=None, provisioning_state=None, rule_collection_groups=None, sku=None, snat=None, tags=None, threat_intel_mode=None, threat_intel_whitelist=None, transport_security=None, type=None):
         if base_policy and not isinstance(base_policy, dict):
             raise TypeError("Expected argument 'base_policy' to be a dict")
         pulumi.set(__self__, "base_policy", base_policy)
@@ -44,6 +44,9 @@ class GetFirewallPolicyResult:
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
+        if insights and not isinstance(insights, dict):
+            raise TypeError("Expected argument 'insights' to be a dict")
+        pulumi.set(__self__, "insights", insights)
         if intrusion_detection and not isinstance(intrusion_detection, dict):
             raise TypeError("Expected argument 'intrusion_detection' to be a dict")
         pulumi.set(__self__, "intrusion_detection", intrusion_detection)
@@ -62,6 +65,9 @@ class GetFirewallPolicyResult:
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
+        if snat and not isinstance(snat, dict):
+            raise TypeError("Expected argument 'snat' to be a dict")
+        pulumi.set(__self__, "snat", snat)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -135,6 +141,14 @@ class GetFirewallPolicyResult:
         return pulumi.get(self, "identity")
 
     @property
+    @pulumi.getter
+    def insights(self) -> Optional['outputs.FirewallPolicyInsightsResponse']:
+        """
+        Insights on Firewall Policy.
+        """
+        return pulumi.get(self, "insights")
+
+    @property
     @pulumi.getter(name="intrusionDetection")
     def intrusion_detection(self) -> Optional['outputs.FirewallPolicyIntrusionDetectionResponse']:
         """
@@ -181,6 +195,14 @@ class GetFirewallPolicyResult:
         The Firewall Policy SKU.
         """
         return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter
+    def snat(self) -> Optional['outputs.FirewallPolicySNATResponse']:
+        """
+        The private IP addresses/IP ranges to which traffic will not be SNAT.
+        """
+        return pulumi.get(self, "snat")
 
     @property
     @pulumi.getter
@@ -236,12 +258,14 @@ class AwaitableGetFirewallPolicyResult(GetFirewallPolicyResult):
             firewalls=self.firewalls,
             id=self.id,
             identity=self.identity,
+            insights=self.insights,
             intrusion_detection=self.intrusion_detection,
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
             rule_collection_groups=self.rule_collection_groups,
             sku=self.sku,
+            snat=self.snat,
             tags=self.tags,
             threat_intel_mode=self.threat_intel_mode,
             threat_intel_whitelist=self.threat_intel_whitelist,
@@ -255,7 +279,7 @@ def get_firewall_policy(expand: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFirewallPolicyResult:
     """
     FirewallPolicy Resource.
-    Latest API Version: 2020-08-01.
+    Latest API Version: 2020-11-01.
 
 
     :param str expand: Expands referenced resources.
@@ -281,12 +305,14 @@ def get_firewall_policy(expand: Optional[str] = None,
         firewalls=__ret__.firewalls,
         id=__ret__.id,
         identity=__ret__.identity,
+        insights=__ret__.insights,
         intrusion_detection=__ret__.intrusion_detection,
         location=__ret__.location,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
         rule_collection_groups=__ret__.rule_collection_groups,
         sku=__ret__.sku,
+        snat=__ret__.snat,
         tags=__ret__.tags,
         threat_intel_mode=__ret__.threat_intel_mode,
         threat_intel_whitelist=__ret__.threat_intel_whitelist,

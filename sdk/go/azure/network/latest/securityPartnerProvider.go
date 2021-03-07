@@ -12,7 +12,7 @@ import (
 )
 
 // Security Partner Provider resource.
-// Latest API Version: 2020-08-01.
+// Latest API Version: 2020-11-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:SecurityPartnerProvider'.
 type SecurityPartnerProvider struct {
@@ -93,6 +93,12 @@ func NewSecurityPartnerProvider(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200801:SecurityPartnerProvider"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20201101:SecurityPartnerProvider"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20201101:SecurityPartnerProvider"),
 		},
 	})
 	opts = append(opts, aliases)

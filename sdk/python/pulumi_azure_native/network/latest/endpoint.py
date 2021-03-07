@@ -31,6 +31,8 @@ class Endpoint(pulumi.CustomResource):
                  geo_mapping: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  min_child_endpoints: Optional[pulumi.Input[float]] = None,
+                 min_child_endpoints_i_pv4: Optional[pulumi.Input[float]] = None,
+                 min_child_endpoints_i_pv6: Optional[pulumi.Input[float]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[float]] = None,
                  profile_name: Optional[pulumi.Input[str]] = None,
@@ -45,7 +47,7 @@ class Endpoint(pulumi.CustomResource):
                  __opts__=None):
         """
         Class representing a Traffic Manager endpoint.
-        Latest API Version: 2018-04-01.
+        Latest API Version: 2018-08-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -58,6 +60,8 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] geo_mapping: The list of countries/regions mapped to this endpoint when using the 'Geographic' traffic routing method. Please consult Traffic Manager Geographic documentation for a full list of accepted values.
         :param pulumi.Input[str] id: Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{resourceName}
         :param pulumi.Input[float] min_child_endpoints: The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
+        :param pulumi.Input[float] min_child_endpoints_i_pv4: The minimum number of IPv4 (DNS record type A) endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
+        :param pulumi.Input[float] min_child_endpoints_i_pv6: The minimum number of IPv6 (DNS record type AAAA) endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
         :param pulumi.Input[str] name: The name of the resource
         :param pulumi.Input[float] priority: The priority of this endpoint when using the 'Priority' traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
         :param pulumi.Input[str] profile_name: The name of the Traffic Manager profile.
@@ -97,6 +101,8 @@ class Endpoint(pulumi.CustomResource):
             __props__['geo_mapping'] = geo_mapping
             __props__['id'] = id
             __props__['min_child_endpoints'] = min_child_endpoints
+            __props__['min_child_endpoints_i_pv4'] = min_child_endpoints_i_pv4
+            __props__['min_child_endpoints_i_pv6'] = min_child_endpoints_i_pv6
             __props__['name'] = name
             __props__['priority'] = priority
             if profile_name is None and not opts.urn:
@@ -110,7 +116,7 @@ class Endpoint(pulumi.CustomResource):
             __props__['target_resource_id'] = target_resource_id
             __props__['type'] = type
             __props__['weight'] = weight
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/latest:Endpoint"), pulumi.Alias(type_="azure-native:network:Endpoint"), pulumi.Alias(type_="azure-nextgen:network:Endpoint"), pulumi.Alias(type_="azure-native:network/v20151101:Endpoint"), pulumi.Alias(type_="azure-nextgen:network/v20151101:Endpoint"), pulumi.Alias(type_="azure-native:network/v20170301:Endpoint"), pulumi.Alias(type_="azure-nextgen:network/v20170301:Endpoint"), pulumi.Alias(type_="azure-native:network/v20170501:Endpoint"), pulumi.Alias(type_="azure-nextgen:network/v20170501:Endpoint"), pulumi.Alias(type_="azure-native:network/v20180201:Endpoint"), pulumi.Alias(type_="azure-nextgen:network/v20180201:Endpoint"), pulumi.Alias(type_="azure-native:network/v20180301:Endpoint"), pulumi.Alias(type_="azure-nextgen:network/v20180301:Endpoint"), pulumi.Alias(type_="azure-native:network/v20180401:Endpoint"), pulumi.Alias(type_="azure-nextgen:network/v20180401:Endpoint")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/latest:Endpoint"), pulumi.Alias(type_="azure-native:network:Endpoint"), pulumi.Alias(type_="azure-nextgen:network:Endpoint"), pulumi.Alias(type_="azure-native:network/v20151101:Endpoint"), pulumi.Alias(type_="azure-nextgen:network/v20151101:Endpoint"), pulumi.Alias(type_="azure-native:network/v20170301:Endpoint"), pulumi.Alias(type_="azure-nextgen:network/v20170301:Endpoint"), pulumi.Alias(type_="azure-native:network/v20170501:Endpoint"), pulumi.Alias(type_="azure-nextgen:network/v20170501:Endpoint"), pulumi.Alias(type_="azure-native:network/v20180201:Endpoint"), pulumi.Alias(type_="azure-nextgen:network/v20180201:Endpoint"), pulumi.Alias(type_="azure-native:network/v20180301:Endpoint"), pulumi.Alias(type_="azure-nextgen:network/v20180301:Endpoint"), pulumi.Alias(type_="azure-native:network/v20180401:Endpoint"), pulumi.Alias(type_="azure-nextgen:network/v20180401:Endpoint"), pulumi.Alias(type_="azure-native:network/v20180801:Endpoint"), pulumi.Alias(type_="azure-nextgen:network/v20180801:Endpoint")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Endpoint, __self__).__init__(
             'azure-native:network/latest:Endpoint',
@@ -140,6 +146,8 @@ class Endpoint(pulumi.CustomResource):
         __props__["endpoint_status"] = None
         __props__["geo_mapping"] = None
         __props__["min_child_endpoints"] = None
+        __props__["min_child_endpoints_i_pv4"] = None
+        __props__["min_child_endpoints_i_pv6"] = None
         __props__["name"] = None
         __props__["priority"] = None
         __props__["subnets"] = None
@@ -196,6 +204,22 @@ class Endpoint(pulumi.CustomResource):
         The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
         """
         return pulumi.get(self, "min_child_endpoints")
+
+    @property
+    @pulumi.getter(name="minChildEndpointsIPv4")
+    def min_child_endpoints_i_pv4(self) -> pulumi.Output[Optional[float]]:
+        """
+        The minimum number of IPv4 (DNS record type A) endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
+        """
+        return pulumi.get(self, "min_child_endpoints_i_pv4")
+
+    @property
+    @pulumi.getter(name="minChildEndpointsIPv6")
+    def min_child_endpoints_i_pv6(self) -> pulumi.Output[Optional[float]]:
+        """
+        The minimum number of IPv6 (DNS record type AAAA) endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
+        """
+        return pulumi.get(self, "min_child_endpoints_i_pv6")
 
     @property
     @pulumi.getter

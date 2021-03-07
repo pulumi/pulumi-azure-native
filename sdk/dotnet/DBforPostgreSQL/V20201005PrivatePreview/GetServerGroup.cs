@@ -111,6 +111,10 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20201005PrivatePreview
         /// </summary>
         public readonly string? PostgresqlVersion;
         /// <summary>
+        /// The array of read replica server groups.
+        /// </summary>
+        public readonly ImmutableArray<string> ReadReplicas;
+        /// <summary>
         /// The resource provider type of server group.
         /// </summary>
         public readonly string ResourceProviderType;
@@ -119,19 +123,23 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20201005PrivatePreview
         /// </summary>
         public readonly ImmutableArray<Outputs.ServerRoleGroupResponse> ServerRoleGroups;
         /// <summary>
-        /// The source server group location to restore from. It's required when 'createMode' is 'PointInTimeRestore'
+        /// The source server group location to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'ReadReplica'
         /// </summary>
         public readonly string? SourceLocation;
         /// <summary>
-        /// The source resource group name to restore from. It's required when 'createMode' is 'PointInTimeRestore'
+        /// The source resource group name to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'ReadReplica'
         /// </summary>
         public readonly string? SourceResourceGroupName;
         /// <summary>
-        /// The source server group name to restore from. It's required when 'createMode' is 'PointInTimeRestore'
+        /// The source server group id for read replica server groups.
+        /// </summary>
+        public readonly string SourceServerGroup;
+        /// <summary>
+        /// The source server group name to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'ReadReplica'
         /// </summary>
         public readonly string? SourceServerGroupName;
         /// <summary>
-        /// The source subscription id to restore from. It's required when 'createMode' is 'PointInTimeRestore'
+        /// The source subscription id to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'ReadReplica'
         /// </summary>
         public readonly string? SourceSubscriptionId;
         /// <summary>
@@ -191,6 +199,8 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20201005PrivatePreview
 
             string? postgresqlVersion,
 
+            ImmutableArray<string> readReplicas,
+
             string resourceProviderType,
 
             ImmutableArray<Outputs.ServerRoleGroupResponse> serverRoleGroups,
@@ -198,6 +208,8 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20201005PrivatePreview
             string? sourceLocation,
 
             string? sourceResourceGroupName,
+
+            string sourceServerGroup,
 
             string? sourceServerGroupName,
 
@@ -230,10 +242,12 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20201005PrivatePreview
             Name = name;
             PointInTimeUTC = pointInTimeUTC;
             PostgresqlVersion = postgresqlVersion;
+            ReadReplicas = readReplicas;
             ResourceProviderType = resourceProviderType;
             ServerRoleGroups = serverRoleGroups;
             SourceLocation = sourceLocation;
             SourceResourceGroupName = sourceResourceGroupName;
+            SourceServerGroup = sourceServerGroup;
             SourceServerGroupName = sourceServerGroupName;
             SourceSubscriptionId = sourceSubscriptionId;
             StandbyAvailabilityZone = standbyAvailabilityZone;

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Synapse.Latest
 {
     /// <summary>
     /// Represents a Sql pool transparent data encryption configuration.
-    /// Latest API Version: 2020-12-01.
+    /// Latest API Version: 2021-03-01.
     /// </summary>
     [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:synapse:SqlPoolTransparentDataEncryption'.")]
     [AzureNativeResourceType("azure-native:synapse/latest:SqlPoolTransparentDataEncryption")]

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network.Latest
 {
     /// <summary>
     /// Public IP prefix resource.
-    /// Latest API Version: 2020-08-01.
+    /// Latest API Version: 2020-11-01.
     /// </summary>
     [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:PublicIPPrefix'.")]
     [AzureNativeResourceType("azure-native:network/latest:PublicIPPrefix")]
@@ -64,12 +64,6 @@ namespace Pulumi.AzureNative.Network.Latest
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
-
-        /// <summary>
-        /// NatGateway of Public IP Prefix.
-        /// </summary>
-        [Output("natGateway")]
-        public Output<Outputs.NatGatewayResponse?> NatGateway { get; private set; } = null!;
 
         /// <summary>
         /// The Length of the Public IP Prefix.
@@ -191,6 +185,8 @@ namespace Pulumi.AzureNative.Network.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:PublicIPPrefix"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200801:PublicIPPrefix"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:PublicIPPrefix"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20201101:PublicIPPrefix"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20201101:PublicIPPrefix"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -249,12 +245,6 @@ namespace Pulumi.AzureNative.Network.Latest
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// NatGateway of Public IP Prefix.
-        /// </summary>
-        [Input("natGateway")]
-        public Input<Inputs.NatGatewayArgs>? NatGateway { get; set; }
 
         /// <summary>
         /// The Length of the Public IP Prefix.

@@ -34,12 +34,6 @@ namespace Pulumi.AzureNative.Network.Inputs
         public Input<bool>? AllowVirtualNetworkAccess { get; set; }
 
         /// <summary>
-        /// If we need to verify the provisioning state of the remote gateway.
-        /// </summary>
-        [Input("doNotVerifyRemoteGateways")]
-        public Input<bool>? DoNotVerifyRemoteGateways { get; set; }
-
-        /// <summary>
         /// Resource ID.
         /// </summary>
         [Input("id")]
@@ -74,12 +68,6 @@ namespace Pulumi.AzureNative.Network.Inputs
         /// </summary>
         [Input("remoteVirtualNetwork")]
         public Input<Inputs.SubResourceArgs>? RemoteVirtualNetwork { get; set; }
-
-        /// <summary>
-        /// Resource type.
-        /// </summary>
-        [Input("type")]
-        public Input<string>? Type { get; set; }
 
         /// <summary>
         /// If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.

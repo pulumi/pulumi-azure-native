@@ -128,7 +128,7 @@ func (ControllerDetailsState) ElementType() reflect.Type {
 type controllerDetailsArgs struct {
 	// Location of the resource.
 	Location *string `pulumi:"location"`
-	// The name of the Azure Resource group of which a given DelegatedNetwork resource is part. This name must be at least 1 character in length, and no more than 90.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the resource. It must be a minimum of 3 characters, and a maximum of 63.
 	ResourceName *string `pulumi:"resourceName"`
@@ -140,7 +140,7 @@ type controllerDetailsArgs struct {
 type ControllerDetailsArgs struct {
 	// Location of the resource.
 	Location pulumi.StringPtrInput
-	// The name of the Azure Resource group of which a given DelegatedNetwork resource is part. This name must be at least 1 character in length, and no more than 90.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// The name of the resource. It must be a minimum of 3 characters, and a maximum of 63.
 	ResourceName pulumi.StringPtrInput

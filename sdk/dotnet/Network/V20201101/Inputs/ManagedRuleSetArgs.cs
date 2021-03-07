@@ -15,18 +15,6 @@ namespace Pulumi.AzureNative.Network.V20201101.Inputs
     /// </summary>
     public sealed class ManagedRuleSetArgs : Pulumi.ResourceArgs
     {
-        [Input("exclusions")]
-        private InputList<Inputs.ManagedRuleExclusionArgs>? _exclusions;
-
-        /// <summary>
-        /// Describes the exclusions that are applied to all rules in the set.
-        /// </summary>
-        public InputList<Inputs.ManagedRuleExclusionArgs> Exclusions
-        {
-            get => _exclusions ?? (_exclusions = new InputList<Inputs.ManagedRuleExclusionArgs>());
-            set => _exclusions = value;
-        }
-
         [Input("ruleGroupOverrides")]
         private InputList<Inputs.ManagedRuleGroupOverrideArgs>? _ruleGroupOverrides;
 
@@ -38,12 +26,6 @@ namespace Pulumi.AzureNative.Network.V20201101.Inputs
             get => _ruleGroupOverrides ?? (_ruleGroupOverrides = new InputList<Inputs.ManagedRuleGroupOverrideArgs>());
             set => _ruleGroupOverrides = value;
         }
-
-        /// <summary>
-        /// Defines the action to take when a managed rule set score threshold is met.
-        /// </summary>
-        [Input("ruleSetAction")]
-        public InputUnion<string, Pulumi.AzureNative.Network.V20201101.ManagedRuleSetActionType>? RuleSetAction { get; set; }
 
         /// <summary>
         /// Defines the rule set type to use.

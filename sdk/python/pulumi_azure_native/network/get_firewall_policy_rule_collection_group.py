@@ -121,7 +121,7 @@ def get_firewall_policy_rule_collection_group(firewall_policy_name: Optional[str
                                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFirewallPolicyRuleCollectionGroupResult:
     """
     Rule Collection Group resource.
-    API Version: 2020-08-01.
+    API Version: 2020-11-01.
 
 
     :param str firewall_policy_name: The name of the Firewall Policy.

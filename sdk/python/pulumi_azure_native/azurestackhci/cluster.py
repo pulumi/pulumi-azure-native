@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
+from ._enums import *
 
 __all__ = ['Cluster']
 
@@ -19,6 +20,12 @@ class Cluster(pulumi.CustomResource):
                  aad_client_id: Optional[pulumi.Input[str]] = None,
                  aad_tenant_id: Optional[pulumi.Input[str]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
+                 created_at: Optional[pulumi.Input[str]] = None,
+                 created_by: Optional[pulumi.Input[str]] = None,
+                 created_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
+                 last_modified_at: Optional[pulumi.Input[str]] = None,
+                 last_modified_by: Optional[pulumi.Input[str]] = None,
+                 last_modified_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -34,6 +41,12 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] aad_client_id: App id of cluster AAD identity.
         :param pulumi.Input[str] aad_tenant_id: Tenant id of cluster AAD identity.
         :param pulumi.Input[str] cluster_name: The name of the cluster.
+        :param pulumi.Input[str] created_at: The timestamp of resource creation (UTC).
+        :param pulumi.Input[str] created_by: The identity that created the resource.
+        :param pulumi.Input[Union[str, 'CreatedByType']] created_by_type: The type of identity that created the resource.
+        :param pulumi.Input[str] last_modified_at: The timestamp of resource last modification (UTC)
+        :param pulumi.Input[str] last_modified_by: The identity that last modified the resource.
+        :param pulumi.Input[Union[str, 'CreatedByType']] last_modified_by_type: The type of identity that last modified the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -62,6 +75,12 @@ class Cluster(pulumi.CustomResource):
                 raise TypeError("Missing required property 'aad_tenant_id'")
             __props__['aad_tenant_id'] = aad_tenant_id
             __props__['cluster_name'] = cluster_name
+            __props__['created_at'] = created_at
+            __props__['created_by'] = created_by
+            __props__['created_by_type'] = created_by_type
+            __props__['last_modified_at'] = last_modified_at
+            __props__['last_modified_by'] = last_modified_by
+            __props__['last_modified_by_type'] = last_modified_by_type
             __props__['location'] = location
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -106,7 +125,13 @@ class Cluster(pulumi.CustomResource):
         __props__["aad_tenant_id"] = None
         __props__["billing_model"] = None
         __props__["cloud_id"] = None
+        __props__["created_at"] = None
+        __props__["created_by"] = None
+        __props__["created_by_type"] = None
         __props__["last_billing_timestamp"] = None
+        __props__["last_modified_at"] = None
+        __props__["last_modified_by"] = None
+        __props__["last_modified_by_type"] = None
         __props__["last_sync_timestamp"] = None
         __props__["location"] = None
         __props__["name"] = None
@@ -152,12 +177,60 @@ class Cluster(pulumi.CustomResource):
         return pulumi.get(self, "cloud_id")
 
     @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> pulumi.Output[Optional[str]]:
+        """
+        The timestamp of resource creation (UTC).
+        """
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> pulumi.Output[Optional[str]]:
+        """
+        The identity that created the resource.
+        """
+        return pulumi.get(self, "created_by")
+
+    @property
+    @pulumi.getter(name="createdByType")
+    def created_by_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        The type of identity that created the resource.
+        """
+        return pulumi.get(self, "created_by_type")
+
+    @property
     @pulumi.getter(name="lastBillingTimestamp")
     def last_billing_timestamp(self) -> pulumi.Output[str]:
         """
         Most recent billing meter timestamp.
         """
         return pulumi.get(self, "last_billing_timestamp")
+
+    @property
+    @pulumi.getter(name="lastModifiedAt")
+    def last_modified_at(self) -> pulumi.Output[Optional[str]]:
+        """
+        The timestamp of resource last modification (UTC)
+        """
+        return pulumi.get(self, "last_modified_at")
+
+    @property
+    @pulumi.getter(name="lastModifiedBy")
+    def last_modified_by(self) -> pulumi.Output[Optional[str]]:
+        """
+        The identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by")
+
+    @property
+    @pulumi.getter(name="lastModifiedByType")
+    def last_modified_by_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        The type of identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by_type")
 
     @property
     @pulumi.getter(name="lastSyncTimestamp")

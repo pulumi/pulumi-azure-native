@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Synapse
 {
     /// <summary>
     /// Workspace active directory administrator
-    /// API Version: 2020-12-01.
+    /// API Version: 2021-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:synapse:WorkspaceAadAdmin")]
     public partial class WorkspaceAadAdmin : Pulumi.CustomResource

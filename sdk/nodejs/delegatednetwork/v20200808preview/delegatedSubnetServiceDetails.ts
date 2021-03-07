@@ -36,7 +36,7 @@ export class DelegatedSubnetServiceDetails extends pulumi.CustomResource {
     }
 
     /**
-     * controller details
+     * Properties of the controller.
      */
     public readonly controllerDetails!: pulumi.Output<outputs.delegatednetwork.v20200808preview.ControllerDetailsResponse | undefined>;
     /**
@@ -56,7 +56,7 @@ export class DelegatedSubnetServiceDetails extends pulumi.CustomResource {
      */
     public /*out*/ readonly resourceGuid!: pulumi.Output<string>;
     /**
-     * orchestrator details
+     * subnet details
      */
     public readonly subnetDetails!: pulumi.Output<outputs.delegatednetwork.v20200808preview.SubnetDetailsResponse | undefined>;
     /**
@@ -116,7 +116,7 @@ export class DelegatedSubnetServiceDetails extends pulumi.CustomResource {
  */
 export interface DelegatedSubnetServiceDetailsArgs {
     /**
-     * controller details
+     * Properties of the controller.
      */
     readonly controllerDetails?: pulumi.Input<inputs.delegatednetwork.v20200808preview.ControllerDetails>;
     /**
@@ -124,7 +124,7 @@ export interface DelegatedSubnetServiceDetailsArgs {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * The name of the Azure Resource group of which a given DelegatedNetwork resource is part. This name must be at least 1 character in length, and no more than 90.
+     * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
@@ -132,7 +132,7 @@ export interface DelegatedSubnetServiceDetailsArgs {
      */
     readonly resourceName?: pulumi.Input<string>;
     /**
-     * orchestrator details
+     * subnet details
      */
     readonly subnetDetails?: pulumi.Input<inputs.delegatednetwork.v20200808preview.SubnetDetails>;
     /**

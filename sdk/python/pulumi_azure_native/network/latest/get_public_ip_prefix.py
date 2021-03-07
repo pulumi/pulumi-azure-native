@@ -22,7 +22,7 @@ class GetPublicIPPrefixResult:
     """
     Public IP prefix resource.
     """
-    def __init__(__self__, custom_ip_prefix=None, etag=None, extended_location=None, id=None, ip_prefix=None, ip_tags=None, load_balancer_frontend_ip_configuration=None, location=None, name=None, nat_gateway=None, prefix_length=None, provisioning_state=None, public_ip_address_version=None, public_ip_addresses=None, resource_guid=None, sku=None, tags=None, type=None, zones=None):
+    def __init__(__self__, custom_ip_prefix=None, etag=None, extended_location=None, id=None, ip_prefix=None, ip_tags=None, load_balancer_frontend_ip_configuration=None, location=None, name=None, prefix_length=None, provisioning_state=None, public_ip_address_version=None, public_ip_addresses=None, resource_guid=None, sku=None, tags=None, type=None, zones=None):
         if custom_ip_prefix and not isinstance(custom_ip_prefix, dict):
             raise TypeError("Expected argument 'custom_ip_prefix' to be a dict")
         pulumi.set(__self__, "custom_ip_prefix", custom_ip_prefix)
@@ -50,9 +50,6 @@ class GetPublicIPPrefixResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if nat_gateway and not isinstance(nat_gateway, dict):
-            raise TypeError("Expected argument 'nat_gateway' to be a dict")
-        pulumi.set(__self__, "nat_gateway", nat_gateway)
         if prefix_length and not isinstance(prefix_length, int):
             raise TypeError("Expected argument 'prefix_length' to be a int")
         pulumi.set(__self__, "prefix_length", prefix_length)
@@ -154,14 +151,6 @@ class GetPublicIPPrefixResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="natGateway")
-    def nat_gateway(self) -> Optional['outputs.NatGatewayResponse']:
-        """
-        NatGateway of Public IP Prefix.
-        """
-        return pulumi.get(self, "nat_gateway")
-
-    @property
     @pulumi.getter(name="prefixLength")
     def prefix_length(self) -> Optional[int]:
         """
@@ -249,7 +238,6 @@ class AwaitableGetPublicIPPrefixResult(GetPublicIPPrefixResult):
             load_balancer_frontend_ip_configuration=self.load_balancer_frontend_ip_configuration,
             location=self.location,
             name=self.name,
-            nat_gateway=self.nat_gateway,
             prefix_length=self.prefix_length,
             provisioning_state=self.provisioning_state,
             public_ip_address_version=self.public_ip_address_version,
@@ -267,7 +255,7 @@ def get_public_ip_prefix(expand: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPublicIPPrefixResult:
     """
     Public IP prefix resource.
-    Latest API Version: 2020-08-01.
+    Latest API Version: 2020-11-01.
 
 
     :param str expand: Expands referenced resources.
@@ -295,7 +283,6 @@ def get_public_ip_prefix(expand: Optional[str] = None,
         load_balancer_frontend_ip_configuration=__ret__.load_balancer_frontend_ip_configuration,
         location=__ret__.location,
         name=__ret__.name,
-        nat_gateway=__ret__.nat_gateway,
         prefix_length=__ret__.prefix_length,
         provisioning_state=__ret__.provisioning_state,
         public_ip_address_version=__ret__.public_ip_address_version,

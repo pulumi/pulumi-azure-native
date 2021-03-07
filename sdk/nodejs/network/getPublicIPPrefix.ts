@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Public IP prefix resource.
- * API Version: 2020-08-01.
+ * API Version: 2020-11-01.
  */
 export function getPublicIPPrefix(args: GetPublicIPPrefixArgs, opts?: pulumi.InvokeOptions): Promise<GetPublicIPPrefixResult> {
     if (!opts) {
@@ -79,10 +79,6 @@ export interface GetPublicIPPrefixResult {
      * Resource name.
      */
     readonly name: string;
-    /**
-     * NatGateway of Public IP Prefix.
-     */
-    readonly natGateway?: outputs.network.NatGatewayResponse;
     /**
      * The Length of the Public IP Prefix.
      */

@@ -67,12 +67,16 @@ func (e CommandLineSetting) ToStringPtrOutputWithContext(ctx context.Context) pu
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// HostPool type for scaling plan.
+// HostPool type for desktop.
 type HostPoolType pulumi.String
 
 const (
+	// Users will be assigned a SessionHost either by administrators (PersonalDesktopAssignmentType = Direct) or upon connecting to the pool (PersonalDesktopAssignmentType = Automatic). They will always be redirected to their assigned SessionHost.
 	HostPoolTypePersonal = HostPoolType("Personal")
-	HostPoolTypePooled   = HostPoolType("Pooled")
+	// Users get a new (random) SessionHost every time it connects to the HostPool.
+	HostPoolTypePooled = HostPoolType("Pooled")
+	// Users assign their own machines, load balancing logic remains the same as Personal. PersonalDesktopAssignmentType must be Direct.
+	HostPoolTypeBYODesktop = HostPoolType("BYODesktop")
 )
 
 func (HostPoolType) ElementType() reflect.Type {

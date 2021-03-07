@@ -145,7 +145,7 @@ def get_virtual_hub_ip_configuration(ip_config_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualHubIpConfigurationResult:
     """
     IpConfigurations.
-    API Version: 2020-08-01.
+    API Version: 2020-11-01.
 
 
     :param str ip_config_name: The name of the ipconfig.

@@ -37,10 +37,22 @@ type LookupClusterResult struct {
 	BillingModel string `pulumi:"billingModel"`
 	// Unique, immutable resource id.
 	CloudId string `pulumi:"cloudId"`
+	// The timestamp of resource creation (UTC).
+	CreatedAt *string `pulumi:"createdAt"`
+	// The identity that created the resource.
+	CreatedBy *string `pulumi:"createdBy"`
+	// The type of identity that created the resource.
+	CreatedByType *string `pulumi:"createdByType"`
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
 	// Most recent billing meter timestamp.
 	LastBillingTimestamp string `pulumi:"lastBillingTimestamp"`
+	// The timestamp of resource last modification (UTC)
+	LastModifiedAt *string `pulumi:"lastModifiedAt"`
+	// The identity that last modified the resource.
+	LastModifiedBy *string `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource.
+	LastModifiedByType *string `pulumi:"lastModifiedByType"`
 	// Most recent cluster sync timestamp.
 	LastSyncTimestamp string `pulumi:"lastSyncTimestamp"`
 	// The geo-location where the resource lives

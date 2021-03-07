@@ -14,17 +14,9 @@ namespace Pulumi.AzureNative.Network.V20201101.Outputs
     public sealed class ManagedRuleSetResponse
     {
         /// <summary>
-        /// Describes the exclusions that are applied to all rules in the set.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.ManagedRuleExclusionResponse> Exclusions;
-        /// <summary>
         /// Defines the rule group overrides to apply to the rule set.
         /// </summary>
         public readonly ImmutableArray<Outputs.ManagedRuleGroupOverrideResponse> RuleGroupOverrides;
-        /// <summary>
-        /// Defines the action to take when a managed rule set score threshold is met.
-        /// </summary>
-        public readonly string? RuleSetAction;
         /// <summary>
         /// Defines the rule set type to use.
         /// </summary>
@@ -36,19 +28,13 @@ namespace Pulumi.AzureNative.Network.V20201101.Outputs
 
         [OutputConstructor]
         private ManagedRuleSetResponse(
-            ImmutableArray<Outputs.ManagedRuleExclusionResponse> exclusions,
-
             ImmutableArray<Outputs.ManagedRuleGroupOverrideResponse> ruleGroupOverrides,
-
-            string? ruleSetAction,
 
             string ruleSetType,
 
             string ruleSetVersion)
         {
-            Exclusions = exclusions;
             RuleGroupOverrides = ruleGroupOverrides;
-            RuleSetAction = ruleSetAction;
             RuleSetType = ruleSetType;
             RuleSetVersion = ruleSetVersion;
         }

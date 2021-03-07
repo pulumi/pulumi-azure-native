@@ -132,7 +132,7 @@ def get_virtual_hub_bgp_connection(connection_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualHubBgpConnectionResult:
     """
     Virtual Appliance Site resource.
-    API Version: 2020-08-01.
+    API Version: 2020-11-01.
 
 
     :param str connection_name: The name of the connection.

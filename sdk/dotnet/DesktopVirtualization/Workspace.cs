@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
 {
     /// <summary>
     /// Represents a Workspace definition.
-    /// API Version: 2021-01-14-preview.
+    /// API Version: 2021-02-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:desktopvirtualization:Workspace")]
     public partial class Workspace : Pulumi.CustomResource

@@ -37,7 +37,7 @@ export class CassandraDataCenter extends pulumi.CustomResource {
     }
 
     /**
-     * The name of the resource
+     * The name of the database account.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -45,7 +45,7 @@ export class CassandraDataCenter extends pulumi.CustomResource {
      */
     public readonly properties!: pulumi.Output<outputs.documentdb.DataCenterResourceResponseProperties>;
     /**
-     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+     * The type of Azure resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 

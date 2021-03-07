@@ -33,7 +33,7 @@ class VirtualApplianceSite(pulumi.CustomResource):
                  __opts__=None):
         """
         Virtual Appliance Site resource.
-        Latest API Version: 2020-08-01.
+        Latest API Version: 2020-11-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -77,7 +77,7 @@ class VirtualApplianceSite(pulumi.CustomResource):
             __props__['etag'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/latest:VirtualApplianceSite"), pulumi.Alias(type_="azure-native:network:VirtualApplianceSite"), pulumi.Alias(type_="azure-nextgen:network:VirtualApplianceSite"), pulumi.Alias(type_="azure-native:network/v20200501:VirtualApplianceSite"), pulumi.Alias(type_="azure-nextgen:network/v20200501:VirtualApplianceSite"), pulumi.Alias(type_="azure-native:network/v20200601:VirtualApplianceSite"), pulumi.Alias(type_="azure-nextgen:network/v20200601:VirtualApplianceSite"), pulumi.Alias(type_="azure-native:network/v20200701:VirtualApplianceSite"), pulumi.Alias(type_="azure-nextgen:network/v20200701:VirtualApplianceSite"), pulumi.Alias(type_="azure-native:network/v20200801:VirtualApplianceSite"), pulumi.Alias(type_="azure-nextgen:network/v20200801:VirtualApplianceSite")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/latest:VirtualApplianceSite"), pulumi.Alias(type_="azure-native:network:VirtualApplianceSite"), pulumi.Alias(type_="azure-nextgen:network:VirtualApplianceSite"), pulumi.Alias(type_="azure-native:network/v20200501:VirtualApplianceSite"), pulumi.Alias(type_="azure-nextgen:network/v20200501:VirtualApplianceSite"), pulumi.Alias(type_="azure-native:network/v20200601:VirtualApplianceSite"), pulumi.Alias(type_="azure-nextgen:network/v20200601:VirtualApplianceSite"), pulumi.Alias(type_="azure-native:network/v20200701:VirtualApplianceSite"), pulumi.Alias(type_="azure-nextgen:network/v20200701:VirtualApplianceSite"), pulumi.Alias(type_="azure-native:network/v20200801:VirtualApplianceSite"), pulumi.Alias(type_="azure-nextgen:network/v20200801:VirtualApplianceSite"), pulumi.Alias(type_="azure-native:network/v20201101:VirtualApplianceSite"), pulumi.Alias(type_="azure-nextgen:network/v20201101:VirtualApplianceSite")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualApplianceSite, __self__).__init__(
             'azure-native:network/latest:VirtualApplianceSite',

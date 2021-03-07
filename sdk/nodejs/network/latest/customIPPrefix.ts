@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Custom IP prefix resource.
- * Latest API Version: 2020-08-01.
+ * Latest API Version: 2020-11-01.
  *
  * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:CustomIPPrefix'.
  */
@@ -136,7 +136,7 @@ export class CustomIPPrefix extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/latest:CustomIPPrefix" }, { type: "azure-native:network:CustomIPPrefix" }, { type: "azure-nextgen:network:CustomIPPrefix" }, { type: "azure-native:network/v20200601:CustomIPPrefix" }, { type: "azure-nextgen:network/v20200601:CustomIPPrefix" }, { type: "azure-native:network/v20200701:CustomIPPrefix" }, { type: "azure-nextgen:network/v20200701:CustomIPPrefix" }, { type: "azure-native:network/v20200801:CustomIPPrefix" }, { type: "azure-nextgen:network/v20200801:CustomIPPrefix" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/latest:CustomIPPrefix" }, { type: "azure-native:network:CustomIPPrefix" }, { type: "azure-nextgen:network:CustomIPPrefix" }, { type: "azure-native:network/v20200601:CustomIPPrefix" }, { type: "azure-nextgen:network/v20200601:CustomIPPrefix" }, { type: "azure-native:network/v20200701:CustomIPPrefix" }, { type: "azure-nextgen:network/v20200701:CustomIPPrefix" }, { type: "azure-native:network/v20200801:CustomIPPrefix" }, { type: "azure-nextgen:network/v20200801:CustomIPPrefix" }, { type: "azure-native:network/v20201101:CustomIPPrefix" }, { type: "azure-nextgen:network/v20201101:CustomIPPrefix" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CustomIPPrefix.__pulumiType, name, inputs, opts);
     }

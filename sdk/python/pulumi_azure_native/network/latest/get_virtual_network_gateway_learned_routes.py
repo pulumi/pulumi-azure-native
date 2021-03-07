@@ -50,7 +50,7 @@ def get_virtual_network_gateway_learned_routes(resource_group_name: Optional[str
                                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualNetworkGatewayLearnedRoutesResult:
     """
     List of virtual network gateway routes.
-    Latest API Version: 2020-08-01.
+    Latest API Version: 2020-11-01.
 
 
     :param str resource_group_name: The name of the resource group.

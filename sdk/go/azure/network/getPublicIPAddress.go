@@ -8,7 +8,7 @@ import (
 )
 
 // Public IP address resource.
-// API Version: 2020-08-01.
+// API Version: 2020-11-01.
 func LookupPublicIPAddress(ctx *pulumi.Context, args *LookupPublicIPAddressArgs, opts ...pulumi.InvokeOption) (*LookupPublicIPAddressResult, error) {
 	var rv LookupPublicIPAddressResult
 	err := ctx.Invoke("azure-native:network:getPublicIPAddress", args, &rv, opts...)
@@ -47,16 +47,10 @@ type LookupPublicIPAddressResult struct {
 	IpConfiguration IPConfigurationResponse `pulumi:"ipConfiguration"`
 	// The list of tags associated with the public IP address.
 	IpTags []IpTagResponse `pulumi:"ipTags"`
-	// The source Public IP Address (IPv6) that links to this address (IPv4).
-	LinkedPublicIPAddress *PublicIPAddressResponse `pulumi:"linkedPublicIPAddress"`
 	// Resource location.
 	Location *string `pulumi:"location"`
-	// Migration phase of Public IP Address.
-	MigrationPhase *string `pulumi:"migrationPhase"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// The NatGateway for the Public IP address.
-	NatGateway *NatGatewayResponse `pulumi:"natGateway"`
 	// The provisioning state of the public IP address resource.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The public IP address version.
@@ -67,8 +61,6 @@ type LookupPublicIPAddressResult struct {
 	PublicIPPrefix *SubResourceResponse `pulumi:"publicIPPrefix"`
 	// The resource GUID property of the public IP address resource.
 	ResourceGuid string `pulumi:"resourceGuid"`
-	// The service public IP address of the public IP address resource.
-	ServicePublicIPAddress *PublicIPAddressResponse `pulumi:"servicePublicIPAddress"`
 	// The public IP address SKU.
 	Sku *PublicIPAddressSkuResponse `pulumi:"sku"`
 	// Resource tags.

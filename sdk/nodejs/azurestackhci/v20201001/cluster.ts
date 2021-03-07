@@ -52,9 +52,33 @@ export class Cluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly cloudId!: pulumi.Output<string>;
     /**
+     * The timestamp of resource creation (UTC).
+     */
+    public readonly createdAt!: pulumi.Output<string | undefined>;
+    /**
+     * The identity that created the resource.
+     */
+    public readonly createdBy!: pulumi.Output<string | undefined>;
+    /**
+     * The type of identity that created the resource.
+     */
+    public readonly createdByType!: pulumi.Output<string | undefined>;
+    /**
      * Most recent billing meter timestamp.
      */
     public /*out*/ readonly lastBillingTimestamp!: pulumi.Output<string>;
+    /**
+     * The timestamp of resource last modification (UTC)
+     */
+    public readonly lastModifiedAt!: pulumi.Output<string | undefined>;
+    /**
+     * The identity that last modified the resource.
+     */
+    public readonly lastModifiedBy!: pulumi.Output<string | undefined>;
+    /**
+     * The type of identity that last modified the resource.
+     */
+    public readonly lastModifiedByType!: pulumi.Output<string | undefined>;
     /**
      * Most recent cluster sync timestamp.
      */
@@ -119,6 +143,12 @@ export class Cluster extends pulumi.CustomResource {
             inputs["aadClientId"] = args ? args.aadClientId : undefined;
             inputs["aadTenantId"] = args ? args.aadTenantId : undefined;
             inputs["clusterName"] = args ? args.clusterName : undefined;
+            inputs["createdAt"] = args ? args.createdAt : undefined;
+            inputs["createdBy"] = args ? args.createdBy : undefined;
+            inputs["createdByType"] = args ? args.createdByType : undefined;
+            inputs["lastModifiedAt"] = args ? args.lastModifiedAt : undefined;
+            inputs["lastModifiedBy"] = args ? args.lastModifiedBy : undefined;
+            inputs["lastModifiedByType"] = args ? args.lastModifiedByType : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -138,7 +168,13 @@ export class Cluster extends pulumi.CustomResource {
             inputs["aadTenantId"] = undefined /*out*/;
             inputs["billingModel"] = undefined /*out*/;
             inputs["cloudId"] = undefined /*out*/;
+            inputs["createdAt"] = undefined /*out*/;
+            inputs["createdBy"] = undefined /*out*/;
+            inputs["createdByType"] = undefined /*out*/;
             inputs["lastBillingTimestamp"] = undefined /*out*/;
+            inputs["lastModifiedAt"] = undefined /*out*/;
+            inputs["lastModifiedBy"] = undefined /*out*/;
+            inputs["lastModifiedByType"] = undefined /*out*/;
             inputs["lastSyncTimestamp"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
@@ -175,6 +211,30 @@ export interface ClusterArgs {
      * The name of the cluster.
      */
     readonly clusterName?: pulumi.Input<string>;
+    /**
+     * The timestamp of resource creation (UTC).
+     */
+    readonly createdAt?: pulumi.Input<string>;
+    /**
+     * The identity that created the resource.
+     */
+    readonly createdBy?: pulumi.Input<string>;
+    /**
+     * The type of identity that created the resource.
+     */
+    readonly createdByType?: pulumi.Input<string | enums.azurestackhci.v20201001.CreatedByType>;
+    /**
+     * The timestamp of resource last modification (UTC)
+     */
+    readonly lastModifiedAt?: pulumi.Input<string>;
+    /**
+     * The identity that last modified the resource.
+     */
+    readonly lastModifiedBy?: pulumi.Input<string>;
+    /**
+     * The type of identity that last modified the resource.
+     */
+    readonly lastModifiedByType?: pulumi.Input<string | enums.azurestackhci.v20201001.CreatedByType>;
     /**
      * The geo-location where the resource lives
      */

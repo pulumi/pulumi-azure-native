@@ -16,7 +16,7 @@ import (
 type DelegatedSubnetServiceDetails struct {
 	pulumi.CustomResourceState
 
-	// controller details
+	// Properties of the controller.
 	ControllerDetails ControllerDetailsResponsePtrOutput `pulumi:"controllerDetails"`
 	// Location of the resource.
 	Location pulumi.StringPtrOutput `pulumi:"location"`
@@ -26,7 +26,7 @@ type DelegatedSubnetServiceDetails struct {
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// Resource guid.
 	ResourceGuid pulumi.StringOutput `pulumi:"resourceGuid"`
-	// orchestrator details
+	// subnet details
 	SubnetDetails SubnetDetailsResponsePtrOutput `pulumi:"subnetDetails"`
 	// The resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -78,7 +78,7 @@ func GetDelegatedSubnetServiceDetails(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DelegatedSubnetServiceDetails resources.
 type delegatedSubnetServiceDetailsState struct {
-	// controller details
+	// Properties of the controller.
 	ControllerDetails *ControllerDetailsResponse `pulumi:"controllerDetails"`
 	// Location of the resource.
 	Location *string `pulumi:"location"`
@@ -88,7 +88,7 @@ type delegatedSubnetServiceDetailsState struct {
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// Resource guid.
 	ResourceGuid *string `pulumi:"resourceGuid"`
-	// orchestrator details
+	// subnet details
 	SubnetDetails *SubnetDetailsResponse `pulumi:"subnetDetails"`
 	// The resource tags.
 	Tags map[string]string `pulumi:"tags"`
@@ -97,7 +97,7 @@ type delegatedSubnetServiceDetailsState struct {
 }
 
 type DelegatedSubnetServiceDetailsState struct {
-	// controller details
+	// Properties of the controller.
 	ControllerDetails ControllerDetailsResponsePtrInput
 	// Location of the resource.
 	Location pulumi.StringPtrInput
@@ -107,7 +107,7 @@ type DelegatedSubnetServiceDetailsState struct {
 	ProvisioningState pulumi.StringPtrInput
 	// Resource guid.
 	ResourceGuid pulumi.StringPtrInput
-	// orchestrator details
+	// subnet details
 	SubnetDetails SubnetDetailsResponsePtrInput
 	// The resource tags.
 	Tags pulumi.StringMapInput
@@ -120,15 +120,15 @@ func (DelegatedSubnetServiceDetailsState) ElementType() reflect.Type {
 }
 
 type delegatedSubnetServiceDetailsArgs struct {
-	// controller details
+	// Properties of the controller.
 	ControllerDetails *ControllerDetailsType `pulumi:"controllerDetails"`
 	// Location of the resource.
 	Location *string `pulumi:"location"`
-	// The name of the Azure Resource group of which a given DelegatedNetwork resource is part. This name must be at least 1 character in length, and no more than 90.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the resource. It must be a minimum of 3 characters, and a maximum of 63.
 	ResourceName *string `pulumi:"resourceName"`
-	// orchestrator details
+	// subnet details
 	SubnetDetails *SubnetDetails `pulumi:"subnetDetails"`
 	// The resource tags.
 	Tags map[string]string `pulumi:"tags"`
@@ -136,15 +136,15 @@ type delegatedSubnetServiceDetailsArgs struct {
 
 // The set of arguments for constructing a DelegatedSubnetServiceDetails resource.
 type DelegatedSubnetServiceDetailsArgs struct {
-	// controller details
+	// Properties of the controller.
 	ControllerDetails ControllerDetailsTypePtrInput
 	// Location of the resource.
 	Location pulumi.StringPtrInput
-	// The name of the Azure Resource group of which a given DelegatedNetwork resource is part. This name must be at least 1 character in length, and no more than 90.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// The name of the resource. It must be a minimum of 3 characters, and a maximum of 63.
 	ResourceName pulumi.StringPtrInput
-	// orchestrator details
+	// subnet details
 	SubnetDetails SubnetDetailsPtrInput
 	// The resource tags.
 	Tags pulumi.StringMapInput

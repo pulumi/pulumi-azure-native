@@ -49,6 +49,7 @@ type CreateMode pulumi.String
 const (
 	CreateModeDefault            = CreateMode("Default")
 	CreateModePointInTimeRestore = CreateMode("PointInTimeRestore")
+	CreateModeReadReplica        = CreateMode("ReadReplica")
 )
 
 func (CreateMode) ElementType() reflect.Type {

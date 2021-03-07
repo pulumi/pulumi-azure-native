@@ -34,6 +34,12 @@ namespace Pulumi.AzureNative.Network.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// Reference to an existing subnet.
+        /// </summary>
+        [Input("subnet")]
+        public Input<Inputs.SubResourceArgs>? Subnet { get; set; }
+
+        /// <summary>
         /// Reference to an existing virtual network.
         /// </summary>
         [Input("virtualNetwork")]

@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * A network interface in a resource group.
- * Latest API Version: 2020-08-01.
+ * Latest API Version: 2020-11-01.
  */
 /** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getNetworkInterface'. */
 export function getNetworkInterface(args: GetNetworkInterfaceArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkInterfaceResult> {
@@ -90,10 +90,6 @@ export interface GetNetworkInterfaceResult {
      */
     readonly macAddress: string;
     /**
-     * Migration phase of Network Interface resource.
-     */
-    readonly migrationPhase?: string;
-    /**
      * Resource name.
      */
     readonly name: string;
@@ -102,10 +98,6 @@ export interface GetNetworkInterfaceResult {
      */
     readonly networkSecurityGroup?: outputs.network.latest.NetworkSecurityGroupResponse;
     /**
-     * Type of Network Interface resource.
-     */
-    readonly nicType?: string;
-    /**
      * Whether this is a primary network interface on a virtual machine.
      */
     readonly primary: boolean;
@@ -113,10 +105,6 @@ export interface GetNetworkInterfaceResult {
      * A reference to the private endpoint to which the network interface is linked.
      */
     readonly privateEndpoint: outputs.network.latest.PrivateEndpointResponse;
-    /**
-     * Privatelinkservice of the network interface resource.
-     */
-    readonly privateLinkService?: outputs.network.latest.PrivateLinkServiceResponse;
     /**
      * The provisioning state of the network interface resource.
      */

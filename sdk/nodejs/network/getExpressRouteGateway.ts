@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * ExpressRoute gateway resource.
- * API Version: 2020-08-01.
+ * API Version: 2020-11-01.
  */
 export function getExpressRouteGateway(args: GetExpressRouteGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetExpressRouteGatewayResult> {
     if (!opts) {

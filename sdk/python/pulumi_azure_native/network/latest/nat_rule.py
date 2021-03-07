@@ -37,7 +37,7 @@ class NatRule(pulumi.CustomResource):
                  __opts__=None):
         """
         VpnGatewayNatRule Resource.
-        Latest API Version: 2020-08-01.
+        Latest API Version: 2020-11-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -88,7 +88,7 @@ class NatRule(pulumi.CustomResource):
             __props__['etag'] = None
             __props__['ingress_vpn_site_link_connections'] = None
             __props__['provisioning_state'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/latest:NatRule"), pulumi.Alias(type_="azure-native:network:NatRule"), pulumi.Alias(type_="azure-nextgen:network:NatRule"), pulumi.Alias(type_="azure-native:network/v20200801:NatRule"), pulumi.Alias(type_="azure-nextgen:network/v20200801:NatRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/latest:NatRule"), pulumi.Alias(type_="azure-native:network:NatRule"), pulumi.Alias(type_="azure-nextgen:network:NatRule"), pulumi.Alias(type_="azure-native:network/v20200801:NatRule"), pulumi.Alias(type_="azure-nextgen:network/v20200801:NatRule"), pulumi.Alias(type_="azure-native:network/v20201101:NatRule"), pulumi.Alias(type_="azure-nextgen:network/v20201101:NatRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NatRule, __self__).__init__(
             'azure-native:network/latest:NatRule',

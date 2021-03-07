@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * A workspace
- * Latest API Version: 2020-12-01.
+ * Latest API Version: 2021-03-01.
  */
 /** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:synapse:getWorkspace'. */
 export function getWorkspace(args: GetWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceResult> {
@@ -88,6 +88,10 @@ export interface GetWorkspaceResult {
      * The name of the resource
      */
     readonly name: string;
+    /**
+     * Network Settings
+     */
+    readonly networkSettings?: outputs.synapse.latest.NetworkSettingsResponse;
     /**
      * Private endpoint connections to the workspace
      */

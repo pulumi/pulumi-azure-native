@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Subnet in a virtual network resource.
-        /// API Version: 2020-08-01.
+        /// API Version: 2020-11-01.
         /// </summary>
         public static Task<GetSubnetResult> InvokeAsync(GetSubnetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSubnetResult>("azure-native:network:getSubnet", args ?? new GetSubnetArgs(), options.WithVersion());
@@ -63,10 +63,6 @@ namespace Pulumi.AzureNative.Network
         /// List of address prefixes for the subnet.
         /// </summary>
         public readonly ImmutableArray<string> AddressPrefixes;
-        /// <summary>
-        /// Application gateway IP configurations of virtual network resource.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.ApplicationGatewayIPConfigurationResponse> ApplicationGatewayIpConfigurations;
         /// <summary>
         /// An array of references to the delegations on the subnet.
         /// </summary>
@@ -143,18 +139,12 @@ namespace Pulumi.AzureNative.Network
         /// An array of service endpoints.
         /// </summary>
         public readonly ImmutableArray<Outputs.ServiceEndpointPropertiesFormatResponse> ServiceEndpoints;
-        /// <summary>
-        /// Resource type.
-        /// </summary>
-        public readonly string? Type;
 
         [OutputConstructor]
         private GetSubnetResult(
             string? addressPrefix,
 
             ImmutableArray<string> addressPrefixes,
-
-            ImmutableArray<Outputs.ApplicationGatewayIPConfigurationResponse> applicationGatewayIpConfigurations,
 
             ImmutableArray<Outputs.DelegationResponse> delegations,
 
@@ -192,13 +182,10 @@ namespace Pulumi.AzureNative.Network
 
             ImmutableArray<Outputs.ServiceEndpointPolicyResponse> serviceEndpointPolicies,
 
-            ImmutableArray<Outputs.ServiceEndpointPropertiesFormatResponse> serviceEndpoints,
-
-            string? type)
+            ImmutableArray<Outputs.ServiceEndpointPropertiesFormatResponse> serviceEndpoints)
         {
             AddressPrefix = addressPrefix;
             AddressPrefixes = addressPrefixes;
-            ApplicationGatewayIpConfigurations = applicationGatewayIpConfigurations;
             Delegations = delegations;
             Etag = etag;
             Id = id;
@@ -218,7 +205,6 @@ namespace Pulumi.AzureNative.Network
             ServiceAssociationLinks = serviceAssociationLinks;
             ServiceEndpointPolicies = serviceEndpointPolicies;
             ServiceEndpoints = serviceEndpoints;
-            Type = type;
         }
     }
 }

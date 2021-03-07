@@ -93,6 +93,18 @@ namespace Pulumi.AzureNative.Network.Inputs
         [Input("sharedKey")]
         public Input<string>? SharedKey { get; set; }
 
+        [Input("trafficSelectorPolicies")]
+        private InputList<Inputs.TrafficSelectorPolicyArgs>? _trafficSelectorPolicies;
+
+        /// <summary>
+        /// The Traffic Selector Policies to be considered by this connection.
+        /// </summary>
+        public InputList<Inputs.TrafficSelectorPolicyArgs> TrafficSelectorPolicies
+        {
+            get => _trafficSelectorPolicies ?? (_trafficSelectorPolicies = new InputList<Inputs.TrafficSelectorPolicyArgs>());
+            set => _trafficSelectorPolicies = value;
+        }
+
         /// <summary>
         /// Use local azure ip to initiate connection.
         /// </summary>

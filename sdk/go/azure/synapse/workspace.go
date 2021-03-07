@@ -12,7 +12,7 @@ import (
 )
 
 // A workspace
-// API Version: 2020-12-01.
+// API Version: 2021-03-01.
 type Workspace struct {
 	pulumi.CustomResourceState
 
@@ -38,6 +38,8 @@ type Workspace struct {
 	ManagedVirtualNetworkSettings ManagedVirtualNetworkSettingsResponsePtrOutput `pulumi:"managedVirtualNetworkSettings"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Network Settings
+	NetworkSettings NetworkSettingsResponsePtrOutput `pulumi:"networkSettings"`
 	// Private endpoint connections to the workspace
 	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayOutput `pulumi:"privateEndpointConnections"`
 	// Resource provisioning state
@@ -144,6 +146,8 @@ type workspaceState struct {
 	ManagedVirtualNetworkSettings *ManagedVirtualNetworkSettingsResponse `pulumi:"managedVirtualNetworkSettings"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
+	// Network Settings
+	NetworkSettings *NetworkSettingsResponse `pulumi:"networkSettings"`
 	// Private endpoint connections to the workspace
 	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
 	// Resource provisioning state
@@ -189,6 +193,8 @@ type WorkspaceState struct {
 	ManagedVirtualNetworkSettings ManagedVirtualNetworkSettingsResponsePtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
+	// Network Settings
+	NetworkSettings NetworkSettingsResponsePtrInput
 	// Private endpoint connections to the workspace
 	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayInput
 	// Resource provisioning state
@@ -232,6 +238,8 @@ type workspaceArgs struct {
 	ManagedVirtualNetwork *string `pulumi:"managedVirtualNetwork"`
 	// Managed Virtual Network Settings
 	ManagedVirtualNetworkSettings *ManagedVirtualNetworkSettings `pulumi:"managedVirtualNetworkSettings"`
+	// Network Settings
+	NetworkSettings *NetworkSettings `pulumi:"networkSettings"`
 	// Private endpoint connections to the workspace
 	PrivateEndpointConnections []PrivateEndpointConnectionType `pulumi:"privateEndpointConnections"`
 	// Purview Configuration
@@ -270,6 +278,8 @@ type WorkspaceArgs struct {
 	ManagedVirtualNetwork pulumi.StringPtrInput
 	// Managed Virtual Network Settings
 	ManagedVirtualNetworkSettings ManagedVirtualNetworkSettingsPtrInput
+	// Network Settings
+	NetworkSettings NetworkSettingsPtrInput
 	// Private endpoint connections to the workspace
 	PrivateEndpointConnections PrivateEndpointConnectionTypeArrayInput
 	// Purview Configuration

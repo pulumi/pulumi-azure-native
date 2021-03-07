@@ -58,10 +58,6 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// </summary>
         public readonly string MacAddress;
         /// <summary>
-        /// Migration phase of Network Interface resource.
-        /// </summary>
-        public readonly string? MigrationPhase;
-        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
@@ -70,10 +66,6 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// </summary>
         public readonly Outputs.NetworkSecurityGroupResponse? NetworkSecurityGroup;
         /// <summary>
-        /// Type of Network Interface resource.
-        /// </summary>
-        public readonly string? NicType;
-        /// <summary>
         /// Whether this is a primary network interface on a virtual machine.
         /// </summary>
         public readonly bool Primary;
@@ -81,10 +73,6 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// A reference to the private endpoint to which the network interface is linked.
         /// </summary>
         public readonly Outputs.PrivateEndpointResponse PrivateEndpoint;
-        /// <summary>
-        /// Privatelinkservice of the network interface resource.
-        /// </summary>
-        public readonly Outputs.PrivateLinkServiceResponse? PrivateLinkService;
         /// <summary>
         /// The provisioning state of the network interface resource.
         /// </summary>
@@ -134,19 +122,13 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             string macAddress,
 
-            string? migrationPhase,
-
             string name,
 
             Outputs.NetworkSecurityGroupResponse? networkSecurityGroup,
 
-            string? nicType,
-
             bool primary,
 
             Outputs.PrivateEndpointResponse privateEndpoint,
-
-            Outputs.PrivateLinkServiceResponse? privateLinkService,
 
             string provisioningState,
 
@@ -171,13 +153,10 @@ namespace Pulumi.AzureNative.Network.Outputs
             IpConfigurations = ipConfigurations;
             Location = location;
             MacAddress = macAddress;
-            MigrationPhase = migrationPhase;
             Name = name;
             NetworkSecurityGroup = networkSecurityGroup;
-            NicType = nicType;
             Primary = primary;
             PrivateEndpoint = privateEndpoint;
-            PrivateLinkService = privateLinkService;
             ProvisioningState = provisioningState;
             ResourceGuid = resourceGuid;
             Tags = tags;

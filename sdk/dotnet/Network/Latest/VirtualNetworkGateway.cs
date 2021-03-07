@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network.Latest
 {
     /// <summary>
     /// A common class for general resource information.
-    /// Latest API Version: 2020-08-01.
+    /// Latest API Version: 2020-11-01.
     /// </summary>
     [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:VirtualNetworkGateway'.")]
     [AzureNativeResourceType("azure-native:network/latest:VirtualNetworkGateway")]
@@ -58,12 +58,6 @@ namespace Pulumi.AzureNative.Network.Latest
         /// </summary>
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
-
-        /// <summary>
-        /// The extended location of type local virtual network gateway.
-        /// </summary>
-        [Output("extendedLocation")]
-        public Output<Outputs.ExtendedLocationResponse?> ExtendedLocation { get; private set; } = null!;
 
         /// <summary>
         /// The reference to the LocalNetworkGateway resource which represents local network site having default routes. Assign Null value in case of removing existing default site setting.
@@ -134,8 +128,14 @@ namespace Pulumi.AzureNative.Network.Latest
         /// <summary>
         /// MAS FIJI customer vnet resource id. VirtualNetworkGateway of type local gateway is associated with the customer vnet.
         /// </summary>
-        [Output("virtualNetworkExtendedLocationResourceId")]
-        public Output<string?> VirtualNetworkExtendedLocationResourceId { get; private set; } = null!;
+        [Output("vNetExtendedLocationResourceId")]
+        public Output<string?> VNetExtendedLocationResourceId { get; private set; } = null!;
+
+        /// <summary>
+        /// The extended location of type local virtual network gateway.
+        /// </summary>
+        [Output("virtualNetworkExtendedLocation")]
+        public Output<Outputs.ExtendedLocationResponse?> VirtualNetworkExtendedLocation { get; private set; } = null!;
 
         /// <summary>
         /// The reference to the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
@@ -251,6 +251,8 @@ namespace Pulumi.AzureNative.Network.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:VirtualNetworkGateway"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200801:VirtualNetworkGateway"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:VirtualNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20201101:VirtualNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20201101:VirtualNetworkGateway"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -309,12 +311,6 @@ namespace Pulumi.AzureNative.Network.Latest
         /// </summary>
         [Input("enablePrivateIpAddress")]
         public Input<bool>? EnablePrivateIpAddress { get; set; }
-
-        /// <summary>
-        /// The extended location of type local virtual network gateway.
-        /// </summary>
-        [Input("extendedLocation")]
-        public Input<Inputs.ExtendedLocationArgs>? ExtendedLocation { get; set; }
 
         /// <summary>
         /// The reference to the LocalNetworkGateway resource which represents local network site having default routes. Assign Null value in case of removing existing default site setting.
@@ -379,8 +375,14 @@ namespace Pulumi.AzureNative.Network.Latest
         /// <summary>
         /// MAS FIJI customer vnet resource id. VirtualNetworkGateway of type local gateway is associated with the customer vnet.
         /// </summary>
-        [Input("virtualNetworkExtendedLocationResourceId")]
-        public Input<string>? VirtualNetworkExtendedLocationResourceId { get; set; }
+        [Input("vNetExtendedLocationResourceId")]
+        public Input<string>? VNetExtendedLocationResourceId { get; set; }
+
+        /// <summary>
+        /// The extended location of type local virtual network gateway.
+        /// </summary>
+        [Input("virtualNetworkExtendedLocation")]
+        public Input<Inputs.ExtendedLocationArgs>? VirtualNetworkExtendedLocation { get; set; }
 
         /// <summary>
         /// The name of the virtual network gateway.

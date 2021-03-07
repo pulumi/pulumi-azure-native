@@ -8,7 +8,7 @@ import (
 )
 
 // Bastion Host resource.
-// API Version: 2020-08-01.
+// API Version: 2020-11-01.
 func LookupBastionHost(ctx *pulumi.Context, args *LookupBastionHostArgs, opts ...pulumi.InvokeOption) (*LookupBastionHostResult, error) {
 	var rv LookupBastionHostResult
 	err := ctx.Invoke("azure-native:network:getBastionHost", args, &rv, opts...)

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network.Latest
 {
     /// <summary>
     /// LoadBalancer resource.
-    /// Latest API Version: 2020-08-01.
+    /// Latest API Version: 2020-11-01.
     /// </summary>
     [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:LoadBalancer'.")]
     [AzureNativeResourceType("azure-native:network/latest:LoadBalancer")]
@@ -211,6 +211,8 @@ namespace Pulumi.AzureNative.Network.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:LoadBalancer"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200801:LoadBalancer"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:LoadBalancer"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20201101:LoadBalancer"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20201101:LoadBalancer"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

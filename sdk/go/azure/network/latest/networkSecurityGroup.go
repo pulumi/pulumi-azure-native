@@ -12,7 +12,7 @@ import (
 )
 
 // NetworkSecurityGroup resource.
-// Latest API Version: 2020-08-01.
+// Latest API Version: 2020-11-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:NetworkSecurityGroup'.
 type NetworkSecurityGroup struct {
@@ -273,6 +273,12 @@ func NewNetworkSecurityGroup(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200801:NetworkSecurityGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20201101:NetworkSecurityGroup"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20201101:NetworkSecurityGroup"),
 		},
 	})
 	opts = append(opts, aliases)

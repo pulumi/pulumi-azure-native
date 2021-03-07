@@ -58,6 +58,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20201005PrivatePreview
 
         public static CreateMode Default { get; } = new CreateMode("Default");
         public static CreateMode PointInTimeRestore { get; } = new CreateMode("PointInTimeRestore");
+        public static CreateMode ReadReplica { get; } = new CreateMode("ReadReplica");
 
         public static bool operator ==(CreateMode left, CreateMode right) => left.Equals(right);
         public static bool operator !=(CreateMode left, CreateMode right) => !left.Equals(right);

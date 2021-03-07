@@ -12,7 +12,7 @@ import (
 )
 
 // Virtual Appliance Site resource.
-// Latest API Version: 2020-08-01.
+// Latest API Version: 2020-11-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:VirtualHubBgpConnection'.
 type VirtualHubBgpConnection struct {
@@ -80,6 +80,12 @@ func NewVirtualHubBgpConnection(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200801:VirtualHubBgpConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20201101:VirtualHubBgpConnection"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20201101:VirtualHubBgpConnection"),
 		},
 	})
 	opts = append(opts, aliases)

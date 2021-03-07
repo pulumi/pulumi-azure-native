@@ -180,7 +180,7 @@ def get_local_network_gateway(local_network_gateway_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLocalNetworkGatewayResult:
     """
     A common class for general resource information.
-    API Version: 2020-08-01.
+    API Version: 2020-11-01.
 
 
     :param str local_network_gateway_name: The name of the local network gateway.

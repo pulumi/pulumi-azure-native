@@ -158,7 +158,7 @@ def get_ddos_custom_policy(ddos_custom_policy_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDdosCustomPolicyResult:
     """
     A DDoS custom policy in a resource group.
-    Latest API Version: 2020-08-01.
+    Latest API Version: 2020-11-01.
 
 
     :param str ddos_custom_policy_name: The name of the DDoS custom policy.

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Subnet in a virtual network resource.
- * API Version: 2020-08-01.
+ * API Version: 2020-11-01.
  */
 export function getSubnet(args: GetSubnetArgs, opts?: pulumi.InvokeOptions): Promise<GetSubnetResult> {
     if (!opts) {
@@ -56,10 +56,6 @@ export interface GetSubnetResult {
      * List of address prefixes for the subnet.
      */
     readonly addressPrefixes?: string[];
-    /**
-     * Application gateway IP configurations of virtual network resource.
-     */
-    readonly applicationGatewayIpConfigurations?: outputs.network.ApplicationGatewayIPConfigurationResponse[];
     /**
      * An array of references to the delegations on the subnet.
      */
@@ -136,8 +132,4 @@ export interface GetSubnetResult {
      * An array of service endpoints.
      */
     readonly serviceEndpoints?: outputs.network.ServiceEndpointPropertiesFormatResponse[];
-    /**
-     * Resource type.
-     */
-    readonly type?: string;
 }

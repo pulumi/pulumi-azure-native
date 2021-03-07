@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * VpnConnection Resource.
- * API Version: 2020-08-01.
+ * API Version: 2020-11-01.
  */
 export function getVpnConnection(args: GetVpnConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetVpnConnectionResult> {
     if (!opts) {
@@ -111,6 +111,10 @@ export interface GetVpnConnectionResult {
      * SharedKey for the vpn connection.
      */
     readonly sharedKey?: string;
+    /**
+     * The Traffic Selector Policies to be considered by this connection.
+     */
+    readonly trafficSelectorPolicies?: outputs.network.TrafficSelectorPolicyResponse[];
     /**
      * Use local azure ip to initiate connection.
      */

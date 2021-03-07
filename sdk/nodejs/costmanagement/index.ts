@@ -21,6 +21,7 @@ export * from "./getReportByDepartment";
 export * from "./getReportByResourceGroupName";
 export * from "./getReportConfig";
 export * from "./getReportConfigByResourceGroupName";
+export * from "./getSetting";
 export * from "./getView";
 export * from "./getViewByScope";
 export * from "./report";
@@ -29,6 +30,7 @@ export * from "./reportByDepartment";
 export * from "./reportByResourceGroupName";
 export * from "./reportConfig";
 export * from "./reportConfigByResourceGroupName";
+export * from "./setting";
 export * from "./view";
 export * from "./viewByScope";
 
@@ -74,6 +76,7 @@ import { ReportByDepartment } from "./reportByDepartment";
 import { ReportByResourceGroupName } from "./reportByResourceGroupName";
 import { ReportConfig } from "./reportConfig";
 import { ReportConfigByResourceGroupName } from "./reportConfigByResourceGroupName";
+import { Setting } from "./setting";
 import { View } from "./view";
 import { ViewByScope } from "./viewByScope";
 
@@ -103,6 +106,8 @@ const _module = {
                 return new ReportConfig(name, <any>undefined, { urn })
             case "azure-native:costmanagement:ReportConfigByResourceGroupName":
                 return new ReportConfigByResourceGroupName(name, <any>undefined, { urn })
+            case "azure-native:costmanagement:Setting":
+                return new Setting(name, <any>undefined, { urn })
             case "azure-native:costmanagement:View":
                 return new View(name, <any>undefined, { urn })
             case "azure-native:costmanagement:ViewByScope":

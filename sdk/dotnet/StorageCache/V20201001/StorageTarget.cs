@@ -111,6 +111,8 @@ namespace Pulumi.AzureNative.StorageCache.V20201001
                     new Pulumi.Alias { Type = "azure-nextgen:storagecache/v20191101:StorageTarget"},
                     new Pulumi.Alias { Type = "azure-native:storagecache/v20200301:StorageTarget"},
                     new Pulumi.Alias { Type = "azure-nextgen:storagecache/v20200301:StorageTarget"},
+                    new Pulumi.Alias { Type = "azure-native:storagecache/v20210301:StorageTarget"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storagecache/v20210301:StorageTarget"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

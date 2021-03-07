@@ -12,7 +12,7 @@ import (
 )
 
 // Private link service resource.
-// API Version: 2020-08-01.
+// API Version: 2020-11-01.
 type PrivateLinkService struct {
 	pulumi.CustomResourceState
 
@@ -147,6 +147,12 @@ func NewPrivateLinkService(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200801:PrivateLinkService"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20201101:PrivateLinkService"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20201101:PrivateLinkService"),
 		},
 	})
 	opts = append(opts, aliases)

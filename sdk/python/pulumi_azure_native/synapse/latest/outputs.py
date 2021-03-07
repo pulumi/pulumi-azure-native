@@ -40,6 +40,7 @@ __all__ = [
     'ManagedIntegrationRuntimeResponse',
     'ManagedIntegrationRuntimeStatusResponseResult',
     'ManagedVirtualNetworkSettingsResponse',
+    'NetworkSettingsResponse',
     'PrivateEndpointConnectionForPrivateLinkHubBasicResponse',
     'PrivateEndpointConnectionResponse',
     'PrivateEndpointResponse',
@@ -1629,6 +1630,32 @@ class ManagedVirtualNetworkSettingsResponse(dict):
         Prevent Data Exfiltration
         """
         return pulumi.get(self, "prevent_data_exfiltration")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class NetworkSettingsResponse(dict):
+    """
+    Network Settings
+    """
+    def __init__(__self__, *,
+                 public_network_access: Optional[str] = None):
+        """
+        Network Settings
+        :param str public_network_access: Enable or Disable pubic network access to workspace
+        """
+        if public_network_access is not None:
+            pulumi.set(__self__, "public_network_access", public_network_access)
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[str]:
+        """
+        Enable or Disable pubic network access to workspace
+        """
+        return pulumi.get(self, "public_network_access")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

@@ -8,7 +8,7 @@ import (
 )
 
 // Class representing a Traffic Manager profile.
-// Latest API Version: 2018-04-01.
+// Latest API Version: 2018-08-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getProfile'.
 func LookupProfile(ctx *pulumi.Context, args *LookupProfileArgs, opts ...pulumi.InvokeOption) (*LookupProfileResult, error) {
@@ -29,6 +29,8 @@ type LookupProfileArgs struct {
 
 // Class representing a Traffic Manager profile.
 type LookupProfileResult struct {
+	// The list of allowed endpoint record types.
+	AllowedEndpointRecordTypes []string `pulumi:"allowedEndpointRecordTypes"`
 	// The DNS settings of the Traffic Manager profile.
 	DnsConfig *DnsConfigResponse `pulumi:"dnsConfig"`
 	// The list of endpoints in the Traffic Manager profile.

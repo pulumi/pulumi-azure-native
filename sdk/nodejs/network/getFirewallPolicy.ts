@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * FirewallPolicy Resource.
- * API Version: 2020-08-01.
+ * API Version: 2020-11-01.
  */
 export function getFirewallPolicy(args: GetFirewallPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallPolicyResult> {
     if (!opts) {
@@ -72,6 +72,10 @@ export interface GetFirewallPolicyResult {
      */
     readonly identity?: outputs.network.ManagedServiceIdentityResponse;
     /**
+     * Insights on Firewall Policy.
+     */
+    readonly insights?: outputs.network.FirewallPolicyInsightsResponse;
+    /**
      * The configuration for Intrusion detection.
      */
     readonly intrusionDetection?: outputs.network.FirewallPolicyIntrusionDetectionResponse;
@@ -95,6 +99,10 @@ export interface GetFirewallPolicyResult {
      * The Firewall Policy SKU.
      */
     readonly sku?: outputs.network.FirewallPolicySkuResponse;
+    /**
+     * The private IP addresses/IP ranges to which traffic will not be SNAT.
+     */
+    readonly snat?: outputs.network.FirewallPolicySNATResponse;
     /**
      * Resource tags.
      */

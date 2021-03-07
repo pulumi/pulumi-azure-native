@@ -99,7 +99,7 @@ def get_private_dns_zone_group(private_dns_zone_group_name: Optional[str] = None
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateDnsZoneGroupResult:
     """
     Private dns zone group resource.
-    Latest API Version: 2020-08-01.
+    Latest API Version: 2020-11-01.
 
 
     :param str private_dns_zone_group_name: The name of the private dns zone group.

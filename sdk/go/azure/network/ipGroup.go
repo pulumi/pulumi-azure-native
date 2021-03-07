@@ -12,7 +12,7 @@ import (
 )
 
 // The IpGroups resource information.
-// API Version: 2020-08-01.
+// API Version: 2020-11-01.
 type IpGroup struct {
 	pulumi.CustomResourceState
 
@@ -109,6 +109,12 @@ func NewIpGroup(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200801:IpGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20201101:IpGroup"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20201101:IpGroup"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Workload group operations for a sql pool
- * API Version: 2020-12-01.
+ * API Version: 2021-03-01.
  */
 export function getSqlPoolWorkloadGroup(args: GetSqlPoolWorkloadGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlPoolWorkloadGroupResult> {
     if (!opts) {

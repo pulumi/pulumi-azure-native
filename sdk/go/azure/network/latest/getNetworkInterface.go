@@ -8,7 +8,7 @@ import (
 )
 
 // A network interface in a resource group.
-// Latest API Version: 2020-08-01.
+// Latest API Version: 2020-11-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:network:getNetworkInterface'.
 func LookupNetworkInterface(ctx *pulumi.Context, args *LookupNetworkInterfaceArgs, opts ...pulumi.InvokeOption) (*LookupNetworkInterfaceResult, error) {
@@ -53,20 +53,14 @@ type LookupNetworkInterfaceResult struct {
 	Location *string `pulumi:"location"`
 	// The MAC address of the network interface.
 	MacAddress string `pulumi:"macAddress"`
-	// Migration phase of Network Interface resource.
-	MigrationPhase *string `pulumi:"migrationPhase"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// The reference to the NetworkSecurityGroup resource.
 	NetworkSecurityGroup *NetworkSecurityGroupResponse `pulumi:"networkSecurityGroup"`
-	// Type of Network Interface resource.
-	NicType *string `pulumi:"nicType"`
 	// Whether this is a primary network interface on a virtual machine.
 	Primary bool `pulumi:"primary"`
 	// A reference to the private endpoint to which the network interface is linked.
 	PrivateEndpoint PrivateEndpointResponse `pulumi:"privateEndpoint"`
-	// Privatelinkservice of the network interface resource.
-	PrivateLinkService *PrivateLinkServiceResponse `pulumi:"privateLinkService"`
 	// The provisioning state of the network interface resource.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The resource GUID property of the network interface resource.

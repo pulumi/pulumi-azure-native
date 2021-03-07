@@ -12,7 +12,7 @@ import (
 )
 
 // Private dns zone group resource.
-// Latest API Version: 2020-08-01.
+// Latest API Version: 2020-11-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:network:PrivateDnsZoneGroup'.
 type PrivateDnsZoneGroup struct {
@@ -86,6 +86,12 @@ func NewPrivateDnsZoneGroup(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/v20200801:PrivateDnsZoneGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20201101:PrivateDnsZoneGroup"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20201101:PrivateDnsZoneGroup"),
 		},
 	})
 	opts = append(opts, aliases)

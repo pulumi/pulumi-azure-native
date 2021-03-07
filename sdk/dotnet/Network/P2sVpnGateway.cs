@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// P2SVpnGateway Resource.
-    /// API Version: 2020-08-01.
+    /// API Version: 2020-11-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:P2sVpnGateway")]
     public partial class P2sVpnGateway : Pulumi.CustomResource
@@ -158,6 +158,8 @@ namespace Pulumi.AzureNative.Network
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:P2sVpnGateway"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200801:P2sVpnGateway"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:P2sVpnGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20201101:P2sVpnGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20201101:P2sVpnGateway"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

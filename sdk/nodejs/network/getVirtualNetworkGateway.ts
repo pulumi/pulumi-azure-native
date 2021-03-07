@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A common class for general resource information.
- * API Version: 2020-08-01.
+ * API Version: 2020-11-01.
  */
 export function getVirtualNetworkGateway(args: GetVirtualNetworkGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkGatewayResult> {
     if (!opts) {
@@ -67,10 +67,6 @@ export interface GetVirtualNetworkGatewayResult {
      */
     readonly etag: string;
     /**
-     * The extended location of type local virtual network gateway.
-     */
-    readonly extendedLocation?: outputs.network.ExtendedLocationResponse;
-    /**
      * The reference to the LocalNetworkGateway resource which represents local network site having default routes. Assign Null value in case of removing existing default site setting.
      */
     readonly gatewayDefaultSite?: outputs.network.SubResourceResponse;
@@ -121,7 +117,11 @@ export interface GetVirtualNetworkGatewayResult {
     /**
      * MAS FIJI customer vnet resource id. VirtualNetworkGateway of type local gateway is associated with the customer vnet.
      */
-    readonly virtualNetworkExtendedLocationResourceId?: string;
+    readonly vNetExtendedLocationResourceId?: string;
+    /**
+     * The extended location of type local virtual network gateway.
+     */
+    readonly virtualNetworkExtendedLocation?: outputs.network.ExtendedLocationResponse;
     /**
      * The reference to the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
      */

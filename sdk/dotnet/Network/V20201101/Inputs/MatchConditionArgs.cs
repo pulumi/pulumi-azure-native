@@ -11,55 +11,55 @@ namespace Pulumi.AzureNative.Network.V20201101.Inputs
 {
 
     /// <summary>
-    /// Define a match condition.
+    /// Define match conditions.
     /// </summary>
     public sealed class MatchConditionArgs : Pulumi.ResourceArgs
     {
-        [Input("matchValue", required: true)]
-        private InputList<string>? _matchValue;
+        [Input("matchValues", required: true)]
+        private InputList<string>? _matchValues;
 
         /// <summary>
-        /// List of possible match values.
+        /// Match value.
         /// </summary>
-        public InputList<string> MatchValue
+        public InputList<string> MatchValues
         {
-            get => _matchValue ?? (_matchValue = new InputList<string>());
-            set => _matchValue = value;
+            get => _matchValues ?? (_matchValues = new InputList<string>());
+            set => _matchValues = value;
+        }
+
+        [Input("matchVariables", required: true)]
+        private InputList<Inputs.MatchVariableArgs>? _matchVariables;
+
+        /// <summary>
+        /// List of match variables.
+        /// </summary>
+        public InputList<Inputs.MatchVariableArgs> MatchVariables
+        {
+            get => _matchVariables ?? (_matchVariables = new InputList<Inputs.MatchVariableArgs>());
+            set => _matchVariables = value;
         }
 
         /// <summary>
-        /// Request variable to compare with.
+        /// Whether this is negate condition or not.
         /// </summary>
-        [Input("matchVariable", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.Network.V20201101.MatchVariable> MatchVariable { get; set; } = null!;
+        [Input("negationConditon")]
+        public Input<bool>? NegationConditon { get; set; }
 
         /// <summary>
-        /// Describes if the result of this condition should be negated.
-        /// </summary>
-        [Input("negateCondition")]
-        public Input<bool>? NegateCondition { get; set; }
-
-        /// <summary>
-        /// Comparison type to use for matching with the variable value.
+        /// The operator to be matched.
         /// </summary>
         [Input("operator", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.Network.V20201101.Operator> Operator { get; set; } = null!;
-
-        /// <summary>
-        /// Match against a specific key from the QueryString, PostArgs, RequestHeader or Cookies variables. Default is null.
-        /// </summary>
-        [Input("selector")]
-        public Input<string>? Selector { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.V20201101.WebApplicationFirewallOperator> Operator { get; set; } = null!;
 
         [Input("transforms")]
-        private InputList<Union<string, Pulumi.AzureNative.Network.V20201101.TransformType>>? _transforms;
+        private InputList<Union<string, Pulumi.AzureNative.Network.V20201101.WebApplicationFirewallTransform>>? _transforms;
 
         /// <summary>
         /// List of transforms.
         /// </summary>
-        public InputList<Union<string, Pulumi.AzureNative.Network.V20201101.TransformType>> Transforms
+        public InputList<Union<string, Pulumi.AzureNative.Network.V20201101.WebApplicationFirewallTransform>> Transforms
         {
-            get => _transforms ?? (_transforms = new InputList<Union<string, Pulumi.AzureNative.Network.V20201101.TransformType>>());
+            get => _transforms ?? (_transforms = new InputList<Union<string, Pulumi.AzureNative.Network.V20201101.WebApplicationFirewallTransform>>());
             set => _transforms = value;
         }
 

@@ -288,7 +288,7 @@ def get_express_route_circuit(circuit_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExpressRouteCircuitResult:
     """
     ExpressRouteCircuit resource.
-    API Version: 2020-08-01.
+    API Version: 2020-11-01.
 
 
     :param str circuit_name: The name of express route circuit.

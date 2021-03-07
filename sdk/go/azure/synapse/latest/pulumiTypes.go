@@ -7562,6 +7562,274 @@ func (o ManagedVirtualNetworkSettingsResponsePtrOutput) PreventDataExfiltration(
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Network Settings
+type NetworkSettings struct {
+	// Enable or Disable pubic network access to workspace
+	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
+}
+
+// NetworkSettingsInput is an input type that accepts NetworkSettingsArgs and NetworkSettingsOutput values.
+// You can construct a concrete instance of `NetworkSettingsInput` via:
+//
+//          NetworkSettingsArgs{...}
+type NetworkSettingsInput interface {
+	pulumi.Input
+
+	ToNetworkSettingsOutput() NetworkSettingsOutput
+	ToNetworkSettingsOutputWithContext(context.Context) NetworkSettingsOutput
+}
+
+// Network Settings
+type NetworkSettingsArgs struct {
+	// Enable or Disable pubic network access to workspace
+	PublicNetworkAccess pulumi.StringPtrInput `pulumi:"publicNetworkAccess"`
+}
+
+func (NetworkSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkSettings)(nil)).Elem()
+}
+
+func (i NetworkSettingsArgs) ToNetworkSettingsOutput() NetworkSettingsOutput {
+	return i.ToNetworkSettingsOutputWithContext(context.Background())
+}
+
+func (i NetworkSettingsArgs) ToNetworkSettingsOutputWithContext(ctx context.Context) NetworkSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkSettingsOutput)
+}
+
+func (i NetworkSettingsArgs) ToNetworkSettingsPtrOutput() NetworkSettingsPtrOutput {
+	return i.ToNetworkSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i NetworkSettingsArgs) ToNetworkSettingsPtrOutputWithContext(ctx context.Context) NetworkSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkSettingsOutput).ToNetworkSettingsPtrOutputWithContext(ctx)
+}
+
+// NetworkSettingsPtrInput is an input type that accepts NetworkSettingsArgs, NetworkSettingsPtr and NetworkSettingsPtrOutput values.
+// You can construct a concrete instance of `NetworkSettingsPtrInput` via:
+//
+//          NetworkSettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type NetworkSettingsPtrInput interface {
+	pulumi.Input
+
+	ToNetworkSettingsPtrOutput() NetworkSettingsPtrOutput
+	ToNetworkSettingsPtrOutputWithContext(context.Context) NetworkSettingsPtrOutput
+}
+
+type networkSettingsPtrType NetworkSettingsArgs
+
+func NetworkSettingsPtr(v *NetworkSettingsArgs) NetworkSettingsPtrInput {
+	return (*networkSettingsPtrType)(v)
+}
+
+func (*networkSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkSettings)(nil)).Elem()
+}
+
+func (i *networkSettingsPtrType) ToNetworkSettingsPtrOutput() NetworkSettingsPtrOutput {
+	return i.ToNetworkSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *networkSettingsPtrType) ToNetworkSettingsPtrOutputWithContext(ctx context.Context) NetworkSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkSettingsPtrOutput)
+}
+
+// Network Settings
+type NetworkSettingsOutput struct{ *pulumi.OutputState }
+
+func (NetworkSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkSettings)(nil)).Elem()
+}
+
+func (o NetworkSettingsOutput) ToNetworkSettingsOutput() NetworkSettingsOutput {
+	return o
+}
+
+func (o NetworkSettingsOutput) ToNetworkSettingsOutputWithContext(ctx context.Context) NetworkSettingsOutput {
+	return o
+}
+
+func (o NetworkSettingsOutput) ToNetworkSettingsPtrOutput() NetworkSettingsPtrOutput {
+	return o.ToNetworkSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o NetworkSettingsOutput) ToNetworkSettingsPtrOutputWithContext(ctx context.Context) NetworkSettingsPtrOutput {
+	return o.ApplyT(func(v NetworkSettings) *NetworkSettings {
+		return &v
+	}).(NetworkSettingsPtrOutput)
+}
+
+// Enable or Disable pubic network access to workspace
+func (o NetworkSettingsOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkSettings) *string { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
+}
+
+type NetworkSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (NetworkSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkSettings)(nil)).Elem()
+}
+
+func (o NetworkSettingsPtrOutput) ToNetworkSettingsPtrOutput() NetworkSettingsPtrOutput {
+	return o
+}
+
+func (o NetworkSettingsPtrOutput) ToNetworkSettingsPtrOutputWithContext(ctx context.Context) NetworkSettingsPtrOutput {
+	return o
+}
+
+func (o NetworkSettingsPtrOutput) Elem() NetworkSettingsOutput {
+	return o.ApplyT(func(v *NetworkSettings) NetworkSettings { return *v }).(NetworkSettingsOutput)
+}
+
+// Enable or Disable pubic network access to workspace
+func (o NetworkSettingsPtrOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PublicNetworkAccess
+	}).(pulumi.StringPtrOutput)
+}
+
+// Network Settings
+type NetworkSettingsResponse struct {
+	// Enable or Disable pubic network access to workspace
+	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
+}
+
+// NetworkSettingsResponseInput is an input type that accepts NetworkSettingsResponseArgs and NetworkSettingsResponseOutput values.
+// You can construct a concrete instance of `NetworkSettingsResponseInput` via:
+//
+//          NetworkSettingsResponseArgs{...}
+type NetworkSettingsResponseInput interface {
+	pulumi.Input
+
+	ToNetworkSettingsResponseOutput() NetworkSettingsResponseOutput
+	ToNetworkSettingsResponseOutputWithContext(context.Context) NetworkSettingsResponseOutput
+}
+
+// Network Settings
+type NetworkSettingsResponseArgs struct {
+	// Enable or Disable pubic network access to workspace
+	PublicNetworkAccess pulumi.StringPtrInput `pulumi:"publicNetworkAccess"`
+}
+
+func (NetworkSettingsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkSettingsResponse)(nil)).Elem()
+}
+
+func (i NetworkSettingsResponseArgs) ToNetworkSettingsResponseOutput() NetworkSettingsResponseOutput {
+	return i.ToNetworkSettingsResponseOutputWithContext(context.Background())
+}
+
+func (i NetworkSettingsResponseArgs) ToNetworkSettingsResponseOutputWithContext(ctx context.Context) NetworkSettingsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkSettingsResponseOutput)
+}
+
+func (i NetworkSettingsResponseArgs) ToNetworkSettingsResponsePtrOutput() NetworkSettingsResponsePtrOutput {
+	return i.ToNetworkSettingsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i NetworkSettingsResponseArgs) ToNetworkSettingsResponsePtrOutputWithContext(ctx context.Context) NetworkSettingsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkSettingsResponseOutput).ToNetworkSettingsResponsePtrOutputWithContext(ctx)
+}
+
+// NetworkSettingsResponsePtrInput is an input type that accepts NetworkSettingsResponseArgs, NetworkSettingsResponsePtr and NetworkSettingsResponsePtrOutput values.
+// You can construct a concrete instance of `NetworkSettingsResponsePtrInput` via:
+//
+//          NetworkSettingsResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type NetworkSettingsResponsePtrInput interface {
+	pulumi.Input
+
+	ToNetworkSettingsResponsePtrOutput() NetworkSettingsResponsePtrOutput
+	ToNetworkSettingsResponsePtrOutputWithContext(context.Context) NetworkSettingsResponsePtrOutput
+}
+
+type networkSettingsResponsePtrType NetworkSettingsResponseArgs
+
+func NetworkSettingsResponsePtr(v *NetworkSettingsResponseArgs) NetworkSettingsResponsePtrInput {
+	return (*networkSettingsResponsePtrType)(v)
+}
+
+func (*networkSettingsResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkSettingsResponse)(nil)).Elem()
+}
+
+func (i *networkSettingsResponsePtrType) ToNetworkSettingsResponsePtrOutput() NetworkSettingsResponsePtrOutput {
+	return i.ToNetworkSettingsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *networkSettingsResponsePtrType) ToNetworkSettingsResponsePtrOutputWithContext(ctx context.Context) NetworkSettingsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkSettingsResponsePtrOutput)
+}
+
+// Network Settings
+type NetworkSettingsResponseOutput struct{ *pulumi.OutputState }
+
+func (NetworkSettingsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkSettingsResponse)(nil)).Elem()
+}
+
+func (o NetworkSettingsResponseOutput) ToNetworkSettingsResponseOutput() NetworkSettingsResponseOutput {
+	return o
+}
+
+func (o NetworkSettingsResponseOutput) ToNetworkSettingsResponseOutputWithContext(ctx context.Context) NetworkSettingsResponseOutput {
+	return o
+}
+
+func (o NetworkSettingsResponseOutput) ToNetworkSettingsResponsePtrOutput() NetworkSettingsResponsePtrOutput {
+	return o.ToNetworkSettingsResponsePtrOutputWithContext(context.Background())
+}
+
+func (o NetworkSettingsResponseOutput) ToNetworkSettingsResponsePtrOutputWithContext(ctx context.Context) NetworkSettingsResponsePtrOutput {
+	return o.ApplyT(func(v NetworkSettingsResponse) *NetworkSettingsResponse {
+		return &v
+	}).(NetworkSettingsResponsePtrOutput)
+}
+
+// Enable or Disable pubic network access to workspace
+func (o NetworkSettingsResponseOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkSettingsResponse) *string { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
+}
+
+type NetworkSettingsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (NetworkSettingsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkSettingsResponse)(nil)).Elem()
+}
+
+func (o NetworkSettingsResponsePtrOutput) ToNetworkSettingsResponsePtrOutput() NetworkSettingsResponsePtrOutput {
+	return o
+}
+
+func (o NetworkSettingsResponsePtrOutput) ToNetworkSettingsResponsePtrOutputWithContext(ctx context.Context) NetworkSettingsResponsePtrOutput {
+	return o
+}
+
+func (o NetworkSettingsResponsePtrOutput) Elem() NetworkSettingsResponseOutput {
+	return o.ApplyT(func(v *NetworkSettingsResponse) NetworkSettingsResponse { return *v }).(NetworkSettingsResponseOutput)
+}
+
+// Enable or Disable pubic network access to workspace
+func (o NetworkSettingsResponsePtrOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkSettingsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PublicNetworkAccess
+	}).(pulumi.StringPtrOutput)
+}
+
 // A private endpoint connection
 type PrivateEndpointConnectionType struct {
 	// Connection state of the private endpoint connection.
@@ -12666,6 +12934,10 @@ func init() {
 	pulumi.RegisterOutputType(ManagedVirtualNetworkSettingsPtrOutput{})
 	pulumi.RegisterOutputType(ManagedVirtualNetworkSettingsResponseOutput{})
 	pulumi.RegisterOutputType(ManagedVirtualNetworkSettingsResponsePtrOutput{})
+	pulumi.RegisterOutputType(NetworkSettingsOutput{})
+	pulumi.RegisterOutputType(NetworkSettingsPtrOutput{})
+	pulumi.RegisterOutputType(NetworkSettingsResponseOutput{})
+	pulumi.RegisterOutputType(NetworkSettingsResponsePtrOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionTypeOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionTypeArrayOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionForPrivateLinkHubBasicResponseOutput{})

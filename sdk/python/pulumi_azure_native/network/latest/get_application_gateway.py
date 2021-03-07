@@ -494,7 +494,7 @@ def get_application_gateway(application_gateway_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationGatewayResult:
     """
     Application gateway resource.
-    Latest API Version: 2020-08-01.
+    Latest API Version: 2020-11-01.
 
 
     :param str application_gateway_name: The name of the application gateway.
