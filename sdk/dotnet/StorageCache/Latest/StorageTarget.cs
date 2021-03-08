@@ -11,12 +11,18 @@ namespace Pulumi.AzureNative.StorageCache.Latest
 {
     /// <summary>
     /// Type of the Storage Target.
-    /// Latest API Version: 2020-10-01.
+    /// Latest API Version: 2021-03-01.
     /// </summary>
     [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storagecache:StorageTarget'.")]
     [AzureNativeResourceType("azure-native:storagecache/latest:StorageTarget")]
     public partial class StorageTarget : Pulumi.CustomResource
     {
+        /// <summary>
+        /// Properties when targetType is blobNfs.
+        /// </summary>
+        [Output("blobNfs")]
+        public Output<Outputs.BlobNfsTargetResponse?> BlobNfs { get; private set; } = null!;
+
         /// <summary>
         /// Properties when targetType is clfs.
         /// </summary>
@@ -139,6 +145,12 @@ namespace Pulumi.AzureNative.StorageCache.Latest
     public sealed class StorageTargetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Properties when targetType is blobNfs.
+        /// </summary>
+        [Input("blobNfs")]
+        public Input<Inputs.BlobNfsTargetArgs>? BlobNfs { get; set; }
+
+        /// <summary>
         /// Name of Cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
         /// </summary>
         [Input("cacheName", required: true)]
@@ -181,7 +193,7 @@ namespace Pulumi.AzureNative.StorageCache.Latest
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the Storage Target. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
+        /// Name of Storage Target.
         /// </summary>
         [Input("storageTargetName")]
         public Input<string>? StorageTargetName { get; set; }

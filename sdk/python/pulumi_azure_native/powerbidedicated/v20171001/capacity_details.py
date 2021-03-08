@@ -66,6 +66,7 @@ class CapacityDetails(pulumi.CustomResource):
                 raise TypeError("Missing required property 'sku'")
             __props__['sku'] = sku
             __props__['tags'] = tags
+            __props__['mode'] = None
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['state'] = None
@@ -96,6 +97,7 @@ class CapacityDetails(pulumi.CustomResource):
 
         __props__["administration"] = None
         __props__["location"] = None
+        __props__["mode"] = None
         __props__["name"] = None
         __props__["provisioning_state"] = None
         __props__["sku"] = None
@@ -119,6 +121,14 @@ class CapacityDetails(pulumi.CustomResource):
         Location of the PowerBI Dedicated resource.
         """
         return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def mode(self) -> pulumi.Output[str]:
+        """
+        The capacity mode.
+        """
+        return pulumi.get(self, "mode")
 
     @property
     @pulumi.getter

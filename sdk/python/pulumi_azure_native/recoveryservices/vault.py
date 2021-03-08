@@ -31,7 +31,7 @@ class Vault(pulumi.CustomResource):
                  __opts__=None):
         """
         Resource information, as returned by the resource provider.
-        API Version: 2020-10-01.
+        API Version: 2021-01-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -74,7 +74,7 @@ class Vault(pulumi.CustomResource):
             __props__['name'] = None
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:recoveryservices:Vault"), pulumi.Alias(type_="azure-native:recoveryservices/latest:Vault"), pulumi.Alias(type_="azure-nextgen:recoveryservices/latest:Vault"), pulumi.Alias(type_="azure-native:recoveryservices/v20160601:Vault"), pulumi.Alias(type_="azure-nextgen:recoveryservices/v20160601:Vault"), pulumi.Alias(type_="azure-native:recoveryservices/v20200202:Vault"), pulumi.Alias(type_="azure-nextgen:recoveryservices/v20200202:Vault"), pulumi.Alias(type_="azure-native:recoveryservices/v20201001:Vault"), pulumi.Alias(type_="azure-nextgen:recoveryservices/v20201001:Vault")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:recoveryservices:Vault"), pulumi.Alias(type_="azure-native:recoveryservices/latest:Vault"), pulumi.Alias(type_="azure-nextgen:recoveryservices/latest:Vault"), pulumi.Alias(type_="azure-native:recoveryservices/v20160601:Vault"), pulumi.Alias(type_="azure-nextgen:recoveryservices/v20160601:Vault"), pulumi.Alias(type_="azure-native:recoveryservices/v20200202:Vault"), pulumi.Alias(type_="azure-nextgen:recoveryservices/v20200202:Vault"), pulumi.Alias(type_="azure-native:recoveryservices/v20201001:Vault"), pulumi.Alias(type_="azure-nextgen:recoveryservices/v20201001:Vault"), pulumi.Alias(type_="azure-native:recoveryservices/v20210101:Vault"), pulumi.Alias(type_="azure-nextgen:recoveryservices/v20210101:Vault")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Vault, __self__).__init__(
             'azure-native:recoveryservices:Vault',

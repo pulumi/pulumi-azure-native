@@ -20070,6 +20070,7 @@ class ServiceEndpointPolicyResponse(dict):
     """
     def __init__(__self__, *,
                  etag: str,
+                 kind: str,
                  name: str,
                  provisioning_state: str,
                  resource_guid: str,
@@ -20082,6 +20083,7 @@ class ServiceEndpointPolicyResponse(dict):
         """
         Service End point policy resource.
         :param str etag: A unique read-only string that changes whenever the resource is updated.
+        :param str kind: Kind of service endpoint policy. This is metadata used for the Azure portal experience.
         :param str name: Resource name.
         :param str provisioning_state: The provisioning state of the service endpoint policy resource.
         :param str resource_guid: The resource GUID property of the service endpoint policy resource.
@@ -20093,6 +20095,7 @@ class ServiceEndpointPolicyResponse(dict):
         :param Mapping[str, str] tags: Resource tags.
         """
         pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "kind", kind)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         pulumi.set(__self__, "resource_guid", resource_guid)
@@ -20114,6 +20117,14 @@ class ServiceEndpointPolicyResponse(dict):
         A unique read-only string that changes whenever the resource is updated.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> str:
+        """
+        Kind of service endpoint policy. This is metadata used for the Azure portal experience.
+        """
+        return pulumi.get(self, "kind")
 
     @property
     @pulumi.getter

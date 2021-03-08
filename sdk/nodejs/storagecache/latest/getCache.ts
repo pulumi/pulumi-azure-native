@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * A Cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
- * Latest API Version: 2020-10-01.
+ * Latest API Version: 2021-03-01.
  */
 /** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storagecache:getCache'. */
 export function getCache(args: GetCacheArgs, opts?: pulumi.InvokeOptions): Promise<GetCacheResult> {
@@ -101,9 +101,9 @@ export interface GetCacheResult {
      */
     readonly systemData: outputs.storagecache.latest.SystemDataResponse;
     /**
-     * ARM tags as name/value pairs.
+     * Resource tags.
      */
-    readonly tags?: any;
+    readonly tags?: {[key: string]: string};
     /**
      * Type of the Cache; Microsoft.StorageCache/Cache
      */

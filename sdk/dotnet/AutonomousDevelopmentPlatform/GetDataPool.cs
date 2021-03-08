@@ -12,8 +12,8 @@ namespace Pulumi.AzureNative.AutonomousDevelopmentPlatform
     public static class GetDataPool
     {
         /// <summary>
-        /// An ADP Data Pool.
-        /// API Version: 2020-07-01-preview.
+        /// ADP Data Pool
+        /// API Version: 2021-02-01-preview.
         /// </summary>
         public static Task<GetDataPoolResult> InvokeAsync(GetDataPoolArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDataPoolResult>("azure-native:autonomousdevelopmentplatform:getDataPool", args ?? new GetDataPoolArgs(), options.WithVersion());
@@ -23,13 +23,13 @@ namespace Pulumi.AzureNative.AutonomousDevelopmentPlatform
     public sealed class GetDataPoolArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the ADP account.
+        /// The name of the ADP account
         /// </summary>
         [Input("accountName", required: true)]
         public string AccountName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Data Pool.
+        /// The name of the Data Pool
         /// </summary>
         [Input("dataPoolName", required: true)]
         public string DataPoolName { get; set; } = null!;
@@ -58,7 +58,7 @@ namespace Pulumi.AzureNative.AutonomousDevelopmentPlatform
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Gets or sets the collection of locations where Data Pool resources should be created.
+        /// Gets or sets the collection of locations where Data Pool resources should be created
         /// </summary>
         public readonly ImmutableArray<Outputs.DataPoolLocationResponse> Locations;
         /// <summary>
@@ -66,11 +66,11 @@ namespace Pulumi.AzureNative.AutonomousDevelopmentPlatform
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Gets the status of the data pool at the time the operation was called.
+        /// Gets the status of the data pool at the time the operation was called
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// The system meta data relating to this resource.
+        /// The system meta data relating to this resource
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>

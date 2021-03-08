@@ -18,7 +18,7 @@ namespace Pulumi.AzureNative.StorageCache.Latest.Outputs
         /// </summary>
         public readonly string? Target;
         /// <summary>
-        /// Identifies the usage model to be used for this Storage Target. Get choices from .../usageModels
+        /// Identifies the StorageCache usage model to be used for this storage target.
         /// </summary>
         public readonly string? UsageModel;
 

@@ -13524,6 +13524,8 @@ func (o TriggerConditionResponseOutput) ThresholdOperator() pulumi.StringOutput 
 
 // Customer Managed Identity
 type UserAssignedIdentitiesResponse struct {
+	// The client ID of resource.
+	ClientId string `pulumi:"clientId"`
 	// The principal ID of resource identity.
 	PrincipalId string `pulumi:"principalId"`
 	// The tenant ID of resource.
@@ -13543,6 +13545,8 @@ type UserAssignedIdentitiesResponseInput interface {
 
 // Customer Managed Identity
 type UserAssignedIdentitiesResponseArgs struct {
+	// The client ID of resource.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
 	// The principal ID of resource identity.
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
 	// The tenant ID of resource.
@@ -13627,6 +13631,11 @@ func (o UserAssignedIdentitiesResponseOutput) ToUserAssignedIdentitiesResponsePt
 	}).(UserAssignedIdentitiesResponsePtrOutput)
 }
 
+// The client ID of resource.
+func (o UserAssignedIdentitiesResponseOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v UserAssignedIdentitiesResponse) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
 // The principal ID of resource identity.
 func (o UserAssignedIdentitiesResponseOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v UserAssignedIdentitiesResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
@@ -13653,6 +13662,16 @@ func (o UserAssignedIdentitiesResponsePtrOutput) ToUserAssignedIdentitiesRespons
 
 func (o UserAssignedIdentitiesResponsePtrOutput) Elem() UserAssignedIdentitiesResponseOutput {
 	return o.ApplyT(func(v *UserAssignedIdentitiesResponse) UserAssignedIdentitiesResponse { return *v }).(UserAssignedIdentitiesResponseOutput)
+}
+
+// The client ID of resource.
+func (o UserAssignedIdentitiesResponsePtrOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserAssignedIdentitiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClientId
+	}).(pulumi.StringPtrOutput)
 }
 
 // The principal ID of resource identity.

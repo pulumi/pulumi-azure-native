@@ -28,6 +28,12 @@ namespace Pulumi.AzureNative.PowerBIDedicated.V20171001
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
+        /// The capacity mode.
+        /// </summary>
+        [Output("mode")]
+        public Output<string> Mode { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the PowerBI Dedicated resource.
         /// </summary>
         [Output("name")]

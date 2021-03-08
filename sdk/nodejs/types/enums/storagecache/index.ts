@@ -68,6 +68,7 @@ export const StorageTargetType = {
     Nfs3: "nfs3",
     Clfs: "clfs",
     Unknown: "unknown",
+    BlobNfs: "blobNfs",
 } as const;
 
 /**

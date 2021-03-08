@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A Cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
- * API Version: 2020-10-01.
+ * API Version: 2021-03-01.
  */
 export function getCache(args: GetCacheArgs, opts?: pulumi.InvokeOptions): Promise<GetCacheResult> {
     if (!opts) {
@@ -99,9 +99,9 @@ export interface GetCacheResult {
      */
     readonly systemData: outputs.storagecache.SystemDataResponse;
     /**
-     * ARM tags as name/value pairs.
+     * Resource tags.
      */
-    readonly tags?: any;
+    readonly tags?: {[key: string]: string};
     /**
      * Type of the Cache; Microsoft.StorageCache/Cache
      */

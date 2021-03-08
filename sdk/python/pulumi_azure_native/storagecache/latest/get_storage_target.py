@@ -22,7 +22,10 @@ class GetStorageTargetResult:
     """
     Type of the Storage Target.
     """
-    def __init__(__self__, clfs=None, id=None, junctions=None, location=None, name=None, nfs3=None, provisioning_state=None, system_data=None, target_type=None, type=None, unknown=None):
+    def __init__(__self__, blob_nfs=None, clfs=None, id=None, junctions=None, location=None, name=None, nfs3=None, provisioning_state=None, system_data=None, target_type=None, type=None, unknown=None):
+        if blob_nfs and not isinstance(blob_nfs, dict):
+            raise TypeError("Expected argument 'blob_nfs' to be a dict")
+        pulumi.set(__self__, "blob_nfs", blob_nfs)
         if clfs and not isinstance(clfs, dict):
             raise TypeError("Expected argument 'clfs' to be a dict")
         pulumi.set(__self__, "clfs", clfs)
@@ -56,6 +59,14 @@ class GetStorageTargetResult:
         if unknown and not isinstance(unknown, dict):
             raise TypeError("Expected argument 'unknown' to be a dict")
         pulumi.set(__self__, "unknown", unknown)
+
+    @property
+    @pulumi.getter(name="blobNfs")
+    def blob_nfs(self) -> Optional['outputs.BlobNfsTargetResponse']:
+        """
+        Properties when targetType is blobNfs.
+        """
+        return pulumi.get(self, "blob_nfs")
 
     @property
     @pulumi.getter
@@ -152,6 +163,7 @@ class AwaitableGetStorageTargetResult(GetStorageTargetResult):
         if False:
             yield self
         return GetStorageTargetResult(
+            blob_nfs=self.blob_nfs,
             clfs=self.clfs,
             id=self.id,
             junctions=self.junctions,
@@ -171,12 +183,12 @@ def get_storage_target(cache_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStorageTargetResult:
     """
     Type of the Storage Target.
-    Latest API Version: 2020-10-01.
+    Latest API Version: 2021-03-01.
 
 
     :param str cache_name: Name of Cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
     :param str resource_group_name: Target resource group.
-    :param str storage_target_name: Name of the Storage Target. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
+    :param str storage_target_name: Name of Storage Target.
     """
     pulumi.log.warn("""get_storage_target is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storagecache:getStorageTarget'.""")
     __args__ = dict()
@@ -190,6 +202,7 @@ def get_storage_target(cache_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:storagecache/latest:getStorageTarget', __args__, opts=opts, typ=GetStorageTargetResult).value
 
     return AwaitableGetStorageTargetResult(
+        blob_nfs=__ret__.blob_nfs,
         clfs=__ret__.clfs,
         id=__ret__.id,
         junctions=__ret__.junctions,

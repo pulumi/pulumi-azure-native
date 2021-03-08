@@ -14,6 +14,10 @@ namespace Pulumi.AzureNative.StorageCache.Outputs
     public sealed class CacheHealthResponse
     {
         /// <summary>
+        /// Outstanding conditions that need to be investigated and resolved.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ConditionResponse> Conditions;
+        /// <summary>
         /// List of Cache health states.
         /// </summary>
         public readonly string? State;
@@ -24,10 +28,13 @@ namespace Pulumi.AzureNative.StorageCache.Outputs
 
         [OutputConstructor]
         private CacheHealthResponse(
+            ImmutableArray<Outputs.ConditionResponse> conditions,
+
             string? state,
 
             string? statusDescription)
         {
+            Conditions = conditions;
             State = state;
             StatusDescription = statusDescription;
         }

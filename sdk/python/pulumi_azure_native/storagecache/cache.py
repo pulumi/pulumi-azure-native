@@ -30,13 +30,13 @@ class Cache(pulumi.CustomResource):
                  security_settings: Optional[pulumi.Input[pulumi.InputType['CacheSecuritySettingsArgs']]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['CacheSkuArgs']]] = None,
                  subnet: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[Any] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
         """
         A Cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
-        API Version: 2020-10-01.
+        API Version: 2021-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -52,7 +52,7 @@ class Cache(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['CacheSecuritySettingsArgs']] security_settings: Specifies security settings of the cache.
         :param pulumi.Input[pulumi.InputType['CacheSkuArgs']] sku: SKU for the Cache.
         :param pulumi.Input[str] subnet: Subnet used for the Cache.
-        :param Any tags: ARM tags as name/value pairs.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -249,9 +249,9 @@ class Cache(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Any]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        ARM tags as name/value pairs.
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 

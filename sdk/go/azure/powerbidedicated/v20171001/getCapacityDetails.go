@@ -32,6 +32,8 @@ type LookupCapacityDetailsResult struct {
 	Id string `pulumi:"id"`
 	// Location of the PowerBI Dedicated resource.
 	Location string `pulumi:"location"`
+	// The capacity mode.
+	Mode string `pulumi:"mode"`
 	// The name of the PowerBI Dedicated resource.
 	Name string `pulumi:"name"`
 	// The current deployment state of PowerBI Dedicated resource. The provisioningState is to indicate states for resource provisioning.

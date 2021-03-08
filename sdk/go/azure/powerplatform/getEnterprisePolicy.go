@@ -29,7 +29,7 @@ type LookupEnterprisePolicyArgs struct {
 type LookupEnterprisePolicyResult struct {
 	// The encryption settings for a configuration store.
 	Encryption *PropertiesResponseEncryption `pulumi:"encryption"`
-	// ARM resource id of the EnterprisePolicy.
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
 	// The identity of the EnterprisePolicy.
 	Identity *EnterprisePolicyIdentityResponse `pulumi:"identity"`
@@ -37,12 +37,12 @@ type LookupEnterprisePolicyResult struct {
 	Location string `pulumi:"location"`
 	// Settings concerning lockbox.
 	Lockbox *PropertiesResponseLockbox `pulumi:"lockbox"`
-	// Name of the EnterprisePolicy.
+	// The name of the resource
 	Name string `pulumi:"name"`
 	// Metadata pertaining to creation and last modification of the resource.
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 }

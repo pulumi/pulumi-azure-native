@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Type of the Storage Target.
- * API Version: 2020-10-01.
+ * API Version: 2021-03-01.
  */
 export function getStorageTarget(args: GetStorageTargetArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageTargetResult> {
     if (!opts) {
@@ -34,7 +34,7 @@ export interface GetStorageTargetArgs {
      */
     readonly resourceGroupName: string;
     /**
-     * Name of the Storage Target. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
+     * Name of Storage Target.
      */
     readonly storageTargetName: string;
 }
@@ -43,6 +43,10 @@ export interface GetStorageTargetArgs {
  * Type of the Storage Target.
  */
 export interface GetStorageTargetResult {
+    /**
+     * Properties when targetType is blobNfs.
+     */
+    readonly blobNfs?: outputs.storagecache.BlobNfsTargetResponse;
     /**
      * Properties when targetType is clfs.
      */

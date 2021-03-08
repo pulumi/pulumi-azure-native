@@ -14,9 +14,21 @@ namespace Pulumi.AzureNative.StorageCache.Latest.Outputs
     public sealed class CacheNetworkSettingsResponse
     {
         /// <summary>
+        /// DNS search domain
+        /// </summary>
+        public readonly string? DnsSearchDomain;
+        /// <summary>
+        /// DNS servers for the cache to use.  It will be set from the network configuration if no value is provided.
+        /// </summary>
+        public readonly ImmutableArray<string> DnsServers;
+        /// <summary>
         /// The IPv4 maximum transmission unit configured for the subnet.
         /// </summary>
         public readonly int? Mtu;
+        /// <summary>
+        /// NTP server IP Address or FQDN for the cache to use. The default is time.windows.com.
+        /// </summary>
+        public readonly string? NtpServer;
         /// <summary>
         /// Array of additional IP addresses used by this Cache.
         /// </summary>
@@ -24,11 +36,20 @@ namespace Pulumi.AzureNative.StorageCache.Latest.Outputs
 
         [OutputConstructor]
         private CacheNetworkSettingsResponse(
+            string? dnsSearchDomain,
+
+            ImmutableArray<string> dnsServers,
+
             int? mtu,
+
+            string? ntpServer,
 
             ImmutableArray<string> utilityAddresses)
         {
+            DnsSearchDomain = dnsSearchDomain;
+            DnsServers = dnsServers;
             Mtu = mtu;
+            NtpServer = ntpServer;
             UtilityAddresses = utilityAddresses;
         }
     }

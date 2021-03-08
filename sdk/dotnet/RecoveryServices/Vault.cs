@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.RecoveryServices
 {
     /// <summary>
     /// Resource information, as returned by the resource provider.
-    /// API Version: 2020-10-01.
+    /// API Version: 2021-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:recoveryservices:Vault")]
     public partial class Vault : Pulumi.CustomResource
@@ -104,6 +104,8 @@ namespace Pulumi.AzureNative.RecoveryServices
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20200202:Vault"},
                     new Pulumi.Alias { Type = "azure-native:recoveryservices/v20201001:Vault"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20201001:Vault"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210101:Vault"},
+                    new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20210101:Vault"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

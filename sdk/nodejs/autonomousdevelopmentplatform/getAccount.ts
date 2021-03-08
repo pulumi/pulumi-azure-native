@@ -6,8 +6,8 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * An ADP account.
- * API Version: 2020-07-01-preview.
+ * ADP account
+ * API Version: 2021-02-01-preview.
  */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
     if (!opts) {
@@ -25,7 +25,7 @@ export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): P
 
 export interface GetAccountArgs {
     /**
-     * The name of the ADP account.
+     * The name of the ADP account
      */
     readonly accountName: string;
     /**
@@ -35,7 +35,7 @@ export interface GetAccountArgs {
 }
 
 /**
- * An ADP account.
+ * ADP account
  */
 export interface GetAccountResult {
     /**
@@ -55,11 +55,11 @@ export interface GetAccountResult {
      */
     readonly name: string;
     /**
-     * Gets the status of the account at the time the operation was called.
+     * Gets the status of the account at the time the operation was called
      */
     readonly provisioningState: string;
     /**
-     * The system meta data relating to this resource.
+     * The system meta data relating to this resource
      */
     readonly systemData: outputs.autonomousdevelopmentplatform.SystemDataResponse;
     /**

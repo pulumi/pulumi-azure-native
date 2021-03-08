@@ -11,8 +11,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// An ADP account.
-// API Version: 2020-07-01-preview.
+// ADP account
+// API Version: 2021-02-01-preview.
 type Account struct {
 	pulumi.CustomResourceState
 
@@ -22,9 +22,9 @@ type Account struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Gets the status of the account at the time the operation was called.
+	// Gets the status of the account at the time the operation was called
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The system meta data relating to this resource.
+	// The system meta data relating to this resource
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -88,9 +88,9 @@ type accountState struct {
 	Location *string `pulumi:"location"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
-	// Gets the status of the account at the time the operation was called.
+	// Gets the status of the account at the time the operation was called
 	ProvisioningState *string `pulumi:"provisioningState"`
-	// The system meta data relating to this resource.
+	// The system meta data relating to this resource
 	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
@@ -105,9 +105,9 @@ type AccountState struct {
 	Location pulumi.StringPtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
-	// Gets the status of the account at the time the operation was called.
+	// Gets the status of the account at the time the operation was called
 	ProvisioningState pulumi.StringPtrInput
-	// The system meta data relating to this resource.
+	// The system meta data relating to this resource
 	SystemData SystemDataResponsePtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
@@ -120,7 +120,7 @@ func (AccountState) ElementType() reflect.Type {
 }
 
 type accountArgs struct {
-	// The name of the ADP account.
+	// The name of the ADP account
 	AccountName *string `pulumi:"accountName"`
 	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
@@ -132,7 +132,7 @@ type accountArgs struct {
 
 // The set of arguments for constructing a Account resource.
 type AccountArgs struct {
-	// The name of the ADP account.
+	// The name of the ADP account
 	AccountName pulumi.StringPtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput

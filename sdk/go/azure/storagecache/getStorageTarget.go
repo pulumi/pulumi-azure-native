@@ -8,7 +8,7 @@ import (
 )
 
 // Type of the Storage Target.
-// API Version: 2020-10-01.
+// API Version: 2021-03-01.
 func LookupStorageTarget(ctx *pulumi.Context, args *LookupStorageTargetArgs, opts ...pulumi.InvokeOption) (*LookupStorageTargetResult, error) {
 	var rv LookupStorageTargetResult
 	err := ctx.Invoke("azure-native:storagecache:getStorageTarget", args, &rv, opts...)
@@ -23,12 +23,14 @@ type LookupStorageTargetArgs struct {
 	CacheName string `pulumi:"cacheName"`
 	// Target resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of the Storage Target. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
+	// Name of Storage Target.
 	StorageTargetName string `pulumi:"storageTargetName"`
 }
 
 // Type of the Storage Target.
 type LookupStorageTargetResult struct {
+	// Properties when targetType is blobNfs.
+	BlobNfs *BlobNfsTargetResponse `pulumi:"blobNfs"`
 	// Properties when targetType is clfs.
 	Clfs *ClfsTargetResponse `pulumi:"clfs"`
 	// Resource ID of the Storage Target.

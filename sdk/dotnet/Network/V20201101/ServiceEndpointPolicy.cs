@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Network.V20201101
         public Output<string> Etag { get; private set; } = null!;
 
         /// <summary>
+        /// Kind of service endpoint policy. This is metadata used for the Azure portal experience.
+        /// </summary>
+        [Output("kind")]
+        public Output<string> Kind { get; private set; } = null!;
+
+        /// <summary>
         /// Resource location.
         /// </summary>
         [Output("location")]

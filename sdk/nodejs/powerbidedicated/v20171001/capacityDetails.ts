@@ -44,6 +44,10 @@ export class CapacityDetails extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
+     * The capacity mode.
+     */
+    public /*out*/ readonly mode!: pulumi.Output<string>;
+    /**
      * The name of the PowerBI Dedicated resource.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
@@ -91,6 +95,7 @@ export class CapacityDetails extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["mode"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["state"] = undefined /*out*/;
@@ -98,6 +103,7 @@ export class CapacityDetails extends pulumi.CustomResource {
         } else {
             inputs["administration"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
+            inputs["mode"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["sku"] = undefined /*out*/;

@@ -7,11 +7,72 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
+from . import outputs
 
 __all__ = [
+    'DataPoolEncryptionResponse',
     'DataPoolLocationResponse',
     'SystemDataResponse',
 ]
+
+@pulumi.output_type
+class DataPoolEncryptionResponse(dict):
+    """
+    Encryption properties of a Data Pool
+    """
+    def __init__(__self__, *,
+                 key_name: str,
+                 key_vault_uri: str,
+                 user_assigned_identity: str,
+                 key_version: Optional[str] = None):
+        """
+        Encryption properties of a Data Pool
+        :param str key_name: The name of Key Vault key
+        :param str key_vault_uri: The URI of a soft delete-enabled Key Vault that is in the same location as the Data Pool location
+        :param str user_assigned_identity: The resource ID of a user-assigned Managed Identity used to access the encryption key in the Key Vault. Requires access to the key operations get, wrap, unwrap, and recover
+        :param str key_version: The version of Key Vault key
+        """
+        pulumi.set(__self__, "key_name", key_name)
+        pulumi.set(__self__, "key_vault_uri", key_vault_uri)
+        pulumi.set(__self__, "user_assigned_identity", user_assigned_identity)
+        if key_version is not None:
+            pulumi.set(__self__, "key_version", key_version)
+
+    @property
+    @pulumi.getter(name="keyName")
+    def key_name(self) -> str:
+        """
+        The name of Key Vault key
+        """
+        return pulumi.get(self, "key_name")
+
+    @property
+    @pulumi.getter(name="keyVaultUri")
+    def key_vault_uri(self) -> str:
+        """
+        The URI of a soft delete-enabled Key Vault that is in the same location as the Data Pool location
+        """
+        return pulumi.get(self, "key_vault_uri")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentity")
+    def user_assigned_identity(self) -> str:
+        """
+        The resource ID of a user-assigned Managed Identity used to access the encryption key in the Key Vault. Requires access to the key operations get, wrap, unwrap, and recover
+        """
+        return pulumi.get(self, "user_assigned_identity")
+
+    @property
+    @pulumi.getter(name="keyVersion")
+    def key_version(self) -> Optional[str]:
+        """
+        The version of Key Vault key
+        """
+        return pulumi.get(self, "key_version")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
 
 @pulumi.output_type
 class DataPoolLocationResponse(dict):
@@ -19,12 +80,16 @@ class DataPoolLocationResponse(dict):
     Location of a Data Pool
     """
     def __init__(__self__, *,
-                 name: str):
+                 name: str,
+                 encryption: Optional['outputs.DataPoolEncryptionResponse'] = None):
         """
         Location of a Data Pool
         :param str name: The location name
+        :param 'DataPoolEncryptionResponseArgs' encryption: Encryption properties of a Data Pool location
         """
         pulumi.set(__self__, "name", name)
+        if encryption is not None:
+            pulumi.set(__self__, "encryption", encryption)
 
     @property
     @pulumi.getter
@@ -33,6 +98,14 @@ class DataPoolLocationResponse(dict):
         The location name
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def encryption(self) -> Optional['outputs.DataPoolEncryptionResponse']:
+        """
+        Encryption properties of a Data Pool location
+        """
+        return pulumi.get(self, "encryption")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

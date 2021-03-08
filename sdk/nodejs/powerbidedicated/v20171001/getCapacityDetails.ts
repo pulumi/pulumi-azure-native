@@ -50,6 +50,10 @@ export interface GetCapacityDetailsResult {
      */
     readonly location: string;
     /**
+     * The capacity mode.
+     */
+    readonly mode: string;
+    /**
      * The name of the PowerBI Dedicated resource.
      */
     readonly name: string;

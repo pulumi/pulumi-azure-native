@@ -25,14 +25,14 @@ class DataPool(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
-        An ADP Data Pool.
-        API Version: 2020-07-01-preview.
+        ADP Data Pool
+        API Version: 2021-02-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] account_name: The name of the ADP account.
-        :param pulumi.Input[str] data_pool_name: The name of the Data Pool.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataPoolLocationArgs']]]] locations: Gets or sets the collection of locations where Data Pool resources should be created.
+        :param pulumi.Input[str] account_name: The name of the ADP account
+        :param pulumi.Input[str] data_pool_name: The name of the Data Pool
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataPoolLocationArgs']]]] locations: Gets or sets the collection of locations where Data Pool resources should be created
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         """
         if __name__ is not None:
@@ -111,7 +111,7 @@ class DataPool(pulumi.CustomResource):
     @pulumi.getter
     def locations(self) -> pulumi.Output[Sequence['outputs.DataPoolLocationResponse']]:
         """
-        Gets or sets the collection of locations where Data Pool resources should be created.
+        Gets or sets the collection of locations where Data Pool resources should be created
         """
         return pulumi.get(self, "locations")
 
@@ -127,7 +127,7 @@ class DataPool(pulumi.CustomResource):
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> pulumi.Output[str]:
         """
-        Gets the status of the data pool at the time the operation was called.
+        Gets the status of the data pool at the time the operation was called
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -135,7 +135,7 @@ class DataPool(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        The system meta data relating to this resource.
+        The system meta data relating to this resource
         """
         return pulumi.get(self, "system_data")
 

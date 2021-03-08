@@ -14,13 +14,21 @@ namespace Pulumi.AzureNative.AutonomousDevelopmentPlatform.Outputs
     public sealed class DataPoolLocationResponse
     {
         /// <summary>
+        /// Encryption properties of a Data Pool location
+        /// </summary>
+        public readonly Outputs.DataPoolEncryptionResponse? Encryption;
+        /// <summary>
         /// The location name
         /// </summary>
         public readonly string Name;
 
         [OutputConstructor]
-        private DataPoolLocationResponse(string name)
+        private DataPoolLocationResponse(
+            Outputs.DataPoolEncryptionResponse? encryption,
+
+            string name)
         {
+            Encryption = encryption;
             Name = name;
         }
     }

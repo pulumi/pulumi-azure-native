@@ -55,6 +55,10 @@ namespace Pulumi.AzureNative.PowerBIDedicated.V20171001
         /// </summary>
         public readonly string Location;
         /// <summary>
+        /// The capacity mode.
+        /// </summary>
+        public readonly string Mode;
+        /// <summary>
         /// The name of the PowerBI Dedicated resource.
         /// </summary>
         public readonly string Name;
@@ -87,6 +91,8 @@ namespace Pulumi.AzureNative.PowerBIDedicated.V20171001
 
             string location,
 
+            string mode,
+
             string name,
 
             string provisioningState,
@@ -102,6 +108,7 @@ namespace Pulumi.AzureNative.PowerBIDedicated.V20171001
             Administration = administration;
             Id = id;
             Location = location;
+            Mode = mode;
             Name = name;
             ProvisioningState = provisioningState;
             Sku = sku;

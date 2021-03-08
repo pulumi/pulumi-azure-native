@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A Cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
- * API Version: 2020-10-01.
+ * API Version: 2021-03-01.
  */
 export class Cache extends pulumi.CustomResource {
     /**
@@ -93,9 +93,9 @@ export class Cache extends pulumi.CustomResource {
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.storagecache.SystemDataResponse>;
     /**
-     * ARM tags as name/value pairs.
+     * Resource tags.
      */
-    public readonly tags!: pulumi.Output<any | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Type of the Cache; Microsoft.StorageCache/Cache
      */
@@ -219,7 +219,7 @@ export interface CacheArgs {
      */
     readonly subnet?: pulumi.Input<string>;
     /**
-     * ARM tags as name/value pairs.
+     * Resource tags.
      */
-    readonly tags?: any;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

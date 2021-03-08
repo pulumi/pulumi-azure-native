@@ -14,6 +14,10 @@ namespace Pulumi.AzureNative.Insights.Latest.Outputs
     public sealed class UserAssignedIdentitiesResponse
     {
         /// <summary>
+        /// The client ID of resource.
+        /// </summary>
+        public readonly string ClientId;
+        /// <summary>
         /// The principal ID of resource identity.
         /// </summary>
         public readonly string PrincipalId;
@@ -24,10 +28,13 @@ namespace Pulumi.AzureNative.Insights.Latest.Outputs
 
         [OutputConstructor]
         private UserAssignedIdentitiesResponse(
+            string clientId,
+
             string principalId,
 
             string tenantId)
         {
+            ClientId = clientId;
             PrincipalId = principalId;
             TenantId = tenantId;
         }

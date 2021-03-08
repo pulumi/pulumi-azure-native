@@ -10,8 +10,392 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Encryption properties of a Data Pool
+type DataPoolEncryption struct {
+	// The name of Key Vault key
+	KeyName string `pulumi:"keyName"`
+	// The URI of a soft delete-enabled Key Vault that is in the same location as the Data Pool location
+	KeyVaultUri string `pulumi:"keyVaultUri"`
+	// The version of Key Vault key
+	KeyVersion *string `pulumi:"keyVersion"`
+	// The resource ID of a user-assigned Managed Identity used to access the encryption key in the Key Vault. Requires access to the key operations get, wrap, unwrap, and recover
+	UserAssignedIdentity string `pulumi:"userAssignedIdentity"`
+}
+
+// DataPoolEncryptionInput is an input type that accepts DataPoolEncryptionArgs and DataPoolEncryptionOutput values.
+// You can construct a concrete instance of `DataPoolEncryptionInput` via:
+//
+//          DataPoolEncryptionArgs{...}
+type DataPoolEncryptionInput interface {
+	pulumi.Input
+
+	ToDataPoolEncryptionOutput() DataPoolEncryptionOutput
+	ToDataPoolEncryptionOutputWithContext(context.Context) DataPoolEncryptionOutput
+}
+
+// Encryption properties of a Data Pool
+type DataPoolEncryptionArgs struct {
+	// The name of Key Vault key
+	KeyName pulumi.StringInput `pulumi:"keyName"`
+	// The URI of a soft delete-enabled Key Vault that is in the same location as the Data Pool location
+	KeyVaultUri pulumi.StringInput `pulumi:"keyVaultUri"`
+	// The version of Key Vault key
+	KeyVersion pulumi.StringPtrInput `pulumi:"keyVersion"`
+	// The resource ID of a user-assigned Managed Identity used to access the encryption key in the Key Vault. Requires access to the key operations get, wrap, unwrap, and recover
+	UserAssignedIdentity pulumi.StringInput `pulumi:"userAssignedIdentity"`
+}
+
+func (DataPoolEncryptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataPoolEncryption)(nil)).Elem()
+}
+
+func (i DataPoolEncryptionArgs) ToDataPoolEncryptionOutput() DataPoolEncryptionOutput {
+	return i.ToDataPoolEncryptionOutputWithContext(context.Background())
+}
+
+func (i DataPoolEncryptionArgs) ToDataPoolEncryptionOutputWithContext(ctx context.Context) DataPoolEncryptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataPoolEncryptionOutput)
+}
+
+func (i DataPoolEncryptionArgs) ToDataPoolEncryptionPtrOutput() DataPoolEncryptionPtrOutput {
+	return i.ToDataPoolEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i DataPoolEncryptionArgs) ToDataPoolEncryptionPtrOutputWithContext(ctx context.Context) DataPoolEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataPoolEncryptionOutput).ToDataPoolEncryptionPtrOutputWithContext(ctx)
+}
+
+// DataPoolEncryptionPtrInput is an input type that accepts DataPoolEncryptionArgs, DataPoolEncryptionPtr and DataPoolEncryptionPtrOutput values.
+// You can construct a concrete instance of `DataPoolEncryptionPtrInput` via:
+//
+//          DataPoolEncryptionArgs{...}
+//
+//  or:
+//
+//          nil
+type DataPoolEncryptionPtrInput interface {
+	pulumi.Input
+
+	ToDataPoolEncryptionPtrOutput() DataPoolEncryptionPtrOutput
+	ToDataPoolEncryptionPtrOutputWithContext(context.Context) DataPoolEncryptionPtrOutput
+}
+
+type dataPoolEncryptionPtrType DataPoolEncryptionArgs
+
+func DataPoolEncryptionPtr(v *DataPoolEncryptionArgs) DataPoolEncryptionPtrInput {
+	return (*dataPoolEncryptionPtrType)(v)
+}
+
+func (*dataPoolEncryptionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataPoolEncryption)(nil)).Elem()
+}
+
+func (i *dataPoolEncryptionPtrType) ToDataPoolEncryptionPtrOutput() DataPoolEncryptionPtrOutput {
+	return i.ToDataPoolEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i *dataPoolEncryptionPtrType) ToDataPoolEncryptionPtrOutputWithContext(ctx context.Context) DataPoolEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataPoolEncryptionPtrOutput)
+}
+
+// Encryption properties of a Data Pool
+type DataPoolEncryptionOutput struct{ *pulumi.OutputState }
+
+func (DataPoolEncryptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataPoolEncryption)(nil)).Elem()
+}
+
+func (o DataPoolEncryptionOutput) ToDataPoolEncryptionOutput() DataPoolEncryptionOutput {
+	return o
+}
+
+func (o DataPoolEncryptionOutput) ToDataPoolEncryptionOutputWithContext(ctx context.Context) DataPoolEncryptionOutput {
+	return o
+}
+
+func (o DataPoolEncryptionOutput) ToDataPoolEncryptionPtrOutput() DataPoolEncryptionPtrOutput {
+	return o.ToDataPoolEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (o DataPoolEncryptionOutput) ToDataPoolEncryptionPtrOutputWithContext(ctx context.Context) DataPoolEncryptionPtrOutput {
+	return o.ApplyT(func(v DataPoolEncryption) *DataPoolEncryption {
+		return &v
+	}).(DataPoolEncryptionPtrOutput)
+}
+
+// The name of Key Vault key
+func (o DataPoolEncryptionOutput) KeyName() pulumi.StringOutput {
+	return o.ApplyT(func(v DataPoolEncryption) string { return v.KeyName }).(pulumi.StringOutput)
+}
+
+// The URI of a soft delete-enabled Key Vault that is in the same location as the Data Pool location
+func (o DataPoolEncryptionOutput) KeyVaultUri() pulumi.StringOutput {
+	return o.ApplyT(func(v DataPoolEncryption) string { return v.KeyVaultUri }).(pulumi.StringOutput)
+}
+
+// The version of Key Vault key
+func (o DataPoolEncryptionOutput) KeyVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataPoolEncryption) *string { return v.KeyVersion }).(pulumi.StringPtrOutput)
+}
+
+// The resource ID of a user-assigned Managed Identity used to access the encryption key in the Key Vault. Requires access to the key operations get, wrap, unwrap, and recover
+func (o DataPoolEncryptionOutput) UserAssignedIdentity() pulumi.StringOutput {
+	return o.ApplyT(func(v DataPoolEncryption) string { return v.UserAssignedIdentity }).(pulumi.StringOutput)
+}
+
+type DataPoolEncryptionPtrOutput struct{ *pulumi.OutputState }
+
+func (DataPoolEncryptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataPoolEncryption)(nil)).Elem()
+}
+
+func (o DataPoolEncryptionPtrOutput) ToDataPoolEncryptionPtrOutput() DataPoolEncryptionPtrOutput {
+	return o
+}
+
+func (o DataPoolEncryptionPtrOutput) ToDataPoolEncryptionPtrOutputWithContext(ctx context.Context) DataPoolEncryptionPtrOutput {
+	return o
+}
+
+func (o DataPoolEncryptionPtrOutput) Elem() DataPoolEncryptionOutput {
+	return o.ApplyT(func(v *DataPoolEncryption) DataPoolEncryption { return *v }).(DataPoolEncryptionOutput)
+}
+
+// The name of Key Vault key
+func (o DataPoolEncryptionPtrOutput) KeyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataPoolEncryption) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The URI of a soft delete-enabled Key Vault that is in the same location as the Data Pool location
+func (o DataPoolEncryptionPtrOutput) KeyVaultUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataPoolEncryption) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyVaultUri
+	}).(pulumi.StringPtrOutput)
+}
+
+// The version of Key Vault key
+func (o DataPoolEncryptionPtrOutput) KeyVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataPoolEncryption) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// The resource ID of a user-assigned Managed Identity used to access the encryption key in the Key Vault. Requires access to the key operations get, wrap, unwrap, and recover
+func (o DataPoolEncryptionPtrOutput) UserAssignedIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataPoolEncryption) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.UserAssignedIdentity
+	}).(pulumi.StringPtrOutput)
+}
+
+// Encryption properties of a Data Pool
+type DataPoolEncryptionResponse struct {
+	// The name of Key Vault key
+	KeyName string `pulumi:"keyName"`
+	// The URI of a soft delete-enabled Key Vault that is in the same location as the Data Pool location
+	KeyVaultUri string `pulumi:"keyVaultUri"`
+	// The version of Key Vault key
+	KeyVersion *string `pulumi:"keyVersion"`
+	// The resource ID of a user-assigned Managed Identity used to access the encryption key in the Key Vault. Requires access to the key operations get, wrap, unwrap, and recover
+	UserAssignedIdentity string `pulumi:"userAssignedIdentity"`
+}
+
+// DataPoolEncryptionResponseInput is an input type that accepts DataPoolEncryptionResponseArgs and DataPoolEncryptionResponseOutput values.
+// You can construct a concrete instance of `DataPoolEncryptionResponseInput` via:
+//
+//          DataPoolEncryptionResponseArgs{...}
+type DataPoolEncryptionResponseInput interface {
+	pulumi.Input
+
+	ToDataPoolEncryptionResponseOutput() DataPoolEncryptionResponseOutput
+	ToDataPoolEncryptionResponseOutputWithContext(context.Context) DataPoolEncryptionResponseOutput
+}
+
+// Encryption properties of a Data Pool
+type DataPoolEncryptionResponseArgs struct {
+	// The name of Key Vault key
+	KeyName pulumi.StringInput `pulumi:"keyName"`
+	// The URI of a soft delete-enabled Key Vault that is in the same location as the Data Pool location
+	KeyVaultUri pulumi.StringInput `pulumi:"keyVaultUri"`
+	// The version of Key Vault key
+	KeyVersion pulumi.StringPtrInput `pulumi:"keyVersion"`
+	// The resource ID of a user-assigned Managed Identity used to access the encryption key in the Key Vault. Requires access to the key operations get, wrap, unwrap, and recover
+	UserAssignedIdentity pulumi.StringInput `pulumi:"userAssignedIdentity"`
+}
+
+func (DataPoolEncryptionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataPoolEncryptionResponse)(nil)).Elem()
+}
+
+func (i DataPoolEncryptionResponseArgs) ToDataPoolEncryptionResponseOutput() DataPoolEncryptionResponseOutput {
+	return i.ToDataPoolEncryptionResponseOutputWithContext(context.Background())
+}
+
+func (i DataPoolEncryptionResponseArgs) ToDataPoolEncryptionResponseOutputWithContext(ctx context.Context) DataPoolEncryptionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataPoolEncryptionResponseOutput)
+}
+
+func (i DataPoolEncryptionResponseArgs) ToDataPoolEncryptionResponsePtrOutput() DataPoolEncryptionResponsePtrOutput {
+	return i.ToDataPoolEncryptionResponsePtrOutputWithContext(context.Background())
+}
+
+func (i DataPoolEncryptionResponseArgs) ToDataPoolEncryptionResponsePtrOutputWithContext(ctx context.Context) DataPoolEncryptionResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataPoolEncryptionResponseOutput).ToDataPoolEncryptionResponsePtrOutputWithContext(ctx)
+}
+
+// DataPoolEncryptionResponsePtrInput is an input type that accepts DataPoolEncryptionResponseArgs, DataPoolEncryptionResponsePtr and DataPoolEncryptionResponsePtrOutput values.
+// You can construct a concrete instance of `DataPoolEncryptionResponsePtrInput` via:
+//
+//          DataPoolEncryptionResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type DataPoolEncryptionResponsePtrInput interface {
+	pulumi.Input
+
+	ToDataPoolEncryptionResponsePtrOutput() DataPoolEncryptionResponsePtrOutput
+	ToDataPoolEncryptionResponsePtrOutputWithContext(context.Context) DataPoolEncryptionResponsePtrOutput
+}
+
+type dataPoolEncryptionResponsePtrType DataPoolEncryptionResponseArgs
+
+func DataPoolEncryptionResponsePtr(v *DataPoolEncryptionResponseArgs) DataPoolEncryptionResponsePtrInput {
+	return (*dataPoolEncryptionResponsePtrType)(v)
+}
+
+func (*dataPoolEncryptionResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataPoolEncryptionResponse)(nil)).Elem()
+}
+
+func (i *dataPoolEncryptionResponsePtrType) ToDataPoolEncryptionResponsePtrOutput() DataPoolEncryptionResponsePtrOutput {
+	return i.ToDataPoolEncryptionResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *dataPoolEncryptionResponsePtrType) ToDataPoolEncryptionResponsePtrOutputWithContext(ctx context.Context) DataPoolEncryptionResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataPoolEncryptionResponsePtrOutput)
+}
+
+// Encryption properties of a Data Pool
+type DataPoolEncryptionResponseOutput struct{ *pulumi.OutputState }
+
+func (DataPoolEncryptionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataPoolEncryptionResponse)(nil)).Elem()
+}
+
+func (o DataPoolEncryptionResponseOutput) ToDataPoolEncryptionResponseOutput() DataPoolEncryptionResponseOutput {
+	return o
+}
+
+func (o DataPoolEncryptionResponseOutput) ToDataPoolEncryptionResponseOutputWithContext(ctx context.Context) DataPoolEncryptionResponseOutput {
+	return o
+}
+
+func (o DataPoolEncryptionResponseOutput) ToDataPoolEncryptionResponsePtrOutput() DataPoolEncryptionResponsePtrOutput {
+	return o.ToDataPoolEncryptionResponsePtrOutputWithContext(context.Background())
+}
+
+func (o DataPoolEncryptionResponseOutput) ToDataPoolEncryptionResponsePtrOutputWithContext(ctx context.Context) DataPoolEncryptionResponsePtrOutput {
+	return o.ApplyT(func(v DataPoolEncryptionResponse) *DataPoolEncryptionResponse {
+		return &v
+	}).(DataPoolEncryptionResponsePtrOutput)
+}
+
+// The name of Key Vault key
+func (o DataPoolEncryptionResponseOutput) KeyName() pulumi.StringOutput {
+	return o.ApplyT(func(v DataPoolEncryptionResponse) string { return v.KeyName }).(pulumi.StringOutput)
+}
+
+// The URI of a soft delete-enabled Key Vault that is in the same location as the Data Pool location
+func (o DataPoolEncryptionResponseOutput) KeyVaultUri() pulumi.StringOutput {
+	return o.ApplyT(func(v DataPoolEncryptionResponse) string { return v.KeyVaultUri }).(pulumi.StringOutput)
+}
+
+// The version of Key Vault key
+func (o DataPoolEncryptionResponseOutput) KeyVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataPoolEncryptionResponse) *string { return v.KeyVersion }).(pulumi.StringPtrOutput)
+}
+
+// The resource ID of a user-assigned Managed Identity used to access the encryption key in the Key Vault. Requires access to the key operations get, wrap, unwrap, and recover
+func (o DataPoolEncryptionResponseOutput) UserAssignedIdentity() pulumi.StringOutput {
+	return o.ApplyT(func(v DataPoolEncryptionResponse) string { return v.UserAssignedIdentity }).(pulumi.StringOutput)
+}
+
+type DataPoolEncryptionResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (DataPoolEncryptionResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataPoolEncryptionResponse)(nil)).Elem()
+}
+
+func (o DataPoolEncryptionResponsePtrOutput) ToDataPoolEncryptionResponsePtrOutput() DataPoolEncryptionResponsePtrOutput {
+	return o
+}
+
+func (o DataPoolEncryptionResponsePtrOutput) ToDataPoolEncryptionResponsePtrOutputWithContext(ctx context.Context) DataPoolEncryptionResponsePtrOutput {
+	return o
+}
+
+func (o DataPoolEncryptionResponsePtrOutput) Elem() DataPoolEncryptionResponseOutput {
+	return o.ApplyT(func(v *DataPoolEncryptionResponse) DataPoolEncryptionResponse { return *v }).(DataPoolEncryptionResponseOutput)
+}
+
+// The name of Key Vault key
+func (o DataPoolEncryptionResponsePtrOutput) KeyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataPoolEncryptionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The URI of a soft delete-enabled Key Vault that is in the same location as the Data Pool location
+func (o DataPoolEncryptionResponsePtrOutput) KeyVaultUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataPoolEncryptionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyVaultUri
+	}).(pulumi.StringPtrOutput)
+}
+
+// The version of Key Vault key
+func (o DataPoolEncryptionResponsePtrOutput) KeyVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataPoolEncryptionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// The resource ID of a user-assigned Managed Identity used to access the encryption key in the Key Vault. Requires access to the key operations get, wrap, unwrap, and recover
+func (o DataPoolEncryptionResponsePtrOutput) UserAssignedIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataPoolEncryptionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.UserAssignedIdentity
+	}).(pulumi.StringPtrOutput)
+}
+
 // Location of a Data Pool
 type DataPoolLocation struct {
+	// Encryption properties of a Data Pool location
+	Encryption *DataPoolEncryption `pulumi:"encryption"`
 	// The location name
 	Name string `pulumi:"name"`
 }
@@ -29,6 +413,8 @@ type DataPoolLocationInput interface {
 
 // Location of a Data Pool
 type DataPoolLocationArgs struct {
+	// Encryption properties of a Data Pool location
+	Encryption DataPoolEncryptionPtrInput `pulumi:"encryption"`
 	// The location name
 	Name pulumi.StringInput `pulumi:"name"`
 }
@@ -85,6 +471,11 @@ func (o DataPoolLocationOutput) ToDataPoolLocationOutputWithContext(ctx context.
 	return o
 }
 
+// Encryption properties of a Data Pool location
+func (o DataPoolLocationOutput) Encryption() DataPoolEncryptionPtrOutput {
+	return o.ApplyT(func(v DataPoolLocation) *DataPoolEncryption { return v.Encryption }).(DataPoolEncryptionPtrOutput)
+}
+
 // The location name
 func (o DataPoolLocationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DataPoolLocation) string { return v.Name }).(pulumi.StringOutput)
@@ -112,6 +503,8 @@ func (o DataPoolLocationArrayOutput) Index(i pulumi.IntInput) DataPoolLocationOu
 
 // Location of a Data Pool
 type DataPoolLocationResponse struct {
+	// Encryption properties of a Data Pool location
+	Encryption *DataPoolEncryptionResponse `pulumi:"encryption"`
 	// The location name
 	Name string `pulumi:"name"`
 }
@@ -129,6 +522,8 @@ type DataPoolLocationResponseInput interface {
 
 // Location of a Data Pool
 type DataPoolLocationResponseArgs struct {
+	// Encryption properties of a Data Pool location
+	Encryption DataPoolEncryptionResponsePtrInput `pulumi:"encryption"`
 	// The location name
 	Name pulumi.StringInput `pulumi:"name"`
 }
@@ -183,6 +578,11 @@ func (o DataPoolLocationResponseOutput) ToDataPoolLocationResponseOutput() DataP
 
 func (o DataPoolLocationResponseOutput) ToDataPoolLocationResponseOutputWithContext(ctx context.Context) DataPoolLocationResponseOutput {
 	return o
+}
+
+// Encryption properties of a Data Pool location
+func (o DataPoolLocationResponseOutput) Encryption() DataPoolEncryptionResponsePtrOutput {
+	return o.ApplyT(func(v DataPoolLocationResponse) *DataPoolEncryptionResponse { return v.Encryption }).(DataPoolEncryptionResponsePtrOutput)
 }
 
 // The location name
@@ -440,6 +840,10 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 }
 
 func init() {
+	pulumi.RegisterOutputType(DataPoolEncryptionOutput{})
+	pulumi.RegisterOutputType(DataPoolEncryptionPtrOutput{})
+	pulumi.RegisterOutputType(DataPoolEncryptionResponseOutput{})
+	pulumi.RegisterOutputType(DataPoolEncryptionResponsePtrOutput{})
 	pulumi.RegisterOutputType(DataPoolLocationOutput{})
 	pulumi.RegisterOutputType(DataPoolLocationArrayOutput{})
 	pulumi.RegisterOutputType(DataPoolLocationResponseOutput{})

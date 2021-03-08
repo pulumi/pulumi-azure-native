@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.StorageCache
 {
     /// <summary>
     /// A Cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
-    /// API Version: 2020-10-01.
+    /// API Version: 2021-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:storagecache:Cache")]
     public partial class Cache : Pulumi.CustomResource
@@ -101,10 +101,10 @@ namespace Pulumi.AzureNative.StorageCache
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
-        /// ARM tags as name/value pairs.
+        /// Resource tags.
         /// </summary>
         [Output("tags")]
-        public Output<object?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// Type of the Cache; Microsoft.StorageCache/Cache
@@ -251,11 +251,17 @@ namespace Pulumi.AzureNative.StorageCache
         [Input("subnet")]
         public Input<string>? Subnet { get; set; }
 
-        /// <summary>
-        /// ARM tags as name/value pairs.
-        /// </summary>
         [Input("tags")]
-        public Input<object>? Tags { get; set; }
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Resource tags.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         public CacheArgs()
         {

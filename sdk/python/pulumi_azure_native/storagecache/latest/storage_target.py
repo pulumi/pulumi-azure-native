@@ -22,6 +22,7 @@ class StorageTarget(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 blob_nfs: Optional[pulumi.Input[pulumi.InputType['BlobNfsTargetArgs']]] = None,
                  cache_name: Optional[pulumi.Input[str]] = None,
                  clfs: Optional[pulumi.Input[pulumi.InputType['ClfsTargetArgs']]] = None,
                  junctions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NamespaceJunctionArgs']]]]] = None,
@@ -36,17 +37,18 @@ class StorageTarget(pulumi.CustomResource):
                  __opts__=None):
         """
         Type of the Storage Target.
-        Latest API Version: 2020-10-01.
+        Latest API Version: 2021-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['BlobNfsTargetArgs']] blob_nfs: Properties when targetType is blobNfs.
         :param pulumi.Input[str] cache_name: Name of Cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
         :param pulumi.Input[pulumi.InputType['ClfsTargetArgs']] clfs: Properties when targetType is clfs.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NamespaceJunctionArgs']]]] junctions: List of Cache namespace junctions to target for namespace associations.
         :param pulumi.Input[pulumi.InputType['Nfs3TargetArgs']] nfs3: Properties when targetType is nfs3.
         :param pulumi.Input[Union[str, 'ProvisioningStateType']] provisioning_state: ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
         :param pulumi.Input[str] resource_group_name: Target resource group.
-        :param pulumi.Input[str] storage_target_name: Name of the Storage Target. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
+        :param pulumi.Input[str] storage_target_name: Name of Storage Target.
         :param pulumi.Input[Union[str, 'StorageTargetType']] target_type: Type of the Storage Target.
         :param pulumi.Input[pulumi.InputType['UnknownTargetArgs']] unknown: Properties when targetType is unknown.
         """
@@ -68,6 +70,7 @@ class StorageTarget(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['blob_nfs'] = blob_nfs
             if cache_name is None and not opts.urn:
                 raise TypeError("Missing required property 'cache_name'")
             __props__['cache_name'] = cache_name
@@ -111,6 +114,7 @@ class StorageTarget(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["blob_nfs"] = None
         __props__["clfs"] = None
         __props__["junctions"] = None
         __props__["location"] = None
@@ -122,6 +126,14 @@ class StorageTarget(pulumi.CustomResource):
         __props__["type"] = None
         __props__["unknown"] = None
         return StorageTarget(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="blobNfs")
+    def blob_nfs(self) -> pulumi.Output[Optional['outputs.BlobNfsTargetResponse']]:
+        """
+        Properties when targetType is blobNfs.
+        """
+        return pulumi.get(self, "blob_nfs")
 
     @property
     @pulumi.getter

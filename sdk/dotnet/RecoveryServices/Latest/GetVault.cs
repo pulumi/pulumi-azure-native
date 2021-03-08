@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Latest
     {
         /// <summary>
         /// Resource information, as returned by the resource provider.
-        /// Latest API Version: 2020-10-01.
+        /// Latest API Version: 2021-01-01.
         /// </summary>
         public static Task<GetVaultResult> InvokeAsync(GetVaultArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVaultResult>("azure-native:recoveryservices/latest:getVault", args ?? new GetVaultArgs(), options.WithVersion());

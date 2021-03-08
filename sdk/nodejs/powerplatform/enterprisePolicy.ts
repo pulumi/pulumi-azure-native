@@ -53,7 +53,7 @@ export class EnterprisePolicy extends pulumi.CustomResource {
      */
     public /*out*/ readonly lockbox!: pulumi.Output<outputs.powerplatform.PropertiesResponseLockbox | undefined>;
     /**
-     * Name of the EnterprisePolicy.
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -65,7 +65,7 @@ export class EnterprisePolicy extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The type of the resource.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -129,7 +129,7 @@ export interface EnterprisePolicyArgs {
      */
     readonly identity?: pulumi.Input<inputs.powerplatform.EnterprisePolicyIdentity>;
     /**
-     * The Azure Region where the resource lives
+     * The geo-location where the resource lives
      */
     readonly location?: pulumi.Input<string>;
     /**

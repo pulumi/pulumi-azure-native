@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StorageCache
     {
         /// <summary>
         /// Type of the Storage Target.
-        /// API Version: 2020-10-01.
+        /// API Version: 2021-03-01.
         /// </summary>
         public static Task<GetStorageTargetResult> InvokeAsync(GetStorageTargetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetStorageTargetResult>("azure-native:storagecache:getStorageTarget", args ?? new GetStorageTargetArgs(), options.WithVersion());
@@ -35,7 +35,7 @@ namespace Pulumi.AzureNative.StorageCache
         public string ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the Storage Target. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
+        /// Name of Storage Target.
         /// </summary>
         [Input("storageTargetName", required: true)]
         public string StorageTargetName { get; set; } = null!;
@@ -49,6 +49,10 @@ namespace Pulumi.AzureNative.StorageCache
     [OutputType]
     public sealed class GetStorageTargetResult
     {
+        /// <summary>
+        /// Properties when targetType is blobNfs.
+        /// </summary>
+        public readonly Outputs.BlobNfsTargetResponse? BlobNfs;
         /// <summary>
         /// Properties when targetType is clfs.
         /// </summary>
@@ -96,6 +100,8 @@ namespace Pulumi.AzureNative.StorageCache
 
         [OutputConstructor]
         private GetStorageTargetResult(
+            Outputs.BlobNfsTargetResponse? blobNfs,
+
             Outputs.ClfsTargetResponse? clfs,
 
             string id,
@@ -118,6 +124,7 @@ namespace Pulumi.AzureNative.StorageCache
 
             Outputs.UnknownTargetResponse? unknown)
         {
+            BlobNfs = blobNfs;
             Clfs = clfs;
             Id = id;
             Junctions = junctions;

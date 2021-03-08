@@ -10,6 +10,7 @@ from .. import _utilities, _tables
 from ._enums import *
 
 __all__ = [
+    'BlobNfsTargetArgs',
     'CacheActiveDirectorySettingsArgs',
     'CacheActiveDirectorySettingsCredentialsArgs',
     'CacheDirectorySettingsArgs',
@@ -29,6 +30,46 @@ __all__ = [
     'NfsAccessRuleArgs',
     'UnknownTargetArgs',
 ]
+
+@pulumi.input_type
+class BlobNfsTargetArgs:
+    def __init__(__self__, *,
+                 target: Optional[pulumi.Input[str]] = None,
+                 usage_model: Optional[pulumi.Input[str]] = None):
+        """
+        Properties pertaining to the BlobNfsTarget.
+        :param pulumi.Input[str] target: Resource ID of the storage container.
+        :param pulumi.Input[str] usage_model: Identifies the StorageCache usage model to be used for this storage target.
+        """
+        if target is not None:
+            pulumi.set(__self__, "target", target)
+        if usage_model is not None:
+            pulumi.set(__self__, "usage_model", usage_model)
+
+    @property
+    @pulumi.getter
+    def target(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource ID of the storage container.
+        """
+        return pulumi.get(self, "target")
+
+    @target.setter
+    def target(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target", value)
+
+    @property
+    @pulumi.getter(name="usageModel")
+    def usage_model(self) -> Optional[pulumi.Input[str]]:
+        """
+        Identifies the StorageCache usage model to be used for this storage target.
+        """
+        return pulumi.get(self, "usage_model")
+
+    @usage_model.setter
+    def usage_model(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "usage_model", value)
+
 
 @pulumi.input_type
 class CacheActiveDirectorySettingsArgs:
@@ -259,15 +300,51 @@ class CacheIdentityArgs:
 @pulumi.input_type
 class CacheNetworkSettingsArgs:
     def __init__(__self__, *,
-                 mtu: Optional[pulumi.Input[int]] = None):
+                 dns_search_domain: Optional[pulumi.Input[str]] = None,
+                 dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 mtu: Optional[pulumi.Input[int]] = None,
+                 ntp_server: Optional[pulumi.Input[str]] = None):
         """
         Cache network settings.
+        :param pulumi.Input[str] dns_search_domain: DNS search domain
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_servers: DNS servers for the cache to use.  It will be set from the network configuration if no value is provided.
         :param pulumi.Input[int] mtu: The IPv4 maximum transmission unit configured for the subnet.
+        :param pulumi.Input[str] ntp_server: NTP server IP Address or FQDN for the cache to use. The default is time.windows.com.
         """
+        if dns_search_domain is not None:
+            pulumi.set(__self__, "dns_search_domain", dns_search_domain)
+        if dns_servers is not None:
+            pulumi.set(__self__, "dns_servers", dns_servers)
         if mtu is None:
             mtu = 1500
         if mtu is not None:
             pulumi.set(__self__, "mtu", mtu)
+        if ntp_server is not None:
+            pulumi.set(__self__, "ntp_server", ntp_server)
+
+    @property
+    @pulumi.getter(name="dnsSearchDomain")
+    def dns_search_domain(self) -> Optional[pulumi.Input[str]]:
+        """
+        DNS search domain
+        """
+        return pulumi.get(self, "dns_search_domain")
+
+    @dns_search_domain.setter
+    def dns_search_domain(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dns_search_domain", value)
+
+    @property
+    @pulumi.getter(name="dnsServers")
+    def dns_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        DNS servers for the cache to use.  It will be set from the network configuration if no value is provided.
+        """
+        return pulumi.get(self, "dns_servers")
+
+    @dns_servers.setter
+    def dns_servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "dns_servers", value)
 
     @property
     @pulumi.getter
@@ -280,6 +357,18 @@ class CacheNetworkSettingsArgs:
     @mtu.setter
     def mtu(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "mtu", value)
+
+    @property
+    @pulumi.getter(name="ntpServer")
+    def ntp_server(self) -> Optional[pulumi.Input[str]]:
+        """
+        NTP server IP Address or FQDN for the cache to use. The default is time.windows.com.
+        """
+        return pulumi.get(self, "ntp_server")
+
+    @ntp_server.setter
+    def ntp_server(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ntp_server", value)
 
 
 @pulumi.input_type
@@ -722,7 +811,7 @@ class Nfs3TargetArgs:
         """
         Properties pertaining to the Nfs3Target
         :param pulumi.Input[str] target: IP address or host name of an NFSv3 host (e.g., 10.0.44.44).
-        :param pulumi.Input[str] usage_model: Identifies the usage model to be used for this Storage Target. Get choices from .../usageModels
+        :param pulumi.Input[str] usage_model: Identifies the StorageCache usage model to be used for this storage target.
         """
         if target is not None:
             pulumi.set(__self__, "target", target)
@@ -745,7 +834,7 @@ class Nfs3TargetArgs:
     @pulumi.getter(name="usageModel")
     def usage_model(self) -> Optional[pulumi.Input[str]]:
         """
-        Identifies the usage model to be used for this Storage Target. Get choices from .../usageModels
+        Identifies the StorageCache usage model to be used for this storage target.
         """
         return pulumi.get(self, "usage_model")
 
@@ -807,8 +896,8 @@ class NfsAccessRuleArgs:
         Rule to place restrictions on portions of the cache namespace being presented to clients.
         :param pulumi.Input[Union[str, 'NfsAccessRuleAccess']] access: Access allowed by this rule.
         :param pulumi.Input[Union[str, 'NfsAccessRuleScope']] scope: Scope for this rule. The scope and filter determine which clients match the rule.
-        :param pulumi.Input[str] anonymous_gid: GID value that replaces 0 when rootSquash is true.
-        :param pulumi.Input[str] anonymous_uid: UID value that replaces 0 when rootSquash is true.
+        :param pulumi.Input[str] anonymous_gid: GID value that replaces 0 when rootSquash is true. This will use the value of anonymousUID if not provided.
+        :param pulumi.Input[str] anonymous_uid: UID value that replaces 0 when rootSquash is true. 65534 will be used if not provided.
         :param pulumi.Input[str] filter: Filter applied to the scope for this rule. The filter's format depends on its scope. 'default' scope matches all clients and has no filter value. 'network' scope takes a filter in CIDR format (for example, 10.99.1.0/24). 'host' takes an IP address or fully qualified domain name as filter. If a client does not match any filter rule and there is no default rule, access is denied.
         :param pulumi.Input[bool] root_squash: Map root accesses to anonymousUID and anonymousGID.
         :param pulumi.Input[bool] submount_access: For the default policy, allow access to subdirectories under the root export. If this is set to no, clients can only mount the path '/'. If set to yes, clients can mount a deeper path, like '/a/b'.
@@ -816,12 +905,8 @@ class NfsAccessRuleArgs:
         """
         pulumi.set(__self__, "access", access)
         pulumi.set(__self__, "scope", scope)
-        if anonymous_gid is None:
-            anonymous_gid = '-2'
         if anonymous_gid is not None:
             pulumi.set(__self__, "anonymous_gid", anonymous_gid)
-        if anonymous_uid is None:
-            anonymous_uid = '-2'
         if anonymous_uid is not None:
             pulumi.set(__self__, "anonymous_uid", anonymous_uid)
         if filter is not None:
@@ -861,7 +946,7 @@ class NfsAccessRuleArgs:
     @pulumi.getter(name="anonymousGID")
     def anonymous_gid(self) -> Optional[pulumi.Input[str]]:
         """
-        GID value that replaces 0 when rootSquash is true.
+        GID value that replaces 0 when rootSquash is true. This will use the value of anonymousUID if not provided.
         """
         return pulumi.get(self, "anonymous_gid")
 
@@ -873,7 +958,7 @@ class NfsAccessRuleArgs:
     @pulumi.getter(name="anonymousUID")
     def anonymous_uid(self) -> Optional[pulumi.Input[str]]:
         """
-        UID value that replaces 0 when rootSquash is true.
+        UID value that replaces 0 when rootSquash is true. 65534 will be used if not provided.
         """
         return pulumi.get(self, "anonymous_uid")
 
@@ -933,24 +1018,24 @@ class NfsAccessRuleArgs:
 @pulumi.input_type
 class UnknownTargetArgs:
     def __init__(__self__, *,
-                 unknown_map: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Properties pertaining to the UnknownTarget
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] unknown_map: Dictionary of string->string pairs containing information about the Storage Target.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] attributes: Dictionary of string->string pairs containing information about the Storage Target.
         """
-        if unknown_map is not None:
-            pulumi.set(__self__, "unknown_map", unknown_map)
+        if attributes is not None:
+            pulumi.set(__self__, "attributes", attributes)
 
     @property
-    @pulumi.getter(name="unknownMap")
-    def unknown_map(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+    @pulumi.getter
+    def attributes(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Dictionary of string->string pairs containing information about the Storage Target.
         """
-        return pulumi.get(self, "unknown_map")
+        return pulumi.get(self, "attributes")
 
-    @unknown_map.setter
-    def unknown_map(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "unknown_map", value)
+    @attributes.setter
+    def attributes(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "attributes", value)
 
 

@@ -32,6 +32,8 @@ type LookupServiceEndpointPolicyResult struct {
 	Etag string `pulumi:"etag"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
+	// Kind of service endpoint policy. This is metadata used for the Azure portal experience.
+	Kind string `pulumi:"kind"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Resource name.

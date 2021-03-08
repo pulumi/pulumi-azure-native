@@ -15,16 +15,16 @@ namespace Pulumi.AzureNative.StorageCache.Latest.Inputs
     /// </summary>
     public sealed class UnknownTargetArgs : Pulumi.ResourceArgs
     {
-        [Input("unknownMap")]
-        private InputMap<string>? _unknownMap;
+        [Input("attributes")]
+        private InputMap<string>? _attributes;
 
         /// <summary>
         /// Dictionary of string-&gt;string pairs containing information about the Storage Target.
         /// </summary>
-        public InputMap<string> UnknownMap
+        public InputMap<string> Attributes
         {
-            get => _unknownMap ?? (_unknownMap = new InputMap<string>());
-            set => _unknownMap = value;
+            get => _attributes ?? (_attributes = new InputMap<string>());
+            set => _attributes = value;
         }
 
         public UnknownTargetArgs()

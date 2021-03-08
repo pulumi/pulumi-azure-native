@@ -70,6 +70,7 @@ class ServiceEndpointPolicy(pulumi.CustomResource):
             __props__['service_endpoint_policy_name'] = service_endpoint_policy_name
             __props__['tags'] = tags
             __props__['etag'] = None
+            __props__['kind'] = None
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['resource_guid'] = None
@@ -100,6 +101,7 @@ class ServiceEndpointPolicy(pulumi.CustomResource):
         __props__ = dict()
 
         __props__["etag"] = None
+        __props__["kind"] = None
         __props__["location"] = None
         __props__["name"] = None
         __props__["provisioning_state"] = None
@@ -117,6 +119,14 @@ class ServiceEndpointPolicy(pulumi.CustomResource):
         A unique read-only string that changes whenever the resource is updated.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> pulumi.Output[str]:
+        """
+        Kind of service endpoint policy. This is metadata used for the Azure portal experience.
+        """
+        return pulumi.get(self, "kind")
 
     @property
     @pulumi.getter

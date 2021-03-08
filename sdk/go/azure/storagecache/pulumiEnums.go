@@ -135,6 +135,7 @@ const (
 	StorageTargetTypeNfs3    = StorageTargetType("nfs3")
 	StorageTargetTypeClfs    = StorageTargetType("clfs")
 	StorageTargetTypeUnknown = StorageTargetType("unknown")
+	StorageTargetTypeBlobNfs = StorageTargetType("blobNfs")
 )
 
 func (StorageTargetType) ElementType() reflect.Type {

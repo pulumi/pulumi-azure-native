@@ -54,6 +54,10 @@ export interface GetServiceEndpointPolicyResult {
      */
     readonly id?: string;
     /**
+     * Kind of service endpoint policy. This is metadata used for the Azure portal experience.
+     */
+    readonly kind: string;
+    /**
      * Resource location.
      */
     readonly location?: string;

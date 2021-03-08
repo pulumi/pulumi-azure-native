@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Type of the Storage Target.
- * Latest API Version: 2020-10-01.
+ * Latest API Version: 2021-03-01.
  */
 /** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storagecache:getStorageTarget'. */
 export function getStorageTarget(args: GetStorageTargetArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageTargetResult> {
@@ -36,7 +36,7 @@ export interface GetStorageTargetArgs {
      */
     readonly resourceGroupName: string;
     /**
-     * Name of the Storage Target. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
+     * Name of Storage Target.
      */
     readonly storageTargetName: string;
 }
@@ -45,6 +45,10 @@ export interface GetStorageTargetArgs {
  * Type of the Storage Target.
  */
 export interface GetStorageTargetResult {
+    /**
+     * Properties when targetType is blobNfs.
+     */
+    readonly blobNfs?: outputs.storagecache.latest.BlobNfsTargetResponse;
     /**
      * Properties when targetType is clfs.
      */

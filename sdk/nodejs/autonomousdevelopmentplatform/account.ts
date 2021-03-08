@@ -6,8 +6,8 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * An ADP account.
- * API Version: 2020-07-01-preview.
+ * ADP account
+ * API Version: 2021-02-01-preview.
  */
 export class Account extends pulumi.CustomResource {
     /**
@@ -49,11 +49,11 @@ export class Account extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Gets the status of the account at the time the operation was called.
+     * Gets the status of the account at the time the operation was called
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * The system meta data relating to this resource.
+     * The system meta data relating to this resource
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.autonomousdevelopmentplatform.SystemDataResponse>;
     /**
@@ -111,7 +111,7 @@ export class Account extends pulumi.CustomResource {
  */
 export interface AccountArgs {
     /**
-     * The name of the ADP account.
+     * The name of the ADP account
      */
     readonly accountName?: pulumi.Input<string>;
     /**

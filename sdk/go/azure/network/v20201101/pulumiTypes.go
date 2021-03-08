@@ -61469,6 +61469,8 @@ type ServiceEndpointPolicyResponse struct {
 	Etag string `pulumi:"etag"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
+	// Kind of service endpoint policy. This is metadata used for the Azure portal experience.
+	Kind string `pulumi:"kind"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Resource name.
@@ -61504,6 +61506,8 @@ type ServiceEndpointPolicyResponseArgs struct {
 	Etag pulumi.StringInput `pulumi:"etag"`
 	// Resource ID.
 	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Kind of service endpoint policy. This is metadata used for the Azure portal experience.
+	Kind pulumi.StringInput `pulumi:"kind"`
 	// Resource location.
 	Location pulumi.StringPtrInput `pulumi:"location"`
 	// Resource name.
@@ -61582,6 +61586,11 @@ func (o ServiceEndpointPolicyResponseOutput) Etag() pulumi.StringOutput {
 // Resource ID.
 func (o ServiceEndpointPolicyResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceEndpointPolicyResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Kind of service endpoint policy. This is metadata used for the Azure portal experience.
+func (o ServiceEndpointPolicyResponseOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceEndpointPolicyResponse) string { return v.Kind }).(pulumi.StringOutput)
 }
 
 // Resource location.

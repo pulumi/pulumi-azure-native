@@ -12,6 +12,7 @@ __all__ = [
     'DataSourceType',
     'DayOfWeek',
     'HealthStatus',
+    'InfrastructureEncryptionState',
     'LastBackupStatus',
     'MonthOfYear',
     'OperationType',
@@ -22,9 +23,11 @@ __all__ = [
     'ProtectionState',
     'ProvisioningState',
     'ResourceHealthStatus',
+    'ResourceIdentityType',
     'RetentionDurationType',
     'RetentionScheduleFormat',
     'ScheduleRunType',
+    'SkuName',
     'WeekOfMonth',
     'WorkloadType',
 ]
@@ -138,6 +141,14 @@ class HealthStatus(str, Enum):
     ACTION_REQUIRED = "ActionRequired"
     ACTION_SUGGESTED = "ActionSuggested"
     INVALID = "Invalid"
+
+
+class InfrastructureEncryptionState(str, Enum):
+    """
+    Enabling/Disabling the Double Encryption state
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 class LastBackupStatus(str, Enum):
@@ -254,6 +265,16 @@ class ResourceHealthStatus(str, Enum):
     INVALID = "Invalid"
 
 
+class ResourceIdentityType(str, Enum):
+    """
+    The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
+    """
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    NONE = "None"
+    USER_ASSIGNED = "UserAssigned"
+    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned, UserAssigned"
+
+
 class RetentionDurationType(str, Enum):
     """
     Retention duration type of retention policy.
@@ -281,6 +302,14 @@ class ScheduleRunType(str, Enum):
     INVALID = "Invalid"
     DAILY = "Daily"
     WEEKLY = "Weekly"
+
+
+class SkuName(str, Enum):
+    """
+    The Sku name.
+    """
+    STANDARD = "Standard"
+    RS0 = "RS0"
 
 
 class WeekOfMonth(str, Enum):

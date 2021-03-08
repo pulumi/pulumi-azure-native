@@ -24,12 +24,12 @@ class Account(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
-        An ADP account.
-        API Version: 2020-07-01-preview.
+        ADP account
+        API Version: 2021-02-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] account_name: The name of the ADP account.
+        :param pulumi.Input[str] account_name: The name of the ADP account
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -123,7 +123,7 @@ class Account(pulumi.CustomResource):
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> pulumi.Output[str]:
         """
-        Gets the status of the account at the time the operation was called.
+        Gets the status of the account at the time the operation was called
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -131,7 +131,7 @@ class Account(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        The system meta data relating to this resource.
+        The system meta data relating to this resource
         """
         return pulumi.get(self, "system_data")
 

@@ -59,6 +59,7 @@ class StorageTargetType(str, Enum):
     NFS3 = "nfs3"
     CLFS = "clfs"
     UNKNOWN = "unknown"
+    BLOB_NFS = "blobNfs"
 
 
 class UsernameSource(str, Enum):

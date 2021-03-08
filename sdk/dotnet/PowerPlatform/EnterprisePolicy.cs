@@ -41,7 +41,7 @@ namespace Pulumi.AzureNative.PowerPlatform
         public Output<Outputs.PropertiesResponseLockbox?> Lockbox { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the EnterprisePolicy.
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -59,7 +59,7 @@ namespace Pulumi.AzureNative.PowerPlatform
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the resource.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -134,7 +134,7 @@ namespace Pulumi.AzureNative.PowerPlatform
         public Input<Inputs.EnterprisePolicyIdentityArgs>? Identity { get; set; }
 
         /// <summary>
-        /// The Azure Region where the resource lives
+        /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }

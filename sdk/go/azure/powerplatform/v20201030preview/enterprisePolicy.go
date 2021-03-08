@@ -23,13 +23,13 @@ type EnterprisePolicy struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Settings concerning lockbox.
 	Lockbox PropertiesResponseLockboxPtrOutput `pulumi:"lockbox"`
-	// Name of the EnterprisePolicy.
+	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Metadata pertaining to creation and last modification of the resource.
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -85,13 +85,13 @@ type enterprisePolicyState struct {
 	Location *string `pulumi:"location"`
 	// Settings concerning lockbox.
 	Lockbox *PropertiesResponseLockbox `pulumi:"lockbox"`
-	// Name of the EnterprisePolicy.
+	// The name of the resource
 	Name *string `pulumi:"name"`
 	// Metadata pertaining to creation and last modification of the resource.
 	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
@@ -104,13 +104,13 @@ type EnterprisePolicyState struct {
 	Location pulumi.StringPtrInput
 	// Settings concerning lockbox.
 	Lockbox PropertiesResponseLockboxPtrInput
-	// Name of the EnterprisePolicy.
+	// The name of the resource
 	Name pulumi.StringPtrInput
 	// Metadata pertaining to creation and last modification of the resource.
 	SystemData SystemDataResponsePtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
-	// The type of the resource.
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
 
@@ -125,7 +125,7 @@ type enterprisePolicyArgs struct {
 	EnterprisePolicyName *string `pulumi:"enterprisePolicyName"`
 	// The identity of the EnterprisePolicy.
 	Identity *EnterprisePolicyIdentity `pulumi:"identity"`
-	// The Azure Region where the resource lives
+	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -141,7 +141,7 @@ type EnterprisePolicyArgs struct {
 	EnterprisePolicyName pulumi.StringPtrInput
 	// The identity of the EnterprisePolicy.
 	Identity EnterprisePolicyIdentityPtrInput
-	// The Azure Region where the resource lives
+	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput

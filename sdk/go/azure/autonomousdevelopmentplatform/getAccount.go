@@ -7,8 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// An ADP account.
-// API Version: 2020-07-01-preview.
+// ADP account
+// API Version: 2021-02-01-preview.
 func LookupAccount(ctx *pulumi.Context, args *LookupAccountArgs, opts ...pulumi.InvokeOption) (*LookupAccountResult, error) {
 	var rv LookupAccountResult
 	err := ctx.Invoke("azure-native:autonomousdevelopmentplatform:getAccount", args, &rv, opts...)
@@ -19,13 +19,13 @@ func LookupAccount(ctx *pulumi.Context, args *LookupAccountArgs, opts ...pulumi.
 }
 
 type LookupAccountArgs struct {
-	// The name of the ADP account.
+	// The name of the ADP account
 	AccountName string `pulumi:"accountName"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-// An ADP account.
+// ADP account
 type LookupAccountResult struct {
 	// The account's data-plane ID
 	AccountId string `pulumi:"accountId"`
@@ -35,9 +35,9 @@ type LookupAccountResult struct {
 	Location string `pulumi:"location"`
 	// The name of the resource
 	Name string `pulumi:"name"`
-	// Gets the status of the account at the time the operation was called.
+	// Gets the status of the account at the time the operation was called
 	ProvisioningState string `pulumi:"provisioningState"`
-	// The system meta data relating to this resource.
+	// The system meta data relating to this resource
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`

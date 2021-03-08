@@ -10,8 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AutonomousDevelopmentPlatform
 {
     /// <summary>
-    /// An ADP account.
-    /// API Version: 2020-07-01-preview.
+    /// ADP account
+    /// API Version: 2021-02-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:autonomousdevelopmentplatform:Account")]
     public partial class Account : Pulumi.CustomResource
@@ -35,13 +35,13 @@ namespace Pulumi.AzureNative.AutonomousDevelopmentPlatform
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Gets the status of the account at the time the operation was called.
+        /// Gets the status of the account at the time the operation was called
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// The system meta data relating to this resource.
+        /// The system meta data relating to this resource
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
@@ -112,7 +112,7 @@ namespace Pulumi.AzureNative.AutonomousDevelopmentPlatform
     public sealed class AccountArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the ADP account.
+        /// The name of the ADP account
         /// </summary>
         [Input("accountName")]
         public Input<string>? AccountName { get; set; }

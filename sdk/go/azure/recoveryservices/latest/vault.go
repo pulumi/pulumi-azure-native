@@ -12,7 +12,7 @@ import (
 )
 
 // Resource information, as returned by the resource provider.
-// Latest API Version: 2020-10-01.
+// Latest API Version: 2021-01-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:recoveryservices:Vault'.
 type Vault struct {
@@ -75,6 +75,12 @@ func NewVault(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20201001:Vault"),
+		},
+		{
+			Type: pulumi.String("azure-native:recoveryservices/v20210101:Vault"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:recoveryservices/v20210101:Vault"),
 		},
 	})
 	opts = append(opts, aliases)

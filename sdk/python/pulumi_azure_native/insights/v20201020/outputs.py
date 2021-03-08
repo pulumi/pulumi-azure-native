@@ -59,15 +59,26 @@ class UserAssignedIdentitiesResponse(dict):
     Customer Managed Identity
     """
     def __init__(__self__, *,
+                 client_id: str,
                  principal_id: str,
                  tenant_id: str):
         """
         Customer Managed Identity
+        :param str client_id: The client ID of resource.
         :param str principal_id: The principal ID of resource identity.
         :param str tenant_id: The tenant ID of resource.
         """
+        pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> str:
+        """
+        The client ID of resource.
+        """
+        return pulumi.get(self, "client_id")
 
     @property
     @pulumi.getter(name="principalId")

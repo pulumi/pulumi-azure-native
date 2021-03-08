@@ -200,9 +200,9 @@ class GetCacheResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Any]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
-        ARM tags as name/value pairs.
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -254,7 +254,7 @@ def get_cache(cache_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCacheResult:
     """
     A Cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
-    Latest API Version: 2020-10-01.
+    Latest API Version: 2021-03-01.
 
 
     :param str cache_name: Name of Cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.

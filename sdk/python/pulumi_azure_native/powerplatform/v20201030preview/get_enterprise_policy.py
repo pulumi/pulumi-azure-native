@@ -61,7 +61,7 @@ class GetEnterprisePolicyResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        ARM resource id of the EnterprisePolicy.
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -93,7 +93,7 @@ class GetEnterprisePolicyResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Name of the EnterprisePolicy.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -117,7 +117,7 @@ class GetEnterprisePolicyResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of the resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

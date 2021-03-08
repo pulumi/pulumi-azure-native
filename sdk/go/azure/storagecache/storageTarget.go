@@ -12,10 +12,12 @@ import (
 )
 
 // Type of the Storage Target.
-// API Version: 2020-10-01.
+// API Version: 2021-03-01.
 type StorageTarget struct {
 	pulumi.CustomResourceState
 
+	// Properties when targetType is blobNfs.
+	BlobNfs BlobNfsTargetResponsePtrOutput `pulumi:"blobNfs"`
 	// Properties when targetType is clfs.
 	Clfs ClfsTargetResponsePtrOutput `pulumi:"clfs"`
 	// List of Cache namespace junctions to target for namespace associations.
@@ -118,6 +120,8 @@ func GetStorageTarget(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering StorageTarget resources.
 type storageTargetState struct {
+	// Properties when targetType is blobNfs.
+	BlobNfs *BlobNfsTargetResponse `pulumi:"blobNfs"`
 	// Properties when targetType is clfs.
 	Clfs *ClfsTargetResponse `pulumi:"clfs"`
 	// List of Cache namespace junctions to target for namespace associations.
@@ -141,6 +145,8 @@ type storageTargetState struct {
 }
 
 type StorageTargetState struct {
+	// Properties when targetType is blobNfs.
+	BlobNfs BlobNfsTargetResponsePtrInput
 	// Properties when targetType is clfs.
 	Clfs ClfsTargetResponsePtrInput
 	// List of Cache namespace junctions to target for namespace associations.
@@ -168,6 +174,8 @@ func (StorageTargetState) ElementType() reflect.Type {
 }
 
 type storageTargetArgs struct {
+	// Properties when targetType is blobNfs.
+	BlobNfs *BlobNfsTarget `pulumi:"blobNfs"`
 	// Name of Cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
 	CacheName string `pulumi:"cacheName"`
 	// Properties when targetType is clfs.
@@ -180,7 +188,7 @@ type storageTargetArgs struct {
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// Target resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of the Storage Target. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
+	// Name of Storage Target.
 	StorageTargetName *string `pulumi:"storageTargetName"`
 	// Type of the Storage Target.
 	TargetType string `pulumi:"targetType"`
@@ -190,6 +198,8 @@ type storageTargetArgs struct {
 
 // The set of arguments for constructing a StorageTarget resource.
 type StorageTargetArgs struct {
+	// Properties when targetType is blobNfs.
+	BlobNfs BlobNfsTargetPtrInput
 	// Name of Cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
 	CacheName pulumi.StringInput
 	// Properties when targetType is clfs.
@@ -202,7 +212,7 @@ type StorageTargetArgs struct {
 	ProvisioningState pulumi.StringPtrInput
 	// Target resource group.
 	ResourceGroupName pulumi.StringInput
-	// Name of the Storage Target. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
+	// Name of Storage Target.
 	StorageTargetName pulumi.StringPtrInput
 	// Type of the Storage Target.
 	TargetType pulumi.StringInput

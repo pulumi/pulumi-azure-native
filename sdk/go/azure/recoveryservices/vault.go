@@ -12,7 +12,7 @@ import (
 )
 
 // Resource information, as returned by the resource provider.
-// API Version: 2020-10-01.
+// API Version: 2021-01-01.
 type Vault struct {
 	pulumi.CustomResourceState
 
@@ -73,6 +73,12 @@ func NewVault(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20201001:Vault"),
+		},
+		{
+			Type: pulumi.String("azure-native:recoveryservices/v20210101:Vault"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:recoveryservices/v20210101:Vault"),
 		},
 	})
 	opts = append(opts, aliases)

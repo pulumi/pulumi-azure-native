@@ -10,6 +10,312 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Properties pertaining to the BlobNfsTarget.
+type BlobNfsTarget struct {
+	// Resource ID of the storage container.
+	Target *string `pulumi:"target"`
+	// Identifies the StorageCache usage model to be used for this storage target.
+	UsageModel *string `pulumi:"usageModel"`
+}
+
+// BlobNfsTargetInput is an input type that accepts BlobNfsTargetArgs and BlobNfsTargetOutput values.
+// You can construct a concrete instance of `BlobNfsTargetInput` via:
+//
+//          BlobNfsTargetArgs{...}
+type BlobNfsTargetInput interface {
+	pulumi.Input
+
+	ToBlobNfsTargetOutput() BlobNfsTargetOutput
+	ToBlobNfsTargetOutputWithContext(context.Context) BlobNfsTargetOutput
+}
+
+// Properties pertaining to the BlobNfsTarget.
+type BlobNfsTargetArgs struct {
+	// Resource ID of the storage container.
+	Target pulumi.StringPtrInput `pulumi:"target"`
+	// Identifies the StorageCache usage model to be used for this storage target.
+	UsageModel pulumi.StringPtrInput `pulumi:"usageModel"`
+}
+
+func (BlobNfsTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BlobNfsTarget)(nil)).Elem()
+}
+
+func (i BlobNfsTargetArgs) ToBlobNfsTargetOutput() BlobNfsTargetOutput {
+	return i.ToBlobNfsTargetOutputWithContext(context.Background())
+}
+
+func (i BlobNfsTargetArgs) ToBlobNfsTargetOutputWithContext(ctx context.Context) BlobNfsTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BlobNfsTargetOutput)
+}
+
+func (i BlobNfsTargetArgs) ToBlobNfsTargetPtrOutput() BlobNfsTargetPtrOutput {
+	return i.ToBlobNfsTargetPtrOutputWithContext(context.Background())
+}
+
+func (i BlobNfsTargetArgs) ToBlobNfsTargetPtrOutputWithContext(ctx context.Context) BlobNfsTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BlobNfsTargetOutput).ToBlobNfsTargetPtrOutputWithContext(ctx)
+}
+
+// BlobNfsTargetPtrInput is an input type that accepts BlobNfsTargetArgs, BlobNfsTargetPtr and BlobNfsTargetPtrOutput values.
+// You can construct a concrete instance of `BlobNfsTargetPtrInput` via:
+//
+//          BlobNfsTargetArgs{...}
+//
+//  or:
+//
+//          nil
+type BlobNfsTargetPtrInput interface {
+	pulumi.Input
+
+	ToBlobNfsTargetPtrOutput() BlobNfsTargetPtrOutput
+	ToBlobNfsTargetPtrOutputWithContext(context.Context) BlobNfsTargetPtrOutput
+}
+
+type blobNfsTargetPtrType BlobNfsTargetArgs
+
+func BlobNfsTargetPtr(v *BlobNfsTargetArgs) BlobNfsTargetPtrInput {
+	return (*blobNfsTargetPtrType)(v)
+}
+
+func (*blobNfsTargetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BlobNfsTarget)(nil)).Elem()
+}
+
+func (i *blobNfsTargetPtrType) ToBlobNfsTargetPtrOutput() BlobNfsTargetPtrOutput {
+	return i.ToBlobNfsTargetPtrOutputWithContext(context.Background())
+}
+
+func (i *blobNfsTargetPtrType) ToBlobNfsTargetPtrOutputWithContext(ctx context.Context) BlobNfsTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BlobNfsTargetPtrOutput)
+}
+
+// Properties pertaining to the BlobNfsTarget.
+type BlobNfsTargetOutput struct{ *pulumi.OutputState }
+
+func (BlobNfsTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BlobNfsTarget)(nil)).Elem()
+}
+
+func (o BlobNfsTargetOutput) ToBlobNfsTargetOutput() BlobNfsTargetOutput {
+	return o
+}
+
+func (o BlobNfsTargetOutput) ToBlobNfsTargetOutputWithContext(ctx context.Context) BlobNfsTargetOutput {
+	return o
+}
+
+func (o BlobNfsTargetOutput) ToBlobNfsTargetPtrOutput() BlobNfsTargetPtrOutput {
+	return o.ToBlobNfsTargetPtrOutputWithContext(context.Background())
+}
+
+func (o BlobNfsTargetOutput) ToBlobNfsTargetPtrOutputWithContext(ctx context.Context) BlobNfsTargetPtrOutput {
+	return o.ApplyT(func(v BlobNfsTarget) *BlobNfsTarget {
+		return &v
+	}).(BlobNfsTargetPtrOutput)
+}
+
+// Resource ID of the storage container.
+func (o BlobNfsTargetOutput) Target() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BlobNfsTarget) *string { return v.Target }).(pulumi.StringPtrOutput)
+}
+
+// Identifies the StorageCache usage model to be used for this storage target.
+func (o BlobNfsTargetOutput) UsageModel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BlobNfsTarget) *string { return v.UsageModel }).(pulumi.StringPtrOutput)
+}
+
+type BlobNfsTargetPtrOutput struct{ *pulumi.OutputState }
+
+func (BlobNfsTargetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BlobNfsTarget)(nil)).Elem()
+}
+
+func (o BlobNfsTargetPtrOutput) ToBlobNfsTargetPtrOutput() BlobNfsTargetPtrOutput {
+	return o
+}
+
+func (o BlobNfsTargetPtrOutput) ToBlobNfsTargetPtrOutputWithContext(ctx context.Context) BlobNfsTargetPtrOutput {
+	return o
+}
+
+func (o BlobNfsTargetPtrOutput) Elem() BlobNfsTargetOutput {
+	return o.ApplyT(func(v *BlobNfsTarget) BlobNfsTarget { return *v }).(BlobNfsTargetOutput)
+}
+
+// Resource ID of the storage container.
+func (o BlobNfsTargetPtrOutput) Target() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BlobNfsTarget) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Target
+	}).(pulumi.StringPtrOutput)
+}
+
+// Identifies the StorageCache usage model to be used for this storage target.
+func (o BlobNfsTargetPtrOutput) UsageModel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BlobNfsTarget) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UsageModel
+	}).(pulumi.StringPtrOutput)
+}
+
+// Properties pertaining to the BlobNfsTarget.
+type BlobNfsTargetResponse struct {
+	// Resource ID of the storage container.
+	Target *string `pulumi:"target"`
+	// Identifies the StorageCache usage model to be used for this storage target.
+	UsageModel *string `pulumi:"usageModel"`
+}
+
+// BlobNfsTargetResponseInput is an input type that accepts BlobNfsTargetResponseArgs and BlobNfsTargetResponseOutput values.
+// You can construct a concrete instance of `BlobNfsTargetResponseInput` via:
+//
+//          BlobNfsTargetResponseArgs{...}
+type BlobNfsTargetResponseInput interface {
+	pulumi.Input
+
+	ToBlobNfsTargetResponseOutput() BlobNfsTargetResponseOutput
+	ToBlobNfsTargetResponseOutputWithContext(context.Context) BlobNfsTargetResponseOutput
+}
+
+// Properties pertaining to the BlobNfsTarget.
+type BlobNfsTargetResponseArgs struct {
+	// Resource ID of the storage container.
+	Target pulumi.StringPtrInput `pulumi:"target"`
+	// Identifies the StorageCache usage model to be used for this storage target.
+	UsageModel pulumi.StringPtrInput `pulumi:"usageModel"`
+}
+
+func (BlobNfsTargetResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BlobNfsTargetResponse)(nil)).Elem()
+}
+
+func (i BlobNfsTargetResponseArgs) ToBlobNfsTargetResponseOutput() BlobNfsTargetResponseOutput {
+	return i.ToBlobNfsTargetResponseOutputWithContext(context.Background())
+}
+
+func (i BlobNfsTargetResponseArgs) ToBlobNfsTargetResponseOutputWithContext(ctx context.Context) BlobNfsTargetResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BlobNfsTargetResponseOutput)
+}
+
+func (i BlobNfsTargetResponseArgs) ToBlobNfsTargetResponsePtrOutput() BlobNfsTargetResponsePtrOutput {
+	return i.ToBlobNfsTargetResponsePtrOutputWithContext(context.Background())
+}
+
+func (i BlobNfsTargetResponseArgs) ToBlobNfsTargetResponsePtrOutputWithContext(ctx context.Context) BlobNfsTargetResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BlobNfsTargetResponseOutput).ToBlobNfsTargetResponsePtrOutputWithContext(ctx)
+}
+
+// BlobNfsTargetResponsePtrInput is an input type that accepts BlobNfsTargetResponseArgs, BlobNfsTargetResponsePtr and BlobNfsTargetResponsePtrOutput values.
+// You can construct a concrete instance of `BlobNfsTargetResponsePtrInput` via:
+//
+//          BlobNfsTargetResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type BlobNfsTargetResponsePtrInput interface {
+	pulumi.Input
+
+	ToBlobNfsTargetResponsePtrOutput() BlobNfsTargetResponsePtrOutput
+	ToBlobNfsTargetResponsePtrOutputWithContext(context.Context) BlobNfsTargetResponsePtrOutput
+}
+
+type blobNfsTargetResponsePtrType BlobNfsTargetResponseArgs
+
+func BlobNfsTargetResponsePtr(v *BlobNfsTargetResponseArgs) BlobNfsTargetResponsePtrInput {
+	return (*blobNfsTargetResponsePtrType)(v)
+}
+
+func (*blobNfsTargetResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BlobNfsTargetResponse)(nil)).Elem()
+}
+
+func (i *blobNfsTargetResponsePtrType) ToBlobNfsTargetResponsePtrOutput() BlobNfsTargetResponsePtrOutput {
+	return i.ToBlobNfsTargetResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *blobNfsTargetResponsePtrType) ToBlobNfsTargetResponsePtrOutputWithContext(ctx context.Context) BlobNfsTargetResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BlobNfsTargetResponsePtrOutput)
+}
+
+// Properties pertaining to the BlobNfsTarget.
+type BlobNfsTargetResponseOutput struct{ *pulumi.OutputState }
+
+func (BlobNfsTargetResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BlobNfsTargetResponse)(nil)).Elem()
+}
+
+func (o BlobNfsTargetResponseOutput) ToBlobNfsTargetResponseOutput() BlobNfsTargetResponseOutput {
+	return o
+}
+
+func (o BlobNfsTargetResponseOutput) ToBlobNfsTargetResponseOutputWithContext(ctx context.Context) BlobNfsTargetResponseOutput {
+	return o
+}
+
+func (o BlobNfsTargetResponseOutput) ToBlobNfsTargetResponsePtrOutput() BlobNfsTargetResponsePtrOutput {
+	return o.ToBlobNfsTargetResponsePtrOutputWithContext(context.Background())
+}
+
+func (o BlobNfsTargetResponseOutput) ToBlobNfsTargetResponsePtrOutputWithContext(ctx context.Context) BlobNfsTargetResponsePtrOutput {
+	return o.ApplyT(func(v BlobNfsTargetResponse) *BlobNfsTargetResponse {
+		return &v
+	}).(BlobNfsTargetResponsePtrOutput)
+}
+
+// Resource ID of the storage container.
+func (o BlobNfsTargetResponseOutput) Target() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BlobNfsTargetResponse) *string { return v.Target }).(pulumi.StringPtrOutput)
+}
+
+// Identifies the StorageCache usage model to be used for this storage target.
+func (o BlobNfsTargetResponseOutput) UsageModel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BlobNfsTargetResponse) *string { return v.UsageModel }).(pulumi.StringPtrOutput)
+}
+
+type BlobNfsTargetResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (BlobNfsTargetResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BlobNfsTargetResponse)(nil)).Elem()
+}
+
+func (o BlobNfsTargetResponsePtrOutput) ToBlobNfsTargetResponsePtrOutput() BlobNfsTargetResponsePtrOutput {
+	return o
+}
+
+func (o BlobNfsTargetResponsePtrOutput) ToBlobNfsTargetResponsePtrOutputWithContext(ctx context.Context) BlobNfsTargetResponsePtrOutput {
+	return o
+}
+
+func (o BlobNfsTargetResponsePtrOutput) Elem() BlobNfsTargetResponseOutput {
+	return o.ApplyT(func(v *BlobNfsTargetResponse) BlobNfsTargetResponse { return *v }).(BlobNfsTargetResponseOutput)
+}
+
+// Resource ID of the storage container.
+func (o BlobNfsTargetResponsePtrOutput) Target() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BlobNfsTargetResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Target
+	}).(pulumi.StringPtrOutput)
+}
+
+// Identifies the StorageCache usage model to be used for this storage target.
+func (o BlobNfsTargetResponsePtrOutput) UsageModel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BlobNfsTargetResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UsageModel
+	}).(pulumi.StringPtrOutput)
+}
+
 // Active Directory settings used to join a cache to a domain.
 type CacheActiveDirectorySettings struct {
 	// The NetBIOS name to assign to the HPC Cache when it joins the Active Directory domain as a server. Length must 1-15 characters from the class [-0-9a-zA-Z].
@@ -1375,6 +1681,8 @@ func (o CacheEncryptionSettingsResponsePtrOutput) KeyEncryptionKey() KeyVaultKey
 
 // An indication of Cache health. Gives more information about health than just that related to provisioning.
 type CacheHealthResponse struct {
+	// Outstanding conditions that need to be investigated and resolved.
+	Conditions []ConditionResponse `pulumi:"conditions"`
 	// List of Cache health states.
 	State *string `pulumi:"state"`
 	// Describes explanation of state.
@@ -1394,6 +1702,8 @@ type CacheHealthResponseInput interface {
 
 // An indication of Cache health. Gives more information about health than just that related to provisioning.
 type CacheHealthResponseArgs struct {
+	// Outstanding conditions that need to be investigated and resolved.
+	Conditions ConditionResponseArrayInput `pulumi:"conditions"`
 	// List of Cache health states.
 	State pulumi.StringPtrInput `pulumi:"state"`
 	// Describes explanation of state.
@@ -1478,6 +1788,11 @@ func (o CacheHealthResponseOutput) ToCacheHealthResponsePtrOutputWithContext(ctx
 	}).(CacheHealthResponsePtrOutput)
 }
 
+// Outstanding conditions that need to be investigated and resolved.
+func (o CacheHealthResponseOutput) Conditions() ConditionResponseArrayOutput {
+	return o.ApplyT(func(v CacheHealthResponse) []ConditionResponse { return v.Conditions }).(ConditionResponseArrayOutput)
+}
+
 // List of Cache health states.
 func (o CacheHealthResponseOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CacheHealthResponse) *string { return v.State }).(pulumi.StringPtrOutput)
@@ -1504,6 +1819,16 @@ func (o CacheHealthResponsePtrOutput) ToCacheHealthResponsePtrOutputWithContext(
 
 func (o CacheHealthResponsePtrOutput) Elem() CacheHealthResponseOutput {
 	return o.ApplyT(func(v *CacheHealthResponse) CacheHealthResponse { return *v }).(CacheHealthResponseOutput)
+}
+
+// Outstanding conditions that need to be investigated and resolved.
+func (o CacheHealthResponsePtrOutput) Conditions() ConditionResponseArrayOutput {
+	return o.ApplyT(func(v *CacheHealthResponse) []ConditionResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Conditions
+	}).(ConditionResponseArrayOutput)
 }
 
 // List of Cache health states.
@@ -1834,8 +2159,14 @@ func (o CacheIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 
 // Cache network settings.
 type CacheNetworkSettings struct {
+	// DNS search domain
+	DnsSearchDomain *string `pulumi:"dnsSearchDomain"`
+	// DNS servers for the cache to use.  It will be set from the network configuration if no value is provided.
+	DnsServers []string `pulumi:"dnsServers"`
 	// The IPv4 maximum transmission unit configured for the subnet.
 	Mtu *int `pulumi:"mtu"`
+	// NTP server IP Address or FQDN for the cache to use. The default is time.windows.com.
+	NtpServer *string `pulumi:"ntpServer"`
 }
 
 // CacheNetworkSettingsInput is an input type that accepts CacheNetworkSettingsArgs and CacheNetworkSettingsOutput values.
@@ -1851,8 +2182,14 @@ type CacheNetworkSettingsInput interface {
 
 // Cache network settings.
 type CacheNetworkSettingsArgs struct {
+	// DNS search domain
+	DnsSearchDomain pulumi.StringPtrInput `pulumi:"dnsSearchDomain"`
+	// DNS servers for the cache to use.  It will be set from the network configuration if no value is provided.
+	DnsServers pulumi.StringArrayInput `pulumi:"dnsServers"`
 	// The IPv4 maximum transmission unit configured for the subnet.
 	Mtu pulumi.IntPtrInput `pulumi:"mtu"`
+	// NTP server IP Address or FQDN for the cache to use. The default is time.windows.com.
+	NtpServer pulumi.StringPtrInput `pulumi:"ntpServer"`
 }
 
 func (CacheNetworkSettingsArgs) ElementType() reflect.Type {
@@ -1933,9 +2270,24 @@ func (o CacheNetworkSettingsOutput) ToCacheNetworkSettingsPtrOutputWithContext(c
 	}).(CacheNetworkSettingsPtrOutput)
 }
 
+// DNS search domain
+func (o CacheNetworkSettingsOutput) DnsSearchDomain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CacheNetworkSettings) *string { return v.DnsSearchDomain }).(pulumi.StringPtrOutput)
+}
+
+// DNS servers for the cache to use.  It will be set from the network configuration if no value is provided.
+func (o CacheNetworkSettingsOutput) DnsServers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CacheNetworkSettings) []string { return v.DnsServers }).(pulumi.StringArrayOutput)
+}
+
 // The IPv4 maximum transmission unit configured for the subnet.
 func (o CacheNetworkSettingsOutput) Mtu() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CacheNetworkSettings) *int { return v.Mtu }).(pulumi.IntPtrOutput)
+}
+
+// NTP server IP Address or FQDN for the cache to use. The default is time.windows.com.
+func (o CacheNetworkSettingsOutput) NtpServer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CacheNetworkSettings) *string { return v.NtpServer }).(pulumi.StringPtrOutput)
 }
 
 type CacheNetworkSettingsPtrOutput struct{ *pulumi.OutputState }
@@ -1956,6 +2308,26 @@ func (o CacheNetworkSettingsPtrOutput) Elem() CacheNetworkSettingsOutput {
 	return o.ApplyT(func(v *CacheNetworkSettings) CacheNetworkSettings { return *v }).(CacheNetworkSettingsOutput)
 }
 
+// DNS search domain
+func (o CacheNetworkSettingsPtrOutput) DnsSearchDomain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheNetworkSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DnsSearchDomain
+	}).(pulumi.StringPtrOutput)
+}
+
+// DNS servers for the cache to use.  It will be set from the network configuration if no value is provided.
+func (o CacheNetworkSettingsPtrOutput) DnsServers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CacheNetworkSettings) []string {
+		if v == nil {
+			return nil
+		}
+		return v.DnsServers
+	}).(pulumi.StringArrayOutput)
+}
+
 // The IPv4 maximum transmission unit configured for the subnet.
 func (o CacheNetworkSettingsPtrOutput) Mtu() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CacheNetworkSettings) *int {
@@ -1966,10 +2338,26 @@ func (o CacheNetworkSettingsPtrOutput) Mtu() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// NTP server IP Address or FQDN for the cache to use. The default is time.windows.com.
+func (o CacheNetworkSettingsPtrOutput) NtpServer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheNetworkSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NtpServer
+	}).(pulumi.StringPtrOutput)
+}
+
 // Cache network settings.
 type CacheNetworkSettingsResponse struct {
+	// DNS search domain
+	DnsSearchDomain *string `pulumi:"dnsSearchDomain"`
+	// DNS servers for the cache to use.  It will be set from the network configuration if no value is provided.
+	DnsServers []string `pulumi:"dnsServers"`
 	// The IPv4 maximum transmission unit configured for the subnet.
 	Mtu *int `pulumi:"mtu"`
+	// NTP server IP Address or FQDN for the cache to use. The default is time.windows.com.
+	NtpServer *string `pulumi:"ntpServer"`
 	// Array of additional IP addresses used by this Cache.
 	UtilityAddresses []string `pulumi:"utilityAddresses"`
 }
@@ -1987,8 +2375,14 @@ type CacheNetworkSettingsResponseInput interface {
 
 // Cache network settings.
 type CacheNetworkSettingsResponseArgs struct {
+	// DNS search domain
+	DnsSearchDomain pulumi.StringPtrInput `pulumi:"dnsSearchDomain"`
+	// DNS servers for the cache to use.  It will be set from the network configuration if no value is provided.
+	DnsServers pulumi.StringArrayInput `pulumi:"dnsServers"`
 	// The IPv4 maximum transmission unit configured for the subnet.
 	Mtu pulumi.IntPtrInput `pulumi:"mtu"`
+	// NTP server IP Address or FQDN for the cache to use. The default is time.windows.com.
+	NtpServer pulumi.StringPtrInput `pulumi:"ntpServer"`
 	// Array of additional IP addresses used by this Cache.
 	UtilityAddresses pulumi.StringArrayInput `pulumi:"utilityAddresses"`
 }
@@ -2071,9 +2465,24 @@ func (o CacheNetworkSettingsResponseOutput) ToCacheNetworkSettingsResponsePtrOut
 	}).(CacheNetworkSettingsResponsePtrOutput)
 }
 
+// DNS search domain
+func (o CacheNetworkSettingsResponseOutput) DnsSearchDomain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CacheNetworkSettingsResponse) *string { return v.DnsSearchDomain }).(pulumi.StringPtrOutput)
+}
+
+// DNS servers for the cache to use.  It will be set from the network configuration if no value is provided.
+func (o CacheNetworkSettingsResponseOutput) DnsServers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CacheNetworkSettingsResponse) []string { return v.DnsServers }).(pulumi.StringArrayOutput)
+}
+
 // The IPv4 maximum transmission unit configured for the subnet.
 func (o CacheNetworkSettingsResponseOutput) Mtu() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CacheNetworkSettingsResponse) *int { return v.Mtu }).(pulumi.IntPtrOutput)
+}
+
+// NTP server IP Address or FQDN for the cache to use. The default is time.windows.com.
+func (o CacheNetworkSettingsResponseOutput) NtpServer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CacheNetworkSettingsResponse) *string { return v.NtpServer }).(pulumi.StringPtrOutput)
 }
 
 // Array of additional IP addresses used by this Cache.
@@ -2099,6 +2508,26 @@ func (o CacheNetworkSettingsResponsePtrOutput) Elem() CacheNetworkSettingsRespon
 	return o.ApplyT(func(v *CacheNetworkSettingsResponse) CacheNetworkSettingsResponse { return *v }).(CacheNetworkSettingsResponseOutput)
 }
 
+// DNS search domain
+func (o CacheNetworkSettingsResponsePtrOutput) DnsSearchDomain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheNetworkSettingsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DnsSearchDomain
+	}).(pulumi.StringPtrOutput)
+}
+
+// DNS servers for the cache to use.  It will be set from the network configuration if no value is provided.
+func (o CacheNetworkSettingsResponsePtrOutput) DnsServers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CacheNetworkSettingsResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.DnsServers
+	}).(pulumi.StringArrayOutput)
+}
+
 // The IPv4 maximum transmission unit configured for the subnet.
 func (o CacheNetworkSettingsResponsePtrOutput) Mtu() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CacheNetworkSettingsResponse) *int {
@@ -2107,6 +2536,16 @@ func (o CacheNetworkSettingsResponsePtrOutput) Mtu() pulumi.IntPtrOutput {
 		}
 		return v.Mtu
 	}).(pulumi.IntPtrOutput)
+}
+
+// NTP server IP Address or FQDN for the cache to use. The default is time.windows.com.
+func (o CacheNetworkSettingsResponsePtrOutput) NtpServer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheNetworkSettingsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NtpServer
+	}).(pulumi.StringPtrOutput)
 }
 
 // Array of additional IP addresses used by this Cache.
@@ -4110,6 +4549,115 @@ func (o ClfsTargetResponsePtrOutput) Target() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Outstanding conditions that will need to be resolved.
+type ConditionResponse struct {
+	// The issue requiring attention.
+	Message string `pulumi:"message"`
+	// The time when the condition was raised.
+	Timestamp string `pulumi:"timestamp"`
+}
+
+// ConditionResponseInput is an input type that accepts ConditionResponseArgs and ConditionResponseOutput values.
+// You can construct a concrete instance of `ConditionResponseInput` via:
+//
+//          ConditionResponseArgs{...}
+type ConditionResponseInput interface {
+	pulumi.Input
+
+	ToConditionResponseOutput() ConditionResponseOutput
+	ToConditionResponseOutputWithContext(context.Context) ConditionResponseOutput
+}
+
+// Outstanding conditions that will need to be resolved.
+type ConditionResponseArgs struct {
+	// The issue requiring attention.
+	Message pulumi.StringInput `pulumi:"message"`
+	// The time when the condition was raised.
+	Timestamp pulumi.StringInput `pulumi:"timestamp"`
+}
+
+func (ConditionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConditionResponse)(nil)).Elem()
+}
+
+func (i ConditionResponseArgs) ToConditionResponseOutput() ConditionResponseOutput {
+	return i.ToConditionResponseOutputWithContext(context.Background())
+}
+
+func (i ConditionResponseArgs) ToConditionResponseOutputWithContext(ctx context.Context) ConditionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConditionResponseOutput)
+}
+
+// ConditionResponseArrayInput is an input type that accepts ConditionResponseArray and ConditionResponseArrayOutput values.
+// You can construct a concrete instance of `ConditionResponseArrayInput` via:
+//
+//          ConditionResponseArray{ ConditionResponseArgs{...} }
+type ConditionResponseArrayInput interface {
+	pulumi.Input
+
+	ToConditionResponseArrayOutput() ConditionResponseArrayOutput
+	ToConditionResponseArrayOutputWithContext(context.Context) ConditionResponseArrayOutput
+}
+
+type ConditionResponseArray []ConditionResponseInput
+
+func (ConditionResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConditionResponse)(nil)).Elem()
+}
+
+func (i ConditionResponseArray) ToConditionResponseArrayOutput() ConditionResponseArrayOutput {
+	return i.ToConditionResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ConditionResponseArray) ToConditionResponseArrayOutputWithContext(ctx context.Context) ConditionResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConditionResponseArrayOutput)
+}
+
+// Outstanding conditions that will need to be resolved.
+type ConditionResponseOutput struct{ *pulumi.OutputState }
+
+func (ConditionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConditionResponse)(nil)).Elem()
+}
+
+func (o ConditionResponseOutput) ToConditionResponseOutput() ConditionResponseOutput {
+	return o
+}
+
+func (o ConditionResponseOutput) ToConditionResponseOutputWithContext(ctx context.Context) ConditionResponseOutput {
+	return o
+}
+
+// The issue requiring attention.
+func (o ConditionResponseOutput) Message() pulumi.StringOutput {
+	return o.ApplyT(func(v ConditionResponse) string { return v.Message }).(pulumi.StringOutput)
+}
+
+// The time when the condition was raised.
+func (o ConditionResponseOutput) Timestamp() pulumi.StringOutput {
+	return o.ApplyT(func(v ConditionResponse) string { return v.Timestamp }).(pulumi.StringOutput)
+}
+
+type ConditionResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ConditionResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConditionResponse)(nil)).Elem()
+}
+
+func (o ConditionResponseArrayOutput) ToConditionResponseArrayOutput() ConditionResponseArrayOutput {
+	return o
+}
+
+func (o ConditionResponseArrayOutput) ToConditionResponseArrayOutputWithContext(ctx context.Context) ConditionResponseArrayOutput {
+	return o
+}
+
+func (o ConditionResponseArrayOutput) Index(i pulumi.IntInput) ConditionResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConditionResponse {
+		return vs[0].([]ConditionResponse)[vs[1].(int)]
+	}).(ConditionResponseOutput)
+}
+
 // Describes a reference to Key Vault Key.
 type KeyVaultKeyReference struct {
 	// The URL referencing a key encryption key in Key Vault.
@@ -4942,7 +5490,7 @@ func (o NamespaceJunctionResponseArrayOutput) Index(i pulumi.IntInput) Namespace
 type Nfs3Target struct {
 	// IP address or host name of an NFSv3 host (e.g., 10.0.44.44).
 	Target *string `pulumi:"target"`
-	// Identifies the usage model to be used for this Storage Target. Get choices from .../usageModels
+	// Identifies the StorageCache usage model to be used for this storage target.
 	UsageModel *string `pulumi:"usageModel"`
 }
 
@@ -4961,7 +5509,7 @@ type Nfs3TargetInput interface {
 type Nfs3TargetArgs struct {
 	// IP address or host name of an NFSv3 host (e.g., 10.0.44.44).
 	Target pulumi.StringPtrInput `pulumi:"target"`
-	// Identifies the usage model to be used for this Storage Target. Get choices from .../usageModels
+	// Identifies the StorageCache usage model to be used for this storage target.
 	UsageModel pulumi.StringPtrInput `pulumi:"usageModel"`
 }
 
@@ -5048,7 +5596,7 @@ func (o Nfs3TargetOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Nfs3Target) *string { return v.Target }).(pulumi.StringPtrOutput)
 }
 
-// Identifies the usage model to be used for this Storage Target. Get choices from .../usageModels
+// Identifies the StorageCache usage model to be used for this storage target.
 func (o Nfs3TargetOutput) UsageModel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Nfs3Target) *string { return v.UsageModel }).(pulumi.StringPtrOutput)
 }
@@ -5081,7 +5629,7 @@ func (o Nfs3TargetPtrOutput) Target() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Identifies the usage model to be used for this Storage Target. Get choices from .../usageModels
+// Identifies the StorageCache usage model to be used for this storage target.
 func (o Nfs3TargetPtrOutput) UsageModel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Nfs3Target) *string {
 		if v == nil {
@@ -5095,7 +5643,7 @@ func (o Nfs3TargetPtrOutput) UsageModel() pulumi.StringPtrOutput {
 type Nfs3TargetResponse struct {
 	// IP address or host name of an NFSv3 host (e.g., 10.0.44.44).
 	Target *string `pulumi:"target"`
-	// Identifies the usage model to be used for this Storage Target. Get choices from .../usageModels
+	// Identifies the StorageCache usage model to be used for this storage target.
 	UsageModel *string `pulumi:"usageModel"`
 }
 
@@ -5114,7 +5662,7 @@ type Nfs3TargetResponseInput interface {
 type Nfs3TargetResponseArgs struct {
 	// IP address or host name of an NFSv3 host (e.g., 10.0.44.44).
 	Target pulumi.StringPtrInput `pulumi:"target"`
-	// Identifies the usage model to be used for this Storage Target. Get choices from .../usageModels
+	// Identifies the StorageCache usage model to be used for this storage target.
 	UsageModel pulumi.StringPtrInput `pulumi:"usageModel"`
 }
 
@@ -5201,7 +5749,7 @@ func (o Nfs3TargetResponseOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Nfs3TargetResponse) *string { return v.Target }).(pulumi.StringPtrOutput)
 }
 
-// Identifies the usage model to be used for this Storage Target. Get choices from .../usageModels
+// Identifies the StorageCache usage model to be used for this storage target.
 func (o Nfs3TargetResponseOutput) UsageModel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Nfs3TargetResponse) *string { return v.UsageModel }).(pulumi.StringPtrOutput)
 }
@@ -5234,7 +5782,7 @@ func (o Nfs3TargetResponsePtrOutput) Target() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Identifies the usage model to be used for this Storage Target. Get choices from .../usageModels
+// Identifies the StorageCache usage model to be used for this storage target.
 func (o Nfs3TargetResponsePtrOutput) UsageModel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Nfs3TargetResponse) *string {
 		if v == nil {
@@ -5466,9 +6014,9 @@ func (o NfsAccessPolicyResponseArrayOutput) Index(i pulumi.IntInput) NfsAccessPo
 type NfsAccessRule struct {
 	// Access allowed by this rule.
 	Access string `pulumi:"access"`
-	// GID value that replaces 0 when rootSquash is true.
+	// GID value that replaces 0 when rootSquash is true. This will use the value of anonymousUID if not provided.
 	AnonymousGID *string `pulumi:"anonymousGID"`
-	// UID value that replaces 0 when rootSquash is true.
+	// UID value that replaces 0 when rootSquash is true. 65534 will be used if not provided.
 	AnonymousUID *string `pulumi:"anonymousUID"`
 	// Filter applied to the scope for this rule. The filter's format depends on its scope. 'default' scope matches all clients and has no filter value. 'network' scope takes a filter in CIDR format (for example, 10.99.1.0/24). 'host' takes an IP address or fully qualified domain name as filter. If a client does not match any filter rule and there is no default rule, access is denied.
 	Filter *string `pulumi:"filter"`
@@ -5497,9 +6045,9 @@ type NfsAccessRuleInput interface {
 type NfsAccessRuleArgs struct {
 	// Access allowed by this rule.
 	Access pulumi.StringInput `pulumi:"access"`
-	// GID value that replaces 0 when rootSquash is true.
+	// GID value that replaces 0 when rootSquash is true. This will use the value of anonymousUID if not provided.
 	AnonymousGID pulumi.StringPtrInput `pulumi:"anonymousGID"`
-	// UID value that replaces 0 when rootSquash is true.
+	// UID value that replaces 0 when rootSquash is true. 65534 will be used if not provided.
 	AnonymousUID pulumi.StringPtrInput `pulumi:"anonymousUID"`
 	// Filter applied to the scope for this rule. The filter's format depends on its scope. 'default' scope matches all clients and has no filter value. 'network' scope takes a filter in CIDR format (for example, 10.99.1.0/24). 'host' takes an IP address or fully qualified domain name as filter. If a client does not match any filter rule and there is no default rule, access is denied.
 	Filter pulumi.StringPtrInput `pulumi:"filter"`
@@ -5570,12 +6118,12 @@ func (o NfsAccessRuleOutput) Access() pulumi.StringOutput {
 	return o.ApplyT(func(v NfsAccessRule) string { return v.Access }).(pulumi.StringOutput)
 }
 
-// GID value that replaces 0 when rootSquash is true.
+// GID value that replaces 0 when rootSquash is true. This will use the value of anonymousUID if not provided.
 func (o NfsAccessRuleOutput) AnonymousGID() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NfsAccessRule) *string { return v.AnonymousGID }).(pulumi.StringPtrOutput)
 }
 
-// UID value that replaces 0 when rootSquash is true.
+// UID value that replaces 0 when rootSquash is true. 65534 will be used if not provided.
 func (o NfsAccessRuleOutput) AnonymousUID() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NfsAccessRule) *string { return v.AnonymousUID }).(pulumi.StringPtrOutput)
 }
@@ -5629,9 +6177,9 @@ func (o NfsAccessRuleArrayOutput) Index(i pulumi.IntInput) NfsAccessRuleOutput {
 type NfsAccessRuleResponse struct {
 	// Access allowed by this rule.
 	Access string `pulumi:"access"`
-	// GID value that replaces 0 when rootSquash is true.
+	// GID value that replaces 0 when rootSquash is true. This will use the value of anonymousUID if not provided.
 	AnonymousGID *string `pulumi:"anonymousGID"`
-	// UID value that replaces 0 when rootSquash is true.
+	// UID value that replaces 0 when rootSquash is true. 65534 will be used if not provided.
 	AnonymousUID *string `pulumi:"anonymousUID"`
 	// Filter applied to the scope for this rule. The filter's format depends on its scope. 'default' scope matches all clients and has no filter value. 'network' scope takes a filter in CIDR format (for example, 10.99.1.0/24). 'host' takes an IP address or fully qualified domain name as filter. If a client does not match any filter rule and there is no default rule, access is denied.
 	Filter *string `pulumi:"filter"`
@@ -5660,9 +6208,9 @@ type NfsAccessRuleResponseInput interface {
 type NfsAccessRuleResponseArgs struct {
 	// Access allowed by this rule.
 	Access pulumi.StringInput `pulumi:"access"`
-	// GID value that replaces 0 when rootSquash is true.
+	// GID value that replaces 0 when rootSquash is true. This will use the value of anonymousUID if not provided.
 	AnonymousGID pulumi.StringPtrInput `pulumi:"anonymousGID"`
-	// UID value that replaces 0 when rootSquash is true.
+	// UID value that replaces 0 when rootSquash is true. 65534 will be used if not provided.
 	AnonymousUID pulumi.StringPtrInput `pulumi:"anonymousUID"`
 	// Filter applied to the scope for this rule. The filter's format depends on its scope. 'default' scope matches all clients and has no filter value. 'network' scope takes a filter in CIDR format (for example, 10.99.1.0/24). 'host' takes an IP address or fully qualified domain name as filter. If a client does not match any filter rule and there is no default rule, access is denied.
 	Filter pulumi.StringPtrInput `pulumi:"filter"`
@@ -5733,12 +6281,12 @@ func (o NfsAccessRuleResponseOutput) Access() pulumi.StringOutput {
 	return o.ApplyT(func(v NfsAccessRuleResponse) string { return v.Access }).(pulumi.StringOutput)
 }
 
-// GID value that replaces 0 when rootSquash is true.
+// GID value that replaces 0 when rootSquash is true. This will use the value of anonymousUID if not provided.
 func (o NfsAccessRuleResponseOutput) AnonymousGID() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NfsAccessRuleResponse) *string { return v.AnonymousGID }).(pulumi.StringPtrOutput)
 }
 
-// UID value that replaces 0 when rootSquash is true.
+// UID value that replaces 0 when rootSquash is true. 65534 will be used if not provided.
 func (o NfsAccessRuleResponseOutput) AnonymousUID() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NfsAccessRuleResponse) *string { return v.AnonymousUID }).(pulumi.StringPtrOutput)
 }
@@ -6020,7 +6568,7 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 // Properties pertaining to the UnknownTarget
 type UnknownTarget struct {
 	// Dictionary of string->string pairs containing information about the Storage Target.
-	UnknownMap map[string]string `pulumi:"unknownMap"`
+	Attributes map[string]string `pulumi:"attributes"`
 }
 
 // UnknownTargetInput is an input type that accepts UnknownTargetArgs and UnknownTargetOutput values.
@@ -6037,7 +6585,7 @@ type UnknownTargetInput interface {
 // Properties pertaining to the UnknownTarget
 type UnknownTargetArgs struct {
 	// Dictionary of string->string pairs containing information about the Storage Target.
-	UnknownMap pulumi.StringMapInput `pulumi:"unknownMap"`
+	Attributes pulumi.StringMapInput `pulumi:"attributes"`
 }
 
 func (UnknownTargetArgs) ElementType() reflect.Type {
@@ -6119,8 +6667,8 @@ func (o UnknownTargetOutput) ToUnknownTargetPtrOutputWithContext(ctx context.Con
 }
 
 // Dictionary of string->string pairs containing information about the Storage Target.
-func (o UnknownTargetOutput) UnknownMap() pulumi.StringMapOutput {
-	return o.ApplyT(func(v UnknownTarget) map[string]string { return v.UnknownMap }).(pulumi.StringMapOutput)
+func (o UnknownTargetOutput) Attributes() pulumi.StringMapOutput {
+	return o.ApplyT(func(v UnknownTarget) map[string]string { return v.Attributes }).(pulumi.StringMapOutput)
 }
 
 type UnknownTargetPtrOutput struct{ *pulumi.OutputState }
@@ -6142,19 +6690,19 @@ func (o UnknownTargetPtrOutput) Elem() UnknownTargetOutput {
 }
 
 // Dictionary of string->string pairs containing information about the Storage Target.
-func (o UnknownTargetPtrOutput) UnknownMap() pulumi.StringMapOutput {
+func (o UnknownTargetPtrOutput) Attributes() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *UnknownTarget) map[string]string {
 		if v == nil {
 			return nil
 		}
-		return v.UnknownMap
+		return v.Attributes
 	}).(pulumi.StringMapOutput)
 }
 
 // Properties pertaining to the UnknownTarget
 type UnknownTargetResponse struct {
 	// Dictionary of string->string pairs containing information about the Storage Target.
-	UnknownMap map[string]string `pulumi:"unknownMap"`
+	Attributes map[string]string `pulumi:"attributes"`
 }
 
 // UnknownTargetResponseInput is an input type that accepts UnknownTargetResponseArgs and UnknownTargetResponseOutput values.
@@ -6171,7 +6719,7 @@ type UnknownTargetResponseInput interface {
 // Properties pertaining to the UnknownTarget
 type UnknownTargetResponseArgs struct {
 	// Dictionary of string->string pairs containing information about the Storage Target.
-	UnknownMap pulumi.StringMapInput `pulumi:"unknownMap"`
+	Attributes pulumi.StringMapInput `pulumi:"attributes"`
 }
 
 func (UnknownTargetResponseArgs) ElementType() reflect.Type {
@@ -6253,8 +6801,8 @@ func (o UnknownTargetResponseOutput) ToUnknownTargetResponsePtrOutputWithContext
 }
 
 // Dictionary of string->string pairs containing information about the Storage Target.
-func (o UnknownTargetResponseOutput) UnknownMap() pulumi.StringMapOutput {
-	return o.ApplyT(func(v UnknownTargetResponse) map[string]string { return v.UnknownMap }).(pulumi.StringMapOutput)
+func (o UnknownTargetResponseOutput) Attributes() pulumi.StringMapOutput {
+	return o.ApplyT(func(v UnknownTargetResponse) map[string]string { return v.Attributes }).(pulumi.StringMapOutput)
 }
 
 type UnknownTargetResponsePtrOutput struct{ *pulumi.OutputState }
@@ -6276,16 +6824,20 @@ func (o UnknownTargetResponsePtrOutput) Elem() UnknownTargetResponseOutput {
 }
 
 // Dictionary of string->string pairs containing information about the Storage Target.
-func (o UnknownTargetResponsePtrOutput) UnknownMap() pulumi.StringMapOutput {
+func (o UnknownTargetResponsePtrOutput) Attributes() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *UnknownTargetResponse) map[string]string {
 		if v == nil {
 			return nil
 		}
-		return v.UnknownMap
+		return v.Attributes
 	}).(pulumi.StringMapOutput)
 }
 
 func init() {
+	pulumi.RegisterOutputType(BlobNfsTargetOutput{})
+	pulumi.RegisterOutputType(BlobNfsTargetPtrOutput{})
+	pulumi.RegisterOutputType(BlobNfsTargetResponseOutput{})
+	pulumi.RegisterOutputType(BlobNfsTargetResponsePtrOutput{})
 	pulumi.RegisterOutputType(CacheActiveDirectorySettingsOutput{})
 	pulumi.RegisterOutputType(CacheActiveDirectorySettingsPtrOutput{})
 	pulumi.RegisterOutputType(CacheActiveDirectorySettingsCredentialsOutput{})
@@ -6334,6 +6886,8 @@ func init() {
 	pulumi.RegisterOutputType(ClfsTargetPtrOutput{})
 	pulumi.RegisterOutputType(ClfsTargetResponseOutput{})
 	pulumi.RegisterOutputType(ClfsTargetResponsePtrOutput{})
+	pulumi.RegisterOutputType(ConditionResponseOutput{})
+	pulumi.RegisterOutputType(ConditionResponseArrayOutput{})
 	pulumi.RegisterOutputType(KeyVaultKeyReferenceOutput{})
 	pulumi.RegisterOutputType(KeyVaultKeyReferencePtrOutput{})
 	pulumi.RegisterOutputType(KeyVaultKeyReferenceResponseOutput{})

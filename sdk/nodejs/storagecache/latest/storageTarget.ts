@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Type of the Storage Target.
- * Latest API Version: 2020-10-01.
+ * Latest API Version: 2021-03-01.
  *
  * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storagecache:StorageTarget'.
  */
@@ -39,6 +39,10 @@ export class StorageTarget extends pulumi.CustomResource {
         return obj['__pulumiType'] === StorageTarget.__pulumiType;
     }
 
+    /**
+     * Properties when targetType is blobNfs.
+     */
+    public readonly blobNfs!: pulumi.Output<outputs.storagecache.latest.BlobNfsTargetResponse | undefined>;
     /**
      * Properties when targetType is clfs.
      */
@@ -102,6 +106,7 @@ export class StorageTarget extends pulumi.CustomResource {
             if ((!args || args.targetType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetType'");
             }
+            inputs["blobNfs"] = args ? args.blobNfs : undefined;
             inputs["cacheName"] = args ? args.cacheName : undefined;
             inputs["clfs"] = args ? args.clfs : undefined;
             inputs["junctions"] = args ? args.junctions : undefined;
@@ -116,6 +121,7 @@ export class StorageTarget extends pulumi.CustomResource {
             inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
+            inputs["blobNfs"] = undefined /*out*/;
             inputs["clfs"] = undefined /*out*/;
             inputs["junctions"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
@@ -141,6 +147,10 @@ export class StorageTarget extends pulumi.CustomResource {
  */
 export interface StorageTargetArgs {
     /**
+     * Properties when targetType is blobNfs.
+     */
+    readonly blobNfs?: pulumi.Input<inputs.storagecache.latest.BlobNfsTarget>;
+    /**
      * Name of Cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
      */
     readonly cacheName: pulumi.Input<string>;
@@ -165,7 +175,7 @@ export interface StorageTargetArgs {
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * Name of the Storage Target. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
+     * Name of Storage Target.
      */
     readonly storageTargetName?: pulumi.Input<string>;
     /**

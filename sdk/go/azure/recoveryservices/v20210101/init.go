@@ -29,6 +29,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewProtectionContainer(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:recoveryservices/v20210101:ProtectionPolicy":
 		r, err = NewProtectionPolicy(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-native:recoveryservices/v20210101:Vault":
+		r, err = NewVault(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

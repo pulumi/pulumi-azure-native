@@ -22,6 +22,10 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// </summary>
         public readonly string? Id;
         /// <summary>
+        /// Kind of service endpoint policy. This is metadata used for the Azure portal experience.
+        /// </summary>
+        public readonly string Kind;
+        /// <summary>
         /// Resource location.
         /// </summary>
         public readonly string? Location;
@@ -60,6 +64,8 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             string? id,
 
+            string kind,
+
             string? location,
 
             string name,
@@ -78,6 +84,7 @@ namespace Pulumi.AzureNative.Network.Outputs
         {
             Etag = etag;
             Id = id;
+            Kind = kind;
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;

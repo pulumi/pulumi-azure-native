@@ -20,7 +20,7 @@ class GetCapacityDetailsResult:
     """
     Represents an instance of a Dedicated Capacity resource.
     """
-    def __init__(__self__, administration=None, id=None, location=None, name=None, provisioning_state=None, sku=None, state=None, tags=None, type=None):
+    def __init__(__self__, administration=None, id=None, location=None, mode=None, name=None, provisioning_state=None, sku=None, state=None, tags=None, type=None):
         if administration and not isinstance(administration, dict):
             raise TypeError("Expected argument 'administration' to be a dict")
         pulumi.set(__self__, "administration", administration)
@@ -30,6 +30,9 @@ class GetCapacityDetailsResult:
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
+        if mode and not isinstance(mode, str):
+            raise TypeError("Expected argument 'mode' to be a str")
+        pulumi.set(__self__, "mode", mode)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -72,6 +75,14 @@ class GetCapacityDetailsResult:
         Location of the PowerBI Dedicated resource.
         """
         return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def mode(self) -> str:
+        """
+        The capacity mode.
+        """
+        return pulumi.get(self, "mode")
 
     @property
     @pulumi.getter
@@ -131,6 +142,7 @@ class AwaitableGetCapacityDetailsResult(GetCapacityDetailsResult):
             administration=self.administration,
             id=self.id,
             location=self.location,
+            mode=self.mode,
             name=self.name,
             provisioning_state=self.provisioning_state,
             sku=self.sku,
@@ -162,6 +174,7 @@ def get_capacity_details(dedicated_capacity_name: Optional[str] = None,
         administration=__ret__.administration,
         id=__ret__.id,
         location=__ret__.location,
+        mode=__ret__.mode,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
         sku=__ret__.sku,

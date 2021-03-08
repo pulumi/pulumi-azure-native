@@ -9878,6 +9878,580 @@ func (o AzureWorkloadContainerResponseOutput) WorkloadType() pulumi.StringPtrOut
 	return o.ApplyT(func(v AzureWorkloadContainerResponse) *string { return v.WorkloadType }).(pulumi.StringPtrOutput)
 }
 
+// The details of the identity used for CMK
+type CmkKekIdentity struct {
+	// Indicate that system assigned identity should be used. Mutually exclusive with 'userAssignedIdentity' field
+	UseSystemAssignedIdentity *bool `pulumi:"useSystemAssignedIdentity"`
+	// The user assigned identity to be used to grant permissions in case the type of identity used is UserAssigned
+	UserAssignedIdentity *string `pulumi:"userAssignedIdentity"`
+}
+
+// CmkKekIdentityInput is an input type that accepts CmkKekIdentityArgs and CmkKekIdentityOutput values.
+// You can construct a concrete instance of `CmkKekIdentityInput` via:
+//
+//          CmkKekIdentityArgs{...}
+type CmkKekIdentityInput interface {
+	pulumi.Input
+
+	ToCmkKekIdentityOutput() CmkKekIdentityOutput
+	ToCmkKekIdentityOutputWithContext(context.Context) CmkKekIdentityOutput
+}
+
+// The details of the identity used for CMK
+type CmkKekIdentityArgs struct {
+	// Indicate that system assigned identity should be used. Mutually exclusive with 'userAssignedIdentity' field
+	UseSystemAssignedIdentity pulumi.BoolPtrInput `pulumi:"useSystemAssignedIdentity"`
+	// The user assigned identity to be used to grant permissions in case the type of identity used is UserAssigned
+	UserAssignedIdentity pulumi.StringPtrInput `pulumi:"userAssignedIdentity"`
+}
+
+func (CmkKekIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CmkKekIdentity)(nil)).Elem()
+}
+
+func (i CmkKekIdentityArgs) ToCmkKekIdentityOutput() CmkKekIdentityOutput {
+	return i.ToCmkKekIdentityOutputWithContext(context.Background())
+}
+
+func (i CmkKekIdentityArgs) ToCmkKekIdentityOutputWithContext(ctx context.Context) CmkKekIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CmkKekIdentityOutput)
+}
+
+func (i CmkKekIdentityArgs) ToCmkKekIdentityPtrOutput() CmkKekIdentityPtrOutput {
+	return i.ToCmkKekIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i CmkKekIdentityArgs) ToCmkKekIdentityPtrOutputWithContext(ctx context.Context) CmkKekIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CmkKekIdentityOutput).ToCmkKekIdentityPtrOutputWithContext(ctx)
+}
+
+// CmkKekIdentityPtrInput is an input type that accepts CmkKekIdentityArgs, CmkKekIdentityPtr and CmkKekIdentityPtrOutput values.
+// You can construct a concrete instance of `CmkKekIdentityPtrInput` via:
+//
+//          CmkKekIdentityArgs{...}
+//
+//  or:
+//
+//          nil
+type CmkKekIdentityPtrInput interface {
+	pulumi.Input
+
+	ToCmkKekIdentityPtrOutput() CmkKekIdentityPtrOutput
+	ToCmkKekIdentityPtrOutputWithContext(context.Context) CmkKekIdentityPtrOutput
+}
+
+type cmkKekIdentityPtrType CmkKekIdentityArgs
+
+func CmkKekIdentityPtr(v *CmkKekIdentityArgs) CmkKekIdentityPtrInput {
+	return (*cmkKekIdentityPtrType)(v)
+}
+
+func (*cmkKekIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CmkKekIdentity)(nil)).Elem()
+}
+
+func (i *cmkKekIdentityPtrType) ToCmkKekIdentityPtrOutput() CmkKekIdentityPtrOutput {
+	return i.ToCmkKekIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *cmkKekIdentityPtrType) ToCmkKekIdentityPtrOutputWithContext(ctx context.Context) CmkKekIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CmkKekIdentityPtrOutput)
+}
+
+// The details of the identity used for CMK
+type CmkKekIdentityOutput struct{ *pulumi.OutputState }
+
+func (CmkKekIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CmkKekIdentity)(nil)).Elem()
+}
+
+func (o CmkKekIdentityOutput) ToCmkKekIdentityOutput() CmkKekIdentityOutput {
+	return o
+}
+
+func (o CmkKekIdentityOutput) ToCmkKekIdentityOutputWithContext(ctx context.Context) CmkKekIdentityOutput {
+	return o
+}
+
+func (o CmkKekIdentityOutput) ToCmkKekIdentityPtrOutput() CmkKekIdentityPtrOutput {
+	return o.ToCmkKekIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o CmkKekIdentityOutput) ToCmkKekIdentityPtrOutputWithContext(ctx context.Context) CmkKekIdentityPtrOutput {
+	return o.ApplyT(func(v CmkKekIdentity) *CmkKekIdentity {
+		return &v
+	}).(CmkKekIdentityPtrOutput)
+}
+
+// Indicate that system assigned identity should be used. Mutually exclusive with 'userAssignedIdentity' field
+func (o CmkKekIdentityOutput) UseSystemAssignedIdentity() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CmkKekIdentity) *bool { return v.UseSystemAssignedIdentity }).(pulumi.BoolPtrOutput)
+}
+
+// The user assigned identity to be used to grant permissions in case the type of identity used is UserAssigned
+func (o CmkKekIdentityOutput) UserAssignedIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CmkKekIdentity) *string { return v.UserAssignedIdentity }).(pulumi.StringPtrOutput)
+}
+
+type CmkKekIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (CmkKekIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CmkKekIdentity)(nil)).Elem()
+}
+
+func (o CmkKekIdentityPtrOutput) ToCmkKekIdentityPtrOutput() CmkKekIdentityPtrOutput {
+	return o
+}
+
+func (o CmkKekIdentityPtrOutput) ToCmkKekIdentityPtrOutputWithContext(ctx context.Context) CmkKekIdentityPtrOutput {
+	return o
+}
+
+func (o CmkKekIdentityPtrOutput) Elem() CmkKekIdentityOutput {
+	return o.ApplyT(func(v *CmkKekIdentity) CmkKekIdentity { return *v }).(CmkKekIdentityOutput)
+}
+
+// Indicate that system assigned identity should be used. Mutually exclusive with 'userAssignedIdentity' field
+func (o CmkKekIdentityPtrOutput) UseSystemAssignedIdentity() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CmkKekIdentity) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UseSystemAssignedIdentity
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The user assigned identity to be used to grant permissions in case the type of identity used is UserAssigned
+func (o CmkKekIdentityPtrOutput) UserAssignedIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CmkKekIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentity
+	}).(pulumi.StringPtrOutput)
+}
+
+// The details of the identity used for CMK
+type CmkKekIdentityResponse struct {
+	// Indicate that system assigned identity should be used. Mutually exclusive with 'userAssignedIdentity' field
+	UseSystemAssignedIdentity *bool `pulumi:"useSystemAssignedIdentity"`
+	// The user assigned identity to be used to grant permissions in case the type of identity used is UserAssigned
+	UserAssignedIdentity *string `pulumi:"userAssignedIdentity"`
+}
+
+// CmkKekIdentityResponseInput is an input type that accepts CmkKekIdentityResponseArgs and CmkKekIdentityResponseOutput values.
+// You can construct a concrete instance of `CmkKekIdentityResponseInput` via:
+//
+//          CmkKekIdentityResponseArgs{...}
+type CmkKekIdentityResponseInput interface {
+	pulumi.Input
+
+	ToCmkKekIdentityResponseOutput() CmkKekIdentityResponseOutput
+	ToCmkKekIdentityResponseOutputWithContext(context.Context) CmkKekIdentityResponseOutput
+}
+
+// The details of the identity used for CMK
+type CmkKekIdentityResponseArgs struct {
+	// Indicate that system assigned identity should be used. Mutually exclusive with 'userAssignedIdentity' field
+	UseSystemAssignedIdentity pulumi.BoolPtrInput `pulumi:"useSystemAssignedIdentity"`
+	// The user assigned identity to be used to grant permissions in case the type of identity used is UserAssigned
+	UserAssignedIdentity pulumi.StringPtrInput `pulumi:"userAssignedIdentity"`
+}
+
+func (CmkKekIdentityResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CmkKekIdentityResponse)(nil)).Elem()
+}
+
+func (i CmkKekIdentityResponseArgs) ToCmkKekIdentityResponseOutput() CmkKekIdentityResponseOutput {
+	return i.ToCmkKekIdentityResponseOutputWithContext(context.Background())
+}
+
+func (i CmkKekIdentityResponseArgs) ToCmkKekIdentityResponseOutputWithContext(ctx context.Context) CmkKekIdentityResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CmkKekIdentityResponseOutput)
+}
+
+func (i CmkKekIdentityResponseArgs) ToCmkKekIdentityResponsePtrOutput() CmkKekIdentityResponsePtrOutput {
+	return i.ToCmkKekIdentityResponsePtrOutputWithContext(context.Background())
+}
+
+func (i CmkKekIdentityResponseArgs) ToCmkKekIdentityResponsePtrOutputWithContext(ctx context.Context) CmkKekIdentityResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CmkKekIdentityResponseOutput).ToCmkKekIdentityResponsePtrOutputWithContext(ctx)
+}
+
+// CmkKekIdentityResponsePtrInput is an input type that accepts CmkKekIdentityResponseArgs, CmkKekIdentityResponsePtr and CmkKekIdentityResponsePtrOutput values.
+// You can construct a concrete instance of `CmkKekIdentityResponsePtrInput` via:
+//
+//          CmkKekIdentityResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type CmkKekIdentityResponsePtrInput interface {
+	pulumi.Input
+
+	ToCmkKekIdentityResponsePtrOutput() CmkKekIdentityResponsePtrOutput
+	ToCmkKekIdentityResponsePtrOutputWithContext(context.Context) CmkKekIdentityResponsePtrOutput
+}
+
+type cmkKekIdentityResponsePtrType CmkKekIdentityResponseArgs
+
+func CmkKekIdentityResponsePtr(v *CmkKekIdentityResponseArgs) CmkKekIdentityResponsePtrInput {
+	return (*cmkKekIdentityResponsePtrType)(v)
+}
+
+func (*cmkKekIdentityResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CmkKekIdentityResponse)(nil)).Elem()
+}
+
+func (i *cmkKekIdentityResponsePtrType) ToCmkKekIdentityResponsePtrOutput() CmkKekIdentityResponsePtrOutput {
+	return i.ToCmkKekIdentityResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *cmkKekIdentityResponsePtrType) ToCmkKekIdentityResponsePtrOutputWithContext(ctx context.Context) CmkKekIdentityResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CmkKekIdentityResponsePtrOutput)
+}
+
+// The details of the identity used for CMK
+type CmkKekIdentityResponseOutput struct{ *pulumi.OutputState }
+
+func (CmkKekIdentityResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CmkKekIdentityResponse)(nil)).Elem()
+}
+
+func (o CmkKekIdentityResponseOutput) ToCmkKekIdentityResponseOutput() CmkKekIdentityResponseOutput {
+	return o
+}
+
+func (o CmkKekIdentityResponseOutput) ToCmkKekIdentityResponseOutputWithContext(ctx context.Context) CmkKekIdentityResponseOutput {
+	return o
+}
+
+func (o CmkKekIdentityResponseOutput) ToCmkKekIdentityResponsePtrOutput() CmkKekIdentityResponsePtrOutput {
+	return o.ToCmkKekIdentityResponsePtrOutputWithContext(context.Background())
+}
+
+func (o CmkKekIdentityResponseOutput) ToCmkKekIdentityResponsePtrOutputWithContext(ctx context.Context) CmkKekIdentityResponsePtrOutput {
+	return o.ApplyT(func(v CmkKekIdentityResponse) *CmkKekIdentityResponse {
+		return &v
+	}).(CmkKekIdentityResponsePtrOutput)
+}
+
+// Indicate that system assigned identity should be used. Mutually exclusive with 'userAssignedIdentity' field
+func (o CmkKekIdentityResponseOutput) UseSystemAssignedIdentity() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CmkKekIdentityResponse) *bool { return v.UseSystemAssignedIdentity }).(pulumi.BoolPtrOutput)
+}
+
+// The user assigned identity to be used to grant permissions in case the type of identity used is UserAssigned
+func (o CmkKekIdentityResponseOutput) UserAssignedIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CmkKekIdentityResponse) *string { return v.UserAssignedIdentity }).(pulumi.StringPtrOutput)
+}
+
+type CmkKekIdentityResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (CmkKekIdentityResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CmkKekIdentityResponse)(nil)).Elem()
+}
+
+func (o CmkKekIdentityResponsePtrOutput) ToCmkKekIdentityResponsePtrOutput() CmkKekIdentityResponsePtrOutput {
+	return o
+}
+
+func (o CmkKekIdentityResponsePtrOutput) ToCmkKekIdentityResponsePtrOutputWithContext(ctx context.Context) CmkKekIdentityResponsePtrOutput {
+	return o
+}
+
+func (o CmkKekIdentityResponsePtrOutput) Elem() CmkKekIdentityResponseOutput {
+	return o.ApplyT(func(v *CmkKekIdentityResponse) CmkKekIdentityResponse { return *v }).(CmkKekIdentityResponseOutput)
+}
+
+// Indicate that system assigned identity should be used. Mutually exclusive with 'userAssignedIdentity' field
+func (o CmkKekIdentityResponsePtrOutput) UseSystemAssignedIdentity() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CmkKekIdentityResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UseSystemAssignedIdentity
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The user assigned identity to be used to grant permissions in case the type of identity used is UserAssigned
+func (o CmkKekIdentityResponsePtrOutput) UserAssignedIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CmkKekIdentityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentity
+	}).(pulumi.StringPtrOutput)
+}
+
+// The properties of the Key Vault which hosts CMK
+type CmkKeyVaultProperties struct {
+	// The key uri of the Customer Managed Key
+	KeyUri *string `pulumi:"keyUri"`
+}
+
+// CmkKeyVaultPropertiesInput is an input type that accepts CmkKeyVaultPropertiesArgs and CmkKeyVaultPropertiesOutput values.
+// You can construct a concrete instance of `CmkKeyVaultPropertiesInput` via:
+//
+//          CmkKeyVaultPropertiesArgs{...}
+type CmkKeyVaultPropertiesInput interface {
+	pulumi.Input
+
+	ToCmkKeyVaultPropertiesOutput() CmkKeyVaultPropertiesOutput
+	ToCmkKeyVaultPropertiesOutputWithContext(context.Context) CmkKeyVaultPropertiesOutput
+}
+
+// The properties of the Key Vault which hosts CMK
+type CmkKeyVaultPropertiesArgs struct {
+	// The key uri of the Customer Managed Key
+	KeyUri pulumi.StringPtrInput `pulumi:"keyUri"`
+}
+
+func (CmkKeyVaultPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CmkKeyVaultProperties)(nil)).Elem()
+}
+
+func (i CmkKeyVaultPropertiesArgs) ToCmkKeyVaultPropertiesOutput() CmkKeyVaultPropertiesOutput {
+	return i.ToCmkKeyVaultPropertiesOutputWithContext(context.Background())
+}
+
+func (i CmkKeyVaultPropertiesArgs) ToCmkKeyVaultPropertiesOutputWithContext(ctx context.Context) CmkKeyVaultPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CmkKeyVaultPropertiesOutput)
+}
+
+func (i CmkKeyVaultPropertiesArgs) ToCmkKeyVaultPropertiesPtrOutput() CmkKeyVaultPropertiesPtrOutput {
+	return i.ToCmkKeyVaultPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i CmkKeyVaultPropertiesArgs) ToCmkKeyVaultPropertiesPtrOutputWithContext(ctx context.Context) CmkKeyVaultPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CmkKeyVaultPropertiesOutput).ToCmkKeyVaultPropertiesPtrOutputWithContext(ctx)
+}
+
+// CmkKeyVaultPropertiesPtrInput is an input type that accepts CmkKeyVaultPropertiesArgs, CmkKeyVaultPropertiesPtr and CmkKeyVaultPropertiesPtrOutput values.
+// You can construct a concrete instance of `CmkKeyVaultPropertiesPtrInput` via:
+//
+//          CmkKeyVaultPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type CmkKeyVaultPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToCmkKeyVaultPropertiesPtrOutput() CmkKeyVaultPropertiesPtrOutput
+	ToCmkKeyVaultPropertiesPtrOutputWithContext(context.Context) CmkKeyVaultPropertiesPtrOutput
+}
+
+type cmkKeyVaultPropertiesPtrType CmkKeyVaultPropertiesArgs
+
+func CmkKeyVaultPropertiesPtr(v *CmkKeyVaultPropertiesArgs) CmkKeyVaultPropertiesPtrInput {
+	return (*cmkKeyVaultPropertiesPtrType)(v)
+}
+
+func (*cmkKeyVaultPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CmkKeyVaultProperties)(nil)).Elem()
+}
+
+func (i *cmkKeyVaultPropertiesPtrType) ToCmkKeyVaultPropertiesPtrOutput() CmkKeyVaultPropertiesPtrOutput {
+	return i.ToCmkKeyVaultPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *cmkKeyVaultPropertiesPtrType) ToCmkKeyVaultPropertiesPtrOutputWithContext(ctx context.Context) CmkKeyVaultPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CmkKeyVaultPropertiesPtrOutput)
+}
+
+// The properties of the Key Vault which hosts CMK
+type CmkKeyVaultPropertiesOutput struct{ *pulumi.OutputState }
+
+func (CmkKeyVaultPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CmkKeyVaultProperties)(nil)).Elem()
+}
+
+func (o CmkKeyVaultPropertiesOutput) ToCmkKeyVaultPropertiesOutput() CmkKeyVaultPropertiesOutput {
+	return o
+}
+
+func (o CmkKeyVaultPropertiesOutput) ToCmkKeyVaultPropertiesOutputWithContext(ctx context.Context) CmkKeyVaultPropertiesOutput {
+	return o
+}
+
+func (o CmkKeyVaultPropertiesOutput) ToCmkKeyVaultPropertiesPtrOutput() CmkKeyVaultPropertiesPtrOutput {
+	return o.ToCmkKeyVaultPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o CmkKeyVaultPropertiesOutput) ToCmkKeyVaultPropertiesPtrOutputWithContext(ctx context.Context) CmkKeyVaultPropertiesPtrOutput {
+	return o.ApplyT(func(v CmkKeyVaultProperties) *CmkKeyVaultProperties {
+		return &v
+	}).(CmkKeyVaultPropertiesPtrOutput)
+}
+
+// The key uri of the Customer Managed Key
+func (o CmkKeyVaultPropertiesOutput) KeyUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CmkKeyVaultProperties) *string { return v.KeyUri }).(pulumi.StringPtrOutput)
+}
+
+type CmkKeyVaultPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (CmkKeyVaultPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CmkKeyVaultProperties)(nil)).Elem()
+}
+
+func (o CmkKeyVaultPropertiesPtrOutput) ToCmkKeyVaultPropertiesPtrOutput() CmkKeyVaultPropertiesPtrOutput {
+	return o
+}
+
+func (o CmkKeyVaultPropertiesPtrOutput) ToCmkKeyVaultPropertiesPtrOutputWithContext(ctx context.Context) CmkKeyVaultPropertiesPtrOutput {
+	return o
+}
+
+func (o CmkKeyVaultPropertiesPtrOutput) Elem() CmkKeyVaultPropertiesOutput {
+	return o.ApplyT(func(v *CmkKeyVaultProperties) CmkKeyVaultProperties { return *v }).(CmkKeyVaultPropertiesOutput)
+}
+
+// The key uri of the Customer Managed Key
+func (o CmkKeyVaultPropertiesPtrOutput) KeyUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CmkKeyVaultProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyUri
+	}).(pulumi.StringPtrOutput)
+}
+
+// The properties of the Key Vault which hosts CMK
+type CmkKeyVaultPropertiesResponse struct {
+	// The key uri of the Customer Managed Key
+	KeyUri *string `pulumi:"keyUri"`
+}
+
+// CmkKeyVaultPropertiesResponseInput is an input type that accepts CmkKeyVaultPropertiesResponseArgs and CmkKeyVaultPropertiesResponseOutput values.
+// You can construct a concrete instance of `CmkKeyVaultPropertiesResponseInput` via:
+//
+//          CmkKeyVaultPropertiesResponseArgs{...}
+type CmkKeyVaultPropertiesResponseInput interface {
+	pulumi.Input
+
+	ToCmkKeyVaultPropertiesResponseOutput() CmkKeyVaultPropertiesResponseOutput
+	ToCmkKeyVaultPropertiesResponseOutputWithContext(context.Context) CmkKeyVaultPropertiesResponseOutput
+}
+
+// The properties of the Key Vault which hosts CMK
+type CmkKeyVaultPropertiesResponseArgs struct {
+	// The key uri of the Customer Managed Key
+	KeyUri pulumi.StringPtrInput `pulumi:"keyUri"`
+}
+
+func (CmkKeyVaultPropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CmkKeyVaultPropertiesResponse)(nil)).Elem()
+}
+
+func (i CmkKeyVaultPropertiesResponseArgs) ToCmkKeyVaultPropertiesResponseOutput() CmkKeyVaultPropertiesResponseOutput {
+	return i.ToCmkKeyVaultPropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i CmkKeyVaultPropertiesResponseArgs) ToCmkKeyVaultPropertiesResponseOutputWithContext(ctx context.Context) CmkKeyVaultPropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CmkKeyVaultPropertiesResponseOutput)
+}
+
+func (i CmkKeyVaultPropertiesResponseArgs) ToCmkKeyVaultPropertiesResponsePtrOutput() CmkKeyVaultPropertiesResponsePtrOutput {
+	return i.ToCmkKeyVaultPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i CmkKeyVaultPropertiesResponseArgs) ToCmkKeyVaultPropertiesResponsePtrOutputWithContext(ctx context.Context) CmkKeyVaultPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CmkKeyVaultPropertiesResponseOutput).ToCmkKeyVaultPropertiesResponsePtrOutputWithContext(ctx)
+}
+
+// CmkKeyVaultPropertiesResponsePtrInput is an input type that accepts CmkKeyVaultPropertiesResponseArgs, CmkKeyVaultPropertiesResponsePtr and CmkKeyVaultPropertiesResponsePtrOutput values.
+// You can construct a concrete instance of `CmkKeyVaultPropertiesResponsePtrInput` via:
+//
+//          CmkKeyVaultPropertiesResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type CmkKeyVaultPropertiesResponsePtrInput interface {
+	pulumi.Input
+
+	ToCmkKeyVaultPropertiesResponsePtrOutput() CmkKeyVaultPropertiesResponsePtrOutput
+	ToCmkKeyVaultPropertiesResponsePtrOutputWithContext(context.Context) CmkKeyVaultPropertiesResponsePtrOutput
+}
+
+type cmkKeyVaultPropertiesResponsePtrType CmkKeyVaultPropertiesResponseArgs
+
+func CmkKeyVaultPropertiesResponsePtr(v *CmkKeyVaultPropertiesResponseArgs) CmkKeyVaultPropertiesResponsePtrInput {
+	return (*cmkKeyVaultPropertiesResponsePtrType)(v)
+}
+
+func (*cmkKeyVaultPropertiesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CmkKeyVaultPropertiesResponse)(nil)).Elem()
+}
+
+func (i *cmkKeyVaultPropertiesResponsePtrType) ToCmkKeyVaultPropertiesResponsePtrOutput() CmkKeyVaultPropertiesResponsePtrOutput {
+	return i.ToCmkKeyVaultPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *cmkKeyVaultPropertiesResponsePtrType) ToCmkKeyVaultPropertiesResponsePtrOutputWithContext(ctx context.Context) CmkKeyVaultPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CmkKeyVaultPropertiesResponsePtrOutput)
+}
+
+// The properties of the Key Vault which hosts CMK
+type CmkKeyVaultPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (CmkKeyVaultPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CmkKeyVaultPropertiesResponse)(nil)).Elem()
+}
+
+func (o CmkKeyVaultPropertiesResponseOutput) ToCmkKeyVaultPropertiesResponseOutput() CmkKeyVaultPropertiesResponseOutput {
+	return o
+}
+
+func (o CmkKeyVaultPropertiesResponseOutput) ToCmkKeyVaultPropertiesResponseOutputWithContext(ctx context.Context) CmkKeyVaultPropertiesResponseOutput {
+	return o
+}
+
+func (o CmkKeyVaultPropertiesResponseOutput) ToCmkKeyVaultPropertiesResponsePtrOutput() CmkKeyVaultPropertiesResponsePtrOutput {
+	return o.ToCmkKeyVaultPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (o CmkKeyVaultPropertiesResponseOutput) ToCmkKeyVaultPropertiesResponsePtrOutputWithContext(ctx context.Context) CmkKeyVaultPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v CmkKeyVaultPropertiesResponse) *CmkKeyVaultPropertiesResponse {
+		return &v
+	}).(CmkKeyVaultPropertiesResponsePtrOutput)
+}
+
+// The key uri of the Customer Managed Key
+func (o CmkKeyVaultPropertiesResponseOutput) KeyUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CmkKeyVaultPropertiesResponse) *string { return v.KeyUri }).(pulumi.StringPtrOutput)
+}
+
+type CmkKeyVaultPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (CmkKeyVaultPropertiesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CmkKeyVaultPropertiesResponse)(nil)).Elem()
+}
+
+func (o CmkKeyVaultPropertiesResponsePtrOutput) ToCmkKeyVaultPropertiesResponsePtrOutput() CmkKeyVaultPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o CmkKeyVaultPropertiesResponsePtrOutput) ToCmkKeyVaultPropertiesResponsePtrOutputWithContext(ctx context.Context) CmkKeyVaultPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o CmkKeyVaultPropertiesResponsePtrOutput) Elem() CmkKeyVaultPropertiesResponseOutput {
+	return o.ApplyT(func(v *CmkKeyVaultPropertiesResponse) CmkKeyVaultPropertiesResponse { return *v }).(CmkKeyVaultPropertiesResponseOutput)
+}
+
+// The key uri of the Customer Managed Key
+func (o CmkKeyVaultPropertiesResponsePtrOutput) KeyUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CmkKeyVaultPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyUri
+	}).(pulumi.StringPtrOutput)
+}
+
 // Container identity information
 type ContainerIdentityInfo struct {
 	// Protection container identity - AAD Tenant
@@ -15321,6 +15895,350 @@ func (o IaaSVMContainerResponseOutput) VirtualMachineVersion() pulumi.StringPtrO
 	return o.ApplyT(func(v IaaSVMContainerResponse) *string { return v.VirtualMachineVersion }).(pulumi.StringPtrOutput)
 }
 
+// Identity for the resource.
+type IdentityData struct {
+	// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
+	Type string `pulumi:"type"`
+	// The list of user-assigned identities associated with the resource. The user-assigned identity dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
+}
+
+// IdentityDataInput is an input type that accepts IdentityDataArgs and IdentityDataOutput values.
+// You can construct a concrete instance of `IdentityDataInput` via:
+//
+//          IdentityDataArgs{...}
+type IdentityDataInput interface {
+	pulumi.Input
+
+	ToIdentityDataOutput() IdentityDataOutput
+	ToIdentityDataOutputWithContext(context.Context) IdentityDataOutput
+}
+
+// Identity for the resource.
+type IdentityDataArgs struct {
+	// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
+	Type pulumi.StringInput `pulumi:"type"`
+	// The list of user-assigned identities associated with the resource. The user-assigned identity dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
+}
+
+func (IdentityDataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityData)(nil)).Elem()
+}
+
+func (i IdentityDataArgs) ToIdentityDataOutput() IdentityDataOutput {
+	return i.ToIdentityDataOutputWithContext(context.Background())
+}
+
+func (i IdentityDataArgs) ToIdentityDataOutputWithContext(ctx context.Context) IdentityDataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityDataOutput)
+}
+
+func (i IdentityDataArgs) ToIdentityDataPtrOutput() IdentityDataPtrOutput {
+	return i.ToIdentityDataPtrOutputWithContext(context.Background())
+}
+
+func (i IdentityDataArgs) ToIdentityDataPtrOutputWithContext(ctx context.Context) IdentityDataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityDataOutput).ToIdentityDataPtrOutputWithContext(ctx)
+}
+
+// IdentityDataPtrInput is an input type that accepts IdentityDataArgs, IdentityDataPtr and IdentityDataPtrOutput values.
+// You can construct a concrete instance of `IdentityDataPtrInput` via:
+//
+//          IdentityDataArgs{...}
+//
+//  or:
+//
+//          nil
+type IdentityDataPtrInput interface {
+	pulumi.Input
+
+	ToIdentityDataPtrOutput() IdentityDataPtrOutput
+	ToIdentityDataPtrOutputWithContext(context.Context) IdentityDataPtrOutput
+}
+
+type identityDataPtrType IdentityDataArgs
+
+func IdentityDataPtr(v *IdentityDataArgs) IdentityDataPtrInput {
+	return (*identityDataPtrType)(v)
+}
+
+func (*identityDataPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdentityData)(nil)).Elem()
+}
+
+func (i *identityDataPtrType) ToIdentityDataPtrOutput() IdentityDataPtrOutput {
+	return i.ToIdentityDataPtrOutputWithContext(context.Background())
+}
+
+func (i *identityDataPtrType) ToIdentityDataPtrOutputWithContext(ctx context.Context) IdentityDataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityDataPtrOutput)
+}
+
+// Identity for the resource.
+type IdentityDataOutput struct{ *pulumi.OutputState }
+
+func (IdentityDataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityData)(nil)).Elem()
+}
+
+func (o IdentityDataOutput) ToIdentityDataOutput() IdentityDataOutput {
+	return o
+}
+
+func (o IdentityDataOutput) ToIdentityDataOutputWithContext(ctx context.Context) IdentityDataOutput {
+	return o
+}
+
+func (o IdentityDataOutput) ToIdentityDataPtrOutput() IdentityDataPtrOutput {
+	return o.ToIdentityDataPtrOutputWithContext(context.Background())
+}
+
+func (o IdentityDataOutput) ToIdentityDataPtrOutputWithContext(ctx context.Context) IdentityDataPtrOutput {
+	return o.ApplyT(func(v IdentityData) *IdentityData {
+		return &v
+	}).(IdentityDataPtrOutput)
+}
+
+// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
+func (o IdentityDataOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentityData) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The list of user-assigned identities associated with the resource. The user-assigned identity dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+func (o IdentityDataOutput) UserAssignedIdentities() pulumi.MapOutput {
+	return o.ApplyT(func(v IdentityData) map[string]interface{} { return v.UserAssignedIdentities }).(pulumi.MapOutput)
+}
+
+type IdentityDataPtrOutput struct{ *pulumi.OutputState }
+
+func (IdentityDataPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdentityData)(nil)).Elem()
+}
+
+func (o IdentityDataPtrOutput) ToIdentityDataPtrOutput() IdentityDataPtrOutput {
+	return o
+}
+
+func (o IdentityDataPtrOutput) ToIdentityDataPtrOutputWithContext(ctx context.Context) IdentityDataPtrOutput {
+	return o
+}
+
+func (o IdentityDataPtrOutput) Elem() IdentityDataOutput {
+	return o.ApplyT(func(v *IdentityData) IdentityData { return *v }).(IdentityDataOutput)
+}
+
+// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
+func (o IdentityDataPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentityData) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// The list of user-assigned identities associated with the resource. The user-assigned identity dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+func (o IdentityDataPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
+	return o.ApplyT(func(v *IdentityData) map[string]interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentities
+	}).(pulumi.MapOutput)
+}
+
+// Identity for the resource.
+type IdentityDataResponse struct {
+	// The principal ID of resource identity.
+	PrincipalId string `pulumi:"principalId"`
+	// The tenant ID of resource.
+	TenantId string `pulumi:"tenantId"`
+	// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
+	Type string `pulumi:"type"`
+	// The list of user-assigned identities associated with the resource. The user-assigned identity dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+	UserAssignedIdentities map[string]UserIdentityResponse `pulumi:"userAssignedIdentities"`
+}
+
+// IdentityDataResponseInput is an input type that accepts IdentityDataResponseArgs and IdentityDataResponseOutput values.
+// You can construct a concrete instance of `IdentityDataResponseInput` via:
+//
+//          IdentityDataResponseArgs{...}
+type IdentityDataResponseInput interface {
+	pulumi.Input
+
+	ToIdentityDataResponseOutput() IdentityDataResponseOutput
+	ToIdentityDataResponseOutputWithContext(context.Context) IdentityDataResponseOutput
+}
+
+// Identity for the resource.
+type IdentityDataResponseArgs struct {
+	// The principal ID of resource identity.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The tenant ID of resource.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
+	Type pulumi.StringInput `pulumi:"type"`
+	// The list of user-assigned identities associated with the resource. The user-assigned identity dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+	UserAssignedIdentities UserIdentityResponseMapInput `pulumi:"userAssignedIdentities"`
+}
+
+func (IdentityDataResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityDataResponse)(nil)).Elem()
+}
+
+func (i IdentityDataResponseArgs) ToIdentityDataResponseOutput() IdentityDataResponseOutput {
+	return i.ToIdentityDataResponseOutputWithContext(context.Background())
+}
+
+func (i IdentityDataResponseArgs) ToIdentityDataResponseOutputWithContext(ctx context.Context) IdentityDataResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityDataResponseOutput)
+}
+
+func (i IdentityDataResponseArgs) ToIdentityDataResponsePtrOutput() IdentityDataResponsePtrOutput {
+	return i.ToIdentityDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (i IdentityDataResponseArgs) ToIdentityDataResponsePtrOutputWithContext(ctx context.Context) IdentityDataResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityDataResponseOutput).ToIdentityDataResponsePtrOutputWithContext(ctx)
+}
+
+// IdentityDataResponsePtrInput is an input type that accepts IdentityDataResponseArgs, IdentityDataResponsePtr and IdentityDataResponsePtrOutput values.
+// You can construct a concrete instance of `IdentityDataResponsePtrInput` via:
+//
+//          IdentityDataResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type IdentityDataResponsePtrInput interface {
+	pulumi.Input
+
+	ToIdentityDataResponsePtrOutput() IdentityDataResponsePtrOutput
+	ToIdentityDataResponsePtrOutputWithContext(context.Context) IdentityDataResponsePtrOutput
+}
+
+type identityDataResponsePtrType IdentityDataResponseArgs
+
+func IdentityDataResponsePtr(v *IdentityDataResponseArgs) IdentityDataResponsePtrInput {
+	return (*identityDataResponsePtrType)(v)
+}
+
+func (*identityDataResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdentityDataResponse)(nil)).Elem()
+}
+
+func (i *identityDataResponsePtrType) ToIdentityDataResponsePtrOutput() IdentityDataResponsePtrOutput {
+	return i.ToIdentityDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *identityDataResponsePtrType) ToIdentityDataResponsePtrOutputWithContext(ctx context.Context) IdentityDataResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityDataResponsePtrOutput)
+}
+
+// Identity for the resource.
+type IdentityDataResponseOutput struct{ *pulumi.OutputState }
+
+func (IdentityDataResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityDataResponse)(nil)).Elem()
+}
+
+func (o IdentityDataResponseOutput) ToIdentityDataResponseOutput() IdentityDataResponseOutput {
+	return o
+}
+
+func (o IdentityDataResponseOutput) ToIdentityDataResponseOutputWithContext(ctx context.Context) IdentityDataResponseOutput {
+	return o
+}
+
+func (o IdentityDataResponseOutput) ToIdentityDataResponsePtrOutput() IdentityDataResponsePtrOutput {
+	return o.ToIdentityDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (o IdentityDataResponseOutput) ToIdentityDataResponsePtrOutputWithContext(ctx context.Context) IdentityDataResponsePtrOutput {
+	return o.ApplyT(func(v IdentityDataResponse) *IdentityDataResponse {
+		return &v
+	}).(IdentityDataResponsePtrOutput)
+}
+
+// The principal ID of resource identity.
+func (o IdentityDataResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentityDataResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The tenant ID of resource.
+func (o IdentityDataResponseOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentityDataResponse) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
+func (o IdentityDataResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentityDataResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The list of user-assigned identities associated with the resource. The user-assigned identity dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+func (o IdentityDataResponseOutput) UserAssignedIdentities() UserIdentityResponseMapOutput {
+	return o.ApplyT(func(v IdentityDataResponse) map[string]UserIdentityResponse { return v.UserAssignedIdentities }).(UserIdentityResponseMapOutput)
+}
+
+type IdentityDataResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (IdentityDataResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdentityDataResponse)(nil)).Elem()
+}
+
+func (o IdentityDataResponsePtrOutput) ToIdentityDataResponsePtrOutput() IdentityDataResponsePtrOutput {
+	return o
+}
+
+func (o IdentityDataResponsePtrOutput) ToIdentityDataResponsePtrOutputWithContext(ctx context.Context) IdentityDataResponsePtrOutput {
+	return o
+}
+
+func (o IdentityDataResponsePtrOutput) Elem() IdentityDataResponseOutput {
+	return o.ApplyT(func(v *IdentityDataResponse) IdentityDataResponse { return *v }).(IdentityDataResponseOutput)
+}
+
+// The principal ID of resource identity.
+func (o IdentityDataResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentityDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The tenant ID of resource.
+func (o IdentityDataResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentityDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
+func (o IdentityDataResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentityDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// The list of user-assigned identities associated with the resource. The user-assigned identity dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+func (o IdentityDataResponsePtrOutput) UserAssignedIdentities() UserIdentityResponseMapOutput {
+	return o.ApplyT(func(v *IdentityDataResponse) map[string]UserIdentityResponse {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentities
+	}).(UserIdentityResponseMapOutput)
+}
+
 // Details about inquired protectable items under a given container.
 type InquiryInfo struct {
 	// Inquiry Details which will have workload specific details.
@@ -19631,14 +20549,14 @@ func (o PrivateEndpointConnectionTypePtrOutput) ProvisioningState() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// Private Endpoint Connection Response Properties
+// Private Endpoint Connection Response Properties.
 type PrivateEndpointConnectionResponse struct {
-	// Gets or sets private endpoint associated with the private endpoint connection
-	PrivateEndpoint *PrivateEndpointResponse `pulumi:"privateEndpoint"`
-	// Gets or sets private link service connection state
-	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
-	// Gets or sets provisioning state of the private endpoint connection
-	ProvisioningState *string `pulumi:"provisioningState"`
+	// The Private Endpoint network resource that is linked to the Private Endpoint connection.
+	PrivateEndpoint PrivateEndpointResponse `pulumi:"privateEndpoint"`
+	// Gets or sets private link service connection state.
+	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
+	// Gets or sets provisioning state of the private endpoint connection.
+	ProvisioningState string `pulumi:"provisioningState"`
 }
 
 // PrivateEndpointConnectionResponseInput is an input type that accepts PrivateEndpointConnectionResponseArgs and PrivateEndpointConnectionResponseOutput values.
@@ -19652,14 +20570,14 @@ type PrivateEndpointConnectionResponseInput interface {
 	ToPrivateEndpointConnectionResponseOutputWithContext(context.Context) PrivateEndpointConnectionResponseOutput
 }
 
-// Private Endpoint Connection Response Properties
+// Private Endpoint Connection Response Properties.
 type PrivateEndpointConnectionResponseArgs struct {
-	// Gets or sets private endpoint associated with the private endpoint connection
-	PrivateEndpoint PrivateEndpointResponsePtrInput `pulumi:"privateEndpoint"`
-	// Gets or sets private link service connection state
-	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponsePtrInput `pulumi:"privateLinkServiceConnectionState"`
-	// Gets or sets provisioning state of the private endpoint connection
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
+	// The Private Endpoint network resource that is linked to the Private Endpoint connection.
+	PrivateEndpoint PrivateEndpointResponseInput `pulumi:"privateEndpoint"`
+	// Gets or sets private link service connection state.
+	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponseInput `pulumi:"privateLinkServiceConnectionState"`
+	// Gets or sets provisioning state of the private endpoint connection.
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
 }
 
 func (PrivateEndpointConnectionResponseArgs) ElementType() reflect.Type {
@@ -19715,7 +20633,7 @@ func (i *privateEndpointConnectionResponsePtrType) ToPrivateEndpointConnectionRe
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionResponsePtrOutput)
 }
 
-// Private Endpoint Connection Response Properties
+// Private Endpoint Connection Response Properties.
 type PrivateEndpointConnectionResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointConnectionResponseOutput) ElementType() reflect.Type {
@@ -19740,21 +20658,21 @@ func (o PrivateEndpointConnectionResponseOutput) ToPrivateEndpointConnectionResp
 	}).(PrivateEndpointConnectionResponsePtrOutput)
 }
 
-// Gets or sets private endpoint associated with the private endpoint connection
-func (o PrivateEndpointConnectionResponseOutput) PrivateEndpoint() PrivateEndpointResponsePtrOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionResponse) *PrivateEndpointResponse { return v.PrivateEndpoint }).(PrivateEndpointResponsePtrOutput)
+// The Private Endpoint network resource that is linked to the Private Endpoint connection.
+func (o PrivateEndpointConnectionResponseOutput) PrivateEndpoint() PrivateEndpointResponseOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) PrivateEndpointResponse { return v.PrivateEndpoint }).(PrivateEndpointResponseOutput)
 }
 
-// Gets or sets private link service connection state
-func (o PrivateEndpointConnectionResponseOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStateResponsePtrOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionResponse) *PrivateLinkServiceConnectionStateResponse {
+// Gets or sets private link service connection state.
+func (o PrivateEndpointConnectionResponseOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStateResponseOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) PrivateLinkServiceConnectionStateResponse {
 		return v.PrivateLinkServiceConnectionState
-	}).(PrivateLinkServiceConnectionStateResponsePtrOutput)
+	}).(PrivateLinkServiceConnectionStateResponseOutput)
 }
 
-// Gets or sets provisioning state of the private endpoint connection
-func (o PrivateEndpointConnectionResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+// Gets or sets provisioning state of the private endpoint connection.
+func (o PrivateEndpointConnectionResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
 type PrivateEndpointConnectionResponsePtrOutput struct{ *pulumi.OutputState }
@@ -19775,40 +20693,151 @@ func (o PrivateEndpointConnectionResponsePtrOutput) Elem() PrivateEndpointConnec
 	return o.ApplyT(func(v *PrivateEndpointConnectionResponse) PrivateEndpointConnectionResponse { return *v }).(PrivateEndpointConnectionResponseOutput)
 }
 
-// Gets or sets private endpoint associated with the private endpoint connection
+// The Private Endpoint network resource that is linked to the Private Endpoint connection.
 func (o PrivateEndpointConnectionResponsePtrOutput) PrivateEndpoint() PrivateEndpointResponsePtrOutput {
 	return o.ApplyT(func(v *PrivateEndpointConnectionResponse) *PrivateEndpointResponse {
 		if v == nil {
 			return nil
 		}
-		return v.PrivateEndpoint
+		return &v.PrivateEndpoint
 	}).(PrivateEndpointResponsePtrOutput)
 }
 
-// Gets or sets private link service connection state
+// Gets or sets private link service connection state.
 func (o PrivateEndpointConnectionResponsePtrOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStateResponsePtrOutput {
 	return o.ApplyT(func(v *PrivateEndpointConnectionResponse) *PrivateLinkServiceConnectionStateResponse {
 		if v == nil {
 			return nil
 		}
-		return v.PrivateLinkServiceConnectionState
+		return &v.PrivateLinkServiceConnectionState
 	}).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
 
-// Gets or sets provisioning state of the private endpoint connection
+// Gets or sets provisioning state of the private endpoint connection.
 func (o PrivateEndpointConnectionResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateEndpointConnectionResponse) *string {
 		if v == nil {
 			return nil
 		}
-		return v.ProvisioningState
+		return &v.ProvisioningState
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Private Endpoint network resource that is linked to the Private Endpoint connection
+// Information to be stored in Vault properties as an element of privateEndpointConnections List.
+type PrivateEndpointConnectionVaultPropertiesResponse struct {
+	// Format of id subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.[Service]/{resource}/{resourceName}/privateEndpointConnections/{connectionName}.
+	Id string `pulumi:"id"`
+	// Private Endpoint Connection Response Properties.
+	Properties PrivateEndpointConnectionResponse `pulumi:"properties"`
+}
+
+// PrivateEndpointConnectionVaultPropertiesResponseInput is an input type that accepts PrivateEndpointConnectionVaultPropertiesResponseArgs and PrivateEndpointConnectionVaultPropertiesResponseOutput values.
+// You can construct a concrete instance of `PrivateEndpointConnectionVaultPropertiesResponseInput` via:
+//
+//          PrivateEndpointConnectionVaultPropertiesResponseArgs{...}
+type PrivateEndpointConnectionVaultPropertiesResponseInput interface {
+	pulumi.Input
+
+	ToPrivateEndpointConnectionVaultPropertiesResponseOutput() PrivateEndpointConnectionVaultPropertiesResponseOutput
+	ToPrivateEndpointConnectionVaultPropertiesResponseOutputWithContext(context.Context) PrivateEndpointConnectionVaultPropertiesResponseOutput
+}
+
+// Information to be stored in Vault properties as an element of privateEndpointConnections List.
+type PrivateEndpointConnectionVaultPropertiesResponseArgs struct {
+	// Format of id subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.[Service]/{resource}/{resourceName}/privateEndpointConnections/{connectionName}.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Private Endpoint Connection Response Properties.
+	Properties PrivateEndpointConnectionResponseInput `pulumi:"properties"`
+}
+
+func (PrivateEndpointConnectionVaultPropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointConnectionVaultPropertiesResponse)(nil)).Elem()
+}
+
+func (i PrivateEndpointConnectionVaultPropertiesResponseArgs) ToPrivateEndpointConnectionVaultPropertiesResponseOutput() PrivateEndpointConnectionVaultPropertiesResponseOutput {
+	return i.ToPrivateEndpointConnectionVaultPropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i PrivateEndpointConnectionVaultPropertiesResponseArgs) ToPrivateEndpointConnectionVaultPropertiesResponseOutputWithContext(ctx context.Context) PrivateEndpointConnectionVaultPropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionVaultPropertiesResponseOutput)
+}
+
+// PrivateEndpointConnectionVaultPropertiesResponseArrayInput is an input type that accepts PrivateEndpointConnectionVaultPropertiesResponseArray and PrivateEndpointConnectionVaultPropertiesResponseArrayOutput values.
+// You can construct a concrete instance of `PrivateEndpointConnectionVaultPropertiesResponseArrayInput` via:
+//
+//          PrivateEndpointConnectionVaultPropertiesResponseArray{ PrivateEndpointConnectionVaultPropertiesResponseArgs{...} }
+type PrivateEndpointConnectionVaultPropertiesResponseArrayInput interface {
+	pulumi.Input
+
+	ToPrivateEndpointConnectionVaultPropertiesResponseArrayOutput() PrivateEndpointConnectionVaultPropertiesResponseArrayOutput
+	ToPrivateEndpointConnectionVaultPropertiesResponseArrayOutputWithContext(context.Context) PrivateEndpointConnectionVaultPropertiesResponseArrayOutput
+}
+
+type PrivateEndpointConnectionVaultPropertiesResponseArray []PrivateEndpointConnectionVaultPropertiesResponseInput
+
+func (PrivateEndpointConnectionVaultPropertiesResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrivateEndpointConnectionVaultPropertiesResponse)(nil)).Elem()
+}
+
+func (i PrivateEndpointConnectionVaultPropertiesResponseArray) ToPrivateEndpointConnectionVaultPropertiesResponseArrayOutput() PrivateEndpointConnectionVaultPropertiesResponseArrayOutput {
+	return i.ToPrivateEndpointConnectionVaultPropertiesResponseArrayOutputWithContext(context.Background())
+}
+
+func (i PrivateEndpointConnectionVaultPropertiesResponseArray) ToPrivateEndpointConnectionVaultPropertiesResponseArrayOutputWithContext(ctx context.Context) PrivateEndpointConnectionVaultPropertiesResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionVaultPropertiesResponseArrayOutput)
+}
+
+// Information to be stored in Vault properties as an element of privateEndpointConnections List.
+type PrivateEndpointConnectionVaultPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointConnectionVaultPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointConnectionVaultPropertiesResponse)(nil)).Elem()
+}
+
+func (o PrivateEndpointConnectionVaultPropertiesResponseOutput) ToPrivateEndpointConnectionVaultPropertiesResponseOutput() PrivateEndpointConnectionVaultPropertiesResponseOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionVaultPropertiesResponseOutput) ToPrivateEndpointConnectionVaultPropertiesResponseOutputWithContext(ctx context.Context) PrivateEndpointConnectionVaultPropertiesResponseOutput {
+	return o
+}
+
+// Format of id subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.[Service]/{resource}/{resourceName}/privateEndpointConnections/{connectionName}.
+func (o PrivateEndpointConnectionVaultPropertiesResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionVaultPropertiesResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Private Endpoint Connection Response Properties.
+func (o PrivateEndpointConnectionVaultPropertiesResponseOutput) Properties() PrivateEndpointConnectionResponseOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionVaultPropertiesResponse) PrivateEndpointConnectionResponse {
+		return v.Properties
+	}).(PrivateEndpointConnectionResponseOutput)
+}
+
+type PrivateEndpointConnectionVaultPropertiesResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointConnectionVaultPropertiesResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrivateEndpointConnectionVaultPropertiesResponse)(nil)).Elem()
+}
+
+func (o PrivateEndpointConnectionVaultPropertiesResponseArrayOutput) ToPrivateEndpointConnectionVaultPropertiesResponseArrayOutput() PrivateEndpointConnectionVaultPropertiesResponseArrayOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionVaultPropertiesResponseArrayOutput) ToPrivateEndpointConnectionVaultPropertiesResponseArrayOutputWithContext(ctx context.Context) PrivateEndpointConnectionVaultPropertiesResponseArrayOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionVaultPropertiesResponseArrayOutput) Index(i pulumi.IntInput) PrivateEndpointConnectionVaultPropertiesResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PrivateEndpointConnectionVaultPropertiesResponse {
+		return vs[0].([]PrivateEndpointConnectionVaultPropertiesResponse)[vs[1].(int)]
+	}).(PrivateEndpointConnectionVaultPropertiesResponseOutput)
+}
+
+// The Private Endpoint network resource that is linked to the Private Endpoint connection.
 type PrivateEndpointResponse struct {
-	// Gets or sets id
-	Id *string `pulumi:"id"`
+	// Gets or sets id.
+	Id string `pulumi:"id"`
 }
 
 // PrivateEndpointResponseInput is an input type that accepts PrivateEndpointResponseArgs and PrivateEndpointResponseOutput values.
@@ -19822,10 +20851,10 @@ type PrivateEndpointResponseInput interface {
 	ToPrivateEndpointResponseOutputWithContext(context.Context) PrivateEndpointResponseOutput
 }
 
-// The Private Endpoint network resource that is linked to the Private Endpoint connection
+// The Private Endpoint network resource that is linked to the Private Endpoint connection.
 type PrivateEndpointResponseArgs struct {
-	// Gets or sets id
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Gets or sets id.
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (PrivateEndpointResponseArgs) ElementType() reflect.Type {
@@ -19881,7 +20910,7 @@ func (i *privateEndpointResponsePtrType) ToPrivateEndpointResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointResponsePtrOutput)
 }
 
-// The Private Endpoint network resource that is linked to the Private Endpoint connection
+// The Private Endpoint network resource that is linked to the Private Endpoint connection.
 type PrivateEndpointResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointResponseOutput) ElementType() reflect.Type {
@@ -19906,9 +20935,9 @@ func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponsePtrOutputWithCon
 	}).(PrivateEndpointResponsePtrOutput)
 }
 
-// Gets or sets id
-func (o PrivateEndpointResponseOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PrivateEndpointResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+// Gets or sets id.
+func (o PrivateEndpointResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
 type PrivateEndpointResponsePtrOutput struct{ *pulumi.OutputState }
@@ -19929,13 +20958,13 @@ func (o PrivateEndpointResponsePtrOutput) Elem() PrivateEndpointResponseOutput {
 	return o.ApplyT(func(v *PrivateEndpointResponse) PrivateEndpointResponse { return *v }).(PrivateEndpointResponseOutput)
 }
 
-// Gets or sets id
+// Gets or sets id.
 func (o PrivateEndpointResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateEndpointResponse) *string {
 		if v == nil {
 			return nil
 		}
-		return v.Id
+		return &v.Id
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -20111,14 +21140,14 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) Status() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Private Link Service Connection State
+// Gets or sets private link service connection state.
 type PrivateLinkServiceConnectionStateResponse struct {
-	// Gets or sets actions required
-	ActionRequired *string `pulumi:"actionRequired"`
-	// Gets or sets description
-	Description *string `pulumi:"description"`
-	// Gets or sets the status
-	Status *string `pulumi:"status"`
+	// Gets or sets actions required.
+	ActionsRequired string `pulumi:"actionsRequired"`
+	// Gets or sets description.
+	Description string `pulumi:"description"`
+	// Gets or sets the status.
+	Status string `pulumi:"status"`
 }
 
 // PrivateLinkServiceConnectionStateResponseInput is an input type that accepts PrivateLinkServiceConnectionStateResponseArgs and PrivateLinkServiceConnectionStateResponseOutput values.
@@ -20132,14 +21161,14 @@ type PrivateLinkServiceConnectionStateResponseInput interface {
 	ToPrivateLinkServiceConnectionStateResponseOutputWithContext(context.Context) PrivateLinkServiceConnectionStateResponseOutput
 }
 
-// Private Link Service Connection State
+// Gets or sets private link service connection state.
 type PrivateLinkServiceConnectionStateResponseArgs struct {
-	// Gets or sets actions required
-	ActionRequired pulumi.StringPtrInput `pulumi:"actionRequired"`
-	// Gets or sets description
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Gets or sets the status
-	Status pulumi.StringPtrInput `pulumi:"status"`
+	// Gets or sets actions required.
+	ActionsRequired pulumi.StringInput `pulumi:"actionsRequired"`
+	// Gets or sets description.
+	Description pulumi.StringInput `pulumi:"description"`
+	// Gets or sets the status.
+	Status pulumi.StringInput `pulumi:"status"`
 }
 
 func (PrivateLinkServiceConnectionStateResponseArgs) ElementType() reflect.Type {
@@ -20195,7 +21224,7 @@ func (i *privateLinkServiceConnectionStateResponsePtrType) ToPrivateLinkServiceC
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
 
-// Private Link Service Connection State
+// Gets or sets private link service connection state.
 type PrivateLinkServiceConnectionStateResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkServiceConnectionStateResponseOutput) ElementType() reflect.Type {
@@ -20220,19 +21249,19 @@ func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceCon
 	}).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
 
-// Gets or sets actions required
-func (o PrivateLinkServiceConnectionStateResponseOutput) ActionRequired() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.ActionRequired }).(pulumi.StringPtrOutput)
+// Gets or sets actions required.
+func (o PrivateLinkServiceConnectionStateResponseOutput) ActionsRequired() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) string { return v.ActionsRequired }).(pulumi.StringOutput)
 }
 
-// Gets or sets description
-func (o PrivateLinkServiceConnectionStateResponseOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+// Gets or sets description.
+func (o PrivateLinkServiceConnectionStateResponseOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// Gets or sets the status
-func (o PrivateLinkServiceConnectionStateResponseOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
+// Gets or sets the status.
+func (o PrivateLinkServiceConnectionStateResponseOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) string { return v.Status }).(pulumi.StringOutput)
 }
 
 type PrivateLinkServiceConnectionStateResponsePtrOutput struct{ *pulumi.OutputState }
@@ -20255,33 +21284,33 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Elem() PrivateLinkSe
 	}).(PrivateLinkServiceConnectionStateResponseOutput)
 }
 
-// Gets or sets actions required
-func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ActionRequired() pulumi.StringPtrOutput {
+// Gets or sets actions required.
+func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) *string {
 		if v == nil {
 			return nil
 		}
-		return v.ActionRequired
+		return &v.ActionsRequired
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets description
+// Gets or sets description.
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) *string {
 		if v == nil {
 			return nil
 		}
-		return v.Description
+		return &v.Description
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the status
+// Gets or sets the status.
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) *string {
 		if v == nil {
 			return nil
 		}
-		return v.Status
+		return &v.Status
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -21400,6 +22429,312 @@ func (o SimpleSchedulePolicyResponseOutput) ScheduleWeeklyFrequency() pulumi.Int
 	return o.ApplyT(func(v SimpleSchedulePolicyResponse) *int { return v.ScheduleWeeklyFrequency }).(pulumi.IntPtrOutput)
 }
 
+// Identifies the unique system identifier for each Azure resource.
+type Sku struct {
+	// The Sku name.
+	Name string `pulumi:"name"`
+	// The Sku tier.
+	Tier *string `pulumi:"tier"`
+}
+
+// SkuInput is an input type that accepts SkuArgs and SkuOutput values.
+// You can construct a concrete instance of `SkuInput` via:
+//
+//          SkuArgs{...}
+type SkuInput interface {
+	pulumi.Input
+
+	ToSkuOutput() SkuOutput
+	ToSkuOutputWithContext(context.Context) SkuOutput
+}
+
+// Identifies the unique system identifier for each Azure resource.
+type SkuArgs struct {
+	// The Sku name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The Sku tier.
+	Tier pulumi.StringPtrInput `pulumi:"tier"`
+}
+
+func (SkuArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Sku)(nil)).Elem()
+}
+
+func (i SkuArgs) ToSkuOutput() SkuOutput {
+	return i.ToSkuOutputWithContext(context.Background())
+}
+
+func (i SkuArgs) ToSkuOutputWithContext(ctx context.Context) SkuOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SkuOutput)
+}
+
+func (i SkuArgs) ToSkuPtrOutput() SkuPtrOutput {
+	return i.ToSkuPtrOutputWithContext(context.Background())
+}
+
+func (i SkuArgs) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SkuOutput).ToSkuPtrOutputWithContext(ctx)
+}
+
+// SkuPtrInput is an input type that accepts SkuArgs, SkuPtr and SkuPtrOutput values.
+// You can construct a concrete instance of `SkuPtrInput` via:
+//
+//          SkuArgs{...}
+//
+//  or:
+//
+//          nil
+type SkuPtrInput interface {
+	pulumi.Input
+
+	ToSkuPtrOutput() SkuPtrOutput
+	ToSkuPtrOutputWithContext(context.Context) SkuPtrOutput
+}
+
+type skuPtrType SkuArgs
+
+func SkuPtr(v *SkuArgs) SkuPtrInput {
+	return (*skuPtrType)(v)
+}
+
+func (*skuPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Sku)(nil)).Elem()
+}
+
+func (i *skuPtrType) ToSkuPtrOutput() SkuPtrOutput {
+	return i.ToSkuPtrOutputWithContext(context.Background())
+}
+
+func (i *skuPtrType) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SkuPtrOutput)
+}
+
+// Identifies the unique system identifier for each Azure resource.
+type SkuOutput struct{ *pulumi.OutputState }
+
+func (SkuOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Sku)(nil)).Elem()
+}
+
+func (o SkuOutput) ToSkuOutput() SkuOutput {
+	return o
+}
+
+func (o SkuOutput) ToSkuOutputWithContext(ctx context.Context) SkuOutput {
+	return o
+}
+
+func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
+	return o.ToSkuPtrOutputWithContext(context.Background())
+}
+
+func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
+	return o.ApplyT(func(v Sku) *Sku {
+		return &v
+	}).(SkuPtrOutput)
+}
+
+// The Sku name.
+func (o SkuOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v Sku) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The Sku tier.
+func (o SkuOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Sku) *string { return v.Tier }).(pulumi.StringPtrOutput)
+}
+
+type SkuPtrOutput struct{ *pulumi.OutputState }
+
+func (SkuPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Sku)(nil)).Elem()
+}
+
+func (o SkuPtrOutput) ToSkuPtrOutput() SkuPtrOutput {
+	return o
+}
+
+func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
+	return o
+}
+
+func (o SkuPtrOutput) Elem() SkuOutput {
+	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
+}
+
+// The Sku name.
+func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Sku) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Sku tier.
+func (o SkuPtrOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Sku) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Tier
+	}).(pulumi.StringPtrOutput)
+}
+
+// Identifies the unique system identifier for each Azure resource.
+type SkuResponse struct {
+	// The Sku name.
+	Name string `pulumi:"name"`
+	// The Sku tier.
+	Tier *string `pulumi:"tier"`
+}
+
+// SkuResponseInput is an input type that accepts SkuResponseArgs and SkuResponseOutput values.
+// You can construct a concrete instance of `SkuResponseInput` via:
+//
+//          SkuResponseArgs{...}
+type SkuResponseInput interface {
+	pulumi.Input
+
+	ToSkuResponseOutput() SkuResponseOutput
+	ToSkuResponseOutputWithContext(context.Context) SkuResponseOutput
+}
+
+// Identifies the unique system identifier for each Azure resource.
+type SkuResponseArgs struct {
+	// The Sku name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The Sku tier.
+	Tier pulumi.StringPtrInput `pulumi:"tier"`
+}
+
+func (SkuResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuResponse)(nil)).Elem()
+}
+
+func (i SkuResponseArgs) ToSkuResponseOutput() SkuResponseOutput {
+	return i.ToSkuResponseOutputWithContext(context.Background())
+}
+
+func (i SkuResponseArgs) ToSkuResponseOutputWithContext(ctx context.Context) SkuResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SkuResponseOutput)
+}
+
+func (i SkuResponseArgs) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
+	return i.ToSkuResponsePtrOutputWithContext(context.Background())
+}
+
+func (i SkuResponseArgs) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SkuResponseOutput).ToSkuResponsePtrOutputWithContext(ctx)
+}
+
+// SkuResponsePtrInput is an input type that accepts SkuResponseArgs, SkuResponsePtr and SkuResponsePtrOutput values.
+// You can construct a concrete instance of `SkuResponsePtrInput` via:
+//
+//          SkuResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type SkuResponsePtrInput interface {
+	pulumi.Input
+
+	ToSkuResponsePtrOutput() SkuResponsePtrOutput
+	ToSkuResponsePtrOutputWithContext(context.Context) SkuResponsePtrOutput
+}
+
+type skuResponsePtrType SkuResponseArgs
+
+func SkuResponsePtr(v *SkuResponseArgs) SkuResponsePtrInput {
+	return (*skuResponsePtrType)(v)
+}
+
+func (*skuResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SkuResponse)(nil)).Elem()
+}
+
+func (i *skuResponsePtrType) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
+	return i.ToSkuResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *skuResponsePtrType) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SkuResponsePtrOutput)
+}
+
+// Identifies the unique system identifier for each Azure resource.
+type SkuResponseOutput struct{ *pulumi.OutputState }
+
+func (SkuResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuResponse)(nil)).Elem()
+}
+
+func (o SkuResponseOutput) ToSkuResponseOutput() SkuResponseOutput {
+	return o
+}
+
+func (o SkuResponseOutput) ToSkuResponseOutputWithContext(ctx context.Context) SkuResponseOutput {
+	return o
+}
+
+func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
+	return o.ToSkuResponsePtrOutputWithContext(context.Background())
+}
+
+func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
+	return o.ApplyT(func(v SkuResponse) *SkuResponse {
+		return &v
+	}).(SkuResponsePtrOutput)
+}
+
+// The Sku name.
+func (o SkuResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SkuResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The Sku tier.
+func (o SkuResponseOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SkuResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
+}
+
+type SkuResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SkuResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SkuResponse)(nil)).Elem()
+}
+
+func (o SkuResponsePtrOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
+	return o
+}
+
+func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
+	return o
+}
+
+func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
+	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
+}
+
+// The Sku name.
+func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SkuResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Sku tier.
+func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SkuResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Tier
+	}).(pulumi.StringPtrOutput)
+}
+
 // Sub-protection policy which includes schedule and retention
 type SubProtectionPolicy struct {
 	// Type of backup policy type
@@ -21634,6 +22969,1339 @@ func (o SubProtectionPolicyResponseArrayOutput) Index(i pulumi.IntInput) SubProt
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SubProtectionPolicyResponse {
 		return vs[0].([]SubProtectionPolicyResponse)[vs[1].(int)]
 	}).(SubProtectionPolicyResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataResponse struct {
+	// The timestamp of resource creation (UTC).
+	CreatedAt *string `pulumi:"createdAt"`
+	// The identity that created the resource.
+	CreatedBy *string `pulumi:"createdBy"`
+	// The type of identity that created the resource.
+	CreatedByType *string `pulumi:"createdByType"`
+	// The type of identity that last modified the resource.
+	LastModifiedAt *string `pulumi:"lastModifiedAt"`
+	// The identity that last modified the resource.
+	LastModifiedBy *string `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource.
+	LastModifiedByType *string `pulumi:"lastModifiedByType"`
+}
+
+// SystemDataResponseInput is an input type that accepts SystemDataResponseArgs and SystemDataResponseOutput values.
+// You can construct a concrete instance of `SystemDataResponseInput` via:
+//
+//          SystemDataResponseArgs{...}
+type SystemDataResponseInput interface {
+	pulumi.Input
+
+	ToSystemDataResponseOutput() SystemDataResponseOutput
+	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataResponseArgs struct {
+	// The timestamp of resource creation (UTC).
+	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
+	// The identity that created the resource.
+	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
+	// The type of identity that created the resource.
+	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
+	// The type of identity that last modified the resource.
+	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	// The identity that last modified the resource.
+	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource.
+	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
+}
+
+func (SystemDataResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponseOutput() SystemDataResponseOutput {
+	return i.ToSystemDataResponseOutputWithContext(context.Background())
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput)
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput).ToSystemDataResponsePtrOutputWithContext(ctx)
+}
+
+// SystemDataResponsePtrInput is an input type that accepts SystemDataResponseArgs, SystemDataResponsePtr and SystemDataResponsePtrOutput values.
+// You can construct a concrete instance of `SystemDataResponsePtrInput` via:
+//
+//          SystemDataResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type SystemDataResponsePtrInput interface {
+	pulumi.Input
+
+	ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput
+	ToSystemDataResponsePtrOutputWithContext(context.Context) SystemDataResponsePtrOutput
+}
+
+type systemDataResponsePtrType SystemDataResponseArgs
+
+func SystemDataResponsePtr(v *SystemDataResponseArgs) SystemDataResponsePtrInput {
+	return (*systemDataResponsePtrType)(v)
+}
+
+func (*systemDataResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
+}
+
+func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataResponseOutput struct{ *pulumi.OutputState }
+
+func (SystemDataResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponseOutput() SystemDataResponseOutput {
+	return o
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
+	return o
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return o.ToSystemDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
+		return &v
+	}).(SystemDataResponsePtrOutput)
+}
+
+// The timestamp of resource creation (UTC).
+func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that created the resource.
+func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that created the resource.
+func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that last modified the resource.
+func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
+}
+
+type SystemDataResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SystemDataResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
+}
+
+func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return o
+}
+
+func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return o
+}
+
+func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
+}
+
+// The timestamp of resource creation (UTC).
+func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedAt
+	}).(pulumi.StringPtrOutput)
+}
+
+// The identity that created the resource.
+func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedBy
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that created the resource.
+func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedByType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedAt
+	}).(pulumi.StringPtrOutput)
+}
+
+// The identity that last modified the resource.
+func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedBy
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedByType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Details for upgrading vault.
+type UpgradeDetailsResponse struct {
+	// UTC time at which the upgrade operation has ended.
+	EndTimeUtc string `pulumi:"endTimeUtc"`
+	// UTC time at which the upgrade operation status was last updated.
+	LastUpdatedTimeUtc string `pulumi:"lastUpdatedTimeUtc"`
+	// Message to the user containing information about the upgrade operation.
+	Message string `pulumi:"message"`
+	// ID of the vault upgrade operation.
+	OperationId string `pulumi:"operationId"`
+	// Resource ID of the vault before the upgrade.
+	PreviousResourceId string `pulumi:"previousResourceId"`
+	// UTC time at which the upgrade operation has started.
+	StartTimeUtc string `pulumi:"startTimeUtc"`
+	// Status of the vault upgrade operation.
+	Status string `pulumi:"status"`
+	// The way the vault upgrade was triggered.
+	TriggerType string `pulumi:"triggerType"`
+	// Resource ID of the upgraded vault.
+	UpgradedResourceId string `pulumi:"upgradedResourceId"`
+}
+
+// UpgradeDetailsResponseInput is an input type that accepts UpgradeDetailsResponseArgs and UpgradeDetailsResponseOutput values.
+// You can construct a concrete instance of `UpgradeDetailsResponseInput` via:
+//
+//          UpgradeDetailsResponseArgs{...}
+type UpgradeDetailsResponseInput interface {
+	pulumi.Input
+
+	ToUpgradeDetailsResponseOutput() UpgradeDetailsResponseOutput
+	ToUpgradeDetailsResponseOutputWithContext(context.Context) UpgradeDetailsResponseOutput
+}
+
+// Details for upgrading vault.
+type UpgradeDetailsResponseArgs struct {
+	// UTC time at which the upgrade operation has ended.
+	EndTimeUtc pulumi.StringInput `pulumi:"endTimeUtc"`
+	// UTC time at which the upgrade operation status was last updated.
+	LastUpdatedTimeUtc pulumi.StringInput `pulumi:"lastUpdatedTimeUtc"`
+	// Message to the user containing information about the upgrade operation.
+	Message pulumi.StringInput `pulumi:"message"`
+	// ID of the vault upgrade operation.
+	OperationId pulumi.StringInput `pulumi:"operationId"`
+	// Resource ID of the vault before the upgrade.
+	PreviousResourceId pulumi.StringInput `pulumi:"previousResourceId"`
+	// UTC time at which the upgrade operation has started.
+	StartTimeUtc pulumi.StringInput `pulumi:"startTimeUtc"`
+	// Status of the vault upgrade operation.
+	Status pulumi.StringInput `pulumi:"status"`
+	// The way the vault upgrade was triggered.
+	TriggerType pulumi.StringInput `pulumi:"triggerType"`
+	// Resource ID of the upgraded vault.
+	UpgradedResourceId pulumi.StringInput `pulumi:"upgradedResourceId"`
+}
+
+func (UpgradeDetailsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UpgradeDetailsResponse)(nil)).Elem()
+}
+
+func (i UpgradeDetailsResponseArgs) ToUpgradeDetailsResponseOutput() UpgradeDetailsResponseOutput {
+	return i.ToUpgradeDetailsResponseOutputWithContext(context.Background())
+}
+
+func (i UpgradeDetailsResponseArgs) ToUpgradeDetailsResponseOutputWithContext(ctx context.Context) UpgradeDetailsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UpgradeDetailsResponseOutput)
+}
+
+func (i UpgradeDetailsResponseArgs) ToUpgradeDetailsResponsePtrOutput() UpgradeDetailsResponsePtrOutput {
+	return i.ToUpgradeDetailsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i UpgradeDetailsResponseArgs) ToUpgradeDetailsResponsePtrOutputWithContext(ctx context.Context) UpgradeDetailsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UpgradeDetailsResponseOutput).ToUpgradeDetailsResponsePtrOutputWithContext(ctx)
+}
+
+// UpgradeDetailsResponsePtrInput is an input type that accepts UpgradeDetailsResponseArgs, UpgradeDetailsResponsePtr and UpgradeDetailsResponsePtrOutput values.
+// You can construct a concrete instance of `UpgradeDetailsResponsePtrInput` via:
+//
+//          UpgradeDetailsResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type UpgradeDetailsResponsePtrInput interface {
+	pulumi.Input
+
+	ToUpgradeDetailsResponsePtrOutput() UpgradeDetailsResponsePtrOutput
+	ToUpgradeDetailsResponsePtrOutputWithContext(context.Context) UpgradeDetailsResponsePtrOutput
+}
+
+type upgradeDetailsResponsePtrType UpgradeDetailsResponseArgs
+
+func UpgradeDetailsResponsePtr(v *UpgradeDetailsResponseArgs) UpgradeDetailsResponsePtrInput {
+	return (*upgradeDetailsResponsePtrType)(v)
+}
+
+func (*upgradeDetailsResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UpgradeDetailsResponse)(nil)).Elem()
+}
+
+func (i *upgradeDetailsResponsePtrType) ToUpgradeDetailsResponsePtrOutput() UpgradeDetailsResponsePtrOutput {
+	return i.ToUpgradeDetailsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *upgradeDetailsResponsePtrType) ToUpgradeDetailsResponsePtrOutputWithContext(ctx context.Context) UpgradeDetailsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UpgradeDetailsResponsePtrOutput)
+}
+
+// Details for upgrading vault.
+type UpgradeDetailsResponseOutput struct{ *pulumi.OutputState }
+
+func (UpgradeDetailsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UpgradeDetailsResponse)(nil)).Elem()
+}
+
+func (o UpgradeDetailsResponseOutput) ToUpgradeDetailsResponseOutput() UpgradeDetailsResponseOutput {
+	return o
+}
+
+func (o UpgradeDetailsResponseOutput) ToUpgradeDetailsResponseOutputWithContext(ctx context.Context) UpgradeDetailsResponseOutput {
+	return o
+}
+
+func (o UpgradeDetailsResponseOutput) ToUpgradeDetailsResponsePtrOutput() UpgradeDetailsResponsePtrOutput {
+	return o.ToUpgradeDetailsResponsePtrOutputWithContext(context.Background())
+}
+
+func (o UpgradeDetailsResponseOutput) ToUpgradeDetailsResponsePtrOutputWithContext(ctx context.Context) UpgradeDetailsResponsePtrOutput {
+	return o.ApplyT(func(v UpgradeDetailsResponse) *UpgradeDetailsResponse {
+		return &v
+	}).(UpgradeDetailsResponsePtrOutput)
+}
+
+// UTC time at which the upgrade operation has ended.
+func (o UpgradeDetailsResponseOutput) EndTimeUtc() pulumi.StringOutput {
+	return o.ApplyT(func(v UpgradeDetailsResponse) string { return v.EndTimeUtc }).(pulumi.StringOutput)
+}
+
+// UTC time at which the upgrade operation status was last updated.
+func (o UpgradeDetailsResponseOutput) LastUpdatedTimeUtc() pulumi.StringOutput {
+	return o.ApplyT(func(v UpgradeDetailsResponse) string { return v.LastUpdatedTimeUtc }).(pulumi.StringOutput)
+}
+
+// Message to the user containing information about the upgrade operation.
+func (o UpgradeDetailsResponseOutput) Message() pulumi.StringOutput {
+	return o.ApplyT(func(v UpgradeDetailsResponse) string { return v.Message }).(pulumi.StringOutput)
+}
+
+// ID of the vault upgrade operation.
+func (o UpgradeDetailsResponseOutput) OperationId() pulumi.StringOutput {
+	return o.ApplyT(func(v UpgradeDetailsResponse) string { return v.OperationId }).(pulumi.StringOutput)
+}
+
+// Resource ID of the vault before the upgrade.
+func (o UpgradeDetailsResponseOutput) PreviousResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v UpgradeDetailsResponse) string { return v.PreviousResourceId }).(pulumi.StringOutput)
+}
+
+// UTC time at which the upgrade operation has started.
+func (o UpgradeDetailsResponseOutput) StartTimeUtc() pulumi.StringOutput {
+	return o.ApplyT(func(v UpgradeDetailsResponse) string { return v.StartTimeUtc }).(pulumi.StringOutput)
+}
+
+// Status of the vault upgrade operation.
+func (o UpgradeDetailsResponseOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v UpgradeDetailsResponse) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// The way the vault upgrade was triggered.
+func (o UpgradeDetailsResponseOutput) TriggerType() pulumi.StringOutput {
+	return o.ApplyT(func(v UpgradeDetailsResponse) string { return v.TriggerType }).(pulumi.StringOutput)
+}
+
+// Resource ID of the upgraded vault.
+func (o UpgradeDetailsResponseOutput) UpgradedResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v UpgradeDetailsResponse) string { return v.UpgradedResourceId }).(pulumi.StringOutput)
+}
+
+type UpgradeDetailsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (UpgradeDetailsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UpgradeDetailsResponse)(nil)).Elem()
+}
+
+func (o UpgradeDetailsResponsePtrOutput) ToUpgradeDetailsResponsePtrOutput() UpgradeDetailsResponsePtrOutput {
+	return o
+}
+
+func (o UpgradeDetailsResponsePtrOutput) ToUpgradeDetailsResponsePtrOutputWithContext(ctx context.Context) UpgradeDetailsResponsePtrOutput {
+	return o
+}
+
+func (o UpgradeDetailsResponsePtrOutput) Elem() UpgradeDetailsResponseOutput {
+	return o.ApplyT(func(v *UpgradeDetailsResponse) UpgradeDetailsResponse { return *v }).(UpgradeDetailsResponseOutput)
+}
+
+// UTC time at which the upgrade operation has ended.
+func (o UpgradeDetailsResponsePtrOutput) EndTimeUtc() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UpgradeDetailsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EndTimeUtc
+	}).(pulumi.StringPtrOutput)
+}
+
+// UTC time at which the upgrade operation status was last updated.
+func (o UpgradeDetailsResponsePtrOutput) LastUpdatedTimeUtc() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UpgradeDetailsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LastUpdatedTimeUtc
+	}).(pulumi.StringPtrOutput)
+}
+
+// Message to the user containing information about the upgrade operation.
+func (o UpgradeDetailsResponsePtrOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UpgradeDetailsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Message
+	}).(pulumi.StringPtrOutput)
+}
+
+// ID of the vault upgrade operation.
+func (o UpgradeDetailsResponsePtrOutput) OperationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UpgradeDetailsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.OperationId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Resource ID of the vault before the upgrade.
+func (o UpgradeDetailsResponsePtrOutput) PreviousResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UpgradeDetailsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PreviousResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// UTC time at which the upgrade operation has started.
+func (o UpgradeDetailsResponsePtrOutput) StartTimeUtc() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UpgradeDetailsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StartTimeUtc
+	}).(pulumi.StringPtrOutput)
+}
+
+// Status of the vault upgrade operation.
+func (o UpgradeDetailsResponsePtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UpgradeDetailsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+// The way the vault upgrade was triggered.
+func (o UpgradeDetailsResponsePtrOutput) TriggerType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UpgradeDetailsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TriggerType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Resource ID of the upgraded vault.
+func (o UpgradeDetailsResponsePtrOutput) UpgradedResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UpgradeDetailsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.UpgradedResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// A resource identity that is managed by the user of the service.
+type UserIdentityResponse struct {
+	// The client ID of the user-assigned identity.
+	ClientId string `pulumi:"clientId"`
+	// The principal ID of the user-assigned identity.
+	PrincipalId string `pulumi:"principalId"`
+}
+
+// UserIdentityResponseInput is an input type that accepts UserIdentityResponseArgs and UserIdentityResponseOutput values.
+// You can construct a concrete instance of `UserIdentityResponseInput` via:
+//
+//          UserIdentityResponseArgs{...}
+type UserIdentityResponseInput interface {
+	pulumi.Input
+
+	ToUserIdentityResponseOutput() UserIdentityResponseOutput
+	ToUserIdentityResponseOutputWithContext(context.Context) UserIdentityResponseOutput
+}
+
+// A resource identity that is managed by the user of the service.
+type UserIdentityResponseArgs struct {
+	// The client ID of the user-assigned identity.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// The principal ID of the user-assigned identity.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+}
+
+func (UserIdentityResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserIdentityResponse)(nil)).Elem()
+}
+
+func (i UserIdentityResponseArgs) ToUserIdentityResponseOutput() UserIdentityResponseOutput {
+	return i.ToUserIdentityResponseOutputWithContext(context.Background())
+}
+
+func (i UserIdentityResponseArgs) ToUserIdentityResponseOutputWithContext(ctx context.Context) UserIdentityResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserIdentityResponseOutput)
+}
+
+// UserIdentityResponseMapInput is an input type that accepts UserIdentityResponseMap and UserIdentityResponseMapOutput values.
+// You can construct a concrete instance of `UserIdentityResponseMapInput` via:
+//
+//          UserIdentityResponseMap{ "key": UserIdentityResponseArgs{...} }
+type UserIdentityResponseMapInput interface {
+	pulumi.Input
+
+	ToUserIdentityResponseMapOutput() UserIdentityResponseMapOutput
+	ToUserIdentityResponseMapOutputWithContext(context.Context) UserIdentityResponseMapOutput
+}
+
+type UserIdentityResponseMap map[string]UserIdentityResponseInput
+
+func (UserIdentityResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]UserIdentityResponse)(nil)).Elem()
+}
+
+func (i UserIdentityResponseMap) ToUserIdentityResponseMapOutput() UserIdentityResponseMapOutput {
+	return i.ToUserIdentityResponseMapOutputWithContext(context.Background())
+}
+
+func (i UserIdentityResponseMap) ToUserIdentityResponseMapOutputWithContext(ctx context.Context) UserIdentityResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserIdentityResponseMapOutput)
+}
+
+// A resource identity that is managed by the user of the service.
+type UserIdentityResponseOutput struct{ *pulumi.OutputState }
+
+func (UserIdentityResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserIdentityResponse)(nil)).Elem()
+}
+
+func (o UserIdentityResponseOutput) ToUserIdentityResponseOutput() UserIdentityResponseOutput {
+	return o
+}
+
+func (o UserIdentityResponseOutput) ToUserIdentityResponseOutputWithContext(ctx context.Context) UserIdentityResponseOutput {
+	return o
+}
+
+// The client ID of the user-assigned identity.
+func (o UserIdentityResponseOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v UserIdentityResponse) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// The principal ID of the user-assigned identity.
+func (o UserIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v UserIdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+type UserIdentityResponseMapOutput struct{ *pulumi.OutputState }
+
+func (UserIdentityResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]UserIdentityResponse)(nil)).Elem()
+}
+
+func (o UserIdentityResponseMapOutput) ToUserIdentityResponseMapOutput() UserIdentityResponseMapOutput {
+	return o
+}
+
+func (o UserIdentityResponseMapOutput) ToUserIdentityResponseMapOutputWithContext(ctx context.Context) UserIdentityResponseMapOutput {
+	return o
+}
+
+func (o UserIdentityResponseMapOutput) MapIndex(k pulumi.StringInput) UserIdentityResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) UserIdentityResponse {
+		return vs[0].(map[string]UserIdentityResponse)[vs[1].(string)]
+	}).(UserIdentityResponseOutput)
+}
+
+// Properties of the vault.
+type VaultProperties struct {
+	// Customer Managed Key details of the resource.
+	Encryption *VaultPropertiesEncryption `pulumi:"encryption"`
+}
+
+// VaultPropertiesInput is an input type that accepts VaultPropertiesArgs and VaultPropertiesOutput values.
+// You can construct a concrete instance of `VaultPropertiesInput` via:
+//
+//          VaultPropertiesArgs{...}
+type VaultPropertiesInput interface {
+	pulumi.Input
+
+	ToVaultPropertiesOutput() VaultPropertiesOutput
+	ToVaultPropertiesOutputWithContext(context.Context) VaultPropertiesOutput
+}
+
+// Properties of the vault.
+type VaultPropertiesArgs struct {
+	// Customer Managed Key details of the resource.
+	Encryption VaultPropertiesEncryptionPtrInput `pulumi:"encryption"`
+}
+
+func (VaultPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VaultProperties)(nil)).Elem()
+}
+
+func (i VaultPropertiesArgs) ToVaultPropertiesOutput() VaultPropertiesOutput {
+	return i.ToVaultPropertiesOutputWithContext(context.Background())
+}
+
+func (i VaultPropertiesArgs) ToVaultPropertiesOutputWithContext(ctx context.Context) VaultPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VaultPropertiesOutput)
+}
+
+func (i VaultPropertiesArgs) ToVaultPropertiesPtrOutput() VaultPropertiesPtrOutput {
+	return i.ToVaultPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i VaultPropertiesArgs) ToVaultPropertiesPtrOutputWithContext(ctx context.Context) VaultPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VaultPropertiesOutput).ToVaultPropertiesPtrOutputWithContext(ctx)
+}
+
+// VaultPropertiesPtrInput is an input type that accepts VaultPropertiesArgs, VaultPropertiesPtr and VaultPropertiesPtrOutput values.
+// You can construct a concrete instance of `VaultPropertiesPtrInput` via:
+//
+//          VaultPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type VaultPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToVaultPropertiesPtrOutput() VaultPropertiesPtrOutput
+	ToVaultPropertiesPtrOutputWithContext(context.Context) VaultPropertiesPtrOutput
+}
+
+type vaultPropertiesPtrType VaultPropertiesArgs
+
+func VaultPropertiesPtr(v *VaultPropertiesArgs) VaultPropertiesPtrInput {
+	return (*vaultPropertiesPtrType)(v)
+}
+
+func (*vaultPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VaultProperties)(nil)).Elem()
+}
+
+func (i *vaultPropertiesPtrType) ToVaultPropertiesPtrOutput() VaultPropertiesPtrOutput {
+	return i.ToVaultPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *vaultPropertiesPtrType) ToVaultPropertiesPtrOutputWithContext(ctx context.Context) VaultPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VaultPropertiesPtrOutput)
+}
+
+// Properties of the vault.
+type VaultPropertiesOutput struct{ *pulumi.OutputState }
+
+func (VaultPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VaultProperties)(nil)).Elem()
+}
+
+func (o VaultPropertiesOutput) ToVaultPropertiesOutput() VaultPropertiesOutput {
+	return o
+}
+
+func (o VaultPropertiesOutput) ToVaultPropertiesOutputWithContext(ctx context.Context) VaultPropertiesOutput {
+	return o
+}
+
+func (o VaultPropertiesOutput) ToVaultPropertiesPtrOutput() VaultPropertiesPtrOutput {
+	return o.ToVaultPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o VaultPropertiesOutput) ToVaultPropertiesPtrOutputWithContext(ctx context.Context) VaultPropertiesPtrOutput {
+	return o.ApplyT(func(v VaultProperties) *VaultProperties {
+		return &v
+	}).(VaultPropertiesPtrOutput)
+}
+
+// Customer Managed Key details of the resource.
+func (o VaultPropertiesOutput) Encryption() VaultPropertiesEncryptionPtrOutput {
+	return o.ApplyT(func(v VaultProperties) *VaultPropertiesEncryption { return v.Encryption }).(VaultPropertiesEncryptionPtrOutput)
+}
+
+type VaultPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (VaultPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VaultProperties)(nil)).Elem()
+}
+
+func (o VaultPropertiesPtrOutput) ToVaultPropertiesPtrOutput() VaultPropertiesPtrOutput {
+	return o
+}
+
+func (o VaultPropertiesPtrOutput) ToVaultPropertiesPtrOutputWithContext(ctx context.Context) VaultPropertiesPtrOutput {
+	return o
+}
+
+func (o VaultPropertiesPtrOutput) Elem() VaultPropertiesOutput {
+	return o.ApplyT(func(v *VaultProperties) VaultProperties { return *v }).(VaultPropertiesOutput)
+}
+
+// Customer Managed Key details of the resource.
+func (o VaultPropertiesPtrOutput) Encryption() VaultPropertiesEncryptionPtrOutput {
+	return o.ApplyT(func(v *VaultProperties) *VaultPropertiesEncryption {
+		if v == nil {
+			return nil
+		}
+		return v.Encryption
+	}).(VaultPropertiesEncryptionPtrOutput)
+}
+
+// Customer Managed Key details of the resource.
+type VaultPropertiesEncryption struct {
+	// Enabling/Disabling the Double Encryption state
+	InfrastructureEncryption *string `pulumi:"infrastructureEncryption"`
+	// The details of the identity used for CMK
+	KekIdentity *CmkKekIdentity `pulumi:"kekIdentity"`
+	// The properties of the Key Vault which hosts CMK
+	KeyVaultProperties *CmkKeyVaultProperties `pulumi:"keyVaultProperties"`
+}
+
+// VaultPropertiesEncryptionInput is an input type that accepts VaultPropertiesEncryptionArgs and VaultPropertiesEncryptionOutput values.
+// You can construct a concrete instance of `VaultPropertiesEncryptionInput` via:
+//
+//          VaultPropertiesEncryptionArgs{...}
+type VaultPropertiesEncryptionInput interface {
+	pulumi.Input
+
+	ToVaultPropertiesEncryptionOutput() VaultPropertiesEncryptionOutput
+	ToVaultPropertiesEncryptionOutputWithContext(context.Context) VaultPropertiesEncryptionOutput
+}
+
+// Customer Managed Key details of the resource.
+type VaultPropertiesEncryptionArgs struct {
+	// Enabling/Disabling the Double Encryption state
+	InfrastructureEncryption pulumi.StringPtrInput `pulumi:"infrastructureEncryption"`
+	// The details of the identity used for CMK
+	KekIdentity CmkKekIdentityPtrInput `pulumi:"kekIdentity"`
+	// The properties of the Key Vault which hosts CMK
+	KeyVaultProperties CmkKeyVaultPropertiesPtrInput `pulumi:"keyVaultProperties"`
+}
+
+func (VaultPropertiesEncryptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VaultPropertiesEncryption)(nil)).Elem()
+}
+
+func (i VaultPropertiesEncryptionArgs) ToVaultPropertiesEncryptionOutput() VaultPropertiesEncryptionOutput {
+	return i.ToVaultPropertiesEncryptionOutputWithContext(context.Background())
+}
+
+func (i VaultPropertiesEncryptionArgs) ToVaultPropertiesEncryptionOutputWithContext(ctx context.Context) VaultPropertiesEncryptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VaultPropertiesEncryptionOutput)
+}
+
+func (i VaultPropertiesEncryptionArgs) ToVaultPropertiesEncryptionPtrOutput() VaultPropertiesEncryptionPtrOutput {
+	return i.ToVaultPropertiesEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i VaultPropertiesEncryptionArgs) ToVaultPropertiesEncryptionPtrOutputWithContext(ctx context.Context) VaultPropertiesEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VaultPropertiesEncryptionOutput).ToVaultPropertiesEncryptionPtrOutputWithContext(ctx)
+}
+
+// VaultPropertiesEncryptionPtrInput is an input type that accepts VaultPropertiesEncryptionArgs, VaultPropertiesEncryptionPtr and VaultPropertiesEncryptionPtrOutput values.
+// You can construct a concrete instance of `VaultPropertiesEncryptionPtrInput` via:
+//
+//          VaultPropertiesEncryptionArgs{...}
+//
+//  or:
+//
+//          nil
+type VaultPropertiesEncryptionPtrInput interface {
+	pulumi.Input
+
+	ToVaultPropertiesEncryptionPtrOutput() VaultPropertiesEncryptionPtrOutput
+	ToVaultPropertiesEncryptionPtrOutputWithContext(context.Context) VaultPropertiesEncryptionPtrOutput
+}
+
+type vaultPropertiesEncryptionPtrType VaultPropertiesEncryptionArgs
+
+func VaultPropertiesEncryptionPtr(v *VaultPropertiesEncryptionArgs) VaultPropertiesEncryptionPtrInput {
+	return (*vaultPropertiesEncryptionPtrType)(v)
+}
+
+func (*vaultPropertiesEncryptionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VaultPropertiesEncryption)(nil)).Elem()
+}
+
+func (i *vaultPropertiesEncryptionPtrType) ToVaultPropertiesEncryptionPtrOutput() VaultPropertiesEncryptionPtrOutput {
+	return i.ToVaultPropertiesEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i *vaultPropertiesEncryptionPtrType) ToVaultPropertiesEncryptionPtrOutputWithContext(ctx context.Context) VaultPropertiesEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VaultPropertiesEncryptionPtrOutput)
+}
+
+// Customer Managed Key details of the resource.
+type VaultPropertiesEncryptionOutput struct{ *pulumi.OutputState }
+
+func (VaultPropertiesEncryptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VaultPropertiesEncryption)(nil)).Elem()
+}
+
+func (o VaultPropertiesEncryptionOutput) ToVaultPropertiesEncryptionOutput() VaultPropertiesEncryptionOutput {
+	return o
+}
+
+func (o VaultPropertiesEncryptionOutput) ToVaultPropertiesEncryptionOutputWithContext(ctx context.Context) VaultPropertiesEncryptionOutput {
+	return o
+}
+
+func (o VaultPropertiesEncryptionOutput) ToVaultPropertiesEncryptionPtrOutput() VaultPropertiesEncryptionPtrOutput {
+	return o.ToVaultPropertiesEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (o VaultPropertiesEncryptionOutput) ToVaultPropertiesEncryptionPtrOutputWithContext(ctx context.Context) VaultPropertiesEncryptionPtrOutput {
+	return o.ApplyT(func(v VaultPropertiesEncryption) *VaultPropertiesEncryption {
+		return &v
+	}).(VaultPropertiesEncryptionPtrOutput)
+}
+
+// Enabling/Disabling the Double Encryption state
+func (o VaultPropertiesEncryptionOutput) InfrastructureEncryption() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VaultPropertiesEncryption) *string { return v.InfrastructureEncryption }).(pulumi.StringPtrOutput)
+}
+
+// The details of the identity used for CMK
+func (o VaultPropertiesEncryptionOutput) KekIdentity() CmkKekIdentityPtrOutput {
+	return o.ApplyT(func(v VaultPropertiesEncryption) *CmkKekIdentity { return v.KekIdentity }).(CmkKekIdentityPtrOutput)
+}
+
+// The properties of the Key Vault which hosts CMK
+func (o VaultPropertiesEncryptionOutput) KeyVaultProperties() CmkKeyVaultPropertiesPtrOutput {
+	return o.ApplyT(func(v VaultPropertiesEncryption) *CmkKeyVaultProperties { return v.KeyVaultProperties }).(CmkKeyVaultPropertiesPtrOutput)
+}
+
+type VaultPropertiesEncryptionPtrOutput struct{ *pulumi.OutputState }
+
+func (VaultPropertiesEncryptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VaultPropertiesEncryption)(nil)).Elem()
+}
+
+func (o VaultPropertiesEncryptionPtrOutput) ToVaultPropertiesEncryptionPtrOutput() VaultPropertiesEncryptionPtrOutput {
+	return o
+}
+
+func (o VaultPropertiesEncryptionPtrOutput) ToVaultPropertiesEncryptionPtrOutputWithContext(ctx context.Context) VaultPropertiesEncryptionPtrOutput {
+	return o
+}
+
+func (o VaultPropertiesEncryptionPtrOutput) Elem() VaultPropertiesEncryptionOutput {
+	return o.ApplyT(func(v *VaultPropertiesEncryption) VaultPropertiesEncryption { return *v }).(VaultPropertiesEncryptionOutput)
+}
+
+// Enabling/Disabling the Double Encryption state
+func (o VaultPropertiesEncryptionPtrOutput) InfrastructureEncryption() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VaultPropertiesEncryption) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InfrastructureEncryption
+	}).(pulumi.StringPtrOutput)
+}
+
+// The details of the identity used for CMK
+func (o VaultPropertiesEncryptionPtrOutput) KekIdentity() CmkKekIdentityPtrOutput {
+	return o.ApplyT(func(v *VaultPropertiesEncryption) *CmkKekIdentity {
+		if v == nil {
+			return nil
+		}
+		return v.KekIdentity
+	}).(CmkKekIdentityPtrOutput)
+}
+
+// The properties of the Key Vault which hosts CMK
+func (o VaultPropertiesEncryptionPtrOutput) KeyVaultProperties() CmkKeyVaultPropertiesPtrOutput {
+	return o.ApplyT(func(v *VaultPropertiesEncryption) *CmkKeyVaultProperties {
+		if v == nil {
+			return nil
+		}
+		return v.KeyVaultProperties
+	}).(CmkKeyVaultPropertiesPtrOutput)
+}
+
+// Properties of the vault.
+type VaultPropertiesResponse struct {
+	// Customer Managed Key details of the resource.
+	Encryption *VaultPropertiesResponseEncryption `pulumi:"encryption"`
+	// List of private endpoint connection.
+	PrivateEndpointConnections []PrivateEndpointConnectionVaultPropertiesResponse `pulumi:"privateEndpointConnections"`
+	// Private endpoint state for backup.
+	PrivateEndpointStateForBackup string `pulumi:"privateEndpointStateForBackup"`
+	// Private endpoint state for site recovery.
+	PrivateEndpointStateForSiteRecovery string `pulumi:"privateEndpointStateForSiteRecovery"`
+	// Provisioning State.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// Details for upgrading vault.
+	UpgradeDetails *UpgradeDetailsResponse `pulumi:"upgradeDetails"`
+}
+
+// VaultPropertiesResponseInput is an input type that accepts VaultPropertiesResponseArgs and VaultPropertiesResponseOutput values.
+// You can construct a concrete instance of `VaultPropertiesResponseInput` via:
+//
+//          VaultPropertiesResponseArgs{...}
+type VaultPropertiesResponseInput interface {
+	pulumi.Input
+
+	ToVaultPropertiesResponseOutput() VaultPropertiesResponseOutput
+	ToVaultPropertiesResponseOutputWithContext(context.Context) VaultPropertiesResponseOutput
+}
+
+// Properties of the vault.
+type VaultPropertiesResponseArgs struct {
+	// Customer Managed Key details of the resource.
+	Encryption VaultPropertiesResponseEncryptionPtrInput `pulumi:"encryption"`
+	// List of private endpoint connection.
+	PrivateEndpointConnections PrivateEndpointConnectionVaultPropertiesResponseArrayInput `pulumi:"privateEndpointConnections"`
+	// Private endpoint state for backup.
+	PrivateEndpointStateForBackup pulumi.StringInput `pulumi:"privateEndpointStateForBackup"`
+	// Private endpoint state for site recovery.
+	PrivateEndpointStateForSiteRecovery pulumi.StringInput `pulumi:"privateEndpointStateForSiteRecovery"`
+	// Provisioning State.
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+	// Details for upgrading vault.
+	UpgradeDetails UpgradeDetailsResponsePtrInput `pulumi:"upgradeDetails"`
+}
+
+func (VaultPropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VaultPropertiesResponse)(nil)).Elem()
+}
+
+func (i VaultPropertiesResponseArgs) ToVaultPropertiesResponseOutput() VaultPropertiesResponseOutput {
+	return i.ToVaultPropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i VaultPropertiesResponseArgs) ToVaultPropertiesResponseOutputWithContext(ctx context.Context) VaultPropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VaultPropertiesResponseOutput)
+}
+
+func (i VaultPropertiesResponseArgs) ToVaultPropertiesResponsePtrOutput() VaultPropertiesResponsePtrOutput {
+	return i.ToVaultPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i VaultPropertiesResponseArgs) ToVaultPropertiesResponsePtrOutputWithContext(ctx context.Context) VaultPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VaultPropertiesResponseOutput).ToVaultPropertiesResponsePtrOutputWithContext(ctx)
+}
+
+// VaultPropertiesResponsePtrInput is an input type that accepts VaultPropertiesResponseArgs, VaultPropertiesResponsePtr and VaultPropertiesResponsePtrOutput values.
+// You can construct a concrete instance of `VaultPropertiesResponsePtrInput` via:
+//
+//          VaultPropertiesResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type VaultPropertiesResponsePtrInput interface {
+	pulumi.Input
+
+	ToVaultPropertiesResponsePtrOutput() VaultPropertiesResponsePtrOutput
+	ToVaultPropertiesResponsePtrOutputWithContext(context.Context) VaultPropertiesResponsePtrOutput
+}
+
+type vaultPropertiesResponsePtrType VaultPropertiesResponseArgs
+
+func VaultPropertiesResponsePtr(v *VaultPropertiesResponseArgs) VaultPropertiesResponsePtrInput {
+	return (*vaultPropertiesResponsePtrType)(v)
+}
+
+func (*vaultPropertiesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VaultPropertiesResponse)(nil)).Elem()
+}
+
+func (i *vaultPropertiesResponsePtrType) ToVaultPropertiesResponsePtrOutput() VaultPropertiesResponsePtrOutput {
+	return i.ToVaultPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *vaultPropertiesResponsePtrType) ToVaultPropertiesResponsePtrOutputWithContext(ctx context.Context) VaultPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VaultPropertiesResponsePtrOutput)
+}
+
+// Properties of the vault.
+type VaultPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (VaultPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VaultPropertiesResponse)(nil)).Elem()
+}
+
+func (o VaultPropertiesResponseOutput) ToVaultPropertiesResponseOutput() VaultPropertiesResponseOutput {
+	return o
+}
+
+func (o VaultPropertiesResponseOutput) ToVaultPropertiesResponseOutputWithContext(ctx context.Context) VaultPropertiesResponseOutput {
+	return o
+}
+
+func (o VaultPropertiesResponseOutput) ToVaultPropertiesResponsePtrOutput() VaultPropertiesResponsePtrOutput {
+	return o.ToVaultPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (o VaultPropertiesResponseOutput) ToVaultPropertiesResponsePtrOutputWithContext(ctx context.Context) VaultPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v VaultPropertiesResponse) *VaultPropertiesResponse {
+		return &v
+	}).(VaultPropertiesResponsePtrOutput)
+}
+
+// Customer Managed Key details of the resource.
+func (o VaultPropertiesResponseOutput) Encryption() VaultPropertiesResponseEncryptionPtrOutput {
+	return o.ApplyT(func(v VaultPropertiesResponse) *VaultPropertiesResponseEncryption { return v.Encryption }).(VaultPropertiesResponseEncryptionPtrOutput)
+}
+
+// List of private endpoint connection.
+func (o VaultPropertiesResponseOutput) PrivateEndpointConnections() PrivateEndpointConnectionVaultPropertiesResponseArrayOutput {
+	return o.ApplyT(func(v VaultPropertiesResponse) []PrivateEndpointConnectionVaultPropertiesResponse {
+		return v.PrivateEndpointConnections
+	}).(PrivateEndpointConnectionVaultPropertiesResponseArrayOutput)
+}
+
+// Private endpoint state for backup.
+func (o VaultPropertiesResponseOutput) PrivateEndpointStateForBackup() pulumi.StringOutput {
+	return o.ApplyT(func(v VaultPropertiesResponse) string { return v.PrivateEndpointStateForBackup }).(pulumi.StringOutput)
+}
+
+// Private endpoint state for site recovery.
+func (o VaultPropertiesResponseOutput) PrivateEndpointStateForSiteRecovery() pulumi.StringOutput {
+	return o.ApplyT(func(v VaultPropertiesResponse) string { return v.PrivateEndpointStateForSiteRecovery }).(pulumi.StringOutput)
+}
+
+// Provisioning State.
+func (o VaultPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v VaultPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Details for upgrading vault.
+func (o VaultPropertiesResponseOutput) UpgradeDetails() UpgradeDetailsResponsePtrOutput {
+	return o.ApplyT(func(v VaultPropertiesResponse) *UpgradeDetailsResponse { return v.UpgradeDetails }).(UpgradeDetailsResponsePtrOutput)
+}
+
+type VaultPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (VaultPropertiesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VaultPropertiesResponse)(nil)).Elem()
+}
+
+func (o VaultPropertiesResponsePtrOutput) ToVaultPropertiesResponsePtrOutput() VaultPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o VaultPropertiesResponsePtrOutput) ToVaultPropertiesResponsePtrOutputWithContext(ctx context.Context) VaultPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o VaultPropertiesResponsePtrOutput) Elem() VaultPropertiesResponseOutput {
+	return o.ApplyT(func(v *VaultPropertiesResponse) VaultPropertiesResponse { return *v }).(VaultPropertiesResponseOutput)
+}
+
+// Customer Managed Key details of the resource.
+func (o VaultPropertiesResponsePtrOutput) Encryption() VaultPropertiesResponseEncryptionPtrOutput {
+	return o.ApplyT(func(v *VaultPropertiesResponse) *VaultPropertiesResponseEncryption {
+		if v == nil {
+			return nil
+		}
+		return v.Encryption
+	}).(VaultPropertiesResponseEncryptionPtrOutput)
+}
+
+// List of private endpoint connection.
+func (o VaultPropertiesResponsePtrOutput) PrivateEndpointConnections() PrivateEndpointConnectionVaultPropertiesResponseArrayOutput {
+	return o.ApplyT(func(v *VaultPropertiesResponse) []PrivateEndpointConnectionVaultPropertiesResponse {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateEndpointConnections
+	}).(PrivateEndpointConnectionVaultPropertiesResponseArrayOutput)
+}
+
+// Private endpoint state for backup.
+func (o VaultPropertiesResponsePtrOutput) PrivateEndpointStateForBackup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VaultPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PrivateEndpointStateForBackup
+	}).(pulumi.StringPtrOutput)
+}
+
+// Private endpoint state for site recovery.
+func (o VaultPropertiesResponsePtrOutput) PrivateEndpointStateForSiteRecovery() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VaultPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PrivateEndpointStateForSiteRecovery
+	}).(pulumi.StringPtrOutput)
+}
+
+// Provisioning State.
+func (o VaultPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VaultPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ProvisioningState
+	}).(pulumi.StringPtrOutput)
+}
+
+// Details for upgrading vault.
+func (o VaultPropertiesResponsePtrOutput) UpgradeDetails() UpgradeDetailsResponsePtrOutput {
+	return o.ApplyT(func(v *VaultPropertiesResponse) *UpgradeDetailsResponse {
+		if v == nil {
+			return nil
+		}
+		return v.UpgradeDetails
+	}).(UpgradeDetailsResponsePtrOutput)
+}
+
+// Customer Managed Key details of the resource.
+type VaultPropertiesResponseEncryption struct {
+	// Enabling/Disabling the Double Encryption state
+	InfrastructureEncryption *string `pulumi:"infrastructureEncryption"`
+	// The details of the identity used for CMK
+	KekIdentity *CmkKekIdentityResponse `pulumi:"kekIdentity"`
+	// The properties of the Key Vault which hosts CMK
+	KeyVaultProperties *CmkKeyVaultPropertiesResponse `pulumi:"keyVaultProperties"`
+}
+
+// VaultPropertiesResponseEncryptionInput is an input type that accepts VaultPropertiesResponseEncryptionArgs and VaultPropertiesResponseEncryptionOutput values.
+// You can construct a concrete instance of `VaultPropertiesResponseEncryptionInput` via:
+//
+//          VaultPropertiesResponseEncryptionArgs{...}
+type VaultPropertiesResponseEncryptionInput interface {
+	pulumi.Input
+
+	ToVaultPropertiesResponseEncryptionOutput() VaultPropertiesResponseEncryptionOutput
+	ToVaultPropertiesResponseEncryptionOutputWithContext(context.Context) VaultPropertiesResponseEncryptionOutput
+}
+
+// Customer Managed Key details of the resource.
+type VaultPropertiesResponseEncryptionArgs struct {
+	// Enabling/Disabling the Double Encryption state
+	InfrastructureEncryption pulumi.StringPtrInput `pulumi:"infrastructureEncryption"`
+	// The details of the identity used for CMK
+	KekIdentity CmkKekIdentityResponsePtrInput `pulumi:"kekIdentity"`
+	// The properties of the Key Vault which hosts CMK
+	KeyVaultProperties CmkKeyVaultPropertiesResponsePtrInput `pulumi:"keyVaultProperties"`
+}
+
+func (VaultPropertiesResponseEncryptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VaultPropertiesResponseEncryption)(nil)).Elem()
+}
+
+func (i VaultPropertiesResponseEncryptionArgs) ToVaultPropertiesResponseEncryptionOutput() VaultPropertiesResponseEncryptionOutput {
+	return i.ToVaultPropertiesResponseEncryptionOutputWithContext(context.Background())
+}
+
+func (i VaultPropertiesResponseEncryptionArgs) ToVaultPropertiesResponseEncryptionOutputWithContext(ctx context.Context) VaultPropertiesResponseEncryptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VaultPropertiesResponseEncryptionOutput)
+}
+
+func (i VaultPropertiesResponseEncryptionArgs) ToVaultPropertiesResponseEncryptionPtrOutput() VaultPropertiesResponseEncryptionPtrOutput {
+	return i.ToVaultPropertiesResponseEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i VaultPropertiesResponseEncryptionArgs) ToVaultPropertiesResponseEncryptionPtrOutputWithContext(ctx context.Context) VaultPropertiesResponseEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VaultPropertiesResponseEncryptionOutput).ToVaultPropertiesResponseEncryptionPtrOutputWithContext(ctx)
+}
+
+// VaultPropertiesResponseEncryptionPtrInput is an input type that accepts VaultPropertiesResponseEncryptionArgs, VaultPropertiesResponseEncryptionPtr and VaultPropertiesResponseEncryptionPtrOutput values.
+// You can construct a concrete instance of `VaultPropertiesResponseEncryptionPtrInput` via:
+//
+//          VaultPropertiesResponseEncryptionArgs{...}
+//
+//  or:
+//
+//          nil
+type VaultPropertiesResponseEncryptionPtrInput interface {
+	pulumi.Input
+
+	ToVaultPropertiesResponseEncryptionPtrOutput() VaultPropertiesResponseEncryptionPtrOutput
+	ToVaultPropertiesResponseEncryptionPtrOutputWithContext(context.Context) VaultPropertiesResponseEncryptionPtrOutput
+}
+
+type vaultPropertiesResponseEncryptionPtrType VaultPropertiesResponseEncryptionArgs
+
+func VaultPropertiesResponseEncryptionPtr(v *VaultPropertiesResponseEncryptionArgs) VaultPropertiesResponseEncryptionPtrInput {
+	return (*vaultPropertiesResponseEncryptionPtrType)(v)
+}
+
+func (*vaultPropertiesResponseEncryptionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VaultPropertiesResponseEncryption)(nil)).Elem()
+}
+
+func (i *vaultPropertiesResponseEncryptionPtrType) ToVaultPropertiesResponseEncryptionPtrOutput() VaultPropertiesResponseEncryptionPtrOutput {
+	return i.ToVaultPropertiesResponseEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i *vaultPropertiesResponseEncryptionPtrType) ToVaultPropertiesResponseEncryptionPtrOutputWithContext(ctx context.Context) VaultPropertiesResponseEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VaultPropertiesResponseEncryptionPtrOutput)
+}
+
+// Customer Managed Key details of the resource.
+type VaultPropertiesResponseEncryptionOutput struct{ *pulumi.OutputState }
+
+func (VaultPropertiesResponseEncryptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VaultPropertiesResponseEncryption)(nil)).Elem()
+}
+
+func (o VaultPropertiesResponseEncryptionOutput) ToVaultPropertiesResponseEncryptionOutput() VaultPropertiesResponseEncryptionOutput {
+	return o
+}
+
+func (o VaultPropertiesResponseEncryptionOutput) ToVaultPropertiesResponseEncryptionOutputWithContext(ctx context.Context) VaultPropertiesResponseEncryptionOutput {
+	return o
+}
+
+func (o VaultPropertiesResponseEncryptionOutput) ToVaultPropertiesResponseEncryptionPtrOutput() VaultPropertiesResponseEncryptionPtrOutput {
+	return o.ToVaultPropertiesResponseEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (o VaultPropertiesResponseEncryptionOutput) ToVaultPropertiesResponseEncryptionPtrOutputWithContext(ctx context.Context) VaultPropertiesResponseEncryptionPtrOutput {
+	return o.ApplyT(func(v VaultPropertiesResponseEncryption) *VaultPropertiesResponseEncryption {
+		return &v
+	}).(VaultPropertiesResponseEncryptionPtrOutput)
+}
+
+// Enabling/Disabling the Double Encryption state
+func (o VaultPropertiesResponseEncryptionOutput) InfrastructureEncryption() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VaultPropertiesResponseEncryption) *string { return v.InfrastructureEncryption }).(pulumi.StringPtrOutput)
+}
+
+// The details of the identity used for CMK
+func (o VaultPropertiesResponseEncryptionOutput) KekIdentity() CmkKekIdentityResponsePtrOutput {
+	return o.ApplyT(func(v VaultPropertiesResponseEncryption) *CmkKekIdentityResponse { return v.KekIdentity }).(CmkKekIdentityResponsePtrOutput)
+}
+
+// The properties of the Key Vault which hosts CMK
+func (o VaultPropertiesResponseEncryptionOutput) KeyVaultProperties() CmkKeyVaultPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v VaultPropertiesResponseEncryption) *CmkKeyVaultPropertiesResponse { return v.KeyVaultProperties }).(CmkKeyVaultPropertiesResponsePtrOutput)
+}
+
+type VaultPropertiesResponseEncryptionPtrOutput struct{ *pulumi.OutputState }
+
+func (VaultPropertiesResponseEncryptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VaultPropertiesResponseEncryption)(nil)).Elem()
+}
+
+func (o VaultPropertiesResponseEncryptionPtrOutput) ToVaultPropertiesResponseEncryptionPtrOutput() VaultPropertiesResponseEncryptionPtrOutput {
+	return o
+}
+
+func (o VaultPropertiesResponseEncryptionPtrOutput) ToVaultPropertiesResponseEncryptionPtrOutputWithContext(ctx context.Context) VaultPropertiesResponseEncryptionPtrOutput {
+	return o
+}
+
+func (o VaultPropertiesResponseEncryptionPtrOutput) Elem() VaultPropertiesResponseEncryptionOutput {
+	return o.ApplyT(func(v *VaultPropertiesResponseEncryption) VaultPropertiesResponseEncryption { return *v }).(VaultPropertiesResponseEncryptionOutput)
+}
+
+// Enabling/Disabling the Double Encryption state
+func (o VaultPropertiesResponseEncryptionPtrOutput) InfrastructureEncryption() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VaultPropertiesResponseEncryption) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InfrastructureEncryption
+	}).(pulumi.StringPtrOutput)
+}
+
+// The details of the identity used for CMK
+func (o VaultPropertiesResponseEncryptionPtrOutput) KekIdentity() CmkKekIdentityResponsePtrOutput {
+	return o.ApplyT(func(v *VaultPropertiesResponseEncryption) *CmkKekIdentityResponse {
+		if v == nil {
+			return nil
+		}
+		return v.KekIdentity
+	}).(CmkKekIdentityResponsePtrOutput)
+}
+
+// The properties of the Key Vault which hosts CMK
+func (o VaultPropertiesResponseEncryptionPtrOutput) KeyVaultProperties() CmkKeyVaultPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *VaultPropertiesResponseEncryption) *CmkKeyVaultPropertiesResponse {
+		if v == nil {
+			return nil
+		}
+		return v.KeyVaultProperties
+	}).(CmkKeyVaultPropertiesResponsePtrOutput)
 }
 
 // Weekly retention format.
@@ -23047,6 +25715,14 @@ func init() {
 	pulumi.RegisterOutputType(AzureWorkloadContainerExtendedInfoResponseOutput{})
 	pulumi.RegisterOutputType(AzureWorkloadContainerExtendedInfoResponsePtrOutput{})
 	pulumi.RegisterOutputType(AzureWorkloadContainerResponseOutput{})
+	pulumi.RegisterOutputType(CmkKekIdentityOutput{})
+	pulumi.RegisterOutputType(CmkKekIdentityPtrOutput{})
+	pulumi.RegisterOutputType(CmkKekIdentityResponseOutput{})
+	pulumi.RegisterOutputType(CmkKekIdentityResponsePtrOutput{})
+	pulumi.RegisterOutputType(CmkKeyVaultPropertiesOutput{})
+	pulumi.RegisterOutputType(CmkKeyVaultPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(CmkKeyVaultPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(CmkKeyVaultPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(ContainerIdentityInfoOutput{})
 	pulumi.RegisterOutputType(ContainerIdentityInfoPtrOutput{})
 	pulumi.RegisterOutputType(ContainerIdentityInfoResponseOutput{})
@@ -23101,6 +25777,10 @@ func init() {
 	pulumi.RegisterOutputType(GenericProtectionPolicyResponseOutput{})
 	pulumi.RegisterOutputType(IaaSVMContainerOutput{})
 	pulumi.RegisterOutputType(IaaSVMContainerResponseOutput{})
+	pulumi.RegisterOutputType(IdentityDataOutput{})
+	pulumi.RegisterOutputType(IdentityDataPtrOutput{})
+	pulumi.RegisterOutputType(IdentityDataResponseOutput{})
+	pulumi.RegisterOutputType(IdentityDataResponsePtrOutput{})
 	pulumi.RegisterOutputType(InquiryInfoOutput{})
 	pulumi.RegisterOutputType(InquiryInfoPtrOutput{})
 	pulumi.RegisterOutputType(InquiryInfoResponseOutput{})
@@ -23151,6 +25831,8 @@ func init() {
 	pulumi.RegisterOutputType(PrivateEndpointConnectionTypePtrOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionResponsePtrOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointConnectionVaultPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointConnectionVaultPropertiesResponseArrayOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointResponseOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointResponsePtrOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateOutput{})
@@ -23171,10 +25853,28 @@ func init() {
 	pulumi.RegisterOutputType(SimpleRetentionPolicyResponseOutput{})
 	pulumi.RegisterOutputType(SimpleSchedulePolicyOutput{})
 	pulumi.RegisterOutputType(SimpleSchedulePolicyResponseOutput{})
+	pulumi.RegisterOutputType(SkuOutput{})
+	pulumi.RegisterOutputType(SkuPtrOutput{})
+	pulumi.RegisterOutputType(SkuResponseOutput{})
+	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
 	pulumi.RegisterOutputType(SubProtectionPolicyOutput{})
 	pulumi.RegisterOutputType(SubProtectionPolicyArrayOutput{})
 	pulumi.RegisterOutputType(SubProtectionPolicyResponseOutput{})
 	pulumi.RegisterOutputType(SubProtectionPolicyResponseArrayOutput{})
+	pulumi.RegisterOutputType(SystemDataResponseOutput{})
+	pulumi.RegisterOutputType(SystemDataResponsePtrOutput{})
+	pulumi.RegisterOutputType(UpgradeDetailsResponseOutput{})
+	pulumi.RegisterOutputType(UpgradeDetailsResponsePtrOutput{})
+	pulumi.RegisterOutputType(UserIdentityResponseOutput{})
+	pulumi.RegisterOutputType(UserIdentityResponseMapOutput{})
+	pulumi.RegisterOutputType(VaultPropertiesOutput{})
+	pulumi.RegisterOutputType(VaultPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(VaultPropertiesEncryptionOutput{})
+	pulumi.RegisterOutputType(VaultPropertiesEncryptionPtrOutput{})
+	pulumi.RegisterOutputType(VaultPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(VaultPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(VaultPropertiesResponseEncryptionOutput{})
+	pulumi.RegisterOutputType(VaultPropertiesResponseEncryptionPtrOutput{})
 	pulumi.RegisterOutputType(WeeklyRetentionFormatOutput{})
 	pulumi.RegisterOutputType(WeeklyRetentionFormatPtrOutput{})
 	pulumi.RegisterOutputType(WeeklyRetentionFormatResponseOutput{})

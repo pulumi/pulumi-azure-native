@@ -43,7 +43,7 @@ export interface GetPrivateEndpointConnectionArgs {
  */
 export interface GetPrivateEndpointConnectionResult {
     /**
-     * ARM resource id of the EnterprisePolicy.
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
@@ -51,7 +51,7 @@ export interface GetPrivateEndpointConnectionResult {
      */
     readonly location: string;
     /**
-     * Name of the EnterprisePolicy.
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -67,7 +67,11 @@ export interface GetPrivateEndpointConnectionResult {
      */
     readonly provisioningState: string;
     /**
-     * The type of the resource.
+     * Metadata for the private endpoint connection.
+     */
+    readonly systemData: outputs.powerplatform.v20201030preview.SystemDataResponse;
+    /**
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }

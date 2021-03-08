@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Resource information, as returned by the resource provider.
- * Latest API Version: 2020-10-01.
+ * Latest API Version: 2021-01-01.
  *
  * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:recoveryservices:Vault'.
  */
@@ -117,7 +117,7 @@ export class Vault extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:recoveryservices/latest:Vault" }, { type: "azure-native:recoveryservices:Vault" }, { type: "azure-nextgen:recoveryservices:Vault" }, { type: "azure-native:recoveryservices/v20160601:Vault" }, { type: "azure-nextgen:recoveryservices/v20160601:Vault" }, { type: "azure-native:recoveryservices/v20200202:Vault" }, { type: "azure-nextgen:recoveryservices/v20200202:Vault" }, { type: "azure-native:recoveryservices/v20201001:Vault" }, { type: "azure-nextgen:recoveryservices/v20201001:Vault" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:recoveryservices/latest:Vault" }, { type: "azure-native:recoveryservices:Vault" }, { type: "azure-nextgen:recoveryservices:Vault" }, { type: "azure-native:recoveryservices/v20160601:Vault" }, { type: "azure-nextgen:recoveryservices/v20160601:Vault" }, { type: "azure-native:recoveryservices/v20200202:Vault" }, { type: "azure-nextgen:recoveryservices/v20200202:Vault" }, { type: "azure-native:recoveryservices/v20201001:Vault" }, { type: "azure-nextgen:recoveryservices/v20201001:Vault" }, { type: "azure-native:recoveryservices/v20210101:Vault" }, { type: "azure-nextgen:recoveryservices/v20210101:Vault" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Vault.__pulumiType, name, inputs, opts);
     }

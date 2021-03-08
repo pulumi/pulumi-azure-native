@@ -11,20 +11,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// An ADP Data Pool.
-// API Version: 2020-07-01-preview.
+// ADP Data Pool
+// API Version: 2021-02-01-preview.
 type DataPool struct {
 	pulumi.CustomResourceState
 
 	// The Data Pool's data-plane ID
 	DataPoolId pulumi.StringOutput `pulumi:"dataPoolId"`
-	// Gets or sets the collection of locations where Data Pool resources should be created.
+	// Gets or sets the collection of locations where Data Pool resources should be created
 	Locations DataPoolLocationResponseArrayOutput `pulumi:"locations"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Gets the status of the data pool at the time the operation was called.
+	// Gets the status of the data pool at the time the operation was called
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The system meta data relating to this resource.
+	// The system meta data relating to this resource
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
@@ -88,13 +88,13 @@ func GetDataPool(ctx *pulumi.Context,
 type dataPoolState struct {
 	// The Data Pool's data-plane ID
 	DataPoolId *string `pulumi:"dataPoolId"`
-	// Gets or sets the collection of locations where Data Pool resources should be created.
+	// Gets or sets the collection of locations where Data Pool resources should be created
 	Locations []DataPoolLocationResponse `pulumi:"locations"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
-	// Gets the status of the data pool at the time the operation was called.
+	// Gets the status of the data pool at the time the operation was called
 	ProvisioningState *string `pulumi:"provisioningState"`
-	// The system meta data relating to this resource.
+	// The system meta data relating to this resource
 	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
@@ -103,13 +103,13 @@ type dataPoolState struct {
 type DataPoolState struct {
 	// The Data Pool's data-plane ID
 	DataPoolId pulumi.StringPtrInput
-	// Gets or sets the collection of locations where Data Pool resources should be created.
+	// Gets or sets the collection of locations where Data Pool resources should be created
 	Locations DataPoolLocationResponseArrayInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
-	// Gets the status of the data pool at the time the operation was called.
+	// Gets the status of the data pool at the time the operation was called
 	ProvisioningState pulumi.StringPtrInput
-	// The system meta data relating to this resource.
+	// The system meta data relating to this resource
 	SystemData SystemDataResponsePtrInput
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
@@ -120,11 +120,11 @@ func (DataPoolState) ElementType() reflect.Type {
 }
 
 type dataPoolArgs struct {
-	// The name of the ADP account.
+	// The name of the ADP account
 	AccountName string `pulumi:"accountName"`
-	// The name of the Data Pool.
+	// The name of the Data Pool
 	DataPoolName *string `pulumi:"dataPoolName"`
-	// Gets or sets the collection of locations where Data Pool resources should be created.
+	// Gets or sets the collection of locations where Data Pool resources should be created
 	Locations []DataPoolLocation `pulumi:"locations"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -132,11 +132,11 @@ type dataPoolArgs struct {
 
 // The set of arguments for constructing a DataPool resource.
 type DataPoolArgs struct {
-	// The name of the ADP account.
+	// The name of the ADP account
 	AccountName pulumi.StringInput
-	// The name of the Data Pool.
+	// The name of the Data Pool
 	DataPoolName pulumi.StringPtrInput
-	// Gets or sets the collection of locations where Data Pool resources should be created.
+	// Gets or sets the collection of locations where Data Pool resources should be created
 	Locations DataPoolLocationArrayInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput

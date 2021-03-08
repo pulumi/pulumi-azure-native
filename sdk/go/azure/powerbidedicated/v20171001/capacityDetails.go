@@ -19,6 +19,8 @@ type CapacityDetails struct {
 	Administration DedicatedCapacityAdministratorsResponsePtrOutput `pulumi:"administration"`
 	// Location of the PowerBI Dedicated resource.
 	Location pulumi.StringOutput `pulumi:"location"`
+	// The capacity mode.
+	Mode pulumi.StringOutput `pulumi:"mode"`
 	// The name of the PowerBI Dedicated resource.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The current deployment state of PowerBI Dedicated resource. The provisioningState is to indicate states for resource provisioning.
@@ -96,6 +98,8 @@ type capacityDetailsState struct {
 	Administration *DedicatedCapacityAdministratorsResponse `pulumi:"administration"`
 	// Location of the PowerBI Dedicated resource.
 	Location *string `pulumi:"location"`
+	// The capacity mode.
+	Mode *string `pulumi:"mode"`
 	// The name of the PowerBI Dedicated resource.
 	Name *string `pulumi:"name"`
 	// The current deployment state of PowerBI Dedicated resource. The provisioningState is to indicate states for resource provisioning.
@@ -115,6 +119,8 @@ type CapacityDetailsState struct {
 	Administration DedicatedCapacityAdministratorsResponsePtrInput
 	// Location of the PowerBI Dedicated resource.
 	Location pulumi.StringPtrInput
+	// The capacity mode.
+	Mode pulumi.StringPtrInput
 	// The name of the PowerBI Dedicated resource.
 	Name pulumi.StringPtrInput
 	// The current deployment state of PowerBI Dedicated resource. The provisioningState is to indicate states for resource provisioning.

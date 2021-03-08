@@ -11,6 +11,7 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'BlobNfsTargetResponse',
     'CacheActiveDirectorySettingsResponse',
     'CacheActiveDirectorySettingsResponseCredentials',
     'CacheDirectorySettingsResponse',
@@ -24,6 +25,7 @@ __all__ = [
     'CacheUsernameDownloadSettingsResponse',
     'CacheUsernameDownloadSettingsResponseCredentials',
     'ClfsTargetResponse',
+    'ConditionResponse',
     'KeyVaultKeyReferenceResponse',
     'KeyVaultKeyReferenceResponseSourceVault',
     'NamespaceJunctionResponse',
@@ -33,6 +35,44 @@ __all__ = [
     'SystemDataResponse',
     'UnknownTargetResponse',
 ]
+
+@pulumi.output_type
+class BlobNfsTargetResponse(dict):
+    """
+    Properties pertaining to the BlobNfsTarget.
+    """
+    def __init__(__self__, *,
+                 target: Optional[str] = None,
+                 usage_model: Optional[str] = None):
+        """
+        Properties pertaining to the BlobNfsTarget.
+        :param str target: Resource ID of the storage container.
+        :param str usage_model: Identifies the StorageCache usage model to be used for this storage target.
+        """
+        if target is not None:
+            pulumi.set(__self__, "target", target)
+        if usage_model is not None:
+            pulumi.set(__self__, "usage_model", usage_model)
+
+    @property
+    @pulumi.getter
+    def target(self) -> Optional[str]:
+        """
+        Resource ID of the storage container.
+        """
+        return pulumi.get(self, "target")
+
+    @property
+    @pulumi.getter(name="usageModel")
+    def usage_model(self) -> Optional[str]:
+        """
+        Identifies the StorageCache usage model to be used for this storage target.
+        """
+        return pulumi.get(self, "usage_model")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
 
 @pulumi.output_type
 class CacheActiveDirectorySettingsResponse(dict):
@@ -233,17 +273,28 @@ class CacheHealthResponse(dict):
     An indication of Cache health. Gives more information about health than just that related to provisioning.
     """
     def __init__(__self__, *,
+                 conditions: Sequence['outputs.ConditionResponse'],
                  state: Optional[str] = None,
                  status_description: Optional[str] = None):
         """
         An indication of Cache health. Gives more information about health than just that related to provisioning.
+        :param Sequence['ConditionResponseArgs'] conditions: Outstanding conditions that need to be investigated and resolved.
         :param str state: List of Cache health states.
         :param str status_description: Describes explanation of state.
         """
+        pulumi.set(__self__, "conditions", conditions)
         if state is not None:
             pulumi.set(__self__, "state", state)
         if status_description is not None:
             pulumi.set(__self__, "status_description", status_description)
+
+    @property
+    @pulumi.getter
+    def conditions(self) -> Sequence['outputs.ConditionResponse']:
+        """
+        Outstanding conditions that need to be investigated and resolved.
+        """
+        return pulumi.get(self, "conditions")
 
     @property
     @pulumi.getter
@@ -320,17 +371,29 @@ class CacheNetworkSettingsResponse(dict):
     """
     def __init__(__self__, *,
                  utility_addresses: Sequence[str],
-                 mtu: Optional[int] = None):
+                 dns_search_domain: Optional[str] = None,
+                 dns_servers: Optional[Sequence[str]] = None,
+                 mtu: Optional[int] = None,
+                 ntp_server: Optional[str] = None):
         """
         Cache network settings.
         :param Sequence[str] utility_addresses: Array of additional IP addresses used by this Cache.
+        :param str dns_search_domain: DNS search domain
+        :param Sequence[str] dns_servers: DNS servers for the cache to use.  It will be set from the network configuration if no value is provided.
         :param int mtu: The IPv4 maximum transmission unit configured for the subnet.
+        :param str ntp_server: NTP server IP Address or FQDN for the cache to use. The default is time.windows.com.
         """
         pulumi.set(__self__, "utility_addresses", utility_addresses)
+        if dns_search_domain is not None:
+            pulumi.set(__self__, "dns_search_domain", dns_search_domain)
+        if dns_servers is not None:
+            pulumi.set(__self__, "dns_servers", dns_servers)
         if mtu is None:
             mtu = 1500
         if mtu is not None:
             pulumi.set(__self__, "mtu", mtu)
+        if ntp_server is not None:
+            pulumi.set(__self__, "ntp_server", ntp_server)
 
     @property
     @pulumi.getter(name="utilityAddresses")
@@ -341,12 +404,36 @@ class CacheNetworkSettingsResponse(dict):
         return pulumi.get(self, "utility_addresses")
 
     @property
+    @pulumi.getter(name="dnsSearchDomain")
+    def dns_search_domain(self) -> Optional[str]:
+        """
+        DNS search domain
+        """
+        return pulumi.get(self, "dns_search_domain")
+
+    @property
+    @pulumi.getter(name="dnsServers")
+    def dns_servers(self) -> Optional[Sequence[str]]:
+        """
+        DNS servers for the cache to use.  It will be set from the network configuration if no value is provided.
+        """
+        return pulumi.get(self, "dns_servers")
+
+    @property
     @pulumi.getter
     def mtu(self) -> Optional[int]:
         """
         The IPv4 maximum transmission unit configured for the subnet.
         """
         return pulumi.get(self, "mtu")
+
+    @property
+    @pulumi.getter(name="ntpServer")
+    def ntp_server(self) -> Optional[str]:
+        """
+        NTP server IP Address or FQDN for the cache to use. The default is time.windows.com.
+        """
+        return pulumi.get(self, "ntp_server")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -697,6 +784,42 @@ class ClfsTargetResponse(dict):
 
 
 @pulumi.output_type
+class ConditionResponse(dict):
+    """
+    Outstanding conditions that will need to be resolved.
+    """
+    def __init__(__self__, *,
+                 message: str,
+                 timestamp: str):
+        """
+        Outstanding conditions that will need to be resolved.
+        :param str message: The issue requiring attention.
+        :param str timestamp: The time when the condition was raised.
+        """
+        pulumi.set(__self__, "message", message)
+        pulumi.set(__self__, "timestamp", timestamp)
+
+    @property
+    @pulumi.getter
+    def message(self) -> str:
+        """
+        The issue requiring attention.
+        """
+        return pulumi.get(self, "message")
+
+    @property
+    @pulumi.getter
+    def timestamp(self) -> str:
+        """
+        The time when the condition was raised.
+        """
+        return pulumi.get(self, "timestamp")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class KeyVaultKeyReferenceResponse(dict):
     """
     Describes a reference to Key Vault Key.
@@ -831,7 +954,7 @@ class Nfs3TargetResponse(dict):
         """
         Properties pertaining to the Nfs3Target
         :param str target: IP address or host name of an NFSv3 host (e.g., 10.0.44.44).
-        :param str usage_model: Identifies the usage model to be used for this Storage Target. Get choices from .../usageModels
+        :param str usage_model: Identifies the StorageCache usage model to be used for this storage target.
         """
         if target is not None:
             pulumi.set(__self__, "target", target)
@@ -850,7 +973,7 @@ class Nfs3TargetResponse(dict):
     @pulumi.getter(name="usageModel")
     def usage_model(self) -> Optional[str]:
         """
-        Identifies the usage model to be used for this Storage Target. Get choices from .../usageModels
+        Identifies the StorageCache usage model to be used for this storage target.
         """
         return pulumi.get(self, "usage_model")
 
@@ -912,8 +1035,8 @@ class NfsAccessRuleResponse(dict):
         Rule to place restrictions on portions of the cache namespace being presented to clients.
         :param str access: Access allowed by this rule.
         :param str scope: Scope for this rule. The scope and filter determine which clients match the rule.
-        :param str anonymous_gid: GID value that replaces 0 when rootSquash is true.
-        :param str anonymous_uid: UID value that replaces 0 when rootSquash is true.
+        :param str anonymous_gid: GID value that replaces 0 when rootSquash is true. This will use the value of anonymousUID if not provided.
+        :param str anonymous_uid: UID value that replaces 0 when rootSquash is true. 65534 will be used if not provided.
         :param str filter: Filter applied to the scope for this rule. The filter's format depends on its scope. 'default' scope matches all clients and has no filter value. 'network' scope takes a filter in CIDR format (for example, 10.99.1.0/24). 'host' takes an IP address or fully qualified domain name as filter. If a client does not match any filter rule and there is no default rule, access is denied.
         :param bool root_squash: Map root accesses to anonymousUID and anonymousGID.
         :param bool submount_access: For the default policy, allow access to subdirectories under the root export. If this is set to no, clients can only mount the path '/'. If set to yes, clients can mount a deeper path, like '/a/b'.
@@ -921,12 +1044,8 @@ class NfsAccessRuleResponse(dict):
         """
         pulumi.set(__self__, "access", access)
         pulumi.set(__self__, "scope", scope)
-        if anonymous_gid is None:
-            anonymous_gid = '-2'
         if anonymous_gid is not None:
             pulumi.set(__self__, "anonymous_gid", anonymous_gid)
-        if anonymous_uid is None:
-            anonymous_uid = '-2'
         if anonymous_uid is not None:
             pulumi.set(__self__, "anonymous_uid", anonymous_uid)
         if filter is not None:
@@ -958,7 +1077,7 @@ class NfsAccessRuleResponse(dict):
     @pulumi.getter(name="anonymousGID")
     def anonymous_gid(self) -> Optional[str]:
         """
-        GID value that replaces 0 when rootSquash is true.
+        GID value that replaces 0 when rootSquash is true. This will use the value of anonymousUID if not provided.
         """
         return pulumi.get(self, "anonymous_gid")
 
@@ -966,7 +1085,7 @@ class NfsAccessRuleResponse(dict):
     @pulumi.getter(name="anonymousUID")
     def anonymous_uid(self) -> Optional[str]:
         """
-        UID value that replaces 0 when rootSquash is true.
+        UID value that replaces 0 when rootSquash is true. 65534 will be used if not provided.
         """
         return pulumi.get(self, "anonymous_uid")
 
@@ -1098,21 +1217,21 @@ class UnknownTargetResponse(dict):
     Properties pertaining to the UnknownTarget
     """
     def __init__(__self__, *,
-                 unknown_map: Optional[Mapping[str, str]] = None):
+                 attributes: Optional[Mapping[str, str]] = None):
         """
         Properties pertaining to the UnknownTarget
-        :param Mapping[str, str] unknown_map: Dictionary of string->string pairs containing information about the Storage Target.
+        :param Mapping[str, str] attributes: Dictionary of string->string pairs containing information about the Storage Target.
         """
-        if unknown_map is not None:
-            pulumi.set(__self__, "unknown_map", unknown_map)
+        if attributes is not None:
+            pulumi.set(__self__, "attributes", attributes)
 
     @property
-    @pulumi.getter(name="unknownMap")
-    def unknown_map(self) -> Optional[Mapping[str, str]]:
+    @pulumi.getter
+    def attributes(self) -> Optional[Mapping[str, str]]:
         """
         Dictionary of string->string pairs containing information about the Storage Target.
         """
-        return pulumi.get(self, "unknown_map")
+        return pulumi.get(self, "attributes")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

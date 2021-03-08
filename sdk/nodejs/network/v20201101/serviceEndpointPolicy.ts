@@ -40,6 +40,10 @@ export class ServiceEndpointPolicy extends pulumi.CustomResource {
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
+     * Kind of service endpoint policy. This is metadata used for the Azure portal experience.
+     */
+    public /*out*/ readonly kind!: pulumi.Output<string>;
+    /**
      * Resource location.
      */
     public readonly location!: pulumi.Output<string | undefined>;
@@ -93,6 +97,7 @@ export class ServiceEndpointPolicy extends pulumi.CustomResource {
             inputs["serviceEndpointPolicyName"] = args ? args.serviceEndpointPolicyName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["kind"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["resourceGuid"] = undefined /*out*/;
@@ -100,6 +105,7 @@ export class ServiceEndpointPolicy extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["etag"] = undefined /*out*/;
+            inputs["kind"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;

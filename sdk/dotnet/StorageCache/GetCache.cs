@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StorageCache
     {
         /// <summary>
         /// A Cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
-        /// API Version: 2020-10-01.
+        /// API Version: 2021-03-01.
         /// </summary>
         public static Task<GetCacheResult> InvokeAsync(GetCacheArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCacheResult>("azure-native:storagecache:getCache", args ?? new GetCacheArgs(), options.WithVersion());
@@ -104,9 +104,9 @@ namespace Pulumi.AzureNative.StorageCache
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
-        /// ARM tags as name/value pairs.
+        /// Resource tags.
         /// </summary>
-        public readonly object? Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// Type of the Cache; Microsoft.StorageCache/Cache
         /// </summary>
@@ -148,7 +148,7 @@ namespace Pulumi.AzureNative.StorageCache
 
             Outputs.SystemDataResponse systemData,
 
-            object? tags,
+            ImmutableDictionary<string, string>? tags,
 
             string type,
 

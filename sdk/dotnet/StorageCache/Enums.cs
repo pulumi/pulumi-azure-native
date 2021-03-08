@@ -153,6 +153,7 @@ namespace Pulumi.AzureNative.StorageCache
         public static StorageTargetType Nfs3 { get; } = new StorageTargetType("nfs3");
         public static StorageTargetType Clfs { get; } = new StorageTargetType("clfs");
         public static StorageTargetType Unknown { get; } = new StorageTargetType("unknown");
+        public static StorageTargetType BlobNfs { get; } = new StorageTargetType("blobNfs");
 
         public static bool operator ==(StorageTargetType left, StorageTargetType right) => left.Equals(right);
         public static bool operator !=(StorageTargetType left, StorageTargetType right) => !left.Equals(right);

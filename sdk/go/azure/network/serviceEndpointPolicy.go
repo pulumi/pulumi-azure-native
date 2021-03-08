@@ -18,6 +18,8 @@ type ServiceEndpointPolicy struct {
 
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringOutput `pulumi:"etag"`
+	// Kind of service endpoint policy. This is metadata used for the Azure portal experience.
+	Kind pulumi.StringOutput `pulumi:"kind"`
 	// Resource location.
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// Resource name.
@@ -202,6 +204,8 @@ func GetServiceEndpointPolicy(ctx *pulumi.Context,
 type serviceEndpointPolicyState struct {
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
+	// Kind of service endpoint policy. This is metadata used for the Azure portal experience.
+	Kind *string `pulumi:"kind"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Resource name.
@@ -223,6 +227,8 @@ type serviceEndpointPolicyState struct {
 type ServiceEndpointPolicyState struct {
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringPtrInput
+	// Kind of service endpoint policy. This is metadata used for the Azure portal experience.
+	Kind pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// Resource name.

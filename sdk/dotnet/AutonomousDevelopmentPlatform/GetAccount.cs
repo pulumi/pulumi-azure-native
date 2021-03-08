@@ -12,8 +12,8 @@ namespace Pulumi.AzureNative.AutonomousDevelopmentPlatform
     public static class GetAccount
     {
         /// <summary>
-        /// An ADP account.
-        /// API Version: 2020-07-01-preview.
+        /// ADP account
+        /// API Version: 2021-02-01-preview.
         /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-native:autonomousdevelopmentplatform:getAccount", args ?? new GetAccountArgs(), options.WithVersion());
@@ -23,7 +23,7 @@ namespace Pulumi.AzureNative.AutonomousDevelopmentPlatform
     public sealed class GetAccountArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the ADP account.
+        /// The name of the ADP account
         /// </summary>
         [Input("accountName", required: true)]
         public string AccountName { get; set; } = null!;
@@ -60,11 +60,11 @@ namespace Pulumi.AzureNative.AutonomousDevelopmentPlatform
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Gets the status of the account at the time the operation was called.
+        /// Gets the status of the account at the time the operation was called
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// The system meta data relating to this resource.
+        /// The system meta data relating to this resource
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>

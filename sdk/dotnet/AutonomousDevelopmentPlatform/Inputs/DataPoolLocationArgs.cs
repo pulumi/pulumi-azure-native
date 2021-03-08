@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.AutonomousDevelopmentPlatform.Inputs
     public sealed class DataPoolLocationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Encryption properties of a Data Pool location
+        /// </summary>
+        [Input("encryption")]
+        public Input<Inputs.DataPoolEncryptionArgs>? Encryption { get; set; }
+
+        /// <summary>
         /// The location name
         /// </summary>
         [Input("name", required: true)]

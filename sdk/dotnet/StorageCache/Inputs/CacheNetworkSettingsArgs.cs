@@ -16,10 +16,34 @@ namespace Pulumi.AzureNative.StorageCache.Inputs
     public sealed class CacheNetworkSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// DNS search domain
+        /// </summary>
+        [Input("dnsSearchDomain")]
+        public Input<string>? DnsSearchDomain { get; set; }
+
+        [Input("dnsServers")]
+        private InputList<string>? _dnsServers;
+
+        /// <summary>
+        /// DNS servers for the cache to use.  It will be set from the network configuration if no value is provided.
+        /// </summary>
+        public InputList<string> DnsServers
+        {
+            get => _dnsServers ?? (_dnsServers = new InputList<string>());
+            set => _dnsServers = value;
+        }
+
+        /// <summary>
         /// The IPv4 maximum transmission unit configured for the subnet.
         /// </summary>
         [Input("mtu")]
         public Input<int>? Mtu { get; set; }
+
+        /// <summary>
+        /// NTP server IP Address or FQDN for the cache to use. The default is time.windows.com.
+        /// </summary>
+        [Input("ntpServer")]
+        public Input<string>? NtpServer { get; set; }
 
         public CacheNetworkSettingsArgs()
         {

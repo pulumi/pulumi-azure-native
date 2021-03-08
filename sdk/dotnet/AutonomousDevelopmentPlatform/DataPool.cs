@@ -10,8 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AutonomousDevelopmentPlatform
 {
     /// <summary>
-    /// An ADP Data Pool.
-    /// API Version: 2020-07-01-preview.
+    /// ADP Data Pool
+    /// API Version: 2021-02-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:autonomousdevelopmentplatform:DataPool")]
     public partial class DataPool : Pulumi.CustomResource
@@ -23,7 +23,7 @@ namespace Pulumi.AzureNative.AutonomousDevelopmentPlatform
         public Output<string> DataPoolId { get; private set; } = null!;
 
         /// <summary>
-        /// Gets or sets the collection of locations where Data Pool resources should be created.
+        /// Gets or sets the collection of locations where Data Pool resources should be created
         /// </summary>
         [Output("locations")]
         public Output<ImmutableArray<Outputs.DataPoolLocationResponse>> Locations { get; private set; } = null!;
@@ -35,13 +35,13 @@ namespace Pulumi.AzureNative.AutonomousDevelopmentPlatform
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Gets the status of the data pool at the time the operation was called.
+        /// Gets the status of the data pool at the time the operation was called
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// The system meta data relating to this resource.
+        /// The system meta data relating to this resource
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
@@ -106,13 +106,13 @@ namespace Pulumi.AzureNative.AutonomousDevelopmentPlatform
     public sealed class DataPoolArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the ADP account.
+        /// The name of the ADP account
         /// </summary>
         [Input("accountName", required: true)]
         public Input<string> AccountName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Data Pool.
+        /// The name of the Data Pool
         /// </summary>
         [Input("dataPoolName")]
         public Input<string>? DataPoolName { get; set; }
@@ -121,7 +121,7 @@ namespace Pulumi.AzureNative.AutonomousDevelopmentPlatform
         private InputList<Inputs.DataPoolLocationArgs>? _locations;
 
         /// <summary>
-        /// Gets or sets the collection of locations where Data Pool resources should be created.
+        /// Gets or sets the collection of locations where Data Pool resources should be created
         /// </summary>
         public InputList<Inputs.DataPoolLocationArgs> Locations
         {

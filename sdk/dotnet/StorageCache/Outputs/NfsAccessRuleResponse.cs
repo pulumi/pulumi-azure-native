@@ -18,11 +18,11 @@ namespace Pulumi.AzureNative.StorageCache.Outputs
         /// </summary>
         public readonly string Access;
         /// <summary>
-        /// GID value that replaces 0 when rootSquash is true.
+        /// GID value that replaces 0 when rootSquash is true. This will use the value of anonymousUID if not provided.
         /// </summary>
         public readonly string? AnonymousGID;
         /// <summary>
-        /// UID value that replaces 0 when rootSquash is true.
+        /// UID value that replaces 0 when rootSquash is true. 65534 will be used if not provided.
         /// </summary>
         public readonly string? AnonymousUID;
         /// <summary>

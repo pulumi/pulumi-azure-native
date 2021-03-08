@@ -22,13 +22,13 @@ namespace Pulumi.AzureNative.StorageCache.Latest.Inputs
         public InputUnion<string, Pulumi.AzureNative.StorageCache.Latest.NfsAccessRuleAccess> Access { get; set; } = null!;
 
         /// <summary>
-        /// GID value that replaces 0 when rootSquash is true.
+        /// GID value that replaces 0 when rootSquash is true. This will use the value of anonymousUID if not provided.
         /// </summary>
         [Input("anonymousGID")]
         public Input<string>? AnonymousGID { get; set; }
 
         /// <summary>
-        /// UID value that replaces 0 when rootSquash is true.
+        /// UID value that replaces 0 when rootSquash is true. 65534 will be used if not provided.
         /// </summary>
         [Input("anonymousUID")]
         public Input<string>? AnonymousUID { get; set; }
@@ -65,8 +65,6 @@ namespace Pulumi.AzureNative.StorageCache.Latest.Inputs
 
         public NfsAccessRuleArgs()
         {
-            AnonymousGID = "-2";
-            AnonymousUID = "-2";
         }
     }
 }

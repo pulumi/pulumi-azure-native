@@ -36,7 +36,7 @@ class EnterprisePolicy(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['PropertiesEncryptionArgs']] encryption: The encryption settings for a configuration store.
         :param pulumi.Input[str] enterprise_policy_name: Name of the EnterprisePolicy.
         :param pulumi.Input[pulumi.InputType['EnterprisePolicyIdentityArgs']] identity: The identity of the EnterprisePolicy.
-        :param pulumi.Input[str] location: The Azure Region where the resource lives
+        :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -139,7 +139,7 @@ class EnterprisePolicy(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Name of the EnterprisePolicy.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -163,7 +163,7 @@ class EnterprisePolicy(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        The type of the resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

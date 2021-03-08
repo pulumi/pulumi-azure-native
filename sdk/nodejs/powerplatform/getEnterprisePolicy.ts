@@ -43,7 +43,7 @@ export interface GetEnterprisePolicyResult {
      */
     readonly encryption?: outputs.powerplatform.PropertiesResponseEncryption;
     /**
-     * ARM resource id of the EnterprisePolicy.
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
@@ -59,7 +59,7 @@ export interface GetEnterprisePolicyResult {
      */
     readonly lockbox?: outputs.powerplatform.PropertiesResponseLockbox;
     /**
-     * Name of the EnterprisePolicy.
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -71,7 +71,7 @@ export interface GetEnterprisePolicyResult {
      */
     readonly tags?: {[key: string]: string};
     /**
-     * The type of the resource.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }

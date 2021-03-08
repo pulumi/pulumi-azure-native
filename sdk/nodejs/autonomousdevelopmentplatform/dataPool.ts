@@ -6,8 +6,8 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * An ADP Data Pool.
- * API Version: 2020-07-01-preview.
+ * ADP Data Pool
+ * API Version: 2021-02-01-preview.
  */
 export class DataPool extends pulumi.CustomResource {
     /**
@@ -41,7 +41,7 @@ export class DataPool extends pulumi.CustomResource {
      */
     public /*out*/ readonly dataPoolId!: pulumi.Output<string>;
     /**
-     * Gets or sets the collection of locations where Data Pool resources should be created.
+     * Gets or sets the collection of locations where Data Pool resources should be created
      */
     public readonly locations!: pulumi.Output<outputs.autonomousdevelopmentplatform.DataPoolLocationResponse[]>;
     /**
@@ -49,11 +49,11 @@ export class DataPool extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Gets the status of the data pool at the time the operation was called.
+     * Gets the status of the data pool at the time the operation was called
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * The system meta data relating to this resource.
+     * The system meta data relating to this resource
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.autonomousdevelopmentplatform.SystemDataResponse>;
     /**
@@ -112,15 +112,15 @@ export class DataPool extends pulumi.CustomResource {
  */
 export interface DataPoolArgs {
     /**
-     * The name of the ADP account.
+     * The name of the ADP account
      */
     readonly accountName: pulumi.Input<string>;
     /**
-     * The name of the Data Pool.
+     * The name of the Data Pool
      */
     readonly dataPoolName?: pulumi.Input<string>;
     /**
-     * Gets or sets the collection of locations where Data Pool resources should be created.
+     * Gets or sets the collection of locations where Data Pool resources should be created
      */
     readonly locations: pulumi.Input<pulumi.Input<inputs.autonomousdevelopmentplatform.DataPoolLocation>[]>;
     /**

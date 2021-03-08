@@ -6,8 +6,8 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * An ADP Data Pool.
- * API Version: 2020-07-01-preview.
+ * ADP Data Pool
+ * API Version: 2021-02-01-preview.
  */
 export function getDataPool(args: GetDataPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetDataPoolResult> {
     if (!opts) {
@@ -26,11 +26,11 @@ export function getDataPool(args: GetDataPoolArgs, opts?: pulumi.InvokeOptions):
 
 export interface GetDataPoolArgs {
     /**
-     * The name of the ADP account.
+     * The name of the ADP account
      */
     readonly accountName: string;
     /**
-     * The name of the Data Pool.
+     * The name of the Data Pool
      */
     readonly dataPoolName: string;
     /**
@@ -40,7 +40,7 @@ export interface GetDataPoolArgs {
 }
 
 /**
- * An ADP Data Pool.
+ * ADP Data Pool
  */
 export interface GetDataPoolResult {
     /**
@@ -52,7 +52,7 @@ export interface GetDataPoolResult {
      */
     readonly id: string;
     /**
-     * Gets or sets the collection of locations where Data Pool resources should be created.
+     * Gets or sets the collection of locations where Data Pool resources should be created
      */
     readonly locations: outputs.autonomousdevelopmentplatform.DataPoolLocationResponse[];
     /**
@@ -60,11 +60,11 @@ export interface GetDataPoolResult {
      */
     readonly name: string;
     /**
-     * Gets the status of the data pool at the time the operation was called.
+     * Gets the status of the data pool at the time the operation was called
      */
     readonly provisioningState: string;
     /**
-     * The system meta data relating to this resource.
+     * The system meta data relating to this resource
      */
     readonly systemData: outputs.autonomousdevelopmentplatform.SystemDataResponse;
     /**

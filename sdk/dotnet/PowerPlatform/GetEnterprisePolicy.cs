@@ -48,7 +48,7 @@ namespace Pulumi.AzureNative.PowerPlatform
         /// </summary>
         public readonly Outputs.PropertiesResponseEncryption? Encryption;
         /// <summary>
-        /// ARM resource id of the EnterprisePolicy.
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -64,7 +64,7 @@ namespace Pulumi.AzureNative.PowerPlatform
         /// </summary>
         public readonly Outputs.PropertiesResponseLockbox? Lockbox;
         /// <summary>
-        /// Name of the EnterprisePolicy.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -76,7 +76,7 @@ namespace Pulumi.AzureNative.PowerPlatform
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// The type of the resource.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 

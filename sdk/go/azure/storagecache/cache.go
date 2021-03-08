@@ -12,7 +12,7 @@ import (
 )
 
 // A Cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
-// API Version: 2020-10-01.
+// API Version: 2021-03-01.
 type Cache struct {
 	pulumi.CustomResourceState
 
@@ -44,8 +44,8 @@ type Cache struct {
 	Subnet pulumi.StringPtrOutput `pulumi:"subnet"`
 	// The system meta data relating to this resource.
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// ARM tags as name/value pairs.
-	Tags pulumi.AnyOutput `pulumi:"tags"`
+	// Resource tags.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Type of the Cache; Microsoft.StorageCache/Cache
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Upgrade status of the Cache.
@@ -154,8 +154,8 @@ type cacheState struct {
 	Subnet *string `pulumi:"subnet"`
 	// The system meta data relating to this resource.
 	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// ARM tags as name/value pairs.
-	Tags interface{} `pulumi:"tags"`
+	// Resource tags.
+	Tags map[string]string `pulumi:"tags"`
 	// Type of the Cache; Microsoft.StorageCache/Cache
 	Type *string `pulumi:"type"`
 	// Upgrade status of the Cache.
@@ -191,8 +191,8 @@ type CacheState struct {
 	Subnet pulumi.StringPtrInput
 	// The system meta data relating to this resource.
 	SystemData SystemDataResponsePtrInput
-	// ARM tags as name/value pairs.
-	Tags pulumi.Input
+	// Resource tags.
+	Tags pulumi.StringMapInput
 	// Type of the Cache; Microsoft.StorageCache/Cache
 	Type pulumi.StringPtrInput
 	// Upgrade status of the Cache.
@@ -228,8 +228,8 @@ type cacheArgs struct {
 	Sku *CacheSku `pulumi:"sku"`
 	// Subnet used for the Cache.
 	Subnet *string `pulumi:"subnet"`
-	// ARM tags as name/value pairs.
-	Tags interface{} `pulumi:"tags"`
+	// Resource tags.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Cache resource.
@@ -258,8 +258,8 @@ type CacheArgs struct {
 	Sku CacheSkuPtrInput
 	// Subnet used for the Cache.
 	Subnet pulumi.StringPtrInput
-	// ARM tags as name/value pairs.
-	Tags pulumi.Input
+	// Resource tags.
+	Tags pulumi.StringMapInput
 }
 
 func (CacheArgs) ElementType() reflect.Type {

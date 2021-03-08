@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.StorageCache.Latest.Inputs
         public Input<string>? Target { get; set; }
 
         /// <summary>
-        /// Identifies the usage model to be used for this Storage Target. Get choices from .../usageModels
+        /// Identifies the StorageCache usage model to be used for this storage target.
         /// </summary>
         [Input("usageModel")]
         public Input<string>? UsageModel { get; set; }

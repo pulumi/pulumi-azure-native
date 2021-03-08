@@ -8,7 +8,7 @@ import (
 )
 
 // A Cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
-// API Version: 2020-10-01.
+// API Version: 2021-03-01.
 func LookupCache(ctx *pulumi.Context, args *LookupCacheArgs, opts ...pulumi.InvokeOption) (*LookupCacheResult, error) {
 	var rv LookupCacheResult
 	err := ctx.Invoke("azure-native:storagecache:getCache", args, &rv, opts...)
@@ -57,8 +57,8 @@ type LookupCacheResult struct {
 	Subnet *string `pulumi:"subnet"`
 	// The system meta data relating to this resource.
 	SystemData SystemDataResponse `pulumi:"systemData"`
-	// ARM tags as name/value pairs.
-	Tags interface{} `pulumi:"tags"`
+	// Resource tags.
+	Tags map[string]string `pulumi:"tags"`
 	// Type of the Cache; Microsoft.StorageCache/Cache
 	Type string `pulumi:"type"`
 	// Upgrade status of the Cache.
