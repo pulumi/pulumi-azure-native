@@ -18,7 +18,6 @@ class Formula(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 author: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  formula_content: Optional[pulumi.Input[pulumi.InputType['LabVirtualMachineCreationParameterArgs']]] = None,
                  lab_name: Optional[pulumi.Input[str]] = None,
@@ -37,7 +36,6 @@ class Formula(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] author: The author of the formula.
         :param pulumi.Input[str] description: The description of the formula.
         :param pulumi.Input[pulumi.InputType['LabVirtualMachineCreationParameterArgs']] formula_content: The content of the formula.
         :param pulumi.Input[str] lab_name: The name of the lab.
@@ -65,7 +63,6 @@ class Formula(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            __props__['author'] = author
             __props__['description'] = description
             __props__['formula_content'] = formula_content
             if lab_name is None and not opts.urn:
@@ -79,6 +76,7 @@ class Formula(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['vm'] = vm
+            __props__['author'] = None
             __props__['creation_date'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
@@ -123,7 +121,7 @@ class Formula(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def author(self) -> pulumi.Output[Optional[str]]:
+    def author(self) -> pulumi.Output[str]:
         """
         The author of the formula.
         """

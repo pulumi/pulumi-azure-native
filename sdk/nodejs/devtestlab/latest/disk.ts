@@ -48,7 +48,7 @@ export class Disk extends pulumi.CustomResource {
      */
     public readonly diskBlobName!: pulumi.Output<string | undefined>;
     /**
-     * The size of the disk in GibiBytes.
+     * The size of the disk in Gibibytes.
      */
     public readonly diskSizeGiB!: pulumi.Output<number | undefined>;
     /**
@@ -83,6 +83,10 @@ export class Disk extends pulumi.CustomResource {
      * The provisioning status of the resource.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * When backed by a blob, the storage account where the blob is.
+     */
+    public readonly storageAccountId!: pulumi.Output<string | undefined>;
     /**
      * The tags of the resource.
      */
@@ -129,6 +133,7 @@ export class Disk extends pulumi.CustomResource {
             inputs["managedDiskId"] = args ? args.managedDiskId : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["storageAccountId"] = args ? args.storageAccountId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["userName"] = args ? args.userName : undefined;
             inputs["createdDate"] = undefined /*out*/;
@@ -147,6 +152,7 @@ export class Disk extends pulumi.CustomResource {
             inputs["managedDiskId"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["storageAccountId"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["uniqueIdentifier"] = undefined /*out*/;
@@ -169,7 +175,7 @@ export interface DiskArgs {
      */
     readonly diskBlobName?: pulumi.Input<string>;
     /**
-     * The size of the disk in GibiBytes.
+     * The size of the disk in Gibibytes.
      */
     readonly diskSizeGiB?: pulumi.Input<number>;
     /**
@@ -208,6 +214,10 @@ export interface DiskArgs {
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * When backed by a blob, the storage account where the blob is.
+     */
+    readonly storageAccountId?: pulumi.Input<string>;
     /**
      * The tags of the resource.
      */

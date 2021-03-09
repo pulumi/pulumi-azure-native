@@ -37,7 +37,7 @@ namespace Pulumi.AzureNative.DevTestLab.Inputs
         /// Managed identity.
         /// </summary>
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DevTestLab.ManagedIdentityType>? Type { get; set; }
 
         public IdentityPropertiesArgs()
         {

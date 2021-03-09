@@ -17,17 +17,23 @@ __all__ = [
 @pulumi.input_type
 class ProviderArgs:
     def __init__(__self__, *,
+                 application_name: Optional[pulumi.Input[str]] = None,
                  instance_uri: Optional[pulumi.Input[str]] = None,
                  provider_id: Optional[pulumi.Input[str]] = None,
                  provider_sku: Optional[pulumi.Input[str]] = None,
-                 provisioning_state: Optional[pulumi.Input[Union[str, 'Status']]] = None):
+                 provisioning_state: Optional[pulumi.Input[Union[str, 'Status']]] = None,
+                 resource_usage_id: Optional[pulumi.Input[str]] = None):
         """
         Information about a Provider. A Provider is an entity that offers Targets to run Azure Quantum Jobs.
+        :param pulumi.Input[str] application_name: The provider's marketplace application display name.
         :param pulumi.Input[str] instance_uri: A Uri identifying the specific instance of this provider.
         :param pulumi.Input[str] provider_id: Unique id of this provider.
         :param pulumi.Input[str] provider_sku: The sku associated with pricing information for this provider.
         :param pulumi.Input[Union[str, 'Status']] provisioning_state: Provisioning status field
+        :param pulumi.Input[str] resource_usage_id: Id to track resource usage for the provider.
         """
+        if application_name is not None:
+            pulumi.set(__self__, "application_name", application_name)
         if instance_uri is not None:
             pulumi.set(__self__, "instance_uri", instance_uri)
         if provider_id is not None:
@@ -36,6 +42,20 @@ class ProviderArgs:
             pulumi.set(__self__, "provider_sku", provider_sku)
         if provisioning_state is not None:
             pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if resource_usage_id is not None:
+            pulumi.set(__self__, "resource_usage_id", resource_usage_id)
+
+    @property
+    @pulumi.getter(name="applicationName")
+    def application_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The provider's marketplace application display name.
+        """
+        return pulumi.get(self, "application_name")
+
+    @application_name.setter
+    def application_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "application_name", value)
 
     @property
     @pulumi.getter(name="instanceUri")
@@ -84,6 +104,18 @@ class ProviderArgs:
     @provisioning_state.setter
     def provisioning_state(self, value: Optional[pulumi.Input[Union[str, 'Status']]]):
         pulumi.set(self, "provisioning_state", value)
+
+    @property
+    @pulumi.getter(name="resourceUsageId")
+    def resource_usage_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Id to track resource usage for the provider.
+        """
+        return pulumi.get(self, "resource_usage_id")
+
+    @resource_usage_id.setter
+    def resource_usage_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_usage_id", value)
 
 
 @pulumi.input_type

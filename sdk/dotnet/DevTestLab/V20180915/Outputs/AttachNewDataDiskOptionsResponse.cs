@@ -18,7 +18,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915.Outputs
         /// </summary>
         public readonly string? DiskName;
         /// <summary>
-        /// Size of the disk to be attached in GibiBytes.
+        /// Size of the disk to be attached in Gibibytes.
         /// </summary>
         public readonly int? DiskSizeGiB;
         /// <summary>

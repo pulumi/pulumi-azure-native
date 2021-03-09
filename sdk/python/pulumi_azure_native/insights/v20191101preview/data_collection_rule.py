@@ -23,6 +23,7 @@ class DataCollectionRule(pulumi.CustomResource):
                  data_sources: Optional[pulumi.Input[pulumi.InputType['DataCollectionRuleDataSourcesArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  destinations: Optional[pulumi.Input[pulumi.InputType['DataCollectionRuleDestinationsArgs']]] = None,
+                 kind: Optional[pulumi.Input[Union[str, 'KnownDataCollectionRuleResourceKind']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -40,6 +41,7 @@ class DataCollectionRule(pulumi.CustomResource):
                This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.
         :param pulumi.Input[str] description: Description of the data collection rule.
         :param pulumi.Input[pulumi.InputType['DataCollectionRuleDestinationsArgs']] destinations: The specification of destinations.
+        :param pulumi.Input[Union[str, 'KnownDataCollectionRuleResourceKind']] kind: The kind of the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -62,20 +64,18 @@ class DataCollectionRule(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['data_collection_rule_name'] = data_collection_rule_name
-            if data_flows is None and not opts.urn:
-                raise TypeError("Missing required property 'data_flows'")
             __props__['data_flows'] = data_flows
             __props__['data_sources'] = data_sources
             __props__['description'] = description
-            if destinations is None and not opts.urn:
-                raise TypeError("Missing required property 'destinations'")
             __props__['destinations'] = destinations
+            __props__['kind'] = kind
             __props__['location'] = location
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['etag'] = None
+            __props__['immutable_id'] = None
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
@@ -108,6 +108,8 @@ class DataCollectionRule(pulumi.CustomResource):
         __props__["description"] = None
         __props__["destinations"] = None
         __props__["etag"] = None
+        __props__["immutable_id"] = None
+        __props__["kind"] = None
         __props__["location"] = None
         __props__["name"] = None
         __props__["provisioning_state"] = None
@@ -117,7 +119,7 @@ class DataCollectionRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dataFlows")
-    def data_flows(self) -> pulumi.Output[Sequence['outputs.DataFlowResponse']]:
+    def data_flows(self) -> pulumi.Output[Optional[Sequence['outputs.DataFlowResponse']]]:
         """
         The specification of data flows.
         """
@@ -142,7 +144,7 @@ class DataCollectionRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def destinations(self) -> pulumi.Output['outputs.DataCollectionRuleResponseDestinations']:
+    def destinations(self) -> pulumi.Output[Optional['outputs.DataCollectionRuleResponseDestinations']]:
         """
         The specification of destinations.
         """
@@ -155,6 +157,22 @@ class DataCollectionRule(pulumi.CustomResource):
         Resource entity tag (ETag).
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="immutableId")
+    def immutable_id(self) -> pulumi.Output[str]:
+        """
+        The immutable ID of this data collection rule. This property is READ-ONLY.
+        """
+        return pulumi.get(self, "immutable_id")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> pulumi.Output[Optional[str]]:
+        """
+        The kind of the resource.
+        """
+        return pulumi.get(self, "kind")
 
     @property
     @pulumi.getter

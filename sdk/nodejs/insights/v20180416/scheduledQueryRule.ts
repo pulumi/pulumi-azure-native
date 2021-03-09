@@ -159,7 +159,7 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:insights/v20180416:ScheduledQueryRule" }, { type: "azure-native:insights:ScheduledQueryRule" }, { type: "azure-nextgen:insights:ScheduledQueryRule" }, { type: "azure-native:insights/latest:ScheduledQueryRule" }, { type: "azure-nextgen:insights/latest:ScheduledQueryRule" }, { type: "azure-native:insights/v20200501preview:ScheduledQueryRule" }, { type: "azure-nextgen:insights/v20200501preview:ScheduledQueryRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:insights/v20180416:ScheduledQueryRule" }, { type: "azure-native:insights:ScheduledQueryRule" }, { type: "azure-nextgen:insights:ScheduledQueryRule" }, { type: "azure-native:insights/latest:ScheduledQueryRule" }, { type: "azure-nextgen:insights/latest:ScheduledQueryRule" }, { type: "azure-native:insights/v20200501preview:ScheduledQueryRule" }, { type: "azure-nextgen:insights/v20200501preview:ScheduledQueryRule" }, { type: "azure-native:insights/v20210201preview:ScheduledQueryRule" }, { type: "azure-nextgen:insights/v20210201preview:ScheduledQueryRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ScheduledQueryRule.__pulumiType, name, inputs, opts);
     }

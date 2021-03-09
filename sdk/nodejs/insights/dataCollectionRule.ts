@@ -39,7 +39,7 @@ export class DataCollectionRule extends pulumi.CustomResource {
     /**
      * The specification of data flows.
      */
-    public readonly dataFlows!: pulumi.Output<outputs.insights.DataFlowResponse[]>;
+    public readonly dataFlows!: pulumi.Output<outputs.insights.DataFlowResponse[] | undefined>;
     /**
      * The specification of data sources. 
      * This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.
@@ -52,11 +52,19 @@ export class DataCollectionRule extends pulumi.CustomResource {
     /**
      * The specification of destinations.
      */
-    public readonly destinations!: pulumi.Output<outputs.insights.DataCollectionRuleResponseDestinations>;
+    public readonly destinations!: pulumi.Output<outputs.insights.DataCollectionRuleResponseDestinations | undefined>;
     /**
      * Resource entity tag (ETag).
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
+    /**
+     * The immutable ID of this data collection rule. This property is READ-ONLY.
+     */
+    public /*out*/ readonly immutableId!: pulumi.Output<string>;
+    /**
+     * The kind of the resource.
+     */
+    public readonly kind!: pulumi.Output<string | undefined>;
     /**
      * The geo-location where the resource lives.
      */
@@ -89,12 +97,6 @@ export class DataCollectionRule extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.dataFlows === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'dataFlows'");
-            }
-            if ((!args || args.destinations === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'destinations'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -103,10 +105,12 @@ export class DataCollectionRule extends pulumi.CustomResource {
             inputs["dataSources"] = args ? args.dataSources : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["destinations"] = args ? args.destinations : undefined;
+            inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["immutableId"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -116,6 +120,8 @@ export class DataCollectionRule extends pulumi.CustomResource {
             inputs["description"] = undefined /*out*/;
             inputs["destinations"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
+            inputs["immutableId"] = undefined /*out*/;
+            inputs["kind"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
@@ -142,7 +148,7 @@ export interface DataCollectionRuleArgs {
     /**
      * The specification of data flows.
      */
-    readonly dataFlows: pulumi.Input<pulumi.Input<inputs.insights.DataFlow>[]>;
+    readonly dataFlows?: pulumi.Input<pulumi.Input<inputs.insights.DataFlow>[]>;
     /**
      * The specification of data sources. 
      * This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.
@@ -155,7 +161,11 @@ export interface DataCollectionRuleArgs {
     /**
      * The specification of destinations.
      */
-    readonly destinations: pulumi.Input<inputs.insights.DataCollectionRuleDestinations>;
+    readonly destinations?: pulumi.Input<inputs.insights.DataCollectionRuleDestinations>;
+    /**
+     * The kind of the resource.
+     */
+    readonly kind?: pulumi.Input<string | enums.insights.KnownDataCollectionRuleResourceKind>;
     /**
      * The geo-location where the resource lives.
      */

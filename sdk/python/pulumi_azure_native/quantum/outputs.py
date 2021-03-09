@@ -21,23 +21,23 @@ class ProviderResponse(dict):
     Information about a Provider. A Provider is an entity that offers Targets to run Azure Quantum Jobs.
     """
     def __init__(__self__, *,
-                 application_name: str,
-                 resource_usage_id: str,
+                 application_name: Optional[str] = None,
                  instance_uri: Optional[str] = None,
                  provider_id: Optional[str] = None,
                  provider_sku: Optional[str] = None,
-                 provisioning_state: Optional[str] = None):
+                 provisioning_state: Optional[str] = None,
+                 resource_usage_id: Optional[str] = None):
         """
         Information about a Provider. A Provider is an entity that offers Targets to run Azure Quantum Jobs.
         :param str application_name: The provider's marketplace application display name.
-        :param str resource_usage_id: Id to track resource usage for the provider.
         :param str instance_uri: A Uri identifying the specific instance of this provider.
         :param str provider_id: Unique id of this provider.
         :param str provider_sku: The sku associated with pricing information for this provider.
         :param str provisioning_state: Provisioning status field
+        :param str resource_usage_id: Id to track resource usage for the provider.
         """
-        pulumi.set(__self__, "application_name", application_name)
-        pulumi.set(__self__, "resource_usage_id", resource_usage_id)
+        if application_name is not None:
+            pulumi.set(__self__, "application_name", application_name)
         if instance_uri is not None:
             pulumi.set(__self__, "instance_uri", instance_uri)
         if provider_id is not None:
@@ -46,22 +46,16 @@ class ProviderResponse(dict):
             pulumi.set(__self__, "provider_sku", provider_sku)
         if provisioning_state is not None:
             pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if resource_usage_id is not None:
+            pulumi.set(__self__, "resource_usage_id", resource_usage_id)
 
     @property
     @pulumi.getter(name="applicationName")
-    def application_name(self) -> str:
+    def application_name(self) -> Optional[str]:
         """
         The provider's marketplace application display name.
         """
         return pulumi.get(self, "application_name")
-
-    @property
-    @pulumi.getter(name="resourceUsageId")
-    def resource_usage_id(self) -> str:
-        """
-        Id to track resource usage for the provider.
-        """
-        return pulumi.get(self, "resource_usage_id")
 
     @property
     @pulumi.getter(name="instanceUri")
@@ -94,6 +88,14 @@ class ProviderResponse(dict):
         Provisioning status field
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="resourceUsageId")
+    def resource_usage_id(self) -> Optional[str]:
+        """
+        Id to track resource usage for the provider.
+        """
+        return pulumi.get(self, "resource_usage_id")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

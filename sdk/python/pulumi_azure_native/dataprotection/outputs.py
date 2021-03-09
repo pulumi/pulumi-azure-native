@@ -476,25 +476,25 @@ class StorageSettingResponse(dict):
     Storage setting
     """
     def __init__(__self__, *,
-                 data_store_type: Optional[str] = None,
+                 datastore_type: Optional[str] = None,
                  type: Optional[str] = None):
         """
         Storage setting
-        :param str data_store_type: Gets or sets the type of the datastore.
+        :param str datastore_type: Gets or sets the type of the datastore.
         :param str type: Gets or sets the type.
         """
-        if data_store_type is not None:
-            pulumi.set(__self__, "data_store_type", data_store_type)
+        if datastore_type is not None:
+            pulumi.set(__self__, "datastore_type", datastore_type)
         if type is not None:
             pulumi.set(__self__, "type", type)
 
     @property
-    @pulumi.getter(name="dataStoreType")
-    def data_store_type(self) -> Optional[str]:
+    @pulumi.getter(name="datastoreType")
+    def datastore_type(self) -> Optional[str]:
         """
         Gets or sets the type of the datastore.
         """
-        return pulumi.get(self, "data_store_type")
+        return pulumi.get(self, "datastore_type")
 
     @property
     @pulumi.getter
@@ -606,6 +606,7 @@ class UserFacingErrorResponse(dict):
                  is_retryable: Optional[bool] = None,
                  is_user_error: Optional[bool] = None,
                  message: Optional[str] = None,
+                 properties: Optional[Mapping[str, str]] = None,
                  recommended_action: Optional[Sequence[str]] = None,
                  target: Optional[str] = None):
         """
@@ -615,6 +616,7 @@ class UserFacingErrorResponse(dict):
         :param 'InnerErrorResponseArgs' inner_error: Inner Error
         :param bool is_retryable: Whether the operation will be retryable or not
         :param bool is_user_error: Whether the operation is due to a user error or service error
+        :param Mapping[str, str] properties: Any key value pairs that can be injected inside error object
         :param Sequence[str] recommended_action: RecommendedAction � localized.
         :param str target: Target of the error.
         """
@@ -630,6 +632,8 @@ class UserFacingErrorResponse(dict):
             pulumi.set(__self__, "is_user_error", is_user_error)
         if message is not None:
             pulumi.set(__self__, "message", message)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
         if recommended_action is not None:
             pulumi.set(__self__, "recommended_action", recommended_action)
         if target is not None:
@@ -679,6 +683,14 @@ class UserFacingErrorResponse(dict):
     @pulumi.getter
     def message(self) -> Optional[str]:
         return pulumi.get(self, "message")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[Mapping[str, str]]:
+        """
+        Any key value pairs that can be injected inside error object
+        """
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="recommendedAction")

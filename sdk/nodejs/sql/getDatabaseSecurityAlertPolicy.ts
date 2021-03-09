@@ -53,6 +53,18 @@ export interface GetDatabaseSecurityAlertPolicyResult {
      */
     readonly creationTime: string;
     /**
+     * Specifies an array of alerts that are disabled. Allowed values are: Sql_Injection, Sql_Injection_Vulnerability, Access_Anomaly, Data_Exfiltration, Unsafe_Action
+     */
+    readonly disabledAlerts?: string[];
+    /**
+     * Specifies that the alert is sent to the account administrators.
+     */
+    readonly emailAccountAdmins?: boolean;
+    /**
+     * Specifies an array of e-mail addresses to which the alert is sent.
+     */
+    readonly emailAddresses?: string[];
+    /**
      * Resource ID.
      */
     readonly id: string;
@@ -61,9 +73,25 @@ export interface GetDatabaseSecurityAlertPolicyResult {
      */
     readonly name: string;
     /**
+     * Specifies the number of days to keep in the Threat Detection audit logs.
+     */
+    readonly retentionDays?: number;
+    /**
      * Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database.
      */
     readonly state: string;
+    /**
+     * Specifies the identifier key of the Threat Detection audit storage account.
+     */
+    readonly storageAccountAccessKey?: string;
+    /**
+     * Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
+     */
+    readonly storageEndpoint?: string;
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData: outputs.sql.SystemDataResponse;
     /**
      * Resource type.
      */

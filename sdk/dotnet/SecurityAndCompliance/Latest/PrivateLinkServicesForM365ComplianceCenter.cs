@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.SecurityAndCompliance.Latest
 {
     /// <summary>
     /// The description of the service.
-    /// Latest API Version: 2021-01-11.
+    /// Latest API Version: 2021-03-08.
     /// </summary>
     [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:securityandcompliance:privateLinkServicesForM365ComplianceCenter'.")]
     [AzureNativeResourceType("azure-native:securityandcompliance/latest:privateLinkServicesForM365ComplianceCenter")]
@@ -101,6 +101,8 @@ namespace Pulumi.AzureNative.SecurityAndCompliance.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:securityandcompliance:privateLinkServicesForM365ComplianceCenter"},
                     new Pulumi.Alias { Type = "azure-native:securityandcompliance/v20210111:privateLinkServicesForM365ComplianceCenter"},
                     new Pulumi.Alias { Type = "azure-nextgen:securityandcompliance/v20210111:privateLinkServicesForM365ComplianceCenter"},
+                    new Pulumi.Alias { Type = "azure-native:securityandcompliance/v20210308:privateLinkServicesForM365ComplianceCenter"},
+                    new Pulumi.Alias { Type = "azure-nextgen:securityandcompliance/v20210308:privateLinkServicesForM365ComplianceCenter"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

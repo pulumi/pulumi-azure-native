@@ -12,6 +12,8 @@ import (
 
 // Information about a Provider. A Provider is an entity that offers Targets to run Azure Quantum Jobs.
 type Provider struct {
+	// The provider's marketplace application display name.
+	ApplicationName *string `pulumi:"applicationName"`
 	// A Uri identifying the specific instance of this provider.
 	InstanceUri *string `pulumi:"instanceUri"`
 	// Unique id of this provider.
@@ -20,6 +22,8 @@ type Provider struct {
 	ProviderSku *string `pulumi:"providerSku"`
 	// Provisioning status field
 	ProvisioningState *string `pulumi:"provisioningState"`
+	// Id to track resource usage for the provider.
+	ResourceUsageId *string `pulumi:"resourceUsageId"`
 }
 
 // ProviderInput is an input type that accepts ProviderArgs and ProviderOutput values.
@@ -35,6 +39,8 @@ type ProviderInput interface {
 
 // Information about a Provider. A Provider is an entity that offers Targets to run Azure Quantum Jobs.
 type ProviderArgs struct {
+	// The provider's marketplace application display name.
+	ApplicationName pulumi.StringPtrInput `pulumi:"applicationName"`
 	// A Uri identifying the specific instance of this provider.
 	InstanceUri pulumi.StringPtrInput `pulumi:"instanceUri"`
 	// Unique id of this provider.
@@ -43,6 +49,8 @@ type ProviderArgs struct {
 	ProviderSku pulumi.StringPtrInput `pulumi:"providerSku"`
 	// Provisioning status field
 	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
+	// Id to track resource usage for the provider.
+	ResourceUsageId pulumi.StringPtrInput `pulumi:"resourceUsageId"`
 }
 
 func (ProviderArgs) ElementType() reflect.Type {
@@ -97,6 +105,11 @@ func (o ProviderOutput) ToProviderOutputWithContext(ctx context.Context) Provide
 	return o
 }
 
+// The provider's marketplace application display name.
+func (o ProviderOutput) ApplicationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Provider) *string { return v.ApplicationName }).(pulumi.StringPtrOutput)
+}
+
 // A Uri identifying the specific instance of this provider.
 func (o ProviderOutput) InstanceUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Provider) *string { return v.InstanceUri }).(pulumi.StringPtrOutput)
@@ -115,6 +128,11 @@ func (o ProviderOutput) ProviderSku() pulumi.StringPtrOutput {
 // Provisioning status field
 func (o ProviderOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Provider) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// Id to track resource usage for the provider.
+func (o ProviderOutput) ResourceUsageId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Provider) *string { return v.ResourceUsageId }).(pulumi.StringPtrOutput)
 }
 
 type ProviderArrayOutput struct{ *pulumi.OutputState }
@@ -140,7 +158,7 @@ func (o ProviderArrayOutput) Index(i pulumi.IntInput) ProviderOutput {
 // Information about a Provider. A Provider is an entity that offers Targets to run Azure Quantum Jobs.
 type ProviderResponse struct {
 	// The provider's marketplace application display name.
-	ApplicationName string `pulumi:"applicationName"`
+	ApplicationName *string `pulumi:"applicationName"`
 	// A Uri identifying the specific instance of this provider.
 	InstanceUri *string `pulumi:"instanceUri"`
 	// Unique id of this provider.
@@ -150,7 +168,7 @@ type ProviderResponse struct {
 	// Provisioning status field
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// Id to track resource usage for the provider.
-	ResourceUsageId string `pulumi:"resourceUsageId"`
+	ResourceUsageId *string `pulumi:"resourceUsageId"`
 }
 
 // ProviderResponseInput is an input type that accepts ProviderResponseArgs and ProviderResponseOutput values.
@@ -167,7 +185,7 @@ type ProviderResponseInput interface {
 // Information about a Provider. A Provider is an entity that offers Targets to run Azure Quantum Jobs.
 type ProviderResponseArgs struct {
 	// The provider's marketplace application display name.
-	ApplicationName pulumi.StringInput `pulumi:"applicationName"`
+	ApplicationName pulumi.StringPtrInput `pulumi:"applicationName"`
 	// A Uri identifying the specific instance of this provider.
 	InstanceUri pulumi.StringPtrInput `pulumi:"instanceUri"`
 	// Unique id of this provider.
@@ -177,7 +195,7 @@ type ProviderResponseArgs struct {
 	// Provisioning status field
 	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
 	// Id to track resource usage for the provider.
-	ResourceUsageId pulumi.StringInput `pulumi:"resourceUsageId"`
+	ResourceUsageId pulumi.StringPtrInput `pulumi:"resourceUsageId"`
 }
 
 func (ProviderResponseArgs) ElementType() reflect.Type {
@@ -233,8 +251,8 @@ func (o ProviderResponseOutput) ToProviderResponseOutputWithContext(ctx context.
 }
 
 // The provider's marketplace application display name.
-func (o ProviderResponseOutput) ApplicationName() pulumi.StringOutput {
-	return o.ApplyT(func(v ProviderResponse) string { return v.ApplicationName }).(pulumi.StringOutput)
+func (o ProviderResponseOutput) ApplicationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderResponse) *string { return v.ApplicationName }).(pulumi.StringPtrOutput)
 }
 
 // A Uri identifying the specific instance of this provider.
@@ -258,8 +276,8 @@ func (o ProviderResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
 }
 
 // Id to track resource usage for the provider.
-func (o ProviderResponseOutput) ResourceUsageId() pulumi.StringOutput {
-	return o.ApplyT(func(v ProviderResponse) string { return v.ResourceUsageId }).(pulumi.StringOutput)
+func (o ProviderResponseOutput) ResourceUsageId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderResponse) *string { return v.ResourceUsageId }).(pulumi.StringPtrOutput)
 }
 
 type ProviderResponseArrayOutput struct{ *pulumi.OutputState }

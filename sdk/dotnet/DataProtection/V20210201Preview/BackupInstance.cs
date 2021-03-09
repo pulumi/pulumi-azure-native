@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.DataProtection.V20210201Preview
     public partial class BackupInstance : Pulumi.CustomResource
     {
         /// <summary>
+        /// Specifies the current protection state of the resource
+        /// </summary>
+        [Output("currentProtectionState")]
+        public Output<string> CurrentProtectionState { get; private set; } = null!;
+
+        /// <summary>
         /// Gets or sets the data source information.
         /// </summary>
         [Output("dataSourceInfo")]
@@ -28,19 +34,31 @@ namespace Pulumi.AzureNative.DataProtection.V20210201Preview
         public Output<Outputs.DatasourceSetResponse?> DataSourceSetInfo { get; private set; } = null!;
 
         /// <summary>
+        /// Gets or sets the Backup Instance friendly name.
+        /// </summary>
+        [Output("friendlyName")]
+        public Output<string> FriendlyName { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name associated with the resource.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         [Output("objectType")]
-        public Output<string?> ObjectType { get; private set; } = null!;
+        public Output<string> ObjectType { get; private set; } = null!;
 
         /// <summary>
         /// Gets or sets the policy information.
         /// </summary>
         [Output("policyInfo")]
         public Output<Outputs.PolicyInfoResponse> PolicyInfo { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the protection error of the resource
+        /// </summary>
+        [Output("protectionErrorDetails")]
+        public Output<Outputs.UserFacingErrorResponse> ProtectionErrorDetails { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the protection status of the resource
@@ -135,8 +153,14 @@ namespace Pulumi.AzureNative.DataProtection.V20210201Preview
         [Input("dataSourceSetInfo")]
         public Input<Inputs.DatasourceSetArgs>? DataSourceSetInfo { get; set; }
 
-        [Input("objectType")]
-        public Input<string>? ObjectType { get; set; }
+        /// <summary>
+        /// Gets or sets the Backup Instance friendly name.
+        /// </summary>
+        [Input("friendlyName", required: true)]
+        public Input<string> FriendlyName { get; set; } = null!;
+
+        [Input("objectType", required: true)]
+        public Input<string> ObjectType { get; set; } = null!;
 
         /// <summary>
         /// Gets or sets the policy information.

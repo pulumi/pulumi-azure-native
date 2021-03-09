@@ -72,7 +72,7 @@ namespace Pulumi.AzureNative.EventGrid
         /// </summary>
         public readonly string? Source;
         /// <summary>
-        /// The system metadata relating to this resource.
+        /// The system metadata relating to System Topic resource.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>

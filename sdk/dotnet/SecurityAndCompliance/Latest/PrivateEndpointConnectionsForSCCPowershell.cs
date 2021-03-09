@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.SecurityAndCompliance.Latest
 {
     /// <summary>
     /// The Private Endpoint Connection resource.
-    /// Latest API Version: 2021-01-11.
+    /// Latest API Version: 2021-03-08.
     /// </summary>
     [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:securityandcompliance:PrivateEndpointConnectionsForSCCPowershell'.")]
     [AzureNativeResourceType("azure-native:securityandcompliance/latest:PrivateEndpointConnectionsForSCCPowershell")]
@@ -83,6 +83,8 @@ namespace Pulumi.AzureNative.SecurityAndCompliance.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:securityandcompliance:PrivateEndpointConnectionsForSCCPowershell"},
                     new Pulumi.Alias { Type = "azure-native:securityandcompliance/v20210111:PrivateEndpointConnectionsForSCCPowershell"},
                     new Pulumi.Alias { Type = "azure-nextgen:securityandcompliance/v20210111:PrivateEndpointConnectionsForSCCPowershell"},
+                    new Pulumi.Alias { Type = "azure-native:securityandcompliance/v20210308:PrivateEndpointConnectionsForSCCPowershell"},
+                    new Pulumi.Alias { Type = "azure-nextgen:securityandcompliance/v20210308:PrivateEndpointConnectionsForSCCPowershell"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

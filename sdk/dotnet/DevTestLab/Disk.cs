@@ -29,7 +29,7 @@ namespace Pulumi.AzureNative.DevTestLab
         public Output<string?> DiskBlobName { get; private set; } = null!;
 
         /// <summary>
-        /// The size of the disk in GibiBytes.
+        /// The size of the disk in Gibibytes.
         /// </summary>
         [Output("diskSizeGiB")]
         public Output<int?> DiskSizeGiB { get; private set; } = null!;
@@ -81,6 +81,12 @@ namespace Pulumi.AzureNative.DevTestLab
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// When backed by a blob, the storage account where the blob is.
+        /// </summary>
+        [Output("storageAccountId")]
+        public Output<string?> StorageAccountId { get; private set; } = null!;
 
         /// <summary>
         /// The tags of the resource.
@@ -162,7 +168,7 @@ namespace Pulumi.AzureNative.DevTestLab
         public Input<string>? DiskBlobName { get; set; }
 
         /// <summary>
-        /// The size of the disk in GibiBytes.
+        /// The size of the disk in Gibibytes.
         /// </summary>
         [Input("diskSizeGiB")]
         public Input<int>? DiskSizeGiB { get; set; }
@@ -220,6 +226,12 @@ namespace Pulumi.AzureNative.DevTestLab
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// When backed by a blob, the storage account where the blob is.
+        /// </summary>
+        [Input("storageAccountId")]
+        public Input<string>? StorageAccountId { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

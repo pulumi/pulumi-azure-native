@@ -50,6 +50,10 @@ namespace Pulumi.AzureNative.DataProtection
     public sealed class GetBackupInstanceResult
     {
         /// <summary>
+        /// Specifies the current protection state of the resource
+        /// </summary>
+        public readonly string CurrentProtectionState;
+        /// <summary>
         /// Gets or sets the data source information.
         /// </summary>
         public readonly Outputs.DatasourceResponse DataSourceInfo;
@@ -58,6 +62,10 @@ namespace Pulumi.AzureNative.DataProtection
         /// </summary>
         public readonly Outputs.DatasourceSetResponse? DataSourceSetInfo;
         /// <summary>
+        /// Gets or sets the Backup Instance friendly name.
+        /// </summary>
+        public readonly string FriendlyName;
+        /// <summary>
         /// Resource Id represents the complete path to the resource.
         /// </summary>
         public readonly string Id;
@@ -65,11 +73,15 @@ namespace Pulumi.AzureNative.DataProtection
         /// Resource name associated with the resource.
         /// </summary>
         public readonly string Name;
-        public readonly string? ObjectType;
+        public readonly string ObjectType;
         /// <summary>
         /// Gets or sets the policy information.
         /// </summary>
         public readonly Outputs.PolicyInfoResponse PolicyInfo;
+        /// <summary>
+        /// Specifies the protection error of the resource
+        /// </summary>
+        public readonly Outputs.UserFacingErrorResponse ProtectionErrorDetails;
         /// <summary>
         /// Specifies the protection status of the resource
         /// </summary>
@@ -89,17 +101,23 @@ namespace Pulumi.AzureNative.DataProtection
 
         [OutputConstructor]
         private GetBackupInstanceResult(
+            string currentProtectionState,
+
             Outputs.DatasourceResponse dataSourceInfo,
 
             Outputs.DatasourceSetResponse? dataSourceSetInfo,
+
+            string friendlyName,
 
             string id,
 
             string name,
 
-            string? objectType,
+            string objectType,
 
             Outputs.PolicyInfoResponse policyInfo,
+
+            Outputs.UserFacingErrorResponse protectionErrorDetails,
 
             Outputs.ProtectionStatusDetailsResponse protectionStatus,
 
@@ -109,12 +127,15 @@ namespace Pulumi.AzureNative.DataProtection
 
             string type)
         {
+            CurrentProtectionState = currentProtectionState;
             DataSourceInfo = dataSourceInfo;
             DataSourceSetInfo = dataSourceSetInfo;
+            FriendlyName = friendlyName;
             Id = id;
             Name = name;
             ObjectType = objectType;
             PolicyInfo = policyInfo;
+            ProtectionErrorDetails = protectionErrorDetails;
             ProtectionStatus = protectionStatus;
             ProvisioningState = provisioningState;
             SystemData = systemData;

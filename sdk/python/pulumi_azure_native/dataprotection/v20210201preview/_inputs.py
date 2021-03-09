@@ -399,29 +399,29 @@ class PolicyParametersArgs:
 @pulumi.input_type
 class StorageSettingArgs:
     def __init__(__self__, *,
-                 data_store_type: Optional[pulumi.Input[Union[str, 'StorageSettingStoreTypes']]] = None,
+                 datastore_type: Optional[pulumi.Input[Union[str, 'StorageSettingStoreTypes']]] = None,
                  type: Optional[pulumi.Input[Union[str, 'StorageSettingTypes']]] = None):
         """
         Storage setting
-        :param pulumi.Input[Union[str, 'StorageSettingStoreTypes']] data_store_type: Gets or sets the type of the datastore.
+        :param pulumi.Input[Union[str, 'StorageSettingStoreTypes']] datastore_type: Gets or sets the type of the datastore.
         :param pulumi.Input[Union[str, 'StorageSettingTypes']] type: Gets or sets the type.
         """
-        if data_store_type is not None:
-            pulumi.set(__self__, "data_store_type", data_store_type)
+        if datastore_type is not None:
+            pulumi.set(__self__, "datastore_type", datastore_type)
         if type is not None:
             pulumi.set(__self__, "type", type)
 
     @property
-    @pulumi.getter(name="dataStoreType")
-    def data_store_type(self) -> Optional[pulumi.Input[Union[str, 'StorageSettingStoreTypes']]]:
+    @pulumi.getter(name="datastoreType")
+    def datastore_type(self) -> Optional[pulumi.Input[Union[str, 'StorageSettingStoreTypes']]]:
         """
         Gets or sets the type of the datastore.
         """
-        return pulumi.get(self, "data_store_type")
+        return pulumi.get(self, "datastore_type")
 
-    @data_store_type.setter
-    def data_store_type(self, value: Optional[pulumi.Input[Union[str, 'StorageSettingStoreTypes']]]):
-        pulumi.set(self, "data_store_type", value)
+    @datastore_type.setter
+    def datastore_type(self, value: Optional[pulumi.Input[Union[str, 'StorageSettingStoreTypes']]]):
+        pulumi.set(self, "datastore_type", value)
 
     @property
     @pulumi.getter

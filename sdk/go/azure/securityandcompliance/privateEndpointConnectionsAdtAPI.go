@@ -12,7 +12,7 @@ import (
 )
 
 // The Private Endpoint Connection resource.
-// API Version: 2021-01-11.
+// API Version: 2021-03-08.
 type PrivateEndpointConnectionsAdtAPI struct {
 	pulumi.CustomResourceState
 
@@ -61,6 +61,12 @@ func NewPrivateEndpointConnectionsAdtAPI(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:securityandcompliance/v20210111:PrivateEndpointConnectionsAdtAPI"),
+		},
+		{
+			Type: pulumi.String("azure-native:securityandcompliance/v20210308:PrivateEndpointConnectionsAdtAPI"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:securityandcompliance/v20210308:PrivateEndpointConnectionsAdtAPI"),
 		},
 	})
 	opts = append(opts, aliases)

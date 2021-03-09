@@ -23,16 +23,58 @@ namespace Pulumi.AzureNative.Sql
         public Output<string> CreationTime { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies an array of alerts that are disabled. Allowed values are: Sql_Injection, Sql_Injection_Vulnerability, Access_Anomaly, Data_Exfiltration, Unsafe_Action
+        /// </summary>
+        [Output("disabledAlerts")]
+        public Output<ImmutableArray<string>> DisabledAlerts { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies that the alert is sent to the account administrators.
+        /// </summary>
+        [Output("emailAccountAdmins")]
+        public Output<bool?> EmailAccountAdmins { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies an array of e-mail addresses to which the alert is sent.
+        /// </summary>
+        [Output("emailAddresses")]
+        public Output<ImmutableArray<string>> EmailAddresses { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the number of days to keep in the Threat Detection audit logs.
+        /// </summary>
+        [Output("retentionDays")]
+        public Output<int?> RetentionDays { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database.
         /// </summary>
         [Output("state")]
         public Output<string> State { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the identifier key of the Threat Detection audit storage account.
+        /// </summary>
+        [Output("storageAccountAccessKey")]
+        public Output<string?> StorageAccountAccessKey { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
+        /// </summary>
+        [Output("storageEndpoint")]
+        public Output<string?> StorageEndpoint { get; private set; } = null!;
+
+        /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.
@@ -76,6 +118,8 @@ namespace Pulumi.AzureNative.Sql
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20200202preview:DatabaseSecurityAlertPolicy"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20200801preview:DatabaseSecurityAlertPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20200801preview:DatabaseSecurityAlertPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20201101preview:DatabaseSecurityAlertPolicy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20201101preview:DatabaseSecurityAlertPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -105,11 +149,47 @@ namespace Pulumi.AzureNative.Sql
         [Input("databaseName", required: true)]
         public Input<string> DatabaseName { get; set; } = null!;
 
+        [Input("disabledAlerts")]
+        private InputList<string>? _disabledAlerts;
+
+        /// <summary>
+        /// Specifies an array of alerts that are disabled. Allowed values are: Sql_Injection, Sql_Injection_Vulnerability, Access_Anomaly, Data_Exfiltration, Unsafe_Action
+        /// </summary>
+        public InputList<string> DisabledAlerts
+        {
+            get => _disabledAlerts ?? (_disabledAlerts = new InputList<string>());
+            set => _disabledAlerts = value;
+        }
+
+        /// <summary>
+        /// Specifies that the alert is sent to the account administrators.
+        /// </summary>
+        [Input("emailAccountAdmins")]
+        public Input<bool>? EmailAccountAdmins { get; set; }
+
+        [Input("emailAddresses")]
+        private InputList<string>? _emailAddresses;
+
+        /// <summary>
+        /// Specifies an array of e-mail addresses to which the alert is sent.
+        /// </summary>
+        public InputList<string> EmailAddresses
+        {
+            get => _emailAddresses ?? (_emailAddresses = new InputList<string>());
+            set => _emailAddresses = value;
+        }
+
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Specifies the number of days to keep in the Threat Detection audit logs.
+        /// </summary>
+        [Input("retentionDays")]
+        public Input<int>? RetentionDays { get; set; }
 
         /// <summary>
         /// The name of the security alert policy.
@@ -128,6 +208,18 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         [Input("state", required: true)]
         public Input<Pulumi.AzureNative.Sql.SecurityAlertsPolicyState> State { get; set; } = null!;
+
+        /// <summary>
+        /// Specifies the identifier key of the Threat Detection audit storage account.
+        /// </summary>
+        [Input("storageAccountAccessKey")]
+        public Input<string>? StorageAccountAccessKey { get; set; }
+
+        /// <summary>
+        /// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
+        /// </summary>
+        [Input("storageEndpoint")]
+        public Input<string>? StorageEndpoint { get; set; }
 
         public DatabaseSecurityAlertPolicyArgs()
         {

@@ -16,15 +16,21 @@ import (
 type BackupInstance struct {
 	pulumi.CustomResourceState
 
+	// Specifies the current protection state of the resource
+	CurrentProtectionState pulumi.StringOutput `pulumi:"currentProtectionState"`
 	// Gets or sets the data source information.
 	DataSourceInfo DatasourceResponseOutput `pulumi:"dataSourceInfo"`
 	// Gets or sets the data source set information.
 	DataSourceSetInfo DatasourceSetResponsePtrOutput `pulumi:"dataSourceSetInfo"`
+	// Gets or sets the Backup Instance friendly name.
+	FriendlyName pulumi.StringOutput `pulumi:"friendlyName"`
 	// Resource name associated with the resource.
-	Name       pulumi.StringOutput    `pulumi:"name"`
-	ObjectType pulumi.StringPtrOutput `pulumi:"objectType"`
+	Name       pulumi.StringOutput `pulumi:"name"`
+	ObjectType pulumi.StringOutput `pulumi:"objectType"`
 	// Gets or sets the policy information.
 	PolicyInfo PolicyInfoResponseOutput `pulumi:"policyInfo"`
+	// Specifies the protection error of the resource
+	ProtectionErrorDetails UserFacingErrorResponseOutput `pulumi:"protectionErrorDetails"`
 	// Specifies the protection status of the resource
 	ProtectionStatus ProtectionStatusDetailsResponseOutput `pulumi:"protectionStatus"`
 	// Specifies the provisioning state of the resource i.e. provisioning/updating/Succeeded/Failed
@@ -44,6 +50,12 @@ func NewBackupInstance(ctx *pulumi.Context,
 
 	if args.DataSourceInfo == nil {
 		return nil, errors.New("invalid value for required argument 'DataSourceInfo'")
+	}
+	if args.FriendlyName == nil {
+		return nil, errors.New("invalid value for required argument 'FriendlyName'")
+	}
+	if args.ObjectType == nil {
+		return nil, errors.New("invalid value for required argument 'ObjectType'")
 	}
 	if args.PolicyInfo == nil {
 		return nil, errors.New("invalid value for required argument 'PolicyInfo'")
@@ -88,15 +100,21 @@ func GetBackupInstance(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BackupInstance resources.
 type backupInstanceState struct {
+	// Specifies the current protection state of the resource
+	CurrentProtectionState *string `pulumi:"currentProtectionState"`
 	// Gets or sets the data source information.
 	DataSourceInfo *DatasourceResponse `pulumi:"dataSourceInfo"`
 	// Gets or sets the data source set information.
 	DataSourceSetInfo *DatasourceSetResponse `pulumi:"dataSourceSetInfo"`
+	// Gets or sets the Backup Instance friendly name.
+	FriendlyName *string `pulumi:"friendlyName"`
 	// Resource name associated with the resource.
 	Name       *string `pulumi:"name"`
 	ObjectType *string `pulumi:"objectType"`
 	// Gets or sets the policy information.
 	PolicyInfo *PolicyInfoResponse `pulumi:"policyInfo"`
+	// Specifies the protection error of the resource
+	ProtectionErrorDetails *UserFacingErrorResponse `pulumi:"protectionErrorDetails"`
 	// Specifies the protection status of the resource
 	ProtectionStatus *ProtectionStatusDetailsResponse `pulumi:"protectionStatus"`
 	// Specifies the provisioning state of the resource i.e. provisioning/updating/Succeeded/Failed
@@ -108,15 +126,21 @@ type backupInstanceState struct {
 }
 
 type BackupInstanceState struct {
+	// Specifies the current protection state of the resource
+	CurrentProtectionState pulumi.StringPtrInput
 	// Gets or sets the data source information.
 	DataSourceInfo DatasourceResponsePtrInput
 	// Gets or sets the data source set information.
 	DataSourceSetInfo DatasourceSetResponsePtrInput
+	// Gets or sets the Backup Instance friendly name.
+	FriendlyName pulumi.StringPtrInput
 	// Resource name associated with the resource.
 	Name       pulumi.StringPtrInput
 	ObjectType pulumi.StringPtrInput
 	// Gets or sets the policy information.
 	PolicyInfo PolicyInfoResponsePtrInput
+	// Specifies the protection error of the resource
+	ProtectionErrorDetails UserFacingErrorResponsePtrInput
 	// Specifies the protection status of the resource
 	ProtectionStatus ProtectionStatusDetailsResponsePtrInput
 	// Specifies the provisioning state of the resource i.e. provisioning/updating/Succeeded/Failed
@@ -138,7 +162,9 @@ type backupInstanceArgs struct {
 	DataSourceInfo Datasource `pulumi:"dataSourceInfo"`
 	// Gets or sets the data source set information.
 	DataSourceSetInfo *DatasourceSet `pulumi:"dataSourceSetInfo"`
-	ObjectType        *string        `pulumi:"objectType"`
+	// Gets or sets the Backup Instance friendly name.
+	FriendlyName string `pulumi:"friendlyName"`
+	ObjectType   string `pulumi:"objectType"`
 	// Gets or sets the policy information.
 	PolicyInfo PolicyInfo `pulumi:"policyInfo"`
 	// The name of the resource group where the backup vault is present.
@@ -155,7 +181,9 @@ type BackupInstanceArgs struct {
 	DataSourceInfo DatasourceInput
 	// Gets or sets the data source set information.
 	DataSourceSetInfo DatasourceSetPtrInput
-	ObjectType        pulumi.StringPtrInput
+	// Gets or sets the Backup Instance friendly name.
+	FriendlyName pulumi.StringInput
+	ObjectType   pulumi.StringInput
 	// Gets or sets the policy information.
 	PolicyInfo PolicyInfoInput
 	// The name of the resource group where the backup vault is present.

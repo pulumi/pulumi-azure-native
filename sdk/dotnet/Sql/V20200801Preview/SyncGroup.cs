@@ -139,6 +139,8 @@ namespace Pulumi.AzureNative.Sql.V20200801Preview
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20190601preview:SyncGroup"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20200202preview:SyncGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20200202preview:SyncGroup"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20201101preview:SyncGroup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20201101preview:SyncGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

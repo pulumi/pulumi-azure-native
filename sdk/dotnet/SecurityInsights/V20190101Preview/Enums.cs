@@ -25,7 +25,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
         public static AlertRuleKind Fusion { get; } = new AlertRuleKind("Fusion");
         public static AlertRuleKind MLBehaviorAnalytics { get; } = new AlertRuleKind("MLBehaviorAnalytics");
         public static AlertRuleKind ThreatIntelligence { get; } = new AlertRuleKind("ThreatIntelligence");
-        public static AlertRuleKind Anomaly { get; } = new AlertRuleKind("Anomaly");
 
         public static bool operator ==(AlertRuleKind left, AlertRuleKind right) => left.Equals(right);
         public static bool operator !=(AlertRuleKind left, AlertRuleKind right) => !left.Equals(right);

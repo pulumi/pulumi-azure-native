@@ -31,7 +31,7 @@ class PrivateEndpointConnectionsForSCCPowershell(pulumi.CustomResource):
                  __opts__=None):
         """
         The Private Endpoint Connection resource.
-        Latest API Version: 2021-01-11.
+        Latest API Version: 2021-03-08.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -73,7 +73,7 @@ class PrivateEndpointConnectionsForSCCPowershell(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:securityandcompliance/latest:PrivateEndpointConnectionsForSCCPowershell"), pulumi.Alias(type_="azure-native:securityandcompliance:PrivateEndpointConnectionsForSCCPowershell"), pulumi.Alias(type_="azure-nextgen:securityandcompliance:PrivateEndpointConnectionsForSCCPowershell"), pulumi.Alias(type_="azure-native:securityandcompliance/v20210111:PrivateEndpointConnectionsForSCCPowershell"), pulumi.Alias(type_="azure-nextgen:securityandcompliance/v20210111:PrivateEndpointConnectionsForSCCPowershell")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:securityandcompliance/latest:PrivateEndpointConnectionsForSCCPowershell"), pulumi.Alias(type_="azure-native:securityandcompliance:PrivateEndpointConnectionsForSCCPowershell"), pulumi.Alias(type_="azure-nextgen:securityandcompliance:PrivateEndpointConnectionsForSCCPowershell"), pulumi.Alias(type_="azure-native:securityandcompliance/v20210111:PrivateEndpointConnectionsForSCCPowershell"), pulumi.Alias(type_="azure-nextgen:securityandcompliance/v20210111:PrivateEndpointConnectionsForSCCPowershell"), pulumi.Alias(type_="azure-native:securityandcompliance/v20210308:PrivateEndpointConnectionsForSCCPowershell"), pulumi.Alias(type_="azure-nextgen:securityandcompliance/v20210308:PrivateEndpointConnectionsForSCCPowershell")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateEndpointConnectionsForSCCPowershell, __self__).__init__(
             'azure-native:securityandcompliance/latest:PrivateEndpointConnectionsForSCCPowershell',

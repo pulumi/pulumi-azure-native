@@ -16,7 +16,7 @@ type DataCollectionRuleAssociation struct {
 	pulumi.CustomResourceState
 
 	// The resource ID of the data collection rule that is to be associated.
-	DataCollectionRuleId pulumi.StringOutput `pulumi:"dataCollectionRuleId"`
+	DataCollectionRuleId pulumi.StringPtrOutput `pulumi:"dataCollectionRuleId"`
 	// Description of the association.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Resource entity tag (ETag).
@@ -36,9 +36,6 @@ func NewDataCollectionRuleAssociation(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.DataCollectionRuleId == nil {
-		return nil, errors.New("invalid value for required argument 'DataCollectionRuleId'")
-	}
 	if args.ResourceUri == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceUri'")
 	}
@@ -110,10 +107,10 @@ func (DataCollectionRuleAssociationState) ElementType() reflect.Type {
 }
 
 type dataCollectionRuleAssociationArgs struct {
-	// The name of the association.
+	// The name of the association. The name is case insensitive.
 	AssociationName *string `pulumi:"associationName"`
 	// The resource ID of the data collection rule that is to be associated.
-	DataCollectionRuleId string `pulumi:"dataCollectionRuleId"`
+	DataCollectionRuleId *string `pulumi:"dataCollectionRuleId"`
 	// Description of the association.
 	Description *string `pulumi:"description"`
 	// The identifier of the resource.
@@ -122,10 +119,10 @@ type dataCollectionRuleAssociationArgs struct {
 
 // The set of arguments for constructing a DataCollectionRuleAssociation resource.
 type DataCollectionRuleAssociationArgs struct {
-	// The name of the association.
+	// The name of the association. The name is case insensitive.
 	AssociationName pulumi.StringPtrInput
 	// The resource ID of the data collection rule that is to be associated.
-	DataCollectionRuleId pulumi.StringInput
+	DataCollectionRuleId pulumi.StringPtrInput
 	// Description of the association.
 	Description pulumi.StringPtrInput
 	// The identifier of the resource.

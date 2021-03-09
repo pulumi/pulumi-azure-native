@@ -51,7 +51,7 @@ export interface GetFormulaResult {
     /**
      * The author of the formula.
      */
-    readonly author?: string;
+    readonly author: string;
     /**
      * The creation date of the formula.
      */

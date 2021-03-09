@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
         /// The artifact deployment status for the virtual machine.
         /// </summary>
         [Output("artifactDeploymentStatus")]
-        public Output<Outputs.ArtifactDeploymentStatusPropertiesResponse?> ArtifactDeploymentStatus { get; private set; } = null!;
+        public Output<Outputs.ArtifactDeploymentStatusPropertiesResponse> ArtifactDeploymentStatus { get; private set; } = null!;
 
         /// <summary>
         /// The artifacts to be installed on the virtual machine.
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
         /// The resource identifier (Microsoft.Compute) of the virtual machine.
         /// </summary>
         [Output("computeId")]
-        public Output<string?> ComputeId { get; private set; } = null!;
+        public Output<string> ComputeId { get; private set; } = null!;
 
         /// <summary>
         /// The compute virtual machine properties.
@@ -55,13 +55,13 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
         /// The email address of creator of the virtual machine.
         /// </summary>
         [Output("createdByUser")]
-        public Output<string?> CreatedByUser { get; private set; } = null!;
+        public Output<string> CreatedByUser { get; private set; } = null!;
 
         /// <summary>
         /// The object identifier of the creator of the virtual machine.
         /// </summary>
         [Output("createdByUserId")]
-        public Output<string?> CreatedByUserId { get; private set; } = null!;
+        public Output<string> CreatedByUserId { get; private set; } = null!;
 
         /// <summary>
         /// The creation date of the virtual machine.
@@ -103,7 +103,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
         /// The fully-qualified domain name of the virtual machine.
         /// </summary>
         [Output("fqdn")]
-        public Output<string?> Fqdn { get; private set; } = null!;
+        public Output<string> Fqdn { get; private set; } = null!;
 
         /// <summary>
         /// The Microsoft Azure Marketplace image reference of the virtual machine.
@@ -133,7 +133,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
         /// Last known compute power state captured in DTL
         /// </summary>
         [Output("lastKnownPowerState")]
-        public Output<string?> LastKnownPowerState { get; private set; } = null!;
+        public Output<string> LastKnownPowerState { get; private set; } = null!;
 
         /// <summary>
         /// The location of the resource.
@@ -163,7 +163,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
         /// The OS type of the virtual machine.
         /// </summary>
         [Output("osType")]
-        public Output<string?> OsType { get; private set; } = null!;
+        public Output<string> OsType { get; private set; } = null!;
 
         /// <summary>
         /// The object identifier of the owner of the virtual machine.
@@ -247,7 +247,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
         /// Tells source of creation of lab virtual machine. Output property only.
         /// </summary>
         [Output("virtualMachineCreationSource")]
-        public Output<string?> VirtualMachineCreationSource { get; private set; } = null!;
+        public Output<string> VirtualMachineCreationSource { get; private set; } = null!;
 
 
         /// <summary>
@@ -312,12 +312,6 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
         [Input("allowClaim")]
         public Input<bool>? AllowClaim { get; set; }
 
-        /// <summary>
-        /// The artifact deployment status for the virtual machine.
-        /// </summary>
-        [Input("artifactDeploymentStatus")]
-        public Input<Inputs.ArtifactDeploymentStatusPropertiesArgs>? ArtifactDeploymentStatus { get; set; }
-
         [Input("artifacts")]
         private InputList<Inputs.ArtifactInstallPropertiesArgs>? _artifacts;
 
@@ -329,24 +323,6 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
             get => _artifacts ?? (_artifacts = new InputList<Inputs.ArtifactInstallPropertiesArgs>());
             set => _artifacts = value;
         }
-
-        /// <summary>
-        /// The resource identifier (Microsoft.Compute) of the virtual machine.
-        /// </summary>
-        [Input("computeId")]
-        public Input<string>? ComputeId { get; set; }
-
-        /// <summary>
-        /// The email address of creator of the virtual machine.
-        /// </summary>
-        [Input("createdByUser")]
-        public Input<string>? CreatedByUser { get; set; }
-
-        /// <summary>
-        /// The object identifier of the creator of the virtual machine.
-        /// </summary>
-        [Input("createdByUserId")]
-        public Input<string>? CreatedByUserId { get; set; }
 
         /// <summary>
         /// The creation date of the virtual machine.
@@ -391,12 +367,6 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
         public Input<string>? ExpirationDate { get; set; }
 
         /// <summary>
-        /// The fully-qualified domain name of the virtual machine.
-        /// </summary>
-        [Input("fqdn")]
-        public Input<string>? Fqdn { get; set; }
-
-        /// <summary>
         /// The Microsoft Azure Marketplace image reference of the virtual machine.
         /// </summary>
         [Input("galleryImageReference")]
@@ -427,12 +397,6 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
         public Input<string>? LabVirtualNetworkId { get; set; }
 
         /// <summary>
-        /// Last known compute power state captured in DTL
-        /// </summary>
-        [Input("lastKnownPowerState")]
-        public Input<string>? LastKnownPowerState { get; set; }
-
-        /// <summary>
         /// The location of the resource.
         /// </summary>
         [Input("location")]
@@ -455,12 +419,6 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
         /// </summary>
         [Input("notes")]
         public Input<string>? Notes { get; set; }
-
-        /// <summary>
-        /// The OS type of the virtual machine.
-        /// </summary>
-        [Input("osType")]
-        public Input<string>? OsType { get; set; }
 
         /// <summary>
         /// The object identifier of the owner of the virtual machine.
@@ -540,14 +498,11 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
         [Input("userName")]
         public Input<string>? UserName { get; set; }
 
-        /// <summary>
-        /// Tells source of creation of lab virtual machine. Output property only.
-        /// </summary>
-        [Input("virtualMachineCreationSource")]
-        public InputUnion<string, Pulumi.AzureNative.DevTestLab.V20180915.VirtualMachineCreationSource>? VirtualMachineCreationSource { get; set; }
-
         public VirtualMachineArgs()
         {
+            AllowClaim = false;
+            DisallowPublicIpAddress = false;
+            OwnerObjectId = "dynamicValue";
         }
     }
 }

@@ -50,7 +50,7 @@ export class VirtualMachine extends pulumi.CustomResource {
     /**
      * The artifact deployment status for the virtual machine.
      */
-    public readonly artifactDeploymentStatus!: pulumi.Output<outputs.devtestlab.latest.ArtifactDeploymentStatusPropertiesResponse | undefined>;
+    public /*out*/ readonly artifactDeploymentStatus!: pulumi.Output<outputs.devtestlab.latest.ArtifactDeploymentStatusPropertiesResponse>;
     /**
      * The artifacts to be installed on the virtual machine.
      */
@@ -58,7 +58,7 @@ export class VirtualMachine extends pulumi.CustomResource {
     /**
      * The resource identifier (Microsoft.Compute) of the virtual machine.
      */
-    public readonly computeId!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly computeId!: pulumi.Output<string>;
     /**
      * The compute virtual machine properties.
      */
@@ -66,11 +66,11 @@ export class VirtualMachine extends pulumi.CustomResource {
     /**
      * The email address of creator of the virtual machine.
      */
-    public readonly createdByUser!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly createdByUser!: pulumi.Output<string>;
     /**
      * The object identifier of the creator of the virtual machine.
      */
-    public readonly createdByUserId!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly createdByUserId!: pulumi.Output<string>;
     /**
      * The creation date of the virtual machine.
      */
@@ -98,7 +98,7 @@ export class VirtualMachine extends pulumi.CustomResource {
     /**
      * The fully-qualified domain name of the virtual machine.
      */
-    public readonly fqdn!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly fqdn!: pulumi.Output<string>;
     /**
      * The Microsoft Azure Marketplace image reference of the virtual machine.
      */
@@ -118,7 +118,7 @@ export class VirtualMachine extends pulumi.CustomResource {
     /**
      * Last known compute power state captured in DTL
      */
-    public readonly lastKnownPowerState!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly lastKnownPowerState!: pulumi.Output<string>;
     /**
      * The location of the resource.
      */
@@ -138,7 +138,7 @@ export class VirtualMachine extends pulumi.CustomResource {
     /**
      * The OS type of the virtual machine.
      */
-    public readonly osType!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly osType!: pulumi.Output<string>;
     /**
      * The object identifier of the owner of the virtual machine.
      */
@@ -194,7 +194,7 @@ export class VirtualMachine extends pulumi.CustomResource {
     /**
      * Tells source of creation of lab virtual machine. Output property only.
      */
-    public readonly virtualMachineCreationSource!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly virtualMachineCreationSource!: pulumi.Output<string>;
 
     /**
      * Create a VirtualMachine resource with the given unique name, arguments, and options.
@@ -215,31 +215,24 @@ export class VirtualMachine extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["allowClaim"] = args ? args.allowClaim : undefined;
-            inputs["artifactDeploymentStatus"] = args ? args.artifactDeploymentStatus : undefined;
+            inputs["allowClaim"] = (args ? args.allowClaim : undefined) || false;
             inputs["artifacts"] = args ? args.artifacts : undefined;
-            inputs["computeId"] = args ? args.computeId : undefined;
-            inputs["createdByUser"] = args ? args.createdByUser : undefined;
-            inputs["createdByUserId"] = args ? args.createdByUserId : undefined;
             inputs["createdDate"] = args ? args.createdDate : undefined;
             inputs["customImageId"] = args ? args.customImageId : undefined;
             inputs["dataDiskParameters"] = args ? args.dataDiskParameters : undefined;
-            inputs["disallowPublicIpAddress"] = args ? args.disallowPublicIpAddress : undefined;
+            inputs["disallowPublicIpAddress"] = (args ? args.disallowPublicIpAddress : undefined) || false;
             inputs["environmentId"] = args ? args.environmentId : undefined;
             inputs["expirationDate"] = args ? args.expirationDate : undefined;
-            inputs["fqdn"] = args ? args.fqdn : undefined;
             inputs["galleryImageReference"] = args ? args.galleryImageReference : undefined;
             inputs["isAuthenticationWithSshKey"] = args ? args.isAuthenticationWithSshKey : undefined;
             inputs["labName"] = args ? args.labName : undefined;
             inputs["labSubnetName"] = args ? args.labSubnetName : undefined;
             inputs["labVirtualNetworkId"] = args ? args.labVirtualNetworkId : undefined;
-            inputs["lastKnownPowerState"] = args ? args.lastKnownPowerState : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["networkInterface"] = args ? args.networkInterface : undefined;
             inputs["notes"] = args ? args.notes : undefined;
-            inputs["osType"] = args ? args.osType : undefined;
-            inputs["ownerObjectId"] = args ? args.ownerObjectId : undefined;
+            inputs["ownerObjectId"] = (args ? args.ownerObjectId : undefined) || "dynamicValue";
             inputs["ownerUserPrincipalName"] = args ? args.ownerUserPrincipalName : undefined;
             inputs["password"] = args ? args.password : undefined;
             inputs["planId"] = args ? args.planId : undefined;
@@ -250,12 +243,19 @@ export class VirtualMachine extends pulumi.CustomResource {
             inputs["storageType"] = args ? args.storageType : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["userName"] = args ? args.userName : undefined;
-            inputs["virtualMachineCreationSource"] = args ? args.virtualMachineCreationSource : undefined;
             inputs["applicableSchedule"] = undefined /*out*/;
+            inputs["artifactDeploymentStatus"] = undefined /*out*/;
+            inputs["computeId"] = undefined /*out*/;
             inputs["computeVm"] = undefined /*out*/;
+            inputs["createdByUser"] = undefined /*out*/;
+            inputs["createdByUserId"] = undefined /*out*/;
+            inputs["fqdn"] = undefined /*out*/;
+            inputs["lastKnownPowerState"] = undefined /*out*/;
+            inputs["osType"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["uniqueIdentifier"] = undefined /*out*/;
+            inputs["virtualMachineCreationSource"] = undefined /*out*/;
         } else {
             inputs["allowClaim"] = undefined /*out*/;
             inputs["applicableSchedule"] = undefined /*out*/;
@@ -315,25 +315,9 @@ export interface VirtualMachineArgs {
      */
     readonly allowClaim?: pulumi.Input<boolean>;
     /**
-     * The artifact deployment status for the virtual machine.
-     */
-    readonly artifactDeploymentStatus?: pulumi.Input<inputs.devtestlab.latest.ArtifactDeploymentStatusProperties>;
-    /**
      * The artifacts to be installed on the virtual machine.
      */
     readonly artifacts?: pulumi.Input<pulumi.Input<inputs.devtestlab.latest.ArtifactInstallProperties>[]>;
-    /**
-     * The resource identifier (Microsoft.Compute) of the virtual machine.
-     */
-    readonly computeId?: pulumi.Input<string>;
-    /**
-     * The email address of creator of the virtual machine.
-     */
-    readonly createdByUser?: pulumi.Input<string>;
-    /**
-     * The object identifier of the creator of the virtual machine.
-     */
-    readonly createdByUserId?: pulumi.Input<string>;
     /**
      * The creation date of the virtual machine.
      */
@@ -359,10 +343,6 @@ export interface VirtualMachineArgs {
      */
     readonly expirationDate?: pulumi.Input<string>;
     /**
-     * The fully-qualified domain name of the virtual machine.
-     */
-    readonly fqdn?: pulumi.Input<string>;
-    /**
      * The Microsoft Azure Marketplace image reference of the virtual machine.
      */
     readonly galleryImageReference?: pulumi.Input<inputs.devtestlab.latest.GalleryImageReference>;
@@ -383,10 +363,6 @@ export interface VirtualMachineArgs {
      */
     readonly labVirtualNetworkId?: pulumi.Input<string>;
     /**
-     * Last known compute power state captured in DTL
-     */
-    readonly lastKnownPowerState?: pulumi.Input<string>;
-    /**
      * The location of the resource.
      */
     readonly location?: pulumi.Input<string>;
@@ -402,10 +378,6 @@ export interface VirtualMachineArgs {
      * The notes of the virtual machine.
      */
     readonly notes?: pulumi.Input<string>;
-    /**
-     * The OS type of the virtual machine.
-     */
-    readonly osType?: pulumi.Input<string>;
     /**
      * The object identifier of the owner of the virtual machine.
      */
@@ -450,8 +422,4 @@ export interface VirtualMachineArgs {
      * The user name of the virtual machine.
      */
     readonly userName?: pulumi.Input<string>;
-    /**
-     * Tells source of creation of lab virtual machine. Output property only.
-     */
-    readonly virtualMachineCreationSource?: pulumi.Input<string | enums.devtestlab.latest.VirtualMachineCreationSource>;
 }

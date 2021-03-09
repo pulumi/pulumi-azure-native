@@ -44,7 +44,7 @@ class GetDataCollectionRuleAssociationResult:
 
     @property
     @pulumi.getter(name="dataCollectionRuleId")
-    def data_collection_rule_id(self) -> str:
+    def data_collection_rule_id(self) -> Optional[str]:
         """
         The resource ID of the data collection rule that is to be associated.
         """
@@ -121,7 +121,7 @@ def get_data_collection_rule_association(association_name: Optional[str] = None,
     Definition of generic ARM proxy resource.
 
 
-    :param str association_name: The name of the association.
+    :param str association_name: The name of the association. The name is case insensitive.
     :param str resource_uri: The identifier of the resource.
     """
     __args__ = dict()

@@ -17,10 +17,10 @@ namespace Pulumi.AzureNative.Insights.V20191101Preview.Outputs
         /// A friendly name for the destination. 
         /// This name should be unique across all destinations (regardless of type) within the data collection rule.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
 
         [OutputConstructor]
-        private DestinationsSpecResponseAzureMonitorMetrics(string name)
+        private DestinationsSpecResponseAzureMonitorMetrics(string? name)
         {
             Name = name;
         }

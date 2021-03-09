@@ -19,29 +19,22 @@ class VirtualMachine(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allow_claim: Optional[pulumi.Input[bool]] = None,
-                 artifact_deployment_status: Optional[pulumi.Input[pulumi.InputType['ArtifactDeploymentStatusPropertiesArgs']]] = None,
                  artifacts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ArtifactInstallPropertiesArgs']]]]] = None,
-                 compute_id: Optional[pulumi.Input[str]] = None,
-                 created_by_user: Optional[pulumi.Input[str]] = None,
-                 created_by_user_id: Optional[pulumi.Input[str]] = None,
                  created_date: Optional[pulumi.Input[str]] = None,
                  custom_image_id: Optional[pulumi.Input[str]] = None,
                  data_disk_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataDiskPropertiesArgs']]]]] = None,
                  disallow_public_ip_address: Optional[pulumi.Input[bool]] = None,
                  environment_id: Optional[pulumi.Input[str]] = None,
                  expiration_date: Optional[pulumi.Input[str]] = None,
-                 fqdn: Optional[pulumi.Input[str]] = None,
                  gallery_image_reference: Optional[pulumi.Input[pulumi.InputType['GalleryImageReferenceArgs']]] = None,
                  is_authentication_with_ssh_key: Optional[pulumi.Input[bool]] = None,
                  lab_name: Optional[pulumi.Input[str]] = None,
                  lab_subnet_name: Optional[pulumi.Input[str]] = None,
                  lab_virtual_network_id: Optional[pulumi.Input[str]] = None,
-                 last_known_power_state: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_interface: Optional[pulumi.Input[pulumi.InputType['NetworkInterfacePropertiesArgs']]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
-                 os_type: Optional[pulumi.Input[str]] = None,
                  owner_object_id: Optional[pulumi.Input[str]] = None,
                  owner_user_principal_name: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
@@ -53,7 +46,6 @@ class VirtualMachine(pulumi.CustomResource):
                  storage_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_name: Optional[pulumi.Input[str]] = None,
-                 virtual_machine_creation_source: Optional[pulumi.Input[Union[str, 'VirtualMachineCreationSource']]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -64,29 +56,22 @@ class VirtualMachine(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_claim: Indicates whether another user can take ownership of the virtual machine
-        :param pulumi.Input[pulumi.InputType['ArtifactDeploymentStatusPropertiesArgs']] artifact_deployment_status: The artifact deployment status for the virtual machine.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ArtifactInstallPropertiesArgs']]]] artifacts: The artifacts to be installed on the virtual machine.
-        :param pulumi.Input[str] compute_id: The resource identifier (Microsoft.Compute) of the virtual machine.
-        :param pulumi.Input[str] created_by_user: The email address of creator of the virtual machine.
-        :param pulumi.Input[str] created_by_user_id: The object identifier of the creator of the virtual machine.
         :param pulumi.Input[str] created_date: The creation date of the virtual machine.
         :param pulumi.Input[str] custom_image_id: The custom image identifier of the virtual machine.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataDiskPropertiesArgs']]]] data_disk_parameters: New or existing data disks to attach to the virtual machine after creation
         :param pulumi.Input[bool] disallow_public_ip_address: Indicates whether the virtual machine is to be created without a public IP address.
         :param pulumi.Input[str] environment_id: The resource ID of the environment that contains this virtual machine, if any.
         :param pulumi.Input[str] expiration_date: The expiration date for VM.
-        :param pulumi.Input[str] fqdn: The fully-qualified domain name of the virtual machine.
         :param pulumi.Input[pulumi.InputType['GalleryImageReferenceArgs']] gallery_image_reference: The Microsoft Azure Marketplace image reference of the virtual machine.
         :param pulumi.Input[bool] is_authentication_with_ssh_key: Indicates whether this virtual machine uses an SSH key for authentication.
         :param pulumi.Input[str] lab_name: The name of the lab.
         :param pulumi.Input[str] lab_subnet_name: The lab subnet name of the virtual machine.
         :param pulumi.Input[str] lab_virtual_network_id: The lab virtual network identifier of the virtual machine.
-        :param pulumi.Input[str] last_known_power_state: Last known compute power state captured in DTL
         :param pulumi.Input[str] location: The location of the resource.
         :param pulumi.Input[str] name: The name of the virtual machine.
         :param pulumi.Input[pulumi.InputType['NetworkInterfacePropertiesArgs']] network_interface: The network interface properties.
         :param pulumi.Input[str] notes: The notes of the virtual machine.
-        :param pulumi.Input[str] os_type: The OS type of the virtual machine.
         :param pulumi.Input[str] owner_object_id: The object identifier of the owner of the virtual machine.
         :param pulumi.Input[str] owner_user_principal_name: The user principal name of the virtual machine owner.
         :param pulumi.Input[str] password: The password of the virtual machine administrator.
@@ -98,7 +83,6 @@ class VirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[str] storage_type: Storage type to use for virtual machine (i.e. Standard, Premium).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         :param pulumi.Input[str] user_name: The user name of the virtual machine.
-        :param pulumi.Input[Union[str, 'VirtualMachineCreationSource']] virtual_machine_creation_source: Tells source of creation of lab virtual machine. Output property only.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -117,19 +101,18 @@ class VirtualMachine(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if allow_claim is None:
+                allow_claim = False
             __props__['allow_claim'] = allow_claim
-            __props__['artifact_deployment_status'] = artifact_deployment_status
             __props__['artifacts'] = artifacts
-            __props__['compute_id'] = compute_id
-            __props__['created_by_user'] = created_by_user
-            __props__['created_by_user_id'] = created_by_user_id
             __props__['created_date'] = created_date
             __props__['custom_image_id'] = custom_image_id
             __props__['data_disk_parameters'] = data_disk_parameters
+            if disallow_public_ip_address is None:
+                disallow_public_ip_address = False
             __props__['disallow_public_ip_address'] = disallow_public_ip_address
             __props__['environment_id'] = environment_id
             __props__['expiration_date'] = expiration_date
-            __props__['fqdn'] = fqdn
             __props__['gallery_image_reference'] = gallery_image_reference
             __props__['is_authentication_with_ssh_key'] = is_authentication_with_ssh_key
             if lab_name is None and not opts.urn:
@@ -137,12 +120,12 @@ class VirtualMachine(pulumi.CustomResource):
             __props__['lab_name'] = lab_name
             __props__['lab_subnet_name'] = lab_subnet_name
             __props__['lab_virtual_network_id'] = lab_virtual_network_id
-            __props__['last_known_power_state'] = last_known_power_state
             __props__['location'] = location
             __props__['name'] = name
             __props__['network_interface'] = network_interface
             __props__['notes'] = notes
-            __props__['os_type'] = os_type
+            if owner_object_id is None:
+                owner_object_id = 'dynamicValue'
             __props__['owner_object_id'] = owner_object_id
             __props__['owner_user_principal_name'] = owner_user_principal_name
             __props__['password'] = password
@@ -156,12 +139,19 @@ class VirtualMachine(pulumi.CustomResource):
             __props__['storage_type'] = storage_type
             __props__['tags'] = tags
             __props__['user_name'] = user_name
-            __props__['virtual_machine_creation_source'] = virtual_machine_creation_source
             __props__['applicable_schedule'] = None
+            __props__['artifact_deployment_status'] = None
+            __props__['compute_id'] = None
             __props__['compute_vm'] = None
+            __props__['created_by_user'] = None
+            __props__['created_by_user_id'] = None
+            __props__['fqdn'] = None
+            __props__['last_known_power_state'] = None
+            __props__['os_type'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
             __props__['unique_identifier'] = None
+            __props__['virtual_machine_creation_source'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:devtestlab:VirtualMachine"), pulumi.Alias(type_="azure-native:devtestlab/latest:VirtualMachine"), pulumi.Alias(type_="azure-nextgen:devtestlab/latest:VirtualMachine"), pulumi.Alias(type_="azure-native:devtestlab/v20150521preview:VirtualMachine"), pulumi.Alias(type_="azure-nextgen:devtestlab/v20150521preview:VirtualMachine"), pulumi.Alias(type_="azure-native:devtestlab/v20160515:VirtualMachine"), pulumi.Alias(type_="azure-nextgen:devtestlab/v20160515:VirtualMachine"), pulumi.Alias(type_="azure-native:devtestlab/v20180915:VirtualMachine"), pulumi.Alias(type_="azure-nextgen:devtestlab/v20180915:VirtualMachine")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualMachine, __self__).__init__(
@@ -245,7 +235,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="artifactDeploymentStatus")
-    def artifact_deployment_status(self) -> pulumi.Output[Optional['outputs.ArtifactDeploymentStatusPropertiesResponse']]:
+    def artifact_deployment_status(self) -> pulumi.Output['outputs.ArtifactDeploymentStatusPropertiesResponse']:
         """
         The artifact deployment status for the virtual machine.
         """
@@ -261,7 +251,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="computeId")
-    def compute_id(self) -> pulumi.Output[Optional[str]]:
+    def compute_id(self) -> pulumi.Output[str]:
         """
         The resource identifier (Microsoft.Compute) of the virtual machine.
         """
@@ -277,7 +267,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdByUser")
-    def created_by_user(self) -> pulumi.Output[Optional[str]]:
+    def created_by_user(self) -> pulumi.Output[str]:
         """
         The email address of creator of the virtual machine.
         """
@@ -285,7 +275,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdByUserId")
-    def created_by_user_id(self) -> pulumi.Output[Optional[str]]:
+    def created_by_user_id(self) -> pulumi.Output[str]:
         """
         The object identifier of the creator of the virtual machine.
         """
@@ -341,7 +331,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def fqdn(self) -> pulumi.Output[Optional[str]]:
+    def fqdn(self) -> pulumi.Output[str]:
         """
         The fully-qualified domain name of the virtual machine.
         """
@@ -381,7 +371,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastKnownPowerState")
-    def last_known_power_state(self) -> pulumi.Output[Optional[str]]:
+    def last_known_power_state(self) -> pulumi.Output[str]:
         """
         Last known compute power state captured in DTL
         """
@@ -421,7 +411,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="osType")
-    def os_type(self) -> pulumi.Output[Optional[str]]:
+    def os_type(self) -> pulumi.Output[str]:
         """
         The OS type of the virtual machine.
         """
@@ -533,7 +523,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="virtualMachineCreationSource")
-    def virtual_machine_creation_source(self) -> pulumi.Output[Optional[str]]:
+    def virtual_machine_creation_source(self) -> pulumi.Output[str]:
         """
         Tells source of creation of lab virtual machine. Output property only.
         """

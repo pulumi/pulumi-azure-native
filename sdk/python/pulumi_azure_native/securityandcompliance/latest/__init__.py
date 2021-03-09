@@ -7,21 +7,25 @@ from ._enums import *
 from .get_private_endpoint_connections_adt_api import *
 from .get_private_endpoint_connections_comp import *
 from .get_private_endpoint_connections_for_edm import *
+from .get_private_endpoint_connections_for_mip_policy_sync import *
 from .get_private_endpoint_connections_for_scc_powershell import *
 from .get_private_endpoint_connections_sec import *
 from .getprivate_link_services_for_edm_upload import *
 from .getprivate_link_services_for_m365_compliance_center import *
 from .getprivate_link_services_for_m365_security_center import *
+from .getprivate_link_services_for_mip_policy_sync import *
 from .getprivate_link_services_for_o365_management_activity_api import *
 from .getprivate_link_services_for_scc_powershell import *
 from .private_endpoint_connections_adt_api import *
 from .private_endpoint_connections_comp import *
 from .private_endpoint_connections_for_edm import *
+from .private_endpoint_connections_for_mip_policy_sync import *
 from .private_endpoint_connections_for_scc_powershell import *
 from .private_endpoint_connections_sec import *
 from .private_link_services_for_edm_upload import *
 from .private_link_services_for_m365_compliance_center import *
 from .private_link_services_for_m365_security_center import *
+from .private_link_services_for_mip_policy_sync import *
 from .private_link_services_for_o365_management_activity_api import *
 from .private_link_services_for_scc_powershell import *
 from ._inputs import *
@@ -45,6 +49,8 @@ def _register_module():
                 return PrivateEndpointConnectionsComp(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:securityandcompliance/latest:PrivateEndpointConnectionsForEDM":
                 return PrivateEndpointConnectionsForEDM(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:securityandcompliance/latest:PrivateEndpointConnectionsForMIPPolicySync":
+                return PrivateEndpointConnectionsForMIPPolicySync(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:securityandcompliance/latest:PrivateEndpointConnectionsForSCCPowershell":
                 return PrivateEndpointConnectionsForSCCPowershell(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:securityandcompliance/latest:PrivateEndpointConnectionsSec":
@@ -55,6 +61,8 @@ def _register_module():
                 return PrivateLinkServicesForM365ComplianceCenter(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:securityandcompliance/latest:privateLinkServicesForM365SecurityCenter":
                 return PrivateLinkServicesForM365SecurityCenter(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:securityandcompliance/latest:privateLinkServicesForMIPPolicySync":
+                return PrivateLinkServicesForMIPPolicySync(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:securityandcompliance/latest:privateLinkServicesForO365ManagementActivityAPI":
                 return PrivateLinkServicesForO365ManagementActivityAPI(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:securityandcompliance/latest:privateLinkServicesForSCCPowershell":

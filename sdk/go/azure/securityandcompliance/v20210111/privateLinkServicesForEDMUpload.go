@@ -61,6 +61,12 @@ func NewPrivateLinkServicesForEDMUpload(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:securityandcompliance/latest:privateLinkServicesForEDMUpload"),
 		},
+		{
+			Type: pulumi.String("azure-native:securityandcompliance/v20210308:privateLinkServicesForEDMUpload"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:securityandcompliance/v20210308:privateLinkServicesForEDMUpload"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource PrivateLinkServicesForEDMUpload

@@ -20,13 +20,19 @@ class GetBackupInstanceResult:
     """
     BackupInstance Resource
     """
-    def __init__(__self__, data_source_info=None, data_source_set_info=None, id=None, name=None, object_type=None, policy_info=None, protection_status=None, provisioning_state=None, system_data=None, type=None):
+    def __init__(__self__, current_protection_state=None, data_source_info=None, data_source_set_info=None, friendly_name=None, id=None, name=None, object_type=None, policy_info=None, protection_error_details=None, protection_status=None, provisioning_state=None, system_data=None, type=None):
+        if current_protection_state and not isinstance(current_protection_state, str):
+            raise TypeError("Expected argument 'current_protection_state' to be a str")
+        pulumi.set(__self__, "current_protection_state", current_protection_state)
         if data_source_info and not isinstance(data_source_info, dict):
             raise TypeError("Expected argument 'data_source_info' to be a dict")
         pulumi.set(__self__, "data_source_info", data_source_info)
         if data_source_set_info and not isinstance(data_source_set_info, dict):
             raise TypeError("Expected argument 'data_source_set_info' to be a dict")
         pulumi.set(__self__, "data_source_set_info", data_source_set_info)
+        if friendly_name and not isinstance(friendly_name, str):
+            raise TypeError("Expected argument 'friendly_name' to be a str")
+        pulumi.set(__self__, "friendly_name", friendly_name)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -39,6 +45,9 @@ class GetBackupInstanceResult:
         if policy_info and not isinstance(policy_info, dict):
             raise TypeError("Expected argument 'policy_info' to be a dict")
         pulumi.set(__self__, "policy_info", policy_info)
+        if protection_error_details and not isinstance(protection_error_details, dict):
+            raise TypeError("Expected argument 'protection_error_details' to be a dict")
+        pulumi.set(__self__, "protection_error_details", protection_error_details)
         if protection_status and not isinstance(protection_status, dict):
             raise TypeError("Expected argument 'protection_status' to be a dict")
         pulumi.set(__self__, "protection_status", protection_status)
@@ -51,6 +60,14 @@ class GetBackupInstanceResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="currentProtectionState")
+    def current_protection_state(self) -> str:
+        """
+        Specifies the current protection state of the resource
+        """
+        return pulumi.get(self, "current_protection_state")
 
     @property
     @pulumi.getter(name="dataSourceInfo")
@@ -67,6 +84,14 @@ class GetBackupInstanceResult:
         Gets or sets the data source set information.
         """
         return pulumi.get(self, "data_source_set_info")
+
+    @property
+    @pulumi.getter(name="friendlyName")
+    def friendly_name(self) -> str:
+        """
+        Gets or sets the Backup Instance friendly name.
+        """
+        return pulumi.get(self, "friendly_name")
 
     @property
     @pulumi.getter
@@ -86,7 +111,7 @@ class GetBackupInstanceResult:
 
     @property
     @pulumi.getter(name="objectType")
-    def object_type(self) -> Optional[str]:
+    def object_type(self) -> str:
         return pulumi.get(self, "object_type")
 
     @property
@@ -96,6 +121,14 @@ class GetBackupInstanceResult:
         Gets or sets the policy information.
         """
         return pulumi.get(self, "policy_info")
+
+    @property
+    @pulumi.getter(name="protectionErrorDetails")
+    def protection_error_details(self) -> 'outputs.UserFacingErrorResponse':
+        """
+        Specifies the protection error of the resource
+        """
+        return pulumi.get(self, "protection_error_details")
 
     @property
     @pulumi.getter(name="protectionStatus")
@@ -136,12 +169,15 @@ class AwaitableGetBackupInstanceResult(GetBackupInstanceResult):
         if False:
             yield self
         return GetBackupInstanceResult(
+            current_protection_state=self.current_protection_state,
             data_source_info=self.data_source_info,
             data_source_set_info=self.data_source_set_info,
+            friendly_name=self.friendly_name,
             id=self.id,
             name=self.name,
             object_type=self.object_type,
             policy_info=self.policy_info,
+            protection_error_details=self.protection_error_details,
             protection_status=self.protection_status,
             provisioning_state=self.provisioning_state,
             system_data=self.system_data,
@@ -172,12 +208,15 @@ def get_backup_instance(backup_instance_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:dataprotection:getBackupInstance', __args__, opts=opts, typ=GetBackupInstanceResult).value
 
     return AwaitableGetBackupInstanceResult(
+        current_protection_state=__ret__.current_protection_state,
         data_source_info=__ret__.data_source_info,
         data_source_set_info=__ret__.data_source_set_info,
+        friendly_name=__ret__.friendly_name,
         id=__ret__.id,
         name=__ret__.name,
         object_type=__ret__.object_type,
         policy_info=__ret__.policy_info,
+        protection_error_details=__ret__.protection_error_details,
         protection_status=__ret__.protection_status,
         provisioning_state=__ret__.provisioning_state,
         system_data=__ret__.system_data,

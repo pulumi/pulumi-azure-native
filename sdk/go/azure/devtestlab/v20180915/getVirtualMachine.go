@@ -35,17 +35,17 @@ type LookupVirtualMachineResult struct {
 	// The applicable schedule for the virtual machine.
 	ApplicableSchedule ApplicableScheduleResponse `pulumi:"applicableSchedule"`
 	// The artifact deployment status for the virtual machine.
-	ArtifactDeploymentStatus *ArtifactDeploymentStatusPropertiesResponse `pulumi:"artifactDeploymentStatus"`
+	ArtifactDeploymentStatus ArtifactDeploymentStatusPropertiesResponse `pulumi:"artifactDeploymentStatus"`
 	// The artifacts to be installed on the virtual machine.
 	Artifacts []ArtifactInstallPropertiesResponse `pulumi:"artifacts"`
 	// The resource identifier (Microsoft.Compute) of the virtual machine.
-	ComputeId *string `pulumi:"computeId"`
+	ComputeId string `pulumi:"computeId"`
 	// The compute virtual machine properties.
 	ComputeVm ComputeVmPropertiesResponse `pulumi:"computeVm"`
 	// The email address of creator of the virtual machine.
-	CreatedByUser *string `pulumi:"createdByUser"`
+	CreatedByUser string `pulumi:"createdByUser"`
 	// The object identifier of the creator of the virtual machine.
-	CreatedByUserId *string `pulumi:"createdByUserId"`
+	CreatedByUserId string `pulumi:"createdByUserId"`
 	// The creation date of the virtual machine.
 	CreatedDate *string `pulumi:"createdDate"`
 	// The custom image identifier of the virtual machine.
@@ -59,7 +59,7 @@ type LookupVirtualMachineResult struct {
 	// The expiration date for VM.
 	ExpirationDate *string `pulumi:"expirationDate"`
 	// The fully-qualified domain name of the virtual machine.
-	Fqdn *string `pulumi:"fqdn"`
+	Fqdn string `pulumi:"fqdn"`
 	// The Microsoft Azure Marketplace image reference of the virtual machine.
 	GalleryImageReference *GalleryImageReferenceResponse `pulumi:"galleryImageReference"`
 	// The identifier of the resource.
@@ -71,7 +71,7 @@ type LookupVirtualMachineResult struct {
 	// The lab virtual network identifier of the virtual machine.
 	LabVirtualNetworkId *string `pulumi:"labVirtualNetworkId"`
 	// Last known compute power state captured in DTL
-	LastKnownPowerState *string `pulumi:"lastKnownPowerState"`
+	LastKnownPowerState string `pulumi:"lastKnownPowerState"`
 	// The location of the resource.
 	Location *string `pulumi:"location"`
 	// The name of the resource.
@@ -81,7 +81,7 @@ type LookupVirtualMachineResult struct {
 	// The notes of the virtual machine.
 	Notes *string `pulumi:"notes"`
 	// The OS type of the virtual machine.
-	OsType *string `pulumi:"osType"`
+	OsType string `pulumi:"osType"`
 	// The object identifier of the owner of the virtual machine.
 	OwnerObjectId *string `pulumi:"ownerObjectId"`
 	// The user principal name of the virtual machine owner.
@@ -109,5 +109,5 @@ type LookupVirtualMachineResult struct {
 	// The user name of the virtual machine.
 	UserName *string `pulumi:"userName"`
 	// Tells source of creation of lab virtual machine. Output property only.
-	VirtualMachineCreationSource *string `pulumi:"virtualMachineCreationSource"`
+	VirtualMachineCreationSource string `pulumi:"virtualMachineCreationSource"`
 }

@@ -71,6 +71,26 @@ export const CompressionCodec = {
 
 export type CompressionCodec = (typeof CompressionCodec)[keyof typeof CompressionCodec];
 
+export const CosmosDbConnectionMode = {
+    Gateway: "Gateway",
+    Direct: "Direct",
+} as const;
+
+/**
+ * The connection mode used to access CosmosDB account. Type: string (or Expression with resultType string).
+ */
+export type CosmosDbConnectionMode = (typeof CosmosDbConnectionMode)[keyof typeof CosmosDbConnectionMode];
+
+export const CosmosDbServicePrincipalCredentialType = {
+    ServicePrincipalKey: "ServicePrincipalKey",
+    ServicePrincipalCert: "ServicePrincipalCert",
+} as const;
+
+/**
+ * The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).
+ */
+export type CosmosDbServicePrincipalCredentialType = (typeof CosmosDbServicePrincipalCredentialType)[keyof typeof CosmosDbServicePrincipalCredentialType];
+
 export const DataFlowComputeType = {
     General: "General",
     MemoryOptimized: "MemoryOptimized",

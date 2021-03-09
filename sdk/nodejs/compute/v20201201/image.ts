@@ -40,7 +40,7 @@ export class Image extends pulumi.CustomResource {
      */
     public readonly extendedLocation!: pulumi.Output<outputs.compute.v20201201.ExtendedLocationResponse | undefined>;
     /**
-     * Gets the HyperVGenerationType of the VirtualMachine created from the image
+     * Specifies the HyperVGenerationType of the VirtualMachine created from the image. From API Version 2019-03-01 if the image source is a blob, then we need the user to specify the value, if the source is managed resource like disk or snapshot, we may require the user to specify the property if we cannot deduce it from the source managed resource.
      */
     public readonly hyperVGeneration!: pulumi.Output<string | undefined>;
     /**
@@ -126,7 +126,7 @@ export interface ImageArgs {
      */
     readonly extendedLocation?: pulumi.Input<inputs.compute.v20201201.ExtendedLocation>;
     /**
-     * Gets the HyperVGenerationType of the VirtualMachine created from the image
+     * Specifies the HyperVGenerationType of the VirtualMachine created from the image. From API Version 2019-03-01 if the image source is a blob, then we need the user to specify the value, if the source is managed resource like disk or snapshot, we may require the user to specify the property if we cannot deduce it from the source managed resource.
      */
     readonly hyperVGeneration?: pulumi.Input<string | enums.compute.v20201201.HyperVGenerationTypes>;
     /**

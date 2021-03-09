@@ -62,7 +62,7 @@ export interface GetDiskResult {
      */
     readonly diskBlobName?: string;
     /**
-     * The size of the disk in GibiBytes.
+     * The size of the disk in Gibibytes.
      */
     readonly diskSizeGiB?: number;
     /**
@@ -101,6 +101,10 @@ export interface GetDiskResult {
      * The provisioning status of the resource.
      */
     readonly provisioningState: string;
+    /**
+     * When backed by a blob, the storage account where the blob is.
+     */
+    readonly storageAccountId?: string;
     /**
      * The tags of the resource.
      */

@@ -58,7 +58,7 @@ export interface GetVirtualMachineResult {
     /**
      * The artifact deployment status for the virtual machine.
      */
-    readonly artifactDeploymentStatus?: outputs.devtestlab.v20180915.ArtifactDeploymentStatusPropertiesResponse;
+    readonly artifactDeploymentStatus: outputs.devtestlab.v20180915.ArtifactDeploymentStatusPropertiesResponse;
     /**
      * The artifacts to be installed on the virtual machine.
      */
@@ -66,7 +66,7 @@ export interface GetVirtualMachineResult {
     /**
      * The resource identifier (Microsoft.Compute) of the virtual machine.
      */
-    readonly computeId?: string;
+    readonly computeId: string;
     /**
      * The compute virtual machine properties.
      */
@@ -74,11 +74,11 @@ export interface GetVirtualMachineResult {
     /**
      * The email address of creator of the virtual machine.
      */
-    readonly createdByUser?: string;
+    readonly createdByUser: string;
     /**
      * The object identifier of the creator of the virtual machine.
      */
-    readonly createdByUserId?: string;
+    readonly createdByUserId: string;
     /**
      * The creation date of the virtual machine.
      */
@@ -106,7 +106,7 @@ export interface GetVirtualMachineResult {
     /**
      * The fully-qualified domain name of the virtual machine.
      */
-    readonly fqdn?: string;
+    readonly fqdn: string;
     /**
      * The Microsoft Azure Marketplace image reference of the virtual machine.
      */
@@ -130,7 +130,7 @@ export interface GetVirtualMachineResult {
     /**
      * Last known compute power state captured in DTL
      */
-    readonly lastKnownPowerState?: string;
+    readonly lastKnownPowerState: string;
     /**
      * The location of the resource.
      */
@@ -150,7 +150,7 @@ export interface GetVirtualMachineResult {
     /**
      * The OS type of the virtual machine.
      */
-    readonly osType?: string;
+    readonly osType: string;
     /**
      * The object identifier of the owner of the virtual machine.
      */
@@ -206,5 +206,5 @@ export interface GetVirtualMachineResult {
     /**
      * Tells source of creation of lab virtual machine. Output property only.
      */
-    readonly virtualMachineCreationSource?: string;
+    readonly virtualMachineCreationSource: string;
 }

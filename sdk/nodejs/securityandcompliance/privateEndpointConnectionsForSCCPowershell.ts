@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The Private Endpoint Connection resource.
- * API Version: 2021-01-11.
+ * API Version: 2021-03-08.
  */
 export class PrivateEndpointConnectionsForSCCPowershell extends pulumi.CustomResource {
     /**
@@ -101,7 +101,7 @@ export class PrivateEndpointConnectionsForSCCPowershell extends pulumi.CustomRes
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:securityandcompliance:PrivateEndpointConnectionsForSCCPowershell" }, { type: "azure-native:securityandcompliance/latest:PrivateEndpointConnectionsForSCCPowershell" }, { type: "azure-nextgen:securityandcompliance/latest:PrivateEndpointConnectionsForSCCPowershell" }, { type: "azure-native:securityandcompliance/v20210111:PrivateEndpointConnectionsForSCCPowershell" }, { type: "azure-nextgen:securityandcompliance/v20210111:PrivateEndpointConnectionsForSCCPowershell" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:securityandcompliance:PrivateEndpointConnectionsForSCCPowershell" }, { type: "azure-native:securityandcompliance/latest:PrivateEndpointConnectionsForSCCPowershell" }, { type: "azure-nextgen:securityandcompliance/latest:PrivateEndpointConnectionsForSCCPowershell" }, { type: "azure-native:securityandcompliance/v20210111:PrivateEndpointConnectionsForSCCPowershell" }, { type: "azure-nextgen:securityandcompliance/v20210111:PrivateEndpointConnectionsForSCCPowershell" }, { type: "azure-native:securityandcompliance/v20210308:PrivateEndpointConnectionsForSCCPowershell" }, { type: "azure-nextgen:securityandcompliance/v20210308:PrivateEndpointConnectionsForSCCPowershell" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateEndpointConnectionsForSCCPowershell.__pulumiType, name, inputs, opts);
     }

@@ -35,7 +35,7 @@ class PrivateLinkServicesForM365SecurityCenter(pulumi.CustomResource):
                  __opts__=None):
         """
         The description of the service.
-        Latest API Version: 2021-01-11.
+        Latest API Version: 2021-03-08.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -81,7 +81,7 @@ class PrivateLinkServicesForM365SecurityCenter(pulumi.CustomResource):
             __props__['name'] = None
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:securityandcompliance/latest:privateLinkServicesForM365SecurityCenter"), pulumi.Alias(type_="azure-native:securityandcompliance:privateLinkServicesForM365SecurityCenter"), pulumi.Alias(type_="azure-nextgen:securityandcompliance:privateLinkServicesForM365SecurityCenter"), pulumi.Alias(type_="azure-native:securityandcompliance/v20210111:privateLinkServicesForM365SecurityCenter"), pulumi.Alias(type_="azure-nextgen:securityandcompliance/v20210111:privateLinkServicesForM365SecurityCenter")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:securityandcompliance/latest:privateLinkServicesForM365SecurityCenter"), pulumi.Alias(type_="azure-native:securityandcompliance:privateLinkServicesForM365SecurityCenter"), pulumi.Alias(type_="azure-nextgen:securityandcompliance:privateLinkServicesForM365SecurityCenter"), pulumi.Alias(type_="azure-native:securityandcompliance/v20210111:privateLinkServicesForM365SecurityCenter"), pulumi.Alias(type_="azure-nextgen:securityandcompliance/v20210111:privateLinkServicesForM365SecurityCenter"), pulumi.Alias(type_="azure-native:securityandcompliance/v20210308:privateLinkServicesForM365SecurityCenter"), pulumi.Alias(type_="azure-nextgen:securityandcompliance/v20210308:privateLinkServicesForM365SecurityCenter")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateLinkServicesForM365SecurityCenter, __self__).__init__(
             'azure-native:securityandcompliance/latest:privateLinkServicesForM365SecurityCenter',

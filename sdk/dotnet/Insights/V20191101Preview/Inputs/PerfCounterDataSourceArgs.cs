@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.Insights.V20191101Preview.Inputs
     /// </summary>
     public sealed class PerfCounterDataSourceArgs : Pulumi.ResourceArgs
     {
-        [Input("counterSpecifiers", required: true)]
+        [Input("counterSpecifiers")]
         private InputList<string>? _counterSpecifiers;
 
         /// <summary>
@@ -34,22 +34,16 @@ namespace Pulumi.AzureNative.Insights.V20191101Preview.Inputs
         /// A friendly name for the data source. 
         /// This name should be unique across all data sources (regardless of type) within the data collection rule.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// The number of seconds between consecutive counter measurements (samples).
         /// </summary>
-        [Input("samplingFrequencyInSeconds", required: true)]
-        public Input<int> SamplingFrequencyInSeconds { get; set; } = null!;
+        [Input("samplingFrequencyInSeconds")]
+        public Input<int>? SamplingFrequencyInSeconds { get; set; }
 
-        /// <summary>
-        /// The interval between data uploads (scheduled transfers), rounded up to the nearest minute.
-        /// </summary>
-        [Input("scheduledTransferPeriod", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.Insights.V20191101Preview.KnownPerfCounterDataSourceScheduledTransferPeriod> ScheduledTransferPeriod { get; set; } = null!;
-
-        [Input("streams", required: true)]
+        [Input("streams")]
         private InputList<Union<string, Pulumi.AzureNative.Insights.V20191101Preview.KnownPerfCounterDataSourceStreams>>? _streams;
 
         /// <summary>

@@ -522,6 +522,37 @@ namespace Pulumi.AzureNative.Insights
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The kind of the resource.
+    /// </summary>
+    [EnumType]
+    public readonly struct KnownDataCollectionRuleResourceKind : IEquatable<KnownDataCollectionRuleResourceKind>
+    {
+        private readonly string _value;
+
+        private KnownDataCollectionRuleResourceKind(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static KnownDataCollectionRuleResourceKind Linux { get; } = new KnownDataCollectionRuleResourceKind("Linux");
+        public static KnownDataCollectionRuleResourceKind Windows { get; } = new KnownDataCollectionRuleResourceKind("Windows");
+
+        public static bool operator ==(KnownDataCollectionRuleResourceKind left, KnownDataCollectionRuleResourceKind right) => left.Equals(right);
+        public static bool operator !=(KnownDataCollectionRuleResourceKind left, KnownDataCollectionRuleResourceKind right) => !left.Equals(right);
+
+        public static explicit operator string(KnownDataCollectionRuleResourceKind value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is KnownDataCollectionRuleResourceKind other && Equals(other);
+        public bool Equals(KnownDataCollectionRuleResourceKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct KnownDataFlowStreams : IEquatable<KnownDataFlowStreams>
     {
@@ -532,24 +563,9 @@ namespace Pulumi.AzureNative.Insights
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static KnownDataFlowStreams Microsoft_AntiMalwareStatus { get; } = new KnownDataFlowStreams("Microsoft-AntiMalwareStatus");
-        public static KnownDataFlowStreams Microsoft_Auditd { get; } = new KnownDataFlowStreams("Microsoft-Auditd");
-        public static KnownDataFlowStreams Microsoft_CISCOASA { get; } = new KnownDataFlowStreams("Microsoft-CISCOASA");
-        public static KnownDataFlowStreams Microsoft_CommonSecurityLog { get; } = new KnownDataFlowStreams("Microsoft-CommonSecurityLog");
-        public static KnownDataFlowStreams Microsoft_ComputerGroup { get; } = new KnownDataFlowStreams("Microsoft-ComputerGroup");
         public static KnownDataFlowStreams Microsoft_Event { get; } = new KnownDataFlowStreams("Microsoft-Event");
-        public static KnownDataFlowStreams Microsoft_FirewallLog { get; } = new KnownDataFlowStreams("Microsoft-FirewallLog");
-        public static KnownDataFlowStreams Microsoft_HealthStateChange { get; } = new KnownDataFlowStreams("Microsoft-HealthStateChange");
-        public static KnownDataFlowStreams Microsoft_Heartbeat { get; } = new KnownDataFlowStreams("Microsoft-Heartbeat");
         public static KnownDataFlowStreams Microsoft_InsightsMetrics { get; } = new KnownDataFlowStreams("Microsoft-InsightsMetrics");
-        public static KnownDataFlowStreams Microsoft_OperationLog { get; } = new KnownDataFlowStreams("Microsoft-OperationLog");
         public static KnownDataFlowStreams Microsoft_Perf { get; } = new KnownDataFlowStreams("Microsoft-Perf");
-        public static KnownDataFlowStreams Microsoft_ProcessInvestigator { get; } = new KnownDataFlowStreams("Microsoft-ProcessInvestigator");
-        public static KnownDataFlowStreams Microsoft_ProtectionStatus { get; } = new KnownDataFlowStreams("Microsoft-ProtectionStatus");
-        public static KnownDataFlowStreams Microsoft_RomeDetectionEvent { get; } = new KnownDataFlowStreams("Microsoft-RomeDetectionEvent");
-        public static KnownDataFlowStreams Microsoft_SecurityBaseline { get; } = new KnownDataFlowStreams("Microsoft-SecurityBaseline");
-        public static KnownDataFlowStreams Microsoft_SecurityBaselineSummary { get; } = new KnownDataFlowStreams("Microsoft-SecurityBaselineSummary");
-        public static KnownDataFlowStreams Microsoft_SecurityEvent { get; } = new KnownDataFlowStreams("Microsoft-SecurityEvent");
         public static KnownDataFlowStreams Microsoft_Syslog { get; } = new KnownDataFlowStreams("Microsoft-Syslog");
         public static KnownDataFlowStreams Microsoft_WindowsEvent { get; } = new KnownDataFlowStreams("Microsoft-WindowsEvent");
 
@@ -578,24 +594,9 @@ namespace Pulumi.AzureNative.Insights
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static KnownExtensionDataSourceStreams Microsoft_AntiMalwareStatus { get; } = new KnownExtensionDataSourceStreams("Microsoft-AntiMalwareStatus");
-        public static KnownExtensionDataSourceStreams Microsoft_Auditd { get; } = new KnownExtensionDataSourceStreams("Microsoft-Auditd");
-        public static KnownExtensionDataSourceStreams Microsoft_CISCOASA { get; } = new KnownExtensionDataSourceStreams("Microsoft-CISCOASA");
-        public static KnownExtensionDataSourceStreams Microsoft_CommonSecurityLog { get; } = new KnownExtensionDataSourceStreams("Microsoft-CommonSecurityLog");
-        public static KnownExtensionDataSourceStreams Microsoft_ComputerGroup { get; } = new KnownExtensionDataSourceStreams("Microsoft-ComputerGroup");
         public static KnownExtensionDataSourceStreams Microsoft_Event { get; } = new KnownExtensionDataSourceStreams("Microsoft-Event");
-        public static KnownExtensionDataSourceStreams Microsoft_FirewallLog { get; } = new KnownExtensionDataSourceStreams("Microsoft-FirewallLog");
-        public static KnownExtensionDataSourceStreams Microsoft_HealthStateChange { get; } = new KnownExtensionDataSourceStreams("Microsoft-HealthStateChange");
-        public static KnownExtensionDataSourceStreams Microsoft_Heartbeat { get; } = new KnownExtensionDataSourceStreams("Microsoft-Heartbeat");
         public static KnownExtensionDataSourceStreams Microsoft_InsightsMetrics { get; } = new KnownExtensionDataSourceStreams("Microsoft-InsightsMetrics");
-        public static KnownExtensionDataSourceStreams Microsoft_OperationLog { get; } = new KnownExtensionDataSourceStreams("Microsoft-OperationLog");
         public static KnownExtensionDataSourceStreams Microsoft_Perf { get; } = new KnownExtensionDataSourceStreams("Microsoft-Perf");
-        public static KnownExtensionDataSourceStreams Microsoft_ProcessInvestigator { get; } = new KnownExtensionDataSourceStreams("Microsoft-ProcessInvestigator");
-        public static KnownExtensionDataSourceStreams Microsoft_ProtectionStatus { get; } = new KnownExtensionDataSourceStreams("Microsoft-ProtectionStatus");
-        public static KnownExtensionDataSourceStreams Microsoft_RomeDetectionEvent { get; } = new KnownExtensionDataSourceStreams("Microsoft-RomeDetectionEvent");
-        public static KnownExtensionDataSourceStreams Microsoft_SecurityBaseline { get; } = new KnownExtensionDataSourceStreams("Microsoft-SecurityBaseline");
-        public static KnownExtensionDataSourceStreams Microsoft_SecurityBaselineSummary { get; } = new KnownExtensionDataSourceStreams("Microsoft-SecurityBaselineSummary");
-        public static KnownExtensionDataSourceStreams Microsoft_SecurityEvent { get; } = new KnownExtensionDataSourceStreams("Microsoft-SecurityEvent");
         public static KnownExtensionDataSourceStreams Microsoft_Syslog { get; } = new KnownExtensionDataSourceStreams("Microsoft-Syslog");
         public static KnownExtensionDataSourceStreams Microsoft_WindowsEvent { get; } = new KnownExtensionDataSourceStreams("Microsoft-WindowsEvent");
 
@@ -607,40 +608,6 @@ namespace Pulumi.AzureNative.Insights
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is KnownExtensionDataSourceStreams other && Equals(other);
         public bool Equals(KnownExtensionDataSourceStreams other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The interval between data uploads (scheduled transfers), rounded up to the nearest minute.
-    /// </summary>
-    [EnumType]
-    public readonly struct KnownPerfCounterDataSourceScheduledTransferPeriod : IEquatable<KnownPerfCounterDataSourceScheduledTransferPeriod>
-    {
-        private readonly string _value;
-
-        private KnownPerfCounterDataSourceScheduledTransferPeriod(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static KnownPerfCounterDataSourceScheduledTransferPeriod PT1M { get; } = new KnownPerfCounterDataSourceScheduledTransferPeriod("PT1M");
-        public static KnownPerfCounterDataSourceScheduledTransferPeriod PT5M { get; } = new KnownPerfCounterDataSourceScheduledTransferPeriod("PT5M");
-        public static KnownPerfCounterDataSourceScheduledTransferPeriod PT15M { get; } = new KnownPerfCounterDataSourceScheduledTransferPeriod("PT15M");
-        public static KnownPerfCounterDataSourceScheduledTransferPeriod PT30M { get; } = new KnownPerfCounterDataSourceScheduledTransferPeriod("PT30M");
-        public static KnownPerfCounterDataSourceScheduledTransferPeriod PT60M { get; } = new KnownPerfCounterDataSourceScheduledTransferPeriod("PT60M");
-
-        public static bool operator ==(KnownPerfCounterDataSourceScheduledTransferPeriod left, KnownPerfCounterDataSourceScheduledTransferPeriod right) => left.Equals(right);
-        public static bool operator !=(KnownPerfCounterDataSourceScheduledTransferPeriod left, KnownPerfCounterDataSourceScheduledTransferPeriod right) => !left.Equals(right);
-
-        public static explicit operator string(KnownPerfCounterDataSourceScheduledTransferPeriod value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is KnownPerfCounterDataSourceScheduledTransferPeriod other && Equals(other);
-        public bool Equals(KnownPerfCounterDataSourceScheduledTransferPeriod other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -697,7 +664,7 @@ namespace Pulumi.AzureNative.Insights
         public static KnownSyslogDataSourceFacilityNames News { get; } = new KnownSyslogDataSourceFacilityNames("news");
         public static KnownSyslogDataSourceFacilityNames Syslog { get; } = new KnownSyslogDataSourceFacilityNames("syslog");
         public static KnownSyslogDataSourceFacilityNames User { get; } = new KnownSyslogDataSourceFacilityNames("user");
-        public static KnownSyslogDataSourceFacilityNames UUCP { get; } = new KnownSyslogDataSourceFacilityNames("UUCP");
+        public static KnownSyslogDataSourceFacilityNames Uucp { get; } = new KnownSyslogDataSourceFacilityNames("uucp");
         public static KnownSyslogDataSourceFacilityNames Local0 { get; } = new KnownSyslogDataSourceFacilityNames("local0");
         public static KnownSyslogDataSourceFacilityNames Local1 { get; } = new KnownSyslogDataSourceFacilityNames("local1");
         public static KnownSyslogDataSourceFacilityNames Local2 { get; } = new KnownSyslogDataSourceFacilityNames("local2");
@@ -706,6 +673,7 @@ namespace Pulumi.AzureNative.Insights
         public static KnownSyslogDataSourceFacilityNames Local5 { get; } = new KnownSyslogDataSourceFacilityNames("local5");
         public static KnownSyslogDataSourceFacilityNames Local6 { get; } = new KnownSyslogDataSourceFacilityNames("local6");
         public static KnownSyslogDataSourceFacilityNames Local7 { get; } = new KnownSyslogDataSourceFacilityNames("local7");
+        public static KnownSyslogDataSourceFacilityNames Asterisk { get; } = new KnownSyslogDataSourceFacilityNames("*");
 
         public static bool operator ==(KnownSyslogDataSourceFacilityNames left, KnownSyslogDataSourceFacilityNames right) => left.Equals(right);
         public static bool operator !=(KnownSyslogDataSourceFacilityNames left, KnownSyslogDataSourceFacilityNames right) => !left.Equals(right);
@@ -740,6 +708,7 @@ namespace Pulumi.AzureNative.Insights
         public static KnownSyslogDataSourceLogLevels Critical { get; } = new KnownSyslogDataSourceLogLevels("Critical");
         public static KnownSyslogDataSourceLogLevels Alert { get; } = new KnownSyslogDataSourceLogLevels("Alert");
         public static KnownSyslogDataSourceLogLevels Emergency { get; } = new KnownSyslogDataSourceLogLevels("Emergency");
+        public static KnownSyslogDataSourceLogLevels Asterisk { get; } = new KnownSyslogDataSourceLogLevels("*");
 
         public static bool operator ==(KnownSyslogDataSourceLogLevels left, KnownSyslogDataSourceLogLevels right) => left.Equals(right);
         public static bool operator !=(KnownSyslogDataSourceLogLevels left, KnownSyslogDataSourceLogLevels right) => !left.Equals(right);
@@ -776,40 +745,6 @@ namespace Pulumi.AzureNative.Insights
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is KnownSyslogDataSourceStreams other && Equals(other);
         public bool Equals(KnownSyslogDataSourceStreams other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The interval between data uploads (scheduled transfers), rounded up to the nearest minute.
-    /// </summary>
-    [EnumType]
-    public readonly struct KnownWindowsEventLogDataSourceScheduledTransferPeriod : IEquatable<KnownWindowsEventLogDataSourceScheduledTransferPeriod>
-    {
-        private readonly string _value;
-
-        private KnownWindowsEventLogDataSourceScheduledTransferPeriod(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static KnownWindowsEventLogDataSourceScheduledTransferPeriod PT1M { get; } = new KnownWindowsEventLogDataSourceScheduledTransferPeriod("PT1M");
-        public static KnownWindowsEventLogDataSourceScheduledTransferPeriod PT5M { get; } = new KnownWindowsEventLogDataSourceScheduledTransferPeriod("PT5M");
-        public static KnownWindowsEventLogDataSourceScheduledTransferPeriod PT15M { get; } = new KnownWindowsEventLogDataSourceScheduledTransferPeriod("PT15M");
-        public static KnownWindowsEventLogDataSourceScheduledTransferPeriod PT30M { get; } = new KnownWindowsEventLogDataSourceScheduledTransferPeriod("PT30M");
-        public static KnownWindowsEventLogDataSourceScheduledTransferPeriod PT60M { get; } = new KnownWindowsEventLogDataSourceScheduledTransferPeriod("PT60M");
-
-        public static bool operator ==(KnownWindowsEventLogDataSourceScheduledTransferPeriod left, KnownWindowsEventLogDataSourceScheduledTransferPeriod right) => left.Equals(right);
-        public static bool operator !=(KnownWindowsEventLogDataSourceScheduledTransferPeriod left, KnownWindowsEventLogDataSourceScheduledTransferPeriod right) => !left.Equals(right);
-
-        public static explicit operator string(KnownWindowsEventLogDataSourceScheduledTransferPeriod value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is KnownWindowsEventLogDataSourceScheduledTransferPeriod other && Equals(other);
-        public bool Equals(KnownWindowsEventLogDataSourceScheduledTransferPeriod other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

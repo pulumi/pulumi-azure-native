@@ -81,6 +81,8 @@ namespace Pulumi.AzureNative.SecurityAndCompliance.V20210111
                     new Pulumi.Alias { Type = "azure-nextgen:securityandcompliance:PrivateEndpointConnectionsAdtAPI"},
                     new Pulumi.Alias { Type = "azure-native:securityandcompliance/latest:PrivateEndpointConnectionsAdtAPI"},
                     new Pulumi.Alias { Type = "azure-nextgen:securityandcompliance/latest:PrivateEndpointConnectionsAdtAPI"},
+                    new Pulumi.Alias { Type = "azure-native:securityandcompliance/v20210308:PrivateEndpointConnectionsAdtAPI"},
+                    new Pulumi.Alias { Type = "azure-nextgen:securityandcompliance/v20210308:PrivateEndpointConnectionsAdtAPI"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -19,7 +19,7 @@ type Formula struct {
 	pulumi.CustomResourceState
 
 	// The author of the formula.
-	Author pulumi.StringPtrOutput `pulumi:"author"`
+	Author pulumi.StringOutput `pulumi:"author"`
 	// The creation date of the formula.
 	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
 	// The description of the formula.
@@ -167,8 +167,6 @@ func (FormulaState) ElementType() reflect.Type {
 }
 
 type formulaArgs struct {
-	// The author of the formula.
-	Author *string `pulumi:"author"`
 	// The description of the formula.
 	Description *string `pulumi:"description"`
 	// The content of the formula.
@@ -191,8 +189,6 @@ type formulaArgs struct {
 
 // The set of arguments for constructing a Formula resource.
 type FormulaArgs struct {
-	// The author of the formula.
-	Author pulumi.StringPtrInput
 	// The description of the formula.
 	Description pulumi.StringPtrInput
 	// The content of the formula.

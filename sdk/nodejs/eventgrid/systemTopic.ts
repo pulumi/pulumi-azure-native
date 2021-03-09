@@ -61,7 +61,7 @@ export class SystemTopic extends pulumi.CustomResource {
      */
     public readonly source!: pulumi.Output<string | undefined>;
     /**
-     * The system metadata relating to this resource.
+     * The system metadata relating to System Topic resource.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.eventgrid.SystemDataResponse>;
     /**

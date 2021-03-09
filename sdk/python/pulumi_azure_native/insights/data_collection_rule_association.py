@@ -28,7 +28,7 @@ class DataCollectionRuleAssociation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] association_name: The name of the association.
+        :param pulumi.Input[str] association_name: The name of the association. The name is case insensitive.
         :param pulumi.Input[str] data_collection_rule_id: The resource ID of the data collection rule that is to be associated.
         :param pulumi.Input[str] description: Description of the association.
         :param pulumi.Input[str] resource_uri: The identifier of the resource.
@@ -51,8 +51,6 @@ class DataCollectionRuleAssociation(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['association_name'] = association_name
-            if data_collection_rule_id is None and not opts.urn:
-                raise TypeError("Missing required property 'data_collection_rule_id'")
             __props__['data_collection_rule_id'] = data_collection_rule_id
             __props__['description'] = description
             if resource_uri is None and not opts.urn:
@@ -96,7 +94,7 @@ class DataCollectionRuleAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dataCollectionRuleId")
-    def data_collection_rule_id(self) -> pulumi.Output[str]:
+    def data_collection_rule_id(self) -> pulumi.Output[Optional[str]]:
         """
         The resource ID of the data collection rule that is to be associated.
         """

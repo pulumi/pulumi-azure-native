@@ -19,14 +19,14 @@ namespace Pulumi.AzureNative.Insights.Inputs
         /// A friendly name for the destination. 
         /// This name should be unique across all destinations (regardless of type) within the data collection rule.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// The resource ID of the Log Analytics workspace.
         /// </summary>
-        [Input("workspaceResourceId", required: true)]
-        public Input<string> WorkspaceResourceId { get; set; } = null!;
+        [Input("workspaceResourceId")]
+        public Input<string>? WorkspaceResourceId { get; set; }
 
         public LogAnalyticsDestinationArgs()
         {

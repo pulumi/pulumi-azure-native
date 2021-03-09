@@ -42,7 +42,7 @@ export class Formula extends pulumi.CustomResource {
     /**
      * The author of the formula.
      */
-    public readonly author!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly author!: pulumi.Output<string>;
     /**
      * The creation date of the formula.
      */
@@ -107,7 +107,6 @@ export class Formula extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["author"] = args ? args.author : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["formulaContent"] = args ? args.formulaContent : undefined;
             inputs["labName"] = args ? args.labName : undefined;
@@ -117,6 +116,7 @@ export class Formula extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["vm"] = args ? args.vm : undefined;
+            inputs["author"] = undefined /*out*/;
             inputs["creationDate"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -148,10 +148,6 @@ export class Formula extends pulumi.CustomResource {
  * The set of arguments for constructing a Formula resource.
  */
 export interface FormulaArgs {
-    /**
-     * The author of the formula.
-     */
-    readonly author?: pulumi.Input<string>;
     /**
      * The description of the formula.
      */

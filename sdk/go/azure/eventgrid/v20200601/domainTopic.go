@@ -18,7 +18,7 @@ type DomainTopic struct {
 	// Name of the resource.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Provisioning state of the domain topic.
-	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// The system metadata relating to Domain Topic resource.
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Type of the resource.

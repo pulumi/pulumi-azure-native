@@ -156,7 +156,7 @@ def getprivate_link_services_for_m365_security_center(resource_group_name: Optio
                                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetprivateLinkServicesForM365SecurityCenterResult:
     """
     The description of the service.
-    API Version: 2021-01-11.
+    API Version: 2021-03-08.
 
 
     :param str resource_group_name: The name of the resource group that contains the service instance.

@@ -162,7 +162,7 @@ class GetVirtualMachineResult:
 
     @property
     @pulumi.getter(name="artifactDeploymentStatus")
-    def artifact_deployment_status(self) -> Optional['outputs.ArtifactDeploymentStatusPropertiesResponse']:
+    def artifact_deployment_status(self) -> 'outputs.ArtifactDeploymentStatusPropertiesResponse':
         """
         The artifact deployment status for the virtual machine.
         """
@@ -178,7 +178,7 @@ class GetVirtualMachineResult:
 
     @property
     @pulumi.getter(name="computeId")
-    def compute_id(self) -> Optional[str]:
+    def compute_id(self) -> str:
         """
         The resource identifier (Microsoft.Compute) of the virtual machine.
         """
@@ -194,7 +194,7 @@ class GetVirtualMachineResult:
 
     @property
     @pulumi.getter(name="createdByUser")
-    def created_by_user(self) -> Optional[str]:
+    def created_by_user(self) -> str:
         """
         The email address of creator of the virtual machine.
         """
@@ -202,7 +202,7 @@ class GetVirtualMachineResult:
 
     @property
     @pulumi.getter(name="createdByUserId")
-    def created_by_user_id(self) -> Optional[str]:
+    def created_by_user_id(self) -> str:
         """
         The object identifier of the creator of the virtual machine.
         """
@@ -258,7 +258,7 @@ class GetVirtualMachineResult:
 
     @property
     @pulumi.getter
-    def fqdn(self) -> Optional[str]:
+    def fqdn(self) -> str:
         """
         The fully-qualified domain name of the virtual machine.
         """
@@ -306,7 +306,7 @@ class GetVirtualMachineResult:
 
     @property
     @pulumi.getter(name="lastKnownPowerState")
-    def last_known_power_state(self) -> Optional[str]:
+    def last_known_power_state(self) -> str:
         """
         Last known compute power state captured in DTL
         """
@@ -346,7 +346,7 @@ class GetVirtualMachineResult:
 
     @property
     @pulumi.getter(name="osType")
-    def os_type(self) -> Optional[str]:
+    def os_type(self) -> str:
         """
         The OS type of the virtual machine.
         """
@@ -458,7 +458,7 @@ class GetVirtualMachineResult:
 
     @property
     @pulumi.getter(name="virtualMachineCreationSource")
-    def virtual_machine_creation_source(self) -> Optional[str]:
+    def virtual_machine_creation_source(self) -> str:
         """
         Tells source of creation of lab virtual machine. Output property only.
         """

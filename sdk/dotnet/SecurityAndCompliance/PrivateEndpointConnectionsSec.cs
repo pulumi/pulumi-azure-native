@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.SecurityAndCompliance
 {
     /// <summary>
     /// The Private Endpoint Connection resource.
-    /// API Version: 2021-01-11.
+    /// API Version: 2021-03-08.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityandcompliance:PrivateEndpointConnectionsSec")]
     public partial class PrivateEndpointConnectionsSec : Pulumi.CustomResource
@@ -82,6 +82,8 @@ namespace Pulumi.AzureNative.SecurityAndCompliance
                     new Pulumi.Alias { Type = "azure-nextgen:securityandcompliance/latest:PrivateEndpointConnectionsSec"},
                     new Pulumi.Alias { Type = "azure-native:securityandcompliance/v20210111:PrivateEndpointConnectionsSec"},
                     new Pulumi.Alias { Type = "azure-nextgen:securityandcompliance/v20210111:PrivateEndpointConnectionsSec"},
+                    new Pulumi.Alias { Type = "azure-native:securityandcompliance/v20210308:PrivateEndpointConnectionsSec"},
+                    new Pulumi.Alias { Type = "azure-nextgen:securityandcompliance/v20210308:PrivateEndpointConnectionsSec"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

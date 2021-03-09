@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * The Private Endpoint Connection resource.
- * Latest API Version: 2021-01-11.
+ * Latest API Version: 2021-03-08.
  */
 /** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:securityandcompliance:getPrivateEndpointConnectionsSec'. */
 export function getPrivateEndpointConnectionsSec(args: GetPrivateEndpointConnectionsSecArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionsSecResult> {

@@ -99,7 +99,7 @@ class DomainTopic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         Provisioning state of the domain topic.
         """

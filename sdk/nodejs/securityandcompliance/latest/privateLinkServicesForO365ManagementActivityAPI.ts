@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * The description of the service.
- * Latest API Version: 2021-01-11.
+ * Latest API Version: 2021-03-08.
  *
  * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:securityandcompliance:privateLinkServicesForO365ManagementActivityAPI'.
  */
@@ -120,7 +120,7 @@ export class PrivateLinkServicesForO365ManagementActivityAPI extends pulumi.Cust
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:securityandcompliance/latest:privateLinkServicesForO365ManagementActivityAPI" }, { type: "azure-native:securityandcompliance:privateLinkServicesForO365ManagementActivityAPI" }, { type: "azure-nextgen:securityandcompliance:privateLinkServicesForO365ManagementActivityAPI" }, { type: "azure-native:securityandcompliance/v20210111:privateLinkServicesForO365ManagementActivityAPI" }, { type: "azure-nextgen:securityandcompliance/v20210111:privateLinkServicesForO365ManagementActivityAPI" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:securityandcompliance/latest:privateLinkServicesForO365ManagementActivityAPI" }, { type: "azure-native:securityandcompliance:privateLinkServicesForO365ManagementActivityAPI" }, { type: "azure-nextgen:securityandcompliance:privateLinkServicesForO365ManagementActivityAPI" }, { type: "azure-native:securityandcompliance/v20210111:privateLinkServicesForO365ManagementActivityAPI" }, { type: "azure-nextgen:securityandcompliance/v20210111:privateLinkServicesForO365ManagementActivityAPI" }, { type: "azure-native:securityandcompliance/v20210308:privateLinkServicesForO365ManagementActivityAPI" }, { type: "azure-nextgen:securityandcompliance/v20210308:privateLinkServicesForO365ManagementActivityAPI" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateLinkServicesForO365ManagementActivityAPI.__pulumiType, name, inputs, opts);
     }

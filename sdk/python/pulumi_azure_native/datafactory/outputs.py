@@ -14702,12 +14702,18 @@ class CosmosDbLinkedServiceResponse(dict):
                  account_endpoint: Optional[Any] = None,
                  account_key: Optional[Any] = None,
                  annotations: Optional[Sequence[Any]] = None,
+                 azure_cloud_type: Optional[Any] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
+                 connection_mode: Optional[str] = None,
                  connection_string: Optional[Any] = None,
                  database: Optional[Any] = None,
                  description: Optional[str] = None,
                  encrypted_credential: Optional[Any] = None,
-                 parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None):
+                 parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
+                 service_principal_credential: Optional[Any] = None,
+                 service_principal_credential_type: Optional[str] = None,
+                 service_principal_id: Optional[Any] = None,
+                 tenant: Optional[Any] = None):
         """
         Microsoft Azure Cosmos Database (CosmosDB) linked service.
         :param str type: Type of linked service.
@@ -14715,12 +14721,18 @@ class CosmosDbLinkedServiceResponse(dict):
         :param Any account_endpoint: The endpoint of the Azure CosmosDB account. Type: string (or Expression with resultType string)
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] account_key: The account key of the Azure CosmosDB account. Type: SecureString or AzureKeyVaultSecretReference.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
+        :param Any azure_cloud_type: Indicates the azure cloud type of the service principle auth. Allowed values are AzurePublic, AzureChina, AzureUsGovernment, AzureGermany. Default value is the data factory regions’ cloud type. Type: string (or Expression with resultType string).
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param str connection_mode: The connection mode used to access CosmosDB account. Type: string (or Expression with resultType string).
         :param Any connection_string: The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param Any database: The name of the database. Type: string (or Expression with resultType string)
         :param str description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] service_principal_credential: The credential of the service principal object in Azure Active Directory. If servicePrincipalCredentialType is 'ServicePrincipalKey', servicePrincipalCredential can be SecureString or AzureKeyVaultSecretReference. If servicePrincipalCredentialType is 'ServicePrincipalCert', servicePrincipalCredential can only be AzureKeyVaultSecretReference.
+        :param str service_principal_credential_type: The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).
+        :param Any service_principal_id: The client ID of the application in Azure Active Directory used for Server-To-Server authentication. Type: string (or Expression with resultType string).
+        :param Any tenant: The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "type", 'CosmosDb')
         if account_endpoint is not None:
@@ -14729,8 +14741,12 @@ class CosmosDbLinkedServiceResponse(dict):
             pulumi.set(__self__, "account_key", account_key)
         if annotations is not None:
             pulumi.set(__self__, "annotations", annotations)
+        if azure_cloud_type is not None:
+            pulumi.set(__self__, "azure_cloud_type", azure_cloud_type)
         if connect_via is not None:
             pulumi.set(__self__, "connect_via", connect_via)
+        if connection_mode is not None:
+            pulumi.set(__self__, "connection_mode", connection_mode)
         if connection_string is not None:
             pulumi.set(__self__, "connection_string", connection_string)
         if database is not None:
@@ -14741,6 +14757,14 @@ class CosmosDbLinkedServiceResponse(dict):
             pulumi.set(__self__, "encrypted_credential", encrypted_credential)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
+        if service_principal_credential is not None:
+            pulumi.set(__self__, "service_principal_credential", service_principal_credential)
+        if service_principal_credential_type is not None:
+            pulumi.set(__self__, "service_principal_credential_type", service_principal_credential_type)
+        if service_principal_id is not None:
+            pulumi.set(__self__, "service_principal_id", service_principal_id)
+        if tenant is not None:
+            pulumi.set(__self__, "tenant", tenant)
 
     @property
     @pulumi.getter
@@ -14776,12 +14800,28 @@ class CosmosDbLinkedServiceResponse(dict):
         return pulumi.get(self, "annotations")
 
     @property
+    @pulumi.getter(name="azureCloudType")
+    def azure_cloud_type(self) -> Optional[Any]:
+        """
+        Indicates the azure cloud type of the service principle auth. Allowed values are AzurePublic, AzureChina, AzureUsGovernment, AzureGermany. Default value is the data factory regions’ cloud type. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "azure_cloud_type")
+
+    @property
     @pulumi.getter(name="connectVia")
     def connect_via(self) -> Optional['outputs.IntegrationRuntimeReferenceResponse']:
         """
         The integration runtime reference.
         """
         return pulumi.get(self, "connect_via")
+
+    @property
+    @pulumi.getter(name="connectionMode")
+    def connection_mode(self) -> Optional[str]:
+        """
+        The connection mode used to access CosmosDB account. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "connection_mode")
 
     @property
     @pulumi.getter(name="connectionString")
@@ -14822,6 +14862,38 @@ class CosmosDbLinkedServiceResponse(dict):
         Parameters for linked service.
         """
         return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter(name="servicePrincipalCredential")
+    def service_principal_credential(self) -> Optional[Any]:
+        """
+        The credential of the service principal object in Azure Active Directory. If servicePrincipalCredentialType is 'ServicePrincipalKey', servicePrincipalCredential can be SecureString or AzureKeyVaultSecretReference. If servicePrincipalCredentialType is 'ServicePrincipalCert', servicePrincipalCredential can only be AzureKeyVaultSecretReference.
+        """
+        return pulumi.get(self, "service_principal_credential")
+
+    @property
+    @pulumi.getter(name="servicePrincipalCredentialType")
+    def service_principal_credential_type(self) -> Optional[str]:
+        """
+        The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "service_principal_credential_type")
+
+    @property
+    @pulumi.getter(name="servicePrincipalId")
+    def service_principal_id(self) -> Optional[Any]:
+        """
+        The client ID of the application in Azure Active Directory used for Server-To-Server authentication. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "service_principal_id")
+
+    @property
+    @pulumi.getter
+    def tenant(self) -> Optional[Any]:
+        """
+        The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "tenant")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

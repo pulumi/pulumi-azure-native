@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.SecurityAndCompliance.Latest
     {
         /// <summary>
         /// The description of the service.
-        /// Latest API Version: 2021-01-11.
+        /// Latest API Version: 2021-03-08.
         /// </summary>
         public static Task<GetprivateLinkServicesForO365ManagementActivityAPIResult> InvokeAsync(GetprivateLinkServicesForO365ManagementActivityAPIArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetprivateLinkServicesForO365ManagementActivityAPIResult>("azure-native:securityandcompliance/latest:getprivateLinkServicesForO365ManagementActivityAPI", args ?? new GetprivateLinkServicesForO365ManagementActivityAPIArgs(), options.WithVersion());

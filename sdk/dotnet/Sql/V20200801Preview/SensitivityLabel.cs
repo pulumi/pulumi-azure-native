@@ -116,6 +116,8 @@ namespace Pulumi.AzureNative.Sql.V20200801Preview
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20170301preview:SensitivityLabel"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20200202preview:SensitivityLabel"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20200202preview:SensitivityLabel"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20201101preview:SensitivityLabel"},
+                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20201101preview:SensitivityLabel"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -166,6 +166,39 @@ namespace Pulumi.AzureNative.DevTestLab
     }
 
     /// <summary>
+    /// Managed identity.
+    /// </summary>
+    [EnumType]
+    public readonly struct ManagedIdentityType : IEquatable<ManagedIdentityType>
+    {
+        private readonly string _value;
+
+        private ManagedIdentityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ManagedIdentityType None { get; } = new ManagedIdentityType("None");
+        public static ManagedIdentityType SystemAssigned { get; } = new ManagedIdentityType("SystemAssigned");
+        public static ManagedIdentityType UserAssigned { get; } = new ManagedIdentityType("UserAssigned");
+        public static ManagedIdentityType SystemAssigned_UserAssigned { get; } = new ManagedIdentityType("SystemAssigned,UserAssigned");
+
+        public static bool operator ==(ManagedIdentityType left, ManagedIdentityType right) => left.Equals(right);
+        public static bool operator !=(ManagedIdentityType left, ManagedIdentityType right) => !left.Equals(right);
+
+        public static explicit operator string(ManagedIdentityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ManagedIdentityType other && Equals(other);
+        public bool Equals(ManagedIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The event type for which this notification is enabled (i.e. AutoShutdown, Cost)
     /// </summary>
     [EnumType]
@@ -345,6 +378,7 @@ namespace Pulumi.AzureNative.DevTestLab
 
         public static SourceControlType VsoGit { get; } = new SourceControlType("VsoGit");
         public static SourceControlType GitHub { get; } = new SourceControlType("GitHub");
+        public static SourceControlType StorageAccount { get; } = new SourceControlType("StorageAccount");
 
         public static bool operator ==(SourceControlType left, SourceControlType right) => left.Equals(right);
         public static bool operator !=(SourceControlType left, SourceControlType right) => !left.Equals(right);
@@ -449,38 +483,6 @@ namespace Pulumi.AzureNative.DevTestLab
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is UsagePermissionType other && Equals(other);
         public bool Equals(UsagePermissionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Tells source of creation of lab virtual machine. Output property only.
-    /// </summary>
-    [EnumType]
-    public readonly struct VirtualMachineCreationSource : IEquatable<VirtualMachineCreationSource>
-    {
-        private readonly string _value;
-
-        private VirtualMachineCreationSource(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static VirtualMachineCreationSource FromCustomImage { get; } = new VirtualMachineCreationSource("FromCustomImage");
-        public static VirtualMachineCreationSource FromGalleryImage { get; } = new VirtualMachineCreationSource("FromGalleryImage");
-        public static VirtualMachineCreationSource FromSharedGalleryImage { get; } = new VirtualMachineCreationSource("FromSharedGalleryImage");
-
-        public static bool operator ==(VirtualMachineCreationSource left, VirtualMachineCreationSource right) => left.Equals(right);
-        public static bool operator !=(VirtualMachineCreationSource left, VirtualMachineCreationSource right) => !left.Equals(right);
-
-        public static explicit operator string(VirtualMachineCreationSource value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is VirtualMachineCreationSource other && Equals(other);
-        public bool Equals(VirtualMachineCreationSource other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

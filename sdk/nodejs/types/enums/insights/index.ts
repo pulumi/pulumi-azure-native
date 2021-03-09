@@ -16,6 +16,7 @@ import * as v20200202preview from "./v20200202preview";
 import * as v20200501preview from "./v20200501preview";
 import * as v20201005preview from "./v20201005preview";
 import * as v20201020 from "./v20201020";
+import * as v20210201preview from "./v20210201preview";
 
 export {
     latest,
@@ -32,6 +33,7 @@ export {
     v20200501preview,
     v20201005preview,
     v20201020,
+    v20210201preview,
 };
 
 export const AggregationTypeEnum = {
@@ -213,25 +215,20 @@ export const Kind = {
  */
 export type Kind = (typeof Kind)[keyof typeof Kind];
 
+export const KnownDataCollectionRuleResourceKind = {
+    Linux: "Linux",
+    Windows: "Windows",
+} as const;
+
+/**
+ * The kind of the resource.
+ */
+export type KnownDataCollectionRuleResourceKind = (typeof KnownDataCollectionRuleResourceKind)[keyof typeof KnownDataCollectionRuleResourceKind];
+
 export const KnownDataFlowStreams = {
-    Microsoft_AntiMalwareStatus: "Microsoft-AntiMalwareStatus",
-    Microsoft_Auditd: "Microsoft-Auditd",
-    Microsoft_CISCOASA: "Microsoft-CISCOASA",
-    Microsoft_CommonSecurityLog: "Microsoft-CommonSecurityLog",
-    Microsoft_ComputerGroup: "Microsoft-ComputerGroup",
     Microsoft_Event: "Microsoft-Event",
-    Microsoft_FirewallLog: "Microsoft-FirewallLog",
-    Microsoft_HealthStateChange: "Microsoft-HealthStateChange",
-    Microsoft_Heartbeat: "Microsoft-Heartbeat",
     Microsoft_InsightsMetrics: "Microsoft-InsightsMetrics",
-    Microsoft_OperationLog: "Microsoft-OperationLog",
     Microsoft_Perf: "Microsoft-Perf",
-    Microsoft_ProcessInvestigator: "Microsoft-ProcessInvestigator",
-    Microsoft_ProtectionStatus: "Microsoft-ProtectionStatus",
-    Microsoft_RomeDetectionEvent: "Microsoft-RomeDetectionEvent",
-    Microsoft_SecurityBaseline: "Microsoft-SecurityBaseline",
-    Microsoft_SecurityBaselineSummary: "Microsoft-SecurityBaselineSummary",
-    Microsoft_SecurityEvent: "Microsoft-SecurityEvent",
     Microsoft_Syslog: "Microsoft-Syslog",
     Microsoft_WindowsEvent: "Microsoft-WindowsEvent",
 } as const;
@@ -239,42 +236,14 @@ export const KnownDataFlowStreams = {
 export type KnownDataFlowStreams = (typeof KnownDataFlowStreams)[keyof typeof KnownDataFlowStreams];
 
 export const KnownExtensionDataSourceStreams = {
-    Microsoft_AntiMalwareStatus: "Microsoft-AntiMalwareStatus",
-    Microsoft_Auditd: "Microsoft-Auditd",
-    Microsoft_CISCOASA: "Microsoft-CISCOASA",
-    Microsoft_CommonSecurityLog: "Microsoft-CommonSecurityLog",
-    Microsoft_ComputerGroup: "Microsoft-ComputerGroup",
     Microsoft_Event: "Microsoft-Event",
-    Microsoft_FirewallLog: "Microsoft-FirewallLog",
-    Microsoft_HealthStateChange: "Microsoft-HealthStateChange",
-    Microsoft_Heartbeat: "Microsoft-Heartbeat",
     Microsoft_InsightsMetrics: "Microsoft-InsightsMetrics",
-    Microsoft_OperationLog: "Microsoft-OperationLog",
     Microsoft_Perf: "Microsoft-Perf",
-    Microsoft_ProcessInvestigator: "Microsoft-ProcessInvestigator",
-    Microsoft_ProtectionStatus: "Microsoft-ProtectionStatus",
-    Microsoft_RomeDetectionEvent: "Microsoft-RomeDetectionEvent",
-    Microsoft_SecurityBaseline: "Microsoft-SecurityBaseline",
-    Microsoft_SecurityBaselineSummary: "Microsoft-SecurityBaselineSummary",
-    Microsoft_SecurityEvent: "Microsoft-SecurityEvent",
     Microsoft_Syslog: "Microsoft-Syslog",
     Microsoft_WindowsEvent: "Microsoft-WindowsEvent",
 } as const;
 
 export type KnownExtensionDataSourceStreams = (typeof KnownExtensionDataSourceStreams)[keyof typeof KnownExtensionDataSourceStreams];
-
-export const KnownPerfCounterDataSourceScheduledTransferPeriod = {
-    PT1M: "PT1M",
-    PT5M: "PT5M",
-    PT15M: "PT15M",
-    PT30M: "PT30M",
-    PT60M: "PT60M",
-} as const;
-
-/**
- * The interval between data uploads (scheduled transfers), rounded up to the nearest minute.
- */
-export type KnownPerfCounterDataSourceScheduledTransferPeriod = (typeof KnownPerfCounterDataSourceScheduledTransferPeriod)[keyof typeof KnownPerfCounterDataSourceScheduledTransferPeriod];
 
 export const KnownPerfCounterDataSourceStreams = {
     Microsoft_Perf: "Microsoft-Perf",
@@ -295,7 +264,7 @@ export const KnownSyslogDataSourceFacilityNames = {
     News: "news",
     Syslog: "syslog",
     User: "user",
-    UUCP: "UUCP",
+    Uucp: "uucp",
     Local0: "local0",
     Local1: "local1",
     Local2: "local2",
@@ -304,6 +273,7 @@ export const KnownSyslogDataSourceFacilityNames = {
     Local5: "local5",
     Local6: "local6",
     Local7: "local7",
+    Asterisk: "*",
 } as const;
 
 export type KnownSyslogDataSourceFacilityNames = (typeof KnownSyslogDataSourceFacilityNames)[keyof typeof KnownSyslogDataSourceFacilityNames];
@@ -317,6 +287,7 @@ export const KnownSyslogDataSourceLogLevels = {
     Critical: "Critical",
     Alert: "Alert",
     Emergency: "Emergency",
+    Asterisk: "*",
 } as const;
 
 export type KnownSyslogDataSourceLogLevels = (typeof KnownSyslogDataSourceLogLevels)[keyof typeof KnownSyslogDataSourceLogLevels];
@@ -326,19 +297,6 @@ export const KnownSyslogDataSourceStreams = {
 } as const;
 
 export type KnownSyslogDataSourceStreams = (typeof KnownSyslogDataSourceStreams)[keyof typeof KnownSyslogDataSourceStreams];
-
-export const KnownWindowsEventLogDataSourceScheduledTransferPeriod = {
-    PT1M: "PT1M",
-    PT5M: "PT5M",
-    PT15M: "PT15M",
-    PT30M: "PT30M",
-    PT60M: "PT60M",
-} as const;
-
-/**
- * The interval between data uploads (scheduled transfers), rounded up to the nearest minute.
- */
-export type KnownWindowsEventLogDataSourceScheduledTransferPeriod = (typeof KnownWindowsEventLogDataSourceScheduledTransferPeriod)[keyof typeof KnownWindowsEventLogDataSourceScheduledTransferPeriod];
 
 export const KnownWindowsEventLogDataSourceStreams = {
     Microsoft_WindowsEvent: "Microsoft-WindowsEvent",

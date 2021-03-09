@@ -59,6 +59,18 @@ namespace Pulumi.AzureNative.Sql.V20200801Preview
         /// </summary>
         public readonly string CreationTime;
         /// <summary>
+        /// Specifies an array of alerts that are disabled. Allowed values are: Sql_Injection, Sql_Injection_Vulnerability, Access_Anomaly, Data_Exfiltration, Unsafe_Action
+        /// </summary>
+        public readonly ImmutableArray<string> DisabledAlerts;
+        /// <summary>
+        /// Specifies that the alert is sent to the account administrators.
+        /// </summary>
+        public readonly bool? EmailAccountAdmins;
+        /// <summary>
+        /// Specifies an array of e-mail addresses to which the alert is sent.
+        /// </summary>
+        public readonly ImmutableArray<string> EmailAddresses;
+        /// <summary>
         /// Resource ID.
         /// </summary>
         public readonly string Id;
@@ -67,9 +79,25 @@ namespace Pulumi.AzureNative.Sql.V20200801Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// Specifies the number of days to keep in the Threat Detection audit logs.
+        /// </summary>
+        public readonly int? RetentionDays;
+        /// <summary>
         /// Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database.
         /// </summary>
         public readonly string State;
+        /// <summary>
+        /// Specifies the identifier key of the Threat Detection audit storage account.
+        /// </summary>
+        public readonly string? StorageAccountAccessKey;
+        /// <summary>
+        /// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
+        /// </summary>
+        public readonly string? StorageEndpoint;
+        /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -79,18 +107,39 @@ namespace Pulumi.AzureNative.Sql.V20200801Preview
         private GetDatabaseSecurityAlertPolicyResult(
             string creationTime,
 
+            ImmutableArray<string> disabledAlerts,
+
+            bool? emailAccountAdmins,
+
+            ImmutableArray<string> emailAddresses,
+
             string id,
 
             string name,
 
+            int? retentionDays,
+
             string state,
+
+            string? storageAccountAccessKey,
+
+            string? storageEndpoint,
+
+            Outputs.SystemDataResponse systemData,
 
             string type)
         {
             CreationTime = creationTime;
+            DisabledAlerts = disabledAlerts;
+            EmailAccountAdmins = emailAccountAdmins;
+            EmailAddresses = emailAddresses;
             Id = id;
             Name = name;
+            RetentionDays = retentionDays;
             State = state;
+            StorageAccountAccessKey = storageAccountAccessKey;
+            StorageEndpoint = storageEndpoint;
+            SystemData = systemData;
             Type = type;
         }
     }

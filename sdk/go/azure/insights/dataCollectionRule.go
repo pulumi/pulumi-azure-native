@@ -24,9 +24,13 @@ type DataCollectionRule struct {
 	// Description of the data collection rule.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The specification of destinations.
-	Destinations DataCollectionRuleResponseDestinationsOutput `pulumi:"destinations"`
+	Destinations DataCollectionRuleResponseDestinationsPtrOutput `pulumi:"destinations"`
 	// Resource entity tag (ETag).
 	Etag pulumi.StringOutput `pulumi:"etag"`
+	// The immutable ID of this data collection rule. This property is READ-ONLY.
+	ImmutableId pulumi.StringOutput `pulumi:"immutableId"`
+	// The kind of the resource.
+	Kind pulumi.StringPtrOutput `pulumi:"kind"`
 	// The geo-location where the resource lives.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the resource.
@@ -46,12 +50,6 @@ func NewDataCollectionRule(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.DataFlows == nil {
-		return nil, errors.New("invalid value for required argument 'DataFlows'")
-	}
-	if args.Destinations == nil {
-		return nil, errors.New("invalid value for required argument 'Destinations'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -100,6 +98,10 @@ type dataCollectionRuleState struct {
 	Destinations *DataCollectionRuleResponseDestinations `pulumi:"destinations"`
 	// Resource entity tag (ETag).
 	Etag *string `pulumi:"etag"`
+	// The immutable ID of this data collection rule. This property is READ-ONLY.
+	ImmutableId *string `pulumi:"immutableId"`
+	// The kind of the resource.
+	Kind *string `pulumi:"kind"`
 	// The geo-location where the resource lives.
 	Location *string `pulumi:"location"`
 	// The name of the resource.
@@ -124,6 +126,10 @@ type DataCollectionRuleState struct {
 	Destinations DataCollectionRuleResponseDestinationsPtrInput
 	// Resource entity tag (ETag).
 	Etag pulumi.StringPtrInput
+	// The immutable ID of this data collection rule. This property is READ-ONLY.
+	ImmutableId pulumi.StringPtrInput
+	// The kind of the resource.
+	Kind pulumi.StringPtrInput
 	// The geo-location where the resource lives.
 	Location pulumi.StringPtrInput
 	// The name of the resource.
@@ -151,7 +157,9 @@ type dataCollectionRuleArgs struct {
 	// Description of the data collection rule.
 	Description *string `pulumi:"description"`
 	// The specification of destinations.
-	Destinations DataCollectionRuleDestinations `pulumi:"destinations"`
+	Destinations *DataCollectionRuleDestinations `pulumi:"destinations"`
+	// The kind of the resource.
+	Kind *string `pulumi:"kind"`
 	// The geo-location where the resource lives.
 	Location *string `pulumi:"location"`
 	// The name of the resource group. The name is case insensitive.
@@ -172,7 +180,9 @@ type DataCollectionRuleArgs struct {
 	// Description of the data collection rule.
 	Description pulumi.StringPtrInput
 	// The specification of destinations.
-	Destinations DataCollectionRuleDestinationsInput
+	Destinations DataCollectionRuleDestinationsPtrInput
+	// The kind of the resource.
+	Kind pulumi.StringPtrInput
 	// The geo-location where the resource lives.
 	Location pulumi.StringPtrInput
 	// The name of the resource group. The name is case insensitive.

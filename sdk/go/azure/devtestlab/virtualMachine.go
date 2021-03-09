@@ -21,17 +21,17 @@ type VirtualMachine struct {
 	// The applicable schedule for the virtual machine.
 	ApplicableSchedule ApplicableScheduleResponseOutput `pulumi:"applicableSchedule"`
 	// The artifact deployment status for the virtual machine.
-	ArtifactDeploymentStatus ArtifactDeploymentStatusPropertiesResponsePtrOutput `pulumi:"artifactDeploymentStatus"`
+	ArtifactDeploymentStatus ArtifactDeploymentStatusPropertiesResponseOutput `pulumi:"artifactDeploymentStatus"`
 	// The artifacts to be installed on the virtual machine.
 	Artifacts ArtifactInstallPropertiesResponseArrayOutput `pulumi:"artifacts"`
 	// The resource identifier (Microsoft.Compute) of the virtual machine.
-	ComputeId pulumi.StringPtrOutput `pulumi:"computeId"`
+	ComputeId pulumi.StringOutput `pulumi:"computeId"`
 	// The compute virtual machine properties.
 	ComputeVm ComputeVmPropertiesResponseOutput `pulumi:"computeVm"`
 	// The email address of creator of the virtual machine.
-	CreatedByUser pulumi.StringPtrOutput `pulumi:"createdByUser"`
+	CreatedByUser pulumi.StringOutput `pulumi:"createdByUser"`
 	// The object identifier of the creator of the virtual machine.
-	CreatedByUserId pulumi.StringPtrOutput `pulumi:"createdByUserId"`
+	CreatedByUserId pulumi.StringOutput `pulumi:"createdByUserId"`
 	// The creation date of the virtual machine.
 	CreatedDate pulumi.StringPtrOutput `pulumi:"createdDate"`
 	// The custom image identifier of the virtual machine.
@@ -45,7 +45,7 @@ type VirtualMachine struct {
 	// The expiration date for VM.
 	ExpirationDate pulumi.StringPtrOutput `pulumi:"expirationDate"`
 	// The fully-qualified domain name of the virtual machine.
-	Fqdn pulumi.StringPtrOutput `pulumi:"fqdn"`
+	Fqdn pulumi.StringOutput `pulumi:"fqdn"`
 	// The Microsoft Azure Marketplace image reference of the virtual machine.
 	GalleryImageReference GalleryImageReferenceResponsePtrOutput `pulumi:"galleryImageReference"`
 	// Indicates whether this virtual machine uses an SSH key for authentication.
@@ -55,7 +55,7 @@ type VirtualMachine struct {
 	// The lab virtual network identifier of the virtual machine.
 	LabVirtualNetworkId pulumi.StringPtrOutput `pulumi:"labVirtualNetworkId"`
 	// Last known compute power state captured in DTL
-	LastKnownPowerState pulumi.StringPtrOutput `pulumi:"lastKnownPowerState"`
+	LastKnownPowerState pulumi.StringOutput `pulumi:"lastKnownPowerState"`
 	// The location of the resource.
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// The name of the resource.
@@ -65,7 +65,7 @@ type VirtualMachine struct {
 	// The notes of the virtual machine.
 	Notes pulumi.StringPtrOutput `pulumi:"notes"`
 	// The OS type of the virtual machine.
-	OsType pulumi.StringPtrOutput `pulumi:"osType"`
+	OsType pulumi.StringOutput `pulumi:"osType"`
 	// The object identifier of the owner of the virtual machine.
 	OwnerObjectId pulumi.StringPtrOutput `pulumi:"ownerObjectId"`
 	// The user principal name of the virtual machine owner.
@@ -93,7 +93,7 @@ type VirtualMachine struct {
 	// The user name of the virtual machine.
 	UserName pulumi.StringPtrOutput `pulumi:"userName"`
 	// Tells source of creation of lab virtual machine. Output property only.
-	VirtualMachineCreationSource pulumi.StringPtrOutput `pulumi:"virtualMachineCreationSource"`
+	VirtualMachineCreationSource pulumi.StringOutput `pulumi:"virtualMachineCreationSource"`
 }
 
 // NewVirtualMachine registers a new resource with the given unique name, arguments, and options.
@@ -108,6 +108,15 @@ func NewVirtualMachine(ctx *pulumi.Context,
 	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.AllowClaim == nil {
+		args.AllowClaim = pulumi.BoolPtr(false)
+	}
+	if args.DisallowPublicIpAddress == nil {
+		args.DisallowPublicIpAddress = pulumi.BoolPtr(false)
+	}
+	if args.OwnerObjectId == nil {
+		args.OwnerObjectId = pulumi.StringPtr("dynamicValue")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -329,16 +338,8 @@ func (VirtualMachineState) ElementType() reflect.Type {
 type virtualMachineArgs struct {
 	// Indicates whether another user can take ownership of the virtual machine
 	AllowClaim *bool `pulumi:"allowClaim"`
-	// The artifact deployment status for the virtual machine.
-	ArtifactDeploymentStatus *ArtifactDeploymentStatusProperties `pulumi:"artifactDeploymentStatus"`
 	// The artifacts to be installed on the virtual machine.
 	Artifacts []ArtifactInstallProperties `pulumi:"artifacts"`
-	// The resource identifier (Microsoft.Compute) of the virtual machine.
-	ComputeId *string `pulumi:"computeId"`
-	// The email address of creator of the virtual machine.
-	CreatedByUser *string `pulumi:"createdByUser"`
-	// The object identifier of the creator of the virtual machine.
-	CreatedByUserId *string `pulumi:"createdByUserId"`
 	// The creation date of the virtual machine.
 	CreatedDate *string `pulumi:"createdDate"`
 	// The custom image identifier of the virtual machine.
@@ -351,8 +352,6 @@ type virtualMachineArgs struct {
 	EnvironmentId *string `pulumi:"environmentId"`
 	// The expiration date for VM.
 	ExpirationDate *string `pulumi:"expirationDate"`
-	// The fully-qualified domain name of the virtual machine.
-	Fqdn *string `pulumi:"fqdn"`
 	// The Microsoft Azure Marketplace image reference of the virtual machine.
 	GalleryImageReference *GalleryImageReference `pulumi:"galleryImageReference"`
 	// Indicates whether this virtual machine uses an SSH key for authentication.
@@ -363,8 +362,6 @@ type virtualMachineArgs struct {
 	LabSubnetName *string `pulumi:"labSubnetName"`
 	// The lab virtual network identifier of the virtual machine.
 	LabVirtualNetworkId *string `pulumi:"labVirtualNetworkId"`
-	// Last known compute power state captured in DTL
-	LastKnownPowerState *string `pulumi:"lastKnownPowerState"`
 	// The location of the resource.
 	Location *string `pulumi:"location"`
 	// The name of the virtual machine.
@@ -373,8 +370,6 @@ type virtualMachineArgs struct {
 	NetworkInterface *NetworkInterfaceProperties `pulumi:"networkInterface"`
 	// The notes of the virtual machine.
 	Notes *string `pulumi:"notes"`
-	// The OS type of the virtual machine.
-	OsType *string `pulumi:"osType"`
 	// The object identifier of the owner of the virtual machine.
 	OwnerObjectId *string `pulumi:"ownerObjectId"`
 	// The user principal name of the virtual machine owner.
@@ -397,24 +392,14 @@ type virtualMachineArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The user name of the virtual machine.
 	UserName *string `pulumi:"userName"`
-	// Tells source of creation of lab virtual machine. Output property only.
-	VirtualMachineCreationSource *string `pulumi:"virtualMachineCreationSource"`
 }
 
 // The set of arguments for constructing a VirtualMachine resource.
 type VirtualMachineArgs struct {
 	// Indicates whether another user can take ownership of the virtual machine
 	AllowClaim pulumi.BoolPtrInput
-	// The artifact deployment status for the virtual machine.
-	ArtifactDeploymentStatus ArtifactDeploymentStatusPropertiesPtrInput
 	// The artifacts to be installed on the virtual machine.
 	Artifacts ArtifactInstallPropertiesArrayInput
-	// The resource identifier (Microsoft.Compute) of the virtual machine.
-	ComputeId pulumi.StringPtrInput
-	// The email address of creator of the virtual machine.
-	CreatedByUser pulumi.StringPtrInput
-	// The object identifier of the creator of the virtual machine.
-	CreatedByUserId pulumi.StringPtrInput
 	// The creation date of the virtual machine.
 	CreatedDate pulumi.StringPtrInput
 	// The custom image identifier of the virtual machine.
@@ -427,8 +412,6 @@ type VirtualMachineArgs struct {
 	EnvironmentId pulumi.StringPtrInput
 	// The expiration date for VM.
 	ExpirationDate pulumi.StringPtrInput
-	// The fully-qualified domain name of the virtual machine.
-	Fqdn pulumi.StringPtrInput
 	// The Microsoft Azure Marketplace image reference of the virtual machine.
 	GalleryImageReference GalleryImageReferencePtrInput
 	// Indicates whether this virtual machine uses an SSH key for authentication.
@@ -439,8 +422,6 @@ type VirtualMachineArgs struct {
 	LabSubnetName pulumi.StringPtrInput
 	// The lab virtual network identifier of the virtual machine.
 	LabVirtualNetworkId pulumi.StringPtrInput
-	// Last known compute power state captured in DTL
-	LastKnownPowerState pulumi.StringPtrInput
 	// The location of the resource.
 	Location pulumi.StringPtrInput
 	// The name of the virtual machine.
@@ -449,8 +430,6 @@ type VirtualMachineArgs struct {
 	NetworkInterface NetworkInterfacePropertiesPtrInput
 	// The notes of the virtual machine.
 	Notes pulumi.StringPtrInput
-	// The OS type of the virtual machine.
-	OsType pulumi.StringPtrInput
 	// The object identifier of the owner of the virtual machine.
 	OwnerObjectId pulumi.StringPtrInput
 	// The user principal name of the virtual machine owner.
@@ -473,8 +452,6 @@ type VirtualMachineArgs struct {
 	Tags pulumi.StringMapInput
 	// The user name of the virtual machine.
 	UserName pulumi.StringPtrInput
-	// Tells source of creation of lab virtual machine. Output property only.
-	VirtualMachineCreationSource pulumi.StringPtrInput
 }
 
 func (VirtualMachineArgs) ElementType() reflect.Type {

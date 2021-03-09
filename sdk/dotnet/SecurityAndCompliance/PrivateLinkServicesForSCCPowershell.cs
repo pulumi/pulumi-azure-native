@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.SecurityAndCompliance
 {
     /// <summary>
     /// The description of the service.
-    /// API Version: 2021-01-11.
+    /// API Version: 2021-03-08.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityandcompliance:privateLinkServicesForSCCPowershell")]
     public partial class PrivateLinkServicesForSCCPowershell : Pulumi.CustomResource
@@ -100,6 +100,8 @@ namespace Pulumi.AzureNative.SecurityAndCompliance
                     new Pulumi.Alias { Type = "azure-nextgen:securityandcompliance/latest:privateLinkServicesForSCCPowershell"},
                     new Pulumi.Alias { Type = "azure-native:securityandcompliance/v20210111:privateLinkServicesForSCCPowershell"},
                     new Pulumi.Alias { Type = "azure-nextgen:securityandcompliance/v20210111:privateLinkServicesForSCCPowershell"},
+                    new Pulumi.Alias { Type = "azure-native:securityandcompliance/v20210308:privateLinkServicesForSCCPowershell"},
+                    new Pulumi.Alias { Type = "azure-nextgen:securityandcompliance/v20210308:privateLinkServicesForSCCPowershell"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

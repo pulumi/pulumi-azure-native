@@ -38,7 +38,7 @@ export class DataCollectionRuleAssociation extends pulumi.CustomResource {
     /**
      * The resource ID of the data collection rule that is to be associated.
      */
-    public readonly dataCollectionRuleId!: pulumi.Output<string>;
+    public readonly dataCollectionRuleId!: pulumi.Output<string | undefined>;
     /**
      * Description of the association.
      */
@@ -71,9 +71,6 @@ export class DataCollectionRuleAssociation extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.dataCollectionRuleId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'dataCollectionRuleId'");
-            }
             if ((!args || args.resourceUri === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceUri'");
             }
@@ -107,13 +104,13 @@ export class DataCollectionRuleAssociation extends pulumi.CustomResource {
  */
 export interface DataCollectionRuleAssociationArgs {
     /**
-     * The name of the association.
+     * The name of the association. The name is case insensitive.
      */
     readonly associationName?: pulumi.Input<string>;
     /**
      * The resource ID of the data collection rule that is to be associated.
      */
-    readonly dataCollectionRuleId: pulumi.Input<string>;
+    readonly dataCollectionRuleId?: pulumi.Input<string>;
     /**
      * Description of the association.
      */

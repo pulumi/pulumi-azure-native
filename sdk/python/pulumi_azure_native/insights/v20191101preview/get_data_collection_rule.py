@@ -20,7 +20,7 @@ class GetDataCollectionRuleResult:
     """
     Definition of ARM tracked top level resource.
     """
-    def __init__(__self__, data_flows=None, data_sources=None, description=None, destinations=None, etag=None, id=None, location=None, name=None, provisioning_state=None, tags=None, type=None):
+    def __init__(__self__, data_flows=None, data_sources=None, description=None, destinations=None, etag=None, id=None, immutable_id=None, kind=None, location=None, name=None, provisioning_state=None, tags=None, type=None):
         if data_flows and not isinstance(data_flows, list):
             raise TypeError("Expected argument 'data_flows' to be a list")
         pulumi.set(__self__, "data_flows", data_flows)
@@ -39,6 +39,12 @@ class GetDataCollectionRuleResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if immutable_id and not isinstance(immutable_id, str):
+            raise TypeError("Expected argument 'immutable_id' to be a str")
+        pulumi.set(__self__, "immutable_id", immutable_id)
+        if kind and not isinstance(kind, str):
+            raise TypeError("Expected argument 'kind' to be a str")
+        pulumi.set(__self__, "kind", kind)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -57,7 +63,7 @@ class GetDataCollectionRuleResult:
 
     @property
     @pulumi.getter(name="dataFlows")
-    def data_flows(self) -> Sequence['outputs.DataFlowResponse']:
+    def data_flows(self) -> Optional[Sequence['outputs.DataFlowResponse']]:
         """
         The specification of data flows.
         """
@@ -82,7 +88,7 @@ class GetDataCollectionRuleResult:
 
     @property
     @pulumi.getter
-    def destinations(self) -> 'outputs.DataCollectionRuleResponseDestinations':
+    def destinations(self) -> Optional['outputs.DataCollectionRuleResponseDestinations']:
         """
         The specification of destinations.
         """
@@ -103,6 +109,22 @@ class GetDataCollectionRuleResult:
         Fully qualified ID of the resource.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="immutableId")
+    def immutable_id(self) -> str:
+        """
+        The immutable ID of this data collection rule. This property is READ-ONLY.
+        """
+        return pulumi.get(self, "immutable_id")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[str]:
+        """
+        The kind of the resource.
+        """
+        return pulumi.get(self, "kind")
 
     @property
     @pulumi.getter
@@ -157,6 +179,8 @@ class AwaitableGetDataCollectionRuleResult(GetDataCollectionRuleResult):
             destinations=self.destinations,
             etag=self.etag,
             id=self.id,
+            immutable_id=self.immutable_id,
+            kind=self.kind,
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
@@ -190,6 +214,8 @@ def get_data_collection_rule(data_collection_rule_name: Optional[str] = None,
         destinations=__ret__.destinations,
         etag=__ret__.etag,
         id=__ret__.id,
+        immutable_id=__ret__.immutable_id,
+        kind=__ret__.kind,
         location=__ret__.location,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,

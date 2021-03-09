@@ -46,7 +46,7 @@ export class DomainTopic extends pulumi.CustomResource {
     /**
      * Provisioning state of the domain topic.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * The system metadata relating to Domain Topic resource.
      */

@@ -121,7 +121,7 @@ def get_private_endpoint_connections_sec(private_endpoint_connection_name: Optio
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionsSecResult:
     """
     The Private Endpoint Connection resource.
-    API Version: 2021-01-11.
+    API Version: 2021-03-08.
 
 
     :param str private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource

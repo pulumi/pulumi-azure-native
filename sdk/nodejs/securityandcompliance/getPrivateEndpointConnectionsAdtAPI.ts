@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The Private Endpoint Connection resource.
- * API Version: 2021-01-11.
+ * API Version: 2021-03-08.
  */
 export function getPrivateEndpointConnectionsAdtAPI(args: GetPrivateEndpointConnectionsAdtAPIArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionsAdtAPIResult> {
     if (!opts) {

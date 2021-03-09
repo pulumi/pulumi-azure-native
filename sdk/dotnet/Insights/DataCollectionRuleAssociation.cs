@@ -20,7 +20,7 @@ namespace Pulumi.AzureNative.Insights
         /// The resource ID of the data collection rule that is to be associated.
         /// </summary>
         [Output("dataCollectionRuleId")]
-        public Output<string> DataCollectionRuleId { get; private set; } = null!;
+        public Output<string?> DataCollectionRuleId { get; private set; } = null!;
 
         /// <summary>
         /// Description of the association.
@@ -104,7 +104,7 @@ namespace Pulumi.AzureNative.Insights
     public sealed class DataCollectionRuleAssociationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the association.
+        /// The name of the association. The name is case insensitive.
         /// </summary>
         [Input("associationName")]
         public Input<string>? AssociationName { get; set; }
@@ -112,8 +112,8 @@ namespace Pulumi.AzureNative.Insights
         /// <summary>
         /// The resource ID of the data collection rule that is to be associated.
         /// </summary>
-        [Input("dataCollectionRuleId", required: true)]
-        public Input<string> DataCollectionRuleId { get; set; } = null!;
+        [Input("dataCollectionRuleId")]
+        public Input<string>? DataCollectionRuleId { get; set; }
 
         /// <summary>
         /// Description of the association.

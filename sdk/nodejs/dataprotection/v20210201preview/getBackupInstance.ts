@@ -43,6 +43,10 @@ export interface GetBackupInstanceArgs {
  */
 export interface GetBackupInstanceResult {
     /**
+     * Specifies the current protection state of the resource
+     */
+    readonly currentProtectionState: string;
+    /**
      * Gets or sets the data source information.
      */
     readonly dataSourceInfo: outputs.dataprotection.v20210201preview.DatasourceResponse;
@@ -51,6 +55,10 @@ export interface GetBackupInstanceResult {
      */
     readonly dataSourceSetInfo?: outputs.dataprotection.v20210201preview.DatasourceSetResponse;
     /**
+     * Gets or sets the Backup Instance friendly name.
+     */
+    readonly friendlyName: string;
+    /**
      * Resource Id represents the complete path to the resource.
      */
     readonly id: string;
@@ -58,11 +66,15 @@ export interface GetBackupInstanceResult {
      * Resource name associated with the resource.
      */
     readonly name: string;
-    readonly objectType?: string;
+    readonly objectType: string;
     /**
      * Gets or sets the policy information.
      */
     readonly policyInfo: outputs.dataprotection.v20210201preview.PolicyInfoResponse;
+    /**
+     * Specifies the protection error of the resource
+     */
+    readonly protectionErrorDetails: outputs.dataprotection.v20210201preview.UserFacingErrorResponse;
     /**
      * Specifies the protection status of the resource
      */

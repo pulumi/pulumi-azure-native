@@ -8,7 +8,7 @@ import (
 )
 
 // The description of the service.
-// API Version: 2021-01-11.
+// API Version: 2021-03-08.
 func GetprivateLinkServicesForM365ComplianceCenter(ctx *pulumi.Context, args *GetprivateLinkServicesForM365ComplianceCenterArgs, opts ...pulumi.InvokeOption) (*GetprivateLinkServicesForM365ComplianceCenterResult, error) {
 	var rv GetprivateLinkServicesForM365ComplianceCenterResult
 	err := ctx.Invoke("azure-native:securityandcompliance:getprivateLinkServicesForM365ComplianceCenter", args, &rv, opts...)

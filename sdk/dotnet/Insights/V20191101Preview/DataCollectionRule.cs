@@ -38,13 +38,25 @@ namespace Pulumi.AzureNative.Insights.V20191101Preview
         /// The specification of destinations.
         /// </summary>
         [Output("destinations")]
-        public Output<Outputs.DataCollectionRuleResponseDestinations> Destinations { get; private set; } = null!;
+        public Output<Outputs.DataCollectionRuleResponseDestinations?> Destinations { get; private set; } = null!;
 
         /// <summary>
         /// Resource entity tag (ETag).
         /// </summary>
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
+
+        /// <summary>
+        /// The immutable ID of this data collection rule. This property is READ-ONLY.
+        /// </summary>
+        [Output("immutableId")]
+        public Output<string> ImmutableId { get; private set; } = null!;
+
+        /// <summary>
+        /// The kind of the resource.
+        /// </summary>
+        [Output("kind")]
+        public Output<string?> Kind { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives.
@@ -133,7 +145,7 @@ namespace Pulumi.AzureNative.Insights.V20191101Preview
         [Input("dataCollectionRuleName")]
         public Input<string>? DataCollectionRuleName { get; set; }
 
-        [Input("dataFlows", required: true)]
+        [Input("dataFlows")]
         private InputList<Inputs.DataFlowArgs>? _dataFlows;
 
         /// <summary>
@@ -161,8 +173,14 @@ namespace Pulumi.AzureNative.Insights.V20191101Preview
         /// <summary>
         /// The specification of destinations.
         /// </summary>
-        [Input("destinations", required: true)]
-        public Input<Inputs.DataCollectionRuleDestinationsArgs> Destinations { get; set; } = null!;
+        [Input("destinations")]
+        public Input<Inputs.DataCollectionRuleDestinationsArgs>? Destinations { get; set; }
+
+        /// <summary>
+        /// The kind of the resource.
+        /// </summary>
+        [Input("kind")]
+        public InputUnion<string, Pulumi.AzureNative.Insights.V20191101Preview.KnownDataCollectionRuleResourceKind>? Kind { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives.

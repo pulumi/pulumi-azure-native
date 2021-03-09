@@ -27,7 +27,7 @@ class PrivateEndpointConnectionsSec(pulumi.CustomResource):
                  __opts__=None):
         """
         The Private Endpoint Connection resource.
-        API Version: 2021-01-11.
+        API Version: 2021-03-08.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -68,7 +68,7 @@ class PrivateEndpointConnectionsSec(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:securityandcompliance:PrivateEndpointConnectionsSec"), pulumi.Alias(type_="azure-native:securityandcompliance/latest:PrivateEndpointConnectionsSec"), pulumi.Alias(type_="azure-nextgen:securityandcompliance/latest:PrivateEndpointConnectionsSec"), pulumi.Alias(type_="azure-native:securityandcompliance/v20210111:PrivateEndpointConnectionsSec"), pulumi.Alias(type_="azure-nextgen:securityandcompliance/v20210111:PrivateEndpointConnectionsSec")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:securityandcompliance:PrivateEndpointConnectionsSec"), pulumi.Alias(type_="azure-native:securityandcompliance/latest:PrivateEndpointConnectionsSec"), pulumi.Alias(type_="azure-nextgen:securityandcompliance/latest:PrivateEndpointConnectionsSec"), pulumi.Alias(type_="azure-native:securityandcompliance/v20210111:PrivateEndpointConnectionsSec"), pulumi.Alias(type_="azure-nextgen:securityandcompliance/v20210111:PrivateEndpointConnectionsSec"), pulumi.Alias(type_="azure-native:securityandcompliance/v20210308:PrivateEndpointConnectionsSec"), pulumi.Alias(type_="azure-nextgen:securityandcompliance/v20210308:PrivateEndpointConnectionsSec")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateEndpointConnectionsSec, __self__).__init__(
             'azure-native:securityandcompliance:PrivateEndpointConnectionsSec',

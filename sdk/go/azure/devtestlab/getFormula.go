@@ -32,7 +32,7 @@ type LookupFormulaArgs struct {
 // A formula for creating a VM, specifying an image base and other parameters
 type LookupFormulaResult struct {
 	// The author of the formula.
-	Author *string `pulumi:"author"`
+	Author string `pulumi:"author"`
 	// The creation date of the formula.
 	CreationDate string `pulumi:"creationDate"`
 	// The description of the formula.

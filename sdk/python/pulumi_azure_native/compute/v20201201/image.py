@@ -35,7 +35,7 @@ class Image(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: The extended location of the Image.
-        :param pulumi.Input[Union[str, 'HyperVGenerationTypes']] hyper_v_generation: Gets the HyperVGenerationType of the VirtualMachine created from the image
+        :param pulumi.Input[Union[str, 'HyperVGenerationTypes']] hyper_v_generation: Specifies the HyperVGenerationType of the VirtualMachine created from the image. From API Version 2019-03-01 if the image source is a blob, then we need the user to specify the value, if the source is managed resource like disk or snapshot, we may require the user to specify the property if we cannot deduce it from the source managed resource.
         :param pulumi.Input[str] image_name: The name of the image.
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
@@ -120,7 +120,7 @@ class Image(pulumi.CustomResource):
     @pulumi.getter(name="hyperVGeneration")
     def hyper_v_generation(self) -> pulumi.Output[Optional[str]]:
         """
-        Gets the HyperVGenerationType of the VirtualMachine created from the image
+        Specifies the HyperVGenerationType of the VirtualMachine created from the image. From API Version 2019-03-01 if the image source is a blob, then we need the user to specify the value, if the source is managed resource like disk or snapshot, we may require the user to specify the property if we cannot deduce it from the source managed resource.
         """
         return pulumi.get(self, "hyper_v_generation")
 

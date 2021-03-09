@@ -21,6 +21,7 @@ class BackupInstance(pulumi.CustomResource):
                  backup_instance_name: Optional[pulumi.Input[str]] = None,
                  data_source_info: Optional[pulumi.Input[pulumi.InputType['DatasourceArgs']]] = None,
                  data_source_set_info: Optional[pulumi.Input[pulumi.InputType['DatasourceSetArgs']]] = None,
+                 friendly_name: Optional[pulumi.Input[str]] = None,
                  object_type: Optional[pulumi.Input[str]] = None,
                  policy_info: Optional[pulumi.Input[pulumi.InputType['PolicyInfoArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -36,6 +37,7 @@ class BackupInstance(pulumi.CustomResource):
         :param pulumi.Input[str] backup_instance_name: The name of the backup instance
         :param pulumi.Input[pulumi.InputType['DatasourceArgs']] data_source_info: Gets or sets the data source information.
         :param pulumi.Input[pulumi.InputType['DatasourceSetArgs']] data_source_set_info: Gets or sets the data source set information.
+        :param pulumi.Input[str] friendly_name: Gets or sets the Backup Instance friendly name.
         :param pulumi.Input[pulumi.InputType['PolicyInfoArgs']] policy_info: Gets or sets the policy information.
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the backup vault is present.
         :param pulumi.Input[str] vault_name: The name of the backup vault.
@@ -62,6 +64,11 @@ class BackupInstance(pulumi.CustomResource):
                 raise TypeError("Missing required property 'data_source_info'")
             __props__['data_source_info'] = data_source_info
             __props__['data_source_set_info'] = data_source_set_info
+            if friendly_name is None and not opts.urn:
+                raise TypeError("Missing required property 'friendly_name'")
+            __props__['friendly_name'] = friendly_name
+            if object_type is None and not opts.urn:
+                raise TypeError("Missing required property 'object_type'")
             __props__['object_type'] = object_type
             if policy_info is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_info'")
@@ -72,7 +79,9 @@ class BackupInstance(pulumi.CustomResource):
             if vault_name is None and not opts.urn:
                 raise TypeError("Missing required property 'vault_name'")
             __props__['vault_name'] = vault_name
+            __props__['current_protection_state'] = None
             __props__['name'] = None
+            __props__['protection_error_details'] = None
             __props__['protection_status'] = None
             __props__['provisioning_state'] = None
             __props__['system_data'] = None
@@ -101,16 +110,27 @@ class BackupInstance(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["current_protection_state"] = None
         __props__["data_source_info"] = None
         __props__["data_source_set_info"] = None
+        __props__["friendly_name"] = None
         __props__["name"] = None
         __props__["object_type"] = None
         __props__["policy_info"] = None
+        __props__["protection_error_details"] = None
         __props__["protection_status"] = None
         __props__["provisioning_state"] = None
         __props__["system_data"] = None
         __props__["type"] = None
         return BackupInstance(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="currentProtectionState")
+    def current_protection_state(self) -> pulumi.Output[str]:
+        """
+        Specifies the current protection state of the resource
+        """
+        return pulumi.get(self, "current_protection_state")
 
     @property
     @pulumi.getter(name="dataSourceInfo")
@@ -129,6 +149,14 @@ class BackupInstance(pulumi.CustomResource):
         return pulumi.get(self, "data_source_set_info")
 
     @property
+    @pulumi.getter(name="friendlyName")
+    def friendly_name(self) -> pulumi.Output[str]:
+        """
+        Gets or sets the Backup Instance friendly name.
+        """
+        return pulumi.get(self, "friendly_name")
+
+    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
@@ -138,7 +166,7 @@ class BackupInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="objectType")
-    def object_type(self) -> pulumi.Output[Optional[str]]:
+    def object_type(self) -> pulumi.Output[str]:
         return pulumi.get(self, "object_type")
 
     @property
@@ -148,6 +176,14 @@ class BackupInstance(pulumi.CustomResource):
         Gets or sets the policy information.
         """
         return pulumi.get(self, "policy_info")
+
+    @property
+    @pulumi.getter(name="protectionErrorDetails")
+    def protection_error_details(self) -> pulumi.Output['outputs.UserFacingErrorResponse']:
+        """
+        Specifies the protection error of the resource
+        """
+        return pulumi.get(self, "protection_error_details")
 
     @property
     @pulumi.getter(name="protectionStatus")

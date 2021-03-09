@@ -18,7 +18,7 @@ type Image struct {
 
 	// The extended location of the Image.
 	ExtendedLocation ExtendedLocationResponsePtrOutput `pulumi:"extendedLocation"`
-	// Gets the HyperVGenerationType of the VirtualMachine created from the image
+	// Specifies the HyperVGenerationType of the VirtualMachine created from the image. From API Version 2019-03-01 if the image source is a blob, then we need the user to specify the value, if the source is managed resource like disk or snapshot, we may require the user to specify the property if we cannot deduce it from the source managed resource.
 	HyperVGeneration pulumi.StringPtrOutput `pulumi:"hyperVGeneration"`
 	// Resource location
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -148,7 +148,7 @@ func GetImage(ctx *pulumi.Context,
 type imageState struct {
 	// The extended location of the Image.
 	ExtendedLocation *ExtendedLocationResponse `pulumi:"extendedLocation"`
-	// Gets the HyperVGenerationType of the VirtualMachine created from the image
+	// Specifies the HyperVGenerationType of the VirtualMachine created from the image. From API Version 2019-03-01 if the image source is a blob, then we need the user to specify the value, if the source is managed resource like disk or snapshot, we may require the user to specify the property if we cannot deduce it from the source managed resource.
 	HyperVGeneration *string `pulumi:"hyperVGeneration"`
 	// Resource location
 	Location *string `pulumi:"location"`
@@ -169,7 +169,7 @@ type imageState struct {
 type ImageState struct {
 	// The extended location of the Image.
 	ExtendedLocation ExtendedLocationResponsePtrInput
-	// Gets the HyperVGenerationType of the VirtualMachine created from the image
+	// Specifies the HyperVGenerationType of the VirtualMachine created from the image. From API Version 2019-03-01 if the image source is a blob, then we need the user to specify the value, if the source is managed resource like disk or snapshot, we may require the user to specify the property if we cannot deduce it from the source managed resource.
 	HyperVGeneration pulumi.StringPtrInput
 	// Resource location
 	Location pulumi.StringPtrInput
@@ -194,7 +194,7 @@ func (ImageState) ElementType() reflect.Type {
 type imageArgs struct {
 	// The extended location of the Image.
 	ExtendedLocation *ExtendedLocation `pulumi:"extendedLocation"`
-	// Gets the HyperVGenerationType of the VirtualMachine created from the image
+	// Specifies the HyperVGenerationType of the VirtualMachine created from the image. From API Version 2019-03-01 if the image source is a blob, then we need the user to specify the value, if the source is managed resource like disk or snapshot, we may require the user to specify the property if we cannot deduce it from the source managed resource.
 	HyperVGeneration *string `pulumi:"hyperVGeneration"`
 	// The name of the image.
 	ImageName *string `pulumi:"imageName"`
@@ -214,7 +214,7 @@ type imageArgs struct {
 type ImageArgs struct {
 	// The extended location of the Image.
 	ExtendedLocation ExtendedLocationPtrInput
-	// Gets the HyperVGenerationType of the VirtualMachine created from the image
+	// Specifies the HyperVGenerationType of the VirtualMachine created from the image. From API Version 2019-03-01 if the image source is a blob, then we need the user to specify the value, if the source is managed resource like disk or snapshot, we may require the user to specify the property if we cannot deduce it from the source managed resource.
 	HyperVGeneration pulumi.StringPtrInput
 	// The name of the image.
 	ImageName pulumi.StringPtrInput

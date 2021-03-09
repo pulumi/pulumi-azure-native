@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915.Inputs
         public Input<string>? DiskName { get; set; }
 
         /// <summary>
-        /// Size of the disk to be attached in GibiBytes.
+        /// Size of the disk to be attached in Gibibytes.
         /// </summary>
         [Input("diskSizeGiB")]
         public Input<int>? DiskSizeGiB { get; set; }

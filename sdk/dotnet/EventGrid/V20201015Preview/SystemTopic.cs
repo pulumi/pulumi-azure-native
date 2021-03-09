@@ -52,7 +52,7 @@ namespace Pulumi.AzureNative.EventGrid.V20201015Preview
         public Output<string?> Source { get; private set; } = null!;
 
         /// <summary>
-        /// The system metadata relating to this resource.
+        /// The system metadata relating to System Topic resource.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;

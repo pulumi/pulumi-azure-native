@@ -8,7 +8,6 @@ export const AlertRuleKind = {
     Fusion: "Fusion",
     MLBehaviorAnalytics: "MLBehaviorAnalytics",
     ThreatIntelligence: "ThreatIntelligence",
-    Anomaly: "Anomaly",
 } as const;
 
 /**

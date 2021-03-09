@@ -133,6 +133,8 @@ namespace Pulumi.AzureNative.Sql.V20200801Preview
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20190601preview:SyncMember"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20200202preview:SyncMember"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20200202preview:SyncMember"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20201101preview:SyncMember"},
+                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20201101preview:SyncMember"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

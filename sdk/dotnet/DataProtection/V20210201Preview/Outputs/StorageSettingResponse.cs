@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.DataProtection.V20210201Preview.Outputs
         /// <summary>
         /// Gets or sets the type of the datastore.
         /// </summary>
-        public readonly string? DataStoreType;
+        public readonly string? DatastoreType;
         /// <summary>
         /// Gets or sets the type.
         /// </summary>
@@ -24,11 +24,11 @@ namespace Pulumi.AzureNative.DataProtection.V20210201Preview.Outputs
 
         [OutputConstructor]
         private StorageSettingResponse(
-            string? dataStoreType,
+            string? datastoreType,
 
             string? type)
         {
-            DataStoreType = dataStoreType;
+            DatastoreType = datastoreType;
             Type = type;
         }
     }

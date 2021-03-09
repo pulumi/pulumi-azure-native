@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
         /// The author of the formula.
         /// </summary>
         [Output("author")]
-        public Output<string?> Author { get; private set; } = null!;
+        public Output<string> Author { get; private set; } = null!;
 
         /// <summary>
         /// The creation date of the formula.
@@ -144,12 +144,6 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
 
     public sealed class FormulaArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The author of the formula.
-        /// </summary>
-        [Input("author")]
-        public Input<string>? Author { get; set; }
-
         /// <summary>
         /// The description of the formula.
         /// </summary>

@@ -35,7 +35,7 @@ class PrivateLinkServicesForO365ManagementActivityAPI(pulumi.CustomResource):
                  __opts__=None):
         """
         The description of the service.
-        Latest API Version: 2021-01-11.
+        Latest API Version: 2021-03-08.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -81,7 +81,7 @@ class PrivateLinkServicesForO365ManagementActivityAPI(pulumi.CustomResource):
             __props__['name'] = None
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:securityandcompliance/latest:privateLinkServicesForO365ManagementActivityAPI"), pulumi.Alias(type_="azure-native:securityandcompliance:privateLinkServicesForO365ManagementActivityAPI"), pulumi.Alias(type_="azure-nextgen:securityandcompliance:privateLinkServicesForO365ManagementActivityAPI"), pulumi.Alias(type_="azure-native:securityandcompliance/v20210111:privateLinkServicesForO365ManagementActivityAPI"), pulumi.Alias(type_="azure-nextgen:securityandcompliance/v20210111:privateLinkServicesForO365ManagementActivityAPI")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:securityandcompliance/latest:privateLinkServicesForO365ManagementActivityAPI"), pulumi.Alias(type_="azure-native:securityandcompliance:privateLinkServicesForO365ManagementActivityAPI"), pulumi.Alias(type_="azure-nextgen:securityandcompliance:privateLinkServicesForO365ManagementActivityAPI"), pulumi.Alias(type_="azure-native:securityandcompliance/v20210111:privateLinkServicesForO365ManagementActivityAPI"), pulumi.Alias(type_="azure-nextgen:securityandcompliance/v20210111:privateLinkServicesForO365ManagementActivityAPI"), pulumi.Alias(type_="azure-native:securityandcompliance/v20210308:privateLinkServicesForO365ManagementActivityAPI"), pulumi.Alias(type_="azure-nextgen:securityandcompliance/v20210308:privateLinkServicesForO365ManagementActivityAPI")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateLinkServicesForO365ManagementActivityAPI, __self__).__init__(
             'azure-native:securityandcompliance/latest:privateLinkServicesForO365ManagementActivityAPI',

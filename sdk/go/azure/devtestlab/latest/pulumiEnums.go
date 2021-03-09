@@ -153,6 +153,36 @@ func (e LinuxOsState) ToStringPtrOutputWithContext(ctx context.Context) pulumi.S
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// Managed identity.
+type ManagedIdentityType pulumi.String
+
+const (
+	ManagedIdentityTypeNone                         = ManagedIdentityType("None")
+	ManagedIdentityTypeSystemAssigned               = ManagedIdentityType("SystemAssigned")
+	ManagedIdentityTypeUserAssigned                 = ManagedIdentityType("UserAssigned")
+	ManagedIdentityType_SystemAssigned_UserAssigned = ManagedIdentityType("SystemAssigned,UserAssigned")
+)
+
+func (ManagedIdentityType) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e ManagedIdentityType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ManagedIdentityType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ManagedIdentityType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ManagedIdentityType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // The event type for which this notification is enabled (i.e. AutoShutdown, Cost)
 type NotificationChannelEventType pulumi.String
 
@@ -307,8 +337,9 @@ func (e PremiumDataDisk) ToStringPtrOutputWithContext(ctx context.Context) pulum
 type SourceControlType pulumi.String
 
 const (
-	SourceControlTypeVsoGit = SourceControlType("VsoGit")
-	SourceControlTypeGitHub = SourceControlType("GitHub")
+	SourceControlTypeVsoGit         = SourceControlType("VsoGit")
+	SourceControlTypeGitHub         = SourceControlType("GitHub")
+	SourceControlTypeStorageAccount = SourceControlType("StorageAccount")
 )
 
 func (SourceControlType) ElementType() reflect.Type {
@@ -414,35 +445,6 @@ func (e UsagePermissionType) ToStringPtrOutput() pulumi.StringPtrOutput {
 }
 
 func (e UsagePermissionType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-// Tells source of creation of lab virtual machine. Output property only.
-type VirtualMachineCreationSource pulumi.String
-
-const (
-	VirtualMachineCreationSourceFromCustomImage        = VirtualMachineCreationSource("FromCustomImage")
-	VirtualMachineCreationSourceFromGalleryImage       = VirtualMachineCreationSource("FromGalleryImage")
-	VirtualMachineCreationSourceFromSharedGalleryImage = VirtualMachineCreationSource("FromSharedGalleryImage")
-)
-
-func (VirtualMachineCreationSource) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
-}
-
-func (e VirtualMachineCreationSource) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e VirtualMachineCreationSource) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e VirtualMachineCreationSource) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e VirtualMachineCreationSource) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 

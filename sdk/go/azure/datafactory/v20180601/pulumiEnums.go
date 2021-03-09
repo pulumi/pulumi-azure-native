@@ -193,6 +193,62 @@ func (e CompressionCodec) ToStringPtrOutputWithContext(ctx context.Context) pulu
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// The connection mode used to access CosmosDB account. Type: string (or Expression with resultType string).
+type CosmosDbConnectionMode pulumi.String
+
+const (
+	CosmosDbConnectionModeGateway = CosmosDbConnectionMode("Gateway")
+	CosmosDbConnectionModeDirect  = CosmosDbConnectionMode("Direct")
+)
+
+func (CosmosDbConnectionMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e CosmosDbConnectionMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CosmosDbConnectionMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CosmosDbConnectionMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e CosmosDbConnectionMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).
+type CosmosDbServicePrincipalCredentialType pulumi.String
+
+const (
+	CosmosDbServicePrincipalCredentialTypeServicePrincipalKey  = CosmosDbServicePrincipalCredentialType("ServicePrincipalKey")
+	CosmosDbServicePrincipalCredentialTypeServicePrincipalCert = CosmosDbServicePrincipalCredentialType("ServicePrincipalCert")
+)
+
+func (CosmosDbServicePrincipalCredentialType) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e CosmosDbServicePrincipalCredentialType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CosmosDbServicePrincipalCredentialType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CosmosDbServicePrincipalCredentialType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e CosmosDbServicePrincipalCredentialType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // Compute type of the cluster which will execute data flow job.
 type DataFlowComputeType pulumi.String
 

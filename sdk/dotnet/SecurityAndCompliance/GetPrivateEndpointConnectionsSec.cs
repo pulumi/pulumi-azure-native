@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityAndCompliance
     {
         /// <summary>
         /// The Private Endpoint Connection resource.
-        /// API Version: 2021-01-11.
+        /// API Version: 2021-03-08.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionsSecResult> InvokeAsync(GetPrivateEndpointConnectionsSecArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionsSecResult>("azure-native:securityandcompliance:getPrivateEndpointConnectionsSec", args ?? new GetPrivateEndpointConnectionsSecArgs(), options.WithVersion());

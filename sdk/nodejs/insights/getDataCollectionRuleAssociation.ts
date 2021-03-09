@@ -25,7 +25,7 @@ export function getDataCollectionRuleAssociation(args: GetDataCollectionRuleAsso
 
 export interface GetDataCollectionRuleAssociationArgs {
     /**
-     * The name of the association.
+     * The name of the association. The name is case insensitive.
      */
     readonly associationName: string;
     /**
@@ -41,7 +41,7 @@ export interface GetDataCollectionRuleAssociationResult {
     /**
      * The resource ID of the data collection rule that is to be associated.
      */
-    readonly dataCollectionRuleId: string;
+    readonly dataCollectionRuleId?: string;
     /**
      * Description of the association.
      */

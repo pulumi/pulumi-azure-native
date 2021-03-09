@@ -61,6 +61,12 @@ func NewPrivateEndpointConnectionsForEDM(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:securityandcompliance/latest:PrivateEndpointConnectionsForEDM"),
 		},
+		{
+			Type: pulumi.String("azure-native:securityandcompliance/v20210308:PrivateEndpointConnectionsForEDM"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:securityandcompliance/v20210308:PrivateEndpointConnectionsForEDM"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource PrivateEndpointConnectionsForEDM

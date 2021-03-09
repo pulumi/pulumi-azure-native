@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The Private Endpoint Connection resource.
- * API Version: 2021-01-11.
+ * API Version: 2021-03-08.
  */
 export class PrivateEndpointConnectionsAdtAPI extends pulumi.CustomResource {
     /**
@@ -101,7 +101,7 @@ export class PrivateEndpointConnectionsAdtAPI extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:securityandcompliance:PrivateEndpointConnectionsAdtAPI" }, { type: "azure-native:securityandcompliance/latest:PrivateEndpointConnectionsAdtAPI" }, { type: "azure-nextgen:securityandcompliance/latest:PrivateEndpointConnectionsAdtAPI" }, { type: "azure-native:securityandcompliance/v20210111:PrivateEndpointConnectionsAdtAPI" }, { type: "azure-nextgen:securityandcompliance/v20210111:PrivateEndpointConnectionsAdtAPI" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:securityandcompliance:PrivateEndpointConnectionsAdtAPI" }, { type: "azure-native:securityandcompliance/latest:PrivateEndpointConnectionsAdtAPI" }, { type: "azure-nextgen:securityandcompliance/latest:PrivateEndpointConnectionsAdtAPI" }, { type: "azure-native:securityandcompliance/v20210111:PrivateEndpointConnectionsAdtAPI" }, { type: "azure-nextgen:securityandcompliance/v20210111:PrivateEndpointConnectionsAdtAPI" }, { type: "azure-native:securityandcompliance/v20210308:PrivateEndpointConnectionsAdtAPI" }, { type: "azure-nextgen:securityandcompliance/v20210308:PrivateEndpointConnectionsAdtAPI" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateEndpointConnectionsAdtAPI.__pulumiType, name, inputs, opts);
     }

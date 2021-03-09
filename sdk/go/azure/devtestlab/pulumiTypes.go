@@ -477,178 +477,6 @@ func (o ArmTemplateParameterPropertiesResponseArrayOutput) Index(i pulumi.IntInp
 }
 
 // Properties of an artifact deployment.
-type ArtifactDeploymentStatusProperties struct {
-	// The total count of the artifacts that were successfully applied.
-	ArtifactsApplied *int `pulumi:"artifactsApplied"`
-	// The deployment status of the artifact.
-	DeploymentStatus *string `pulumi:"deploymentStatus"`
-	// The total count of the artifacts that were tentatively applied.
-	TotalArtifacts *int `pulumi:"totalArtifacts"`
-}
-
-// ArtifactDeploymentStatusPropertiesInput is an input type that accepts ArtifactDeploymentStatusPropertiesArgs and ArtifactDeploymentStatusPropertiesOutput values.
-// You can construct a concrete instance of `ArtifactDeploymentStatusPropertiesInput` via:
-//
-//          ArtifactDeploymentStatusPropertiesArgs{...}
-type ArtifactDeploymentStatusPropertiesInput interface {
-	pulumi.Input
-
-	ToArtifactDeploymentStatusPropertiesOutput() ArtifactDeploymentStatusPropertiesOutput
-	ToArtifactDeploymentStatusPropertiesOutputWithContext(context.Context) ArtifactDeploymentStatusPropertiesOutput
-}
-
-// Properties of an artifact deployment.
-type ArtifactDeploymentStatusPropertiesArgs struct {
-	// The total count of the artifacts that were successfully applied.
-	ArtifactsApplied pulumi.IntPtrInput `pulumi:"artifactsApplied"`
-	// The deployment status of the artifact.
-	DeploymentStatus pulumi.StringPtrInput `pulumi:"deploymentStatus"`
-	// The total count of the artifacts that were tentatively applied.
-	TotalArtifacts pulumi.IntPtrInput `pulumi:"totalArtifacts"`
-}
-
-func (ArtifactDeploymentStatusPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ArtifactDeploymentStatusProperties)(nil)).Elem()
-}
-
-func (i ArtifactDeploymentStatusPropertiesArgs) ToArtifactDeploymentStatusPropertiesOutput() ArtifactDeploymentStatusPropertiesOutput {
-	return i.ToArtifactDeploymentStatusPropertiesOutputWithContext(context.Background())
-}
-
-func (i ArtifactDeploymentStatusPropertiesArgs) ToArtifactDeploymentStatusPropertiesOutputWithContext(ctx context.Context) ArtifactDeploymentStatusPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ArtifactDeploymentStatusPropertiesOutput)
-}
-
-func (i ArtifactDeploymentStatusPropertiesArgs) ToArtifactDeploymentStatusPropertiesPtrOutput() ArtifactDeploymentStatusPropertiesPtrOutput {
-	return i.ToArtifactDeploymentStatusPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i ArtifactDeploymentStatusPropertiesArgs) ToArtifactDeploymentStatusPropertiesPtrOutputWithContext(ctx context.Context) ArtifactDeploymentStatusPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ArtifactDeploymentStatusPropertiesOutput).ToArtifactDeploymentStatusPropertiesPtrOutputWithContext(ctx)
-}
-
-// ArtifactDeploymentStatusPropertiesPtrInput is an input type that accepts ArtifactDeploymentStatusPropertiesArgs, ArtifactDeploymentStatusPropertiesPtr and ArtifactDeploymentStatusPropertiesPtrOutput values.
-// You can construct a concrete instance of `ArtifactDeploymentStatusPropertiesPtrInput` via:
-//
-//          ArtifactDeploymentStatusPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type ArtifactDeploymentStatusPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToArtifactDeploymentStatusPropertiesPtrOutput() ArtifactDeploymentStatusPropertiesPtrOutput
-	ToArtifactDeploymentStatusPropertiesPtrOutputWithContext(context.Context) ArtifactDeploymentStatusPropertiesPtrOutput
-}
-
-type artifactDeploymentStatusPropertiesPtrType ArtifactDeploymentStatusPropertiesArgs
-
-func ArtifactDeploymentStatusPropertiesPtr(v *ArtifactDeploymentStatusPropertiesArgs) ArtifactDeploymentStatusPropertiesPtrInput {
-	return (*artifactDeploymentStatusPropertiesPtrType)(v)
-}
-
-func (*artifactDeploymentStatusPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ArtifactDeploymentStatusProperties)(nil)).Elem()
-}
-
-func (i *artifactDeploymentStatusPropertiesPtrType) ToArtifactDeploymentStatusPropertiesPtrOutput() ArtifactDeploymentStatusPropertiesPtrOutput {
-	return i.ToArtifactDeploymentStatusPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *artifactDeploymentStatusPropertiesPtrType) ToArtifactDeploymentStatusPropertiesPtrOutputWithContext(ctx context.Context) ArtifactDeploymentStatusPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ArtifactDeploymentStatusPropertiesPtrOutput)
-}
-
-// Properties of an artifact deployment.
-type ArtifactDeploymentStatusPropertiesOutput struct{ *pulumi.OutputState }
-
-func (ArtifactDeploymentStatusPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ArtifactDeploymentStatusProperties)(nil)).Elem()
-}
-
-func (o ArtifactDeploymentStatusPropertiesOutput) ToArtifactDeploymentStatusPropertiesOutput() ArtifactDeploymentStatusPropertiesOutput {
-	return o
-}
-
-func (o ArtifactDeploymentStatusPropertiesOutput) ToArtifactDeploymentStatusPropertiesOutputWithContext(ctx context.Context) ArtifactDeploymentStatusPropertiesOutput {
-	return o
-}
-
-func (o ArtifactDeploymentStatusPropertiesOutput) ToArtifactDeploymentStatusPropertiesPtrOutput() ArtifactDeploymentStatusPropertiesPtrOutput {
-	return o.ToArtifactDeploymentStatusPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o ArtifactDeploymentStatusPropertiesOutput) ToArtifactDeploymentStatusPropertiesPtrOutputWithContext(ctx context.Context) ArtifactDeploymentStatusPropertiesPtrOutput {
-	return o.ApplyT(func(v ArtifactDeploymentStatusProperties) *ArtifactDeploymentStatusProperties {
-		return &v
-	}).(ArtifactDeploymentStatusPropertiesPtrOutput)
-}
-
-// The total count of the artifacts that were successfully applied.
-func (o ArtifactDeploymentStatusPropertiesOutput) ArtifactsApplied() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ArtifactDeploymentStatusProperties) *int { return v.ArtifactsApplied }).(pulumi.IntPtrOutput)
-}
-
-// The deployment status of the artifact.
-func (o ArtifactDeploymentStatusPropertiesOutput) DeploymentStatus() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ArtifactDeploymentStatusProperties) *string { return v.DeploymentStatus }).(pulumi.StringPtrOutput)
-}
-
-// The total count of the artifacts that were tentatively applied.
-func (o ArtifactDeploymentStatusPropertiesOutput) TotalArtifacts() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ArtifactDeploymentStatusProperties) *int { return v.TotalArtifacts }).(pulumi.IntPtrOutput)
-}
-
-type ArtifactDeploymentStatusPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (ArtifactDeploymentStatusPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ArtifactDeploymentStatusProperties)(nil)).Elem()
-}
-
-func (o ArtifactDeploymentStatusPropertiesPtrOutput) ToArtifactDeploymentStatusPropertiesPtrOutput() ArtifactDeploymentStatusPropertiesPtrOutput {
-	return o
-}
-
-func (o ArtifactDeploymentStatusPropertiesPtrOutput) ToArtifactDeploymentStatusPropertiesPtrOutputWithContext(ctx context.Context) ArtifactDeploymentStatusPropertiesPtrOutput {
-	return o
-}
-
-func (o ArtifactDeploymentStatusPropertiesPtrOutput) Elem() ArtifactDeploymentStatusPropertiesOutput {
-	return o.ApplyT(func(v *ArtifactDeploymentStatusProperties) ArtifactDeploymentStatusProperties { return *v }).(ArtifactDeploymentStatusPropertiesOutput)
-}
-
-// The total count of the artifacts that were successfully applied.
-func (o ArtifactDeploymentStatusPropertiesPtrOutput) ArtifactsApplied() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ArtifactDeploymentStatusProperties) *int {
-		if v == nil {
-			return nil
-		}
-		return v.ArtifactsApplied
-	}).(pulumi.IntPtrOutput)
-}
-
-// The deployment status of the artifact.
-func (o ArtifactDeploymentStatusPropertiesPtrOutput) DeploymentStatus() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ArtifactDeploymentStatusProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DeploymentStatus
-	}).(pulumi.StringPtrOutput)
-}
-
-// The total count of the artifacts that were tentatively applied.
-func (o ArtifactDeploymentStatusPropertiesPtrOutput) TotalArtifacts() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ArtifactDeploymentStatusProperties) *int {
-		if v == nil {
-			return nil
-		}
-		return v.TotalArtifacts
-	}).(pulumi.IntPtrOutput)
-}
-
-// Properties of an artifact deployment.
 type ArtifactDeploymentStatusPropertiesResponse struct {
 	// The total count of the artifacts that were successfully applied.
 	ArtifactsApplied *int `pulumi:"artifactsApplied"`
@@ -1352,7 +1180,7 @@ func (o ArtifactParameterPropertiesResponseArrayOutput) Index(i pulumi.IntInput)
 type AttachNewDataDiskOptions struct {
 	// The name of the disk to be attached.
 	DiskName *string `pulumi:"diskName"`
-	// Size of the disk to be attached in GibiBytes.
+	// Size of the disk to be attached in Gibibytes.
 	DiskSizeGiB *int `pulumi:"diskSizeGiB"`
 	// The storage type for the disk (i.e. Standard, Premium).
 	DiskType *string `pulumi:"diskType"`
@@ -1373,7 +1201,7 @@ type AttachNewDataDiskOptionsInput interface {
 type AttachNewDataDiskOptionsArgs struct {
 	// The name of the disk to be attached.
 	DiskName pulumi.StringPtrInput `pulumi:"diskName"`
-	// Size of the disk to be attached in GibiBytes.
+	// Size of the disk to be attached in Gibibytes.
 	DiskSizeGiB pulumi.IntPtrInput `pulumi:"diskSizeGiB"`
 	// The storage type for the disk (i.e. Standard, Premium).
 	DiskType pulumi.StringPtrInput `pulumi:"diskType"`
@@ -1462,7 +1290,7 @@ func (o AttachNewDataDiskOptionsOutput) DiskName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AttachNewDataDiskOptions) *string { return v.DiskName }).(pulumi.StringPtrOutput)
 }
 
-// Size of the disk to be attached in GibiBytes.
+// Size of the disk to be attached in Gibibytes.
 func (o AttachNewDataDiskOptionsOutput) DiskSizeGiB() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AttachNewDataDiskOptions) *int { return v.DiskSizeGiB }).(pulumi.IntPtrOutput)
 }
@@ -1500,7 +1328,7 @@ func (o AttachNewDataDiskOptionsPtrOutput) DiskName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Size of the disk to be attached in GibiBytes.
+// Size of the disk to be attached in Gibibytes.
 func (o AttachNewDataDiskOptionsPtrOutput) DiskSizeGiB() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AttachNewDataDiskOptions) *int {
 		if v == nil {
@@ -1524,7 +1352,7 @@ func (o AttachNewDataDiskOptionsPtrOutput) DiskType() pulumi.StringPtrOutput {
 type AttachNewDataDiskOptionsResponse struct {
 	// The name of the disk to be attached.
 	DiskName *string `pulumi:"diskName"`
-	// Size of the disk to be attached in GibiBytes.
+	// Size of the disk to be attached in Gibibytes.
 	DiskSizeGiB *int `pulumi:"diskSizeGiB"`
 	// The storage type for the disk (i.e. Standard, Premium).
 	DiskType *string `pulumi:"diskType"`
@@ -1545,7 +1373,7 @@ type AttachNewDataDiskOptionsResponseInput interface {
 type AttachNewDataDiskOptionsResponseArgs struct {
 	// The name of the disk to be attached.
 	DiskName pulumi.StringPtrInput `pulumi:"diskName"`
-	// Size of the disk to be attached in GibiBytes.
+	// Size of the disk to be attached in Gibibytes.
 	DiskSizeGiB pulumi.IntPtrInput `pulumi:"diskSizeGiB"`
 	// The storage type for the disk (i.e. Standard, Premium).
 	DiskType pulumi.StringPtrInput `pulumi:"diskType"`
@@ -1634,7 +1462,7 @@ func (o AttachNewDataDiskOptionsResponseOutput) DiskName() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v AttachNewDataDiskOptionsResponse) *string { return v.DiskName }).(pulumi.StringPtrOutput)
 }
 
-// Size of the disk to be attached in GibiBytes.
+// Size of the disk to be attached in Gibibytes.
 func (o AttachNewDataDiskOptionsResponseOutput) DiskSizeGiB() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AttachNewDataDiskOptionsResponse) *int { return v.DiskSizeGiB }).(pulumi.IntPtrOutput)
 }
@@ -1672,7 +1500,7 @@ func (o AttachNewDataDiskOptionsResponsePtrOutput) DiskName() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Size of the disk to be attached in GibiBytes.
+// Size of the disk to be attached in Gibibytes.
 func (o AttachNewDataDiskOptionsResponsePtrOutput) DiskSizeGiB() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AttachNewDataDiskOptionsResponse) *int {
 		if v == nil {
@@ -7268,18 +7096,10 @@ func (o LabVhdResponseArrayOutput) Index(i pulumi.IntInput) LabVhdResponseOutput
 type LabVirtualMachineCreationParameter struct {
 	// Indicates whether another user can take ownership of the virtual machine
 	AllowClaim *bool `pulumi:"allowClaim"`
-	// The artifact deployment status for the virtual machine.
-	ArtifactDeploymentStatus *ArtifactDeploymentStatusProperties `pulumi:"artifactDeploymentStatus"`
 	// The artifacts to be installed on the virtual machine.
 	Artifacts []ArtifactInstallProperties `pulumi:"artifacts"`
 	// The number of virtual machine instances to create.
 	BulkCreationParameters *BulkCreationParameters `pulumi:"bulkCreationParameters"`
-	// The resource identifier (Microsoft.Compute) of the virtual machine.
-	ComputeId *string `pulumi:"computeId"`
-	// The email address of creator of the virtual machine.
-	CreatedByUser *string `pulumi:"createdByUser"`
-	// The object identifier of the creator of the virtual machine.
-	CreatedByUserId *string `pulumi:"createdByUserId"`
 	// The creation date of the virtual machine.
 	CreatedDate *string `pulumi:"createdDate"`
 	// The custom image identifier of the virtual machine.
@@ -7292,8 +7112,6 @@ type LabVirtualMachineCreationParameter struct {
 	EnvironmentId *string `pulumi:"environmentId"`
 	// The expiration date for VM.
 	ExpirationDate *string `pulumi:"expirationDate"`
-	// The fully-qualified domain name of the virtual machine.
-	Fqdn *string `pulumi:"fqdn"`
 	// The Microsoft Azure Marketplace image reference of the virtual machine.
 	GalleryImageReference *GalleryImageReference `pulumi:"galleryImageReference"`
 	// Indicates whether this virtual machine uses an SSH key for authentication.
@@ -7302,8 +7120,6 @@ type LabVirtualMachineCreationParameter struct {
 	LabSubnetName *string `pulumi:"labSubnetName"`
 	// The lab virtual network identifier of the virtual machine.
 	LabVirtualNetworkId *string `pulumi:"labVirtualNetworkId"`
-	// Last known compute power state captured in DTL
-	LastKnownPowerState *string `pulumi:"lastKnownPowerState"`
 	// The location of the new virtual machine or environment
 	Location *string `pulumi:"location"`
 	// The name of the virtual machine or environment
@@ -7312,8 +7128,6 @@ type LabVirtualMachineCreationParameter struct {
 	NetworkInterface *NetworkInterfaceProperties `pulumi:"networkInterface"`
 	// The notes of the virtual machine.
 	Notes *string `pulumi:"notes"`
-	// The OS type of the virtual machine.
-	OsType *string `pulumi:"osType"`
 	// The object identifier of the owner of the virtual machine.
 	OwnerObjectId *string `pulumi:"ownerObjectId"`
 	// The user principal name of the virtual machine owner.
@@ -7334,8 +7148,6 @@ type LabVirtualMachineCreationParameter struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The user name of the virtual machine.
 	UserName *string `pulumi:"userName"`
-	// Tells source of creation of lab virtual machine. Output property only.
-	VirtualMachineCreationSource *string `pulumi:"virtualMachineCreationSource"`
 }
 
 // LabVirtualMachineCreationParameterInput is an input type that accepts LabVirtualMachineCreationParameterArgs and LabVirtualMachineCreationParameterOutput values.
@@ -7353,18 +7165,10 @@ type LabVirtualMachineCreationParameterInput interface {
 type LabVirtualMachineCreationParameterArgs struct {
 	// Indicates whether another user can take ownership of the virtual machine
 	AllowClaim pulumi.BoolPtrInput `pulumi:"allowClaim"`
-	// The artifact deployment status for the virtual machine.
-	ArtifactDeploymentStatus ArtifactDeploymentStatusPropertiesPtrInput `pulumi:"artifactDeploymentStatus"`
 	// The artifacts to be installed on the virtual machine.
 	Artifacts ArtifactInstallPropertiesArrayInput `pulumi:"artifacts"`
 	// The number of virtual machine instances to create.
 	BulkCreationParameters BulkCreationParametersPtrInput `pulumi:"bulkCreationParameters"`
-	// The resource identifier (Microsoft.Compute) of the virtual machine.
-	ComputeId pulumi.StringPtrInput `pulumi:"computeId"`
-	// The email address of creator of the virtual machine.
-	CreatedByUser pulumi.StringPtrInput `pulumi:"createdByUser"`
-	// The object identifier of the creator of the virtual machine.
-	CreatedByUserId pulumi.StringPtrInput `pulumi:"createdByUserId"`
 	// The creation date of the virtual machine.
 	CreatedDate pulumi.StringPtrInput `pulumi:"createdDate"`
 	// The custom image identifier of the virtual machine.
@@ -7377,8 +7181,6 @@ type LabVirtualMachineCreationParameterArgs struct {
 	EnvironmentId pulumi.StringPtrInput `pulumi:"environmentId"`
 	// The expiration date for VM.
 	ExpirationDate pulumi.StringPtrInput `pulumi:"expirationDate"`
-	// The fully-qualified domain name of the virtual machine.
-	Fqdn pulumi.StringPtrInput `pulumi:"fqdn"`
 	// The Microsoft Azure Marketplace image reference of the virtual machine.
 	GalleryImageReference GalleryImageReferencePtrInput `pulumi:"galleryImageReference"`
 	// Indicates whether this virtual machine uses an SSH key for authentication.
@@ -7387,8 +7189,6 @@ type LabVirtualMachineCreationParameterArgs struct {
 	LabSubnetName pulumi.StringPtrInput `pulumi:"labSubnetName"`
 	// The lab virtual network identifier of the virtual machine.
 	LabVirtualNetworkId pulumi.StringPtrInput `pulumi:"labVirtualNetworkId"`
-	// Last known compute power state captured in DTL
-	LastKnownPowerState pulumi.StringPtrInput `pulumi:"lastKnownPowerState"`
 	// The location of the new virtual machine or environment
 	Location pulumi.StringPtrInput `pulumi:"location"`
 	// The name of the virtual machine or environment
@@ -7397,8 +7197,6 @@ type LabVirtualMachineCreationParameterArgs struct {
 	NetworkInterface NetworkInterfacePropertiesPtrInput `pulumi:"networkInterface"`
 	// The notes of the virtual machine.
 	Notes pulumi.StringPtrInput `pulumi:"notes"`
-	// The OS type of the virtual machine.
-	OsType pulumi.StringPtrInput `pulumi:"osType"`
 	// The object identifier of the owner of the virtual machine.
 	OwnerObjectId pulumi.StringPtrInput `pulumi:"ownerObjectId"`
 	// The user principal name of the virtual machine owner.
@@ -7419,8 +7217,6 @@ type LabVirtualMachineCreationParameterArgs struct {
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// The user name of the virtual machine.
 	UserName pulumi.StringPtrInput `pulumi:"userName"`
-	// Tells source of creation of lab virtual machine. Output property only.
-	VirtualMachineCreationSource pulumi.StringPtrInput `pulumi:"virtualMachineCreationSource"`
 }
 
 func (LabVirtualMachineCreationParameterArgs) ElementType() reflect.Type {
@@ -7506,13 +7302,6 @@ func (o LabVirtualMachineCreationParameterOutput) AllowClaim() pulumi.BoolPtrOut
 	return o.ApplyT(func(v LabVirtualMachineCreationParameter) *bool { return v.AllowClaim }).(pulumi.BoolPtrOutput)
 }
 
-// The artifact deployment status for the virtual machine.
-func (o LabVirtualMachineCreationParameterOutput) ArtifactDeploymentStatus() ArtifactDeploymentStatusPropertiesPtrOutput {
-	return o.ApplyT(func(v LabVirtualMachineCreationParameter) *ArtifactDeploymentStatusProperties {
-		return v.ArtifactDeploymentStatus
-	}).(ArtifactDeploymentStatusPropertiesPtrOutput)
-}
-
 // The artifacts to be installed on the virtual machine.
 func (o LabVirtualMachineCreationParameterOutput) Artifacts() ArtifactInstallPropertiesArrayOutput {
 	return o.ApplyT(func(v LabVirtualMachineCreationParameter) []ArtifactInstallProperties { return v.Artifacts }).(ArtifactInstallPropertiesArrayOutput)
@@ -7521,21 +7310,6 @@ func (o LabVirtualMachineCreationParameterOutput) Artifacts() ArtifactInstallPro
 // The number of virtual machine instances to create.
 func (o LabVirtualMachineCreationParameterOutput) BulkCreationParameters() BulkCreationParametersPtrOutput {
 	return o.ApplyT(func(v LabVirtualMachineCreationParameter) *BulkCreationParameters { return v.BulkCreationParameters }).(BulkCreationParametersPtrOutput)
-}
-
-// The resource identifier (Microsoft.Compute) of the virtual machine.
-func (o LabVirtualMachineCreationParameterOutput) ComputeId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabVirtualMachineCreationParameter) *string { return v.ComputeId }).(pulumi.StringPtrOutput)
-}
-
-// The email address of creator of the virtual machine.
-func (o LabVirtualMachineCreationParameterOutput) CreatedByUser() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabVirtualMachineCreationParameter) *string { return v.CreatedByUser }).(pulumi.StringPtrOutput)
-}
-
-// The object identifier of the creator of the virtual machine.
-func (o LabVirtualMachineCreationParameterOutput) CreatedByUserId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabVirtualMachineCreationParameter) *string { return v.CreatedByUserId }).(pulumi.StringPtrOutput)
 }
 
 // The creation date of the virtual machine.
@@ -7568,11 +7342,6 @@ func (o LabVirtualMachineCreationParameterOutput) ExpirationDate() pulumi.String
 	return o.ApplyT(func(v LabVirtualMachineCreationParameter) *string { return v.ExpirationDate }).(pulumi.StringPtrOutput)
 }
 
-// The fully-qualified domain name of the virtual machine.
-func (o LabVirtualMachineCreationParameterOutput) Fqdn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabVirtualMachineCreationParameter) *string { return v.Fqdn }).(pulumi.StringPtrOutput)
-}
-
 // The Microsoft Azure Marketplace image reference of the virtual machine.
 func (o LabVirtualMachineCreationParameterOutput) GalleryImageReference() GalleryImageReferencePtrOutput {
 	return o.ApplyT(func(v LabVirtualMachineCreationParameter) *GalleryImageReference { return v.GalleryImageReference }).(GalleryImageReferencePtrOutput)
@@ -7593,11 +7362,6 @@ func (o LabVirtualMachineCreationParameterOutput) LabVirtualNetworkId() pulumi.S
 	return o.ApplyT(func(v LabVirtualMachineCreationParameter) *string { return v.LabVirtualNetworkId }).(pulumi.StringPtrOutput)
 }
 
-// Last known compute power state captured in DTL
-func (o LabVirtualMachineCreationParameterOutput) LastKnownPowerState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabVirtualMachineCreationParameter) *string { return v.LastKnownPowerState }).(pulumi.StringPtrOutput)
-}
-
 // The location of the new virtual machine or environment
 func (o LabVirtualMachineCreationParameterOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LabVirtualMachineCreationParameter) *string { return v.Location }).(pulumi.StringPtrOutput)
@@ -7616,11 +7380,6 @@ func (o LabVirtualMachineCreationParameterOutput) NetworkInterface() NetworkInte
 // The notes of the virtual machine.
 func (o LabVirtualMachineCreationParameterOutput) Notes() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LabVirtualMachineCreationParameter) *string { return v.Notes }).(pulumi.StringPtrOutput)
-}
-
-// The OS type of the virtual machine.
-func (o LabVirtualMachineCreationParameterOutput) OsType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabVirtualMachineCreationParameter) *string { return v.OsType }).(pulumi.StringPtrOutput)
 }
 
 // The object identifier of the owner of the virtual machine.
@@ -7673,11 +7432,6 @@ func (o LabVirtualMachineCreationParameterOutput) UserName() pulumi.StringPtrOut
 	return o.ApplyT(func(v LabVirtualMachineCreationParameter) *string { return v.UserName }).(pulumi.StringPtrOutput)
 }
 
-// Tells source of creation of lab virtual machine. Output property only.
-func (o LabVirtualMachineCreationParameterOutput) VirtualMachineCreationSource() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabVirtualMachineCreationParameter) *string { return v.VirtualMachineCreationSource }).(pulumi.StringPtrOutput)
-}
-
 type LabVirtualMachineCreationParameterPtrOutput struct{ *pulumi.OutputState }
 
 func (LabVirtualMachineCreationParameterPtrOutput) ElementType() reflect.Type {
@@ -7706,16 +7460,6 @@ func (o LabVirtualMachineCreationParameterPtrOutput) AllowClaim() pulumi.BoolPtr
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The artifact deployment status for the virtual machine.
-func (o LabVirtualMachineCreationParameterPtrOutput) ArtifactDeploymentStatus() ArtifactDeploymentStatusPropertiesPtrOutput {
-	return o.ApplyT(func(v *LabVirtualMachineCreationParameter) *ArtifactDeploymentStatusProperties {
-		if v == nil {
-			return nil
-		}
-		return v.ArtifactDeploymentStatus
-	}).(ArtifactDeploymentStatusPropertiesPtrOutput)
-}
-
 // The artifacts to be installed on the virtual machine.
 func (o LabVirtualMachineCreationParameterPtrOutput) Artifacts() ArtifactInstallPropertiesArrayOutput {
 	return o.ApplyT(func(v *LabVirtualMachineCreationParameter) []ArtifactInstallProperties {
@@ -7734,36 +7478,6 @@ func (o LabVirtualMachineCreationParameterPtrOutput) BulkCreationParameters() Bu
 		}
 		return v.BulkCreationParameters
 	}).(BulkCreationParametersPtrOutput)
-}
-
-// The resource identifier (Microsoft.Compute) of the virtual machine.
-func (o LabVirtualMachineCreationParameterPtrOutput) ComputeId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LabVirtualMachineCreationParameter) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ComputeId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The email address of creator of the virtual machine.
-func (o LabVirtualMachineCreationParameterPtrOutput) CreatedByUser() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LabVirtualMachineCreationParameter) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedByUser
-	}).(pulumi.StringPtrOutput)
-}
-
-// The object identifier of the creator of the virtual machine.
-func (o LabVirtualMachineCreationParameterPtrOutput) CreatedByUserId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LabVirtualMachineCreationParameter) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedByUserId
-	}).(pulumi.StringPtrOutput)
 }
 
 // The creation date of the virtual machine.
@@ -7826,16 +7540,6 @@ func (o LabVirtualMachineCreationParameterPtrOutput) ExpirationDate() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// The fully-qualified domain name of the virtual machine.
-func (o LabVirtualMachineCreationParameterPtrOutput) Fqdn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LabVirtualMachineCreationParameter) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Fqdn
-	}).(pulumi.StringPtrOutput)
-}
-
 // The Microsoft Azure Marketplace image reference of the virtual machine.
 func (o LabVirtualMachineCreationParameterPtrOutput) GalleryImageReference() GalleryImageReferencePtrOutput {
 	return o.ApplyT(func(v *LabVirtualMachineCreationParameter) *GalleryImageReference {
@@ -7876,16 +7580,6 @@ func (o LabVirtualMachineCreationParameterPtrOutput) LabVirtualNetworkId() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// Last known compute power state captured in DTL
-func (o LabVirtualMachineCreationParameterPtrOutput) LastKnownPowerState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LabVirtualMachineCreationParameter) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LastKnownPowerState
-	}).(pulumi.StringPtrOutput)
-}
-
 // The location of the new virtual machine or environment
 func (o LabVirtualMachineCreationParameterPtrOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LabVirtualMachineCreationParameter) *string {
@@ -7923,16 +7617,6 @@ func (o LabVirtualMachineCreationParameterPtrOutput) Notes() pulumi.StringPtrOut
 			return nil
 		}
 		return v.Notes
-	}).(pulumi.StringPtrOutput)
-}
-
-// The OS type of the virtual machine.
-func (o LabVirtualMachineCreationParameterPtrOutput) OsType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LabVirtualMachineCreationParameter) *string {
-		if v == nil {
-			return nil
-		}
-		return v.OsType
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -8036,32 +7720,14 @@ func (o LabVirtualMachineCreationParameterPtrOutput) UserName() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Tells source of creation of lab virtual machine. Output property only.
-func (o LabVirtualMachineCreationParameterPtrOutput) VirtualMachineCreationSource() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LabVirtualMachineCreationParameter) *string {
-		if v == nil {
-			return nil
-		}
-		return v.VirtualMachineCreationSource
-	}).(pulumi.StringPtrOutput)
-}
-
 // Properties for creating a virtual machine.
 type LabVirtualMachineCreationParameterResponse struct {
 	// Indicates whether another user can take ownership of the virtual machine
 	AllowClaim *bool `pulumi:"allowClaim"`
-	// The artifact deployment status for the virtual machine.
-	ArtifactDeploymentStatus *ArtifactDeploymentStatusPropertiesResponse `pulumi:"artifactDeploymentStatus"`
 	// The artifacts to be installed on the virtual machine.
 	Artifacts []ArtifactInstallPropertiesResponse `pulumi:"artifacts"`
 	// The number of virtual machine instances to create.
 	BulkCreationParameters *BulkCreationParametersResponse `pulumi:"bulkCreationParameters"`
-	// The resource identifier (Microsoft.Compute) of the virtual machine.
-	ComputeId *string `pulumi:"computeId"`
-	// The email address of creator of the virtual machine.
-	CreatedByUser *string `pulumi:"createdByUser"`
-	// The object identifier of the creator of the virtual machine.
-	CreatedByUserId *string `pulumi:"createdByUserId"`
 	// The creation date of the virtual machine.
 	CreatedDate *string `pulumi:"createdDate"`
 	// The custom image identifier of the virtual machine.
@@ -8074,8 +7740,6 @@ type LabVirtualMachineCreationParameterResponse struct {
 	EnvironmentId *string `pulumi:"environmentId"`
 	// The expiration date for VM.
 	ExpirationDate *string `pulumi:"expirationDate"`
-	// The fully-qualified domain name of the virtual machine.
-	Fqdn *string `pulumi:"fqdn"`
 	// The Microsoft Azure Marketplace image reference of the virtual machine.
 	GalleryImageReference *GalleryImageReferenceResponse `pulumi:"galleryImageReference"`
 	// Indicates whether this virtual machine uses an SSH key for authentication.
@@ -8084,8 +7748,6 @@ type LabVirtualMachineCreationParameterResponse struct {
 	LabSubnetName *string `pulumi:"labSubnetName"`
 	// The lab virtual network identifier of the virtual machine.
 	LabVirtualNetworkId *string `pulumi:"labVirtualNetworkId"`
-	// Last known compute power state captured in DTL
-	LastKnownPowerState *string `pulumi:"lastKnownPowerState"`
 	// The location of the new virtual machine or environment
 	Location *string `pulumi:"location"`
 	// The name of the virtual machine or environment
@@ -8094,8 +7756,6 @@ type LabVirtualMachineCreationParameterResponse struct {
 	NetworkInterface *NetworkInterfacePropertiesResponse `pulumi:"networkInterface"`
 	// The notes of the virtual machine.
 	Notes *string `pulumi:"notes"`
-	// The OS type of the virtual machine.
-	OsType *string `pulumi:"osType"`
 	// The object identifier of the owner of the virtual machine.
 	OwnerObjectId *string `pulumi:"ownerObjectId"`
 	// The user principal name of the virtual machine owner.
@@ -8116,8 +7776,6 @@ type LabVirtualMachineCreationParameterResponse struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The user name of the virtual machine.
 	UserName *string `pulumi:"userName"`
-	// Tells source of creation of lab virtual machine. Output property only.
-	VirtualMachineCreationSource *string `pulumi:"virtualMachineCreationSource"`
 }
 
 // LabVirtualMachineCreationParameterResponseInput is an input type that accepts LabVirtualMachineCreationParameterResponseArgs and LabVirtualMachineCreationParameterResponseOutput values.
@@ -8135,18 +7793,10 @@ type LabVirtualMachineCreationParameterResponseInput interface {
 type LabVirtualMachineCreationParameterResponseArgs struct {
 	// Indicates whether another user can take ownership of the virtual machine
 	AllowClaim pulumi.BoolPtrInput `pulumi:"allowClaim"`
-	// The artifact deployment status for the virtual machine.
-	ArtifactDeploymentStatus ArtifactDeploymentStatusPropertiesResponsePtrInput `pulumi:"artifactDeploymentStatus"`
 	// The artifacts to be installed on the virtual machine.
 	Artifacts ArtifactInstallPropertiesResponseArrayInput `pulumi:"artifacts"`
 	// The number of virtual machine instances to create.
 	BulkCreationParameters BulkCreationParametersResponsePtrInput `pulumi:"bulkCreationParameters"`
-	// The resource identifier (Microsoft.Compute) of the virtual machine.
-	ComputeId pulumi.StringPtrInput `pulumi:"computeId"`
-	// The email address of creator of the virtual machine.
-	CreatedByUser pulumi.StringPtrInput `pulumi:"createdByUser"`
-	// The object identifier of the creator of the virtual machine.
-	CreatedByUserId pulumi.StringPtrInput `pulumi:"createdByUserId"`
 	// The creation date of the virtual machine.
 	CreatedDate pulumi.StringPtrInput `pulumi:"createdDate"`
 	// The custom image identifier of the virtual machine.
@@ -8159,8 +7809,6 @@ type LabVirtualMachineCreationParameterResponseArgs struct {
 	EnvironmentId pulumi.StringPtrInput `pulumi:"environmentId"`
 	// The expiration date for VM.
 	ExpirationDate pulumi.StringPtrInput `pulumi:"expirationDate"`
-	// The fully-qualified domain name of the virtual machine.
-	Fqdn pulumi.StringPtrInput `pulumi:"fqdn"`
 	// The Microsoft Azure Marketplace image reference of the virtual machine.
 	GalleryImageReference GalleryImageReferenceResponsePtrInput `pulumi:"galleryImageReference"`
 	// Indicates whether this virtual machine uses an SSH key for authentication.
@@ -8169,8 +7817,6 @@ type LabVirtualMachineCreationParameterResponseArgs struct {
 	LabSubnetName pulumi.StringPtrInput `pulumi:"labSubnetName"`
 	// The lab virtual network identifier of the virtual machine.
 	LabVirtualNetworkId pulumi.StringPtrInput `pulumi:"labVirtualNetworkId"`
-	// Last known compute power state captured in DTL
-	LastKnownPowerState pulumi.StringPtrInput `pulumi:"lastKnownPowerState"`
 	// The location of the new virtual machine or environment
 	Location pulumi.StringPtrInput `pulumi:"location"`
 	// The name of the virtual machine or environment
@@ -8179,8 +7825,6 @@ type LabVirtualMachineCreationParameterResponseArgs struct {
 	NetworkInterface NetworkInterfacePropertiesResponsePtrInput `pulumi:"networkInterface"`
 	// The notes of the virtual machine.
 	Notes pulumi.StringPtrInput `pulumi:"notes"`
-	// The OS type of the virtual machine.
-	OsType pulumi.StringPtrInput `pulumi:"osType"`
 	// The object identifier of the owner of the virtual machine.
 	OwnerObjectId pulumi.StringPtrInput `pulumi:"ownerObjectId"`
 	// The user principal name of the virtual machine owner.
@@ -8201,8 +7845,6 @@ type LabVirtualMachineCreationParameterResponseArgs struct {
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// The user name of the virtual machine.
 	UserName pulumi.StringPtrInput `pulumi:"userName"`
-	// Tells source of creation of lab virtual machine. Output property only.
-	VirtualMachineCreationSource pulumi.StringPtrInput `pulumi:"virtualMachineCreationSource"`
 }
 
 func (LabVirtualMachineCreationParameterResponseArgs) ElementType() reflect.Type {
@@ -8288,13 +7930,6 @@ func (o LabVirtualMachineCreationParameterResponseOutput) AllowClaim() pulumi.Bo
 	return o.ApplyT(func(v LabVirtualMachineCreationParameterResponse) *bool { return v.AllowClaim }).(pulumi.BoolPtrOutput)
 }
 
-// The artifact deployment status for the virtual machine.
-func (o LabVirtualMachineCreationParameterResponseOutput) ArtifactDeploymentStatus() ArtifactDeploymentStatusPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v LabVirtualMachineCreationParameterResponse) *ArtifactDeploymentStatusPropertiesResponse {
-		return v.ArtifactDeploymentStatus
-	}).(ArtifactDeploymentStatusPropertiesResponsePtrOutput)
-}
-
 // The artifacts to be installed on the virtual machine.
 func (o LabVirtualMachineCreationParameterResponseOutput) Artifacts() ArtifactInstallPropertiesResponseArrayOutput {
 	return o.ApplyT(func(v LabVirtualMachineCreationParameterResponse) []ArtifactInstallPropertiesResponse {
@@ -8307,21 +7942,6 @@ func (o LabVirtualMachineCreationParameterResponseOutput) BulkCreationParameters
 	return o.ApplyT(func(v LabVirtualMachineCreationParameterResponse) *BulkCreationParametersResponse {
 		return v.BulkCreationParameters
 	}).(BulkCreationParametersResponsePtrOutput)
-}
-
-// The resource identifier (Microsoft.Compute) of the virtual machine.
-func (o LabVirtualMachineCreationParameterResponseOutput) ComputeId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabVirtualMachineCreationParameterResponse) *string { return v.ComputeId }).(pulumi.StringPtrOutput)
-}
-
-// The email address of creator of the virtual machine.
-func (o LabVirtualMachineCreationParameterResponseOutput) CreatedByUser() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabVirtualMachineCreationParameterResponse) *string { return v.CreatedByUser }).(pulumi.StringPtrOutput)
-}
-
-// The object identifier of the creator of the virtual machine.
-func (o LabVirtualMachineCreationParameterResponseOutput) CreatedByUserId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabVirtualMachineCreationParameterResponse) *string { return v.CreatedByUserId }).(pulumi.StringPtrOutput)
 }
 
 // The creation date of the virtual machine.
@@ -8356,11 +7976,6 @@ func (o LabVirtualMachineCreationParameterResponseOutput) ExpirationDate() pulum
 	return o.ApplyT(func(v LabVirtualMachineCreationParameterResponse) *string { return v.ExpirationDate }).(pulumi.StringPtrOutput)
 }
 
-// The fully-qualified domain name of the virtual machine.
-func (o LabVirtualMachineCreationParameterResponseOutput) Fqdn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabVirtualMachineCreationParameterResponse) *string { return v.Fqdn }).(pulumi.StringPtrOutput)
-}
-
 // The Microsoft Azure Marketplace image reference of the virtual machine.
 func (o LabVirtualMachineCreationParameterResponseOutput) GalleryImageReference() GalleryImageReferenceResponsePtrOutput {
 	return o.ApplyT(func(v LabVirtualMachineCreationParameterResponse) *GalleryImageReferenceResponse {
@@ -8383,11 +7998,6 @@ func (o LabVirtualMachineCreationParameterResponseOutput) LabVirtualNetworkId() 
 	return o.ApplyT(func(v LabVirtualMachineCreationParameterResponse) *string { return v.LabVirtualNetworkId }).(pulumi.StringPtrOutput)
 }
 
-// Last known compute power state captured in DTL
-func (o LabVirtualMachineCreationParameterResponseOutput) LastKnownPowerState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabVirtualMachineCreationParameterResponse) *string { return v.LastKnownPowerState }).(pulumi.StringPtrOutput)
-}
-
 // The location of the new virtual machine or environment
 func (o LabVirtualMachineCreationParameterResponseOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LabVirtualMachineCreationParameterResponse) *string { return v.Location }).(pulumi.StringPtrOutput)
@@ -8408,11 +8018,6 @@ func (o LabVirtualMachineCreationParameterResponseOutput) NetworkInterface() Net
 // The notes of the virtual machine.
 func (o LabVirtualMachineCreationParameterResponseOutput) Notes() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LabVirtualMachineCreationParameterResponse) *string { return v.Notes }).(pulumi.StringPtrOutput)
-}
-
-// The OS type of the virtual machine.
-func (o LabVirtualMachineCreationParameterResponseOutput) OsType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabVirtualMachineCreationParameterResponse) *string { return v.OsType }).(pulumi.StringPtrOutput)
 }
 
 // The object identifier of the owner of the virtual machine.
@@ -8467,11 +8072,6 @@ func (o LabVirtualMachineCreationParameterResponseOutput) UserName() pulumi.Stri
 	return o.ApplyT(func(v LabVirtualMachineCreationParameterResponse) *string { return v.UserName }).(pulumi.StringPtrOutput)
 }
 
-// Tells source of creation of lab virtual machine. Output property only.
-func (o LabVirtualMachineCreationParameterResponseOutput) VirtualMachineCreationSource() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabVirtualMachineCreationParameterResponse) *string { return v.VirtualMachineCreationSource }).(pulumi.StringPtrOutput)
-}
-
 type LabVirtualMachineCreationParameterResponsePtrOutput struct{ *pulumi.OutputState }
 
 func (LabVirtualMachineCreationParameterResponsePtrOutput) ElementType() reflect.Type {
@@ -8502,16 +8102,6 @@ func (o LabVirtualMachineCreationParameterResponsePtrOutput) AllowClaim() pulumi
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The artifact deployment status for the virtual machine.
-func (o LabVirtualMachineCreationParameterResponsePtrOutput) ArtifactDeploymentStatus() ArtifactDeploymentStatusPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v *LabVirtualMachineCreationParameterResponse) *ArtifactDeploymentStatusPropertiesResponse {
-		if v == nil {
-			return nil
-		}
-		return v.ArtifactDeploymentStatus
-	}).(ArtifactDeploymentStatusPropertiesResponsePtrOutput)
-}
-
 // The artifacts to be installed on the virtual machine.
 func (o LabVirtualMachineCreationParameterResponsePtrOutput) Artifacts() ArtifactInstallPropertiesResponseArrayOutput {
 	return o.ApplyT(func(v *LabVirtualMachineCreationParameterResponse) []ArtifactInstallPropertiesResponse {
@@ -8530,36 +8120,6 @@ func (o LabVirtualMachineCreationParameterResponsePtrOutput) BulkCreationParamet
 		}
 		return v.BulkCreationParameters
 	}).(BulkCreationParametersResponsePtrOutput)
-}
-
-// The resource identifier (Microsoft.Compute) of the virtual machine.
-func (o LabVirtualMachineCreationParameterResponsePtrOutput) ComputeId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LabVirtualMachineCreationParameterResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ComputeId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The email address of creator of the virtual machine.
-func (o LabVirtualMachineCreationParameterResponsePtrOutput) CreatedByUser() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LabVirtualMachineCreationParameterResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedByUser
-	}).(pulumi.StringPtrOutput)
-}
-
-// The object identifier of the creator of the virtual machine.
-func (o LabVirtualMachineCreationParameterResponsePtrOutput) CreatedByUserId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LabVirtualMachineCreationParameterResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedByUserId
-	}).(pulumi.StringPtrOutput)
 }
 
 // The creation date of the virtual machine.
@@ -8622,16 +8182,6 @@ func (o LabVirtualMachineCreationParameterResponsePtrOutput) ExpirationDate() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The fully-qualified domain name of the virtual machine.
-func (o LabVirtualMachineCreationParameterResponsePtrOutput) Fqdn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LabVirtualMachineCreationParameterResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Fqdn
-	}).(pulumi.StringPtrOutput)
-}
-
 // The Microsoft Azure Marketplace image reference of the virtual machine.
 func (o LabVirtualMachineCreationParameterResponsePtrOutput) GalleryImageReference() GalleryImageReferenceResponsePtrOutput {
 	return o.ApplyT(func(v *LabVirtualMachineCreationParameterResponse) *GalleryImageReferenceResponse {
@@ -8672,16 +8222,6 @@ func (o LabVirtualMachineCreationParameterResponsePtrOutput) LabVirtualNetworkId
 	}).(pulumi.StringPtrOutput)
 }
 
-// Last known compute power state captured in DTL
-func (o LabVirtualMachineCreationParameterResponsePtrOutput) LastKnownPowerState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LabVirtualMachineCreationParameterResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LastKnownPowerState
-	}).(pulumi.StringPtrOutput)
-}
-
 // The location of the new virtual machine or environment
 func (o LabVirtualMachineCreationParameterResponsePtrOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LabVirtualMachineCreationParameterResponse) *string {
@@ -8719,16 +8259,6 @@ func (o LabVirtualMachineCreationParameterResponsePtrOutput) Notes() pulumi.Stri
 			return nil
 		}
 		return v.Notes
-	}).(pulumi.StringPtrOutput)
-}
-
-// The OS type of the virtual machine.
-func (o LabVirtualMachineCreationParameterResponsePtrOutput) OsType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LabVirtualMachineCreationParameterResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.OsType
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -8829,16 +8359,6 @@ func (o LabVirtualMachineCreationParameterResponsePtrOutput) UserName() pulumi.S
 			return nil
 		}
 		return v.UserName
-	}).(pulumi.StringPtrOutput)
-}
-
-// Tells source of creation of lab virtual machine. Output property only.
-func (o LabVirtualMachineCreationParameterResponsePtrOutput) VirtualMachineCreationSource() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LabVirtualMachineCreationParameterResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.VirtualMachineCreationSource
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -13545,8 +13065,6 @@ func init() {
 	pulumi.RegisterOutputType(ArmTemplateParameterPropertiesArrayOutput{})
 	pulumi.RegisterOutputType(ArmTemplateParameterPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ArmTemplateParameterPropertiesResponseArrayOutput{})
-	pulumi.RegisterOutputType(ArtifactDeploymentStatusPropertiesOutput{})
-	pulumi.RegisterOutputType(ArtifactDeploymentStatusPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ArtifactDeploymentStatusPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ArtifactDeploymentStatusPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(ArtifactInstallPropertiesOutput{})

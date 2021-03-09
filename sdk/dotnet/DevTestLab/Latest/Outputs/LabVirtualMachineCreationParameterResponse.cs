@@ -18,10 +18,6 @@ namespace Pulumi.AzureNative.DevTestLab.Latest.Outputs
         /// </summary>
         public readonly bool? AllowClaim;
         /// <summary>
-        /// The artifact deployment status for the virtual machine.
-        /// </summary>
-        public readonly Outputs.ArtifactDeploymentStatusPropertiesResponse? ArtifactDeploymentStatus;
-        /// <summary>
         /// The artifacts to be installed on the virtual machine.
         /// </summary>
         public readonly ImmutableArray<Outputs.ArtifactInstallPropertiesResponse> Artifacts;
@@ -29,18 +25,6 @@ namespace Pulumi.AzureNative.DevTestLab.Latest.Outputs
         /// The number of virtual machine instances to create.
         /// </summary>
         public readonly Outputs.BulkCreationParametersResponse? BulkCreationParameters;
-        /// <summary>
-        /// The resource identifier (Microsoft.Compute) of the virtual machine.
-        /// </summary>
-        public readonly string? ComputeId;
-        /// <summary>
-        /// The email address of creator of the virtual machine.
-        /// </summary>
-        public readonly string? CreatedByUser;
-        /// <summary>
-        /// The object identifier of the creator of the virtual machine.
-        /// </summary>
-        public readonly string? CreatedByUserId;
         /// <summary>
         /// The creation date of the virtual machine.
         /// </summary>
@@ -66,10 +50,6 @@ namespace Pulumi.AzureNative.DevTestLab.Latest.Outputs
         /// </summary>
         public readonly string? ExpirationDate;
         /// <summary>
-        /// The fully-qualified domain name of the virtual machine.
-        /// </summary>
-        public readonly string? Fqdn;
-        /// <summary>
         /// The Microsoft Azure Marketplace image reference of the virtual machine.
         /// </summary>
         public readonly Outputs.GalleryImageReferenceResponse? GalleryImageReference;
@@ -86,10 +66,6 @@ namespace Pulumi.AzureNative.DevTestLab.Latest.Outputs
         /// </summary>
         public readonly string? LabVirtualNetworkId;
         /// <summary>
-        /// Last known compute power state captured in DTL
-        /// </summary>
-        public readonly string? LastKnownPowerState;
-        /// <summary>
         /// The location of the new virtual machine or environment
         /// </summary>
         public readonly string? Location;
@@ -105,10 +81,6 @@ namespace Pulumi.AzureNative.DevTestLab.Latest.Outputs
         /// The notes of the virtual machine.
         /// </summary>
         public readonly string? Notes;
-        /// <summary>
-        /// The OS type of the virtual machine.
-        /// </summary>
-        public readonly string? OsType;
         /// <summary>
         /// The object identifier of the owner of the virtual machine.
         /// </summary>
@@ -149,26 +121,14 @@ namespace Pulumi.AzureNative.DevTestLab.Latest.Outputs
         /// The user name of the virtual machine.
         /// </summary>
         public readonly string? UserName;
-        /// <summary>
-        /// Tells source of creation of lab virtual machine. Output property only.
-        /// </summary>
-        public readonly string? VirtualMachineCreationSource;
 
         [OutputConstructor]
         private LabVirtualMachineCreationParameterResponse(
             bool? allowClaim,
 
-            Outputs.ArtifactDeploymentStatusPropertiesResponse? artifactDeploymentStatus,
-
             ImmutableArray<Outputs.ArtifactInstallPropertiesResponse> artifacts,
 
             Outputs.BulkCreationParametersResponse? bulkCreationParameters,
-
-            string? computeId,
-
-            string? createdByUser,
-
-            string? createdByUserId,
 
             string? createdDate,
 
@@ -182,8 +142,6 @@ namespace Pulumi.AzureNative.DevTestLab.Latest.Outputs
 
             string? expirationDate,
 
-            string? fqdn,
-
             Outputs.GalleryImageReferenceResponse? galleryImageReference,
 
             bool? isAuthenticationWithSshKey,
@@ -192,8 +150,6 @@ namespace Pulumi.AzureNative.DevTestLab.Latest.Outputs
 
             string? labVirtualNetworkId,
 
-            string? lastKnownPowerState,
-
             string? location,
 
             string? name,
@@ -201,8 +157,6 @@ namespace Pulumi.AzureNative.DevTestLab.Latest.Outputs
             Outputs.NetworkInterfacePropertiesResponse? networkInterface,
 
             string? notes,
-
-            string? osType,
 
             string? ownerObjectId,
 
@@ -222,34 +176,25 @@ namespace Pulumi.AzureNative.DevTestLab.Latest.Outputs
 
             ImmutableDictionary<string, string>? tags,
 
-            string? userName,
-
-            string? virtualMachineCreationSource)
+            string? userName)
         {
             AllowClaim = allowClaim;
-            ArtifactDeploymentStatus = artifactDeploymentStatus;
             Artifacts = artifacts;
             BulkCreationParameters = bulkCreationParameters;
-            ComputeId = computeId;
-            CreatedByUser = createdByUser;
-            CreatedByUserId = createdByUserId;
             CreatedDate = createdDate;
             CustomImageId = customImageId;
             DataDiskParameters = dataDiskParameters;
             DisallowPublicIpAddress = disallowPublicIpAddress;
             EnvironmentId = environmentId;
             ExpirationDate = expirationDate;
-            Fqdn = fqdn;
             GalleryImageReference = galleryImageReference;
             IsAuthenticationWithSshKey = isAuthenticationWithSshKey;
             LabSubnetName = labSubnetName;
             LabVirtualNetworkId = labVirtualNetworkId;
-            LastKnownPowerState = lastKnownPowerState;
             Location = location;
             Name = name;
             NetworkInterface = networkInterface;
             Notes = notes;
-            OsType = osType;
             OwnerObjectId = ownerObjectId;
             OwnerUserPrincipalName = ownerUserPrincipalName;
             Password = password;
@@ -260,7 +205,6 @@ namespace Pulumi.AzureNative.DevTestLab.Latest.Outputs
             StorageType = storageType;
             Tags = tags;
             UserName = userName;
-            VirtualMachineCreationSource = virtualMachineCreationSource;
         }
     }
 }

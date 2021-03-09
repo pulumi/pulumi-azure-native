@@ -8,7 +8,7 @@ import (
 )
 
 // The Private Endpoint Connection resource.
-// Latest API Version: 2021-01-11.
+// Latest API Version: 2021-03-08.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:securityandcompliance:getPrivateEndpointConnectionsForEDM'.
 func LookupPrivateEndpointConnectionsForEDM(ctx *pulumi.Context, args *LookupPrivateEndpointConnectionsForEDMArgs, opts ...pulumi.InvokeOption) (*LookupPrivateEndpointConnectionsForEDMResult, error) {

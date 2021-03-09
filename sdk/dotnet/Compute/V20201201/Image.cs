@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.Compute.V20201201
         public Output<Outputs.ExtendedLocationResponse?> ExtendedLocation { get; private set; } = null!;
 
         /// <summary>
-        /// Gets the HyperVGenerationType of the VirtualMachine created from the image
+        /// Specifies the HyperVGenerationType of the VirtualMachine created from the image. From API Version 2019-03-01 if the image source is a blob, then we need the user to specify the value, if the source is managed resource like disk or snapshot, we may require the user to specify the property if we cannot deduce it from the source managed resource.
         /// </summary>
         [Output("hyperVGeneration")]
         public Output<string?> HyperVGeneration { get; private set; } = null!;
@@ -149,7 +149,7 @@ namespace Pulumi.AzureNative.Compute.V20201201
         public Input<Inputs.ExtendedLocationArgs>? ExtendedLocation { get; set; }
 
         /// <summary>
-        /// Gets the HyperVGenerationType of the VirtualMachine created from the image
+        /// Specifies the HyperVGenerationType of the VirtualMachine created from the image. From API Version 2019-03-01 if the image source is a blob, then we need the user to specify the value, if the source is managed resource like disk or snapshot, we may require the user to specify the property if we cannot deduce it from the source managed resource.
         /// </summary>
         [Input("hyperVGeneration")]
         public InputUnion<string, Pulumi.AzureNative.Compute.V20201201.HyperVGenerationTypes>? HyperVGeneration { get; set; }

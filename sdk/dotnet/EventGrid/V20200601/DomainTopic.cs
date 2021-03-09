@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.EventGrid.V20200601
         /// Provisioning state of the domain topic.
         /// </summary>
         [Output("provisioningState")]
-        public Output<string?> ProvisioningState { get; private set; } = null!;
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// The system metadata relating to Domain Topic resource.

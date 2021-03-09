@@ -477,29 +477,42 @@ func (e Kind) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtr
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// The kind of the resource.
+type KnownDataCollectionRuleResourceKind pulumi.String
+
+const (
+	KnownDataCollectionRuleResourceKindLinux   = KnownDataCollectionRuleResourceKind("Linux")
+	KnownDataCollectionRuleResourceKindWindows = KnownDataCollectionRuleResourceKind("Windows")
+)
+
+func (KnownDataCollectionRuleResourceKind) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e KnownDataCollectionRuleResourceKind) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e KnownDataCollectionRuleResourceKind) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e KnownDataCollectionRuleResourceKind) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e KnownDataCollectionRuleResourceKind) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 type KnownDataFlowStreams pulumi.String
 
 const (
-	KnownDataFlowStreams_Microsoft_AntiMalwareStatus       = KnownDataFlowStreams("Microsoft-AntiMalwareStatus")
-	KnownDataFlowStreams_Microsoft_Auditd                  = KnownDataFlowStreams("Microsoft-Auditd")
-	KnownDataFlowStreams_Microsoft_CISCOASA                = KnownDataFlowStreams("Microsoft-CISCOASA")
-	KnownDataFlowStreams_Microsoft_CommonSecurityLog       = KnownDataFlowStreams("Microsoft-CommonSecurityLog")
-	KnownDataFlowStreams_Microsoft_ComputerGroup           = KnownDataFlowStreams("Microsoft-ComputerGroup")
-	KnownDataFlowStreams_Microsoft_Event                   = KnownDataFlowStreams("Microsoft-Event")
-	KnownDataFlowStreams_Microsoft_FirewallLog             = KnownDataFlowStreams("Microsoft-FirewallLog")
-	KnownDataFlowStreams_Microsoft_HealthStateChange       = KnownDataFlowStreams("Microsoft-HealthStateChange")
-	KnownDataFlowStreams_Microsoft_Heartbeat               = KnownDataFlowStreams("Microsoft-Heartbeat")
-	KnownDataFlowStreams_Microsoft_InsightsMetrics         = KnownDataFlowStreams("Microsoft-InsightsMetrics")
-	KnownDataFlowStreams_Microsoft_OperationLog            = KnownDataFlowStreams("Microsoft-OperationLog")
-	KnownDataFlowStreams_Microsoft_Perf                    = KnownDataFlowStreams("Microsoft-Perf")
-	KnownDataFlowStreams_Microsoft_ProcessInvestigator     = KnownDataFlowStreams("Microsoft-ProcessInvestigator")
-	KnownDataFlowStreams_Microsoft_ProtectionStatus        = KnownDataFlowStreams("Microsoft-ProtectionStatus")
-	KnownDataFlowStreams_Microsoft_RomeDetectionEvent      = KnownDataFlowStreams("Microsoft-RomeDetectionEvent")
-	KnownDataFlowStreams_Microsoft_SecurityBaseline        = KnownDataFlowStreams("Microsoft-SecurityBaseline")
-	KnownDataFlowStreams_Microsoft_SecurityBaselineSummary = KnownDataFlowStreams("Microsoft-SecurityBaselineSummary")
-	KnownDataFlowStreams_Microsoft_SecurityEvent           = KnownDataFlowStreams("Microsoft-SecurityEvent")
-	KnownDataFlowStreams_Microsoft_Syslog                  = KnownDataFlowStreams("Microsoft-Syslog")
-	KnownDataFlowStreams_Microsoft_WindowsEvent            = KnownDataFlowStreams("Microsoft-WindowsEvent")
+	KnownDataFlowStreams_Microsoft_Event           = KnownDataFlowStreams("Microsoft-Event")
+	KnownDataFlowStreams_Microsoft_InsightsMetrics = KnownDataFlowStreams("Microsoft-InsightsMetrics")
+	KnownDataFlowStreams_Microsoft_Perf            = KnownDataFlowStreams("Microsoft-Perf")
+	KnownDataFlowStreams_Microsoft_Syslog          = KnownDataFlowStreams("Microsoft-Syslog")
+	KnownDataFlowStreams_Microsoft_WindowsEvent    = KnownDataFlowStreams("Microsoft-WindowsEvent")
 )
 
 func (KnownDataFlowStreams) ElementType() reflect.Type {
@@ -525,26 +538,11 @@ func (e KnownDataFlowStreams) ToStringPtrOutputWithContext(ctx context.Context) 
 type KnownExtensionDataSourceStreams pulumi.String
 
 const (
-	KnownExtensionDataSourceStreams_Microsoft_AntiMalwareStatus       = KnownExtensionDataSourceStreams("Microsoft-AntiMalwareStatus")
-	KnownExtensionDataSourceStreams_Microsoft_Auditd                  = KnownExtensionDataSourceStreams("Microsoft-Auditd")
-	KnownExtensionDataSourceStreams_Microsoft_CISCOASA                = KnownExtensionDataSourceStreams("Microsoft-CISCOASA")
-	KnownExtensionDataSourceStreams_Microsoft_CommonSecurityLog       = KnownExtensionDataSourceStreams("Microsoft-CommonSecurityLog")
-	KnownExtensionDataSourceStreams_Microsoft_ComputerGroup           = KnownExtensionDataSourceStreams("Microsoft-ComputerGroup")
-	KnownExtensionDataSourceStreams_Microsoft_Event                   = KnownExtensionDataSourceStreams("Microsoft-Event")
-	KnownExtensionDataSourceStreams_Microsoft_FirewallLog             = KnownExtensionDataSourceStreams("Microsoft-FirewallLog")
-	KnownExtensionDataSourceStreams_Microsoft_HealthStateChange       = KnownExtensionDataSourceStreams("Microsoft-HealthStateChange")
-	KnownExtensionDataSourceStreams_Microsoft_Heartbeat               = KnownExtensionDataSourceStreams("Microsoft-Heartbeat")
-	KnownExtensionDataSourceStreams_Microsoft_InsightsMetrics         = KnownExtensionDataSourceStreams("Microsoft-InsightsMetrics")
-	KnownExtensionDataSourceStreams_Microsoft_OperationLog            = KnownExtensionDataSourceStreams("Microsoft-OperationLog")
-	KnownExtensionDataSourceStreams_Microsoft_Perf                    = KnownExtensionDataSourceStreams("Microsoft-Perf")
-	KnownExtensionDataSourceStreams_Microsoft_ProcessInvestigator     = KnownExtensionDataSourceStreams("Microsoft-ProcessInvestigator")
-	KnownExtensionDataSourceStreams_Microsoft_ProtectionStatus        = KnownExtensionDataSourceStreams("Microsoft-ProtectionStatus")
-	KnownExtensionDataSourceStreams_Microsoft_RomeDetectionEvent      = KnownExtensionDataSourceStreams("Microsoft-RomeDetectionEvent")
-	KnownExtensionDataSourceStreams_Microsoft_SecurityBaseline        = KnownExtensionDataSourceStreams("Microsoft-SecurityBaseline")
-	KnownExtensionDataSourceStreams_Microsoft_SecurityBaselineSummary = KnownExtensionDataSourceStreams("Microsoft-SecurityBaselineSummary")
-	KnownExtensionDataSourceStreams_Microsoft_SecurityEvent           = KnownExtensionDataSourceStreams("Microsoft-SecurityEvent")
-	KnownExtensionDataSourceStreams_Microsoft_Syslog                  = KnownExtensionDataSourceStreams("Microsoft-Syslog")
-	KnownExtensionDataSourceStreams_Microsoft_WindowsEvent            = KnownExtensionDataSourceStreams("Microsoft-WindowsEvent")
+	KnownExtensionDataSourceStreams_Microsoft_Event           = KnownExtensionDataSourceStreams("Microsoft-Event")
+	KnownExtensionDataSourceStreams_Microsoft_InsightsMetrics = KnownExtensionDataSourceStreams("Microsoft-InsightsMetrics")
+	KnownExtensionDataSourceStreams_Microsoft_Perf            = KnownExtensionDataSourceStreams("Microsoft-Perf")
+	KnownExtensionDataSourceStreams_Microsoft_Syslog          = KnownExtensionDataSourceStreams("Microsoft-Syslog")
+	KnownExtensionDataSourceStreams_Microsoft_WindowsEvent    = KnownExtensionDataSourceStreams("Microsoft-WindowsEvent")
 )
 
 func (KnownExtensionDataSourceStreams) ElementType() reflect.Type {
@@ -564,37 +562,6 @@ func (e KnownExtensionDataSourceStreams) ToStringPtrOutput() pulumi.StringPtrOut
 }
 
 func (e KnownExtensionDataSourceStreams) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-// The interval between data uploads (scheduled transfers), rounded up to the nearest minute.
-type KnownPerfCounterDataSourceScheduledTransferPeriod pulumi.String
-
-const (
-	KnownPerfCounterDataSourceScheduledTransferPeriodPT1M  = KnownPerfCounterDataSourceScheduledTransferPeriod("PT1M")
-	KnownPerfCounterDataSourceScheduledTransferPeriodPT5M  = KnownPerfCounterDataSourceScheduledTransferPeriod("PT5M")
-	KnownPerfCounterDataSourceScheduledTransferPeriodPT15M = KnownPerfCounterDataSourceScheduledTransferPeriod("PT15M")
-	KnownPerfCounterDataSourceScheduledTransferPeriodPT30M = KnownPerfCounterDataSourceScheduledTransferPeriod("PT30M")
-	KnownPerfCounterDataSourceScheduledTransferPeriodPT60M = KnownPerfCounterDataSourceScheduledTransferPeriod("PT60M")
-)
-
-func (KnownPerfCounterDataSourceScheduledTransferPeriod) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
-}
-
-func (e KnownPerfCounterDataSourceScheduledTransferPeriod) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e KnownPerfCounterDataSourceScheduledTransferPeriod) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e KnownPerfCounterDataSourceScheduledTransferPeriod) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e KnownPerfCounterDataSourceScheduledTransferPeriod) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
@@ -639,7 +606,7 @@ const (
 	KnownSyslogDataSourceFacilityNamesNews     = KnownSyslogDataSourceFacilityNames("news")
 	KnownSyslogDataSourceFacilityNamesSyslog   = KnownSyslogDataSourceFacilityNames("syslog")
 	KnownSyslogDataSourceFacilityNamesUser     = KnownSyslogDataSourceFacilityNames("user")
-	KnownSyslogDataSourceFacilityNamesUUCP     = KnownSyslogDataSourceFacilityNames("UUCP")
+	KnownSyslogDataSourceFacilityNamesUucp     = KnownSyslogDataSourceFacilityNames("uucp")
 	KnownSyslogDataSourceFacilityNamesLocal0   = KnownSyslogDataSourceFacilityNames("local0")
 	KnownSyslogDataSourceFacilityNamesLocal1   = KnownSyslogDataSourceFacilityNames("local1")
 	KnownSyslogDataSourceFacilityNamesLocal2   = KnownSyslogDataSourceFacilityNames("local2")
@@ -648,6 +615,7 @@ const (
 	KnownSyslogDataSourceFacilityNamesLocal5   = KnownSyslogDataSourceFacilityNames("local5")
 	KnownSyslogDataSourceFacilityNamesLocal6   = KnownSyslogDataSourceFacilityNames("local6")
 	KnownSyslogDataSourceFacilityNamesLocal7   = KnownSyslogDataSourceFacilityNames("local7")
+	KnownSyslogDataSourceFacilityNamesAsterisk = KnownSyslogDataSourceFacilityNames("*")
 )
 
 func (KnownSyslogDataSourceFacilityNames) ElementType() reflect.Type {
@@ -681,6 +649,7 @@ const (
 	KnownSyslogDataSourceLogLevelsCritical  = KnownSyslogDataSourceLogLevels("Critical")
 	KnownSyslogDataSourceLogLevelsAlert     = KnownSyslogDataSourceLogLevels("Alert")
 	KnownSyslogDataSourceLogLevelsEmergency = KnownSyslogDataSourceLogLevels("Emergency")
+	KnownSyslogDataSourceLogLevelsAsterisk  = KnownSyslogDataSourceLogLevels("*")
 )
 
 func (KnownSyslogDataSourceLogLevels) ElementType() reflect.Type {
@@ -726,37 +695,6 @@ func (e KnownSyslogDataSourceStreams) ToStringPtrOutput() pulumi.StringPtrOutput
 }
 
 func (e KnownSyslogDataSourceStreams) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-// The interval between data uploads (scheduled transfers), rounded up to the nearest minute.
-type KnownWindowsEventLogDataSourceScheduledTransferPeriod pulumi.String
-
-const (
-	KnownWindowsEventLogDataSourceScheduledTransferPeriodPT1M  = KnownWindowsEventLogDataSourceScheduledTransferPeriod("PT1M")
-	KnownWindowsEventLogDataSourceScheduledTransferPeriodPT5M  = KnownWindowsEventLogDataSourceScheduledTransferPeriod("PT5M")
-	KnownWindowsEventLogDataSourceScheduledTransferPeriodPT15M = KnownWindowsEventLogDataSourceScheduledTransferPeriod("PT15M")
-	KnownWindowsEventLogDataSourceScheduledTransferPeriodPT30M = KnownWindowsEventLogDataSourceScheduledTransferPeriod("PT30M")
-	KnownWindowsEventLogDataSourceScheduledTransferPeriodPT60M = KnownWindowsEventLogDataSourceScheduledTransferPeriod("PT60M")
-)
-
-func (KnownWindowsEventLogDataSourceScheduledTransferPeriod) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
-}
-
-func (e KnownWindowsEventLogDataSourceScheduledTransferPeriod) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e KnownWindowsEventLogDataSourceScheduledTransferPeriod) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e KnownWindowsEventLogDataSourceScheduledTransferPeriod) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e KnownWindowsEventLogDataSourceScheduledTransferPeriod) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 

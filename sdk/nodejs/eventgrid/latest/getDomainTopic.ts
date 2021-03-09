@@ -56,7 +56,7 @@ export interface GetDomainTopicResult {
     /**
      * Provisioning state of the domain topic.
      */
-    readonly provisioningState?: string;
+    readonly provisioningState: string;
     /**
      * The system metadata relating to Domain Topic resource.
      */

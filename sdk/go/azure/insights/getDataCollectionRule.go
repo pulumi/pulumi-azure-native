@@ -35,11 +35,15 @@ type LookupDataCollectionRuleResult struct {
 	// Description of the data collection rule.
 	Description *string `pulumi:"description"`
 	// The specification of destinations.
-	Destinations DataCollectionRuleResponseDestinations `pulumi:"destinations"`
+	Destinations *DataCollectionRuleResponseDestinations `pulumi:"destinations"`
 	// Resource entity tag (ETag).
 	Etag string `pulumi:"etag"`
 	// Fully qualified ID of the resource.
 	Id string `pulumi:"id"`
+	// The immutable ID of this data collection rule. This property is READ-ONLY.
+	ImmutableId string `pulumi:"immutableId"`
+	// The kind of the resource.
+	Kind *string `pulumi:"kind"`
 	// The geo-location where the resource lives.
 	Location string `pulumi:"location"`
 	// The name of the resource.

@@ -65,7 +65,7 @@ class GetFormulaResult:
 
     @property
     @pulumi.getter
-    def author(self) -> Optional[str]:
+    def author(self) -> str:
         """
         The author of the formula.
         """

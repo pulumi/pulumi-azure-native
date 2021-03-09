@@ -8,7 +8,7 @@ import (
 )
 
 // The description of the service.
-// API Version: 2021-01-11.
+// API Version: 2021-03-08.
 func GetprivateLinkServicesForSCCPowershell(ctx *pulumi.Context, args *GetprivateLinkServicesForSCCPowershellArgs, opts ...pulumi.InvokeOption) (*GetprivateLinkServicesForSCCPowershellResult, error) {
 	var rv GetprivateLinkServicesForSCCPowershellResult
 	err := ctx.Invoke("azure-native:securityandcompliance:getprivateLinkServicesForSCCPowershell", args, &rv, opts...)

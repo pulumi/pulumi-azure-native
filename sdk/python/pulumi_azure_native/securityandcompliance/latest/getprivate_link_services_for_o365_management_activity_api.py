@@ -158,7 +158,7 @@ def getprivate_link_services_for_o365_management_activity_api(resource_group_nam
                                                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetprivateLinkServicesForO365ManagementActivityAPIResult:
     """
     The description of the service.
-    Latest API Version: 2021-01-11.
+    Latest API Version: 2021-03-08.
 
 
     :param str resource_group_name: The name of the resource group that contains the service instance.

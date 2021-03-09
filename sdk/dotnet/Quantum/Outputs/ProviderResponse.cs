@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.Quantum.Outputs
         /// <summary>
         /// The provider's marketplace application display name.
         /// </summary>
-        public readonly string ApplicationName;
+        public readonly string? ApplicationName;
         /// <summary>
         /// A Uri identifying the specific instance of this provider.
         /// </summary>
@@ -36,11 +36,11 @@ namespace Pulumi.AzureNative.Quantum.Outputs
         /// <summary>
         /// Id to track resource usage for the provider.
         /// </summary>
-        public readonly string ResourceUsageId;
+        public readonly string? ResourceUsageId;
 
         [OutputConstructor]
         private ProviderResponse(
-            string applicationName,
+            string? applicationName,
 
             string? instanceUri,
 
@@ -50,7 +50,7 @@ namespace Pulumi.AzureNative.Quantum.Outputs
 
             string? provisioningState,
 
-            string resourceUsageId)
+            string? resourceUsageId)
         {
             ApplicationName = applicationName;
             InstanceUri = instanceUri;

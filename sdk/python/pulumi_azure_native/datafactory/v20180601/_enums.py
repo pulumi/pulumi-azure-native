@@ -11,6 +11,8 @@ __all__ = [
     'BlobEventTypes',
     'CassandraSourceReadConsistencyLevels',
     'CompressionCodec',
+    'CosmosDbConnectionMode',
+    'CosmosDbServicePrincipalCredentialType',
     'DataFlowComputeType',
     'DatasetCompressionLevel',
     'DayOfWeek',
@@ -129,6 +131,22 @@ class CompressionCodec(str, Enum):
     GZIP = "gzip"
     SNAPPY = "snappy"
     LZO = "lzo"
+
+
+class CosmosDbConnectionMode(str, Enum):
+    """
+    The connection mode used to access CosmosDB account. Type: string (or Expression with resultType string).
+    """
+    GATEWAY = "Gateway"
+    DIRECT = "Direct"
+
+
+class CosmosDbServicePrincipalCredentialType(str, Enum):
+    """
+    The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).
+    """
+    SERVICE_PRINCIPAL_KEY = "ServicePrincipalKey"
+    SERVICE_PRINCIPAL_CERT = "ServicePrincipalCert"
 
 
 class DataFlowComputeType(str, Enum):

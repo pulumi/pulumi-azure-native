@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityAndCompliance
     {
         /// <summary>
         /// The description of the service.
-        /// API Version: 2021-01-11.
+        /// API Version: 2021-03-08.
         /// </summary>
         public static Task<GetprivateLinkServicesForEDMUploadResult> InvokeAsync(GetprivateLinkServicesForEDMUploadArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetprivateLinkServicesForEDMUploadResult>("azure-native:securityandcompliance:getprivateLinkServicesForEDMUpload", args ?? new GetprivateLinkServicesForEDMUploadArgs(), options.WithVersion());

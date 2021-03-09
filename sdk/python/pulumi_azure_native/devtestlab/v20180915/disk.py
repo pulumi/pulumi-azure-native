@@ -27,6 +27,7 @@ class Disk(pulumi.CustomResource):
                  managed_disk_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 storage_account_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -38,7 +39,7 @@ class Disk(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] disk_blob_name: When backed by a blob, the name of the VHD blob without extension.
-        :param pulumi.Input[int] disk_size_gi_b: The size of the disk in GibiBytes.
+        :param pulumi.Input[int] disk_size_gi_b: The size of the disk in Gibibytes.
         :param pulumi.Input[Union[str, 'StorageType']] disk_type: The storage type for the disk (i.e. Standard, Premium).
         :param pulumi.Input[str] disk_uri: When backed by a blob, the URI of underlying blob.
         :param pulumi.Input[str] host_caching: The host caching policy of the disk (i.e. None, ReadOnly, ReadWrite).
@@ -48,6 +49,7 @@ class Disk(pulumi.CustomResource):
         :param pulumi.Input[str] managed_disk_id: When backed by managed disk, this is the ID of the compute disk resource.
         :param pulumi.Input[str] name: The name of the disk.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] storage_account_id: When backed by a blob, the storage account where the blob is.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         :param pulumi.Input[str] user_name: The name of the user profile.
         """
@@ -83,6 +85,7 @@ class Disk(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['storage_account_id'] = storage_account_id
             __props__['tags'] = tags
             if user_name is None and not opts.urn:
                 raise TypeError("Missing required property 'user_name'")
@@ -126,6 +129,7 @@ class Disk(pulumi.CustomResource):
         __props__["managed_disk_id"] = None
         __props__["name"] = None
         __props__["provisioning_state"] = None
+        __props__["storage_account_id"] = None
         __props__["tags"] = None
         __props__["type"] = None
         __props__["unique_identifier"] = None
@@ -151,7 +155,7 @@ class Disk(pulumi.CustomResource):
     @pulumi.getter(name="diskSizeGiB")
     def disk_size_gi_b(self) -> pulumi.Output[Optional[int]]:
         """
-        The size of the disk in GibiBytes.
+        The size of the disk in Gibibytes.
         """
         return pulumi.get(self, "disk_size_gi_b")
 
@@ -218,6 +222,14 @@ class Disk(pulumi.CustomResource):
         The provisioning status of the resource.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="storageAccountId")
+    def storage_account_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        When backed by a blob, the storage account where the blob is.
+        """
+        return pulumi.get(self, "storage_account_id")
 
     @property
     @pulumi.getter

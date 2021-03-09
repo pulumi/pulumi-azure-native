@@ -17,11 +17,7 @@ namespace Pulumi.AzureNative.Insights.Outputs
         /// A friendly name for the data source. 
         /// This name should be unique across all data sources (regardless of type) within the data collection rule.
         /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// The interval between data uploads (scheduled transfers), rounded up to the nearest minute.
-        /// </summary>
-        public readonly string ScheduledTransferPeriod;
+        public readonly string? Name;
         /// <summary>
         /// List of streams that this data source will be sent to.
         /// A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
@@ -34,16 +30,13 @@ namespace Pulumi.AzureNative.Insights.Outputs
 
         [OutputConstructor]
         private WindowsEventLogDataSourceResponse(
-            string name,
-
-            string scheduledTransferPeriod,
+            string? name,
 
             ImmutableArray<string> streams,
 
             ImmutableArray<string> xPathQueries)
         {
             Name = name;
-            ScheduledTransferPeriod = scheduledTransferPeriod;
             Streams = streams;
             XPathQueries = xPathQueries;
         }

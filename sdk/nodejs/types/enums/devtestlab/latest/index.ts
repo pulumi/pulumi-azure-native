@@ -55,6 +55,18 @@ export const LinuxOsState = {
  */
 export type LinuxOsState = (typeof LinuxOsState)[keyof typeof LinuxOsState];
 
+export const ManagedIdentityType = {
+    None: "None",
+    SystemAssigned: "SystemAssigned",
+    UserAssigned: "UserAssigned",
+    SystemAssigned_UserAssigned: "SystemAssigned,UserAssigned",
+} as const;
+
+/**
+ * Managed identity.
+ */
+export type ManagedIdentityType = (typeof ManagedIdentityType)[keyof typeof ManagedIdentityType];
+
 export const NotificationChannelEventType = {
     AutoShutdown: "AutoShutdown",
     Cost: "Cost",
@@ -118,6 +130,7 @@ export type PremiumDataDisk = (typeof PremiumDataDisk)[keyof typeof PremiumDataD
 export const SourceControlType = {
     VsoGit: "VsoGit",
     GitHub: "GitHub",
+    StorageAccount: "StorageAccount",
 } as const;
 
 /**
@@ -156,17 +169,6 @@ export const UsagePermissionType = {
  * Indicates whether public IP addresses can be assigned to virtual machines on this subnet (i.e. Allow, Deny).
  */
 export type UsagePermissionType = (typeof UsagePermissionType)[keyof typeof UsagePermissionType];
-
-export const VirtualMachineCreationSource = {
-    FromCustomImage: "FromCustomImage",
-    FromGalleryImage: "FromGalleryImage",
-    FromSharedGalleryImage: "FromSharedGalleryImage",
-} as const;
-
-/**
- * Tells source of creation of lab virtual machine. Output property only.
- */
-export type VirtualMachineCreationSource = (typeof VirtualMachineCreationSource)[keyof typeof VirtualMachineCreationSource];
 
 export const WindowsOsState = {
     NonSysprepped: "NonSysprepped",

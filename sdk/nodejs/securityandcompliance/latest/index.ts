@@ -8,21 +8,25 @@ import * as utilities from "../../utilities";
 export * from "./getPrivateEndpointConnectionsAdtAPI";
 export * from "./getPrivateEndpointConnectionsComp";
 export * from "./getPrivateEndpointConnectionsForEDM";
+export * from "./getPrivateEndpointConnectionsForMIPPolicySync";
 export * from "./getPrivateEndpointConnectionsForSCCPowershell";
 export * from "./getPrivateEndpointConnectionsSec";
 export * from "./getprivateLinkServicesForEDMUpload";
 export * from "./getprivateLinkServicesForM365ComplianceCenter";
 export * from "./getprivateLinkServicesForM365SecurityCenter";
+export * from "./getprivateLinkServicesForMIPPolicySync";
 export * from "./getprivateLinkServicesForO365ManagementActivityAPI";
 export * from "./getprivateLinkServicesForSCCPowershell";
 export * from "./privateEndpointConnectionsAdtAPI";
 export * from "./privateEndpointConnectionsComp";
 export * from "./privateEndpointConnectionsForEDM";
+export * from "./privateEndpointConnectionsForMIPPolicySync";
 export * from "./privateEndpointConnectionsForSCCPowershell";
 export * from "./privateEndpointConnectionsSec";
 export * from "./privateLinkServicesForEDMUpload";
 export * from "./privateLinkServicesForM365ComplianceCenter";
 export * from "./privateLinkServicesForM365SecurityCenter";
+export * from "./privateLinkServicesForMIPPolicySync";
 export * from "./privateLinkServicesForO365ManagementActivityAPI";
 export * from "./privateLinkServicesForSCCPowershell";
 
@@ -33,11 +37,13 @@ export * from "../../types/enums/securityandcompliance/latest";
 import { PrivateEndpointConnectionsAdtAPI } from "./privateEndpointConnectionsAdtAPI";
 import { PrivateEndpointConnectionsComp } from "./privateEndpointConnectionsComp";
 import { PrivateEndpointConnectionsForEDM } from "./privateEndpointConnectionsForEDM";
+import { PrivateEndpointConnectionsForMIPPolicySync } from "./privateEndpointConnectionsForMIPPolicySync";
 import { PrivateEndpointConnectionsForSCCPowershell } from "./privateEndpointConnectionsForSCCPowershell";
 import { PrivateEndpointConnectionsSec } from "./privateEndpointConnectionsSec";
 import { PrivateLinkServicesForEDMUpload } from "./privateLinkServicesForEDMUpload";
 import { PrivateLinkServicesForM365ComplianceCenter } from "./privateLinkServicesForM365ComplianceCenter";
 import { PrivateLinkServicesForM365SecurityCenter } from "./privateLinkServicesForM365SecurityCenter";
+import { PrivateLinkServicesForMIPPolicySync } from "./privateLinkServicesForMIPPolicySync";
 import { PrivateLinkServicesForO365ManagementActivityAPI } from "./privateLinkServicesForO365ManagementActivityAPI";
 import { PrivateLinkServicesForSCCPowershell } from "./privateLinkServicesForSCCPowershell";
 
@@ -51,6 +57,8 @@ const _module = {
                 return new PrivateEndpointConnectionsComp(name, <any>undefined, { urn })
             case "azure-native:securityandcompliance/latest:PrivateEndpointConnectionsForEDM":
                 return new PrivateEndpointConnectionsForEDM(name, <any>undefined, { urn })
+            case "azure-native:securityandcompliance/latest:PrivateEndpointConnectionsForMIPPolicySync":
+                return new PrivateEndpointConnectionsForMIPPolicySync(name, <any>undefined, { urn })
             case "azure-native:securityandcompliance/latest:PrivateEndpointConnectionsForSCCPowershell":
                 return new PrivateEndpointConnectionsForSCCPowershell(name, <any>undefined, { urn })
             case "azure-native:securityandcompliance/latest:PrivateEndpointConnectionsSec":
@@ -61,6 +69,8 @@ const _module = {
                 return new PrivateLinkServicesForM365ComplianceCenter(name, <any>undefined, { urn })
             case "azure-native:securityandcompliance/latest:privateLinkServicesForM365SecurityCenter":
                 return new PrivateLinkServicesForM365SecurityCenter(name, <any>undefined, { urn })
+            case "azure-native:securityandcompliance/latest:privateLinkServicesForMIPPolicySync":
+                return new PrivateLinkServicesForMIPPolicySync(name, <any>undefined, { urn })
             case "azure-native:securityandcompliance/latest:privateLinkServicesForO365ManagementActivityAPI":
                 return new PrivateLinkServicesForO365ManagementActivityAPI(name, <any>undefined, { urn })
             case "azure-native:securityandcompliance/latest:privateLinkServicesForSCCPowershell":

@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Insights.Inputs
     /// </summary>
     public sealed class DataFlowArgs : Pulumi.ResourceArgs
     {
-        [Input("destinations", required: true)]
+        [Input("destinations")]
         private InputList<string>? _destinations;
 
         /// <summary>
@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Insights.Inputs
             set => _destinations = value;
         }
 
-        [Input("streams", required: true)]
+        [Input("streams")]
         private InputList<Union<string, Pulumi.AzureNative.Insights.KnownDataFlowStreams>>? _streams;
 
         /// <summary>

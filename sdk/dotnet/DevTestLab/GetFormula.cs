@@ -58,7 +58,7 @@ namespace Pulumi.AzureNative.DevTestLab
         /// <summary>
         /// The author of the formula.
         /// </summary>
-        public readonly string? Author;
+        public readonly string Author;
         /// <summary>
         /// The creation date of the formula.
         /// </summary>
@@ -110,7 +110,7 @@ namespace Pulumi.AzureNative.DevTestLab
 
         [OutputConstructor]
         private GetFormulaResult(
-            string? author,
+            string author,
 
             string creationDate,
 

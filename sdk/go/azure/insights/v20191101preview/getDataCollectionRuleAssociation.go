@@ -18,7 +18,7 @@ func LookupDataCollectionRuleAssociation(ctx *pulumi.Context, args *LookupDataCo
 }
 
 type LookupDataCollectionRuleAssociationArgs struct {
-	// The name of the association.
+	// The name of the association. The name is case insensitive.
 	AssociationName string `pulumi:"associationName"`
 	// The identifier of the resource.
 	ResourceUri string `pulumi:"resourceUri"`
@@ -27,7 +27,7 @@ type LookupDataCollectionRuleAssociationArgs struct {
 // Definition of generic ARM proxy resource.
 type LookupDataCollectionRuleAssociationResult struct {
 	// The resource ID of the data collection rule that is to be associated.
-	DataCollectionRuleId string `pulumi:"dataCollectionRuleId"`
+	DataCollectionRuleId *string `pulumi:"dataCollectionRuleId"`
 	// Description of the association.
 	Description *string `pulumi:"description"`
 	// Resource entity tag (ETag).

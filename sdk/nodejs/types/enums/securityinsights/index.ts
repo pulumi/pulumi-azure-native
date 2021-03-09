@@ -5,11 +5,13 @@
 import * as latest from "./latest";
 import * as v20190101preview from "./v20190101preview";
 import * as v20200101 from "./v20200101";
+import * as v20210301preview from "./v20210301preview";
 
 export {
     latest,
     v20190101preview,
     v20200101,
+    v20210301preview,
 };
 
 export const AlertRuleKind = {

@@ -77,6 +77,8 @@ namespace Pulumi.AzureNative.Sql.V20170301Preview
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20200202preview:Job"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20200801preview:Job"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20200801preview:Job"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20201101preview:Job"},
+                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20201101preview:Job"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

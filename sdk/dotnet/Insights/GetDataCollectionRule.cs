@@ -59,7 +59,7 @@ namespace Pulumi.AzureNative.Insights
         /// <summary>
         /// The specification of destinations.
         /// </summary>
-        public readonly Outputs.DataCollectionRuleResponseDestinations Destinations;
+        public readonly Outputs.DataCollectionRuleResponseDestinations? Destinations;
         /// <summary>
         /// Resource entity tag (ETag).
         /// </summary>
@@ -68,6 +68,14 @@ namespace Pulumi.AzureNative.Insights
         /// Fully qualified ID of the resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The immutable ID of this data collection rule. This property is READ-ONLY.
+        /// </summary>
+        public readonly string ImmutableId;
+        /// <summary>
+        /// The kind of the resource.
+        /// </summary>
+        public readonly string? Kind;
         /// <summary>
         /// The geo-location where the resource lives.
         /// </summary>
@@ -97,11 +105,15 @@ namespace Pulumi.AzureNative.Insights
 
             string? description,
 
-            Outputs.DataCollectionRuleResponseDestinations destinations,
+            Outputs.DataCollectionRuleResponseDestinations? destinations,
 
             string etag,
 
             string id,
+
+            string immutableId,
+
+            string? kind,
 
             string location,
 
@@ -119,6 +131,8 @@ namespace Pulumi.AzureNative.Insights
             Destinations = destinations;
             Etag = etag;
             Id = id;
+            ImmutableId = immutableId;
+            Kind = kind;
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;

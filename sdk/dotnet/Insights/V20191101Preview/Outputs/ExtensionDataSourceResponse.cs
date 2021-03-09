@@ -22,10 +22,14 @@ namespace Pulumi.AzureNative.Insights.V20191101Preview.Outputs
         /// </summary>
         public readonly object? ExtensionSettings;
         /// <summary>
+        /// The list of data sources this extension needs data from.
+        /// </summary>
+        public readonly ImmutableArray<string> InputDataSources;
+        /// <summary>
         /// A friendly name for the data source. 
         /// This name should be unique across all data sources (regardless of type) within the data collection rule.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
         /// <summary>
         /// List of streams that this data source will be sent to.
         /// A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
@@ -38,12 +42,15 @@ namespace Pulumi.AzureNative.Insights.V20191101Preview.Outputs
 
             object? extensionSettings,
 
-            string name,
+            ImmutableArray<string> inputDataSources,
+
+            string? name,
 
             ImmutableArray<string> streams)
         {
             ExtensionName = extensionName;
             ExtensionSettings = extensionSettings;
+            InputDataSources = inputDataSources;
             Name = name;
             Streams = streams;
         }

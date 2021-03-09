@@ -8,7 +8,7 @@ import (
 )
 
 // The description of the service.
-// Latest API Version: 2021-01-11.
+// Latest API Version: 2021-03-08.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:securityandcompliance:getprivateLinkServicesForM365ComplianceCenter'.
 func GetprivateLinkServicesForM365ComplianceCenter(ctx *pulumi.Context, args *GetprivateLinkServicesForM365ComplianceCenterArgs, opts ...pulumi.InvokeOption) (*GetprivateLinkServicesForM365ComplianceCenterResult, error) {

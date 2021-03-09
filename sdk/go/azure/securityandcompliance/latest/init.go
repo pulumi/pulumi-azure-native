@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewPrivateEndpointConnectionsComp(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:securityandcompliance/latest:PrivateEndpointConnectionsForEDM":
 		r, err = NewPrivateEndpointConnectionsForEDM(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-native:securityandcompliance/latest:PrivateEndpointConnectionsForMIPPolicySync":
+		r, err = NewPrivateEndpointConnectionsForMIPPolicySync(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:securityandcompliance/latest:PrivateEndpointConnectionsForSCCPowershell":
 		r, err = NewPrivateEndpointConnectionsForSCCPowershell(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:securityandcompliance/latest:PrivateEndpointConnectionsSec":
@@ -37,6 +39,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewPrivateLinkServicesForM365ComplianceCenter(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:securityandcompliance/latest:privateLinkServicesForM365SecurityCenter":
 		r, err = NewPrivateLinkServicesForM365SecurityCenter(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-native:securityandcompliance/latest:privateLinkServicesForMIPPolicySync":
+		r, err = NewPrivateLinkServicesForMIPPolicySync(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:securityandcompliance/latest:privateLinkServicesForO365ManagementActivityAPI":
 		r, err = NewPrivateLinkServicesForO365ManagementActivityAPI(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:securityandcompliance/latest:privateLinkServicesForSCCPowershell":

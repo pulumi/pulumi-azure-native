@@ -39,7 +39,7 @@ type LookupDiskResult struct {
 	CreatedDate string `pulumi:"createdDate"`
 	// When backed by a blob, the name of the VHD blob without extension.
 	DiskBlobName *string `pulumi:"diskBlobName"`
-	// The size of the disk in GibiBytes.
+	// The size of the disk in Gibibytes.
 	DiskSizeGiB *int `pulumi:"diskSizeGiB"`
 	// The storage type for the disk (i.e. Standard, Premium).
 	DiskType *string `pulumi:"diskType"`
@@ -59,6 +59,8 @@ type LookupDiskResult struct {
 	Name string `pulumi:"name"`
 	// The provisioning status of the resource.
 	ProvisioningState string `pulumi:"provisioningState"`
+	// When backed by a blob, the storage account where the blob is.
+	StorageAccountId *string `pulumi:"storageAccountId"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource.

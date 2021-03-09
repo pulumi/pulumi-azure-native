@@ -12,7 +12,7 @@ import (
 )
 
 // The Private Endpoint Connection resource.
-// Latest API Version: 2021-01-11.
+// Latest API Version: 2021-03-08.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:securityandcompliance:PrivateEndpointConnectionsSec'.
 type PrivateEndpointConnectionsSec struct {
@@ -63,6 +63,12 @@ func NewPrivateEndpointConnectionsSec(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:securityandcompliance/v20210111:PrivateEndpointConnectionsSec"),
+		},
+		{
+			Type: pulumi.String("azure-native:securityandcompliance/v20210308:PrivateEndpointConnectionsSec"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:securityandcompliance/v20210308:PrivateEndpointConnectionsSec"),
 		},
 	})
 	opts = append(opts, aliases)

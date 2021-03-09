@@ -61,6 +61,12 @@ func NewPrivateLinkServicesForM365ComplianceCenter(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:securityandcompliance/latest:privateLinkServicesForM365ComplianceCenter"),
 		},
+		{
+			Type: pulumi.String("azure-native:securityandcompliance/v20210308:privateLinkServicesForM365ComplianceCenter"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:securityandcompliance/v20210308:privateLinkServicesForM365ComplianceCenter"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource PrivateLinkServicesForM365ComplianceCenter

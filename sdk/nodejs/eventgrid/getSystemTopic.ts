@@ -67,7 +67,7 @@ export interface GetSystemTopicResult {
      */
     readonly source?: string;
     /**
-     * The system metadata relating to this resource.
+     * The system metadata relating to System Topic resource.
      */
     readonly systemData: outputs.eventgrid.SystemDataResponse;
     /**

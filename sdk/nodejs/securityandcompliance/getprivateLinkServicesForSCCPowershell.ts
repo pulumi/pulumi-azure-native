@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The description of the service.
- * API Version: 2021-01-11.
+ * API Version: 2021-03-08.
  */
 export function getprivateLinkServicesForSCCPowershell(args: GetprivateLinkServicesForSCCPowershellArgs, opts?: pulumi.InvokeOptions): Promise<GetprivateLinkServicesForSCCPowershellResult> {
     if (!opts) {

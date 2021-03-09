@@ -5592,7 +5592,7 @@ func (o DataSourceResponseArrayOutput) Index(i pulumi.IntInput) DataSourceRespon
 type DestinationsSpecAzureMonitorMetrics struct {
 	// A friendly name for the destination.
 	// This name should be unique across all destinations (regardless of type) within the data collection rule.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 }
 
 // DestinationsSpecAzureMonitorMetricsInput is an input type that accepts DestinationsSpecAzureMonitorMetricsArgs and DestinationsSpecAzureMonitorMetricsOutput values.
@@ -5610,7 +5610,7 @@ type DestinationsSpecAzureMonitorMetricsInput interface {
 type DestinationsSpecAzureMonitorMetricsArgs struct {
 	// A friendly name for the destination.
 	// This name should be unique across all destinations (regardless of type) within the data collection rule.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
 func (DestinationsSpecAzureMonitorMetricsArgs) ElementType() reflect.Type {
@@ -5693,8 +5693,8 @@ func (o DestinationsSpecAzureMonitorMetricsOutput) ToDestinationsSpecAzureMonito
 
 // A friendly name for the destination.
 // This name should be unique across all destinations (regardless of type) within the data collection rule.
-func (o DestinationsSpecAzureMonitorMetricsOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v DestinationsSpecAzureMonitorMetrics) string { return v.Name }).(pulumi.StringOutput)
+func (o DestinationsSpecAzureMonitorMetricsOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DestinationsSpecAzureMonitorMetrics) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 type DestinationsSpecAzureMonitorMetricsPtrOutput struct{ *pulumi.OutputState }
@@ -5722,7 +5722,7 @@ func (o DestinationsSpecAzureMonitorMetricsPtrOutput) Name() pulumi.StringPtrOut
 		if v == nil {
 			return nil
 		}
-		return &v.Name
+		return v.Name
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -5730,7 +5730,7 @@ func (o DestinationsSpecAzureMonitorMetricsPtrOutput) Name() pulumi.StringPtrOut
 type DestinationsSpecResponseAzureMonitorMetrics struct {
 	// A friendly name for the destination.
 	// This name should be unique across all destinations (regardless of type) within the data collection rule.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 }
 
 // DestinationsSpecResponseAzureMonitorMetricsInput is an input type that accepts DestinationsSpecResponseAzureMonitorMetricsArgs and DestinationsSpecResponseAzureMonitorMetricsOutput values.
@@ -5748,7 +5748,7 @@ type DestinationsSpecResponseAzureMonitorMetricsInput interface {
 type DestinationsSpecResponseAzureMonitorMetricsArgs struct {
 	// A friendly name for the destination.
 	// This name should be unique across all destinations (regardless of type) within the data collection rule.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
 func (DestinationsSpecResponseAzureMonitorMetricsArgs) ElementType() reflect.Type {
@@ -5831,8 +5831,8 @@ func (o DestinationsSpecResponseAzureMonitorMetricsOutput) ToDestinationsSpecRes
 
 // A friendly name for the destination.
 // This name should be unique across all destinations (regardless of type) within the data collection rule.
-func (o DestinationsSpecResponseAzureMonitorMetricsOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v DestinationsSpecResponseAzureMonitorMetrics) string { return v.Name }).(pulumi.StringOutput)
+func (o DestinationsSpecResponseAzureMonitorMetricsOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DestinationsSpecResponseAzureMonitorMetrics) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 type DestinationsSpecResponseAzureMonitorMetricsPtrOutput struct{ *pulumi.OutputState }
@@ -5862,7 +5862,7 @@ func (o DestinationsSpecResponseAzureMonitorMetricsPtrOutput) Name() pulumi.Stri
 		if v == nil {
 			return nil
 		}
-		return &v.Name
+		return v.Name
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -7734,9 +7734,11 @@ type ExtensionDataSource struct {
 	ExtensionName string `pulumi:"extensionName"`
 	// The extension settings. The format is specific for particular extension.
 	ExtensionSettings interface{} `pulumi:"extensionSettings"`
+	// The list of data sources this extension needs data from.
+	InputDataSources []string `pulumi:"inputDataSources"`
 	// A friendly name for the data source.
 	// This name should be unique across all data sources (regardless of type) within the data collection rule.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// List of streams that this data source will be sent to.
 	// A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
 	Streams []string `pulumi:"streams"`
@@ -7760,9 +7762,11 @@ type ExtensionDataSourceArgs struct {
 	ExtensionName pulumi.StringInput `pulumi:"extensionName"`
 	// The extension settings. The format is specific for particular extension.
 	ExtensionSettings pulumi.Input `pulumi:"extensionSettings"`
+	// The list of data sources this extension needs data from.
+	InputDataSources pulumi.StringArrayInput `pulumi:"inputDataSources"`
 	// A friendly name for the data source.
 	// This name should be unique across all data sources (regardless of type) within the data collection rule.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
 	// List of streams that this data source will be sent to.
 	// A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
 	Streams pulumi.StringArrayInput `pulumi:"streams"`
@@ -7831,10 +7835,15 @@ func (o ExtensionDataSourceOutput) ExtensionSettings() pulumi.AnyOutput {
 	return o.ApplyT(func(v ExtensionDataSource) interface{} { return v.ExtensionSettings }).(pulumi.AnyOutput)
 }
 
+// The list of data sources this extension needs data from.
+func (o ExtensionDataSourceOutput) InputDataSources() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ExtensionDataSource) []string { return v.InputDataSources }).(pulumi.StringArrayOutput)
+}
+
 // A friendly name for the data source.
 // This name should be unique across all data sources (regardless of type) within the data collection rule.
-func (o ExtensionDataSourceOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ExtensionDataSource) string { return v.Name }).(pulumi.StringOutput)
+func (o ExtensionDataSourceOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExtensionDataSource) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // List of streams that this data source will be sent to.
@@ -7870,9 +7879,11 @@ type ExtensionDataSourceResponse struct {
 	ExtensionName string `pulumi:"extensionName"`
 	// The extension settings. The format is specific for particular extension.
 	ExtensionSettings interface{} `pulumi:"extensionSettings"`
+	// The list of data sources this extension needs data from.
+	InputDataSources []string `pulumi:"inputDataSources"`
 	// A friendly name for the data source.
 	// This name should be unique across all data sources (regardless of type) within the data collection rule.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// List of streams that this data source will be sent to.
 	// A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
 	Streams []string `pulumi:"streams"`
@@ -7896,9 +7907,11 @@ type ExtensionDataSourceResponseArgs struct {
 	ExtensionName pulumi.StringInput `pulumi:"extensionName"`
 	// The extension settings. The format is specific for particular extension.
 	ExtensionSettings pulumi.Input `pulumi:"extensionSettings"`
+	// The list of data sources this extension needs data from.
+	InputDataSources pulumi.StringArrayInput `pulumi:"inputDataSources"`
 	// A friendly name for the data source.
 	// This name should be unique across all data sources (regardless of type) within the data collection rule.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
 	// List of streams that this data source will be sent to.
 	// A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
 	Streams pulumi.StringArrayInput `pulumi:"streams"`
@@ -7967,10 +7980,15 @@ func (o ExtensionDataSourceResponseOutput) ExtensionSettings() pulumi.AnyOutput 
 	return o.ApplyT(func(v ExtensionDataSourceResponse) interface{} { return v.ExtensionSettings }).(pulumi.AnyOutput)
 }
 
+// The list of data sources this extension needs data from.
+func (o ExtensionDataSourceResponseOutput) InputDataSources() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ExtensionDataSourceResponse) []string { return v.InputDataSources }).(pulumi.StringArrayOutput)
+}
+
 // A friendly name for the data source.
 // This name should be unique across all data sources (regardless of type) within the data collection rule.
-func (o ExtensionDataSourceResponseOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ExtensionDataSourceResponse) string { return v.Name }).(pulumi.StringOutput)
+func (o ExtensionDataSourceResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExtensionDataSourceResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // List of streams that this data source will be sent to.
@@ -8445,9 +8463,9 @@ func (o LocationThresholdRuleConditionResponseOutput) WindowSize() pulumi.String
 type LogAnalyticsDestination struct {
 	// A friendly name for the destination.
 	// This name should be unique across all destinations (regardless of type) within the data collection rule.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// The resource ID of the Log Analytics workspace.
-	WorkspaceResourceId string `pulumi:"workspaceResourceId"`
+	WorkspaceResourceId *string `pulumi:"workspaceResourceId"`
 }
 
 // LogAnalyticsDestinationInput is an input type that accepts LogAnalyticsDestinationArgs and LogAnalyticsDestinationOutput values.
@@ -8465,9 +8483,9 @@ type LogAnalyticsDestinationInput interface {
 type LogAnalyticsDestinationArgs struct {
 	// A friendly name for the destination.
 	// This name should be unique across all destinations (regardless of type) within the data collection rule.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The resource ID of the Log Analytics workspace.
-	WorkspaceResourceId pulumi.StringInput `pulumi:"workspaceResourceId"`
+	WorkspaceResourceId pulumi.StringPtrInput `pulumi:"workspaceResourceId"`
 }
 
 func (LogAnalyticsDestinationArgs) ElementType() reflect.Type {
@@ -8524,13 +8542,13 @@ func (o LogAnalyticsDestinationOutput) ToLogAnalyticsDestinationOutputWithContex
 
 // A friendly name for the destination.
 // This name should be unique across all destinations (regardless of type) within the data collection rule.
-func (o LogAnalyticsDestinationOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LogAnalyticsDestination) string { return v.Name }).(pulumi.StringOutput)
+func (o LogAnalyticsDestinationOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LogAnalyticsDestination) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // The resource ID of the Log Analytics workspace.
-func (o LogAnalyticsDestinationOutput) WorkspaceResourceId() pulumi.StringOutput {
-	return o.ApplyT(func(v LogAnalyticsDestination) string { return v.WorkspaceResourceId }).(pulumi.StringOutput)
+func (o LogAnalyticsDestinationOutput) WorkspaceResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LogAnalyticsDestination) *string { return v.WorkspaceResourceId }).(pulumi.StringPtrOutput)
 }
 
 type LogAnalyticsDestinationArrayOutput struct{ *pulumi.OutputState }
@@ -8557,9 +8575,11 @@ func (o LogAnalyticsDestinationArrayOutput) Index(i pulumi.IntInput) LogAnalytic
 type LogAnalyticsDestinationResponse struct {
 	// A friendly name for the destination.
 	// This name should be unique across all destinations (regardless of type) within the data collection rule.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// The Customer ID of the Log Analytics workspace.
+	WorkspaceId string `pulumi:"workspaceId"`
 	// The resource ID of the Log Analytics workspace.
-	WorkspaceResourceId string `pulumi:"workspaceResourceId"`
+	WorkspaceResourceId *string `pulumi:"workspaceResourceId"`
 }
 
 // LogAnalyticsDestinationResponseInput is an input type that accepts LogAnalyticsDestinationResponseArgs and LogAnalyticsDestinationResponseOutput values.
@@ -8577,9 +8597,11 @@ type LogAnalyticsDestinationResponseInput interface {
 type LogAnalyticsDestinationResponseArgs struct {
 	// A friendly name for the destination.
 	// This name should be unique across all destinations (regardless of type) within the data collection rule.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The Customer ID of the Log Analytics workspace.
+	WorkspaceId pulumi.StringInput `pulumi:"workspaceId"`
 	// The resource ID of the Log Analytics workspace.
-	WorkspaceResourceId pulumi.StringInput `pulumi:"workspaceResourceId"`
+	WorkspaceResourceId pulumi.StringPtrInput `pulumi:"workspaceResourceId"`
 }
 
 func (LogAnalyticsDestinationResponseArgs) ElementType() reflect.Type {
@@ -8636,13 +8658,18 @@ func (o LogAnalyticsDestinationResponseOutput) ToLogAnalyticsDestinationResponse
 
 // A friendly name for the destination.
 // This name should be unique across all destinations (regardless of type) within the data collection rule.
-func (o LogAnalyticsDestinationResponseOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LogAnalyticsDestinationResponse) string { return v.Name }).(pulumi.StringOutput)
+func (o LogAnalyticsDestinationResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LogAnalyticsDestinationResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The Customer ID of the Log Analytics workspace.
+func (o LogAnalyticsDestinationResponseOutput) WorkspaceId() pulumi.StringOutput {
+	return o.ApplyT(func(v LogAnalyticsDestinationResponse) string { return v.WorkspaceId }).(pulumi.StringOutput)
 }
 
 // The resource ID of the Log Analytics workspace.
-func (o LogAnalyticsDestinationResponseOutput) WorkspaceResourceId() pulumi.StringOutput {
-	return o.ApplyT(func(v LogAnalyticsDestinationResponse) string { return v.WorkspaceResourceId }).(pulumi.StringOutput)
+func (o LogAnalyticsDestinationResponseOutput) WorkspaceResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LogAnalyticsDestinationResponse) *string { return v.WorkspaceResourceId }).(pulumi.StringPtrOutput)
 }
 
 type LogAnalyticsDestinationResponseArrayOutput struct{ *pulumi.OutputState }
@@ -12285,11 +12312,9 @@ type PerfCounterDataSource struct {
 	CounterSpecifiers []string `pulumi:"counterSpecifiers"`
 	// A friendly name for the data source.
 	// This name should be unique across all data sources (regardless of type) within the data collection rule.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// The number of seconds between consecutive counter measurements (samples).
-	SamplingFrequencyInSeconds int `pulumi:"samplingFrequencyInSeconds"`
-	// The interval between data uploads (scheduled transfers), rounded up to the nearest minute.
-	ScheduledTransferPeriod string `pulumi:"scheduledTransferPeriod"`
+	SamplingFrequencyInSeconds *int `pulumi:"samplingFrequencyInSeconds"`
 	// List of streams that this data source will be sent to.
 	// A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
 	Streams []string `pulumi:"streams"`
@@ -12315,11 +12340,9 @@ type PerfCounterDataSourceArgs struct {
 	CounterSpecifiers pulumi.StringArrayInput `pulumi:"counterSpecifiers"`
 	// A friendly name for the data source.
 	// This name should be unique across all data sources (regardless of type) within the data collection rule.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The number of seconds between consecutive counter measurements (samples).
-	SamplingFrequencyInSeconds pulumi.IntInput `pulumi:"samplingFrequencyInSeconds"`
-	// The interval between data uploads (scheduled transfers), rounded up to the nearest minute.
-	ScheduledTransferPeriod pulumi.StringInput `pulumi:"scheduledTransferPeriod"`
+	SamplingFrequencyInSeconds pulumi.IntPtrInput `pulumi:"samplingFrequencyInSeconds"`
 	// List of streams that this data source will be sent to.
 	// A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
 	Streams pulumi.StringArrayInput `pulumi:"streams"`
@@ -12387,18 +12410,13 @@ func (o PerfCounterDataSourceOutput) CounterSpecifiers() pulumi.StringArrayOutpu
 
 // A friendly name for the data source.
 // This name should be unique across all data sources (regardless of type) within the data collection rule.
-func (o PerfCounterDataSourceOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v PerfCounterDataSource) string { return v.Name }).(pulumi.StringOutput)
+func (o PerfCounterDataSourceOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PerfCounterDataSource) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // The number of seconds between consecutive counter measurements (samples).
-func (o PerfCounterDataSourceOutput) SamplingFrequencyInSeconds() pulumi.IntOutput {
-	return o.ApplyT(func(v PerfCounterDataSource) int { return v.SamplingFrequencyInSeconds }).(pulumi.IntOutput)
-}
-
-// The interval between data uploads (scheduled transfers), rounded up to the nearest minute.
-func (o PerfCounterDataSourceOutput) ScheduledTransferPeriod() pulumi.StringOutput {
-	return o.ApplyT(func(v PerfCounterDataSource) string { return v.ScheduledTransferPeriod }).(pulumi.StringOutput)
+func (o PerfCounterDataSourceOutput) SamplingFrequencyInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PerfCounterDataSource) *int { return v.SamplingFrequencyInSeconds }).(pulumi.IntPtrOutput)
 }
 
 // List of streams that this data source will be sent to.
@@ -12436,11 +12454,9 @@ type PerfCounterDataSourceResponse struct {
 	CounterSpecifiers []string `pulumi:"counterSpecifiers"`
 	// A friendly name for the data source.
 	// This name should be unique across all data sources (regardless of type) within the data collection rule.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// The number of seconds between consecutive counter measurements (samples).
-	SamplingFrequencyInSeconds int `pulumi:"samplingFrequencyInSeconds"`
-	// The interval between data uploads (scheduled transfers), rounded up to the nearest minute.
-	ScheduledTransferPeriod string `pulumi:"scheduledTransferPeriod"`
+	SamplingFrequencyInSeconds *int `pulumi:"samplingFrequencyInSeconds"`
 	// List of streams that this data source will be sent to.
 	// A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
 	Streams []string `pulumi:"streams"`
@@ -12466,11 +12482,9 @@ type PerfCounterDataSourceResponseArgs struct {
 	CounterSpecifiers pulumi.StringArrayInput `pulumi:"counterSpecifiers"`
 	// A friendly name for the data source.
 	// This name should be unique across all data sources (regardless of type) within the data collection rule.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The number of seconds between consecutive counter measurements (samples).
-	SamplingFrequencyInSeconds pulumi.IntInput `pulumi:"samplingFrequencyInSeconds"`
-	// The interval between data uploads (scheduled transfers), rounded up to the nearest minute.
-	ScheduledTransferPeriod pulumi.StringInput `pulumi:"scheduledTransferPeriod"`
+	SamplingFrequencyInSeconds pulumi.IntPtrInput `pulumi:"samplingFrequencyInSeconds"`
 	// List of streams that this data source will be sent to.
 	// A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
 	Streams pulumi.StringArrayInput `pulumi:"streams"`
@@ -12538,18 +12552,13 @@ func (o PerfCounterDataSourceResponseOutput) CounterSpecifiers() pulumi.StringAr
 
 // A friendly name for the data source.
 // This name should be unique across all data sources (regardless of type) within the data collection rule.
-func (o PerfCounterDataSourceResponseOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v PerfCounterDataSourceResponse) string { return v.Name }).(pulumi.StringOutput)
+func (o PerfCounterDataSourceResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PerfCounterDataSourceResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // The number of seconds between consecutive counter measurements (samples).
-func (o PerfCounterDataSourceResponseOutput) SamplingFrequencyInSeconds() pulumi.IntOutput {
-	return o.ApplyT(func(v PerfCounterDataSourceResponse) int { return v.SamplingFrequencyInSeconds }).(pulumi.IntOutput)
-}
-
-// The interval between data uploads (scheduled transfers), rounded up to the nearest minute.
-func (o PerfCounterDataSourceResponseOutput) ScheduledTransferPeriod() pulumi.StringOutput {
-	return o.ApplyT(func(v PerfCounterDataSourceResponse) string { return v.ScheduledTransferPeriod }).(pulumi.StringOutput)
+func (o PerfCounterDataSourceResponseOutput) SamplingFrequencyInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PerfCounterDataSourceResponse) *int { return v.SamplingFrequencyInSeconds }).(pulumi.IntPtrOutput)
 }
 
 // List of streams that this data source will be sent to.
@@ -17881,7 +17890,7 @@ type SyslogDataSource struct {
 	LogLevels []string `pulumi:"logLevels"`
 	// A friendly name for the data source.
 	// This name should be unique across all data sources (regardless of type) within the data collection rule.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// List of streams that this data source will be sent to.
 	// A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
 	Streams []string `pulumi:"streams"`
@@ -17907,7 +17916,7 @@ type SyslogDataSourceArgs struct {
 	LogLevels pulumi.StringArrayInput `pulumi:"logLevels"`
 	// A friendly name for the data source.
 	// This name should be unique across all data sources (regardless of type) within the data collection rule.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
 	// List of streams that this data source will be sent to.
 	// A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
 	Streams pulumi.StringArrayInput `pulumi:"streams"`
@@ -17978,8 +17987,8 @@ func (o SyslogDataSourceOutput) LogLevels() pulumi.StringArrayOutput {
 
 // A friendly name for the data source.
 // This name should be unique across all data sources (regardless of type) within the data collection rule.
-func (o SyslogDataSourceOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v SyslogDataSource) string { return v.Name }).(pulumi.StringOutput)
+func (o SyslogDataSourceOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyslogDataSource) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // List of streams that this data source will be sent to.
@@ -18017,7 +18026,7 @@ type SyslogDataSourceResponse struct {
 	LogLevels []string `pulumi:"logLevels"`
 	// A friendly name for the data source.
 	// This name should be unique across all data sources (regardless of type) within the data collection rule.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// List of streams that this data source will be sent to.
 	// A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
 	Streams []string `pulumi:"streams"`
@@ -18043,7 +18052,7 @@ type SyslogDataSourceResponseArgs struct {
 	LogLevels pulumi.StringArrayInput `pulumi:"logLevels"`
 	// A friendly name for the data source.
 	// This name should be unique across all data sources (regardless of type) within the data collection rule.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
 	// List of streams that this data source will be sent to.
 	// A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
 	Streams pulumi.StringArrayInput `pulumi:"streams"`
@@ -18114,8 +18123,8 @@ func (o SyslogDataSourceResponseOutput) LogLevels() pulumi.StringArrayOutput {
 
 // A friendly name for the data source.
 // This name should be unique across all data sources (regardless of type) within the data collection rule.
-func (o SyslogDataSourceResponseOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v SyslogDataSourceResponse) string { return v.Name }).(pulumi.StringOutput)
+func (o SyslogDataSourceResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyslogDataSourceResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // List of streams that this data source will be sent to.
@@ -20417,9 +20426,7 @@ func (o WebtestLocationAvailabilityCriteriaResponseOutput) WebTestId() pulumi.St
 type WindowsEventLogDataSource struct {
 	// A friendly name for the data source.
 	// This name should be unique across all data sources (regardless of type) within the data collection rule.
-	Name string `pulumi:"name"`
-	// The interval between data uploads (scheduled transfers), rounded up to the nearest minute.
-	ScheduledTransferPeriod string `pulumi:"scheduledTransferPeriod"`
+	Name *string `pulumi:"name"`
 	// List of streams that this data source will be sent to.
 	// A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
 	Streams []string `pulumi:"streams"`
@@ -20443,9 +20450,7 @@ type WindowsEventLogDataSourceInput interface {
 type WindowsEventLogDataSourceArgs struct {
 	// A friendly name for the data source.
 	// This name should be unique across all data sources (regardless of type) within the data collection rule.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The interval between data uploads (scheduled transfers), rounded up to the nearest minute.
-	ScheduledTransferPeriod pulumi.StringInput `pulumi:"scheduledTransferPeriod"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
 	// List of streams that this data source will be sent to.
 	// A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
 	Streams pulumi.StringArrayInput `pulumi:"streams"`
@@ -20508,13 +20513,8 @@ func (o WindowsEventLogDataSourceOutput) ToWindowsEventLogDataSourceOutputWithCo
 
 // A friendly name for the data source.
 // This name should be unique across all data sources (regardless of type) within the data collection rule.
-func (o WindowsEventLogDataSourceOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v WindowsEventLogDataSource) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The interval between data uploads (scheduled transfers), rounded up to the nearest minute.
-func (o WindowsEventLogDataSourceOutput) ScheduledTransferPeriod() pulumi.StringOutput {
-	return o.ApplyT(func(v WindowsEventLogDataSource) string { return v.ScheduledTransferPeriod }).(pulumi.StringOutput)
+func (o WindowsEventLogDataSourceOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WindowsEventLogDataSource) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // List of streams that this data source will be sent to.
@@ -20553,9 +20553,7 @@ func (o WindowsEventLogDataSourceArrayOutput) Index(i pulumi.IntInput) WindowsEv
 type WindowsEventLogDataSourceResponse struct {
 	// A friendly name for the data source.
 	// This name should be unique across all data sources (regardless of type) within the data collection rule.
-	Name string `pulumi:"name"`
-	// The interval between data uploads (scheduled transfers), rounded up to the nearest minute.
-	ScheduledTransferPeriod string `pulumi:"scheduledTransferPeriod"`
+	Name *string `pulumi:"name"`
 	// List of streams that this data source will be sent to.
 	// A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
 	Streams []string `pulumi:"streams"`
@@ -20579,9 +20577,7 @@ type WindowsEventLogDataSourceResponseInput interface {
 type WindowsEventLogDataSourceResponseArgs struct {
 	// A friendly name for the data source.
 	// This name should be unique across all data sources (regardless of type) within the data collection rule.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The interval between data uploads (scheduled transfers), rounded up to the nearest minute.
-	ScheduledTransferPeriod pulumi.StringInput `pulumi:"scheduledTransferPeriod"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
 	// List of streams that this data source will be sent to.
 	// A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
 	Streams pulumi.StringArrayInput `pulumi:"streams"`
@@ -20644,13 +20640,8 @@ func (o WindowsEventLogDataSourceResponseOutput) ToWindowsEventLogDataSourceResp
 
 // A friendly name for the data source.
 // This name should be unique across all data sources (regardless of type) within the data collection rule.
-func (o WindowsEventLogDataSourceResponseOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v WindowsEventLogDataSourceResponse) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The interval between data uploads (scheduled transfers), rounded up to the nearest minute.
-func (o WindowsEventLogDataSourceResponseOutput) ScheduledTransferPeriod() pulumi.StringOutput {
-	return o.ApplyT(func(v WindowsEventLogDataSourceResponse) string { return v.ScheduledTransferPeriod }).(pulumi.StringOutput)
+func (o WindowsEventLogDataSourceResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WindowsEventLogDataSourceResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // List of streams that this data source will be sent to.

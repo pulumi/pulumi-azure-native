@@ -12,7 +12,7 @@ import (
 )
 
 // The Private Endpoint Connection resource.
-// API Version: 2021-01-11.
+// API Version: 2021-03-08.
 type PrivateEndpointConnectionsForSCCPowershell struct {
 	pulumi.CustomResourceState
 
@@ -61,6 +61,12 @@ func NewPrivateEndpointConnectionsForSCCPowershell(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:securityandcompliance/v20210111:PrivateEndpointConnectionsForSCCPowershell"),
+		},
+		{
+			Type: pulumi.String("azure-native:securityandcompliance/v20210308:PrivateEndpointConnectionsForSCCPowershell"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:securityandcompliance/v20210308:PrivateEndpointConnectionsForSCCPowershell"),
 		},
 	})
 	opts = append(opts, aliases)

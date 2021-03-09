@@ -40,7 +40,7 @@ type LookupSystemTopicResult struct {
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Source for the system topic.
 	Source *string `pulumi:"source"`
-	// The system metadata relating to this resource.
+	// The system metadata relating to System Topic resource.
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Tags of the resource.
 	Tags map[string]string `pulumi:"tags"`

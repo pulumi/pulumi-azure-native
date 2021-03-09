@@ -28,14 +28,26 @@ namespace Pulumi.AzureNative.Insights.V20191101Preview.Inputs
         [Input("extensionSettings")]
         public Input<object>? ExtensionSettings { get; set; }
 
+        [Input("inputDataSources")]
+        private InputList<string>? _inputDataSources;
+
+        /// <summary>
+        /// The list of data sources this extension needs data from.
+        /// </summary>
+        public InputList<string> InputDataSources
+        {
+            get => _inputDataSources ?? (_inputDataSources = new InputList<string>());
+            set => _inputDataSources = value;
+        }
+
         /// <summary>
         /// A friendly name for the data source. 
         /// This name should be unique across all data sources (regardless of type) within the data collection rule.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
-        [Input("streams", required: true)]
+        [Input("streams")]
         private InputList<Union<string, Pulumi.AzureNative.Insights.V20191101Preview.KnownExtensionDataSourceStreams>>? _streams;
 
         /// <summary>

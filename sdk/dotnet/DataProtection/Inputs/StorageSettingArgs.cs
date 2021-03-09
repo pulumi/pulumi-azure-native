@@ -18,8 +18,8 @@ namespace Pulumi.AzureNative.DataProtection.Inputs
         /// <summary>
         /// Gets or sets the type of the datastore.
         /// </summary>
-        [Input("dataStoreType")]
-        public InputUnion<string, Pulumi.AzureNative.DataProtection.StorageSettingStoreTypes>? DataStoreType { get; set; }
+        [Input("datastoreType")]
+        public InputUnion<string, Pulumi.AzureNative.DataProtection.StorageSettingStoreTypes>? DatastoreType { get; set; }
 
         /// <summary>
         /// Gets or sets the type.

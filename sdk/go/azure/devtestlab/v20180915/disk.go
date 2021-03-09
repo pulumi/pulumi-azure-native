@@ -19,7 +19,7 @@ type Disk struct {
 	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
 	// When backed by a blob, the name of the VHD blob without extension.
 	DiskBlobName pulumi.StringPtrOutput `pulumi:"diskBlobName"`
-	// The size of the disk in GibiBytes.
+	// The size of the disk in Gibibytes.
 	DiskSizeGiB pulumi.IntPtrOutput `pulumi:"diskSizeGiB"`
 	// The storage type for the disk (i.e. Standard, Premium).
 	DiskType pulumi.StringPtrOutput `pulumi:"diskType"`
@@ -37,6 +37,8 @@ type Disk struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The provisioning status of the resource.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// When backed by a blob, the storage account where the blob is.
+	StorageAccountId pulumi.StringPtrOutput `pulumi:"storageAccountId"`
 	// The tags of the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The type of the resource.
@@ -111,7 +113,7 @@ type diskState struct {
 	CreatedDate *string `pulumi:"createdDate"`
 	// When backed by a blob, the name of the VHD blob without extension.
 	DiskBlobName *string `pulumi:"diskBlobName"`
-	// The size of the disk in GibiBytes.
+	// The size of the disk in Gibibytes.
 	DiskSizeGiB *int `pulumi:"diskSizeGiB"`
 	// The storage type for the disk (i.e. Standard, Premium).
 	DiskType *string `pulumi:"diskType"`
@@ -129,6 +131,8 @@ type diskState struct {
 	Name *string `pulumi:"name"`
 	// The provisioning status of the resource.
 	ProvisioningState *string `pulumi:"provisioningState"`
+	// When backed by a blob, the storage account where the blob is.
+	StorageAccountId *string `pulumi:"storageAccountId"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource.
@@ -142,7 +146,7 @@ type DiskState struct {
 	CreatedDate pulumi.StringPtrInput
 	// When backed by a blob, the name of the VHD blob without extension.
 	DiskBlobName pulumi.StringPtrInput
-	// The size of the disk in GibiBytes.
+	// The size of the disk in Gibibytes.
 	DiskSizeGiB pulumi.IntPtrInput
 	// The storage type for the disk (i.e. Standard, Premium).
 	DiskType pulumi.StringPtrInput
@@ -160,6 +164,8 @@ type DiskState struct {
 	Name pulumi.StringPtrInput
 	// The provisioning status of the resource.
 	ProvisioningState pulumi.StringPtrInput
+	// When backed by a blob, the storage account where the blob is.
+	StorageAccountId pulumi.StringPtrInput
 	// The tags of the resource.
 	Tags pulumi.StringMapInput
 	// The type of the resource.
@@ -175,7 +181,7 @@ func (DiskState) ElementType() reflect.Type {
 type diskArgs struct {
 	// When backed by a blob, the name of the VHD blob without extension.
 	DiskBlobName *string `pulumi:"diskBlobName"`
-	// The size of the disk in GibiBytes.
+	// The size of the disk in Gibibytes.
 	DiskSizeGiB *int `pulumi:"diskSizeGiB"`
 	// The storage type for the disk (i.e. Standard, Premium).
 	DiskType *string `pulumi:"diskType"`
@@ -195,6 +201,8 @@ type diskArgs struct {
 	Name *string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// When backed by a blob, the storage account where the blob is.
+	StorageAccountId *string `pulumi:"storageAccountId"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The name of the user profile.
@@ -205,7 +213,7 @@ type diskArgs struct {
 type DiskArgs struct {
 	// When backed by a blob, the name of the VHD blob without extension.
 	DiskBlobName pulumi.StringPtrInput
-	// The size of the disk in GibiBytes.
+	// The size of the disk in Gibibytes.
 	DiskSizeGiB pulumi.IntPtrInput
 	// The storage type for the disk (i.e. Standard, Premium).
 	DiskType pulumi.StringPtrInput
@@ -225,6 +233,8 @@ type DiskArgs struct {
 	Name pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// When backed by a blob, the storage account where the blob is.
+	StorageAccountId pulumi.StringPtrInput
 	// The tags of the resource.
 	Tags pulumi.StringMapInput
 	// The name of the user profile.

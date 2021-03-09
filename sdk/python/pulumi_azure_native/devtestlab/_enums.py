@@ -10,6 +10,7 @@ __all__ = [
     'EnvironmentPermission',
     'HostCachingOptions',
     'LinuxOsState',
+    'ManagedIdentityType',
     'NotificationChannelEventType',
     'PolicyEvaluatorType',
     'PolicyFactName',
@@ -19,7 +20,6 @@ __all__ = [
     'StorageType',
     'TransportProtocol',
     'UsagePermissionType',
-    'VirtualMachineCreationSource',
     'WindowsOsState',
 ]
 
@@ -65,6 +65,16 @@ class LinuxOsState(str, Enum):
     NON_DEPROVISIONED = "NonDeprovisioned"
     DEPROVISION_REQUESTED = "DeprovisionRequested"
     DEPROVISION_APPLIED = "DeprovisionApplied"
+
+
+class ManagedIdentityType(str, Enum):
+    """
+    Managed identity.
+    """
+    NONE = "None"
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"
+    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
 
 
 class NotificationChannelEventType(str, Enum):
@@ -123,6 +133,7 @@ class SourceControlType(str, Enum):
     """
     VSO_GIT = "VsoGit"
     GIT_HUB = "GitHub"
+    STORAGE_ACCOUNT = "StorageAccount"
 
 
 class StorageType(str, Enum):
@@ -149,15 +160,6 @@ class UsagePermissionType(str, Enum):
     DEFAULT = "Default"
     DENY = "Deny"
     ALLOW = "Allow"
-
-
-class VirtualMachineCreationSource(str, Enum):
-    """
-    Tells source of creation of lab virtual machine. Output property only.
-    """
-    FROM_CUSTOM_IMAGE = "FromCustomImage"
-    FROM_GALLERY_IMAGE = "FromGalleryImage"
-    FROM_SHARED_GALLERY_IMAGE = "FromSharedGalleryImage"
 
 
 class WindowsOsState(str, Enum):

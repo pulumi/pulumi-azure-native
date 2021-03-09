@@ -31,7 +31,7 @@ class PrivateEndpointConnectionsForEDM(pulumi.CustomResource):
                  __opts__=None):
         """
         The Private Endpoint Connection resource.
-        Latest API Version: 2021-01-11.
+        Latest API Version: 2021-03-08.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -73,7 +73,7 @@ class PrivateEndpointConnectionsForEDM(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:securityandcompliance/latest:PrivateEndpointConnectionsForEDM"), pulumi.Alias(type_="azure-native:securityandcompliance:PrivateEndpointConnectionsForEDM"), pulumi.Alias(type_="azure-nextgen:securityandcompliance:PrivateEndpointConnectionsForEDM"), pulumi.Alias(type_="azure-native:securityandcompliance/v20210111:PrivateEndpointConnectionsForEDM"), pulumi.Alias(type_="azure-nextgen:securityandcompliance/v20210111:PrivateEndpointConnectionsForEDM")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:securityandcompliance/latest:PrivateEndpointConnectionsForEDM"), pulumi.Alias(type_="azure-native:securityandcompliance:PrivateEndpointConnectionsForEDM"), pulumi.Alias(type_="azure-nextgen:securityandcompliance:PrivateEndpointConnectionsForEDM"), pulumi.Alias(type_="azure-native:securityandcompliance/v20210111:PrivateEndpointConnectionsForEDM"), pulumi.Alias(type_="azure-nextgen:securityandcompliance/v20210111:PrivateEndpointConnectionsForEDM"), pulumi.Alias(type_="azure-native:securityandcompliance/v20210308:PrivateEndpointConnectionsForEDM"), pulumi.Alias(type_="azure-nextgen:securityandcompliance/v20210308:PrivateEndpointConnectionsForEDM")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateEndpointConnectionsForEDM, __self__).__init__(
             'azure-native:securityandcompliance/latest:PrivateEndpointConnectionsForEDM',

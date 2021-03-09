@@ -12,7 +12,7 @@ import (
 )
 
 // The description of the service.
-// Latest API Version: 2021-01-11.
+// Latest API Version: 2021-03-08.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:securityandcompliance:privateLinkServicesForSCCPowershell'.
 type PrivateLinkServicesForSCCPowershell struct {
@@ -63,6 +63,12 @@ func NewPrivateLinkServicesForSCCPowershell(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:securityandcompliance/v20210111:privateLinkServicesForSCCPowershell"),
+		},
+		{
+			Type: pulumi.String("azure-native:securityandcompliance/v20210308:privateLinkServicesForSCCPowershell"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:securityandcompliance/v20210308:privateLinkServicesForSCCPowershell"),
 		},
 	})
 	opts = append(opts, aliases)

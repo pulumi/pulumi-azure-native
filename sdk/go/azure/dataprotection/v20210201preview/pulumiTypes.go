@@ -2459,7 +2459,7 @@ func (o ProtectionStatusDetailsResponsePtrOutput) Status() pulumi.StringPtrOutpu
 // Storage setting
 type StorageSetting struct {
 	// Gets or sets the type of the datastore.
-	DataStoreType *string `pulumi:"dataStoreType"`
+	DatastoreType *string `pulumi:"datastoreType"`
 	// Gets or sets the type.
 	Type *string `pulumi:"type"`
 }
@@ -2478,7 +2478,7 @@ type StorageSettingInput interface {
 // Storage setting
 type StorageSettingArgs struct {
 	// Gets or sets the type of the datastore.
-	DataStoreType pulumi.StringPtrInput `pulumi:"dataStoreType"`
+	DatastoreType pulumi.StringPtrInput `pulumi:"datastoreType"`
 	// Gets or sets the type.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
@@ -2536,8 +2536,8 @@ func (o StorageSettingOutput) ToStorageSettingOutputWithContext(ctx context.Cont
 }
 
 // Gets or sets the type of the datastore.
-func (o StorageSettingOutput) DataStoreType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StorageSetting) *string { return v.DataStoreType }).(pulumi.StringPtrOutput)
+func (o StorageSettingOutput) DatastoreType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageSetting) *string { return v.DatastoreType }).(pulumi.StringPtrOutput)
 }
 
 // Gets or sets the type.
@@ -2568,7 +2568,7 @@ func (o StorageSettingArrayOutput) Index(i pulumi.IntInput) StorageSettingOutput
 // Storage setting
 type StorageSettingResponse struct {
 	// Gets or sets the type of the datastore.
-	DataStoreType *string `pulumi:"dataStoreType"`
+	DatastoreType *string `pulumi:"datastoreType"`
 	// Gets or sets the type.
 	Type *string `pulumi:"type"`
 }
@@ -2587,7 +2587,7 @@ type StorageSettingResponseInput interface {
 // Storage setting
 type StorageSettingResponseArgs struct {
 	// Gets or sets the type of the datastore.
-	DataStoreType pulumi.StringPtrInput `pulumi:"dataStoreType"`
+	DatastoreType pulumi.StringPtrInput `pulumi:"datastoreType"`
 	// Gets or sets the type.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
@@ -2645,8 +2645,8 @@ func (o StorageSettingResponseOutput) ToStorageSettingResponseOutputWithContext(
 }
 
 // Gets or sets the type of the datastore.
-func (o StorageSettingResponseOutput) DataStoreType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StorageSettingResponse) *string { return v.DataStoreType }).(pulumi.StringPtrOutput)
+func (o StorageSettingResponseOutput) DatastoreType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageSettingResponse) *string { return v.DatastoreType }).(pulumi.StringPtrOutput)
 }
 
 // Gets or sets the type.
@@ -2916,6 +2916,8 @@ type UserFacingErrorResponse struct {
 	// Whether the operation is due to a user error or service error
 	IsUserError *bool   `pulumi:"isUserError"`
 	Message     *string `pulumi:"message"`
+	// Any key value pairs that can be injected inside error object
+	Properties map[string]string `pulumi:"properties"`
 	// RecommendedAction � localized.
 	RecommendedAction []string `pulumi:"recommendedAction"`
 	// Target of the error.
@@ -2946,6 +2948,8 @@ type UserFacingErrorResponseArgs struct {
 	// Whether the operation is due to a user error or service error
 	IsUserError pulumi.BoolPtrInput   `pulumi:"isUserError"`
 	Message     pulumi.StringPtrInput `pulumi:"message"`
+	// Any key value pairs that can be injected inside error object
+	Properties pulumi.StringMapInput `pulumi:"properties"`
 	// RecommendedAction � localized.
 	RecommendedAction pulumi.StringArrayInput `pulumi:"recommendedAction"`
 	// Target of the error.
@@ -3084,6 +3088,11 @@ func (o UserFacingErrorResponseOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserFacingErrorResponse) *string { return v.Message }).(pulumi.StringPtrOutput)
 }
 
+// Any key value pairs that can be injected inside error object
+func (o UserFacingErrorResponseOutput) Properties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v UserFacingErrorResponse) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
+}
+
 // RecommendedAction � localized.
 func (o UserFacingErrorResponseOutput) RecommendedAction() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v UserFacingErrorResponse) []string { return v.RecommendedAction }).(pulumi.StringArrayOutput)
@@ -3169,6 +3178,16 @@ func (o UserFacingErrorResponsePtrOutput) Message() pulumi.StringPtrOutput {
 		}
 		return v.Message
 	}).(pulumi.StringPtrOutput)
+}
+
+// Any key value pairs that can be injected inside error object
+func (o UserFacingErrorResponsePtrOutput) Properties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *UserFacingErrorResponse) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Properties
+	}).(pulumi.StringMapOutput)
 }
 
 // RecommendedAction � localized.

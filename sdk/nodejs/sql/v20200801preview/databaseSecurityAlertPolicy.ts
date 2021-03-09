@@ -40,13 +40,41 @@ export class DatabaseSecurityAlertPolicy extends pulumi.CustomResource {
      */
     public /*out*/ readonly creationTime!: pulumi.Output<string>;
     /**
+     * Specifies an array of alerts that are disabled. Allowed values are: Sql_Injection, Sql_Injection_Vulnerability, Access_Anomaly, Data_Exfiltration, Unsafe_Action
+     */
+    public readonly disabledAlerts!: pulumi.Output<string[] | undefined>;
+    /**
+     * Specifies that the alert is sent to the account administrators.
+     */
+    public readonly emailAccountAdmins!: pulumi.Output<boolean | undefined>;
+    /**
+     * Specifies an array of e-mail addresses to which the alert is sent.
+     */
+    public readonly emailAddresses!: pulumi.Output<string[] | undefined>;
+    /**
      * Resource name.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * Specifies the number of days to keep in the Threat Detection audit logs.
+     */
+    public readonly retentionDays!: pulumi.Output<number | undefined>;
+    /**
      * Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database.
      */
     public readonly state!: pulumi.Output<string>;
+    /**
+     * Specifies the identifier key of the Threat Detection audit storage account.
+     */
+    public readonly storageAccountAccessKey!: pulumi.Output<string | undefined>;
+    /**
+     * Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
+     */
+    public readonly storageEndpoint!: pulumi.Output<string | undefined>;
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.sql.v20200801preview.SystemDataResponse>;
     /**
      * Resource type.
      */
@@ -76,23 +104,37 @@ export class DatabaseSecurityAlertPolicy extends pulumi.CustomResource {
                 throw new Error("Missing required property 'state'");
             }
             inputs["databaseName"] = args ? args.databaseName : undefined;
+            inputs["disabledAlerts"] = args ? args.disabledAlerts : undefined;
+            inputs["emailAccountAdmins"] = args ? args.emailAccountAdmins : undefined;
+            inputs["emailAddresses"] = args ? args.emailAddresses : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["retentionDays"] = args ? args.retentionDays : undefined;
             inputs["securityAlertPolicyName"] = args ? args.securityAlertPolicyName : undefined;
             inputs["serverName"] = args ? args.serverName : undefined;
             inputs["state"] = args ? args.state : undefined;
+            inputs["storageAccountAccessKey"] = args ? args.storageAccountAccessKey : undefined;
+            inputs["storageEndpoint"] = args ? args.storageEndpoint : undefined;
             inputs["creationTime"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["creationTime"] = undefined /*out*/;
+            inputs["disabledAlerts"] = undefined /*out*/;
+            inputs["emailAccountAdmins"] = undefined /*out*/;
+            inputs["emailAddresses"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["retentionDays"] = undefined /*out*/;
             inputs["state"] = undefined /*out*/;
+            inputs["storageAccountAccessKey"] = undefined /*out*/;
+            inputs["storageEndpoint"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql/v20200801preview:DatabaseSecurityAlertPolicy" }, { type: "azure-native:sql:DatabaseSecurityAlertPolicy" }, { type: "azure-nextgen:sql:DatabaseSecurityAlertPolicy" }, { type: "azure-native:sql/latest:DatabaseSecurityAlertPolicy" }, { type: "azure-nextgen:sql/latest:DatabaseSecurityAlertPolicy" }, { type: "azure-native:sql/v20140401:DatabaseSecurityAlertPolicy" }, { type: "azure-nextgen:sql/v20140401:DatabaseSecurityAlertPolicy" }, { type: "azure-native:sql/v20180601preview:DatabaseSecurityAlertPolicy" }, { type: "azure-nextgen:sql/v20180601preview:DatabaseSecurityAlertPolicy" }, { type: "azure-native:sql/v20200202preview:DatabaseSecurityAlertPolicy" }, { type: "azure-nextgen:sql/v20200202preview:DatabaseSecurityAlertPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql/v20200801preview:DatabaseSecurityAlertPolicy" }, { type: "azure-native:sql:DatabaseSecurityAlertPolicy" }, { type: "azure-nextgen:sql:DatabaseSecurityAlertPolicy" }, { type: "azure-native:sql/latest:DatabaseSecurityAlertPolicy" }, { type: "azure-nextgen:sql/latest:DatabaseSecurityAlertPolicy" }, { type: "azure-native:sql/v20140401:DatabaseSecurityAlertPolicy" }, { type: "azure-nextgen:sql/v20140401:DatabaseSecurityAlertPolicy" }, { type: "azure-native:sql/v20180601preview:DatabaseSecurityAlertPolicy" }, { type: "azure-nextgen:sql/v20180601preview:DatabaseSecurityAlertPolicy" }, { type: "azure-native:sql/v20200202preview:DatabaseSecurityAlertPolicy" }, { type: "azure-nextgen:sql/v20200202preview:DatabaseSecurityAlertPolicy" }, { type: "azure-native:sql/v20201101preview:DatabaseSecurityAlertPolicy" }, { type: "azure-nextgen:sql/v20201101preview:DatabaseSecurityAlertPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DatabaseSecurityAlertPolicy.__pulumiType, name, inputs, opts);
     }
@@ -107,9 +149,25 @@ export interface DatabaseSecurityAlertPolicyArgs {
      */
     readonly databaseName: pulumi.Input<string>;
     /**
+     * Specifies an array of alerts that are disabled. Allowed values are: Sql_Injection, Sql_Injection_Vulnerability, Access_Anomaly, Data_Exfiltration, Unsafe_Action
+     */
+    readonly disabledAlerts?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Specifies that the alert is sent to the account administrators.
+     */
+    readonly emailAccountAdmins?: pulumi.Input<boolean>;
+    /**
+     * Specifies an array of e-mail addresses to which the alert is sent.
+     */
+    readonly emailAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Specifies the number of days to keep in the Threat Detection audit logs.
+     */
+    readonly retentionDays?: pulumi.Input<number>;
     /**
      * The name of the security alert policy.
      */
@@ -122,4 +180,12 @@ export interface DatabaseSecurityAlertPolicyArgs {
      * Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database.
      */
     readonly state: pulumi.Input<enums.sql.v20200801preview.SecurityAlertsPolicyState>;
+    /**
+     * Specifies the identifier key of the Threat Detection audit storage account.
+     */
+    readonly storageAccountAccessKey?: pulumi.Input<string>;
+    /**
+     * Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
+     */
+    readonly storageEndpoint?: pulumi.Input<string>;
 }

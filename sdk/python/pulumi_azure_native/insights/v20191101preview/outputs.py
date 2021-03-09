@@ -130,19 +130,21 @@ class DataFlowResponse(dict):
     Definition of which streams are sent to which destinations.
     """
     def __init__(__self__, *,
-                 destinations: Sequence[str],
-                 streams: Sequence[str]):
+                 destinations: Optional[Sequence[str]] = None,
+                 streams: Optional[Sequence[str]] = None):
         """
         Definition of which streams are sent to which destinations.
         :param Sequence[str] destinations: List of destinations for this data flow.
         :param Sequence[str] streams: List of streams for this data flow.
         """
-        pulumi.set(__self__, "destinations", destinations)
-        pulumi.set(__self__, "streams", streams)
+        if destinations is not None:
+            pulumi.set(__self__, "destinations", destinations)
+        if streams is not None:
+            pulumi.set(__self__, "streams", streams)
 
     @property
     @pulumi.getter
-    def destinations(self) -> Sequence[str]:
+    def destinations(self) -> Optional[Sequence[str]]:
         """
         List of destinations for this data flow.
         """
@@ -150,7 +152,7 @@ class DataFlowResponse(dict):
 
     @property
     @pulumi.getter
-    def streams(self) -> Sequence[str]:
+    def streams(self) -> Optional[Sequence[str]]:
         """
         List of streams for this data flow.
         """
@@ -166,17 +168,18 @@ class DestinationsSpecResponseAzureMonitorMetrics(dict):
     Azure Monitor Metrics destination.
     """
     def __init__(__self__, *,
-                 name: str):
+                 name: Optional[str] = None):
         """
         Azure Monitor Metrics destination.
         :param str name: A friendly name for the destination. 
                This name should be unique across all destinations (regardless of type) within the data collection rule.
         """
-        pulumi.set(__self__, "name", name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         A friendly name for the destination. 
         This name should be unique across all destinations (regardless of type) within the data collection rule.
@@ -195,24 +198,30 @@ class ExtensionDataSourceResponse(dict):
     """
     def __init__(__self__, *,
                  extension_name: str,
-                 name: str,
-                 streams: Sequence[str],
-                 extension_settings: Optional[Any] = None):
+                 extension_settings: Optional[Any] = None,
+                 input_data_sources: Optional[Sequence[str]] = None,
+                 name: Optional[str] = None,
+                 streams: Optional[Sequence[str]] = None):
         """
         Definition of which data will be collected from a separate VM extension that integrates with the Azure Monitor Agent.
         Collected from either Windows and Linux machines, depending on which extension is defined.
         :param str extension_name: The name of the VM extension.
+        :param Any extension_settings: The extension settings. The format is specific for particular extension.
+        :param Sequence[str] input_data_sources: The list of data sources this extension needs data from.
         :param str name: A friendly name for the data source. 
                This name should be unique across all data sources (regardless of type) within the data collection rule.
         :param Sequence[str] streams: List of streams that this data source will be sent to.
                A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
-        :param Any extension_settings: The extension settings. The format is specific for particular extension.
         """
         pulumi.set(__self__, "extension_name", extension_name)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "streams", streams)
         if extension_settings is not None:
             pulumi.set(__self__, "extension_settings", extension_settings)
+        if input_data_sources is not None:
+            pulumi.set(__self__, "input_data_sources", input_data_sources)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if streams is not None:
+            pulumi.set(__self__, "streams", streams)
 
     @property
     @pulumi.getter(name="extensionName")
@@ -223,8 +232,24 @@ class ExtensionDataSourceResponse(dict):
         return pulumi.get(self, "extension_name")
 
     @property
+    @pulumi.getter(name="extensionSettings")
+    def extension_settings(self) -> Optional[Any]:
+        """
+        The extension settings. The format is specific for particular extension.
+        """
+        return pulumi.get(self, "extension_settings")
+
+    @property
+    @pulumi.getter(name="inputDataSources")
+    def input_data_sources(self) -> Optional[Sequence[str]]:
+        """
+        The list of data sources this extension needs data from.
+        """
+        return pulumi.get(self, "input_data_sources")
+
+    @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         A friendly name for the data source. 
         This name should be unique across all data sources (regardless of type) within the data collection rule.
@@ -233,20 +258,12 @@ class ExtensionDataSourceResponse(dict):
 
     @property
     @pulumi.getter
-    def streams(self) -> Sequence[str]:
+    def streams(self) -> Optional[Sequence[str]]:
         """
         List of streams that this data source will be sent to.
         A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
         """
         return pulumi.get(self, "streams")
-
-    @property
-    @pulumi.getter(name="extensionSettings")
-    def extension_settings(self) -> Optional[Any]:
-        """
-        The extension settings. The format is specific for particular extension.
-        """
-        return pulumi.get(self, "extension_settings")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -258,20 +275,33 @@ class LogAnalyticsDestinationResponse(dict):
     Log Analytics destination.
     """
     def __init__(__self__, *,
-                 name: str,
-                 workspace_resource_id: str):
+                 workspace_id: str,
+                 name: Optional[str] = None,
+                 workspace_resource_id: Optional[str] = None):
         """
         Log Analytics destination.
+        :param str workspace_id: The Customer ID of the Log Analytics workspace.
         :param str name: A friendly name for the destination. 
                This name should be unique across all destinations (regardless of type) within the data collection rule.
         :param str workspace_resource_id: The resource ID of the Log Analytics workspace.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "workspace_resource_id", workspace_resource_id)
+        pulumi.set(__self__, "workspace_id", workspace_id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if workspace_resource_id is not None:
+            pulumi.set(__self__, "workspace_resource_id", workspace_resource_id)
+
+    @property
+    @pulumi.getter(name="workspaceId")
+    def workspace_id(self) -> str:
+        """
+        The Customer ID of the Log Analytics workspace.
+        """
+        return pulumi.get(self, "workspace_id")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         A friendly name for the destination. 
         This name should be unique across all destinations (regardless of type) within the data collection rule.
@@ -280,7 +310,7 @@ class LogAnalyticsDestinationResponse(dict):
 
     @property
     @pulumi.getter(name="workspaceResourceId")
-    def workspace_resource_id(self) -> str:
+    def workspace_resource_id(self) -> Optional[str]:
         """
         The resource ID of the Log Analytics workspace.
         """
@@ -297,11 +327,10 @@ class PerfCounterDataSourceResponse(dict):
     Collected from both Windows and Linux machines where the counter is present.
     """
     def __init__(__self__, *,
-                 counter_specifiers: Sequence[str],
-                 name: str,
-                 sampling_frequency_in_seconds: int,
-                 scheduled_transfer_period: str,
-                 streams: Sequence[str]):
+                 counter_specifiers: Optional[Sequence[str]] = None,
+                 name: Optional[str] = None,
+                 sampling_frequency_in_seconds: Optional[int] = None,
+                 streams: Optional[Sequence[str]] = None):
         """
         Definition of which performance counters will be collected and how they will be collected by this data collection rule.
         Collected from both Windows and Linux machines where the counter is present.
@@ -311,19 +340,21 @@ class PerfCounterDataSourceResponse(dict):
         :param str name: A friendly name for the data source. 
                This name should be unique across all data sources (regardless of type) within the data collection rule.
         :param int sampling_frequency_in_seconds: The number of seconds between consecutive counter measurements (samples).
-        :param str scheduled_transfer_period: The interval between data uploads (scheduled transfers), rounded up to the nearest minute.
         :param Sequence[str] streams: List of streams that this data source will be sent to.
                A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
         """
-        pulumi.set(__self__, "counter_specifiers", counter_specifiers)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "sampling_frequency_in_seconds", sampling_frequency_in_seconds)
-        pulumi.set(__self__, "scheduled_transfer_period", scheduled_transfer_period)
-        pulumi.set(__self__, "streams", streams)
+        if counter_specifiers is not None:
+            pulumi.set(__self__, "counter_specifiers", counter_specifiers)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if sampling_frequency_in_seconds is not None:
+            pulumi.set(__self__, "sampling_frequency_in_seconds", sampling_frequency_in_seconds)
+        if streams is not None:
+            pulumi.set(__self__, "streams", streams)
 
     @property
     @pulumi.getter(name="counterSpecifiers")
-    def counter_specifiers(self) -> Sequence[str]:
+    def counter_specifiers(self) -> Optional[Sequence[str]]:
         """
         A list of specifier names of the performance counters you want to collect.
         Use a wildcard (*) to collect a counter for all instances.
@@ -333,7 +364,7 @@ class PerfCounterDataSourceResponse(dict):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         A friendly name for the data source. 
         This name should be unique across all data sources (regardless of type) within the data collection rule.
@@ -342,23 +373,15 @@ class PerfCounterDataSourceResponse(dict):
 
     @property
     @pulumi.getter(name="samplingFrequencyInSeconds")
-    def sampling_frequency_in_seconds(self) -> int:
+    def sampling_frequency_in_seconds(self) -> Optional[int]:
         """
         The number of seconds between consecutive counter measurements (samples).
         """
         return pulumi.get(self, "sampling_frequency_in_seconds")
 
     @property
-    @pulumi.getter(name="scheduledTransferPeriod")
-    def scheduled_transfer_period(self) -> str:
-        """
-        The interval between data uploads (scheduled transfers), rounded up to the nearest minute.
-        """
-        return pulumi.get(self, "scheduled_transfer_period")
-
-    @property
     @pulumi.getter
-    def streams(self) -> Sequence[str]:
+    def streams(self) -> Optional[Sequence[str]]:
         """
         List of streams that this data source will be sent to.
         A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
@@ -376,51 +399,36 @@ class SyslogDataSourceResponse(dict):
     Only collected from Linux machines.
     """
     def __init__(__self__, *,
-                 facility_names: Sequence[str],
-                 name: str,
-                 streams: Sequence[str],
-                 log_levels: Optional[Sequence[str]] = None):
+                 facility_names: Optional[Sequence[str]] = None,
+                 log_levels: Optional[Sequence[str]] = None,
+                 name: Optional[str] = None,
+                 streams: Optional[Sequence[str]] = None):
         """
         Definition of which syslog data will be collected and how it will be collected.
         Only collected from Linux machines.
         :param Sequence[str] facility_names: The list of facility names.
+        :param Sequence[str] log_levels: The log levels to collect.
         :param str name: A friendly name for the data source. 
                This name should be unique across all data sources (regardless of type) within the data collection rule.
         :param Sequence[str] streams: List of streams that this data source will be sent to.
                A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
-        :param Sequence[str] log_levels: The log levels to collect.
         """
-        pulumi.set(__self__, "facility_names", facility_names)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "streams", streams)
+        if facility_names is not None:
+            pulumi.set(__self__, "facility_names", facility_names)
         if log_levels is not None:
             pulumi.set(__self__, "log_levels", log_levels)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if streams is not None:
+            pulumi.set(__self__, "streams", streams)
 
     @property
     @pulumi.getter(name="facilityNames")
-    def facility_names(self) -> Sequence[str]:
+    def facility_names(self) -> Optional[Sequence[str]]:
         """
         The list of facility names.
         """
         return pulumi.get(self, "facility_names")
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        A friendly name for the data source. 
-        This name should be unique across all data sources (regardless of type) within the data collection rule.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def streams(self) -> Sequence[str]:
-        """
-        List of streams that this data source will be sent to.
-        A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
-        """
-        return pulumi.get(self, "streams")
 
     @property
     @pulumi.getter(name="logLevels")
@@ -429,6 +437,24 @@ class SyslogDataSourceResponse(dict):
         The log levels to collect.
         """
         return pulumi.get(self, "log_levels")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        A friendly name for the data source. 
+        This name should be unique across all data sources (regardless of type) within the data collection rule.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def streams(self) -> Optional[Sequence[str]]:
+        """
+        List of streams that this data source will be sent to.
+        A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
+        """
+        return pulumi.get(self, "streams")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -441,28 +467,28 @@ class WindowsEventLogDataSourceResponse(dict):
     Only collected from Windows machines.
     """
     def __init__(__self__, *,
-                 name: str,
-                 scheduled_transfer_period: str,
-                 streams: Sequence[str],
-                 x_path_queries: Sequence[str]):
+                 name: Optional[str] = None,
+                 streams: Optional[Sequence[str]] = None,
+                 x_path_queries: Optional[Sequence[str]] = None):
         """
         Definition of which Windows Event Log events will be collected and how they will be collected.
         Only collected from Windows machines.
         :param str name: A friendly name for the data source. 
                This name should be unique across all data sources (regardless of type) within the data collection rule.
-        :param str scheduled_transfer_period: The interval between data uploads (scheduled transfers), rounded up to the nearest minute.
         :param Sequence[str] streams: List of streams that this data source will be sent to.
                A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
         :param Sequence[str] x_path_queries: A list of Windows Event Log queries in XPATH format.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "scheduled_transfer_period", scheduled_transfer_period)
-        pulumi.set(__self__, "streams", streams)
-        pulumi.set(__self__, "x_path_queries", x_path_queries)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if streams is not None:
+            pulumi.set(__self__, "streams", streams)
+        if x_path_queries is not None:
+            pulumi.set(__self__, "x_path_queries", x_path_queries)
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         A friendly name for the data source. 
         This name should be unique across all data sources (regardless of type) within the data collection rule.
@@ -470,16 +496,8 @@ class WindowsEventLogDataSourceResponse(dict):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="scheduledTransferPeriod")
-    def scheduled_transfer_period(self) -> str:
-        """
-        The interval between data uploads (scheduled transfers), rounded up to the nearest minute.
-        """
-        return pulumi.get(self, "scheduled_transfer_period")
-
-    @property
     @pulumi.getter
-    def streams(self) -> Sequence[str]:
+    def streams(self) -> Optional[Sequence[str]]:
         """
         List of streams that this data source will be sent to.
         A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
@@ -488,7 +506,7 @@ class WindowsEventLogDataSourceResponse(dict):
 
     @property
     @pulumi.getter(name="xPathQueries")
-    def x_path_queries(self) -> Sequence[str]:
+    def x_path_queries(self) -> Optional[Sequence[str]]:
         """
         A list of Windows Event Log queries in XPATH format.
         """

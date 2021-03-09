@@ -28,7 +28,7 @@ type SystemTopic struct {
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// Source for the system topic.
 	Source pulumi.StringPtrOutput `pulumi:"source"`
-	// The system metadata relating to this resource.
+	// The system metadata relating to System Topic resource.
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Tags of the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -100,7 +100,7 @@ type systemTopicState struct {
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// Source for the system topic.
 	Source *string `pulumi:"source"`
-	// The system metadata relating to this resource.
+	// The system metadata relating to System Topic resource.
 	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -123,7 +123,7 @@ type SystemTopicState struct {
 	ProvisioningState pulumi.StringPtrInput
 	// Source for the system topic.
 	Source pulumi.StringPtrInput
-	// The system metadata relating to this resource.
+	// The system metadata relating to System Topic resource.
 	SystemData SystemDataResponsePtrInput
 	// Tags of the resource.
 	Tags pulumi.StringMapInput

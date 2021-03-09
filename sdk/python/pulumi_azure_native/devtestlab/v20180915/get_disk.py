@@ -19,7 +19,7 @@ class GetDiskResult:
     """
     A Disk.
     """
-    def __init__(__self__, created_date=None, disk_blob_name=None, disk_size_gi_b=None, disk_type=None, disk_uri=None, host_caching=None, id=None, leased_by_lab_vm_id=None, location=None, managed_disk_id=None, name=None, provisioning_state=None, tags=None, type=None, unique_identifier=None):
+    def __init__(__self__, created_date=None, disk_blob_name=None, disk_size_gi_b=None, disk_type=None, disk_uri=None, host_caching=None, id=None, leased_by_lab_vm_id=None, location=None, managed_disk_id=None, name=None, provisioning_state=None, storage_account_id=None, tags=None, type=None, unique_identifier=None):
         if created_date and not isinstance(created_date, str):
             raise TypeError("Expected argument 'created_date' to be a str")
         pulumi.set(__self__, "created_date", created_date)
@@ -56,6 +56,9 @@ class GetDiskResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if storage_account_id and not isinstance(storage_account_id, str):
+            raise TypeError("Expected argument 'storage_account_id' to be a str")
+        pulumi.set(__self__, "storage_account_id", storage_account_id)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -86,7 +89,7 @@ class GetDiskResult:
     @pulumi.getter(name="diskSizeGiB")
     def disk_size_gi_b(self) -> Optional[int]:
         """
-        The size of the disk in GibiBytes.
+        The size of the disk in Gibibytes.
         """
         return pulumi.get(self, "disk_size_gi_b")
 
@@ -163,6 +166,14 @@ class GetDiskResult:
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="storageAccountId")
+    def storage_account_id(self) -> Optional[str]:
+        """
+        When backed by a blob, the storage account where the blob is.
+        """
+        return pulumi.get(self, "storage_account_id")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
@@ -205,6 +216,7 @@ class AwaitableGetDiskResult(GetDiskResult):
             managed_disk_id=self.managed_disk_id,
             name=self.name,
             provisioning_state=self.provisioning_state,
+            storage_account_id=self.storage_account_id,
             tags=self.tags,
             type=self.type,
             unique_identifier=self.unique_identifier)
@@ -251,6 +263,7 @@ def get_disk(expand: Optional[str] = None,
         managed_disk_id=__ret__.managed_disk_id,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
+        storage_account_id=__ret__.storage_account_id,
         tags=__ret__.tags,
         type=__ret__.type,
         unique_identifier=__ret__.unique_identifier)

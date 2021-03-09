@@ -40,7 +40,7 @@ export interface GetDataCollectionRuleResult {
     /**
      * The specification of data flows.
      */
-    readonly dataFlows: outputs.insights.v20191101preview.DataFlowResponse[];
+    readonly dataFlows?: outputs.insights.v20191101preview.DataFlowResponse[];
     /**
      * The specification of data sources. 
      * This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.
@@ -53,7 +53,7 @@ export interface GetDataCollectionRuleResult {
     /**
      * The specification of destinations.
      */
-    readonly destinations: outputs.insights.v20191101preview.DataCollectionRuleResponseDestinations;
+    readonly destinations?: outputs.insights.v20191101preview.DataCollectionRuleResponseDestinations;
     /**
      * Resource entity tag (ETag).
      */
@@ -62,6 +62,14 @@ export interface GetDataCollectionRuleResult {
      * Fully qualified ID of the resource.
      */
     readonly id: string;
+    /**
+     * The immutable ID of this data collection rule. This property is READ-ONLY.
+     */
+    readonly immutableId: string;
+    /**
+     * The kind of the resource.
+     */
+    readonly kind?: string;
     /**
      * The geo-location where the resource lives.
      */

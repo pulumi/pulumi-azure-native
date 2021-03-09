@@ -158,7 +158,7 @@ def getprivate_link_services_for_scc_powershell(resource_group_name: Optional[st
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetprivateLinkServicesForSCCPowershellResult:
     """
     The description of the service.
-    Latest API Version: 2021-01-11.
+    Latest API Version: 2021-03-08.
 
 
     :param str resource_group_name: The name of the resource group that contains the service instance.

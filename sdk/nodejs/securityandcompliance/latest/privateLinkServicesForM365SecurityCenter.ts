@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * The description of the service.
- * Latest API Version: 2021-01-11.
+ * Latest API Version: 2021-03-08.
  *
  * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:securityandcompliance:privateLinkServicesForM365SecurityCenter'.
  */
@@ -120,7 +120,7 @@ export class PrivateLinkServicesForM365SecurityCenter extends pulumi.CustomResou
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:securityandcompliance/latest:privateLinkServicesForM365SecurityCenter" }, { type: "azure-native:securityandcompliance:privateLinkServicesForM365SecurityCenter" }, { type: "azure-nextgen:securityandcompliance:privateLinkServicesForM365SecurityCenter" }, { type: "azure-native:securityandcompliance/v20210111:privateLinkServicesForM365SecurityCenter" }, { type: "azure-nextgen:securityandcompliance/v20210111:privateLinkServicesForM365SecurityCenter" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:securityandcompliance/latest:privateLinkServicesForM365SecurityCenter" }, { type: "azure-native:securityandcompliance:privateLinkServicesForM365SecurityCenter" }, { type: "azure-nextgen:securityandcompliance:privateLinkServicesForM365SecurityCenter" }, { type: "azure-native:securityandcompliance/v20210111:privateLinkServicesForM365SecurityCenter" }, { type: "azure-nextgen:securityandcompliance/v20210111:privateLinkServicesForM365SecurityCenter" }, { type: "azure-native:securityandcompliance/v20210308:privateLinkServicesForM365SecurityCenter" }, { type: "azure-nextgen:securityandcompliance/v20210308:privateLinkServicesForM365SecurityCenter" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateLinkServicesForM365SecurityCenter.__pulumiType, name, inputs, opts);
     }

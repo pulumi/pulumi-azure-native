@@ -81,6 +81,8 @@ namespace Pulumi.AzureNative.SecurityAndCompliance.V20210111
                     new Pulumi.Alias { Type = "azure-nextgen:securityandcompliance:PrivateEndpointConnectionsSec"},
                     new Pulumi.Alias { Type = "azure-native:securityandcompliance/latest:PrivateEndpointConnectionsSec"},
                     new Pulumi.Alias { Type = "azure-nextgen:securityandcompliance/latest:PrivateEndpointConnectionsSec"},
+                    new Pulumi.Alias { Type = "azure-native:securityandcompliance/v20210308:PrivateEndpointConnectionsSec"},
+                    new Pulumi.Alias { Type = "azure-nextgen:securityandcompliance/v20210308:PrivateEndpointConnectionsSec"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

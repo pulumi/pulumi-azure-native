@@ -26,9 +26,17 @@ namespace Pulumi.AzureNative.DataFactory.Latest.Outputs
         /// </summary>
         public readonly ImmutableArray<object> Annotations;
         /// <summary>
+        /// Indicates the azure cloud type of the service principle auth. Allowed values are AzurePublic, AzureChina, AzureUsGovernment, AzureGermany. Default value is the data factory regions’ cloud type. Type: string (or Expression with resultType string).
+        /// </summary>
+        public readonly object? AzureCloudType;
+        /// <summary>
         /// The integration runtime reference.
         /// </summary>
         public readonly Outputs.IntegrationRuntimeReferenceResponse? ConnectVia;
+        /// <summary>
+        /// The connection mode used to access CosmosDB account. Type: string (or Expression with resultType string).
+        /// </summary>
+        public readonly string? ConnectionMode;
         /// <summary>
         /// The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         /// </summary>
@@ -50,6 +58,22 @@ namespace Pulumi.AzureNative.DataFactory.Latest.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? Parameters;
         /// <summary>
+        /// The credential of the service principal object in Azure Active Directory. If servicePrincipalCredentialType is 'ServicePrincipalKey', servicePrincipalCredential can be SecureString or AzureKeyVaultSecretReference. If servicePrincipalCredentialType is 'ServicePrincipalCert', servicePrincipalCredential can only be AzureKeyVaultSecretReference.
+        /// </summary>
+        public readonly Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? ServicePrincipalCredential;
+        /// <summary>
+        /// The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).
+        /// </summary>
+        public readonly string? ServicePrincipalCredentialType;
+        /// <summary>
+        /// The client ID of the application in Azure Active Directory used for Server-To-Server authentication. Type: string (or Expression with resultType string).
+        /// </summary>
+        public readonly object? ServicePrincipalId;
+        /// <summary>
+        /// The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
+        /// </summary>
+        public readonly object? Tenant;
+        /// <summary>
         /// Type of linked service.
         /// Expected value is 'CosmosDb'.
         /// </summary>
@@ -63,7 +87,11 @@ namespace Pulumi.AzureNative.DataFactory.Latest.Outputs
 
             ImmutableArray<object> annotations,
 
+            object? azureCloudType,
+
             Outputs.IntegrationRuntimeReferenceResponse? connectVia,
+
+            string? connectionMode,
 
             object? connectionString,
 
@@ -75,17 +103,31 @@ namespace Pulumi.AzureNative.DataFactory.Latest.Outputs
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
+            Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? servicePrincipalCredential,
+
+            string? servicePrincipalCredentialType,
+
+            object? servicePrincipalId,
+
+            object? tenant,
+
             string type)
         {
             AccountEndpoint = accountEndpoint;
             AccountKey = accountKey;
             Annotations = annotations;
+            AzureCloudType = azureCloudType;
             ConnectVia = connectVia;
+            ConnectionMode = connectionMode;
             ConnectionString = connectionString;
             Database = database;
             Description = description;
             EncryptedCredential = encryptedCredential;
             Parameters = parameters;
+            ServicePrincipalCredential = servicePrincipalCredential;
+            ServicePrincipalCredentialType = servicePrincipalCredentialType;
+            ServicePrincipalId = servicePrincipalId;
+            Tenant = tenant;
             Type = type;
         }
     }

@@ -69,7 +69,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
         /// </summary>
         public readonly string? DiskBlobName;
         /// <summary>
-        /// The size of the disk in GibiBytes.
+        /// The size of the disk in Gibibytes.
         /// </summary>
         public readonly int? DiskSizeGiB;
         /// <summary>
@@ -109,6 +109,10 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// When backed by a blob, the storage account where the blob is.
+        /// </summary>
+        public readonly string? StorageAccountId;
+        /// <summary>
         /// The tags of the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -147,6 +151,8 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
 
             string provisioningState,
 
+            string? storageAccountId,
+
             ImmutableDictionary<string, string>? tags,
 
             string type,
@@ -165,6 +171,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
             ManagedDiskId = managedDiskId;
             Name = name;
             ProvisioningState = provisioningState;
+            StorageAccountId = storageAccountId;
             Tags = tags;
             Type = type;
             UniqueIdentifier = uniqueIdentifier;

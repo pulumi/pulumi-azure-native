@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * The description of the service.
- * Latest API Version: 2021-01-11.
+ * Latest API Version: 2021-03-08.
  *
  * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:securityandcompliance:privateLinkServicesForEDMUpload'.
  */
@@ -120,7 +120,7 @@ export class PrivateLinkServicesForEDMUpload extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:securityandcompliance/latest:privateLinkServicesForEDMUpload" }, { type: "azure-native:securityandcompliance:privateLinkServicesForEDMUpload" }, { type: "azure-nextgen:securityandcompliance:privateLinkServicesForEDMUpload" }, { type: "azure-native:securityandcompliance/v20210111:privateLinkServicesForEDMUpload" }, { type: "azure-nextgen:securityandcompliance/v20210111:privateLinkServicesForEDMUpload" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:securityandcompliance/latest:privateLinkServicesForEDMUpload" }, { type: "azure-native:securityandcompliance:privateLinkServicesForEDMUpload" }, { type: "azure-nextgen:securityandcompliance:privateLinkServicesForEDMUpload" }, { type: "azure-native:securityandcompliance/v20210111:privateLinkServicesForEDMUpload" }, { type: "azure-nextgen:securityandcompliance/v20210111:privateLinkServicesForEDMUpload" }, { type: "azure-native:securityandcompliance/v20210308:privateLinkServicesForEDMUpload" }, { type: "azure-nextgen:securityandcompliance/v20210308:privateLinkServicesForEDMUpload" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateLinkServicesForEDMUpload.__pulumiType, name, inputs, opts);
     }

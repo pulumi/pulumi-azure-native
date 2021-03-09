@@ -33,7 +33,7 @@ type LookupDomainTopicResult struct {
 	// Name of the resource.
 	Name string `pulumi:"name"`
 	// Provisioning state of the domain topic.
-	ProvisioningState *string `pulumi:"provisioningState"`
+	ProvisioningState string `pulumi:"provisioningState"`
 	// The system metadata relating to Domain Topic resource.
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Type of the resource.

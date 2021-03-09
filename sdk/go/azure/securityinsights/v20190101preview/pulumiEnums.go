@@ -19,7 +19,6 @@ const (
 	AlertRuleKindFusion                            = AlertRuleKind("Fusion")
 	AlertRuleKindMLBehaviorAnalytics               = AlertRuleKind("MLBehaviorAnalytics")
 	AlertRuleKindThreatIntelligence                = AlertRuleKind("ThreatIntelligence")
-	AlertRuleKindAnomaly                           = AlertRuleKind("Anomaly")
 )
 
 func (AlertRuleKind) ElementType() reflect.Type {

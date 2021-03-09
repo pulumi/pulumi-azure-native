@@ -12,7 +12,7 @@ import (
 )
 
 // The description of the service.
-// API Version: 2021-01-11.
+// API Version: 2021-03-08.
 type PrivateLinkServicesForM365SecurityCenter struct {
 	pulumi.CustomResourceState
 
@@ -61,6 +61,12 @@ func NewPrivateLinkServicesForM365SecurityCenter(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:securityandcompliance/v20210111:privateLinkServicesForM365SecurityCenter"),
+		},
+		{
+			Type: pulumi.String("azure-native:securityandcompliance/v20210308:privateLinkServicesForM365SecurityCenter"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:securityandcompliance/v20210308:privateLinkServicesForM365SecurityCenter"),
 		},
 	})
 	opts = append(opts, aliases)

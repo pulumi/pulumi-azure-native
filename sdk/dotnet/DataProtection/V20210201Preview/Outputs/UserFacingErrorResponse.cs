@@ -35,6 +35,10 @@ namespace Pulumi.AzureNative.DataProtection.V20210201Preview.Outputs
         public readonly bool? IsUserError;
         public readonly string? Message;
         /// <summary>
+        /// Any key value pairs that can be injected inside error object
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? Properties;
+        /// <summary>
         /// RecommendedAction � localized.
         /// </summary>
         public readonly ImmutableArray<string> RecommendedAction;
@@ -57,6 +61,8 @@ namespace Pulumi.AzureNative.DataProtection.V20210201Preview.Outputs
 
             string? message,
 
+            ImmutableDictionary<string, string>? properties,
+
             ImmutableArray<string> recommendedAction,
 
             string? target)
@@ -67,6 +73,7 @@ namespace Pulumi.AzureNative.DataProtection.V20210201Preview.Outputs
             IsRetryable = isRetryable;
             IsUserError = isUserError;
             Message = message;
+            Properties = properties;
             RecommendedAction = recommendedAction;
             Target = target;
         }

@@ -8,7 +8,7 @@ import (
 )
 
 // The description of the service.
-// API Version: 2021-01-11.
+// API Version: 2021-03-08.
 func GetprivateLinkServicesForEDMUpload(ctx *pulumi.Context, args *GetprivateLinkServicesForEDMUploadArgs, opts ...pulumi.InvokeOption) (*GetprivateLinkServicesForEDMUploadResult, error) {
 	var rv GetprivateLinkServicesForEDMUploadResult
 	err := ctx.Invoke("azure-native:securityandcompliance:getprivateLinkServicesForEDMUpload", args, &rv, opts...)

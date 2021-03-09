@@ -66,7 +66,7 @@ namespace Pulumi.AzureNative.DevTestLab
         /// <summary>
         /// The artifact deployment status for the virtual machine.
         /// </summary>
-        public readonly Outputs.ArtifactDeploymentStatusPropertiesResponse? ArtifactDeploymentStatus;
+        public readonly Outputs.ArtifactDeploymentStatusPropertiesResponse ArtifactDeploymentStatus;
         /// <summary>
         /// The artifacts to be installed on the virtual machine.
         /// </summary>
@@ -74,7 +74,7 @@ namespace Pulumi.AzureNative.DevTestLab
         /// <summary>
         /// The resource identifier (Microsoft.Compute) of the virtual machine.
         /// </summary>
-        public readonly string? ComputeId;
+        public readonly string ComputeId;
         /// <summary>
         /// The compute virtual machine properties.
         /// </summary>
@@ -82,11 +82,11 @@ namespace Pulumi.AzureNative.DevTestLab
         /// <summary>
         /// The email address of creator of the virtual machine.
         /// </summary>
-        public readonly string? CreatedByUser;
+        public readonly string CreatedByUser;
         /// <summary>
         /// The object identifier of the creator of the virtual machine.
         /// </summary>
-        public readonly string? CreatedByUserId;
+        public readonly string CreatedByUserId;
         /// <summary>
         /// The creation date of the virtual machine.
         /// </summary>
@@ -114,7 +114,7 @@ namespace Pulumi.AzureNative.DevTestLab
         /// <summary>
         /// The fully-qualified domain name of the virtual machine.
         /// </summary>
-        public readonly string? Fqdn;
+        public readonly string Fqdn;
         /// <summary>
         /// The Microsoft Azure Marketplace image reference of the virtual machine.
         /// </summary>
@@ -138,7 +138,7 @@ namespace Pulumi.AzureNative.DevTestLab
         /// <summary>
         /// Last known compute power state captured in DTL
         /// </summary>
-        public readonly string? LastKnownPowerState;
+        public readonly string LastKnownPowerState;
         /// <summary>
         /// The location of the resource.
         /// </summary>
@@ -158,7 +158,7 @@ namespace Pulumi.AzureNative.DevTestLab
         /// <summary>
         /// The OS type of the virtual machine.
         /// </summary>
-        public readonly string? OsType;
+        public readonly string OsType;
         /// <summary>
         /// The object identifier of the owner of the virtual machine.
         /// </summary>
@@ -214,7 +214,7 @@ namespace Pulumi.AzureNative.DevTestLab
         /// <summary>
         /// Tells source of creation of lab virtual machine. Output property only.
         /// </summary>
-        public readonly string? VirtualMachineCreationSource;
+        public readonly string VirtualMachineCreationSource;
 
         [OutputConstructor]
         private GetVirtualMachineResult(
@@ -222,17 +222,17 @@ namespace Pulumi.AzureNative.DevTestLab
 
             Outputs.ApplicableScheduleResponse applicableSchedule,
 
-            Outputs.ArtifactDeploymentStatusPropertiesResponse? artifactDeploymentStatus,
+            Outputs.ArtifactDeploymentStatusPropertiesResponse artifactDeploymentStatus,
 
             ImmutableArray<Outputs.ArtifactInstallPropertiesResponse> artifacts,
 
-            string? computeId,
+            string computeId,
 
             Outputs.ComputeVmPropertiesResponse computeVm,
 
-            string? createdByUser,
+            string createdByUser,
 
-            string? createdByUserId,
+            string createdByUserId,
 
             string? createdDate,
 
@@ -246,7 +246,7 @@ namespace Pulumi.AzureNative.DevTestLab
 
             string? expirationDate,
 
-            string? fqdn,
+            string fqdn,
 
             Outputs.GalleryImageReferenceResponse? galleryImageReference,
 
@@ -258,7 +258,7 @@ namespace Pulumi.AzureNative.DevTestLab
 
             string? labVirtualNetworkId,
 
-            string? lastKnownPowerState,
+            string lastKnownPowerState,
 
             string? location,
 
@@ -268,7 +268,7 @@ namespace Pulumi.AzureNative.DevTestLab
 
             string? notes,
 
-            string? osType,
+            string osType,
 
             string? ownerObjectId,
 
@@ -296,7 +296,7 @@ namespace Pulumi.AzureNative.DevTestLab
 
             string? userName,
 
-            string? virtualMachineCreationSource)
+            string virtualMachineCreationSource)
         {
             AllowClaim = allowClaim;
             ApplicableSchedule = applicableSchedule;

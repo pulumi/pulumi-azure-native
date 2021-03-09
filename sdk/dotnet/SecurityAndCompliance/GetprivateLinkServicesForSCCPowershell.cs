@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityAndCompliance
     {
         /// <summary>
         /// The description of the service.
-        /// API Version: 2021-01-11.
+        /// API Version: 2021-03-08.
         /// </summary>
         public static Task<GetprivateLinkServicesForSCCPowershellResult> InvokeAsync(GetprivateLinkServicesForSCCPowershellArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetprivateLinkServicesForSCCPowershellResult>("azure-native:securityandcompliance:getprivateLinkServicesForSCCPowershell", args ?? new GetprivateLinkServicesForSCCPowershellArgs(), options.WithVersion());

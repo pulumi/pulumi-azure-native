@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.Insights.Inputs
     /// </summary>
     public sealed class SyslogDataSourceArgs : Pulumi.ResourceArgs
     {
-        [Input("facilityNames", required: true)]
+        [Input("facilityNames")]
         private InputList<Union<string, Pulumi.AzureNative.Insights.KnownSyslogDataSourceFacilityNames>>? _facilityNames;
 
         /// <summary>
@@ -44,10 +44,10 @@ namespace Pulumi.AzureNative.Insights.Inputs
         /// A friendly name for the data source. 
         /// This name should be unique across all data sources (regardless of type) within the data collection rule.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
-        [Input("streams", required: true)]
+        [Input("streams")]
         private InputList<Union<string, Pulumi.AzureNative.Insights.KnownSyslogDataSourceStreams>>? _streams;
 
         /// <summary>
