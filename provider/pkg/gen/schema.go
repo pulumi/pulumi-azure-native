@@ -602,6 +602,7 @@ func (g *packageGenerator) genResources(prov, typeName string, resource *openapi
 		DeleteAsyncStyle: g.getAsyncStyle(resource.PathItem.Delete),
 		ReadMethod:       readMethod,
 		ReadPath:         readPath,
+		AutoLocation:     resources.AutoLocation(resource.Path),
 	}
 	g.metadata.Resources[resourceTok] = r
 
