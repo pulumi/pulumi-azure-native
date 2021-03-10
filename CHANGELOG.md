@@ -15,6 +15,8 @@ CHANGELOG
   [#605](https://github.com/pulumi/pulumi-azure-native/issues/605)
 - `Endpoint` and `CustomDomain` resources are auto-named with a random suffix.
   [#617](https://github.com/pulumi/pulumi-azure-native/issues/629)
+- Add support for arm64 plugin binaries
+  [#652](https://github.com/pulumi/pulumi-azure-native/pull/652)
 
 #### Fixes
 
