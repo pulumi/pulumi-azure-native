@@ -39,39 +39,6 @@ namespace Pulumi.AzureNative.NetApp.Latest
     }
 
     /// <summary>
-    /// Encryption Key Source. Possible values are: 'Microsoft.NetApp'.
-    /// </summary>
-    [EnumType]
-    public readonly struct KeySource : IEquatable<KeySource>
-    {
-        private readonly string _value;
-
-        private KeySource(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        /// <summary>
-        /// The service manages the keys.
-        /// </summary>
-        public static KeySource Microsoft_NetApp { get; } = new KeySource("Microsoft.NetApp");
-
-        public static bool operator ==(KeySource left, KeySource right) => left.Equals(right);
-        public static bool operator !=(KeySource left, KeySource right) => !left.Equals(right);
-
-        public static explicit operator string(KeySource value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is KeySource other && Equals(other);
-        public bool Equals(KeySource other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// The qos type of the pool
     /// </summary>
     [EnumType]

@@ -12,7 +12,7 @@ import (
 )
 
 // Backup of a Volume
-// Latest API Version: 2020-11-01.
+// Latest API Version: 2020-12-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:netapp:Backup'.
 type Backup struct {
@@ -38,6 +38,8 @@ type Backup struct {
 	Size pulumi.Float64Output `pulumi:"size"`
 	// Resource type
 	Type pulumi.StringOutput `pulumi:"type"`
+	// Volume name
+	VolumeName pulumi.StringOutput `pulumi:"volumeName"`
 }
 
 // NewBackup registers a new resource with the given unique name, arguments, and options.
@@ -105,6 +107,12 @@ func NewBackup(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:netapp/v20201101:Backup"),
 		},
+		{
+			Type: pulumi.String("azure-native:netapp/v20201201:Backup"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:netapp/v20201201:Backup"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Backup
@@ -149,6 +157,8 @@ type backupState struct {
 	Size *float64 `pulumi:"size"`
 	// Resource type
 	Type *string `pulumi:"type"`
+	// Volume name
+	VolumeName *string `pulumi:"volumeName"`
 }
 
 type BackupState struct {
@@ -172,6 +182,8 @@ type BackupState struct {
 	Size pulumi.Float64PtrInput
 	// Resource type
 	Type pulumi.StringPtrInput
+	// Volume name
+	VolumeName pulumi.StringPtrInput
 }
 
 func (BackupState) ElementType() reflect.Type {

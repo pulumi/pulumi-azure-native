@@ -12,7 +12,7 @@ import (
 )
 
 // Backup policy information
-// Latest API Version: 2020-11-01.
+// Latest API Version: 2020-12-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:netapp:BackupPolicy'.
 type BackupPolicy struct {
@@ -102,6 +102,12 @@ func NewBackupPolicy(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:netapp/v20201101:BackupPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:netapp/v20201201:BackupPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:netapp/v20201201:BackupPolicy"),
 		},
 	})
 	opts = append(opts, aliases)

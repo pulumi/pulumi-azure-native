@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.NetApp.Latest
     {
         /// <summary>
         /// Backup policy information
-        /// Latest API Version: 2020-11-01.
+        /// Latest API Version: 2020-12-01.
         /// </summary>
         public static Task<GetBackupPolicyResult> InvokeAsync(GetBackupPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBackupPolicyResult>("azure-native:netapp/latest:getBackupPolicy", args ?? new GetBackupPolicyArgs(), options.WithVersion());

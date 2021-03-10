@@ -65,6 +65,7 @@ class ActiveDirectoryResponse(dict):
                  active_directory_id: Optional[str] = None,
                  ad_name: Optional[str] = None,
                  aes_encryption: Optional[bool] = None,
+                 allow_local_nfs_fsusers_with_ldap: Optional[bool] = None,
                  backup_operators: Optional[Sequence[str]] = None,
                  dns: Optional[str] = None,
                  domain: Optional[str] = None,
@@ -85,6 +86,7 @@ class ActiveDirectoryResponse(dict):
         :param str active_directory_id: Id of the Active Directory
         :param str ad_name: Name of the active directory machine. This optional parameter is used only while creating kerberos volume
         :param bool aes_encryption: If enabled, AES encryption will be enabled for SMB communication.
+        :param bool allow_local_nfs_fsusers_with_ldap:  If enabled, NFS client local users can also (in addition to LDAP users) access the NFS volumes.
         :param Sequence[str] backup_operators: Users to be added to the Built-in Backup Operator active directory group. A list of unique usernames without domain specifier
         :param str dns: Comma separated list of DNS server IP addresses (IPv4 only) for the Active Directory domain
         :param str domain: Name of the Active Directory domain
@@ -107,6 +109,8 @@ class ActiveDirectoryResponse(dict):
             pulumi.set(__self__, "ad_name", ad_name)
         if aes_encryption is not None:
             pulumi.set(__self__, "aes_encryption", aes_encryption)
+        if allow_local_nfs_fsusers_with_ldap is not None:
+            pulumi.set(__self__, "allow_local_nfs_fsusers_with_ldap", allow_local_nfs_fsusers_with_ldap)
         if backup_operators is not None:
             pulumi.set(__self__, "backup_operators", backup_operators)
         if dns is not None:
@@ -175,6 +179,14 @@ class ActiveDirectoryResponse(dict):
         If enabled, AES encryption will be enabled for SMB communication.
         """
         return pulumi.get(self, "aes_encryption")
+
+    @property
+    @pulumi.getter(name="allowLocalNfsFSUsersWithLdap")
+    def allow_local_nfs_fsusers_with_ldap(self) -> Optional[bool]:
+        """
+         If enabled, NFS client local users can also (in addition to LDAP users) access the NFS volumes.
+        """
+        return pulumi.get(self, "allow_local_nfs_fsusers_with_ldap")
 
     @property
     @pulumi.getter(name="backupOperators")

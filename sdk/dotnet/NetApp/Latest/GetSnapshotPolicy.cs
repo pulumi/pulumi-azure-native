@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.NetApp.Latest
     {
         /// <summary>
         /// Snapshot policy information
-        /// Latest API Version: 2020-11-01.
+        /// Latest API Version: 2020-12-01.
         /// </summary>
         public static Task<GetSnapshotPolicyResult> InvokeAsync(GetSnapshotPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSnapshotPolicyResult>("azure-native:netapp/latest:getSnapshotPolicy", args ?? new GetSnapshotPolicyArgs(), options.WithVersion());
@@ -75,7 +75,7 @@ namespace Pulumi.AzureNative.NetApp.Latest
         /// </summary>
         public readonly Outputs.MonthlyScheduleResponse? MonthlySchedule;
         /// <summary>
-        /// Snapshot policy name
+        /// Resource name
         /// </summary>
         public readonly string Name;
         /// <summary>

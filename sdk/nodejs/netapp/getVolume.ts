@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Volume resource
- * API Version: 2020-11-01.
+ * API Version: 2020-12-01.
  */
 export function getVolume(args: GetVolumeArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeResult> {
     if (!opts) {
@@ -88,6 +88,10 @@ export interface GetVolumeResult {
      * Describe if a volume is KerberosEnabled. To be use with swagger version 2020-05-01 or later
      */
     readonly kerberosEnabled?: boolean;
+    /**
+     * Specifies whether LDAP is enabled or not for a given NFS volume.
+     */
+    readonly ldapEnabled?: boolean;
     /**
      * Resource location
      */

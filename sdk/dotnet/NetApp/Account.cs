@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.NetApp
 {
     /// <summary>
     /// NetApp account resource
-    /// API Version: 2020-11-01.
+    /// API Version: 2020-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:netapp:Account")]
     public partial class Account : Pulumi.CustomResource
@@ -122,6 +122,8 @@ namespace Pulumi.AzureNative.NetApp
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200901:Account"},
                     new Pulumi.Alias { Type = "azure-native:netapp/v20201101:Account"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20201101:Account"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20201201:Account"},
+                    new Pulumi.Alias { Type = "azure-nextgen:netapp/v20201201:Account"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

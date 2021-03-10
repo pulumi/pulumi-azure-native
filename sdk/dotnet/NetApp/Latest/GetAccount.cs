@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.NetApp.Latest
     {
         /// <summary>
         /// NetApp account resource
-        /// Latest API Version: 2020-11-01.
+        /// Latest API Version: 2020-12-01.
         /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-native:netapp/latest:getAccount", args ?? new GetAccountArgs(), options.WithVersion());

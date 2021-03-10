@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.NetApp.Latest
     {
         /// <summary>
         /// Capacity pool resource
-        /// Latest API Version: 2020-11-01.
+        /// Latest API Version: 2020-12-01.
         /// </summary>
         public static Task<GetPoolResult> InvokeAsync(GetPoolArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPoolResult>("azure-native:netapp/latest:getPool", args ?? new GetPoolArgs(), options.WithVersion());

@@ -20,7 +20,7 @@ class GetVolumeResult:
     """
     Volume resource
     """
-    def __init__(__self__, backup_id=None, baremetal_tenant_id=None, creation_token=None, data_protection=None, encryption_key_source=None, export_policy=None, file_system_id=None, id=None, is_restoring=None, kerberos_enabled=None, location=None, mount_targets=None, name=None, protocol_types=None, provisioning_state=None, security_style=None, service_level=None, smb_continuously_available=None, smb_encryption=None, snapshot_directory_visible=None, snapshot_id=None, subnet_id=None, tags=None, throughput_mibps=None, type=None, usage_threshold=None, volume_type=None):
+    def __init__(__self__, backup_id=None, baremetal_tenant_id=None, creation_token=None, data_protection=None, encryption_key_source=None, export_policy=None, file_system_id=None, id=None, is_restoring=None, kerberos_enabled=None, ldap_enabled=None, location=None, mount_targets=None, name=None, protocol_types=None, provisioning_state=None, security_style=None, service_level=None, smb_continuously_available=None, smb_encryption=None, snapshot_directory_visible=None, snapshot_id=None, subnet_id=None, tags=None, throughput_mibps=None, type=None, usage_threshold=None, volume_type=None):
         if backup_id and not isinstance(backup_id, str):
             raise TypeError("Expected argument 'backup_id' to be a str")
         pulumi.set(__self__, "backup_id", backup_id)
@@ -51,6 +51,9 @@ class GetVolumeResult:
         if kerberos_enabled and not isinstance(kerberos_enabled, bool):
             raise TypeError("Expected argument 'kerberos_enabled' to be a bool")
         pulumi.set(__self__, "kerberos_enabled", kerberos_enabled)
+        if ldap_enabled and not isinstance(ldap_enabled, bool):
+            raise TypeError("Expected argument 'ldap_enabled' to be a bool")
+        pulumi.set(__self__, "ldap_enabled", ldap_enabled)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -182,6 +185,14 @@ class GetVolumeResult:
         Describe if a volume is KerberosEnabled. To be use with swagger version 2020-05-01 or later
         """
         return pulumi.get(self, "kerberos_enabled")
+
+    @property
+    @pulumi.getter(name="ldapEnabled")
+    def ldap_enabled(self) -> Optional[bool]:
+        """
+        Specifies whether LDAP is enabled or not for a given NFS volume.
+        """
+        return pulumi.get(self, "ldap_enabled")
 
     @property
     @pulumi.getter
@@ -333,6 +344,7 @@ class AwaitableGetVolumeResult(GetVolumeResult):
             id=self.id,
             is_restoring=self.is_restoring,
             kerberos_enabled=self.kerberos_enabled,
+            ldap_enabled=self.ldap_enabled,
             location=self.location,
             mount_targets=self.mount_targets,
             name=self.name,
@@ -359,7 +371,7 @@ def get_volume(account_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVolumeResult:
     """
     Volume resource
-    API Version: 2020-11-01.
+    API Version: 2020-12-01.
 
 
     :param str account_name: The name of the NetApp account
@@ -389,6 +401,7 @@ def get_volume(account_name: Optional[str] = None,
         id=__ret__.id,
         is_restoring=__ret__.is_restoring,
         kerberos_enabled=__ret__.kerberos_enabled,
+        ldap_enabled=__ret__.ldap_enabled,
         location=__ret__.location,
         mount_targets=__ret__.mount_targets,
         name=__ret__.name,

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.NetApp.Latest
 {
     /// <summary>
     /// Volume resource
-    /// Latest API Version: 2020-11-01.
+    /// Latest API Version: 2020-12-01.
     /// </summary>
     [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:netapp:Volume'.")]
     [AzureNativeResourceType("azure-native:netapp/latest:Volume")]
@@ -70,6 +70,12 @@ namespace Pulumi.AzureNative.NetApp.Latest
         /// </summary>
         [Output("kerberosEnabled")]
         public Output<bool?> KerberosEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies whether LDAP is enabled or not for a given NFS volume.
+        /// </summary>
+        [Output("ldapEnabled")]
+        public Output<bool?> LdapEnabled { get; private set; } = null!;
 
         /// <summary>
         /// Resource location
@@ -228,6 +234,8 @@ namespace Pulumi.AzureNative.NetApp.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200901:Volume"},
                     new Pulumi.Alias { Type = "azure-native:netapp/v20201101:Volume"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20201101:Volume"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20201201:Volume"},
+                    new Pulumi.Alias { Type = "azure-nextgen:netapp/v20201201:Volume"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -298,6 +306,12 @@ namespace Pulumi.AzureNative.NetApp.Latest
         /// </summary>
         [Input("kerberosEnabled")]
         public Input<bool>? KerberosEnabled { get; set; }
+
+        /// <summary>
+        /// Specifies whether LDAP is enabled or not for a given NFS volume.
+        /// </summary>
+        [Input("ldapEnabled")]
+        public Input<bool>? LdapEnabled { get; set; }
 
         /// <summary>
         /// Resource location
@@ -407,6 +421,7 @@ namespace Pulumi.AzureNative.NetApp.Latest
         public VolumeArgs()
         {
             KerberosEnabled = false;
+            LdapEnabled = false;
             SecurityStyle = "unix";
             ServiceLevel = "Premium";
             SmbContinuouslyAvailable = false;

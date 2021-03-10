@@ -26,6 +26,10 @@ namespace Pulumi.AzureNative.NetApp.Latest.Outputs
         /// </summary>
         public readonly bool? AesEncryption;
         /// <summary>
+        ///  If enabled, NFS client local users can also (in addition to LDAP users) access the NFS volumes.
+        /// </summary>
+        public readonly bool? AllowLocalNfsFSUsersWithLdap;
+        /// <summary>
         /// Users to be added to the Built-in Backup Operator active directory group. A list of unique usernames without domain specifier
         /// </summary>
         public readonly ImmutableArray<string> BackupOperators;
@@ -94,6 +98,8 @@ namespace Pulumi.AzureNative.NetApp.Latest.Outputs
 
             bool? aesEncryption,
 
+            bool? allowLocalNfsFSUsersWithLdap,
+
             ImmutableArray<string> backupOperators,
 
             string? dns,
@@ -127,6 +133,7 @@ namespace Pulumi.AzureNative.NetApp.Latest.Outputs
             ActiveDirectoryId = activeDirectoryId;
             AdName = adName;
             AesEncryption = aesEncryption;
+            AllowLocalNfsFSUsersWithLdap = allowLocalNfsFSUsersWithLdap;
             BackupOperators = backupOperators;
             Dns = dns;
             Domain = domain;

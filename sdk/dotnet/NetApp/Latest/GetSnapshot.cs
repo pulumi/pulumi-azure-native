@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.NetApp.Latest
     {
         /// <summary>
         /// Snapshot of a Volume
-        /// Latest API Version: 2020-11-01.
+        /// Latest API Version: 2020-12-01.
         /// </summary>
         public static Task<GetSnapshotResult> InvokeAsync(GetSnapshotArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSnapshotResult>("azure-native:netapp/latest:getSnapshot", args ?? new GetSnapshotArgs(), options.WithVersion());

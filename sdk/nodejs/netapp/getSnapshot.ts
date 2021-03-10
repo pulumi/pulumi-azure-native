@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Snapshot of a Volume
- * API Version: 2020-11-01.
+ * API Version: 2020-12-01.
  */
 export function getSnapshot(args: GetSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetSnapshotResult> {
     if (!opts) {

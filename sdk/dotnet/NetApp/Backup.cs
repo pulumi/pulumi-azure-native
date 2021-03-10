@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.NetApp
 {
     /// <summary>
     /// Backup of a Volume
-    /// API Version: 2020-11-01.
+    /// API Version: 2020-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:netapp:Backup")]
     public partial class Backup : Pulumi.CustomResource
@@ -76,6 +76,12 @@ namespace Pulumi.AzureNative.NetApp
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
+        /// <summary>
+        /// Volume name
+        /// </summary>
+        [Output("volumeName")]
+        public Output<string> VolumeName { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Backup resource with the given unique name, arguments, and options.
@@ -116,6 +122,8 @@ namespace Pulumi.AzureNative.NetApp
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200901:Backup"},
                     new Pulumi.Alias { Type = "azure-native:netapp/v20201101:Backup"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20201101:Backup"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20201201:Backup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:netapp/v20201201:Backup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -8,7 +8,7 @@ import (
 )
 
 // Backup of a Volume
-// Latest API Version: 2020-11-01.
+// Latest API Version: 2020-12-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:netapp:getBackup'.
 func LookupBackup(ctx *pulumi.Context, args *LookupBackupArgs, opts ...pulumi.InvokeOption) (*LookupBackupResult, error) {
@@ -57,4 +57,6 @@ type LookupBackupResult struct {
 	Size float64 `pulumi:"size"`
 	// Resource type
 	Type string `pulumi:"type"`
+	// Volume name
+	VolumeName string `pulumi:"volumeName"`
 }

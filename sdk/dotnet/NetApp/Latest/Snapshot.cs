@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.NetApp.Latest
 {
     /// <summary>
     /// Snapshot of a Volume
-    /// Latest API Version: 2020-11-01.
+    /// Latest API Version: 2020-12-01.
     /// </summary>
     [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:netapp:Snapshot'.")]
     [AzureNativeResourceType("azure-native:netapp/latest:Snapshot")]
@@ -111,6 +111,8 @@ namespace Pulumi.AzureNative.NetApp.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200901:Snapshot"},
                     new Pulumi.Alias { Type = "azure-native:netapp/v20201101:Snapshot"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20201101:Snapshot"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20201201:Snapshot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:netapp/v20201201:Snapshot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -3808,6 +3808,7 @@ class AzureBlobStorageLinkedServiceResponse(dict):
     def __init__(__self__, *,
                  type: str,
                  account_key: Optional['outputs.AzureKeyVaultSecretReferenceResponse'] = None,
+                 account_kind: Optional[str] = None,
                  annotations: Optional[Sequence[Any]] = None,
                  azure_cloud_type: Optional[Any] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
@@ -3826,6 +3827,7 @@ class AzureBlobStorageLinkedServiceResponse(dict):
         :param str type: Type of linked service.
                Expected value is 'AzureBlobStorage'.
         :param 'AzureKeyVaultSecretReferenceResponseArgs' account_key: The Azure key vault secret reference of accountKey in connection string.
+        :param str account_kind: Specify the kind of your storage account. Allowed values are: Storage (general purpose v1), StorageV2 (general purpose v2), BlobStorage, or BlockBlobStorage. Type: string (or Expression with resultType string).
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param Any azure_cloud_type: Indicates the azure cloud type of the service principle auth. Allowed values are AzurePublic, AzureChina, AzureUsGovernment, AzureGermany. Default value is the data factory regions’ cloud type. Type: string (or Expression with resultType string).
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
@@ -3843,6 +3845,8 @@ class AzureBlobStorageLinkedServiceResponse(dict):
         pulumi.set(__self__, "type", 'AzureBlobStorage')
         if account_key is not None:
             pulumi.set(__self__, "account_key", account_key)
+        if account_kind is not None:
+            pulumi.set(__self__, "account_kind", account_kind)
         if annotations is not None:
             pulumi.set(__self__, "annotations", annotations)
         if azure_cloud_type is not None:
@@ -3886,6 +3890,14 @@ class AzureBlobStorageLinkedServiceResponse(dict):
         The Azure key vault secret reference of accountKey in connection string.
         """
         return pulumi.get(self, "account_key")
+
+    @property
+    @pulumi.getter(name="accountKind")
+    def account_kind(self) -> Optional[str]:
+        """
+        Specify the kind of your storage account. Allowed values are: Storage (general purpose v1), StorageV2 (general purpose v2), BlobStorage, or BlockBlobStorage. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "account_kind")
 
     @property
     @pulumi.getter
@@ -4409,33 +4421,30 @@ class AzureDataExplorerLinkedServiceResponse(dict):
     def __init__(__self__, *,
                  database: Any,
                  endpoint: Any,
-                 service_principal_id: Any,
-                 service_principal_key: Any,
-                 tenant: Any,
                  type: str,
                  annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None):
+                 parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
+                 service_principal_id: Optional[Any] = None,
+                 service_principal_key: Optional[Any] = None,
+                 tenant: Optional[Any] = None):
         """
         Azure Data Explorer (Kusto) linked service.
         :param Any database: Database name for connection. Type: string (or Expression with resultType string).
         :param Any endpoint: The endpoint of Azure Data Explorer (the engine's endpoint). URL will be in the format https://<clusterName>.<regionName>.kusto.windows.net. Type: string (or Expression with resultType string)
-        :param Any service_principal_id: The ID of the service principal used to authenticate against Azure Data Explorer. Type: string (or Expression with resultType string).
-        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] service_principal_key: The key of the service principal used to authenticate against Kusto.
-        :param Any tenant: The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
         :param str type: Type of linked service.
                Expected value is 'AzureDataExplorer'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
+        :param Any service_principal_id: The ID of the service principal used to authenticate against Azure Data Explorer. Type: string (or Expression with resultType string).
+        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] service_principal_key: The key of the service principal used to authenticate against Kusto.
+        :param Any tenant: The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "endpoint", endpoint)
-        pulumi.set(__self__, "service_principal_id", service_principal_id)
-        pulumi.set(__self__, "service_principal_key", service_principal_key)
-        pulumi.set(__self__, "tenant", tenant)
         pulumi.set(__self__, "type", 'AzureDataExplorer')
         if annotations is not None:
             pulumi.set(__self__, "annotations", annotations)
@@ -4445,6 +4454,12 @@ class AzureDataExplorerLinkedServiceResponse(dict):
             pulumi.set(__self__, "description", description)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
+        if service_principal_id is not None:
+            pulumi.set(__self__, "service_principal_id", service_principal_id)
+        if service_principal_key is not None:
+            pulumi.set(__self__, "service_principal_key", service_principal_key)
+        if tenant is not None:
+            pulumi.set(__self__, "tenant", tenant)
 
     @property
     @pulumi.getter
@@ -4461,30 +4476,6 @@ class AzureDataExplorerLinkedServiceResponse(dict):
         The endpoint of Azure Data Explorer (the engine's endpoint). URL will be in the format https://<clusterName>.<regionName>.kusto.windows.net. Type: string (or Expression with resultType string)
         """
         return pulumi.get(self, "endpoint")
-
-    @property
-    @pulumi.getter(name="servicePrincipalId")
-    def service_principal_id(self) -> Any:
-        """
-        The ID of the service principal used to authenticate against Azure Data Explorer. Type: string (or Expression with resultType string).
-        """
-        return pulumi.get(self, "service_principal_id")
-
-    @property
-    @pulumi.getter(name="servicePrincipalKey")
-    def service_principal_key(self) -> Any:
-        """
-        The key of the service principal used to authenticate against Kusto.
-        """
-        return pulumi.get(self, "service_principal_key")
-
-    @property
-    @pulumi.getter
-    def tenant(self) -> Any:
-        """
-        The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
-        """
-        return pulumi.get(self, "tenant")
 
     @property
     @pulumi.getter
@@ -4526,6 +4517,30 @@ class AzureDataExplorerLinkedServiceResponse(dict):
         Parameters for linked service.
         """
         return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter(name="servicePrincipalId")
+    def service_principal_id(self) -> Optional[Any]:
+        """
+        The ID of the service principal used to authenticate against Azure Data Explorer. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "service_principal_id")
+
+    @property
+    @pulumi.getter(name="servicePrincipalKey")
+    def service_principal_key(self) -> Optional[Any]:
+        """
+        The key of the service principal used to authenticate against Kusto.
+        """
+        return pulumi.get(self, "service_principal_key")
+
+    @property
+    @pulumi.getter
+    def tenant(self) -> Optional[Any]:
+        """
+        The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "tenant")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

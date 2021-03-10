@@ -18,6 +18,7 @@ import * as v20200701 from "./v20200701";
 import * as v20200801 from "./v20200801";
 import * as v20200901 from "./v20200901";
 import * as v20201101 from "./v20201101";
+import * as v20201201 from "./v20201201";
 
 export {
     latest,
@@ -36,6 +37,7 @@ export {
     v20200801,
     v20200901,
     v20201101,
+    v20201201,
 };
 
 export const EndpointType = {
@@ -47,18 +49,6 @@ export const EndpointType = {
  * Indicates whether the local volume is the source or destination for the Volume Replication
  */
 export type EndpointType = (typeof EndpointType)[keyof typeof EndpointType];
-
-export const KeySource = {
-    /**
-     * The service manages the keys.
-     */
-    Microsoft_NetApp: "Microsoft.NetApp",
-} as const;
-
-/**
- * Encryption Key Source. Possible values are: 'Microsoft.NetApp'.
- */
-export type KeySource = (typeof KeySource)[keyof typeof KeySource];
 
 export const QosType = {
     /**

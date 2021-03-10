@@ -182,7 +182,7 @@ def get_pool(account_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPoolResult:
     """
     Capacity pool resource
-    Latest API Version: 2020-11-01.
+    Latest API Version: 2020-12-01.
 
 
     :param str account_name: The name of the NetApp account

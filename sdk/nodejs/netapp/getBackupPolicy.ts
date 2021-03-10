@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Backup policy information
- * API Version: 2020-11-01.
+ * API Version: 2020-12-01.
  */
 export function getBackupPolicy(args: GetBackupPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetBackupPolicyResult> {
     if (!opts) {

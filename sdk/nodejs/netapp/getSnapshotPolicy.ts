@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Snapshot policy information
- * API Version: 2020-11-01.
+ * API Version: 2020-12-01.
  */
 export function getSnapshotPolicy(args: GetSnapshotPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetSnapshotPolicyResult> {
     if (!opts) {
@@ -68,7 +68,7 @@ export interface GetSnapshotPolicyResult {
      */
     readonly monthlySchedule?: outputs.netapp.MonthlyScheduleResponse;
     /**
-     * Snapshot policy name
+     * Resource name
      */
     readonly name: string;
     /**

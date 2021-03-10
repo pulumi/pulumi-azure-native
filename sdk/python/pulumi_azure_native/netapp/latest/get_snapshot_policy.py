@@ -109,7 +109,7 @@ class GetSnapshotPolicyResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Snapshot policy name
+        Resource name
         """
         return pulumi.get(self, "name")
 
@@ -171,7 +171,7 @@ def get_snapshot_policy(account_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSnapshotPolicyResult:
     """
     Snapshot policy information
-    Latest API Version: 2020-11-01.
+    Latest API Version: 2020-12-01.
 
 
     :param str account_name: The name of the NetApp account

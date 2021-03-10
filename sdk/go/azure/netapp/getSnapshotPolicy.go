@@ -8,7 +8,7 @@ import (
 )
 
 // Snapshot policy information
-// API Version: 2020-11-01.
+// API Version: 2020-12-01.
 func LookupSnapshotPolicy(ctx *pulumi.Context, args *LookupSnapshotPolicyArgs, opts ...pulumi.InvokeOption) (*LookupSnapshotPolicyResult, error) {
 	var rv LookupSnapshotPolicyResult
 	err := ctx.Invoke("azure-native:netapp:getSnapshotPolicy", args, &rv, opts...)
@@ -41,7 +41,7 @@ type LookupSnapshotPolicyResult struct {
 	Location string `pulumi:"location"`
 	// Schedule for monthly snapshots
 	MonthlySchedule *MonthlyScheduleResponse `pulumi:"monthlySchedule"`
-	// Snapshot policy name
+	// Resource name
 	Name string `pulumi:"name"`
 	// Azure lifecycle management
 	ProvisioningState string `pulumi:"provisioningState"`

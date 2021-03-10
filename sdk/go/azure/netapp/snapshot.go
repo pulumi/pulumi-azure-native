@@ -12,7 +12,7 @@ import (
 )
 
 // Snapshot of a Volume
-// API Version: 2020-11-01.
+// API Version: 2020-12-01.
 type Snapshot struct {
 	pulumi.CustomResourceState
 
@@ -148,6 +148,12 @@ func NewSnapshot(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:netapp/v20201101:Snapshot"),
+		},
+		{
+			Type: pulumi.String("azure-native:netapp/v20201201:Snapshot"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:netapp/v20201201:Snapshot"),
 		},
 	})
 	opts = append(opts, aliases)

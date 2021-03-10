@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.NetApp.Latest
 {
     /// <summary>
     /// Snapshot policy information
-    /// Latest API Version: 2020-11-01.
+    /// Latest API Version: 2020-12-01.
     /// </summary>
     [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:netapp:SnapshotPolicy'.")]
     [AzureNativeResourceType("azure-native:netapp/latest:SnapshotPolicy")]
@@ -48,7 +48,7 @@ namespace Pulumi.AzureNative.NetApp.Latest
         public Output<Outputs.MonthlyScheduleResponse?> MonthlySchedule { get; private set; } = null!;
 
         /// <summary>
-        /// Snapshot policy name
+        /// Resource name
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -117,6 +117,8 @@ namespace Pulumi.AzureNative.NetApp.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200901:SnapshotPolicy"},
                     new Pulumi.Alias { Type = "azure-native:netapp/v20201101:SnapshotPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20201101:SnapshotPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20201201:SnapshotPolicy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:netapp/v20201201:SnapshotPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

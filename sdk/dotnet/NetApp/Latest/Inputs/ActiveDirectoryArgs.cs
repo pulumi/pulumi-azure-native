@@ -33,6 +33,12 @@ namespace Pulumi.AzureNative.NetApp.Latest.Inputs
         [Input("aesEncryption")]
         public Input<bool>? AesEncryption { get; set; }
 
+        /// <summary>
+        ///  If enabled, NFS client local users can also (in addition to LDAP users) access the NFS volumes.
+        /// </summary>
+        [Input("allowLocalNfsFSUsersWithLdap")]
+        public Input<bool>? AllowLocalNfsFSUsersWithLdap { get; set; }
+
         [Input("backupOperators")]
         private InputList<string>? _backupOperators;
 

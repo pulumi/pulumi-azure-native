@@ -12,7 +12,7 @@ import (
 )
 
 // Volume resource
-// API Version: 2020-11-01.
+// API Version: 2020-12-01.
 type Volume struct {
 	pulumi.CustomResourceState
 
@@ -34,6 +34,8 @@ type Volume struct {
 	IsRestoring pulumi.BoolPtrOutput `pulumi:"isRestoring"`
 	// Describe if a volume is KerberosEnabled. To be use with swagger version 2020-05-01 or later
 	KerberosEnabled pulumi.BoolPtrOutput `pulumi:"kerberosEnabled"`
+	// Specifies whether LDAP is enabled or not for a given NFS volume.
+	LdapEnabled pulumi.BoolPtrOutput `pulumi:"ldapEnabled"`
 	// Resource location
 	Location pulumi.StringOutput `pulumi:"location"`
 	// List of mount targets
@@ -96,6 +98,9 @@ func NewVolume(ctx *pulumi.Context,
 	}
 	if args.KerberosEnabled == nil {
 		args.KerberosEnabled = pulumi.BoolPtr(false)
+	}
+	if args.LdapEnabled == nil {
+		args.LdapEnabled = pulumi.BoolPtr(false)
 	}
 	if args.SecurityStyle == nil {
 		args.SecurityStyle = pulumi.StringPtr("unix")
@@ -218,6 +223,12 @@ func NewVolume(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:netapp/v20201101:Volume"),
 		},
+		{
+			Type: pulumi.String("azure-native:netapp/v20201201:Volume"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:netapp/v20201201:Volume"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Volume
@@ -260,6 +271,8 @@ type volumeState struct {
 	IsRestoring *bool `pulumi:"isRestoring"`
 	// Describe if a volume is KerberosEnabled. To be use with swagger version 2020-05-01 or later
 	KerberosEnabled *bool `pulumi:"kerberosEnabled"`
+	// Specifies whether LDAP is enabled or not for a given NFS volume.
+	LdapEnabled *bool `pulumi:"ldapEnabled"`
 	// Resource location
 	Location *string `pulumi:"location"`
 	// List of mount targets
@@ -314,6 +327,8 @@ type VolumeState struct {
 	IsRestoring pulumi.BoolPtrInput
 	// Describe if a volume is KerberosEnabled. To be use with swagger version 2020-05-01 or later
 	KerberosEnabled pulumi.BoolPtrInput
+	// Specifies whether LDAP is enabled or not for a given NFS volume.
+	LdapEnabled pulumi.BoolPtrInput
 	// Resource location
 	Location pulumi.StringPtrInput
 	// List of mount targets
@@ -370,6 +385,8 @@ type volumeArgs struct {
 	IsRestoring *bool `pulumi:"isRestoring"`
 	// Describe if a volume is KerberosEnabled. To be use with swagger version 2020-05-01 or later
 	KerberosEnabled *bool `pulumi:"kerberosEnabled"`
+	// Specifies whether LDAP is enabled or not for a given NFS volume.
+	LdapEnabled *bool `pulumi:"ldapEnabled"`
 	// Resource location
 	Location *string `pulumi:"location"`
 	// The name of the capacity pool
@@ -421,6 +438,8 @@ type VolumeArgs struct {
 	IsRestoring pulumi.BoolPtrInput
 	// Describe if a volume is KerberosEnabled. To be use with swagger version 2020-05-01 or later
 	KerberosEnabled pulumi.BoolPtrInput
+	// Specifies whether LDAP is enabled or not for a given NFS volume.
+	LdapEnabled pulumi.BoolPtrInput
 	// Resource location
 	Location pulumi.StringPtrInput
 	// The name of the capacity pool

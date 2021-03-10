@@ -286,6 +286,8 @@ type ActiveDirectory struct {
 	AdName *string `pulumi:"adName"`
 	// If enabled, AES encryption will be enabled for SMB communication.
 	AesEncryption *bool `pulumi:"aesEncryption"`
+	//  If enabled, NFS client local users can also (in addition to LDAP users) access the NFS volumes.
+	AllowLocalNfsFSUsersWithLdap *bool `pulumi:"allowLocalNfsFSUsersWithLdap"`
 	// Users to be added to the Built-in Backup Operator active directory group. A list of unique usernames without domain specifier
 	BackupOperators []string `pulumi:"backupOperators"`
 	// Comma separated list of DNS server IP addresses (IPv4 only) for the Active Directory domain
@@ -333,6 +335,8 @@ type ActiveDirectoryArgs struct {
 	AdName pulumi.StringPtrInput `pulumi:"adName"`
 	// If enabled, AES encryption will be enabled for SMB communication.
 	AesEncryption pulumi.BoolPtrInput `pulumi:"aesEncryption"`
+	//  If enabled, NFS client local users can also (in addition to LDAP users) access the NFS volumes.
+	AllowLocalNfsFSUsersWithLdap pulumi.BoolPtrInput `pulumi:"allowLocalNfsFSUsersWithLdap"`
 	// Users to be added to the Built-in Backup Operator active directory group. A list of unique usernames without domain specifier
 	BackupOperators pulumi.StringArrayInput `pulumi:"backupOperators"`
 	// Comma separated list of DNS server IP addresses (IPv4 only) for the Active Directory domain
@@ -428,6 +432,11 @@ func (o ActiveDirectoryOutput) AesEncryption() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ActiveDirectory) *bool { return v.AesEncryption }).(pulumi.BoolPtrOutput)
 }
 
+//  If enabled, NFS client local users can also (in addition to LDAP users) access the NFS volumes.
+func (o ActiveDirectoryOutput) AllowLocalNfsFSUsersWithLdap() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ActiveDirectory) *bool { return v.AllowLocalNfsFSUsersWithLdap }).(pulumi.BoolPtrOutput)
+}
+
 // Users to be added to the Built-in Backup Operator active directory group. A list of unique usernames without domain specifier
 func (o ActiveDirectoryOutput) BackupOperators() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ActiveDirectory) []string { return v.BackupOperators }).(pulumi.StringArrayOutput)
@@ -521,6 +530,8 @@ type ActiveDirectoryResponse struct {
 	AdName *string `pulumi:"adName"`
 	// If enabled, AES encryption will be enabled for SMB communication.
 	AesEncryption *bool `pulumi:"aesEncryption"`
+	//  If enabled, NFS client local users can also (in addition to LDAP users) access the NFS volumes.
+	AllowLocalNfsFSUsersWithLdap *bool `pulumi:"allowLocalNfsFSUsersWithLdap"`
 	// Users to be added to the Built-in Backup Operator active directory group. A list of unique usernames without domain specifier
 	BackupOperators []string `pulumi:"backupOperators"`
 	// Comma separated list of DNS server IP addresses (IPv4 only) for the Active Directory domain
@@ -572,6 +583,8 @@ type ActiveDirectoryResponseArgs struct {
 	AdName pulumi.StringPtrInput `pulumi:"adName"`
 	// If enabled, AES encryption will be enabled for SMB communication.
 	AesEncryption pulumi.BoolPtrInput `pulumi:"aesEncryption"`
+	//  If enabled, NFS client local users can also (in addition to LDAP users) access the NFS volumes.
+	AllowLocalNfsFSUsersWithLdap pulumi.BoolPtrInput `pulumi:"allowLocalNfsFSUsersWithLdap"`
 	// Users to be added to the Built-in Backup Operator active directory group. A list of unique usernames without domain specifier
 	BackupOperators pulumi.StringArrayInput `pulumi:"backupOperators"`
 	// Comma separated list of DNS server IP addresses (IPv4 only) for the Active Directory domain
@@ -669,6 +682,11 @@ func (o ActiveDirectoryResponseOutput) AdName() pulumi.StringPtrOutput {
 // If enabled, AES encryption will be enabled for SMB communication.
 func (o ActiveDirectoryResponseOutput) AesEncryption() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ActiveDirectoryResponse) *bool { return v.AesEncryption }).(pulumi.BoolPtrOutput)
+}
+
+//  If enabled, NFS client local users can also (in addition to LDAP users) access the NFS volumes.
+func (o ActiveDirectoryResponseOutput) AllowLocalNfsFSUsersWithLdap() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ActiveDirectoryResponse) *bool { return v.AllowLocalNfsFSUsersWithLdap }).(pulumi.BoolPtrOutput)
 }
 
 // Users to be added to the Built-in Backup Operator active directory group. A list of unique usernames without domain specifier

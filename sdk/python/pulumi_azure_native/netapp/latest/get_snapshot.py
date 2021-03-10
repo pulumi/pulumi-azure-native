@@ -124,7 +124,7 @@ def get_snapshot(account_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSnapshotResult:
     """
     Snapshot of a Volume
-    Latest API Version: 2020-11-01.
+    Latest API Version: 2020-12-01.
 
 
     :param str account_name: The name of the NetApp account

@@ -31,7 +31,7 @@ class Backup(pulumi.CustomResource):
                  __opts__=None):
         """
         Backup of a Volume
-        Latest API Version: 2020-11-01.
+        Latest API Version: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -84,7 +84,7 @@ class Backup(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['size'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:netapp/latest:Backup"), pulumi.Alias(type_="azure-native:netapp:Backup"), pulumi.Alias(type_="azure-nextgen:netapp:Backup"), pulumi.Alias(type_="azure-native:netapp/v20200501:Backup"), pulumi.Alias(type_="azure-nextgen:netapp/v20200501:Backup"), pulumi.Alias(type_="azure-native:netapp/v20200601:Backup"), pulumi.Alias(type_="azure-nextgen:netapp/v20200601:Backup"), pulumi.Alias(type_="azure-native:netapp/v20200701:Backup"), pulumi.Alias(type_="azure-nextgen:netapp/v20200701:Backup"), pulumi.Alias(type_="azure-native:netapp/v20200801:Backup"), pulumi.Alias(type_="azure-nextgen:netapp/v20200801:Backup"), pulumi.Alias(type_="azure-native:netapp/v20200901:Backup"), pulumi.Alias(type_="azure-nextgen:netapp/v20200901:Backup"), pulumi.Alias(type_="azure-native:netapp/v20201101:Backup"), pulumi.Alias(type_="azure-nextgen:netapp/v20201101:Backup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:netapp/latest:Backup"), pulumi.Alias(type_="azure-native:netapp:Backup"), pulumi.Alias(type_="azure-nextgen:netapp:Backup"), pulumi.Alias(type_="azure-native:netapp/v20200501:Backup"), pulumi.Alias(type_="azure-nextgen:netapp/v20200501:Backup"), pulumi.Alias(type_="azure-native:netapp/v20200601:Backup"), pulumi.Alias(type_="azure-nextgen:netapp/v20200601:Backup"), pulumi.Alias(type_="azure-native:netapp/v20200701:Backup"), pulumi.Alias(type_="azure-nextgen:netapp/v20200701:Backup"), pulumi.Alias(type_="azure-native:netapp/v20200801:Backup"), pulumi.Alias(type_="azure-nextgen:netapp/v20200801:Backup"), pulumi.Alias(type_="azure-native:netapp/v20200901:Backup"), pulumi.Alias(type_="azure-nextgen:netapp/v20200901:Backup"), pulumi.Alias(type_="azure-native:netapp/v20201101:Backup"), pulumi.Alias(type_="azure-nextgen:netapp/v20201101:Backup"), pulumi.Alias(type_="azure-native:netapp/v20201201:Backup"), pulumi.Alias(type_="azure-nextgen:netapp/v20201201:Backup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Backup, __self__).__init__(
             'azure-native:netapp/latest:Backup',
@@ -118,6 +118,7 @@ class Backup(pulumi.CustomResource):
         __props__["provisioning_state"] = None
         __props__["size"] = None
         __props__["type"] = None
+        __props__["volume_name"] = None
         return Backup(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -199,6 +200,14 @@ class Backup(pulumi.CustomResource):
         Resource type
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="volumeName")
+    def volume_name(self) -> pulumi.Output[str]:
+        """
+        Volume name
+        """
+        return pulumi.get(self, "volume_name")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

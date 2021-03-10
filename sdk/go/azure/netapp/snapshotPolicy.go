@@ -12,7 +12,7 @@ import (
 )
 
 // Snapshot policy information
-// API Version: 2020-11-01.
+// API Version: 2020-12-01.
 type SnapshotPolicy struct {
 	pulumi.CustomResourceState
 
@@ -26,7 +26,7 @@ type SnapshotPolicy struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Schedule for monthly snapshots
 	MonthlySchedule MonthlyScheduleResponsePtrOutput `pulumi:"monthlySchedule"`
-	// Snapshot policy name
+	// Resource name
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Azure lifecycle management
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
@@ -97,6 +97,12 @@ func NewSnapshotPolicy(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:netapp/v20201101:SnapshotPolicy"),
 		},
+		{
+			Type: pulumi.String("azure-native:netapp/v20201201:SnapshotPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:netapp/v20201201:SnapshotPolicy"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource SnapshotPolicy
@@ -131,7 +137,7 @@ type snapshotPolicyState struct {
 	Location *string `pulumi:"location"`
 	// Schedule for monthly snapshots
 	MonthlySchedule *MonthlyScheduleResponse `pulumi:"monthlySchedule"`
-	// Snapshot policy name
+	// Resource name
 	Name *string `pulumi:"name"`
 	// Azure lifecycle management
 	ProvisioningState *string `pulumi:"provisioningState"`
@@ -154,7 +160,7 @@ type SnapshotPolicyState struct {
 	Location pulumi.StringPtrInput
 	// Schedule for monthly snapshots
 	MonthlySchedule MonthlyScheduleResponsePtrInput
-	// Snapshot policy name
+	// Resource name
 	Name pulumi.StringPtrInput
 	// Azure lifecycle management
 	ProvisioningState pulumi.StringPtrInput

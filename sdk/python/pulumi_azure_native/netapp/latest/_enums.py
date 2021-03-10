@@ -6,7 +6,6 @@ from enum import Enum
 
 __all__ = [
     'EndpointType',
-    'KeySource',
     'QosType',
     'ReplicationSchedule',
     'SecurityStyle',
@@ -20,13 +19,6 @@ class EndpointType(str, Enum):
     """
     SRC = "src"
     DST = "dst"
-
-
-class KeySource(str, Enum):
-    """
-    Encryption Key Source. Possible values are: 'Microsoft.NetApp'.
-    """
-    MICROSOFT_NET_APP = "Microsoft.NetApp"
 
 
 class QosType(str, Enum):

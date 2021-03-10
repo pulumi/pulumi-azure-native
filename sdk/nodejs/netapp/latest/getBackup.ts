@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Backup of a Volume
- * Latest API Version: 2020-11-01.
+ * Latest API Version: 2020-12-01.
  */
 /** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:netapp:getBackup'. */
 export function getBackup(args: GetBackupArgs, opts?: pulumi.InvokeOptions): Promise<GetBackupResult> {
@@ -99,4 +99,8 @@ export interface GetBackupResult {
      * Resource type
      */
     readonly type: string;
+    /**
+     * Volume name
+     */
+    readonly volumeName: string;
 }

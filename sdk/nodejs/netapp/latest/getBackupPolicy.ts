@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Backup policy information
- * Latest API Version: 2020-11-01.
+ * Latest API Version: 2020-12-01.
  */
 /** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:netapp:getBackupPolicy'. */
 export function getBackupPolicy(args: GetBackupPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetBackupPolicyResult> {

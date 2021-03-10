@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.NetApp.Latest
     {
         /// <summary>
         /// Backup of a Volume
-        /// Latest API Version: 2020-11-01.
+        /// Latest API Version: 2020-12-01.
         /// </summary>
         public static Task<GetBackupResult> InvokeAsync(GetBackupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBackupResult>("azure-native:netapp/latest:getBackup", args ?? new GetBackupArgs(), options.WithVersion());
@@ -106,6 +106,10 @@ namespace Pulumi.AzureNative.NetApp.Latest
         /// Resource type
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Volume name
+        /// </summary>
+        public readonly string VolumeName;
 
         [OutputConstructor]
         private GetBackupResult(
@@ -129,7 +133,9 @@ namespace Pulumi.AzureNative.NetApp.Latest
 
             double size,
 
-            string type)
+            string type,
+
+            string volumeName)
         {
             BackupId = backupId;
             BackupType = backupType;
@@ -142,6 +148,7 @@ namespace Pulumi.AzureNative.NetApp.Latest
             ProvisioningState = provisioningState;
             Size = size;
             Type = type;
+            VolumeName = volumeName;
         }
     }
 }

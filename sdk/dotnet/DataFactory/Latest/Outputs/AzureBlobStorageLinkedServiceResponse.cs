@@ -18,6 +18,10 @@ namespace Pulumi.AzureNative.DataFactory.Latest.Outputs
         /// </summary>
         public readonly Outputs.AzureKeyVaultSecretReferenceResponse? AccountKey;
         /// <summary>
+        /// Specify the kind of your storage account. Allowed values are: Storage (general purpose v1), StorageV2 (general purpose v2), BlobStorage, or BlockBlobStorage. Type: string (or Expression with resultType string).
+        /// </summary>
+        public readonly string? AccountKind;
+        /// <summary>
         /// List of tags that can be used for describing the linked service.
         /// </summary>
         public readonly ImmutableArray<object> Annotations;
@@ -79,6 +83,8 @@ namespace Pulumi.AzureNative.DataFactory.Latest.Outputs
         private AzureBlobStorageLinkedServiceResponse(
             Outputs.AzureKeyVaultSecretReferenceResponse? accountKey,
 
+            string? accountKind,
+
             ImmutableArray<object> annotations,
 
             object? azureCloudType,
@@ -108,6 +114,7 @@ namespace Pulumi.AzureNative.DataFactory.Latest.Outputs
             string type)
         {
             AccountKey = accountKey;
+            AccountKind = accountKind;
             Annotations = annotations;
             AzureCloudType = azureCloudType;
             ConnectVia = connectVia;

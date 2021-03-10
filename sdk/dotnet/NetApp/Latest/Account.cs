@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.NetApp.Latest
 {
     /// <summary>
     /// NetApp account resource
-    /// Latest API Version: 2020-11-01.
+    /// Latest API Version: 2020-12-01.
     /// </summary>
     [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:netapp:Account'.")]
     [AzureNativeResourceType("azure-native:netapp/latest:Account")]
@@ -123,6 +123,8 @@ namespace Pulumi.AzureNative.NetApp.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200901:Account"},
                     new Pulumi.Alias { Type = "azure-native:netapp/v20201101:Account"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20201101:Account"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20201201:Account"},
+                    new Pulumi.Alias { Type = "azure-nextgen:netapp/v20201201:Account"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

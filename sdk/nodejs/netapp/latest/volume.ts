@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Volume resource
- * Latest API Version: 2020-11-01.
+ * Latest API Version: 2020-12-01.
  *
  * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:netapp:Volume'.
  */
@@ -75,6 +75,10 @@ export class Volume extends pulumi.CustomResource {
      * Describe if a volume is KerberosEnabled. To be use with swagger version 2020-05-01 or later
      */
     public readonly kerberosEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * Specifies whether LDAP is enabled or not for a given NFS volume.
+     */
+    public readonly ldapEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Resource location
      */
@@ -180,6 +184,7 @@ export class Volume extends pulumi.CustomResource {
             inputs["exportPolicy"] = args ? args.exportPolicy : undefined;
             inputs["isRestoring"] = args ? args.isRestoring : undefined;
             inputs["kerberosEnabled"] = (args ? args.kerberosEnabled : undefined) || false;
+            inputs["ldapEnabled"] = (args ? args.ldapEnabled : undefined) || false;
             inputs["location"] = args ? args.location : undefined;
             inputs["poolName"] = args ? args.poolName : undefined;
             inputs["protocolTypes"] = args ? args.protocolTypes : undefined;
@@ -212,6 +217,7 @@ export class Volume extends pulumi.CustomResource {
             inputs["fileSystemId"] = undefined /*out*/;
             inputs["isRestoring"] = undefined /*out*/;
             inputs["kerberosEnabled"] = undefined /*out*/;
+            inputs["ldapEnabled"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["mountTargets"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
@@ -233,7 +239,7 @@ export class Volume extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:netapp/latest:Volume" }, { type: "azure-native:netapp:Volume" }, { type: "azure-nextgen:netapp:Volume" }, { type: "azure-native:netapp/v20170815:Volume" }, { type: "azure-nextgen:netapp/v20170815:Volume" }, { type: "azure-native:netapp/v20190501:Volume" }, { type: "azure-nextgen:netapp/v20190501:Volume" }, { type: "azure-native:netapp/v20190601:Volume" }, { type: "azure-nextgen:netapp/v20190601:Volume" }, { type: "azure-native:netapp/v20190701:Volume" }, { type: "azure-nextgen:netapp/v20190701:Volume" }, { type: "azure-native:netapp/v20190801:Volume" }, { type: "azure-nextgen:netapp/v20190801:Volume" }, { type: "azure-native:netapp/v20191001:Volume" }, { type: "azure-nextgen:netapp/v20191001:Volume" }, { type: "azure-native:netapp/v20191101:Volume" }, { type: "azure-nextgen:netapp/v20191101:Volume" }, { type: "azure-native:netapp/v20200201:Volume" }, { type: "azure-nextgen:netapp/v20200201:Volume" }, { type: "azure-native:netapp/v20200301:Volume" }, { type: "azure-nextgen:netapp/v20200301:Volume" }, { type: "azure-native:netapp/v20200501:Volume" }, { type: "azure-nextgen:netapp/v20200501:Volume" }, { type: "azure-native:netapp/v20200601:Volume" }, { type: "azure-nextgen:netapp/v20200601:Volume" }, { type: "azure-native:netapp/v20200701:Volume" }, { type: "azure-nextgen:netapp/v20200701:Volume" }, { type: "azure-native:netapp/v20200801:Volume" }, { type: "azure-nextgen:netapp/v20200801:Volume" }, { type: "azure-native:netapp/v20200901:Volume" }, { type: "azure-nextgen:netapp/v20200901:Volume" }, { type: "azure-native:netapp/v20201101:Volume" }, { type: "azure-nextgen:netapp/v20201101:Volume" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:netapp/latest:Volume" }, { type: "azure-native:netapp:Volume" }, { type: "azure-nextgen:netapp:Volume" }, { type: "azure-native:netapp/v20170815:Volume" }, { type: "azure-nextgen:netapp/v20170815:Volume" }, { type: "azure-native:netapp/v20190501:Volume" }, { type: "azure-nextgen:netapp/v20190501:Volume" }, { type: "azure-native:netapp/v20190601:Volume" }, { type: "azure-nextgen:netapp/v20190601:Volume" }, { type: "azure-native:netapp/v20190701:Volume" }, { type: "azure-nextgen:netapp/v20190701:Volume" }, { type: "azure-native:netapp/v20190801:Volume" }, { type: "azure-nextgen:netapp/v20190801:Volume" }, { type: "azure-native:netapp/v20191001:Volume" }, { type: "azure-nextgen:netapp/v20191001:Volume" }, { type: "azure-native:netapp/v20191101:Volume" }, { type: "azure-nextgen:netapp/v20191101:Volume" }, { type: "azure-native:netapp/v20200201:Volume" }, { type: "azure-nextgen:netapp/v20200201:Volume" }, { type: "azure-native:netapp/v20200301:Volume" }, { type: "azure-nextgen:netapp/v20200301:Volume" }, { type: "azure-native:netapp/v20200501:Volume" }, { type: "azure-nextgen:netapp/v20200501:Volume" }, { type: "azure-native:netapp/v20200601:Volume" }, { type: "azure-nextgen:netapp/v20200601:Volume" }, { type: "azure-native:netapp/v20200701:Volume" }, { type: "azure-nextgen:netapp/v20200701:Volume" }, { type: "azure-native:netapp/v20200801:Volume" }, { type: "azure-nextgen:netapp/v20200801:Volume" }, { type: "azure-native:netapp/v20200901:Volume" }, { type: "azure-nextgen:netapp/v20200901:Volume" }, { type: "azure-native:netapp/v20201101:Volume" }, { type: "azure-nextgen:netapp/v20201101:Volume" }, { type: "azure-native:netapp/v20201201:Volume" }, { type: "azure-nextgen:netapp/v20201201:Volume" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Volume.__pulumiType, name, inputs, opts);
     }
@@ -275,6 +281,10 @@ export interface VolumeArgs {
      * Describe if a volume is KerberosEnabled. To be use with swagger version 2020-05-01 or later
      */
     readonly kerberosEnabled?: pulumi.Input<boolean>;
+    /**
+     * Specifies whether LDAP is enabled or not for a given NFS volume.
+     */
+    readonly ldapEnabled?: pulumi.Input<boolean>;
     /**
      * Resource location
      */

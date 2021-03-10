@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Capacity pool resource
- * Latest API Version: 2020-11-01.
+ * Latest API Version: 2020-12-01.
  */
 /** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:netapp:getPool'. */
 export function getPool(args: GetPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetPoolResult> {

@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Volume resource
- * Latest API Version: 2020-11-01.
+ * Latest API Version: 2020-12-01.
  */
 /** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:netapp:getVolume'. */
 export function getVolume(args: GetVolumeArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeResult> {
@@ -90,6 +90,10 @@ export interface GetVolumeResult {
      * Describe if a volume is KerberosEnabled. To be use with swagger version 2020-05-01 or later
      */
     readonly kerberosEnabled?: boolean;
+    /**
+     * Specifies whether LDAP is enabled or not for a given NFS volume.
+     */
+    readonly ldapEnabled?: boolean;
     /**
      * Resource location
      */

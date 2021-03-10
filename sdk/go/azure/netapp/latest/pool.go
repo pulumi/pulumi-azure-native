@@ -12,7 +12,7 @@ import (
 )
 
 // Capacity pool resource
-// Latest API Version: 2020-11-01.
+// Latest API Version: 2020-12-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:netapp:Pool'.
 type Pool struct {
@@ -166,6 +166,12 @@ func NewPool(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:netapp/v20201101:Pool"),
+		},
+		{
+			Type: pulumi.String("azure-native:netapp/v20201201:Pool"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:netapp/v20201201:Pool"),
 		},
 	})
 	opts = append(opts, aliases)

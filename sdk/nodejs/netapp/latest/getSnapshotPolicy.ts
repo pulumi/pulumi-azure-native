@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Snapshot policy information
- * Latest API Version: 2020-11-01.
+ * Latest API Version: 2020-12-01.
  */
 /** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:netapp:getSnapshotPolicy'. */
 export function getSnapshotPolicy(args: GetSnapshotPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetSnapshotPolicyResult> {
@@ -70,7 +70,7 @@ export interface GetSnapshotPolicyResult {
      */
     readonly monthlySchedule?: outputs.netapp.latest.MonthlyScheduleResponse;
     /**
-     * Snapshot policy name
+     * Resource name
      */
     readonly name: string;
     /**

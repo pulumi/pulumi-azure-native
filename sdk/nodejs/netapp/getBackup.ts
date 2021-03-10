@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Backup of a Volume
- * API Version: 2020-11-01.
+ * API Version: 2020-12-01.
  */
 export function getBackup(args: GetBackupArgs, opts?: pulumi.InvokeOptions): Promise<GetBackupResult> {
     if (!opts) {
@@ -97,4 +97,8 @@ export interface GetBackupResult {
      * Resource type
      */
     readonly type: string;
+    /**
+     * Volume name
+     */
+    readonly volumeName: string;
 }

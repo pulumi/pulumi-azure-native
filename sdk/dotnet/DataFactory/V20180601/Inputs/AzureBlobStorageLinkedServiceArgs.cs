@@ -21,6 +21,12 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         [Input("accountKey")]
         public Input<Inputs.AzureKeyVaultSecretReferenceArgs>? AccountKey { get; set; }
 
+        /// <summary>
+        /// Specify the kind of your storage account. Allowed values are: Storage (general purpose v1), StorageV2 (general purpose v2), BlobStorage, or BlockBlobStorage. Type: string (or Expression with resultType string).
+        /// </summary>
+        [Input("accountKind")]
+        public Input<string>? AccountKind { get; set; }
+
         [Input("annotations")]
         private InputList<object>? _annotations;
 

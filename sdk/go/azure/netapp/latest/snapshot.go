@@ -12,7 +12,7 @@ import (
 )
 
 // Snapshot of a Volume
-// Latest API Version: 2020-11-01.
+// Latest API Version: 2020-12-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:netapp:Snapshot'.
 type Snapshot struct {
@@ -150,6 +150,12 @@ func NewSnapshot(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:netapp/v20201101:Snapshot"),
+		},
+		{
+			Type: pulumi.String("azure-native:netapp/v20201201:Snapshot"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:netapp/v20201201:Snapshot"),
 		},
 	})
 	opts = append(opts, aliases)

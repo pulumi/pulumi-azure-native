@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.NetApp.Latest
 {
     /// <summary>
     /// Capacity pool resource
-    /// Latest API Version: 2020-11-01.
+    /// Latest API Version: 2020-12-01.
     /// </summary>
     [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:netapp:Pool'.")]
     [AzureNativeResourceType("azure-native:netapp/latest:Pool")]
@@ -141,6 +141,8 @@ namespace Pulumi.AzureNative.NetApp.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200901:Pool"},
                     new Pulumi.Alias { Type = "azure-native:netapp/v20201101:Pool"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20201101:Pool"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20201201:Pool"},
+                    new Pulumi.Alias { Type = "azure-nextgen:netapp/v20201201:Pool"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

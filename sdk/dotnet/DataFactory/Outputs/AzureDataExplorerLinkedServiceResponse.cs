@@ -40,15 +40,15 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// <summary>
         /// The ID of the service principal used to authenticate against Azure Data Explorer. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly object ServicePrincipalId;
+        public readonly object? ServicePrincipalId;
         /// <summary>
         /// The key of the service principal used to authenticate against Kusto.
         /// </summary>
-        public readonly Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse> ServicePrincipalKey;
+        public readonly Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? ServicePrincipalKey;
         /// <summary>
         /// The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly object Tenant;
+        public readonly object? Tenant;
         /// <summary>
         /// Type of linked service.
         /// Expected value is 'AzureDataExplorer'.
@@ -69,11 +69,11 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
-            object servicePrincipalId,
+            object? servicePrincipalId,
 
-            Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse> servicePrincipalKey,
+            Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? servicePrincipalKey,
 
-            object tenant,
+            object? tenant,
 
             string type)
         {

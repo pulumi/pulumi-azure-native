@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Snapshot policy information
- * API Version: 2020-11-01.
+ * API Version: 2020-12-01.
  */
 export class SnapshotPolicy extends pulumi.CustomResource {
     /**
@@ -57,7 +57,7 @@ export class SnapshotPolicy extends pulumi.CustomResource {
      */
     public readonly monthlySchedule!: pulumi.Output<outputs.netapp.MonthlyScheduleResponse | undefined>;
     /**
-     * Snapshot policy name
+     * Resource name
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -122,7 +122,7 @@ export class SnapshotPolicy extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:netapp:SnapshotPolicy" }, { type: "azure-native:netapp/latest:SnapshotPolicy" }, { type: "azure-nextgen:netapp/latest:SnapshotPolicy" }, { type: "azure-native:netapp/v20200501:SnapshotPolicy" }, { type: "azure-nextgen:netapp/v20200501:SnapshotPolicy" }, { type: "azure-native:netapp/v20200601:SnapshotPolicy" }, { type: "azure-nextgen:netapp/v20200601:SnapshotPolicy" }, { type: "azure-native:netapp/v20200701:SnapshotPolicy" }, { type: "azure-nextgen:netapp/v20200701:SnapshotPolicy" }, { type: "azure-native:netapp/v20200801:SnapshotPolicy" }, { type: "azure-nextgen:netapp/v20200801:SnapshotPolicy" }, { type: "azure-native:netapp/v20200901:SnapshotPolicy" }, { type: "azure-nextgen:netapp/v20200901:SnapshotPolicy" }, { type: "azure-native:netapp/v20201101:SnapshotPolicy" }, { type: "azure-nextgen:netapp/v20201101:SnapshotPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:netapp:SnapshotPolicy" }, { type: "azure-native:netapp/latest:SnapshotPolicy" }, { type: "azure-nextgen:netapp/latest:SnapshotPolicy" }, { type: "azure-native:netapp/v20200501:SnapshotPolicy" }, { type: "azure-nextgen:netapp/v20200501:SnapshotPolicy" }, { type: "azure-native:netapp/v20200601:SnapshotPolicy" }, { type: "azure-nextgen:netapp/v20200601:SnapshotPolicy" }, { type: "azure-native:netapp/v20200701:SnapshotPolicy" }, { type: "azure-nextgen:netapp/v20200701:SnapshotPolicy" }, { type: "azure-native:netapp/v20200801:SnapshotPolicy" }, { type: "azure-nextgen:netapp/v20200801:SnapshotPolicy" }, { type: "azure-native:netapp/v20200901:SnapshotPolicy" }, { type: "azure-nextgen:netapp/v20200901:SnapshotPolicy" }, { type: "azure-native:netapp/v20201101:SnapshotPolicy" }, { type: "azure-nextgen:netapp/v20201101:SnapshotPolicy" }, { type: "azure-native:netapp/v20201201:SnapshotPolicy" }, { type: "azure-nextgen:netapp/v20201201:SnapshotPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SnapshotPolicy.__pulumiType, name, inputs, opts);
     }

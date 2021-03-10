@@ -8,7 +8,7 @@ import (
 )
 
 // Backup policy information
-// API Version: 2020-11-01.
+// API Version: 2020-12-01.
 func LookupBackupPolicy(ctx *pulumi.Context, args *LookupBackupPolicyArgs, opts ...pulumi.InvokeOption) (*LookupBackupPolicyResult, error) {
 	var rv LookupBackupPolicyResult
 	err := ctx.Invoke("azure-native:netapp:getBackupPolicy", args, &rv, opts...)

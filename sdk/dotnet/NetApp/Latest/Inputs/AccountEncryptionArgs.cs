@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.NetApp.Latest.Inputs
         /// Encryption Key Source. Possible values are: 'Microsoft.NetApp'.
         /// </summary>
         [Input("keySource")]
-        public InputUnion<string, Pulumi.AzureNative.NetApp.Latest.KeySource>? KeySource { get; set; }
+        public Input<string>? KeySource { get; set; }
 
         public AccountEncryptionArgs()
         {

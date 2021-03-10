@@ -8,7 +8,7 @@ import (
 )
 
 // Capacity pool resource
-// API Version: 2020-11-01.
+// API Version: 2020-12-01.
 func LookupPool(ctx *pulumi.Context, args *LookupPoolArgs, opts ...pulumi.InvokeOption) (*LookupPoolResult, error) {
 	var rv LookupPoolResult
 	err := ctx.Invoke("azure-native:netapp:getPool", args, &rv, opts...)

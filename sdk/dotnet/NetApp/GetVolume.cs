@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.NetApp
     {
         /// <summary>
         /// Volume resource
-        /// API Version: 2020-11-01.
+        /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetVolumeResult> InvokeAsync(GetVolumeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVolumeResult>("azure-native:netapp:getVolume", args ?? new GetVolumeArgs(), options.WithVersion());
@@ -95,6 +95,10 @@ namespace Pulumi.AzureNative.NetApp
         /// Describe if a volume is KerberosEnabled. To be use with swagger version 2020-05-01 or later
         /// </summary>
         public readonly bool? KerberosEnabled;
+        /// <summary>
+        /// Specifies whether LDAP is enabled or not for a given NFS volume.
+        /// </summary>
+        public readonly bool? LdapEnabled;
         /// <summary>
         /// Resource location
         /// </summary>
@@ -183,6 +187,8 @@ namespace Pulumi.AzureNative.NetApp
 
             bool? kerberosEnabled,
 
+            bool? ldapEnabled,
+
             string location,
 
             ImmutableArray<Outputs.MountTargetPropertiesResponse> mountTargets,
@@ -227,6 +233,7 @@ namespace Pulumi.AzureNative.NetApp
             Id = id;
             IsRestoring = isRestoring;
             KerberosEnabled = kerberosEnabled;
+            LdapEnabled = ldapEnabled;
             Location = location;
             MountTargets = mountTargets;
             Name = name;

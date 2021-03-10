@@ -8,7 +8,7 @@ import (
 )
 
 // Volume resource
-// API Version: 2020-11-01.
+// API Version: 2020-12-01.
 func LookupVolume(ctx *pulumi.Context, args *LookupVolumeArgs, opts ...pulumi.InvokeOption) (*LookupVolumeResult, error) {
 	var rv LookupVolumeResult
 	err := ctx.Invoke("azure-native:netapp:getVolume", args, &rv, opts...)
@@ -51,6 +51,8 @@ type LookupVolumeResult struct {
 	IsRestoring *bool `pulumi:"isRestoring"`
 	// Describe if a volume is KerberosEnabled. To be use with swagger version 2020-05-01 or later
 	KerberosEnabled *bool `pulumi:"kerberosEnabled"`
+	// Specifies whether LDAP is enabled or not for a given NFS volume.
+	LdapEnabled *bool `pulumi:"ldapEnabled"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// List of mount targets
