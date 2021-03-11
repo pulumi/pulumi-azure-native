@@ -29,6 +29,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewBlobInventoryPolicy(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:storage/v20210101:BlobServiceProperties":
 		r, err = NewBlobServiceProperties(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-native:storage/v20210101:EncryptionScope":
+		r, err = NewEncryptionScope(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:storage/v20210101:FileServiceProperties":
 		r, err = NewFileServiceProperties(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:storage/v20210101:FileShare":
