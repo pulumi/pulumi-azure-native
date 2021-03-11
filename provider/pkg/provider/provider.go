@@ -450,7 +450,7 @@ func (k *azureNativeProvider) applyDefaults(ctx context.Context, urn string, res
 		}
 
 		// Auto-location.
-		if !news.HasValue("location") && par.Body != nil && res.AutoLocation != resources.AutoLocationOff {
+		if !news.HasValue("location") && par.Body != nil && !res.AutoLocationDisabled {
 			if _, ok := par.Body.Properties["location"]; ok {
 				v := k.getDefaultLocation(ctx, olds, news)
 				if v != nil {

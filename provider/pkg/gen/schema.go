@@ -144,7 +144,7 @@ func PulumiSchema(providerMap openapi.AzureProviders) (*pschema.PackageSpec, *re
 					Description: "The Tenant ID which should be used.",
 				},
 				"auxiliaryTenantIds": {
-					TypeSpec: pschema.TypeSpec{Type: "array", Items: &pschema.TypeSpec{Type: "string"}},
+					TypeSpec:    pschema.TypeSpec{Type: "array", Items: &pschema.TypeSpec{Type: "string"}},
 					Description: "Any additional Tenant IDs which should be used for authentication.",
 				},
 				"environment": {
@@ -501,7 +501,7 @@ func (g *packageGenerator) genResources(prov, typeName string, resource *openapi
 	// Add an alias for each API version that has the same path in it.
 	// Also, add an alias to the same version in azure-nextgen and all other versions in azure-nextgen.
 	alias := fmt.Sprintf("%s:%s:%s", "azure-nextgen", module, typeName)
-	aliases := []pschema.AliasSpec {{Type: &alias}}
+	aliases := []pschema.AliasSpec{{Type: &alias}}
 	for _, version := range resource.CompatibleVersions {
 		moduleName := providerApiToModule(prov, version)
 		alias := fmt.Sprintf("%s:%s:%s", g.pkg.Name, moduleName, typeName)
@@ -592,17 +592,17 @@ func (g *packageGenerator) genResources(prov, typeName string, resource *openapi
 	}
 
 	r := resources.AzureAPIResource{
-		APIVersion:       swagger.Info.Version,
-		Path:             resource.Path,
-		PutParameters:    resourceRequest.parameters,
-		Response:         resourceResponse.properties,
-		DefaultBody:      resource.DefaultBody,
-		Singleton:        resource.PathItem.Delete == nil,
-		PutAsyncStyle:    g.getAsyncStyle(resource.PathItem.Put),
-		DeleteAsyncStyle: g.getAsyncStyle(resource.PathItem.Delete),
-		ReadMethod:       readMethod,
-		ReadPath:         readPath,
-		AutoLocation:     resources.AutoLocation(resource.Path),
+		APIVersion:           swagger.Info.Version,
+		Path:                 resource.Path,
+		PutParameters:        resourceRequest.parameters,
+		Response:             resourceResponse.properties,
+		DefaultBody:          resource.DefaultBody,
+		Singleton:            resource.PathItem.Delete == nil,
+		PutAsyncStyle:        g.getAsyncStyle(resource.PathItem.Put),
+		DeleteAsyncStyle:     g.getAsyncStyle(resource.PathItem.Delete),
+		ReadMethod:           readMethod,
+		ReadPath:             readPath,
+		AutoLocationDisabled: resources.AutoLocationDisabled(resource.Path),
 	}
 	g.metadata.Resources[resourceTok] = r
 
@@ -1034,7 +1034,7 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 			}
 		} else {
 			if m.isEnum(&propertySpec.TypeSpec) {
-				apiProperty = resources.AzureAPIProperty{ Type: "string" }
+				apiProperty = resources.AzureAPIProperty{Type: "string"}
 			} else {
 				apiProperty = resources.AzureAPIProperty{
 					Type:                 propertySpec.Type,
