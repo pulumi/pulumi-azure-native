@@ -25,6 +25,7 @@ __all__ = [
     'DeleteRetentionPolicyArgs',
     'EncryptionArgs',
     'EncryptionIdentityArgs',
+    'EncryptionScopeKeyVaultPropertiesArgs',
     'EncryptionServiceArgs',
     'EncryptionServicesArgs',
     'ExtendedLocationArgs',
@@ -807,6 +808,30 @@ class EncryptionIdentityArgs:
     @encryption_user_assigned_identity.setter
     def encryption_user_assigned_identity(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "encryption_user_assigned_identity", value)
+
+
+@pulumi.input_type
+class EncryptionScopeKeyVaultPropertiesArgs:
+    def __init__(__self__, *,
+                 key_uri: Optional[pulumi.Input[str]] = None):
+        """
+        The key vault properties for the encryption scope. This is a required field if encryption scope 'source' attribute is set to 'Microsoft.KeyVault'.
+        :param pulumi.Input[str] key_uri: The object identifier for a key vault key object. When applied, the encryption scope will use the key referenced by the identifier to enable customer-managed key support on this encryption scope.
+        """
+        if key_uri is not None:
+            pulumi.set(__self__, "key_uri", key_uri)
+
+    @property
+    @pulumi.getter(name="keyUri")
+    def key_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        The object identifier for a key vault key object. When applied, the encryption scope will use the key referenced by the identifier to enable customer-managed key support on this encryption scope.
+        """
+        return pulumi.get(self, "key_uri")
+
+    @key_uri.setter
+    def key_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_uri", value)
 
 
 @pulumi.input_type

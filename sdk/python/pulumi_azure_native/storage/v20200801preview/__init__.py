@@ -8,12 +8,14 @@ from .blob_container import *
 from .blob_container_immutability_policy import *
 from .blob_inventory_policy import *
 from .blob_service_properties import *
+from .encryption_scope import *
 from .file_service_properties import *
 from .file_share import *
 from .get_blob_container import *
 from .get_blob_container_immutability_policy import *
 from .get_blob_inventory_policy import *
 from .get_blob_service_properties import *
+from .get_encryption_scope import *
 from .get_file_service_properties import *
 from .get_file_share import *
 from .get_management_policy import *
@@ -58,6 +60,8 @@ def _register_module():
                 return BlobInventoryPolicy(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:storage/v20200801preview:BlobServiceProperties":
                 return BlobServiceProperties(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:storage/v20200801preview:EncryptionScope":
+                return EncryptionScope(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:storage/v20200801preview:FileServiceProperties":
                 return FileServiceProperties(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:storage/v20200801preview:FileShare":
