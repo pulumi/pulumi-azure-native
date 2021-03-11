@@ -22,7 +22,8 @@ CHANGELOG
 
 - Support migration from `azure-nextgen` with custom providers.
   [#617](https://github.com/pulumi/pulumi-azure-native/issues/617)
-
+- Do not auto-populate the `location` of the `Deployment` resource.
+  [#643](https://github.com/pulumi/pulumi-azure-native/issues/643)
 ---
 
 ## 0.7.1 (2020-03-02)

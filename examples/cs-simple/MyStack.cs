@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.Azure.Management.Storage;
 using EncryptionScope = Microsoft.Azure.Management.Storage.Models.EncryptionScope;
@@ -5,8 +6,10 @@ using Microsoft.Rest;
 using Pulumi;
 using Pulumi.AzureNative.Authorization;
 using Pulumi.AzureNative.Resources;
+using Deployment = Pulumi.AzureNative.Resources.Deployment;
+using Pulumi.AzureNative.Resources.Inputs;
 using Pulumi.AzureNative.Storage;
-using Pulumi.AzureNative.Storage.Inputs;
+using SkuArgs = Pulumi.AzureNative.Storage.Inputs.SkuArgs;
 
 class MyStack : Stack
 {
@@ -23,6 +26,21 @@ class MyStack : Stack
                 Name = SkuName.Standard_LRS
             },
             Kind = Kind.StorageV2
+        });
+
+        new Deployment("template", new DeploymentArgs
+        {
+            ResourceGroupName = resourceGroup.Name,
+            Properties = new DeploymentPropertiesArgs
+            {
+                Mode = DeploymentMode.Incremental,
+                Template = new Dictionary<string, object>
+                {
+                    { "$schema", "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#" },
+                    { "contentVersion", "1.0.0.0" },
+                    { "resources", new object[0] }
+                }
+            }
         });
 
         this.PrimaryStorageKey = Output.Tuple(resourceGroup.Name, storageAccount.Name).Apply(names =>

@@ -87,6 +87,9 @@ type AzureAPIResource struct {
 	ReadMethod string `json:"readMethod,omitempty"`
 	// Path to append to the resource ID to produce the URL for to read resource state.
 	ReadPath string `json:"readPath,omitempty"`
+	// By default, we populate the `location` property of every resource to the location of its resource
+	// group or the configured value. AutoLocationDisabled can override this default behavior.
+	AutoLocationDisabled bool `json:"autoLocationDisabled,omitempty"`
 }
 
 // AzureAPIExample provides a pointer to examples relevant to a resource from the Azure REST API spec.
@@ -227,6 +230,16 @@ func AutoName(name, path string) (AutoNameKind, bool) {
 		return AutoNameRandom, true
 	default:
 		return AutoNameCopy, true
+	}
+}
+
+// AutoLocationDisabled returns true auto-location should not be applied for a given resource path.
+func AutoLocationDisabled(path string) bool {
+	switch strings.ToLower(path) {
+	case "/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft.resources/deployments/{deploymentname}":
+		return true
+	default:
+		return false
 	}
 }
 
