@@ -196,6 +196,68 @@ namespace Pulumi.AzureNative.Storage.Latest
     }
 
     /// <summary>
+    /// The provider for the encryption scope. Possible values (case-insensitive):  Microsoft.Storage, Microsoft.KeyVault.
+    /// </summary>
+    [EnumType]
+    public readonly struct EncryptionScopeSource : IEquatable<EncryptionScopeSource>
+    {
+        private readonly string _value;
+
+        private EncryptionScopeSource(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EncryptionScopeSource Microsoft_Storage { get; } = new EncryptionScopeSource("Microsoft.Storage");
+        public static EncryptionScopeSource Microsoft_KeyVault { get; } = new EncryptionScopeSource("Microsoft.KeyVault");
+
+        public static bool operator ==(EncryptionScopeSource left, EncryptionScopeSource right) => left.Equals(right);
+        public static bool operator !=(EncryptionScopeSource left, EncryptionScopeSource right) => !left.Equals(right);
+
+        public static explicit operator string(EncryptionScopeSource value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EncryptionScopeSource other && Equals(other);
+        public bool Equals(EncryptionScopeSource other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The state of the encryption scope. Possible values (case-insensitive):  Enabled, Disabled.
+    /// </summary>
+    [EnumType]
+    public readonly struct EncryptionScopeState : IEquatable<EncryptionScopeState>
+    {
+        private readonly string _value;
+
+        private EncryptionScopeState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EncryptionScopeState Enabled { get; } = new EncryptionScopeState("Enabled");
+        public static EncryptionScopeState Disabled { get; } = new EncryptionScopeState("Disabled");
+
+        public static bool operator ==(EncryptionScopeState left, EncryptionScopeState right) => left.Equals(right);
+        public static bool operator !=(EncryptionScopeState left, EncryptionScopeState right) => !left.Equals(right);
+
+        public static explicit operator string(EncryptionScopeState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EncryptionScopeState other && Equals(other);
+        public bool Equals(EncryptionScopeState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of the extended location.
     /// </summary>
     [EnumType]
