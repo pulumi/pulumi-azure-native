@@ -1314,8 +1314,6 @@ func (k *azureNativeProvider) azureCanCreate(ctx context.Context, id string, res
 	case http.StatusOK == resp.StatusCode && res.Singleton:
 		// Singleton resources always exist, so OK is expected.
 		return nil
-	case http.StatusNotFound == resp.StatusCode && res.Singleton:
-		return fmt.Errorf("parent resource does not exist for resource '%s'", id)
 	case http.StatusOK == resp.StatusCode && res.DefaultBody != nil:
 		// This resource is automatically created with a parent and set to its default state. It can be deleted though.
 		// Validate that its current shape is in the default state to avoid unintended adoption and destructive
