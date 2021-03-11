@@ -674,6 +674,9 @@ func (k *azureNativeProvider) Diff(_ context.Context, req *rpc.DiffRequest) (*rp
 			oldState, newResInputs)
 	}
 
+	// Expunge any modifications for fields marked to be ignored.
+	newResInputs = processIgnoreChanges(newResInputs, oldInputs, req.GetIgnoreChanges())
+
 	// Calculate the difference between old and new inputs.
 	diff := oldInputs.Diff(newResInputs, func(key resource.PropertyKey) bool {
 		return strings.HasPrefix(string(key), "__")
@@ -745,6 +748,39 @@ func (k *azureNativeProvider) Diff(_ context.Context, req *rpc.DiffRequest) (*rp
 	}
 
 	return &response, nil
+}
+
+// processIgnoreChanges ensures the values for fields in ignoreChanges, the inputs match the state in the oldInputs
+// exactly to avoid any modifications.
+func processIgnoreChanges(inputs, oldInputs resource.PropertyMap, ignoreChanges []string) resource.PropertyMap {
+	ignoredInputs := resource.NewObjectProperty(inputs.Copy())
+	var invalidPaths []string
+	for _, ignoreChange := range ignoreChanges {
+		path, err := resource.ParsePropertyPath(ignoreChange)
+		if err != nil {
+			continue
+		}
+
+		oldValue, hasOld := path.Get(resource.NewObjectProperty(oldInputs))
+		_, hasNew := path.Get(resource.NewObjectProperty(inputs))
+
+		var ok bool
+		switch {
+		case hasOld && hasNew:
+			ok = path.Set(ignoredInputs, oldValue)
+			contract.Assert(ok)
+		case hasOld && !hasNew:
+			ok = path.Set(ignoredInputs, oldValue)
+		case !hasOld && hasNew:
+			ok = path.Delete(ignoredInputs)
+		default:
+			ok = true
+		}
+		if !ok {
+			invalidPaths = append(invalidPaths, ignoreChange)
+		}
+	}
+	return ignoredInputs.ObjectValue()
 }
 
 // Create allocates a new instance of the provided resource and returns its unique ID afterwards.
@@ -990,18 +1026,30 @@ func (k *azureNativeProvider) Update(ctx context.Context, req *rpc.UpdateRequest
 		return nil, errors.Errorf("Resource type '%s' not found", resourceKey)
 	}
 
+	oldState, err := plugin.UnmarshalProperties(req.GetOlds(), plugin.MarshalOptions{
+		Label: fmt.Sprintf("%s.olds", label), KeepUnknowns: true, SkipNulls: true, KeepSecrets: true,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	// Extract old inputs from the `__inputs` field of the old state.
+	oldInputs := parseCheckpointObject(oldState)
+	if oldInputs == nil {
+		// Protect against a crash for the transition from pre-__inputs state files.
+		// This shouldn't happen in any real user's stack.
+		oldInputs = resource.PropertyMap{}
+		logging.V(9).Infof("no __inputs found for '%s'", urn)
+	}
+
+	// Expunge any modifications for fields marked to be ignored.
+	inputs = processIgnoreChanges(inputs, oldInputs, req.GetIgnoreChanges())
+
 	if req.GetPreview() {
 		// The preview outputs are inputs + a limited list of outputs that are universally immutable.
 		// We know that their values won't change, so it's safe to propagate the values to dependent
 		// resources during the preview.
 		outputs := k.converter.PreviewOutputs(inputs, res.Response)
-
-		oldState, err := plugin.UnmarshalProperties(req.GetOlds(), plugin.MarshalOptions{
-			Label: fmt.Sprintf("%s.olds", label), KeepUnknowns: true, SkipNulls: true, KeepSecrets: true,
-		})
-		if err != nil {
-			return nil, err
-		}
 
 		stableOutputs := []string{"name", "location"}
 		for _, name := range stableOutputs {
