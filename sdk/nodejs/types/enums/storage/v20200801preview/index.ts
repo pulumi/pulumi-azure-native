@@ -64,6 +64,26 @@ export const EnabledProtocols = {
  */
 export type EnabledProtocols = (typeof EnabledProtocols)[keyof typeof EnabledProtocols];
 
+export const EncryptionScopeSource = {
+    Microsoft_Storage: "Microsoft.Storage",
+    Microsoft_KeyVault: "Microsoft.KeyVault",
+} as const;
+
+/**
+ * The provider for the encryption scope. Possible values (case-insensitive):  Microsoft.Storage, Microsoft.KeyVault.
+ */
+export type EncryptionScopeSource = (typeof EncryptionScopeSource)[keyof typeof EncryptionScopeSource];
+
+export const EncryptionScopeState = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * The state of the encryption scope. Possible values (case-insensitive):  Enabled, Disabled.
+ */
+export type EncryptionScopeState = (typeof EncryptionScopeState)[keyof typeof EncryptionScopeState];
+
 export const ExtendedLocationTypes = {
     EdgeZone: "EdgeZone",
 } as const;
