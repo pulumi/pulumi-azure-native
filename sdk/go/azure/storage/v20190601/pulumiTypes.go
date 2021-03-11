@@ -4539,6 +4539,276 @@ func (o EncryptionResponsePtrOutput) Services() EncryptionServicesResponsePtrOut
 	}).(EncryptionServicesResponsePtrOutput)
 }
 
+// The key vault properties for the encryption scope. This is a required field if encryption scope 'source' attribute is set to 'Microsoft.KeyVault'.
+type EncryptionScopeKeyVaultProperties struct {
+	// The object identifier for a key vault key object. When applied, the encryption scope will use the key referenced by the identifier to enable customer-managed key support on this encryption scope.
+	KeyUri *string `pulumi:"keyUri"`
+}
+
+// EncryptionScopeKeyVaultPropertiesInput is an input type that accepts EncryptionScopeKeyVaultPropertiesArgs and EncryptionScopeKeyVaultPropertiesOutput values.
+// You can construct a concrete instance of `EncryptionScopeKeyVaultPropertiesInput` via:
+//
+//          EncryptionScopeKeyVaultPropertiesArgs{...}
+type EncryptionScopeKeyVaultPropertiesInput interface {
+	pulumi.Input
+
+	ToEncryptionScopeKeyVaultPropertiesOutput() EncryptionScopeKeyVaultPropertiesOutput
+	ToEncryptionScopeKeyVaultPropertiesOutputWithContext(context.Context) EncryptionScopeKeyVaultPropertiesOutput
+}
+
+// The key vault properties for the encryption scope. This is a required field if encryption scope 'source' attribute is set to 'Microsoft.KeyVault'.
+type EncryptionScopeKeyVaultPropertiesArgs struct {
+	// The object identifier for a key vault key object. When applied, the encryption scope will use the key referenced by the identifier to enable customer-managed key support on this encryption scope.
+	KeyUri pulumi.StringPtrInput `pulumi:"keyUri"`
+}
+
+func (EncryptionScopeKeyVaultPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionScopeKeyVaultProperties)(nil)).Elem()
+}
+
+func (i EncryptionScopeKeyVaultPropertiesArgs) ToEncryptionScopeKeyVaultPropertiesOutput() EncryptionScopeKeyVaultPropertiesOutput {
+	return i.ToEncryptionScopeKeyVaultPropertiesOutputWithContext(context.Background())
+}
+
+func (i EncryptionScopeKeyVaultPropertiesArgs) ToEncryptionScopeKeyVaultPropertiesOutputWithContext(ctx context.Context) EncryptionScopeKeyVaultPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionScopeKeyVaultPropertiesOutput)
+}
+
+func (i EncryptionScopeKeyVaultPropertiesArgs) ToEncryptionScopeKeyVaultPropertiesPtrOutput() EncryptionScopeKeyVaultPropertiesPtrOutput {
+	return i.ToEncryptionScopeKeyVaultPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i EncryptionScopeKeyVaultPropertiesArgs) ToEncryptionScopeKeyVaultPropertiesPtrOutputWithContext(ctx context.Context) EncryptionScopeKeyVaultPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionScopeKeyVaultPropertiesOutput).ToEncryptionScopeKeyVaultPropertiesPtrOutputWithContext(ctx)
+}
+
+// EncryptionScopeKeyVaultPropertiesPtrInput is an input type that accepts EncryptionScopeKeyVaultPropertiesArgs, EncryptionScopeKeyVaultPropertiesPtr and EncryptionScopeKeyVaultPropertiesPtrOutput values.
+// You can construct a concrete instance of `EncryptionScopeKeyVaultPropertiesPtrInput` via:
+//
+//          EncryptionScopeKeyVaultPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type EncryptionScopeKeyVaultPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToEncryptionScopeKeyVaultPropertiesPtrOutput() EncryptionScopeKeyVaultPropertiesPtrOutput
+	ToEncryptionScopeKeyVaultPropertiesPtrOutputWithContext(context.Context) EncryptionScopeKeyVaultPropertiesPtrOutput
+}
+
+type encryptionScopeKeyVaultPropertiesPtrType EncryptionScopeKeyVaultPropertiesArgs
+
+func EncryptionScopeKeyVaultPropertiesPtr(v *EncryptionScopeKeyVaultPropertiesArgs) EncryptionScopeKeyVaultPropertiesPtrInput {
+	return (*encryptionScopeKeyVaultPropertiesPtrType)(v)
+}
+
+func (*encryptionScopeKeyVaultPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionScopeKeyVaultProperties)(nil)).Elem()
+}
+
+func (i *encryptionScopeKeyVaultPropertiesPtrType) ToEncryptionScopeKeyVaultPropertiesPtrOutput() EncryptionScopeKeyVaultPropertiesPtrOutput {
+	return i.ToEncryptionScopeKeyVaultPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *encryptionScopeKeyVaultPropertiesPtrType) ToEncryptionScopeKeyVaultPropertiesPtrOutputWithContext(ctx context.Context) EncryptionScopeKeyVaultPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionScopeKeyVaultPropertiesPtrOutput)
+}
+
+// The key vault properties for the encryption scope. This is a required field if encryption scope 'source' attribute is set to 'Microsoft.KeyVault'.
+type EncryptionScopeKeyVaultPropertiesOutput struct{ *pulumi.OutputState }
+
+func (EncryptionScopeKeyVaultPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionScopeKeyVaultProperties)(nil)).Elem()
+}
+
+func (o EncryptionScopeKeyVaultPropertiesOutput) ToEncryptionScopeKeyVaultPropertiesOutput() EncryptionScopeKeyVaultPropertiesOutput {
+	return o
+}
+
+func (o EncryptionScopeKeyVaultPropertiesOutput) ToEncryptionScopeKeyVaultPropertiesOutputWithContext(ctx context.Context) EncryptionScopeKeyVaultPropertiesOutput {
+	return o
+}
+
+func (o EncryptionScopeKeyVaultPropertiesOutput) ToEncryptionScopeKeyVaultPropertiesPtrOutput() EncryptionScopeKeyVaultPropertiesPtrOutput {
+	return o.ToEncryptionScopeKeyVaultPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o EncryptionScopeKeyVaultPropertiesOutput) ToEncryptionScopeKeyVaultPropertiesPtrOutputWithContext(ctx context.Context) EncryptionScopeKeyVaultPropertiesPtrOutput {
+	return o.ApplyT(func(v EncryptionScopeKeyVaultProperties) *EncryptionScopeKeyVaultProperties {
+		return &v
+	}).(EncryptionScopeKeyVaultPropertiesPtrOutput)
+}
+
+// The object identifier for a key vault key object. When applied, the encryption scope will use the key referenced by the identifier to enable customer-managed key support on this encryption scope.
+func (o EncryptionScopeKeyVaultPropertiesOutput) KeyUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EncryptionScopeKeyVaultProperties) *string { return v.KeyUri }).(pulumi.StringPtrOutput)
+}
+
+type EncryptionScopeKeyVaultPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (EncryptionScopeKeyVaultPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionScopeKeyVaultProperties)(nil)).Elem()
+}
+
+func (o EncryptionScopeKeyVaultPropertiesPtrOutput) ToEncryptionScopeKeyVaultPropertiesPtrOutput() EncryptionScopeKeyVaultPropertiesPtrOutput {
+	return o
+}
+
+func (o EncryptionScopeKeyVaultPropertiesPtrOutput) ToEncryptionScopeKeyVaultPropertiesPtrOutputWithContext(ctx context.Context) EncryptionScopeKeyVaultPropertiesPtrOutput {
+	return o
+}
+
+func (o EncryptionScopeKeyVaultPropertiesPtrOutput) Elem() EncryptionScopeKeyVaultPropertiesOutput {
+	return o.ApplyT(func(v *EncryptionScopeKeyVaultProperties) EncryptionScopeKeyVaultProperties { return *v }).(EncryptionScopeKeyVaultPropertiesOutput)
+}
+
+// The object identifier for a key vault key object. When applied, the encryption scope will use the key referenced by the identifier to enable customer-managed key support on this encryption scope.
+func (o EncryptionScopeKeyVaultPropertiesPtrOutput) KeyUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EncryptionScopeKeyVaultProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyUri
+	}).(pulumi.StringPtrOutput)
+}
+
+// The key vault properties for the encryption scope. This is a required field if encryption scope 'source' attribute is set to 'Microsoft.KeyVault'.
+type EncryptionScopeKeyVaultPropertiesResponse struct {
+	// The object identifier for a key vault key object. When applied, the encryption scope will use the key referenced by the identifier to enable customer-managed key support on this encryption scope.
+	KeyUri *string `pulumi:"keyUri"`
+}
+
+// EncryptionScopeKeyVaultPropertiesResponseInput is an input type that accepts EncryptionScopeKeyVaultPropertiesResponseArgs and EncryptionScopeKeyVaultPropertiesResponseOutput values.
+// You can construct a concrete instance of `EncryptionScopeKeyVaultPropertiesResponseInput` via:
+//
+//          EncryptionScopeKeyVaultPropertiesResponseArgs{...}
+type EncryptionScopeKeyVaultPropertiesResponseInput interface {
+	pulumi.Input
+
+	ToEncryptionScopeKeyVaultPropertiesResponseOutput() EncryptionScopeKeyVaultPropertiesResponseOutput
+	ToEncryptionScopeKeyVaultPropertiesResponseOutputWithContext(context.Context) EncryptionScopeKeyVaultPropertiesResponseOutput
+}
+
+// The key vault properties for the encryption scope. This is a required field if encryption scope 'source' attribute is set to 'Microsoft.KeyVault'.
+type EncryptionScopeKeyVaultPropertiesResponseArgs struct {
+	// The object identifier for a key vault key object. When applied, the encryption scope will use the key referenced by the identifier to enable customer-managed key support on this encryption scope.
+	KeyUri pulumi.StringPtrInput `pulumi:"keyUri"`
+}
+
+func (EncryptionScopeKeyVaultPropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionScopeKeyVaultPropertiesResponse)(nil)).Elem()
+}
+
+func (i EncryptionScopeKeyVaultPropertiesResponseArgs) ToEncryptionScopeKeyVaultPropertiesResponseOutput() EncryptionScopeKeyVaultPropertiesResponseOutput {
+	return i.ToEncryptionScopeKeyVaultPropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i EncryptionScopeKeyVaultPropertiesResponseArgs) ToEncryptionScopeKeyVaultPropertiesResponseOutputWithContext(ctx context.Context) EncryptionScopeKeyVaultPropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionScopeKeyVaultPropertiesResponseOutput)
+}
+
+func (i EncryptionScopeKeyVaultPropertiesResponseArgs) ToEncryptionScopeKeyVaultPropertiesResponsePtrOutput() EncryptionScopeKeyVaultPropertiesResponsePtrOutput {
+	return i.ToEncryptionScopeKeyVaultPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i EncryptionScopeKeyVaultPropertiesResponseArgs) ToEncryptionScopeKeyVaultPropertiesResponsePtrOutputWithContext(ctx context.Context) EncryptionScopeKeyVaultPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionScopeKeyVaultPropertiesResponseOutput).ToEncryptionScopeKeyVaultPropertiesResponsePtrOutputWithContext(ctx)
+}
+
+// EncryptionScopeKeyVaultPropertiesResponsePtrInput is an input type that accepts EncryptionScopeKeyVaultPropertiesResponseArgs, EncryptionScopeKeyVaultPropertiesResponsePtr and EncryptionScopeKeyVaultPropertiesResponsePtrOutput values.
+// You can construct a concrete instance of `EncryptionScopeKeyVaultPropertiesResponsePtrInput` via:
+//
+//          EncryptionScopeKeyVaultPropertiesResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type EncryptionScopeKeyVaultPropertiesResponsePtrInput interface {
+	pulumi.Input
+
+	ToEncryptionScopeKeyVaultPropertiesResponsePtrOutput() EncryptionScopeKeyVaultPropertiesResponsePtrOutput
+	ToEncryptionScopeKeyVaultPropertiesResponsePtrOutputWithContext(context.Context) EncryptionScopeKeyVaultPropertiesResponsePtrOutput
+}
+
+type encryptionScopeKeyVaultPropertiesResponsePtrType EncryptionScopeKeyVaultPropertiesResponseArgs
+
+func EncryptionScopeKeyVaultPropertiesResponsePtr(v *EncryptionScopeKeyVaultPropertiesResponseArgs) EncryptionScopeKeyVaultPropertiesResponsePtrInput {
+	return (*encryptionScopeKeyVaultPropertiesResponsePtrType)(v)
+}
+
+func (*encryptionScopeKeyVaultPropertiesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionScopeKeyVaultPropertiesResponse)(nil)).Elem()
+}
+
+func (i *encryptionScopeKeyVaultPropertiesResponsePtrType) ToEncryptionScopeKeyVaultPropertiesResponsePtrOutput() EncryptionScopeKeyVaultPropertiesResponsePtrOutput {
+	return i.ToEncryptionScopeKeyVaultPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *encryptionScopeKeyVaultPropertiesResponsePtrType) ToEncryptionScopeKeyVaultPropertiesResponsePtrOutputWithContext(ctx context.Context) EncryptionScopeKeyVaultPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionScopeKeyVaultPropertiesResponsePtrOutput)
+}
+
+// The key vault properties for the encryption scope. This is a required field if encryption scope 'source' attribute is set to 'Microsoft.KeyVault'.
+type EncryptionScopeKeyVaultPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (EncryptionScopeKeyVaultPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionScopeKeyVaultPropertiesResponse)(nil)).Elem()
+}
+
+func (o EncryptionScopeKeyVaultPropertiesResponseOutput) ToEncryptionScopeKeyVaultPropertiesResponseOutput() EncryptionScopeKeyVaultPropertiesResponseOutput {
+	return o
+}
+
+func (o EncryptionScopeKeyVaultPropertiesResponseOutput) ToEncryptionScopeKeyVaultPropertiesResponseOutputWithContext(ctx context.Context) EncryptionScopeKeyVaultPropertiesResponseOutput {
+	return o
+}
+
+func (o EncryptionScopeKeyVaultPropertiesResponseOutput) ToEncryptionScopeKeyVaultPropertiesResponsePtrOutput() EncryptionScopeKeyVaultPropertiesResponsePtrOutput {
+	return o.ToEncryptionScopeKeyVaultPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (o EncryptionScopeKeyVaultPropertiesResponseOutput) ToEncryptionScopeKeyVaultPropertiesResponsePtrOutputWithContext(ctx context.Context) EncryptionScopeKeyVaultPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v EncryptionScopeKeyVaultPropertiesResponse) *EncryptionScopeKeyVaultPropertiesResponse {
+		return &v
+	}).(EncryptionScopeKeyVaultPropertiesResponsePtrOutput)
+}
+
+// The object identifier for a key vault key object. When applied, the encryption scope will use the key referenced by the identifier to enable customer-managed key support on this encryption scope.
+func (o EncryptionScopeKeyVaultPropertiesResponseOutput) KeyUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EncryptionScopeKeyVaultPropertiesResponse) *string { return v.KeyUri }).(pulumi.StringPtrOutput)
+}
+
+type EncryptionScopeKeyVaultPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (EncryptionScopeKeyVaultPropertiesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionScopeKeyVaultPropertiesResponse)(nil)).Elem()
+}
+
+func (o EncryptionScopeKeyVaultPropertiesResponsePtrOutput) ToEncryptionScopeKeyVaultPropertiesResponsePtrOutput() EncryptionScopeKeyVaultPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o EncryptionScopeKeyVaultPropertiesResponsePtrOutput) ToEncryptionScopeKeyVaultPropertiesResponsePtrOutputWithContext(ctx context.Context) EncryptionScopeKeyVaultPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o EncryptionScopeKeyVaultPropertiesResponsePtrOutput) Elem() EncryptionScopeKeyVaultPropertiesResponseOutput {
+	return o.ApplyT(func(v *EncryptionScopeKeyVaultPropertiesResponse) EncryptionScopeKeyVaultPropertiesResponse {
+		return *v
+	}).(EncryptionScopeKeyVaultPropertiesResponseOutput)
+}
+
+// The object identifier for a key vault key object. When applied, the encryption scope will use the key referenced by the identifier to enable customer-managed key support on this encryption scope.
+func (o EncryptionScopeKeyVaultPropertiesResponsePtrOutput) KeyUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EncryptionScopeKeyVaultPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyUri
+	}).(pulumi.StringPtrOutput)
+}
+
 // A service that allows server-side encryption to be used.
 type EncryptionService struct {
 	// A boolean indicating whether or not the service encrypts the data as it is stored.
@@ -13669,6 +13939,10 @@ func init() {
 	pulumi.RegisterOutputType(EncryptionPtrOutput{})
 	pulumi.RegisterOutputType(EncryptionResponseOutput{})
 	pulumi.RegisterOutputType(EncryptionResponsePtrOutput{})
+	pulumi.RegisterOutputType(EncryptionScopeKeyVaultPropertiesOutput{})
+	pulumi.RegisterOutputType(EncryptionScopeKeyVaultPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(EncryptionScopeKeyVaultPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(EncryptionScopeKeyVaultPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(EncryptionServiceOutput{})
 	pulumi.RegisterOutputType(EncryptionServicePtrOutput{})
 	pulumi.RegisterOutputType(EncryptionServiceResponseOutput{})

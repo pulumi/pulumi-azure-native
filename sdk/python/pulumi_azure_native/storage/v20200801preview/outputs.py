@@ -28,6 +28,7 @@ __all__ = [
     'DateAfterModificationResponse',
     'DeleteRetentionPolicyResponse',
     'EncryptionResponse',
+    'EncryptionScopeKeyVaultPropertiesResponse',
     'EncryptionServiceResponse',
     'EncryptionServicesResponse',
     'EndpointsResponse',
@@ -837,6 +838,32 @@ class EncryptionResponse(dict):
         List of services which support encryption.
         """
         return pulumi.get(self, "services")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class EncryptionScopeKeyVaultPropertiesResponse(dict):
+    """
+    The key vault properties for the encryption scope. This is a required field if encryption scope 'source' attribute is set to 'Microsoft.KeyVault'.
+    """
+    def __init__(__self__, *,
+                 key_uri: Optional[str] = None):
+        """
+        The key vault properties for the encryption scope. This is a required field if encryption scope 'source' attribute is set to 'Microsoft.KeyVault'.
+        :param str key_uri: The object identifier for a key vault key object. When applied, the encryption scope will use the key referenced by the identifier to enable customer-managed key support on this encryption scope.
+        """
+        if key_uri is not None:
+            pulumi.set(__self__, "key_uri", key_uri)
+
+    @property
+    @pulumi.getter(name="keyUri")
+    def key_uri(self) -> Optional[str]:
+        """
+        The object identifier for a key vault key object. When applied, the encryption scope will use the key referenced by the identifier to enable customer-managed key support on this encryption scope.
+        """
+        return pulumi.get(self, "key_uri")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

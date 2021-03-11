@@ -180,6 +180,62 @@ func (e EnabledProtocols) ToStringPtrOutputWithContext(ctx context.Context) pulu
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// The provider for the encryption scope. Possible values (case-insensitive):  Microsoft.Storage, Microsoft.KeyVault.
+type EncryptionScopeSource pulumi.String
+
+const (
+	EncryptionScopeSource_Microsoft_Storage  = EncryptionScopeSource("Microsoft.Storage")
+	EncryptionScopeSource_Microsoft_KeyVault = EncryptionScopeSource("Microsoft.KeyVault")
+)
+
+func (EncryptionScopeSource) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e EncryptionScopeSource) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EncryptionScopeSource) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EncryptionScopeSource) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e EncryptionScopeSource) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// The state of the encryption scope. Possible values (case-insensitive):  Enabled, Disabled.
+type EncryptionScopeStateEnum pulumi.String
+
+const (
+	EncryptionScopeStateEnumEnabled  = EncryptionScopeStateEnum("Enabled")
+	EncryptionScopeStateEnumDisabled = EncryptionScopeStateEnum("Disabled")
+)
+
+func (EncryptionScopeStateEnum) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e EncryptionScopeStateEnum) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EncryptionScopeStateEnum) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EncryptionScopeStateEnum) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e EncryptionScopeStateEnum) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // The type of the extended location.
 type ExtendedLocationTypes pulumi.String
 

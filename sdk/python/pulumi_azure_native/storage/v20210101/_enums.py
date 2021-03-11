@@ -11,6 +11,8 @@ __all__ = [
     'DefaultAction',
     'DirectoryServiceOptions',
     'EnabledProtocols',
+    'EncryptionScopeSource',
+    'EncryptionScopeState',
     'ExtendedLocationTypes',
     'HttpProtocol',
     'IdentityType',
@@ -84,6 +86,22 @@ class EnabledProtocols(str, Enum):
     """
     SMB = "SMB"
     NFS = "NFS"
+
+
+class EncryptionScopeSource(str, Enum):
+    """
+    The provider for the encryption scope. Possible values (case-insensitive):  Microsoft.Storage, Microsoft.KeyVault.
+    """
+    MICROSOFT_STORAGE = "Microsoft.Storage"
+    MICROSOFT_KEY_VAULT = "Microsoft.KeyVault"
+
+
+class EncryptionScopeState(str, Enum):
+    """
+    The state of the encryption scope. Possible values (case-insensitive):  Enabled, Disabled.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 class ExtendedLocationTypes(str, Enum):

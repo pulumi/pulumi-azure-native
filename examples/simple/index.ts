@@ -170,6 +170,12 @@ new storage.BlobServiceProperties("blobprops", {
     },
 });
 
+new storage.EncryptionScope("encscope", {
+    resourceGroupName: resourceGroup.name,
+    accountName: storageAccount.name,
+    source: storage.EncryptionScopeSource.Microsoft_Storage,
+});
+
 export const staticWebsiteUrl = pulumi.interpolate`https://${staticSite.defaultHostname}`;
 
 export const existingRg = resources.getResourceGroup({ resourceGroupName: "Azure-Account-Cleanup" });

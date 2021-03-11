@@ -9,12 +9,14 @@ export * from "./blobContainer";
 export * from "./blobContainerImmutabilityPolicy";
 export * from "./blobInventoryPolicy";
 export * from "./blobServiceProperties";
+export * from "./encryptionScope";
 export * from "./fileServiceProperties";
 export * from "./fileShare";
 export * from "./getBlobContainer";
 export * from "./getBlobContainerImmutabilityPolicy";
 export * from "./getBlobInventoryPolicy";
 export * from "./getBlobServiceProperties";
+export * from "./getEncryptionScope";
 export * from "./getFileServiceProperties";
 export * from "./getFileShare";
 export * from "./getManagementPolicy";
@@ -45,6 +47,7 @@ import { BlobContainer } from "./blobContainer";
 import { BlobContainerImmutabilityPolicy } from "./blobContainerImmutabilityPolicy";
 import { BlobInventoryPolicy } from "./blobInventoryPolicy";
 import { BlobServiceProperties } from "./blobServiceProperties";
+import { EncryptionScope } from "./encryptionScope";
 import { FileServiceProperties } from "./fileServiceProperties";
 import { FileShare } from "./fileShare";
 import { ManagementPolicy } from "./managementPolicy";
@@ -68,6 +71,8 @@ const _module = {
                 return new BlobInventoryPolicy(name, <any>undefined, { urn })
             case "azure-native:storage/latest:BlobServiceProperties":
                 return new BlobServiceProperties(name, <any>undefined, { urn })
+            case "azure-native:storage/latest:EncryptionScope":
+                return new EncryptionScope(name, <any>undefined, { urn })
             case "azure-native:storage/latest:FileServiceProperties":
                 return new FileServiceProperties(name, <any>undefined, { urn })
             case "azure-native:storage/latest:FileShare":
