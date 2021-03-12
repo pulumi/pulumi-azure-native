@@ -13,6 +13,7 @@ from .get_app_service_plan import *
 from .get_certificate import *
 from .get_static_site import *
 from .get_web_app import *
+from .get_web_app_configuration import *
 from .get_web_app_deployment import *
 from .get_web_app_deployment_slot import *
 from .get_web_app_diagnostic_logs_configuration import *
@@ -85,6 +86,7 @@ from .web_app_azure_storage_accounts import *
 from .web_app_azure_storage_accounts_slot import *
 from .web_app_backup_configuration import *
 from .web_app_backup_configuration_slot import *
+from .web_app_configuration import *
 from .web_app_connection_strings import *
 from .web_app_connection_strings_slot import *
 from .web_app_deployment import *
@@ -162,6 +164,8 @@ def _register_module():
                 return WebAppBackupConfiguration(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:web/v20190801:WebAppBackupConfigurationSlot":
                 return WebAppBackupConfigurationSlot(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:web/v20190801:WebAppConfiguration":
+                return WebAppConfiguration(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:web/v20190801:WebAppConnectionStrings":
                 return WebAppConnectionStrings(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:web/v20190801:WebAppConnectionStringsSlot":

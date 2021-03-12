@@ -12,6 +12,7 @@ from .get_hosting_environment import *
 from .get_managed_hosting_environment import *
 from .get_server_farm import *
 from .get_site import *
+from .get_site_config import *
 from .get_site_deployment import *
 from .get_site_deployment_slot import *
 from .get_site_host_name_binding import *
@@ -52,6 +53,7 @@ from .site_auth_settings import *
 from .site_auth_settings_slot import *
 from .site_backup_configuration import *
 from .site_backup_configuration_slot import *
+from .site_config import *
 from .site_connection_strings import *
 from .site_connection_strings_slot import *
 from .site_deployment import *
@@ -112,6 +114,8 @@ def _register_module():
                 return SiteBackupConfiguration(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:web/v20150801:SiteBackupConfigurationSlot":
                 return SiteBackupConfigurationSlot(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:web/v20150801:SiteConfig":
+                return SiteConfig(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:web/v20150801:SiteConnectionStrings":
                 return SiteConnectionStrings(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:web/v20150801:SiteConnectionStringsSlot":
