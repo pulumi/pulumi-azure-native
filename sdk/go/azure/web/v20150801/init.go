@@ -47,6 +47,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewSiteBackupConfiguration(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:web/v20150801:SiteBackupConfigurationSlot":
 		r, err = NewSiteBackupConfigurationSlot(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-native:web/v20150801:SiteConfig":
+		r, err = NewSiteConfig(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:web/v20150801:SiteConnectionStrings":
 		r, err = NewSiteConnectionStrings(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:web/v20150801:SiteConnectionStringsSlot":

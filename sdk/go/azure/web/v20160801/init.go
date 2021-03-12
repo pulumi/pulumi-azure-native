@@ -35,6 +35,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewWebAppBackupConfiguration(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:web/v20160801:WebAppBackupConfigurationSlot":
 		r, err = NewWebAppBackupConfigurationSlot(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-native:web/v20160801:WebAppConfiguration":
+		r, err = NewWebAppConfiguration(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:web/v20160801:WebAppConnectionStrings":
 		r, err = NewWebAppConnectionStrings(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:web/v20160801:WebAppConnectionStringsSlot":

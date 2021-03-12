@@ -8864,7 +8864,7 @@ func (o RequestsBasedTriggerResponsePtrOutput) TimeInterval() pulumi.StringPtrOu
 }
 
 // Configuration of Azure web site
-type SiteConfig struct {
+type SiteConfigType struct {
 	// Always On
 	AlwaysOn *bool `pulumi:"alwaysOn"`
 	// Information about the formal API definition for the web app.
@@ -8963,19 +8963,19 @@ type SiteConfig struct {
 	WebSocketsEnabled *bool `pulumi:"webSocketsEnabled"`
 }
 
-// SiteConfigInput is an input type that accepts SiteConfigArgs and SiteConfigOutput values.
-// You can construct a concrete instance of `SiteConfigInput` via:
+// SiteConfigTypeInput is an input type that accepts SiteConfigTypeArgs and SiteConfigTypeOutput values.
+// You can construct a concrete instance of `SiteConfigTypeInput` via:
 //
-//          SiteConfigArgs{...}
-type SiteConfigInput interface {
+//          SiteConfigTypeArgs{...}
+type SiteConfigTypeInput interface {
 	pulumi.Input
 
-	ToSiteConfigOutput() SiteConfigOutput
-	ToSiteConfigOutputWithContext(context.Context) SiteConfigOutput
+	ToSiteConfigTypeOutput() SiteConfigTypeOutput
+	ToSiteConfigTypeOutputWithContext(context.Context) SiteConfigTypeOutput
 }
 
 // Configuration of Azure web site
-type SiteConfigArgs struct {
+type SiteConfigTypeArgs struct {
 	// Always On
 	AlwaysOn pulumi.BoolPtrInput `pulumi:"alwaysOn"`
 	// Information about the formal API definition for the web app.
@@ -9074,345 +9074,345 @@ type SiteConfigArgs struct {
 	WebSocketsEnabled pulumi.BoolPtrInput `pulumi:"webSocketsEnabled"`
 }
 
-func (SiteConfigArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SiteConfig)(nil)).Elem()
+func (SiteConfigTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SiteConfigType)(nil)).Elem()
 }
 
-func (i SiteConfigArgs) ToSiteConfigOutput() SiteConfigOutput {
-	return i.ToSiteConfigOutputWithContext(context.Background())
+func (i SiteConfigTypeArgs) ToSiteConfigTypeOutput() SiteConfigTypeOutput {
+	return i.ToSiteConfigTypeOutputWithContext(context.Background())
 }
 
-func (i SiteConfigArgs) ToSiteConfigOutputWithContext(ctx context.Context) SiteConfigOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SiteConfigOutput)
+func (i SiteConfigTypeArgs) ToSiteConfigTypeOutputWithContext(ctx context.Context) SiteConfigTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SiteConfigTypeOutput)
 }
 
-func (i SiteConfigArgs) ToSiteConfigPtrOutput() SiteConfigPtrOutput {
-	return i.ToSiteConfigPtrOutputWithContext(context.Background())
+func (i SiteConfigTypeArgs) ToSiteConfigTypePtrOutput() SiteConfigTypePtrOutput {
+	return i.ToSiteConfigTypePtrOutputWithContext(context.Background())
 }
 
-func (i SiteConfigArgs) ToSiteConfigPtrOutputWithContext(ctx context.Context) SiteConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SiteConfigOutput).ToSiteConfigPtrOutputWithContext(ctx)
+func (i SiteConfigTypeArgs) ToSiteConfigTypePtrOutputWithContext(ctx context.Context) SiteConfigTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SiteConfigTypeOutput).ToSiteConfigTypePtrOutputWithContext(ctx)
 }
 
-// SiteConfigPtrInput is an input type that accepts SiteConfigArgs, SiteConfigPtr and SiteConfigPtrOutput values.
-// You can construct a concrete instance of `SiteConfigPtrInput` via:
+// SiteConfigTypePtrInput is an input type that accepts SiteConfigTypeArgs, SiteConfigTypePtr and SiteConfigTypePtrOutput values.
+// You can construct a concrete instance of `SiteConfigTypePtrInput` via:
 //
-//          SiteConfigArgs{...}
+//          SiteConfigTypeArgs{...}
 //
 //  or:
 //
 //          nil
-type SiteConfigPtrInput interface {
+type SiteConfigTypePtrInput interface {
 	pulumi.Input
 
-	ToSiteConfigPtrOutput() SiteConfigPtrOutput
-	ToSiteConfigPtrOutputWithContext(context.Context) SiteConfigPtrOutput
+	ToSiteConfigTypePtrOutput() SiteConfigTypePtrOutput
+	ToSiteConfigTypePtrOutputWithContext(context.Context) SiteConfigTypePtrOutput
 }
 
-type siteConfigPtrType SiteConfigArgs
+type siteConfigTypePtrType SiteConfigTypeArgs
 
-func SiteConfigPtr(v *SiteConfigArgs) SiteConfigPtrInput {
-	return (*siteConfigPtrType)(v)
+func SiteConfigTypePtr(v *SiteConfigTypeArgs) SiteConfigTypePtrInput {
+	return (*siteConfigTypePtrType)(v)
 }
 
-func (*siteConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SiteConfig)(nil)).Elem()
+func (*siteConfigTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SiteConfigType)(nil)).Elem()
 }
 
-func (i *siteConfigPtrType) ToSiteConfigPtrOutput() SiteConfigPtrOutput {
-	return i.ToSiteConfigPtrOutputWithContext(context.Background())
+func (i *siteConfigTypePtrType) ToSiteConfigTypePtrOutput() SiteConfigTypePtrOutput {
+	return i.ToSiteConfigTypePtrOutputWithContext(context.Background())
 }
 
-func (i *siteConfigPtrType) ToSiteConfigPtrOutputWithContext(ctx context.Context) SiteConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SiteConfigPtrOutput)
+func (i *siteConfigTypePtrType) ToSiteConfigTypePtrOutputWithContext(ctx context.Context) SiteConfigTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SiteConfigTypePtrOutput)
 }
 
 // Configuration of Azure web site
-type SiteConfigOutput struct{ *pulumi.OutputState }
+type SiteConfigTypeOutput struct{ *pulumi.OutputState }
 
-func (SiteConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SiteConfig)(nil)).Elem()
+func (SiteConfigTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SiteConfigType)(nil)).Elem()
 }
 
-func (o SiteConfigOutput) ToSiteConfigOutput() SiteConfigOutput {
+func (o SiteConfigTypeOutput) ToSiteConfigTypeOutput() SiteConfigTypeOutput {
 	return o
 }
 
-func (o SiteConfigOutput) ToSiteConfigOutputWithContext(ctx context.Context) SiteConfigOutput {
+func (o SiteConfigTypeOutput) ToSiteConfigTypeOutputWithContext(ctx context.Context) SiteConfigTypeOutput {
 	return o
 }
 
-func (o SiteConfigOutput) ToSiteConfigPtrOutput() SiteConfigPtrOutput {
-	return o.ToSiteConfigPtrOutputWithContext(context.Background())
+func (o SiteConfigTypeOutput) ToSiteConfigTypePtrOutput() SiteConfigTypePtrOutput {
+	return o.ToSiteConfigTypePtrOutputWithContext(context.Background())
 }
 
-func (o SiteConfigOutput) ToSiteConfigPtrOutputWithContext(ctx context.Context) SiteConfigPtrOutput {
-	return o.ApplyT(func(v SiteConfig) *SiteConfig {
+func (o SiteConfigTypeOutput) ToSiteConfigTypePtrOutputWithContext(ctx context.Context) SiteConfigTypePtrOutput {
+	return o.ApplyT(func(v SiteConfigType) *SiteConfigType {
 		return &v
-	}).(SiteConfigPtrOutput)
+	}).(SiteConfigTypePtrOutput)
 }
 
 // Always On
-func (o SiteConfigOutput) AlwaysOn() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v SiteConfig) *bool { return v.AlwaysOn }).(pulumi.BoolPtrOutput)
+func (o SiteConfigTypeOutput) AlwaysOn() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SiteConfigType) *bool { return v.AlwaysOn }).(pulumi.BoolPtrOutput)
 }
 
 // Information about the formal API definition for the web app.
-func (o SiteConfigOutput) ApiDefinition() ApiDefinitionInfoPtrOutput {
-	return o.ApplyT(func(v SiteConfig) *ApiDefinitionInfo { return v.ApiDefinition }).(ApiDefinitionInfoPtrOutput)
+func (o SiteConfigTypeOutput) ApiDefinition() ApiDefinitionInfoPtrOutput {
+	return o.ApplyT(func(v SiteConfigType) *ApiDefinitionInfo { return v.ApiDefinition }).(ApiDefinitionInfoPtrOutput)
 }
 
 // App Command Line to launch
-func (o SiteConfigOutput) AppCommandLine() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SiteConfig) *string { return v.AppCommandLine }).(pulumi.StringPtrOutput)
+func (o SiteConfigTypeOutput) AppCommandLine() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SiteConfigType) *string { return v.AppCommandLine }).(pulumi.StringPtrOutput)
 }
 
 // Application Settings
-func (o SiteConfigOutput) AppSettings() NameValuePairArrayOutput {
-	return o.ApplyT(func(v SiteConfig) []NameValuePair { return v.AppSettings }).(NameValuePairArrayOutput)
+func (o SiteConfigTypeOutput) AppSettings() NameValuePairArrayOutput {
+	return o.ApplyT(func(v SiteConfigType) []NameValuePair { return v.AppSettings }).(NameValuePairArrayOutput)
 }
 
 // Auto heal enabled
-func (o SiteConfigOutput) AutoHealEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v SiteConfig) *bool { return v.AutoHealEnabled }).(pulumi.BoolPtrOutput)
+func (o SiteConfigTypeOutput) AutoHealEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SiteConfigType) *bool { return v.AutoHealEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Auto heal rules
-func (o SiteConfigOutput) AutoHealRules() AutoHealRulesPtrOutput {
-	return o.ApplyT(func(v SiteConfig) *AutoHealRules { return v.AutoHealRules }).(AutoHealRulesPtrOutput)
+func (o SiteConfigTypeOutput) AutoHealRules() AutoHealRulesPtrOutput {
+	return o.ApplyT(func(v SiteConfigType) *AutoHealRules { return v.AutoHealRules }).(AutoHealRulesPtrOutput)
 }
 
 // Auto swap slot name
-func (o SiteConfigOutput) AutoSwapSlotName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SiteConfig) *string { return v.AutoSwapSlotName }).(pulumi.StringPtrOutput)
+func (o SiteConfigTypeOutput) AutoSwapSlotName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SiteConfigType) *string { return v.AutoSwapSlotName }).(pulumi.StringPtrOutput)
 }
 
 // Connection strings
-func (o SiteConfigOutput) ConnectionStrings() ConnStringInfoArrayOutput {
-	return o.ApplyT(func(v SiteConfig) []ConnStringInfo { return v.ConnectionStrings }).(ConnStringInfoArrayOutput)
+func (o SiteConfigTypeOutput) ConnectionStrings() ConnStringInfoArrayOutput {
+	return o.ApplyT(func(v SiteConfigType) []ConnStringInfo { return v.ConnectionStrings }).(ConnStringInfoArrayOutput)
 }
 
 // Cross-Origin Resource Sharing (CORS) settings.
-func (o SiteConfigOutput) Cors() CorsSettingsPtrOutput {
-	return o.ApplyT(func(v SiteConfig) *CorsSettings { return v.Cors }).(CorsSettingsPtrOutput)
+func (o SiteConfigTypeOutput) Cors() CorsSettingsPtrOutput {
+	return o.ApplyT(func(v SiteConfigType) *CorsSettings { return v.Cors }).(CorsSettingsPtrOutput)
 }
 
 // Default documents
-func (o SiteConfigOutput) DefaultDocuments() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v SiteConfig) []string { return v.DefaultDocuments }).(pulumi.StringArrayOutput)
+func (o SiteConfigTypeOutput) DefaultDocuments() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SiteConfigType) []string { return v.DefaultDocuments }).(pulumi.StringArrayOutput)
 }
 
 // Detailed error logging enabled
-func (o SiteConfigOutput) DetailedErrorLoggingEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v SiteConfig) *bool { return v.DetailedErrorLoggingEnabled }).(pulumi.BoolPtrOutput)
+func (o SiteConfigTypeOutput) DetailedErrorLoggingEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SiteConfigType) *bool { return v.DetailedErrorLoggingEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Document root
-func (o SiteConfigOutput) DocumentRoot() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SiteConfig) *string { return v.DocumentRoot }).(pulumi.StringPtrOutput)
+func (o SiteConfigTypeOutput) DocumentRoot() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SiteConfigType) *string { return v.DocumentRoot }).(pulumi.StringPtrOutput)
 }
 
 // This is work around for polymorphic types
-func (o SiteConfigOutput) Experiments() ExperimentsPtrOutput {
-	return o.ApplyT(func(v SiteConfig) *Experiments { return v.Experiments }).(ExperimentsPtrOutput)
+func (o SiteConfigTypeOutput) Experiments() ExperimentsPtrOutput {
+	return o.ApplyT(func(v SiteConfigType) *Experiments { return v.Experiments }).(ExperimentsPtrOutput)
 }
 
 // Handler mappings
-func (o SiteConfigOutput) HandlerMappings() HandlerMappingArrayOutput {
-	return o.ApplyT(func(v SiteConfig) []HandlerMapping { return v.HandlerMappings }).(HandlerMappingArrayOutput)
+func (o SiteConfigTypeOutput) HandlerMappings() HandlerMappingArrayOutput {
+	return o.ApplyT(func(v SiteConfigType) []HandlerMapping { return v.HandlerMappings }).(HandlerMappingArrayOutput)
 }
 
 // HTTP logging Enabled
-func (o SiteConfigOutput) HttpLoggingEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v SiteConfig) *bool { return v.HttpLoggingEnabled }).(pulumi.BoolPtrOutput)
+func (o SiteConfigTypeOutput) HttpLoggingEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SiteConfigType) *bool { return v.HttpLoggingEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Resource Id
-func (o SiteConfigOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SiteConfig) *string { return v.Id }).(pulumi.StringPtrOutput)
+func (o SiteConfigTypeOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SiteConfigType) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Ip Security restrictions
-func (o SiteConfigOutput) IpSecurityRestrictions() IpSecurityRestrictionArrayOutput {
-	return o.ApplyT(func(v SiteConfig) []IpSecurityRestriction { return v.IpSecurityRestrictions }).(IpSecurityRestrictionArrayOutput)
+func (o SiteConfigTypeOutput) IpSecurityRestrictions() IpSecurityRestrictionArrayOutput {
+	return o.ApplyT(func(v SiteConfigType) []IpSecurityRestriction { return v.IpSecurityRestrictions }).(IpSecurityRestrictionArrayOutput)
 }
 
 // Java container
-func (o SiteConfigOutput) JavaContainer() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SiteConfig) *string { return v.JavaContainer }).(pulumi.StringPtrOutput)
+func (o SiteConfigTypeOutput) JavaContainer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SiteConfigType) *string { return v.JavaContainer }).(pulumi.StringPtrOutput)
 }
 
 // Java container version
-func (o SiteConfigOutput) JavaContainerVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SiteConfig) *string { return v.JavaContainerVersion }).(pulumi.StringPtrOutput)
+func (o SiteConfigTypeOutput) JavaContainerVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SiteConfigType) *string { return v.JavaContainerVersion }).(pulumi.StringPtrOutput)
 }
 
 // Java version
-func (o SiteConfigOutput) JavaVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SiteConfig) *string { return v.JavaVersion }).(pulumi.StringPtrOutput)
+func (o SiteConfigTypeOutput) JavaVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SiteConfigType) *string { return v.JavaVersion }).(pulumi.StringPtrOutput)
 }
 
 // Kind of resource
-func (o SiteConfigOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SiteConfig) *string { return v.Kind }).(pulumi.StringPtrOutput)
+func (o SiteConfigTypeOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SiteConfigType) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
 // Site limits
-func (o SiteConfigOutput) Limits() SiteLimitsPtrOutput {
-	return o.ApplyT(func(v SiteConfig) *SiteLimits { return v.Limits }).(SiteLimitsPtrOutput)
+func (o SiteConfigTypeOutput) Limits() SiteLimitsPtrOutput {
+	return o.ApplyT(func(v SiteConfigType) *SiteLimits { return v.Limits }).(SiteLimitsPtrOutput)
 }
 
 // Site load balancing
-func (o SiteConfigOutput) LoadBalancing() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SiteConfig) *string { return v.LoadBalancing }).(pulumi.StringPtrOutput)
+func (o SiteConfigTypeOutput) LoadBalancing() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SiteConfigType) *string { return v.LoadBalancing }).(pulumi.StringPtrOutput)
 }
 
 // Local mysql enabled
-func (o SiteConfigOutput) LocalMySqlEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v SiteConfig) *bool { return v.LocalMySqlEnabled }).(pulumi.BoolPtrOutput)
+func (o SiteConfigTypeOutput) LocalMySqlEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SiteConfigType) *bool { return v.LocalMySqlEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Resource Location
-func (o SiteConfigOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v SiteConfig) string { return v.Location }).(pulumi.StringOutput)
+func (o SiteConfigTypeOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v SiteConfigType) string { return v.Location }).(pulumi.StringOutput)
 }
 
 // HTTP Logs Directory size limit
-func (o SiteConfigOutput) LogsDirectorySizeLimit() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SiteConfig) *int { return v.LogsDirectorySizeLimit }).(pulumi.IntPtrOutput)
+func (o SiteConfigTypeOutput) LogsDirectorySizeLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SiteConfigType) *int { return v.LogsDirectorySizeLimit }).(pulumi.IntPtrOutput)
 }
 
 // Managed pipeline mode
-func (o SiteConfigOutput) ManagedPipelineMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SiteConfig) *string { return v.ManagedPipelineMode }).(pulumi.StringPtrOutput)
+func (o SiteConfigTypeOutput) ManagedPipelineMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SiteConfigType) *string { return v.ManagedPipelineMode }).(pulumi.StringPtrOutput)
 }
 
 // Site Metadata
-func (o SiteConfigOutput) Metadata() NameValuePairArrayOutput {
-	return o.ApplyT(func(v SiteConfig) []NameValuePair { return v.Metadata }).(NameValuePairArrayOutput)
+func (o SiteConfigTypeOutput) Metadata() NameValuePairArrayOutput {
+	return o.ApplyT(func(v SiteConfigType) []NameValuePair { return v.Metadata }).(NameValuePairArrayOutput)
 }
 
 // Resource Name
-func (o SiteConfigOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SiteConfig) *string { return v.Name }).(pulumi.StringPtrOutput)
+func (o SiteConfigTypeOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SiteConfigType) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // Net Framework Version
-func (o SiteConfigOutput) NetFrameworkVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SiteConfig) *string { return v.NetFrameworkVersion }).(pulumi.StringPtrOutput)
+func (o SiteConfigTypeOutput) NetFrameworkVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SiteConfigType) *string { return v.NetFrameworkVersion }).(pulumi.StringPtrOutput)
 }
 
 // Version of Node
-func (o SiteConfigOutput) NodeVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SiteConfig) *string { return v.NodeVersion }).(pulumi.StringPtrOutput)
+func (o SiteConfigTypeOutput) NodeVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SiteConfigType) *string { return v.NodeVersion }).(pulumi.StringPtrOutput)
 }
 
 // Number of workers
-func (o SiteConfigOutput) NumberOfWorkers() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SiteConfig) *int { return v.NumberOfWorkers }).(pulumi.IntPtrOutput)
+func (o SiteConfigTypeOutput) NumberOfWorkers() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SiteConfigType) *int { return v.NumberOfWorkers }).(pulumi.IntPtrOutput)
 }
 
 // Version of PHP
-func (o SiteConfigOutput) PhpVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SiteConfig) *string { return v.PhpVersion }).(pulumi.StringPtrOutput)
+func (o SiteConfigTypeOutput) PhpVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SiteConfigType) *string { return v.PhpVersion }).(pulumi.StringPtrOutput)
 }
 
 // Publishing password
-func (o SiteConfigOutput) PublishingPassword() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SiteConfig) *string { return v.PublishingPassword }).(pulumi.StringPtrOutput)
+func (o SiteConfigTypeOutput) PublishingPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SiteConfigType) *string { return v.PublishingPassword }).(pulumi.StringPtrOutput)
 }
 
 // Publishing user name
-func (o SiteConfigOutput) PublishingUsername() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SiteConfig) *string { return v.PublishingUsername }).(pulumi.StringPtrOutput)
+func (o SiteConfigTypeOutput) PublishingUsername() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SiteConfigType) *string { return v.PublishingUsername }).(pulumi.StringPtrOutput)
 }
 
 // Version of Python
-func (o SiteConfigOutput) PythonVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SiteConfig) *string { return v.PythonVersion }).(pulumi.StringPtrOutput)
+func (o SiteConfigTypeOutput) PythonVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SiteConfigType) *string { return v.PythonVersion }).(pulumi.StringPtrOutput)
 }
 
 // Remote Debugging Enabled
-func (o SiteConfigOutput) RemoteDebuggingEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v SiteConfig) *bool { return v.RemoteDebuggingEnabled }).(pulumi.BoolPtrOutput)
+func (o SiteConfigTypeOutput) RemoteDebuggingEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SiteConfigType) *bool { return v.RemoteDebuggingEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Remote Debugging Version
-func (o SiteConfigOutput) RemoteDebuggingVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SiteConfig) *string { return v.RemoteDebuggingVersion }).(pulumi.StringPtrOutput)
+func (o SiteConfigTypeOutput) RemoteDebuggingVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SiteConfigType) *string { return v.RemoteDebuggingVersion }).(pulumi.StringPtrOutput)
 }
 
 // Enable request tracing
-func (o SiteConfigOutput) RequestTracingEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v SiteConfig) *bool { return v.RequestTracingEnabled }).(pulumi.BoolPtrOutput)
+func (o SiteConfigTypeOutput) RequestTracingEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SiteConfigType) *bool { return v.RequestTracingEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Request tracing expiration time
-func (o SiteConfigOutput) RequestTracingExpirationTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SiteConfig) *string { return v.RequestTracingExpirationTime }).(pulumi.StringPtrOutput)
+func (o SiteConfigTypeOutput) RequestTracingExpirationTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SiteConfigType) *string { return v.RequestTracingExpirationTime }).(pulumi.StringPtrOutput)
 }
 
 // SCM type
-func (o SiteConfigOutput) ScmType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SiteConfig) *string { return v.ScmType }).(pulumi.StringPtrOutput)
+func (o SiteConfigTypeOutput) ScmType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SiteConfigType) *string { return v.ScmType }).(pulumi.StringPtrOutput)
 }
 
 // Resource tags
-func (o SiteConfigOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v SiteConfig) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+func (o SiteConfigTypeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v SiteConfigType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 // Tracing options
-func (o SiteConfigOutput) TracingOptions() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SiteConfig) *string { return v.TracingOptions }).(pulumi.StringPtrOutput)
+func (o SiteConfigTypeOutput) TracingOptions() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SiteConfigType) *string { return v.TracingOptions }).(pulumi.StringPtrOutput)
 }
 
 // Resource type
-func (o SiteConfigOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SiteConfig) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o SiteConfigTypeOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SiteConfigType) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 // Use 32 bit worker process
-func (o SiteConfigOutput) Use32BitWorkerProcess() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v SiteConfig) *bool { return v.Use32BitWorkerProcess }).(pulumi.BoolPtrOutput)
+func (o SiteConfigTypeOutput) Use32BitWorkerProcess() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SiteConfigType) *bool { return v.Use32BitWorkerProcess }).(pulumi.BoolPtrOutput)
 }
 
 // Virtual applications
-func (o SiteConfigOutput) VirtualApplications() VirtualApplicationArrayOutput {
-	return o.ApplyT(func(v SiteConfig) []VirtualApplication { return v.VirtualApplications }).(VirtualApplicationArrayOutput)
+func (o SiteConfigTypeOutput) VirtualApplications() VirtualApplicationArrayOutput {
+	return o.ApplyT(func(v SiteConfigType) []VirtualApplication { return v.VirtualApplications }).(VirtualApplicationArrayOutput)
 }
 
 // Vnet name
-func (o SiteConfigOutput) VnetName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SiteConfig) *string { return v.VnetName }).(pulumi.StringPtrOutput)
+func (o SiteConfigTypeOutput) VnetName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SiteConfigType) *string { return v.VnetName }).(pulumi.StringPtrOutput)
 }
 
 // Web socket enabled.
-func (o SiteConfigOutput) WebSocketsEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v SiteConfig) *bool { return v.WebSocketsEnabled }).(pulumi.BoolPtrOutput)
+func (o SiteConfigTypeOutput) WebSocketsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SiteConfigType) *bool { return v.WebSocketsEnabled }).(pulumi.BoolPtrOutput)
 }
 
-type SiteConfigPtrOutput struct{ *pulumi.OutputState }
+type SiteConfigTypePtrOutput struct{ *pulumi.OutputState }
 
-func (SiteConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SiteConfig)(nil)).Elem()
+func (SiteConfigTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SiteConfigType)(nil)).Elem()
 }
 
-func (o SiteConfigPtrOutput) ToSiteConfigPtrOutput() SiteConfigPtrOutput {
+func (o SiteConfigTypePtrOutput) ToSiteConfigTypePtrOutput() SiteConfigTypePtrOutput {
 	return o
 }
 
-func (o SiteConfigPtrOutput) ToSiteConfigPtrOutputWithContext(ctx context.Context) SiteConfigPtrOutput {
+func (o SiteConfigTypePtrOutput) ToSiteConfigTypePtrOutputWithContext(ctx context.Context) SiteConfigTypePtrOutput {
 	return o
 }
 
-func (o SiteConfigPtrOutput) Elem() SiteConfigOutput {
-	return o.ApplyT(func(v *SiteConfig) SiteConfig { return *v }).(SiteConfigOutput)
+func (o SiteConfigTypePtrOutput) Elem() SiteConfigTypeOutput {
+	return o.ApplyT(func(v *SiteConfigType) SiteConfigType { return *v }).(SiteConfigTypeOutput)
 }
 
 // Always On
-func (o SiteConfigPtrOutput) AlwaysOn() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *SiteConfig) *bool {
+func (o SiteConfigTypePtrOutput) AlwaysOn() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SiteConfigType) *bool {
 		if v == nil {
 			return nil
 		}
@@ -9421,8 +9421,8 @@ func (o SiteConfigPtrOutput) AlwaysOn() pulumi.BoolPtrOutput {
 }
 
 // Information about the formal API definition for the web app.
-func (o SiteConfigPtrOutput) ApiDefinition() ApiDefinitionInfoPtrOutput {
-	return o.ApplyT(func(v *SiteConfig) *ApiDefinitionInfo {
+func (o SiteConfigTypePtrOutput) ApiDefinition() ApiDefinitionInfoPtrOutput {
+	return o.ApplyT(func(v *SiteConfigType) *ApiDefinitionInfo {
 		if v == nil {
 			return nil
 		}
@@ -9431,8 +9431,8 @@ func (o SiteConfigPtrOutput) ApiDefinition() ApiDefinitionInfoPtrOutput {
 }
 
 // App Command Line to launch
-func (o SiteConfigPtrOutput) AppCommandLine() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SiteConfig) *string {
+func (o SiteConfigTypePtrOutput) AppCommandLine() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteConfigType) *string {
 		if v == nil {
 			return nil
 		}
@@ -9441,8 +9441,8 @@ func (o SiteConfigPtrOutput) AppCommandLine() pulumi.StringPtrOutput {
 }
 
 // Application Settings
-func (o SiteConfigPtrOutput) AppSettings() NameValuePairArrayOutput {
-	return o.ApplyT(func(v *SiteConfig) []NameValuePair {
+func (o SiteConfigTypePtrOutput) AppSettings() NameValuePairArrayOutput {
+	return o.ApplyT(func(v *SiteConfigType) []NameValuePair {
 		if v == nil {
 			return nil
 		}
@@ -9451,8 +9451,8 @@ func (o SiteConfigPtrOutput) AppSettings() NameValuePairArrayOutput {
 }
 
 // Auto heal enabled
-func (o SiteConfigPtrOutput) AutoHealEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *SiteConfig) *bool {
+func (o SiteConfigTypePtrOutput) AutoHealEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SiteConfigType) *bool {
 		if v == nil {
 			return nil
 		}
@@ -9461,8 +9461,8 @@ func (o SiteConfigPtrOutput) AutoHealEnabled() pulumi.BoolPtrOutput {
 }
 
 // Auto heal rules
-func (o SiteConfigPtrOutput) AutoHealRules() AutoHealRulesPtrOutput {
-	return o.ApplyT(func(v *SiteConfig) *AutoHealRules {
+func (o SiteConfigTypePtrOutput) AutoHealRules() AutoHealRulesPtrOutput {
+	return o.ApplyT(func(v *SiteConfigType) *AutoHealRules {
 		if v == nil {
 			return nil
 		}
@@ -9471,8 +9471,8 @@ func (o SiteConfigPtrOutput) AutoHealRules() AutoHealRulesPtrOutput {
 }
 
 // Auto swap slot name
-func (o SiteConfigPtrOutput) AutoSwapSlotName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SiteConfig) *string {
+func (o SiteConfigTypePtrOutput) AutoSwapSlotName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteConfigType) *string {
 		if v == nil {
 			return nil
 		}
@@ -9481,8 +9481,8 @@ func (o SiteConfigPtrOutput) AutoSwapSlotName() pulumi.StringPtrOutput {
 }
 
 // Connection strings
-func (o SiteConfigPtrOutput) ConnectionStrings() ConnStringInfoArrayOutput {
-	return o.ApplyT(func(v *SiteConfig) []ConnStringInfo {
+func (o SiteConfigTypePtrOutput) ConnectionStrings() ConnStringInfoArrayOutput {
+	return o.ApplyT(func(v *SiteConfigType) []ConnStringInfo {
 		if v == nil {
 			return nil
 		}
@@ -9491,8 +9491,8 @@ func (o SiteConfigPtrOutput) ConnectionStrings() ConnStringInfoArrayOutput {
 }
 
 // Cross-Origin Resource Sharing (CORS) settings.
-func (o SiteConfigPtrOutput) Cors() CorsSettingsPtrOutput {
-	return o.ApplyT(func(v *SiteConfig) *CorsSettings {
+func (o SiteConfigTypePtrOutput) Cors() CorsSettingsPtrOutput {
+	return o.ApplyT(func(v *SiteConfigType) *CorsSettings {
 		if v == nil {
 			return nil
 		}
@@ -9501,8 +9501,8 @@ func (o SiteConfigPtrOutput) Cors() CorsSettingsPtrOutput {
 }
 
 // Default documents
-func (o SiteConfigPtrOutput) DefaultDocuments() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *SiteConfig) []string {
+func (o SiteConfigTypePtrOutput) DefaultDocuments() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SiteConfigType) []string {
 		if v == nil {
 			return nil
 		}
@@ -9511,8 +9511,8 @@ func (o SiteConfigPtrOutput) DefaultDocuments() pulumi.StringArrayOutput {
 }
 
 // Detailed error logging enabled
-func (o SiteConfigPtrOutput) DetailedErrorLoggingEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *SiteConfig) *bool {
+func (o SiteConfigTypePtrOutput) DetailedErrorLoggingEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SiteConfigType) *bool {
 		if v == nil {
 			return nil
 		}
@@ -9521,8 +9521,8 @@ func (o SiteConfigPtrOutput) DetailedErrorLoggingEnabled() pulumi.BoolPtrOutput 
 }
 
 // Document root
-func (o SiteConfigPtrOutput) DocumentRoot() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SiteConfig) *string {
+func (o SiteConfigTypePtrOutput) DocumentRoot() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteConfigType) *string {
 		if v == nil {
 			return nil
 		}
@@ -9531,8 +9531,8 @@ func (o SiteConfigPtrOutput) DocumentRoot() pulumi.StringPtrOutput {
 }
 
 // This is work around for polymorphic types
-func (o SiteConfigPtrOutput) Experiments() ExperimentsPtrOutput {
-	return o.ApplyT(func(v *SiteConfig) *Experiments {
+func (o SiteConfigTypePtrOutput) Experiments() ExperimentsPtrOutput {
+	return o.ApplyT(func(v *SiteConfigType) *Experiments {
 		if v == nil {
 			return nil
 		}
@@ -9541,8 +9541,8 @@ func (o SiteConfigPtrOutput) Experiments() ExperimentsPtrOutput {
 }
 
 // Handler mappings
-func (o SiteConfigPtrOutput) HandlerMappings() HandlerMappingArrayOutput {
-	return o.ApplyT(func(v *SiteConfig) []HandlerMapping {
+func (o SiteConfigTypePtrOutput) HandlerMappings() HandlerMappingArrayOutput {
+	return o.ApplyT(func(v *SiteConfigType) []HandlerMapping {
 		if v == nil {
 			return nil
 		}
@@ -9551,8 +9551,8 @@ func (o SiteConfigPtrOutput) HandlerMappings() HandlerMappingArrayOutput {
 }
 
 // HTTP logging Enabled
-func (o SiteConfigPtrOutput) HttpLoggingEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *SiteConfig) *bool {
+func (o SiteConfigTypePtrOutput) HttpLoggingEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SiteConfigType) *bool {
 		if v == nil {
 			return nil
 		}
@@ -9561,8 +9561,8 @@ func (o SiteConfigPtrOutput) HttpLoggingEnabled() pulumi.BoolPtrOutput {
 }
 
 // Resource Id
-func (o SiteConfigPtrOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SiteConfig) *string {
+func (o SiteConfigTypePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteConfigType) *string {
 		if v == nil {
 			return nil
 		}
@@ -9571,8 +9571,8 @@ func (o SiteConfigPtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 // Ip Security restrictions
-func (o SiteConfigPtrOutput) IpSecurityRestrictions() IpSecurityRestrictionArrayOutput {
-	return o.ApplyT(func(v *SiteConfig) []IpSecurityRestriction {
+func (o SiteConfigTypePtrOutput) IpSecurityRestrictions() IpSecurityRestrictionArrayOutput {
+	return o.ApplyT(func(v *SiteConfigType) []IpSecurityRestriction {
 		if v == nil {
 			return nil
 		}
@@ -9581,8 +9581,8 @@ func (o SiteConfigPtrOutput) IpSecurityRestrictions() IpSecurityRestrictionArray
 }
 
 // Java container
-func (o SiteConfigPtrOutput) JavaContainer() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SiteConfig) *string {
+func (o SiteConfigTypePtrOutput) JavaContainer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteConfigType) *string {
 		if v == nil {
 			return nil
 		}
@@ -9591,8 +9591,8 @@ func (o SiteConfigPtrOutput) JavaContainer() pulumi.StringPtrOutput {
 }
 
 // Java container version
-func (o SiteConfigPtrOutput) JavaContainerVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SiteConfig) *string {
+func (o SiteConfigTypePtrOutput) JavaContainerVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteConfigType) *string {
 		if v == nil {
 			return nil
 		}
@@ -9601,8 +9601,8 @@ func (o SiteConfigPtrOutput) JavaContainerVersion() pulumi.StringPtrOutput {
 }
 
 // Java version
-func (o SiteConfigPtrOutput) JavaVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SiteConfig) *string {
+func (o SiteConfigTypePtrOutput) JavaVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteConfigType) *string {
 		if v == nil {
 			return nil
 		}
@@ -9611,8 +9611,8 @@ func (o SiteConfigPtrOutput) JavaVersion() pulumi.StringPtrOutput {
 }
 
 // Kind of resource
-func (o SiteConfigPtrOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SiteConfig) *string {
+func (o SiteConfigTypePtrOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteConfigType) *string {
 		if v == nil {
 			return nil
 		}
@@ -9621,8 +9621,8 @@ func (o SiteConfigPtrOutput) Kind() pulumi.StringPtrOutput {
 }
 
 // Site limits
-func (o SiteConfigPtrOutput) Limits() SiteLimitsPtrOutput {
-	return o.ApplyT(func(v *SiteConfig) *SiteLimits {
+func (o SiteConfigTypePtrOutput) Limits() SiteLimitsPtrOutput {
+	return o.ApplyT(func(v *SiteConfigType) *SiteLimits {
 		if v == nil {
 			return nil
 		}
@@ -9631,8 +9631,8 @@ func (o SiteConfigPtrOutput) Limits() SiteLimitsPtrOutput {
 }
 
 // Site load balancing
-func (o SiteConfigPtrOutput) LoadBalancing() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SiteConfig) *string {
+func (o SiteConfigTypePtrOutput) LoadBalancing() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteConfigType) *string {
 		if v == nil {
 			return nil
 		}
@@ -9641,8 +9641,8 @@ func (o SiteConfigPtrOutput) LoadBalancing() pulumi.StringPtrOutput {
 }
 
 // Local mysql enabled
-func (o SiteConfigPtrOutput) LocalMySqlEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *SiteConfig) *bool {
+func (o SiteConfigTypePtrOutput) LocalMySqlEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SiteConfigType) *bool {
 		if v == nil {
 			return nil
 		}
@@ -9651,8 +9651,8 @@ func (o SiteConfigPtrOutput) LocalMySqlEnabled() pulumi.BoolPtrOutput {
 }
 
 // Resource Location
-func (o SiteConfigPtrOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SiteConfig) *string {
+func (o SiteConfigTypePtrOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteConfigType) *string {
 		if v == nil {
 			return nil
 		}
@@ -9661,8 +9661,8 @@ func (o SiteConfigPtrOutput) Location() pulumi.StringPtrOutput {
 }
 
 // HTTP Logs Directory size limit
-func (o SiteConfigPtrOutput) LogsDirectorySizeLimit() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SiteConfig) *int {
+func (o SiteConfigTypePtrOutput) LogsDirectorySizeLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SiteConfigType) *int {
 		if v == nil {
 			return nil
 		}
@@ -9671,8 +9671,8 @@ func (o SiteConfigPtrOutput) LogsDirectorySizeLimit() pulumi.IntPtrOutput {
 }
 
 // Managed pipeline mode
-func (o SiteConfigPtrOutput) ManagedPipelineMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SiteConfig) *string {
+func (o SiteConfigTypePtrOutput) ManagedPipelineMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteConfigType) *string {
 		if v == nil {
 			return nil
 		}
@@ -9681,8 +9681,8 @@ func (o SiteConfigPtrOutput) ManagedPipelineMode() pulumi.StringPtrOutput {
 }
 
 // Site Metadata
-func (o SiteConfigPtrOutput) Metadata() NameValuePairArrayOutput {
-	return o.ApplyT(func(v *SiteConfig) []NameValuePair {
+func (o SiteConfigTypePtrOutput) Metadata() NameValuePairArrayOutput {
+	return o.ApplyT(func(v *SiteConfigType) []NameValuePair {
 		if v == nil {
 			return nil
 		}
@@ -9691,8 +9691,8 @@ func (o SiteConfigPtrOutput) Metadata() NameValuePairArrayOutput {
 }
 
 // Resource Name
-func (o SiteConfigPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SiteConfig) *string {
+func (o SiteConfigTypePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteConfigType) *string {
 		if v == nil {
 			return nil
 		}
@@ -9701,8 +9701,8 @@ func (o SiteConfigPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 // Net Framework Version
-func (o SiteConfigPtrOutput) NetFrameworkVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SiteConfig) *string {
+func (o SiteConfigTypePtrOutput) NetFrameworkVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteConfigType) *string {
 		if v == nil {
 			return nil
 		}
@@ -9711,8 +9711,8 @@ func (o SiteConfigPtrOutput) NetFrameworkVersion() pulumi.StringPtrOutput {
 }
 
 // Version of Node
-func (o SiteConfigPtrOutput) NodeVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SiteConfig) *string {
+func (o SiteConfigTypePtrOutput) NodeVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteConfigType) *string {
 		if v == nil {
 			return nil
 		}
@@ -9721,8 +9721,8 @@ func (o SiteConfigPtrOutput) NodeVersion() pulumi.StringPtrOutput {
 }
 
 // Number of workers
-func (o SiteConfigPtrOutput) NumberOfWorkers() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SiteConfig) *int {
+func (o SiteConfigTypePtrOutput) NumberOfWorkers() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SiteConfigType) *int {
 		if v == nil {
 			return nil
 		}
@@ -9731,8 +9731,8 @@ func (o SiteConfigPtrOutput) NumberOfWorkers() pulumi.IntPtrOutput {
 }
 
 // Version of PHP
-func (o SiteConfigPtrOutput) PhpVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SiteConfig) *string {
+func (o SiteConfigTypePtrOutput) PhpVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteConfigType) *string {
 		if v == nil {
 			return nil
 		}
@@ -9741,8 +9741,8 @@ func (o SiteConfigPtrOutput) PhpVersion() pulumi.StringPtrOutput {
 }
 
 // Publishing password
-func (o SiteConfigPtrOutput) PublishingPassword() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SiteConfig) *string {
+func (o SiteConfigTypePtrOutput) PublishingPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteConfigType) *string {
 		if v == nil {
 			return nil
 		}
@@ -9751,8 +9751,8 @@ func (o SiteConfigPtrOutput) PublishingPassword() pulumi.StringPtrOutput {
 }
 
 // Publishing user name
-func (o SiteConfigPtrOutput) PublishingUsername() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SiteConfig) *string {
+func (o SiteConfigTypePtrOutput) PublishingUsername() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteConfigType) *string {
 		if v == nil {
 			return nil
 		}
@@ -9761,8 +9761,8 @@ func (o SiteConfigPtrOutput) PublishingUsername() pulumi.StringPtrOutput {
 }
 
 // Version of Python
-func (o SiteConfigPtrOutput) PythonVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SiteConfig) *string {
+func (o SiteConfigTypePtrOutput) PythonVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteConfigType) *string {
 		if v == nil {
 			return nil
 		}
@@ -9771,8 +9771,8 @@ func (o SiteConfigPtrOutput) PythonVersion() pulumi.StringPtrOutput {
 }
 
 // Remote Debugging Enabled
-func (o SiteConfigPtrOutput) RemoteDebuggingEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *SiteConfig) *bool {
+func (o SiteConfigTypePtrOutput) RemoteDebuggingEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SiteConfigType) *bool {
 		if v == nil {
 			return nil
 		}
@@ -9781,8 +9781,8 @@ func (o SiteConfigPtrOutput) RemoteDebuggingEnabled() pulumi.BoolPtrOutput {
 }
 
 // Remote Debugging Version
-func (o SiteConfigPtrOutput) RemoteDebuggingVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SiteConfig) *string {
+func (o SiteConfigTypePtrOutput) RemoteDebuggingVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteConfigType) *string {
 		if v == nil {
 			return nil
 		}
@@ -9791,8 +9791,8 @@ func (o SiteConfigPtrOutput) RemoteDebuggingVersion() pulumi.StringPtrOutput {
 }
 
 // Enable request tracing
-func (o SiteConfigPtrOutput) RequestTracingEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *SiteConfig) *bool {
+func (o SiteConfigTypePtrOutput) RequestTracingEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SiteConfigType) *bool {
 		if v == nil {
 			return nil
 		}
@@ -9801,8 +9801,8 @@ func (o SiteConfigPtrOutput) RequestTracingEnabled() pulumi.BoolPtrOutput {
 }
 
 // Request tracing expiration time
-func (o SiteConfigPtrOutput) RequestTracingExpirationTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SiteConfig) *string {
+func (o SiteConfigTypePtrOutput) RequestTracingExpirationTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteConfigType) *string {
 		if v == nil {
 			return nil
 		}
@@ -9811,8 +9811,8 @@ func (o SiteConfigPtrOutput) RequestTracingExpirationTime() pulumi.StringPtrOutp
 }
 
 // SCM type
-func (o SiteConfigPtrOutput) ScmType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SiteConfig) *string {
+func (o SiteConfigTypePtrOutput) ScmType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteConfigType) *string {
 		if v == nil {
 			return nil
 		}
@@ -9821,8 +9821,8 @@ func (o SiteConfigPtrOutput) ScmType() pulumi.StringPtrOutput {
 }
 
 // Resource tags
-func (o SiteConfigPtrOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *SiteConfig) map[string]string {
+func (o SiteConfigTypePtrOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *SiteConfigType) map[string]string {
 		if v == nil {
 			return nil
 		}
@@ -9831,8 +9831,8 @@ func (o SiteConfigPtrOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Tracing options
-func (o SiteConfigPtrOutput) TracingOptions() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SiteConfig) *string {
+func (o SiteConfigTypePtrOutput) TracingOptions() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteConfigType) *string {
 		if v == nil {
 			return nil
 		}
@@ -9841,8 +9841,8 @@ func (o SiteConfigPtrOutput) TracingOptions() pulumi.StringPtrOutput {
 }
 
 // Resource type
-func (o SiteConfigPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SiteConfig) *string {
+func (o SiteConfigTypePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteConfigType) *string {
 		if v == nil {
 			return nil
 		}
@@ -9851,8 +9851,8 @@ func (o SiteConfigPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 // Use 32 bit worker process
-func (o SiteConfigPtrOutput) Use32BitWorkerProcess() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *SiteConfig) *bool {
+func (o SiteConfigTypePtrOutput) Use32BitWorkerProcess() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SiteConfigType) *bool {
 		if v == nil {
 			return nil
 		}
@@ -9861,8 +9861,8 @@ func (o SiteConfigPtrOutput) Use32BitWorkerProcess() pulumi.BoolPtrOutput {
 }
 
 // Virtual applications
-func (o SiteConfigPtrOutput) VirtualApplications() VirtualApplicationArrayOutput {
-	return o.ApplyT(func(v *SiteConfig) []VirtualApplication {
+func (o SiteConfigTypePtrOutput) VirtualApplications() VirtualApplicationArrayOutput {
+	return o.ApplyT(func(v *SiteConfigType) []VirtualApplication {
 		if v == nil {
 			return nil
 		}
@@ -9871,8 +9871,8 @@ func (o SiteConfigPtrOutput) VirtualApplications() VirtualApplicationArrayOutput
 }
 
 // Vnet name
-func (o SiteConfigPtrOutput) VnetName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SiteConfig) *string {
+func (o SiteConfigTypePtrOutput) VnetName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteConfigType) *string {
 		if v == nil {
 			return nil
 		}
@@ -9881,8 +9881,8 @@ func (o SiteConfigPtrOutput) VnetName() pulumi.StringPtrOutput {
 }
 
 // Web socket enabled.
-func (o SiteConfigPtrOutput) WebSocketsEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *SiteConfig) *bool {
+func (o SiteConfigTypePtrOutput) WebSocketsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SiteConfigType) *bool {
 		if v == nil {
 			return nil
 		}
@@ -14635,8 +14635,8 @@ func init() {
 	pulumi.RegisterOutputType(RequestsBasedTriggerPtrOutput{})
 	pulumi.RegisterOutputType(RequestsBasedTriggerResponseOutput{})
 	pulumi.RegisterOutputType(RequestsBasedTriggerResponsePtrOutput{})
-	pulumi.RegisterOutputType(SiteConfigOutput{})
-	pulumi.RegisterOutputType(SiteConfigPtrOutput{})
+	pulumi.RegisterOutputType(SiteConfigTypeOutput{})
+	pulumi.RegisterOutputType(SiteConfigTypePtrOutput{})
 	pulumi.RegisterOutputType(SiteConfigResponseOutput{})
 	pulumi.RegisterOutputType(SiteConfigResponsePtrOutput{})
 	pulumi.RegisterOutputType(SiteLimitsOutput{})

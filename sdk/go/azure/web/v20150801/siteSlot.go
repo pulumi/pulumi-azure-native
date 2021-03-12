@@ -372,7 +372,7 @@ type siteSlotArgs struct {
 	ScmSiteAlsoStopped *bool   `pulumi:"scmSiteAlsoStopped"`
 	ServerFarmId       *string `pulumi:"serverFarmId"`
 	// Configuration of web app
-	SiteConfig *SiteConfig `pulumi:"siteConfig"`
+	SiteConfig *SiteConfigType `pulumi:"siteConfig"`
 	// If true, custom (non *.azurewebsites.net) domains associated with web app are not verified.
 	SkipCustomDomainVerification *string `pulumi:"skipCustomDomainVerification"`
 	// If true web app hostname is not registered with DNS on creation. This parameter is
@@ -430,7 +430,7 @@ type SiteSlotArgs struct {
 	ScmSiteAlsoStopped pulumi.BoolPtrInput
 	ServerFarmId       pulumi.StringPtrInput
 	// Configuration of web app
-	SiteConfig SiteConfigPtrInput
+	SiteConfig SiteConfigTypePtrInput
 	// If true, custom (non *.azurewebsites.net) domains associated with web app are not verified.
 	SkipCustomDomainVerification pulumi.StringPtrInput
 	// If true web app hostname is not registered with DNS on creation. This parameter is
