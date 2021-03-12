@@ -115,6 +115,13 @@ const appService = new web.WebApp("app", {
     },
 });
 
+// Deletion doesn't work due to https://github.com/Azure/azure-rest-api-specs/issues/13401
+// new web.WebAppConfiguration("config", {
+//     resourceGroupName: resourceGroup.name,
+//     name: appService.name,
+//     alwaysOn: true,
+// });
+
 new web.WebAppSlotConfigurationNames("names", {
     resourceGroupName: resourceGroup.name,
     name: appService.name,
