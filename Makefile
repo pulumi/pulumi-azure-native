@@ -29,7 +29,6 @@ update_submodules:: init_submodules
 	az provider list >> ./azure-provider-versions/provider_list.json
 
 ensure:: init_submodules
-	@echo "GO111MODULE=on go mod tidy"; cd provider; GO111MODULE=on go mod tidy
 	@echo "GO111MODULE=on go mod download"; cd provider; GO111MODULE=on go mod download
 
 local_generate_code:: clean
