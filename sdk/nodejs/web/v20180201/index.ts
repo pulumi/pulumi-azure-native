@@ -13,6 +13,7 @@ export * from "./getAppServiceEnvironment";
 export * from "./getAppServicePlan";
 export * from "./getCertificate";
 export * from "./getWebApp";
+export * from "./getWebAppConfiguration";
 export * from "./getWebAppDeployment";
 export * from "./getWebAppDeploymentSlot";
 export * from "./getWebAppDiagnosticLogsConfiguration";
@@ -79,6 +80,7 @@ export * from "./webAppAzureStorageAccounts";
 export * from "./webAppAzureStorageAccountsSlot";
 export * from "./webAppBackupConfiguration";
 export * from "./webAppBackupConfigurationSlot";
+export * from "./webAppConfiguration";
 export * from "./webAppConnectionStrings";
 export * from "./webAppConnectionStringsSlot";
 export * from "./webAppDeployment";
@@ -130,6 +132,7 @@ import { WebAppAzureStorageAccounts } from "./webAppAzureStorageAccounts";
 import { WebAppAzureStorageAccountsSlot } from "./webAppAzureStorageAccountsSlot";
 import { WebAppBackupConfiguration } from "./webAppBackupConfiguration";
 import { WebAppBackupConfigurationSlot } from "./webAppBackupConfigurationSlot";
+import { WebAppConfiguration } from "./webAppConfiguration";
 import { WebAppConnectionStrings } from "./webAppConnectionStrings";
 import { WebAppConnectionStringsSlot } from "./webAppConnectionStringsSlot";
 import { WebAppDeployment } from "./webAppDeployment";
@@ -194,6 +197,8 @@ const _module = {
                 return new WebAppBackupConfiguration(name, <any>undefined, { urn })
             case "azure-native:web/v20180201:WebAppBackupConfigurationSlot":
                 return new WebAppBackupConfigurationSlot(name, <any>undefined, { urn })
+            case "azure-native:web/v20180201:WebAppConfiguration":
+                return new WebAppConfiguration(name, <any>undefined, { urn })
             case "azure-native:web/v20180201:WebAppConnectionStrings":
                 return new WebAppConnectionStrings(name, <any>undefined, { urn })
             case "azure-native:web/v20180201:WebAppConnectionStringsSlot":

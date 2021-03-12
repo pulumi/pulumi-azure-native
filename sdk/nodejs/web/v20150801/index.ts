@@ -13,6 +13,7 @@ export * from "./getHostingEnvironment";
 export * from "./getManagedHostingEnvironment";
 export * from "./getServerFarm";
 export * from "./getSite";
+export * from "./getSiteConfig";
 export * from "./getSiteDeployment";
 export * from "./getSiteDeploymentSlot";
 export * from "./getSiteHostNameBinding";
@@ -53,6 +54,7 @@ export * from "./siteAuthSettings";
 export * from "./siteAuthSettingsSlot";
 export * from "./siteBackupConfiguration";
 export * from "./siteBackupConfigurationSlot";
+export * from "./siteConfig";
 export * from "./siteConnectionStrings";
 export * from "./siteConnectionStringsSlot";
 export * from "./siteDeployment";
@@ -90,6 +92,7 @@ import { SiteAuthSettings } from "./siteAuthSettings";
 import { SiteAuthSettingsSlot } from "./siteAuthSettingsSlot";
 import { SiteBackupConfiguration } from "./siteBackupConfiguration";
 import { SiteBackupConfigurationSlot } from "./siteBackupConfigurationSlot";
+import { SiteConfig } from "./siteConfig";
 import { SiteConnectionStrings } from "./siteConnectionStrings";
 import { SiteConnectionStringsSlot } from "./siteConnectionStringsSlot";
 import { SiteDeployment } from "./siteDeployment";
@@ -140,6 +143,8 @@ const _module = {
                 return new SiteBackupConfiguration(name, <any>undefined, { urn })
             case "azure-native:web/v20150801:SiteBackupConfigurationSlot":
                 return new SiteBackupConfigurationSlot(name, <any>undefined, { urn })
+            case "azure-native:web/v20150801:SiteConfig":
+                return new SiteConfig(name, <any>undefined, { urn })
             case "azure-native:web/v20150801:SiteConnectionStrings":
                 return new SiteConnectionStrings(name, <any>undefined, { urn })
             case "azure-native:web/v20150801:SiteConnectionStringsSlot":

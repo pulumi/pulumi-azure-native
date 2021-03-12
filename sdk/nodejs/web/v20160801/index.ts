@@ -6,6 +6,7 @@ import * as utilities from "../../utilities";
 
 // Export members:
 export * from "./getWebApp";
+export * from "./getWebAppConfiguration";
 export * from "./getWebAppDeployment";
 export * from "./getWebAppDeploymentSlot";
 export * from "./getWebAppDiagnosticLogsConfiguration";
@@ -60,6 +61,7 @@ export * from "./webAppAuthSettings";
 export * from "./webAppAuthSettingsSlot";
 export * from "./webAppBackupConfiguration";
 export * from "./webAppBackupConfigurationSlot";
+export * from "./webAppConfiguration";
 export * from "./webAppConnectionStrings";
 export * from "./webAppConnectionStringsSlot";
 export * from "./webAppDeployment";
@@ -103,6 +105,7 @@ import { WebAppAuthSettings } from "./webAppAuthSettings";
 import { WebAppAuthSettingsSlot } from "./webAppAuthSettingsSlot";
 import { WebAppBackupConfiguration } from "./webAppBackupConfiguration";
 import { WebAppBackupConfigurationSlot } from "./webAppBackupConfigurationSlot";
+import { WebAppConfiguration } from "./webAppConfiguration";
 import { WebAppConnectionStrings } from "./webAppConnectionStrings";
 import { WebAppConnectionStringsSlot } from "./webAppConnectionStringsSlot";
 import { WebAppDeployment } from "./webAppDeployment";
@@ -153,6 +156,8 @@ const _module = {
                 return new WebAppBackupConfiguration(name, <any>undefined, { urn })
             case "azure-native:web/v20160801:WebAppBackupConfigurationSlot":
                 return new WebAppBackupConfigurationSlot(name, <any>undefined, { urn })
+            case "azure-native:web/v20160801:WebAppConfiguration":
+                return new WebAppConfiguration(name, <any>undefined, { urn })
             case "azure-native:web/v20160801:WebAppConnectionStrings":
                 return new WebAppConnectionStrings(name, <any>undefined, { urn })
             case "azure-native:web/v20160801:WebAppConnectionStringsSlot":
