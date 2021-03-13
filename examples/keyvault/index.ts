@@ -91,15 +91,6 @@ const key = new keyvault.Key("mykey", {
     vaultName: vault.name,
     properties: {
         kty: "RSA",
-        keySize: 2048,
-        keyOps: [
-            "decrypt",
-            "encrypt",
-            "sign",
-            "unwrapKey",
-            "verify",
-            "wrapKey",
-        ],
     },
 });
 
