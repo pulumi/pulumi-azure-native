@@ -74,6 +74,8 @@ namespace Pulumi.AzureNative.EventHub
                     new Pulumi.Alias { Type = "azure-nextgen:eventhub:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:eventhub/v20180101preview:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventhub/v20180101preview:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:eventhub/v20210101preview:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:eventhub/v20210101preview:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

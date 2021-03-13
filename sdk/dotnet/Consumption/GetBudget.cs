@@ -64,6 +64,10 @@ namespace Pulumi.AzureNative.Consumption
         /// </summary>
         public readonly Outputs.BudgetFilterResponse? Filter;
         /// <summary>
+        /// The forecasted cost which is being tracked for a budget.
+        /// </summary>
+        public readonly Outputs.ForecastSpendResponse ForecastSpend;
+        /// <summary>
         /// Resource Id.
         /// </summary>
         public readonly string Id;
@@ -100,6 +104,8 @@ namespace Pulumi.AzureNative.Consumption
 
             Outputs.BudgetFilterResponse? filter,
 
+            Outputs.ForecastSpendResponse forecastSpend,
+
             string id,
 
             string name,
@@ -117,6 +123,7 @@ namespace Pulumi.AzureNative.Consumption
             CurrentSpend = currentSpend;
             ETag = eTag;
             Filter = filter;
+            ForecastSpend = forecastSpend;
             Id = id;
             Name = name;
             Notifications = notifications;

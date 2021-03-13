@@ -61,6 +61,9 @@ func NewRoleAssignment(ctx *pulumi.Context,
 	if args.Scope == nil {
 		return nil, errors.New("invalid value for required argument 'Scope'")
 	}
+	if args.PrincipalType == nil {
+		args.PrincipalType = pulumi.StringPtr("User")
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:authorization/v20200301preview:RoleAssignment"),

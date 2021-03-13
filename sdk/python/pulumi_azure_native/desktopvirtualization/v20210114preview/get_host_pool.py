@@ -20,16 +20,22 @@ class GetHostPoolResult:
     """
     Represents a HostPool definition.
     """
-    def __init__(__self__, application_group_references=None, custom_rdp_property=None, description=None, friendly_name=None, host_pool_type=None, id=None, load_balancer_type=None, location=None, max_session_limit=None, name=None, personal_desktop_assignment_type=None, preferred_app_group_type=None, registration_info=None, ring=None, sso_client_id=None, sso_client_secret_key_vault_path=None, sso_secret_type=None, ssoadfs_authority=None, start_vm_on_connect=None, tags=None, type=None, validation_environment=None, vm_template=None):
+    def __init__(__self__, application_group_references=None, cloud_pc_resource=None, custom_rdp_property=None, description=None, etag=None, friendly_name=None, host_pool_type=None, id=None, identity=None, kind=None, load_balancer_type=None, location=None, managed_by=None, max_session_limit=None, migration_request=None, name=None, object_id=None, personal_desktop_assignment_type=None, plan=None, preferred_app_group_type=None, registration_info=None, ring=None, sku=None, sso_client_id=None, sso_client_secret_key_vault_path=None, sso_secret_type=None, ssoadfs_authority=None, start_vm_on_connect=None, tags=None, type=None, validation_environment=None, vm_template=None):
         if application_group_references and not isinstance(application_group_references, list):
             raise TypeError("Expected argument 'application_group_references' to be a list")
         pulumi.set(__self__, "application_group_references", application_group_references)
+        if cloud_pc_resource and not isinstance(cloud_pc_resource, bool):
+            raise TypeError("Expected argument 'cloud_pc_resource' to be a bool")
+        pulumi.set(__self__, "cloud_pc_resource", cloud_pc_resource)
         if custom_rdp_property and not isinstance(custom_rdp_property, str):
             raise TypeError("Expected argument 'custom_rdp_property' to be a str")
         pulumi.set(__self__, "custom_rdp_property", custom_rdp_property)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if etag and not isinstance(etag, str):
+            raise TypeError("Expected argument 'etag' to be a str")
+        pulumi.set(__self__, "etag", etag)
         if friendly_name and not isinstance(friendly_name, str):
             raise TypeError("Expected argument 'friendly_name' to be a str")
         pulumi.set(__self__, "friendly_name", friendly_name)
@@ -39,21 +45,39 @@ class GetHostPoolResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if identity and not isinstance(identity, dict):
+            raise TypeError("Expected argument 'identity' to be a dict")
+        pulumi.set(__self__, "identity", identity)
+        if kind and not isinstance(kind, str):
+            raise TypeError("Expected argument 'kind' to be a str")
+        pulumi.set(__self__, "kind", kind)
         if load_balancer_type and not isinstance(load_balancer_type, str):
             raise TypeError("Expected argument 'load_balancer_type' to be a str")
         pulumi.set(__self__, "load_balancer_type", load_balancer_type)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
+        if managed_by and not isinstance(managed_by, str):
+            raise TypeError("Expected argument 'managed_by' to be a str")
+        pulumi.set(__self__, "managed_by", managed_by)
         if max_session_limit and not isinstance(max_session_limit, int):
             raise TypeError("Expected argument 'max_session_limit' to be a int")
         pulumi.set(__self__, "max_session_limit", max_session_limit)
+        if migration_request and not isinstance(migration_request, dict):
+            raise TypeError("Expected argument 'migration_request' to be a dict")
+        pulumi.set(__self__, "migration_request", migration_request)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if object_id and not isinstance(object_id, str):
+            raise TypeError("Expected argument 'object_id' to be a str")
+        pulumi.set(__self__, "object_id", object_id)
         if personal_desktop_assignment_type and not isinstance(personal_desktop_assignment_type, str):
             raise TypeError("Expected argument 'personal_desktop_assignment_type' to be a str")
         pulumi.set(__self__, "personal_desktop_assignment_type", personal_desktop_assignment_type)
+        if plan and not isinstance(plan, dict):
+            raise TypeError("Expected argument 'plan' to be a dict")
+        pulumi.set(__self__, "plan", plan)
         if preferred_app_group_type and not isinstance(preferred_app_group_type, str):
             raise TypeError("Expected argument 'preferred_app_group_type' to be a str")
         pulumi.set(__self__, "preferred_app_group_type", preferred_app_group_type)
@@ -63,6 +87,9 @@ class GetHostPoolResult:
         if ring and not isinstance(ring, int):
             raise TypeError("Expected argument 'ring' to be a int")
         pulumi.set(__self__, "ring", ring)
+        if sku and not isinstance(sku, dict):
+            raise TypeError("Expected argument 'sku' to be a dict")
+        pulumi.set(__self__, "sku", sku)
         if sso_client_id and not isinstance(sso_client_id, str):
             raise TypeError("Expected argument 'sso_client_id' to be a str")
         pulumi.set(__self__, "sso_client_id", sso_client_id)
@@ -100,6 +127,14 @@ class GetHostPoolResult:
         return pulumi.get(self, "application_group_references")
 
     @property
+    @pulumi.getter(name="cloudPcResource")
+    def cloud_pc_resource(self) -> bool:
+        """
+        Is cloud pc resource.
+        """
+        return pulumi.get(self, "cloud_pc_resource")
+
+    @property
     @pulumi.getter(name="customRdpProperty")
     def custom_rdp_property(self) -> Optional[str]:
         """
@@ -114,6 +149,14 @@ class GetHostPoolResult:
         Description of HostPool.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields. 
+        """
+        return pulumi.get(self, "etag")
 
     @property
     @pulumi.getter(name="friendlyName")
@@ -140,6 +183,19 @@ class GetHostPoolResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.ResourceModelWithAllowedPropertySetResponseIdentity']:
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[str]:
+        """
+        Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
     @pulumi.getter(name="loadBalancerType")
     def load_balancer_type(self) -> str:
         """
@@ -149,11 +205,19 @@ class GetHostPoolResult:
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> Optional[str]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="managedBy")
+    def managed_by(self) -> Optional[str]:
+        """
+        The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
+        """
+        return pulumi.get(self, "managed_by")
 
     @property
     @pulumi.getter(name="maxSessionLimit")
@@ -164,6 +228,14 @@ class GetHostPoolResult:
         return pulumi.get(self, "max_session_limit")
 
     @property
+    @pulumi.getter(name="migrationRequest")
+    def migration_request(self) -> Optional['outputs.MigrationRequestPropertiesResponse']:
+        """
+        The registration info of HostPool.
+        """
+        return pulumi.get(self, "migration_request")
+
+    @property
     @pulumi.getter
     def name(self) -> str:
         """
@@ -172,12 +244,25 @@ class GetHostPoolResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="objectId")
+    def object_id(self) -> str:
+        """
+        ObjectId of HostPool. (internal use)
+        """
+        return pulumi.get(self, "object_id")
+
+    @property
     @pulumi.getter(name="personalDesktopAssignmentType")
     def personal_desktop_assignment_type(self) -> Optional[str]:
         """
         PersonalDesktopAssignment type for HostPool.
         """
         return pulumi.get(self, "personal_desktop_assignment_type")
+
+    @property
+    @pulumi.getter
+    def plan(self) -> Optional['outputs.ResourceModelWithAllowedPropertySetResponsePlan']:
+        return pulumi.get(self, "plan")
 
     @property
     @pulumi.getter(name="preferredAppGroupType")
@@ -202,6 +287,11 @@ class GetHostPoolResult:
         The ring number of HostPool.
         """
         return pulumi.get(self, "ring")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional['outputs.ResourceModelWithAllowedPropertySetResponseSku']:
+        return pulumi.get(self, "sku")
 
     @property
     @pulumi.getter(name="ssoClientId")
@@ -283,19 +373,28 @@ class AwaitableGetHostPoolResult(GetHostPoolResult):
             yield self
         return GetHostPoolResult(
             application_group_references=self.application_group_references,
+            cloud_pc_resource=self.cloud_pc_resource,
             custom_rdp_property=self.custom_rdp_property,
             description=self.description,
+            etag=self.etag,
             friendly_name=self.friendly_name,
             host_pool_type=self.host_pool_type,
             id=self.id,
+            identity=self.identity,
+            kind=self.kind,
             load_balancer_type=self.load_balancer_type,
             location=self.location,
+            managed_by=self.managed_by,
             max_session_limit=self.max_session_limit,
+            migration_request=self.migration_request,
             name=self.name,
+            object_id=self.object_id,
             personal_desktop_assignment_type=self.personal_desktop_assignment_type,
+            plan=self.plan,
             preferred_app_group_type=self.preferred_app_group_type,
             registration_info=self.registration_info,
             ring=self.ring,
+            sku=self.sku,
             sso_client_id=self.sso_client_id,
             sso_client_secret_key_vault_path=self.sso_client_secret_key_vault_path,
             sso_secret_type=self.sso_secret_type,
@@ -328,19 +427,28 @@ def get_host_pool(host_pool_name: Optional[str] = None,
 
     return AwaitableGetHostPoolResult(
         application_group_references=__ret__.application_group_references,
+        cloud_pc_resource=__ret__.cloud_pc_resource,
         custom_rdp_property=__ret__.custom_rdp_property,
         description=__ret__.description,
+        etag=__ret__.etag,
         friendly_name=__ret__.friendly_name,
         host_pool_type=__ret__.host_pool_type,
         id=__ret__.id,
+        identity=__ret__.identity,
+        kind=__ret__.kind,
         load_balancer_type=__ret__.load_balancer_type,
         location=__ret__.location,
+        managed_by=__ret__.managed_by,
         max_session_limit=__ret__.max_session_limit,
+        migration_request=__ret__.migration_request,
         name=__ret__.name,
+        object_id=__ret__.object_id,
         personal_desktop_assignment_type=__ret__.personal_desktop_assignment_type,
+        plan=__ret__.plan,
         preferred_app_group_type=__ret__.preferred_app_group_type,
         registration_info=__ret__.registration_info,
         ring=__ret__.ring,
+        sku=__ret__.sku,
         sso_client_id=__ret__.sso_client_id,
         sso_client_secret_key_vault_path=__ret__.sso_client_secret_key_vault_path,
         sso_secret_type=__ret__.sso_secret_type,

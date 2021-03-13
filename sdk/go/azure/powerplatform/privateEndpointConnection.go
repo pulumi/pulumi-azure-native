@@ -16,8 +16,6 @@ import (
 type PrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 
-	// Region where the EnterprisePolicy is located.
-	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The resource of private end point.
@@ -26,7 +24,7 @@ type PrivateEndpointConnection struct {
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponseOutput `pulumi:"privateLinkServiceConnectionState"`
 	// The provisioning state of the private endpoint connection resource.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Metadata for the private endpoint connection.
+	// Metadata pertaining to creation and last modification of the resource.
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
@@ -82,8 +80,6 @@ func GetPrivateEndpointConnection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PrivateEndpointConnection resources.
 type privateEndpointConnectionState struct {
-	// Region where the EnterprisePolicy is located.
-	Location *string `pulumi:"location"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
 	// The resource of private end point.
@@ -92,15 +88,13 @@ type privateEndpointConnectionState struct {
 	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
 	// The provisioning state of the private endpoint connection resource.
 	ProvisioningState *string `pulumi:"provisioningState"`
-	// Metadata for the private endpoint connection.
+	// Metadata pertaining to creation and last modification of the resource.
 	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
 
 type PrivateEndpointConnectionState struct {
-	// Region where the EnterprisePolicy is located.
-	Location pulumi.StringPtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
 	// The resource of private end point.
@@ -109,7 +103,7 @@ type PrivateEndpointConnectionState struct {
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponsePtrInput
 	// The provisioning state of the private endpoint connection resource.
 	ProvisioningState pulumi.StringPtrInput
-	// Metadata for the private endpoint connection.
+	// Metadata pertaining to creation and last modification of the resource.
 	SystemData SystemDataResponsePtrInput
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput

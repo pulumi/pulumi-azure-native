@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from ._enums import *
 from .get_iot_defender_setting import *
 from .get_iot_sensor import *
 from .get_iot_site import *

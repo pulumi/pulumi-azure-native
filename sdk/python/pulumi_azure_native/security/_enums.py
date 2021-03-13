@@ -26,6 +26,7 @@ __all__ = [
     'Roles',
     'RuleState',
     'SecuritySolutionStatus',
+    'SensorType',
     'Severity',
     'Source',
     'State',
@@ -235,6 +236,14 @@ class SecuritySolutionStatus(str, Enum):
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
+
+
+class SensorType(str, Enum):
+    """
+    Type of sensor
+    """
+    OT = "Ot"
+    ENTERPRISE = "Enterprise"
 
 
 class Severity(str, Enum):

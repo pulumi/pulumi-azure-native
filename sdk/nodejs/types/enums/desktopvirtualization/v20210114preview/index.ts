@@ -24,12 +24,22 @@ export const CommandLineSetting = {
 export type CommandLineSetting = (typeof CommandLineSetting)[keyof typeof CommandLineSetting];
 
 export const HostPoolType = {
+    /**
+     * Users will be assigned a SessionHost either by administrators (PersonalDesktopAssignmentType = Direct) or upon connecting to the pool (PersonalDesktopAssignmentType = Automatic). They will always be redirected to their assigned SessionHost.
+     */
     Personal: "Personal",
+    /**
+     * Users get a new (random) SessionHost every time it connects to the HostPool.
+     */
     Pooled: "Pooled",
+    /**
+     * Users assign their own machines, load balancing logic remains the same as Personal. PersonalDesktopAssignmentType must be Direct.
+     */
+    BYODesktop: "BYODesktop",
 } as const;
 
 /**
- * HostPool type for scaling plan.
+ * HostPool type for desktop.
  */
 export type HostPoolType = (typeof HostPoolType)[keyof typeof HostPoolType];
 
@@ -43,6 +53,34 @@ export const LoadBalancerType = {
  * The type of the load balancer.
  */
 export type LoadBalancerType = (typeof LoadBalancerType)[keyof typeof LoadBalancerType];
+
+export const Operation = {
+    /**
+     * Start the migration.
+     */
+    Start: "Start",
+    /**
+     * Revoke the migration.
+     */
+    Revoke: "Revoke",
+    /**
+     * Complete the migration.
+     */
+    Complete: "Complete",
+    /**
+     * Hide the hostpool.
+     */
+    Hide: "Hide",
+    /**
+     * Unhide the hostpool.
+     */
+    Unhide: "Unhide",
+} as const;
+
+/**
+ * The type of operation for migration.
+ */
+export type Operation = (typeof Operation)[keyof typeof Operation];
 
 export const PersonalDesktopAssignmentType = {
     Automatic: "Automatic",
@@ -86,6 +124,15 @@ export const RemoteApplicationType = {
  */
 export type RemoteApplicationType = (typeof RemoteApplicationType)[keyof typeof RemoteApplicationType];
 
+export const ResourceIdentityType = {
+    SystemAssigned: "SystemAssigned",
+} as const;
+
+/**
+ * The identity type.
+ */
+export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
+
 export const SSOSecretType = {
     SharedKey: "SharedKey",
     Certificate: "Certificate",
@@ -107,6 +154,18 @@ export const SessionHostLoadBalancingAlgorithm = {
  * Load balancing algorithm for ramp up period.
  */
 export type SessionHostLoadBalancingAlgorithm = (typeof SessionHostLoadBalancingAlgorithm)[keyof typeof SessionHostLoadBalancingAlgorithm];
+
+export const SkuTier = {
+    Free: "Free",
+    Basic: "Basic",
+    Standard: "Standard",
+    Premium: "Premium",
+} as const;
+
+/**
+ * This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+ */
+export type SkuTier = (typeof SkuTier)[keyof typeof SkuTier];
 
 export const StopHostsWhen = {
     ZeroSessions: "ZeroSessions",

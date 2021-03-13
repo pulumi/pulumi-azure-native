@@ -115,42 +115,6 @@ namespace Pulumi.AzureNative.KeyVault.Latest
     }
 
     /// <summary>
-    /// The permitted JSON web key operations of the key. For more information, see JsonWebKeyOperation.
-    /// </summary>
-    [EnumType]
-    public readonly struct JsonWebKeyOperation : IEquatable<JsonWebKeyOperation>
-    {
-        private readonly string _value;
-
-        private JsonWebKeyOperation(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static JsonWebKeyOperation Encrypt { get; } = new JsonWebKeyOperation("encrypt");
-        public static JsonWebKeyOperation Decrypt { get; } = new JsonWebKeyOperation("decrypt");
-        public static JsonWebKeyOperation Sign { get; } = new JsonWebKeyOperation("sign");
-        public static JsonWebKeyOperation Verify { get; } = new JsonWebKeyOperation("verify");
-        public static JsonWebKeyOperation WrapKey { get; } = new JsonWebKeyOperation("wrapKey");
-        public static JsonWebKeyOperation UnwrapKey { get; } = new JsonWebKeyOperation("unwrapKey");
-        public static JsonWebKeyOperation Import { get; } = new JsonWebKeyOperation("import");
-
-        public static bool operator ==(JsonWebKeyOperation left, JsonWebKeyOperation right) => left.Equals(right);
-        public static bool operator !=(JsonWebKeyOperation left, JsonWebKeyOperation right) => !left.Equals(right);
-
-        public static explicit operator string(JsonWebKeyOperation value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is JsonWebKeyOperation other && Equals(other);
-        public bool Equals(JsonWebKeyOperation other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// The type of the key. For valid values, see JsonWebKeyType.
     /// </summary>
     [EnumType]

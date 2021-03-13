@@ -36,10 +36,6 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
     }
 
     /**
-     * Region where the EnterprisePolicy is located.
-     */
-    public /*out*/ readonly location!: pulumi.Output<string>;
-    /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
@@ -56,7 +52,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * Metadata for the private endpoint connection.
+     * Metadata pertaining to creation and last modification of the resource.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.powerplatform.v20201030preview.SystemDataResponse>;
     /**
@@ -88,14 +84,12 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
             inputs["privateEndpointConnectionName"] = args ? args.privateEndpointConnectionName : undefined;
             inputs["privateLinkServiceConnectionState"] = args ? args.privateLinkServiceConnectionState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["privateEndpoint"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
-            inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["privateEndpoint"] = undefined /*out*/;
             inputs["privateLinkServiceConnectionState"] = undefined /*out*/;

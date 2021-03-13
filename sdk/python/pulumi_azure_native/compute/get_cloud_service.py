@@ -108,7 +108,7 @@ def get_cloud_service(cloud_service_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCloudServiceResult:
     """
     Describes the cloud service.
-    API Version: 2020-10-01-preview.
+    API Version: 2021-03-01.
 
 
     :param str cloud_service_name: Name of the cloud service.

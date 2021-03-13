@@ -29,32 +29,47 @@ type LookupHostPoolArgs struct {
 type LookupHostPoolResult struct {
 	// List of applicationGroup links.
 	ApplicationGroupReferences []string `pulumi:"applicationGroupReferences"`
+	// Is cloud pc resource.
+	CloudPcResource bool `pulumi:"cloudPcResource"`
 	// Custom rdp property of HostPool.
 	CustomRdpProperty *string `pulumi:"customRdpProperty"`
 	// Description of HostPool.
 	Description *string `pulumi:"description"`
+	// The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.
+	Etag string `pulumi:"etag"`
 	// Friendly name of HostPool.
 	FriendlyName *string `pulumi:"friendlyName"`
 	// HostPool type for desktop.
 	HostPoolType string `pulumi:"hostPoolType"`
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
+	Id       string                                               `pulumi:"id"`
+	Identity *ResourceModelWithAllowedPropertySetResponseIdentity `pulumi:"identity"`
+	// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+	Kind *string `pulumi:"kind"`
 	// The type of the load balancer.
 	LoadBalancerType string `pulumi:"loadBalancerType"`
 	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
+	Location *string `pulumi:"location"`
+	// The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
+	ManagedBy *string `pulumi:"managedBy"`
 	// The max session limit of HostPool.
 	MaxSessionLimit *int `pulumi:"maxSessionLimit"`
+	// The registration info of HostPool.
+	MigrationRequest *MigrationRequestPropertiesResponse `pulumi:"migrationRequest"`
 	// The name of the resource
 	Name string `pulumi:"name"`
+	// ObjectId of HostPool. (internal use)
+	ObjectId string `pulumi:"objectId"`
 	// PersonalDesktopAssignment type for HostPool.
-	PersonalDesktopAssignmentType *string `pulumi:"personalDesktopAssignmentType"`
+	PersonalDesktopAssignmentType *string                                          `pulumi:"personalDesktopAssignmentType"`
+	Plan                          *ResourceModelWithAllowedPropertySetResponsePlan `pulumi:"plan"`
 	// The type of preferred application group type, default to Desktop Application Group
 	PreferredAppGroupType string `pulumi:"preferredAppGroupType"`
 	// The registration info of HostPool.
 	RegistrationInfo *RegistrationInfoResponse `pulumi:"registrationInfo"`
 	// The ring number of HostPool.
-	Ring *int `pulumi:"ring"`
+	Ring *int                                            `pulumi:"ring"`
+	Sku  *ResourceModelWithAllowedPropertySetResponseSku `pulumi:"sku"`
 	// ClientId for the registered Relying Party used to issue WVD SSO certificates.
 	SsoClientId *string `pulumi:"ssoClientId"`
 	// Path to Azure KeyVault storing the secret used for communication to ADFS.

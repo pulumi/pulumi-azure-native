@@ -99,6 +99,10 @@ export interface GetApplicationResult {
      */
     readonly name: string;
     /**
+     * ObjectId of Application. (internal use)
+     */
+    readonly objectId: string;
+    /**
      * Specifies whether to show the RemoteApp program in the RD Web Access server.
      */
     readonly showInPortal?: boolean;

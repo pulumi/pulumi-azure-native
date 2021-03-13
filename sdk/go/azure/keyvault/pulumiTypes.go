@@ -870,10 +870,7 @@ type KeyProperties struct {
 	// The attributes of the key.
 	Attributes *KeyAttributes `pulumi:"attributes"`
 	// The elliptic curve name. For valid values, see JsonWebKeyCurveName.
-	CurveName *string  `pulumi:"curveName"`
-	KeyOps    []string `pulumi:"keyOps"`
-	// The key size in bits. For example: 2048, 3072, or 4096 for RSA.
-	KeySize *int `pulumi:"keySize"`
+	CurveName *string `pulumi:"curveName"`
 	// The type of the key. For valid values, see JsonWebKeyType.
 	Kty *string `pulumi:"kty"`
 }
@@ -894,10 +891,7 @@ type KeyPropertiesArgs struct {
 	// The attributes of the key.
 	Attributes KeyAttributesPtrInput `pulumi:"attributes"`
 	// The elliptic curve name. For valid values, see JsonWebKeyCurveName.
-	CurveName pulumi.StringPtrInput   `pulumi:"curveName"`
-	KeyOps    pulumi.StringArrayInput `pulumi:"keyOps"`
-	// The key size in bits. For example: 2048, 3072, or 4096 for RSA.
-	KeySize pulumi.IntPtrInput `pulumi:"keySize"`
+	CurveName pulumi.StringPtrInput `pulumi:"curveName"`
 	// The type of the key. For valid values, see JsonWebKeyType.
 	Kty pulumi.StringPtrInput `pulumi:"kty"`
 }
@@ -990,15 +984,6 @@ func (o KeyPropertiesOutput) CurveName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyProperties) *string { return v.CurveName }).(pulumi.StringPtrOutput)
 }
 
-func (o KeyPropertiesOutput) KeyOps() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v KeyProperties) []string { return v.KeyOps }).(pulumi.StringArrayOutput)
-}
-
-// The key size in bits. For example: 2048, 3072, or 4096 for RSA.
-func (o KeyPropertiesOutput) KeySize() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v KeyProperties) *int { return v.KeySize }).(pulumi.IntPtrOutput)
-}
-
 // The type of the key. For valid values, see JsonWebKeyType.
 func (o KeyPropertiesOutput) Kty() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyProperties) *string { return v.Kty }).(pulumi.StringPtrOutput)
@@ -1040,25 +1025,6 @@ func (o KeyPropertiesPtrOutput) CurveName() pulumi.StringPtrOutput {
 		}
 		return v.CurveName
 	}).(pulumi.StringPtrOutput)
-}
-
-func (o KeyPropertiesPtrOutput) KeyOps() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *KeyProperties) []string {
-		if v == nil {
-			return nil
-		}
-		return v.KeyOps
-	}).(pulumi.StringArrayOutput)
-}
-
-// The key size in bits. For example: 2048, 3072, or 4096 for RSA.
-func (o KeyPropertiesPtrOutput) KeySize() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *KeyProperties) *int {
-		if v == nil {
-			return nil
-		}
-		return v.KeySize
-	}).(pulumi.IntPtrOutput)
 }
 
 // The type of the key. For valid values, see JsonWebKeyType.
@@ -4525,6 +4491,8 @@ type VaultPropertiesResponse struct {
 	EnabledForDiskEncryption *bool `pulumi:"enabledForDiskEncryption"`
 	// Property to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault.
 	EnabledForTemplateDeployment *bool `pulumi:"enabledForTemplateDeployment"`
+	// The resource id of HSM Pool.
+	HsmPoolResourceId string `pulumi:"hsmPoolResourceId"`
 	// Rules governing the accessibility of the key vault from specific network locations.
 	NetworkAcls *NetworkRuleSetResponse `pulumi:"networkAcls"`
 	// List of private endpoint connections associated with the key vault.
@@ -4570,6 +4538,8 @@ type VaultPropertiesResponseArgs struct {
 	EnabledForDiskEncryption pulumi.BoolPtrInput `pulumi:"enabledForDiskEncryption"`
 	// Property to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault.
 	EnabledForTemplateDeployment pulumi.BoolPtrInput `pulumi:"enabledForTemplateDeployment"`
+	// The resource id of HSM Pool.
+	HsmPoolResourceId pulumi.StringInput `pulumi:"hsmPoolResourceId"`
 	// Rules governing the accessibility of the key vault from specific network locations.
 	NetworkAcls NetworkRuleSetResponsePtrInput `pulumi:"networkAcls"`
 	// List of private endpoint connections associated with the key vault.
@@ -4702,6 +4672,11 @@ func (o VaultPropertiesResponseOutput) EnabledForDiskEncryption() pulumi.BoolPtr
 // Property to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault.
 func (o VaultPropertiesResponseOutput) EnabledForTemplateDeployment() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VaultPropertiesResponse) *bool { return v.EnabledForTemplateDeployment }).(pulumi.BoolPtrOutput)
+}
+
+// The resource id of HSM Pool.
+func (o VaultPropertiesResponseOutput) HsmPoolResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v VaultPropertiesResponse) string { return v.HsmPoolResourceId }).(pulumi.StringOutput)
 }
 
 // Rules governing the accessibility of the key vault from specific network locations.
@@ -4837,6 +4812,16 @@ func (o VaultPropertiesResponsePtrOutput) EnabledForTemplateDeployment() pulumi.
 		}
 		return v.EnabledForTemplateDeployment
 	}).(pulumi.BoolPtrOutput)
+}
+
+// The resource id of HSM Pool.
+func (o VaultPropertiesResponsePtrOutput) HsmPoolResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VaultPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.HsmPoolResourceId
+	}).(pulumi.StringPtrOutput)
 }
 
 // Rules governing the accessibility of the key vault from specific network locations.

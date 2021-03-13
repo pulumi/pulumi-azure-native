@@ -17,12 +17,6 @@ namespace Pulumi.AzureNative.PowerPlatform
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {
         /// <summary>
-        /// Region where the EnterprisePolicy is located.
-        /// </summary>
-        [Output("location")]
-        public Output<string> Location { get; private set; } = null!;
-
-        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
@@ -47,7 +41,7 @@ namespace Pulumi.AzureNative.PowerPlatform
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// Metadata for the private endpoint connection.
+        /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;

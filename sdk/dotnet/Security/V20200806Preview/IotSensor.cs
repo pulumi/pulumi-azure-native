@@ -34,12 +34,6 @@ namespace Pulumi.AzureNative.Security.V20200806Preview
         public Output<bool> DynamicLearning { get; private set; } = null!;
 
         /// <summary>
-        /// Is type of sensor is enterprise IoT sensor
-        /// </summary>
-        [Output("isEnterpriseSensor")]
-        public Output<bool?> IsEnterpriseSensor { get; private set; } = null!;
-
-        /// <summary>
         /// Learning mode status of the IoT sensor
         /// </summary>
         [Output("learningMode")]
@@ -56,6 +50,12 @@ namespace Pulumi.AzureNative.Security.V20200806Preview
         /// </summary>
         [Output("sensorStatus")]
         public Output<string> SensorStatus { get; private set; } = null!;
+
+        /// <summary>
+        /// Type of sensor
+        /// </summary>
+        [Output("sensorType")]
+        public Output<string?> SensorType { get; private set; } = null!;
 
         /// <summary>
         /// Version of the IoT sensor
@@ -151,16 +151,16 @@ namespace Pulumi.AzureNative.Security.V20200806Preview
         public Input<string>? IotSensorName { get; set; }
 
         /// <summary>
-        /// Is type of sensor is enterprise IoT sensor
-        /// </summary>
-        [Input("isEnterpriseSensor")]
-        public Input<bool>? IsEnterpriseSensor { get; set; }
-
-        /// <summary>
         /// Scope of the query (IoT Hub, /providers/Microsoft.Devices/iotHubs/myHub)
         /// </summary>
         [Input("scope", required: true)]
         public Input<string> Scope { get; set; } = null!;
+
+        /// <summary>
+        /// Type of sensor
+        /// </summary>
+        [Input("sensorType")]
+        public InputUnion<string, Pulumi.AzureNative.Security.V20200806Preview.SensorType>? SensorType { get; set; }
 
         /// <summary>
         /// TI Automatic mode status of the IoT sensor

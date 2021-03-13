@@ -582,7 +582,8 @@ class CloudServiceNetworkProfileArgs:
                  swappable_cloud_service: Optional[pulumi.Input['SubResourceArgs']] = None):
         """
         Network Profile for the cloud service.
-        :param pulumi.Input[Sequence[pulumi.Input['LoadBalancerConfigurationArgs']]] load_balancer_configurations: The list of load balancer configurations for the cloud service.
+        :param pulumi.Input[Sequence[pulumi.Input['LoadBalancerConfigurationArgs']]] load_balancer_configurations: List of Load balancer configurations. Cloud service can have up to two load balancer configurations, corresponding to a Public Load Balancer and an Internal Load Balancer.
+        :param pulumi.Input['SubResourceArgs'] swappable_cloud_service: The id reference of the cloud service containing the target IP with which the subject cloud service can perform a swap. This property cannot be updated once it is set. The swappable cloud service referred by this id must be present otherwise an error will be thrown.
         """
         if load_balancer_configurations is not None:
             pulumi.set(__self__, "load_balancer_configurations", load_balancer_configurations)
@@ -593,7 +594,7 @@ class CloudServiceNetworkProfileArgs:
     @pulumi.getter(name="loadBalancerConfigurations")
     def load_balancer_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerConfigurationArgs']]]]:
         """
-        The list of load balancer configurations for the cloud service.
+        List of Load balancer configurations. Cloud service can have up to two load balancer configurations, corresponding to a Public Load Balancer and an Internal Load Balancer.
         """
         return pulumi.get(self, "load_balancer_configurations")
 
@@ -604,6 +605,9 @@ class CloudServiceNetworkProfileArgs:
     @property
     @pulumi.getter(name="swappableCloudService")
     def swappable_cloud_service(self) -> Optional[pulumi.Input['SubResourceArgs']]:
+        """
+        The id reference of the cloud service containing the target IP with which the subject cloud service can perform a swap. This property cannot be updated once it is set. The swappable cloud service referred by this id must be present otherwise an error will be thrown.
+        """
         return pulumi.get(self, "swappable_cloud_service")
 
     @swappable_cloud_service.setter
@@ -638,6 +642,7 @@ class CloudServiceOsProfileArgs:
 @pulumi.input_type
 class CloudServicePropertiesArgs:
     def __init__(__self__, *,
+                 allow_model_override: Optional[pulumi.Input[bool]] = None,
                  configuration: Optional[pulumi.Input[str]] = None,
                  configuration_url: Optional[pulumi.Input[str]] = None,
                  extension_profile: Optional[pulumi.Input['CloudServiceExtensionProfileArgs']] = None,
@@ -649,6 +654,8 @@ class CloudServicePropertiesArgs:
                  upgrade_mode: Optional[pulumi.Input[Union[str, 'CloudServiceUpgradeMode']]] = None):
         """
         Cloud service properties
+        :param pulumi.Input[bool] allow_model_override: (Optional) Indicates whether the role sku properties (roleProfile.roles.sku) specified in the model/template should override the role instance count and vm size specified in the .cscfg and .csdef respectively.
+               The default value is `false`.
         :param pulumi.Input[str] configuration: Specifies the XML service configuration (.cscfg) for the cloud service.
         :param pulumi.Input[str] configuration_url: Specifies a URL that refers to the location of the service configuration in the Blob service. The service package URL  can be Shared Access Signature (SAS) URI from any storage account.
                This is a write-only property and is not returned in GET calls.
@@ -664,6 +671,8 @@ class CloudServicePropertiesArgs:
                Possible Values are <br /><br />**Auto**<br /><br />**Manual** <br /><br />**Simultaneous**<br /><br />
                If not specified, the default value is Auto. If set to Manual, PUT UpdateDomain must be called to apply the update. If set to Auto, the update is automatically applied to each update domain in sequence.
         """
+        if allow_model_override is not None:
+            pulumi.set(__self__, "allow_model_override", allow_model_override)
         if configuration is not None:
             pulumi.set(__self__, "configuration", configuration)
         if configuration_url is not None:
@@ -682,6 +691,19 @@ class CloudServicePropertiesArgs:
             pulumi.set(__self__, "start_cloud_service", start_cloud_service)
         if upgrade_mode is not None:
             pulumi.set(__self__, "upgrade_mode", upgrade_mode)
+
+    @property
+    @pulumi.getter(name="allowModelOverride")
+    def allow_model_override(self) -> Optional[pulumi.Input[bool]]:
+        """
+        (Optional) Indicates whether the role sku properties (roleProfile.roles.sku) specified in the model/template should override the role instance count and vm size specified in the .cscfg and .csdef respectively.
+        The default value is `false`.
+        """
+        return pulumi.get(self, "allow_model_override")
+
+    @allow_model_override.setter
+    def allow_model_override(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_model_override", value)
 
     @property
     @pulumi.getter
@@ -3266,94 +3288,113 @@ class LinuxPatchSettingsArgs:
 @pulumi.input_type
 class LoadBalancerConfigurationArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input['LoadBalancerConfigurationPropertiesArgs']] = None):
+                 name: pulumi.Input[str],
+                 properties: pulumi.Input['LoadBalancerConfigurationPropertiesArgs'],
+                 id: Optional[pulumi.Input[str]] = None):
         """
         Describes the load balancer configuration.
-        :param pulumi.Input[str] name: Resource Name
+        :param pulumi.Input[str] name: The name of the Load balancer
+        :param pulumi.Input['LoadBalancerConfigurationPropertiesArgs'] properties: Properties of the load balancer configuration.
+        :param pulumi.Input[str] id: Resource Id
         """
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "properties", properties)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
+    def name(self) -> pulumi.Input[str]:
         """
-        Resource Name
+        The name of the Load balancer
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
+    def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['LoadBalancerConfigurationPropertiesArgs']]:
+    def properties(self) -> pulumi.Input['LoadBalancerConfigurationPropertiesArgs']:
+        """
+        Properties of the load balancer configuration.
+        """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['LoadBalancerConfigurationPropertiesArgs']]):
+    def properties(self, value: pulumi.Input['LoadBalancerConfigurationPropertiesArgs']):
         pulumi.set(self, "properties", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
 
 
 @pulumi.input_type
 class LoadBalancerConfigurationPropertiesArgs:
     def __init__(__self__, *,
-                 frontend_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerFrontendIPConfigurationArgs']]]] = None):
+                 frontend_ip_configurations: pulumi.Input[Sequence[pulumi.Input['LoadBalancerFrontendIPConfigurationArgs']]]):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['LoadBalancerFrontendIPConfigurationArgs']]] frontend_ip_configurations: List of IP
+        :param pulumi.Input[Sequence[pulumi.Input['LoadBalancerFrontendIPConfigurationArgs']]] frontend_ip_configurations: Specifies the frontend IP to be used for the load balancer. Only IPv4 frontend IP address is supported. Each load balancer configuration must have exactly one frontend IP configuration.
         """
-        if frontend_ip_configurations is not None:
-            pulumi.set(__self__, "frontend_ip_configurations", frontend_ip_configurations)
+        pulumi.set(__self__, "frontend_ip_configurations", frontend_ip_configurations)
 
     @property
     @pulumi.getter(name="frontendIPConfigurations")
-    def frontend_ip_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerFrontendIPConfigurationArgs']]]]:
+    def frontend_ip_configurations(self) -> pulumi.Input[Sequence[pulumi.Input['LoadBalancerFrontendIPConfigurationArgs']]]:
         """
-        List of IP
+        Specifies the frontend IP to be used for the load balancer. Only IPv4 frontend IP address is supported. Each load balancer configuration must have exactly one frontend IP configuration.
         """
         return pulumi.get(self, "frontend_ip_configurations")
 
     @frontend_ip_configurations.setter
-    def frontend_ip_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerFrontendIPConfigurationArgs']]]]):
+    def frontend_ip_configurations(self, value: pulumi.Input[Sequence[pulumi.Input['LoadBalancerFrontendIPConfigurationArgs']]]):
         pulumi.set(self, "frontend_ip_configurations", value)
 
 
 @pulumi.input_type
 class LoadBalancerFrontendIPConfigurationArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input['LoadBalancerFrontendIPConfigurationPropertiesArgs']] = None):
+                 name: pulumi.Input[str],
+                 properties: pulumi.Input['LoadBalancerFrontendIPConfigurationPropertiesArgs']):
         """
-        :param pulumi.Input['LoadBalancerFrontendIPConfigurationPropertiesArgs'] properties: Describes a cloud service IP Configuration
+        :param pulumi.Input[str] name: The name of the resource that is unique within the set of frontend IP configurations used by the load balancer. This name can be used to access the resource.
+        :param pulumi.Input['LoadBalancerFrontendIPConfigurationPropertiesArgs'] properties: Properties of load balancer frontend ip configuration.
         """
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "properties", properties)
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource that is unique within the set of frontend IP configurations used by the load balancer. This name can be used to access the resource.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
+    def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['LoadBalancerFrontendIPConfigurationPropertiesArgs']]:
+    def properties(self) -> pulumi.Input['LoadBalancerFrontendIPConfigurationPropertiesArgs']:
         """
-        Describes a cloud service IP Configuration
+        Properties of load balancer frontend ip configuration.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['LoadBalancerFrontendIPConfigurationPropertiesArgs']]):
+    def properties(self, value: pulumi.Input['LoadBalancerFrontendIPConfigurationPropertiesArgs']):
         pulumi.set(self, "properties", value)
 
 
@@ -3365,7 +3406,9 @@ class LoadBalancerFrontendIPConfigurationPropertiesArgs:
                  subnet: Optional[pulumi.Input['SubResourceArgs']] = None):
         """
         Describes a cloud service IP Configuration
-        :param pulumi.Input[str] private_ip_address: The private IP address referenced by the cloud service.
+        :param pulumi.Input[str] private_ip_address: The virtual network private IP address of the IP configuration.
+        :param pulumi.Input['SubResourceArgs'] public_ip_address: The reference to the public ip address resource.
+        :param pulumi.Input['SubResourceArgs'] subnet: The reference to the virtual network subnet resource.
         """
         if private_ip_address is not None:
             pulumi.set(__self__, "private_ip_address", private_ip_address)
@@ -3378,7 +3421,7 @@ class LoadBalancerFrontendIPConfigurationPropertiesArgs:
     @pulumi.getter(name="privateIPAddress")
     def private_ip_address(self) -> Optional[pulumi.Input[str]]:
         """
-        The private IP address referenced by the cloud service.
+        The virtual network private IP address of the IP configuration.
         """
         return pulumi.get(self, "private_ip_address")
 
@@ -3389,6 +3432,9 @@ class LoadBalancerFrontendIPConfigurationPropertiesArgs:
     @property
     @pulumi.getter(name="publicIPAddress")
     def public_ip_address(self) -> Optional[pulumi.Input['SubResourceArgs']]:
+        """
+        The reference to the public ip address resource.
+        """
         return pulumi.get(self, "public_ip_address")
 
     @public_ip_address.setter
@@ -3398,6 +3444,9 @@ class LoadBalancerFrontendIPConfigurationPropertiesArgs:
     @property
     @pulumi.getter
     def subnet(self) -> Optional[pulumi.Input['SubResourceArgs']]:
+        """
+        The reference to the virtual network subnet resource.
+        """
         return pulumi.get(self, "subnet")
 
     @subnet.setter

@@ -40,6 +40,10 @@ export class ScalingPlan extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
+     * The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields. 
+     */
+    public /*out*/ readonly etag!: pulumi.Output<string>;
+    /**
      * Exclusion tag for scaling plan.
      */
     public readonly exclusionTag!: pulumi.Output<string | undefined>;
@@ -52,21 +56,40 @@ export class ScalingPlan extends pulumi.CustomResource {
      */
     public readonly hostPoolReferences!: pulumi.Output<outputs.desktopvirtualization.v20210114preview.ScalingHostPoolReferenceResponse[] | undefined>;
     /**
-     * HostPool type for scaling plan.
+     * HostPool type for desktop.
      */
     public readonly hostPoolType!: pulumi.Output<string | undefined>;
+    public readonly identity!: pulumi.Output<outputs.desktopvirtualization.v20210114preview.ResourceModelWithAllowedPropertySetResponseIdentity | undefined>;
+    /**
+     * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+     */
+    public readonly kind!: pulumi.Output<string | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string | undefined>;
+    /**
+     * The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
+     */
+    public readonly managedBy!: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * ObjectId of scaling plan. (internal use)
+     */
+    public /*out*/ readonly objectId!: pulumi.Output<string>;
+    public readonly plan!: pulumi.Output<outputs.desktopvirtualization.v20210114preview.ResourceModelWithAllowedPropertySetResponsePlan | undefined>;
+    /**
+     * The ring number of scaling plan.
+     */
+    public readonly ring!: pulumi.Output<number | undefined>;
+    /**
      * List of ScalingSchedule definitions.
      */
     public readonly schedules!: pulumi.Output<outputs.desktopvirtualization.v20210114preview.ScalingScheduleResponse[] | undefined>;
+    public readonly sku!: pulumi.Output<outputs.desktopvirtualization.v20210114preview.ResourceModelWithAllowedPropertySetResponseSku | undefined>;
     /**
      * Resource tags.
      */
@@ -99,23 +122,39 @@ export class ScalingPlan extends pulumi.CustomResource {
             inputs["friendlyName"] = args ? args.friendlyName : undefined;
             inputs["hostPoolReferences"] = args ? args.hostPoolReferences : undefined;
             inputs["hostPoolType"] = args ? args.hostPoolType : undefined;
+            inputs["identity"] = args ? args.identity : undefined;
+            inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["managedBy"] = args ? args.managedBy : undefined;
+            inputs["plan"] = args ? args.plan : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["ring"] = args ? args.ring : undefined;
             inputs["scalingPlanName"] = args ? args.scalingPlanName : undefined;
             inputs["schedules"] = args ? args.schedules : undefined;
+            inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["timeZone"] = args ? args.timeZone : undefined;
+            inputs["etag"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["objectId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["description"] = undefined /*out*/;
+            inputs["etag"] = undefined /*out*/;
             inputs["exclusionTag"] = undefined /*out*/;
             inputs["friendlyName"] = undefined /*out*/;
             inputs["hostPoolReferences"] = undefined /*out*/;
             inputs["hostPoolType"] = undefined /*out*/;
+            inputs["identity"] = undefined /*out*/;
+            inputs["kind"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
+            inputs["managedBy"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["objectId"] = undefined /*out*/;
+            inputs["plan"] = undefined /*out*/;
+            inputs["ring"] = undefined /*out*/;
             inputs["schedules"] = undefined /*out*/;
+            inputs["sku"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["timeZone"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -150,17 +189,31 @@ export interface ScalingPlanArgs {
      */
     readonly hostPoolReferences?: pulumi.Input<pulumi.Input<inputs.desktopvirtualization.v20210114preview.ScalingHostPoolReference>[]>;
     /**
-     * HostPool type for scaling plan.
+     * HostPool type for desktop.
      */
     readonly hostPoolType?: pulumi.Input<string | enums.desktopvirtualization.v20210114preview.HostPoolType>;
+    readonly identity?: pulumi.Input<inputs.desktopvirtualization.v20210114preview.ResourceModelWithAllowedPropertySetIdentity>;
+    /**
+     * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+     */
+    readonly kind?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
     readonly location?: pulumi.Input<string>;
     /**
+     * The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
+     */
+    readonly managedBy?: pulumi.Input<string>;
+    readonly plan?: pulumi.Input<inputs.desktopvirtualization.v20210114preview.ResourceModelWithAllowedPropertySetPlan>;
+    /**
      * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The ring number of scaling plan.
+     */
+    readonly ring?: pulumi.Input<number>;
     /**
      * The name of the scaling plan.
      */
@@ -169,6 +222,7 @@ export interface ScalingPlanArgs {
      * List of ScalingSchedule definitions.
      */
     readonly schedules?: pulumi.Input<pulumi.Input<inputs.desktopvirtualization.v20210114preview.ScalingSchedule>[]>;
+    readonly sku?: pulumi.Input<inputs.desktopvirtualization.v20210114preview.ResourceModelWithAllowedPropertySetSku>;
     /**
      * Resource tags.
      */

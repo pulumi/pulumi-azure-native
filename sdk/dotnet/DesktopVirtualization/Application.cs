@@ -95,6 +95,12 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// ObjectId of Application. (internal use)
+        /// </summary>
+        [Output("objectId")]
+        public Output<string> ObjectId { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies whether to show the RemoteApp program in the RD Web Access server.
         /// </summary>
         [Output("showInPortal")]

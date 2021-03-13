@@ -129,6 +129,12 @@ func NewBackend(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20201201:Backend"),
 		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20210101preview:Backend"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:apimanagement/v20210101preview:Backend"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Backend

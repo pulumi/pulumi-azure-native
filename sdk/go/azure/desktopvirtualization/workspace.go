@@ -18,14 +18,27 @@ type Workspace struct {
 
 	// List of applicationGroup resource Ids.
 	ApplicationGroupReferences pulumi.StringArrayOutput `pulumi:"applicationGroupReferences"`
+	// Is cloud pc resource.
+	CloudPcResource pulumi.BoolOutput `pulumi:"cloudPcResource"`
 	// Description of Workspace.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.
+	Etag pulumi.StringOutput `pulumi:"etag"`
 	// Friendly name of Workspace.
-	FriendlyName pulumi.StringPtrOutput `pulumi:"friendlyName"`
+	FriendlyName pulumi.StringPtrOutput                                       `pulumi:"friendlyName"`
+	Identity     ResourceModelWithAllowedPropertySetResponseIdentityPtrOutput `pulumi:"identity"`
+	// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+	Kind pulumi.StringPtrOutput `pulumi:"kind"`
 	// The geo-location where the resource lives
-	Location pulumi.StringOutput `pulumi:"location"`
+	Location pulumi.StringPtrOutput `pulumi:"location"`
+	// The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
+	ManagedBy pulumi.StringPtrOutput `pulumi:"managedBy"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
+	// ObjectId of Workspace. (internal use)
+	ObjectId pulumi.StringOutput                                      `pulumi:"objectId"`
+	Plan     ResourceModelWithAllowedPropertySetResponsePlanPtrOutput `pulumi:"plan"`
+	Sku      ResourceModelWithAllowedPropertySetResponseSkuPtrOutput  `pulumi:"sku"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -126,14 +139,27 @@ func GetWorkspace(ctx *pulumi.Context,
 type workspaceState struct {
 	// List of applicationGroup resource Ids.
 	ApplicationGroupReferences []string `pulumi:"applicationGroupReferences"`
+	// Is cloud pc resource.
+	CloudPcResource *bool `pulumi:"cloudPcResource"`
 	// Description of Workspace.
 	Description *string `pulumi:"description"`
+	// The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.
+	Etag *string `pulumi:"etag"`
 	// Friendly name of Workspace.
-	FriendlyName *string `pulumi:"friendlyName"`
+	FriendlyName *string                                              `pulumi:"friendlyName"`
+	Identity     *ResourceModelWithAllowedPropertySetResponseIdentity `pulumi:"identity"`
+	// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+	Kind *string `pulumi:"kind"`
 	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
+	// The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
+	ManagedBy *string `pulumi:"managedBy"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
+	// ObjectId of Workspace. (internal use)
+	ObjectId *string                                          `pulumi:"objectId"`
+	Plan     *ResourceModelWithAllowedPropertySetResponsePlan `pulumi:"plan"`
+	Sku      *ResourceModelWithAllowedPropertySetResponseSku  `pulumi:"sku"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -143,14 +169,27 @@ type workspaceState struct {
 type WorkspaceState struct {
 	// List of applicationGroup resource Ids.
 	ApplicationGroupReferences pulumi.StringArrayInput
+	// Is cloud pc resource.
+	CloudPcResource pulumi.BoolPtrInput
 	// Description of Workspace.
 	Description pulumi.StringPtrInput
+	// The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.
+	Etag pulumi.StringPtrInput
 	// Friendly name of Workspace.
 	FriendlyName pulumi.StringPtrInput
+	Identity     ResourceModelWithAllowedPropertySetResponseIdentityPtrInput
+	// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+	Kind pulumi.StringPtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
+	// The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
+	ManagedBy pulumi.StringPtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
+	// ObjectId of Workspace. (internal use)
+	ObjectId pulumi.StringPtrInput
+	Plan     ResourceModelWithAllowedPropertySetResponsePlanPtrInput
+	Sku      ResourceModelWithAllowedPropertySetResponseSkuPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -167,11 +206,18 @@ type workspaceArgs struct {
 	// Description of Workspace.
 	Description *string `pulumi:"description"`
 	// Friendly name of Workspace.
-	FriendlyName *string `pulumi:"friendlyName"`
+	FriendlyName *string                                      `pulumi:"friendlyName"`
+	Identity     *ResourceModelWithAllowedPropertySetIdentity `pulumi:"identity"`
+	// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+	Kind *string `pulumi:"kind"`
 	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
+	// The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
+	ManagedBy *string                                  `pulumi:"managedBy"`
+	Plan      *ResourceModelWithAllowedPropertySetPlan `pulumi:"plan"`
 	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName string                                  `pulumi:"resourceGroupName"`
+	Sku               *ResourceModelWithAllowedPropertySetSku `pulumi:"sku"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The name of the workspace
@@ -186,10 +232,17 @@ type WorkspaceArgs struct {
 	Description pulumi.StringPtrInput
 	// Friendly name of Workspace.
 	FriendlyName pulumi.StringPtrInput
+	Identity     ResourceModelWithAllowedPropertySetIdentityPtrInput
+	// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+	Kind pulumi.StringPtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
+	// The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
+	ManagedBy pulumi.StringPtrInput
+	Plan      ResourceModelWithAllowedPropertySetPlanPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
+	Sku               ResourceModelWithAllowedPropertySetSkuPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// The name of the workspace

@@ -93,6 +93,7 @@ class Application(pulumi.CustomResource):
             __props__['icon_content'] = None
             __props__['icon_hash'] = None
             __props__['name'] = None
+            __props__['object_id'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:desktopvirtualization/v20210201preview:Application"), pulumi.Alias(type_="azure-native:desktopvirtualization:Application"), pulumi.Alias(type_="azure-nextgen:desktopvirtualization:Application"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20190123preview:Application"), pulumi.Alias(type_="azure-nextgen:desktopvirtualization/v20190123preview:Application"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20190924preview:Application"), pulumi.Alias(type_="azure-nextgen:desktopvirtualization/v20190924preview:Application"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20191210preview:Application"), pulumi.Alias(type_="azure-nextgen:desktopvirtualization/v20191210preview:Application"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20200921preview:Application"), pulumi.Alias(type_="azure-nextgen:desktopvirtualization/v20200921preview:Application"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20201019preview:Application"), pulumi.Alias(type_="azure-nextgen:desktopvirtualization/v20201019preview:Application"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20201102preview:Application"), pulumi.Alias(type_="azure-nextgen:desktopvirtualization/v20201102preview:Application"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20201110preview:Application"), pulumi.Alias(type_="azure-nextgen:desktopvirtualization/v20201110preview:Application"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210114preview:Application"), pulumi.Alias(type_="azure-nextgen:desktopvirtualization/v20210114preview:Application")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -131,6 +132,7 @@ class Application(pulumi.CustomResource):
         __props__["msix_package_application_id"] = None
         __props__["msix_package_family_name"] = None
         __props__["name"] = None
+        __props__["object_id"] = None
         __props__["show_in_portal"] = None
         __props__["type"] = None
         return Application(resource_name, opts=opts, __props__=__props__)
@@ -238,6 +240,14 @@ class Application(pulumi.CustomResource):
         The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="objectId")
+    def object_id(self) -> pulumi.Output[str]:
+        """
+        ObjectId of Application. (internal use)
+        """
+        return pulumi.get(self, "object_id")
 
     @property
     @pulumi.getter(name="showInPortal")

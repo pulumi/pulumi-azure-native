@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210201Preview
         public Output<ImmutableArray<string>> ApplicationGroupReferences { get; private set; } = null!;
 
         /// <summary>
+        /// Is cloud pc resource.
+        /// </summary>
+        [Output("cloudPcResource")]
+        public Output<bool> CloudPcResource { get; private set; } = null!;
+
+        /// <summary>
         /// Custom rdp property of HostPool.
         /// </summary>
         [Output("customRdpProperty")]
@@ -32,6 +38,12 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210201Preview
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields. 
+        /// </summary>
+        [Output("etag")]
+        public Output<string> Etag { get; private set; } = null!;
 
         /// <summary>
         /// Friendly name of HostPool.
@@ -45,6 +57,15 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210201Preview
         [Output("hostPoolType")]
         public Output<string> HostPoolType { get; private set; } = null!;
 
+        [Output("identity")]
+        public Output<Outputs.ResourceModelWithAllowedPropertySetResponseIdentity?> Identity { get; private set; } = null!;
+
+        /// <summary>
+        /// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+        /// </summary>
+        [Output("kind")]
+        public Output<string?> Kind { get; private set; } = null!;
+
         /// <summary>
         /// The type of the load balancer.
         /// </summary>
@@ -55,7 +76,13 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210201Preview
         /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
-        public Output<string> Location { get; private set; } = null!;
+        public Output<string?> Location { get; private set; } = null!;
+
+        /// <summary>
+        /// The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
+        /// </summary>
+        [Output("managedBy")]
+        public Output<string?> ManagedBy { get; private set; } = null!;
 
         /// <summary>
         /// The max session limit of HostPool.
@@ -64,16 +91,31 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210201Preview
         public Output<int?> MaxSessionLimit { get; private set; } = null!;
 
         /// <summary>
+        /// The registration info of HostPool.
+        /// </summary>
+        [Output("migrationRequest")]
+        public Output<Outputs.MigrationRequestPropertiesResponse?> MigrationRequest { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// ObjectId of HostPool. (internal use)
+        /// </summary>
+        [Output("objectId")]
+        public Output<string> ObjectId { get; private set; } = null!;
+
+        /// <summary>
         /// PersonalDesktopAssignment type for HostPool.
         /// </summary>
         [Output("personalDesktopAssignmentType")]
         public Output<string?> PersonalDesktopAssignmentType { get; private set; } = null!;
+
+        [Output("plan")]
+        public Output<Outputs.ResourceModelWithAllowedPropertySetResponsePlan?> Plan { get; private set; } = null!;
 
         /// <summary>
         /// The type of preferred application group type, default to Desktop Application Group
@@ -92,6 +134,9 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210201Preview
         /// </summary>
         [Output("ring")]
         public Output<int?> Ring { get; private set; } = null!;
+
+        [Output("sku")]
+        public Output<Outputs.ResourceModelWithAllowedPropertySetResponseSku?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// ClientId for the registered Relying Party used to issue WVD SSO certificates.
@@ -244,6 +289,15 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210201Preview
         [Input("hostPoolType", required: true)]
         public InputUnion<string, Pulumi.AzureNative.DesktopVirtualization.V20210201Preview.HostPoolType> HostPoolType { get; set; } = null!;
 
+        [Input("identity")]
+        public Input<Inputs.ResourceModelWithAllowedPropertySetIdentityArgs>? Identity { get; set; }
+
+        /// <summary>
+        /// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+        /// </summary>
+        [Input("kind")]
+        public Input<string>? Kind { get; set; }
+
         /// <summary>
         /// The type of the load balancer.
         /// </summary>
@@ -257,16 +311,31 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210201Preview
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
+        /// </summary>
+        [Input("managedBy")]
+        public Input<string>? ManagedBy { get; set; }
+
+        /// <summary>
         /// The max session limit of HostPool.
         /// </summary>
         [Input("maxSessionLimit")]
         public Input<int>? MaxSessionLimit { get; set; }
 
         /// <summary>
+        /// The registration info of HostPool.
+        /// </summary>
+        [Input("migrationRequest")]
+        public Input<Inputs.MigrationRequestPropertiesArgs>? MigrationRequest { get; set; }
+
+        /// <summary>
         /// PersonalDesktopAssignment type for HostPool.
         /// </summary>
         [Input("personalDesktopAssignmentType")]
         public InputUnion<string, Pulumi.AzureNative.DesktopVirtualization.V20210201Preview.PersonalDesktopAssignmentType>? PersonalDesktopAssignmentType { get; set; }
+
+        [Input("plan")]
+        public Input<Inputs.ResourceModelWithAllowedPropertySetPlanArgs>? Plan { get; set; }
 
         /// <summary>
         /// The type of preferred application group type, default to Desktop Application Group
@@ -291,6 +360,9 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210201Preview
         /// </summary>
         [Input("ring")]
         public Input<int>? Ring { get; set; }
+
+        [Input("sku")]
+        public Input<Inputs.ResourceModelWithAllowedPropertySetSkuArgs>? Sku { get; set; }
 
         /// <summary>
         /// ClientId for the registered Relying Party used to issue WVD SSO certificates.

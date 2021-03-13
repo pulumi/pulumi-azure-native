@@ -16,14 +16,20 @@ namespace Pulumi.AzureNative.Compute.Inputs
     public sealed class LoadBalancerFrontendIPConfigurationPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The private IP address referenced by the cloud service.
+        /// The virtual network private IP address of the IP configuration.
         /// </summary>
         [Input("privateIPAddress")]
         public Input<string>? PrivateIPAddress { get; set; }
 
+        /// <summary>
+        /// The reference to the public ip address resource.
+        /// </summary>
         [Input("publicIPAddress")]
         public Input<Inputs.SubResourceArgs>? PublicIPAddress { get; set; }
 
+        /// <summary>
+        /// The reference to the virtual network subnet resource.
+        /// </summary>
         [Input("subnet")]
         public Input<Inputs.SubResourceArgs>? Subnet { get; set; }
 

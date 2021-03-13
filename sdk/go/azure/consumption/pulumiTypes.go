@@ -1973,6 +1973,159 @@ func (o FiltersResponsePtrOutput) Tags() pulumi.StringArrayMapOutput {
 	}).(pulumi.StringArrayMapOutput)
 }
 
+// The forecasted cost which is being tracked for a budget.
+type ForecastSpendResponse struct {
+	// The forecasted cost for the total time period which is being tracked by the budget. This value is only provided if the budget contains a forecast alert type.
+	Amount float64 `pulumi:"amount"`
+	// The unit of measure for the budget amount.
+	Unit string `pulumi:"unit"`
+}
+
+// ForecastSpendResponseInput is an input type that accepts ForecastSpendResponseArgs and ForecastSpendResponseOutput values.
+// You can construct a concrete instance of `ForecastSpendResponseInput` via:
+//
+//          ForecastSpendResponseArgs{...}
+type ForecastSpendResponseInput interface {
+	pulumi.Input
+
+	ToForecastSpendResponseOutput() ForecastSpendResponseOutput
+	ToForecastSpendResponseOutputWithContext(context.Context) ForecastSpendResponseOutput
+}
+
+// The forecasted cost which is being tracked for a budget.
+type ForecastSpendResponseArgs struct {
+	// The forecasted cost for the total time period which is being tracked by the budget. This value is only provided if the budget contains a forecast alert type.
+	Amount pulumi.Float64Input `pulumi:"amount"`
+	// The unit of measure for the budget amount.
+	Unit pulumi.StringInput `pulumi:"unit"`
+}
+
+func (ForecastSpendResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ForecastSpendResponse)(nil)).Elem()
+}
+
+func (i ForecastSpendResponseArgs) ToForecastSpendResponseOutput() ForecastSpendResponseOutput {
+	return i.ToForecastSpendResponseOutputWithContext(context.Background())
+}
+
+func (i ForecastSpendResponseArgs) ToForecastSpendResponseOutputWithContext(ctx context.Context) ForecastSpendResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ForecastSpendResponseOutput)
+}
+
+func (i ForecastSpendResponseArgs) ToForecastSpendResponsePtrOutput() ForecastSpendResponsePtrOutput {
+	return i.ToForecastSpendResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ForecastSpendResponseArgs) ToForecastSpendResponsePtrOutputWithContext(ctx context.Context) ForecastSpendResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ForecastSpendResponseOutput).ToForecastSpendResponsePtrOutputWithContext(ctx)
+}
+
+// ForecastSpendResponsePtrInput is an input type that accepts ForecastSpendResponseArgs, ForecastSpendResponsePtr and ForecastSpendResponsePtrOutput values.
+// You can construct a concrete instance of `ForecastSpendResponsePtrInput` via:
+//
+//          ForecastSpendResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ForecastSpendResponsePtrInput interface {
+	pulumi.Input
+
+	ToForecastSpendResponsePtrOutput() ForecastSpendResponsePtrOutput
+	ToForecastSpendResponsePtrOutputWithContext(context.Context) ForecastSpendResponsePtrOutput
+}
+
+type forecastSpendResponsePtrType ForecastSpendResponseArgs
+
+func ForecastSpendResponsePtr(v *ForecastSpendResponseArgs) ForecastSpendResponsePtrInput {
+	return (*forecastSpendResponsePtrType)(v)
+}
+
+func (*forecastSpendResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ForecastSpendResponse)(nil)).Elem()
+}
+
+func (i *forecastSpendResponsePtrType) ToForecastSpendResponsePtrOutput() ForecastSpendResponsePtrOutput {
+	return i.ToForecastSpendResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *forecastSpendResponsePtrType) ToForecastSpendResponsePtrOutputWithContext(ctx context.Context) ForecastSpendResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ForecastSpendResponsePtrOutput)
+}
+
+// The forecasted cost which is being tracked for a budget.
+type ForecastSpendResponseOutput struct{ *pulumi.OutputState }
+
+func (ForecastSpendResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ForecastSpendResponse)(nil)).Elem()
+}
+
+func (o ForecastSpendResponseOutput) ToForecastSpendResponseOutput() ForecastSpendResponseOutput {
+	return o
+}
+
+func (o ForecastSpendResponseOutput) ToForecastSpendResponseOutputWithContext(ctx context.Context) ForecastSpendResponseOutput {
+	return o
+}
+
+func (o ForecastSpendResponseOutput) ToForecastSpendResponsePtrOutput() ForecastSpendResponsePtrOutput {
+	return o.ToForecastSpendResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ForecastSpendResponseOutput) ToForecastSpendResponsePtrOutputWithContext(ctx context.Context) ForecastSpendResponsePtrOutput {
+	return o.ApplyT(func(v ForecastSpendResponse) *ForecastSpendResponse {
+		return &v
+	}).(ForecastSpendResponsePtrOutput)
+}
+
+// The forecasted cost for the total time period which is being tracked by the budget. This value is only provided if the budget contains a forecast alert type.
+func (o ForecastSpendResponseOutput) Amount() pulumi.Float64Output {
+	return o.ApplyT(func(v ForecastSpendResponse) float64 { return v.Amount }).(pulumi.Float64Output)
+}
+
+// The unit of measure for the budget amount.
+func (o ForecastSpendResponseOutput) Unit() pulumi.StringOutput {
+	return o.ApplyT(func(v ForecastSpendResponse) string { return v.Unit }).(pulumi.StringOutput)
+}
+
+type ForecastSpendResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ForecastSpendResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ForecastSpendResponse)(nil)).Elem()
+}
+
+func (o ForecastSpendResponsePtrOutput) ToForecastSpendResponsePtrOutput() ForecastSpendResponsePtrOutput {
+	return o
+}
+
+func (o ForecastSpendResponsePtrOutput) ToForecastSpendResponsePtrOutputWithContext(ctx context.Context) ForecastSpendResponsePtrOutput {
+	return o
+}
+
+func (o ForecastSpendResponsePtrOutput) Elem() ForecastSpendResponseOutput {
+	return o.ApplyT(func(v *ForecastSpendResponse) ForecastSpendResponse { return *v }).(ForecastSpendResponseOutput)
+}
+
+// The forecasted cost for the total time period which is being tracked by the budget. This value is only provided if the budget contains a forecast alert type.
+func (o ForecastSpendResponsePtrOutput) Amount() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ForecastSpendResponse) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.Amount
+	}).(pulumi.Float64PtrOutput)
+}
+
+// The unit of measure for the budget amount.
+func (o ForecastSpendResponsePtrOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ForecastSpendResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Unit
+	}).(pulumi.StringPtrOutput)
+}
+
 // The notification associated with a budget.
 type Notification struct {
 	// Email addresses to send the budget notification to when the threshold is exceeded.
@@ -2288,6 +2441,8 @@ func init() {
 	pulumi.RegisterOutputType(FiltersPtrOutput{})
 	pulumi.RegisterOutputType(FiltersResponseOutput{})
 	pulumi.RegisterOutputType(FiltersResponsePtrOutput{})
+	pulumi.RegisterOutputType(ForecastSpendResponseOutput{})
+	pulumi.RegisterOutputType(ForecastSpendResponsePtrOutput{})
 	pulumi.RegisterOutputType(NotificationOutput{})
 	pulumi.RegisterOutputType(NotificationMapOutput{})
 	pulumi.RegisterOutputType(NotificationResponseOutput{})

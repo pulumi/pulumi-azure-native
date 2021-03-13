@@ -48,6 +48,10 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// </summary>
         public readonly string? Description;
         /// <summary>
+        /// The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields. 
+        /// </summary>
+        public readonly string Etag;
+        /// <summary>
         /// Exclusion tag for scaling plan.
         /// </summary>
         public readonly string? ExclusionTag;
@@ -67,14 +71,28 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
+        public readonly Outputs.ResourceModelWithAllowedPropertySetResponseIdentity? Identity;
+        /// <summary>
+        /// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+        /// </summary>
+        public readonly string? Kind;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
-        public readonly string Location;
+        public readonly string? Location;
+        /// <summary>
+        /// The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
+        /// </summary>
+        public readonly string? ManagedBy;
         /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// ObjectId of scaling plan. (internal use)
+        /// </summary>
+        public readonly string ObjectId;
+        public readonly Outputs.ResourceModelWithAllowedPropertySetResponsePlan? Plan;
         /// <summary>
         /// The ring number of scaling plan.
         /// </summary>
@@ -83,6 +101,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// List of ScalingSchedule definitions.
         /// </summary>
         public readonly ImmutableArray<Outputs.ScalingScheduleResponse> Schedules;
+        public readonly Outputs.ResourceModelWithAllowedPropertySetResponseSku? Sku;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -100,6 +119,8 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         private GetScalingPlanResult(
             string? description,
 
+            string etag,
+
             string? exclusionTag,
 
             string? friendlyName,
@@ -110,13 +131,25 @@ namespace Pulumi.AzureNative.DesktopVirtualization
 
             string id,
 
-            string location,
+            Outputs.ResourceModelWithAllowedPropertySetResponseIdentity? identity,
+
+            string? kind,
+
+            string? location,
+
+            string? managedBy,
 
             string name,
+
+            string objectId,
+
+            Outputs.ResourceModelWithAllowedPropertySetResponsePlan? plan,
 
             int? ring,
 
             ImmutableArray<Outputs.ScalingScheduleResponse> schedules,
+
+            Outputs.ResourceModelWithAllowedPropertySetResponseSku? sku,
 
             ImmutableDictionary<string, string>? tags,
 
@@ -125,15 +158,22 @@ namespace Pulumi.AzureNative.DesktopVirtualization
             string type)
         {
             Description = description;
+            Etag = etag;
             ExclusionTag = exclusionTag;
             FriendlyName = friendlyName;
             HostPoolReferences = hostPoolReferences;
             HostPoolType = hostPoolType;
             Id = id;
+            Identity = identity;
+            Kind = kind;
             Location = location;
+            ManagedBy = managedBy;
             Name = name;
+            ObjectId = objectId;
+            Plan = plan;
             Ring = ring;
             Schedules = schedules;
+            Sku = sku;
             Tags = tags;
             TimeZone = timeZone;
             Type = type;

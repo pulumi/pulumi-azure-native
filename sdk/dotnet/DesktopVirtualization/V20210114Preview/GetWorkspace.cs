@@ -47,9 +47,17 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210114Preview
         /// </summary>
         public readonly ImmutableArray<string> ApplicationGroupReferences;
         /// <summary>
+        /// Is cloud pc resource.
+        /// </summary>
+        public readonly bool CloudPcResource;
+        /// <summary>
         /// Description of Workspace.
         /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields. 
+        /// </summary>
+        public readonly string Etag;
         /// <summary>
         /// Friendly name of Workspace.
         /// </summary>
@@ -58,14 +66,29 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210114Preview
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
+        public readonly Outputs.ResourceModelWithAllowedPropertySetResponseIdentity? Identity;
+        /// <summary>
+        /// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+        /// </summary>
+        public readonly string? Kind;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
-        public readonly string Location;
+        public readonly string? Location;
+        /// <summary>
+        /// The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
+        /// </summary>
+        public readonly string? ManagedBy;
         /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// ObjectId of Workspace. (internal use)
+        /// </summary>
+        public readonly string ObjectId;
+        public readonly Outputs.ResourceModelWithAllowedPropertySetResponsePlan? Plan;
+        public readonly Outputs.ResourceModelWithAllowedPropertySetResponseSku? Sku;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -79,26 +102,50 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210114Preview
         private GetWorkspaceResult(
             ImmutableArray<string> applicationGroupReferences,
 
+            bool cloudPcResource,
+
             string? description,
+
+            string etag,
 
             string? friendlyName,
 
             string id,
 
-            string location,
+            Outputs.ResourceModelWithAllowedPropertySetResponseIdentity? identity,
+
+            string? kind,
+
+            string? location,
+
+            string? managedBy,
 
             string name,
+
+            string objectId,
+
+            Outputs.ResourceModelWithAllowedPropertySetResponsePlan? plan,
+
+            Outputs.ResourceModelWithAllowedPropertySetResponseSku? sku,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
             ApplicationGroupReferences = applicationGroupReferences;
+            CloudPcResource = cloudPcResource;
             Description = description;
+            Etag = etag;
             FriendlyName = friendlyName;
             Id = id;
+            Identity = identity;
+            Kind = kind;
             Location = location;
+            ManagedBy = managedBy;
             Name = name;
+            ObjectId = objectId;
+            Plan = plan;
+            Sku = sku;
             Tags = tags;
             Type = type;
         }

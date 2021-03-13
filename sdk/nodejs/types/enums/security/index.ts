@@ -9,6 +9,7 @@ import * as v20190101preview from "./v20190101preview";
 import * as v20190801 from "./v20190801";
 import * as v20200101 from "./v20200101";
 import * as v20200101preview from "./v20200101preview";
+import * as v20200806preview from "./v20200806preview";
 
 export {
     latest,
@@ -18,6 +19,7 @@ export {
     v20190801,
     v20200101,
     v20200101preview,
+    v20200806preview,
 };
 
 export const ActionType = {
@@ -372,6 +374,16 @@ export const SecuritySolutionStatus = {
  * Status of the IoT Security solution.
  */
 export type SecuritySolutionStatus = (typeof SecuritySolutionStatus)[keyof typeof SecuritySolutionStatus];
+
+export const SensorType = {
+    Ot: "Ot",
+    Enterprise: "Enterprise",
+} as const;
+
+/**
+ * Type of sensor
+ */
+export type SensorType = (typeof SensorType)[keyof typeof SensorType];
 
 export const Severity = {
     Low: "Low",

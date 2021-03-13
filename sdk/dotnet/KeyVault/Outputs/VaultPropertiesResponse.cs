@@ -46,6 +46,10 @@ namespace Pulumi.AzureNative.KeyVault.Outputs
         /// </summary>
         public readonly bool? EnabledForTemplateDeployment;
         /// <summary>
+        /// The resource id of HSM Pool.
+        /// </summary>
+        public readonly string HsmPoolResourceId;
+        /// <summary>
         /// Rules governing the accessibility of the key vault from specific network locations.
         /// </summary>
         public readonly Outputs.NetworkRuleSetResponse? NetworkAcls;
@@ -92,6 +96,8 @@ namespace Pulumi.AzureNative.KeyVault.Outputs
 
             bool? enabledForTemplateDeployment,
 
+            string hsmPoolResourceId,
+
             Outputs.NetworkRuleSetResponse? networkAcls,
 
             ImmutableArray<Outputs.PrivateEndpointConnectionItemResponse> privateEndpointConnections,
@@ -114,6 +120,7 @@ namespace Pulumi.AzureNative.KeyVault.Outputs
             EnabledForDeployment = enabledForDeployment;
             EnabledForDiskEncryption = enabledForDiskEncryption;
             EnabledForTemplateDeployment = enabledForTemplateDeployment;
+            HsmPoolResourceId = hsmPoolResourceId;
             NetworkAcls = networkAcls;
             PrivateEndpointConnections = privateEndpointConnections;
             ProvisioningState = provisioningState;

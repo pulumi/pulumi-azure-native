@@ -39,6 +39,8 @@ type LookupBudgetResult struct {
 	ETag *string `pulumi:"eTag"`
 	// May be used to filter budgets by user-specified dimensions and/or tags.
 	Filter *BudgetFilterResponse `pulumi:"filter"`
+	// The forecasted cost which is being tracked for a budget.
+	ForecastSpend ForecastSpendResponse `pulumi:"forecastSpend"`
 	// Resource Id.
 	Id string `pulumi:"id"`
 	// Resource name.

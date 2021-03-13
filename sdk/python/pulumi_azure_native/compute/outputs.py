@@ -865,7 +865,8 @@ class CloudServiceNetworkProfileResponse(dict):
                  swappable_cloud_service: Optional['outputs.SubResourceResponse'] = None):
         """
         Network Profile for the cloud service.
-        :param Sequence['LoadBalancerConfigurationResponseArgs'] load_balancer_configurations: The list of load balancer configurations for the cloud service.
+        :param Sequence['LoadBalancerConfigurationResponseArgs'] load_balancer_configurations: List of Load balancer configurations. Cloud service can have up to two load balancer configurations, corresponding to a Public Load Balancer and an Internal Load Balancer.
+        :param 'SubResourceResponseArgs' swappable_cloud_service: The id reference of the cloud service containing the target IP with which the subject cloud service can perform a swap. This property cannot be updated once it is set. The swappable cloud service referred by this id must be present otherwise an error will be thrown.
         """
         if load_balancer_configurations is not None:
             pulumi.set(__self__, "load_balancer_configurations", load_balancer_configurations)
@@ -876,13 +877,16 @@ class CloudServiceNetworkProfileResponse(dict):
     @pulumi.getter(name="loadBalancerConfigurations")
     def load_balancer_configurations(self) -> Optional[Sequence['outputs.LoadBalancerConfigurationResponse']]:
         """
-        The list of load balancer configurations for the cloud service.
+        List of Load balancer configurations. Cloud service can have up to two load balancer configurations, corresponding to a Public Load Balancer and an Internal Load Balancer.
         """
         return pulumi.get(self, "load_balancer_configurations")
 
     @property
     @pulumi.getter(name="swappableCloudService")
     def swappable_cloud_service(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        The id reference of the cloud service containing the target IP with which the subject cloud service can perform a swap. This property cannot be updated once it is set. The swappable cloud service referred by this id must be present otherwise an error will be thrown.
+        """
         return pulumi.get(self, "swappable_cloud_service")
 
     def _translate_property(self, prop):
@@ -923,6 +927,7 @@ class CloudServicePropertiesResponse(dict):
     def __init__(__self__, *,
                  provisioning_state: str,
                  unique_id: str,
+                 allow_model_override: Optional[bool] = None,
                  configuration: Optional[str] = None,
                  configuration_url: Optional[str] = None,
                  extension_profile: Optional['outputs.CloudServiceExtensionProfileResponse'] = None,
@@ -936,6 +941,8 @@ class CloudServicePropertiesResponse(dict):
         Cloud service properties
         :param str provisioning_state: The provisioning state, which only appears in the response.
         :param str unique_id: The unique identifier for the cloud service.
+        :param bool allow_model_override: (Optional) Indicates whether the role sku properties (roleProfile.roles.sku) specified in the model/template should override the role instance count and vm size specified in the .cscfg and .csdef respectively.
+               The default value is `false`.
         :param str configuration: Specifies the XML service configuration (.cscfg) for the cloud service.
         :param str configuration_url: Specifies a URL that refers to the location of the service configuration in the Blob service. The service package URL  can be Shared Access Signature (SAS) URI from any storage account.
                This is a write-only property and is not returned in GET calls.
@@ -953,6 +960,8 @@ class CloudServicePropertiesResponse(dict):
         """
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         pulumi.set(__self__, "unique_id", unique_id)
+        if allow_model_override is not None:
+            pulumi.set(__self__, "allow_model_override", allow_model_override)
         if configuration is not None:
             pulumi.set(__self__, "configuration", configuration)
         if configuration_url is not None:
@@ -987,6 +996,15 @@ class CloudServicePropertiesResponse(dict):
         The unique identifier for the cloud service.
         """
         return pulumi.get(self, "unique_id")
+
+    @property
+    @pulumi.getter(name="allowModelOverride")
+    def allow_model_override(self) -> Optional[bool]:
+        """
+        (Optional) Indicates whether the role sku properties (roleProfile.roles.sku) specified in the model/template should override the role instance count and vm size specified in the .cscfg and .csdef respectively.
+        The default value is `false`.
+        """
+        return pulumi.get(self, "allow_model_override")
 
     @property
     @pulumi.getter
@@ -3833,18 +3851,17 @@ class LinuxPatchSettingsResponse(dict):
 @pulumi.output_type
 class LoadBalancerConfigurationPropertiesResponse(dict):
     def __init__(__self__, *,
-                 frontend_ip_configurations: Optional[Sequence['outputs.LoadBalancerFrontendIPConfigurationResponse']] = None):
+                 frontend_ip_configurations: Sequence['outputs.LoadBalancerFrontendIPConfigurationResponse']):
         """
-        :param Sequence['LoadBalancerFrontendIPConfigurationResponseArgs'] frontend_ip_configurations: List of IP
+        :param Sequence['LoadBalancerFrontendIPConfigurationResponseArgs'] frontend_ip_configurations: Specifies the frontend IP to be used for the load balancer. Only IPv4 frontend IP address is supported. Each load balancer configuration must have exactly one frontend IP configuration.
         """
-        if frontend_ip_configurations is not None:
-            pulumi.set(__self__, "frontend_ip_configurations", frontend_ip_configurations)
+        pulumi.set(__self__, "frontend_ip_configurations", frontend_ip_configurations)
 
     @property
     @pulumi.getter(name="frontendIPConfigurations")
-    def frontend_ip_configurations(self) -> Optional[Sequence['outputs.LoadBalancerFrontendIPConfigurationResponse']]:
+    def frontend_ip_configurations(self) -> Sequence['outputs.LoadBalancerFrontendIPConfigurationResponse']:
         """
-        List of IP
+        Specifies the frontend IP to be used for the load balancer. Only IPv4 frontend IP address is supported. Each load balancer configuration must have exactly one frontend IP configuration.
         """
         return pulumi.get(self, "frontend_ip_configurations")
 
@@ -3858,29 +3875,43 @@ class LoadBalancerConfigurationResponse(dict):
     Describes the load balancer configuration.
     """
     def __init__(__self__, *,
-                 name: Optional[str] = None,
-                 properties: Optional['outputs.LoadBalancerConfigurationPropertiesResponse'] = None):
+                 name: str,
+                 properties: 'outputs.LoadBalancerConfigurationPropertiesResponse',
+                 id: Optional[str] = None):
         """
         Describes the load balancer configuration.
-        :param str name: Resource Name
+        :param str name: The name of the Load balancer
+        :param 'LoadBalancerConfigurationPropertiesResponseArgs' properties: Properties of the load balancer configuration.
+        :param str id: Resource Id
         """
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "properties", properties)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[str]:
+    def name(self) -> str:
         """
-        Resource Name
+        The name of the Load balancer
         """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
-    def properties(self) -> Optional['outputs.LoadBalancerConfigurationPropertiesResponse']:
+    def properties(self) -> 'outputs.LoadBalancerConfigurationPropertiesResponse':
+        """
+        Properties of the load balancer configuration.
+        """
         return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -3897,7 +3928,9 @@ class LoadBalancerFrontendIPConfigurationPropertiesResponse(dict):
                  subnet: Optional['outputs.SubResourceResponse'] = None):
         """
         Describes a cloud service IP Configuration
-        :param str private_ip_address: The private IP address referenced by the cloud service.
+        :param str private_ip_address: The virtual network private IP address of the IP configuration.
+        :param 'SubResourceResponseArgs' public_ip_address: The reference to the public ip address resource.
+        :param 'SubResourceResponseArgs' subnet: The reference to the virtual network subnet resource.
         """
         if private_ip_address is not None:
             pulumi.set(__self__, "private_ip_address", private_ip_address)
@@ -3910,18 +3943,24 @@ class LoadBalancerFrontendIPConfigurationPropertiesResponse(dict):
     @pulumi.getter(name="privateIPAddress")
     def private_ip_address(self) -> Optional[str]:
         """
-        The private IP address referenced by the cloud service.
+        The virtual network private IP address of the IP configuration.
         """
         return pulumi.get(self, "private_ip_address")
 
     @property
     @pulumi.getter(name="publicIPAddress")
     def public_ip_address(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        The reference to the public ip address resource.
+        """
         return pulumi.get(self, "public_ip_address")
 
     @property
     @pulumi.getter
     def subnet(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        The reference to the virtual network subnet resource.
+        """
         return pulumi.get(self, "subnet")
 
     def _translate_property(self, prop):
@@ -3931,26 +3970,28 @@ class LoadBalancerFrontendIPConfigurationPropertiesResponse(dict):
 @pulumi.output_type
 class LoadBalancerFrontendIPConfigurationResponse(dict):
     def __init__(__self__, *,
-                 name: Optional[str] = None,
-                 properties: Optional['outputs.LoadBalancerFrontendIPConfigurationPropertiesResponse'] = None):
+                 name: str,
+                 properties: 'outputs.LoadBalancerFrontendIPConfigurationPropertiesResponse'):
         """
-        :param 'LoadBalancerFrontendIPConfigurationPropertiesResponseArgs' properties: Describes a cloud service IP Configuration
+        :param str name: The name of the resource that is unique within the set of frontend IP configurations used by the load balancer. This name can be used to access the resource.
+        :param 'LoadBalancerFrontendIPConfigurationPropertiesResponseArgs' properties: Properties of load balancer frontend ip configuration.
         """
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "properties", properties)
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[str]:
+    def name(self) -> str:
+        """
+        The name of the resource that is unique within the set of frontend IP configurations used by the load balancer. This name can be used to access the resource.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
-    def properties(self) -> Optional['outputs.LoadBalancerFrontendIPConfigurationPropertiesResponse']:
+    def properties(self) -> 'outputs.LoadBalancerFrontendIPConfigurationPropertiesResponse':
         """
-        Describes a cloud service IP Configuration
+        Properties of load balancer frontend ip configuration.
         """
         return pulumi.get(self, "properties")
 

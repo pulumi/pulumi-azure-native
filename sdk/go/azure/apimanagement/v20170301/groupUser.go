@@ -111,6 +111,12 @@ func NewGroupUser(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20201201:GroupUser"),
 		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20210101preview:GroupUser"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:apimanagement/v20210101preview:GroupUser"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource GroupUser

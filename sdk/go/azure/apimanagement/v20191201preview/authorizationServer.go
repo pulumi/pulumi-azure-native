@@ -151,6 +151,12 @@ func NewAuthorizationServer(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement/v20201201:AuthorizationServer"),
 		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20210101preview:AuthorizationServer"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:apimanagement/v20210101preview:AuthorizationServer"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource AuthorizationServer

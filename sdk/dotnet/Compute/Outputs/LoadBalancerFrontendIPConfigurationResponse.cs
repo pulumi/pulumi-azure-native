@@ -13,17 +13,20 @@ namespace Pulumi.AzureNative.Compute.Outputs
     [OutputType]
     public sealed class LoadBalancerFrontendIPConfigurationResponse
     {
-        public readonly string? Name;
         /// <summary>
-        /// Describes a cloud service IP Configuration
+        /// The name of the resource that is unique within the set of frontend IP configurations used by the load balancer. This name can be used to access the resource.
         /// </summary>
-        public readonly Outputs.LoadBalancerFrontendIPConfigurationPropertiesResponse? Properties;
+        public readonly string Name;
+        /// <summary>
+        /// Properties of load balancer frontend ip configuration.
+        /// </summary>
+        public readonly Outputs.LoadBalancerFrontendIPConfigurationPropertiesResponse Properties;
 
         [OutputConstructor]
         private LoadBalancerFrontendIPConfigurationResponse(
-            string? name,
+            string name,
 
-            Outputs.LoadBalancerFrontendIPConfigurationPropertiesResponse? properties)
+            Outputs.LoadBalancerFrontendIPConfigurationPropertiesResponse properties)
         {
             Name = name;
             Properties = properties;

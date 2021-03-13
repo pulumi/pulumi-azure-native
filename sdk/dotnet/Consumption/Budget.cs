@@ -47,6 +47,12 @@ namespace Pulumi.AzureNative.Consumption
         public Output<Outputs.BudgetFilterResponse?> Filter { get; private set; } = null!;
 
         /// <summary>
+        /// The forecasted cost which is being tracked for a budget.
+        /// </summary>
+        [Output("forecastSpend")]
+        public Output<Outputs.ForecastSpendResponse> ForecastSpend { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name.
         /// </summary>
         [Output("name")]

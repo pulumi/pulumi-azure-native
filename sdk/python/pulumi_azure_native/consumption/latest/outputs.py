@@ -17,6 +17,7 @@ __all__ = [
     'BudgetTimePeriodResponse',
     'CurrentSpendResponse',
     'FiltersResponse',
+    'ForecastSpendResponse',
     'NotificationResponse',
 ]
 
@@ -297,6 +298,42 @@ class FiltersResponse(dict):
         The dictionary of filters on tags.
         """
         return pulumi.get(self, "tags")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ForecastSpendResponse(dict):
+    """
+    The forecasted cost which is being tracked for a budget.
+    """
+    def __init__(__self__, *,
+                 amount: float,
+                 unit: str):
+        """
+        The forecasted cost which is being tracked for a budget.
+        :param float amount: The forecasted cost for the total time period which is being tracked by the budget. This value is only provided if the budget contains a forecast alert type.
+        :param str unit: The unit of measure for the budget amount.
+        """
+        pulumi.set(__self__, "amount", amount)
+        pulumi.set(__self__, "unit", unit)
+
+    @property
+    @pulumi.getter
+    def amount(self) -> float:
+        """
+        The forecasted cost for the total time period which is being tracked by the budget. This value is only provided if the budget contains a forecast alert type.
+        """
+        return pulumi.get(self, "amount")
+
+    @property
+    @pulumi.getter
+    def unit(self) -> str:
+        """
+        The unit of measure for the budget amount.
+        """
+        return pulumi.get(self, "unit")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

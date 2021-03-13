@@ -61,6 +61,10 @@ export interface GetBudgetResult {
      */
     readonly filter?: outputs.consumption.latest.BudgetFilterResponse;
     /**
+     * The forecasted cost which is being tracked for a budget.
+     */
+    readonly forecastSpend: outputs.consumption.latest.ForecastSpendResponse;
+    /**
      * Resource Id.
      */
     readonly id: string;

@@ -19,7 +19,7 @@ class GetIotSensorResult:
     """
     IoT sensor model
     """
-    def __init__(__self__, connectivity_time=None, creation_time=None, dynamic_learning=None, id=None, is_enterprise_sensor=None, learning_mode=None, name=None, sensor_status=None, sensor_version=None, ti_automatic_updates=None, ti_status=None, ti_version=None, type=None, zone=None):
+    def __init__(__self__, connectivity_time=None, creation_time=None, dynamic_learning=None, id=None, learning_mode=None, name=None, sensor_status=None, sensor_type=None, sensor_version=None, ti_automatic_updates=None, ti_status=None, ti_version=None, type=None, zone=None):
         if connectivity_time and not isinstance(connectivity_time, str):
             raise TypeError("Expected argument 'connectivity_time' to be a str")
         pulumi.set(__self__, "connectivity_time", connectivity_time)
@@ -32,9 +32,6 @@ class GetIotSensorResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if is_enterprise_sensor and not isinstance(is_enterprise_sensor, bool):
-            raise TypeError("Expected argument 'is_enterprise_sensor' to be a bool")
-        pulumi.set(__self__, "is_enterprise_sensor", is_enterprise_sensor)
         if learning_mode and not isinstance(learning_mode, bool):
             raise TypeError("Expected argument 'learning_mode' to be a bool")
         pulumi.set(__self__, "learning_mode", learning_mode)
@@ -44,6 +41,9 @@ class GetIotSensorResult:
         if sensor_status and not isinstance(sensor_status, str):
             raise TypeError("Expected argument 'sensor_status' to be a str")
         pulumi.set(__self__, "sensor_status", sensor_status)
+        if sensor_type and not isinstance(sensor_type, str):
+            raise TypeError("Expected argument 'sensor_type' to be a str")
+        pulumi.set(__self__, "sensor_type", sensor_type)
         if sensor_version and not isinstance(sensor_version, str):
             raise TypeError("Expected argument 'sensor_version' to be a str")
         pulumi.set(__self__, "sensor_version", sensor_version)
@@ -96,14 +96,6 @@ class GetIotSensorResult:
         return pulumi.get(self, "id")
 
     @property
-    @pulumi.getter(name="isEnterpriseSensor")
-    def is_enterprise_sensor(self) -> Optional[bool]:
-        """
-        Is type of sensor is enterprise IoT sensor
-        """
-        return pulumi.get(self, "is_enterprise_sensor")
-
-    @property
     @pulumi.getter(name="learningMode")
     def learning_mode(self) -> bool:
         """
@@ -126,6 +118,14 @@ class GetIotSensorResult:
         Status of the IoT sensor
         """
         return pulumi.get(self, "sensor_status")
+
+    @property
+    @pulumi.getter(name="sensorType")
+    def sensor_type(self) -> Optional[str]:
+        """
+        Type of sensor
+        """
+        return pulumi.get(self, "sensor_type")
 
     @property
     @pulumi.getter(name="sensorVersion")
@@ -186,10 +186,10 @@ class AwaitableGetIotSensorResult(GetIotSensorResult):
             creation_time=self.creation_time,
             dynamic_learning=self.dynamic_learning,
             id=self.id,
-            is_enterprise_sensor=self.is_enterprise_sensor,
             learning_mode=self.learning_mode,
             name=self.name,
             sensor_status=self.sensor_status,
+            sensor_type=self.sensor_type,
             sensor_version=self.sensor_version,
             ti_automatic_updates=self.ti_automatic_updates,
             ti_status=self.ti_status,
@@ -222,10 +222,10 @@ def get_iot_sensor(iot_sensor_name: Optional[str] = None,
         creation_time=__ret__.creation_time,
         dynamic_learning=__ret__.dynamic_learning,
         id=__ret__.id,
-        is_enterprise_sensor=__ret__.is_enterprise_sensor,
         learning_mode=__ret__.learning_mode,
         name=__ret__.name,
         sensor_status=__ret__.sensor_status,
+        sensor_type=__ret__.sensor_type,
         sensor_version=__ret__.sensor_version,
         ti_automatic_updates=__ret__.ti_automatic_updates,
         ti_status=__ret__.ti_status,

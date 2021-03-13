@@ -88,6 +88,7 @@ class Budget(pulumi.CustomResource):
                 raise TypeError("Missing required property 'time_period'")
             __props__['time_period'] = time_period
             __props__['current_spend'] = None
+            __props__['forecast_spend'] = None
             __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:consumption/latest:Budget"), pulumi.Alias(type_="azure-native:consumption:Budget"), pulumi.Alias(type_="azure-nextgen:consumption:Budget"), pulumi.Alias(type_="azure-native:consumption/v20190101:Budget"), pulumi.Alias(type_="azure-nextgen:consumption/v20190101:Budget"), pulumi.Alias(type_="azure-native:consumption/v20190401preview:Budget"), pulumi.Alias(type_="azure-nextgen:consumption/v20190401preview:Budget"), pulumi.Alias(type_="azure-native:consumption/v20190501:Budget"), pulumi.Alias(type_="azure-nextgen:consumption/v20190501:Budget"), pulumi.Alias(type_="azure-native:consumption/v20190501preview:Budget"), pulumi.Alias(type_="azure-nextgen:consumption/v20190501preview:Budget"), pulumi.Alias(type_="azure-native:consumption/v20190601:Budget"), pulumi.Alias(type_="azure-nextgen:consumption/v20190601:Budget"), pulumi.Alias(type_="azure-native:consumption/v20191001:Budget"), pulumi.Alias(type_="azure-nextgen:consumption/v20191001:Budget"), pulumi.Alias(type_="azure-native:consumption/v20191101:Budget"), pulumi.Alias(type_="azure-nextgen:consumption/v20191101:Budget")])
@@ -119,6 +120,7 @@ class Budget(pulumi.CustomResource):
         __props__["current_spend"] = None
         __props__["e_tag"] = None
         __props__["filter"] = None
+        __props__["forecast_spend"] = None
         __props__["name"] = None
         __props__["notifications"] = None
         __props__["time_grain"] = None
@@ -165,6 +167,14 @@ class Budget(pulumi.CustomResource):
         May be used to filter budgets by user-specified dimensions and/or tags.
         """
         return pulumi.get(self, "filter")
+
+    @property
+    @pulumi.getter(name="forecastSpend")
+    def forecast_spend(self) -> pulumi.Output['outputs.ForecastSpendResponse']:
+        """
+        The forecasted cost which is being tracked for a budget.
+        """
+        return pulumi.get(self, "forecast_spend")
 
     @property
     @pulumi.getter

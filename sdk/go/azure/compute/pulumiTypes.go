@@ -3642,9 +3642,10 @@ func (o CloudServiceExtensionPropertiesResponsePtrOutput) TypeHandlerVersion() p
 
 // Network Profile for the cloud service.
 type CloudServiceNetworkProfile struct {
-	// The list of load balancer configurations for the cloud service.
+	// List of Load balancer configurations. Cloud service can have up to two load balancer configurations, corresponding to a Public Load Balancer and an Internal Load Balancer.
 	LoadBalancerConfigurations []LoadBalancerConfiguration `pulumi:"loadBalancerConfigurations"`
-	SwappableCloudService      *SubResource                `pulumi:"swappableCloudService"`
+	// The id reference of the cloud service containing the target IP with which the subject cloud service can perform a swap. This property cannot be updated once it is set. The swappable cloud service referred by this id must be present otherwise an error will be thrown.
+	SwappableCloudService *SubResource `pulumi:"swappableCloudService"`
 }
 
 // CloudServiceNetworkProfileInput is an input type that accepts CloudServiceNetworkProfileArgs and CloudServiceNetworkProfileOutput values.
@@ -3660,9 +3661,10 @@ type CloudServiceNetworkProfileInput interface {
 
 // Network Profile for the cloud service.
 type CloudServiceNetworkProfileArgs struct {
-	// The list of load balancer configurations for the cloud service.
+	// List of Load balancer configurations. Cloud service can have up to two load balancer configurations, corresponding to a Public Load Balancer and an Internal Load Balancer.
 	LoadBalancerConfigurations LoadBalancerConfigurationArrayInput `pulumi:"loadBalancerConfigurations"`
-	SwappableCloudService      SubResourcePtrInput                 `pulumi:"swappableCloudService"`
+	// The id reference of the cloud service containing the target IP with which the subject cloud service can perform a swap. This property cannot be updated once it is set. The swappable cloud service referred by this id must be present otherwise an error will be thrown.
+	SwappableCloudService SubResourcePtrInput `pulumi:"swappableCloudService"`
 }
 
 func (CloudServiceNetworkProfileArgs) ElementType() reflect.Type {
@@ -3743,11 +3745,12 @@ func (o CloudServiceNetworkProfileOutput) ToCloudServiceNetworkProfilePtrOutputW
 	}).(CloudServiceNetworkProfilePtrOutput)
 }
 
-// The list of load balancer configurations for the cloud service.
+// List of Load balancer configurations. Cloud service can have up to two load balancer configurations, corresponding to a Public Load Balancer and an Internal Load Balancer.
 func (o CloudServiceNetworkProfileOutput) LoadBalancerConfigurations() LoadBalancerConfigurationArrayOutput {
 	return o.ApplyT(func(v CloudServiceNetworkProfile) []LoadBalancerConfiguration { return v.LoadBalancerConfigurations }).(LoadBalancerConfigurationArrayOutput)
 }
 
+// The id reference of the cloud service containing the target IP with which the subject cloud service can perform a swap. This property cannot be updated once it is set. The swappable cloud service referred by this id must be present otherwise an error will be thrown.
 func (o CloudServiceNetworkProfileOutput) SwappableCloudService() SubResourcePtrOutput {
 	return o.ApplyT(func(v CloudServiceNetworkProfile) *SubResource { return v.SwappableCloudService }).(SubResourcePtrOutput)
 }
@@ -3770,7 +3773,7 @@ func (o CloudServiceNetworkProfilePtrOutput) Elem() CloudServiceNetworkProfileOu
 	return o.ApplyT(func(v *CloudServiceNetworkProfile) CloudServiceNetworkProfile { return *v }).(CloudServiceNetworkProfileOutput)
 }
 
-// The list of load balancer configurations for the cloud service.
+// List of Load balancer configurations. Cloud service can have up to two load balancer configurations, corresponding to a Public Load Balancer and an Internal Load Balancer.
 func (o CloudServiceNetworkProfilePtrOutput) LoadBalancerConfigurations() LoadBalancerConfigurationArrayOutput {
 	return o.ApplyT(func(v *CloudServiceNetworkProfile) []LoadBalancerConfiguration {
 		if v == nil {
@@ -3780,6 +3783,7 @@ func (o CloudServiceNetworkProfilePtrOutput) LoadBalancerConfigurations() LoadBa
 	}).(LoadBalancerConfigurationArrayOutput)
 }
 
+// The id reference of the cloud service containing the target IP with which the subject cloud service can perform a swap. This property cannot be updated once it is set. The swappable cloud service referred by this id must be present otherwise an error will be thrown.
 func (o CloudServiceNetworkProfilePtrOutput) SwappableCloudService() SubResourcePtrOutput {
 	return o.ApplyT(func(v *CloudServiceNetworkProfile) *SubResource {
 		if v == nil {
@@ -3791,9 +3795,10 @@ func (o CloudServiceNetworkProfilePtrOutput) SwappableCloudService() SubResource
 
 // Network Profile for the cloud service.
 type CloudServiceNetworkProfileResponse struct {
-	// The list of load balancer configurations for the cloud service.
+	// List of Load balancer configurations. Cloud service can have up to two load balancer configurations, corresponding to a Public Load Balancer and an Internal Load Balancer.
 	LoadBalancerConfigurations []LoadBalancerConfigurationResponse `pulumi:"loadBalancerConfigurations"`
-	SwappableCloudService      *SubResourceResponse                `pulumi:"swappableCloudService"`
+	// The id reference of the cloud service containing the target IP with which the subject cloud service can perform a swap. This property cannot be updated once it is set. The swappable cloud service referred by this id must be present otherwise an error will be thrown.
+	SwappableCloudService *SubResourceResponse `pulumi:"swappableCloudService"`
 }
 
 // CloudServiceNetworkProfileResponseInput is an input type that accepts CloudServiceNetworkProfileResponseArgs and CloudServiceNetworkProfileResponseOutput values.
@@ -3809,9 +3814,10 @@ type CloudServiceNetworkProfileResponseInput interface {
 
 // Network Profile for the cloud service.
 type CloudServiceNetworkProfileResponseArgs struct {
-	// The list of load balancer configurations for the cloud service.
+	// List of Load balancer configurations. Cloud service can have up to two load balancer configurations, corresponding to a Public Load Balancer and an Internal Load Balancer.
 	LoadBalancerConfigurations LoadBalancerConfigurationResponseArrayInput `pulumi:"loadBalancerConfigurations"`
-	SwappableCloudService      SubResourceResponsePtrInput                 `pulumi:"swappableCloudService"`
+	// The id reference of the cloud service containing the target IP with which the subject cloud service can perform a swap. This property cannot be updated once it is set. The swappable cloud service referred by this id must be present otherwise an error will be thrown.
+	SwappableCloudService SubResourceResponsePtrInput `pulumi:"swappableCloudService"`
 }
 
 func (CloudServiceNetworkProfileResponseArgs) ElementType() reflect.Type {
@@ -3892,13 +3898,14 @@ func (o CloudServiceNetworkProfileResponseOutput) ToCloudServiceNetworkProfileRe
 	}).(CloudServiceNetworkProfileResponsePtrOutput)
 }
 
-// The list of load balancer configurations for the cloud service.
+// List of Load balancer configurations. Cloud service can have up to two load balancer configurations, corresponding to a Public Load Balancer and an Internal Load Balancer.
 func (o CloudServiceNetworkProfileResponseOutput) LoadBalancerConfigurations() LoadBalancerConfigurationResponseArrayOutput {
 	return o.ApplyT(func(v CloudServiceNetworkProfileResponse) []LoadBalancerConfigurationResponse {
 		return v.LoadBalancerConfigurations
 	}).(LoadBalancerConfigurationResponseArrayOutput)
 }
 
+// The id reference of the cloud service containing the target IP with which the subject cloud service can perform a swap. This property cannot be updated once it is set. The swappable cloud service referred by this id must be present otherwise an error will be thrown.
 func (o CloudServiceNetworkProfileResponseOutput) SwappableCloudService() SubResourceResponsePtrOutput {
 	return o.ApplyT(func(v CloudServiceNetworkProfileResponse) *SubResourceResponse { return v.SwappableCloudService }).(SubResourceResponsePtrOutput)
 }
@@ -3921,7 +3928,7 @@ func (o CloudServiceNetworkProfileResponsePtrOutput) Elem() CloudServiceNetworkP
 	return o.ApplyT(func(v *CloudServiceNetworkProfileResponse) CloudServiceNetworkProfileResponse { return *v }).(CloudServiceNetworkProfileResponseOutput)
 }
 
-// The list of load balancer configurations for the cloud service.
+// List of Load balancer configurations. Cloud service can have up to two load balancer configurations, corresponding to a Public Load Balancer and an Internal Load Balancer.
 func (o CloudServiceNetworkProfileResponsePtrOutput) LoadBalancerConfigurations() LoadBalancerConfigurationResponseArrayOutput {
 	return o.ApplyT(func(v *CloudServiceNetworkProfileResponse) []LoadBalancerConfigurationResponse {
 		if v == nil {
@@ -3931,6 +3938,7 @@ func (o CloudServiceNetworkProfileResponsePtrOutput) LoadBalancerConfigurations(
 	}).(LoadBalancerConfigurationResponseArrayOutput)
 }
 
+// The id reference of the cloud service containing the target IP with which the subject cloud service can perform a swap. This property cannot be updated once it is set. The swappable cloud service referred by this id must be present otherwise an error will be thrown.
 func (o CloudServiceNetworkProfileResponsePtrOutput) SwappableCloudService() SubResourceResponsePtrOutput {
 	return o.ApplyT(func(v *CloudServiceNetworkProfileResponse) *SubResourceResponse {
 		if v == nil {
@@ -4210,6 +4218,9 @@ func (o CloudServiceOsProfileResponsePtrOutput) Secrets() CloudServiceVaultSecre
 
 // Cloud service properties
 type CloudServiceProperties struct {
+	// (Optional) Indicates whether the role sku properties (roleProfile.roles.sku) specified in the model/template should override the role instance count and vm size specified in the .cscfg and .csdef respectively.
+	// The default value is `false`.
+	AllowModelOverride *bool `pulumi:"allowModelOverride"`
 	// Specifies the XML service configuration (.cscfg) for the cloud service.
 	Configuration *string `pulumi:"configuration"`
 	// Specifies a URL that refers to the location of the service configuration in the Blob service. The service package URL  can be Shared Access Signature (SAS) URI from any storage account.
@@ -4248,6 +4259,9 @@ type CloudServicePropertiesInput interface {
 
 // Cloud service properties
 type CloudServicePropertiesArgs struct {
+	// (Optional) Indicates whether the role sku properties (roleProfile.roles.sku) specified in the model/template should override the role instance count and vm size specified in the .cscfg and .csdef respectively.
+	// The default value is `false`.
+	AllowModelOverride pulumi.BoolPtrInput `pulumi:"allowModelOverride"`
 	// Specifies the XML service configuration (.cscfg) for the cloud service.
 	Configuration pulumi.StringPtrInput `pulumi:"configuration"`
 	// Specifies a URL that refers to the location of the service configuration in the Blob service. The service package URL  can be Shared Access Signature (SAS) URI from any storage account.
@@ -4351,6 +4365,12 @@ func (o CloudServicePropertiesOutput) ToCloudServicePropertiesPtrOutputWithConte
 	}).(CloudServicePropertiesPtrOutput)
 }
 
+// (Optional) Indicates whether the role sku properties (roleProfile.roles.sku) specified in the model/template should override the role instance count and vm size specified in the .cscfg and .csdef respectively.
+// The default value is `false`.
+func (o CloudServicePropertiesOutput) AllowModelOverride() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CloudServiceProperties) *bool { return v.AllowModelOverride }).(pulumi.BoolPtrOutput)
+}
+
 // Specifies the XML service configuration (.cscfg) for the cloud service.
 func (o CloudServicePropertiesOutput) Configuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CloudServiceProperties) *string { return v.Configuration }).(pulumi.StringPtrOutput)
@@ -4417,6 +4437,17 @@ func (o CloudServicePropertiesPtrOutput) ToCloudServicePropertiesPtrOutputWithCo
 
 func (o CloudServicePropertiesPtrOutput) Elem() CloudServicePropertiesOutput {
 	return o.ApplyT(func(v *CloudServiceProperties) CloudServiceProperties { return *v }).(CloudServicePropertiesOutput)
+}
+
+// (Optional) Indicates whether the role sku properties (roleProfile.roles.sku) specified in the model/template should override the role instance count and vm size specified in the .cscfg and .csdef respectively.
+// The default value is `false`.
+func (o CloudServicePropertiesPtrOutput) AllowModelOverride() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CloudServiceProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllowModelOverride
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Specifies the XML service configuration (.cscfg) for the cloud service.
@@ -4516,6 +4547,9 @@ func (o CloudServicePropertiesPtrOutput) UpgradeMode() pulumi.StringPtrOutput {
 
 // Cloud service properties
 type CloudServicePropertiesResponse struct {
+	// (Optional) Indicates whether the role sku properties (roleProfile.roles.sku) specified in the model/template should override the role instance count and vm size specified in the .cscfg and .csdef respectively.
+	// The default value is `false`.
+	AllowModelOverride *bool `pulumi:"allowModelOverride"`
 	// Specifies the XML service configuration (.cscfg) for the cloud service.
 	Configuration *string `pulumi:"configuration"`
 	// Specifies a URL that refers to the location of the service configuration in the Blob service. The service package URL  can be Shared Access Signature (SAS) URI from any storage account.
@@ -4558,6 +4592,9 @@ type CloudServicePropertiesResponseInput interface {
 
 // Cloud service properties
 type CloudServicePropertiesResponseArgs struct {
+	// (Optional) Indicates whether the role sku properties (roleProfile.roles.sku) specified in the model/template should override the role instance count and vm size specified in the .cscfg and .csdef respectively.
+	// The default value is `false`.
+	AllowModelOverride pulumi.BoolPtrInput `pulumi:"allowModelOverride"`
 	// Specifies the XML service configuration (.cscfg) for the cloud service.
 	Configuration pulumi.StringPtrInput `pulumi:"configuration"`
 	// Specifies a URL that refers to the location of the service configuration in the Blob service. The service package URL  can be Shared Access Signature (SAS) URI from any storage account.
@@ -4665,6 +4702,12 @@ func (o CloudServicePropertiesResponseOutput) ToCloudServicePropertiesResponsePt
 	}).(CloudServicePropertiesResponsePtrOutput)
 }
 
+// (Optional) Indicates whether the role sku properties (roleProfile.roles.sku) specified in the model/template should override the role instance count and vm size specified in the .cscfg and .csdef respectively.
+// The default value is `false`.
+func (o CloudServicePropertiesResponseOutput) AllowModelOverride() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CloudServicePropertiesResponse) *bool { return v.AllowModelOverride }).(pulumi.BoolPtrOutput)
+}
+
 // Specifies the XML service configuration (.cscfg) for the cloud service.
 func (o CloudServicePropertiesResponseOutput) Configuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CloudServicePropertiesResponse) *string { return v.Configuration }).(pulumi.StringPtrOutput)
@@ -4743,6 +4786,17 @@ func (o CloudServicePropertiesResponsePtrOutput) ToCloudServicePropertiesRespons
 
 func (o CloudServicePropertiesResponsePtrOutput) Elem() CloudServicePropertiesResponseOutput {
 	return o.ApplyT(func(v *CloudServicePropertiesResponse) CloudServicePropertiesResponse { return *v }).(CloudServicePropertiesResponseOutput)
+}
+
+// (Optional) Indicates whether the role sku properties (roleProfile.roles.sku) specified in the model/template should override the role instance count and vm size specified in the .cscfg and .csdef respectively.
+// The default value is `false`.
+func (o CloudServicePropertiesResponsePtrOutput) AllowModelOverride() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CloudServicePropertiesResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllowModelOverride
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Specifies the XML service configuration (.cscfg) for the cloud service.
@@ -20885,9 +20939,12 @@ func (o LinuxPatchSettingsResponsePtrOutput) PatchMode() pulumi.StringPtrOutput 
 
 // Describes the load balancer configuration.
 type LoadBalancerConfiguration struct {
-	// Resource Name
-	Name       *string                              `pulumi:"name"`
-	Properties *LoadBalancerConfigurationProperties `pulumi:"properties"`
+	// Resource Id
+	Id *string `pulumi:"id"`
+	// The name of the Load balancer
+	Name string `pulumi:"name"`
+	// Properties of the load balancer configuration.
+	Properties LoadBalancerConfigurationProperties `pulumi:"properties"`
 }
 
 // LoadBalancerConfigurationInput is an input type that accepts LoadBalancerConfigurationArgs and LoadBalancerConfigurationOutput values.
@@ -20903,9 +20960,12 @@ type LoadBalancerConfigurationInput interface {
 
 // Describes the load balancer configuration.
 type LoadBalancerConfigurationArgs struct {
-	// Resource Name
-	Name       pulumi.StringPtrInput                       `pulumi:"name"`
-	Properties LoadBalancerConfigurationPropertiesPtrInput `pulumi:"properties"`
+	// Resource Id
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// The name of the Load balancer
+	Name pulumi.StringInput `pulumi:"name"`
+	// Properties of the load balancer configuration.
+	Properties LoadBalancerConfigurationPropertiesInput `pulumi:"properties"`
 }
 
 func (LoadBalancerConfigurationArgs) ElementType() reflect.Type {
@@ -20960,13 +21020,19 @@ func (o LoadBalancerConfigurationOutput) ToLoadBalancerConfigurationOutputWithCo
 	return o
 }
 
-// Resource Name
-func (o LoadBalancerConfigurationOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LoadBalancerConfiguration) *string { return v.Name }).(pulumi.StringPtrOutput)
+// Resource Id
+func (o LoadBalancerConfigurationOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LoadBalancerConfiguration) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-func (o LoadBalancerConfigurationOutput) Properties() LoadBalancerConfigurationPropertiesPtrOutput {
-	return o.ApplyT(func(v LoadBalancerConfiguration) *LoadBalancerConfigurationProperties { return v.Properties }).(LoadBalancerConfigurationPropertiesPtrOutput)
+// The name of the Load balancer
+func (o LoadBalancerConfigurationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LoadBalancerConfiguration) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties of the load balancer configuration.
+func (o LoadBalancerConfigurationOutput) Properties() LoadBalancerConfigurationPropertiesOutput {
+	return o.ApplyT(func(v LoadBalancerConfiguration) LoadBalancerConfigurationProperties { return v.Properties }).(LoadBalancerConfigurationPropertiesOutput)
 }
 
 type LoadBalancerConfigurationArrayOutput struct{ *pulumi.OutputState }
@@ -20990,7 +21056,7 @@ func (o LoadBalancerConfigurationArrayOutput) Index(i pulumi.IntInput) LoadBalan
 }
 
 type LoadBalancerConfigurationProperties struct {
-	// List of IP
+	// Specifies the frontend IP to be used for the load balancer. Only IPv4 frontend IP address is supported. Each load balancer configuration must have exactly one frontend IP configuration.
 	FrontendIPConfigurations []LoadBalancerFrontendIPConfiguration `pulumi:"frontendIPConfigurations"`
 }
 
@@ -21006,7 +21072,7 @@ type LoadBalancerConfigurationPropertiesInput interface {
 }
 
 type LoadBalancerConfigurationPropertiesArgs struct {
-	// List of IP
+	// Specifies the frontend IP to be used for the load balancer. Only IPv4 frontend IP address is supported. Each load balancer configuration must have exactly one frontend IP configuration.
 	FrontendIPConfigurations LoadBalancerFrontendIPConfigurationArrayInput `pulumi:"frontendIPConfigurations"`
 }
 
@@ -21020,47 +21086,6 @@ func (i LoadBalancerConfigurationPropertiesArgs) ToLoadBalancerConfigurationProp
 
 func (i LoadBalancerConfigurationPropertiesArgs) ToLoadBalancerConfigurationPropertiesOutputWithContext(ctx context.Context) LoadBalancerConfigurationPropertiesOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerConfigurationPropertiesOutput)
-}
-
-func (i LoadBalancerConfigurationPropertiesArgs) ToLoadBalancerConfigurationPropertiesPtrOutput() LoadBalancerConfigurationPropertiesPtrOutput {
-	return i.ToLoadBalancerConfigurationPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i LoadBalancerConfigurationPropertiesArgs) ToLoadBalancerConfigurationPropertiesPtrOutputWithContext(ctx context.Context) LoadBalancerConfigurationPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerConfigurationPropertiesOutput).ToLoadBalancerConfigurationPropertiesPtrOutputWithContext(ctx)
-}
-
-// LoadBalancerConfigurationPropertiesPtrInput is an input type that accepts LoadBalancerConfigurationPropertiesArgs, LoadBalancerConfigurationPropertiesPtr and LoadBalancerConfigurationPropertiesPtrOutput values.
-// You can construct a concrete instance of `LoadBalancerConfigurationPropertiesPtrInput` via:
-//
-//          LoadBalancerConfigurationPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type LoadBalancerConfigurationPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToLoadBalancerConfigurationPropertiesPtrOutput() LoadBalancerConfigurationPropertiesPtrOutput
-	ToLoadBalancerConfigurationPropertiesPtrOutputWithContext(context.Context) LoadBalancerConfigurationPropertiesPtrOutput
-}
-
-type loadBalancerConfigurationPropertiesPtrType LoadBalancerConfigurationPropertiesArgs
-
-func LoadBalancerConfigurationPropertiesPtr(v *LoadBalancerConfigurationPropertiesArgs) LoadBalancerConfigurationPropertiesPtrInput {
-	return (*loadBalancerConfigurationPropertiesPtrType)(v)
-}
-
-func (*loadBalancerConfigurationPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LoadBalancerConfigurationProperties)(nil)).Elem()
-}
-
-func (i *loadBalancerConfigurationPropertiesPtrType) ToLoadBalancerConfigurationPropertiesPtrOutput() LoadBalancerConfigurationPropertiesPtrOutput {
-	return i.ToLoadBalancerConfigurationPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *loadBalancerConfigurationPropertiesPtrType) ToLoadBalancerConfigurationPropertiesPtrOutputWithContext(ctx context.Context) LoadBalancerConfigurationPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerConfigurationPropertiesPtrOutput)
 }
 
 type LoadBalancerConfigurationPropertiesOutput struct{ *pulumi.OutputState }
@@ -21077,53 +21102,15 @@ func (o LoadBalancerConfigurationPropertiesOutput) ToLoadBalancerConfigurationPr
 	return o
 }
 
-func (o LoadBalancerConfigurationPropertiesOutput) ToLoadBalancerConfigurationPropertiesPtrOutput() LoadBalancerConfigurationPropertiesPtrOutput {
-	return o.ToLoadBalancerConfigurationPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o LoadBalancerConfigurationPropertiesOutput) ToLoadBalancerConfigurationPropertiesPtrOutputWithContext(ctx context.Context) LoadBalancerConfigurationPropertiesPtrOutput {
-	return o.ApplyT(func(v LoadBalancerConfigurationProperties) *LoadBalancerConfigurationProperties {
-		return &v
-	}).(LoadBalancerConfigurationPropertiesPtrOutput)
-}
-
-// List of IP
+// Specifies the frontend IP to be used for the load balancer. Only IPv4 frontend IP address is supported. Each load balancer configuration must have exactly one frontend IP configuration.
 func (o LoadBalancerConfigurationPropertiesOutput) FrontendIPConfigurations() LoadBalancerFrontendIPConfigurationArrayOutput {
 	return o.ApplyT(func(v LoadBalancerConfigurationProperties) []LoadBalancerFrontendIPConfiguration {
 		return v.FrontendIPConfigurations
 	}).(LoadBalancerFrontendIPConfigurationArrayOutput)
 }
 
-type LoadBalancerConfigurationPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (LoadBalancerConfigurationPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LoadBalancerConfigurationProperties)(nil)).Elem()
-}
-
-func (o LoadBalancerConfigurationPropertiesPtrOutput) ToLoadBalancerConfigurationPropertiesPtrOutput() LoadBalancerConfigurationPropertiesPtrOutput {
-	return o
-}
-
-func (o LoadBalancerConfigurationPropertiesPtrOutput) ToLoadBalancerConfigurationPropertiesPtrOutputWithContext(ctx context.Context) LoadBalancerConfigurationPropertiesPtrOutput {
-	return o
-}
-
-func (o LoadBalancerConfigurationPropertiesPtrOutput) Elem() LoadBalancerConfigurationPropertiesOutput {
-	return o.ApplyT(func(v *LoadBalancerConfigurationProperties) LoadBalancerConfigurationProperties { return *v }).(LoadBalancerConfigurationPropertiesOutput)
-}
-
-// List of IP
-func (o LoadBalancerConfigurationPropertiesPtrOutput) FrontendIPConfigurations() LoadBalancerFrontendIPConfigurationArrayOutput {
-	return o.ApplyT(func(v *LoadBalancerConfigurationProperties) []LoadBalancerFrontendIPConfiguration {
-		if v == nil {
-			return nil
-		}
-		return v.FrontendIPConfigurations
-	}).(LoadBalancerFrontendIPConfigurationArrayOutput)
-}
-
 type LoadBalancerConfigurationPropertiesResponse struct {
-	// List of IP
+	// Specifies the frontend IP to be used for the load balancer. Only IPv4 frontend IP address is supported. Each load balancer configuration must have exactly one frontend IP configuration.
 	FrontendIPConfigurations []LoadBalancerFrontendIPConfigurationResponse `pulumi:"frontendIPConfigurations"`
 }
 
@@ -21139,7 +21126,7 @@ type LoadBalancerConfigurationPropertiesResponseInput interface {
 }
 
 type LoadBalancerConfigurationPropertiesResponseArgs struct {
-	// List of IP
+	// Specifies the frontend IP to be used for the load balancer. Only IPv4 frontend IP address is supported. Each load balancer configuration must have exactly one frontend IP configuration.
 	FrontendIPConfigurations LoadBalancerFrontendIPConfigurationResponseArrayInput `pulumi:"frontendIPConfigurations"`
 }
 
@@ -21153,47 +21140,6 @@ func (i LoadBalancerConfigurationPropertiesResponseArgs) ToLoadBalancerConfigura
 
 func (i LoadBalancerConfigurationPropertiesResponseArgs) ToLoadBalancerConfigurationPropertiesResponseOutputWithContext(ctx context.Context) LoadBalancerConfigurationPropertiesResponseOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerConfigurationPropertiesResponseOutput)
-}
-
-func (i LoadBalancerConfigurationPropertiesResponseArgs) ToLoadBalancerConfigurationPropertiesResponsePtrOutput() LoadBalancerConfigurationPropertiesResponsePtrOutput {
-	return i.ToLoadBalancerConfigurationPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i LoadBalancerConfigurationPropertiesResponseArgs) ToLoadBalancerConfigurationPropertiesResponsePtrOutputWithContext(ctx context.Context) LoadBalancerConfigurationPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerConfigurationPropertiesResponseOutput).ToLoadBalancerConfigurationPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// LoadBalancerConfigurationPropertiesResponsePtrInput is an input type that accepts LoadBalancerConfigurationPropertiesResponseArgs, LoadBalancerConfigurationPropertiesResponsePtr and LoadBalancerConfigurationPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `LoadBalancerConfigurationPropertiesResponsePtrInput` via:
-//
-//          LoadBalancerConfigurationPropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type LoadBalancerConfigurationPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToLoadBalancerConfigurationPropertiesResponsePtrOutput() LoadBalancerConfigurationPropertiesResponsePtrOutput
-	ToLoadBalancerConfigurationPropertiesResponsePtrOutputWithContext(context.Context) LoadBalancerConfigurationPropertiesResponsePtrOutput
-}
-
-type loadBalancerConfigurationPropertiesResponsePtrType LoadBalancerConfigurationPropertiesResponseArgs
-
-func LoadBalancerConfigurationPropertiesResponsePtr(v *LoadBalancerConfigurationPropertiesResponseArgs) LoadBalancerConfigurationPropertiesResponsePtrInput {
-	return (*loadBalancerConfigurationPropertiesResponsePtrType)(v)
-}
-
-func (*loadBalancerConfigurationPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LoadBalancerConfigurationPropertiesResponse)(nil)).Elem()
-}
-
-func (i *loadBalancerConfigurationPropertiesResponsePtrType) ToLoadBalancerConfigurationPropertiesResponsePtrOutput() LoadBalancerConfigurationPropertiesResponsePtrOutput {
-	return i.ToLoadBalancerConfigurationPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *loadBalancerConfigurationPropertiesResponsePtrType) ToLoadBalancerConfigurationPropertiesResponsePtrOutputWithContext(ctx context.Context) LoadBalancerConfigurationPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerConfigurationPropertiesResponsePtrOutput)
 }
 
 type LoadBalancerConfigurationPropertiesResponseOutput struct{ *pulumi.OutputState }
@@ -21210,58 +21156,21 @@ func (o LoadBalancerConfigurationPropertiesResponseOutput) ToLoadBalancerConfigu
 	return o
 }
 
-func (o LoadBalancerConfigurationPropertiesResponseOutput) ToLoadBalancerConfigurationPropertiesResponsePtrOutput() LoadBalancerConfigurationPropertiesResponsePtrOutput {
-	return o.ToLoadBalancerConfigurationPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o LoadBalancerConfigurationPropertiesResponseOutput) ToLoadBalancerConfigurationPropertiesResponsePtrOutputWithContext(ctx context.Context) LoadBalancerConfigurationPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v LoadBalancerConfigurationPropertiesResponse) *LoadBalancerConfigurationPropertiesResponse {
-		return &v
-	}).(LoadBalancerConfigurationPropertiesResponsePtrOutput)
-}
-
-// List of IP
+// Specifies the frontend IP to be used for the load balancer. Only IPv4 frontend IP address is supported. Each load balancer configuration must have exactly one frontend IP configuration.
 func (o LoadBalancerConfigurationPropertiesResponseOutput) FrontendIPConfigurations() LoadBalancerFrontendIPConfigurationResponseArrayOutput {
 	return o.ApplyT(func(v LoadBalancerConfigurationPropertiesResponse) []LoadBalancerFrontendIPConfigurationResponse {
 		return v.FrontendIPConfigurations
 	}).(LoadBalancerFrontendIPConfigurationResponseArrayOutput)
 }
 
-type LoadBalancerConfigurationPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (LoadBalancerConfigurationPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LoadBalancerConfigurationPropertiesResponse)(nil)).Elem()
-}
-
-func (o LoadBalancerConfigurationPropertiesResponsePtrOutput) ToLoadBalancerConfigurationPropertiesResponsePtrOutput() LoadBalancerConfigurationPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o LoadBalancerConfigurationPropertiesResponsePtrOutput) ToLoadBalancerConfigurationPropertiesResponsePtrOutputWithContext(ctx context.Context) LoadBalancerConfigurationPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o LoadBalancerConfigurationPropertiesResponsePtrOutput) Elem() LoadBalancerConfigurationPropertiesResponseOutput {
-	return o.ApplyT(func(v *LoadBalancerConfigurationPropertiesResponse) LoadBalancerConfigurationPropertiesResponse {
-		return *v
-	}).(LoadBalancerConfigurationPropertiesResponseOutput)
-}
-
-// List of IP
-func (o LoadBalancerConfigurationPropertiesResponsePtrOutput) FrontendIPConfigurations() LoadBalancerFrontendIPConfigurationResponseArrayOutput {
-	return o.ApplyT(func(v *LoadBalancerConfigurationPropertiesResponse) []LoadBalancerFrontendIPConfigurationResponse {
-		if v == nil {
-			return nil
-		}
-		return v.FrontendIPConfigurations
-	}).(LoadBalancerFrontendIPConfigurationResponseArrayOutput)
-}
-
 // Describes the load balancer configuration.
 type LoadBalancerConfigurationResponse struct {
-	// Resource Name
-	Name       *string                                      `pulumi:"name"`
-	Properties *LoadBalancerConfigurationPropertiesResponse `pulumi:"properties"`
+	// Resource Id
+	Id *string `pulumi:"id"`
+	// The name of the Load balancer
+	Name string `pulumi:"name"`
+	// Properties of the load balancer configuration.
+	Properties LoadBalancerConfigurationPropertiesResponse `pulumi:"properties"`
 }
 
 // LoadBalancerConfigurationResponseInput is an input type that accepts LoadBalancerConfigurationResponseArgs and LoadBalancerConfigurationResponseOutput values.
@@ -21277,9 +21186,12 @@ type LoadBalancerConfigurationResponseInput interface {
 
 // Describes the load balancer configuration.
 type LoadBalancerConfigurationResponseArgs struct {
-	// Resource Name
-	Name       pulumi.StringPtrInput                               `pulumi:"name"`
-	Properties LoadBalancerConfigurationPropertiesResponsePtrInput `pulumi:"properties"`
+	// Resource Id
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// The name of the Load balancer
+	Name pulumi.StringInput `pulumi:"name"`
+	// Properties of the load balancer configuration.
+	Properties LoadBalancerConfigurationPropertiesResponseInput `pulumi:"properties"`
 }
 
 func (LoadBalancerConfigurationResponseArgs) ElementType() reflect.Type {
@@ -21334,15 +21246,21 @@ func (o LoadBalancerConfigurationResponseOutput) ToLoadBalancerConfigurationResp
 	return o
 }
 
-// Resource Name
-func (o LoadBalancerConfigurationResponseOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LoadBalancerConfigurationResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+// Resource Id
+func (o LoadBalancerConfigurationResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LoadBalancerConfigurationResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-func (o LoadBalancerConfigurationResponseOutput) Properties() LoadBalancerConfigurationPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v LoadBalancerConfigurationResponse) *LoadBalancerConfigurationPropertiesResponse {
+// The name of the Load balancer
+func (o LoadBalancerConfigurationResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LoadBalancerConfigurationResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties of the load balancer configuration.
+func (o LoadBalancerConfigurationResponseOutput) Properties() LoadBalancerConfigurationPropertiesResponseOutput {
+	return o.ApplyT(func(v LoadBalancerConfigurationResponse) LoadBalancerConfigurationPropertiesResponse {
 		return v.Properties
-	}).(LoadBalancerConfigurationPropertiesResponsePtrOutput)
+	}).(LoadBalancerConfigurationPropertiesResponseOutput)
 }
 
 type LoadBalancerConfigurationResponseArrayOutput struct{ *pulumi.OutputState }
@@ -21366,9 +21284,10 @@ func (o LoadBalancerConfigurationResponseArrayOutput) Index(i pulumi.IntInput) L
 }
 
 type LoadBalancerFrontendIPConfiguration struct {
-	Name *string `pulumi:"name"`
-	// Describes a cloud service IP Configuration
-	Properties *LoadBalancerFrontendIPConfigurationProperties `pulumi:"properties"`
+	// The name of the resource that is unique within the set of frontend IP configurations used by the load balancer. This name can be used to access the resource.
+	Name string `pulumi:"name"`
+	// Properties of load balancer frontend ip configuration.
+	Properties LoadBalancerFrontendIPConfigurationProperties `pulumi:"properties"`
 }
 
 // LoadBalancerFrontendIPConfigurationInput is an input type that accepts LoadBalancerFrontendIPConfigurationArgs and LoadBalancerFrontendIPConfigurationOutput values.
@@ -21383,9 +21302,10 @@ type LoadBalancerFrontendIPConfigurationInput interface {
 }
 
 type LoadBalancerFrontendIPConfigurationArgs struct {
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Describes a cloud service IP Configuration
-	Properties LoadBalancerFrontendIPConfigurationPropertiesPtrInput `pulumi:"properties"`
+	// The name of the resource that is unique within the set of frontend IP configurations used by the load balancer. This name can be used to access the resource.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Properties of load balancer frontend ip configuration.
+	Properties LoadBalancerFrontendIPConfigurationPropertiesInput `pulumi:"properties"`
 }
 
 func (LoadBalancerFrontendIPConfigurationArgs) ElementType() reflect.Type {
@@ -21439,15 +21359,16 @@ func (o LoadBalancerFrontendIPConfigurationOutput) ToLoadBalancerFrontendIPConfi
 	return o
 }
 
-func (o LoadBalancerFrontendIPConfigurationOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LoadBalancerFrontendIPConfiguration) *string { return v.Name }).(pulumi.StringPtrOutput)
+// The name of the resource that is unique within the set of frontend IP configurations used by the load balancer. This name can be used to access the resource.
+func (o LoadBalancerFrontendIPConfigurationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LoadBalancerFrontendIPConfiguration) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Describes a cloud service IP Configuration
-func (o LoadBalancerFrontendIPConfigurationOutput) Properties() LoadBalancerFrontendIPConfigurationPropertiesPtrOutput {
-	return o.ApplyT(func(v LoadBalancerFrontendIPConfiguration) *LoadBalancerFrontendIPConfigurationProperties {
+// Properties of load balancer frontend ip configuration.
+func (o LoadBalancerFrontendIPConfigurationOutput) Properties() LoadBalancerFrontendIPConfigurationPropertiesOutput {
+	return o.ApplyT(func(v LoadBalancerFrontendIPConfiguration) LoadBalancerFrontendIPConfigurationProperties {
 		return v.Properties
-	}).(LoadBalancerFrontendIPConfigurationPropertiesPtrOutput)
+	}).(LoadBalancerFrontendIPConfigurationPropertiesOutput)
 }
 
 type LoadBalancerFrontendIPConfigurationArrayOutput struct{ *pulumi.OutputState }
@@ -21472,10 +21393,12 @@ func (o LoadBalancerFrontendIPConfigurationArrayOutput) Index(i pulumi.IntInput)
 
 // Describes a cloud service IP Configuration
 type LoadBalancerFrontendIPConfigurationProperties struct {
-	// The private IP address referenced by the cloud service.
-	PrivateIPAddress *string      `pulumi:"privateIPAddress"`
-	PublicIPAddress  *SubResource `pulumi:"publicIPAddress"`
-	Subnet           *SubResource `pulumi:"subnet"`
+	// The virtual network private IP address of the IP configuration.
+	PrivateIPAddress *string `pulumi:"privateIPAddress"`
+	// The reference to the public ip address resource.
+	PublicIPAddress *SubResource `pulumi:"publicIPAddress"`
+	// The reference to the virtual network subnet resource.
+	Subnet *SubResource `pulumi:"subnet"`
 }
 
 // LoadBalancerFrontendIPConfigurationPropertiesInput is an input type that accepts LoadBalancerFrontendIPConfigurationPropertiesArgs and LoadBalancerFrontendIPConfigurationPropertiesOutput values.
@@ -21491,10 +21414,12 @@ type LoadBalancerFrontendIPConfigurationPropertiesInput interface {
 
 // Describes a cloud service IP Configuration
 type LoadBalancerFrontendIPConfigurationPropertiesArgs struct {
-	// The private IP address referenced by the cloud service.
+	// The virtual network private IP address of the IP configuration.
 	PrivateIPAddress pulumi.StringPtrInput `pulumi:"privateIPAddress"`
-	PublicIPAddress  SubResourcePtrInput   `pulumi:"publicIPAddress"`
-	Subnet           SubResourcePtrInput   `pulumi:"subnet"`
+	// The reference to the public ip address resource.
+	PublicIPAddress SubResourcePtrInput `pulumi:"publicIPAddress"`
+	// The reference to the virtual network subnet resource.
+	Subnet SubResourcePtrInput `pulumi:"subnet"`
 }
 
 func (LoadBalancerFrontendIPConfigurationPropertiesArgs) ElementType() reflect.Type {
@@ -21507,47 +21432,6 @@ func (i LoadBalancerFrontendIPConfigurationPropertiesArgs) ToLoadBalancerFronten
 
 func (i LoadBalancerFrontendIPConfigurationPropertiesArgs) ToLoadBalancerFrontendIPConfigurationPropertiesOutputWithContext(ctx context.Context) LoadBalancerFrontendIPConfigurationPropertiesOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerFrontendIPConfigurationPropertiesOutput)
-}
-
-func (i LoadBalancerFrontendIPConfigurationPropertiesArgs) ToLoadBalancerFrontendIPConfigurationPropertiesPtrOutput() LoadBalancerFrontendIPConfigurationPropertiesPtrOutput {
-	return i.ToLoadBalancerFrontendIPConfigurationPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i LoadBalancerFrontendIPConfigurationPropertiesArgs) ToLoadBalancerFrontendIPConfigurationPropertiesPtrOutputWithContext(ctx context.Context) LoadBalancerFrontendIPConfigurationPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerFrontendIPConfigurationPropertiesOutput).ToLoadBalancerFrontendIPConfigurationPropertiesPtrOutputWithContext(ctx)
-}
-
-// LoadBalancerFrontendIPConfigurationPropertiesPtrInput is an input type that accepts LoadBalancerFrontendIPConfigurationPropertiesArgs, LoadBalancerFrontendIPConfigurationPropertiesPtr and LoadBalancerFrontendIPConfigurationPropertiesPtrOutput values.
-// You can construct a concrete instance of `LoadBalancerFrontendIPConfigurationPropertiesPtrInput` via:
-//
-//          LoadBalancerFrontendIPConfigurationPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type LoadBalancerFrontendIPConfigurationPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToLoadBalancerFrontendIPConfigurationPropertiesPtrOutput() LoadBalancerFrontendIPConfigurationPropertiesPtrOutput
-	ToLoadBalancerFrontendIPConfigurationPropertiesPtrOutputWithContext(context.Context) LoadBalancerFrontendIPConfigurationPropertiesPtrOutput
-}
-
-type loadBalancerFrontendIPConfigurationPropertiesPtrType LoadBalancerFrontendIPConfigurationPropertiesArgs
-
-func LoadBalancerFrontendIPConfigurationPropertiesPtr(v *LoadBalancerFrontendIPConfigurationPropertiesArgs) LoadBalancerFrontendIPConfigurationPropertiesPtrInput {
-	return (*loadBalancerFrontendIPConfigurationPropertiesPtrType)(v)
-}
-
-func (*loadBalancerFrontendIPConfigurationPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LoadBalancerFrontendIPConfigurationProperties)(nil)).Elem()
-}
-
-func (i *loadBalancerFrontendIPConfigurationPropertiesPtrType) ToLoadBalancerFrontendIPConfigurationPropertiesPtrOutput() LoadBalancerFrontendIPConfigurationPropertiesPtrOutput {
-	return i.ToLoadBalancerFrontendIPConfigurationPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *loadBalancerFrontendIPConfigurationPropertiesPtrType) ToLoadBalancerFrontendIPConfigurationPropertiesPtrOutputWithContext(ctx context.Context) LoadBalancerFrontendIPConfigurationPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerFrontendIPConfigurationPropertiesPtrOutput)
 }
 
 // Describes a cloud service IP Configuration
@@ -21565,83 +21449,29 @@ func (o LoadBalancerFrontendIPConfigurationPropertiesOutput) ToLoadBalancerFront
 	return o
 }
 
-func (o LoadBalancerFrontendIPConfigurationPropertiesOutput) ToLoadBalancerFrontendIPConfigurationPropertiesPtrOutput() LoadBalancerFrontendIPConfigurationPropertiesPtrOutput {
-	return o.ToLoadBalancerFrontendIPConfigurationPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o LoadBalancerFrontendIPConfigurationPropertiesOutput) ToLoadBalancerFrontendIPConfigurationPropertiesPtrOutputWithContext(ctx context.Context) LoadBalancerFrontendIPConfigurationPropertiesPtrOutput {
-	return o.ApplyT(func(v LoadBalancerFrontendIPConfigurationProperties) *LoadBalancerFrontendIPConfigurationProperties {
-		return &v
-	}).(LoadBalancerFrontendIPConfigurationPropertiesPtrOutput)
-}
-
-// The private IP address referenced by the cloud service.
+// The virtual network private IP address of the IP configuration.
 func (o LoadBalancerFrontendIPConfigurationPropertiesOutput) PrivateIPAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LoadBalancerFrontendIPConfigurationProperties) *string { return v.PrivateIPAddress }).(pulumi.StringPtrOutput)
 }
 
+// The reference to the public ip address resource.
 func (o LoadBalancerFrontendIPConfigurationPropertiesOutput) PublicIPAddress() SubResourcePtrOutput {
 	return o.ApplyT(func(v LoadBalancerFrontendIPConfigurationProperties) *SubResource { return v.PublicIPAddress }).(SubResourcePtrOutput)
 }
 
+// The reference to the virtual network subnet resource.
 func (o LoadBalancerFrontendIPConfigurationPropertiesOutput) Subnet() SubResourcePtrOutput {
 	return o.ApplyT(func(v LoadBalancerFrontendIPConfigurationProperties) *SubResource { return v.Subnet }).(SubResourcePtrOutput)
 }
 
-type LoadBalancerFrontendIPConfigurationPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (LoadBalancerFrontendIPConfigurationPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LoadBalancerFrontendIPConfigurationProperties)(nil)).Elem()
-}
-
-func (o LoadBalancerFrontendIPConfigurationPropertiesPtrOutput) ToLoadBalancerFrontendIPConfigurationPropertiesPtrOutput() LoadBalancerFrontendIPConfigurationPropertiesPtrOutput {
-	return o
-}
-
-func (o LoadBalancerFrontendIPConfigurationPropertiesPtrOutput) ToLoadBalancerFrontendIPConfigurationPropertiesPtrOutputWithContext(ctx context.Context) LoadBalancerFrontendIPConfigurationPropertiesPtrOutput {
-	return o
-}
-
-func (o LoadBalancerFrontendIPConfigurationPropertiesPtrOutput) Elem() LoadBalancerFrontendIPConfigurationPropertiesOutput {
-	return o.ApplyT(func(v *LoadBalancerFrontendIPConfigurationProperties) LoadBalancerFrontendIPConfigurationProperties {
-		return *v
-	}).(LoadBalancerFrontendIPConfigurationPropertiesOutput)
-}
-
-// The private IP address referenced by the cloud service.
-func (o LoadBalancerFrontendIPConfigurationPropertiesPtrOutput) PrivateIPAddress() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LoadBalancerFrontendIPConfigurationProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PrivateIPAddress
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o LoadBalancerFrontendIPConfigurationPropertiesPtrOutput) PublicIPAddress() SubResourcePtrOutput {
-	return o.ApplyT(func(v *LoadBalancerFrontendIPConfigurationProperties) *SubResource {
-		if v == nil {
-			return nil
-		}
-		return v.PublicIPAddress
-	}).(SubResourcePtrOutput)
-}
-
-func (o LoadBalancerFrontendIPConfigurationPropertiesPtrOutput) Subnet() SubResourcePtrOutput {
-	return o.ApplyT(func(v *LoadBalancerFrontendIPConfigurationProperties) *SubResource {
-		if v == nil {
-			return nil
-		}
-		return v.Subnet
-	}).(SubResourcePtrOutput)
-}
-
 // Describes a cloud service IP Configuration
 type LoadBalancerFrontendIPConfigurationPropertiesResponse struct {
-	// The private IP address referenced by the cloud service.
-	PrivateIPAddress *string              `pulumi:"privateIPAddress"`
-	PublicIPAddress  *SubResourceResponse `pulumi:"publicIPAddress"`
-	Subnet           *SubResourceResponse `pulumi:"subnet"`
+	// The virtual network private IP address of the IP configuration.
+	PrivateIPAddress *string `pulumi:"privateIPAddress"`
+	// The reference to the public ip address resource.
+	PublicIPAddress *SubResourceResponse `pulumi:"publicIPAddress"`
+	// The reference to the virtual network subnet resource.
+	Subnet *SubResourceResponse `pulumi:"subnet"`
 }
 
 // LoadBalancerFrontendIPConfigurationPropertiesResponseInput is an input type that accepts LoadBalancerFrontendIPConfigurationPropertiesResponseArgs and LoadBalancerFrontendIPConfigurationPropertiesResponseOutput values.
@@ -21657,10 +21487,12 @@ type LoadBalancerFrontendIPConfigurationPropertiesResponseInput interface {
 
 // Describes a cloud service IP Configuration
 type LoadBalancerFrontendIPConfigurationPropertiesResponseArgs struct {
-	// The private IP address referenced by the cloud service.
-	PrivateIPAddress pulumi.StringPtrInput       `pulumi:"privateIPAddress"`
-	PublicIPAddress  SubResourceResponsePtrInput `pulumi:"publicIPAddress"`
-	Subnet           SubResourceResponsePtrInput `pulumi:"subnet"`
+	// The virtual network private IP address of the IP configuration.
+	PrivateIPAddress pulumi.StringPtrInput `pulumi:"privateIPAddress"`
+	// The reference to the public ip address resource.
+	PublicIPAddress SubResourceResponsePtrInput `pulumi:"publicIPAddress"`
+	// The reference to the virtual network subnet resource.
+	Subnet SubResourceResponsePtrInput `pulumi:"subnet"`
 }
 
 func (LoadBalancerFrontendIPConfigurationPropertiesResponseArgs) ElementType() reflect.Type {
@@ -21673,47 +21505,6 @@ func (i LoadBalancerFrontendIPConfigurationPropertiesResponseArgs) ToLoadBalance
 
 func (i LoadBalancerFrontendIPConfigurationPropertiesResponseArgs) ToLoadBalancerFrontendIPConfigurationPropertiesResponseOutputWithContext(ctx context.Context) LoadBalancerFrontendIPConfigurationPropertiesResponseOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerFrontendIPConfigurationPropertiesResponseOutput)
-}
-
-func (i LoadBalancerFrontendIPConfigurationPropertiesResponseArgs) ToLoadBalancerFrontendIPConfigurationPropertiesResponsePtrOutput() LoadBalancerFrontendIPConfigurationPropertiesResponsePtrOutput {
-	return i.ToLoadBalancerFrontendIPConfigurationPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i LoadBalancerFrontendIPConfigurationPropertiesResponseArgs) ToLoadBalancerFrontendIPConfigurationPropertiesResponsePtrOutputWithContext(ctx context.Context) LoadBalancerFrontendIPConfigurationPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerFrontendIPConfigurationPropertiesResponseOutput).ToLoadBalancerFrontendIPConfigurationPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// LoadBalancerFrontendIPConfigurationPropertiesResponsePtrInput is an input type that accepts LoadBalancerFrontendIPConfigurationPropertiesResponseArgs, LoadBalancerFrontendIPConfigurationPropertiesResponsePtr and LoadBalancerFrontendIPConfigurationPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `LoadBalancerFrontendIPConfigurationPropertiesResponsePtrInput` via:
-//
-//          LoadBalancerFrontendIPConfigurationPropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type LoadBalancerFrontendIPConfigurationPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToLoadBalancerFrontendIPConfigurationPropertiesResponsePtrOutput() LoadBalancerFrontendIPConfigurationPropertiesResponsePtrOutput
-	ToLoadBalancerFrontendIPConfigurationPropertiesResponsePtrOutputWithContext(context.Context) LoadBalancerFrontendIPConfigurationPropertiesResponsePtrOutput
-}
-
-type loadBalancerFrontendIPConfigurationPropertiesResponsePtrType LoadBalancerFrontendIPConfigurationPropertiesResponseArgs
-
-func LoadBalancerFrontendIPConfigurationPropertiesResponsePtr(v *LoadBalancerFrontendIPConfigurationPropertiesResponseArgs) LoadBalancerFrontendIPConfigurationPropertiesResponsePtrInput {
-	return (*loadBalancerFrontendIPConfigurationPropertiesResponsePtrType)(v)
-}
-
-func (*loadBalancerFrontendIPConfigurationPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LoadBalancerFrontendIPConfigurationPropertiesResponse)(nil)).Elem()
-}
-
-func (i *loadBalancerFrontendIPConfigurationPropertiesResponsePtrType) ToLoadBalancerFrontendIPConfigurationPropertiesResponsePtrOutput() LoadBalancerFrontendIPConfigurationPropertiesResponsePtrOutput {
-	return i.ToLoadBalancerFrontendIPConfigurationPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *loadBalancerFrontendIPConfigurationPropertiesResponsePtrType) ToLoadBalancerFrontendIPConfigurationPropertiesResponsePtrOutputWithContext(ctx context.Context) LoadBalancerFrontendIPConfigurationPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerFrontendIPConfigurationPropertiesResponsePtrOutput)
 }
 
 // Describes a cloud service IP Configuration
@@ -21731,83 +21522,28 @@ func (o LoadBalancerFrontendIPConfigurationPropertiesResponseOutput) ToLoadBalan
 	return o
 }
 
-func (o LoadBalancerFrontendIPConfigurationPropertiesResponseOutput) ToLoadBalancerFrontendIPConfigurationPropertiesResponsePtrOutput() LoadBalancerFrontendIPConfigurationPropertiesResponsePtrOutput {
-	return o.ToLoadBalancerFrontendIPConfigurationPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o LoadBalancerFrontendIPConfigurationPropertiesResponseOutput) ToLoadBalancerFrontendIPConfigurationPropertiesResponsePtrOutputWithContext(ctx context.Context) LoadBalancerFrontendIPConfigurationPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v LoadBalancerFrontendIPConfigurationPropertiesResponse) *LoadBalancerFrontendIPConfigurationPropertiesResponse {
-		return &v
-	}).(LoadBalancerFrontendIPConfigurationPropertiesResponsePtrOutput)
-}
-
-// The private IP address referenced by the cloud service.
+// The virtual network private IP address of the IP configuration.
 func (o LoadBalancerFrontendIPConfigurationPropertiesResponseOutput) PrivateIPAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LoadBalancerFrontendIPConfigurationPropertiesResponse) *string { return v.PrivateIPAddress }).(pulumi.StringPtrOutput)
 }
 
+// The reference to the public ip address resource.
 func (o LoadBalancerFrontendIPConfigurationPropertiesResponseOutput) PublicIPAddress() SubResourceResponsePtrOutput {
 	return o.ApplyT(func(v LoadBalancerFrontendIPConfigurationPropertiesResponse) *SubResourceResponse {
 		return v.PublicIPAddress
 	}).(SubResourceResponsePtrOutput)
 }
 
+// The reference to the virtual network subnet resource.
 func (o LoadBalancerFrontendIPConfigurationPropertiesResponseOutput) Subnet() SubResourceResponsePtrOutput {
 	return o.ApplyT(func(v LoadBalancerFrontendIPConfigurationPropertiesResponse) *SubResourceResponse { return v.Subnet }).(SubResourceResponsePtrOutput)
 }
 
-type LoadBalancerFrontendIPConfigurationPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (LoadBalancerFrontendIPConfigurationPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LoadBalancerFrontendIPConfigurationPropertiesResponse)(nil)).Elem()
-}
-
-func (o LoadBalancerFrontendIPConfigurationPropertiesResponsePtrOutput) ToLoadBalancerFrontendIPConfigurationPropertiesResponsePtrOutput() LoadBalancerFrontendIPConfigurationPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o LoadBalancerFrontendIPConfigurationPropertiesResponsePtrOutput) ToLoadBalancerFrontendIPConfigurationPropertiesResponsePtrOutputWithContext(ctx context.Context) LoadBalancerFrontendIPConfigurationPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o LoadBalancerFrontendIPConfigurationPropertiesResponsePtrOutput) Elem() LoadBalancerFrontendIPConfigurationPropertiesResponseOutput {
-	return o.ApplyT(func(v *LoadBalancerFrontendIPConfigurationPropertiesResponse) LoadBalancerFrontendIPConfigurationPropertiesResponse {
-		return *v
-	}).(LoadBalancerFrontendIPConfigurationPropertiesResponseOutput)
-}
-
-// The private IP address referenced by the cloud service.
-func (o LoadBalancerFrontendIPConfigurationPropertiesResponsePtrOutput) PrivateIPAddress() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LoadBalancerFrontendIPConfigurationPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PrivateIPAddress
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o LoadBalancerFrontendIPConfigurationPropertiesResponsePtrOutput) PublicIPAddress() SubResourceResponsePtrOutput {
-	return o.ApplyT(func(v *LoadBalancerFrontendIPConfigurationPropertiesResponse) *SubResourceResponse {
-		if v == nil {
-			return nil
-		}
-		return v.PublicIPAddress
-	}).(SubResourceResponsePtrOutput)
-}
-
-func (o LoadBalancerFrontendIPConfigurationPropertiesResponsePtrOutput) Subnet() SubResourceResponsePtrOutput {
-	return o.ApplyT(func(v *LoadBalancerFrontendIPConfigurationPropertiesResponse) *SubResourceResponse {
-		if v == nil {
-			return nil
-		}
-		return v.Subnet
-	}).(SubResourceResponsePtrOutput)
-}
-
 type LoadBalancerFrontendIPConfigurationResponse struct {
-	Name *string `pulumi:"name"`
-	// Describes a cloud service IP Configuration
-	Properties *LoadBalancerFrontendIPConfigurationPropertiesResponse `pulumi:"properties"`
+	// The name of the resource that is unique within the set of frontend IP configurations used by the load balancer. This name can be used to access the resource.
+	Name string `pulumi:"name"`
+	// Properties of load balancer frontend ip configuration.
+	Properties LoadBalancerFrontendIPConfigurationPropertiesResponse `pulumi:"properties"`
 }
 
 // LoadBalancerFrontendIPConfigurationResponseInput is an input type that accepts LoadBalancerFrontendIPConfigurationResponseArgs and LoadBalancerFrontendIPConfigurationResponseOutput values.
@@ -21822,9 +21558,10 @@ type LoadBalancerFrontendIPConfigurationResponseInput interface {
 }
 
 type LoadBalancerFrontendIPConfigurationResponseArgs struct {
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Describes a cloud service IP Configuration
-	Properties LoadBalancerFrontendIPConfigurationPropertiesResponsePtrInput `pulumi:"properties"`
+	// The name of the resource that is unique within the set of frontend IP configurations used by the load balancer. This name can be used to access the resource.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Properties of load balancer frontend ip configuration.
+	Properties LoadBalancerFrontendIPConfigurationPropertiesResponseInput `pulumi:"properties"`
 }
 
 func (LoadBalancerFrontendIPConfigurationResponseArgs) ElementType() reflect.Type {
@@ -21878,15 +21615,16 @@ func (o LoadBalancerFrontendIPConfigurationResponseOutput) ToLoadBalancerFronten
 	return o
 }
 
-func (o LoadBalancerFrontendIPConfigurationResponseOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LoadBalancerFrontendIPConfigurationResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+// The name of the resource that is unique within the set of frontend IP configurations used by the load balancer. This name can be used to access the resource.
+func (o LoadBalancerFrontendIPConfigurationResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LoadBalancerFrontendIPConfigurationResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Describes a cloud service IP Configuration
-func (o LoadBalancerFrontendIPConfigurationResponseOutput) Properties() LoadBalancerFrontendIPConfigurationPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v LoadBalancerFrontendIPConfigurationResponse) *LoadBalancerFrontendIPConfigurationPropertiesResponse {
+// Properties of load balancer frontend ip configuration.
+func (o LoadBalancerFrontendIPConfigurationResponseOutput) Properties() LoadBalancerFrontendIPConfigurationPropertiesResponseOutput {
+	return o.ApplyT(func(v LoadBalancerFrontendIPConfigurationResponse) LoadBalancerFrontendIPConfigurationPropertiesResponse {
 		return v.Properties
-	}).(LoadBalancerFrontendIPConfigurationPropertiesResponsePtrOutput)
+	}).(LoadBalancerFrontendIPConfigurationPropertiesResponseOutput)
 }
 
 type LoadBalancerFrontendIPConfigurationResponseArrayOutput struct{ *pulumi.OutputState }
@@ -45141,17 +44879,13 @@ func init() {
 	pulumi.RegisterOutputType(LoadBalancerConfigurationOutput{})
 	pulumi.RegisterOutputType(LoadBalancerConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(LoadBalancerConfigurationPropertiesOutput{})
-	pulumi.RegisterOutputType(LoadBalancerConfigurationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(LoadBalancerConfigurationPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(LoadBalancerConfigurationPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(LoadBalancerConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(LoadBalancerConfigurationResponseArrayOutput{})
 	pulumi.RegisterOutputType(LoadBalancerFrontendIPConfigurationOutput{})
 	pulumi.RegisterOutputType(LoadBalancerFrontendIPConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(LoadBalancerFrontendIPConfigurationPropertiesOutput{})
-	pulumi.RegisterOutputType(LoadBalancerFrontendIPConfigurationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(LoadBalancerFrontendIPConfigurationPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(LoadBalancerFrontendIPConfigurationPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(LoadBalancerFrontendIPConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(LoadBalancerFrontendIPConfigurationResponseArrayOutput{})
 	pulumi.RegisterOutputType(LogAnalyticsOutputResponseOutput{})

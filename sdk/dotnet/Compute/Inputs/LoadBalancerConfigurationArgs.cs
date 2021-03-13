@@ -16,13 +16,22 @@ namespace Pulumi.AzureNative.Compute.Inputs
     public sealed class LoadBalancerConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Resource Name
+        /// Resource Id
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("id")]
+        public Input<string>? Id { get; set; }
 
-        [Input("properties")]
-        public Input<Inputs.LoadBalancerConfigurationPropertiesArgs>? Properties { get; set; }
+        /// <summary>
+        /// The name of the Load balancer
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Properties of the load balancer configuration.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.LoadBalancerConfigurationPropertiesArgs> Properties { get; set; } = null!;
 
         public LoadBalancerConfigurationArgs()
         {

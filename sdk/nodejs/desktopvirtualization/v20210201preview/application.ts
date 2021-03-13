@@ -88,6 +88,10 @@ export class Application extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * ObjectId of Application. (internal use)
+     */
+    public /*out*/ readonly objectId!: pulumi.Output<string>;
+    /**
      * Specifies whether to show the RemoteApp program in the RD Web Access server.
      */
     public readonly showInPortal!: pulumi.Output<boolean | undefined>;
@@ -133,6 +137,7 @@ export class Application extends pulumi.CustomResource {
             inputs["iconContent"] = undefined /*out*/;
             inputs["iconHash"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["objectId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["applicationType"] = undefined /*out*/;
@@ -148,6 +153,7 @@ export class Application extends pulumi.CustomResource {
             inputs["msixPackageApplicationId"] = undefined /*out*/;
             inputs["msixPackageFamilyName"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["objectId"] = undefined /*out*/;
             inputs["showInPortal"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }

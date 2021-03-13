@@ -42,9 +42,17 @@ export interface GetApplicationGroupResult {
      */
     readonly applicationGroupType: string;
     /**
+     * Is cloud pc resource.
+     */
+    readonly cloudPcResource: boolean;
+    /**
      * Description of ApplicationGroup.
      */
     readonly description?: string;
+    /**
+     * The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields. 
+     */
+    readonly etag: string;
     /**
      * Friendly name of ApplicationGroup.
      */
@@ -57,14 +65,33 @@ export interface GetApplicationGroupResult {
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
+    readonly identity?: outputs.desktopvirtualization.v20210114preview.ResourceModelWithAllowedPropertySetResponseIdentity;
+    /**
+     * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+     */
+    readonly kind?: string;
     /**
      * The geo-location where the resource lives
      */
-    readonly location: string;
+    readonly location?: string;
+    /**
+     * The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
+     */
+    readonly managedBy?: string;
+    /**
+     * The registration info of HostPool.
+     */
+    readonly migrationRequest?: outputs.desktopvirtualization.v20210114preview.MigrationRequestPropertiesResponse;
     /**
      * The name of the resource
      */
     readonly name: string;
+    /**
+     * ObjectId of ApplicationGroup. (internal use)
+     */
+    readonly objectId: string;
+    readonly plan?: outputs.desktopvirtualization.v20210114preview.ResourceModelWithAllowedPropertySetResponsePlan;
+    readonly sku?: outputs.desktopvirtualization.v20210114preview.ResourceModelWithAllowedPropertySetResponseSku;
     /**
      * Resource tags.
      */

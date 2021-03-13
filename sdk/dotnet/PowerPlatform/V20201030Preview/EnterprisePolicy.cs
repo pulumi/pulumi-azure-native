@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.PowerPlatform.V20201030Preview
         public Output<Outputs.EnterprisePolicyIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
-        /// Region where the EnterprisePolicy is located.
+        /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;

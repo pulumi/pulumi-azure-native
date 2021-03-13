@@ -27,20 +27,6 @@ namespace Pulumi.AzureNative.KeyVault.Latest.Inputs
         [Input("curveName")]
         public InputUnion<string, Pulumi.AzureNative.KeyVault.Latest.JsonWebKeyCurveName>? CurveName { get; set; }
 
-        [Input("keyOps")]
-        private InputList<Union<string, Pulumi.AzureNative.KeyVault.Latest.JsonWebKeyOperation>>? _keyOps;
-        public InputList<Union<string, Pulumi.AzureNative.KeyVault.Latest.JsonWebKeyOperation>> KeyOps
-        {
-            get => _keyOps ?? (_keyOps = new InputList<Union<string, Pulumi.AzureNative.KeyVault.Latest.JsonWebKeyOperation>>());
-            set => _keyOps = value;
-        }
-
-        /// <summary>
-        /// The key size in bits. For example: 2048, 3072, or 4096 for RSA.
-        /// </summary>
-        [Input("keySize")]
-        public Input<int>? KeySize { get; set; }
-
         /// <summary>
         /// The type of the key. For valid values, see JsonWebKeyType.
         /// </summary>

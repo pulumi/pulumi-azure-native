@@ -9,12 +9,15 @@ __all__ = [
     'CommandLineSetting',
     'HostPoolType',
     'LoadBalancerType',
+    'Operation',
     'PersonalDesktopAssignmentType',
     'PreferredAppGroupType',
     'RegistrationTokenOperation',
     'RemoteApplicationType',
+    'ResourceIdentityType',
     'SSOSecretType',
     'SessionHostLoadBalancingAlgorithm',
+    'SkuTier',
     'StopHostsWhen',
 ]
 
@@ -38,10 +41,11 @@ class CommandLineSetting(str, Enum):
 
 class HostPoolType(str, Enum):
     """
-    HostPool type for scaling plan.
+    HostPool type for desktop.
     """
     PERSONAL = "Personal"
     POOLED = "Pooled"
+    BYO_DESKTOP = "BYODesktop"
 
 
 class LoadBalancerType(str, Enum):
@@ -51,6 +55,17 @@ class LoadBalancerType(str, Enum):
     BREADTH_FIRST = "BreadthFirst"
     DEPTH_FIRST = "DepthFirst"
     PERSISTENT = "Persistent"
+
+
+class Operation(str, Enum):
+    """
+    The type of operation for migration.
+    """
+    START = "Start"
+    REVOKE = "Revoke"
+    COMPLETE = "Complete"
+    HIDE = "Hide"
+    UNHIDE = "Unhide"
 
 
 class PersonalDesktopAssignmentType(str, Enum):
@@ -87,6 +102,13 @@ class RemoteApplicationType(str, Enum):
     MSIX_APPLICATION = "MsixApplication"
 
 
+class ResourceIdentityType(str, Enum):
+    """
+    The identity type.
+    """
+    SYSTEM_ASSIGNED = "SystemAssigned"
+
+
 class SSOSecretType(str, Enum):
     """
     The type of single sign on Secret Type.
@@ -103,6 +125,16 @@ class SessionHostLoadBalancingAlgorithm(str, Enum):
     """
     BREADTH_FIRST = "BreadthFirst"
     DEPTH_FIRST = "DepthFirst"
+
+
+class SkuTier(str, Enum):
+    """
+    This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+    """
+    FREE = "Free"
+    BASIC = "Basic"
+    STANDARD = "Standard"
+    PREMIUM = "Premium"
 
 
 class StopHostsWhen(str, Enum):

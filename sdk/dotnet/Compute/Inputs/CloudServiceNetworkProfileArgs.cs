@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.Compute.Inputs
         private InputList<Inputs.LoadBalancerConfigurationArgs>? _loadBalancerConfigurations;
 
         /// <summary>
-        /// The list of load balancer configurations for the cloud service.
+        /// List of Load balancer configurations. Cloud service can have up to two load balancer configurations, corresponding to a Public Load Balancer and an Internal Load Balancer.
         /// </summary>
         public InputList<Inputs.LoadBalancerConfigurationArgs> LoadBalancerConfigurations
         {
@@ -27,6 +27,9 @@ namespace Pulumi.AzureNative.Compute.Inputs
             set => _loadBalancerConfigurations = value;
         }
 
+        /// <summary>
+        /// The id reference of the cloud service containing the target IP with which the subject cloud service can perform a swap. This property cannot be updated once it is set. The swappable cloud service referred by this id must be present otherwise an error will be thrown.
+        /// </summary>
         [Input("swappableCloudService")]
         public Input<Inputs.SubResourceArgs>? SwappableCloudService { get; set; }
 

@@ -96,6 +96,8 @@ func (SaasSubscriptionLevelState) ElementType() reflect.Type {
 }
 
 type saasSubscriptionLevelArgs struct {
+	// Resource location. Only value allowed for SaaS is 'global'
+	Location *string `pulumi:"location"`
 	// The resource name
 	Name *string `pulumi:"name"`
 	// Properties of the SaaS resource that are relevant for creation.
@@ -110,6 +112,8 @@ type saasSubscriptionLevelArgs struct {
 
 // The set of arguments for constructing a SaasSubscriptionLevel resource.
 type SaasSubscriptionLevelArgs struct {
+	// Resource location. Only value allowed for SaaS is 'global'
+	Location pulumi.StringPtrInput
 	// The resource name
 	Name pulumi.StringPtrInput
 	// Properties of the SaaS resource that are relevant for creation.

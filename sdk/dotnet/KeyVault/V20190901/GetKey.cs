@@ -64,7 +64,7 @@ namespace Pulumi.AzureNative.KeyVault.V20190901
         /// <summary>
         /// The key size in bits. For example: 2048, 3072, or 4096 for RSA.
         /// </summary>
-        public readonly int? KeySize;
+        public readonly int KeySize;
         /// <summary>
         /// The URI to retrieve the current version of the key.
         /// </summary>
@@ -104,7 +104,7 @@ namespace Pulumi.AzureNative.KeyVault.V20190901
 
             ImmutableArray<string> keyOps,
 
-            int? keySize,
+            int keySize,
 
             string keyUri,
 

@@ -14,10 +14,16 @@ namespace Pulumi.AzureNative.Compute.Outputs
     public sealed class LoadBalancerFrontendIPConfigurationPropertiesResponse
     {
         /// <summary>
-        /// The private IP address referenced by the cloud service.
+        /// The virtual network private IP address of the IP configuration.
         /// </summary>
         public readonly string? PrivateIPAddress;
+        /// <summary>
+        /// The reference to the public ip address resource.
+        /// </summary>
         public readonly Outputs.SubResourceResponse? PublicIPAddress;
+        /// <summary>
+        /// The reference to the virtual network subnet resource.
+        /// </summary>
         public readonly Outputs.SubResourceResponse? Subnet;
 
         [OutputConstructor]

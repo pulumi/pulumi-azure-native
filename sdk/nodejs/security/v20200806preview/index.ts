@@ -14,6 +14,9 @@ export * from "./iotSensor";
 export * from "./iotSite";
 export * from "./onPremiseIotSensor";
 
+// Export enums:
+export * from "../../types/enums/security/v20200806preview";
+
 // Import resources to register:
 import { IotDefenderSetting } from "./iotDefenderSetting";
 import { IotSensor } from "./iotSensor";

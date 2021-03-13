@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
 {
 
     /// <summary>
-    /// Azure data lake store read settings.
+    /// Amazon S3 read settings.
     /// </summary>
     public sealed class AmazonS3ReadSettingsArgs : Pulumi.ResourceArgs
     {

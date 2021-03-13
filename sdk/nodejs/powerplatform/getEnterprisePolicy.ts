@@ -51,7 +51,7 @@ export interface GetEnterprisePolicyResult {
      */
     readonly identity?: outputs.powerplatform.EnterprisePolicyIdentityResponse;
     /**
-     * Region where the EnterprisePolicy is located.
+     * The geo-location where the resource lives
      */
     readonly location: string;
     /**

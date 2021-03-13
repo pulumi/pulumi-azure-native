@@ -77,7 +77,7 @@ class GetEnterprisePolicyResult:
     @pulumi.getter
     def location(self) -> str:
         """
-        Region where the EnterprisePolicy is located.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 

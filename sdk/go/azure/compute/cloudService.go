@@ -12,7 +12,7 @@ import (
 )
 
 // Describes the cloud service.
-// API Version: 2020-10-01-preview.
+// API Version: 2021-03-01.
 type CloudService struct {
 	pulumi.CustomResourceState
 
@@ -43,10 +43,22 @@ func NewCloudService(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:compute:CloudService"),
 		},
 		{
+			Type: pulumi.String("azure-native:compute/latest:CloudService"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:compute/latest:CloudService"),
+		},
+		{
 			Type: pulumi.String("azure-native:compute/v20201001preview:CloudService"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20201001preview:CloudService"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20210301:CloudService"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:compute/v20210301:CloudService"),
 		},
 	})
 	opts = append(opts, aliases)

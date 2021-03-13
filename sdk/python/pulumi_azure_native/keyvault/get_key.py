@@ -84,12 +84,12 @@ class GetKeyResult:
 
     @property
     @pulumi.getter(name="keyOps")
-    def key_ops(self) -> Optional[Sequence[str]]:
+    def key_ops(self) -> Sequence[str]:
         return pulumi.get(self, "key_ops")
 
     @property
     @pulumi.getter(name="keySize")
-    def key_size(self) -> Optional[int]:
+    def key_size(self) -> int:
         """
         The key size in bits. For example: 2048, 3072, or 4096 for RSA.
         """

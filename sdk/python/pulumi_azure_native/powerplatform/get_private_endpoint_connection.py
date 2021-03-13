@@ -20,13 +20,10 @@ class GetPrivateEndpointConnectionResult:
     """
     A private endpoint connection
     """
-    def __init__(__self__, id=None, location=None, name=None, private_endpoint=None, private_link_service_connection_state=None, provisioning_state=None, system_data=None, type=None):
+    def __init__(__self__, id=None, name=None, private_endpoint=None, private_link_service_connection_state=None, provisioning_state=None, system_data=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        pulumi.set(__self__, "location", location)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -53,14 +50,6 @@ class GetPrivateEndpointConnectionResult:
         Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def location(self) -> str:
-        """
-        Region where the EnterprisePolicy is located.
-        """
-        return pulumi.get(self, "location")
 
     @property
     @pulumi.getter
@@ -98,7 +87,7 @@ class GetPrivateEndpointConnectionResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        Metadata for the private endpoint connection.
+        Metadata pertaining to creation and last modification of the resource.
         """
         return pulumi.get(self, "system_data")
 
@@ -118,7 +107,6 @@ class AwaitableGetPrivateEndpointConnectionResult(GetPrivateEndpointConnectionRe
             yield self
         return GetPrivateEndpointConnectionResult(
             id=self.id,
-            location=self.location,
             name=self.name,
             private_endpoint=self.private_endpoint,
             private_link_service_connection_state=self.private_link_service_connection_state,
@@ -152,7 +140,6 @@ def get_private_endpoint_connection(enterprise_policy_name: Optional[str] = None
 
     return AwaitableGetPrivateEndpointConnectionResult(
         id=__ret__.id,
-        location=__ret__.location,
         name=__ret__.name,
         private_endpoint=__ret__.private_endpoint,
         private_link_service_connection_state=__ret__.private_link_service_connection_state,

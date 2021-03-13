@@ -56,6 +56,8 @@ type LookupApplicationResult struct {
 	MsixPackageFamilyName *string `pulumi:"msixPackageFamilyName"`
 	// The name of the resource
 	Name string `pulumi:"name"`
+	// ObjectId of Application. (internal use)
+	ObjectId string `pulumi:"objectId"`
 	// Specifies whether to show the RemoteApp program in the RD Web Access server.
 	ShowInPortal *bool `pulumi:"showInPortal"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Describes the cloud service.
- * API Version: 2020-10-01-preview.
+ * API Version: 2021-03-01.
  */
 export function getCloudService(args: GetCloudServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetCloudServiceResult> {
     if (!opts) {

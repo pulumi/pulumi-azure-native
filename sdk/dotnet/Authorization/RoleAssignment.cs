@@ -188,6 +188,12 @@ namespace Pulumi.AzureNative.Authorization
         public Input<string>? ConditionVersion { get; set; }
 
         /// <summary>
+        /// Id of the delegated managed identity resource
+        /// </summary>
+        [Input("delegatedManagedIdentityResourceId")]
+        public Input<string>? DelegatedManagedIdentityResourceId { get; set; }
+
+        /// <summary>
         /// Description of role assignment
         /// </summary>
         [Input("description")]
@@ -225,6 +231,7 @@ namespace Pulumi.AzureNative.Authorization
 
         public RoleAssignmentArgs()
         {
+            PrincipalType = "User";
         }
     }
 }

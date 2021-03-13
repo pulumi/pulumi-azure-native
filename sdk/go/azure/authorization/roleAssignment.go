@@ -64,6 +64,9 @@ func NewRoleAssignment(ctx *pulumi.Context,
 	if args.Scope == nil {
 		return nil, errors.New("invalid value for required argument 'Scope'")
 	}
+	if args.PrincipalType == nil {
+		args.PrincipalType = pulumi.StringPtr("User")
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:authorization:RoleAssignment"),
@@ -210,6 +213,8 @@ type roleAssignmentArgs struct {
 	Condition *string `pulumi:"condition"`
 	// Version of the condition. Currently accepted value is '2.0'
 	ConditionVersion *string `pulumi:"conditionVersion"`
+	// Id of the delegated managed identity resource
+	DelegatedManagedIdentityResourceId *string `pulumi:"delegatedManagedIdentityResourceId"`
 	// Description of role assignment
 	Description *string `pulumi:"description"`
 	// The principal ID assigned to the role. This maps to the ID inside the Active Directory. It can point to a user, service principal, or security group.
@@ -232,6 +237,8 @@ type RoleAssignmentArgs struct {
 	Condition pulumi.StringPtrInput
 	// Version of the condition. Currently accepted value is '2.0'
 	ConditionVersion pulumi.StringPtrInput
+	// Id of the delegated managed identity resource
+	DelegatedManagedIdentityResourceId pulumi.StringPtrInput
 	// Description of role assignment
 	Description pulumi.StringPtrInput
 	// The principal ID assigned to the role. This maps to the ID inside the Active Directory. It can point to a user, service principal, or security group.

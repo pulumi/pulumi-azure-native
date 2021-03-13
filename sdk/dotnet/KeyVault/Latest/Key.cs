@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.KeyVault.Latest
         /// The key size in bits. For example: 2048, 3072, or 4096 for RSA.
         /// </summary>
         [Output("keySize")]
-        public Output<int?> KeySize { get; private set; } = null!;
+        public Output<int> KeySize { get; private set; } = null!;
 
         /// <summary>
         /// The URI to retrieve the current version of the key.

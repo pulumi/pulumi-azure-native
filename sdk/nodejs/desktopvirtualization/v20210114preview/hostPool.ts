@@ -40,6 +40,10 @@ export class HostPool extends pulumi.CustomResource {
      */
     public /*out*/ readonly applicationGroupReferences!: pulumi.Output<string[]>;
     /**
+     * Is cloud pc resource.
+     */
+    public /*out*/ readonly cloudPcResource!: pulumi.Output<boolean>;
+    /**
      * Custom rdp property of HostPool.
      */
     public readonly customRdpProperty!: pulumi.Output<string | undefined>;
@@ -48,6 +52,10 @@ export class HostPool extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
+     * The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields. 
+     */
+    public /*out*/ readonly etag!: pulumi.Output<string>;
+    /**
      * Friendly name of HostPool.
      */
     public readonly friendlyName!: pulumi.Output<string | undefined>;
@@ -55,6 +63,11 @@ export class HostPool extends pulumi.CustomResource {
      * HostPool type for desktop.
      */
     public readonly hostPoolType!: pulumi.Output<string>;
+    public readonly identity!: pulumi.Output<outputs.desktopvirtualization.v20210114preview.ResourceModelWithAllowedPropertySetResponseIdentity | undefined>;
+    /**
+     * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+     */
+    public readonly kind!: pulumi.Output<string | undefined>;
     /**
      * The type of the load balancer.
      */
@@ -62,19 +75,32 @@ export class HostPool extends pulumi.CustomResource {
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string | undefined>;
+    /**
+     * The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
+     */
+    public readonly managedBy!: pulumi.Output<string | undefined>;
     /**
      * The max session limit of HostPool.
      */
     public readonly maxSessionLimit!: pulumi.Output<number | undefined>;
     /**
+     * The registration info of HostPool.
+     */
+    public readonly migrationRequest!: pulumi.Output<outputs.desktopvirtualization.v20210114preview.MigrationRequestPropertiesResponse | undefined>;
+    /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * ObjectId of HostPool. (internal use)
+     */
+    public /*out*/ readonly objectId!: pulumi.Output<string>;
+    /**
      * PersonalDesktopAssignment type for HostPool.
      */
     public readonly personalDesktopAssignmentType!: pulumi.Output<string | undefined>;
+    public readonly plan!: pulumi.Output<outputs.desktopvirtualization.v20210114preview.ResourceModelWithAllowedPropertySetResponsePlan | undefined>;
     /**
      * The type of preferred application group type, default to Desktop Application Group
      */
@@ -87,6 +113,7 @@ export class HostPool extends pulumi.CustomResource {
      * The ring number of HostPool.
      */
     public readonly ring!: pulumi.Output<number | undefined>;
+    public readonly sku!: pulumi.Output<outputs.desktopvirtualization.v20210114preview.ResourceModelWithAllowedPropertySetResponseSku | undefined>;
     /**
      * ClientId for the registered Relying Party used to issue WVD SSO certificates.
      */
@@ -152,14 +179,20 @@ export class HostPool extends pulumi.CustomResource {
             inputs["friendlyName"] = args ? args.friendlyName : undefined;
             inputs["hostPoolName"] = args ? args.hostPoolName : undefined;
             inputs["hostPoolType"] = args ? args.hostPoolType : undefined;
+            inputs["identity"] = args ? args.identity : undefined;
+            inputs["kind"] = args ? args.kind : undefined;
             inputs["loadBalancerType"] = args ? args.loadBalancerType : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["managedBy"] = args ? args.managedBy : undefined;
             inputs["maxSessionLimit"] = args ? args.maxSessionLimit : undefined;
+            inputs["migrationRequest"] = args ? args.migrationRequest : undefined;
             inputs["personalDesktopAssignmentType"] = args ? args.personalDesktopAssignmentType : undefined;
+            inputs["plan"] = args ? args.plan : undefined;
             inputs["preferredAppGroupType"] = args ? args.preferredAppGroupType : undefined;
             inputs["registrationInfo"] = args ? args.registrationInfo : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["ring"] = args ? args.ring : undefined;
+            inputs["sku"] = args ? args.sku : undefined;
             inputs["ssoClientId"] = args ? args.ssoClientId : undefined;
             inputs["ssoClientSecretKeyVaultPath"] = args ? args.ssoClientSecretKeyVaultPath : undefined;
             inputs["ssoSecretType"] = args ? args.ssoSecretType : undefined;
@@ -169,22 +202,34 @@ export class HostPool extends pulumi.CustomResource {
             inputs["validationEnvironment"] = args ? args.validationEnvironment : undefined;
             inputs["vmTemplate"] = args ? args.vmTemplate : undefined;
             inputs["applicationGroupReferences"] = undefined /*out*/;
+            inputs["cloudPcResource"] = undefined /*out*/;
+            inputs["etag"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["objectId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["applicationGroupReferences"] = undefined /*out*/;
+            inputs["cloudPcResource"] = undefined /*out*/;
             inputs["customRdpProperty"] = undefined /*out*/;
             inputs["description"] = undefined /*out*/;
+            inputs["etag"] = undefined /*out*/;
             inputs["friendlyName"] = undefined /*out*/;
             inputs["hostPoolType"] = undefined /*out*/;
+            inputs["identity"] = undefined /*out*/;
+            inputs["kind"] = undefined /*out*/;
             inputs["loadBalancerType"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
+            inputs["managedBy"] = undefined /*out*/;
             inputs["maxSessionLimit"] = undefined /*out*/;
+            inputs["migrationRequest"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["objectId"] = undefined /*out*/;
             inputs["personalDesktopAssignmentType"] = undefined /*out*/;
+            inputs["plan"] = undefined /*out*/;
             inputs["preferredAppGroupType"] = undefined /*out*/;
             inputs["registrationInfo"] = undefined /*out*/;
             inputs["ring"] = undefined /*out*/;
+            inputs["sku"] = undefined /*out*/;
             inputs["ssoClientId"] = undefined /*out*/;
             inputs["ssoClientSecretKeyVaultPath"] = undefined /*out*/;
             inputs["ssoSecretType"] = undefined /*out*/;
@@ -228,6 +273,11 @@ export interface HostPoolArgs {
      * HostPool type for desktop.
      */
     readonly hostPoolType: pulumi.Input<string | enums.desktopvirtualization.v20210114preview.HostPoolType>;
+    readonly identity?: pulumi.Input<inputs.desktopvirtualization.v20210114preview.ResourceModelWithAllowedPropertySetIdentity>;
+    /**
+     * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+     */
+    readonly kind?: pulumi.Input<string>;
     /**
      * The type of the load balancer.
      */
@@ -237,13 +287,22 @@ export interface HostPoolArgs {
      */
     readonly location?: pulumi.Input<string>;
     /**
+     * The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
+     */
+    readonly managedBy?: pulumi.Input<string>;
+    /**
      * The max session limit of HostPool.
      */
     readonly maxSessionLimit?: pulumi.Input<number>;
     /**
+     * The registration info of HostPool.
+     */
+    readonly migrationRequest?: pulumi.Input<inputs.desktopvirtualization.v20210114preview.MigrationRequestProperties>;
+    /**
      * PersonalDesktopAssignment type for HostPool.
      */
     readonly personalDesktopAssignmentType?: pulumi.Input<string | enums.desktopvirtualization.v20210114preview.PersonalDesktopAssignmentType>;
+    readonly plan?: pulumi.Input<inputs.desktopvirtualization.v20210114preview.ResourceModelWithAllowedPropertySetPlan>;
     /**
      * The type of preferred application group type, default to Desktop Application Group
      */
@@ -260,6 +319,7 @@ export interface HostPoolArgs {
      * The ring number of HostPool.
      */
     readonly ring?: pulumi.Input<number>;
+    readonly sku?: pulumi.Input<inputs.desktopvirtualization.v20210114preview.ResourceModelWithAllowedPropertySetSku>;
     /**
      * ClientId for the registered Relying Party used to issue WVD SSO certificates.
      */

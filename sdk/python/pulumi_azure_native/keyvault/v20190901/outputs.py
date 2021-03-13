@@ -651,6 +651,7 @@ class VaultPropertiesResponse(dict):
     Properties of the vault
     """
     def __init__(__self__, *,
+                 hsm_pool_resource_id: str,
                  private_endpoint_connections: Sequence['outputs.PrivateEndpointConnectionItemResponse'],
                  sku: 'outputs.SkuResponse',
                  tenant_id: str,
@@ -668,6 +669,7 @@ class VaultPropertiesResponse(dict):
                  vault_uri: Optional[str] = None):
         """
         Properties of the vault
+        :param str hsm_pool_resource_id: The resource id of HSM Pool.
         :param Sequence['PrivateEndpointConnectionItemResponseArgs'] private_endpoint_connections: List of private endpoint connections associated with the key vault.
         :param 'SkuResponseArgs' sku: SKU details
         :param str tenant_id: The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
@@ -684,6 +686,7 @@ class VaultPropertiesResponse(dict):
         :param int soft_delete_retention_in_days: softDelete data retention days. It accepts >=7 and <=90.
         :param str vault_uri: The URI of the vault for performing operations on keys and secrets. This property is readonly
         """
+        pulumi.set(__self__, "hsm_pool_resource_id", hsm_pool_resource_id)
         pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
         pulumi.set(__self__, "sku", sku)
         pulumi.set(__self__, "tenant_id", tenant_id)
@@ -717,6 +720,14 @@ class VaultPropertiesResponse(dict):
             pulumi.set(__self__, "soft_delete_retention_in_days", soft_delete_retention_in_days)
         if vault_uri is not None:
             pulumi.set(__self__, "vault_uri", vault_uri)
+
+    @property
+    @pulumi.getter(name="hsmPoolResourceId")
+    def hsm_pool_resource_id(self) -> str:
+        """
+        The resource id of HSM Pool.
+        """
+        return pulumi.get(self, "hsm_pool_resource_id")
 
     @property
     @pulumi.getter(name="privateEndpointConnections")

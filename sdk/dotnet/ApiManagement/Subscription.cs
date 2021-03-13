@@ -154,6 +154,8 @@ namespace Pulumi.AzureNative.ApiManagement
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20200601preview:Subscription"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20201201:Subscription"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20201201:Subscription"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20210101preview:Subscription"},
+                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20210101preview:Subscription"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

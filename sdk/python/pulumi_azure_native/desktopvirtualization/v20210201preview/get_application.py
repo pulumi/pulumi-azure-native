@@ -19,7 +19,7 @@ class GetApplicationResult:
     """
     Schema for Application properties.
     """
-    def __init__(__self__, application_type=None, command_line_arguments=None, command_line_setting=None, description=None, file_path=None, friendly_name=None, icon_content=None, icon_hash=None, icon_index=None, icon_path=None, id=None, msix_package_application_id=None, msix_package_family_name=None, name=None, show_in_portal=None, type=None):
+    def __init__(__self__, application_type=None, command_line_arguments=None, command_line_setting=None, description=None, file_path=None, friendly_name=None, icon_content=None, icon_hash=None, icon_index=None, icon_path=None, id=None, msix_package_application_id=None, msix_package_family_name=None, name=None, object_id=None, show_in_portal=None, type=None):
         if application_type and not isinstance(application_type, str):
             raise TypeError("Expected argument 'application_type' to be a str")
         pulumi.set(__self__, "application_type", application_type)
@@ -62,6 +62,9 @@ class GetApplicationResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if object_id and not isinstance(object_id, str):
+            raise TypeError("Expected argument 'object_id' to be a str")
+        pulumi.set(__self__, "object_id", object_id)
         if show_in_portal and not isinstance(show_in_portal, bool):
             raise TypeError("Expected argument 'show_in_portal' to be a bool")
         pulumi.set(__self__, "show_in_portal", show_in_portal)
@@ -182,6 +185,14 @@ class GetApplicationResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="objectId")
+    def object_id(self) -> str:
+        """
+        ObjectId of Application. (internal use)
+        """
+        return pulumi.get(self, "object_id")
+
+    @property
     @pulumi.getter(name="showInPortal")
     def show_in_portal(self) -> Optional[bool]:
         """
@@ -218,6 +229,7 @@ class AwaitableGetApplicationResult(GetApplicationResult):
             msix_package_application_id=self.msix_package_application_id,
             msix_package_family_name=self.msix_package_family_name,
             name=self.name,
+            object_id=self.object_id,
             show_in_portal=self.show_in_portal,
             type=self.type)
 
@@ -259,5 +271,6 @@ def get_application(application_group_name: Optional[str] = None,
         msix_package_application_id=__ret__.msix_package_application_id,
         msix_package_family_name=__ret__.msix_package_family_name,
         name=__ret__.name,
+        object_id=__ret__.object_id,
         show_in_portal=__ret__.show_in_portal,
         type=__ret__.type)

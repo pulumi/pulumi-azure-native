@@ -82,6 +82,12 @@ func NewEventHub(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:eventhub/v20170401:EventHub"),
 		},
+		{
+			Type: pulumi.String("azure-native:eventhub/v20210101preview:EventHub"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:eventhub/v20210101preview:EventHub"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource EventHub

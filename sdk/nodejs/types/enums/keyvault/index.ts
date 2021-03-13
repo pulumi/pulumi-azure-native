@@ -64,21 +64,6 @@ export const JsonWebKeyCurveName = {
  */
 export type JsonWebKeyCurveName = (typeof JsonWebKeyCurveName)[keyof typeof JsonWebKeyCurveName];
 
-export const JsonWebKeyOperation = {
-    Encrypt: "encrypt",
-    Decrypt: "decrypt",
-    Sign: "sign",
-    Verify: "verify",
-    WrapKey: "wrapKey",
-    UnwrapKey: "unwrapKey",
-    Import: "import",
-} as const;
-
-/**
- * The permitted JSON web key operations of the key. For more information, see JsonWebKeyOperation.
- */
-export type JsonWebKeyOperation = (typeof JsonWebKeyOperation)[keyof typeof JsonWebKeyOperation];
-
 export const JsonWebKeyType = {
     EC: "EC",
     EC_HSM: "EC-HSM",

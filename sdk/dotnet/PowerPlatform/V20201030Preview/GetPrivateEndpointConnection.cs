@@ -53,10 +53,6 @@ namespace Pulumi.AzureNative.PowerPlatform.V20201030Preview
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Region where the EnterprisePolicy is located.
-        /// </summary>
-        public readonly string Location;
-        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
@@ -73,7 +69,7 @@ namespace Pulumi.AzureNative.PowerPlatform.V20201030Preview
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// Metadata for the private endpoint connection.
+        /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
@@ -84,8 +80,6 @@ namespace Pulumi.AzureNative.PowerPlatform.V20201030Preview
         [OutputConstructor]
         private GetPrivateEndpointConnectionResult(
             string id,
-
-            string location,
 
             string name,
 
@@ -100,7 +94,6 @@ namespace Pulumi.AzureNative.PowerPlatform.V20201030Preview
             string type)
         {
             Id = id;
-            Location = location;
             Name = name;
             PrivateEndpoint = privateEndpoint;
             PrivateLinkServiceConnectionState = privateLinkServiceConnectionState;

@@ -3,19 +3,10 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
-from .data_controller import *
-from .get_data_controller import *
-from .get_postgres_instance import *
-from .get_sql_managed_instance import *
 from .get_sql_server import *
-from .get_sql_server_instance import *
 from .get_sql_server_registration import *
-from .postgres_instance import *
-from .sql_managed_instance import *
 from .sql_server import *
-from .sql_server_instance import *
 from .sql_server_registration import *
-from ._inputs import *
 from . import outputs
 
 def _register_module():
@@ -30,16 +21,8 @@ def _register_module():
             return Module._version
 
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
-            if typ == "azure-native:azuredata/v20190724preview:DataController":
-                return DataController(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "azure-native:azuredata/v20190724preview:PostgresInstance":
-                return PostgresInstance(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "azure-native:azuredata/v20190724preview:SqlManagedInstance":
-                return SqlManagedInstance(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "azure-native:azuredata/v20190724preview:SqlServer":
+            if typ == "azure-native:azuredata/v20190724preview:SqlServer":
                 return SqlServer(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "azure-native:azuredata/v20190724preview:SqlServerInstance":
-                return SqlServerInstance(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:azuredata/v20190724preview:SqlServerRegistration":
                 return SqlServerRegistration(name, pulumi.ResourceOptions(urn=urn))
             else:

@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -40,21 +41,44 @@ export class Workspace extends pulumi.CustomResource {
      */
     public readonly applicationGroupReferences!: pulumi.Output<string[] | undefined>;
     /**
+     * Is cloud pc resource.
+     */
+    public /*out*/ readonly cloudPcResource!: pulumi.Output<boolean>;
+    /**
      * Description of Workspace.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
+     * The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields. 
+     */
+    public /*out*/ readonly etag!: pulumi.Output<string>;
+    /**
      * Friendly name of Workspace.
      */
     public readonly friendlyName!: pulumi.Output<string | undefined>;
+    public readonly identity!: pulumi.Output<outputs.desktopvirtualization.ResourceModelWithAllowedPropertySetResponseIdentity | undefined>;
+    /**
+     * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+     */
+    public readonly kind!: pulumi.Output<string | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string | undefined>;
+    /**
+     * The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
+     */
+    public readonly managedBy!: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
+    /**
+     * ObjectId of Workspace. (internal use)
+     */
+    public /*out*/ readonly objectId!: pulumi.Output<string>;
+    public readonly plan!: pulumi.Output<outputs.desktopvirtualization.ResourceModelWithAllowedPropertySetResponsePlan | undefined>;
+    public readonly sku!: pulumi.Output<outputs.desktopvirtualization.ResourceModelWithAllowedPropertySetResponseSku | undefined>;
     /**
      * Resource tags.
      */
@@ -81,18 +105,34 @@ export class Workspace extends pulumi.CustomResource {
             inputs["applicationGroupReferences"] = args ? args.applicationGroupReferences : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["friendlyName"] = args ? args.friendlyName : undefined;
+            inputs["identity"] = args ? args.identity : undefined;
+            inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["managedBy"] = args ? args.managedBy : undefined;
+            inputs["plan"] = args ? args.plan : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["workspaceName"] = args ? args.workspaceName : undefined;
+            inputs["cloudPcResource"] = undefined /*out*/;
+            inputs["etag"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["objectId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["applicationGroupReferences"] = undefined /*out*/;
+            inputs["cloudPcResource"] = undefined /*out*/;
             inputs["description"] = undefined /*out*/;
+            inputs["etag"] = undefined /*out*/;
             inputs["friendlyName"] = undefined /*out*/;
+            inputs["identity"] = undefined /*out*/;
+            inputs["kind"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
+            inputs["managedBy"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["objectId"] = undefined /*out*/;
+            inputs["plan"] = undefined /*out*/;
+            inputs["sku"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -121,14 +161,25 @@ export interface WorkspaceArgs {
      * Friendly name of Workspace.
      */
     readonly friendlyName?: pulumi.Input<string>;
+    readonly identity?: pulumi.Input<inputs.desktopvirtualization.ResourceModelWithAllowedPropertySetIdentity>;
+    /**
+     * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+     */
+    readonly kind?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
     readonly location?: pulumi.Input<string>;
     /**
+     * The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
+     */
+    readonly managedBy?: pulumi.Input<string>;
+    readonly plan?: pulumi.Input<inputs.desktopvirtualization.ResourceModelWithAllowedPropertySetPlan>;
+    /**
      * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    readonly sku?: pulumi.Input<inputs.desktopvirtualization.ResourceModelWithAllowedPropertySetSku>;
     /**
      * Resource tags.
      */

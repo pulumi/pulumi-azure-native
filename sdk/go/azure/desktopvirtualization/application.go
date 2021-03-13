@@ -42,6 +42,8 @@ type Application struct {
 	MsixPackageFamilyName pulumi.StringPtrOutput `pulumi:"msixPackageFamilyName"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
+	// ObjectId of Application. (internal use)
+	ObjectId pulumi.StringOutput `pulumi:"objectId"`
 	// Specifies whether to show the RemoteApp program in the RD Web Access server.
 	ShowInPortal pulumi.BoolPtrOutput `pulumi:"showInPortal"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -172,6 +174,8 @@ type applicationState struct {
 	MsixPackageFamilyName *string `pulumi:"msixPackageFamilyName"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
+	// ObjectId of Application. (internal use)
+	ObjectId *string `pulumi:"objectId"`
 	// Specifies whether to show the RemoteApp program in the RD Web Access server.
 	ShowInPortal *bool `pulumi:"showInPortal"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -205,6 +209,8 @@ type ApplicationState struct {
 	MsixPackageFamilyName pulumi.StringPtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
+	// ObjectId of Application. (internal use)
+	ObjectId pulumi.StringPtrInput
 	// Specifies whether to show the RemoteApp program in the RD Web Access server.
 	ShowInPortal pulumi.BoolPtrInput
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"

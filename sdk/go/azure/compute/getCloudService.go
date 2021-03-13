@@ -8,7 +8,7 @@ import (
 )
 
 // Describes the cloud service.
-// API Version: 2020-10-01-preview.
+// API Version: 2021-03-01.
 func LookupCloudService(ctx *pulumi.Context, args *LookupCloudServiceArgs, opts ...pulumi.InvokeOption) (*LookupCloudServiceResult, error) {
 	var rv LookupCloudServiceResult
 	err := ctx.Invoke("azure-native:compute:getCloudService", args, &rv, opts...)

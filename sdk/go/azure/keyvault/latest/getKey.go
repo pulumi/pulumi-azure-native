@@ -39,7 +39,7 @@ type LookupKeyResult struct {
 	Id     string   `pulumi:"id"`
 	KeyOps []string `pulumi:"keyOps"`
 	// The key size in bits. For example: 2048, 3072, or 4096 for RSA.
-	KeySize *int `pulumi:"keySize"`
+	KeySize int `pulumi:"keySize"`
 	// The URI to retrieve the current version of the key.
 	KeyUri string `pulumi:"keyUri"`
 	// The URI to retrieve the specific version of the key.

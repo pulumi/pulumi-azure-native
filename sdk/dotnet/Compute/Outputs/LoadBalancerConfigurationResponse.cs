@@ -14,17 +14,27 @@ namespace Pulumi.AzureNative.Compute.Outputs
     public sealed class LoadBalancerConfigurationResponse
     {
         /// <summary>
-        /// Resource Name
+        /// Resource Id
         /// </summary>
-        public readonly string? Name;
-        public readonly Outputs.LoadBalancerConfigurationPropertiesResponse? Properties;
+        public readonly string? Id;
+        /// <summary>
+        /// The name of the Load balancer
+        /// </summary>
+        public readonly string Name;
+        /// <summary>
+        /// Properties of the load balancer configuration.
+        /// </summary>
+        public readonly Outputs.LoadBalancerConfigurationPropertiesResponse Properties;
 
         [OutputConstructor]
         private LoadBalancerConfigurationResponse(
-            string? name,
+            string? id,
 
-            Outputs.LoadBalancerConfigurationPropertiesResponse? properties)
+            string name,
+
+            Outputs.LoadBalancerConfigurationPropertiesResponse properties)
         {
+            Id = id;
             Name = name;
             Properties = properties;
         }

@@ -33,7 +33,7 @@ type LookupEnterprisePolicyResult struct {
 	Id string `pulumi:"id"`
 	// The identity of the EnterprisePolicy.
 	Identity *EnterprisePolicyIdentityResponse `pulumi:"identity"`
-	// Region where the EnterprisePolicy is located.
+	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
 	// Settings concerning lockbox.
 	Lockbox *PropertiesResponseLockbox `pulumi:"lockbox"`

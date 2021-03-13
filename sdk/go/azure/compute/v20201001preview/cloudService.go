@@ -47,6 +47,18 @@ func NewCloudService(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:compute:CloudService"),
 		},
+		{
+			Type: pulumi.String("azure-native:compute/latest:CloudService"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:compute/latest:CloudService"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20210301:CloudService"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:compute/v20210301:CloudService"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource CloudService

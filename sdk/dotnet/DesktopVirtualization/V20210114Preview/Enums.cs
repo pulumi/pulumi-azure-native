@@ -71,7 +71,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210114Preview
     }
 
     /// <summary>
-    /// HostPool type for scaling plan.
+    /// HostPool type for desktop.
     /// </summary>
     [EnumType]
     public readonly struct HostPoolType : IEquatable<HostPoolType>
@@ -83,8 +83,18 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210114Preview
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Users will be assigned a SessionHost either by administrators (PersonalDesktopAssignmentType = Direct) or upon connecting to the pool (PersonalDesktopAssignmentType = Automatic). They will always be redirected to their assigned SessionHost.
+        /// </summary>
         public static HostPoolType Personal { get; } = new HostPoolType("Personal");
+        /// <summary>
+        /// Users get a new (random) SessionHost every time it connects to the HostPool.
+        /// </summary>
         public static HostPoolType Pooled { get; } = new HostPoolType("Pooled");
+        /// <summary>
+        /// Users assign their own machines, load balancing logic remains the same as Personal. PersonalDesktopAssignmentType must be Direct.
+        /// </summary>
+        public static HostPoolType BYODesktop { get; } = new HostPoolType("BYODesktop");
 
         public static bool operator ==(HostPoolType left, HostPoolType right) => left.Equals(right);
         public static bool operator !=(HostPoolType left, HostPoolType right) => !left.Equals(right);
@@ -126,6 +136,55 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210114Preview
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is LoadBalancerType other && Equals(other);
         public bool Equals(LoadBalancerType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of operation for migration.
+    /// </summary>
+    [EnumType]
+    public readonly struct Operation : IEquatable<Operation>
+    {
+        private readonly string _value;
+
+        private Operation(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Start the migration.
+        /// </summary>
+        public static Operation Start { get; } = new Operation("Start");
+        /// <summary>
+        /// Revoke the migration.
+        /// </summary>
+        public static Operation Revoke { get; } = new Operation("Revoke");
+        /// <summary>
+        /// Complete the migration.
+        /// </summary>
+        public static Operation Complete { get; } = new Operation("Complete");
+        /// <summary>
+        /// Hide the hostpool.
+        /// </summary>
+        public static Operation Hide { get; } = new Operation("Hide");
+        /// <summary>
+        /// Unhide the hostpool.
+        /// </summary>
+        public static Operation Unhide { get; } = new Operation("Unhide");
+
+        public static bool operator ==(Operation left, Operation right) => left.Equals(right);
+        public static bool operator !=(Operation left, Operation right) => !left.Equals(right);
+
+        public static explicit operator string(Operation value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is Operation other && Equals(other);
+        public bool Equals(Operation other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -260,6 +319,36 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210114Preview
     }
 
     /// <summary>
+    /// The identity type.
+    /// </summary>
+    [EnumType]
+    public readonly struct ResourceIdentityType : IEquatable<ResourceIdentityType>
+    {
+        private readonly string _value;
+
+        private ResourceIdentityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ResourceIdentityType SystemAssigned { get; } = new ResourceIdentityType("SystemAssigned");
+
+        public static bool operator ==(ResourceIdentityType left, ResourceIdentityType right) => left.Equals(right);
+        public static bool operator !=(ResourceIdentityType left, ResourceIdentityType right) => !left.Equals(right);
+
+        public static explicit operator string(ResourceIdentityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ResourceIdentityType other && Equals(other);
+        public bool Equals(ResourceIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of single sign on Secret Type.
     /// </summary>
     [EnumType]
@@ -316,6 +405,39 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210114Preview
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SessionHostLoadBalancingAlgorithm other && Equals(other);
         public bool Equals(SessionHostLoadBalancingAlgorithm other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+    /// </summary>
+    [EnumType]
+    public readonly struct SkuTier : IEquatable<SkuTier>
+    {
+        private readonly string _value;
+
+        private SkuTier(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SkuTier Free { get; } = new SkuTier("Free");
+        public static SkuTier Basic { get; } = new SkuTier("Basic");
+        public static SkuTier Standard { get; } = new SkuTier("Standard");
+        public static SkuTier Premium { get; } = new SkuTier("Premium");
+
+        public static bool operator ==(SkuTier left, SkuTier right) => left.Equals(right);
+        public static bool operator !=(SkuTier left, SkuTier right) => !left.Equals(right);
+
+        public static explicit operator string(SkuTier value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SkuTier other && Equals(other);
+        public bool Equals(SkuTier other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

@@ -177,24 +177,17 @@ class KeyPropertiesArgs:
     def __init__(__self__, *,
                  attributes: Optional[pulumi.Input['KeyAttributesArgs']] = None,
                  curve_name: Optional[pulumi.Input[Union[str, 'JsonWebKeyCurveName']]] = None,
-                 key_ops: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'JsonWebKeyOperation']]]]] = None,
-                 key_size: Optional[pulumi.Input[int]] = None,
                  kty: Optional[pulumi.Input[Union[str, 'JsonWebKeyType']]] = None):
         """
         The properties of the key.
         :param pulumi.Input['KeyAttributesArgs'] attributes: The attributes of the key.
         :param pulumi.Input[Union[str, 'JsonWebKeyCurveName']] curve_name: The elliptic curve name. For valid values, see JsonWebKeyCurveName.
-        :param pulumi.Input[int] key_size: The key size in bits. For example: 2048, 3072, or 4096 for RSA.
         :param pulumi.Input[Union[str, 'JsonWebKeyType']] kty: The type of the key. For valid values, see JsonWebKeyType.
         """
         if attributes is not None:
             pulumi.set(__self__, "attributes", attributes)
         if curve_name is not None:
             pulumi.set(__self__, "curve_name", curve_name)
-        if key_ops is not None:
-            pulumi.set(__self__, "key_ops", key_ops)
-        if key_size is not None:
-            pulumi.set(__self__, "key_size", key_size)
         if kty is not None:
             pulumi.set(__self__, "kty", kty)
 
@@ -221,27 +214,6 @@ class KeyPropertiesArgs:
     @curve_name.setter
     def curve_name(self, value: Optional[pulumi.Input[Union[str, 'JsonWebKeyCurveName']]]):
         pulumi.set(self, "curve_name", value)
-
-    @property
-    @pulumi.getter(name="keyOps")
-    def key_ops(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'JsonWebKeyOperation']]]]]:
-        return pulumi.get(self, "key_ops")
-
-    @key_ops.setter
-    def key_ops(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'JsonWebKeyOperation']]]]]):
-        pulumi.set(self, "key_ops", value)
-
-    @property
-    @pulumi.getter(name="keySize")
-    def key_size(self) -> Optional[pulumi.Input[int]]:
-        """
-        The key size in bits. For example: 2048, 3072, or 4096 for RSA.
-        """
-        return pulumi.get(self, "key_size")
-
-    @key_size.setter
-    def key_size(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "key_size", value)
 
     @property
     @pulumi.getter

@@ -6,6 +6,7 @@ import * as utilities from "../../utilities";
 
 // Export members:
 export * from "./availabilitySet";
+export * from "./cloudService";
 export * from "./dedicatedHost";
 export * from "./dedicatedHostGroup";
 export * from "./disk";
@@ -18,6 +19,7 @@ export * from "./galleryApplicationVersion";
 export * from "./galleryImage";
 export * from "./galleryImageVersion";
 export * from "./getAvailabilitySet";
+export * from "./getCloudService";
 export * from "./getDedicatedHost";
 export * from "./getDedicatedHostGroup";
 export * from "./getDisk";
@@ -61,6 +63,7 @@ export * from "../../types/enums/compute/latest";
 
 // Import resources to register:
 import { AvailabilitySet } from "./availabilitySet";
+import { CloudService } from "./cloudService";
 import { DedicatedHost } from "./dedicatedHost";
 import { DedicatedHostGroup } from "./dedicatedHostGroup";
 import { Disk } from "./disk";
@@ -91,6 +94,8 @@ const _module = {
         switch (type) {
             case "azure-native:compute/latest:AvailabilitySet":
                 return new AvailabilitySet(name, <any>undefined, { urn })
+            case "azure-native:compute/latest:CloudService":
+                return new CloudService(name, <any>undefined, { urn })
             case "azure-native:compute/latest:DedicatedHost":
                 return new DedicatedHost(name, <any>undefined, { urn })
             case "azure-native:compute/latest:DedicatedHostGroup":

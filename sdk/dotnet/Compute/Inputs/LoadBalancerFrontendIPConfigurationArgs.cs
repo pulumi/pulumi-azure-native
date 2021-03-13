@@ -12,14 +12,17 @@ namespace Pulumi.AzureNative.Compute.Inputs
 
     public sealed class LoadBalancerFrontendIPConfigurationArgs : Pulumi.ResourceArgs
     {
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        /// <summary>
+        /// The name of the resource that is unique within the set of frontend IP configurations used by the load balancer. This name can be used to access the resource.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Describes a cloud service IP Configuration
+        /// Properties of load balancer frontend ip configuration.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.LoadBalancerFrontendIPConfigurationPropertiesArgs>? Properties { get; set; }
+        [Input("properties", required: true)]
+        public Input<Inputs.LoadBalancerFrontendIPConfigurationPropertiesArgs> Properties { get; set; } = null!;
 
         public LoadBalancerFrontendIPConfigurationArgs()
         {

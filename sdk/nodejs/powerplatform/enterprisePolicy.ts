@@ -45,7 +45,7 @@ export class EnterprisePolicy extends pulumi.CustomResource {
      */
     public readonly identity!: pulumi.Output<outputs.powerplatform.EnterprisePolicyIdentityResponse | undefined>;
     /**
-     * Region where the EnterprisePolicy is located.
+     * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
     /**

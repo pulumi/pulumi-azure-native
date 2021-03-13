@@ -23,14 +23,20 @@ class HostPool(pulumi.CustomResource):
                  friendly_name: Optional[pulumi.Input[str]] = None,
                  host_pool_name: Optional[pulumi.Input[str]] = None,
                  host_pool_type: Optional[pulumi.Input[Union[str, 'HostPoolType']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['ResourceModelWithAllowedPropertySetIdentityArgs']]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
                  load_balancer_type: Optional[pulumi.Input[Union[str, 'LoadBalancerType']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 managed_by: Optional[pulumi.Input[str]] = None,
                  max_session_limit: Optional[pulumi.Input[int]] = None,
+                 migration_request: Optional[pulumi.Input[pulumi.InputType['MigrationRequestPropertiesArgs']]] = None,
                  personal_desktop_assignment_type: Optional[pulumi.Input[Union[str, 'PersonalDesktopAssignmentType']]] = None,
+                 plan: Optional[pulumi.Input[pulumi.InputType['ResourceModelWithAllowedPropertySetPlanArgs']]] = None,
                  preferred_app_group_type: Optional[pulumi.Input[Union[str, 'PreferredAppGroupType']]] = None,
                  registration_info: Optional[pulumi.Input[pulumi.InputType['RegistrationInfoArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  ring: Optional[pulumi.Input[int]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['ResourceModelWithAllowedPropertySetSkuArgs']]] = None,
                  sso_client_id: Optional[pulumi.Input[str]] = None,
                  sso_client_secret_key_vault_path: Optional[pulumi.Input[str]] = None,
                  sso_secret_type: Optional[pulumi.Input[Union[str, 'SSOSecretType']]] = None,
@@ -53,9 +59,12 @@ class HostPool(pulumi.CustomResource):
         :param pulumi.Input[str] friendly_name: Friendly name of HostPool.
         :param pulumi.Input[str] host_pool_name: The name of the host pool within the specified resource group
         :param pulumi.Input[Union[str, 'HostPoolType']] host_pool_type: HostPool type for desktop.
+        :param pulumi.Input[str] kind: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         :param pulumi.Input[Union[str, 'LoadBalancerType']] load_balancer_type: The type of the load balancer.
         :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input[str] managed_by: The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
         :param pulumi.Input[int] max_session_limit: The max session limit of HostPool.
+        :param pulumi.Input[pulumi.InputType['MigrationRequestPropertiesArgs']] migration_request: The registration info of HostPool.
         :param pulumi.Input[Union[str, 'PersonalDesktopAssignmentType']] personal_desktop_assignment_type: PersonalDesktopAssignment type for HostPool.
         :param pulumi.Input[Union[str, 'PreferredAppGroupType']] preferred_app_group_type: The type of preferred application group type, default to Desktop Application Group
         :param pulumi.Input[pulumi.InputType['RegistrationInfoArgs']] registration_info: The registration info of HostPool.
@@ -94,12 +103,17 @@ class HostPool(pulumi.CustomResource):
             if host_pool_type is None and not opts.urn:
                 raise TypeError("Missing required property 'host_pool_type'")
             __props__['host_pool_type'] = host_pool_type
+            __props__['identity'] = identity
+            __props__['kind'] = kind
             if load_balancer_type is None and not opts.urn:
                 raise TypeError("Missing required property 'load_balancer_type'")
             __props__['load_balancer_type'] = load_balancer_type
             __props__['location'] = location
+            __props__['managed_by'] = managed_by
             __props__['max_session_limit'] = max_session_limit
+            __props__['migration_request'] = migration_request
             __props__['personal_desktop_assignment_type'] = personal_desktop_assignment_type
+            __props__['plan'] = plan
             if preferred_app_group_type is None and not opts.urn:
                 raise TypeError("Missing required property 'preferred_app_group_type'")
             __props__['preferred_app_group_type'] = preferred_app_group_type
@@ -108,6 +122,7 @@ class HostPool(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['ring'] = ring
+            __props__['sku'] = sku
             __props__['sso_client_id'] = sso_client_id
             __props__['sso_client_secret_key_vault_path'] = sso_client_secret_key_vault_path
             __props__['sso_secret_type'] = sso_secret_type
@@ -117,7 +132,10 @@ class HostPool(pulumi.CustomResource):
             __props__['validation_environment'] = validation_environment
             __props__['vm_template'] = vm_template
             __props__['application_group_references'] = None
+            __props__['cloud_pc_resource'] = None
+            __props__['etag'] = None
             __props__['name'] = None
+            __props__['object_id'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:desktopvirtualization:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20190123preview:HostPool"), pulumi.Alias(type_="azure-nextgen:desktopvirtualization/v20190123preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20190924preview:HostPool"), pulumi.Alias(type_="azure-nextgen:desktopvirtualization/v20190924preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20191210preview:HostPool"), pulumi.Alias(type_="azure-nextgen:desktopvirtualization/v20191210preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20200921preview:HostPool"), pulumi.Alias(type_="azure-nextgen:desktopvirtualization/v20200921preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20201019preview:HostPool"), pulumi.Alias(type_="azure-nextgen:desktopvirtualization/v20201019preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20201102preview:HostPool"), pulumi.Alias(type_="azure-nextgen:desktopvirtualization/v20201102preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20201110preview:HostPool"), pulumi.Alias(type_="azure-nextgen:desktopvirtualization/v20201110preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210114preview:HostPool"), pulumi.Alias(type_="azure-nextgen:desktopvirtualization/v20210114preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210201preview:HostPool"), pulumi.Alias(type_="azure-nextgen:desktopvirtualization/v20210201preview:HostPool")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -144,18 +162,27 @@ class HostPool(pulumi.CustomResource):
         __props__ = dict()
 
         __props__["application_group_references"] = None
+        __props__["cloud_pc_resource"] = None
         __props__["custom_rdp_property"] = None
         __props__["description"] = None
+        __props__["etag"] = None
         __props__["friendly_name"] = None
         __props__["host_pool_type"] = None
+        __props__["identity"] = None
+        __props__["kind"] = None
         __props__["load_balancer_type"] = None
         __props__["location"] = None
+        __props__["managed_by"] = None
         __props__["max_session_limit"] = None
+        __props__["migration_request"] = None
         __props__["name"] = None
+        __props__["object_id"] = None
         __props__["personal_desktop_assignment_type"] = None
+        __props__["plan"] = None
         __props__["preferred_app_group_type"] = None
         __props__["registration_info"] = None
         __props__["ring"] = None
+        __props__["sku"] = None
         __props__["sso_client_id"] = None
         __props__["sso_client_secret_key_vault_path"] = None
         __props__["sso_secret_type"] = None
@@ -176,6 +203,14 @@ class HostPool(pulumi.CustomResource):
         return pulumi.get(self, "application_group_references")
 
     @property
+    @pulumi.getter(name="cloudPcResource")
+    def cloud_pc_resource(self) -> pulumi.Output[bool]:
+        """
+        Is cloud pc resource.
+        """
+        return pulumi.get(self, "cloud_pc_resource")
+
+    @property
     @pulumi.getter(name="customRdpProperty")
     def custom_rdp_property(self) -> pulumi.Output[Optional[str]]:
         """
@@ -190,6 +225,14 @@ class HostPool(pulumi.CustomResource):
         Description of HostPool.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> pulumi.Output[str]:
+        """
+        The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields. 
+        """
+        return pulumi.get(self, "etag")
 
     @property
     @pulumi.getter(name="friendlyName")
@@ -208,6 +251,19 @@ class HostPool(pulumi.CustomResource):
         return pulumi.get(self, "host_pool_type")
 
     @property
+    @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.ResourceModelWithAllowedPropertySetResponseIdentity']]:
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> pulumi.Output[Optional[str]]:
+        """
+        Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
     @pulumi.getter(name="loadBalancerType")
     def load_balancer_type(self) -> pulumi.Output[str]:
         """
@@ -217,11 +273,19 @@ class HostPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> pulumi.Output[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="managedBy")
+    def managed_by(self) -> pulumi.Output[Optional[str]]:
+        """
+        The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
+        """
+        return pulumi.get(self, "managed_by")
 
     @property
     @pulumi.getter(name="maxSessionLimit")
@@ -232,6 +296,14 @@ class HostPool(pulumi.CustomResource):
         return pulumi.get(self, "max_session_limit")
 
     @property
+    @pulumi.getter(name="migrationRequest")
+    def migration_request(self) -> pulumi.Output[Optional['outputs.MigrationRequestPropertiesResponse']]:
+        """
+        The registration info of HostPool.
+        """
+        return pulumi.get(self, "migration_request")
+
+    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
@@ -240,12 +312,25 @@ class HostPool(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="objectId")
+    def object_id(self) -> pulumi.Output[str]:
+        """
+        ObjectId of HostPool. (internal use)
+        """
+        return pulumi.get(self, "object_id")
+
+    @property
     @pulumi.getter(name="personalDesktopAssignmentType")
     def personal_desktop_assignment_type(self) -> pulumi.Output[Optional[str]]:
         """
         PersonalDesktopAssignment type for HostPool.
         """
         return pulumi.get(self, "personal_desktop_assignment_type")
+
+    @property
+    @pulumi.getter
+    def plan(self) -> pulumi.Output[Optional['outputs.ResourceModelWithAllowedPropertySetResponsePlan']]:
+        return pulumi.get(self, "plan")
 
     @property
     @pulumi.getter(name="preferredAppGroupType")
@@ -270,6 +355,11 @@ class HostPool(pulumi.CustomResource):
         The ring number of HostPool.
         """
         return pulumi.get(self, "ring")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> pulumi.Output[Optional['outputs.ResourceModelWithAllowedPropertySetResponseSku']]:
+        return pulumi.get(self, "sku")
 
     @property
     @pulumi.getter(name="ssoClientId")

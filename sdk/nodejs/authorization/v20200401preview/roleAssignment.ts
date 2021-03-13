@@ -58,7 +58,7 @@ export class RoleAssignment extends pulumi.CustomResource {
     /**
      * Id of the delegated managed identity resource
      */
-    public /*out*/ readonly delegatedManagedIdentityResourceId!: pulumi.Output<string | undefined>;
+    public readonly delegatedManagedIdentityResourceId!: pulumi.Output<string | undefined>;
     /**
      * Description of role assignment
      */
@@ -119,15 +119,15 @@ export class RoleAssignment extends pulumi.CustomResource {
             inputs["canDelegate"] = args ? args.canDelegate : undefined;
             inputs["condition"] = args ? args.condition : undefined;
             inputs["conditionVersion"] = args ? args.conditionVersion : undefined;
+            inputs["delegatedManagedIdentityResourceId"] = args ? args.delegatedManagedIdentityResourceId : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["principalId"] = args ? args.principalId : undefined;
-            inputs["principalType"] = args ? args.principalType : undefined;
+            inputs["principalType"] = (args ? args.principalType : undefined) || "User";
             inputs["roleAssignmentName"] = args ? args.roleAssignmentName : undefined;
             inputs["roleDefinitionId"] = args ? args.roleDefinitionId : undefined;
             inputs["scope"] = args ? args.scope : undefined;
             inputs["createdBy"] = undefined /*out*/;
             inputs["createdOn"] = undefined /*out*/;
-            inputs["delegatedManagedIdentityResourceId"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["updatedBy"] = undefined /*out*/;
@@ -174,6 +174,10 @@ export interface RoleAssignmentArgs {
      * Version of the condition. Currently accepted value is '2.0'
      */
     readonly conditionVersion?: pulumi.Input<string>;
+    /**
+     * Id of the delegated managed identity resource
+     */
+    readonly delegatedManagedIdentityResourceId?: pulumi.Input<string>;
     /**
      * Description of role assignment
      */

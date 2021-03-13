@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210114Preview
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
+        /// The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields. 
+        /// </summary>
+        [Output("etag")]
+        public Output<string> Etag { get; private set; } = null!;
+
+        /// <summary>
         /// Exclusion tag for scaling plan.
         /// </summary>
         [Output("exclusionTag")]
@@ -40,16 +46,31 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210114Preview
         public Output<ImmutableArray<Outputs.ScalingHostPoolReferenceResponse>> HostPoolReferences { get; private set; } = null!;
 
         /// <summary>
-        /// HostPool type for scaling plan.
+        /// HostPool type for desktop.
         /// </summary>
         [Output("hostPoolType")]
         public Output<string?> HostPoolType { get; private set; } = null!;
+
+        [Output("identity")]
+        public Output<Outputs.ResourceModelWithAllowedPropertySetResponseIdentity?> Identity { get; private set; } = null!;
+
+        /// <summary>
+        /// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+        /// </summary>
+        [Output("kind")]
+        public Output<string?> Kind { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
-        public Output<string> Location { get; private set; } = null!;
+        public Output<string?> Location { get; private set; } = null!;
+
+        /// <summary>
+        /// The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
+        /// </summary>
+        [Output("managedBy")]
+        public Output<string?> ManagedBy { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -58,10 +79,28 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210114Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// ObjectId of scaling plan. (internal use)
+        /// </summary>
+        [Output("objectId")]
+        public Output<string> ObjectId { get; private set; } = null!;
+
+        [Output("plan")]
+        public Output<Outputs.ResourceModelWithAllowedPropertySetResponsePlan?> Plan { get; private set; } = null!;
+
+        /// <summary>
+        /// The ring number of scaling plan.
+        /// </summary>
+        [Output("ring")]
+        public Output<int?> Ring { get; private set; } = null!;
+
+        /// <summary>
         /// List of ScalingSchedule definitions.
         /// </summary>
         [Output("schedules")]
         public Output<ImmutableArray<Outputs.ScalingScheduleResponse>> Schedules { get; private set; } = null!;
+
+        [Output("sku")]
+        public Output<Outputs.ResourceModelWithAllowedPropertySetResponseSku?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -167,10 +206,19 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210114Preview
         }
 
         /// <summary>
-        /// HostPool type for scaling plan.
+        /// HostPool type for desktop.
         /// </summary>
         [Input("hostPoolType")]
         public InputUnion<string, Pulumi.AzureNative.DesktopVirtualization.V20210114Preview.HostPoolType>? HostPoolType { get; set; }
+
+        [Input("identity")]
+        public Input<Inputs.ResourceModelWithAllowedPropertySetIdentityArgs>? Identity { get; set; }
+
+        /// <summary>
+        /// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+        /// </summary>
+        [Input("kind")]
+        public Input<string>? Kind { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -179,10 +227,25 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210114Preview
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
+        /// </summary>
+        [Input("managedBy")]
+        public Input<string>? ManagedBy { get; set; }
+
+        [Input("plan")]
+        public Input<Inputs.ResourceModelWithAllowedPropertySetPlanArgs>? Plan { get; set; }
+
+        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The ring number of scaling plan.
+        /// </summary>
+        [Input("ring")]
+        public Input<int>? Ring { get; set; }
 
         /// <summary>
         /// The name of the scaling plan.
@@ -201,6 +264,9 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210114Preview
             get => _schedules ?? (_schedules = new InputList<Inputs.ScalingScheduleArgs>());
             set => _schedules = value;
         }
+
+        [Input("sku")]
+        public Input<Inputs.ResourceModelWithAllowedPropertySetSkuArgs>? Sku { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

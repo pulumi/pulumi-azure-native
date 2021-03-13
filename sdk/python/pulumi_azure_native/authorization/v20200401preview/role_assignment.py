@@ -19,6 +19,7 @@ class RoleAssignment(pulumi.CustomResource):
                  can_delegate: Optional[pulumi.Input[bool]] = None,
                  condition: Optional[pulumi.Input[str]] = None,
                  condition_version: Optional[pulumi.Input[str]] = None,
+                 delegated_managed_identity_resource_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  principal_id: Optional[pulumi.Input[str]] = None,
                  principal_type: Optional[pulumi.Input[Union[str, 'PrincipalType']]] = None,
@@ -36,6 +37,7 @@ class RoleAssignment(pulumi.CustomResource):
         :param pulumi.Input[bool] can_delegate: The delegation flag used for creating a role assignment
         :param pulumi.Input[str] condition: The conditions on the role assignment. This limits the resources it can be assigned to. e.g.: @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'
         :param pulumi.Input[str] condition_version: Version of the condition. Currently accepted value is '2.0'
+        :param pulumi.Input[str] delegated_managed_identity_resource_id: Id of the delegated managed identity resource
         :param pulumi.Input[str] description: Description of role assignment
         :param pulumi.Input[str] principal_id: The principal ID assigned to the role. This maps to the ID inside the Active Directory. It can point to a user, service principal, or security group.
         :param pulumi.Input[Union[str, 'PrincipalType']] principal_type: The principal type of the assigned principal ID.
@@ -63,10 +65,13 @@ class RoleAssignment(pulumi.CustomResource):
             __props__['can_delegate'] = can_delegate
             __props__['condition'] = condition
             __props__['condition_version'] = condition_version
+            __props__['delegated_managed_identity_resource_id'] = delegated_managed_identity_resource_id
             __props__['description'] = description
             if principal_id is None and not opts.urn:
                 raise TypeError("Missing required property 'principal_id'")
             __props__['principal_id'] = principal_id
+            if principal_type is None:
+                principal_type = 'User'
             __props__['principal_type'] = principal_type
             __props__['role_assignment_name'] = role_assignment_name
             if role_definition_id is None and not opts.urn:
@@ -77,7 +82,6 @@ class RoleAssignment(pulumi.CustomResource):
             __props__['scope'] = scope
             __props__['created_by'] = None
             __props__['created_on'] = None
-            __props__['delegated_managed_identity_resource_id'] = None
             __props__['name'] = None
             __props__['type'] = None
             __props__['updated_by'] = None

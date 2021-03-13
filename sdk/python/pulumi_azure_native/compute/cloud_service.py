@@ -28,7 +28,7 @@ class CloudService(pulumi.CustomResource):
                  __opts__=None):
         """
         Describes the cloud service.
-        API Version: 2020-10-01-preview.
+        API Version: 2021-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -64,7 +64,7 @@ class CloudService(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute:CloudService"), pulumi.Alias(type_="azure-native:compute/v20201001preview:CloudService"), pulumi.Alias(type_="azure-nextgen:compute/v20201001preview:CloudService")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute:CloudService"), pulumi.Alias(type_="azure-native:compute/latest:CloudService"), pulumi.Alias(type_="azure-nextgen:compute/latest:CloudService"), pulumi.Alias(type_="azure-native:compute/v20201001preview:CloudService"), pulumi.Alias(type_="azure-nextgen:compute/v20201001preview:CloudService"), pulumi.Alias(type_="azure-native:compute/v20210301:CloudService"), pulumi.Alias(type_="azure-nextgen:compute/v20210301:CloudService")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(CloudService, __self__).__init__(
             'azure-native:compute:CloudService',

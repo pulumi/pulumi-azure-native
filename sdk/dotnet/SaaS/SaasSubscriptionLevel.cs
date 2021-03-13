@@ -92,6 +92,12 @@ namespace Pulumi.AzureNative.SaaS
     public sealed class SaasSubscriptionLevelArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Resource location. Only value allowed for SaaS is 'global'
+        /// </summary>
+        [Input("location")]
+        public Input<string>? Location { get; set; }
+
+        /// <summary>
         /// The resource name
         /// </summary>
         [Input("name")]

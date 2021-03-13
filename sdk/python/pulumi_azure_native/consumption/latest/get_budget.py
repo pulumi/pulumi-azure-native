@@ -22,7 +22,7 @@ class GetBudgetResult:
     """
     A budget resource.
     """
-    def __init__(__self__, amount=None, category=None, current_spend=None, e_tag=None, filter=None, id=None, name=None, notifications=None, time_grain=None, time_period=None, type=None):
+    def __init__(__self__, amount=None, category=None, current_spend=None, e_tag=None, filter=None, forecast_spend=None, id=None, name=None, notifications=None, time_grain=None, time_period=None, type=None):
         if amount and not isinstance(amount, float):
             raise TypeError("Expected argument 'amount' to be a float")
         pulumi.set(__self__, "amount", amount)
@@ -38,6 +38,9 @@ class GetBudgetResult:
         if filter and not isinstance(filter, dict):
             raise TypeError("Expected argument 'filter' to be a dict")
         pulumi.set(__self__, "filter", filter)
+        if forecast_spend and not isinstance(forecast_spend, dict):
+            raise TypeError("Expected argument 'forecast_spend' to be a dict")
+        pulumi.set(__self__, "forecast_spend", forecast_spend)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -96,6 +99,14 @@ class GetBudgetResult:
         May be used to filter budgets by user-specified dimensions and/or tags.
         """
         return pulumi.get(self, "filter")
+
+    @property
+    @pulumi.getter(name="forecastSpend")
+    def forecast_spend(self) -> 'outputs.ForecastSpendResponse':
+        """
+        The forecasted cost which is being tracked for a budget.
+        """
+        return pulumi.get(self, "forecast_spend")
 
     @property
     @pulumi.getter
@@ -157,6 +168,7 @@ class AwaitableGetBudgetResult(GetBudgetResult):
             current_spend=self.current_spend,
             e_tag=self.e_tag,
             filter=self.filter,
+            forecast_spend=self.forecast_spend,
             id=self.id,
             name=self.name,
             notifications=self.notifications,
@@ -192,6 +204,7 @@ def get_budget(budget_name: Optional[str] = None,
         current_spend=__ret__.current_spend,
         e_tag=__ret__.e_tag,
         filter=__ret__.filter,
+        forecast_spend=__ret__.forecast_spend,
         id=__ret__.id,
         name=__ret__.name,
         notifications=__ret__.notifications,

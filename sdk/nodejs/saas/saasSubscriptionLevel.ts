@@ -67,6 +67,7 @@ export class SaasSubscriptionLevel extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -92,6 +93,10 @@ export class SaasSubscriptionLevel extends pulumi.CustomResource {
  * The set of arguments for constructing a SaasSubscriptionLevel resource.
  */
 export interface SaasSubscriptionLevelArgs {
+    /**
+     * Resource location. Only value allowed for SaaS is 'global'
+     */
+    readonly location?: pulumi.Input<string>;
     /**
      * The resource name
      */

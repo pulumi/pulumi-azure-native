@@ -10,6 +10,312 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Properties for arm migration.
+type MigrationRequestProperties struct {
+	// The path to the legacy object to migrate.
+	MigrationPath *string `pulumi:"migrationPath"`
+	// The type of operation for migration.
+	Operation *string `pulumi:"operation"`
+}
+
+// MigrationRequestPropertiesInput is an input type that accepts MigrationRequestPropertiesArgs and MigrationRequestPropertiesOutput values.
+// You can construct a concrete instance of `MigrationRequestPropertiesInput` via:
+//
+//          MigrationRequestPropertiesArgs{...}
+type MigrationRequestPropertiesInput interface {
+	pulumi.Input
+
+	ToMigrationRequestPropertiesOutput() MigrationRequestPropertiesOutput
+	ToMigrationRequestPropertiesOutputWithContext(context.Context) MigrationRequestPropertiesOutput
+}
+
+// Properties for arm migration.
+type MigrationRequestPropertiesArgs struct {
+	// The path to the legacy object to migrate.
+	MigrationPath pulumi.StringPtrInput `pulumi:"migrationPath"`
+	// The type of operation for migration.
+	Operation pulumi.StringPtrInput `pulumi:"operation"`
+}
+
+func (MigrationRequestPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MigrationRequestProperties)(nil)).Elem()
+}
+
+func (i MigrationRequestPropertiesArgs) ToMigrationRequestPropertiesOutput() MigrationRequestPropertiesOutput {
+	return i.ToMigrationRequestPropertiesOutputWithContext(context.Background())
+}
+
+func (i MigrationRequestPropertiesArgs) ToMigrationRequestPropertiesOutputWithContext(ctx context.Context) MigrationRequestPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MigrationRequestPropertiesOutput)
+}
+
+func (i MigrationRequestPropertiesArgs) ToMigrationRequestPropertiesPtrOutput() MigrationRequestPropertiesPtrOutput {
+	return i.ToMigrationRequestPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i MigrationRequestPropertiesArgs) ToMigrationRequestPropertiesPtrOutputWithContext(ctx context.Context) MigrationRequestPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MigrationRequestPropertiesOutput).ToMigrationRequestPropertiesPtrOutputWithContext(ctx)
+}
+
+// MigrationRequestPropertiesPtrInput is an input type that accepts MigrationRequestPropertiesArgs, MigrationRequestPropertiesPtr and MigrationRequestPropertiesPtrOutput values.
+// You can construct a concrete instance of `MigrationRequestPropertiesPtrInput` via:
+//
+//          MigrationRequestPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type MigrationRequestPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToMigrationRequestPropertiesPtrOutput() MigrationRequestPropertiesPtrOutput
+	ToMigrationRequestPropertiesPtrOutputWithContext(context.Context) MigrationRequestPropertiesPtrOutput
+}
+
+type migrationRequestPropertiesPtrType MigrationRequestPropertiesArgs
+
+func MigrationRequestPropertiesPtr(v *MigrationRequestPropertiesArgs) MigrationRequestPropertiesPtrInput {
+	return (*migrationRequestPropertiesPtrType)(v)
+}
+
+func (*migrationRequestPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MigrationRequestProperties)(nil)).Elem()
+}
+
+func (i *migrationRequestPropertiesPtrType) ToMigrationRequestPropertiesPtrOutput() MigrationRequestPropertiesPtrOutput {
+	return i.ToMigrationRequestPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *migrationRequestPropertiesPtrType) ToMigrationRequestPropertiesPtrOutputWithContext(ctx context.Context) MigrationRequestPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MigrationRequestPropertiesPtrOutput)
+}
+
+// Properties for arm migration.
+type MigrationRequestPropertiesOutput struct{ *pulumi.OutputState }
+
+func (MigrationRequestPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MigrationRequestProperties)(nil)).Elem()
+}
+
+func (o MigrationRequestPropertiesOutput) ToMigrationRequestPropertiesOutput() MigrationRequestPropertiesOutput {
+	return o
+}
+
+func (o MigrationRequestPropertiesOutput) ToMigrationRequestPropertiesOutputWithContext(ctx context.Context) MigrationRequestPropertiesOutput {
+	return o
+}
+
+func (o MigrationRequestPropertiesOutput) ToMigrationRequestPropertiesPtrOutput() MigrationRequestPropertiesPtrOutput {
+	return o.ToMigrationRequestPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o MigrationRequestPropertiesOutput) ToMigrationRequestPropertiesPtrOutputWithContext(ctx context.Context) MigrationRequestPropertiesPtrOutput {
+	return o.ApplyT(func(v MigrationRequestProperties) *MigrationRequestProperties {
+		return &v
+	}).(MigrationRequestPropertiesPtrOutput)
+}
+
+// The path to the legacy object to migrate.
+func (o MigrationRequestPropertiesOutput) MigrationPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MigrationRequestProperties) *string { return v.MigrationPath }).(pulumi.StringPtrOutput)
+}
+
+// The type of operation for migration.
+func (o MigrationRequestPropertiesOutput) Operation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MigrationRequestProperties) *string { return v.Operation }).(pulumi.StringPtrOutput)
+}
+
+type MigrationRequestPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (MigrationRequestPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MigrationRequestProperties)(nil)).Elem()
+}
+
+func (o MigrationRequestPropertiesPtrOutput) ToMigrationRequestPropertiesPtrOutput() MigrationRequestPropertiesPtrOutput {
+	return o
+}
+
+func (o MigrationRequestPropertiesPtrOutput) ToMigrationRequestPropertiesPtrOutputWithContext(ctx context.Context) MigrationRequestPropertiesPtrOutput {
+	return o
+}
+
+func (o MigrationRequestPropertiesPtrOutput) Elem() MigrationRequestPropertiesOutput {
+	return o.ApplyT(func(v *MigrationRequestProperties) MigrationRequestProperties { return *v }).(MigrationRequestPropertiesOutput)
+}
+
+// The path to the legacy object to migrate.
+func (o MigrationRequestPropertiesPtrOutput) MigrationPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MigrationRequestProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MigrationPath
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of operation for migration.
+func (o MigrationRequestPropertiesPtrOutput) Operation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MigrationRequestProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Operation
+	}).(pulumi.StringPtrOutput)
+}
+
+// Properties for arm migration.
+type MigrationRequestPropertiesResponse struct {
+	// The path to the legacy object to migrate.
+	MigrationPath *string `pulumi:"migrationPath"`
+	// The type of operation for migration.
+	Operation *string `pulumi:"operation"`
+}
+
+// MigrationRequestPropertiesResponseInput is an input type that accepts MigrationRequestPropertiesResponseArgs and MigrationRequestPropertiesResponseOutput values.
+// You can construct a concrete instance of `MigrationRequestPropertiesResponseInput` via:
+//
+//          MigrationRequestPropertiesResponseArgs{...}
+type MigrationRequestPropertiesResponseInput interface {
+	pulumi.Input
+
+	ToMigrationRequestPropertiesResponseOutput() MigrationRequestPropertiesResponseOutput
+	ToMigrationRequestPropertiesResponseOutputWithContext(context.Context) MigrationRequestPropertiesResponseOutput
+}
+
+// Properties for arm migration.
+type MigrationRequestPropertiesResponseArgs struct {
+	// The path to the legacy object to migrate.
+	MigrationPath pulumi.StringPtrInput `pulumi:"migrationPath"`
+	// The type of operation for migration.
+	Operation pulumi.StringPtrInput `pulumi:"operation"`
+}
+
+func (MigrationRequestPropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MigrationRequestPropertiesResponse)(nil)).Elem()
+}
+
+func (i MigrationRequestPropertiesResponseArgs) ToMigrationRequestPropertiesResponseOutput() MigrationRequestPropertiesResponseOutput {
+	return i.ToMigrationRequestPropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i MigrationRequestPropertiesResponseArgs) ToMigrationRequestPropertiesResponseOutputWithContext(ctx context.Context) MigrationRequestPropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MigrationRequestPropertiesResponseOutput)
+}
+
+func (i MigrationRequestPropertiesResponseArgs) ToMigrationRequestPropertiesResponsePtrOutput() MigrationRequestPropertiesResponsePtrOutput {
+	return i.ToMigrationRequestPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i MigrationRequestPropertiesResponseArgs) ToMigrationRequestPropertiesResponsePtrOutputWithContext(ctx context.Context) MigrationRequestPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MigrationRequestPropertiesResponseOutput).ToMigrationRequestPropertiesResponsePtrOutputWithContext(ctx)
+}
+
+// MigrationRequestPropertiesResponsePtrInput is an input type that accepts MigrationRequestPropertiesResponseArgs, MigrationRequestPropertiesResponsePtr and MigrationRequestPropertiesResponsePtrOutput values.
+// You can construct a concrete instance of `MigrationRequestPropertiesResponsePtrInput` via:
+//
+//          MigrationRequestPropertiesResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type MigrationRequestPropertiesResponsePtrInput interface {
+	pulumi.Input
+
+	ToMigrationRequestPropertiesResponsePtrOutput() MigrationRequestPropertiesResponsePtrOutput
+	ToMigrationRequestPropertiesResponsePtrOutputWithContext(context.Context) MigrationRequestPropertiesResponsePtrOutput
+}
+
+type migrationRequestPropertiesResponsePtrType MigrationRequestPropertiesResponseArgs
+
+func MigrationRequestPropertiesResponsePtr(v *MigrationRequestPropertiesResponseArgs) MigrationRequestPropertiesResponsePtrInput {
+	return (*migrationRequestPropertiesResponsePtrType)(v)
+}
+
+func (*migrationRequestPropertiesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MigrationRequestPropertiesResponse)(nil)).Elem()
+}
+
+func (i *migrationRequestPropertiesResponsePtrType) ToMigrationRequestPropertiesResponsePtrOutput() MigrationRequestPropertiesResponsePtrOutput {
+	return i.ToMigrationRequestPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *migrationRequestPropertiesResponsePtrType) ToMigrationRequestPropertiesResponsePtrOutputWithContext(ctx context.Context) MigrationRequestPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MigrationRequestPropertiesResponsePtrOutput)
+}
+
+// Properties for arm migration.
+type MigrationRequestPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (MigrationRequestPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MigrationRequestPropertiesResponse)(nil)).Elem()
+}
+
+func (o MigrationRequestPropertiesResponseOutput) ToMigrationRequestPropertiesResponseOutput() MigrationRequestPropertiesResponseOutput {
+	return o
+}
+
+func (o MigrationRequestPropertiesResponseOutput) ToMigrationRequestPropertiesResponseOutputWithContext(ctx context.Context) MigrationRequestPropertiesResponseOutput {
+	return o
+}
+
+func (o MigrationRequestPropertiesResponseOutput) ToMigrationRequestPropertiesResponsePtrOutput() MigrationRequestPropertiesResponsePtrOutput {
+	return o.ToMigrationRequestPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (o MigrationRequestPropertiesResponseOutput) ToMigrationRequestPropertiesResponsePtrOutputWithContext(ctx context.Context) MigrationRequestPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v MigrationRequestPropertiesResponse) *MigrationRequestPropertiesResponse {
+		return &v
+	}).(MigrationRequestPropertiesResponsePtrOutput)
+}
+
+// The path to the legacy object to migrate.
+func (o MigrationRequestPropertiesResponseOutput) MigrationPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MigrationRequestPropertiesResponse) *string { return v.MigrationPath }).(pulumi.StringPtrOutput)
+}
+
+// The type of operation for migration.
+func (o MigrationRequestPropertiesResponseOutput) Operation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MigrationRequestPropertiesResponse) *string { return v.Operation }).(pulumi.StringPtrOutput)
+}
+
+type MigrationRequestPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (MigrationRequestPropertiesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MigrationRequestPropertiesResponse)(nil)).Elem()
+}
+
+func (o MigrationRequestPropertiesResponsePtrOutput) ToMigrationRequestPropertiesResponsePtrOutput() MigrationRequestPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o MigrationRequestPropertiesResponsePtrOutput) ToMigrationRequestPropertiesResponsePtrOutputWithContext(ctx context.Context) MigrationRequestPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o MigrationRequestPropertiesResponsePtrOutput) Elem() MigrationRequestPropertiesResponseOutput {
+	return o.ApplyT(func(v *MigrationRequestPropertiesResponse) MigrationRequestPropertiesResponse { return *v }).(MigrationRequestPropertiesResponseOutput)
+}
+
+// The path to the legacy object to migrate.
+func (o MigrationRequestPropertiesResponsePtrOutput) MigrationPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MigrationRequestPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MigrationPath
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of operation for migration.
+func (o MigrationRequestPropertiesResponsePtrOutput) Operation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MigrationRequestPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Operation
+	}).(pulumi.StringPtrOutput)
+}
+
 // Schema for MSIX Package Application properties.
 type MsixPackageApplications struct {
 	// Package Application Id, found in appxmanifest.xml.
@@ -898,6 +1204,1142 @@ func (o RegistrationInfoResponsePtrOutput) Token() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type ResourceModelWithAllowedPropertySetIdentity struct {
+	// The identity type.
+	Type *string `pulumi:"type"`
+}
+
+// ResourceModelWithAllowedPropertySetIdentityInput is an input type that accepts ResourceModelWithAllowedPropertySetIdentityArgs and ResourceModelWithAllowedPropertySetIdentityOutput values.
+// You can construct a concrete instance of `ResourceModelWithAllowedPropertySetIdentityInput` via:
+//
+//          ResourceModelWithAllowedPropertySetIdentityArgs{...}
+type ResourceModelWithAllowedPropertySetIdentityInput interface {
+	pulumi.Input
+
+	ToResourceModelWithAllowedPropertySetIdentityOutput() ResourceModelWithAllowedPropertySetIdentityOutput
+	ToResourceModelWithAllowedPropertySetIdentityOutputWithContext(context.Context) ResourceModelWithAllowedPropertySetIdentityOutput
+}
+
+type ResourceModelWithAllowedPropertySetIdentityArgs struct {
+	// The identity type.
+	Type *ResourceIdentityType `pulumi:"type"`
+}
+
+func (ResourceModelWithAllowedPropertySetIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceModelWithAllowedPropertySetIdentity)(nil)).Elem()
+}
+
+func (i ResourceModelWithAllowedPropertySetIdentityArgs) ToResourceModelWithAllowedPropertySetIdentityOutput() ResourceModelWithAllowedPropertySetIdentityOutput {
+	return i.ToResourceModelWithAllowedPropertySetIdentityOutputWithContext(context.Background())
+}
+
+func (i ResourceModelWithAllowedPropertySetIdentityArgs) ToResourceModelWithAllowedPropertySetIdentityOutputWithContext(ctx context.Context) ResourceModelWithAllowedPropertySetIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceModelWithAllowedPropertySetIdentityOutput)
+}
+
+func (i ResourceModelWithAllowedPropertySetIdentityArgs) ToResourceModelWithAllowedPropertySetIdentityPtrOutput() ResourceModelWithAllowedPropertySetIdentityPtrOutput {
+	return i.ToResourceModelWithAllowedPropertySetIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i ResourceModelWithAllowedPropertySetIdentityArgs) ToResourceModelWithAllowedPropertySetIdentityPtrOutputWithContext(ctx context.Context) ResourceModelWithAllowedPropertySetIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceModelWithAllowedPropertySetIdentityOutput).ToResourceModelWithAllowedPropertySetIdentityPtrOutputWithContext(ctx)
+}
+
+// ResourceModelWithAllowedPropertySetIdentityPtrInput is an input type that accepts ResourceModelWithAllowedPropertySetIdentityArgs, ResourceModelWithAllowedPropertySetIdentityPtr and ResourceModelWithAllowedPropertySetIdentityPtrOutput values.
+// You can construct a concrete instance of `ResourceModelWithAllowedPropertySetIdentityPtrInput` via:
+//
+//          ResourceModelWithAllowedPropertySetIdentityArgs{...}
+//
+//  or:
+//
+//          nil
+type ResourceModelWithAllowedPropertySetIdentityPtrInput interface {
+	pulumi.Input
+
+	ToResourceModelWithAllowedPropertySetIdentityPtrOutput() ResourceModelWithAllowedPropertySetIdentityPtrOutput
+	ToResourceModelWithAllowedPropertySetIdentityPtrOutputWithContext(context.Context) ResourceModelWithAllowedPropertySetIdentityPtrOutput
+}
+
+type resourceModelWithAllowedPropertySetIdentityPtrType ResourceModelWithAllowedPropertySetIdentityArgs
+
+func ResourceModelWithAllowedPropertySetIdentityPtr(v *ResourceModelWithAllowedPropertySetIdentityArgs) ResourceModelWithAllowedPropertySetIdentityPtrInput {
+	return (*resourceModelWithAllowedPropertySetIdentityPtrType)(v)
+}
+
+func (*resourceModelWithAllowedPropertySetIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceModelWithAllowedPropertySetIdentity)(nil)).Elem()
+}
+
+func (i *resourceModelWithAllowedPropertySetIdentityPtrType) ToResourceModelWithAllowedPropertySetIdentityPtrOutput() ResourceModelWithAllowedPropertySetIdentityPtrOutput {
+	return i.ToResourceModelWithAllowedPropertySetIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *resourceModelWithAllowedPropertySetIdentityPtrType) ToResourceModelWithAllowedPropertySetIdentityPtrOutputWithContext(ctx context.Context) ResourceModelWithAllowedPropertySetIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceModelWithAllowedPropertySetIdentityPtrOutput)
+}
+
+type ResourceModelWithAllowedPropertySetIdentityOutput struct{ *pulumi.OutputState }
+
+func (ResourceModelWithAllowedPropertySetIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceModelWithAllowedPropertySetIdentity)(nil)).Elem()
+}
+
+func (o ResourceModelWithAllowedPropertySetIdentityOutput) ToResourceModelWithAllowedPropertySetIdentityOutput() ResourceModelWithAllowedPropertySetIdentityOutput {
+	return o
+}
+
+func (o ResourceModelWithAllowedPropertySetIdentityOutput) ToResourceModelWithAllowedPropertySetIdentityOutputWithContext(ctx context.Context) ResourceModelWithAllowedPropertySetIdentityOutput {
+	return o
+}
+
+func (o ResourceModelWithAllowedPropertySetIdentityOutput) ToResourceModelWithAllowedPropertySetIdentityPtrOutput() ResourceModelWithAllowedPropertySetIdentityPtrOutput {
+	return o.ToResourceModelWithAllowedPropertySetIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o ResourceModelWithAllowedPropertySetIdentityOutput) ToResourceModelWithAllowedPropertySetIdentityPtrOutputWithContext(ctx context.Context) ResourceModelWithAllowedPropertySetIdentityPtrOutput {
+	return o.ApplyT(func(v ResourceModelWithAllowedPropertySetIdentity) *ResourceModelWithAllowedPropertySetIdentity {
+		return &v
+	}).(ResourceModelWithAllowedPropertySetIdentityPtrOutput)
+}
+
+// The identity type.
+func (o ResourceModelWithAllowedPropertySetIdentityOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceModelWithAllowedPropertySetIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type ResourceModelWithAllowedPropertySetIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceModelWithAllowedPropertySetIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceModelWithAllowedPropertySetIdentity)(nil)).Elem()
+}
+
+func (o ResourceModelWithAllowedPropertySetIdentityPtrOutput) ToResourceModelWithAllowedPropertySetIdentityPtrOutput() ResourceModelWithAllowedPropertySetIdentityPtrOutput {
+	return o
+}
+
+func (o ResourceModelWithAllowedPropertySetIdentityPtrOutput) ToResourceModelWithAllowedPropertySetIdentityPtrOutputWithContext(ctx context.Context) ResourceModelWithAllowedPropertySetIdentityPtrOutput {
+	return o
+}
+
+func (o ResourceModelWithAllowedPropertySetIdentityPtrOutput) Elem() ResourceModelWithAllowedPropertySetIdentityOutput {
+	return o.ApplyT(func(v *ResourceModelWithAllowedPropertySetIdentity) ResourceModelWithAllowedPropertySetIdentity {
+		return *v
+	}).(ResourceModelWithAllowedPropertySetIdentityOutput)
+}
+
+// The identity type.
+func (o ResourceModelWithAllowedPropertySetIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceModelWithAllowedPropertySetIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type ResourceModelWithAllowedPropertySetPlan struct {
+	// A user defined name of the 3rd Party Artifact that is being procured.
+	Name string `pulumi:"name"`
+	// The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding.
+	Product string `pulumi:"product"`
+	// A publisher provided promotion code as provisioned in Data Market for the said product/artifact.
+	PromotionCode *string `pulumi:"promotionCode"`
+	// The publisher of the 3rd Party Artifact that is being bought. E.g. NewRelic
+	Publisher string `pulumi:"publisher"`
+	// The version of the desired product/artifact.
+	Version *string `pulumi:"version"`
+}
+
+// ResourceModelWithAllowedPropertySetPlanInput is an input type that accepts ResourceModelWithAllowedPropertySetPlanArgs and ResourceModelWithAllowedPropertySetPlanOutput values.
+// You can construct a concrete instance of `ResourceModelWithAllowedPropertySetPlanInput` via:
+//
+//          ResourceModelWithAllowedPropertySetPlanArgs{...}
+type ResourceModelWithAllowedPropertySetPlanInput interface {
+	pulumi.Input
+
+	ToResourceModelWithAllowedPropertySetPlanOutput() ResourceModelWithAllowedPropertySetPlanOutput
+	ToResourceModelWithAllowedPropertySetPlanOutputWithContext(context.Context) ResourceModelWithAllowedPropertySetPlanOutput
+}
+
+type ResourceModelWithAllowedPropertySetPlanArgs struct {
+	// A user defined name of the 3rd Party Artifact that is being procured.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding.
+	Product pulumi.StringInput `pulumi:"product"`
+	// A publisher provided promotion code as provisioned in Data Market for the said product/artifact.
+	PromotionCode pulumi.StringPtrInput `pulumi:"promotionCode"`
+	// The publisher of the 3rd Party Artifact that is being bought. E.g. NewRelic
+	Publisher pulumi.StringInput `pulumi:"publisher"`
+	// The version of the desired product/artifact.
+	Version pulumi.StringPtrInput `pulumi:"version"`
+}
+
+func (ResourceModelWithAllowedPropertySetPlanArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceModelWithAllowedPropertySetPlan)(nil)).Elem()
+}
+
+func (i ResourceModelWithAllowedPropertySetPlanArgs) ToResourceModelWithAllowedPropertySetPlanOutput() ResourceModelWithAllowedPropertySetPlanOutput {
+	return i.ToResourceModelWithAllowedPropertySetPlanOutputWithContext(context.Background())
+}
+
+func (i ResourceModelWithAllowedPropertySetPlanArgs) ToResourceModelWithAllowedPropertySetPlanOutputWithContext(ctx context.Context) ResourceModelWithAllowedPropertySetPlanOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceModelWithAllowedPropertySetPlanOutput)
+}
+
+func (i ResourceModelWithAllowedPropertySetPlanArgs) ToResourceModelWithAllowedPropertySetPlanPtrOutput() ResourceModelWithAllowedPropertySetPlanPtrOutput {
+	return i.ToResourceModelWithAllowedPropertySetPlanPtrOutputWithContext(context.Background())
+}
+
+func (i ResourceModelWithAllowedPropertySetPlanArgs) ToResourceModelWithAllowedPropertySetPlanPtrOutputWithContext(ctx context.Context) ResourceModelWithAllowedPropertySetPlanPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceModelWithAllowedPropertySetPlanOutput).ToResourceModelWithAllowedPropertySetPlanPtrOutputWithContext(ctx)
+}
+
+// ResourceModelWithAllowedPropertySetPlanPtrInput is an input type that accepts ResourceModelWithAllowedPropertySetPlanArgs, ResourceModelWithAllowedPropertySetPlanPtr and ResourceModelWithAllowedPropertySetPlanPtrOutput values.
+// You can construct a concrete instance of `ResourceModelWithAllowedPropertySetPlanPtrInput` via:
+//
+//          ResourceModelWithAllowedPropertySetPlanArgs{...}
+//
+//  or:
+//
+//          nil
+type ResourceModelWithAllowedPropertySetPlanPtrInput interface {
+	pulumi.Input
+
+	ToResourceModelWithAllowedPropertySetPlanPtrOutput() ResourceModelWithAllowedPropertySetPlanPtrOutput
+	ToResourceModelWithAllowedPropertySetPlanPtrOutputWithContext(context.Context) ResourceModelWithAllowedPropertySetPlanPtrOutput
+}
+
+type resourceModelWithAllowedPropertySetPlanPtrType ResourceModelWithAllowedPropertySetPlanArgs
+
+func ResourceModelWithAllowedPropertySetPlanPtr(v *ResourceModelWithAllowedPropertySetPlanArgs) ResourceModelWithAllowedPropertySetPlanPtrInput {
+	return (*resourceModelWithAllowedPropertySetPlanPtrType)(v)
+}
+
+func (*resourceModelWithAllowedPropertySetPlanPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceModelWithAllowedPropertySetPlan)(nil)).Elem()
+}
+
+func (i *resourceModelWithAllowedPropertySetPlanPtrType) ToResourceModelWithAllowedPropertySetPlanPtrOutput() ResourceModelWithAllowedPropertySetPlanPtrOutput {
+	return i.ToResourceModelWithAllowedPropertySetPlanPtrOutputWithContext(context.Background())
+}
+
+func (i *resourceModelWithAllowedPropertySetPlanPtrType) ToResourceModelWithAllowedPropertySetPlanPtrOutputWithContext(ctx context.Context) ResourceModelWithAllowedPropertySetPlanPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceModelWithAllowedPropertySetPlanPtrOutput)
+}
+
+type ResourceModelWithAllowedPropertySetPlanOutput struct{ *pulumi.OutputState }
+
+func (ResourceModelWithAllowedPropertySetPlanOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceModelWithAllowedPropertySetPlan)(nil)).Elem()
+}
+
+func (o ResourceModelWithAllowedPropertySetPlanOutput) ToResourceModelWithAllowedPropertySetPlanOutput() ResourceModelWithAllowedPropertySetPlanOutput {
+	return o
+}
+
+func (o ResourceModelWithAllowedPropertySetPlanOutput) ToResourceModelWithAllowedPropertySetPlanOutputWithContext(ctx context.Context) ResourceModelWithAllowedPropertySetPlanOutput {
+	return o
+}
+
+func (o ResourceModelWithAllowedPropertySetPlanOutput) ToResourceModelWithAllowedPropertySetPlanPtrOutput() ResourceModelWithAllowedPropertySetPlanPtrOutput {
+	return o.ToResourceModelWithAllowedPropertySetPlanPtrOutputWithContext(context.Background())
+}
+
+func (o ResourceModelWithAllowedPropertySetPlanOutput) ToResourceModelWithAllowedPropertySetPlanPtrOutputWithContext(ctx context.Context) ResourceModelWithAllowedPropertySetPlanPtrOutput {
+	return o.ApplyT(func(v ResourceModelWithAllowedPropertySetPlan) *ResourceModelWithAllowedPropertySetPlan {
+		return &v
+	}).(ResourceModelWithAllowedPropertySetPlanPtrOutput)
+}
+
+// A user defined name of the 3rd Party Artifact that is being procured.
+func (o ResourceModelWithAllowedPropertySetPlanOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceModelWithAllowedPropertySetPlan) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding.
+func (o ResourceModelWithAllowedPropertySetPlanOutput) Product() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceModelWithAllowedPropertySetPlan) string { return v.Product }).(pulumi.StringOutput)
+}
+
+// A publisher provided promotion code as provisioned in Data Market for the said product/artifact.
+func (o ResourceModelWithAllowedPropertySetPlanOutput) PromotionCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceModelWithAllowedPropertySetPlan) *string { return v.PromotionCode }).(pulumi.StringPtrOutput)
+}
+
+// The publisher of the 3rd Party Artifact that is being bought. E.g. NewRelic
+func (o ResourceModelWithAllowedPropertySetPlanOutput) Publisher() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceModelWithAllowedPropertySetPlan) string { return v.Publisher }).(pulumi.StringOutput)
+}
+
+// The version of the desired product/artifact.
+func (o ResourceModelWithAllowedPropertySetPlanOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceModelWithAllowedPropertySetPlan) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+type ResourceModelWithAllowedPropertySetPlanPtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceModelWithAllowedPropertySetPlanPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceModelWithAllowedPropertySetPlan)(nil)).Elem()
+}
+
+func (o ResourceModelWithAllowedPropertySetPlanPtrOutput) ToResourceModelWithAllowedPropertySetPlanPtrOutput() ResourceModelWithAllowedPropertySetPlanPtrOutput {
+	return o
+}
+
+func (o ResourceModelWithAllowedPropertySetPlanPtrOutput) ToResourceModelWithAllowedPropertySetPlanPtrOutputWithContext(ctx context.Context) ResourceModelWithAllowedPropertySetPlanPtrOutput {
+	return o
+}
+
+func (o ResourceModelWithAllowedPropertySetPlanPtrOutput) Elem() ResourceModelWithAllowedPropertySetPlanOutput {
+	return o.ApplyT(func(v *ResourceModelWithAllowedPropertySetPlan) ResourceModelWithAllowedPropertySetPlan { return *v }).(ResourceModelWithAllowedPropertySetPlanOutput)
+}
+
+// A user defined name of the 3rd Party Artifact that is being procured.
+func (o ResourceModelWithAllowedPropertySetPlanPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceModelWithAllowedPropertySetPlan) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding.
+func (o ResourceModelWithAllowedPropertySetPlanPtrOutput) Product() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceModelWithAllowedPropertySetPlan) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Product
+	}).(pulumi.StringPtrOutput)
+}
+
+// A publisher provided promotion code as provisioned in Data Market for the said product/artifact.
+func (o ResourceModelWithAllowedPropertySetPlanPtrOutput) PromotionCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceModelWithAllowedPropertySetPlan) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PromotionCode
+	}).(pulumi.StringPtrOutput)
+}
+
+// The publisher of the 3rd Party Artifact that is being bought. E.g. NewRelic
+func (o ResourceModelWithAllowedPropertySetPlanPtrOutput) Publisher() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceModelWithAllowedPropertySetPlan) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Publisher
+	}).(pulumi.StringPtrOutput)
+}
+
+// The version of the desired product/artifact.
+func (o ResourceModelWithAllowedPropertySetPlanPtrOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceModelWithAllowedPropertySetPlan) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Version
+	}).(pulumi.StringPtrOutput)
+}
+
+type ResourceModelWithAllowedPropertySetResponseIdentity struct {
+	// The principal ID of resource identity.
+	PrincipalId string `pulumi:"principalId"`
+	// The tenant ID of resource.
+	TenantId string `pulumi:"tenantId"`
+	// The identity type.
+	Type *string `pulumi:"type"`
+}
+
+// ResourceModelWithAllowedPropertySetResponseIdentityInput is an input type that accepts ResourceModelWithAllowedPropertySetResponseIdentityArgs and ResourceModelWithAllowedPropertySetResponseIdentityOutput values.
+// You can construct a concrete instance of `ResourceModelWithAllowedPropertySetResponseIdentityInput` via:
+//
+//          ResourceModelWithAllowedPropertySetResponseIdentityArgs{...}
+type ResourceModelWithAllowedPropertySetResponseIdentityInput interface {
+	pulumi.Input
+
+	ToResourceModelWithAllowedPropertySetResponseIdentityOutput() ResourceModelWithAllowedPropertySetResponseIdentityOutput
+	ToResourceModelWithAllowedPropertySetResponseIdentityOutputWithContext(context.Context) ResourceModelWithAllowedPropertySetResponseIdentityOutput
+}
+
+type ResourceModelWithAllowedPropertySetResponseIdentityArgs struct {
+	// The principal ID of resource identity.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The tenant ID of resource.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	// The identity type.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (ResourceModelWithAllowedPropertySetResponseIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceModelWithAllowedPropertySetResponseIdentity)(nil)).Elem()
+}
+
+func (i ResourceModelWithAllowedPropertySetResponseIdentityArgs) ToResourceModelWithAllowedPropertySetResponseIdentityOutput() ResourceModelWithAllowedPropertySetResponseIdentityOutput {
+	return i.ToResourceModelWithAllowedPropertySetResponseIdentityOutputWithContext(context.Background())
+}
+
+func (i ResourceModelWithAllowedPropertySetResponseIdentityArgs) ToResourceModelWithAllowedPropertySetResponseIdentityOutputWithContext(ctx context.Context) ResourceModelWithAllowedPropertySetResponseIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceModelWithAllowedPropertySetResponseIdentityOutput)
+}
+
+func (i ResourceModelWithAllowedPropertySetResponseIdentityArgs) ToResourceModelWithAllowedPropertySetResponseIdentityPtrOutput() ResourceModelWithAllowedPropertySetResponseIdentityPtrOutput {
+	return i.ToResourceModelWithAllowedPropertySetResponseIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i ResourceModelWithAllowedPropertySetResponseIdentityArgs) ToResourceModelWithAllowedPropertySetResponseIdentityPtrOutputWithContext(ctx context.Context) ResourceModelWithAllowedPropertySetResponseIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceModelWithAllowedPropertySetResponseIdentityOutput).ToResourceModelWithAllowedPropertySetResponseIdentityPtrOutputWithContext(ctx)
+}
+
+// ResourceModelWithAllowedPropertySetResponseIdentityPtrInput is an input type that accepts ResourceModelWithAllowedPropertySetResponseIdentityArgs, ResourceModelWithAllowedPropertySetResponseIdentityPtr and ResourceModelWithAllowedPropertySetResponseIdentityPtrOutput values.
+// You can construct a concrete instance of `ResourceModelWithAllowedPropertySetResponseIdentityPtrInput` via:
+//
+//          ResourceModelWithAllowedPropertySetResponseIdentityArgs{...}
+//
+//  or:
+//
+//          nil
+type ResourceModelWithAllowedPropertySetResponseIdentityPtrInput interface {
+	pulumi.Input
+
+	ToResourceModelWithAllowedPropertySetResponseIdentityPtrOutput() ResourceModelWithAllowedPropertySetResponseIdentityPtrOutput
+	ToResourceModelWithAllowedPropertySetResponseIdentityPtrOutputWithContext(context.Context) ResourceModelWithAllowedPropertySetResponseIdentityPtrOutput
+}
+
+type resourceModelWithAllowedPropertySetResponseIdentityPtrType ResourceModelWithAllowedPropertySetResponseIdentityArgs
+
+func ResourceModelWithAllowedPropertySetResponseIdentityPtr(v *ResourceModelWithAllowedPropertySetResponseIdentityArgs) ResourceModelWithAllowedPropertySetResponseIdentityPtrInput {
+	return (*resourceModelWithAllowedPropertySetResponseIdentityPtrType)(v)
+}
+
+func (*resourceModelWithAllowedPropertySetResponseIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceModelWithAllowedPropertySetResponseIdentity)(nil)).Elem()
+}
+
+func (i *resourceModelWithAllowedPropertySetResponseIdentityPtrType) ToResourceModelWithAllowedPropertySetResponseIdentityPtrOutput() ResourceModelWithAllowedPropertySetResponseIdentityPtrOutput {
+	return i.ToResourceModelWithAllowedPropertySetResponseIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *resourceModelWithAllowedPropertySetResponseIdentityPtrType) ToResourceModelWithAllowedPropertySetResponseIdentityPtrOutputWithContext(ctx context.Context) ResourceModelWithAllowedPropertySetResponseIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceModelWithAllowedPropertySetResponseIdentityPtrOutput)
+}
+
+type ResourceModelWithAllowedPropertySetResponseIdentityOutput struct{ *pulumi.OutputState }
+
+func (ResourceModelWithAllowedPropertySetResponseIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceModelWithAllowedPropertySetResponseIdentity)(nil)).Elem()
+}
+
+func (o ResourceModelWithAllowedPropertySetResponseIdentityOutput) ToResourceModelWithAllowedPropertySetResponseIdentityOutput() ResourceModelWithAllowedPropertySetResponseIdentityOutput {
+	return o
+}
+
+func (o ResourceModelWithAllowedPropertySetResponseIdentityOutput) ToResourceModelWithAllowedPropertySetResponseIdentityOutputWithContext(ctx context.Context) ResourceModelWithAllowedPropertySetResponseIdentityOutput {
+	return o
+}
+
+func (o ResourceModelWithAllowedPropertySetResponseIdentityOutput) ToResourceModelWithAllowedPropertySetResponseIdentityPtrOutput() ResourceModelWithAllowedPropertySetResponseIdentityPtrOutput {
+	return o.ToResourceModelWithAllowedPropertySetResponseIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o ResourceModelWithAllowedPropertySetResponseIdentityOutput) ToResourceModelWithAllowedPropertySetResponseIdentityPtrOutputWithContext(ctx context.Context) ResourceModelWithAllowedPropertySetResponseIdentityPtrOutput {
+	return o.ApplyT(func(v ResourceModelWithAllowedPropertySetResponseIdentity) *ResourceModelWithAllowedPropertySetResponseIdentity {
+		return &v
+	}).(ResourceModelWithAllowedPropertySetResponseIdentityPtrOutput)
+}
+
+// The principal ID of resource identity.
+func (o ResourceModelWithAllowedPropertySetResponseIdentityOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceModelWithAllowedPropertySetResponseIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The tenant ID of resource.
+func (o ResourceModelWithAllowedPropertySetResponseIdentityOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceModelWithAllowedPropertySetResponseIdentity) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// The identity type.
+func (o ResourceModelWithAllowedPropertySetResponseIdentityOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceModelWithAllowedPropertySetResponseIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type ResourceModelWithAllowedPropertySetResponseIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceModelWithAllowedPropertySetResponseIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceModelWithAllowedPropertySetResponseIdentity)(nil)).Elem()
+}
+
+func (o ResourceModelWithAllowedPropertySetResponseIdentityPtrOutput) ToResourceModelWithAllowedPropertySetResponseIdentityPtrOutput() ResourceModelWithAllowedPropertySetResponseIdentityPtrOutput {
+	return o
+}
+
+func (o ResourceModelWithAllowedPropertySetResponseIdentityPtrOutput) ToResourceModelWithAllowedPropertySetResponseIdentityPtrOutputWithContext(ctx context.Context) ResourceModelWithAllowedPropertySetResponseIdentityPtrOutput {
+	return o
+}
+
+func (o ResourceModelWithAllowedPropertySetResponseIdentityPtrOutput) Elem() ResourceModelWithAllowedPropertySetResponseIdentityOutput {
+	return o.ApplyT(func(v *ResourceModelWithAllowedPropertySetResponseIdentity) ResourceModelWithAllowedPropertySetResponseIdentity {
+		return *v
+	}).(ResourceModelWithAllowedPropertySetResponseIdentityOutput)
+}
+
+// The principal ID of resource identity.
+func (o ResourceModelWithAllowedPropertySetResponseIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceModelWithAllowedPropertySetResponseIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The tenant ID of resource.
+func (o ResourceModelWithAllowedPropertySetResponseIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceModelWithAllowedPropertySetResponseIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The identity type.
+func (o ResourceModelWithAllowedPropertySetResponseIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceModelWithAllowedPropertySetResponseIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type ResourceModelWithAllowedPropertySetResponsePlan struct {
+	// A user defined name of the 3rd Party Artifact that is being procured.
+	Name string `pulumi:"name"`
+	// The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding.
+	Product string `pulumi:"product"`
+	// A publisher provided promotion code as provisioned in Data Market for the said product/artifact.
+	PromotionCode *string `pulumi:"promotionCode"`
+	// The publisher of the 3rd Party Artifact that is being bought. E.g. NewRelic
+	Publisher string `pulumi:"publisher"`
+	// The version of the desired product/artifact.
+	Version *string `pulumi:"version"`
+}
+
+// ResourceModelWithAllowedPropertySetResponsePlanInput is an input type that accepts ResourceModelWithAllowedPropertySetResponsePlanArgs and ResourceModelWithAllowedPropertySetResponsePlanOutput values.
+// You can construct a concrete instance of `ResourceModelWithAllowedPropertySetResponsePlanInput` via:
+//
+//          ResourceModelWithAllowedPropertySetResponsePlanArgs{...}
+type ResourceModelWithAllowedPropertySetResponsePlanInput interface {
+	pulumi.Input
+
+	ToResourceModelWithAllowedPropertySetResponsePlanOutput() ResourceModelWithAllowedPropertySetResponsePlanOutput
+	ToResourceModelWithAllowedPropertySetResponsePlanOutputWithContext(context.Context) ResourceModelWithAllowedPropertySetResponsePlanOutput
+}
+
+type ResourceModelWithAllowedPropertySetResponsePlanArgs struct {
+	// A user defined name of the 3rd Party Artifact that is being procured.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding.
+	Product pulumi.StringInput `pulumi:"product"`
+	// A publisher provided promotion code as provisioned in Data Market for the said product/artifact.
+	PromotionCode pulumi.StringPtrInput `pulumi:"promotionCode"`
+	// The publisher of the 3rd Party Artifact that is being bought. E.g. NewRelic
+	Publisher pulumi.StringInput `pulumi:"publisher"`
+	// The version of the desired product/artifact.
+	Version pulumi.StringPtrInput `pulumi:"version"`
+}
+
+func (ResourceModelWithAllowedPropertySetResponsePlanArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceModelWithAllowedPropertySetResponsePlan)(nil)).Elem()
+}
+
+func (i ResourceModelWithAllowedPropertySetResponsePlanArgs) ToResourceModelWithAllowedPropertySetResponsePlanOutput() ResourceModelWithAllowedPropertySetResponsePlanOutput {
+	return i.ToResourceModelWithAllowedPropertySetResponsePlanOutputWithContext(context.Background())
+}
+
+func (i ResourceModelWithAllowedPropertySetResponsePlanArgs) ToResourceModelWithAllowedPropertySetResponsePlanOutputWithContext(ctx context.Context) ResourceModelWithAllowedPropertySetResponsePlanOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceModelWithAllowedPropertySetResponsePlanOutput)
+}
+
+func (i ResourceModelWithAllowedPropertySetResponsePlanArgs) ToResourceModelWithAllowedPropertySetResponsePlanPtrOutput() ResourceModelWithAllowedPropertySetResponsePlanPtrOutput {
+	return i.ToResourceModelWithAllowedPropertySetResponsePlanPtrOutputWithContext(context.Background())
+}
+
+func (i ResourceModelWithAllowedPropertySetResponsePlanArgs) ToResourceModelWithAllowedPropertySetResponsePlanPtrOutputWithContext(ctx context.Context) ResourceModelWithAllowedPropertySetResponsePlanPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceModelWithAllowedPropertySetResponsePlanOutput).ToResourceModelWithAllowedPropertySetResponsePlanPtrOutputWithContext(ctx)
+}
+
+// ResourceModelWithAllowedPropertySetResponsePlanPtrInput is an input type that accepts ResourceModelWithAllowedPropertySetResponsePlanArgs, ResourceModelWithAllowedPropertySetResponsePlanPtr and ResourceModelWithAllowedPropertySetResponsePlanPtrOutput values.
+// You can construct a concrete instance of `ResourceModelWithAllowedPropertySetResponsePlanPtrInput` via:
+//
+//          ResourceModelWithAllowedPropertySetResponsePlanArgs{...}
+//
+//  or:
+//
+//          nil
+type ResourceModelWithAllowedPropertySetResponsePlanPtrInput interface {
+	pulumi.Input
+
+	ToResourceModelWithAllowedPropertySetResponsePlanPtrOutput() ResourceModelWithAllowedPropertySetResponsePlanPtrOutput
+	ToResourceModelWithAllowedPropertySetResponsePlanPtrOutputWithContext(context.Context) ResourceModelWithAllowedPropertySetResponsePlanPtrOutput
+}
+
+type resourceModelWithAllowedPropertySetResponsePlanPtrType ResourceModelWithAllowedPropertySetResponsePlanArgs
+
+func ResourceModelWithAllowedPropertySetResponsePlanPtr(v *ResourceModelWithAllowedPropertySetResponsePlanArgs) ResourceModelWithAllowedPropertySetResponsePlanPtrInput {
+	return (*resourceModelWithAllowedPropertySetResponsePlanPtrType)(v)
+}
+
+func (*resourceModelWithAllowedPropertySetResponsePlanPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceModelWithAllowedPropertySetResponsePlan)(nil)).Elem()
+}
+
+func (i *resourceModelWithAllowedPropertySetResponsePlanPtrType) ToResourceModelWithAllowedPropertySetResponsePlanPtrOutput() ResourceModelWithAllowedPropertySetResponsePlanPtrOutput {
+	return i.ToResourceModelWithAllowedPropertySetResponsePlanPtrOutputWithContext(context.Background())
+}
+
+func (i *resourceModelWithAllowedPropertySetResponsePlanPtrType) ToResourceModelWithAllowedPropertySetResponsePlanPtrOutputWithContext(ctx context.Context) ResourceModelWithAllowedPropertySetResponsePlanPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceModelWithAllowedPropertySetResponsePlanPtrOutput)
+}
+
+type ResourceModelWithAllowedPropertySetResponsePlanOutput struct{ *pulumi.OutputState }
+
+func (ResourceModelWithAllowedPropertySetResponsePlanOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceModelWithAllowedPropertySetResponsePlan)(nil)).Elem()
+}
+
+func (o ResourceModelWithAllowedPropertySetResponsePlanOutput) ToResourceModelWithAllowedPropertySetResponsePlanOutput() ResourceModelWithAllowedPropertySetResponsePlanOutput {
+	return o
+}
+
+func (o ResourceModelWithAllowedPropertySetResponsePlanOutput) ToResourceModelWithAllowedPropertySetResponsePlanOutputWithContext(ctx context.Context) ResourceModelWithAllowedPropertySetResponsePlanOutput {
+	return o
+}
+
+func (o ResourceModelWithAllowedPropertySetResponsePlanOutput) ToResourceModelWithAllowedPropertySetResponsePlanPtrOutput() ResourceModelWithAllowedPropertySetResponsePlanPtrOutput {
+	return o.ToResourceModelWithAllowedPropertySetResponsePlanPtrOutputWithContext(context.Background())
+}
+
+func (o ResourceModelWithAllowedPropertySetResponsePlanOutput) ToResourceModelWithAllowedPropertySetResponsePlanPtrOutputWithContext(ctx context.Context) ResourceModelWithAllowedPropertySetResponsePlanPtrOutput {
+	return o.ApplyT(func(v ResourceModelWithAllowedPropertySetResponsePlan) *ResourceModelWithAllowedPropertySetResponsePlan {
+		return &v
+	}).(ResourceModelWithAllowedPropertySetResponsePlanPtrOutput)
+}
+
+// A user defined name of the 3rd Party Artifact that is being procured.
+func (o ResourceModelWithAllowedPropertySetResponsePlanOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceModelWithAllowedPropertySetResponsePlan) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding.
+func (o ResourceModelWithAllowedPropertySetResponsePlanOutput) Product() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceModelWithAllowedPropertySetResponsePlan) string { return v.Product }).(pulumi.StringOutput)
+}
+
+// A publisher provided promotion code as provisioned in Data Market for the said product/artifact.
+func (o ResourceModelWithAllowedPropertySetResponsePlanOutput) PromotionCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceModelWithAllowedPropertySetResponsePlan) *string { return v.PromotionCode }).(pulumi.StringPtrOutput)
+}
+
+// The publisher of the 3rd Party Artifact that is being bought. E.g. NewRelic
+func (o ResourceModelWithAllowedPropertySetResponsePlanOutput) Publisher() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceModelWithAllowedPropertySetResponsePlan) string { return v.Publisher }).(pulumi.StringOutput)
+}
+
+// The version of the desired product/artifact.
+func (o ResourceModelWithAllowedPropertySetResponsePlanOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceModelWithAllowedPropertySetResponsePlan) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+type ResourceModelWithAllowedPropertySetResponsePlanPtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceModelWithAllowedPropertySetResponsePlanPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceModelWithAllowedPropertySetResponsePlan)(nil)).Elem()
+}
+
+func (o ResourceModelWithAllowedPropertySetResponsePlanPtrOutput) ToResourceModelWithAllowedPropertySetResponsePlanPtrOutput() ResourceModelWithAllowedPropertySetResponsePlanPtrOutput {
+	return o
+}
+
+func (o ResourceModelWithAllowedPropertySetResponsePlanPtrOutput) ToResourceModelWithAllowedPropertySetResponsePlanPtrOutputWithContext(ctx context.Context) ResourceModelWithAllowedPropertySetResponsePlanPtrOutput {
+	return o
+}
+
+func (o ResourceModelWithAllowedPropertySetResponsePlanPtrOutput) Elem() ResourceModelWithAllowedPropertySetResponsePlanOutput {
+	return o.ApplyT(func(v *ResourceModelWithAllowedPropertySetResponsePlan) ResourceModelWithAllowedPropertySetResponsePlan {
+		return *v
+	}).(ResourceModelWithAllowedPropertySetResponsePlanOutput)
+}
+
+// A user defined name of the 3rd Party Artifact that is being procured.
+func (o ResourceModelWithAllowedPropertySetResponsePlanPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceModelWithAllowedPropertySetResponsePlan) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding.
+func (o ResourceModelWithAllowedPropertySetResponsePlanPtrOutput) Product() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceModelWithAllowedPropertySetResponsePlan) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Product
+	}).(pulumi.StringPtrOutput)
+}
+
+// A publisher provided promotion code as provisioned in Data Market for the said product/artifact.
+func (o ResourceModelWithAllowedPropertySetResponsePlanPtrOutput) PromotionCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceModelWithAllowedPropertySetResponsePlan) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PromotionCode
+	}).(pulumi.StringPtrOutput)
+}
+
+// The publisher of the 3rd Party Artifact that is being bought. E.g. NewRelic
+func (o ResourceModelWithAllowedPropertySetResponsePlanPtrOutput) Publisher() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceModelWithAllowedPropertySetResponsePlan) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Publisher
+	}).(pulumi.StringPtrOutput)
+}
+
+// The version of the desired product/artifact.
+func (o ResourceModelWithAllowedPropertySetResponsePlanPtrOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceModelWithAllowedPropertySetResponsePlan) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Version
+	}).(pulumi.StringPtrOutput)
+}
+
+type ResourceModelWithAllowedPropertySetResponseSku struct {
+	// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
+	Capacity *int `pulumi:"capacity"`
+	// If the service has different generations of hardware, for the same SKU, then that can be captured here.
+	Family *string `pulumi:"family"`
+	// The name of the SKU. Ex - P3. It is typically a letter+number code
+	Name string `pulumi:"name"`
+	// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
+	Size *string `pulumi:"size"`
+	// This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+	Tier *string `pulumi:"tier"`
+}
+
+// ResourceModelWithAllowedPropertySetResponseSkuInput is an input type that accepts ResourceModelWithAllowedPropertySetResponseSkuArgs and ResourceModelWithAllowedPropertySetResponseSkuOutput values.
+// You can construct a concrete instance of `ResourceModelWithAllowedPropertySetResponseSkuInput` via:
+//
+//          ResourceModelWithAllowedPropertySetResponseSkuArgs{...}
+type ResourceModelWithAllowedPropertySetResponseSkuInput interface {
+	pulumi.Input
+
+	ToResourceModelWithAllowedPropertySetResponseSkuOutput() ResourceModelWithAllowedPropertySetResponseSkuOutput
+	ToResourceModelWithAllowedPropertySetResponseSkuOutputWithContext(context.Context) ResourceModelWithAllowedPropertySetResponseSkuOutput
+}
+
+type ResourceModelWithAllowedPropertySetResponseSkuArgs struct {
+	// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
+	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
+	// If the service has different generations of hardware, for the same SKU, then that can be captured here.
+	Family pulumi.StringPtrInput `pulumi:"family"`
+	// The name of the SKU. Ex - P3. It is typically a letter+number code
+	Name pulumi.StringInput `pulumi:"name"`
+	// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
+	Size pulumi.StringPtrInput `pulumi:"size"`
+	// This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+	Tier pulumi.StringPtrInput `pulumi:"tier"`
+}
+
+func (ResourceModelWithAllowedPropertySetResponseSkuArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceModelWithAllowedPropertySetResponseSku)(nil)).Elem()
+}
+
+func (i ResourceModelWithAllowedPropertySetResponseSkuArgs) ToResourceModelWithAllowedPropertySetResponseSkuOutput() ResourceModelWithAllowedPropertySetResponseSkuOutput {
+	return i.ToResourceModelWithAllowedPropertySetResponseSkuOutputWithContext(context.Background())
+}
+
+func (i ResourceModelWithAllowedPropertySetResponseSkuArgs) ToResourceModelWithAllowedPropertySetResponseSkuOutputWithContext(ctx context.Context) ResourceModelWithAllowedPropertySetResponseSkuOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceModelWithAllowedPropertySetResponseSkuOutput)
+}
+
+func (i ResourceModelWithAllowedPropertySetResponseSkuArgs) ToResourceModelWithAllowedPropertySetResponseSkuPtrOutput() ResourceModelWithAllowedPropertySetResponseSkuPtrOutput {
+	return i.ToResourceModelWithAllowedPropertySetResponseSkuPtrOutputWithContext(context.Background())
+}
+
+func (i ResourceModelWithAllowedPropertySetResponseSkuArgs) ToResourceModelWithAllowedPropertySetResponseSkuPtrOutputWithContext(ctx context.Context) ResourceModelWithAllowedPropertySetResponseSkuPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceModelWithAllowedPropertySetResponseSkuOutput).ToResourceModelWithAllowedPropertySetResponseSkuPtrOutputWithContext(ctx)
+}
+
+// ResourceModelWithAllowedPropertySetResponseSkuPtrInput is an input type that accepts ResourceModelWithAllowedPropertySetResponseSkuArgs, ResourceModelWithAllowedPropertySetResponseSkuPtr and ResourceModelWithAllowedPropertySetResponseSkuPtrOutput values.
+// You can construct a concrete instance of `ResourceModelWithAllowedPropertySetResponseSkuPtrInput` via:
+//
+//          ResourceModelWithAllowedPropertySetResponseSkuArgs{...}
+//
+//  or:
+//
+//          nil
+type ResourceModelWithAllowedPropertySetResponseSkuPtrInput interface {
+	pulumi.Input
+
+	ToResourceModelWithAllowedPropertySetResponseSkuPtrOutput() ResourceModelWithAllowedPropertySetResponseSkuPtrOutput
+	ToResourceModelWithAllowedPropertySetResponseSkuPtrOutputWithContext(context.Context) ResourceModelWithAllowedPropertySetResponseSkuPtrOutput
+}
+
+type resourceModelWithAllowedPropertySetResponseSkuPtrType ResourceModelWithAllowedPropertySetResponseSkuArgs
+
+func ResourceModelWithAllowedPropertySetResponseSkuPtr(v *ResourceModelWithAllowedPropertySetResponseSkuArgs) ResourceModelWithAllowedPropertySetResponseSkuPtrInput {
+	return (*resourceModelWithAllowedPropertySetResponseSkuPtrType)(v)
+}
+
+func (*resourceModelWithAllowedPropertySetResponseSkuPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceModelWithAllowedPropertySetResponseSku)(nil)).Elem()
+}
+
+func (i *resourceModelWithAllowedPropertySetResponseSkuPtrType) ToResourceModelWithAllowedPropertySetResponseSkuPtrOutput() ResourceModelWithAllowedPropertySetResponseSkuPtrOutput {
+	return i.ToResourceModelWithAllowedPropertySetResponseSkuPtrOutputWithContext(context.Background())
+}
+
+func (i *resourceModelWithAllowedPropertySetResponseSkuPtrType) ToResourceModelWithAllowedPropertySetResponseSkuPtrOutputWithContext(ctx context.Context) ResourceModelWithAllowedPropertySetResponseSkuPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceModelWithAllowedPropertySetResponseSkuPtrOutput)
+}
+
+type ResourceModelWithAllowedPropertySetResponseSkuOutput struct{ *pulumi.OutputState }
+
+func (ResourceModelWithAllowedPropertySetResponseSkuOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceModelWithAllowedPropertySetResponseSku)(nil)).Elem()
+}
+
+func (o ResourceModelWithAllowedPropertySetResponseSkuOutput) ToResourceModelWithAllowedPropertySetResponseSkuOutput() ResourceModelWithAllowedPropertySetResponseSkuOutput {
+	return o
+}
+
+func (o ResourceModelWithAllowedPropertySetResponseSkuOutput) ToResourceModelWithAllowedPropertySetResponseSkuOutputWithContext(ctx context.Context) ResourceModelWithAllowedPropertySetResponseSkuOutput {
+	return o
+}
+
+func (o ResourceModelWithAllowedPropertySetResponseSkuOutput) ToResourceModelWithAllowedPropertySetResponseSkuPtrOutput() ResourceModelWithAllowedPropertySetResponseSkuPtrOutput {
+	return o.ToResourceModelWithAllowedPropertySetResponseSkuPtrOutputWithContext(context.Background())
+}
+
+func (o ResourceModelWithAllowedPropertySetResponseSkuOutput) ToResourceModelWithAllowedPropertySetResponseSkuPtrOutputWithContext(ctx context.Context) ResourceModelWithAllowedPropertySetResponseSkuPtrOutput {
+	return o.ApplyT(func(v ResourceModelWithAllowedPropertySetResponseSku) *ResourceModelWithAllowedPropertySetResponseSku {
+		return &v
+	}).(ResourceModelWithAllowedPropertySetResponseSkuPtrOutput)
+}
+
+// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
+func (o ResourceModelWithAllowedPropertySetResponseSkuOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ResourceModelWithAllowedPropertySetResponseSku) *int { return v.Capacity }).(pulumi.IntPtrOutput)
+}
+
+// If the service has different generations of hardware, for the same SKU, then that can be captured here.
+func (o ResourceModelWithAllowedPropertySetResponseSkuOutput) Family() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceModelWithAllowedPropertySetResponseSku) *string { return v.Family }).(pulumi.StringPtrOutput)
+}
+
+// The name of the SKU. Ex - P3. It is typically a letter+number code
+func (o ResourceModelWithAllowedPropertySetResponseSkuOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceModelWithAllowedPropertySetResponseSku) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
+func (o ResourceModelWithAllowedPropertySetResponseSkuOutput) Size() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceModelWithAllowedPropertySetResponseSku) *string { return v.Size }).(pulumi.StringPtrOutput)
+}
+
+// This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+func (o ResourceModelWithAllowedPropertySetResponseSkuOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceModelWithAllowedPropertySetResponseSku) *string { return v.Tier }).(pulumi.StringPtrOutput)
+}
+
+type ResourceModelWithAllowedPropertySetResponseSkuPtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceModelWithAllowedPropertySetResponseSkuPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceModelWithAllowedPropertySetResponseSku)(nil)).Elem()
+}
+
+func (o ResourceModelWithAllowedPropertySetResponseSkuPtrOutput) ToResourceModelWithAllowedPropertySetResponseSkuPtrOutput() ResourceModelWithAllowedPropertySetResponseSkuPtrOutput {
+	return o
+}
+
+func (o ResourceModelWithAllowedPropertySetResponseSkuPtrOutput) ToResourceModelWithAllowedPropertySetResponseSkuPtrOutputWithContext(ctx context.Context) ResourceModelWithAllowedPropertySetResponseSkuPtrOutput {
+	return o
+}
+
+func (o ResourceModelWithAllowedPropertySetResponseSkuPtrOutput) Elem() ResourceModelWithAllowedPropertySetResponseSkuOutput {
+	return o.ApplyT(func(v *ResourceModelWithAllowedPropertySetResponseSku) ResourceModelWithAllowedPropertySetResponseSku {
+		return *v
+	}).(ResourceModelWithAllowedPropertySetResponseSkuOutput)
+}
+
+// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
+func (o ResourceModelWithAllowedPropertySetResponseSkuPtrOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ResourceModelWithAllowedPropertySetResponseSku) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Capacity
+	}).(pulumi.IntPtrOutput)
+}
+
+// If the service has different generations of hardware, for the same SKU, then that can be captured here.
+func (o ResourceModelWithAllowedPropertySetResponseSkuPtrOutput) Family() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceModelWithAllowedPropertySetResponseSku) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Family
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the SKU. Ex - P3. It is typically a letter+number code
+func (o ResourceModelWithAllowedPropertySetResponseSkuPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceModelWithAllowedPropertySetResponseSku) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
+func (o ResourceModelWithAllowedPropertySetResponseSkuPtrOutput) Size() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceModelWithAllowedPropertySetResponseSku) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Size
+	}).(pulumi.StringPtrOutput)
+}
+
+// This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+func (o ResourceModelWithAllowedPropertySetResponseSkuPtrOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceModelWithAllowedPropertySetResponseSku) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Tier
+	}).(pulumi.StringPtrOutput)
+}
+
+type ResourceModelWithAllowedPropertySetSku struct {
+	// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
+	Capacity *int `pulumi:"capacity"`
+	// If the service has different generations of hardware, for the same SKU, then that can be captured here.
+	Family *string `pulumi:"family"`
+	// The name of the SKU. Ex - P3. It is typically a letter+number code
+	Name string `pulumi:"name"`
+	// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
+	Size *string `pulumi:"size"`
+	// This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+	Tier *string `pulumi:"tier"`
+}
+
+// ResourceModelWithAllowedPropertySetSkuInput is an input type that accepts ResourceModelWithAllowedPropertySetSkuArgs and ResourceModelWithAllowedPropertySetSkuOutput values.
+// You can construct a concrete instance of `ResourceModelWithAllowedPropertySetSkuInput` via:
+//
+//          ResourceModelWithAllowedPropertySetSkuArgs{...}
+type ResourceModelWithAllowedPropertySetSkuInput interface {
+	pulumi.Input
+
+	ToResourceModelWithAllowedPropertySetSkuOutput() ResourceModelWithAllowedPropertySetSkuOutput
+	ToResourceModelWithAllowedPropertySetSkuOutputWithContext(context.Context) ResourceModelWithAllowedPropertySetSkuOutput
+}
+
+type ResourceModelWithAllowedPropertySetSkuArgs struct {
+	// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
+	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
+	// If the service has different generations of hardware, for the same SKU, then that can be captured here.
+	Family pulumi.StringPtrInput `pulumi:"family"`
+	// The name of the SKU. Ex - P3. It is typically a letter+number code
+	Name pulumi.StringInput `pulumi:"name"`
+	// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
+	Size pulumi.StringPtrInput `pulumi:"size"`
+	// This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+	Tier *SkuTier `pulumi:"tier"`
+}
+
+func (ResourceModelWithAllowedPropertySetSkuArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceModelWithAllowedPropertySetSku)(nil)).Elem()
+}
+
+func (i ResourceModelWithAllowedPropertySetSkuArgs) ToResourceModelWithAllowedPropertySetSkuOutput() ResourceModelWithAllowedPropertySetSkuOutput {
+	return i.ToResourceModelWithAllowedPropertySetSkuOutputWithContext(context.Background())
+}
+
+func (i ResourceModelWithAllowedPropertySetSkuArgs) ToResourceModelWithAllowedPropertySetSkuOutputWithContext(ctx context.Context) ResourceModelWithAllowedPropertySetSkuOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceModelWithAllowedPropertySetSkuOutput)
+}
+
+func (i ResourceModelWithAllowedPropertySetSkuArgs) ToResourceModelWithAllowedPropertySetSkuPtrOutput() ResourceModelWithAllowedPropertySetSkuPtrOutput {
+	return i.ToResourceModelWithAllowedPropertySetSkuPtrOutputWithContext(context.Background())
+}
+
+func (i ResourceModelWithAllowedPropertySetSkuArgs) ToResourceModelWithAllowedPropertySetSkuPtrOutputWithContext(ctx context.Context) ResourceModelWithAllowedPropertySetSkuPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceModelWithAllowedPropertySetSkuOutput).ToResourceModelWithAllowedPropertySetSkuPtrOutputWithContext(ctx)
+}
+
+// ResourceModelWithAllowedPropertySetSkuPtrInput is an input type that accepts ResourceModelWithAllowedPropertySetSkuArgs, ResourceModelWithAllowedPropertySetSkuPtr and ResourceModelWithAllowedPropertySetSkuPtrOutput values.
+// You can construct a concrete instance of `ResourceModelWithAllowedPropertySetSkuPtrInput` via:
+//
+//          ResourceModelWithAllowedPropertySetSkuArgs{...}
+//
+//  or:
+//
+//          nil
+type ResourceModelWithAllowedPropertySetSkuPtrInput interface {
+	pulumi.Input
+
+	ToResourceModelWithAllowedPropertySetSkuPtrOutput() ResourceModelWithAllowedPropertySetSkuPtrOutput
+	ToResourceModelWithAllowedPropertySetSkuPtrOutputWithContext(context.Context) ResourceModelWithAllowedPropertySetSkuPtrOutput
+}
+
+type resourceModelWithAllowedPropertySetSkuPtrType ResourceModelWithAllowedPropertySetSkuArgs
+
+func ResourceModelWithAllowedPropertySetSkuPtr(v *ResourceModelWithAllowedPropertySetSkuArgs) ResourceModelWithAllowedPropertySetSkuPtrInput {
+	return (*resourceModelWithAllowedPropertySetSkuPtrType)(v)
+}
+
+func (*resourceModelWithAllowedPropertySetSkuPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceModelWithAllowedPropertySetSku)(nil)).Elem()
+}
+
+func (i *resourceModelWithAllowedPropertySetSkuPtrType) ToResourceModelWithAllowedPropertySetSkuPtrOutput() ResourceModelWithAllowedPropertySetSkuPtrOutput {
+	return i.ToResourceModelWithAllowedPropertySetSkuPtrOutputWithContext(context.Background())
+}
+
+func (i *resourceModelWithAllowedPropertySetSkuPtrType) ToResourceModelWithAllowedPropertySetSkuPtrOutputWithContext(ctx context.Context) ResourceModelWithAllowedPropertySetSkuPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceModelWithAllowedPropertySetSkuPtrOutput)
+}
+
+type ResourceModelWithAllowedPropertySetSkuOutput struct{ *pulumi.OutputState }
+
+func (ResourceModelWithAllowedPropertySetSkuOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceModelWithAllowedPropertySetSku)(nil)).Elem()
+}
+
+func (o ResourceModelWithAllowedPropertySetSkuOutput) ToResourceModelWithAllowedPropertySetSkuOutput() ResourceModelWithAllowedPropertySetSkuOutput {
+	return o
+}
+
+func (o ResourceModelWithAllowedPropertySetSkuOutput) ToResourceModelWithAllowedPropertySetSkuOutputWithContext(ctx context.Context) ResourceModelWithAllowedPropertySetSkuOutput {
+	return o
+}
+
+func (o ResourceModelWithAllowedPropertySetSkuOutput) ToResourceModelWithAllowedPropertySetSkuPtrOutput() ResourceModelWithAllowedPropertySetSkuPtrOutput {
+	return o.ToResourceModelWithAllowedPropertySetSkuPtrOutputWithContext(context.Background())
+}
+
+func (o ResourceModelWithAllowedPropertySetSkuOutput) ToResourceModelWithAllowedPropertySetSkuPtrOutputWithContext(ctx context.Context) ResourceModelWithAllowedPropertySetSkuPtrOutput {
+	return o.ApplyT(func(v ResourceModelWithAllowedPropertySetSku) *ResourceModelWithAllowedPropertySetSku {
+		return &v
+	}).(ResourceModelWithAllowedPropertySetSkuPtrOutput)
+}
+
+// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
+func (o ResourceModelWithAllowedPropertySetSkuOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ResourceModelWithAllowedPropertySetSku) *int { return v.Capacity }).(pulumi.IntPtrOutput)
+}
+
+// If the service has different generations of hardware, for the same SKU, then that can be captured here.
+func (o ResourceModelWithAllowedPropertySetSkuOutput) Family() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceModelWithAllowedPropertySetSku) *string { return v.Family }).(pulumi.StringPtrOutput)
+}
+
+// The name of the SKU. Ex - P3. It is typically a letter+number code
+func (o ResourceModelWithAllowedPropertySetSkuOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceModelWithAllowedPropertySetSku) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
+func (o ResourceModelWithAllowedPropertySetSkuOutput) Size() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceModelWithAllowedPropertySetSku) *string { return v.Size }).(pulumi.StringPtrOutput)
+}
+
+// This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+func (o ResourceModelWithAllowedPropertySetSkuOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceModelWithAllowedPropertySetSku) *string { return v.Tier }).(pulumi.StringPtrOutput)
+}
+
+type ResourceModelWithAllowedPropertySetSkuPtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceModelWithAllowedPropertySetSkuPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceModelWithAllowedPropertySetSku)(nil)).Elem()
+}
+
+func (o ResourceModelWithAllowedPropertySetSkuPtrOutput) ToResourceModelWithAllowedPropertySetSkuPtrOutput() ResourceModelWithAllowedPropertySetSkuPtrOutput {
+	return o
+}
+
+func (o ResourceModelWithAllowedPropertySetSkuPtrOutput) ToResourceModelWithAllowedPropertySetSkuPtrOutputWithContext(ctx context.Context) ResourceModelWithAllowedPropertySetSkuPtrOutput {
+	return o
+}
+
+func (o ResourceModelWithAllowedPropertySetSkuPtrOutput) Elem() ResourceModelWithAllowedPropertySetSkuOutput {
+	return o.ApplyT(func(v *ResourceModelWithAllowedPropertySetSku) ResourceModelWithAllowedPropertySetSku { return *v }).(ResourceModelWithAllowedPropertySetSkuOutput)
+}
+
+// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
+func (o ResourceModelWithAllowedPropertySetSkuPtrOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ResourceModelWithAllowedPropertySetSku) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Capacity
+	}).(pulumi.IntPtrOutput)
+}
+
+// If the service has different generations of hardware, for the same SKU, then that can be captured here.
+func (o ResourceModelWithAllowedPropertySetSkuPtrOutput) Family() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceModelWithAllowedPropertySetSku) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Family
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the SKU. Ex - P3. It is typically a letter+number code
+func (o ResourceModelWithAllowedPropertySetSkuPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceModelWithAllowedPropertySetSku) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
+func (o ResourceModelWithAllowedPropertySetSkuPtrOutput) Size() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceModelWithAllowedPropertySetSku) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Size
+	}).(pulumi.StringPtrOutput)
+}
+
+// This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+func (o ResourceModelWithAllowedPropertySetSkuPtrOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceModelWithAllowedPropertySetSku) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Tier
+	}).(pulumi.StringPtrOutput)
+}
+
 // Scaling plan reference to hostpool.
 type ScalingHostPoolReference struct {
 	// Arm path of referenced hostpool.
@@ -1623,6 +3065,10 @@ func (o ScalingScheduleResponseArrayOutput) Index(i pulumi.IntInput) ScalingSche
 }
 
 func init() {
+	pulumi.RegisterOutputType(MigrationRequestPropertiesOutput{})
+	pulumi.RegisterOutputType(MigrationRequestPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(MigrationRequestPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(MigrationRequestPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(MsixPackageApplicationsOutput{})
 	pulumi.RegisterOutputType(MsixPackageApplicationsArrayOutput{})
 	pulumi.RegisterOutputType(MsixPackageApplicationsResponseOutput{})
@@ -1635,6 +3081,18 @@ func init() {
 	pulumi.RegisterOutputType(RegistrationInfoPtrOutput{})
 	pulumi.RegisterOutputType(RegistrationInfoResponseOutput{})
 	pulumi.RegisterOutputType(RegistrationInfoResponsePtrOutput{})
+	pulumi.RegisterOutputType(ResourceModelWithAllowedPropertySetIdentityOutput{})
+	pulumi.RegisterOutputType(ResourceModelWithAllowedPropertySetIdentityPtrOutput{})
+	pulumi.RegisterOutputType(ResourceModelWithAllowedPropertySetPlanOutput{})
+	pulumi.RegisterOutputType(ResourceModelWithAllowedPropertySetPlanPtrOutput{})
+	pulumi.RegisterOutputType(ResourceModelWithAllowedPropertySetResponseIdentityOutput{})
+	pulumi.RegisterOutputType(ResourceModelWithAllowedPropertySetResponseIdentityPtrOutput{})
+	pulumi.RegisterOutputType(ResourceModelWithAllowedPropertySetResponsePlanOutput{})
+	pulumi.RegisterOutputType(ResourceModelWithAllowedPropertySetResponsePlanPtrOutput{})
+	pulumi.RegisterOutputType(ResourceModelWithAllowedPropertySetResponseSkuOutput{})
+	pulumi.RegisterOutputType(ResourceModelWithAllowedPropertySetResponseSkuPtrOutput{})
+	pulumi.RegisterOutputType(ResourceModelWithAllowedPropertySetSkuOutput{})
+	pulumi.RegisterOutputType(ResourceModelWithAllowedPropertySetSkuPtrOutput{})
 	pulumi.RegisterOutputType(ScalingHostPoolReferenceOutput{})
 	pulumi.RegisterOutputType(ScalingHostPoolReferenceArrayOutput{})
 	pulumi.RegisterOutputType(ScalingHostPoolReferenceResponseOutput{})

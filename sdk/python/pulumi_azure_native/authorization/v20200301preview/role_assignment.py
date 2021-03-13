@@ -67,6 +67,8 @@ class RoleAssignment(pulumi.CustomResource):
             if principal_id is None and not opts.urn:
                 raise TypeError("Missing required property 'principal_id'")
             __props__['principal_id'] = principal_id
+            if principal_type is None:
+                principal_type = 'User'
             __props__['principal_type'] = principal_type
             __props__['role_assignment_name'] = role_assignment_name
             if role_definition_id is None and not opts.urn:

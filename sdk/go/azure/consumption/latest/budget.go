@@ -28,6 +28,8 @@ type Budget struct {
 	ETag pulumi.StringPtrOutput `pulumi:"eTag"`
 	// May be used to filter budgets by user-specified dimensions and/or tags.
 	Filter BudgetFilterResponsePtrOutput `pulumi:"filter"`
+	// The forecasted cost which is being tracked for a budget.
+	ForecastSpend ForecastSpendResponseOutput `pulumi:"forecastSpend"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Dictionary of notifications associated with the budget. Budget can have up to five notifications.
@@ -148,6 +150,8 @@ type budgetState struct {
 	ETag *string `pulumi:"eTag"`
 	// May be used to filter budgets by user-specified dimensions and/or tags.
 	Filter *BudgetFilterResponse `pulumi:"filter"`
+	// The forecasted cost which is being tracked for a budget.
+	ForecastSpend *ForecastSpendResponse `pulumi:"forecastSpend"`
 	// Resource name.
 	Name *string `pulumi:"name"`
 	// Dictionary of notifications associated with the budget. Budget can have up to five notifications.
@@ -171,6 +175,8 @@ type BudgetState struct {
 	ETag pulumi.StringPtrInput
 	// May be used to filter budgets by user-specified dimensions and/or tags.
 	Filter BudgetFilterResponsePtrInput
+	// The forecasted cost which is being tracked for a budget.
+	ForecastSpend ForecastSpendResponsePtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
 	// Dictionary of notifications associated with the budget. Budget can have up to five notifications.

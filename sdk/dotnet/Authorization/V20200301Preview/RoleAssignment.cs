@@ -218,6 +218,7 @@ namespace Pulumi.AzureNative.Authorization.V20200301Preview
 
         public RoleAssignmentArgs()
         {
+            PrincipalType = "User";
         }
     }
 }

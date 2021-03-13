@@ -105,6 +105,10 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210201Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// ObjectId of Application. (internal use)
+        /// </summary>
+        public readonly string ObjectId;
+        /// <summary>
         /// Specifies whether to show the RemoteApp program in the RD Web Access server.
         /// </summary>
         public readonly bool? ShowInPortal;
@@ -143,6 +147,8 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210201Preview
 
             string name,
 
+            string objectId,
+
             bool? showInPortal,
 
             string type)
@@ -161,6 +167,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210201Preview
             MsixPackageApplicationId = msixPackageApplicationId;
             MsixPackageFamilyName = msixPackageFamilyName;
             Name = name;
+            ObjectId = objectId;
             ShowInPortal = showInPortal;
             Type = type;
         }

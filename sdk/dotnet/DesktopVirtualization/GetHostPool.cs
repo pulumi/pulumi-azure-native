@@ -48,6 +48,10 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// </summary>
         public readonly ImmutableArray<string> ApplicationGroupReferences;
         /// <summary>
+        /// Is cloud pc resource.
+        /// </summary>
+        public readonly bool CloudPcResource;
+        /// <summary>
         /// Custom rdp property of HostPool.
         /// </summary>
         public readonly string? CustomRdpProperty;
@@ -55,6 +59,10 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// Description of HostPool.
         /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields. 
+        /// </summary>
+        public readonly string Etag;
         /// <summary>
         /// Friendly name of HostPool.
         /// </summary>
@@ -67,6 +75,11 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
+        public readonly Outputs.ResourceModelWithAllowedPropertySetResponseIdentity? Identity;
+        /// <summary>
+        /// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+        /// </summary>
+        public readonly string? Kind;
         /// <summary>
         /// The type of the load balancer.
         /// </summary>
@@ -74,19 +87,32 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
-        public readonly string Location;
+        public readonly string? Location;
+        /// <summary>
+        /// The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
+        /// </summary>
+        public readonly string? ManagedBy;
         /// <summary>
         /// The max session limit of HostPool.
         /// </summary>
         public readonly int? MaxSessionLimit;
         /// <summary>
+        /// The registration info of HostPool.
+        /// </summary>
+        public readonly Outputs.MigrationRequestPropertiesResponse? MigrationRequest;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// ObjectId of HostPool. (internal use)
+        /// </summary>
+        public readonly string ObjectId;
+        /// <summary>
         /// PersonalDesktopAssignment type for HostPool.
         /// </summary>
         public readonly string? PersonalDesktopAssignmentType;
+        public readonly Outputs.ResourceModelWithAllowedPropertySetResponsePlan? Plan;
         /// <summary>
         /// The type of preferred application group type, default to Desktop Application Group
         /// </summary>
@@ -99,6 +125,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// The ring number of HostPool.
         /// </summary>
         public readonly int? Ring;
+        public readonly Outputs.ResourceModelWithAllowedPropertySetResponseSku? Sku;
         /// <summary>
         /// ClientId for the registered Relying Party used to issue WVD SSO certificates.
         /// </summary>
@@ -140,9 +167,13 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         private GetHostPoolResult(
             ImmutableArray<string> applicationGroupReferences,
 
+            bool cloudPcResource,
+
             string? customRdpProperty,
 
             string? description,
+
+            string etag,
 
             string? friendlyName,
 
@@ -150,21 +181,35 @@ namespace Pulumi.AzureNative.DesktopVirtualization
 
             string id,
 
+            Outputs.ResourceModelWithAllowedPropertySetResponseIdentity? identity,
+
+            string? kind,
+
             string loadBalancerType,
 
-            string location,
+            string? location,
+
+            string? managedBy,
 
             int? maxSessionLimit,
 
+            Outputs.MigrationRequestPropertiesResponse? migrationRequest,
+
             string name,
 
+            string objectId,
+
             string? personalDesktopAssignmentType,
+
+            Outputs.ResourceModelWithAllowedPropertySetResponsePlan? plan,
 
             string preferredAppGroupType,
 
             Outputs.RegistrationInfoResponse? registrationInfo,
 
             int? ring,
+
+            Outputs.ResourceModelWithAllowedPropertySetResponseSku? sku,
 
             string? ssoClientId,
 
@@ -185,19 +230,28 @@ namespace Pulumi.AzureNative.DesktopVirtualization
             string? vmTemplate)
         {
             ApplicationGroupReferences = applicationGroupReferences;
+            CloudPcResource = cloudPcResource;
             CustomRdpProperty = customRdpProperty;
             Description = description;
+            Etag = etag;
             FriendlyName = friendlyName;
             HostPoolType = hostPoolType;
             Id = id;
+            Identity = identity;
+            Kind = kind;
             LoadBalancerType = loadBalancerType;
             Location = location;
+            ManagedBy = managedBy;
             MaxSessionLimit = maxSessionLimit;
+            MigrationRequest = migrationRequest;
             Name = name;
+            ObjectId = objectId;
             PersonalDesktopAssignmentType = personalDesktopAssignmentType;
+            Plan = plan;
             PreferredAppGroupType = preferredAppGroupType;
             RegistrationInfo = registrationInfo;
             Ring = ring;
+            Sku = sku;
             SsoClientId = ssoClientId;
             SsoClientSecretKeyVaultPath = ssoClientSecretKeyVaultPath;
             SsoSecretType = ssoSecretType;

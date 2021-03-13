@@ -10,12 +10,56 @@ from ... import _utilities, _tables
 from ._enums import *
 
 __all__ = [
+    'MigrationRequestPropertiesArgs',
     'MsixPackageApplicationsArgs',
     'MsixPackageDependenciesArgs',
     'RegistrationInfoArgs',
+    'ResourceModelWithAllowedPropertySetIdentityArgs',
+    'ResourceModelWithAllowedPropertySetPlanArgs',
+    'ResourceModelWithAllowedPropertySetSkuArgs',
     'ScalingHostPoolReferenceArgs',
     'ScalingScheduleArgs',
 ]
+
+@pulumi.input_type
+class MigrationRequestPropertiesArgs:
+    def __init__(__self__, *,
+                 migration_path: Optional[pulumi.Input[str]] = None,
+                 operation: Optional[pulumi.Input[Union[str, 'Operation']]] = None):
+        """
+        Properties for arm migration.
+        :param pulumi.Input[str] migration_path: The path to the legacy object to migrate.
+        :param pulumi.Input[Union[str, 'Operation']] operation: The type of operation for migration.
+        """
+        if migration_path is not None:
+            pulumi.set(__self__, "migration_path", migration_path)
+        if operation is not None:
+            pulumi.set(__self__, "operation", operation)
+
+    @property
+    @pulumi.getter(name="migrationPath")
+    def migration_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The path to the legacy object to migrate.
+        """
+        return pulumi.get(self, "migration_path")
+
+    @migration_path.setter
+    def migration_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "migration_path", value)
+
+    @property
+    @pulumi.getter
+    def operation(self) -> Optional[pulumi.Input[Union[str, 'Operation']]]:
+        """
+        The type of operation for migration.
+        """
+        return pulumi.get(self, "operation")
+
+    @operation.setter
+    def operation(self, value: Optional[pulumi.Input[Union[str, 'Operation']]]):
+        pulumi.set(self, "operation", value)
+
 
 @pulumi.input_type
 class MsixPackageApplicationsArgs:
@@ -247,6 +291,199 @@ class RegistrationInfoArgs:
     @token.setter
     def token(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "token", value)
+
+
+@pulumi.input_type
+class ResourceModelWithAllowedPropertySetIdentityArgs:
+    def __init__(__self__, *,
+                 type: Optional[pulumi.Input['ResourceIdentityType']] = None):
+        """
+        :param pulumi.Input['ResourceIdentityType'] type: The identity type.
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input['ResourceIdentityType']]:
+        """
+        The identity type.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input['ResourceIdentityType']]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class ResourceModelWithAllowedPropertySetPlanArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 product: pulumi.Input[str],
+                 publisher: pulumi.Input[str],
+                 promotion_code: Optional[pulumi.Input[str]] = None,
+                 version: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: A user defined name of the 3rd Party Artifact that is being procured.
+        :param pulumi.Input[str] product: The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. 
+        :param pulumi.Input[str] publisher: The publisher of the 3rd Party Artifact that is being bought. E.g. NewRelic
+        :param pulumi.Input[str] promotion_code: A publisher provided promotion code as provisioned in Data Market for the said product/artifact.
+        :param pulumi.Input[str] version: The version of the desired product/artifact.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "product", product)
+        pulumi.set(__self__, "publisher", publisher)
+        if promotion_code is not None:
+            pulumi.set(__self__, "promotion_code", promotion_code)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        A user defined name of the 3rd Party Artifact that is being procured.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def product(self) -> pulumi.Input[str]:
+        """
+        The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. 
+        """
+        return pulumi.get(self, "product")
+
+    @product.setter
+    def product(self, value: pulumi.Input[str]):
+        pulumi.set(self, "product", value)
+
+    @property
+    @pulumi.getter
+    def publisher(self) -> pulumi.Input[str]:
+        """
+        The publisher of the 3rd Party Artifact that is being bought. E.g. NewRelic
+        """
+        return pulumi.get(self, "publisher")
+
+    @publisher.setter
+    def publisher(self, value: pulumi.Input[str]):
+        pulumi.set(self, "publisher", value)
+
+    @property
+    @pulumi.getter(name="promotionCode")
+    def promotion_code(self) -> Optional[pulumi.Input[str]]:
+        """
+        A publisher provided promotion code as provisioned in Data Market for the said product/artifact.
+        """
+        return pulumi.get(self, "promotion_code")
+
+    @promotion_code.setter
+    def promotion_code(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "promotion_code", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of the desired product/artifact.
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "version", value)
+
+
+@pulumi.input_type
+class ResourceModelWithAllowedPropertySetSkuArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 capacity: Optional[pulumi.Input[int]] = None,
+                 family: Optional[pulumi.Input[str]] = None,
+                 size: Optional[pulumi.Input[str]] = None,
+                 tier: Optional[pulumi.Input['SkuTier']] = None):
+        """
+        :param pulumi.Input[str] name: The name of the SKU. Ex - P3. It is typically a letter+number code
+        :param pulumi.Input[int] capacity: If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
+        :param pulumi.Input[str] family: If the service has different generations of hardware, for the same SKU, then that can be captured here.
+        :param pulumi.Input[str] size: The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+        :param pulumi.Input['SkuTier'] tier: This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+        """
+        pulumi.set(__self__, "name", name)
+        if capacity is not None:
+            pulumi.set(__self__, "capacity", capacity)
+        if family is not None:
+            pulumi.set(__self__, "family", family)
+        if size is not None:
+            pulumi.set(__self__, "size", size)
+        if tier is not None:
+            pulumi.set(__self__, "tier", tier)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the SKU. Ex - P3. It is typically a letter+number code
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def capacity(self) -> Optional[pulumi.Input[int]]:
+        """
+        If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
+        """
+        return pulumi.get(self, "capacity")
+
+    @capacity.setter
+    def capacity(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "capacity", value)
+
+    @property
+    @pulumi.getter
+    def family(self) -> Optional[pulumi.Input[str]]:
+        """
+        If the service has different generations of hardware, for the same SKU, then that can be captured here.
+        """
+        return pulumi.get(self, "family")
+
+    @family.setter
+    def family(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "family", value)
+
+    @property
+    @pulumi.getter
+    def size(self) -> Optional[pulumi.Input[str]]:
+        """
+        The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+        """
+        return pulumi.get(self, "size")
+
+    @size.setter
+    def size(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "size", value)
+
+    @property
+    @pulumi.getter
+    def tier(self) -> Optional[pulumi.Input['SkuTier']]:
+        """
+        This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+        """
+        return pulumi.get(self, "tier")
+
+    @tier.setter
+    def tier(self, value: Optional[pulumi.Input['SkuTier']]):
+        pulumi.set(self, "tier", value)
 
 
 @pulumi.input_type

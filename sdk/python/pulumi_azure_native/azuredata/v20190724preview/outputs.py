@@ -9,57 +9,8 @@ from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
-    'OnPremisePropertyResponse',
     'SystemDataResponse',
 ]
-
-@pulumi.output_type
-class OnPremisePropertyResponse(dict):
-    """
-    Properties from the on premise data controller
-    """
-    def __init__(__self__, *,
-                 id: str,
-                 public_signing_key: str,
-                 signing_certificate_thumbprint: Optional[str] = None):
-        """
-        Properties from the on premise data controller
-        :param str id: A globally unique ID identifying the associated on premise cluster
-        :param str public_signing_key: Certificate that contains the on premise cluster public key used to verify signing
-        :param str signing_certificate_thumbprint: Unique thumbprint returned to customer to verify the certificate being uploaded
-        """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "public_signing_key", public_signing_key)
-        if signing_certificate_thumbprint is not None:
-            pulumi.set(__self__, "signing_certificate_thumbprint", signing_certificate_thumbprint)
-
-    @property
-    @pulumi.getter
-    def id(self) -> str:
-        """
-        A globally unique ID identifying the associated on premise cluster
-        """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter(name="publicSigningKey")
-    def public_signing_key(self) -> str:
-        """
-        Certificate that contains the on premise cluster public key used to verify signing
-        """
-        return pulumi.get(self, "public_signing_key")
-
-    @property
-    @pulumi.getter(name="signingCertificateThumbprint")
-    def signing_certificate_thumbprint(self) -> Optional[str]:
-        """
-        Unique thumbprint returned to customer to verify the certificate being uploaded
-        """
-        return pulumi.get(self, "signing_certificate_thumbprint")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SystemDataResponse(dict):

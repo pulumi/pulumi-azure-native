@@ -57,6 +57,10 @@ export class Budget extends pulumi.CustomResource {
      */
     public readonly filter!: pulumi.Output<outputs.consumption.BudgetFilterResponse | undefined>;
     /**
+     * The forecasted cost which is being tracked for a budget.
+     */
+    public /*out*/ readonly forecastSpend!: pulumi.Output<outputs.consumption.ForecastSpendResponse>;
+    /**
      * Resource name.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
@@ -113,6 +117,7 @@ export class Budget extends pulumi.CustomResource {
             inputs["timeGrain"] = args ? args.timeGrain : undefined;
             inputs["timePeriod"] = args ? args.timePeriod : undefined;
             inputs["currentSpend"] = undefined /*out*/;
+            inputs["forecastSpend"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
@@ -121,6 +126,7 @@ export class Budget extends pulumi.CustomResource {
             inputs["currentSpend"] = undefined /*out*/;
             inputs["eTag"] = undefined /*out*/;
             inputs["filter"] = undefined /*out*/;
+            inputs["forecastSpend"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["notifications"] = undefined /*out*/;
             inputs["timeGrain"] = undefined /*out*/;

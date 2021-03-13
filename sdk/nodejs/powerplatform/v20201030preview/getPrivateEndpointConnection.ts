@@ -47,10 +47,6 @@ export interface GetPrivateEndpointConnectionResult {
      */
     readonly id: string;
     /**
-     * Region where the EnterprisePolicy is located.
-     */
-    readonly location: string;
-    /**
      * The name of the resource
      */
     readonly name: string;
@@ -67,7 +63,7 @@ export interface GetPrivateEndpointConnectionResult {
      */
     readonly provisioningState: string;
     /**
-     * Metadata for the private endpoint connection.
+     * Metadata pertaining to creation and last modification of the resource.
      */
     readonly systemData: outputs.powerplatform.v20201030preview.SystemDataResponse;
     /**

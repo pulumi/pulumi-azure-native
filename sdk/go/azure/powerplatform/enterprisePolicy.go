@@ -20,7 +20,7 @@ type EnterprisePolicy struct {
 	Encryption PropertiesResponseEncryptionPtrOutput `pulumi:"encryption"`
 	// The identity of the EnterprisePolicy.
 	Identity EnterprisePolicyIdentityResponsePtrOutput `pulumi:"identity"`
-	// Region where the EnterprisePolicy is located.
+	// The geo-location where the resource lives
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Settings concerning lockbox.
 	Lockbox PropertiesResponseLockboxPtrOutput `pulumi:"lockbox"`
@@ -82,7 +82,7 @@ type enterprisePolicyState struct {
 	Encryption *PropertiesResponseEncryption `pulumi:"encryption"`
 	// The identity of the EnterprisePolicy.
 	Identity *EnterprisePolicyIdentityResponse `pulumi:"identity"`
-	// Region where the EnterprisePolicy is located.
+	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
 	// Settings concerning lockbox.
 	Lockbox *PropertiesResponseLockbox `pulumi:"lockbox"`
@@ -101,7 +101,7 @@ type EnterprisePolicyState struct {
 	Encryption PropertiesResponseEncryptionPtrInput
 	// The identity of the EnterprisePolicy.
 	Identity EnterprisePolicyIdentityResponsePtrInput
-	// Region where the EnterprisePolicy is located.
+	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
 	// Settings concerning lockbox.
 	Lockbox PropertiesResponseLockboxPtrInput

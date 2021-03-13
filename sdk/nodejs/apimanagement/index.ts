@@ -118,6 +118,7 @@ import * as v20191201 from "./v20191201";
 import * as v20191201preview from "./v20191201preview";
 import * as v20200601preview from "./v20200601preview";
 import * as v20201201 from "./v20201201";
+import * as v20210101preview from "./v20210101preview";
 
 export {
     latest,
@@ -131,6 +132,7 @@ export {
     v20191201preview,
     v20200601preview,
     v20201201,
+    v20210101preview,
 };
 
 // Import resources to register:

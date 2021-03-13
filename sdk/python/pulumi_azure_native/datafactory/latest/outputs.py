@@ -20,6 +20,9 @@ __all__ = [
     'AmazonRedshiftLinkedServiceResponse',
     'AmazonRedshiftSourceResponse',
     'AmazonRedshiftTableDatasetResponse',
+    'AmazonS3CompatibleLinkedServiceResponse',
+    'AmazonS3CompatibleLocationResponse',
+    'AmazonS3CompatibleReadSettingsResponse',
     'AmazonS3DatasetResponse',
     'AmazonS3LinkedServiceResponse',
     'AmazonS3LocationResponse',
@@ -344,6 +347,9 @@ __all__ = [
     'Office365DatasetResponse',
     'Office365LinkedServiceResponse',
     'Office365SourceResponse',
+    'OracleCloudStorageLinkedServiceResponse',
+    'OracleCloudStorageLocationResponse',
+    'OracleCloudStorageReadSettingsResponse',
     'OracleLinkedServiceResponse',
     'OraclePartitionSettingsResponse',
     'OracleServiceCloudLinkedServiceResponse',
@@ -1494,6 +1500,375 @@ class AmazonRedshiftTableDatasetResponse(dict):
 
 
 @pulumi.output_type
+class AmazonS3CompatibleLinkedServiceResponse(dict):
+    """
+    Linked service for Amazon S3 Compatible.
+    """
+    def __init__(__self__, *,
+                 type: str,
+                 access_key_id: Optional[Any] = None,
+                 annotations: Optional[Sequence[Any]] = None,
+                 connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
+                 description: Optional[str] = None,
+                 encrypted_credential: Optional[Any] = None,
+                 force_path_style: Optional[Any] = None,
+                 parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
+                 secret_access_key: Optional[Any] = None,
+                 service_url: Optional[Any] = None):
+        """
+        Linked service for Amazon S3 Compatible.
+        :param str type: Type of linked service.
+               Expected value is 'AmazonS3Compatible'.
+        :param Any access_key_id: The access key identifier of the Amazon S3 Compatible Identity and Access Management (IAM) user. Type: string (or Expression with resultType string).
+        :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
+        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param str description: Linked service description.
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any force_path_style: If true, use S3 path-style access instead of virtual hosted-style access. Default value is false. Type: boolean (or Expression with resultType boolean).
+        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] secret_access_key: The secret access key of the Amazon S3 Compatible Identity and Access Management (IAM) user.
+        :param Any service_url: This value specifies the endpoint to access with the Amazon S3 Compatible Connector. This is an optional property; change it only if you want to try a different service endpoint or want to switch between https and http. Type: string (or Expression with resultType string).
+        """
+        pulumi.set(__self__, "type", 'AmazonS3Compatible')
+        if access_key_id is not None:
+            pulumi.set(__self__, "access_key_id", access_key_id)
+        if annotations is not None:
+            pulumi.set(__self__, "annotations", annotations)
+        if connect_via is not None:
+            pulumi.set(__self__, "connect_via", connect_via)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if encrypted_credential is not None:
+            pulumi.set(__self__, "encrypted_credential", encrypted_credential)
+        if force_path_style is not None:
+            pulumi.set(__self__, "force_path_style", force_path_style)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if secret_access_key is not None:
+            pulumi.set(__self__, "secret_access_key", secret_access_key)
+        if service_url is not None:
+            pulumi.set(__self__, "service_url", service_url)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of linked service.
+        Expected value is 'AmazonS3Compatible'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="accessKeyId")
+    def access_key_id(self) -> Optional[Any]:
+        """
+        The access key identifier of the Amazon S3 Compatible Identity and Access Management (IAM) user. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "access_key_id")
+
+    @property
+    @pulumi.getter
+    def annotations(self) -> Optional[Sequence[Any]]:
+        """
+        List of tags that can be used for describing the linked service.
+        """
+        return pulumi.get(self, "annotations")
+
+    @property
+    @pulumi.getter(name="connectVia")
+    def connect_via(self) -> Optional['outputs.IntegrationRuntimeReferenceResponse']:
+        """
+        The integration runtime reference.
+        """
+        return pulumi.get(self, "connect_via")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Linked service description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="encryptedCredential")
+    def encrypted_credential(self) -> Optional[Any]:
+        """
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "encrypted_credential")
+
+    @property
+    @pulumi.getter(name="forcePathStyle")
+    def force_path_style(self) -> Optional[Any]:
+        """
+        If true, use S3 path-style access instead of virtual hosted-style access. Default value is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "force_path_style")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']]:
+        """
+        Parameters for linked service.
+        """
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter(name="secretAccessKey")
+    def secret_access_key(self) -> Optional[Any]:
+        """
+        The secret access key of the Amazon S3 Compatible Identity and Access Management (IAM) user.
+        """
+        return pulumi.get(self, "secret_access_key")
+
+    @property
+    @pulumi.getter(name="serviceUrl")
+    def service_url(self) -> Optional[Any]:
+        """
+        This value specifies the endpoint to access with the Amazon S3 Compatible Connector. This is an optional property; change it only if you want to try a different service endpoint or want to switch between https and http. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "service_url")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class AmazonS3CompatibleLocationResponse(dict):
+    """
+    The location of Amazon S3 Compatible dataset.
+    """
+    def __init__(__self__, *,
+                 type: str,
+                 bucket_name: Optional[Any] = None,
+                 file_name: Optional[Any] = None,
+                 folder_path: Optional[Any] = None,
+                 version: Optional[Any] = None):
+        """
+        The location of Amazon S3 Compatible dataset.
+        :param str type: Type of dataset storage location.
+               Expected value is 'AmazonS3CompatibleLocation'.
+        :param Any bucket_name: Specify the bucketName of Amazon S3 Compatible. Type: string (or Expression with resultType string)
+        :param Any file_name: Specify the file name of dataset. Type: string (or Expression with resultType string).
+        :param Any folder_path: Specify the folder path of dataset. Type: string (or Expression with resultType string)
+        :param Any version: Specify the version of Amazon S3 Compatible. Type: string (or Expression with resultType string).
+        """
+        pulumi.set(__self__, "type", 'AmazonS3CompatibleLocation')
+        if bucket_name is not None:
+            pulumi.set(__self__, "bucket_name", bucket_name)
+        if file_name is not None:
+            pulumi.set(__self__, "file_name", file_name)
+        if folder_path is not None:
+            pulumi.set(__self__, "folder_path", folder_path)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of dataset storage location.
+        Expected value is 'AmazonS3CompatibleLocation'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="bucketName")
+    def bucket_name(self) -> Optional[Any]:
+        """
+        Specify the bucketName of Amazon S3 Compatible. Type: string (or Expression with resultType string)
+        """
+        return pulumi.get(self, "bucket_name")
+
+    @property
+    @pulumi.getter(name="fileName")
+    def file_name(self) -> Optional[Any]:
+        """
+        Specify the file name of dataset. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "file_name")
+
+    @property
+    @pulumi.getter(name="folderPath")
+    def folder_path(self) -> Optional[Any]:
+        """
+        Specify the folder path of dataset. Type: string (or Expression with resultType string)
+        """
+        return pulumi.get(self, "folder_path")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[Any]:
+        """
+        Specify the version of Amazon S3 Compatible. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "version")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class AmazonS3CompatibleReadSettingsResponse(dict):
+    """
+    Amazon S3 Compatible read settings.
+    """
+    def __init__(__self__, *,
+                 type: str,
+                 delete_files_after_completion: Optional[Any] = None,
+                 enable_partition_discovery: Optional[bool] = None,
+                 file_list_path: Optional[Any] = None,
+                 max_concurrent_connections: Optional[Any] = None,
+                 modified_datetime_end: Optional[Any] = None,
+                 modified_datetime_start: Optional[Any] = None,
+                 partition_root_path: Optional[Any] = None,
+                 prefix: Optional[Any] = None,
+                 recursive: Optional[Any] = None,
+                 wildcard_file_name: Optional[Any] = None,
+                 wildcard_folder_path: Optional[Any] = None):
+        """
+        Amazon S3 Compatible read settings.
+        :param str type: The read setting type.
+               Expected value is 'AmazonS3CompatibleReadSettings'.
+        :param Any delete_files_after_completion: Indicates whether the source files need to be deleted after copy completion. Default is false. Type: boolean (or Expression with resultType boolean).
+        :param bool enable_partition_discovery: Indicates whether to enable partition discovery.
+        :param Any file_list_path: Point to a text file that lists each file (relative path to the path configured in the dataset) that you want to copy. Type: string (or Expression with resultType string).
+        :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
+        :param Any modified_datetime_end: The end of file's modified datetime. Type: string (or Expression with resultType string).
+        :param Any modified_datetime_start: The start of file's modified datetime. Type: string (or Expression with resultType string).
+        :param Any partition_root_path: Specify the root path where partition discovery starts from. Type: string (or Expression with resultType string).
+        :param Any prefix: The prefix filter for the S3 Compatible object name. Type: string (or Expression with resultType string).
+        :param Any recursive: If true, files under the folder path will be read recursively. Default is true. Type: boolean (or Expression with resultType boolean).
+        :param Any wildcard_file_name: Amazon S3 Compatible wildcardFileName. Type: string (or Expression with resultType string).
+        :param Any wildcard_folder_path: Amazon S3 Compatible wildcardFolderPath. Type: string (or Expression with resultType string).
+        """
+        pulumi.set(__self__, "type", 'AmazonS3CompatibleReadSettings')
+        if delete_files_after_completion is not None:
+            pulumi.set(__self__, "delete_files_after_completion", delete_files_after_completion)
+        if enable_partition_discovery is not None:
+            pulumi.set(__self__, "enable_partition_discovery", enable_partition_discovery)
+        if file_list_path is not None:
+            pulumi.set(__self__, "file_list_path", file_list_path)
+        if max_concurrent_connections is not None:
+            pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
+        if modified_datetime_end is not None:
+            pulumi.set(__self__, "modified_datetime_end", modified_datetime_end)
+        if modified_datetime_start is not None:
+            pulumi.set(__self__, "modified_datetime_start", modified_datetime_start)
+        if partition_root_path is not None:
+            pulumi.set(__self__, "partition_root_path", partition_root_path)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+        if recursive is not None:
+            pulumi.set(__self__, "recursive", recursive)
+        if wildcard_file_name is not None:
+            pulumi.set(__self__, "wildcard_file_name", wildcard_file_name)
+        if wildcard_folder_path is not None:
+            pulumi.set(__self__, "wildcard_folder_path", wildcard_folder_path)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The read setting type.
+        Expected value is 'AmazonS3CompatibleReadSettings'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="deleteFilesAfterCompletion")
+    def delete_files_after_completion(self) -> Optional[Any]:
+        """
+        Indicates whether the source files need to be deleted after copy completion. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "delete_files_after_completion")
+
+    @property
+    @pulumi.getter(name="enablePartitionDiscovery")
+    def enable_partition_discovery(self) -> Optional[bool]:
+        """
+        Indicates whether to enable partition discovery.
+        """
+        return pulumi.get(self, "enable_partition_discovery")
+
+    @property
+    @pulumi.getter(name="fileListPath")
+    def file_list_path(self) -> Optional[Any]:
+        """
+        Point to a text file that lists each file (relative path to the path configured in the dataset) that you want to copy. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "file_list_path")
+
+    @property
+    @pulumi.getter(name="maxConcurrentConnections")
+    def max_concurrent_connections(self) -> Optional[Any]:
+        """
+        The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "max_concurrent_connections")
+
+    @property
+    @pulumi.getter(name="modifiedDatetimeEnd")
+    def modified_datetime_end(self) -> Optional[Any]:
+        """
+        The end of file's modified datetime. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "modified_datetime_end")
+
+    @property
+    @pulumi.getter(name="modifiedDatetimeStart")
+    def modified_datetime_start(self) -> Optional[Any]:
+        """
+        The start of file's modified datetime. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "modified_datetime_start")
+
+    @property
+    @pulumi.getter(name="partitionRootPath")
+    def partition_root_path(self) -> Optional[Any]:
+        """
+        Specify the root path where partition discovery starts from. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "partition_root_path")
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> Optional[Any]:
+        """
+        The prefix filter for the S3 Compatible object name. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "prefix")
+
+    @property
+    @pulumi.getter
+    def recursive(self) -> Optional[Any]:
+        """
+        If true, files under the folder path will be read recursively. Default is true. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "recursive")
+
+    @property
+    @pulumi.getter(name="wildcardFileName")
+    def wildcard_file_name(self) -> Optional[Any]:
+        """
+        Amazon S3 Compatible wildcardFileName. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "wildcard_file_name")
+
+    @property
+    @pulumi.getter(name="wildcardFolderPath")
+    def wildcard_folder_path(self) -> Optional[Any]:
+        """
+        Amazon S3 Compatible wildcardFolderPath. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "wildcard_folder_path")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class AmazonS3DatasetResponse(dict):
     """
     A single Amazon Simple Storage Service (S3) object or a set of S3 objects.
@@ -1923,7 +2298,7 @@ class AmazonS3LocationResponse(dict):
 @pulumi.output_type
 class AmazonS3ReadSettingsResponse(dict):
     """
-    Azure data lake store read settings.
+    Amazon S3 read settings.
     """
     def __init__(__self__, *,
                  type: str,
@@ -1939,7 +2314,7 @@ class AmazonS3ReadSettingsResponse(dict):
                  wildcard_file_name: Optional[Any] = None,
                  wildcard_folder_path: Optional[Any] = None):
         """
-        Azure data lake store read settings.
+        Amazon S3 read settings.
         :param str type: The read setting type.
                Expected value is 'AmazonS3ReadSettings'.
         :param Any delete_files_after_completion: Indicates whether the source files need to be deleted after copy completion. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -2197,7 +2572,7 @@ class AvroDatasetResponse(dict):
         """
         Avro dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
-        :param Union['AmazonS3LocationResponseArgs', 'AzureBlobFSLocationResponseArgs', 'AzureBlobStorageLocationResponseArgs', 'AzureDataLakeStoreLocationResponseArgs', 'AzureFileStorageLocationResponseArgs', 'FileServerLocationResponseArgs', 'FtpServerLocationResponseArgs', 'GoogleCloudStorageLocationResponseArgs', 'HdfsLocationResponseArgs', 'HttpServerLocationResponseArgs', 'SftpLocationResponseArgs'] location: The location of the avro storage.
+        :param Union['AmazonS3CompatibleLocationResponseArgs', 'AmazonS3LocationResponseArgs', 'AzureBlobFSLocationResponseArgs', 'AzureBlobStorageLocationResponseArgs', 'AzureDataLakeStoreLocationResponseArgs', 'AzureFileStorageLocationResponseArgs', 'FileServerLocationResponseArgs', 'FtpServerLocationResponseArgs', 'GoogleCloudStorageLocationResponseArgs', 'HdfsLocationResponseArgs', 'HttpServerLocationResponseArgs', 'OracleCloudStorageLocationResponseArgs', 'SftpLocationResponseArgs'] location: The location of the avro storage.
         :param str type: Type of dataset.
                Expected value is 'Avro'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
@@ -2496,7 +2871,7 @@ class AvroSourceResponse(dict):
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
-        :param Union['AmazonS3ReadSettingsResponseArgs', 'AzureBlobFSReadSettingsResponseArgs', 'AzureBlobStorageReadSettingsResponseArgs', 'AzureDataLakeStoreReadSettingsResponseArgs', 'AzureFileStorageReadSettingsResponseArgs', 'FileServerReadSettingsResponseArgs', 'FtpReadSettingsResponseArgs', 'GoogleCloudStorageReadSettingsResponseArgs', 'HdfsReadSettingsResponseArgs', 'HttpReadSettingsResponseArgs', 'SftpReadSettingsResponseArgs'] store_settings: Avro store settings.
+        :param Union['AmazonS3CompatibleReadSettingsResponseArgs', 'AmazonS3ReadSettingsResponseArgs', 'AzureBlobFSReadSettingsResponseArgs', 'AzureBlobStorageReadSettingsResponseArgs', 'AzureDataLakeStoreReadSettingsResponseArgs', 'AzureFileStorageReadSettingsResponseArgs', 'FileServerReadSettingsResponseArgs', 'FtpReadSettingsResponseArgs', 'GoogleCloudStorageReadSettingsResponseArgs', 'HdfsReadSettingsResponseArgs', 'HttpReadSettingsResponseArgs', 'OracleCloudStorageReadSettingsResponseArgs', 'SftpReadSettingsResponseArgs'] store_settings: Avro store settings.
         """
         pulumi.set(__self__, "type", 'AvroSource')
         if additional_columns is not None:
@@ -11876,7 +12251,7 @@ class BinaryDatasetResponse(dict):
         """
         Binary dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
-        :param Union['AmazonS3LocationResponseArgs', 'AzureBlobFSLocationResponseArgs', 'AzureBlobStorageLocationResponseArgs', 'AzureDataLakeStoreLocationResponseArgs', 'AzureFileStorageLocationResponseArgs', 'FileServerLocationResponseArgs', 'FtpServerLocationResponseArgs', 'GoogleCloudStorageLocationResponseArgs', 'HdfsLocationResponseArgs', 'HttpServerLocationResponseArgs', 'SftpLocationResponseArgs'] location: The location of the Binary storage.
+        :param Union['AmazonS3CompatibleLocationResponseArgs', 'AmazonS3LocationResponseArgs', 'AzureBlobFSLocationResponseArgs', 'AzureBlobStorageLocationResponseArgs', 'AzureDataLakeStoreLocationResponseArgs', 'AzureFileStorageLocationResponseArgs', 'FileServerLocationResponseArgs', 'FtpServerLocationResponseArgs', 'GoogleCloudStorageLocationResponseArgs', 'HdfsLocationResponseArgs', 'HttpServerLocationResponseArgs', 'OracleCloudStorageLocationResponseArgs', 'SftpLocationResponseArgs'] location: The location of the Binary storage.
         :param str type: Type of dataset.
                Expected value is 'Binary'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
@@ -12148,7 +12523,7 @@ class BinarySourceResponse(dict):
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
-        :param Union['AmazonS3ReadSettingsResponseArgs', 'AzureBlobFSReadSettingsResponseArgs', 'AzureBlobStorageReadSettingsResponseArgs', 'AzureDataLakeStoreReadSettingsResponseArgs', 'AzureFileStorageReadSettingsResponseArgs', 'FileServerReadSettingsResponseArgs', 'FtpReadSettingsResponseArgs', 'GoogleCloudStorageReadSettingsResponseArgs', 'HdfsReadSettingsResponseArgs', 'HttpReadSettingsResponseArgs', 'SftpReadSettingsResponseArgs'] store_settings: Binary store settings.
+        :param Union['AmazonS3CompatibleReadSettingsResponseArgs', 'AmazonS3ReadSettingsResponseArgs', 'AzureBlobFSReadSettingsResponseArgs', 'AzureBlobStorageReadSettingsResponseArgs', 'AzureDataLakeStoreReadSettingsResponseArgs', 'AzureFileStorageReadSettingsResponseArgs', 'FileServerReadSettingsResponseArgs', 'FtpReadSettingsResponseArgs', 'GoogleCloudStorageReadSettingsResponseArgs', 'HdfsReadSettingsResponseArgs', 'HttpReadSettingsResponseArgs', 'OracleCloudStorageReadSettingsResponseArgs', 'SftpReadSettingsResponseArgs'] store_settings: Binary store settings.
         """
         pulumi.set(__self__, "type", 'BinarySource')
         if format_settings is not None:
@@ -18199,7 +18574,7 @@ class DeleteActivityResponse(dict):
         :param int max_concurrent_connections: The max concurrent connections to connect data source at the same time.
         :param 'ActivityPolicyResponseArgs' policy: Activity policy.
         :param Any recursive: If true, files or sub-folders under current folder path will be deleted recursively. Default is false. Type: boolean (or Expression with resultType boolean).
-        :param Union['AmazonS3ReadSettingsResponseArgs', 'AzureBlobFSReadSettingsResponseArgs', 'AzureBlobStorageReadSettingsResponseArgs', 'AzureDataLakeStoreReadSettingsResponseArgs', 'AzureFileStorageReadSettingsResponseArgs', 'FileServerReadSettingsResponseArgs', 'FtpReadSettingsResponseArgs', 'GoogleCloudStorageReadSettingsResponseArgs', 'HdfsReadSettingsResponseArgs', 'HttpReadSettingsResponseArgs', 'SftpReadSettingsResponseArgs'] store_settings: Delete activity store settings.
+        :param Union['AmazonS3CompatibleReadSettingsResponseArgs', 'AmazonS3ReadSettingsResponseArgs', 'AzureBlobFSReadSettingsResponseArgs', 'AzureBlobStorageReadSettingsResponseArgs', 'AzureDataLakeStoreReadSettingsResponseArgs', 'AzureFileStorageReadSettingsResponseArgs', 'FileServerReadSettingsResponseArgs', 'FtpReadSettingsResponseArgs', 'GoogleCloudStorageReadSettingsResponseArgs', 'HdfsReadSettingsResponseArgs', 'HttpReadSettingsResponseArgs', 'OracleCloudStorageReadSettingsResponseArgs', 'SftpReadSettingsResponseArgs'] store_settings: Delete activity store settings.
         :param Sequence['UserPropertyResponseArgs'] user_properties: Activity user properties.
         """
         pulumi.set(__self__, "dataset", dataset)
@@ -18362,7 +18737,7 @@ class DelimitedTextDatasetResponse(dict):
         """
         Delimited text dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
-        :param Union['AmazonS3LocationResponseArgs', 'AzureBlobFSLocationResponseArgs', 'AzureBlobStorageLocationResponseArgs', 'AzureDataLakeStoreLocationResponseArgs', 'AzureFileStorageLocationResponseArgs', 'FileServerLocationResponseArgs', 'FtpServerLocationResponseArgs', 'GoogleCloudStorageLocationResponseArgs', 'HdfsLocationResponseArgs', 'HttpServerLocationResponseArgs', 'SftpLocationResponseArgs'] location: The location of the delimited text storage.
+        :param Union['AmazonS3CompatibleLocationResponseArgs', 'AmazonS3LocationResponseArgs', 'AzureBlobFSLocationResponseArgs', 'AzureBlobStorageLocationResponseArgs', 'AzureDataLakeStoreLocationResponseArgs', 'AzureFileStorageLocationResponseArgs', 'FileServerLocationResponseArgs', 'FtpServerLocationResponseArgs', 'GoogleCloudStorageLocationResponseArgs', 'HdfsLocationResponseArgs', 'HttpServerLocationResponseArgs', 'OracleCloudStorageLocationResponseArgs', 'SftpLocationResponseArgs'] location: The location of the delimited text storage.
         :param str type: Type of dataset.
                Expected value is 'DelimitedText'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
@@ -18744,7 +19119,7 @@ class DelimitedTextSourceResponse(dict):
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
-        :param Union['AmazonS3ReadSettingsResponseArgs', 'AzureBlobFSReadSettingsResponseArgs', 'AzureBlobStorageReadSettingsResponseArgs', 'AzureDataLakeStoreReadSettingsResponseArgs', 'AzureFileStorageReadSettingsResponseArgs', 'FileServerReadSettingsResponseArgs', 'FtpReadSettingsResponseArgs', 'GoogleCloudStorageReadSettingsResponseArgs', 'HdfsReadSettingsResponseArgs', 'HttpReadSettingsResponseArgs', 'SftpReadSettingsResponseArgs'] store_settings: DelimitedText store settings.
+        :param Union['AmazonS3CompatibleReadSettingsResponseArgs', 'AmazonS3ReadSettingsResponseArgs', 'AzureBlobFSReadSettingsResponseArgs', 'AzureBlobStorageReadSettingsResponseArgs', 'AzureDataLakeStoreReadSettingsResponseArgs', 'AzureFileStorageReadSettingsResponseArgs', 'FileServerReadSettingsResponseArgs', 'FtpReadSettingsResponseArgs', 'GoogleCloudStorageReadSettingsResponseArgs', 'HdfsReadSettingsResponseArgs', 'HttpReadSettingsResponseArgs', 'OracleCloudStorageReadSettingsResponseArgs', 'SftpReadSettingsResponseArgs'] store_settings: DelimitedText store settings.
         """
         pulumi.set(__self__, "type", 'DelimitedTextSource')
         if additional_columns is not None:
@@ -21648,7 +22023,7 @@ class ExcelDatasetResponse(dict):
         """
         Excel dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
-        :param Union['AmazonS3LocationResponseArgs', 'AzureBlobFSLocationResponseArgs', 'AzureBlobStorageLocationResponseArgs', 'AzureDataLakeStoreLocationResponseArgs', 'AzureFileStorageLocationResponseArgs', 'FileServerLocationResponseArgs', 'FtpServerLocationResponseArgs', 'GoogleCloudStorageLocationResponseArgs', 'HdfsLocationResponseArgs', 'HttpServerLocationResponseArgs', 'SftpLocationResponseArgs'] location: The location of the excel storage.
+        :param Union['AmazonS3CompatibleLocationResponseArgs', 'AmazonS3LocationResponseArgs', 'AzureBlobFSLocationResponseArgs', 'AzureBlobStorageLocationResponseArgs', 'AzureDataLakeStoreLocationResponseArgs', 'AzureFileStorageLocationResponseArgs', 'FileServerLocationResponseArgs', 'FtpServerLocationResponseArgs', 'GoogleCloudStorageLocationResponseArgs', 'HdfsLocationResponseArgs', 'HttpServerLocationResponseArgs', 'OracleCloudStorageLocationResponseArgs', 'SftpLocationResponseArgs'] location: The location of the excel storage.
         :param Any sheet_name: The sheet of excel file. Type: string (or Expression with resultType string).
         :param str type: Type of dataset.
                Expected value is 'Excel'.
@@ -21825,7 +22200,7 @@ class ExcelSourceResponse(dict):
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
-        :param Union['AmazonS3ReadSettingsResponseArgs', 'AzureBlobFSReadSettingsResponseArgs', 'AzureBlobStorageReadSettingsResponseArgs', 'AzureDataLakeStoreReadSettingsResponseArgs', 'AzureFileStorageReadSettingsResponseArgs', 'FileServerReadSettingsResponseArgs', 'FtpReadSettingsResponseArgs', 'GoogleCloudStorageReadSettingsResponseArgs', 'HdfsReadSettingsResponseArgs', 'HttpReadSettingsResponseArgs', 'SftpReadSettingsResponseArgs'] store_settings: Excel store settings.
+        :param Union['AmazonS3CompatibleReadSettingsResponseArgs', 'AmazonS3ReadSettingsResponseArgs', 'AzureBlobFSReadSettingsResponseArgs', 'AzureBlobStorageReadSettingsResponseArgs', 'AzureDataLakeStoreReadSettingsResponseArgs', 'AzureFileStorageReadSettingsResponseArgs', 'FileServerReadSettingsResponseArgs', 'FtpReadSettingsResponseArgs', 'GoogleCloudStorageReadSettingsResponseArgs', 'HdfsReadSettingsResponseArgs', 'HttpReadSettingsResponseArgs', 'OracleCloudStorageReadSettingsResponseArgs', 'SftpReadSettingsResponseArgs'] store_settings: Excel store settings.
         """
         pulumi.set(__self__, "type", 'ExcelSource')
         if additional_columns is not None:
@@ -24218,7 +24593,7 @@ class GetMetadataActivityResponse(dict):
         :param Union['BinaryReadSettingsResponseArgs', 'DelimitedTextReadSettingsResponseArgs', 'JsonReadSettingsResponseArgs', 'XmlReadSettingsResponseArgs'] format_settings: GetMetadata activity format settings.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param 'ActivityPolicyResponseArgs' policy: Activity policy.
-        :param Union['AmazonS3ReadSettingsResponseArgs', 'AzureBlobFSReadSettingsResponseArgs', 'AzureBlobStorageReadSettingsResponseArgs', 'AzureDataLakeStoreReadSettingsResponseArgs', 'AzureFileStorageReadSettingsResponseArgs', 'FileServerReadSettingsResponseArgs', 'FtpReadSettingsResponseArgs', 'GoogleCloudStorageReadSettingsResponseArgs', 'HdfsReadSettingsResponseArgs', 'HttpReadSettingsResponseArgs', 'SftpReadSettingsResponseArgs'] store_settings: GetMetadata activity store settings.
+        :param Union['AmazonS3CompatibleReadSettingsResponseArgs', 'AmazonS3ReadSettingsResponseArgs', 'AzureBlobFSReadSettingsResponseArgs', 'AzureBlobStorageReadSettingsResponseArgs', 'AzureDataLakeStoreReadSettingsResponseArgs', 'AzureFileStorageReadSettingsResponseArgs', 'FileServerReadSettingsResponseArgs', 'FtpReadSettingsResponseArgs', 'GoogleCloudStorageReadSettingsResponseArgs', 'HdfsReadSettingsResponseArgs', 'HttpReadSettingsResponseArgs', 'OracleCloudStorageReadSettingsResponseArgs', 'SftpReadSettingsResponseArgs'] store_settings: GetMetadata activity store settings.
         :param Sequence['UserPropertyResponseArgs'] user_properties: Activity user properties.
         """
         pulumi.set(__self__, "dataset", dataset)
@@ -31869,7 +32244,7 @@ class JsonDatasetResponse(dict):
         """
         Json dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
-        :param Union['AmazonS3LocationResponseArgs', 'AzureBlobFSLocationResponseArgs', 'AzureBlobStorageLocationResponseArgs', 'AzureDataLakeStoreLocationResponseArgs', 'AzureFileStorageLocationResponseArgs', 'FileServerLocationResponseArgs', 'FtpServerLocationResponseArgs', 'GoogleCloudStorageLocationResponseArgs', 'HdfsLocationResponseArgs', 'HttpServerLocationResponseArgs', 'SftpLocationResponseArgs'] location: The location of the json data storage.
+        :param Union['AmazonS3CompatibleLocationResponseArgs', 'AmazonS3LocationResponseArgs', 'AzureBlobFSLocationResponseArgs', 'AzureBlobStorageLocationResponseArgs', 'AzureDataLakeStoreLocationResponseArgs', 'AzureFileStorageLocationResponseArgs', 'FileServerLocationResponseArgs', 'FtpServerLocationResponseArgs', 'GoogleCloudStorageLocationResponseArgs', 'HdfsLocationResponseArgs', 'HttpServerLocationResponseArgs', 'OracleCloudStorageLocationResponseArgs', 'SftpLocationResponseArgs'] location: The location of the json data storage.
         :param str type: Type of dataset.
                Expected value is 'Json'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
@@ -32277,7 +32652,7 @@ class JsonSourceResponse(dict):
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
-        :param Union['AmazonS3ReadSettingsResponseArgs', 'AzureBlobFSReadSettingsResponseArgs', 'AzureBlobStorageReadSettingsResponseArgs', 'AzureDataLakeStoreReadSettingsResponseArgs', 'AzureFileStorageReadSettingsResponseArgs', 'FileServerReadSettingsResponseArgs', 'FtpReadSettingsResponseArgs', 'GoogleCloudStorageReadSettingsResponseArgs', 'HdfsReadSettingsResponseArgs', 'HttpReadSettingsResponseArgs', 'SftpReadSettingsResponseArgs'] store_settings: Json store settings.
+        :param Union['AmazonS3CompatibleReadSettingsResponseArgs', 'AmazonS3ReadSettingsResponseArgs', 'AzureBlobFSReadSettingsResponseArgs', 'AzureBlobStorageReadSettingsResponseArgs', 'AzureDataLakeStoreReadSettingsResponseArgs', 'AzureFileStorageReadSettingsResponseArgs', 'FileServerReadSettingsResponseArgs', 'FtpReadSettingsResponseArgs', 'GoogleCloudStorageReadSettingsResponseArgs', 'HdfsReadSettingsResponseArgs', 'HttpReadSettingsResponseArgs', 'OracleCloudStorageReadSettingsResponseArgs', 'SftpReadSettingsResponseArgs'] store_settings: Json store settings.
         """
         pulumi.set(__self__, "type", 'JsonSource')
         if additional_columns is not None:
@@ -38275,6 +38650,363 @@ class Office365SourceResponse(dict):
 
 
 @pulumi.output_type
+class OracleCloudStorageLinkedServiceResponse(dict):
+    """
+    Linked service for Oracle Cloud Storage.
+    """
+    def __init__(__self__, *,
+                 type: str,
+                 access_key_id: Optional[Any] = None,
+                 annotations: Optional[Sequence[Any]] = None,
+                 connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
+                 description: Optional[str] = None,
+                 encrypted_credential: Optional[Any] = None,
+                 parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
+                 secret_access_key: Optional[Any] = None,
+                 service_url: Optional[Any] = None):
+        """
+        Linked service for Oracle Cloud Storage.
+        :param str type: Type of linked service.
+               Expected value is 'OracleCloudStorage'.
+        :param Any access_key_id: The access key identifier of the Oracle Cloud Storage Identity and Access Management (IAM) user. Type: string (or Expression with resultType string).
+        :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
+        :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
+        :param str description: Linked service description.
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] secret_access_key: The secret access key of the Oracle Cloud Storage Identity and Access Management (IAM) user.
+        :param Any service_url: This value specifies the endpoint to access with the Oracle Cloud Storage Connector. This is an optional property; change it only if you want to try a different service endpoint or want to switch between https and http. Type: string (or Expression with resultType string).
+        """
+        pulumi.set(__self__, "type", 'OracleCloudStorage')
+        if access_key_id is not None:
+            pulumi.set(__self__, "access_key_id", access_key_id)
+        if annotations is not None:
+            pulumi.set(__self__, "annotations", annotations)
+        if connect_via is not None:
+            pulumi.set(__self__, "connect_via", connect_via)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if encrypted_credential is not None:
+            pulumi.set(__self__, "encrypted_credential", encrypted_credential)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if secret_access_key is not None:
+            pulumi.set(__self__, "secret_access_key", secret_access_key)
+        if service_url is not None:
+            pulumi.set(__self__, "service_url", service_url)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of linked service.
+        Expected value is 'OracleCloudStorage'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="accessKeyId")
+    def access_key_id(self) -> Optional[Any]:
+        """
+        The access key identifier of the Oracle Cloud Storage Identity and Access Management (IAM) user. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "access_key_id")
+
+    @property
+    @pulumi.getter
+    def annotations(self) -> Optional[Sequence[Any]]:
+        """
+        List of tags that can be used for describing the linked service.
+        """
+        return pulumi.get(self, "annotations")
+
+    @property
+    @pulumi.getter(name="connectVia")
+    def connect_via(self) -> Optional['outputs.IntegrationRuntimeReferenceResponse']:
+        """
+        The integration runtime reference.
+        """
+        return pulumi.get(self, "connect_via")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Linked service description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="encryptedCredential")
+    def encrypted_credential(self) -> Optional[Any]:
+        """
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "encrypted_credential")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']]:
+        """
+        Parameters for linked service.
+        """
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter(name="secretAccessKey")
+    def secret_access_key(self) -> Optional[Any]:
+        """
+        The secret access key of the Oracle Cloud Storage Identity and Access Management (IAM) user.
+        """
+        return pulumi.get(self, "secret_access_key")
+
+    @property
+    @pulumi.getter(name="serviceUrl")
+    def service_url(self) -> Optional[Any]:
+        """
+        This value specifies the endpoint to access with the Oracle Cloud Storage Connector. This is an optional property; change it only if you want to try a different service endpoint or want to switch between https and http. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "service_url")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class OracleCloudStorageLocationResponse(dict):
+    """
+    The location of Oracle Cloud Storage dataset.
+    """
+    def __init__(__self__, *,
+                 type: str,
+                 bucket_name: Optional[Any] = None,
+                 file_name: Optional[Any] = None,
+                 folder_path: Optional[Any] = None,
+                 version: Optional[Any] = None):
+        """
+        The location of Oracle Cloud Storage dataset.
+        :param str type: Type of dataset storage location.
+               Expected value is 'OracleCloudStorageLocation'.
+        :param Any bucket_name: Specify the bucketName of Oracle Cloud Storage. Type: string (or Expression with resultType string)
+        :param Any file_name: Specify the file name of dataset. Type: string (or Expression with resultType string).
+        :param Any folder_path: Specify the folder path of dataset. Type: string (or Expression with resultType string)
+        :param Any version: Specify the version of Oracle Cloud Storage. Type: string (or Expression with resultType string).
+        """
+        pulumi.set(__self__, "type", 'OracleCloudStorageLocation')
+        if bucket_name is not None:
+            pulumi.set(__self__, "bucket_name", bucket_name)
+        if file_name is not None:
+            pulumi.set(__self__, "file_name", file_name)
+        if folder_path is not None:
+            pulumi.set(__self__, "folder_path", folder_path)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of dataset storage location.
+        Expected value is 'OracleCloudStorageLocation'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="bucketName")
+    def bucket_name(self) -> Optional[Any]:
+        """
+        Specify the bucketName of Oracle Cloud Storage. Type: string (or Expression with resultType string)
+        """
+        return pulumi.get(self, "bucket_name")
+
+    @property
+    @pulumi.getter(name="fileName")
+    def file_name(self) -> Optional[Any]:
+        """
+        Specify the file name of dataset. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "file_name")
+
+    @property
+    @pulumi.getter(name="folderPath")
+    def folder_path(self) -> Optional[Any]:
+        """
+        Specify the folder path of dataset. Type: string (or Expression with resultType string)
+        """
+        return pulumi.get(self, "folder_path")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[Any]:
+        """
+        Specify the version of Oracle Cloud Storage. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "version")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class OracleCloudStorageReadSettingsResponse(dict):
+    """
+    Oracle Cloud Storage read settings.
+    """
+    def __init__(__self__, *,
+                 type: str,
+                 delete_files_after_completion: Optional[Any] = None,
+                 enable_partition_discovery: Optional[bool] = None,
+                 file_list_path: Optional[Any] = None,
+                 max_concurrent_connections: Optional[Any] = None,
+                 modified_datetime_end: Optional[Any] = None,
+                 modified_datetime_start: Optional[Any] = None,
+                 partition_root_path: Optional[Any] = None,
+                 prefix: Optional[Any] = None,
+                 recursive: Optional[Any] = None,
+                 wildcard_file_name: Optional[Any] = None,
+                 wildcard_folder_path: Optional[Any] = None):
+        """
+        Oracle Cloud Storage read settings.
+        :param str type: The read setting type.
+               Expected value is 'OracleCloudStorageReadSettings'.
+        :param Any delete_files_after_completion: Indicates whether the source files need to be deleted after copy completion. Default is false. Type: boolean (or Expression with resultType boolean).
+        :param bool enable_partition_discovery: Indicates whether to enable partition discovery.
+        :param Any file_list_path: Point to a text file that lists each file (relative path to the path configured in the dataset) that you want to copy. Type: string (or Expression with resultType string).
+        :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
+        :param Any modified_datetime_end: The end of file's modified datetime. Type: string (or Expression with resultType string).
+        :param Any modified_datetime_start: The start of file's modified datetime. Type: string (or Expression with resultType string).
+        :param Any partition_root_path: Specify the root path where partition discovery starts from. Type: string (or Expression with resultType string).
+        :param Any prefix: The prefix filter for the Oracle Cloud Storage object name. Type: string (or Expression with resultType string).
+        :param Any recursive: If true, files under the folder path will be read recursively. Default is true. Type: boolean (or Expression with resultType boolean).
+        :param Any wildcard_file_name: Oracle Cloud Storage wildcardFileName. Type: string (or Expression with resultType string).
+        :param Any wildcard_folder_path: Oracle Cloud Storage wildcardFolderPath. Type: string (or Expression with resultType string).
+        """
+        pulumi.set(__self__, "type", 'OracleCloudStorageReadSettings')
+        if delete_files_after_completion is not None:
+            pulumi.set(__self__, "delete_files_after_completion", delete_files_after_completion)
+        if enable_partition_discovery is not None:
+            pulumi.set(__self__, "enable_partition_discovery", enable_partition_discovery)
+        if file_list_path is not None:
+            pulumi.set(__self__, "file_list_path", file_list_path)
+        if max_concurrent_connections is not None:
+            pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
+        if modified_datetime_end is not None:
+            pulumi.set(__self__, "modified_datetime_end", modified_datetime_end)
+        if modified_datetime_start is not None:
+            pulumi.set(__self__, "modified_datetime_start", modified_datetime_start)
+        if partition_root_path is not None:
+            pulumi.set(__self__, "partition_root_path", partition_root_path)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+        if recursive is not None:
+            pulumi.set(__self__, "recursive", recursive)
+        if wildcard_file_name is not None:
+            pulumi.set(__self__, "wildcard_file_name", wildcard_file_name)
+        if wildcard_folder_path is not None:
+            pulumi.set(__self__, "wildcard_folder_path", wildcard_folder_path)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The read setting type.
+        Expected value is 'OracleCloudStorageReadSettings'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="deleteFilesAfterCompletion")
+    def delete_files_after_completion(self) -> Optional[Any]:
+        """
+        Indicates whether the source files need to be deleted after copy completion. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "delete_files_after_completion")
+
+    @property
+    @pulumi.getter(name="enablePartitionDiscovery")
+    def enable_partition_discovery(self) -> Optional[bool]:
+        """
+        Indicates whether to enable partition discovery.
+        """
+        return pulumi.get(self, "enable_partition_discovery")
+
+    @property
+    @pulumi.getter(name="fileListPath")
+    def file_list_path(self) -> Optional[Any]:
+        """
+        Point to a text file that lists each file (relative path to the path configured in the dataset) that you want to copy. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "file_list_path")
+
+    @property
+    @pulumi.getter(name="maxConcurrentConnections")
+    def max_concurrent_connections(self) -> Optional[Any]:
+        """
+        The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "max_concurrent_connections")
+
+    @property
+    @pulumi.getter(name="modifiedDatetimeEnd")
+    def modified_datetime_end(self) -> Optional[Any]:
+        """
+        The end of file's modified datetime. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "modified_datetime_end")
+
+    @property
+    @pulumi.getter(name="modifiedDatetimeStart")
+    def modified_datetime_start(self) -> Optional[Any]:
+        """
+        The start of file's modified datetime. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "modified_datetime_start")
+
+    @property
+    @pulumi.getter(name="partitionRootPath")
+    def partition_root_path(self) -> Optional[Any]:
+        """
+        Specify the root path where partition discovery starts from. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "partition_root_path")
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> Optional[Any]:
+        """
+        The prefix filter for the Oracle Cloud Storage object name. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "prefix")
+
+    @property
+    @pulumi.getter
+    def recursive(self) -> Optional[Any]:
+        """
+        If true, files under the folder path will be read recursively. Default is true. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "recursive")
+
+    @property
+    @pulumi.getter(name="wildcardFileName")
+    def wildcard_file_name(self) -> Optional[Any]:
+        """
+        Oracle Cloud Storage wildcardFileName. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "wildcard_file_name")
+
+    @property
+    @pulumi.getter(name="wildcardFolderPath")
+    def wildcard_folder_path(self) -> Optional[Any]:
+        """
+        Oracle Cloud Storage wildcardFolderPath. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "wildcard_folder_path")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class OracleLinkedServiceResponse(dict):
     """
     Oracle database.
@@ -39198,7 +39930,7 @@ class OrcDatasetResponse(dict):
         """
         ORC dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
-        :param Union['AmazonS3LocationResponseArgs', 'AzureBlobFSLocationResponseArgs', 'AzureBlobStorageLocationResponseArgs', 'AzureDataLakeStoreLocationResponseArgs', 'AzureFileStorageLocationResponseArgs', 'FileServerLocationResponseArgs', 'FtpServerLocationResponseArgs', 'GoogleCloudStorageLocationResponseArgs', 'HdfsLocationResponseArgs', 'HttpServerLocationResponseArgs', 'SftpLocationResponseArgs'] location: The location of the ORC data storage.
+        :param Union['AmazonS3CompatibleLocationResponseArgs', 'AmazonS3LocationResponseArgs', 'AzureBlobFSLocationResponseArgs', 'AzureBlobStorageLocationResponseArgs', 'AzureDataLakeStoreLocationResponseArgs', 'AzureFileStorageLocationResponseArgs', 'FileServerLocationResponseArgs', 'FtpServerLocationResponseArgs', 'GoogleCloudStorageLocationResponseArgs', 'HdfsLocationResponseArgs', 'HttpServerLocationResponseArgs', 'OracleCloudStorageLocationResponseArgs', 'SftpLocationResponseArgs'] location: The location of the ORC data storage.
         :param str type: Type of dataset.
                Expected value is 'Orc'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
@@ -39490,7 +40222,7 @@ class OrcSourceResponse(dict):
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
-        :param Union['AmazonS3ReadSettingsResponseArgs', 'AzureBlobFSReadSettingsResponseArgs', 'AzureBlobStorageReadSettingsResponseArgs', 'AzureDataLakeStoreReadSettingsResponseArgs', 'AzureFileStorageReadSettingsResponseArgs', 'FileServerReadSettingsResponseArgs', 'FtpReadSettingsResponseArgs', 'GoogleCloudStorageReadSettingsResponseArgs', 'HdfsReadSettingsResponseArgs', 'HttpReadSettingsResponseArgs', 'SftpReadSettingsResponseArgs'] store_settings: ORC store settings.
+        :param Union['AmazonS3CompatibleReadSettingsResponseArgs', 'AmazonS3ReadSettingsResponseArgs', 'AzureBlobFSReadSettingsResponseArgs', 'AzureBlobStorageReadSettingsResponseArgs', 'AzureDataLakeStoreReadSettingsResponseArgs', 'AzureFileStorageReadSettingsResponseArgs', 'FileServerReadSettingsResponseArgs', 'FtpReadSettingsResponseArgs', 'GoogleCloudStorageReadSettingsResponseArgs', 'HdfsReadSettingsResponseArgs', 'HttpReadSettingsResponseArgs', 'OracleCloudStorageReadSettingsResponseArgs', 'SftpReadSettingsResponseArgs'] store_settings: ORC store settings.
         """
         pulumi.set(__self__, "type", 'OrcSource')
         if additional_columns is not None:
@@ -39700,7 +40432,7 @@ class ParquetDatasetResponse(dict):
         """
         Parquet dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
-        :param Union['AmazonS3LocationResponseArgs', 'AzureBlobFSLocationResponseArgs', 'AzureBlobStorageLocationResponseArgs', 'AzureDataLakeStoreLocationResponseArgs', 'AzureFileStorageLocationResponseArgs', 'FileServerLocationResponseArgs', 'FtpServerLocationResponseArgs', 'GoogleCloudStorageLocationResponseArgs', 'HdfsLocationResponseArgs', 'HttpServerLocationResponseArgs', 'SftpLocationResponseArgs'] location: The location of the parquet storage.
+        :param Union['AmazonS3CompatibleLocationResponseArgs', 'AmazonS3LocationResponseArgs', 'AzureBlobFSLocationResponseArgs', 'AzureBlobStorageLocationResponseArgs', 'AzureDataLakeStoreLocationResponseArgs', 'AzureFileStorageLocationResponseArgs', 'FileServerLocationResponseArgs', 'FtpServerLocationResponseArgs', 'GoogleCloudStorageLocationResponseArgs', 'HdfsLocationResponseArgs', 'HttpServerLocationResponseArgs', 'OracleCloudStorageLocationResponseArgs', 'SftpLocationResponseArgs'] location: The location of the parquet storage.
         :param str type: Type of dataset.
                Expected value is 'Parquet'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
@@ -39992,7 +40724,7 @@ class ParquetSourceResponse(dict):
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
-        :param Union['AmazonS3ReadSettingsResponseArgs', 'AzureBlobFSReadSettingsResponseArgs', 'AzureBlobStorageReadSettingsResponseArgs', 'AzureDataLakeStoreReadSettingsResponseArgs', 'AzureFileStorageReadSettingsResponseArgs', 'FileServerReadSettingsResponseArgs', 'FtpReadSettingsResponseArgs', 'GoogleCloudStorageReadSettingsResponseArgs', 'HdfsReadSettingsResponseArgs', 'HttpReadSettingsResponseArgs', 'SftpReadSettingsResponseArgs'] store_settings: Parquet store settings.
+        :param Union['AmazonS3CompatibleReadSettingsResponseArgs', 'AmazonS3ReadSettingsResponseArgs', 'AzureBlobFSReadSettingsResponseArgs', 'AzureBlobStorageReadSettingsResponseArgs', 'AzureDataLakeStoreReadSettingsResponseArgs', 'AzureFileStorageReadSettingsResponseArgs', 'FileServerReadSettingsResponseArgs', 'FtpReadSettingsResponseArgs', 'GoogleCloudStorageReadSettingsResponseArgs', 'HdfsReadSettingsResponseArgs', 'HttpReadSettingsResponseArgs', 'OracleCloudStorageReadSettingsResponseArgs', 'SftpReadSettingsResponseArgs'] store_settings: Parquet store settings.
         """
         pulumi.set(__self__, "type", 'ParquetSource')
         if additional_columns is not None:
@@ -58654,7 +59386,7 @@ class XmlDatasetResponse(dict):
         """
         Xml dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
-        :param Union['AmazonS3LocationResponseArgs', 'AzureBlobFSLocationResponseArgs', 'AzureBlobStorageLocationResponseArgs', 'AzureDataLakeStoreLocationResponseArgs', 'AzureFileStorageLocationResponseArgs', 'FileServerLocationResponseArgs', 'FtpServerLocationResponseArgs', 'GoogleCloudStorageLocationResponseArgs', 'HdfsLocationResponseArgs', 'HttpServerLocationResponseArgs', 'SftpLocationResponseArgs'] location: The location of the json data storage.
+        :param Union['AmazonS3CompatibleLocationResponseArgs', 'AmazonS3LocationResponseArgs', 'AzureBlobFSLocationResponseArgs', 'AzureBlobStorageLocationResponseArgs', 'AzureDataLakeStoreLocationResponseArgs', 'AzureFileStorageLocationResponseArgs', 'FileServerLocationResponseArgs', 'FtpServerLocationResponseArgs', 'GoogleCloudStorageLocationResponseArgs', 'HdfsLocationResponseArgs', 'HttpServerLocationResponseArgs', 'OracleCloudStorageLocationResponseArgs', 'SftpLocationResponseArgs'] location: The location of the json data storage.
         :param str type: Type of dataset.
                Expected value is 'Xml'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
@@ -58899,7 +59631,7 @@ class XmlSourceResponse(dict):
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
-        :param Union['AmazonS3ReadSettingsResponseArgs', 'AzureBlobFSReadSettingsResponseArgs', 'AzureBlobStorageReadSettingsResponseArgs', 'AzureDataLakeStoreReadSettingsResponseArgs', 'AzureFileStorageReadSettingsResponseArgs', 'FileServerReadSettingsResponseArgs', 'FtpReadSettingsResponseArgs', 'GoogleCloudStorageReadSettingsResponseArgs', 'HdfsReadSettingsResponseArgs', 'HttpReadSettingsResponseArgs', 'SftpReadSettingsResponseArgs'] store_settings: Xml store settings.
+        :param Union['AmazonS3CompatibleReadSettingsResponseArgs', 'AmazonS3ReadSettingsResponseArgs', 'AzureBlobFSReadSettingsResponseArgs', 'AzureBlobStorageReadSettingsResponseArgs', 'AzureDataLakeStoreReadSettingsResponseArgs', 'AzureFileStorageReadSettingsResponseArgs', 'FileServerReadSettingsResponseArgs', 'FtpReadSettingsResponseArgs', 'GoogleCloudStorageReadSettingsResponseArgs', 'HdfsReadSettingsResponseArgs', 'HttpReadSettingsResponseArgs', 'OracleCloudStorageReadSettingsResponseArgs', 'SftpReadSettingsResponseArgs'] store_settings: Xml store settings.
         """
         pulumi.set(__self__, "type", 'XmlSource')
         if additional_columns is not None:

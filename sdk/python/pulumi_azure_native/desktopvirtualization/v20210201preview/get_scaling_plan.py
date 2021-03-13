@@ -20,10 +20,13 @@ class GetScalingPlanResult:
     """
     Represents a scaling plan definition.
     """
-    def __init__(__self__, description=None, exclusion_tag=None, friendly_name=None, host_pool_references=None, host_pool_type=None, id=None, location=None, name=None, ring=None, schedules=None, tags=None, time_zone=None, type=None):
+    def __init__(__self__, description=None, etag=None, exclusion_tag=None, friendly_name=None, host_pool_references=None, host_pool_type=None, id=None, identity=None, kind=None, location=None, managed_by=None, name=None, object_id=None, plan=None, ring=None, schedules=None, sku=None, tags=None, time_zone=None, type=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if etag and not isinstance(etag, str):
+            raise TypeError("Expected argument 'etag' to be a str")
+        pulumi.set(__self__, "etag", etag)
         if exclusion_tag and not isinstance(exclusion_tag, str):
             raise TypeError("Expected argument 'exclusion_tag' to be a str")
         pulumi.set(__self__, "exclusion_tag", exclusion_tag)
@@ -39,18 +42,36 @@ class GetScalingPlanResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if identity and not isinstance(identity, dict):
+            raise TypeError("Expected argument 'identity' to be a dict")
+        pulumi.set(__self__, "identity", identity)
+        if kind and not isinstance(kind, str):
+            raise TypeError("Expected argument 'kind' to be a str")
+        pulumi.set(__self__, "kind", kind)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
+        if managed_by and not isinstance(managed_by, str):
+            raise TypeError("Expected argument 'managed_by' to be a str")
+        pulumi.set(__self__, "managed_by", managed_by)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if object_id and not isinstance(object_id, str):
+            raise TypeError("Expected argument 'object_id' to be a str")
+        pulumi.set(__self__, "object_id", object_id)
+        if plan and not isinstance(plan, dict):
+            raise TypeError("Expected argument 'plan' to be a dict")
+        pulumi.set(__self__, "plan", plan)
         if ring and not isinstance(ring, int):
             raise TypeError("Expected argument 'ring' to be a int")
         pulumi.set(__self__, "ring", ring)
         if schedules and not isinstance(schedules, list):
             raise TypeError("Expected argument 'schedules' to be a list")
         pulumi.set(__self__, "schedules", schedules)
+        if sku and not isinstance(sku, dict):
+            raise TypeError("Expected argument 'sku' to be a dict")
+        pulumi.set(__self__, "sku", sku)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -68,6 +89,14 @@ class GetScalingPlanResult:
         Description of scaling plan.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields. 
+        """
+        return pulumi.get(self, "etag")
 
     @property
     @pulumi.getter(name="exclusionTag")
@@ -111,11 +140,32 @@ class GetScalingPlanResult:
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def identity(self) -> Optional['outputs.ResourceModelWithAllowedPropertySetResponseIdentity']:
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[str]:
+        """
+        Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="managedBy")
+    def managed_by(self) -> Optional[str]:
+        """
+        The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
+        """
+        return pulumi.get(self, "managed_by")
 
     @property
     @pulumi.getter
@@ -124,6 +174,19 @@ class GetScalingPlanResult:
         The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="objectId")
+    def object_id(self) -> str:
+        """
+        ObjectId of scaling plan. (internal use)
+        """
+        return pulumi.get(self, "object_id")
+
+    @property
+    @pulumi.getter
+    def plan(self) -> Optional['outputs.ResourceModelWithAllowedPropertySetResponsePlan']:
+        return pulumi.get(self, "plan")
 
     @property
     @pulumi.getter
@@ -140,6 +203,11 @@ class GetScalingPlanResult:
         List of ScalingSchedule definitions.
         """
         return pulumi.get(self, "schedules")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional['outputs.ResourceModelWithAllowedPropertySetResponseSku']:
+        return pulumi.get(self, "sku")
 
     @property
     @pulumi.getter
@@ -173,15 +241,22 @@ class AwaitableGetScalingPlanResult(GetScalingPlanResult):
             yield self
         return GetScalingPlanResult(
             description=self.description,
+            etag=self.etag,
             exclusion_tag=self.exclusion_tag,
             friendly_name=self.friendly_name,
             host_pool_references=self.host_pool_references,
             host_pool_type=self.host_pool_type,
             id=self.id,
+            identity=self.identity,
+            kind=self.kind,
             location=self.location,
+            managed_by=self.managed_by,
             name=self.name,
+            object_id=self.object_id,
+            plan=self.plan,
             ring=self.ring,
             schedules=self.schedules,
+            sku=self.sku,
             tags=self.tags,
             time_zone=self.time_zone,
             type=self.type)
@@ -208,15 +283,22 @@ def get_scaling_plan(resource_group_name: Optional[str] = None,
 
     return AwaitableGetScalingPlanResult(
         description=__ret__.description,
+        etag=__ret__.etag,
         exclusion_tag=__ret__.exclusion_tag,
         friendly_name=__ret__.friendly_name,
         host_pool_references=__ret__.host_pool_references,
         host_pool_type=__ret__.host_pool_type,
         id=__ret__.id,
+        identity=__ret__.identity,
+        kind=__ret__.kind,
         location=__ret__.location,
+        managed_by=__ret__.managed_by,
         name=__ret__.name,
+        object_id=__ret__.object_id,
+        plan=__ret__.plan,
         ring=__ret__.ring,
         schedules=__ret__.schedules,
+        sku=__ret__.sku,
         tags=__ret__.tags,
         time_zone=__ret__.time_zone,
         type=__ret__.type)

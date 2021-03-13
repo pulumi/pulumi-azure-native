@@ -63,7 +63,6 @@ class PrivateEndpointConnection(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            __props__['location'] = None
             __props__['name'] = None
             __props__['private_endpoint'] = None
             __props__['provisioning_state'] = None
@@ -93,7 +92,6 @@ class PrivateEndpointConnection(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__["location"] = None
         __props__["name"] = None
         __props__["private_endpoint"] = None
         __props__["private_link_service_connection_state"] = None
@@ -101,14 +99,6 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         __props__["system_data"] = None
         __props__["type"] = None
         return PrivateEndpointConnection(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter
-    def location(self) -> pulumi.Output[str]:
-        """
-        Region where the EnterprisePolicy is located.
-        """
-        return pulumi.get(self, "location")
 
     @property
     @pulumi.getter
@@ -146,7 +136,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        Metadata for the private endpoint connection.
+        Metadata pertaining to creation and last modification of the resource.
         """
         return pulumi.get(self, "system_data")
 

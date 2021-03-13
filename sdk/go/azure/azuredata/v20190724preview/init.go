@@ -21,16 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-native:azuredata/v20190724preview:DataController":
-		r, err = NewDataController(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-native:azuredata/v20190724preview:PostgresInstance":
-		r, err = NewPostgresInstance(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-native:azuredata/v20190724preview:SqlManagedInstance":
-		r, err = NewSqlManagedInstance(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:azuredata/v20190724preview:SqlServer":
 		r, err = NewSqlServer(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-native:azuredata/v20190724preview:SqlServerInstance":
-		r, err = NewSqlServerInstance(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:azuredata/v20190724preview:SqlServerRegistration":
 		r, err = NewSqlServerRegistration(ctx, name, nil, pulumi.URN_(urn))
 	default:

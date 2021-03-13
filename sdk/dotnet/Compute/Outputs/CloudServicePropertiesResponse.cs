@@ -14,6 +14,11 @@ namespace Pulumi.AzureNative.Compute.Outputs
     public sealed class CloudServicePropertiesResponse
     {
         /// <summary>
+        /// (Optional) Indicates whether the role sku properties (roleProfile.roles.sku) specified in the model/template should override the role instance count and vm size specified in the .cscfg and .csdef respectively.
+        /// The default value is `false`.
+        /// </summary>
+        public readonly bool? AllowModelOverride;
+        /// <summary>
         /// Specifies the XML service configuration (.cscfg) for the cloud service.
         /// </summary>
         public readonly string? Configuration;
@@ -65,6 +70,8 @@ namespace Pulumi.AzureNative.Compute.Outputs
 
         [OutputConstructor]
         private CloudServicePropertiesResponse(
+            bool? allowModelOverride,
+
             string? configuration,
 
             string? configurationUrl,
@@ -87,6 +94,7 @@ namespace Pulumi.AzureNative.Compute.Outputs
 
             string? upgradeMode)
         {
+            AllowModelOverride = allowModelOverride;
             Configuration = configuration;
             ConfigurationUrl = configurationUrl;
             ExtensionProfile = extensionProfile;

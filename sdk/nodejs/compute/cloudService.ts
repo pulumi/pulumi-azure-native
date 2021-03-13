@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Describes the cloud service.
- * API Version: 2020-10-01-preview.
+ * API Version: 2021-03-01.
  */
 export class CloudService extends pulumi.CustomResource {
     /**
@@ -88,7 +88,7 @@ export class CloudService extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute:CloudService" }, { type: "azure-native:compute/v20201001preview:CloudService" }, { type: "azure-nextgen:compute/v20201001preview:CloudService" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute:CloudService" }, { type: "azure-native:compute/latest:CloudService" }, { type: "azure-nextgen:compute/latest:CloudService" }, { type: "azure-native:compute/v20201001preview:CloudService" }, { type: "azure-nextgen:compute/v20201001preview:CloudService" }, { type: "azure-native:compute/v20210301:CloudService" }, { type: "azure-nextgen:compute/v20210301:CloudService" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CloudService.__pulumiType, name, inputs, opts);
     }

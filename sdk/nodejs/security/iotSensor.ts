@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -48,10 +49,6 @@ export class IotSensor extends pulumi.CustomResource {
      */
     public /*out*/ readonly dynamicLearning!: pulumi.Output<boolean>;
     /**
-     * Is type of sensor is enterprise IoT sensor
-     */
-    public readonly isEnterpriseSensor!: pulumi.Output<boolean | undefined>;
-    /**
      * Learning mode status of the IoT sensor
      */
     public /*out*/ readonly learningMode!: pulumi.Output<boolean>;
@@ -63,6 +60,10 @@ export class IotSensor extends pulumi.CustomResource {
      * Status of the IoT sensor
      */
     public /*out*/ readonly sensorStatus!: pulumi.Output<string>;
+    /**
+     * Type of sensor
+     */
+    public readonly sensorType!: pulumi.Output<string | undefined>;
     /**
      * Version of the IoT sensor
      */
@@ -103,8 +104,8 @@ export class IotSensor extends pulumi.CustomResource {
                 throw new Error("Missing required property 'scope'");
             }
             inputs["iotSensorName"] = args ? args.iotSensorName : undefined;
-            inputs["isEnterpriseSensor"] = args ? args.isEnterpriseSensor : undefined;
             inputs["scope"] = args ? args.scope : undefined;
+            inputs["sensorType"] = args ? args.sensorType : undefined;
             inputs["tiAutomaticUpdates"] = args ? args.tiAutomaticUpdates : undefined;
             inputs["zone"] = args ? args.zone : undefined;
             inputs["connectivityTime"] = undefined /*out*/;
@@ -121,10 +122,10 @@ export class IotSensor extends pulumi.CustomResource {
             inputs["connectivityTime"] = undefined /*out*/;
             inputs["creationTime"] = undefined /*out*/;
             inputs["dynamicLearning"] = undefined /*out*/;
-            inputs["isEnterpriseSensor"] = undefined /*out*/;
             inputs["learningMode"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["sensorStatus"] = undefined /*out*/;
+            inputs["sensorType"] = undefined /*out*/;
             inputs["sensorVersion"] = undefined /*out*/;
             inputs["tiAutomaticUpdates"] = undefined /*out*/;
             inputs["tiStatus"] = undefined /*out*/;
@@ -150,13 +151,13 @@ export interface IotSensorArgs {
      */
     readonly iotSensorName?: pulumi.Input<string>;
     /**
-     * Is type of sensor is enterprise IoT sensor
-     */
-    readonly isEnterpriseSensor?: pulumi.Input<boolean>;
-    /**
      * Scope of the query (IoT Hub, /providers/Microsoft.Devices/iotHubs/myHub)
      */
     readonly scope: pulumi.Input<string>;
+    /**
+     * Type of sensor
+     */
+    readonly sensorType?: pulumi.Input<string | enums.security.SensorType>;
     /**
      * TI Automatic mode status of the IoT sensor
      */

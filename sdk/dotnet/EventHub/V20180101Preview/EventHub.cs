@@ -105,6 +105,8 @@ namespace Pulumi.AzureNative.EventHub.V20180101Preview
                     new Pulumi.Alias { Type = "azure-nextgen:eventhub/v20150801:EventHub"},
                     new Pulumi.Alias { Type = "azure-native:eventhub/v20170401:EventHub"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventhub/v20170401:EventHub"},
+                    new Pulumi.Alias { Type = "azure-native:eventhub/v20210101preview:EventHub"},
+                    new Pulumi.Alias { Type = "azure-nextgen:eventhub/v20210101preview:EventHub"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

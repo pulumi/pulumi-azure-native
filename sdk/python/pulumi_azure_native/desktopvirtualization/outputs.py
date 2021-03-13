@@ -10,12 +10,54 @@ from .. import _utilities, _tables
 from ._enums import *
 
 __all__ = [
+    'MigrationRequestPropertiesResponse',
     'MsixPackageApplicationsResponse',
     'MsixPackageDependenciesResponse',
     'RegistrationInfoResponse',
+    'ResourceModelWithAllowedPropertySetResponseIdentity',
+    'ResourceModelWithAllowedPropertySetResponsePlan',
+    'ResourceModelWithAllowedPropertySetResponseSku',
     'ScalingHostPoolReferenceResponse',
     'ScalingScheduleResponse',
 ]
+
+@pulumi.output_type
+class MigrationRequestPropertiesResponse(dict):
+    """
+    Properties for arm migration.
+    """
+    def __init__(__self__, *,
+                 migration_path: Optional[str] = None,
+                 operation: Optional[str] = None):
+        """
+        Properties for arm migration.
+        :param str migration_path: The path to the legacy object to migrate.
+        :param str operation: The type of operation for migration.
+        """
+        if migration_path is not None:
+            pulumi.set(__self__, "migration_path", migration_path)
+        if operation is not None:
+            pulumi.set(__self__, "operation", operation)
+
+    @property
+    @pulumi.getter(name="migrationPath")
+    def migration_path(self) -> Optional[str]:
+        """
+        The path to the legacy object to migrate.
+        """
+        return pulumi.get(self, "migration_path")
+
+    @property
+    @pulumi.getter
+    def operation(self) -> Optional[str]:
+        """
+        The type of operation for migration.
+        """
+        return pulumi.get(self, "operation")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
 
 @pulumi.output_type
 class MsixPackageApplicationsResponse(dict):
@@ -210,6 +252,186 @@ class RegistrationInfoResponse(dict):
         The registration token base64 encoded string.
         """
         return pulumi.get(self, "token")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ResourceModelWithAllowedPropertySetResponseIdentity(dict):
+    def __init__(__self__, *,
+                 principal_id: str,
+                 tenant_id: str,
+                 type: Optional[str] = None):
+        """
+        :param str principal_id: The principal ID of resource identity.
+        :param str tenant_id: The tenant ID of resource.
+        :param str type: The identity type.
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The principal ID of resource identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The tenant ID of resource.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The identity type.
+        """
+        return pulumi.get(self, "type")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ResourceModelWithAllowedPropertySetResponsePlan(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 product: str,
+                 publisher: str,
+                 promotion_code: Optional[str] = None,
+                 version: Optional[str] = None):
+        """
+        :param str name: A user defined name of the 3rd Party Artifact that is being procured.
+        :param str product: The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. 
+        :param str publisher: The publisher of the 3rd Party Artifact that is being bought. E.g. NewRelic
+        :param str promotion_code: A publisher provided promotion code as provisioned in Data Market for the said product/artifact.
+        :param str version: The version of the desired product/artifact.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "product", product)
+        pulumi.set(__self__, "publisher", publisher)
+        if promotion_code is not None:
+            pulumi.set(__self__, "promotion_code", promotion_code)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        A user defined name of the 3rd Party Artifact that is being procured.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def product(self) -> str:
+        """
+        The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. 
+        """
+        return pulumi.get(self, "product")
+
+    @property
+    @pulumi.getter
+    def publisher(self) -> str:
+        """
+        The publisher of the 3rd Party Artifact that is being bought. E.g. NewRelic
+        """
+        return pulumi.get(self, "publisher")
+
+    @property
+    @pulumi.getter(name="promotionCode")
+    def promotion_code(self) -> Optional[str]:
+        """
+        A publisher provided promotion code as provisioned in Data Market for the said product/artifact.
+        """
+        return pulumi.get(self, "promotion_code")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        The version of the desired product/artifact.
+        """
+        return pulumi.get(self, "version")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ResourceModelWithAllowedPropertySetResponseSku(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 capacity: Optional[int] = None,
+                 family: Optional[str] = None,
+                 size: Optional[str] = None,
+                 tier: Optional[str] = None):
+        """
+        :param str name: The name of the SKU. Ex - P3. It is typically a letter+number code
+        :param int capacity: If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
+        :param str family: If the service has different generations of hardware, for the same SKU, then that can be captured here.
+        :param str size: The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+        :param str tier: This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+        """
+        pulumi.set(__self__, "name", name)
+        if capacity is not None:
+            pulumi.set(__self__, "capacity", capacity)
+        if family is not None:
+            pulumi.set(__self__, "family", family)
+        if size is not None:
+            pulumi.set(__self__, "size", size)
+        if tier is not None:
+            pulumi.set(__self__, "tier", tier)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the SKU. Ex - P3. It is typically a letter+number code
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def capacity(self) -> Optional[int]:
+        """
+        If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
+        """
+        return pulumi.get(self, "capacity")
+
+    @property
+    @pulumi.getter
+    def family(self) -> Optional[str]:
+        """
+        If the service has different generations of hardware, for the same SKU, then that can be captured here.
+        """
+        return pulumi.get(self, "family")
+
+    @property
+    @pulumi.getter
+    def size(self) -> Optional[str]:
+        """
+        The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+        """
+        return pulumi.get(self, "size")
+
+    @property
+    @pulumi.getter
+    def tier(self) -> Optional[str]:
+        """
+        This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+        """
+        return pulumi.get(self, "tier")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
