@@ -50653,6 +50653,8 @@
         "defaultApiVersion": "2020-07-01-preview",
         "locationMappings": null,
         "locations": [
+          "Central US EUAP",
+          "West Central US",
           "West US 2",
           "East US",
           "East US 2",
@@ -62182,6 +62184,32 @@
         "locations": [],
         "properties": null,
         "resourceType": "roleEligibilityScheduleInstances"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2020-10-01-preview"
+        ],
+        "capabilities": "SupportsExtension",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [],
+        "properties": null,
+        "resourceType": "roleManagementPolicies"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2020-10-01-preview"
+        ],
+        "capabilities": "SupportsExtension",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [],
+        "properties": null,
+        "resourceType": "roleManagementPolicyAssignments"
       },
       {
         "aliases": null,
