@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A stored credential that can be used by a job to connect to target databases.
- * API Version: 2020-08-01-preview.
+ * API Version: 2020-11-01-preview.
  */
 export function getJobCredential(args: GetJobCredentialArgs, opts?: pulumi.InvokeOptions): Promise<GetJobCredentialResult> {
     if (!opts) {

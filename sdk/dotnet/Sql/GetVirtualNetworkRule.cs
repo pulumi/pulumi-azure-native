@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Sql
     {
         /// <summary>
         /// A virtual network rule.
-        /// API Version: 2020-08-01-preview.
+        /// API Version: 2020-11-01-preview.
         /// </summary>
         public static Task<GetVirtualNetworkRuleResult> InvokeAsync(GetVirtualNetworkRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkRuleResult>("azure-native:sql:getVirtualNetworkRule", args ?? new GetVirtualNetworkRuleArgs(), options.WithVersion());

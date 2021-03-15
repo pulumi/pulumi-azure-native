@@ -6,7 +6,7 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * API Version: 2020-02-01-preview.
+ * API Version: 2021-03-01.
  */
 export function getMonitor(args: GetMonitorArgs, opts?: pulumi.InvokeOptions): Promise<GetMonitorResult> {
     if (!opts) {
@@ -28,7 +28,7 @@ export interface GetMonitorArgs {
      */
     readonly monitorName: string;
     /**
-     * The name of the resource group to which the Datadog resource belongs.
+     * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: string;
 }
@@ -49,6 +49,10 @@ export interface GetMonitorResult {
      */
     readonly properties: outputs.datadog.MonitorPropertiesResponse;
     readonly sku?: outputs.datadog.ResourceSkuResponse;
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData: outputs.datadog.SystemDataResponse;
     readonly tags?: {[key: string]: string};
     /**
      * The type of the monitor resource.

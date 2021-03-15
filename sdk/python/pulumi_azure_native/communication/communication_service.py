@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
+from . import outputs
 
 __all__ = ['CommunicationService']
 
@@ -25,14 +26,14 @@ class CommunicationService(pulumi.CustomResource):
                  __opts__=None):
         """
         A class representing a CommunicationService resource.
-        API Version: 2020-08-20-preview.
+        API Version: 2020-08-20.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] communication_service_name: The name of the CommunicationService resource.
         :param pulumi.Input[str] data_location: The location where the communication service stores its data at rest.
         :param pulumi.Input[str] location: The Azure location where the CommunicationService is running.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags of the service which is a list of key value pairs that describe the resource.
         """
         if __name__ is not None:
@@ -66,9 +67,10 @@ class CommunicationService(pulumi.CustomResource):
             __props__['name'] = None
             __props__['notification_hub_id'] = None
             __props__['provisioning_state'] = None
+            __props__['system_data'] = None
             __props__['type'] = None
             __props__['version'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:communication:CommunicationService"), pulumi.Alias(type_="azure-native:communication/v20200820preview:CommunicationService"), pulumi.Alias(type_="azure-nextgen:communication/v20200820preview:CommunicationService")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:communication:CommunicationService"), pulumi.Alias(type_="azure-native:communication/latest:CommunicationService"), pulumi.Alias(type_="azure-nextgen:communication/latest:CommunicationService"), pulumi.Alias(type_="azure-native:communication/v20200820:CommunicationService"), pulumi.Alias(type_="azure-nextgen:communication/v20200820:CommunicationService"), pulumi.Alias(type_="azure-native:communication/v20200820preview:CommunicationService"), pulumi.Alias(type_="azure-nextgen:communication/v20200820preview:CommunicationService")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(CommunicationService, __self__).__init__(
             'azure-native:communication:CommunicationService',
@@ -99,6 +101,7 @@ class CommunicationService(pulumi.CustomResource):
         __props__["name"] = None
         __props__["notification_hub_id"] = None
         __props__["provisioning_state"] = None
+        __props__["system_data"] = None
         __props__["tags"] = None
         __props__["type"] = None
         __props__["version"] = None
@@ -140,7 +143,7 @@ class CommunicationService(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the resource.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -161,6 +164,14 @@ class CommunicationService(pulumi.CustomResource):
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
@@ -172,7 +183,7 @@ class CommunicationService(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        The type of the service - e.g. "Microsoft.Communication/CommunicationServices"
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

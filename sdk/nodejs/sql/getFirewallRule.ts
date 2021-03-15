@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A server firewall rule.
- * API Version: 2020-08-01-preview.
+ * API Version: 2020-11-01-preview.
  */
 export function getFirewallRule(args: GetFirewallRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallRuleResult> {
     if (!opts) {

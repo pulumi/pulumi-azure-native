@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * An Azure SQL Database sync member.
- * API Version: 2020-08-01-preview.
+ * API Version: 2020-11-01-preview.
  */
 export class SyncMember extends pulumi.CustomResource {
     /**

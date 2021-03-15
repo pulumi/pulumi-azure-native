@@ -629,6 +629,35 @@ func (e ManagedServerCreateMode) ToStringPtrOutputWithContext(ctx context.Contex
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// Principal Type of the sever administrator.
+type PrincipalType pulumi.String
+
+const (
+	PrincipalTypeUser        = PrincipalType("User")
+	PrincipalTypeGroup       = PrincipalType("Group")
+	PrincipalTypeApplication = PrincipalType("Application")
+)
+
+func (PrincipalType) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e PrincipalType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PrincipalType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PrincipalType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PrincipalType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // The private link service connection status.
 type PrivateLinkServiceConnectionStateStatus pulumi.String
 
@@ -712,6 +741,35 @@ func (e ReadWriteEndpointFailoverPolicy) ToStringPtrOutput() pulumi.StringPtrOut
 }
 
 func (e ReadWriteEndpointFailoverPolicy) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// The storage account type to be used to store backups for this database.
+type RequestedBackupStorageRedundancy pulumi.String
+
+const (
+	RequestedBackupStorageRedundancyGeo   = RequestedBackupStorageRedundancy("Geo")
+	RequestedBackupStorageRedundancyLocal = RequestedBackupStorageRedundancy("Local")
+	RequestedBackupStorageRedundancyZone  = RequestedBackupStorageRedundancy("Zone")
+)
+
+func (RequestedBackupStorageRedundancy) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e RequestedBackupStorageRedundancy) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RequestedBackupStorageRedundancy) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RequestedBackupStorageRedundancy) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e RequestedBackupStorageRedundancy) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 

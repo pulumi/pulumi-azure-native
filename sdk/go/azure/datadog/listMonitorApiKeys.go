@@ -8,7 +8,7 @@ import (
 )
 
 // Response of a list operation.
-// API Version: 2020-02-01-preview.
+// API Version: 2021-03-01.
 func ListMonitorApiKeys(ctx *pulumi.Context, args *ListMonitorApiKeysArgs, opts ...pulumi.InvokeOption) (*ListMonitorApiKeysResult, error) {
 	var rv ListMonitorApiKeysResult
 	err := ctx.Invoke("azure-native:datadog:listMonitorApiKeys", args, &rv, opts...)
@@ -21,7 +21,7 @@ func ListMonitorApiKeys(ctx *pulumi.Context, args *ListMonitorApiKeysArgs, opts 
 type ListMonitorApiKeysArgs struct {
 	// Monitor resource name
 	MonitorName string `pulumi:"monitorName"`
-	// The name of the resource group to which the Datadog resource belongs.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 

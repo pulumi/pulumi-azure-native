@@ -169,7 +169,7 @@ def get_failover_group(failover_group_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFailoverGroupResult:
     """
     A failover group.
-    API Version: 2020-08-01-preview.
+    API Version: 2020-11-01-preview.
 
 
     :param str failover_group_name: The name of the failover group.

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * An Azure SQL Database server.
- * API Version: 2020-08-01-preview.
+ * API Version: 2020-11-01-preview.
  */
 export class Server extends pulumi.CustomResource {
     /**
@@ -45,6 +45,14 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly administratorLoginPassword!: pulumi.Output<string | undefined>;
     /**
+     * The Azure Active Directory identity of the server.
+     */
+    public readonly administrators!: pulumi.Output<outputs.sql.ServerExternalAdministratorResponse | undefined>;
+    /**
+     * The resource id of a user assigned identity to be used to access the customer managed keyvault.
+     */
+    public readonly encryptionIdentityId!: pulumi.Output<string | undefined>;
+    /**
      * The fully qualified domain name of the server.
      */
     public /*out*/ readonly fullyQualifiedDomainName!: pulumi.Output<string>;
@@ -52,6 +60,10 @@ export class Server extends pulumi.CustomResource {
      * The Azure Active Directory identity of the server.
      */
     public readonly identity!: pulumi.Output<outputs.sql.ResourceIdentityResponse | undefined>;
+    /**
+     * A CMK URI of the key to use for encryption.
+     */
+    public readonly keyId!: pulumi.Output<string | undefined>;
     /**
      * Kind of sql server. This is metadata used for the Azure portal experience.
      */
@@ -113,7 +125,10 @@ export class Server extends pulumi.CustomResource {
             }
             inputs["administratorLogin"] = args ? args.administratorLogin : undefined;
             inputs["administratorLoginPassword"] = args ? args.administratorLoginPassword : undefined;
+            inputs["administrators"] = args ? args.administrators : undefined;
+            inputs["encryptionIdentityId"] = args ? args.encryptionIdentityId : undefined;
             inputs["identity"] = args ? args.identity : undefined;
+            inputs["keyId"] = args ? args.keyId : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["minimalTlsVersion"] = args ? args.minimalTlsVersion : undefined;
             inputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
@@ -131,8 +146,11 @@ export class Server extends pulumi.CustomResource {
         } else {
             inputs["administratorLogin"] = undefined /*out*/;
             inputs["administratorLoginPassword"] = undefined /*out*/;
+            inputs["administrators"] = undefined /*out*/;
+            inputs["encryptionIdentityId"] = undefined /*out*/;
             inputs["fullyQualifiedDomainName"] = undefined /*out*/;
             inputs["identity"] = undefined /*out*/;
+            inputs["keyId"] = undefined /*out*/;
             inputs["kind"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["minimalTlsVersion"] = undefined /*out*/;
@@ -169,7 +187,19 @@ export interface ServerArgs {
     /**
      * The Azure Active Directory identity of the server.
      */
+    readonly administrators?: pulumi.Input<inputs.sql.ServerExternalAdministrator>;
+    /**
+     * The resource id of a user assigned identity to be used to access the customer managed keyvault.
+     */
+    readonly encryptionIdentityId?: pulumi.Input<string>;
+    /**
+     * The Azure Active Directory identity of the server.
+     */
     readonly identity?: pulumi.Input<inputs.sql.ResourceIdentity>;
+    /**
+     * A CMK URI of the key to use for encryption.
+     */
+    readonly keyId?: pulumi.Input<string>;
     /**
      * Resource location.
      */

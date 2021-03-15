@@ -8,7 +8,7 @@ import (
 )
 
 // A managed database resource.
-// API Version: 2020-08-01-preview.
+// API Version: 2020-11-01-preview.
 func LookupManagedDatabase(ctx *pulumi.Context, args *LookupManagedDatabaseArgs, opts ...pulumi.InvokeOption) (*LookupManagedDatabaseResult, error) {
 	var rv LookupManagedDatabaseResult
 	err := ctx.Invoke("azure-native:sql:getManagedDatabase", args, &rv, opts...)

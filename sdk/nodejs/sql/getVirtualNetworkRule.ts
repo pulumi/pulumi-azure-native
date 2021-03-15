@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A virtual network rule.
- * API Version: 2020-08-01-preview.
+ * API Version: 2020-11-01-preview.
  */
 export function getVirtualNetworkRule(args: GetVirtualNetworkRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkRuleResult> {
     if (!opts) {

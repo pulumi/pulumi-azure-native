@@ -218,7 +218,7 @@ def get_sync_member(database_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSyncMemberResult:
     """
     An Azure SQL Database sync member.
-    API Version: 2020-08-01-preview.
+    API Version: 2020-11-01-preview.
 
 
     :param str database_name: The name of the database on which the sync group is hosted.

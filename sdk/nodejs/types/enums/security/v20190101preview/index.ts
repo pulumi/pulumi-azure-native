@@ -95,14 +95,41 @@ export const ImplementationEffort = {
 export type ImplementationEffort = (typeof ImplementationEffort)[keyof typeof ImplementationEffort];
 
 export const Operator = {
+    /**
+     * Applies for decimal and non-decimal operands
+     */
     Equals: "Equals",
+    /**
+     * Applies only for decimal operands
+     */
     GreaterThan: "GreaterThan",
+    /**
+     * Applies only for decimal operands
+     */
     GreaterThanOrEqualTo: "GreaterThanOrEqualTo",
+    /**
+     * Applies only for decimal operands
+     */
     LesserThan: "LesserThan",
+    /**
+     * Applies only for decimal operands
+     */
     LesserThanOrEqualTo: "LesserThanOrEqualTo",
+    /**
+     * Applies  for decimal and non-decimal operands
+     */
     NotEquals: "NotEquals",
+    /**
+     * Applies only for non-decimal operands
+     */
     Contains: "Contains",
+    /**
+     * Applies only for non-decimal operands
+     */
     StartsWith: "StartsWith",
+    /**
+     * Applies only for non-decimal operands
+     */
     EndsWith: "EndsWith",
 } as const;
 

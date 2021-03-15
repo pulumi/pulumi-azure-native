@@ -79,11 +79,11 @@ def get_monitor_default_key(monitor_name: Optional[str] = None,
                             resource_group_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMonitorDefaultKeyResult:
     """
-    API Version: 2020-02-01-preview.
+    API Version: 2021-03-01.
 
 
     :param str monitor_name: Monitor resource name
-    :param str resource_group_name: The name of the resource group to which the Datadog resource belongs.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['monitorName'] = monitor_name

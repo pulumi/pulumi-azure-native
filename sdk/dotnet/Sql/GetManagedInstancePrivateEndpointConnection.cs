@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Sql
     {
         /// <summary>
         /// A private endpoint connection
-        /// API Version: 2020-08-01-preview.
+        /// API Version: 2020-11-01-preview.
         /// </summary>
         public static Task<GetManagedInstancePrivateEndpointConnectionResult> InvokeAsync(GetManagedInstancePrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetManagedInstancePrivateEndpointConnectionResult>("azure-native:sql:getManagedInstancePrivateEndpointConnection", args ?? new GetManagedInstancePrivateEndpointConnectionArgs(), options.WithVersion());

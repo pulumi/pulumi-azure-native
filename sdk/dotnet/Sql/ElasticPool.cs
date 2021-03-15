@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Sql
 {
     /// <summary>
     /// An elastic pool.
-    /// API Version: 2020-08-01-preview.
+    /// API Version: 2020-11-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:ElasticPool")]
     public partial class ElasticPool : Pulumi.CustomResource

@@ -414,7 +414,7 @@ def get_managed_instance(managed_instance_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagedInstanceResult:
     """
     An Azure SQL managed instance.
-    API Version: 2020-08-01-preview.
+    API Version: 2020-11-01-preview.
 
 
     :param str managed_instance_name: The name of the managed instance.

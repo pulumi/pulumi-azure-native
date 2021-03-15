@@ -8,7 +8,7 @@ import (
 )
 
 // An Azure SQL Database server.
-// API Version: 2020-08-01-preview.
+// API Version: 2020-11-01-preview.
 func LookupServer(ctx *pulumi.Context, args *LookupServerArgs, opts ...pulumi.InvokeOption) (*LookupServerResult, error) {
 	var rv LookupServerResult
 	err := ctx.Invoke("azure-native:sql:getServer", args, &rv, opts...)
@@ -19,6 +19,8 @@ func LookupServer(ctx *pulumi.Context, args *LookupServerArgs, opts ...pulumi.In
 }
 
 type LookupServerArgs struct {
+	// The child resources to include in the response.
+	Expand *string `pulumi:"expand"`
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the server.
@@ -31,12 +33,18 @@ type LookupServerResult struct {
 	AdministratorLogin *string `pulumi:"administratorLogin"`
 	// The administrator login password (required for server creation).
 	AdministratorLoginPassword *string `pulumi:"administratorLoginPassword"`
+	// The Azure Active Directory identity of the server.
+	Administrators *ServerExternalAdministratorResponse `pulumi:"administrators"`
+	// The resource id of a user assigned identity to be used to access the customer managed keyvault.
+	EncryptionIdentityId *string `pulumi:"encryptionIdentityId"`
 	// The fully qualified domain name of the server.
 	FullyQualifiedDomainName string `pulumi:"fullyQualifiedDomainName"`
 	// Resource ID.
 	Id string `pulumi:"id"`
 	// The Azure Active Directory identity of the server.
 	Identity *ResourceIdentityResponse `pulumi:"identity"`
+	// A CMK URI of the key to use for encryption.
+	KeyId *string `pulumi:"keyId"`
 	// Kind of sql server. This is metadata used for the Azure portal experience.
 	Kind string `pulumi:"kind"`
 	// Resource location.

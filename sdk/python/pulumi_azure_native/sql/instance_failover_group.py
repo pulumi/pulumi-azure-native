@@ -30,7 +30,7 @@ class InstanceFailoverGroup(pulumi.CustomResource):
                  __opts__=None):
         """
         An instance failover group.
-        API Version: 2020-08-01-preview.
+        API Version: 2020-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

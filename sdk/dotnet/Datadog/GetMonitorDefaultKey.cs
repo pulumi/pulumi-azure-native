@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Datadog
     {
         /// <summary>
         /// 
-        /// API Version: 2020-02-01-preview.
+        /// API Version: 2021-03-01.
         /// </summary>
         public static Task<GetMonitorDefaultKeyResult> InvokeAsync(GetMonitorDefaultKeyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMonitorDefaultKeyResult>("azure-native:datadog:getMonitorDefaultKey", args ?? new GetMonitorDefaultKeyArgs(), options.WithVersion());
@@ -29,7 +29,7 @@ namespace Pulumi.AzureNative.Datadog
         public string MonitorName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group to which the Datadog resource belongs.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;

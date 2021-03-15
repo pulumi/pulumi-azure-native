@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Sql
     {
         /// <summary>
         /// An Azure SQL Database server.
-        /// API Version: 2020-08-01-preview.
+        /// API Version: 2020-11-01-preview.
         /// </summary>
         public static Task<GetServerResult> InvokeAsync(GetServerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServerResult>("azure-native:sql:getServer", args ?? new GetServerArgs(), options.WithVersion());
@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Sql
 
     public sealed class GetServerArgs : Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The child resources to include in the response.
+        /// </summary>
+        [Input("expand")]
+        public string? Expand { get; set; }
+
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         /// </summary>
@@ -52,6 +58,14 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         public readonly string? AdministratorLoginPassword;
         /// <summary>
+        /// The Azure Active Directory identity of the server.
+        /// </summary>
+        public readonly Outputs.ServerExternalAdministratorResponse? Administrators;
+        /// <summary>
+        /// The resource id of a user assigned identity to be used to access the customer managed keyvault.
+        /// </summary>
+        public readonly string? EncryptionIdentityId;
+        /// <summary>
         /// The fully qualified domain name of the server.
         /// </summary>
         public readonly string FullyQualifiedDomainName;
@@ -63,6 +77,10 @@ namespace Pulumi.AzureNative.Sql
         /// The Azure Active Directory identity of the server.
         /// </summary>
         public readonly Outputs.ResourceIdentityResponse? Identity;
+        /// <summary>
+        /// A CMK URI of the key to use for encryption.
+        /// </summary>
+        public readonly string? KeyId;
         /// <summary>
         /// Kind of sql server. This is metadata used for the Azure portal experience.
         /// </summary>
@@ -114,11 +132,17 @@ namespace Pulumi.AzureNative.Sql
 
             string? administratorLoginPassword,
 
+            Outputs.ServerExternalAdministratorResponse? administrators,
+
+            string? encryptionIdentityId,
+
             string fullyQualifiedDomainName,
 
             string id,
 
             Outputs.ResourceIdentityResponse? identity,
+
+            string? keyId,
 
             string kind,
 
@@ -144,9 +168,12 @@ namespace Pulumi.AzureNative.Sql
         {
             AdministratorLogin = administratorLogin;
             AdministratorLoginPassword = administratorLoginPassword;
+            Administrators = administrators;
+            EncryptionIdentityId = encryptionIdentityId;
             FullyQualifiedDomainName = fullyQualifiedDomainName;
             Id = id;
             Identity = identity;
+            KeyId = keyId;
             Kind = kind;
             Location = location;
             MinimalTlsVersion = minimalTlsVersion;

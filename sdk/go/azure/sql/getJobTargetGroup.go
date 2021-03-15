@@ -8,7 +8,7 @@ import (
 )
 
 // A group of job targets.
-// API Version: 2020-08-01-preview.
+// API Version: 2020-11-01-preview.
 func LookupJobTargetGroup(ctx *pulumi.Context, args *LookupJobTargetGroupArgs, opts ...pulumi.InvokeOption) (*LookupJobTargetGroupResult, error) {
 	var rv LookupJobTargetGroupResult
 	err := ctx.Invoke("azure-native:sql:getJobTargetGroup", args, &rv, opts...)

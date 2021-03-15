@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * An Azure SQL managed instance administrator.
- * API Version: 2020-08-01-preview.
+ * API Version: 2020-11-01-preview.
  */
 export function getManagedInstanceAdministrator(args: GetManagedInstanceAdministratorArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedInstanceAdministratorResult> {
     if (!opts) {

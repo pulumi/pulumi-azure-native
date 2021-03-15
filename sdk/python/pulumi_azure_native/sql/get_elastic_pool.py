@@ -211,7 +211,7 @@ def get_elastic_pool(elastic_pool_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetElasticPoolResult:
     """
     An elastic pool.
-    API Version: 2020-08-01-preview.
+    API Version: 2020-11-01-preview.
 
 
     :param str elastic_pool_name: The name of the elastic pool.

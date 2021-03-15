@@ -6,7 +6,7 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * API Version: 2020-02-01-preview.
+ * API Version: 2021-03-01.
  */
 export class Monitor extends pulumi.CustomResource {
     /**
@@ -46,6 +46,10 @@ export class Monitor extends pulumi.CustomResource {
      */
     public readonly properties!: pulumi.Output<outputs.datadog.MonitorPropertiesResponse>;
     public readonly sku!: pulumi.Output<outputs.datadog.ResourceSkuResponse | undefined>;
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.datadog.SystemDataResponse>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the monitor resource.
@@ -74,6 +78,7 @@ export class Monitor extends pulumi.CustomResource {
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["name"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["identity"] = undefined /*out*/;
@@ -81,13 +86,14 @@ export class Monitor extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["properties"] = undefined /*out*/;
             inputs["sku"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:datadog:Monitor" }, { type: "azure-native:datadog/v20200201preview:Monitor" }, { type: "azure-nextgen:datadog/v20200201preview:Monitor" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:datadog:Monitor" }, { type: "azure-native:datadog/latest:Monitor" }, { type: "azure-nextgen:datadog/latest:Monitor" }, { type: "azure-native:datadog/v20200201preview:Monitor" }, { type: "azure-nextgen:datadog/v20200201preview:Monitor" }, { type: "azure-native:datadog/v20210301:Monitor" }, { type: "azure-nextgen:datadog/v20210301:Monitor" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Monitor.__pulumiType, name, inputs, opts);
     }
@@ -108,7 +114,7 @@ export interface MonitorArgs {
      */
     readonly properties?: pulumi.Input<inputs.datadog.MonitorProperties>;
     /**
-     * The name of the resource group to which the Datadog resource belongs.
+     * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     readonly sku?: pulumi.Input<inputs.datadog.ResourceSku>;

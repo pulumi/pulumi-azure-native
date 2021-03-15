@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A class representing a CommunicationService resource.
- * API Version: 2020-08-20-preview.
+ * API Version: 2020-08-20.
  */
 export function getCommunicationService(args: GetCommunicationServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetCommunicationServiceResult> {
     if (!opts) {
@@ -29,7 +29,7 @@ export interface GetCommunicationServiceArgs {
      */
     readonly communicationServiceName: string;
     /**
-     * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+     * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: string;
 }
@@ -47,7 +47,7 @@ export interface GetCommunicationServiceResult {
      */
     readonly hostName: string;
     /**
-     * Fully qualified resource ID for the resource.
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
@@ -59,7 +59,7 @@ export interface GetCommunicationServiceResult {
      */
     readonly location?: string;
     /**
-     * The name of the resource.
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -71,11 +71,15 @@ export interface GetCommunicationServiceResult {
      */
     readonly provisioningState: string;
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData: outputs.communication.SystemDataResponse;
+    /**
      * Tags of the service which is a list of key value pairs that describe the resource.
      */
     readonly tags?: {[key: string]: string};
     /**
-     * The type of the service - e.g. "Microsoft.Communication/CommunicationServices"
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
     /**

@@ -146,7 +146,7 @@ def get_workload_classifier(database_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkloadClassifierResult:
     """
     Workload classifier operations for a data warehouse
-    API Version: 2020-08-01-preview.
+    API Version: 2020-11-01-preview.
 
 
     :param str database_name: The name of the database.

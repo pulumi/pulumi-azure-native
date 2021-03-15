@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A database resource.
- * API Version: 2020-08-01-preview.
+ * API Version: 2020-11-01-preview.
  */
 export class Database extends pulumi.CustomResource {
     /**
@@ -72,6 +72,10 @@ export class Database extends pulumi.CustomResource {
      * The creation date of the database (ISO8601 format).
      */
     public /*out*/ readonly creationDate!: pulumi.Output<string>;
+    /**
+     * The storage account type used to store backups for this database.
+     */
+    public /*out*/ readonly currentBackupStorageRedundancy!: pulumi.Output<string>;
     /**
      * The current service level objective name of the database.
      */
@@ -161,6 +165,10 @@ export class Database extends pulumi.CustomResource {
      */
     public readonly recoveryServicesRecoveryPointId!: pulumi.Output<string | undefined>;
     /**
+     * The storage account type to be used to store backups for this database.
+     */
+    public readonly requestedBackupStorageRedundancy!: pulumi.Output<string | undefined>;
+    /**
      * The requested service level objective name of the database.
      */
     public /*out*/ readonly requestedServiceObjectiveName!: pulumi.Output<string>;
@@ -211,10 +219,6 @@ export class Database extends pulumi.CustomResource {
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
-     * The storage account type used to store backups for this database.
-     */
-    public readonly storageAccountType!: pulumi.Output<string | undefined>;
-    /**
      * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -260,6 +264,7 @@ export class Database extends pulumi.CustomResource {
             inputs["readScale"] = args ? args.readScale : undefined;
             inputs["recoverableDatabaseId"] = args ? args.recoverableDatabaseId : undefined;
             inputs["recoveryServicesRecoveryPointId"] = args ? args.recoveryServicesRecoveryPointId : undefined;
+            inputs["requestedBackupStorageRedundancy"] = args ? args.requestedBackupStorageRedundancy : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["restorableDroppedDatabaseId"] = args ? args.restorableDroppedDatabaseId : undefined;
             inputs["restorePointInTime"] = args ? args.restorePointInTime : undefined;
@@ -269,10 +274,10 @@ export class Database extends pulumi.CustomResource {
             inputs["sku"] = args ? args.sku : undefined;
             inputs["sourceDatabaseDeletionDate"] = args ? args.sourceDatabaseDeletionDate : undefined;
             inputs["sourceDatabaseId"] = args ? args.sourceDatabaseId : undefined;
-            inputs["storageAccountType"] = args ? args.storageAccountType : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["zoneRedundant"] = args ? args.zoneRedundant : undefined;
             inputs["creationDate"] = undefined /*out*/;
+            inputs["currentBackupStorageRedundancy"] = undefined /*out*/;
             inputs["currentServiceObjectiveName"] = undefined /*out*/;
             inputs["currentSku"] = undefined /*out*/;
             inputs["databaseId"] = undefined /*out*/;
@@ -294,6 +299,7 @@ export class Database extends pulumi.CustomResource {
             inputs["collation"] = undefined /*out*/;
             inputs["createMode"] = undefined /*out*/;
             inputs["creationDate"] = undefined /*out*/;
+            inputs["currentBackupStorageRedundancy"] = undefined /*out*/;
             inputs["currentServiceObjectiveName"] = undefined /*out*/;
             inputs["currentSku"] = undefined /*out*/;
             inputs["databaseId"] = undefined /*out*/;
@@ -316,6 +322,7 @@ export class Database extends pulumi.CustomResource {
             inputs["readScale"] = undefined /*out*/;
             inputs["recoverableDatabaseId"] = undefined /*out*/;
             inputs["recoveryServicesRecoveryPointId"] = undefined /*out*/;
+            inputs["requestedBackupStorageRedundancy"] = undefined /*out*/;
             inputs["requestedServiceObjectiveName"] = undefined /*out*/;
             inputs["restorableDroppedDatabaseId"] = undefined /*out*/;
             inputs["restorePointInTime"] = undefined /*out*/;
@@ -326,7 +333,6 @@ export class Database extends pulumi.CustomResource {
             inputs["sourceDatabaseDeletionDate"] = undefined /*out*/;
             inputs["sourceDatabaseId"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
-            inputs["storageAccountType"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["zoneRedundant"] = undefined /*out*/;
@@ -425,6 +431,10 @@ export interface DatabaseArgs {
      */
     readonly recoveryServicesRecoveryPointId?: pulumi.Input<string>;
     /**
+     * The storage account type to be used to store backups for this database.
+     */
+    readonly requestedBackupStorageRedundancy?: pulumi.Input<string | enums.sql.RequestedBackupStorageRedundancy>;
+    /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
     readonly resourceGroupName: pulumi.Input<string>;
@@ -470,10 +480,6 @@ export interface DatabaseArgs {
      * The resource identifier of the source database associated with create operation of this database.
      */
     readonly sourceDatabaseId?: pulumi.Input<string>;
-    /**
-     * The storage account type used to store backups for this database.
-     */
-    readonly storageAccountType?: pulumi.Input<string | enums.sql.StorageAccountType>;
     /**
      * Resource tags.
      */

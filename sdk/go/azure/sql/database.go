@@ -12,7 +12,7 @@ import (
 )
 
 // A database resource.
-// API Version: 2020-08-01-preview.
+// API Version: 2020-11-01-preview.
 type Database struct {
 	pulumi.CustomResourceState
 
@@ -42,6 +42,8 @@ type Database struct {
 	CreateMode pulumi.StringPtrOutput `pulumi:"createMode"`
 	// The creation date of the database (ISO8601 format).
 	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
+	// The storage account type used to store backups for this database.
+	CurrentBackupStorageRedundancy pulumi.StringOutput `pulumi:"currentBackupStorageRedundancy"`
 	// The current service level objective name of the database.
 	CurrentServiceObjectiveName pulumi.StringOutput `pulumi:"currentServiceObjectiveName"`
 	// The name and tier of the SKU.
@@ -86,6 +88,8 @@ type Database struct {
 	RecoverableDatabaseId pulumi.StringPtrOutput `pulumi:"recoverableDatabaseId"`
 	// The resource identifier of the recovery point associated with create operation of this database.
 	RecoveryServicesRecoveryPointId pulumi.StringPtrOutput `pulumi:"recoveryServicesRecoveryPointId"`
+	// The storage account type to be used to store backups for this database.
+	RequestedBackupStorageRedundancy pulumi.StringPtrOutput `pulumi:"requestedBackupStorageRedundancy"`
 	// The requested service level objective name of the database.
 	RequestedServiceObjectiveName pulumi.StringOutput `pulumi:"requestedServiceObjectiveName"`
 	// The resource identifier of the restorable dropped database associated with create operation of this database.
@@ -108,8 +112,6 @@ type Database struct {
 	SourceDatabaseId pulumi.StringPtrOutput `pulumi:"sourceDatabaseId"`
 	// The status of the database.
 	Status pulumi.StringOutput `pulumi:"status"`
-	// The storage account type used to store backups for this database.
-	StorageAccountType pulumi.StringPtrOutput `pulumi:"storageAccountType"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type.
@@ -233,6 +235,8 @@ type databaseState struct {
 	CreateMode *string `pulumi:"createMode"`
 	// The creation date of the database (ISO8601 format).
 	CreationDate *string `pulumi:"creationDate"`
+	// The storage account type used to store backups for this database.
+	CurrentBackupStorageRedundancy *string `pulumi:"currentBackupStorageRedundancy"`
 	// The current service level objective name of the database.
 	CurrentServiceObjectiveName *string `pulumi:"currentServiceObjectiveName"`
 	// The name and tier of the SKU.
@@ -277,6 +281,8 @@ type databaseState struct {
 	RecoverableDatabaseId *string `pulumi:"recoverableDatabaseId"`
 	// The resource identifier of the recovery point associated with create operation of this database.
 	RecoveryServicesRecoveryPointId *string `pulumi:"recoveryServicesRecoveryPointId"`
+	// The storage account type to be used to store backups for this database.
+	RequestedBackupStorageRedundancy *string `pulumi:"requestedBackupStorageRedundancy"`
 	// The requested service level objective name of the database.
 	RequestedServiceObjectiveName *string `pulumi:"requestedServiceObjectiveName"`
 	// The resource identifier of the restorable dropped database associated with create operation of this database.
@@ -299,8 +305,6 @@ type databaseState struct {
 	SourceDatabaseId *string `pulumi:"sourceDatabaseId"`
 	// The status of the database.
 	Status *string `pulumi:"status"`
-	// The storage account type used to store backups for this database.
-	StorageAccountType *string `pulumi:"storageAccountType"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
@@ -336,6 +340,8 @@ type DatabaseState struct {
 	CreateMode pulumi.StringPtrInput
 	// The creation date of the database (ISO8601 format).
 	CreationDate pulumi.StringPtrInput
+	// The storage account type used to store backups for this database.
+	CurrentBackupStorageRedundancy pulumi.StringPtrInput
 	// The current service level objective name of the database.
 	CurrentServiceObjectiveName pulumi.StringPtrInput
 	// The name and tier of the SKU.
@@ -380,6 +386,8 @@ type DatabaseState struct {
 	RecoverableDatabaseId pulumi.StringPtrInput
 	// The resource identifier of the recovery point associated with create operation of this database.
 	RecoveryServicesRecoveryPointId pulumi.StringPtrInput
+	// The storage account type to be used to store backups for this database.
+	RequestedBackupStorageRedundancy pulumi.StringPtrInput
 	// The requested service level objective name of the database.
 	RequestedServiceObjectiveName pulumi.StringPtrInput
 	// The resource identifier of the restorable dropped database associated with create operation of this database.
@@ -402,8 +410,6 @@ type DatabaseState struct {
 	SourceDatabaseId pulumi.StringPtrInput
 	// The status of the database.
 	Status pulumi.StringPtrInput
-	// The storage account type used to store backups for this database.
-	StorageAccountType pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// Resource type.
@@ -465,6 +471,8 @@ type databaseArgs struct {
 	RecoverableDatabaseId *string `pulumi:"recoverableDatabaseId"`
 	// The resource identifier of the recovery point associated with create operation of this database.
 	RecoveryServicesRecoveryPointId *string `pulumi:"recoveryServicesRecoveryPointId"`
+	// The storage account type to be used to store backups for this database.
+	RequestedBackupStorageRedundancy *string `pulumi:"requestedBackupStorageRedundancy"`
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The resource identifier of the restorable dropped database associated with create operation of this database.
@@ -485,8 +493,6 @@ type databaseArgs struct {
 	SourceDatabaseDeletionDate *string `pulumi:"sourceDatabaseDeletionDate"`
 	// The resource identifier of the source database associated with create operation of this database.
 	SourceDatabaseId *string `pulumi:"sourceDatabaseId"`
-	// The storage account type used to store backups for this database.
-	StorageAccountType *string `pulumi:"storageAccountType"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
@@ -543,6 +549,8 @@ type DatabaseArgs struct {
 	RecoverableDatabaseId pulumi.StringPtrInput
 	// The resource identifier of the recovery point associated with create operation of this database.
 	RecoveryServicesRecoveryPointId pulumi.StringPtrInput
+	// The storage account type to be used to store backups for this database.
+	RequestedBackupStorageRedundancy pulumi.StringPtrInput
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName pulumi.StringInput
 	// The resource identifier of the restorable dropped database associated with create operation of this database.
@@ -563,8 +571,6 @@ type DatabaseArgs struct {
 	SourceDatabaseDeletionDate pulumi.StringPtrInput
 	// The resource identifier of the source database associated with create operation of this database.
 	SourceDatabaseId pulumi.StringPtrInput
-	// The storage account type used to store backups for this database.
-	StorageAccountType pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones.

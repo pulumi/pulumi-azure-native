@@ -8,7 +8,7 @@ import (
 )
 
 // Response of a list operation.
-// API Version: 2020-02-01-preview.
+// API Version: 2021-03-01.
 func ListMonitorHosts(ctx *pulumi.Context, args *ListMonitorHostsArgs, opts ...pulumi.InvokeOption) (*ListMonitorHostsResult, error) {
 	var rv ListMonitorHostsResult
 	err := ctx.Invoke("azure-native:datadog:listMonitorHosts", args, &rv, opts...)
@@ -21,7 +21,7 @@ func ListMonitorHosts(ctx *pulumi.Context, args *ListMonitorHostsArgs, opts ...p
 type ListMonitorHostsArgs struct {
 	// Monitor resource name
 	MonitorName string `pulumi:"monitorName"`
-	// The name of the resource group to which the Datadog resource belongs.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 

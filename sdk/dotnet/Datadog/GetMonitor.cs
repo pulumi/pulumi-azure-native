@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Datadog
     {
         /// <summary>
         /// 
-        /// API Version: 2020-02-01-preview.
+        /// API Version: 2021-03-01.
         /// </summary>
         public static Task<GetMonitorResult> InvokeAsync(GetMonitorArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMonitorResult>("azure-native:datadog:getMonitor", args ?? new GetMonitorArgs(), options.WithVersion());
@@ -29,7 +29,7 @@ namespace Pulumi.AzureNative.Datadog
         public string MonitorName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group to which the Datadog resource belongs.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -58,6 +58,10 @@ namespace Pulumi.AzureNative.Datadog
         /// </summary>
         public readonly Outputs.MonitorPropertiesResponse Properties;
         public readonly Outputs.ResourceSkuResponse? Sku;
+        /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// The type of the monitor resource.
@@ -78,6 +82,8 @@ namespace Pulumi.AzureNative.Datadog
 
             Outputs.ResourceSkuResponse? sku,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string type)
@@ -88,6 +94,7 @@ namespace Pulumi.AzureNative.Datadog
             Name = name;
             Properties = properties;
             Sku = sku;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
         }

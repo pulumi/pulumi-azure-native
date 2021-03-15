@@ -20,13 +20,19 @@ class GetServerResult:
     """
     An Azure SQL Database server.
     """
-    def __init__(__self__, administrator_login=None, administrator_login_password=None, fully_qualified_domain_name=None, id=None, identity=None, kind=None, location=None, minimal_tls_version=None, name=None, private_endpoint_connections=None, public_network_access=None, state=None, tags=None, type=None, version=None, workspace_feature=None):
+    def __init__(__self__, administrator_login=None, administrator_login_password=None, administrators=None, encryption_identity_id=None, fully_qualified_domain_name=None, id=None, identity=None, key_id=None, kind=None, location=None, minimal_tls_version=None, name=None, private_endpoint_connections=None, public_network_access=None, state=None, tags=None, type=None, version=None, workspace_feature=None):
         if administrator_login and not isinstance(administrator_login, str):
             raise TypeError("Expected argument 'administrator_login' to be a str")
         pulumi.set(__self__, "administrator_login", administrator_login)
         if administrator_login_password and not isinstance(administrator_login_password, str):
             raise TypeError("Expected argument 'administrator_login_password' to be a str")
         pulumi.set(__self__, "administrator_login_password", administrator_login_password)
+        if administrators and not isinstance(administrators, dict):
+            raise TypeError("Expected argument 'administrators' to be a dict")
+        pulumi.set(__self__, "administrators", administrators)
+        if encryption_identity_id and not isinstance(encryption_identity_id, str):
+            raise TypeError("Expected argument 'encryption_identity_id' to be a str")
+        pulumi.set(__self__, "encryption_identity_id", encryption_identity_id)
         if fully_qualified_domain_name and not isinstance(fully_qualified_domain_name, str):
             raise TypeError("Expected argument 'fully_qualified_domain_name' to be a str")
         pulumi.set(__self__, "fully_qualified_domain_name", fully_qualified_domain_name)
@@ -36,6 +42,9 @@ class GetServerResult:
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
+        if key_id and not isinstance(key_id, str):
+            raise TypeError("Expected argument 'key_id' to be a str")
+        pulumi.set(__self__, "key_id", key_id)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
@@ -87,6 +96,22 @@ class GetServerResult:
         return pulumi.get(self, "administrator_login_password")
 
     @property
+    @pulumi.getter
+    def administrators(self) -> Optional['outputs.ServerExternalAdministratorResponse']:
+        """
+        The Azure Active Directory identity of the server.
+        """
+        return pulumi.get(self, "administrators")
+
+    @property
+    @pulumi.getter(name="encryptionIdentityId")
+    def encryption_identity_id(self) -> Optional[str]:
+        """
+        The resource id of a user assigned identity to be used to access the customer managed keyvault.
+        """
+        return pulumi.get(self, "encryption_identity_id")
+
+    @property
     @pulumi.getter(name="fullyQualifiedDomainName")
     def fully_qualified_domain_name(self) -> str:
         """
@@ -109,6 +134,14 @@ class GetServerResult:
         The Azure Active Directory identity of the server.
         """
         return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter(name="keyId")
+    def key_id(self) -> Optional[str]:
+        """
+        A CMK URI of the key to use for encryption.
+        """
+        return pulumi.get(self, "key_id")
 
     @property
     @pulumi.getter
@@ -207,9 +240,12 @@ class AwaitableGetServerResult(GetServerResult):
         return GetServerResult(
             administrator_login=self.administrator_login,
             administrator_login_password=self.administrator_login_password,
+            administrators=self.administrators,
+            encryption_identity_id=self.encryption_identity_id,
             fully_qualified_domain_name=self.fully_qualified_domain_name,
             id=self.id,
             identity=self.identity,
+            key_id=self.key_id,
             kind=self.kind,
             location=self.location,
             minimal_tls_version=self.minimal_tls_version,
@@ -223,18 +259,21 @@ class AwaitableGetServerResult(GetServerResult):
             workspace_feature=self.workspace_feature)
 
 
-def get_server(resource_group_name: Optional[str] = None,
+def get_server(expand: Optional[str] = None,
+               resource_group_name: Optional[str] = None,
                server_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerResult:
     """
     An Azure SQL Database server.
-    API Version: 2020-08-01-preview.
+    API Version: 2020-11-01-preview.
 
 
+    :param str expand: The child resources to include in the response.
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str server_name: The name of the server.
     """
     __args__ = dict()
+    __args__['expand'] = expand
     __args__['resourceGroupName'] = resource_group_name
     __args__['serverName'] = server_name
     if opts is None:
@@ -246,9 +285,12 @@ def get_server(resource_group_name: Optional[str] = None,
     return AwaitableGetServerResult(
         administrator_login=__ret__.administrator_login,
         administrator_login_password=__ret__.administrator_login_password,
+        administrators=__ret__.administrators,
+        encryption_identity_id=__ret__.encryption_identity_id,
         fully_qualified_domain_name=__ret__.fully_qualified_domain_name,
         id=__ret__.id,
         identity=__ret__.identity,
+        key_id=__ret__.key_id,
         kind=__ret__.kind,
         location=__ret__.location,
         minimal_tls_version=__ret__.minimal_tls_version,

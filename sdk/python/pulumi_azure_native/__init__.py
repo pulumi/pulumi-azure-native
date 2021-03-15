@@ -101,6 +101,7 @@ from . import (
     kusto,
     labservices,
     logic,
+    logz,
     machinelearning,
     machinelearningcompute,
     machinelearningexperimentation,

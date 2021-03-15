@@ -97,7 +97,7 @@ def get_server_trust_group(location_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerTrustGroupResult:
     """
     A server trust group.
-    API Version: 2020-08-01-preview.
+    API Version: 2020-11-01-preview.
 
 
     :param str location_name: The name of the region where the resource is located.

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Azure Active Directory only authentication.
- * API Version: 2020-08-01-preview.
+ * API Version: 2020-11-01-preview.
  */
 export function getServerAzureADOnlyAuthentication(args: GetServerAzureADOnlyAuthenticationArgs, opts?: pulumi.InvokeOptions): Promise<GetServerAzureADOnlyAuthenticationResult> {
     if (!opts) {

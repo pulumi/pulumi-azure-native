@@ -2,11 +2,12 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
  * A class representing a CommunicationService resource.
- * API Version: 2020-08-20-preview.
+ * API Version: 2020-08-20.
  */
 export class CommunicationService extends pulumi.CustomResource {
     /**
@@ -52,7 +53,7 @@ export class CommunicationService extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string | undefined>;
     /**
-     * The name of the resource.
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -64,11 +65,15 @@ export class CommunicationService extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.communication.SystemDataResponse>;
+    /**
      * Tags of the service which is a list of key value pairs that describe the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The type of the service - e.g. "Microsoft.Communication/CommunicationServices"
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
@@ -103,6 +108,7 @@ export class CommunicationService extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["notificationHubId"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["version"] = undefined /*out*/;
         } else {
@@ -113,6 +119,7 @@ export class CommunicationService extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["notificationHubId"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["version"] = undefined /*out*/;
@@ -120,7 +127,7 @@ export class CommunicationService extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:communication:CommunicationService" }, { type: "azure-native:communication/v20200820preview:CommunicationService" }, { type: "azure-nextgen:communication/v20200820preview:CommunicationService" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:communication:CommunicationService" }, { type: "azure-native:communication/latest:CommunicationService" }, { type: "azure-nextgen:communication/latest:CommunicationService" }, { type: "azure-native:communication/v20200820:CommunicationService" }, { type: "azure-nextgen:communication/v20200820:CommunicationService" }, { type: "azure-native:communication/v20200820preview:CommunicationService" }, { type: "azure-nextgen:communication/v20200820preview:CommunicationService" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CommunicationService.__pulumiType, name, inputs, opts);
     }
@@ -143,7 +150,7 @@ export interface CommunicationServiceArgs {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+     * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**

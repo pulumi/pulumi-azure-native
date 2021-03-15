@@ -267,6 +267,17 @@ export const ManagedServerCreateMode = {
  */
 export type ManagedServerCreateMode = (typeof ManagedServerCreateMode)[keyof typeof ManagedServerCreateMode];
 
+export const PrincipalType = {
+    User: "User",
+    Group: "Group",
+    Application: "Application",
+} as const;
+
+/**
+ * Principal Type of the sever administrator.
+ */
+export type PrincipalType = (typeof PrincipalType)[keyof typeof PrincipalType];
+
 export const PrivateLinkServiceConnectionStateStatus = {
     Approved: "Approved",
     Pending: "Pending",
@@ -298,6 +309,17 @@ export const ReadWriteEndpointFailoverPolicy = {
  * Failover policy of the read-write endpoint for the failover group. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
  */
 export type ReadWriteEndpointFailoverPolicy = (typeof ReadWriteEndpointFailoverPolicy)[keyof typeof ReadWriteEndpointFailoverPolicy];
+
+export const RequestedBackupStorageRedundancy = {
+    Geo: "Geo",
+    Local: "Local",
+    Zone: "Zone",
+} as const;
+
+/**
+ * The storage account type to be used to store backups for this database.
+ */
+export type RequestedBackupStorageRedundancy = (typeof RequestedBackupStorageRedundancy)[keyof typeof RequestedBackupStorageRedundancy];
 
 export const SampleName = {
     AdventureWorksLT: "AdventureWorksLT",

@@ -36,8 +36,8 @@ namespace Pulumi.AzureNative.NetApp.Inputs
         /// <summary>
         ///  If enabled, NFS client local users can also (in addition to LDAP users) access the NFS volumes.
         /// </summary>
-        [Input("allowLocalNfsFSUsersWithLdap")]
-        public Input<bool>? AllowLocalNfsFSUsersWithLdap { get; set; }
+        [Input("allowLocalNfsUsersWithLdap")]
+        public Input<bool>? AllowLocalNfsUsersWithLdap { get; set; }
 
         [Input("backupOperators")]
         private InputList<string>? _backupOperators;

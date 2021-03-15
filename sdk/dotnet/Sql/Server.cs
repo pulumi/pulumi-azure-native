@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Sql
 {
     /// <summary>
     /// An Azure SQL Database server.
-    /// API Version: 2020-08-01-preview.
+    /// API Version: 2020-11-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:Server")]
     public partial class Server : Pulumi.CustomResource
@@ -29,6 +29,18 @@ namespace Pulumi.AzureNative.Sql
         public Output<string?> AdministratorLoginPassword { get; private set; } = null!;
 
         /// <summary>
+        /// The Azure Active Directory identity of the server.
+        /// </summary>
+        [Output("administrators")]
+        public Output<Outputs.ServerExternalAdministratorResponse?> Administrators { get; private set; } = null!;
+
+        /// <summary>
+        /// The resource id of a user assigned identity to be used to access the customer managed keyvault.
+        /// </summary>
+        [Output("encryptionIdentityId")]
+        public Output<string?> EncryptionIdentityId { get; private set; } = null!;
+
+        /// <summary>
         /// The fully qualified domain name of the server.
         /// </summary>
         [Output("fullyQualifiedDomainName")]
@@ -39,6 +51,12 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         [Output("identity")]
         public Output<Outputs.ResourceIdentityResponse?> Identity { get; private set; } = null!;
+
+        /// <summary>
+        /// A CMK URI of the key to use for encryption.
+        /// </summary>
+        [Output("keyId")]
+        public Output<string?> KeyId { get; private set; } = null!;
 
         /// <summary>
         /// Kind of sql server. This is metadata used for the Azure portal experience.
@@ -184,8 +202,26 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// The Azure Active Directory identity of the server.
         /// </summary>
+        [Input("administrators")]
+        public Input<Inputs.ServerExternalAdministratorArgs>? Administrators { get; set; }
+
+        /// <summary>
+        /// The resource id of a user assigned identity to be used to access the customer managed keyvault.
+        /// </summary>
+        [Input("encryptionIdentityId")]
+        public Input<string>? EncryptionIdentityId { get; set; }
+
+        /// <summary>
+        /// The Azure Active Directory identity of the server.
+        /// </summary>
         [Input("identity")]
         public Input<Inputs.ResourceIdentityArgs>? Identity { get; set; }
+
+        /// <summary>
+        /// A CMK URI of the key to use for encryption.
+        /// </summary>
+        [Input("keyId")]
+        public Input<string>? KeyId { get; set; }
 
         /// <summary>
         /// Resource location.

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A managed database resource.
- * API Version: 2020-08-01-preview.
+ * API Version: 2020-11-01-preview.
  */
 export function getManagedDatabase(args: GetManagedDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedDatabaseResult> {
     if (!opts) {

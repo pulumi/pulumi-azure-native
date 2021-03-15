@@ -156,7 +156,7 @@ def get_server_key(key_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerKeyResult:
     """
     A server key.
-    API Version: 2020-08-01-preview.
+    API Version: 2020-11-01-preview.
 
 
     :param str key_name: The name of the server key to be retrieved.

@@ -8,7 +8,7 @@ import (
 )
 
 // A database resource.
-// API Version: 2020-08-01-preview.
+// API Version: 2020-11-01-preview.
 func LookupDatabase(ctx *pulumi.Context, args *LookupDatabaseArgs, opts ...pulumi.InvokeOption) (*LookupDatabaseResult, error) {
 	var rv LookupDatabaseResult
 	err := ctx.Invoke("azure-native:sql:getDatabase", args, &rv, opts...)
@@ -55,6 +55,8 @@ type LookupDatabaseResult struct {
 	CreateMode *string `pulumi:"createMode"`
 	// The creation date of the database (ISO8601 format).
 	CreationDate string `pulumi:"creationDate"`
+	// The storage account type used to store backups for this database.
+	CurrentBackupStorageRedundancy string `pulumi:"currentBackupStorageRedundancy"`
 	// The current service level objective name of the database.
 	CurrentServiceObjectiveName string `pulumi:"currentServiceObjectiveName"`
 	// The name and tier of the SKU.
@@ -101,6 +103,8 @@ type LookupDatabaseResult struct {
 	RecoverableDatabaseId *string `pulumi:"recoverableDatabaseId"`
 	// The resource identifier of the recovery point associated with create operation of this database.
 	RecoveryServicesRecoveryPointId *string `pulumi:"recoveryServicesRecoveryPointId"`
+	// The storage account type to be used to store backups for this database.
+	RequestedBackupStorageRedundancy *string `pulumi:"requestedBackupStorageRedundancy"`
 	// The requested service level objective name of the database.
 	RequestedServiceObjectiveName string `pulumi:"requestedServiceObjectiveName"`
 	// The resource identifier of the restorable dropped database associated with create operation of this database.
@@ -123,8 +127,6 @@ type LookupDatabaseResult struct {
 	SourceDatabaseId *string `pulumi:"sourceDatabaseId"`
 	// The status of the database.
 	Status string `pulumi:"status"`
-	// The storage account type used to store backups for this database.
-	StorageAccountType *string `pulumi:"storageAccountType"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.

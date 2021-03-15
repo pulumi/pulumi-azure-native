@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A class representing the access keys of a CommunicationService.
- * API Version: 2020-08-20-preview.
+ * API Version: 2020-08-20.
  */
 export function listCommunicationServiceKeys(args: ListCommunicationServiceKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListCommunicationServiceKeysResult> {
     if (!opts) {
@@ -29,7 +29,7 @@ export interface ListCommunicationServiceKeysArgs {
      */
     readonly communicationServiceName: string;
     /**
-     * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+     * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: string;
 }

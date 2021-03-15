@@ -86,7 +86,7 @@ def get_job_target_group(job_agent_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetJobTargetGroupResult:
     """
     A group of job targets.
-    API Version: 2020-08-01-preview.
+    API Version: 2020-11-01-preview.
 
 
     :param str job_agent_name: The name of the job agent.

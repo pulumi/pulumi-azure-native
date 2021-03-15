@@ -407,15 +407,24 @@ func (e MinimalSeverity) ToStringPtrOutputWithContext(ctx context.Context) pulum
 type Operator pulumi.String
 
 const (
-	OperatorEquals               = Operator("Equals")
-	OperatorGreaterThan          = Operator("GreaterThan")
+	// Applies for decimal and non-decimal operands
+	OperatorEquals = Operator("Equals")
+	// Applies only for decimal operands
+	OperatorGreaterThan = Operator("GreaterThan")
+	// Applies only for decimal operands
 	OperatorGreaterThanOrEqualTo = Operator("GreaterThanOrEqualTo")
-	OperatorLesserThan           = Operator("LesserThan")
-	OperatorLesserThanOrEqualTo  = Operator("LesserThanOrEqualTo")
-	OperatorNotEquals            = Operator("NotEquals")
-	OperatorContains             = Operator("Contains")
-	OperatorStartsWith           = Operator("StartsWith")
-	OperatorEndsWith             = Operator("EndsWith")
+	// Applies only for decimal operands
+	OperatorLesserThan = Operator("LesserThan")
+	// Applies only for decimal operands
+	OperatorLesserThanOrEqualTo = Operator("LesserThanOrEqualTo")
+	// Applies  for decimal and non-decimal operands
+	OperatorNotEquals = Operator("NotEquals")
+	// Applies only for non-decimal operands
+	OperatorContains = Operator("Contains")
+	// Applies only for non-decimal operands
+	OperatorStartsWith = Operator("StartsWith")
+	// Applies only for non-decimal operands
+	OperatorEndsWith = Operator("EndsWith")
 )
 
 func (Operator) ElementType() reflect.Type {

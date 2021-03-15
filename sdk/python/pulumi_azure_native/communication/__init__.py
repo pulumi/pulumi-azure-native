@@ -6,9 +6,12 @@
 from .communication_service import *
 from .get_communication_service import *
 from .list_communication_service_keys import *
+from . import outputs
 
 # Make subpackages available:
 from . import (
+    latest,
+    v20200820,
     v20200820preview,
 )
 

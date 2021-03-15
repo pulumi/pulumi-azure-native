@@ -96,7 +96,7 @@ def get_firewall_rule(firewall_rule_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFirewallRuleResult:
     """
     A server firewall rule.
-    API Version: 2020-08-01-preview.
+    API Version: 2020-11-01-preview.
 
 
     :param str firewall_rule_name: The name of the firewall rule.

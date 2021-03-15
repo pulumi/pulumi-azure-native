@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Datadog
 {
     /// <summary>
-    /// API Version: 2020-02-01-preview.
+    /// API Version: 2021-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:datadog:Monitor")]
     public partial class Monitor : Pulumi.CustomResource
@@ -35,6 +35,12 @@ namespace Pulumi.AzureNative.Datadog
 
         [Output("sku")]
         public Output<Outputs.ResourceSkuResponse?> Sku { get; private set; } = null!;
+
+        /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -71,8 +77,12 @@ namespace Pulumi.AzureNative.Datadog
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:datadog:Monitor"},
+                    new Pulumi.Alias { Type = "azure-native:datadog/latest:Monitor"},
+                    new Pulumi.Alias { Type = "azure-nextgen:datadog/latest:Monitor"},
                     new Pulumi.Alias { Type = "azure-native:datadog/v20200201preview:Monitor"},
                     new Pulumi.Alias { Type = "azure-nextgen:datadog/v20200201preview:Monitor"},
+                    new Pulumi.Alias { Type = "azure-native:datadog/v20210301:Monitor"},
+                    new Pulumi.Alias { Type = "azure-nextgen:datadog/v20210301:Monitor"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -115,7 +125,7 @@ namespace Pulumi.AzureNative.Datadog
         public Input<Inputs.MonitorPropertiesArgs>? Properties { get; set; }
 
         /// <summary>
-        /// The name of the resource group to which the Datadog resource belongs.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

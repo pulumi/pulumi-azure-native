@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Sql
     {
         /// <summary>
         /// A failover group.
-        /// API Version: 2020-08-01-preview.
+        /// API Version: 2020-11-01-preview.
         /// </summary>
         public static Task<GetFailoverGroupResult> InvokeAsync(GetFailoverGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFailoverGroupResult>("azure-native:sql:getFailoverGroup", args ?? new GetFailoverGroupArgs(), options.WithVersion());

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Sql
 {
     /// <summary>
     /// A database resource.
-    /// API Version: 2020-08-01-preview.
+    /// API Version: 2020-11-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:Database")]
     public partial class Database : Pulumi.CustomResource
@@ -61,6 +61,12 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         [Output("creationDate")]
         public Output<string> CreationDate { get; private set; } = null!;
+
+        /// <summary>
+        /// The storage account type used to store backups for this database.
+        /// </summary>
+        [Output("currentBackupStorageRedundancy")]
+        public Output<string> CurrentBackupStorageRedundancy { get; private set; } = null!;
 
         /// <summary>
         /// The current service level objective name of the database.
@@ -195,6 +201,12 @@ namespace Pulumi.AzureNative.Sql
         public Output<string?> RecoveryServicesRecoveryPointId { get; private set; } = null!;
 
         /// <summary>
+        /// The storage account type to be used to store backups for this database.
+        /// </summary>
+        [Output("requestedBackupStorageRedundancy")]
+        public Output<string?> RequestedBackupStorageRedundancy { get; private set; } = null!;
+
+        /// <summary>
         /// The requested service level objective name of the database.
         /// </summary>
         [Output("requestedServiceObjectiveName")]
@@ -263,12 +275,6 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
-
-        /// <summary>
-        /// The storage account type used to store backups for this database.
-        /// </summary>
-        [Output("storageAccountType")]
-        public Output<string?> StorageAccountType { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -466,6 +472,12 @@ namespace Pulumi.AzureNative.Sql
         public Input<string>? RecoveryServicesRecoveryPointId { get; set; }
 
         /// <summary>
+        /// The storage account type to be used to store backups for this database.
+        /// </summary>
+        [Input("requestedBackupStorageRedundancy")]
+        public InputUnion<string, Pulumi.AzureNative.Sql.RequestedBackupStorageRedundancy>? RequestedBackupStorageRedundancy { get; set; }
+
+        /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -528,12 +540,6 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         [Input("sourceDatabaseId")]
         public Input<string>? SourceDatabaseId { get; set; }
-
-        /// <summary>
-        /// The storage account type used to store backups for this database.
-        /// </summary>
-        [Input("storageAccountType")]
-        public InputUnion<string, Pulumi.AzureNative.Sql.StorageAccountType>? StorageAccountType { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

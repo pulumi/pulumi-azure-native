@@ -182,7 +182,7 @@ def get_database_security_alert_policy(database_name: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatabaseSecurityAlertPolicyResult:
     """
     A database security alert policy.
-    API Version: 2020-08-01-preview.
+    API Version: 2020-11-01-preview.
 
 
     :param str database_name: The name of the  database for which the security alert policy is defined.

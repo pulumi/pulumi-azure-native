@@ -8,7 +8,7 @@ import (
 )
 
 // A class representing the access keys of a CommunicationService.
-// API Version: 2020-08-20-preview.
+// API Version: 2020-08-20.
 func ListCommunicationServiceKeys(ctx *pulumi.Context, args *ListCommunicationServiceKeysArgs, opts ...pulumi.InvokeOption) (*ListCommunicationServiceKeysResult, error) {
 	var rv ListCommunicationServiceKeysResult
 	err := ctx.Invoke("azure-native:communication:listCommunicationServiceKeys", args, &rv, opts...)
@@ -21,7 +21,7 @@ func ListCommunicationServiceKeys(ctx *pulumi.Context, args *ListCommunicationSe
 type ListCommunicationServiceKeysArgs struct {
 	// The name of the CommunicationService resource.
 	CommunicationServiceName string `pulumi:"communicationServiceName"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 

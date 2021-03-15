@@ -6086,6 +6086,464 @@ func (o ResourceIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Properties of a active directory administrator.
+type ServerExternalAdministrator struct {
+	// Type of the sever administrator.
+	AdministratorType *string `pulumi:"administratorType"`
+	// Azure Active Directory only Authentication enabled.
+	AzureADOnlyAuthentication *bool `pulumi:"azureADOnlyAuthentication"`
+	// Login name of the server administrator.
+	Login *string `pulumi:"login"`
+	// Principal Type of the sever administrator.
+	PrincipalType *string `pulumi:"principalType"`
+	// SID (object ID) of the server administrator.
+	Sid *string `pulumi:"sid"`
+	// Tenant ID of the administrator.
+	TenantId *string `pulumi:"tenantId"`
+}
+
+// ServerExternalAdministratorInput is an input type that accepts ServerExternalAdministratorArgs and ServerExternalAdministratorOutput values.
+// You can construct a concrete instance of `ServerExternalAdministratorInput` via:
+//
+//          ServerExternalAdministratorArgs{...}
+type ServerExternalAdministratorInput interface {
+	pulumi.Input
+
+	ToServerExternalAdministratorOutput() ServerExternalAdministratorOutput
+	ToServerExternalAdministratorOutputWithContext(context.Context) ServerExternalAdministratorOutput
+}
+
+// Properties of a active directory administrator.
+type ServerExternalAdministratorArgs struct {
+	// Type of the sever administrator.
+	AdministratorType pulumi.StringPtrInput `pulumi:"administratorType"`
+	// Azure Active Directory only Authentication enabled.
+	AzureADOnlyAuthentication pulumi.BoolPtrInput `pulumi:"azureADOnlyAuthentication"`
+	// Login name of the server administrator.
+	Login pulumi.StringPtrInput `pulumi:"login"`
+	// Principal Type of the sever administrator.
+	PrincipalType pulumi.StringPtrInput `pulumi:"principalType"`
+	// SID (object ID) of the server administrator.
+	Sid pulumi.StringPtrInput `pulumi:"sid"`
+	// Tenant ID of the administrator.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+}
+
+func (ServerExternalAdministratorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerExternalAdministrator)(nil)).Elem()
+}
+
+func (i ServerExternalAdministratorArgs) ToServerExternalAdministratorOutput() ServerExternalAdministratorOutput {
+	return i.ToServerExternalAdministratorOutputWithContext(context.Background())
+}
+
+func (i ServerExternalAdministratorArgs) ToServerExternalAdministratorOutputWithContext(ctx context.Context) ServerExternalAdministratorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerExternalAdministratorOutput)
+}
+
+func (i ServerExternalAdministratorArgs) ToServerExternalAdministratorPtrOutput() ServerExternalAdministratorPtrOutput {
+	return i.ToServerExternalAdministratorPtrOutputWithContext(context.Background())
+}
+
+func (i ServerExternalAdministratorArgs) ToServerExternalAdministratorPtrOutputWithContext(ctx context.Context) ServerExternalAdministratorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerExternalAdministratorOutput).ToServerExternalAdministratorPtrOutputWithContext(ctx)
+}
+
+// ServerExternalAdministratorPtrInput is an input type that accepts ServerExternalAdministratorArgs, ServerExternalAdministratorPtr and ServerExternalAdministratorPtrOutput values.
+// You can construct a concrete instance of `ServerExternalAdministratorPtrInput` via:
+//
+//          ServerExternalAdministratorArgs{...}
+//
+//  or:
+//
+//          nil
+type ServerExternalAdministratorPtrInput interface {
+	pulumi.Input
+
+	ToServerExternalAdministratorPtrOutput() ServerExternalAdministratorPtrOutput
+	ToServerExternalAdministratorPtrOutputWithContext(context.Context) ServerExternalAdministratorPtrOutput
+}
+
+type serverExternalAdministratorPtrType ServerExternalAdministratorArgs
+
+func ServerExternalAdministratorPtr(v *ServerExternalAdministratorArgs) ServerExternalAdministratorPtrInput {
+	return (*serverExternalAdministratorPtrType)(v)
+}
+
+func (*serverExternalAdministratorPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerExternalAdministrator)(nil)).Elem()
+}
+
+func (i *serverExternalAdministratorPtrType) ToServerExternalAdministratorPtrOutput() ServerExternalAdministratorPtrOutput {
+	return i.ToServerExternalAdministratorPtrOutputWithContext(context.Background())
+}
+
+func (i *serverExternalAdministratorPtrType) ToServerExternalAdministratorPtrOutputWithContext(ctx context.Context) ServerExternalAdministratorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerExternalAdministratorPtrOutput)
+}
+
+// Properties of a active directory administrator.
+type ServerExternalAdministratorOutput struct{ *pulumi.OutputState }
+
+func (ServerExternalAdministratorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerExternalAdministrator)(nil)).Elem()
+}
+
+func (o ServerExternalAdministratorOutput) ToServerExternalAdministratorOutput() ServerExternalAdministratorOutput {
+	return o
+}
+
+func (o ServerExternalAdministratorOutput) ToServerExternalAdministratorOutputWithContext(ctx context.Context) ServerExternalAdministratorOutput {
+	return o
+}
+
+func (o ServerExternalAdministratorOutput) ToServerExternalAdministratorPtrOutput() ServerExternalAdministratorPtrOutput {
+	return o.ToServerExternalAdministratorPtrOutputWithContext(context.Background())
+}
+
+func (o ServerExternalAdministratorOutput) ToServerExternalAdministratorPtrOutputWithContext(ctx context.Context) ServerExternalAdministratorPtrOutput {
+	return o.ApplyT(func(v ServerExternalAdministrator) *ServerExternalAdministrator {
+		return &v
+	}).(ServerExternalAdministratorPtrOutput)
+}
+
+// Type of the sever administrator.
+func (o ServerExternalAdministratorOutput) AdministratorType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerExternalAdministrator) *string { return v.AdministratorType }).(pulumi.StringPtrOutput)
+}
+
+// Azure Active Directory only Authentication enabled.
+func (o ServerExternalAdministratorOutput) AzureADOnlyAuthentication() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ServerExternalAdministrator) *bool { return v.AzureADOnlyAuthentication }).(pulumi.BoolPtrOutput)
+}
+
+// Login name of the server administrator.
+func (o ServerExternalAdministratorOutput) Login() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerExternalAdministrator) *string { return v.Login }).(pulumi.StringPtrOutput)
+}
+
+// Principal Type of the sever administrator.
+func (o ServerExternalAdministratorOutput) PrincipalType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerExternalAdministrator) *string { return v.PrincipalType }).(pulumi.StringPtrOutput)
+}
+
+// SID (object ID) of the server administrator.
+func (o ServerExternalAdministratorOutput) Sid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerExternalAdministrator) *string { return v.Sid }).(pulumi.StringPtrOutput)
+}
+
+// Tenant ID of the administrator.
+func (o ServerExternalAdministratorOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerExternalAdministrator) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+type ServerExternalAdministratorPtrOutput struct{ *pulumi.OutputState }
+
+func (ServerExternalAdministratorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerExternalAdministrator)(nil)).Elem()
+}
+
+func (o ServerExternalAdministratorPtrOutput) ToServerExternalAdministratorPtrOutput() ServerExternalAdministratorPtrOutput {
+	return o
+}
+
+func (o ServerExternalAdministratorPtrOutput) ToServerExternalAdministratorPtrOutputWithContext(ctx context.Context) ServerExternalAdministratorPtrOutput {
+	return o
+}
+
+func (o ServerExternalAdministratorPtrOutput) Elem() ServerExternalAdministratorOutput {
+	return o.ApplyT(func(v *ServerExternalAdministrator) ServerExternalAdministrator { return *v }).(ServerExternalAdministratorOutput)
+}
+
+// Type of the sever administrator.
+func (o ServerExternalAdministratorPtrOutput) AdministratorType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerExternalAdministrator) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AdministratorType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Azure Active Directory only Authentication enabled.
+func (o ServerExternalAdministratorPtrOutput) AzureADOnlyAuthentication() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ServerExternalAdministrator) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AzureADOnlyAuthentication
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Login name of the server administrator.
+func (o ServerExternalAdministratorPtrOutput) Login() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerExternalAdministrator) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Login
+	}).(pulumi.StringPtrOutput)
+}
+
+// Principal Type of the sever administrator.
+func (o ServerExternalAdministratorPtrOutput) PrincipalType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerExternalAdministrator) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrincipalType
+	}).(pulumi.StringPtrOutput)
+}
+
+// SID (object ID) of the server administrator.
+func (o ServerExternalAdministratorPtrOutput) Sid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerExternalAdministrator) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Sid
+	}).(pulumi.StringPtrOutput)
+}
+
+// Tenant ID of the administrator.
+func (o ServerExternalAdministratorPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerExternalAdministrator) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Properties of a active directory administrator.
+type ServerExternalAdministratorResponse struct {
+	// Type of the sever administrator.
+	AdministratorType *string `pulumi:"administratorType"`
+	// Azure Active Directory only Authentication enabled.
+	AzureADOnlyAuthentication *bool `pulumi:"azureADOnlyAuthentication"`
+	// Login name of the server administrator.
+	Login *string `pulumi:"login"`
+	// Principal Type of the sever administrator.
+	PrincipalType *string `pulumi:"principalType"`
+	// SID (object ID) of the server administrator.
+	Sid *string `pulumi:"sid"`
+	// Tenant ID of the administrator.
+	TenantId *string `pulumi:"tenantId"`
+}
+
+// ServerExternalAdministratorResponseInput is an input type that accepts ServerExternalAdministratorResponseArgs and ServerExternalAdministratorResponseOutput values.
+// You can construct a concrete instance of `ServerExternalAdministratorResponseInput` via:
+//
+//          ServerExternalAdministratorResponseArgs{...}
+type ServerExternalAdministratorResponseInput interface {
+	pulumi.Input
+
+	ToServerExternalAdministratorResponseOutput() ServerExternalAdministratorResponseOutput
+	ToServerExternalAdministratorResponseOutputWithContext(context.Context) ServerExternalAdministratorResponseOutput
+}
+
+// Properties of a active directory administrator.
+type ServerExternalAdministratorResponseArgs struct {
+	// Type of the sever administrator.
+	AdministratorType pulumi.StringPtrInput `pulumi:"administratorType"`
+	// Azure Active Directory only Authentication enabled.
+	AzureADOnlyAuthentication pulumi.BoolPtrInput `pulumi:"azureADOnlyAuthentication"`
+	// Login name of the server administrator.
+	Login pulumi.StringPtrInput `pulumi:"login"`
+	// Principal Type of the sever administrator.
+	PrincipalType pulumi.StringPtrInput `pulumi:"principalType"`
+	// SID (object ID) of the server administrator.
+	Sid pulumi.StringPtrInput `pulumi:"sid"`
+	// Tenant ID of the administrator.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+}
+
+func (ServerExternalAdministratorResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerExternalAdministratorResponse)(nil)).Elem()
+}
+
+func (i ServerExternalAdministratorResponseArgs) ToServerExternalAdministratorResponseOutput() ServerExternalAdministratorResponseOutput {
+	return i.ToServerExternalAdministratorResponseOutputWithContext(context.Background())
+}
+
+func (i ServerExternalAdministratorResponseArgs) ToServerExternalAdministratorResponseOutputWithContext(ctx context.Context) ServerExternalAdministratorResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerExternalAdministratorResponseOutput)
+}
+
+func (i ServerExternalAdministratorResponseArgs) ToServerExternalAdministratorResponsePtrOutput() ServerExternalAdministratorResponsePtrOutput {
+	return i.ToServerExternalAdministratorResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ServerExternalAdministratorResponseArgs) ToServerExternalAdministratorResponsePtrOutputWithContext(ctx context.Context) ServerExternalAdministratorResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerExternalAdministratorResponseOutput).ToServerExternalAdministratorResponsePtrOutputWithContext(ctx)
+}
+
+// ServerExternalAdministratorResponsePtrInput is an input type that accepts ServerExternalAdministratorResponseArgs, ServerExternalAdministratorResponsePtr and ServerExternalAdministratorResponsePtrOutput values.
+// You can construct a concrete instance of `ServerExternalAdministratorResponsePtrInput` via:
+//
+//          ServerExternalAdministratorResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ServerExternalAdministratorResponsePtrInput interface {
+	pulumi.Input
+
+	ToServerExternalAdministratorResponsePtrOutput() ServerExternalAdministratorResponsePtrOutput
+	ToServerExternalAdministratorResponsePtrOutputWithContext(context.Context) ServerExternalAdministratorResponsePtrOutput
+}
+
+type serverExternalAdministratorResponsePtrType ServerExternalAdministratorResponseArgs
+
+func ServerExternalAdministratorResponsePtr(v *ServerExternalAdministratorResponseArgs) ServerExternalAdministratorResponsePtrInput {
+	return (*serverExternalAdministratorResponsePtrType)(v)
+}
+
+func (*serverExternalAdministratorResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerExternalAdministratorResponse)(nil)).Elem()
+}
+
+func (i *serverExternalAdministratorResponsePtrType) ToServerExternalAdministratorResponsePtrOutput() ServerExternalAdministratorResponsePtrOutput {
+	return i.ToServerExternalAdministratorResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *serverExternalAdministratorResponsePtrType) ToServerExternalAdministratorResponsePtrOutputWithContext(ctx context.Context) ServerExternalAdministratorResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerExternalAdministratorResponsePtrOutput)
+}
+
+// Properties of a active directory administrator.
+type ServerExternalAdministratorResponseOutput struct{ *pulumi.OutputState }
+
+func (ServerExternalAdministratorResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerExternalAdministratorResponse)(nil)).Elem()
+}
+
+func (o ServerExternalAdministratorResponseOutput) ToServerExternalAdministratorResponseOutput() ServerExternalAdministratorResponseOutput {
+	return o
+}
+
+func (o ServerExternalAdministratorResponseOutput) ToServerExternalAdministratorResponseOutputWithContext(ctx context.Context) ServerExternalAdministratorResponseOutput {
+	return o
+}
+
+func (o ServerExternalAdministratorResponseOutput) ToServerExternalAdministratorResponsePtrOutput() ServerExternalAdministratorResponsePtrOutput {
+	return o.ToServerExternalAdministratorResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ServerExternalAdministratorResponseOutput) ToServerExternalAdministratorResponsePtrOutputWithContext(ctx context.Context) ServerExternalAdministratorResponsePtrOutput {
+	return o.ApplyT(func(v ServerExternalAdministratorResponse) *ServerExternalAdministratorResponse {
+		return &v
+	}).(ServerExternalAdministratorResponsePtrOutput)
+}
+
+// Type of the sever administrator.
+func (o ServerExternalAdministratorResponseOutput) AdministratorType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerExternalAdministratorResponse) *string { return v.AdministratorType }).(pulumi.StringPtrOutput)
+}
+
+// Azure Active Directory only Authentication enabled.
+func (o ServerExternalAdministratorResponseOutput) AzureADOnlyAuthentication() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ServerExternalAdministratorResponse) *bool { return v.AzureADOnlyAuthentication }).(pulumi.BoolPtrOutput)
+}
+
+// Login name of the server administrator.
+func (o ServerExternalAdministratorResponseOutput) Login() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerExternalAdministratorResponse) *string { return v.Login }).(pulumi.StringPtrOutput)
+}
+
+// Principal Type of the sever administrator.
+func (o ServerExternalAdministratorResponseOutput) PrincipalType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerExternalAdministratorResponse) *string { return v.PrincipalType }).(pulumi.StringPtrOutput)
+}
+
+// SID (object ID) of the server administrator.
+func (o ServerExternalAdministratorResponseOutput) Sid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerExternalAdministratorResponse) *string { return v.Sid }).(pulumi.StringPtrOutput)
+}
+
+// Tenant ID of the administrator.
+func (o ServerExternalAdministratorResponseOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerExternalAdministratorResponse) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+type ServerExternalAdministratorResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ServerExternalAdministratorResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerExternalAdministratorResponse)(nil)).Elem()
+}
+
+func (o ServerExternalAdministratorResponsePtrOutput) ToServerExternalAdministratorResponsePtrOutput() ServerExternalAdministratorResponsePtrOutput {
+	return o
+}
+
+func (o ServerExternalAdministratorResponsePtrOutput) ToServerExternalAdministratorResponsePtrOutputWithContext(ctx context.Context) ServerExternalAdministratorResponsePtrOutput {
+	return o
+}
+
+func (o ServerExternalAdministratorResponsePtrOutput) Elem() ServerExternalAdministratorResponseOutput {
+	return o.ApplyT(func(v *ServerExternalAdministratorResponse) ServerExternalAdministratorResponse { return *v }).(ServerExternalAdministratorResponseOutput)
+}
+
+// Type of the sever administrator.
+func (o ServerExternalAdministratorResponsePtrOutput) AdministratorType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerExternalAdministratorResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AdministratorType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Azure Active Directory only Authentication enabled.
+func (o ServerExternalAdministratorResponsePtrOutput) AzureADOnlyAuthentication() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ServerExternalAdministratorResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AzureADOnlyAuthentication
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Login name of the server administrator.
+func (o ServerExternalAdministratorResponsePtrOutput) Login() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerExternalAdministratorResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Login
+	}).(pulumi.StringPtrOutput)
+}
+
+// Principal Type of the sever administrator.
+func (o ServerExternalAdministratorResponsePtrOutput) PrincipalType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerExternalAdministratorResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrincipalType
+	}).(pulumi.StringPtrOutput)
+}
+
+// SID (object ID) of the server administrator.
+func (o ServerExternalAdministratorResponsePtrOutput) Sid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerExternalAdministratorResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Sid
+	}).(pulumi.StringPtrOutput)
+}
+
+// Tenant ID of the administrator.
+func (o ServerExternalAdministratorResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerExternalAdministratorResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
 // Server info for the server trust group.
 type ServerInfo struct {
 	// Server Id.
@@ -8237,6 +8695,10 @@ func init() {
 	pulumi.RegisterOutputType(ResourceIdentityPtrOutput{})
 	pulumi.RegisterOutputType(ResourceIdentityResponseOutput{})
 	pulumi.RegisterOutputType(ResourceIdentityResponsePtrOutput{})
+	pulumi.RegisterOutputType(ServerExternalAdministratorOutput{})
+	pulumi.RegisterOutputType(ServerExternalAdministratorPtrOutput{})
+	pulumi.RegisterOutputType(ServerExternalAdministratorResponseOutput{})
+	pulumi.RegisterOutputType(ServerExternalAdministratorResponsePtrOutput{})
 	pulumi.RegisterOutputType(ServerInfoOutput{})
 	pulumi.RegisterOutputType(ServerInfoArrayOutput{})
 	pulumi.RegisterOutputType(ServerInfoResponseOutput{})

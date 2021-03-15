@@ -8,7 +8,7 @@ import (
 )
 
 // An Azure SQL Database sync member.
-// API Version: 2020-08-01-preview.
+// API Version: 2020-11-01-preview.
 func LookupSyncMember(ctx *pulumi.Context, args *LookupSyncMemberArgs, opts ...pulumi.InvokeOption) (*LookupSyncMemberResult, error) {
 	var rv LookupSyncMemberResult
 	err := ctx.Invoke("azure-native:sql:getSyncMember", args, &rv, opts...)

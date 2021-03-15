@@ -29,13 +29,13 @@ class Monitor(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
-        API Version: 2020-02-01-preview.
+        API Version: 2021-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] monitor_name: Monitor resource name
         :param pulumi.Input[pulumi.InputType['MonitorPropertiesArgs']] properties: Properties specific to the monitor resource.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group to which the Datadog resource belongs.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -64,8 +64,9 @@ class Monitor(pulumi.CustomResource):
             __props__['sku'] = sku
             __props__['tags'] = tags
             __props__['name'] = None
+            __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:datadog:Monitor"), pulumi.Alias(type_="azure-native:datadog/v20200201preview:Monitor"), pulumi.Alias(type_="azure-nextgen:datadog/v20200201preview:Monitor")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:datadog:Monitor"), pulumi.Alias(type_="azure-native:datadog/latest:Monitor"), pulumi.Alias(type_="azure-nextgen:datadog/latest:Monitor"), pulumi.Alias(type_="azure-native:datadog/v20200201preview:Monitor"), pulumi.Alias(type_="azure-nextgen:datadog/v20200201preview:Monitor"), pulumi.Alias(type_="azure-native:datadog/v20210301:Monitor"), pulumi.Alias(type_="azure-nextgen:datadog/v20210301:Monitor")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Monitor, __self__).__init__(
             'azure-native:datadog:Monitor',
@@ -94,6 +95,7 @@ class Monitor(pulumi.CustomResource):
         __props__["name"] = None
         __props__["properties"] = None
         __props__["sku"] = None
+        __props__["system_data"] = None
         __props__["tags"] = None
         __props__["type"] = None
         return Monitor(resource_name, opts=opts, __props__=__props__)
@@ -128,6 +130,14 @@ class Monitor(pulumi.CustomResource):
     @pulumi.getter
     def sku(self) -> pulumi.Output[Optional['outputs.ResourceSkuResponse']]:
         return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

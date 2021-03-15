@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Datadog
     {
         /// <summary>
         /// Response of a list operation.
-        /// API Version: 2020-02-01-preview.
+        /// API Version: 2021-03-01.
         /// </summary>
         public static Task<ListMonitorLinkedResourcesResult> InvokeAsync(ListMonitorLinkedResourcesArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListMonitorLinkedResourcesResult>("azure-native:datadog:listMonitorLinkedResources", args ?? new ListMonitorLinkedResourcesArgs(), options.WithVersion());
@@ -29,7 +29,7 @@ namespace Pulumi.AzureNative.Datadog
         public string MonitorName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group to which the Datadog resource belongs.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;

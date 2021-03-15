@@ -690,6 +690,38 @@ namespace Pulumi.AzureNative.Sql
     }
 
     /// <summary>
+    /// Principal Type of the sever administrator.
+    /// </summary>
+    [EnumType]
+    public readonly struct PrincipalType : IEquatable<PrincipalType>
+    {
+        private readonly string _value;
+
+        private PrincipalType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PrincipalType User { get; } = new PrincipalType("User");
+        public static PrincipalType Group { get; } = new PrincipalType("Group");
+        public static PrincipalType Application { get; } = new PrincipalType("Application");
+
+        public static bool operator ==(PrincipalType left, PrincipalType right) => left.Equals(right);
+        public static bool operator !=(PrincipalType left, PrincipalType right) => !left.Equals(right);
+
+        public static explicit operator string(PrincipalType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PrincipalType other && Equals(other);
+        public bool Equals(PrincipalType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The private link service connection status.
     /// </summary>
     [EnumType]
@@ -777,6 +809,38 @@ namespace Pulumi.AzureNative.Sql
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ReadWriteEndpointFailoverPolicy other && Equals(other);
         public bool Equals(ReadWriteEndpointFailoverPolicy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The storage account type to be used to store backups for this database.
+    /// </summary>
+    [EnumType]
+    public readonly struct RequestedBackupStorageRedundancy : IEquatable<RequestedBackupStorageRedundancy>
+    {
+        private readonly string _value;
+
+        private RequestedBackupStorageRedundancy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RequestedBackupStorageRedundancy Geo { get; } = new RequestedBackupStorageRedundancy("Geo");
+        public static RequestedBackupStorageRedundancy Local { get; } = new RequestedBackupStorageRedundancy("Local");
+        public static RequestedBackupStorageRedundancy Zone { get; } = new RequestedBackupStorageRedundancy("Zone");
+
+        public static bool operator ==(RequestedBackupStorageRedundancy left, RequestedBackupStorageRedundancy right) => left.Equals(right);
+        public static bool operator !=(RequestedBackupStorageRedundancy left, RequestedBackupStorageRedundancy right) => !left.Equals(right);
+
+        public static explicit operator string(RequestedBackupStorageRedundancy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RequestedBackupStorageRedundancy other && Equals(other);
+        public bool Equals(RequestedBackupStorageRedundancy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

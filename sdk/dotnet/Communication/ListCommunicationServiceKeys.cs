@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Communication
     {
         /// <summary>
         /// A class representing the access keys of a CommunicationService.
-        /// API Version: 2020-08-20-preview.
+        /// API Version: 2020-08-20.
         /// </summary>
         public static Task<ListCommunicationServiceKeysResult> InvokeAsync(ListCommunicationServiceKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListCommunicationServiceKeysResult>("azure-native:communication:listCommunicationServiceKeys", args ?? new ListCommunicationServiceKeysArgs(), options.WithVersion());
@@ -29,7 +29,7 @@ namespace Pulumi.AzureNative.Communication
         public string CommunicationServiceName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;

@@ -8,7 +8,7 @@ import (
 )
 
 // Response of a list operation.
-// API Version: 2020-02-01-preview.
+// API Version: 2021-03-01.
 func ListMonitorLinkedResources(ctx *pulumi.Context, args *ListMonitorLinkedResourcesArgs, opts ...pulumi.InvokeOption) (*ListMonitorLinkedResourcesResult, error) {
 	var rv ListMonitorLinkedResourcesResult
 	err := ctx.Invoke("azure-native:datadog:listMonitorLinkedResources", args, &rv, opts...)
@@ -21,7 +21,7 @@ func ListMonitorLinkedResources(ctx *pulumi.Context, args *ListMonitorLinkedReso
 type ListMonitorLinkedResourcesArgs struct {
 	// Monitor resource name
 	MonitorName string `pulumi:"monitorName"`
-	// The name of the resource group to which the Datadog resource belongs.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 

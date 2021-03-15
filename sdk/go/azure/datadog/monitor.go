@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// API Version: 2020-02-01-preview.
+// API Version: 2021-03-01.
 type Monitor struct {
 	pulumi.CustomResourceState
 
@@ -22,7 +22,9 @@ type Monitor struct {
 	// Properties specific to the monitor resource.
 	Properties MonitorPropertiesResponseOutput `pulumi:"properties"`
 	Sku        ResourceSkuResponsePtrOutput    `pulumi:"sku"`
-	Tags       pulumi.StringMapOutput          `pulumi:"tags"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
+	Tags       pulumi.StringMapOutput   `pulumi:"tags"`
 	// The type of the monitor resource.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -42,10 +44,22 @@ func NewMonitor(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:datadog:Monitor"),
 		},
 		{
+			Type: pulumi.String("azure-native:datadog/latest:Monitor"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:datadog/latest:Monitor"),
+		},
+		{
 			Type: pulumi.String("azure-native:datadog/v20200201preview:Monitor"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:datadog/v20200201preview:Monitor"),
+		},
+		{
+			Type: pulumi.String("azure-native:datadog/v20210301:Monitor"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:datadog/v20210301:Monitor"),
 		},
 	})
 	opts = append(opts, aliases)
@@ -78,7 +92,9 @@ type monitorState struct {
 	// Properties specific to the monitor resource.
 	Properties *MonitorPropertiesResponse `pulumi:"properties"`
 	Sku        *ResourceSkuResponse       `pulumi:"sku"`
-	Tags       map[string]string          `pulumi:"tags"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
+	Tags       map[string]string   `pulumi:"tags"`
 	// The type of the monitor resource.
 	Type *string `pulumi:"type"`
 }
@@ -91,6 +107,8 @@ type MonitorState struct {
 	// Properties specific to the monitor resource.
 	Properties MonitorPropertiesResponsePtrInput
 	Sku        ResourceSkuResponsePtrInput
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponsePtrInput
 	Tags       pulumi.StringMapInput
 	// The type of the monitor resource.
 	Type pulumi.StringPtrInput
@@ -107,7 +125,7 @@ type monitorArgs struct {
 	MonitorName *string `pulumi:"monitorName"`
 	// Properties specific to the monitor resource.
 	Properties *MonitorProperties `pulumi:"properties"`
-	// The name of the resource group to which the Datadog resource belongs.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string            `pulumi:"resourceGroupName"`
 	Sku               *ResourceSku      `pulumi:"sku"`
 	Tags              map[string]string `pulumi:"tags"`
@@ -121,7 +139,7 @@ type MonitorArgs struct {
 	MonitorName pulumi.StringPtrInput
 	// Properties specific to the monitor resource.
 	Properties MonitorPropertiesPtrInput
-	// The name of the resource group to which the Datadog resource belongs.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	Sku               ResourceSkuPtrInput
 	Tags              pulumi.StringMapInput

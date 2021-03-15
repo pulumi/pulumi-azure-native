@@ -12,7 +12,7 @@ import (
 )
 
 // An Azure SQL managed instance.
-// API Version: 2020-08-01-preview.
+// API Version: 2020-11-01-preview.
 type ManagedInstance struct {
 	pulumi.CustomResourceState
 

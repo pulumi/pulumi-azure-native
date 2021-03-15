@@ -8,7 +8,7 @@ import (
 )
 
 // A private endpoint connection
-// API Version: 2020-08-01-preview.
+// API Version: 2020-11-01-preview.
 func LookupPrivateEndpointConnection(ctx *pulumi.Context, args *LookupPrivateEndpointConnectionArgs, opts ...pulumi.InvokeOption) (*LookupPrivateEndpointConnectionResult, error) {
 	var rv LookupPrivateEndpointConnectionResult
 	err := ctx.Invoke("azure-native:sql:getPrivateEndpointConnection", args, &rv, opts...)

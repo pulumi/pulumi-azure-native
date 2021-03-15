@@ -12,7 +12,7 @@ import (
 )
 
 // A group of job targets.
-// API Version: 2020-08-01-preview.
+// API Version: 2020-11-01-preview.
 type JobTargetGroup struct {
 	pulumi.CustomResourceState
 

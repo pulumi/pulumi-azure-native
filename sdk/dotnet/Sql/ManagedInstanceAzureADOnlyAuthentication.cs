@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Sql
 {
     /// <summary>
     /// Azure Active Directory only authentication.
-    /// API Version: 2020-08-01-preview.
+    /// API Version: 2020-11-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:ManagedInstanceAzureADOnlyAuthentication")]
     public partial class ManagedInstanceAzureADOnlyAuthentication : Pulumi.CustomResource

@@ -102,6 +102,7 @@ import * as kubernetesconfiguration from "./kubernetesconfiguration";
 import * as kusto from "./kusto";
 import * as labservices from "./labservices";
 import * as logic from "./logic";
+import * as logz from "./logz";
 import * as machinelearning from "./machinelearning";
 import * as machinelearningcompute from "./machinelearningcompute";
 import * as machinelearningexperimentation from "./machinelearningexperimentation";
@@ -265,6 +266,7 @@ export {
     kusto,
     labservices,
     logic,
+    logz,
     machinelearning,
     machinelearningcompute,
     machinelearningexperimentation,

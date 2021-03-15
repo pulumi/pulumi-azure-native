@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * An Azure SQL Database server.
- * API Version: 2020-08-01-preview.
+ * API Version: 2020-11-01-preview.
  */
 export function getServer(args: GetServerArgs, opts?: pulumi.InvokeOptions): Promise<GetServerResult> {
     if (!opts) {
@@ -18,12 +18,17 @@ export function getServer(args: GetServerArgs, opts?: pulumi.InvokeOptions): Pro
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azure-native:sql:getServer", {
+        "expand": args.expand,
         "resourceGroupName": args.resourceGroupName,
         "serverName": args.serverName,
     }, opts);
 }
 
 export interface GetServerArgs {
+    /**
+     * The child resources to include in the response.
+     */
+    readonly expand?: string;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -47,6 +52,14 @@ export interface GetServerResult {
      */
     readonly administratorLoginPassword?: string;
     /**
+     * The Azure Active Directory identity of the server.
+     */
+    readonly administrators?: outputs.sql.ServerExternalAdministratorResponse;
+    /**
+     * The resource id of a user assigned identity to be used to access the customer managed keyvault.
+     */
+    readonly encryptionIdentityId?: string;
+    /**
      * The fully qualified domain name of the server.
      */
     readonly fullyQualifiedDomainName: string;
@@ -58,6 +71,10 @@ export interface GetServerResult {
      * The Azure Active Directory identity of the server.
      */
     readonly identity?: outputs.sql.ResourceIdentityResponse;
+    /**
+     * A CMK URI of the key to use for encryption.
+     */
+    readonly keyId?: string;
     /**
      * Kind of sql server. This is metadata used for the Azure portal experience.
      */

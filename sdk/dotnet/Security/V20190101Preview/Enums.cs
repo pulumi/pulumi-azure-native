@@ -238,14 +238,41 @@ namespace Pulumi.AzureNative.Security.V20190101Preview
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Applies for decimal and non-decimal operands
+        /// </summary>
         public static Operator EqualsValue { get; } = new Operator("Equals");
+        /// <summary>
+        /// Applies only for decimal operands
+        /// </summary>
         public static Operator GreaterThan { get; } = new Operator("GreaterThan");
+        /// <summary>
+        /// Applies only for decimal operands
+        /// </summary>
         public static Operator GreaterThanOrEqualTo { get; } = new Operator("GreaterThanOrEqualTo");
+        /// <summary>
+        /// Applies only for decimal operands
+        /// </summary>
         public static Operator LesserThan { get; } = new Operator("LesserThan");
+        /// <summary>
+        /// Applies only for decimal operands
+        /// </summary>
         public static Operator LesserThanOrEqualTo { get; } = new Operator("LesserThanOrEqualTo");
+        /// <summary>
+        /// Applies  for decimal and non-decimal operands
+        /// </summary>
         public static Operator NotEquals { get; } = new Operator("NotEquals");
+        /// <summary>
+        /// Applies only for non-decimal operands
+        /// </summary>
         public static Operator Contains { get; } = new Operator("Contains");
+        /// <summary>
+        /// Applies only for non-decimal operands
+        /// </summary>
         public static Operator StartsWith { get; } = new Operator("StartsWith");
+        /// <summary>
+        /// Applies only for non-decimal operands
+        /// </summary>
         public static Operator EndsWith { get; } = new Operator("EndsWith");
 
         public static bool operator ==(Operator left, Operator right) => left.Equals(right);

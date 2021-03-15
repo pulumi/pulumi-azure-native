@@ -7,7 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// API Version: 2020-02-01-preview.
+// API Version: 2021-03-01.
 func LookupMonitor(ctx *pulumi.Context, args *LookupMonitorArgs, opts ...pulumi.InvokeOption) (*LookupMonitorResult, error) {
 	var rv LookupMonitorResult
 	err := ctx.Invoke("azure-native:datadog:getMonitor", args, &rv, opts...)
@@ -20,7 +20,7 @@ func LookupMonitor(ctx *pulumi.Context, args *LookupMonitorArgs, opts ...pulumi.
 type LookupMonitorArgs struct {
 	// Monitor resource name
 	MonitorName string `pulumi:"monitorName"`
-	// The name of the resource group to which the Datadog resource belongs.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
@@ -34,7 +34,9 @@ type LookupMonitorResult struct {
 	// Properties specific to the monitor resource.
 	Properties MonitorPropertiesResponse `pulumi:"properties"`
 	Sku        *ResourceSkuResponse      `pulumi:"sku"`
-	Tags       map[string]string         `pulumi:"tags"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
+	Tags       map[string]string  `pulumi:"tags"`
 	// The type of the monitor resource.
 	Type string `pulumi:"type"`
 }

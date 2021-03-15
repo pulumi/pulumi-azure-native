@@ -20,7 +20,7 @@ class GetDatabaseResult:
     """
     A database resource.
     """
-    def __init__(__self__, auto_pause_delay=None, catalog_collation=None, collation=None, create_mode=None, creation_date=None, current_service_objective_name=None, current_sku=None, database_id=None, default_secondary_location=None, earliest_restore_date=None, elastic_pool_id=None, failover_group_id=None, high_availability_replica_count=None, id=None, kind=None, license_type=None, location=None, long_term_retention_backup_resource_id=None, maintenance_configuration_id=None, managed_by=None, max_log_size_bytes=None, max_size_bytes=None, min_capacity=None, name=None, paused_date=None, read_scale=None, recoverable_database_id=None, recovery_services_recovery_point_id=None, requested_service_objective_name=None, restorable_dropped_database_id=None, restore_point_in_time=None, resumed_date=None, sample_name=None, secondary_type=None, sku=None, source_database_deletion_date=None, source_database_id=None, status=None, storage_account_type=None, tags=None, type=None, zone_redundant=None):
+    def __init__(__self__, auto_pause_delay=None, catalog_collation=None, collation=None, create_mode=None, creation_date=None, current_backup_storage_redundancy=None, current_service_objective_name=None, current_sku=None, database_id=None, default_secondary_location=None, earliest_restore_date=None, elastic_pool_id=None, failover_group_id=None, high_availability_replica_count=None, id=None, kind=None, license_type=None, location=None, long_term_retention_backup_resource_id=None, maintenance_configuration_id=None, managed_by=None, max_log_size_bytes=None, max_size_bytes=None, min_capacity=None, name=None, paused_date=None, read_scale=None, recoverable_database_id=None, recovery_services_recovery_point_id=None, requested_backup_storage_redundancy=None, requested_service_objective_name=None, restorable_dropped_database_id=None, restore_point_in_time=None, resumed_date=None, sample_name=None, secondary_type=None, sku=None, source_database_deletion_date=None, source_database_id=None, status=None, tags=None, type=None, zone_redundant=None):
         if auto_pause_delay and not isinstance(auto_pause_delay, int):
             raise TypeError("Expected argument 'auto_pause_delay' to be a int")
         pulumi.set(__self__, "auto_pause_delay", auto_pause_delay)
@@ -36,6 +36,9 @@ class GetDatabaseResult:
         if creation_date and not isinstance(creation_date, str):
             raise TypeError("Expected argument 'creation_date' to be a str")
         pulumi.set(__self__, "creation_date", creation_date)
+        if current_backup_storage_redundancy and not isinstance(current_backup_storage_redundancy, str):
+            raise TypeError("Expected argument 'current_backup_storage_redundancy' to be a str")
+        pulumi.set(__self__, "current_backup_storage_redundancy", current_backup_storage_redundancy)
         if current_service_objective_name and not isinstance(current_service_objective_name, str):
             raise TypeError("Expected argument 'current_service_objective_name' to be a str")
         pulumi.set(__self__, "current_service_objective_name", current_service_objective_name)
@@ -105,6 +108,9 @@ class GetDatabaseResult:
         if recovery_services_recovery_point_id and not isinstance(recovery_services_recovery_point_id, str):
             raise TypeError("Expected argument 'recovery_services_recovery_point_id' to be a str")
         pulumi.set(__self__, "recovery_services_recovery_point_id", recovery_services_recovery_point_id)
+        if requested_backup_storage_redundancy and not isinstance(requested_backup_storage_redundancy, str):
+            raise TypeError("Expected argument 'requested_backup_storage_redundancy' to be a str")
+        pulumi.set(__self__, "requested_backup_storage_redundancy", requested_backup_storage_redundancy)
         if requested_service_objective_name and not isinstance(requested_service_objective_name, str):
             raise TypeError("Expected argument 'requested_service_objective_name' to be a str")
         pulumi.set(__self__, "requested_service_objective_name", requested_service_objective_name)
@@ -135,9 +141,6 @@ class GetDatabaseResult:
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
-        if storage_account_type and not isinstance(storage_account_type, str):
-            raise TypeError("Expected argument 'storage_account_type' to be a str")
-        pulumi.set(__self__, "storage_account_type", storage_account_type)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -203,6 +206,14 @@ class GetDatabaseResult:
         The creation date of the database (ISO8601 format).
         """
         return pulumi.get(self, "creation_date")
+
+    @property
+    @pulumi.getter(name="currentBackupStorageRedundancy")
+    def current_backup_storage_redundancy(self) -> str:
+        """
+        The storage account type used to store backups for this database.
+        """
+        return pulumi.get(self, "current_backup_storage_redundancy")
 
     @property
     @pulumi.getter(name="currentServiceObjectiveName")
@@ -389,6 +400,14 @@ class GetDatabaseResult:
         return pulumi.get(self, "recovery_services_recovery_point_id")
 
     @property
+    @pulumi.getter(name="requestedBackupStorageRedundancy")
+    def requested_backup_storage_redundancy(self) -> Optional[str]:
+        """
+        The storage account type to be used to store backups for this database.
+        """
+        return pulumi.get(self, "requested_backup_storage_redundancy")
+
+    @property
     @pulumi.getter(name="requestedServiceObjectiveName")
     def requested_service_objective_name(self) -> str:
         """
@@ -479,14 +498,6 @@ class GetDatabaseResult:
         return pulumi.get(self, "status")
 
     @property
-    @pulumi.getter(name="storageAccountType")
-    def storage_account_type(self) -> Optional[str]:
-        """
-        The storage account type used to store backups for this database.
-        """
-        return pulumi.get(self, "storage_account_type")
-
-    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
@@ -522,6 +533,7 @@ class AwaitableGetDatabaseResult(GetDatabaseResult):
             collation=self.collation,
             create_mode=self.create_mode,
             creation_date=self.creation_date,
+            current_backup_storage_redundancy=self.current_backup_storage_redundancy,
             current_service_objective_name=self.current_service_objective_name,
             current_sku=self.current_sku,
             database_id=self.database_id,
@@ -545,6 +557,7 @@ class AwaitableGetDatabaseResult(GetDatabaseResult):
             read_scale=self.read_scale,
             recoverable_database_id=self.recoverable_database_id,
             recovery_services_recovery_point_id=self.recovery_services_recovery_point_id,
+            requested_backup_storage_redundancy=self.requested_backup_storage_redundancy,
             requested_service_objective_name=self.requested_service_objective_name,
             restorable_dropped_database_id=self.restorable_dropped_database_id,
             restore_point_in_time=self.restore_point_in_time,
@@ -555,7 +568,6 @@ class AwaitableGetDatabaseResult(GetDatabaseResult):
             source_database_deletion_date=self.source_database_deletion_date,
             source_database_id=self.source_database_id,
             status=self.status,
-            storage_account_type=self.storage_account_type,
             tags=self.tags,
             type=self.type,
             zone_redundant=self.zone_redundant)
@@ -567,7 +579,7 @@ def get_database(database_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatabaseResult:
     """
     A database resource.
-    API Version: 2020-08-01-preview.
+    API Version: 2020-11-01-preview.
 
 
     :param str database_name: The name of the database.
@@ -590,6 +602,7 @@ def get_database(database_name: Optional[str] = None,
         collation=__ret__.collation,
         create_mode=__ret__.create_mode,
         creation_date=__ret__.creation_date,
+        current_backup_storage_redundancy=__ret__.current_backup_storage_redundancy,
         current_service_objective_name=__ret__.current_service_objective_name,
         current_sku=__ret__.current_sku,
         database_id=__ret__.database_id,
@@ -613,6 +626,7 @@ def get_database(database_name: Optional[str] = None,
         read_scale=__ret__.read_scale,
         recoverable_database_id=__ret__.recoverable_database_id,
         recovery_services_recovery_point_id=__ret__.recovery_services_recovery_point_id,
+        requested_backup_storage_redundancy=__ret__.requested_backup_storage_redundancy,
         requested_service_objective_name=__ret__.requested_service_objective_name,
         restorable_dropped_database_id=__ret__.restorable_dropped_database_id,
         restore_point_in_time=__ret__.restore_point_in_time,
@@ -623,7 +637,6 @@ def get_database(database_name: Optional[str] = None,
         source_database_deletion_date=__ret__.source_database_deletion_date,
         source_database_id=__ret__.source_database_id,
         status=__ret__.status,
-        storage_account_type=__ret__.storage_account_type,
         tags=__ret__.tags,
         type=__ret__.type,
         zone_redundant=__ret__.zone_redundant)

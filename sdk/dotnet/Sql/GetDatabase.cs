@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Sql
     {
         /// <summary>
         /// A database resource.
-        /// API Version: 2020-08-01-preview.
+        /// API Version: 2020-11-01-preview.
         /// </summary>
         public static Task<GetDatabaseResult> InvokeAsync(GetDatabaseArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseResult>("azure-native:sql:getDatabase", args ?? new GetDatabaseArgs(), options.WithVersion());
@@ -85,6 +85,10 @@ namespace Pulumi.AzureNative.Sql
         /// The creation date of the database (ISO8601 format).
         /// </summary>
         public readonly string CreationDate;
+        /// <summary>
+        /// The storage account type used to store backups for this database.
+        /// </summary>
+        public readonly string CurrentBackupStorageRedundancy;
         /// <summary>
         /// The current service level objective name of the database.
         /// </summary>
@@ -178,6 +182,10 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         public readonly string? RecoveryServicesRecoveryPointId;
         /// <summary>
+        /// The storage account type to be used to store backups for this database.
+        /// </summary>
+        public readonly string? RequestedBackupStorageRedundancy;
+        /// <summary>
         /// The requested service level objective name of the database.
         /// </summary>
         public readonly string RequestedServiceObjectiveName;
@@ -228,10 +236,6 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         public readonly string Status;
         /// <summary>
-        /// The storage account type used to store backups for this database.
-        /// </summary>
-        public readonly string? StorageAccountType;
-        /// <summary>
         /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -255,6 +259,8 @@ namespace Pulumi.AzureNative.Sql
             string? createMode,
 
             string creationDate,
+
+            string currentBackupStorageRedundancy,
 
             string currentServiceObjectiveName,
 
@@ -302,6 +308,8 @@ namespace Pulumi.AzureNative.Sql
 
             string? recoveryServicesRecoveryPointId,
 
+            string? requestedBackupStorageRedundancy,
+
             string requestedServiceObjectiveName,
 
             string? restorableDroppedDatabaseId,
@@ -322,8 +330,6 @@ namespace Pulumi.AzureNative.Sql
 
             string status,
 
-            string? storageAccountType,
-
             ImmutableDictionary<string, string>? tags,
 
             string type,
@@ -335,6 +341,7 @@ namespace Pulumi.AzureNative.Sql
             Collation = collation;
             CreateMode = createMode;
             CreationDate = creationDate;
+            CurrentBackupStorageRedundancy = currentBackupStorageRedundancy;
             CurrentServiceObjectiveName = currentServiceObjectiveName;
             CurrentSku = currentSku;
             DatabaseId = databaseId;
@@ -358,6 +365,7 @@ namespace Pulumi.AzureNative.Sql
             ReadScale = readScale;
             RecoverableDatabaseId = recoverableDatabaseId;
             RecoveryServicesRecoveryPointId = recoveryServicesRecoveryPointId;
+            RequestedBackupStorageRedundancy = requestedBackupStorageRedundancy;
             RequestedServiceObjectiveName = requestedServiceObjectiveName;
             RestorableDroppedDatabaseId = restorableDroppedDatabaseId;
             RestorePointInTime = restorePointInTime;
@@ -368,7 +376,6 @@ namespace Pulumi.AzureNative.Sql
             SourceDatabaseDeletionDate = sourceDatabaseDeletionDate;
             SourceDatabaseId = sourceDatabaseId;
             Status = status;
-            StorageAccountType = storageAccountType;
             Tags = tags;
             Type = type;
             ZoneRedundant = zoneRedundant;

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Communication
 {
     /// <summary>
     /// A class representing a CommunicationService resource.
-    /// API Version: 2020-08-20-preview.
+    /// API Version: 2020-08-20.
     /// </summary>
     [AzureNativeResourceType("azure-native:communication:CommunicationService")]
     public partial class CommunicationService : Pulumi.CustomResource
@@ -41,7 +41,7 @@ namespace Pulumi.AzureNative.Communication
         public Output<string?> Location { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the resource.
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -59,13 +59,19 @@ namespace Pulumi.AzureNative.Communication
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
         /// Tags of the service which is a list of key value pairs that describe the resource.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the service - e.g. "Microsoft.Communication/CommunicationServices"
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -102,6 +108,10 @@ namespace Pulumi.AzureNative.Communication
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:communication:CommunicationService"},
+                    new Pulumi.Alias { Type = "azure-native:communication/latest:CommunicationService"},
+                    new Pulumi.Alias { Type = "azure-nextgen:communication/latest:CommunicationService"},
+                    new Pulumi.Alias { Type = "azure-native:communication/v20200820:CommunicationService"},
+                    new Pulumi.Alias { Type = "azure-nextgen:communication/v20200820:CommunicationService"},
                     new Pulumi.Alias { Type = "azure-native:communication/v20200820preview:CommunicationService"},
                     new Pulumi.Alias { Type = "azure-nextgen:communication/v20200820preview:CommunicationService"},
                 },
@@ -146,7 +156,7 @@ namespace Pulumi.AzureNative.Communication
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

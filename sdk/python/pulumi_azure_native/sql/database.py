@@ -34,6 +34,7 @@ class Database(pulumi.CustomResource):
                  read_scale: Optional[pulumi.Input[Union[str, 'DatabaseReadScale']]] = None,
                  recoverable_database_id: Optional[pulumi.Input[str]] = None,
                  recovery_services_recovery_point_id: Optional[pulumi.Input[str]] = None,
+                 requested_backup_storage_redundancy: Optional[pulumi.Input[Union[str, 'RequestedBackupStorageRedundancy']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  restorable_dropped_database_id: Optional[pulumi.Input[str]] = None,
                  restore_point_in_time: Optional[pulumi.Input[str]] = None,
@@ -43,7 +44,6 @@ class Database(pulumi.CustomResource):
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  source_database_deletion_date: Optional[pulumi.Input[str]] = None,
                  source_database_id: Optional[pulumi.Input[str]] = None,
-                 storage_account_type: Optional[pulumi.Input[Union[str, 'StorageAccountType']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zone_redundant: Optional[pulumi.Input[bool]] = None,
                  __props__=None,
@@ -51,7 +51,7 @@ class Database(pulumi.CustomResource):
                  __opts__=None):
         """
         A database resource.
-        API Version: 2020-08-01-preview.
+        API Version: 2020-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -87,6 +87,7 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'DatabaseReadScale']] read_scale: The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region.
         :param pulumi.Input[str] recoverable_database_id: The resource identifier of the recoverable database associated with create operation of this database.
         :param pulumi.Input[str] recovery_services_recovery_point_id: The resource identifier of the recovery point associated with create operation of this database.
+        :param pulumi.Input[Union[str, 'RequestedBackupStorageRedundancy']] requested_backup_storage_redundancy: The storage account type to be used to store backups for this database.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] restorable_dropped_database_id: The resource identifier of the restorable dropped database associated with create operation of this database.
         :param pulumi.Input[str] restore_point_in_time: Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database.
@@ -106,7 +107,6 @@ class Database(pulumi.CustomResource):
                ````
         :param pulumi.Input[str] source_database_deletion_date: Specifies the time that the database was deleted.
         :param pulumi.Input[str] source_database_id: The resource identifier of the source database associated with create operation of this database.
-        :param pulumi.Input[Union[str, 'StorageAccountType']] storage_account_type: The storage account type used to store backups for this database.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[bool] zone_redundant: Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
         """
@@ -143,6 +143,7 @@ class Database(pulumi.CustomResource):
             __props__['read_scale'] = read_scale
             __props__['recoverable_database_id'] = recoverable_database_id
             __props__['recovery_services_recovery_point_id'] = recovery_services_recovery_point_id
+            __props__['requested_backup_storage_redundancy'] = requested_backup_storage_redundancy
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -156,10 +157,10 @@ class Database(pulumi.CustomResource):
             __props__['sku'] = sku
             __props__['source_database_deletion_date'] = source_database_deletion_date
             __props__['source_database_id'] = source_database_id
-            __props__['storage_account_type'] = storage_account_type
             __props__['tags'] = tags
             __props__['zone_redundant'] = zone_redundant
             __props__['creation_date'] = None
+            __props__['current_backup_storage_redundancy'] = None
             __props__['current_service_objective_name'] = None
             __props__['current_sku'] = None
             __props__['database_id'] = None
@@ -204,6 +205,7 @@ class Database(pulumi.CustomResource):
         __props__["collation"] = None
         __props__["create_mode"] = None
         __props__["creation_date"] = None
+        __props__["current_backup_storage_redundancy"] = None
         __props__["current_service_objective_name"] = None
         __props__["current_sku"] = None
         __props__["database_id"] = None
@@ -226,6 +228,7 @@ class Database(pulumi.CustomResource):
         __props__["read_scale"] = None
         __props__["recoverable_database_id"] = None
         __props__["recovery_services_recovery_point_id"] = None
+        __props__["requested_backup_storage_redundancy"] = None
         __props__["requested_service_objective_name"] = None
         __props__["restorable_dropped_database_id"] = None
         __props__["restore_point_in_time"] = None
@@ -236,7 +239,6 @@ class Database(pulumi.CustomResource):
         __props__["source_database_deletion_date"] = None
         __props__["source_database_id"] = None
         __props__["status"] = None
-        __props__["storage_account_type"] = None
         __props__["tags"] = None
         __props__["type"] = None
         __props__["zone_redundant"] = None
@@ -297,6 +299,14 @@ class Database(pulumi.CustomResource):
         The creation date of the database (ISO8601 format).
         """
         return pulumi.get(self, "creation_date")
+
+    @property
+    @pulumi.getter(name="currentBackupStorageRedundancy")
+    def current_backup_storage_redundancy(self) -> pulumi.Output[str]:
+        """
+        The storage account type used to store backups for this database.
+        """
+        return pulumi.get(self, "current_backup_storage_redundancy")
 
     @property
     @pulumi.getter(name="currentServiceObjectiveName")
@@ -475,6 +485,14 @@ class Database(pulumi.CustomResource):
         return pulumi.get(self, "recovery_services_recovery_point_id")
 
     @property
+    @pulumi.getter(name="requestedBackupStorageRedundancy")
+    def requested_backup_storage_redundancy(self) -> pulumi.Output[Optional[str]]:
+        """
+        The storage account type to be used to store backups for this database.
+        """
+        return pulumi.get(self, "requested_backup_storage_redundancy")
+
+    @property
     @pulumi.getter(name="requestedServiceObjectiveName")
     def requested_service_objective_name(self) -> pulumi.Output[str]:
         """
@@ -563,14 +581,6 @@ class Database(pulumi.CustomResource):
         The status of the database.
         """
         return pulumi.get(self, "status")
-
-    @property
-    @pulumi.getter(name="storageAccountType")
-    def storage_account_type(self) -> pulumi.Output[Optional[str]]:
-        """
-        The storage account type used to store backups for this database.
-        """
-        return pulumi.get(self, "storage_account_type")
 
     @property
     @pulumi.getter

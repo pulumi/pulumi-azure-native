@@ -46,6 +46,18 @@ func NewMonitor(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:datadog:Monitor"),
 		},
+		{
+			Type: pulumi.String("azure-native:datadog/latest:Monitor"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:datadog/latest:Monitor"),
+		},
+		{
+			Type: pulumi.String("azure-native:datadog/v20210301:Monitor"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:datadog/v20210301:Monitor"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Monitor

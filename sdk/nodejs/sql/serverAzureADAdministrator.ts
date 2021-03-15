@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Azure Active Directory administrator.
- * API Version: 2020-08-01-preview.
+ * API Version: 2020-11-01-preview.
  */
 export class ServerAzureADAdministrator extends pulumi.CustomResource {
     /**

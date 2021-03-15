@@ -12,7 +12,7 @@ import (
 )
 
 // A class representing a CommunicationService resource.
-// API Version: 2020-08-20-preview.
+// API Version: 2020-08-20.
 type CommunicationService struct {
 	pulumi.CustomResourceState
 
@@ -24,15 +24,17 @@ type CommunicationService struct {
 	ImmutableResourceId pulumi.StringOutput `pulumi:"immutableResourceId"`
 	// The Azure location where the CommunicationService is running.
 	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The name of the resource.
+	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Resource ID of an Azure Notification Hub linked to this resource.
 	NotificationHubId pulumi.StringOutput `pulumi:"notificationHubId"`
 	// Provisioning state of the resource.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Tags of the service which is a list of key value pairs that describe the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the service - e.g. "Microsoft.Communication/CommunicationServices"
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Version of the CommunicationService resource. Probably you need the same or higher version of client SDKs.
 	Version pulumi.StringOutput `pulumi:"version"`
@@ -54,6 +56,18 @@ func NewCommunicationService(ctx *pulumi.Context,
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:communication:CommunicationService"),
+		},
+		{
+			Type: pulumi.String("azure-native:communication/latest:CommunicationService"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:communication/latest:CommunicationService"),
+		},
+		{
+			Type: pulumi.String("azure-native:communication/v20200820:CommunicationService"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:communication/v20200820:CommunicationService"),
 		},
 		{
 			Type: pulumi.String("azure-native:communication/v20200820preview:CommunicationService"),
@@ -93,15 +107,17 @@ type communicationServiceState struct {
 	ImmutableResourceId *string `pulumi:"immutableResourceId"`
 	// The Azure location where the CommunicationService is running.
 	Location *string `pulumi:"location"`
-	// The name of the resource.
+	// The name of the resource
 	Name *string `pulumi:"name"`
 	// Resource ID of an Azure Notification Hub linked to this resource.
 	NotificationHubId *string `pulumi:"notificationHubId"`
 	// Provisioning state of the resource.
 	ProvisioningState *string `pulumi:"provisioningState"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Tags of the service which is a list of key value pairs that describe the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// The type of the service - e.g. "Microsoft.Communication/CommunicationServices"
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 	// Version of the CommunicationService resource. Probably you need the same or higher version of client SDKs.
 	Version *string `pulumi:"version"`
@@ -116,15 +132,17 @@ type CommunicationServiceState struct {
 	ImmutableResourceId pulumi.StringPtrInput
 	// The Azure location where the CommunicationService is running.
 	Location pulumi.StringPtrInput
-	// The name of the resource.
+	// The name of the resource
 	Name pulumi.StringPtrInput
 	// Resource ID of an Azure Notification Hub linked to this resource.
 	NotificationHubId pulumi.StringPtrInput
 	// Provisioning state of the resource.
 	ProvisioningState pulumi.StringPtrInput
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponsePtrInput
 	// Tags of the service which is a list of key value pairs that describe the resource.
 	Tags pulumi.StringMapInput
-	// The type of the service - e.g. "Microsoft.Communication/CommunicationServices"
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 	// Version of the CommunicationService resource. Probably you need the same or higher version of client SDKs.
 	Version pulumi.StringPtrInput
@@ -141,7 +159,7 @@ type communicationServiceArgs struct {
 	DataLocation string `pulumi:"dataLocation"`
 	// The Azure location where the CommunicationService is running.
 	Location *string `pulumi:"location"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Tags of the service which is a list of key value pairs that describe the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -155,7 +173,7 @@ type CommunicationServiceArgs struct {
 	DataLocation pulumi.StringInput
 	// The Azure location where the CommunicationService is running.
 	Location pulumi.StringPtrInput
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// Tags of the service which is a list of key value pairs that describe the resource.
 	Tags pulumi.StringMapInput

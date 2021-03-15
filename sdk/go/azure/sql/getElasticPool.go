@@ -8,7 +8,7 @@ import (
 )
 
 // An elastic pool.
-// API Version: 2020-08-01-preview.
+// API Version: 2020-11-01-preview.
 func LookupElasticPool(ctx *pulumi.Context, args *LookupElasticPoolArgs, opts ...pulumi.InvokeOption) (*LookupElasticPoolResult, error) {
 	var rv LookupElasticPoolResult
 	err := ctx.Invoke("azure-native:sql:getElasticPool", args, &rv, opts...)

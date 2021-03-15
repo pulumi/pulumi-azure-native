@@ -144,7 +144,7 @@ def get_instance_pool(instance_pool_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInstancePoolResult:
     """
     An Azure SQL instance pool.
-    API Version: 2020-08-01-preview.
+    API Version: 2020-11-01-preview.
 
 
     :param str instance_pool_name: The name of the instance pool to be retrieved.

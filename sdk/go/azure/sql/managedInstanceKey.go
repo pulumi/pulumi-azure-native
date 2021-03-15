@@ -12,7 +12,7 @@ import (
 )
 
 // A managed instance key.
-// API Version: 2020-08-01-preview.
+// API Version: 2020-11-01-preview.
 type ManagedInstanceKey struct {
 	pulumi.CustomResourceState
 

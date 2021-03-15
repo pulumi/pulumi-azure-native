@@ -84,7 +84,7 @@ def get_server_azure_ad_only_authentication(authentication_name: Optional[str] =
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerAzureADOnlyAuthenticationResult:
     """
     Azure Active Directory only authentication.
-    API Version: 2020-08-01-preview.
+    API Version: 2020-11-01-preview.
 
 
     :param str authentication_name: The name of server azure active directory only authentication.

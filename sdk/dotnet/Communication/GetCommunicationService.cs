@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Communication
     {
         /// <summary>
         /// A class representing a CommunicationService resource.
-        /// API Version: 2020-08-20-preview.
+        /// API Version: 2020-08-20.
         /// </summary>
         public static Task<GetCommunicationServiceResult> InvokeAsync(GetCommunicationServiceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCommunicationServiceResult>("azure-native:communication:getCommunicationService", args ?? new GetCommunicationServiceArgs(), options.WithVersion());
@@ -29,7 +29,7 @@ namespace Pulumi.AzureNative.Communication
         public string CommunicationServiceName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -52,7 +52,7 @@ namespace Pulumi.AzureNative.Communication
         /// </summary>
         public readonly string HostName;
         /// <summary>
-        /// Fully qualified resource ID for the resource.
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -64,7 +64,7 @@ namespace Pulumi.AzureNative.Communication
         /// </summary>
         public readonly string? Location;
         /// <summary>
-        /// The name of the resource.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -76,11 +76,15 @@ namespace Pulumi.AzureNative.Communication
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Tags of the service which is a list of key value pairs that describe the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// The type of the service - e.g. "Microsoft.Communication/CommunicationServices"
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
         /// <summary>
@@ -106,6 +110,8 @@ namespace Pulumi.AzureNative.Communication
 
             string provisioningState,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string type,
@@ -120,6 +126,7 @@ namespace Pulumi.AzureNative.Communication
             Name = name;
             NotificationHubId = notificationHubId;
             ProvisioningState = provisioningState;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
             Version = version;

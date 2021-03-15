@@ -83,11 +83,11 @@ def list_communication_service_keys(communication_service_name: Optional[str] = 
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListCommunicationServiceKeysResult:
     """
     A class representing the access keys of a CommunicationService.
-    API Version: 2020-08-20-preview.
+    API Version: 2020-08-20.
 
 
     :param str communication_service_name: The name of the CommunicationService resource.
-    :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['communicationServiceName'] = communication_service_name

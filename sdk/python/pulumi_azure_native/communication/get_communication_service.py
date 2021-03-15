@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
+from . import outputs
 
 __all__ = [
     'GetCommunicationServiceResult',
@@ -19,7 +20,7 @@ class GetCommunicationServiceResult:
     """
     A class representing a CommunicationService resource.
     """
-    def __init__(__self__, data_location=None, host_name=None, id=None, immutable_resource_id=None, location=None, name=None, notification_hub_id=None, provisioning_state=None, tags=None, type=None, version=None):
+    def __init__(__self__, data_location=None, host_name=None, id=None, immutable_resource_id=None, location=None, name=None, notification_hub_id=None, provisioning_state=None, system_data=None, tags=None, type=None, version=None):
         if data_location and not isinstance(data_location, str):
             raise TypeError("Expected argument 'data_location' to be a str")
         pulumi.set(__self__, "data_location", data_location)
@@ -44,6 +45,9 @@ class GetCommunicationServiceResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -74,7 +78,7 @@ class GetCommunicationServiceResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource.
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -98,7 +102,7 @@ class GetCommunicationServiceResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the resource.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -119,6 +123,14 @@ class GetCommunicationServiceResult:
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
@@ -130,7 +142,7 @@ class GetCommunicationServiceResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of the service - e.g. "Microsoft.Communication/CommunicationServices"
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -157,6 +169,7 @@ class AwaitableGetCommunicationServiceResult(GetCommunicationServiceResult):
             name=self.name,
             notification_hub_id=self.notification_hub_id,
             provisioning_state=self.provisioning_state,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type,
             version=self.version)
@@ -167,11 +180,11 @@ def get_communication_service(communication_service_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCommunicationServiceResult:
     """
     A class representing a CommunicationService resource.
-    API Version: 2020-08-20-preview.
+    API Version: 2020-08-20.
 
 
     :param str communication_service_name: The name of the CommunicationService resource.
-    :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['communicationServiceName'] = communication_service_name
@@ -191,6 +204,7 @@ def get_communication_service(communication_service_name: Optional[str] = None,
         name=__ret__.name,
         notification_hub_id=__ret__.notification_hub_id,
         provisioning_state=__ret__.provisioning_state,
+        system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type,
         version=__ret__.version)

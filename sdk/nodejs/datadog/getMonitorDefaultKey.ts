@@ -6,7 +6,7 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * API Version: 2020-02-01-preview.
+ * API Version: 2021-03-01.
  */
 export function getMonitorDefaultKey(args: GetMonitorDefaultKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetMonitorDefaultKeyResult> {
     if (!opts) {
@@ -28,7 +28,7 @@ export interface GetMonitorDefaultKeyArgs {
      */
     readonly monitorName: string;
     /**
-     * The name of the resource group to which the Datadog resource belongs.
+     * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: string;
 }

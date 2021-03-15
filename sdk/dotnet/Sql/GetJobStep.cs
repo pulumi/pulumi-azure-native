@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Sql
     {
         /// <summary>
         /// A job step.
-        /// API Version: 2020-08-01-preview.
+        /// API Version: 2020-11-01-preview.
         /// </summary>
         public static Task<GetJobStepResult> InvokeAsync(GetJobStepArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetJobStepResult>("azure-native:sql:getJobStep", args ?? new GetJobStepArgs(), options.WithVersion());

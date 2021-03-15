@@ -26,9 +26,11 @@ __all__ = [
     'ManagedInstanceLicenseType',
     'ManagedInstanceProxyOverride',
     'ManagedServerCreateMode',
+    'PrincipalType',
     'PrivateLinkServiceConnectionStateStatus',
     'ReadOnlyEndpointFailoverPolicy',
     'ReadWriteEndpointFailoverPolicy',
+    'RequestedBackupStorageRedundancy',
     'SampleName',
     'SecondaryType',
     'SecurityAlertsPolicyState',
@@ -242,6 +244,15 @@ class ManagedServerCreateMode(str, Enum):
     POINT_IN_TIME_RESTORE = "PointInTimeRestore"
 
 
+class PrincipalType(str, Enum):
+    """
+    Principal Type of the sever administrator.
+    """
+    USER = "User"
+    GROUP = "Group"
+    APPLICATION = "Application"
+
+
 class PrivateLinkServiceConnectionStateStatus(str, Enum):
     """
     The private link service connection status.
@@ -266,6 +277,15 @@ class ReadWriteEndpointFailoverPolicy(str, Enum):
     """
     MANUAL = "Manual"
     AUTOMATIC = "Automatic"
+
+
+class RequestedBackupStorageRedundancy(str, Enum):
+    """
+    The storage account type to be used to store backups for this database.
+    """
+    GEO = "Geo"
+    LOCAL = "Local"
+    ZONE = "Zone"
 
 
 class SampleName(str, Enum):

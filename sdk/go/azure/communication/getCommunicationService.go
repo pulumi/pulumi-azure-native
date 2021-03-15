@@ -8,7 +8,7 @@ import (
 )
 
 // A class representing a CommunicationService resource.
-// API Version: 2020-08-20-preview.
+// API Version: 2020-08-20.
 func LookupCommunicationService(ctx *pulumi.Context, args *LookupCommunicationServiceArgs, opts ...pulumi.InvokeOption) (*LookupCommunicationServiceResult, error) {
 	var rv LookupCommunicationServiceResult
 	err := ctx.Invoke("azure-native:communication:getCommunicationService", args, &rv, opts...)
@@ -21,7 +21,7 @@ func LookupCommunicationService(ctx *pulumi.Context, args *LookupCommunicationSe
 type LookupCommunicationServiceArgs struct {
 	// The name of the CommunicationService resource.
 	CommunicationServiceName string `pulumi:"communicationServiceName"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
@@ -31,21 +31,23 @@ type LookupCommunicationServiceResult struct {
 	DataLocation string `pulumi:"dataLocation"`
 	// FQDN of the CommunicationService instance.
 	HostName string `pulumi:"hostName"`
-	// Fully qualified resource ID for the resource.
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
 	// The immutable resource Id of the communication service.
 	ImmutableResourceId string `pulumi:"immutableResourceId"`
 	// The Azure location where the CommunicationService is running.
 	Location *string `pulumi:"location"`
-	// The name of the resource.
+	// The name of the resource
 	Name string `pulumi:"name"`
 	// Resource ID of an Azure Notification Hub linked to this resource.
 	NotificationHubId string `pulumi:"notificationHubId"`
 	// Provisioning state of the resource.
 	ProvisioningState string `pulumi:"provisioningState"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Tags of the service which is a list of key value pairs that describe the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// The type of the service - e.g. "Microsoft.Communication/CommunicationServices"
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 	// Version of the CommunicationService resource. Probably you need the same or higher version of client SDKs.
 	Version string `pulumi:"version"`

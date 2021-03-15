@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Response of a list operation.
- * API Version: 2020-02-01-preview.
+ * API Version: 2021-03-01.
  */
 export function listMonitorApiKeys(args: ListMonitorApiKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListMonitorApiKeysResult> {
     if (!opts) {
@@ -29,7 +29,7 @@ export interface ListMonitorApiKeysArgs {
      */
     readonly monitorName: string;
     /**
-     * The name of the resource group to which the Datadog resource belongs.
+     * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: string;
 }

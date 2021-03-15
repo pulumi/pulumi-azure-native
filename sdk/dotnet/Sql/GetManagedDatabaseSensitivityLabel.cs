@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Sql
     {
         /// <summary>
         /// A sensitivity label.
-        /// API Version: 2020-08-01-preview.
+        /// API Version: 2020-11-01-preview.
         /// </summary>
         public static Task<GetManagedDatabaseSensitivityLabelResult> InvokeAsync(GetManagedDatabaseSensitivityLabelArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetManagedDatabaseSensitivityLabelResult>("azure-native:sql:getManagedDatabaseSensitivityLabel", args ?? new GetManagedDatabaseSensitivityLabelArgs(), options.WithVersion());

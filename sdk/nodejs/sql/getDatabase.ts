@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A database resource.
- * API Version: 2020-08-01-preview.
+ * API Version: 2020-11-01-preview.
  */
 export function getDatabase(args: GetDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseResult> {
     if (!opts) {
@@ -79,6 +79,10 @@ export interface GetDatabaseResult {
      * The creation date of the database (ISO8601 format).
      */
     readonly creationDate: string;
+    /**
+     * The storage account type used to store backups for this database.
+     */
+    readonly currentBackupStorageRedundancy: string;
     /**
      * The current service level objective name of the database.
      */
@@ -172,6 +176,10 @@ export interface GetDatabaseResult {
      */
     readonly recoveryServicesRecoveryPointId?: string;
     /**
+     * The storage account type to be used to store backups for this database.
+     */
+    readonly requestedBackupStorageRedundancy?: string;
+    /**
      * The requested service level objective name of the database.
      */
     readonly requestedServiceObjectiveName: string;
@@ -221,10 +229,6 @@ export interface GetDatabaseResult {
      * The status of the database.
      */
     readonly status: string;
-    /**
-     * The storage account type used to store backups for this database.
-     */
-    readonly storageAccountType?: string;
     /**
      * Resource tags.
      */

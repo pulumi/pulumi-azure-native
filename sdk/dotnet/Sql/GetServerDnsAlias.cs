@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Sql
     {
         /// <summary>
         /// A server DNS alias.
-        /// API Version: 2020-08-01-preview.
+        /// API Version: 2020-11-01-preview.
         /// </summary>
         public static Task<GetServerDnsAliasResult> InvokeAsync(GetServerDnsAliasArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServerDnsAliasResult>("azure-native:sql:getServerDnsAlias", args ?? new GetServerDnsAliasArgs(), options.WithVersion());

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * An Azure SQL instance pool.
- * API Version: 2020-08-01-preview.
+ * API Version: 2020-11-01-preview.
  */
 export function getInstancePool(args: GetInstancePoolArgs, opts?: pulumi.InvokeOptions): Promise<GetInstancePoolResult> {
     if (!opts) {
