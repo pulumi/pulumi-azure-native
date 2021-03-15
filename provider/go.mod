@@ -12,6 +12,7 @@ require (
 	github.com/go-openapi/spec v0.19.7
 	github.com/go-openapi/swag v0.19.9
 	github.com/golang/protobuf v1.4.2
+	github.com/google/uuid v1.1.1
 	github.com/hashicorp/go-azure-helpers v0.12.0
 	github.com/hashicorp/hcl/v2 v2.6.0
 	github.com/pkg/errors v0.9.1

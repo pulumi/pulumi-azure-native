@@ -16,7 +16,9 @@ CHANGELOG
 - New resource: `storage.EncryptionSource`.
   [#637](https://github.com/pulumi/pulumi-azure-native/issues/637)
 - `Endpoint` and `CustomDomain` resources are auto-named with a random suffix.
-  [#617](https://github.com/pulumi/pulumi-azure-native/issues/629)
+  [#629](https://github.com/pulumi/pulumi-azure-native/issues/629)
+- Support auto-naming for UUID properties.
+  [#625](https://github.com/pulumi/pulumi-azure-native/issues/625)
 - Add support for arm64 plugin binaries.
   [#652](https://github.com/pulumi/pulumi-azure-native/pull/652)
 
