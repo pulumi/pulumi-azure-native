@@ -25,7 +25,8 @@ type AzureAPIParameter struct {
 type AutoNameKind string
 const (
 	AutoNameRandom AutoNameKind = "random"
-	AutoNameCopy AutoNameKind = "copy"
+	AutoNameCopy   AutoNameKind = "copy"
+	AutoNameUuid   AutoNameKind = "uuid"
 )
 
 // AzureAPIProperty represents validation constraints for a single parameter or body property.
@@ -210,27 +211,44 @@ func ResourceName(operationID string) string {
 	return name + subName
 }
 
+// AutoNamer decides on the per-property auto-naming property for a given API path.
+type AutoNamer struct {
+	path string
+}
+
+// NewAutoNamer creates a new AutoNamer for a given API path.
+func NewAutoNamer(path string) AutoNamer {
+	return AutoNamer{path}
+}
+
 // AutoName returns auto-naming strategy ("random", "copy") for a given property name and a resource path.
 // The second value is true if auto-naming should be applied.
-func AutoName(name, path string) (AutoNameKind, bool) {
+func (a *AutoNamer) AutoName(name, format string) (AutoNameKind, bool) {
 	suffix := fmt.Sprintf("{%s}", name)
-	if !strings.HasSuffix(path, suffix) {
+	if !strings.HasSuffix(a.path, suffix) {
 		return "", false
 	}
 
-	parts := strings.Split(strings.ToLower(path), "microsoft.")
-	resourcePath := parts[len(parts)-1]
-	if len(parts) == 1 || strings.Count(resourcePath, "{") == 1 {
-		return AutoNameRandom, true
+	if format == "uuid" {
+		return AutoNameUuid, true
 	}
 
 	switch name {
 	// Endpoints and custom domains both produce URIs, so they are globally unique.
 	case "endpointName", "customDomainName":
 		return AutoNameRandom, true
-	default:
-		return AutoNameCopy, true
+	// Work around https://github.com/Azure/azure-rest-api-specs/issues/1684.
+	case "roleAssignmentName", "roleDefinitionId":
+		return AutoNameUuid, true
 	}
+
+	parts := strings.Split(strings.ToLower(a.path), "microsoft.")
+	resourcePath := parts[len(parts)-1]
+	if len(parts) == 1 || strings.Count(resourcePath, "{") == 1 {
+		return AutoNameRandom, true
+	}
+
+	return AutoNameCopy, true
 }
 
 // AutoLocationDisabled returns true auto-location should not be applied for a given resource path.

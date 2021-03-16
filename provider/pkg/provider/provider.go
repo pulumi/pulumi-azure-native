@@ -21,6 +21,7 @@ import (
 	"github.com/Azure/go-autorest/autorest"
 	"github.com/Azure/go-autorest/autorest/adal"
 	"github.com/Azure/go-autorest/autorest/azure"
+	"github.com/google/uuid"
 	pbempty "github.com/golang/protobuf/ptypes/empty"
 	"github.com/hashicorp/go-azure-helpers/authentication"
 	"github.com/hashicorp/go-azure-helpers/sender"
@@ -427,6 +428,9 @@ func (k *azureNativeProvider) getDefaultName(urn string, strategy resources.Auto
 		random, err := resource.NewUniqueHex(name, 8, 0)
 		contract.AssertNoError(err)
 		return resource.NewStringProperty(random), true
+	case resources.AutoNameUuid:
+		// Resource name is a random UUID.
+		return resource.NewStringProperty(uuid.New().String()), true
 	case resources.AutoNameCopy:
 		// Resource name is just a copy of the URN name.
 		return resource.NewStringProperty(name), false

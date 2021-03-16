@@ -463,7 +463,8 @@ func (g *packageGenerator) genResources(prov, typeName string, resource *openapi
 	}
 
 	parameters := resource.Swagger.MergeParameters(path.Put.Parameters, path.Parameters)
-	resourceRequest, err := gen.genMethodParameters(parameters, swagger.ReferenceContext)
+	autoNamer := resources.NewAutoNamer(resource.Path)
+	resourceRequest, err := gen.genMethodParameters(parameters, swagger.ReferenceContext, &autoNamer)
 	if err != nil {
 		log.Printf("failed to generate '%s': request type: %s", resourceTok, err.Error())
 		return
@@ -485,18 +486,6 @@ func (g *packageGenerator) genResources(prov, typeName string, resource *openapi
 	// Id is a property of the base Custom Resource, we don't want to introduce it on derived resources.
 	delete(resourceResponse.specs, "id")
 	resourceResponse.requiredSpecs.Delete("id")
-
-	// Check each parameter for auto-naming.
-	for _, p := range resourceRequest.parameters {
-		if kind, ok := resources.AutoName(p.Name, resource.Path); ok {
-			p.Value.AutoName = kind
-			sdkName := p.Name
-			if p.Value.SdkName != "" {
-				sdkName = p.Value.SdkName
-			}
-			resourceRequest.requiredSpecs.Delete(sdkName)
-		}
-	}
 
 	// Add an alias for each API version that has the same path in it.
 	// Also, add an alias to the same version in azure-nextgen and all other versions in azure-nextgen.
@@ -541,7 +530,7 @@ func (g *packageGenerator) genResources(prov, typeName string, resource *openapi
 	}
 
 	parameters = swagger.MergeParameters(op.Parameters, path.Parameters)
-	requestFunction, err := gen.genMethodParameters(parameters, swagger.ReferenceContext)
+	requestFunction, err := gen.genMethodParameters(parameters, swagger.ReferenceContext, nil)
 	if err != nil {
 		log.Printf("failed to generate '%s': request type: %s", functionTok, err.Error())
 		return
@@ -679,7 +668,7 @@ func (g *packageGenerator) genPostFunctions(prov, typeName, path string, pathIte
 	functionTok := fmt.Sprintf(`%s:%s:%s`, g.pkg.Name, module, typeName)
 
 	parameters := swagger.MergeParameters(pathItem.Post.Parameters, pathItem.Parameters)
-	request, err := gen.genMethodParameters(parameters, swagger.ReferenceContext)
+	request, err := gen.genMethodParameters(parameters, swagger.ReferenceContext, nil)
 	if err != nil {
 		log.Printf("failed to generate '%s': request type: %s", functionTok, err.Error())
 		return
@@ -794,8 +783,10 @@ func (m *moduleGenerator) escapeCSharpNames(typeName string, resourceResponse *p
 	}
 }
 
-func (m *moduleGenerator) genMethodParameters(parameters []spec.Parameter, ctx *openapi.ReferenceContext) (*parameterBag, error) {
+func (m *moduleGenerator) genMethodParameters(parameters []spec.Parameter, ctx *openapi.ReferenceContext,
+	namer *resources.AutoNamer) (*parameterBag, error) {
 	result := newParameterBag()
+	var autoNamedSpec string
 
 	for _, param := range parameters {
 		param, err := ctx.ResolveParameter(param)
@@ -869,6 +860,15 @@ func (m *moduleGenerator) genMethodParameters(parameters []spec.Parameter, ctx *
 					Type: param.Type,
 				},
 			}
+
+			// Check each parameter for auto-naming.
+			if namer != nil {
+				if kind, ok := namer.AutoName(param.Name, param.Format); ok {
+					apiParameter.Value.AutoName = kind
+					autoNamedSpec = name
+				}
+			}
+
 			result.specs[name] = propertySpec
 			if param.Required && !providerHasDefaultValue {
 				result.requiredSpecs.Add(name)
@@ -877,6 +877,10 @@ func (m *moduleGenerator) genMethodParameters(parameters []spec.Parameter, ctx *
 
 		result.parameters = append(result.parameters, apiParameter)
 	}
+
+	// Remove the auto-name property from the list of required specs. This happens after we processed all parameters
+	// to account for several cases where the same name is both a method parameter and a body property.
+	result.requiredSpecs.Delete(autoNamedSpec)
 
 	return result, nil
 }
