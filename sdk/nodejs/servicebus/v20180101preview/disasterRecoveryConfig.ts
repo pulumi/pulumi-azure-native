@@ -102,7 +102,7 @@ export class DisasterRecoveryConfig extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:servicebus/v20180101preview:DisasterRecoveryConfig" }, { type: "azure-native:servicebus:DisasterRecoveryConfig" }, { type: "azure-nextgen:servicebus:DisasterRecoveryConfig" }, { type: "azure-native:servicebus/latest:DisasterRecoveryConfig" }, { type: "azure-nextgen:servicebus/latest:DisasterRecoveryConfig" }, { type: "azure-native:servicebus/v20170401:DisasterRecoveryConfig" }, { type: "azure-nextgen:servicebus/v20170401:DisasterRecoveryConfig" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:servicebus/v20180101preview:DisasterRecoveryConfig" }, { type: "azure-native:servicebus:DisasterRecoveryConfig" }, { type: "azure-nextgen:servicebus:DisasterRecoveryConfig" }, { type: "azure-native:servicebus/latest:DisasterRecoveryConfig" }, { type: "azure-nextgen:servicebus/latest:DisasterRecoveryConfig" }, { type: "azure-native:servicebus/v20170401:DisasterRecoveryConfig" }, { type: "azure-nextgen:servicebus/v20170401:DisasterRecoveryConfig" }, { type: "azure-native:servicebus/v20210101preview:DisasterRecoveryConfig" }, { type: "azure-nextgen:servicebus/v20210101preview:DisasterRecoveryConfig" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DisasterRecoveryConfig.__pulumiType, name, inputs, opts);
     }

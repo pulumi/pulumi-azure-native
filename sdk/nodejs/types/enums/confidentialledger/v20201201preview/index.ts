@@ -2,6 +2,17 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const LedgerRoleName = {
+    Reader: "Reader",
+    Contributor: "Contributor",
+    Administrator: "Administrator",
+} as const;
+
+/**
+ * LedgerRole associated with the Security Principal of Ledger
+ */
+export type LedgerRoleName = (typeof LedgerRoleName)[keyof typeof LedgerRoleName];
+
 export const LedgerType = {
     Unknown: "Unknown",
     Public: "Public",

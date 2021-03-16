@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * disk encryption set resource.
- * Latest API Version: 2020-09-30.
+ * Latest API Version: 2020-12-01.
  *
  * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:compute:DiskEncryptionSet'.
  */
@@ -52,6 +52,10 @@ export class DiskEncryptionSet extends pulumi.CustomResource {
      */
     public readonly identity!: pulumi.Output<outputs.compute.latest.EncryptionSetIdentityResponse | undefined>;
     /**
+     * The time when the active key of this disk encryption set was updated.
+     */
+    public /*out*/ readonly lastKeyRotationTimestamp!: pulumi.Output<string>;
+    /**
      * Resource location
      */
     public readonly location!: pulumi.Output<string>;
@@ -67,6 +71,10 @@ export class DiskEncryptionSet extends pulumi.CustomResource {
      * The disk encryption set provisioning state.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Set this flag to true to enable auto-updating of this disk encryption set to the latest key version.
+     */
+    public readonly rotationToLatestKeyVersionEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Resource tags
      */
@@ -98,7 +106,9 @@ export class DiskEncryptionSet extends pulumi.CustomResource {
             inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["rotationToLatestKeyVersionEnabled"] = args ? args.rotationToLatestKeyVersionEnabled : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["lastKeyRotationTimestamp"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["previousKeys"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
@@ -107,17 +117,19 @@ export class DiskEncryptionSet extends pulumi.CustomResource {
             inputs["activeKey"] = undefined /*out*/;
             inputs["encryptionType"] = undefined /*out*/;
             inputs["identity"] = undefined /*out*/;
+            inputs["lastKeyRotationTimestamp"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["previousKeys"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["rotationToLatestKeyVersionEnabled"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute/latest:DiskEncryptionSet" }, { type: "azure-native:compute:DiskEncryptionSet" }, { type: "azure-nextgen:compute:DiskEncryptionSet" }, { type: "azure-native:compute/v20190701:DiskEncryptionSet" }, { type: "azure-nextgen:compute/v20190701:DiskEncryptionSet" }, { type: "azure-native:compute/v20191101:DiskEncryptionSet" }, { type: "azure-nextgen:compute/v20191101:DiskEncryptionSet" }, { type: "azure-native:compute/v20200501:DiskEncryptionSet" }, { type: "azure-nextgen:compute/v20200501:DiskEncryptionSet" }, { type: "azure-native:compute/v20200630:DiskEncryptionSet" }, { type: "azure-nextgen:compute/v20200630:DiskEncryptionSet" }, { type: "azure-native:compute/v20200930:DiskEncryptionSet" }, { type: "azure-nextgen:compute/v20200930:DiskEncryptionSet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute/latest:DiskEncryptionSet" }, { type: "azure-native:compute:DiskEncryptionSet" }, { type: "azure-nextgen:compute:DiskEncryptionSet" }, { type: "azure-native:compute/v20190701:DiskEncryptionSet" }, { type: "azure-nextgen:compute/v20190701:DiskEncryptionSet" }, { type: "azure-native:compute/v20191101:DiskEncryptionSet" }, { type: "azure-nextgen:compute/v20191101:DiskEncryptionSet" }, { type: "azure-native:compute/v20200501:DiskEncryptionSet" }, { type: "azure-nextgen:compute/v20200501:DiskEncryptionSet" }, { type: "azure-native:compute/v20200630:DiskEncryptionSet" }, { type: "azure-nextgen:compute/v20200630:DiskEncryptionSet" }, { type: "azure-native:compute/v20200930:DiskEncryptionSet" }, { type: "azure-nextgen:compute/v20200930:DiskEncryptionSet" }, { type: "azure-native:compute/v20201201:DiskEncryptionSet" }, { type: "azure-nextgen:compute/v20201201:DiskEncryptionSet" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DiskEncryptionSet.__pulumiType, name, inputs, opts);
     }
@@ -151,6 +163,10 @@ export interface DiskEncryptionSetArgs {
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Set this flag to true to enable auto-updating of this disk encryption set to the latest key version.
+     */
+    readonly rotationToLatestKeyVersionEnabled?: pulumi.Input<boolean>;
     /**
      * Resource tags
      */

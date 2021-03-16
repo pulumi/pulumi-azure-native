@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Role Assignments
- * API Version: 2020-04-01-preview.
+ * API Version: 2020-08-01-preview.
  */
 export class RoleAssignment extends pulumi.CustomResource {
     /**
@@ -37,10 +37,6 @@ export class RoleAssignment extends pulumi.CustomResource {
     }
 
     /**
-     * The Delegation flag for the role assignment
-     */
-    public readonly canDelegate!: pulumi.Output<boolean | undefined>;
-    /**
      * The conditions on the role assignment. This limits the resources it can be assigned to. e.g.: @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'
      */
     public readonly condition!: pulumi.Output<string | undefined>;
@@ -51,11 +47,11 @@ export class RoleAssignment extends pulumi.CustomResource {
     /**
      * Id of the user who created the assignment
      */
-    public /*out*/ readonly createdBy!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly createdBy!: pulumi.Output<string>;
     /**
      * Time it was created
      */
-    public /*out*/ readonly createdOn!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly createdOn!: pulumi.Output<string>;
     /**
      * Id of the delegated managed identity resource
      */
@@ -71,7 +67,7 @@ export class RoleAssignment extends pulumi.CustomResource {
     /**
      * The principal ID.
      */
-    public readonly principalId!: pulumi.Output<string | undefined>;
+    public readonly principalId!: pulumi.Output<string>;
     /**
      * The principal type of the assigned principal ID.
      */
@@ -79,7 +75,7 @@ export class RoleAssignment extends pulumi.CustomResource {
     /**
      * The role definition ID.
      */
-    public readonly roleDefinitionId!: pulumi.Output<string | undefined>;
+    public readonly roleDefinitionId!: pulumi.Output<string>;
     /**
      * The role assignment scope.
      */
@@ -91,11 +87,11 @@ export class RoleAssignment extends pulumi.CustomResource {
     /**
      * Id of the user who updated the assignment
      */
-    public /*out*/ readonly updatedBy!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly updatedBy!: pulumi.Output<string>;
     /**
      * Time it was updated
      */
-    public /*out*/ readonly updatedOn!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly updatedOn!: pulumi.Output<string>;
 
     /**
      * Create a RoleAssignment resource with the given unique name, arguments, and options.
@@ -117,7 +113,6 @@ export class RoleAssignment extends pulumi.CustomResource {
             if ((!args || args.scope === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            inputs["canDelegate"] = args ? args.canDelegate : undefined;
             inputs["condition"] = args ? args.condition : undefined;
             inputs["conditionVersion"] = args ? args.conditionVersion : undefined;
             inputs["delegatedManagedIdentityResourceId"] = args ? args.delegatedManagedIdentityResourceId : undefined;
@@ -134,7 +129,6 @@ export class RoleAssignment extends pulumi.CustomResource {
             inputs["updatedBy"] = undefined /*out*/;
             inputs["updatedOn"] = undefined /*out*/;
         } else {
-            inputs["canDelegate"] = undefined /*out*/;
             inputs["condition"] = undefined /*out*/;
             inputs["conditionVersion"] = undefined /*out*/;
             inputs["createdBy"] = undefined /*out*/;
@@ -153,7 +147,7 @@ export class RoleAssignment extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:authorization:RoleAssignment" }, { type: "azure-native:authorization/latest:RoleAssignment" }, { type: "azure-nextgen:authorization/latest:RoleAssignment" }, { type: "azure-native:authorization/v20150701:RoleAssignment" }, { type: "azure-nextgen:authorization/v20150701:RoleAssignment" }, { type: "azure-native:authorization/v20171001preview:RoleAssignment" }, { type: "azure-nextgen:authorization/v20171001preview:RoleAssignment" }, { type: "azure-native:authorization/v20180101preview:RoleAssignment" }, { type: "azure-nextgen:authorization/v20180101preview:RoleAssignment" }, { type: "azure-native:authorization/v20180901preview:RoleAssignment" }, { type: "azure-nextgen:authorization/v20180901preview:RoleAssignment" }, { type: "azure-native:authorization/v20200301preview:RoleAssignment" }, { type: "azure-nextgen:authorization/v20200301preview:RoleAssignment" }, { type: "azure-native:authorization/v20200401preview:RoleAssignment" }, { type: "azure-nextgen:authorization/v20200401preview:RoleAssignment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:authorization:RoleAssignment" }, { type: "azure-native:authorization/latest:RoleAssignment" }, { type: "azure-nextgen:authorization/latest:RoleAssignment" }, { type: "azure-native:authorization/v20150701:RoleAssignment" }, { type: "azure-nextgen:authorization/v20150701:RoleAssignment" }, { type: "azure-native:authorization/v20171001preview:RoleAssignment" }, { type: "azure-nextgen:authorization/v20171001preview:RoleAssignment" }, { type: "azure-native:authorization/v20180101preview:RoleAssignment" }, { type: "azure-nextgen:authorization/v20180101preview:RoleAssignment" }, { type: "azure-native:authorization/v20180901preview:RoleAssignment" }, { type: "azure-nextgen:authorization/v20180901preview:RoleAssignment" }, { type: "azure-native:authorization/v20200301preview:RoleAssignment" }, { type: "azure-nextgen:authorization/v20200301preview:RoleAssignment" }, { type: "azure-native:authorization/v20200401preview:RoleAssignment" }, { type: "azure-nextgen:authorization/v20200401preview:RoleAssignment" }, { type: "azure-native:authorization/v20200801preview:RoleAssignment" }, { type: "azure-nextgen:authorization/v20200801preview:RoleAssignment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RoleAssignment.__pulumiType, name, inputs, opts);
     }
@@ -163,10 +157,6 @@ export class RoleAssignment extends pulumi.CustomResource {
  * The set of arguments for constructing a RoleAssignment resource.
  */
 export interface RoleAssignmentArgs {
-    /**
-     * The delegation flag used for creating a role assignment
-     */
-    readonly canDelegate?: pulumi.Input<boolean>;
     /**
      * The conditions on the role assignment. This limits the resources it can be assigned to. e.g.: @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'
      */
@@ -184,7 +174,7 @@ export interface RoleAssignmentArgs {
      */
     readonly description?: pulumi.Input<string>;
     /**
-     * The principal ID assigned to the role. This maps to the ID inside the Active Directory. It can point to a user, service principal, or security group.
+     * The principal ID.
      */
     readonly principalId: pulumi.Input<string>;
     /**
@@ -192,15 +182,15 @@ export interface RoleAssignmentArgs {
      */
     readonly principalType?: pulumi.Input<string | enums.authorization.PrincipalType>;
     /**
-     * The name of the role assignment to create. It can be any valid GUID.
+     * The name of the role assignment. It can be any valid GUID.
      */
     readonly roleAssignmentName?: pulumi.Input<string>;
     /**
-     * The role definition ID used in the role assignment.
+     * The role definition ID.
      */
     readonly roleDefinitionId: pulumi.Input<string>;
     /**
-     * The scope of the role assignment to create. The scope can be any REST resource instance. For example, use '/subscriptions/{subscription-id}/' for a subscription, '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}' for a resource group, and '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}' for a resource.
+     * The role assignment scope.
      */
     readonly scope: pulumi.Input<string>;
 }

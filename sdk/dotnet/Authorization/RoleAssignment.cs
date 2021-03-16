@@ -11,17 +11,11 @@ namespace Pulumi.AzureNative.Authorization
 {
     /// <summary>
     /// Role Assignments
-    /// API Version: 2020-04-01-preview.
+    /// API Version: 2020-08-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:authorization:RoleAssignment")]
     public partial class RoleAssignment : Pulumi.CustomResource
     {
-        /// <summary>
-        /// The Delegation flag for the role assignment
-        /// </summary>
-        [Output("canDelegate")]
-        public Output<bool?> CanDelegate { get; private set; } = null!;
-
         /// <summary>
         /// The conditions on the role assignment. This limits the resources it can be assigned to. e.g.: @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'
         /// </summary>
@@ -38,13 +32,13 @@ namespace Pulumi.AzureNative.Authorization
         /// Id of the user who created the assignment
         /// </summary>
         [Output("createdBy")]
-        public Output<string?> CreatedBy { get; private set; } = null!;
+        public Output<string> CreatedBy { get; private set; } = null!;
 
         /// <summary>
         /// Time it was created
         /// </summary>
         [Output("createdOn")]
-        public Output<string?> CreatedOn { get; private set; } = null!;
+        public Output<string> CreatedOn { get; private set; } = null!;
 
         /// <summary>
         /// Id of the delegated managed identity resource
@@ -68,7 +62,7 @@ namespace Pulumi.AzureNative.Authorization
         /// The principal ID.
         /// </summary>
         [Output("principalId")]
-        public Output<string?> PrincipalId { get; private set; } = null!;
+        public Output<string> PrincipalId { get; private set; } = null!;
 
         /// <summary>
         /// The principal type of the assigned principal ID.
@@ -80,7 +74,7 @@ namespace Pulumi.AzureNative.Authorization
         /// The role definition ID.
         /// </summary>
         [Output("roleDefinitionId")]
-        public Output<string?> RoleDefinitionId { get; private set; } = null!;
+        public Output<string> RoleDefinitionId { get; private set; } = null!;
 
         /// <summary>
         /// The role assignment scope.
@@ -98,13 +92,13 @@ namespace Pulumi.AzureNative.Authorization
         /// Id of the user who updated the assignment
         /// </summary>
         [Output("updatedBy")]
-        public Output<string?> UpdatedBy { get; private set; } = null!;
+        public Output<string> UpdatedBy { get; private set; } = null!;
 
         /// <summary>
         /// Time it was updated
         /// </summary>
         [Output("updatedOn")]
-        public Output<string?> UpdatedOn { get; private set; } = null!;
+        public Output<string> UpdatedOn { get; private set; } = null!;
 
 
         /// <summary>
@@ -146,6 +140,8 @@ namespace Pulumi.AzureNative.Authorization
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20200301preview:RoleAssignment"},
                     new Pulumi.Alias { Type = "azure-native:authorization/v20200401preview:RoleAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20200401preview:RoleAssignment"},
+                    new Pulumi.Alias { Type = "azure-native:authorization/v20200801preview:RoleAssignment"},
+                    new Pulumi.Alias { Type = "azure-nextgen:authorization/v20200801preview:RoleAssignment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -169,12 +165,6 @@ namespace Pulumi.AzureNative.Authorization
 
     public sealed class RoleAssignmentArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The delegation flag used for creating a role assignment
-        /// </summary>
-        [Input("canDelegate")]
-        public Input<bool>? CanDelegate { get; set; }
-
         /// <summary>
         /// The conditions on the role assignment. This limits the resources it can be assigned to. e.g.: @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'
         /// </summary>
@@ -200,7 +190,7 @@ namespace Pulumi.AzureNative.Authorization
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The principal ID assigned to the role. This maps to the ID inside the Active Directory. It can point to a user, service principal, or security group.
+        /// The principal ID.
         /// </summary>
         [Input("principalId", required: true)]
         public Input<string> PrincipalId { get; set; } = null!;
@@ -212,19 +202,19 @@ namespace Pulumi.AzureNative.Authorization
         public InputUnion<string, Pulumi.AzureNative.Authorization.PrincipalType>? PrincipalType { get; set; }
 
         /// <summary>
-        /// The name of the role assignment to create. It can be any valid GUID.
+        /// The name of the role assignment. It can be any valid GUID.
         /// </summary>
         [Input("roleAssignmentName")]
         public Input<string>? RoleAssignmentName { get; set; }
 
         /// <summary>
-        /// The role definition ID used in the role assignment.
+        /// The role definition ID.
         /// </summary>
         [Input("roleDefinitionId", required: true)]
         public Input<string> RoleDefinitionId { get; set; } = null!;
 
         /// <summary>
-        /// The scope of the role assignment to create. The scope can be any REST resource instance. For example, use '/subscriptions/{subscription-id}/' for a subscription, '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}' for a resource group, and '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}' for a resource.
+        /// The role assignment scope.
         /// </summary>
         [Input("scope", required: true)]
         public Input<string> Scope { get; set; } = null!;

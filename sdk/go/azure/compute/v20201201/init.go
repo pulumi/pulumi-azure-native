@@ -27,10 +27,20 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewDedicatedHost(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:compute/v20201201:DedicatedHostGroup":
 		r, err = NewDedicatedHostGroup(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-native:compute/v20201201:Disk":
+		r, err = NewDisk(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-native:compute/v20201201:DiskAccess":
+		r, err = NewDiskAccess(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-native:compute/v20201201:DiskAccessAPrivateEndpointConnection":
+		r, err = NewDiskAccessAPrivateEndpointConnection(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-native:compute/v20201201:DiskEncryptionSet":
+		r, err = NewDiskEncryptionSet(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:compute/v20201201:Image":
 		r, err = NewImage(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:compute/v20201201:ProximityPlacementGroup":
 		r, err = NewProximityPlacementGroup(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-native:compute/v20201201:Snapshot":
+		r, err = NewSnapshot(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:compute/v20201201:SshPublicKey":
 		r, err = NewSshPublicKey(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:compute/v20201201:VirtualMachine":

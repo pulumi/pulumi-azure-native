@@ -40,7 +40,6 @@ __all__ = [
     'NumberNotInAdvancedFilterArgs',
     'NumberNotInRangeAdvancedFilterArgs',
     'PrivateEndpointArgs',
-    'PrivateEndpointConnectionArgs',
     'ResourceSkuArgs',
     'RetryPolicyArgs',
     'ServiceBusQueueEventSubscriptionDestinationArgs',
@@ -1707,77 +1706,6 @@ class PrivateEndpointArgs:
 
 
 @pulumi.input_type
-class PrivateEndpointConnectionArgs:
-    def __init__(__self__, *,
-                 group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 private_endpoint: Optional[pulumi.Input['PrivateEndpointArgs']] = None,
-                 private_link_service_connection_state: Optional[pulumi.Input['ConnectionStateArgs']] = None,
-                 provisioning_state: Optional[pulumi.Input[Union[str, 'ResourceProvisioningState']]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] group_ids: GroupIds from the private link service resource.
-        :param pulumi.Input['PrivateEndpointArgs'] private_endpoint: The Private Endpoint resource for this Connection.
-        :param pulumi.Input['ConnectionStateArgs'] private_link_service_connection_state: Details about the state of the connection.
-        :param pulumi.Input[Union[str, 'ResourceProvisioningState']] provisioning_state: Provisioning state of the Private Endpoint Connection.
-        """
-        if group_ids is not None:
-            pulumi.set(__self__, "group_ids", group_ids)
-        if private_endpoint is not None:
-            pulumi.set(__self__, "private_endpoint", private_endpoint)
-        if private_link_service_connection_state is not None:
-            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
-
-    @property
-    @pulumi.getter(name="groupIds")
-    def group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        GroupIds from the private link service resource.
-        """
-        return pulumi.get(self, "group_ids")
-
-    @group_ids.setter
-    def group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "group_ids", value)
-
-    @property
-    @pulumi.getter(name="privateEndpoint")
-    def private_endpoint(self) -> Optional[pulumi.Input['PrivateEndpointArgs']]:
-        """
-        The Private Endpoint resource for this Connection.
-        """
-        return pulumi.get(self, "private_endpoint")
-
-    @private_endpoint.setter
-    def private_endpoint(self, value: Optional[pulumi.Input['PrivateEndpointArgs']]):
-        pulumi.set(self, "private_endpoint", value)
-
-    @property
-    @pulumi.getter(name="privateLinkServiceConnectionState")
-    def private_link_service_connection_state(self) -> Optional[pulumi.Input['ConnectionStateArgs']]:
-        """
-        Details about the state of the connection.
-        """
-        return pulumi.get(self, "private_link_service_connection_state")
-
-    @private_link_service_connection_state.setter
-    def private_link_service_connection_state(self, value: Optional[pulumi.Input['ConnectionStateArgs']]):
-        pulumi.set(self, "private_link_service_connection_state", value)
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[Union[str, 'ResourceProvisioningState']]]:
-        """
-        Provisioning state of the Private Endpoint Connection.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[Union[str, 'ResourceProvisioningState']]]):
-        pulumi.set(self, "provisioning_state", value)
-
-
-@pulumi.input_type
 class ResourceSkuArgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[Union[str, 'Sku']]] = None):
@@ -1785,6 +1713,8 @@ class ResourceSkuArgs:
         Describes an EventGrid Resource Sku.
         :param pulumi.Input[Union[str, 'Sku']] name: The Sku name of the resource. The possible values are: Basic or Premium.
         """
+        if name is None:
+            name = 'Basic'
         if name is not None:
             pulumi.set(__self__, "name", name)
 

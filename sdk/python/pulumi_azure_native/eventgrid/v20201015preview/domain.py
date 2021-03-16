@@ -24,7 +24,6 @@ class Domain(pulumi.CustomResource):
                  input_schema: Optional[pulumi.Input[Union[str, 'InputSchema']]] = None,
                  input_schema_mapping: Optional[pulumi.Input[pulumi.InputType['JsonInputSchemaMappingArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 private_endpoint_connections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrivateEndpointConnectionArgs']]]]] = None,
                  public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['ResourceSkuArgs']]] = None,
@@ -43,7 +42,6 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'InputSchema']] input_schema: This determines the format that Event Grid should expect for incoming events published to the domain.
         :param pulumi.Input[pulumi.InputType['JsonInputSchemaMappingArgs']] input_schema_mapping: Information about the InputSchemaMapping which specified the info about mapping event payload.
         :param pulumi.Input[str] location: Location of the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrivateEndpointConnectionArgs']]]] private_endpoint_connections: List of private endpoint connections.
         :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: This determines if traffic is allowed over public network. By default it is enabled. 
                You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.DomainProperties.InboundIpRules" />
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription.
@@ -75,7 +73,6 @@ class Domain(pulumi.CustomResource):
             __props__['input_schema'] = input_schema
             __props__['input_schema_mapping'] = input_schema_mapping
             __props__['location'] = location
-            __props__['private_endpoint_connections'] = private_endpoint_connections
             if public_network_access is None:
                 public_network_access = 'Enabled'
             __props__['public_network_access'] = public_network_access
@@ -87,6 +84,7 @@ class Domain(pulumi.CustomResource):
             __props__['endpoint'] = None
             __props__['metric_resource_id'] = None
             __props__['name'] = None
+            __props__['private_endpoint_connections'] = None
             __props__['provisioning_state'] = None
             __props__['system_data'] = None
             __props__['type'] = None
@@ -197,7 +195,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateEndpointConnections")
-    def private_endpoint_connections(self) -> pulumi.Output[Optional[Sequence['outputs.PrivateEndpointConnectionResponse']]]:
+    def private_endpoint_connections(self) -> pulumi.Output[Sequence['outputs.PrivateEndpointConnectionResponse']]:
         """
         List of private endpoint connections.
         """

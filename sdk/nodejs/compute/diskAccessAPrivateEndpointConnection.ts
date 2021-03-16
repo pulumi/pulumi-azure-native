@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The Private Endpoint Connection resource.
- * API Version: 2020-09-30.
+ * API Version: 2020-12-01.
  */
 export class DiskAccessAPrivateEndpointConnection extends pulumi.CustomResource {
     /**
@@ -43,7 +43,7 @@ export class DiskAccessAPrivateEndpointConnection extends pulumi.CustomResource 
     /**
      * The resource of private end point.
      */
-    public /*out*/ readonly privateEndpoint!: pulumi.Output<outputs.compute.PrivateEndpointResponse | undefined>;
+    public /*out*/ readonly privateEndpoint!: pulumi.Output<outputs.compute.PrivateEndpointResponse>;
     /**
      * A collection of information about the state of the connection between DiskAccess and Virtual Network.
      */
@@ -95,7 +95,7 @@ export class DiskAccessAPrivateEndpointConnection extends pulumi.CustomResource 
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute:DiskAccessAPrivateEndpointConnection" }, { type: "azure-native:compute/latest:DiskAccessAPrivateEndpointConnection" }, { type: "azure-nextgen:compute/latest:DiskAccessAPrivateEndpointConnection" }, { type: "azure-native:compute/v20200930:DiskAccessAPrivateEndpointConnection" }, { type: "azure-nextgen:compute/v20200930:DiskAccessAPrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute:DiskAccessAPrivateEndpointConnection" }, { type: "azure-native:compute/latest:DiskAccessAPrivateEndpointConnection" }, { type: "azure-nextgen:compute/latest:DiskAccessAPrivateEndpointConnection" }, { type: "azure-native:compute/v20200930:DiskAccessAPrivateEndpointConnection" }, { type: "azure-nextgen:compute/v20200930:DiskAccessAPrivateEndpointConnection" }, { type: "azure-native:compute/v20201201:DiskAccessAPrivateEndpointConnection" }, { type: "azure-nextgen:compute/v20201201:DiskAccessAPrivateEndpointConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DiskAccessAPrivateEndpointConnection.__pulumiType, name, inputs, opts);
     }

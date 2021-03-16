@@ -84,6 +84,8 @@ namespace Pulumi.AzureNative.ServiceBus
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20170401:Rule"},
                     new Pulumi.Alias { Type = "azure-native:servicebus/v20180101preview:Rule"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20180101preview:Rule"},
+                    new Pulumi.Alias { Type = "azure-native:servicebus/v20210101preview:Rule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20210101preview:Rule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

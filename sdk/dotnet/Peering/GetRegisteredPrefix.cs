@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Peering
     {
         /// <summary>
         /// The customer's prefix that is registered by the peering service provider.
-        /// API Version: 2020-10-01.
+        /// API Version: 2021-01-01.
         /// </summary>
         public static Task<GetRegisteredPrefixResult> InvokeAsync(GetRegisteredPrefixArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRegisteredPrefixResult>("azure-native:peering:getRegisteredPrefix", args ?? new GetRegisteredPrefixArgs(), options.WithVersion());

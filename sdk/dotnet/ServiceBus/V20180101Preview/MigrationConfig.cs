@@ -89,6 +89,8 @@ namespace Pulumi.AzureNative.ServiceBus.V20180101Preview
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus/latest:MigrationConfig"},
                     new Pulumi.Alias { Type = "azure-native:servicebus/v20170401:MigrationConfig"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20170401:MigrationConfig"},
+                    new Pulumi.Alias { Type = "azure-native:servicebus/v20210101preview:MigrationConfig"},
+                    new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20210101preview:MigrationConfig"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

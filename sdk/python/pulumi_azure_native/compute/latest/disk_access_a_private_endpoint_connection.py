@@ -31,7 +31,7 @@ class DiskAccessAPrivateEndpointConnection(pulumi.CustomResource):
                  __opts__=None):
         """
         The Private Endpoint Connection resource.
-        Latest API Version: 2020-09-30.
+        Latest API Version: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -72,7 +72,7 @@ class DiskAccessAPrivateEndpointConnection(pulumi.CustomResource):
             __props__['private_endpoint'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute/latest:DiskAccessAPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:compute:DiskAccessAPrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:compute:DiskAccessAPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:compute/v20200930:DiskAccessAPrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:compute/v20200930:DiskAccessAPrivateEndpointConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute/latest:DiskAccessAPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:compute:DiskAccessAPrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:compute:DiskAccessAPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:compute/v20200930:DiskAccessAPrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:compute/v20200930:DiskAccessAPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:compute/v20201201:DiskAccessAPrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:compute/v20201201:DiskAccessAPrivateEndpointConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DiskAccessAPrivateEndpointConnection, __self__).__init__(
             'azure-native:compute/latest:DiskAccessAPrivateEndpointConnection',
@@ -113,7 +113,7 @@ class DiskAccessAPrivateEndpointConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateEndpoint")
-    def private_endpoint(self) -> pulumi.Output[Optional['outputs.PrivateEndpointResponse']]:
+    def private_endpoint(self) -> pulumi.Output['outputs.PrivateEndpointResponse']:
         """
         The resource of private end point.
         """

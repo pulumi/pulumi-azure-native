@@ -28,7 +28,7 @@ class PeerAsn(pulumi.CustomResource):
                  __opts__=None):
         """
         The essential information related to the peer's ASN.
-        API Version: 2020-10-01.
+        API Version: 2021-01-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

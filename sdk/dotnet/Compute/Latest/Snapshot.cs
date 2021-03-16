@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Compute.Latest
 {
     /// <summary>
     /// Snapshot resource.
-    /// Latest API Version: 2020-09-30.
+    /// Latest API Version: 2020-12-01.
     /// </summary>
     [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:compute:Snapshot'.")]
     [AzureNativeResourceType("azure-native:compute/latest:Snapshot")]
@@ -126,6 +126,12 @@ namespace Pulumi.AzureNative.Compute.Latest
         public Output<Outputs.SnapshotSkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
+        /// Indicates the OS on a snapshot supports hibernation.
+        /// </summary>
+        [Output("supportsHibernation")]
+        public Output<bool?> SupportsHibernation { get; private set; } = null!;
+
+        /// <summary>
         /// Resource tags
         /// </summary>
         [Output("tags")]
@@ -199,6 +205,8 @@ namespace Pulumi.AzureNative.Compute.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20200630:Snapshot"},
                     new Pulumi.Alias { Type = "azure-native:compute/v20200930:Snapshot"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20200930:Snapshot"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20201201:Snapshot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20201201:Snapshot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -311,6 +319,12 @@ namespace Pulumi.AzureNative.Compute.Latest
         /// </summary>
         [Input("snapshotName")]
         public Input<string>? SnapshotName { get; set; }
+
+        /// <summary>
+        /// Indicates the OS on a snapshot supports hibernation.
+        /// </summary>
+        [Input("supportsHibernation")]
+        public Input<bool>? SupportsHibernation { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

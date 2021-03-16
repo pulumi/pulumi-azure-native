@@ -12,7 +12,7 @@ import (
 )
 
 // Peering Service
-// API Version: 2020-10-01.
+// API Version: 2021-01-01.
 type PeeringService struct {
 	pulumi.CustomResourceState
 
@@ -20,10 +20,14 @@ type PeeringService struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the resource.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The PeeringServiceLocation of the Customer.
+	// The location (state/province) of the customer.
 	PeeringServiceLocation pulumi.StringPtrOutput `pulumi:"peeringServiceLocation"`
-	// The MAPS Provider Name.
+	// The name of the service provider.
 	PeeringServiceProvider pulumi.StringPtrOutput `pulumi:"peeringServiceProvider"`
+	// The backup peering (Microsoft/service provider) location to be used for customer traffic.
+	ProviderBackupPeeringLocation pulumi.StringPtrOutput `pulumi:"providerBackupPeeringLocation"`
+	// The primary peering (Microsoft/service provider) location to be used for customer traffic.
+	ProviderPrimaryPeeringLocation pulumi.StringPtrOutput `pulumi:"providerPrimaryPeeringLocation"`
 	// The provisioning state of the resource.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// The SKU that defines the type of the peering service.
@@ -118,10 +122,14 @@ type peeringServiceState struct {
 	Location *string `pulumi:"location"`
 	// The name of the resource.
 	Name *string `pulumi:"name"`
-	// The PeeringServiceLocation of the Customer.
+	// The location (state/province) of the customer.
 	PeeringServiceLocation *string `pulumi:"peeringServiceLocation"`
-	// The MAPS Provider Name.
+	// The name of the service provider.
 	PeeringServiceProvider *string `pulumi:"peeringServiceProvider"`
+	// The backup peering (Microsoft/service provider) location to be used for customer traffic.
+	ProviderBackupPeeringLocation *string `pulumi:"providerBackupPeeringLocation"`
+	// The primary peering (Microsoft/service provider) location to be used for customer traffic.
+	ProviderPrimaryPeeringLocation *string `pulumi:"providerPrimaryPeeringLocation"`
 	// The provisioning state of the resource.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// The SKU that defines the type of the peering service.
@@ -137,10 +145,14 @@ type PeeringServiceState struct {
 	Location pulumi.StringPtrInput
 	// The name of the resource.
 	Name pulumi.StringPtrInput
-	// The PeeringServiceLocation of the Customer.
+	// The location (state/province) of the customer.
 	PeeringServiceLocation pulumi.StringPtrInput
-	// The MAPS Provider Name.
+	// The name of the service provider.
 	PeeringServiceProvider pulumi.StringPtrInput
+	// The backup peering (Microsoft/service provider) location to be used for customer traffic.
+	ProviderBackupPeeringLocation pulumi.StringPtrInput
+	// The primary peering (Microsoft/service provider) location to be used for customer traffic.
+	ProviderPrimaryPeeringLocation pulumi.StringPtrInput
 	// The provisioning state of the resource.
 	ProvisioningState pulumi.StringPtrInput
 	// The SKU that defines the type of the peering service.
@@ -158,12 +170,16 @@ func (PeeringServiceState) ElementType() reflect.Type {
 type peeringServiceArgs struct {
 	// The location of the resource.
 	Location *string `pulumi:"location"`
-	// The PeeringServiceLocation of the Customer.
+	// The location (state/province) of the customer.
 	PeeringServiceLocation *string `pulumi:"peeringServiceLocation"`
 	// The name of the peering service.
 	PeeringServiceName *string `pulumi:"peeringServiceName"`
-	// The MAPS Provider Name.
+	// The name of the service provider.
 	PeeringServiceProvider *string `pulumi:"peeringServiceProvider"`
+	// The backup peering (Microsoft/service provider) location to be used for customer traffic.
+	ProviderBackupPeeringLocation *string `pulumi:"providerBackupPeeringLocation"`
+	// The primary peering (Microsoft/service provider) location to be used for customer traffic.
+	ProviderPrimaryPeeringLocation *string `pulumi:"providerPrimaryPeeringLocation"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The SKU that defines the type of the peering service.
@@ -176,12 +192,16 @@ type peeringServiceArgs struct {
 type PeeringServiceArgs struct {
 	// The location of the resource.
 	Location pulumi.StringPtrInput
-	// The PeeringServiceLocation of the Customer.
+	// The location (state/province) of the customer.
 	PeeringServiceLocation pulumi.StringPtrInput
 	// The name of the peering service.
 	PeeringServiceName pulumi.StringPtrInput
-	// The MAPS Provider Name.
+	// The name of the service provider.
 	PeeringServiceProvider pulumi.StringPtrInput
+	// The backup peering (Microsoft/service provider) location to be used for customer traffic.
+	ProviderBackupPeeringLocation pulumi.StringPtrInput
+	// The primary peering (Microsoft/service provider) location to be used for customer traffic.
+	ProviderPrimaryPeeringLocation pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The SKU that defines the type of the peering service.

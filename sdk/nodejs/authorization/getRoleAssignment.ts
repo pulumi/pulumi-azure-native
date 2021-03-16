@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Role Assignments
- * API Version: 2020-04-01-preview.
+ * API Version: 2020-08-01-preview.
  */
 export function getRoleAssignment(args: GetRoleAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleAssignmentResult> {
     if (!opts) {
@@ -25,11 +25,11 @@ export function getRoleAssignment(args: GetRoleAssignmentArgs, opts?: pulumi.Inv
 
 export interface GetRoleAssignmentArgs {
     /**
-     * The name of the role assignment to get.
+     * The name of the role assignment. It can be any valid GUID.
      */
     readonly roleAssignmentName: string;
     /**
-     * The scope of the role assignment.
+     * The scope of the operation or resource. Valid scopes are: subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
      */
     readonly scope: string;
 }
@@ -38,10 +38,6 @@ export interface GetRoleAssignmentArgs {
  * Role Assignments
  */
 export interface GetRoleAssignmentResult {
-    /**
-     * The Delegation flag for the role assignment
-     */
-    readonly canDelegate?: boolean;
     /**
      * The conditions on the role assignment. This limits the resources it can be assigned to. e.g.: @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'
      */
@@ -53,11 +49,11 @@ export interface GetRoleAssignmentResult {
     /**
      * Id of the user who created the assignment
      */
-    readonly createdBy?: string;
+    readonly createdBy: string;
     /**
      * Time it was created
      */
-    readonly createdOn?: string;
+    readonly createdOn: string;
     /**
      * Id of the delegated managed identity resource
      */
@@ -77,7 +73,7 @@ export interface GetRoleAssignmentResult {
     /**
      * The principal ID.
      */
-    readonly principalId?: string;
+    readonly principalId: string;
     /**
      * The principal type of the assigned principal ID.
      */
@@ -85,7 +81,7 @@ export interface GetRoleAssignmentResult {
     /**
      * The role definition ID.
      */
-    readonly roleDefinitionId?: string;
+    readonly roleDefinitionId: string;
     /**
      * The role assignment scope.
      */
@@ -97,9 +93,9 @@ export interface GetRoleAssignmentResult {
     /**
      * Id of the user who updated the assignment
      */
-    readonly updatedBy?: string;
+    readonly updatedBy: string;
     /**
      * Time it was updated
      */
-    readonly updatedOn?: string;
+    readonly updatedOn: string;
 }

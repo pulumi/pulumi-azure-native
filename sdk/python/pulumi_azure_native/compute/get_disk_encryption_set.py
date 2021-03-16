@@ -20,7 +20,7 @@ class GetDiskEncryptionSetResult:
     """
     disk encryption set resource.
     """
-    def __init__(__self__, active_key=None, encryption_type=None, id=None, identity=None, location=None, name=None, previous_keys=None, provisioning_state=None, tags=None, type=None):
+    def __init__(__self__, active_key=None, encryption_type=None, id=None, identity=None, last_key_rotation_timestamp=None, location=None, name=None, previous_keys=None, provisioning_state=None, rotation_to_latest_key_version_enabled=None, tags=None, type=None):
         if active_key and not isinstance(active_key, dict):
             raise TypeError("Expected argument 'active_key' to be a dict")
         pulumi.set(__self__, "active_key", active_key)
@@ -33,6 +33,9 @@ class GetDiskEncryptionSetResult:
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
+        if last_key_rotation_timestamp and not isinstance(last_key_rotation_timestamp, str):
+            raise TypeError("Expected argument 'last_key_rotation_timestamp' to be a str")
+        pulumi.set(__self__, "last_key_rotation_timestamp", last_key_rotation_timestamp)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -45,6 +48,9 @@ class GetDiskEncryptionSetResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if rotation_to_latest_key_version_enabled and not isinstance(rotation_to_latest_key_version_enabled, bool):
+            raise TypeError("Expected argument 'rotation_to_latest_key_version_enabled' to be a bool")
+        pulumi.set(__self__, "rotation_to_latest_key_version_enabled", rotation_to_latest_key_version_enabled)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -85,6 +91,14 @@ class GetDiskEncryptionSetResult:
         return pulumi.get(self, "identity")
 
     @property
+    @pulumi.getter(name="lastKeyRotationTimestamp")
+    def last_key_rotation_timestamp(self) -> str:
+        """
+        The time when the active key of this disk encryption set was updated.
+        """
+        return pulumi.get(self, "last_key_rotation_timestamp")
+
+    @property
     @pulumi.getter
     def location(self) -> str:
         """
@@ -117,6 +131,14 @@ class GetDiskEncryptionSetResult:
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="rotationToLatestKeyVersionEnabled")
+    def rotation_to_latest_key_version_enabled(self) -> Optional[bool]:
+        """
+        Set this flag to true to enable auto-updating of this disk encryption set to the latest key version.
+        """
+        return pulumi.get(self, "rotation_to_latest_key_version_enabled")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
@@ -143,10 +165,12 @@ class AwaitableGetDiskEncryptionSetResult(GetDiskEncryptionSetResult):
             encryption_type=self.encryption_type,
             id=self.id,
             identity=self.identity,
+            last_key_rotation_timestamp=self.last_key_rotation_timestamp,
             location=self.location,
             name=self.name,
             previous_keys=self.previous_keys,
             provisioning_state=self.provisioning_state,
+            rotation_to_latest_key_version_enabled=self.rotation_to_latest_key_version_enabled,
             tags=self.tags,
             type=self.type)
 
@@ -156,7 +180,7 @@ def get_disk_encryption_set(disk_encryption_set_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDiskEncryptionSetResult:
     """
     disk encryption set resource.
-    API Version: 2020-09-30.
+    API Version: 2020-12-01.
 
 
     :param str disk_encryption_set_name: The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
@@ -176,9 +200,11 @@ def get_disk_encryption_set(disk_encryption_set_name: Optional[str] = None,
         encryption_type=__ret__.encryption_type,
         id=__ret__.id,
         identity=__ret__.identity,
+        last_key_rotation_timestamp=__ret__.last_key_rotation_timestamp,
         location=__ret__.location,
         name=__ret__.name,
         previous_keys=__ret__.previous_keys,
         provisioning_state=__ret__.provisioning_state,
+        rotation_to_latest_key_version_enabled=__ret__.rotation_to_latest_key_version_enabled,
         tags=__ret__.tags,
         type=__ret__.type)

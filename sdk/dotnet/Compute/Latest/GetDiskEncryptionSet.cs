@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Compute.Latest
     {
         /// <summary>
         /// disk encryption set resource.
-        /// Latest API Version: 2020-09-30.
+        /// Latest API Version: 2020-12-01.
         /// </summary>
         public static Task<GetDiskEncryptionSetResult> InvokeAsync(GetDiskEncryptionSetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDiskEncryptionSetResult>("azure-native:compute/latest:getDiskEncryptionSet", args ?? new GetDiskEncryptionSetArgs(), options.WithVersion());
@@ -61,6 +61,10 @@ namespace Pulumi.AzureNative.Compute.Latest
         /// </summary>
         public readonly Outputs.EncryptionSetIdentityResponse? Identity;
         /// <summary>
+        /// The time when the active key of this disk encryption set was updated.
+        /// </summary>
+        public readonly string LastKeyRotationTimestamp;
+        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string Location;
@@ -76,6 +80,10 @@ namespace Pulumi.AzureNative.Compute.Latest
         /// The disk encryption set provisioning state.
         /// </summary>
         public readonly string ProvisioningState;
+        /// <summary>
+        /// Set this flag to true to enable auto-updating of this disk encryption set to the latest key version.
+        /// </summary>
+        public readonly bool? RotationToLatestKeyVersionEnabled;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -95,6 +103,8 @@ namespace Pulumi.AzureNative.Compute.Latest
 
             Outputs.EncryptionSetIdentityResponse? identity,
 
+            string lastKeyRotationTimestamp,
+
             string location,
 
             string name,
@@ -102,6 +112,8 @@ namespace Pulumi.AzureNative.Compute.Latest
             ImmutableArray<Outputs.KeyForDiskEncryptionSetResponse> previousKeys,
 
             string provisioningState,
+
+            bool? rotationToLatestKeyVersionEnabled,
 
             ImmutableDictionary<string, string>? tags,
 
@@ -111,10 +123,12 @@ namespace Pulumi.AzureNative.Compute.Latest
             EncryptionType = encryptionType;
             Id = id;
             Identity = identity;
+            LastKeyRotationTimestamp = lastKeyRotationTimestamp;
             Location = location;
             Name = name;
             PreviousKeys = previousKeys;
             ProvisioningState = provisioningState;
+            RotationToLatestKeyVersionEnabled = rotationToLatestKeyVersionEnabled;
             Tags = tags;
             Type = type;
         }

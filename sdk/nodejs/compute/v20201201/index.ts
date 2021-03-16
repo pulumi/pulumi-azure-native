@@ -8,13 +8,22 @@ import * as utilities from "../../utilities";
 export * from "./availabilitySet";
 export * from "./dedicatedHost";
 export * from "./dedicatedHostGroup";
+export * from "./disk";
+export * from "./diskAccess";
+export * from "./diskAccessAPrivateEndpointConnection";
+export * from "./diskEncryptionSet";
 export * from "./getAvailabilitySet";
 export * from "./getDedicatedHost";
 export * from "./getDedicatedHostGroup";
+export * from "./getDisk";
+export * from "./getDiskAccess";
+export * from "./getDiskAccessAPrivateEndpointConnection";
+export * from "./getDiskEncryptionSet";
 export * from "./getImage";
 export * from "./getLogAnalyticExportRequestRateByInterval";
 export * from "./getLogAnalyticExportThrottledRequests";
 export * from "./getProximityPlacementGroup";
+export * from "./getSnapshot";
 export * from "./getSshPublicKey";
 export * from "./getVirtualMachine";
 export * from "./getVirtualMachineExtension";
@@ -26,6 +35,7 @@ export * from "./getVirtualMachineScaleSetVMExtension";
 export * from "./getVirtualMachineScaleSetVMRunCommand";
 export * from "./image";
 export * from "./proximityPlacementGroup";
+export * from "./snapshot";
 export * from "./sshPublicKey";
 export * from "./virtualMachine";
 export * from "./virtualMachineExtension";
@@ -43,8 +53,13 @@ export * from "../../types/enums/compute/v20201201";
 import { AvailabilitySet } from "./availabilitySet";
 import { DedicatedHost } from "./dedicatedHost";
 import { DedicatedHostGroup } from "./dedicatedHostGroup";
+import { Disk } from "./disk";
+import { DiskAccess } from "./diskAccess";
+import { DiskAccessAPrivateEndpointConnection } from "./diskAccessAPrivateEndpointConnection";
+import { DiskEncryptionSet } from "./diskEncryptionSet";
 import { Image } from "./image";
 import { ProximityPlacementGroup } from "./proximityPlacementGroup";
+import { Snapshot } from "./snapshot";
 import { SshPublicKey } from "./sshPublicKey";
 import { VirtualMachine } from "./virtualMachine";
 import { VirtualMachineExtension } from "./virtualMachineExtension";
@@ -65,10 +80,20 @@ const _module = {
                 return new DedicatedHost(name, <any>undefined, { urn })
             case "azure-native:compute/v20201201:DedicatedHostGroup":
                 return new DedicatedHostGroup(name, <any>undefined, { urn })
+            case "azure-native:compute/v20201201:Disk":
+                return new Disk(name, <any>undefined, { urn })
+            case "azure-native:compute/v20201201:DiskAccess":
+                return new DiskAccess(name, <any>undefined, { urn })
+            case "azure-native:compute/v20201201:DiskAccessAPrivateEndpointConnection":
+                return new DiskAccessAPrivateEndpointConnection(name, <any>undefined, { urn })
+            case "azure-native:compute/v20201201:DiskEncryptionSet":
+                return new DiskEncryptionSet(name, <any>undefined, { urn })
             case "azure-native:compute/v20201201:Image":
                 return new Image(name, <any>undefined, { urn })
             case "azure-native:compute/v20201201:ProximityPlacementGroup":
                 return new ProximityPlacementGroup(name, <any>undefined, { urn })
+            case "azure-native:compute/v20201201:Snapshot":
+                return new Snapshot(name, <any>undefined, { urn })
             case "azure-native:compute/v20201201:SshPublicKey":
                 return new SshPublicKey(name, <any>undefined, { urn })
             case "azure-native:compute/v20201201:VirtualMachine":

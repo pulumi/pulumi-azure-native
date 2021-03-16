@@ -12,7 +12,7 @@ import (
 )
 
 // disk access resource.
-// API Version: 2020-09-30.
+// API Version: 2020-12-01.
 type DiskAccess struct {
 	pulumi.CustomResourceState
 
@@ -69,6 +69,12 @@ func NewDiskAccess(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20200930:DiskAccess"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20201201:DiskAccess"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:compute/v20201201:DiskAccess"),
 		},
 	})
 	opts = append(opts, aliases)

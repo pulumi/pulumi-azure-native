@@ -8,7 +8,7 @@ import (
 )
 
 // Peering is a logical representation of a set of connections to the Microsoft Cloud Edge at a location.
-// Latest API Version: 2020-10-01.
+// Latest API Version: 2021-01-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:peering:getPeering'.
 func LookupPeering(ctx *pulumi.Context, args *LookupPeeringArgs, opts ...pulumi.InvokeOption) (*LookupPeeringResult, error) {

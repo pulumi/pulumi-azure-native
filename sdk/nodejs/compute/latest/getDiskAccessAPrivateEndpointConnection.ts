@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * The Private Endpoint Connection resource.
- * Latest API Version: 2020-09-30.
+ * Latest API Version: 2020-12-01.
  */
 /** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:compute:getDiskAccessAPrivateEndpointConnection'. */
 export function getDiskAccessAPrivateEndpointConnection(args: GetDiskAccessAPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetDiskAccessAPrivateEndpointConnectionResult> {
@@ -56,7 +56,7 @@ export interface GetDiskAccessAPrivateEndpointConnectionResult {
     /**
      * The resource of private end point.
      */
-    readonly privateEndpoint?: outputs.compute.latest.PrivateEndpointResponse;
+    readonly privateEndpoint: outputs.compute.latest.PrivateEndpointResponse;
     /**
      * A collection of information about the state of the connection between DiskAccess and Virtual Network.
      */

@@ -8,7 +8,7 @@ import (
 )
 
 // The essential information related to the peer's ASN.
-// Latest API Version: 2020-10-01.
+// Latest API Version: 2021-01-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:peering:getPeerAsn'.
 func LookupPeerAsn(ctx *pulumi.Context, args *LookupPeerAsnArgs, opts ...pulumi.InvokeOption) (*LookupPeerAsnResult, error) {

@@ -9915,7 +9915,275 @@ func (o DiskInstanceViewResponseArrayOutput) Index(i pulumi.IntInput) DiskInstan
 	}).(DiskInstanceViewResponseOutput)
 }
 
-// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
+// Contains the security related information for the resource.
+type DiskSecurityProfile struct {
+	// Specifies the SecurityType of the VM. Applicable for OS disks only.
+	SecurityType *string `pulumi:"securityType"`
+}
+
+// DiskSecurityProfileInput is an input type that accepts DiskSecurityProfileArgs and DiskSecurityProfileOutput values.
+// You can construct a concrete instance of `DiskSecurityProfileInput` via:
+//
+//          DiskSecurityProfileArgs{...}
+type DiskSecurityProfileInput interface {
+	pulumi.Input
+
+	ToDiskSecurityProfileOutput() DiskSecurityProfileOutput
+	ToDiskSecurityProfileOutputWithContext(context.Context) DiskSecurityProfileOutput
+}
+
+// Contains the security related information for the resource.
+type DiskSecurityProfileArgs struct {
+	// Specifies the SecurityType of the VM. Applicable for OS disks only.
+	SecurityType pulumi.StringPtrInput `pulumi:"securityType"`
+}
+
+func (DiskSecurityProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiskSecurityProfile)(nil)).Elem()
+}
+
+func (i DiskSecurityProfileArgs) ToDiskSecurityProfileOutput() DiskSecurityProfileOutput {
+	return i.ToDiskSecurityProfileOutputWithContext(context.Background())
+}
+
+func (i DiskSecurityProfileArgs) ToDiskSecurityProfileOutputWithContext(ctx context.Context) DiskSecurityProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiskSecurityProfileOutput)
+}
+
+func (i DiskSecurityProfileArgs) ToDiskSecurityProfilePtrOutput() DiskSecurityProfilePtrOutput {
+	return i.ToDiskSecurityProfilePtrOutputWithContext(context.Background())
+}
+
+func (i DiskSecurityProfileArgs) ToDiskSecurityProfilePtrOutputWithContext(ctx context.Context) DiskSecurityProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiskSecurityProfileOutput).ToDiskSecurityProfilePtrOutputWithContext(ctx)
+}
+
+// DiskSecurityProfilePtrInput is an input type that accepts DiskSecurityProfileArgs, DiskSecurityProfilePtr and DiskSecurityProfilePtrOutput values.
+// You can construct a concrete instance of `DiskSecurityProfilePtrInput` via:
+//
+//          DiskSecurityProfileArgs{...}
+//
+//  or:
+//
+//          nil
+type DiskSecurityProfilePtrInput interface {
+	pulumi.Input
+
+	ToDiskSecurityProfilePtrOutput() DiskSecurityProfilePtrOutput
+	ToDiskSecurityProfilePtrOutputWithContext(context.Context) DiskSecurityProfilePtrOutput
+}
+
+type diskSecurityProfilePtrType DiskSecurityProfileArgs
+
+func DiskSecurityProfilePtr(v *DiskSecurityProfileArgs) DiskSecurityProfilePtrInput {
+	return (*diskSecurityProfilePtrType)(v)
+}
+
+func (*diskSecurityProfilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DiskSecurityProfile)(nil)).Elem()
+}
+
+func (i *diskSecurityProfilePtrType) ToDiskSecurityProfilePtrOutput() DiskSecurityProfilePtrOutput {
+	return i.ToDiskSecurityProfilePtrOutputWithContext(context.Background())
+}
+
+func (i *diskSecurityProfilePtrType) ToDiskSecurityProfilePtrOutputWithContext(ctx context.Context) DiskSecurityProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiskSecurityProfilePtrOutput)
+}
+
+// Contains the security related information for the resource.
+type DiskSecurityProfileOutput struct{ *pulumi.OutputState }
+
+func (DiskSecurityProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiskSecurityProfile)(nil)).Elem()
+}
+
+func (o DiskSecurityProfileOutput) ToDiskSecurityProfileOutput() DiskSecurityProfileOutput {
+	return o
+}
+
+func (o DiskSecurityProfileOutput) ToDiskSecurityProfileOutputWithContext(ctx context.Context) DiskSecurityProfileOutput {
+	return o
+}
+
+func (o DiskSecurityProfileOutput) ToDiskSecurityProfilePtrOutput() DiskSecurityProfilePtrOutput {
+	return o.ToDiskSecurityProfilePtrOutputWithContext(context.Background())
+}
+
+func (o DiskSecurityProfileOutput) ToDiskSecurityProfilePtrOutputWithContext(ctx context.Context) DiskSecurityProfilePtrOutput {
+	return o.ApplyT(func(v DiskSecurityProfile) *DiskSecurityProfile {
+		return &v
+	}).(DiskSecurityProfilePtrOutput)
+}
+
+// Specifies the SecurityType of the VM. Applicable for OS disks only.
+func (o DiskSecurityProfileOutput) SecurityType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DiskSecurityProfile) *string { return v.SecurityType }).(pulumi.StringPtrOutput)
+}
+
+type DiskSecurityProfilePtrOutput struct{ *pulumi.OutputState }
+
+func (DiskSecurityProfilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DiskSecurityProfile)(nil)).Elem()
+}
+
+func (o DiskSecurityProfilePtrOutput) ToDiskSecurityProfilePtrOutput() DiskSecurityProfilePtrOutput {
+	return o
+}
+
+func (o DiskSecurityProfilePtrOutput) ToDiskSecurityProfilePtrOutputWithContext(ctx context.Context) DiskSecurityProfilePtrOutput {
+	return o
+}
+
+func (o DiskSecurityProfilePtrOutput) Elem() DiskSecurityProfileOutput {
+	return o.ApplyT(func(v *DiskSecurityProfile) DiskSecurityProfile { return *v }).(DiskSecurityProfileOutput)
+}
+
+// Specifies the SecurityType of the VM. Applicable for OS disks only.
+func (o DiskSecurityProfilePtrOutput) SecurityType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DiskSecurityProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Contains the security related information for the resource.
+type DiskSecurityProfileResponse struct {
+	// Specifies the SecurityType of the VM. Applicable for OS disks only.
+	SecurityType *string `pulumi:"securityType"`
+}
+
+// DiskSecurityProfileResponseInput is an input type that accepts DiskSecurityProfileResponseArgs and DiskSecurityProfileResponseOutput values.
+// You can construct a concrete instance of `DiskSecurityProfileResponseInput` via:
+//
+//          DiskSecurityProfileResponseArgs{...}
+type DiskSecurityProfileResponseInput interface {
+	pulumi.Input
+
+	ToDiskSecurityProfileResponseOutput() DiskSecurityProfileResponseOutput
+	ToDiskSecurityProfileResponseOutputWithContext(context.Context) DiskSecurityProfileResponseOutput
+}
+
+// Contains the security related information for the resource.
+type DiskSecurityProfileResponseArgs struct {
+	// Specifies the SecurityType of the VM. Applicable for OS disks only.
+	SecurityType pulumi.StringPtrInput `pulumi:"securityType"`
+}
+
+func (DiskSecurityProfileResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiskSecurityProfileResponse)(nil)).Elem()
+}
+
+func (i DiskSecurityProfileResponseArgs) ToDiskSecurityProfileResponseOutput() DiskSecurityProfileResponseOutput {
+	return i.ToDiskSecurityProfileResponseOutputWithContext(context.Background())
+}
+
+func (i DiskSecurityProfileResponseArgs) ToDiskSecurityProfileResponseOutputWithContext(ctx context.Context) DiskSecurityProfileResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiskSecurityProfileResponseOutput)
+}
+
+func (i DiskSecurityProfileResponseArgs) ToDiskSecurityProfileResponsePtrOutput() DiskSecurityProfileResponsePtrOutput {
+	return i.ToDiskSecurityProfileResponsePtrOutputWithContext(context.Background())
+}
+
+func (i DiskSecurityProfileResponseArgs) ToDiskSecurityProfileResponsePtrOutputWithContext(ctx context.Context) DiskSecurityProfileResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiskSecurityProfileResponseOutput).ToDiskSecurityProfileResponsePtrOutputWithContext(ctx)
+}
+
+// DiskSecurityProfileResponsePtrInput is an input type that accepts DiskSecurityProfileResponseArgs, DiskSecurityProfileResponsePtr and DiskSecurityProfileResponsePtrOutput values.
+// You can construct a concrete instance of `DiskSecurityProfileResponsePtrInput` via:
+//
+//          DiskSecurityProfileResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type DiskSecurityProfileResponsePtrInput interface {
+	pulumi.Input
+
+	ToDiskSecurityProfileResponsePtrOutput() DiskSecurityProfileResponsePtrOutput
+	ToDiskSecurityProfileResponsePtrOutputWithContext(context.Context) DiskSecurityProfileResponsePtrOutput
+}
+
+type diskSecurityProfileResponsePtrType DiskSecurityProfileResponseArgs
+
+func DiskSecurityProfileResponsePtr(v *DiskSecurityProfileResponseArgs) DiskSecurityProfileResponsePtrInput {
+	return (*diskSecurityProfileResponsePtrType)(v)
+}
+
+func (*diskSecurityProfileResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DiskSecurityProfileResponse)(nil)).Elem()
+}
+
+func (i *diskSecurityProfileResponsePtrType) ToDiskSecurityProfileResponsePtrOutput() DiskSecurityProfileResponsePtrOutput {
+	return i.ToDiskSecurityProfileResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *diskSecurityProfileResponsePtrType) ToDiskSecurityProfileResponsePtrOutputWithContext(ctx context.Context) DiskSecurityProfileResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiskSecurityProfileResponsePtrOutput)
+}
+
+// Contains the security related information for the resource.
+type DiskSecurityProfileResponseOutput struct{ *pulumi.OutputState }
+
+func (DiskSecurityProfileResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiskSecurityProfileResponse)(nil)).Elem()
+}
+
+func (o DiskSecurityProfileResponseOutput) ToDiskSecurityProfileResponseOutput() DiskSecurityProfileResponseOutput {
+	return o
+}
+
+func (o DiskSecurityProfileResponseOutput) ToDiskSecurityProfileResponseOutputWithContext(ctx context.Context) DiskSecurityProfileResponseOutput {
+	return o
+}
+
+func (o DiskSecurityProfileResponseOutput) ToDiskSecurityProfileResponsePtrOutput() DiskSecurityProfileResponsePtrOutput {
+	return o.ToDiskSecurityProfileResponsePtrOutputWithContext(context.Background())
+}
+
+func (o DiskSecurityProfileResponseOutput) ToDiskSecurityProfileResponsePtrOutputWithContext(ctx context.Context) DiskSecurityProfileResponsePtrOutput {
+	return o.ApplyT(func(v DiskSecurityProfileResponse) *DiskSecurityProfileResponse {
+		return &v
+	}).(DiskSecurityProfileResponsePtrOutput)
+}
+
+// Specifies the SecurityType of the VM. Applicable for OS disks only.
+func (o DiskSecurityProfileResponseOutput) SecurityType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DiskSecurityProfileResponse) *string { return v.SecurityType }).(pulumi.StringPtrOutput)
+}
+
+type DiskSecurityProfileResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (DiskSecurityProfileResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DiskSecurityProfileResponse)(nil)).Elem()
+}
+
+func (o DiskSecurityProfileResponsePtrOutput) ToDiskSecurityProfileResponsePtrOutput() DiskSecurityProfileResponsePtrOutput {
+	return o
+}
+
+func (o DiskSecurityProfileResponsePtrOutput) ToDiskSecurityProfileResponsePtrOutputWithContext(ctx context.Context) DiskSecurityProfileResponsePtrOutput {
+	return o
+}
+
+func (o DiskSecurityProfileResponsePtrOutput) Elem() DiskSecurityProfileResponseOutput {
+	return o.ApplyT(func(v *DiskSecurityProfileResponse) DiskSecurityProfileResponse { return *v }).(DiskSecurityProfileResponseOutput)
+}
+
+// Specifies the SecurityType of the VM. Applicable for OS disks only.
+func (o DiskSecurityProfileResponsePtrOutput) SecurityType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DiskSecurityProfileResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, UltraSSD_LRS, Premium_ZRS, or StandardSSD_ZRS.
 type DiskSku struct {
 	// The sku name.
 	Name *string `pulumi:"name"`
@@ -9932,7 +10200,7 @@ type DiskSkuInput interface {
 	ToDiskSkuOutputWithContext(context.Context) DiskSkuOutput
 }
 
-// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
+// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, UltraSSD_LRS, Premium_ZRS, or StandardSSD_ZRS.
 type DiskSkuArgs struct {
 	// The sku name.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -9991,7 +10259,7 @@ func (i *diskSkuPtrType) ToDiskSkuPtrOutputWithContext(ctx context.Context) Disk
 	return pulumi.ToOutputWithContext(ctx, i).(DiskSkuPtrOutput)
 }
 
-// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
+// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, UltraSSD_LRS, Premium_ZRS, or StandardSSD_ZRS.
 type DiskSkuOutput struct{ *pulumi.OutputState }
 
 func (DiskSkuOutput) ElementType() reflect.Type {
@@ -10049,7 +10317,7 @@ func (o DiskSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
+// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, UltraSSD_LRS, Premium_ZRS, or StandardSSD_ZRS.
 type DiskSkuResponse struct {
 	// The sku name.
 	Name *string `pulumi:"name"`
@@ -10068,7 +10336,7 @@ type DiskSkuResponseInput interface {
 	ToDiskSkuResponseOutputWithContext(context.Context) DiskSkuResponseOutput
 }
 
-// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
+// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, UltraSSD_LRS, Premium_ZRS, or StandardSSD_ZRS.
 type DiskSkuResponseArgs struct {
 	// The sku name.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -10129,7 +10397,7 @@ func (i *diskSkuResponsePtrType) ToDiskSkuResponsePtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(DiskSkuResponsePtrOutput)
 }
 
-// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
+// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, UltraSSD_LRS, Premium_ZRS, or StandardSSD_ZRS.
 type DiskSkuResponseOutput struct{ *pulumi.OutputState }
 
 func (DiskSkuResponseOutput) ElementType() reflect.Type {
@@ -18390,7 +18658,7 @@ func (o InstanceViewStatusResponseArrayOutput) Index(i pulumi.IntInput) Instance
 
 // Key Vault Key Url to be used for server side encryption of Managed Disks and Snapshots
 type KeyForDiskEncryptionSet struct {
-	// Fully versioned Key Url pointing to a key in KeyVault
+	// Fully versioned Key Url pointing to a key in KeyVault. Version segment of the Url is required regardless of rotationToLatestKeyVersionEnabled value.
 	KeyUrl string `pulumi:"keyUrl"`
 	// Resource id of the KeyVault containing the key or secret. This property is optional and cannot be used if the KeyVault subscription is not the same as the Disk Encryption Set subscription.
 	SourceVault *SourceVault `pulumi:"sourceVault"`
@@ -18409,7 +18677,7 @@ type KeyForDiskEncryptionSetInput interface {
 
 // Key Vault Key Url to be used for server side encryption of Managed Disks and Snapshots
 type KeyForDiskEncryptionSetArgs struct {
-	// Fully versioned Key Url pointing to a key in KeyVault
+	// Fully versioned Key Url pointing to a key in KeyVault. Version segment of the Url is required regardless of rotationToLatestKeyVersionEnabled value.
 	KeyUrl pulumi.StringInput `pulumi:"keyUrl"`
 	// Resource id of the KeyVault containing the key or secret. This property is optional and cannot be used if the KeyVault subscription is not the same as the Disk Encryption Set subscription.
 	SourceVault SourceVaultPtrInput `pulumi:"sourceVault"`
@@ -18493,7 +18761,7 @@ func (o KeyForDiskEncryptionSetOutput) ToKeyForDiskEncryptionSetPtrOutputWithCon
 	}).(KeyForDiskEncryptionSetPtrOutput)
 }
 
-// Fully versioned Key Url pointing to a key in KeyVault
+// Fully versioned Key Url pointing to a key in KeyVault. Version segment of the Url is required regardless of rotationToLatestKeyVersionEnabled value.
 func (o KeyForDiskEncryptionSetOutput) KeyUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v KeyForDiskEncryptionSet) string { return v.KeyUrl }).(pulumi.StringOutput)
 }
@@ -18521,7 +18789,7 @@ func (o KeyForDiskEncryptionSetPtrOutput) Elem() KeyForDiskEncryptionSetOutput {
 	return o.ApplyT(func(v *KeyForDiskEncryptionSet) KeyForDiskEncryptionSet { return *v }).(KeyForDiskEncryptionSetOutput)
 }
 
-// Fully versioned Key Url pointing to a key in KeyVault
+// Fully versioned Key Url pointing to a key in KeyVault. Version segment of the Url is required regardless of rotationToLatestKeyVersionEnabled value.
 func (o KeyForDiskEncryptionSetPtrOutput) KeyUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyForDiskEncryptionSet) *string {
 		if v == nil {
@@ -18543,7 +18811,7 @@ func (o KeyForDiskEncryptionSetPtrOutput) SourceVault() SourceVaultPtrOutput {
 
 // Key Vault Key Url to be used for server side encryption of Managed Disks and Snapshots
 type KeyForDiskEncryptionSetResponse struct {
-	// Fully versioned Key Url pointing to a key in KeyVault
+	// Fully versioned Key Url pointing to a key in KeyVault. Version segment of the Url is required regardless of rotationToLatestKeyVersionEnabled value.
 	KeyUrl string `pulumi:"keyUrl"`
 	// Resource id of the KeyVault containing the key or secret. This property is optional and cannot be used if the KeyVault subscription is not the same as the Disk Encryption Set subscription.
 	SourceVault *SourceVaultResponse `pulumi:"sourceVault"`
@@ -18562,7 +18830,7 @@ type KeyForDiskEncryptionSetResponseInput interface {
 
 // Key Vault Key Url to be used for server side encryption of Managed Disks and Snapshots
 type KeyForDiskEncryptionSetResponseArgs struct {
-	// Fully versioned Key Url pointing to a key in KeyVault
+	// Fully versioned Key Url pointing to a key in KeyVault. Version segment of the Url is required regardless of rotationToLatestKeyVersionEnabled value.
 	KeyUrl pulumi.StringInput `pulumi:"keyUrl"`
 	// Resource id of the KeyVault containing the key or secret. This property is optional and cannot be used if the KeyVault subscription is not the same as the Disk Encryption Set subscription.
 	SourceVault SourceVaultResponsePtrInput `pulumi:"sourceVault"`
@@ -18671,7 +18939,7 @@ func (o KeyForDiskEncryptionSetResponseOutput) ToKeyForDiskEncryptionSetResponse
 	}).(KeyForDiskEncryptionSetResponsePtrOutput)
 }
 
-// Fully versioned Key Url pointing to a key in KeyVault
+// Fully versioned Key Url pointing to a key in KeyVault. Version segment of the Url is required regardless of rotationToLatestKeyVersionEnabled value.
 func (o KeyForDiskEncryptionSetResponseOutput) KeyUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v KeyForDiskEncryptionSetResponse) string { return v.KeyUrl }).(pulumi.StringOutput)
 }
@@ -18699,7 +18967,7 @@ func (o KeyForDiskEncryptionSetResponsePtrOutput) Elem() KeyForDiskEncryptionSet
 	return o.ApplyT(func(v *KeyForDiskEncryptionSetResponse) KeyForDiskEncryptionSetResponse { return *v }).(KeyForDiskEncryptionSetResponseOutput)
 }
 
-// Fully versioned Key Url pointing to a key in KeyVault
+// Fully versioned Key Url pointing to a key in KeyVault. Version segment of the Url is required regardless of rotationToLatestKeyVersionEnabled value.
 func (o KeyForDiskEncryptionSetResponsePtrOutput) KeyUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyForDiskEncryptionSetResponse) *string {
 		if v == nil {
@@ -24963,7 +25231,7 @@ type PrivateEndpointConnectionResponse struct {
 	// private endpoint connection name
 	Name string `pulumi:"name"`
 	// The resource of private end point.
-	PrivateEndpoint *PrivateEndpointResponse `pulumi:"privateEndpoint"`
+	PrivateEndpoint PrivateEndpointResponse `pulumi:"privateEndpoint"`
 	// A collection of information about the state of the connection between DiskAccess and Virtual Network.
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
 	// The provisioning state of the private endpoint connection resource.
@@ -24990,7 +25258,7 @@ type PrivateEndpointConnectionResponseArgs struct {
 	// private endpoint connection name
 	Name pulumi.StringInput `pulumi:"name"`
 	// The resource of private end point.
-	PrivateEndpoint PrivateEndpointResponsePtrInput `pulumi:"privateEndpoint"`
+	PrivateEndpoint PrivateEndpointResponseInput `pulumi:"privateEndpoint"`
 	// A collection of information about the state of the connection between DiskAccess and Virtual Network.
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponseInput `pulumi:"privateLinkServiceConnectionState"`
 	// The provisioning state of the private endpoint connection resource.
@@ -25062,8 +25330,8 @@ func (o PrivateEndpointConnectionResponseOutput) Name() pulumi.StringOutput {
 }
 
 // The resource of private end point.
-func (o PrivateEndpointConnectionResponseOutput) PrivateEndpoint() PrivateEndpointResponsePtrOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionResponse) *PrivateEndpointResponse { return v.PrivateEndpoint }).(PrivateEndpointResponsePtrOutput)
+func (o PrivateEndpointConnectionResponseOutput) PrivateEndpoint() PrivateEndpointResponseOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) PrivateEndpointResponse { return v.PrivateEndpoint }).(PrivateEndpointResponseOutput)
 }
 
 // A collection of information about the state of the connection between DiskAccess and Virtual Network.
@@ -25580,6 +25848,140 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Status() pulumi.Stri
 			return nil
 		}
 		return v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+// Properties of the disk for which update is pending.
+type PropertyUpdatesInProgressResponse struct {
+	// The target performance tier of the disk if a tier change operation is in progress.
+	TargetTier *string `pulumi:"targetTier"`
+}
+
+// PropertyUpdatesInProgressResponseInput is an input type that accepts PropertyUpdatesInProgressResponseArgs and PropertyUpdatesInProgressResponseOutput values.
+// You can construct a concrete instance of `PropertyUpdatesInProgressResponseInput` via:
+//
+//          PropertyUpdatesInProgressResponseArgs{...}
+type PropertyUpdatesInProgressResponseInput interface {
+	pulumi.Input
+
+	ToPropertyUpdatesInProgressResponseOutput() PropertyUpdatesInProgressResponseOutput
+	ToPropertyUpdatesInProgressResponseOutputWithContext(context.Context) PropertyUpdatesInProgressResponseOutput
+}
+
+// Properties of the disk for which update is pending.
+type PropertyUpdatesInProgressResponseArgs struct {
+	// The target performance tier of the disk if a tier change operation is in progress.
+	TargetTier pulumi.StringPtrInput `pulumi:"targetTier"`
+}
+
+func (PropertyUpdatesInProgressResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PropertyUpdatesInProgressResponse)(nil)).Elem()
+}
+
+func (i PropertyUpdatesInProgressResponseArgs) ToPropertyUpdatesInProgressResponseOutput() PropertyUpdatesInProgressResponseOutput {
+	return i.ToPropertyUpdatesInProgressResponseOutputWithContext(context.Background())
+}
+
+func (i PropertyUpdatesInProgressResponseArgs) ToPropertyUpdatesInProgressResponseOutputWithContext(ctx context.Context) PropertyUpdatesInProgressResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PropertyUpdatesInProgressResponseOutput)
+}
+
+func (i PropertyUpdatesInProgressResponseArgs) ToPropertyUpdatesInProgressResponsePtrOutput() PropertyUpdatesInProgressResponsePtrOutput {
+	return i.ToPropertyUpdatesInProgressResponsePtrOutputWithContext(context.Background())
+}
+
+func (i PropertyUpdatesInProgressResponseArgs) ToPropertyUpdatesInProgressResponsePtrOutputWithContext(ctx context.Context) PropertyUpdatesInProgressResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PropertyUpdatesInProgressResponseOutput).ToPropertyUpdatesInProgressResponsePtrOutputWithContext(ctx)
+}
+
+// PropertyUpdatesInProgressResponsePtrInput is an input type that accepts PropertyUpdatesInProgressResponseArgs, PropertyUpdatesInProgressResponsePtr and PropertyUpdatesInProgressResponsePtrOutput values.
+// You can construct a concrete instance of `PropertyUpdatesInProgressResponsePtrInput` via:
+//
+//          PropertyUpdatesInProgressResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type PropertyUpdatesInProgressResponsePtrInput interface {
+	pulumi.Input
+
+	ToPropertyUpdatesInProgressResponsePtrOutput() PropertyUpdatesInProgressResponsePtrOutput
+	ToPropertyUpdatesInProgressResponsePtrOutputWithContext(context.Context) PropertyUpdatesInProgressResponsePtrOutput
+}
+
+type propertyUpdatesInProgressResponsePtrType PropertyUpdatesInProgressResponseArgs
+
+func PropertyUpdatesInProgressResponsePtr(v *PropertyUpdatesInProgressResponseArgs) PropertyUpdatesInProgressResponsePtrInput {
+	return (*propertyUpdatesInProgressResponsePtrType)(v)
+}
+
+func (*propertyUpdatesInProgressResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PropertyUpdatesInProgressResponse)(nil)).Elem()
+}
+
+func (i *propertyUpdatesInProgressResponsePtrType) ToPropertyUpdatesInProgressResponsePtrOutput() PropertyUpdatesInProgressResponsePtrOutput {
+	return i.ToPropertyUpdatesInProgressResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *propertyUpdatesInProgressResponsePtrType) ToPropertyUpdatesInProgressResponsePtrOutputWithContext(ctx context.Context) PropertyUpdatesInProgressResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PropertyUpdatesInProgressResponsePtrOutput)
+}
+
+// Properties of the disk for which update is pending.
+type PropertyUpdatesInProgressResponseOutput struct{ *pulumi.OutputState }
+
+func (PropertyUpdatesInProgressResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PropertyUpdatesInProgressResponse)(nil)).Elem()
+}
+
+func (o PropertyUpdatesInProgressResponseOutput) ToPropertyUpdatesInProgressResponseOutput() PropertyUpdatesInProgressResponseOutput {
+	return o
+}
+
+func (o PropertyUpdatesInProgressResponseOutput) ToPropertyUpdatesInProgressResponseOutputWithContext(ctx context.Context) PropertyUpdatesInProgressResponseOutput {
+	return o
+}
+
+func (o PropertyUpdatesInProgressResponseOutput) ToPropertyUpdatesInProgressResponsePtrOutput() PropertyUpdatesInProgressResponsePtrOutput {
+	return o.ToPropertyUpdatesInProgressResponsePtrOutputWithContext(context.Background())
+}
+
+func (o PropertyUpdatesInProgressResponseOutput) ToPropertyUpdatesInProgressResponsePtrOutputWithContext(ctx context.Context) PropertyUpdatesInProgressResponsePtrOutput {
+	return o.ApplyT(func(v PropertyUpdatesInProgressResponse) *PropertyUpdatesInProgressResponse {
+		return &v
+	}).(PropertyUpdatesInProgressResponsePtrOutput)
+}
+
+// The target performance tier of the disk if a tier change operation is in progress.
+func (o PropertyUpdatesInProgressResponseOutput) TargetTier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PropertyUpdatesInProgressResponse) *string { return v.TargetTier }).(pulumi.StringPtrOutput)
+}
+
+type PropertyUpdatesInProgressResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (PropertyUpdatesInProgressResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PropertyUpdatesInProgressResponse)(nil)).Elem()
+}
+
+func (o PropertyUpdatesInProgressResponsePtrOutput) ToPropertyUpdatesInProgressResponsePtrOutput() PropertyUpdatesInProgressResponsePtrOutput {
+	return o
+}
+
+func (o PropertyUpdatesInProgressResponsePtrOutput) ToPropertyUpdatesInProgressResponsePtrOutputWithContext(ctx context.Context) PropertyUpdatesInProgressResponsePtrOutput {
+	return o
+}
+
+func (o PropertyUpdatesInProgressResponsePtrOutput) Elem() PropertyUpdatesInProgressResponseOutput {
+	return o.ApplyT(func(v *PropertyUpdatesInProgressResponse) PropertyUpdatesInProgressResponse { return *v }).(PropertyUpdatesInProgressResponseOutput)
+}
+
+// The target performance tier of the disk if a tier change operation is in progress.
+func (o PropertyUpdatesInProgressResponsePtrOutput) TargetTier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PropertyUpdatesInProgressResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TargetTier
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -44743,6 +45145,10 @@ func init() {
 	pulumi.RegisterOutputType(DiskEncryptionSettingsResponseArrayOutput{})
 	pulumi.RegisterOutputType(DiskInstanceViewResponseOutput{})
 	pulumi.RegisterOutputType(DiskInstanceViewResponseArrayOutput{})
+	pulumi.RegisterOutputType(DiskSecurityProfileOutput{})
+	pulumi.RegisterOutputType(DiskSecurityProfilePtrOutput{})
+	pulumi.RegisterOutputType(DiskSecurityProfileResponseOutput{})
+	pulumi.RegisterOutputType(DiskSecurityProfileResponsePtrOutput{})
 	pulumi.RegisterOutputType(DiskSkuOutput{})
 	pulumi.RegisterOutputType(DiskSkuPtrOutput{})
 	pulumi.RegisterOutputType(DiskSkuResponseOutput{})
@@ -44931,6 +45337,8 @@ func init() {
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStatePtrOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateResponseOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateResponsePtrOutput{})
+	pulumi.RegisterOutputType(PropertyUpdatesInProgressResponseOutput{})
+	pulumi.RegisterOutputType(PropertyUpdatesInProgressResponsePtrOutput{})
 	pulumi.RegisterOutputType(PurchasePlanOutput{})
 	pulumi.RegisterOutputType(PurchasePlanPtrOutput{})
 	pulumi.RegisterOutputType(PurchasePlanResponseOutput{})

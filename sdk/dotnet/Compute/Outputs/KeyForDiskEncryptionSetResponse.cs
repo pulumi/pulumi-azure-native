@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Compute.Outputs
     public sealed class KeyForDiskEncryptionSetResponse
     {
         /// <summary>
-        /// Fully versioned Key Url pointing to a key in KeyVault
+        /// Fully versioned Key Url pointing to a key in KeyVault. Version segment of the Url is required regardless of rotationToLatestKeyVersionEnabled value.
         /// </summary>
         public readonly string KeyUrl;
         /// <summary>

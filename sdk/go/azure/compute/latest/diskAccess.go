@@ -12,7 +12,7 @@ import (
 )
 
 // disk access resource.
-// Latest API Version: 2020-09-30.
+// Latest API Version: 2020-12-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:compute:DiskAccess'.
 type DiskAccess struct {
@@ -71,6 +71,12 @@ func NewDiskAccess(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20200930:DiskAccess"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20201201:DiskAccess"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:compute/v20201201:DiskAccess"),
 		},
 	})
 	opts = append(opts, aliases)

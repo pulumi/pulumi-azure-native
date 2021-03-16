@@ -8,7 +8,7 @@ import (
 )
 
 // The essential information related to the peer's ASN.
-// API Version: 2020-10-01.
+// API Version: 2021-01-01.
 func LookupPeerAsn(ctx *pulumi.Context, args *LookupPeerAsnArgs, opts ...pulumi.InvokeOption) (*LookupPeerAsnResult, error) {
 	var rv LookupPeerAsnResult
 	err := ctx.Invoke("azure-native:peering:getPeerAsn", args, &rv, opts...)

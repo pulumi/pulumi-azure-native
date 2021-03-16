@@ -11,24 +11,79 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'ConfidentialLedgerCertUserResponse',
+    'AADBasedSecurityPrincipalResponse',
+    'CertBasedSecurityPrincipalResponse',
     'LedgerPropertiesResponse',
     'SystemDataResponse',
 ]
 
 @pulumi.output_type
-class ConfidentialLedgerCertUserResponse(dict):
+class AADBasedSecurityPrincipalResponse(dict):
     """
-    User cert and permissions associated with that user
+    AAD based security principal with associated Ledger RoleName
     """
     def __init__(__self__, *,
-                 cert: Optional[str] = None):
+                 ledger_role_name: Optional[str] = None,
+                 principal_id: Optional[str] = None,
+                 tenant_id: Optional[str] = None):
         """
-        User cert and permissions associated with that user
+        AAD based security principal with associated Ledger RoleName
+        :param str ledger_role_name: LedgerRole associated with the Security Principal of Ledger
+        :param str principal_id: UUID/GUID based Principal Id of the Security Principal
+        :param str tenant_id: UUID/GUID based Tenant Id of the Security Principal
+        """
+        if ledger_role_name is not None:
+            pulumi.set(__self__, "ledger_role_name", ledger_role_name)
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter(name="ledgerRoleName")
+    def ledger_role_name(self) -> Optional[str]:
+        """
+        LedgerRole associated with the Security Principal of Ledger
+        """
+        return pulumi.get(self, "ledger_role_name")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> Optional[str]:
+        """
+        UUID/GUID based Principal Id of the Security Principal
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[str]:
+        """
+        UUID/GUID based Tenant Id of the Security Principal
+        """
+        return pulumi.get(self, "tenant_id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class CertBasedSecurityPrincipalResponse(dict):
+    """
+    Cert based security principal with Ledger RoleName
+    """
+    def __init__(__self__, *,
+                 cert: Optional[str] = None,
+                 ledger_role_name: Optional[str] = None):
+        """
+        Cert based security principal with Ledger RoleName
         :param str cert: Base64 encoded public key of the user cert (.pem or .cer)
+        :param str ledger_role_name: LedgerRole associated with the Security Principal of Ledger
         """
         if cert is not None:
             pulumi.set(__self__, "cert", cert)
+        if ledger_role_name is not None:
+            pulumi.set(__self__, "ledger_role_name", ledger_role_name)
 
     @property
     @pulumi.getter
@@ -37,6 +92,14 @@ class ConfidentialLedgerCertUserResponse(dict):
         Base64 encoded public key of the user cert (.pem or .cer)
         """
         return pulumi.get(self, "cert")
+
+    @property
+    @pulumi.getter(name="ledgerRoleName")
+    def ledger_role_name(self) -> Optional[str]:
+        """
+        LedgerRole associated with the Security Principal of Ledger
+        """
+        return pulumi.get(self, "ledger_role_name")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -53,7 +116,8 @@ class LedgerPropertiesResponse(dict):
                  ledger_name: str,
                  ledger_uri: str,
                  provisioning_state: str,
-                 cert_users: Optional[Sequence['outputs.ConfidentialLedgerCertUserResponse']] = None,
+                 aad_based_security_principals: Optional[Sequence['outputs.AADBasedSecurityPrincipalResponse']] = None,
+                 cert_based_security_principals: Optional[Sequence['outputs.CertBasedSecurityPrincipalResponse']] = None,
                  ledger_storage_account: Optional[str] = None,
                  ledger_type: Optional[str] = None):
         """
@@ -63,7 +127,8 @@ class LedgerPropertiesResponse(dict):
         :param str ledger_name: Unique name for the Confidential Ledger.
         :param str ledger_uri: Endpoint for calling Ledger Service.
         :param str provisioning_state: Provisioning state of Ledger Resource
-        :param Sequence['ConfidentialLedgerCertUserResponseArgs'] cert_users: Array of all the cert based users who can access Confidential Ledger
+        :param Sequence['AADBasedSecurityPrincipalResponseArgs'] aad_based_security_principals: Array of all AAD based Security Principals.
+        :param Sequence['CertBasedSecurityPrincipalResponseArgs'] cert_based_security_principals: Array of all cert based Security Principals.
         :param str ledger_storage_account: Name of the Blob Storage Account for saving ledger files
         :param str ledger_type: Type of Confidential Ledger
         """
@@ -72,8 +137,10 @@ class LedgerPropertiesResponse(dict):
         pulumi.set(__self__, "ledger_name", ledger_name)
         pulumi.set(__self__, "ledger_uri", ledger_uri)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if cert_users is not None:
-            pulumi.set(__self__, "cert_users", cert_users)
+        if aad_based_security_principals is not None:
+            pulumi.set(__self__, "aad_based_security_principals", aad_based_security_principals)
+        if cert_based_security_principals is not None:
+            pulumi.set(__self__, "cert_based_security_principals", cert_based_security_principals)
         if ledger_storage_account is not None:
             pulumi.set(__self__, "ledger_storage_account", ledger_storage_account)
         if ledger_type is not None:
@@ -120,12 +187,20 @@ class LedgerPropertiesResponse(dict):
         return pulumi.get(self, "provisioning_state")
 
     @property
-    @pulumi.getter(name="certUsers")
-    def cert_users(self) -> Optional[Sequence['outputs.ConfidentialLedgerCertUserResponse']]:
+    @pulumi.getter(name="aadBasedSecurityPrincipals")
+    def aad_based_security_principals(self) -> Optional[Sequence['outputs.AADBasedSecurityPrincipalResponse']]:
         """
-        Array of all the cert based users who can access Confidential Ledger
+        Array of all AAD based Security Principals.
         """
-        return pulumi.get(self, "cert_users")
+        return pulumi.get(self, "aad_based_security_principals")
+
+    @property
+    @pulumi.getter(name="certBasedSecurityPrincipals")
+    def cert_based_security_principals(self) -> Optional[Sequence['outputs.CertBasedSecurityPrincipalResponse']]:
+        """
+        Array of all cert based Security Principals.
+        """
+        return pulumi.get(self, "cert_based_security_principals")
 
     @property
     @pulumi.getter(name="ledgerStorageAccount")

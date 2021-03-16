@@ -211,8 +211,6 @@ type domainArgs struct {
 	InputSchemaMapping *JsonInputSchemaMapping `pulumi:"inputSchemaMapping"`
 	// Location of the resource.
 	Location *string `pulumi:"location"`
-	// List of private endpoint connections.
-	PrivateEndpointConnections []PrivateEndpointConnectionType `pulumi:"privateEndpointConnections"`
 	// This determines if traffic is allowed over public network. By default it is enabled.
 	// You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.DomainProperties.InboundIpRules" />
 	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
@@ -234,8 +232,6 @@ type DomainArgs struct {
 	InputSchemaMapping JsonInputSchemaMappingPtrInput
 	// Location of the resource.
 	Location pulumi.StringPtrInput
-	// List of private endpoint connections.
-	PrivateEndpointConnections PrivateEndpointConnectionTypeArrayInput
 	// This determines if traffic is allowed over public network. By default it is enabled.
 	// You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.DomainProperties.InboundIpRules" />
 	PublicNetworkAccess pulumi.StringPtrInput

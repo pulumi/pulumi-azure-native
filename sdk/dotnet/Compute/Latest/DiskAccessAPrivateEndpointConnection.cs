@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Compute.Latest
 {
     /// <summary>
     /// The Private Endpoint Connection resource.
-    /// Latest API Version: 2020-09-30.
+    /// Latest API Version: 2020-12-01.
     /// </summary>
     [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:compute:DiskAccessAPrivateEndpointConnection'.")]
     [AzureNativeResourceType("azure-native:compute/latest:DiskAccessAPrivateEndpointConnection")]
@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Compute.Latest
         /// The resource of private end point.
         /// </summary>
         [Output("privateEndpoint")]
-        public Output<Outputs.PrivateEndpointResponse?> PrivateEndpoint { get; private set; } = null!;
+        public Output<Outputs.PrivateEndpointResponse> PrivateEndpoint { get; private set; } = null!;
 
         /// <summary>
         /// A collection of information about the state of the connection between DiskAccess and Virtual Network.
@@ -77,6 +77,8 @@ namespace Pulumi.AzureNative.Compute.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:compute:DiskAccessAPrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:compute/v20200930:DiskAccessAPrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20200930:DiskAccessAPrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20201201:DiskAccessAPrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20201201:DiskAccessAPrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

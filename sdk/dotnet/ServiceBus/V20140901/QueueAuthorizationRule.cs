@@ -117,6 +117,8 @@ namespace Pulumi.AzureNative.ServiceBus.V20140901
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20170401:QueueAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-native:servicebus/v20180101preview:QueueAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20180101preview:QueueAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azure-native:servicebus/v20210101preview:QueueAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20210101preview:QueueAuthorizationRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

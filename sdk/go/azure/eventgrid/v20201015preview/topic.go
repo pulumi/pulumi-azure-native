@@ -264,8 +264,7 @@ type topicArgs struct {
 	// Kind of the resource.
 	Kind *string `pulumi:"kind"`
 	// Location of the resource.
-	Location                   *string                         `pulumi:"location"`
-	PrivateEndpointConnections []PrivateEndpointConnectionType `pulumi:"privateEndpointConnections"`
+	Location *string `pulumi:"location"`
 	// This determines if traffic is allowed over public network. By default it is enabled.
 	// You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.TopicProperties.InboundIpRules" />
 	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
@@ -294,8 +293,7 @@ type TopicArgs struct {
 	// Kind of the resource.
 	Kind pulumi.StringPtrInput
 	// Location of the resource.
-	Location                   pulumi.StringPtrInput
-	PrivateEndpointConnections PrivateEndpointConnectionTypeArrayInput
+	Location pulumi.StringPtrInput
 	// This determines if traffic is allowed over public network. By default it is enabled.
 	// You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.TopicProperties.InboundIpRules" />
 	PublicNetworkAccess pulumi.StringPtrInput

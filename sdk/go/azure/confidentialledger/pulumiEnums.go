@@ -10,6 +10,35 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// LedgerRole associated with the Security Principal of Ledger
+type LedgerRoleName pulumi.String
+
+const (
+	LedgerRoleNameReader        = LedgerRoleName("Reader")
+	LedgerRoleNameContributor   = LedgerRoleName("Contributor")
+	LedgerRoleNameAdministrator = LedgerRoleName("Administrator")
+)
+
+func (LedgerRoleName) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e LedgerRoleName) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LedgerRoleName) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LedgerRoleName) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e LedgerRoleName) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // Type of Confidential Ledger
 type LedgerType pulumi.String
 

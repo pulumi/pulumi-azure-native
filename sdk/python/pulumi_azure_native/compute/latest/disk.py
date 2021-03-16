@@ -41,7 +41,9 @@ class Disk(pulumi.CustomResource):
                  os_type: Optional[pulumi.Input['OperatingSystemTypes']] = None,
                  purchase_plan: Optional[pulumi.Input[pulumi.InputType['PurchasePlanArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 security_profile: Optional[pulumi.Input[pulumi.InputType['DiskSecurityProfileArgs']]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['DiskSkuArgs']]] = None,
+                 supports_hibernation: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tier: Optional[pulumi.Input[str]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -50,7 +52,7 @@ class Disk(pulumi.CustomResource):
                  __opts__=None):
         """
         Disk resource.
-        Latest API Version: 2020-09-30.
+        Latest API Version: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -73,7 +75,9 @@ class Disk(pulumi.CustomResource):
         :param pulumi.Input['OperatingSystemTypes'] os_type: The Operating System type.
         :param pulumi.Input[pulumi.InputType['PurchasePlanArgs']] purchase_plan: Purchase plan information for the the image from which the OS disk was created. E.g. - {name: 2019-Datacenter, publisher: MicrosoftWindowsServer, product: WindowsServer}
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[pulumi.InputType['DiskSkuArgs']] sku: The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
+        :param pulumi.Input[pulumi.InputType['DiskSecurityProfileArgs']] security_profile: Contains the security related information for the resource.
+        :param pulumi.Input[pulumi.InputType['DiskSkuArgs']] sku: The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, UltraSSD_LRS, Premium_ZRS, or StandardSSD_ZRS.
+        :param pulumi.Input[bool] supports_hibernation: Indicates the OS on a disk supports hibernation.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[str] tier: Performance tier of the disk (e.g, P4, S10) as described here: https://azure.microsoft.com/en-us/pricing/details/managed-disks/. Does not apply to Ultra disks.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: The Logical zone list for Disk.
@@ -119,7 +123,9 @@ class Disk(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['security_profile'] = security_profile
             __props__['sku'] = sku
+            __props__['supports_hibernation'] = supports_hibernation
             __props__['tags'] = tags
             __props__['tier'] = tier
             __props__['zones'] = zones
@@ -128,12 +134,13 @@ class Disk(pulumi.CustomResource):
             __props__['managed_by'] = None
             __props__['managed_by_extended'] = None
             __props__['name'] = None
+            __props__['property_updates_in_progress'] = None
             __props__['provisioning_state'] = None
             __props__['share_info'] = None
             __props__['time_created'] = None
             __props__['type'] = None
             __props__['unique_id'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute/latest:Disk"), pulumi.Alias(type_="azure-native:compute:Disk"), pulumi.Alias(type_="azure-nextgen:compute:Disk"), pulumi.Alias(type_="azure-native:compute/v20160430preview:Disk"), pulumi.Alias(type_="azure-nextgen:compute/v20160430preview:Disk"), pulumi.Alias(type_="azure-native:compute/v20170330:Disk"), pulumi.Alias(type_="azure-nextgen:compute/v20170330:Disk"), pulumi.Alias(type_="azure-native:compute/v20180401:Disk"), pulumi.Alias(type_="azure-nextgen:compute/v20180401:Disk"), pulumi.Alias(type_="azure-native:compute/v20180601:Disk"), pulumi.Alias(type_="azure-nextgen:compute/v20180601:Disk"), pulumi.Alias(type_="azure-native:compute/v20180930:Disk"), pulumi.Alias(type_="azure-nextgen:compute/v20180930:Disk"), pulumi.Alias(type_="azure-native:compute/v20190301:Disk"), pulumi.Alias(type_="azure-nextgen:compute/v20190301:Disk"), pulumi.Alias(type_="azure-native:compute/v20190701:Disk"), pulumi.Alias(type_="azure-nextgen:compute/v20190701:Disk"), pulumi.Alias(type_="azure-native:compute/v20191101:Disk"), pulumi.Alias(type_="azure-nextgen:compute/v20191101:Disk"), pulumi.Alias(type_="azure-native:compute/v20200501:Disk"), pulumi.Alias(type_="azure-nextgen:compute/v20200501:Disk"), pulumi.Alias(type_="azure-native:compute/v20200630:Disk"), pulumi.Alias(type_="azure-nextgen:compute/v20200630:Disk"), pulumi.Alias(type_="azure-native:compute/v20200930:Disk"), pulumi.Alias(type_="azure-nextgen:compute/v20200930:Disk")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute/latest:Disk"), pulumi.Alias(type_="azure-native:compute:Disk"), pulumi.Alias(type_="azure-nextgen:compute:Disk"), pulumi.Alias(type_="azure-native:compute/v20160430preview:Disk"), pulumi.Alias(type_="azure-nextgen:compute/v20160430preview:Disk"), pulumi.Alias(type_="azure-native:compute/v20170330:Disk"), pulumi.Alias(type_="azure-nextgen:compute/v20170330:Disk"), pulumi.Alias(type_="azure-native:compute/v20180401:Disk"), pulumi.Alias(type_="azure-nextgen:compute/v20180401:Disk"), pulumi.Alias(type_="azure-native:compute/v20180601:Disk"), pulumi.Alias(type_="azure-nextgen:compute/v20180601:Disk"), pulumi.Alias(type_="azure-native:compute/v20180930:Disk"), pulumi.Alias(type_="azure-nextgen:compute/v20180930:Disk"), pulumi.Alias(type_="azure-native:compute/v20190301:Disk"), pulumi.Alias(type_="azure-nextgen:compute/v20190301:Disk"), pulumi.Alias(type_="azure-native:compute/v20190701:Disk"), pulumi.Alias(type_="azure-nextgen:compute/v20190701:Disk"), pulumi.Alias(type_="azure-native:compute/v20191101:Disk"), pulumi.Alias(type_="azure-nextgen:compute/v20191101:Disk"), pulumi.Alias(type_="azure-native:compute/v20200501:Disk"), pulumi.Alias(type_="azure-nextgen:compute/v20200501:Disk"), pulumi.Alias(type_="azure-native:compute/v20200630:Disk"), pulumi.Alias(type_="azure-nextgen:compute/v20200630:Disk"), pulumi.Alias(type_="azure-native:compute/v20200930:Disk"), pulumi.Alias(type_="azure-nextgen:compute/v20200930:Disk"), pulumi.Alias(type_="azure-native:compute/v20201201:Disk"), pulumi.Alias(type_="azure-nextgen:compute/v20201201:Disk")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Disk, __self__).__init__(
             'azure-native:compute/latest:Disk',
@@ -178,10 +185,13 @@ class Disk(pulumi.CustomResource):
         __props__["name"] = None
         __props__["network_access_policy"] = None
         __props__["os_type"] = None
+        __props__["property_updates_in_progress"] = None
         __props__["provisioning_state"] = None
         __props__["purchase_plan"] = None
+        __props__["security_profile"] = None
         __props__["share_info"] = None
         __props__["sku"] = None
+        __props__["supports_hibernation"] = None
         __props__["tags"] = None
         __props__["tier"] = None
         __props__["time_created"] = None
@@ -359,6 +369,14 @@ class Disk(pulumi.CustomResource):
         return pulumi.get(self, "os_type")
 
     @property
+    @pulumi.getter(name="propertyUpdatesInProgress")
+    def property_updates_in_progress(self) -> pulumi.Output['outputs.PropertyUpdatesInProgressResponse']:
+        """
+        Properties of the disk for which update is pending.
+        """
+        return pulumi.get(self, "property_updates_in_progress")
+
+    @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> pulumi.Output[str]:
         """
@@ -375,6 +393,14 @@ class Disk(pulumi.CustomResource):
         return pulumi.get(self, "purchase_plan")
 
     @property
+    @pulumi.getter(name="securityProfile")
+    def security_profile(self) -> pulumi.Output[Optional['outputs.DiskSecurityProfileResponse']]:
+        """
+        Contains the security related information for the resource.
+        """
+        return pulumi.get(self, "security_profile")
+
+    @property
     @pulumi.getter(name="shareInfo")
     def share_info(self) -> pulumi.Output[Sequence['outputs.ShareInfoElementResponse']]:
         """
@@ -386,9 +412,17 @@ class Disk(pulumi.CustomResource):
     @pulumi.getter
     def sku(self) -> pulumi.Output[Optional['outputs.DiskSkuResponse']]:
         """
-        The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
+        The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, UltraSSD_LRS, Premium_ZRS, or StandardSSD_ZRS.
         """
         return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter(name="supportsHibernation")
+    def supports_hibernation(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Indicates the OS on a disk supports hibernation.
+        """
+        return pulumi.get(self, "supports_hibernation")
 
     @property
     @pulumi.getter

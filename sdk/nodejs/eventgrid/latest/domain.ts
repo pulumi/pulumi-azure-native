@@ -70,7 +70,7 @@ export class Domain extends pulumi.CustomResource {
     /**
      * List of private endpoint connections.
      */
-    public readonly privateEndpointConnections!: pulumi.Output<outputs.eventgrid.latest.PrivateEndpointConnectionResponse[] | undefined>;
+    public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.eventgrid.latest.PrivateEndpointConnectionResponse[]>;
     /**
      * Provisioning state of the domain.
      */
@@ -114,13 +114,13 @@ export class Domain extends pulumi.CustomResource {
             inputs["inputSchema"] = (args ? args.inputSchema : undefined) || "EventGridSchema";
             inputs["inputSchemaMapping"] = args ? args.inputSchemaMapping : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["privateEndpointConnections"] = args ? args.privateEndpointConnections : undefined;
             inputs["publicNetworkAccess"] = (args ? args.publicNetworkAccess : undefined) || "Enabled";
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["endpoint"] = undefined /*out*/;
             inputs["metricResourceId"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["privateEndpointConnections"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -172,10 +172,6 @@ export interface DomainArgs {
      * Location of the resource.
      */
     readonly location?: pulumi.Input<string>;
-    /**
-     * List of private endpoint connections.
-     */
-    readonly privateEndpointConnections?: pulumi.Input<pulumi.Input<inputs.eventgrid.latest.PrivateEndpointConnection>[]>;
     /**
      * This determines if traffic is allowed over public network. By default it is enabled. 
      * You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.DomainProperties.InboundIpRules" />

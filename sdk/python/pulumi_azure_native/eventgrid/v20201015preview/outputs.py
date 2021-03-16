@@ -1650,6 +1650,8 @@ class ResourceSkuResponse(dict):
         Describes an EventGrid Resource Sku.
         :param str name: The Sku name of the resource. The possible values are: Basic or Premium.
         """
+        if name is None:
+            name = 'Basic'
         if name is not None:
             pulumi.set(__self__, "name", name)
 

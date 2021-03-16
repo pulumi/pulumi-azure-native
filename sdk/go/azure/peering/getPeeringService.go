@@ -8,7 +8,7 @@ import (
 )
 
 // Peering Service
-// API Version: 2020-10-01.
+// API Version: 2021-01-01.
 func LookupPeeringService(ctx *pulumi.Context, args *LookupPeeringServiceArgs, opts ...pulumi.InvokeOption) (*LookupPeeringServiceResult, error) {
 	var rv LookupPeeringServiceResult
 	err := ctx.Invoke("azure-native:peering:getPeeringService", args, &rv, opts...)
@@ -33,10 +33,14 @@ type LookupPeeringServiceResult struct {
 	Location string `pulumi:"location"`
 	// The name of the resource.
 	Name string `pulumi:"name"`
-	// The PeeringServiceLocation of the Customer.
+	// The location (state/province) of the customer.
 	PeeringServiceLocation *string `pulumi:"peeringServiceLocation"`
-	// The MAPS Provider Name.
+	// The name of the service provider.
 	PeeringServiceProvider *string `pulumi:"peeringServiceProvider"`
+	// The backup peering (Microsoft/service provider) location to be used for customer traffic.
+	ProviderBackupPeeringLocation *string `pulumi:"providerBackupPeeringLocation"`
+	// The primary peering (Microsoft/service provider) location to be used for customer traffic.
+	ProviderPrimaryPeeringLocation *string `pulumi:"providerPrimaryPeeringLocation"`
 	// The provisioning state of the resource.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The SKU that defines the type of the peering service.

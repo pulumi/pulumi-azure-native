@@ -384,6 +384,39 @@ namespace Pulumi.AzureNative.Compute
     }
 
     /// <summary>
+    /// Specifies the SecurityType of the VM. Applicable for OS disks only.
+    /// </summary>
+    [EnumType]
+    public readonly struct DiskSecurityTypes : IEquatable<DiskSecurityTypes>
+    {
+        private readonly string _value;
+
+        private DiskSecurityTypes(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Trusted Launch provides security features such as secure boot and virtual Trusted Platform Module (vTPM)
+        /// </summary>
+        public static DiskSecurityTypes TrustedLaunch { get; } = new DiskSecurityTypes("TrustedLaunch");
+
+        public static bool operator ==(DiskSecurityTypes left, DiskSecurityTypes right) => left.Equals(right);
+        public static bool operator !=(DiskSecurityTypes left, DiskSecurityTypes right) => !left.Equals(right);
+
+        public static explicit operator string(DiskSecurityTypes value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DiskSecurityTypes other && Equals(other);
+        public bool Equals(DiskSecurityTypes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The sku name.
     /// </summary>
     [EnumType]
@@ -412,6 +445,14 @@ namespace Pulumi.AzureNative.Compute
         /// Ultra SSD locally redundant storage. Best for IO-intensive workloads such as SAP HANA, top tier databases (for example, SQL, Oracle), and other transaction-heavy workloads.
         /// </summary>
         public static DiskStorageAccountTypes UltraSSD_LRS { get; } = new DiskStorageAccountTypes("UltraSSD_LRS");
+        /// <summary>
+        /// Premium SSD zone redundant storage. Best for the production workloads that need storage resiliency against zone failures.
+        /// </summary>
+        public static DiskStorageAccountTypes Premium_ZRS { get; } = new DiskStorageAccountTypes("Premium_ZRS");
+        /// <summary>
+        /// Standard SSD zone redundant storage. Best for web servers, lightly used enterprise applications and dev/test that need storage resiliency against zone failures.
+        /// </summary>
+        public static DiskStorageAccountTypes StandardSSD_ZRS { get; } = new DiskStorageAccountTypes("StandardSSD_ZRS");
 
         public static bool operator ==(DiskStorageAccountTypes left, DiskStorageAccountTypes right) => left.Equals(right);
         public static bool operator !=(DiskStorageAccountTypes left, DiskStorageAccountTypes right) => !left.Equals(right);

@@ -79,6 +79,8 @@ namespace Pulumi.AzureNative.ServiceBus.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20170401:NamespaceNetworkRuleSet"},
                     new Pulumi.Alias { Type = "azure-native:servicebus/v20180101preview:NamespaceNetworkRuleSet"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20180101preview:NamespaceNetworkRuleSet"},
+                    new Pulumi.Alias { Type = "azure-native:servicebus/v20210101preview:NamespaceNetworkRuleSet"},
+                    new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20210101preview:NamespaceNetworkRuleSet"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

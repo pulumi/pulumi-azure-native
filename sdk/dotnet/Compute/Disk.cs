@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Compute
 {
     /// <summary>
     /// Disk resource.
-    /// API Version: 2020-09-30.
+    /// API Version: 2020-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:Disk")]
     public partial class Disk : Pulumi.CustomResource
@@ -143,6 +143,12 @@ namespace Pulumi.AzureNative.Compute
         public Output<string?> OsType { get; private set; } = null!;
 
         /// <summary>
+        /// Properties of the disk for which update is pending.
+        /// </summary>
+        [Output("propertyUpdatesInProgress")]
+        public Output<Outputs.PropertyUpdatesInProgressResponse> PropertyUpdatesInProgress { get; private set; } = null!;
+
+        /// <summary>
         /// The disk provisioning state.
         /// </summary>
         [Output("provisioningState")]
@@ -155,16 +161,28 @@ namespace Pulumi.AzureNative.Compute
         public Output<Outputs.PurchasePlanResponse?> PurchasePlan { get; private set; } = null!;
 
         /// <summary>
+        /// Contains the security related information for the resource.
+        /// </summary>
+        [Output("securityProfile")]
+        public Output<Outputs.DiskSecurityProfileResponse?> SecurityProfile { get; private set; } = null!;
+
+        /// <summary>
         /// Details of the list of all VMs that have the disk attached. maxShares should be set to a value greater than one for disks to allow attaching them to multiple VMs.
         /// </summary>
         [Output("shareInfo")]
         public Output<ImmutableArray<Outputs.ShareInfoElementResponse>> ShareInfo { get; private set; } = null!;
 
         /// <summary>
-        /// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
+        /// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, UltraSSD_LRS, Premium_ZRS, or StandardSSD_ZRS.
         /// </summary>
         [Output("sku")]
         public Output<Outputs.DiskSkuResponse?> Sku { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates the OS on a disk supports hibernation.
+        /// </summary>
+        [Output("supportsHibernation")]
+        public Output<bool?> SupportsHibernation { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags
@@ -252,6 +270,8 @@ namespace Pulumi.AzureNative.Compute
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20200630:Disk"},
                     new Pulumi.Alias { Type = "azure-native:compute/v20200930:Disk"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20200930:Disk"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20201201:Disk"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20201201:Disk"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -390,10 +410,22 @@ namespace Pulumi.AzureNative.Compute
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
+        /// Contains the security related information for the resource.
+        /// </summary>
+        [Input("securityProfile")]
+        public Input<Inputs.DiskSecurityProfileArgs>? SecurityProfile { get; set; }
+
+        /// <summary>
+        /// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, UltraSSD_LRS, Premium_ZRS, or StandardSSD_ZRS.
         /// </summary>
         [Input("sku")]
         public Input<Inputs.DiskSkuArgs>? Sku { get; set; }
+
+        /// <summary>
+        /// Indicates the OS on a disk supports hibernation.
+        /// </summary>
+        [Input("supportsHibernation")]
+        public Input<bool>? SupportsHibernation { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

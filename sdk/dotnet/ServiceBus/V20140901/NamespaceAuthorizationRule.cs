@@ -117,6 +117,8 @@ namespace Pulumi.AzureNative.ServiceBus.V20140901
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20170401:NamespaceAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-native:servicebus/v20180101preview:NamespaceAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20180101preview:NamespaceAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azure-native:servicebus/v20210101preview:NamespaceAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20210101preview:NamespaceAuthorizationRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

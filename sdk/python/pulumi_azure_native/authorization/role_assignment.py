@@ -16,7 +16,6 @@ class RoleAssignment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 can_delegate: Optional[pulumi.Input[bool]] = None,
                  condition: Optional[pulumi.Input[str]] = None,
                  condition_version: Optional[pulumi.Input[str]] = None,
                  delegated_managed_identity_resource_id: Optional[pulumi.Input[str]] = None,
@@ -31,20 +30,19 @@ class RoleAssignment(pulumi.CustomResource):
                  __opts__=None):
         """
         Role Assignments
-        API Version: 2020-04-01-preview.
+        API Version: 2020-08-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] can_delegate: The delegation flag used for creating a role assignment
         :param pulumi.Input[str] condition: The conditions on the role assignment. This limits the resources it can be assigned to. e.g.: @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'
         :param pulumi.Input[str] condition_version: Version of the condition. Currently accepted value is '2.0'
         :param pulumi.Input[str] delegated_managed_identity_resource_id: Id of the delegated managed identity resource
         :param pulumi.Input[str] description: Description of role assignment
-        :param pulumi.Input[str] principal_id: The principal ID assigned to the role. This maps to the ID inside the Active Directory. It can point to a user, service principal, or security group.
+        :param pulumi.Input[str] principal_id: The principal ID.
         :param pulumi.Input[Union[str, 'PrincipalType']] principal_type: The principal type of the assigned principal ID.
-        :param pulumi.Input[str] role_assignment_name: The name of the role assignment to create. It can be any valid GUID.
-        :param pulumi.Input[str] role_definition_id: The role definition ID used in the role assignment.
-        :param pulumi.Input[str] scope: The scope of the role assignment to create. The scope can be any REST resource instance. For example, use '/subscriptions/{subscription-id}/' for a subscription, '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}' for a resource group, and '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}' for a resource.
+        :param pulumi.Input[str] role_assignment_name: The name of the role assignment. It can be any valid GUID.
+        :param pulumi.Input[str] role_definition_id: The role definition ID.
+        :param pulumi.Input[str] scope: The role assignment scope.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -63,7 +61,6 @@ class RoleAssignment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            __props__['can_delegate'] = can_delegate
             __props__['condition'] = condition
             __props__['condition_version'] = condition_version
             __props__['delegated_managed_identity_resource_id'] = delegated_managed_identity_resource_id
@@ -87,7 +84,7 @@ class RoleAssignment(pulumi.CustomResource):
             __props__['type'] = None
             __props__['updated_by'] = None
             __props__['updated_on'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:authorization:RoleAssignment"), pulumi.Alias(type_="azure-native:authorization/latest:RoleAssignment"), pulumi.Alias(type_="azure-nextgen:authorization/latest:RoleAssignment"), pulumi.Alias(type_="azure-native:authorization/v20150701:RoleAssignment"), pulumi.Alias(type_="azure-nextgen:authorization/v20150701:RoleAssignment"), pulumi.Alias(type_="azure-native:authorization/v20171001preview:RoleAssignment"), pulumi.Alias(type_="azure-nextgen:authorization/v20171001preview:RoleAssignment"), pulumi.Alias(type_="azure-native:authorization/v20180101preview:RoleAssignment"), pulumi.Alias(type_="azure-nextgen:authorization/v20180101preview:RoleAssignment"), pulumi.Alias(type_="azure-native:authorization/v20180901preview:RoleAssignment"), pulumi.Alias(type_="azure-nextgen:authorization/v20180901preview:RoleAssignment"), pulumi.Alias(type_="azure-native:authorization/v20200301preview:RoleAssignment"), pulumi.Alias(type_="azure-nextgen:authorization/v20200301preview:RoleAssignment"), pulumi.Alias(type_="azure-native:authorization/v20200401preview:RoleAssignment"), pulumi.Alias(type_="azure-nextgen:authorization/v20200401preview:RoleAssignment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:authorization:RoleAssignment"), pulumi.Alias(type_="azure-native:authorization/latest:RoleAssignment"), pulumi.Alias(type_="azure-nextgen:authorization/latest:RoleAssignment"), pulumi.Alias(type_="azure-native:authorization/v20150701:RoleAssignment"), pulumi.Alias(type_="azure-nextgen:authorization/v20150701:RoleAssignment"), pulumi.Alias(type_="azure-native:authorization/v20171001preview:RoleAssignment"), pulumi.Alias(type_="azure-nextgen:authorization/v20171001preview:RoleAssignment"), pulumi.Alias(type_="azure-native:authorization/v20180101preview:RoleAssignment"), pulumi.Alias(type_="azure-nextgen:authorization/v20180101preview:RoleAssignment"), pulumi.Alias(type_="azure-native:authorization/v20180901preview:RoleAssignment"), pulumi.Alias(type_="azure-nextgen:authorization/v20180901preview:RoleAssignment"), pulumi.Alias(type_="azure-native:authorization/v20200301preview:RoleAssignment"), pulumi.Alias(type_="azure-nextgen:authorization/v20200301preview:RoleAssignment"), pulumi.Alias(type_="azure-native:authorization/v20200401preview:RoleAssignment"), pulumi.Alias(type_="azure-nextgen:authorization/v20200401preview:RoleAssignment"), pulumi.Alias(type_="azure-native:authorization/v20200801preview:RoleAssignment"), pulumi.Alias(type_="azure-nextgen:authorization/v20200801preview:RoleAssignment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(RoleAssignment, __self__).__init__(
             'azure-native:authorization:RoleAssignment',
@@ -111,7 +108,6 @@ class RoleAssignment(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__["can_delegate"] = None
         __props__["condition"] = None
         __props__["condition_version"] = None
         __props__["created_by"] = None
@@ -127,14 +123,6 @@ class RoleAssignment(pulumi.CustomResource):
         __props__["updated_by"] = None
         __props__["updated_on"] = None
         return RoleAssignment(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="canDelegate")
-    def can_delegate(self) -> pulumi.Output[Optional[bool]]:
-        """
-        The Delegation flag for the role assignment
-        """
-        return pulumi.get(self, "can_delegate")
 
     @property
     @pulumi.getter
@@ -154,7 +142,7 @@ class RoleAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdBy")
-    def created_by(self) -> pulumi.Output[Optional[str]]:
+    def created_by(self) -> pulumi.Output[str]:
         """
         Id of the user who created the assignment
         """
@@ -162,7 +150,7 @@ class RoleAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdOn")
-    def created_on(self) -> pulumi.Output[Optional[str]]:
+    def created_on(self) -> pulumi.Output[str]:
         """
         Time it was created
         """
@@ -194,7 +182,7 @@ class RoleAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="principalId")
-    def principal_id(self) -> pulumi.Output[Optional[str]]:
+    def principal_id(self) -> pulumi.Output[str]:
         """
         The principal ID.
         """
@@ -210,7 +198,7 @@ class RoleAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="roleDefinitionId")
-    def role_definition_id(self) -> pulumi.Output[Optional[str]]:
+    def role_definition_id(self) -> pulumi.Output[str]:
         """
         The role definition ID.
         """
@@ -234,7 +222,7 @@ class RoleAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="updatedBy")
-    def updated_by(self) -> pulumi.Output[Optional[str]]:
+    def updated_by(self) -> pulumi.Output[str]:
         """
         Id of the user who updated the assignment
         """
@@ -242,7 +230,7 @@ class RoleAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="updatedOn")
-    def updated_on(self) -> pulumi.Output[Optional[str]]:
+    def updated_on(self) -> pulumi.Output[str]:
         """
         Time it was updated
         """

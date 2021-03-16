@@ -10,210 +10,466 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// User cert and permissions associated with that user
-type ConfidentialLedgerCertUser struct {
-	// Base64 encoded public key of the user cert (.pem or .cer)
-	Cert *string `pulumi:"cert"`
+// AAD based security principal with associated Ledger RoleName
+type AADBasedSecurityPrincipal struct {
+	// LedgerRole associated with the Security Principal of Ledger
+	LedgerRoleName *string `pulumi:"ledgerRoleName"`
+	// UUID/GUID based Principal Id of the Security Principal
+	PrincipalId *string `pulumi:"principalId"`
+	// UUID/GUID based Tenant Id of the Security Principal
+	TenantId *string `pulumi:"tenantId"`
 }
 
-// ConfidentialLedgerCertUserInput is an input type that accepts ConfidentialLedgerCertUserArgs and ConfidentialLedgerCertUserOutput values.
-// You can construct a concrete instance of `ConfidentialLedgerCertUserInput` via:
+// AADBasedSecurityPrincipalInput is an input type that accepts AADBasedSecurityPrincipalArgs and AADBasedSecurityPrincipalOutput values.
+// You can construct a concrete instance of `AADBasedSecurityPrincipalInput` via:
 //
-//          ConfidentialLedgerCertUserArgs{...}
-type ConfidentialLedgerCertUserInput interface {
+//          AADBasedSecurityPrincipalArgs{...}
+type AADBasedSecurityPrincipalInput interface {
 	pulumi.Input
 
-	ToConfidentialLedgerCertUserOutput() ConfidentialLedgerCertUserOutput
-	ToConfidentialLedgerCertUserOutputWithContext(context.Context) ConfidentialLedgerCertUserOutput
+	ToAADBasedSecurityPrincipalOutput() AADBasedSecurityPrincipalOutput
+	ToAADBasedSecurityPrincipalOutputWithContext(context.Context) AADBasedSecurityPrincipalOutput
 }
 
-// User cert and permissions associated with that user
-type ConfidentialLedgerCertUserArgs struct {
-	// Base64 encoded public key of the user cert (.pem or .cer)
-	Cert pulumi.StringPtrInput `pulumi:"cert"`
+// AAD based security principal with associated Ledger RoleName
+type AADBasedSecurityPrincipalArgs struct {
+	// LedgerRole associated with the Security Principal of Ledger
+	LedgerRoleName pulumi.StringPtrInput `pulumi:"ledgerRoleName"`
+	// UUID/GUID based Principal Id of the Security Principal
+	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
+	// UUID/GUID based Tenant Id of the Security Principal
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
 }
 
-func (ConfidentialLedgerCertUserArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfidentialLedgerCertUser)(nil)).Elem()
+func (AADBasedSecurityPrincipalArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AADBasedSecurityPrincipal)(nil)).Elem()
 }
 
-func (i ConfidentialLedgerCertUserArgs) ToConfidentialLedgerCertUserOutput() ConfidentialLedgerCertUserOutput {
-	return i.ToConfidentialLedgerCertUserOutputWithContext(context.Background())
+func (i AADBasedSecurityPrincipalArgs) ToAADBasedSecurityPrincipalOutput() AADBasedSecurityPrincipalOutput {
+	return i.ToAADBasedSecurityPrincipalOutputWithContext(context.Background())
 }
 
-func (i ConfidentialLedgerCertUserArgs) ToConfidentialLedgerCertUserOutputWithContext(ctx context.Context) ConfidentialLedgerCertUserOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfidentialLedgerCertUserOutput)
+func (i AADBasedSecurityPrincipalArgs) ToAADBasedSecurityPrincipalOutputWithContext(ctx context.Context) AADBasedSecurityPrincipalOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AADBasedSecurityPrincipalOutput)
 }
 
-// ConfidentialLedgerCertUserArrayInput is an input type that accepts ConfidentialLedgerCertUserArray and ConfidentialLedgerCertUserArrayOutput values.
-// You can construct a concrete instance of `ConfidentialLedgerCertUserArrayInput` via:
+// AADBasedSecurityPrincipalArrayInput is an input type that accepts AADBasedSecurityPrincipalArray and AADBasedSecurityPrincipalArrayOutput values.
+// You can construct a concrete instance of `AADBasedSecurityPrincipalArrayInput` via:
 //
-//          ConfidentialLedgerCertUserArray{ ConfidentialLedgerCertUserArgs{...} }
-type ConfidentialLedgerCertUserArrayInput interface {
+//          AADBasedSecurityPrincipalArray{ AADBasedSecurityPrincipalArgs{...} }
+type AADBasedSecurityPrincipalArrayInput interface {
 	pulumi.Input
 
-	ToConfidentialLedgerCertUserArrayOutput() ConfidentialLedgerCertUserArrayOutput
-	ToConfidentialLedgerCertUserArrayOutputWithContext(context.Context) ConfidentialLedgerCertUserArrayOutput
+	ToAADBasedSecurityPrincipalArrayOutput() AADBasedSecurityPrincipalArrayOutput
+	ToAADBasedSecurityPrincipalArrayOutputWithContext(context.Context) AADBasedSecurityPrincipalArrayOutput
 }
 
-type ConfidentialLedgerCertUserArray []ConfidentialLedgerCertUserInput
+type AADBasedSecurityPrincipalArray []AADBasedSecurityPrincipalInput
 
-func (ConfidentialLedgerCertUserArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ConfidentialLedgerCertUser)(nil)).Elem()
+func (AADBasedSecurityPrincipalArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AADBasedSecurityPrincipal)(nil)).Elem()
 }
 
-func (i ConfidentialLedgerCertUserArray) ToConfidentialLedgerCertUserArrayOutput() ConfidentialLedgerCertUserArrayOutput {
-	return i.ToConfidentialLedgerCertUserArrayOutputWithContext(context.Background())
+func (i AADBasedSecurityPrincipalArray) ToAADBasedSecurityPrincipalArrayOutput() AADBasedSecurityPrincipalArrayOutput {
+	return i.ToAADBasedSecurityPrincipalArrayOutputWithContext(context.Background())
 }
 
-func (i ConfidentialLedgerCertUserArray) ToConfidentialLedgerCertUserArrayOutputWithContext(ctx context.Context) ConfidentialLedgerCertUserArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfidentialLedgerCertUserArrayOutput)
+func (i AADBasedSecurityPrincipalArray) ToAADBasedSecurityPrincipalArrayOutputWithContext(ctx context.Context) AADBasedSecurityPrincipalArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AADBasedSecurityPrincipalArrayOutput)
 }
 
-// User cert and permissions associated with that user
-type ConfidentialLedgerCertUserOutput struct{ *pulumi.OutputState }
+// AAD based security principal with associated Ledger RoleName
+type AADBasedSecurityPrincipalOutput struct{ *pulumi.OutputState }
 
-func (ConfidentialLedgerCertUserOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfidentialLedgerCertUser)(nil)).Elem()
+func (AADBasedSecurityPrincipalOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AADBasedSecurityPrincipal)(nil)).Elem()
 }
 
-func (o ConfidentialLedgerCertUserOutput) ToConfidentialLedgerCertUserOutput() ConfidentialLedgerCertUserOutput {
+func (o AADBasedSecurityPrincipalOutput) ToAADBasedSecurityPrincipalOutput() AADBasedSecurityPrincipalOutput {
 	return o
 }
 
-func (o ConfidentialLedgerCertUserOutput) ToConfidentialLedgerCertUserOutputWithContext(ctx context.Context) ConfidentialLedgerCertUserOutput {
+func (o AADBasedSecurityPrincipalOutput) ToAADBasedSecurityPrincipalOutputWithContext(ctx context.Context) AADBasedSecurityPrincipalOutput {
+	return o
+}
+
+// LedgerRole associated with the Security Principal of Ledger
+func (o AADBasedSecurityPrincipalOutput) LedgerRoleName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AADBasedSecurityPrincipal) *string { return v.LedgerRoleName }).(pulumi.StringPtrOutput)
+}
+
+// UUID/GUID based Principal Id of the Security Principal
+func (o AADBasedSecurityPrincipalOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AADBasedSecurityPrincipal) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+// UUID/GUID based Tenant Id of the Security Principal
+func (o AADBasedSecurityPrincipalOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AADBasedSecurityPrincipal) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+type AADBasedSecurityPrincipalArrayOutput struct{ *pulumi.OutputState }
+
+func (AADBasedSecurityPrincipalArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AADBasedSecurityPrincipal)(nil)).Elem()
+}
+
+func (o AADBasedSecurityPrincipalArrayOutput) ToAADBasedSecurityPrincipalArrayOutput() AADBasedSecurityPrincipalArrayOutput {
+	return o
+}
+
+func (o AADBasedSecurityPrincipalArrayOutput) ToAADBasedSecurityPrincipalArrayOutputWithContext(ctx context.Context) AADBasedSecurityPrincipalArrayOutput {
+	return o
+}
+
+func (o AADBasedSecurityPrincipalArrayOutput) Index(i pulumi.IntInput) AADBasedSecurityPrincipalOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AADBasedSecurityPrincipal {
+		return vs[0].([]AADBasedSecurityPrincipal)[vs[1].(int)]
+	}).(AADBasedSecurityPrincipalOutput)
+}
+
+// AAD based security principal with associated Ledger RoleName
+type AADBasedSecurityPrincipalResponse struct {
+	// LedgerRole associated with the Security Principal of Ledger
+	LedgerRoleName *string `pulumi:"ledgerRoleName"`
+	// UUID/GUID based Principal Id of the Security Principal
+	PrincipalId *string `pulumi:"principalId"`
+	// UUID/GUID based Tenant Id of the Security Principal
+	TenantId *string `pulumi:"tenantId"`
+}
+
+// AADBasedSecurityPrincipalResponseInput is an input type that accepts AADBasedSecurityPrincipalResponseArgs and AADBasedSecurityPrincipalResponseOutput values.
+// You can construct a concrete instance of `AADBasedSecurityPrincipalResponseInput` via:
+//
+//          AADBasedSecurityPrincipalResponseArgs{...}
+type AADBasedSecurityPrincipalResponseInput interface {
+	pulumi.Input
+
+	ToAADBasedSecurityPrincipalResponseOutput() AADBasedSecurityPrincipalResponseOutput
+	ToAADBasedSecurityPrincipalResponseOutputWithContext(context.Context) AADBasedSecurityPrincipalResponseOutput
+}
+
+// AAD based security principal with associated Ledger RoleName
+type AADBasedSecurityPrincipalResponseArgs struct {
+	// LedgerRole associated with the Security Principal of Ledger
+	LedgerRoleName pulumi.StringPtrInput `pulumi:"ledgerRoleName"`
+	// UUID/GUID based Principal Id of the Security Principal
+	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
+	// UUID/GUID based Tenant Id of the Security Principal
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+}
+
+func (AADBasedSecurityPrincipalResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AADBasedSecurityPrincipalResponse)(nil)).Elem()
+}
+
+func (i AADBasedSecurityPrincipalResponseArgs) ToAADBasedSecurityPrincipalResponseOutput() AADBasedSecurityPrincipalResponseOutput {
+	return i.ToAADBasedSecurityPrincipalResponseOutputWithContext(context.Background())
+}
+
+func (i AADBasedSecurityPrincipalResponseArgs) ToAADBasedSecurityPrincipalResponseOutputWithContext(ctx context.Context) AADBasedSecurityPrincipalResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AADBasedSecurityPrincipalResponseOutput)
+}
+
+// AADBasedSecurityPrincipalResponseArrayInput is an input type that accepts AADBasedSecurityPrincipalResponseArray and AADBasedSecurityPrincipalResponseArrayOutput values.
+// You can construct a concrete instance of `AADBasedSecurityPrincipalResponseArrayInput` via:
+//
+//          AADBasedSecurityPrincipalResponseArray{ AADBasedSecurityPrincipalResponseArgs{...} }
+type AADBasedSecurityPrincipalResponseArrayInput interface {
+	pulumi.Input
+
+	ToAADBasedSecurityPrincipalResponseArrayOutput() AADBasedSecurityPrincipalResponseArrayOutput
+	ToAADBasedSecurityPrincipalResponseArrayOutputWithContext(context.Context) AADBasedSecurityPrincipalResponseArrayOutput
+}
+
+type AADBasedSecurityPrincipalResponseArray []AADBasedSecurityPrincipalResponseInput
+
+func (AADBasedSecurityPrincipalResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AADBasedSecurityPrincipalResponse)(nil)).Elem()
+}
+
+func (i AADBasedSecurityPrincipalResponseArray) ToAADBasedSecurityPrincipalResponseArrayOutput() AADBasedSecurityPrincipalResponseArrayOutput {
+	return i.ToAADBasedSecurityPrincipalResponseArrayOutputWithContext(context.Background())
+}
+
+func (i AADBasedSecurityPrincipalResponseArray) ToAADBasedSecurityPrincipalResponseArrayOutputWithContext(ctx context.Context) AADBasedSecurityPrincipalResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AADBasedSecurityPrincipalResponseArrayOutput)
+}
+
+// AAD based security principal with associated Ledger RoleName
+type AADBasedSecurityPrincipalResponseOutput struct{ *pulumi.OutputState }
+
+func (AADBasedSecurityPrincipalResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AADBasedSecurityPrincipalResponse)(nil)).Elem()
+}
+
+func (o AADBasedSecurityPrincipalResponseOutput) ToAADBasedSecurityPrincipalResponseOutput() AADBasedSecurityPrincipalResponseOutput {
+	return o
+}
+
+func (o AADBasedSecurityPrincipalResponseOutput) ToAADBasedSecurityPrincipalResponseOutputWithContext(ctx context.Context) AADBasedSecurityPrincipalResponseOutput {
+	return o
+}
+
+// LedgerRole associated with the Security Principal of Ledger
+func (o AADBasedSecurityPrincipalResponseOutput) LedgerRoleName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AADBasedSecurityPrincipalResponse) *string { return v.LedgerRoleName }).(pulumi.StringPtrOutput)
+}
+
+// UUID/GUID based Principal Id of the Security Principal
+func (o AADBasedSecurityPrincipalResponseOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AADBasedSecurityPrincipalResponse) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+// UUID/GUID based Tenant Id of the Security Principal
+func (o AADBasedSecurityPrincipalResponseOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AADBasedSecurityPrincipalResponse) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+type AADBasedSecurityPrincipalResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (AADBasedSecurityPrincipalResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AADBasedSecurityPrincipalResponse)(nil)).Elem()
+}
+
+func (o AADBasedSecurityPrincipalResponseArrayOutput) ToAADBasedSecurityPrincipalResponseArrayOutput() AADBasedSecurityPrincipalResponseArrayOutput {
+	return o
+}
+
+func (o AADBasedSecurityPrincipalResponseArrayOutput) ToAADBasedSecurityPrincipalResponseArrayOutputWithContext(ctx context.Context) AADBasedSecurityPrincipalResponseArrayOutput {
+	return o
+}
+
+func (o AADBasedSecurityPrincipalResponseArrayOutput) Index(i pulumi.IntInput) AADBasedSecurityPrincipalResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AADBasedSecurityPrincipalResponse {
+		return vs[0].([]AADBasedSecurityPrincipalResponse)[vs[1].(int)]
+	}).(AADBasedSecurityPrincipalResponseOutput)
+}
+
+// Cert based security principal with Ledger RoleName
+type CertBasedSecurityPrincipal struct {
+	// Base64 encoded public key of the user cert (.pem or .cer)
+	Cert *string `pulumi:"cert"`
+	// LedgerRole associated with the Security Principal of Ledger
+	LedgerRoleName *string `pulumi:"ledgerRoleName"`
+}
+
+// CertBasedSecurityPrincipalInput is an input type that accepts CertBasedSecurityPrincipalArgs and CertBasedSecurityPrincipalOutput values.
+// You can construct a concrete instance of `CertBasedSecurityPrincipalInput` via:
+//
+//          CertBasedSecurityPrincipalArgs{...}
+type CertBasedSecurityPrincipalInput interface {
+	pulumi.Input
+
+	ToCertBasedSecurityPrincipalOutput() CertBasedSecurityPrincipalOutput
+	ToCertBasedSecurityPrincipalOutputWithContext(context.Context) CertBasedSecurityPrincipalOutput
+}
+
+// Cert based security principal with Ledger RoleName
+type CertBasedSecurityPrincipalArgs struct {
+	// Base64 encoded public key of the user cert (.pem or .cer)
+	Cert pulumi.StringPtrInput `pulumi:"cert"`
+	// LedgerRole associated with the Security Principal of Ledger
+	LedgerRoleName pulumi.StringPtrInput `pulumi:"ledgerRoleName"`
+}
+
+func (CertBasedSecurityPrincipalArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertBasedSecurityPrincipal)(nil)).Elem()
+}
+
+func (i CertBasedSecurityPrincipalArgs) ToCertBasedSecurityPrincipalOutput() CertBasedSecurityPrincipalOutput {
+	return i.ToCertBasedSecurityPrincipalOutputWithContext(context.Background())
+}
+
+func (i CertBasedSecurityPrincipalArgs) ToCertBasedSecurityPrincipalOutputWithContext(ctx context.Context) CertBasedSecurityPrincipalOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertBasedSecurityPrincipalOutput)
+}
+
+// CertBasedSecurityPrincipalArrayInput is an input type that accepts CertBasedSecurityPrincipalArray and CertBasedSecurityPrincipalArrayOutput values.
+// You can construct a concrete instance of `CertBasedSecurityPrincipalArrayInput` via:
+//
+//          CertBasedSecurityPrincipalArray{ CertBasedSecurityPrincipalArgs{...} }
+type CertBasedSecurityPrincipalArrayInput interface {
+	pulumi.Input
+
+	ToCertBasedSecurityPrincipalArrayOutput() CertBasedSecurityPrincipalArrayOutput
+	ToCertBasedSecurityPrincipalArrayOutputWithContext(context.Context) CertBasedSecurityPrincipalArrayOutput
+}
+
+type CertBasedSecurityPrincipalArray []CertBasedSecurityPrincipalInput
+
+func (CertBasedSecurityPrincipalArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CertBasedSecurityPrincipal)(nil)).Elem()
+}
+
+func (i CertBasedSecurityPrincipalArray) ToCertBasedSecurityPrincipalArrayOutput() CertBasedSecurityPrincipalArrayOutput {
+	return i.ToCertBasedSecurityPrincipalArrayOutputWithContext(context.Background())
+}
+
+func (i CertBasedSecurityPrincipalArray) ToCertBasedSecurityPrincipalArrayOutputWithContext(ctx context.Context) CertBasedSecurityPrincipalArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertBasedSecurityPrincipalArrayOutput)
+}
+
+// Cert based security principal with Ledger RoleName
+type CertBasedSecurityPrincipalOutput struct{ *pulumi.OutputState }
+
+func (CertBasedSecurityPrincipalOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertBasedSecurityPrincipal)(nil)).Elem()
+}
+
+func (o CertBasedSecurityPrincipalOutput) ToCertBasedSecurityPrincipalOutput() CertBasedSecurityPrincipalOutput {
+	return o
+}
+
+func (o CertBasedSecurityPrincipalOutput) ToCertBasedSecurityPrincipalOutputWithContext(ctx context.Context) CertBasedSecurityPrincipalOutput {
 	return o
 }
 
 // Base64 encoded public key of the user cert (.pem or .cer)
-func (o ConfidentialLedgerCertUserOutput) Cert() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConfidentialLedgerCertUser) *string { return v.Cert }).(pulumi.StringPtrOutput)
+func (o CertBasedSecurityPrincipalOutput) Cert() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertBasedSecurityPrincipal) *string { return v.Cert }).(pulumi.StringPtrOutput)
 }
 
-type ConfidentialLedgerCertUserArrayOutput struct{ *pulumi.OutputState }
-
-func (ConfidentialLedgerCertUserArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ConfidentialLedgerCertUser)(nil)).Elem()
+// LedgerRole associated with the Security Principal of Ledger
+func (o CertBasedSecurityPrincipalOutput) LedgerRoleName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertBasedSecurityPrincipal) *string { return v.LedgerRoleName }).(pulumi.StringPtrOutput)
 }
 
-func (o ConfidentialLedgerCertUserArrayOutput) ToConfidentialLedgerCertUserArrayOutput() ConfidentialLedgerCertUserArrayOutput {
+type CertBasedSecurityPrincipalArrayOutput struct{ *pulumi.OutputState }
+
+func (CertBasedSecurityPrincipalArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CertBasedSecurityPrincipal)(nil)).Elem()
+}
+
+func (o CertBasedSecurityPrincipalArrayOutput) ToCertBasedSecurityPrincipalArrayOutput() CertBasedSecurityPrincipalArrayOutput {
 	return o
 }
 
-func (o ConfidentialLedgerCertUserArrayOutput) ToConfidentialLedgerCertUserArrayOutputWithContext(ctx context.Context) ConfidentialLedgerCertUserArrayOutput {
+func (o CertBasedSecurityPrincipalArrayOutput) ToCertBasedSecurityPrincipalArrayOutputWithContext(ctx context.Context) CertBasedSecurityPrincipalArrayOutput {
 	return o
 }
 
-func (o ConfidentialLedgerCertUserArrayOutput) Index(i pulumi.IntInput) ConfidentialLedgerCertUserOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConfidentialLedgerCertUser {
-		return vs[0].([]ConfidentialLedgerCertUser)[vs[1].(int)]
-	}).(ConfidentialLedgerCertUserOutput)
+func (o CertBasedSecurityPrincipalArrayOutput) Index(i pulumi.IntInput) CertBasedSecurityPrincipalOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CertBasedSecurityPrincipal {
+		return vs[0].([]CertBasedSecurityPrincipal)[vs[1].(int)]
+	}).(CertBasedSecurityPrincipalOutput)
 }
 
-// User cert and permissions associated with that user
-type ConfidentialLedgerCertUserResponse struct {
+// Cert based security principal with Ledger RoleName
+type CertBasedSecurityPrincipalResponse struct {
 	// Base64 encoded public key of the user cert (.pem or .cer)
 	Cert *string `pulumi:"cert"`
+	// LedgerRole associated with the Security Principal of Ledger
+	LedgerRoleName *string `pulumi:"ledgerRoleName"`
 }
 
-// ConfidentialLedgerCertUserResponseInput is an input type that accepts ConfidentialLedgerCertUserResponseArgs and ConfidentialLedgerCertUserResponseOutput values.
-// You can construct a concrete instance of `ConfidentialLedgerCertUserResponseInput` via:
+// CertBasedSecurityPrincipalResponseInput is an input type that accepts CertBasedSecurityPrincipalResponseArgs and CertBasedSecurityPrincipalResponseOutput values.
+// You can construct a concrete instance of `CertBasedSecurityPrincipalResponseInput` via:
 //
-//          ConfidentialLedgerCertUserResponseArgs{...}
-type ConfidentialLedgerCertUserResponseInput interface {
+//          CertBasedSecurityPrincipalResponseArgs{...}
+type CertBasedSecurityPrincipalResponseInput interface {
 	pulumi.Input
 
-	ToConfidentialLedgerCertUserResponseOutput() ConfidentialLedgerCertUserResponseOutput
-	ToConfidentialLedgerCertUserResponseOutputWithContext(context.Context) ConfidentialLedgerCertUserResponseOutput
+	ToCertBasedSecurityPrincipalResponseOutput() CertBasedSecurityPrincipalResponseOutput
+	ToCertBasedSecurityPrincipalResponseOutputWithContext(context.Context) CertBasedSecurityPrincipalResponseOutput
 }
 
-// User cert and permissions associated with that user
-type ConfidentialLedgerCertUserResponseArgs struct {
+// Cert based security principal with Ledger RoleName
+type CertBasedSecurityPrincipalResponseArgs struct {
 	// Base64 encoded public key of the user cert (.pem or .cer)
 	Cert pulumi.StringPtrInput `pulumi:"cert"`
+	// LedgerRole associated with the Security Principal of Ledger
+	LedgerRoleName pulumi.StringPtrInput `pulumi:"ledgerRoleName"`
 }
 
-func (ConfidentialLedgerCertUserResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfidentialLedgerCertUserResponse)(nil)).Elem()
+func (CertBasedSecurityPrincipalResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertBasedSecurityPrincipalResponse)(nil)).Elem()
 }
 
-func (i ConfidentialLedgerCertUserResponseArgs) ToConfidentialLedgerCertUserResponseOutput() ConfidentialLedgerCertUserResponseOutput {
-	return i.ToConfidentialLedgerCertUserResponseOutputWithContext(context.Background())
+func (i CertBasedSecurityPrincipalResponseArgs) ToCertBasedSecurityPrincipalResponseOutput() CertBasedSecurityPrincipalResponseOutput {
+	return i.ToCertBasedSecurityPrincipalResponseOutputWithContext(context.Background())
 }
 
-func (i ConfidentialLedgerCertUserResponseArgs) ToConfidentialLedgerCertUserResponseOutputWithContext(ctx context.Context) ConfidentialLedgerCertUserResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfidentialLedgerCertUserResponseOutput)
+func (i CertBasedSecurityPrincipalResponseArgs) ToCertBasedSecurityPrincipalResponseOutputWithContext(ctx context.Context) CertBasedSecurityPrincipalResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertBasedSecurityPrincipalResponseOutput)
 }
 
-// ConfidentialLedgerCertUserResponseArrayInput is an input type that accepts ConfidentialLedgerCertUserResponseArray and ConfidentialLedgerCertUserResponseArrayOutput values.
-// You can construct a concrete instance of `ConfidentialLedgerCertUserResponseArrayInput` via:
+// CertBasedSecurityPrincipalResponseArrayInput is an input type that accepts CertBasedSecurityPrincipalResponseArray and CertBasedSecurityPrincipalResponseArrayOutput values.
+// You can construct a concrete instance of `CertBasedSecurityPrincipalResponseArrayInput` via:
 //
-//          ConfidentialLedgerCertUserResponseArray{ ConfidentialLedgerCertUserResponseArgs{...} }
-type ConfidentialLedgerCertUserResponseArrayInput interface {
+//          CertBasedSecurityPrincipalResponseArray{ CertBasedSecurityPrincipalResponseArgs{...} }
+type CertBasedSecurityPrincipalResponseArrayInput interface {
 	pulumi.Input
 
-	ToConfidentialLedgerCertUserResponseArrayOutput() ConfidentialLedgerCertUserResponseArrayOutput
-	ToConfidentialLedgerCertUserResponseArrayOutputWithContext(context.Context) ConfidentialLedgerCertUserResponseArrayOutput
+	ToCertBasedSecurityPrincipalResponseArrayOutput() CertBasedSecurityPrincipalResponseArrayOutput
+	ToCertBasedSecurityPrincipalResponseArrayOutputWithContext(context.Context) CertBasedSecurityPrincipalResponseArrayOutput
 }
 
-type ConfidentialLedgerCertUserResponseArray []ConfidentialLedgerCertUserResponseInput
+type CertBasedSecurityPrincipalResponseArray []CertBasedSecurityPrincipalResponseInput
 
-func (ConfidentialLedgerCertUserResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ConfidentialLedgerCertUserResponse)(nil)).Elem()
+func (CertBasedSecurityPrincipalResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CertBasedSecurityPrincipalResponse)(nil)).Elem()
 }
 
-func (i ConfidentialLedgerCertUserResponseArray) ToConfidentialLedgerCertUserResponseArrayOutput() ConfidentialLedgerCertUserResponseArrayOutput {
-	return i.ToConfidentialLedgerCertUserResponseArrayOutputWithContext(context.Background())
+func (i CertBasedSecurityPrincipalResponseArray) ToCertBasedSecurityPrincipalResponseArrayOutput() CertBasedSecurityPrincipalResponseArrayOutput {
+	return i.ToCertBasedSecurityPrincipalResponseArrayOutputWithContext(context.Background())
 }
 
-func (i ConfidentialLedgerCertUserResponseArray) ToConfidentialLedgerCertUserResponseArrayOutputWithContext(ctx context.Context) ConfidentialLedgerCertUserResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfidentialLedgerCertUserResponseArrayOutput)
+func (i CertBasedSecurityPrincipalResponseArray) ToCertBasedSecurityPrincipalResponseArrayOutputWithContext(ctx context.Context) CertBasedSecurityPrincipalResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertBasedSecurityPrincipalResponseArrayOutput)
 }
 
-// User cert and permissions associated with that user
-type ConfidentialLedgerCertUserResponseOutput struct{ *pulumi.OutputState }
+// Cert based security principal with Ledger RoleName
+type CertBasedSecurityPrincipalResponseOutput struct{ *pulumi.OutputState }
 
-func (ConfidentialLedgerCertUserResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfidentialLedgerCertUserResponse)(nil)).Elem()
+func (CertBasedSecurityPrincipalResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertBasedSecurityPrincipalResponse)(nil)).Elem()
 }
 
-func (o ConfidentialLedgerCertUserResponseOutput) ToConfidentialLedgerCertUserResponseOutput() ConfidentialLedgerCertUserResponseOutput {
+func (o CertBasedSecurityPrincipalResponseOutput) ToCertBasedSecurityPrincipalResponseOutput() CertBasedSecurityPrincipalResponseOutput {
 	return o
 }
 
-func (o ConfidentialLedgerCertUserResponseOutput) ToConfidentialLedgerCertUserResponseOutputWithContext(ctx context.Context) ConfidentialLedgerCertUserResponseOutput {
+func (o CertBasedSecurityPrincipalResponseOutput) ToCertBasedSecurityPrincipalResponseOutputWithContext(ctx context.Context) CertBasedSecurityPrincipalResponseOutput {
 	return o
 }
 
 // Base64 encoded public key of the user cert (.pem or .cer)
-func (o ConfidentialLedgerCertUserResponseOutput) Cert() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConfidentialLedgerCertUserResponse) *string { return v.Cert }).(pulumi.StringPtrOutput)
+func (o CertBasedSecurityPrincipalResponseOutput) Cert() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertBasedSecurityPrincipalResponse) *string { return v.Cert }).(pulumi.StringPtrOutput)
 }
 
-type ConfidentialLedgerCertUserResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (ConfidentialLedgerCertUserResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ConfidentialLedgerCertUserResponse)(nil)).Elem()
+// LedgerRole associated with the Security Principal of Ledger
+func (o CertBasedSecurityPrincipalResponseOutput) LedgerRoleName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertBasedSecurityPrincipalResponse) *string { return v.LedgerRoleName }).(pulumi.StringPtrOutput)
 }
 
-func (o ConfidentialLedgerCertUserResponseArrayOutput) ToConfidentialLedgerCertUserResponseArrayOutput() ConfidentialLedgerCertUserResponseArrayOutput {
+type CertBasedSecurityPrincipalResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (CertBasedSecurityPrincipalResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CertBasedSecurityPrincipalResponse)(nil)).Elem()
+}
+
+func (o CertBasedSecurityPrincipalResponseArrayOutput) ToCertBasedSecurityPrincipalResponseArrayOutput() CertBasedSecurityPrincipalResponseArrayOutput {
 	return o
 }
 
-func (o ConfidentialLedgerCertUserResponseArrayOutput) ToConfidentialLedgerCertUserResponseArrayOutputWithContext(ctx context.Context) ConfidentialLedgerCertUserResponseArrayOutput {
+func (o CertBasedSecurityPrincipalResponseArrayOutput) ToCertBasedSecurityPrincipalResponseArrayOutputWithContext(ctx context.Context) CertBasedSecurityPrincipalResponseArrayOutput {
 	return o
 }
 
-func (o ConfidentialLedgerCertUserResponseArrayOutput) Index(i pulumi.IntInput) ConfidentialLedgerCertUserResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConfidentialLedgerCertUserResponse {
-		return vs[0].([]ConfidentialLedgerCertUserResponse)[vs[1].(int)]
-	}).(ConfidentialLedgerCertUserResponseOutput)
+func (o CertBasedSecurityPrincipalResponseArrayOutput) Index(i pulumi.IntInput) CertBasedSecurityPrincipalResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CertBasedSecurityPrincipalResponse {
+		return vs[0].([]CertBasedSecurityPrincipalResponse)[vs[1].(int)]
+	}).(CertBasedSecurityPrincipalResponseOutput)
 }
 
 // Additional Confidential Ledger properties.
 type LedgerProperties struct {
-	// Array of all the cert based users who can access Confidential Ledger
-	CertUsers []ConfidentialLedgerCertUser `pulumi:"certUsers"`
+	// Array of all AAD based Security Principals.
+	AadBasedSecurityPrincipals []AADBasedSecurityPrincipal `pulumi:"aadBasedSecurityPrincipals"`
+	// Array of all cert based Security Principals.
+	CertBasedSecurityPrincipals []CertBasedSecurityPrincipal `pulumi:"certBasedSecurityPrincipals"`
 	// Name of the Blob Storage Account for saving ledger files
 	LedgerStorageAccount *string `pulumi:"ledgerStorageAccount"`
 	// Type of Confidential Ledger
@@ -233,8 +489,10 @@ type LedgerPropertiesInput interface {
 
 // Additional Confidential Ledger properties.
 type LedgerPropertiesArgs struct {
-	// Array of all the cert based users who can access Confidential Ledger
-	CertUsers ConfidentialLedgerCertUserArrayInput `pulumi:"certUsers"`
+	// Array of all AAD based Security Principals.
+	AadBasedSecurityPrincipals AADBasedSecurityPrincipalArrayInput `pulumi:"aadBasedSecurityPrincipals"`
+	// Array of all cert based Security Principals.
+	CertBasedSecurityPrincipals CertBasedSecurityPrincipalArrayInput `pulumi:"certBasedSecurityPrincipals"`
 	// Name of the Blob Storage Account for saving ledger files
 	LedgerStorageAccount pulumi.StringPtrInput `pulumi:"ledgerStorageAccount"`
 	// Type of Confidential Ledger
@@ -319,9 +577,14 @@ func (o LedgerPropertiesOutput) ToLedgerPropertiesPtrOutputWithContext(ctx conte
 	}).(LedgerPropertiesPtrOutput)
 }
 
-// Array of all the cert based users who can access Confidential Ledger
-func (o LedgerPropertiesOutput) CertUsers() ConfidentialLedgerCertUserArrayOutput {
-	return o.ApplyT(func(v LedgerProperties) []ConfidentialLedgerCertUser { return v.CertUsers }).(ConfidentialLedgerCertUserArrayOutput)
+// Array of all AAD based Security Principals.
+func (o LedgerPropertiesOutput) AadBasedSecurityPrincipals() AADBasedSecurityPrincipalArrayOutput {
+	return o.ApplyT(func(v LedgerProperties) []AADBasedSecurityPrincipal { return v.AadBasedSecurityPrincipals }).(AADBasedSecurityPrincipalArrayOutput)
+}
+
+// Array of all cert based Security Principals.
+func (o LedgerPropertiesOutput) CertBasedSecurityPrincipals() CertBasedSecurityPrincipalArrayOutput {
+	return o.ApplyT(func(v LedgerProperties) []CertBasedSecurityPrincipal { return v.CertBasedSecurityPrincipals }).(CertBasedSecurityPrincipalArrayOutput)
 }
 
 // Name of the Blob Storage Account for saving ledger files
@@ -352,14 +615,24 @@ func (o LedgerPropertiesPtrOutput) Elem() LedgerPropertiesOutput {
 	return o.ApplyT(func(v *LedgerProperties) LedgerProperties { return *v }).(LedgerPropertiesOutput)
 }
 
-// Array of all the cert based users who can access Confidential Ledger
-func (o LedgerPropertiesPtrOutput) CertUsers() ConfidentialLedgerCertUserArrayOutput {
-	return o.ApplyT(func(v *LedgerProperties) []ConfidentialLedgerCertUser {
+// Array of all AAD based Security Principals.
+func (o LedgerPropertiesPtrOutput) AadBasedSecurityPrincipals() AADBasedSecurityPrincipalArrayOutput {
+	return o.ApplyT(func(v *LedgerProperties) []AADBasedSecurityPrincipal {
 		if v == nil {
 			return nil
 		}
-		return v.CertUsers
-	}).(ConfidentialLedgerCertUserArrayOutput)
+		return v.AadBasedSecurityPrincipals
+	}).(AADBasedSecurityPrincipalArrayOutput)
+}
+
+// Array of all cert based Security Principals.
+func (o LedgerPropertiesPtrOutput) CertBasedSecurityPrincipals() CertBasedSecurityPrincipalArrayOutput {
+	return o.ApplyT(func(v *LedgerProperties) []CertBasedSecurityPrincipal {
+		if v == nil {
+			return nil
+		}
+		return v.CertBasedSecurityPrincipals
+	}).(CertBasedSecurityPrincipalArrayOutput)
 }
 
 // Name of the Blob Storage Account for saving ledger files
@@ -384,8 +657,10 @@ func (o LedgerPropertiesPtrOutput) LedgerType() pulumi.StringPtrOutput {
 
 // Additional Confidential Ledger properties.
 type LedgerPropertiesResponse struct {
-	// Array of all the cert based users who can access Confidential Ledger
-	CertUsers []ConfidentialLedgerCertUserResponse `pulumi:"certUsers"`
+	// Array of all AAD based Security Principals.
+	AadBasedSecurityPrincipals []AADBasedSecurityPrincipalResponse `pulumi:"aadBasedSecurityPrincipals"`
+	// Array of all cert based Security Principals.
+	CertBasedSecurityPrincipals []CertBasedSecurityPrincipalResponse `pulumi:"certBasedSecurityPrincipals"`
 	// Endpoint for accessing network identity.
 	IdentityServiceUri string `pulumi:"identityServiceUri"`
 	// Internal namespace for the Ledger
@@ -415,8 +690,10 @@ type LedgerPropertiesResponseInput interface {
 
 // Additional Confidential Ledger properties.
 type LedgerPropertiesResponseArgs struct {
-	// Array of all the cert based users who can access Confidential Ledger
-	CertUsers ConfidentialLedgerCertUserResponseArrayInput `pulumi:"certUsers"`
+	// Array of all AAD based Security Principals.
+	AadBasedSecurityPrincipals AADBasedSecurityPrincipalResponseArrayInput `pulumi:"aadBasedSecurityPrincipals"`
+	// Array of all cert based Security Principals.
+	CertBasedSecurityPrincipals CertBasedSecurityPrincipalResponseArrayInput `pulumi:"certBasedSecurityPrincipals"`
 	// Endpoint for accessing network identity.
 	IdentityServiceUri pulumi.StringInput `pulumi:"identityServiceUri"`
 	// Internal namespace for the Ledger
@@ -511,9 +788,18 @@ func (o LedgerPropertiesResponseOutput) ToLedgerPropertiesResponsePtrOutputWithC
 	}).(LedgerPropertiesResponsePtrOutput)
 }
 
-// Array of all the cert based users who can access Confidential Ledger
-func (o LedgerPropertiesResponseOutput) CertUsers() ConfidentialLedgerCertUserResponseArrayOutput {
-	return o.ApplyT(func(v LedgerPropertiesResponse) []ConfidentialLedgerCertUserResponse { return v.CertUsers }).(ConfidentialLedgerCertUserResponseArrayOutput)
+// Array of all AAD based Security Principals.
+func (o LedgerPropertiesResponseOutput) AadBasedSecurityPrincipals() AADBasedSecurityPrincipalResponseArrayOutput {
+	return o.ApplyT(func(v LedgerPropertiesResponse) []AADBasedSecurityPrincipalResponse {
+		return v.AadBasedSecurityPrincipals
+	}).(AADBasedSecurityPrincipalResponseArrayOutput)
+}
+
+// Array of all cert based Security Principals.
+func (o LedgerPropertiesResponseOutput) CertBasedSecurityPrincipals() CertBasedSecurityPrincipalResponseArrayOutput {
+	return o.ApplyT(func(v LedgerPropertiesResponse) []CertBasedSecurityPrincipalResponse {
+		return v.CertBasedSecurityPrincipals
+	}).(CertBasedSecurityPrincipalResponseArrayOutput)
 }
 
 // Endpoint for accessing network identity.
@@ -569,14 +855,24 @@ func (o LedgerPropertiesResponsePtrOutput) Elem() LedgerPropertiesResponseOutput
 	return o.ApplyT(func(v *LedgerPropertiesResponse) LedgerPropertiesResponse { return *v }).(LedgerPropertiesResponseOutput)
 }
 
-// Array of all the cert based users who can access Confidential Ledger
-func (o LedgerPropertiesResponsePtrOutput) CertUsers() ConfidentialLedgerCertUserResponseArrayOutput {
-	return o.ApplyT(func(v *LedgerPropertiesResponse) []ConfidentialLedgerCertUserResponse {
+// Array of all AAD based Security Principals.
+func (o LedgerPropertiesResponsePtrOutput) AadBasedSecurityPrincipals() AADBasedSecurityPrincipalResponseArrayOutput {
+	return o.ApplyT(func(v *LedgerPropertiesResponse) []AADBasedSecurityPrincipalResponse {
 		if v == nil {
 			return nil
 		}
-		return v.CertUsers
-	}).(ConfidentialLedgerCertUserResponseArrayOutput)
+		return v.AadBasedSecurityPrincipals
+	}).(AADBasedSecurityPrincipalResponseArrayOutput)
+}
+
+// Array of all cert based Security Principals.
+func (o LedgerPropertiesResponsePtrOutput) CertBasedSecurityPrincipals() CertBasedSecurityPrincipalResponseArrayOutput {
+	return o.ApplyT(func(v *LedgerPropertiesResponse) []CertBasedSecurityPrincipalResponse {
+		if v == nil {
+			return nil
+		}
+		return v.CertBasedSecurityPrincipals
+	}).(CertBasedSecurityPrincipalResponseArrayOutput)
 }
 
 // Endpoint for accessing network identity.
@@ -879,10 +1175,14 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 }
 
 func init() {
-	pulumi.RegisterOutputType(ConfidentialLedgerCertUserOutput{})
-	pulumi.RegisterOutputType(ConfidentialLedgerCertUserArrayOutput{})
-	pulumi.RegisterOutputType(ConfidentialLedgerCertUserResponseOutput{})
-	pulumi.RegisterOutputType(ConfidentialLedgerCertUserResponseArrayOutput{})
+	pulumi.RegisterOutputType(AADBasedSecurityPrincipalOutput{})
+	pulumi.RegisterOutputType(AADBasedSecurityPrincipalArrayOutput{})
+	pulumi.RegisterOutputType(AADBasedSecurityPrincipalResponseOutput{})
+	pulumi.RegisterOutputType(AADBasedSecurityPrincipalResponseArrayOutput{})
+	pulumi.RegisterOutputType(CertBasedSecurityPrincipalOutput{})
+	pulumi.RegisterOutputType(CertBasedSecurityPrincipalArrayOutput{})
+	pulumi.RegisterOutputType(CertBasedSecurityPrincipalResponseOutput{})
+	pulumi.RegisterOutputType(CertBasedSecurityPrincipalResponseArrayOutput{})
 	pulumi.RegisterOutputType(LedgerPropertiesOutput{})
 	pulumi.RegisterOutputType(LedgerPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(LedgerPropertiesResponseOutput{})

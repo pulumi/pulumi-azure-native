@@ -7,13 +7,22 @@ from ._enums import *
 from .availability_set import *
 from .dedicated_host import *
 from .dedicated_host_group import *
+from .disk import *
+from .disk_access import *
+from .disk_access_a_private_endpoint_connection import *
+from .disk_encryption_set import *
 from .get_availability_set import *
 from .get_dedicated_host import *
 from .get_dedicated_host_group import *
+from .get_disk import *
+from .get_disk_access import *
+from .get_disk_access_a_private_endpoint_connection import *
+from .get_disk_encryption_set import *
 from .get_image import *
 from .get_log_analytic_export_request_rate_by_interval import *
 from .get_log_analytic_export_throttled_requests import *
 from .get_proximity_placement_group import *
+from .get_snapshot import *
 from .get_ssh_public_key import *
 from .get_virtual_machine import *
 from .get_virtual_machine_extension import *
@@ -25,6 +34,7 @@ from .get_virtual_machine_scale_set_vm_extension import *
 from .get_virtual_machine_scale_set_vm_run_command import *
 from .image import *
 from .proximity_placement_group import *
+from .snapshot import *
 from .ssh_public_key import *
 from .virtual_machine import *
 from .virtual_machine_extension import *
@@ -55,10 +65,20 @@ def _register_module():
                 return DedicatedHost(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:compute/v20201201:DedicatedHostGroup":
                 return DedicatedHostGroup(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:compute/v20201201:Disk":
+                return Disk(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:compute/v20201201:DiskAccess":
+                return DiskAccess(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:compute/v20201201:DiskAccessAPrivateEndpointConnection":
+                return DiskAccessAPrivateEndpointConnection(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:compute/v20201201:DiskEncryptionSet":
+                return DiskEncryptionSet(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:compute/v20201201:Image":
                 return Image(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:compute/v20201201:ProximityPlacementGroup":
                 return ProximityPlacementGroup(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:compute/v20201201:Snapshot":
+                return Snapshot(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:compute/v20201201:SshPublicKey":
                 return SshPublicKey(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:compute/v20201201:VirtualMachine":

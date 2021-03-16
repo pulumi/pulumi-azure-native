@@ -12,7 +12,7 @@ import (
 )
 
 // disk encryption set resource.
-// Latest API Version: 2020-09-30.
+// Latest API Version: 2020-12-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:compute:DiskEncryptionSet'.
 type DiskEncryptionSet struct {
@@ -24,6 +24,8 @@ type DiskEncryptionSet struct {
 	EncryptionType pulumi.StringPtrOutput `pulumi:"encryptionType"`
 	// The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
 	Identity EncryptionSetIdentityResponsePtrOutput `pulumi:"identity"`
+	// The time when the active key of this disk encryption set was updated.
+	LastKeyRotationTimestamp pulumi.StringOutput `pulumi:"lastKeyRotationTimestamp"`
 	// Resource location
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Resource name
@@ -32,6 +34,8 @@ type DiskEncryptionSet struct {
 	PreviousKeys KeyForDiskEncryptionSetResponseArrayOutput `pulumi:"previousKeys"`
 	// The disk encryption set provisioning state.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// Set this flag to true to enable auto-updating of this disk encryption set to the latest key version.
+	RotationToLatestKeyVersionEnabled pulumi.BoolPtrOutput `pulumi:"rotationToLatestKeyVersionEnabled"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type
@@ -88,6 +92,12 @@ func NewDiskEncryptionSet(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20200930:DiskEncryptionSet"),
 		},
+		{
+			Type: pulumi.String("azure-native:compute/v20201201:DiskEncryptionSet"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:compute/v20201201:DiskEncryptionSet"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource DiskEncryptionSet
@@ -118,6 +128,8 @@ type diskEncryptionSetState struct {
 	EncryptionType *string `pulumi:"encryptionType"`
 	// The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
 	Identity *EncryptionSetIdentityResponse `pulumi:"identity"`
+	// The time when the active key of this disk encryption set was updated.
+	LastKeyRotationTimestamp *string `pulumi:"lastKeyRotationTimestamp"`
 	// Resource location
 	Location *string `pulumi:"location"`
 	// Resource name
@@ -126,6 +138,8 @@ type diskEncryptionSetState struct {
 	PreviousKeys []KeyForDiskEncryptionSetResponse `pulumi:"previousKeys"`
 	// The disk encryption set provisioning state.
 	ProvisioningState *string `pulumi:"provisioningState"`
+	// Set this flag to true to enable auto-updating of this disk encryption set to the latest key version.
+	RotationToLatestKeyVersionEnabled *bool `pulumi:"rotationToLatestKeyVersionEnabled"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
@@ -139,6 +153,8 @@ type DiskEncryptionSetState struct {
 	EncryptionType pulumi.StringPtrInput
 	// The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
 	Identity EncryptionSetIdentityResponsePtrInput
+	// The time when the active key of this disk encryption set was updated.
+	LastKeyRotationTimestamp pulumi.StringPtrInput
 	// Resource location
 	Location pulumi.StringPtrInput
 	// Resource name
@@ -147,6 +163,8 @@ type DiskEncryptionSetState struct {
 	PreviousKeys KeyForDiskEncryptionSetResponseArrayInput
 	// The disk encryption set provisioning state.
 	ProvisioningState pulumi.StringPtrInput
+	// Set this flag to true to enable auto-updating of this disk encryption set to the latest key version.
+	RotationToLatestKeyVersionEnabled pulumi.BoolPtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 	// Resource type
@@ -170,6 +188,8 @@ type diskEncryptionSetArgs struct {
 	Location *string `pulumi:"location"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Set this flag to true to enable auto-updating of this disk encryption set to the latest key version.
+	RotationToLatestKeyVersionEnabled *bool `pulumi:"rotationToLatestKeyVersionEnabled"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -188,6 +208,8 @@ type DiskEncryptionSetArgs struct {
 	Location pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// Set this flag to true to enable auto-updating of this disk encryption set to the latest key version.
+	RotationToLatestKeyVersionEnabled pulumi.BoolPtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 }

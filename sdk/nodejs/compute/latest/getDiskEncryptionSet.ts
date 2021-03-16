@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * disk encryption set resource.
- * Latest API Version: 2020-09-30.
+ * Latest API Version: 2020-12-01.
  */
 /** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:compute:getDiskEncryptionSet'. */
 export function getDiskEncryptionSet(args: GetDiskEncryptionSetArgs, opts?: pulumi.InvokeOptions): Promise<GetDiskEncryptionSetResult> {
@@ -57,6 +57,10 @@ export interface GetDiskEncryptionSetResult {
      */
     readonly identity?: outputs.compute.latest.EncryptionSetIdentityResponse;
     /**
+     * The time when the active key of this disk encryption set was updated.
+     */
+    readonly lastKeyRotationTimestamp: string;
+    /**
      * Resource location
      */
     readonly location: string;
@@ -72,6 +76,10 @@ export interface GetDiskEncryptionSetResult {
      * The disk encryption set provisioning state.
      */
     readonly provisioningState: string;
+    /**
+     * Set this flag to true to enable auto-updating of this disk encryption set to the latest key version.
+     */
+    readonly rotationToLatestKeyVersionEnabled?: boolean;
     /**
      * Resource tags
      */

@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Disk resource.
- * Latest API Version: 2020-09-30.
+ * Latest API Version: 2020-12-01.
  */
 /** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:compute:getDisk'. */
 export function getDisk(args: GetDiskArgs, opts?: pulumi.InvokeOptions): Promise<GetDiskResult> {
@@ -129,6 +129,10 @@ export interface GetDiskResult {
      */
     readonly osType?: string;
     /**
+     * Properties of the disk for which update is pending.
+     */
+    readonly propertyUpdatesInProgress: outputs.compute.latest.PropertyUpdatesInProgressResponse;
+    /**
      * The disk provisioning state.
      */
     readonly provisioningState: string;
@@ -137,13 +141,21 @@ export interface GetDiskResult {
      */
     readonly purchasePlan?: outputs.compute.latest.PurchasePlanResponse;
     /**
+     * Contains the security related information for the resource.
+     */
+    readonly securityProfile?: outputs.compute.latest.DiskSecurityProfileResponse;
+    /**
      * Details of the list of all VMs that have the disk attached. maxShares should be set to a value greater than one for disks to allow attaching them to multiple VMs.
      */
     readonly shareInfo: outputs.compute.latest.ShareInfoElementResponse[];
     /**
-     * The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
+     * The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, UltraSSD_LRS, Premium_ZRS, or StandardSSD_ZRS.
      */
     readonly sku?: outputs.compute.latest.DiskSkuResponse;
+    /**
+     * Indicates the OS on a disk supports hibernation.
+     */
+    readonly supportsHibernation?: boolean;
     /**
      * Resource tags
      */

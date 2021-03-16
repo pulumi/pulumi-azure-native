@@ -81,7 +81,7 @@ export interface GetTopicResult {
      * Name of the resource.
      */
     readonly name: string;
-    readonly privateEndpointConnections?: outputs.eventgrid.v20201015preview.PrivateEndpointConnectionResponse[];
+    readonly privateEndpointConnections: outputs.eventgrid.v20201015preview.PrivateEndpointConnectionResponse[];
     /**
      * Provisioning state of the topic.
      */

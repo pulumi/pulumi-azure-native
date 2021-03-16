@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Compute.Latest
 {
     /// <summary>
     /// disk access resource.
-    /// Latest API Version: 2020-09-30.
+    /// Latest API Version: 2020-12-01.
     /// </summary>
     [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:compute:DiskAccess'.")]
     [AzureNativeResourceType("azure-native:compute/latest:DiskAccess")]
@@ -93,6 +93,8 @@ namespace Pulumi.AzureNative.Compute.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20200630:DiskAccess"},
                     new Pulumi.Alias { Type = "azure-native:compute/v20200930:DiskAccess"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20200930:DiskAccess"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20201201:DiskAccess"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20201201:DiskAccess"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The Private Endpoint Connection resource.
- * API Version: 2020-09-30.
+ * API Version: 2020-12-01.
  */
 export function getDiskAccessAPrivateEndpointConnection(args: GetDiskAccessAPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetDiskAccessAPrivateEndpointConnectionResult> {
     if (!opts) {
@@ -54,7 +54,7 @@ export interface GetDiskAccessAPrivateEndpointConnectionResult {
     /**
      * The resource of private end point.
      */
-    readonly privateEndpoint?: outputs.compute.PrivateEndpointResponse;
+    readonly privateEndpoint: outputs.compute.PrivateEndpointResponse;
     /**
      * A collection of information about the state of the connection between DiskAccess and Virtual Network.
      */

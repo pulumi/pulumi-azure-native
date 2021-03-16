@@ -335,6 +335,34 @@ func (e DiskEncryptionSetType) ToStringPtrOutputWithContext(ctx context.Context)
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// Specifies the SecurityType of the VM. Applicable for OS disks only.
+type DiskSecurityTypes pulumi.String
+
+const (
+	// Trusted Launch provides security features such as secure boot and virtual Trusted Platform Module (vTPM)
+	DiskSecurityTypesTrustedLaunch = DiskSecurityTypes("TrustedLaunch")
+)
+
+func (DiskSecurityTypes) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e DiskSecurityTypes) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DiskSecurityTypes) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DiskSecurityTypes) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DiskSecurityTypes) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // The sku name.
 type DiskStorageAccountTypes pulumi.String
 
@@ -347,6 +375,10 @@ const (
 	DiskStorageAccountTypes_StandardSSD_LRS = DiskStorageAccountTypes("StandardSSD_LRS")
 	// Ultra SSD locally redundant storage. Best for IO-intensive workloads such as SAP HANA, top tier databases (for example, SQL, Oracle), and other transaction-heavy workloads.
 	DiskStorageAccountTypes_UltraSSD_LRS = DiskStorageAccountTypes("UltraSSD_LRS")
+	// Premium SSD zone redundant storage. Best for the production workloads that need storage resiliency against zone failures.
+	DiskStorageAccountTypes_Premium_ZRS = DiskStorageAccountTypes("Premium_ZRS")
+	// Standard SSD zone redundant storage. Best for web servers, lightly used enterprise applications and dev/test that need storage resiliency against zone failures.
+	DiskStorageAccountTypes_StandardSSD_ZRS = DiskStorageAccountTypes("StandardSSD_ZRS")
 )
 
 func (DiskStorageAccountTypes) ElementType() reflect.Type {

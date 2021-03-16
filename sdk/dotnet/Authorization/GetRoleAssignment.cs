@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Authorization
     {
         /// <summary>
         /// Role Assignments
-        /// API Version: 2020-04-01-preview.
+        /// API Version: 2020-08-01-preview.
         /// </summary>
         public static Task<GetRoleAssignmentResult> InvokeAsync(GetRoleAssignmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRoleAssignmentResult>("azure-native:authorization:getRoleAssignment", args ?? new GetRoleAssignmentArgs(), options.WithVersion());
@@ -23,13 +23,13 @@ namespace Pulumi.AzureNative.Authorization
     public sealed class GetRoleAssignmentArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the role assignment to get.
+        /// The name of the role assignment. It can be any valid GUID.
         /// </summary>
         [Input("roleAssignmentName", required: true)]
         public string RoleAssignmentName { get; set; } = null!;
 
         /// <summary>
-        /// The scope of the role assignment.
+        /// The scope of the operation or resource. Valid scopes are: subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
         /// </summary>
         [Input("scope", required: true)]
         public string Scope { get; set; } = null!;
@@ -44,10 +44,6 @@ namespace Pulumi.AzureNative.Authorization
     public sealed class GetRoleAssignmentResult
     {
         /// <summary>
-        /// The Delegation flag for the role assignment
-        /// </summary>
-        public readonly bool? CanDelegate;
-        /// <summary>
         /// The conditions on the role assignment. This limits the resources it can be assigned to. e.g.: @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'
         /// </summary>
         public readonly string? Condition;
@@ -58,11 +54,11 @@ namespace Pulumi.AzureNative.Authorization
         /// <summary>
         /// Id of the user who created the assignment
         /// </summary>
-        public readonly string? CreatedBy;
+        public readonly string CreatedBy;
         /// <summary>
         /// Time it was created
         /// </summary>
-        public readonly string? CreatedOn;
+        public readonly string CreatedOn;
         /// <summary>
         /// Id of the delegated managed identity resource
         /// </summary>
@@ -82,7 +78,7 @@ namespace Pulumi.AzureNative.Authorization
         /// <summary>
         /// The principal ID.
         /// </summary>
-        public readonly string? PrincipalId;
+        public readonly string PrincipalId;
         /// <summary>
         /// The principal type of the assigned principal ID.
         /// </summary>
@@ -90,7 +86,7 @@ namespace Pulumi.AzureNative.Authorization
         /// <summary>
         /// The role definition ID.
         /// </summary>
-        public readonly string? RoleDefinitionId;
+        public readonly string RoleDefinitionId;
         /// <summary>
         /// The role assignment scope.
         /// </summary>
@@ -102,23 +98,21 @@ namespace Pulumi.AzureNative.Authorization
         /// <summary>
         /// Id of the user who updated the assignment
         /// </summary>
-        public readonly string? UpdatedBy;
+        public readonly string UpdatedBy;
         /// <summary>
         /// Time it was updated
         /// </summary>
-        public readonly string? UpdatedOn;
+        public readonly string UpdatedOn;
 
         [OutputConstructor]
         private GetRoleAssignmentResult(
-            bool? canDelegate,
-
             string? condition,
 
             string? conditionVersion,
 
-            string? createdBy,
+            string createdBy,
 
-            string? createdOn,
+            string createdOn,
 
             string? delegatedManagedIdentityResourceId,
 
@@ -128,21 +122,20 @@ namespace Pulumi.AzureNative.Authorization
 
             string name,
 
-            string? principalId,
+            string principalId,
 
             string? principalType,
 
-            string? roleDefinitionId,
+            string roleDefinitionId,
 
             string? scope,
 
             string type,
 
-            string? updatedBy,
+            string updatedBy,
 
-            string? updatedOn)
+            string updatedOn)
         {
-            CanDelegate = canDelegate;
             Condition = condition;
             ConditionVersion = conditionVersion;
             CreatedBy = createdBy;

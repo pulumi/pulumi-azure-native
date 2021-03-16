@@ -89,6 +89,8 @@ namespace Pulumi.AzureNative.ServiceBus.V20170401
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus/latest:DisasterRecoveryConfig"},
                     new Pulumi.Alias { Type = "azure-native:servicebus/v20180101preview:DisasterRecoveryConfig"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20180101preview:DisasterRecoveryConfig"},
+                    new Pulumi.Alias { Type = "azure-native:servicebus/v20210101preview:DisasterRecoveryConfig"},
+                    new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20210101preview:DisasterRecoveryConfig"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

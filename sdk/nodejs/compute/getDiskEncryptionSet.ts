@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * disk encryption set resource.
- * API Version: 2020-09-30.
+ * API Version: 2020-12-01.
  */
 export function getDiskEncryptionSet(args: GetDiskEncryptionSetArgs, opts?: pulumi.InvokeOptions): Promise<GetDiskEncryptionSetResult> {
     if (!opts) {
@@ -55,6 +55,10 @@ export interface GetDiskEncryptionSetResult {
      */
     readonly identity?: outputs.compute.EncryptionSetIdentityResponse;
     /**
+     * The time when the active key of this disk encryption set was updated.
+     */
+    readonly lastKeyRotationTimestamp: string;
+    /**
      * Resource location
      */
     readonly location: string;
@@ -70,6 +74,10 @@ export interface GetDiskEncryptionSetResult {
      * The disk encryption set provisioning state.
      */
     readonly provisioningState: string;
+    /**
+     * Set this flag to true to enable auto-updating of this disk encryption set to the latest key version.
+     */
+    readonly rotationToLatestKeyVersionEnabled?: boolean;
     /**
      * Resource tags
      */

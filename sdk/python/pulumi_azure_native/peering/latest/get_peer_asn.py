@@ -133,7 +133,7 @@ def get_peer_asn(peer_asn_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPeerAsnResult:
     """
     The essential information related to the peer's ASN.
-    Latest API Version: 2020-10-01.
+    Latest API Version: 2021-01-01.
 
 
     :param str peer_asn_name: The peer ASN name.

@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * The Private Endpoint Connection resource.
- * Latest API Version: 2020-09-30.
+ * Latest API Version: 2020-12-01.
  *
  * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:compute:DiskAccessAPrivateEndpointConnection'.
  */
@@ -46,7 +46,7 @@ export class DiskAccessAPrivateEndpointConnection extends pulumi.CustomResource 
     /**
      * The resource of private end point.
      */
-    public /*out*/ readonly privateEndpoint!: pulumi.Output<outputs.compute.latest.PrivateEndpointResponse | undefined>;
+    public /*out*/ readonly privateEndpoint!: pulumi.Output<outputs.compute.latest.PrivateEndpointResponse>;
     /**
      * A collection of information about the state of the connection between DiskAccess and Virtual Network.
      */
@@ -100,7 +100,7 @@ export class DiskAccessAPrivateEndpointConnection extends pulumi.CustomResource 
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute/latest:DiskAccessAPrivateEndpointConnection" }, { type: "azure-native:compute:DiskAccessAPrivateEndpointConnection" }, { type: "azure-nextgen:compute:DiskAccessAPrivateEndpointConnection" }, { type: "azure-native:compute/v20200930:DiskAccessAPrivateEndpointConnection" }, { type: "azure-nextgen:compute/v20200930:DiskAccessAPrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute/latest:DiskAccessAPrivateEndpointConnection" }, { type: "azure-native:compute:DiskAccessAPrivateEndpointConnection" }, { type: "azure-nextgen:compute:DiskAccessAPrivateEndpointConnection" }, { type: "azure-native:compute/v20200930:DiskAccessAPrivateEndpointConnection" }, { type: "azure-nextgen:compute/v20200930:DiskAccessAPrivateEndpointConnection" }, { type: "azure-native:compute/v20201201:DiskAccessAPrivateEndpointConnection" }, { type: "azure-nextgen:compute/v20201201:DiskAccessAPrivateEndpointConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DiskAccessAPrivateEndpointConnection.__pulumiType, name, inputs, opts);
     }

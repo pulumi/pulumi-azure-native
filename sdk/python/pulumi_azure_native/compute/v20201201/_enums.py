@@ -10,22 +10,32 @@ __all__ = [
     'DedicatedHostLicenseTypes',
     'DiffDiskOptions',
     'DiffDiskPlacement',
+    'DiskCreateOption',
     'DiskCreateOptionTypes',
     'DiskDetachOptionTypes',
+    'DiskEncryptionSetIdentityType',
+    'DiskEncryptionSetType',
+    'DiskSecurityTypes',
+    'DiskStorageAccountTypes',
+    'EncryptionType',
     'ExtendedLocationTypes',
+    'HyperVGeneration',
     'HyperVGenerationTypes',
     'IPVersion',
     'IntervalInMins',
     'LinuxVMGuestPatchMode',
+    'NetworkAccessPolicy',
     'OperatingSystemStateTypes',
     'OperatingSystemTypes',
     'OrchestrationMode',
     'PassNames',
+    'PrivateEndpointServiceConnectionStatus',
     'ProtocolTypes',
     'ProximityPlacementGroupType',
     'ResourceIdentityType',
     'SecurityTypes',
     'SettingNames',
+    'SnapshotStorageAccountTypes',
     'StatusLevelTypes',
     'StorageAccountTypes',
     'UpgradeMode',
@@ -77,6 +87,19 @@ class DiffDiskPlacement(str, Enum):
     RESOURCE_DISK = "ResourceDisk"
 
 
+class DiskCreateOption(str, Enum):
+    """
+    This enumerates the possible sources of a disk's creation.
+    """
+    EMPTY = "Empty"
+    ATTACH = "Attach"
+    FROM_IMAGE = "FromImage"
+    IMPORT_ = "Import"
+    COPY = "Copy"
+    RESTORE = "Restore"
+    UPLOAD = "Upload"
+
+
 class DiskCreateOptionTypes(str, Enum):
     """
     Specifies how the virtual machine should be created.<br><br> Possible values are:<br><br> **Attach** \u2013 This value is used when you are using a specialized disk to create the virtual machine.<br><br> **FromImage** \u2013 This value is used when you are using an image to create the virtual machine. If you are using a platform image, you also use the imageReference element described above. If you are using a marketplace image, you  also use the plan element previously described.
@@ -93,11 +116,63 @@ class DiskDetachOptionTypes(str, Enum):
     FORCE_DETACH = "ForceDetach"
 
 
+class DiskEncryptionSetIdentityType(str, Enum):
+    """
+    The type of Managed Identity used by the DiskEncryptionSet. Only SystemAssigned is supported for new creations. Disk Encryption Sets can be updated with Identity type None during migration of subscription to a new Azure Active Directory tenant; it will cause the encrypted resources to lose access to the keys.
+    """
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    NONE = "None"
+
+
+class DiskEncryptionSetType(str, Enum):
+    """
+    The type of key used to encrypt the data of the disk.
+    """
+    ENCRYPTION_AT_REST_WITH_CUSTOMER_KEY = "EncryptionAtRestWithCustomerKey"
+    ENCRYPTION_AT_REST_WITH_PLATFORM_AND_CUSTOMER_KEYS = "EncryptionAtRestWithPlatformAndCustomerKeys"
+
+
+class DiskSecurityTypes(str, Enum):
+    """
+    Specifies the SecurityType of the VM. Applicable for OS disks only.
+    """
+    TRUSTED_LAUNCH = "TrustedLaunch"
+
+
+class DiskStorageAccountTypes(str, Enum):
+    """
+    The sku name.
+    """
+    STANDARD_LRS = "Standard_LRS"
+    PREMIUM_LRS = "Premium_LRS"
+    STANDARD_SS_D_LRS = "StandardSSD_LRS"
+    ULTRA_SS_D_LRS = "UltraSSD_LRS"
+    PREMIUM_ZRS = "Premium_ZRS"
+    STANDARD_SS_D_ZRS = "StandardSSD_ZRS"
+
+
+class EncryptionType(str, Enum):
+    """
+    The type of key used to encrypt the data of the disk.
+    """
+    ENCRYPTION_AT_REST_WITH_PLATFORM_KEY = "EncryptionAtRestWithPlatformKey"
+    ENCRYPTION_AT_REST_WITH_CUSTOMER_KEY = "EncryptionAtRestWithCustomerKey"
+    ENCRYPTION_AT_REST_WITH_PLATFORM_AND_CUSTOMER_KEYS = "EncryptionAtRestWithPlatformAndCustomerKeys"
+
+
 class ExtendedLocationTypes(str, Enum):
     """
     The type of the extended location.
     """
     EDGE_ZONE = "EdgeZone"
+
+
+class HyperVGeneration(str, Enum):
+    """
+    The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
+    """
+    V1 = "V1"
+    V2 = "V2"
 
 
 class HyperVGenerationTypes(str, Enum):
@@ -134,6 +209,15 @@ class LinuxVMGuestPatchMode(str, Enum):
     AUTOMATIC_BY_PLATFORM = "AutomaticByPlatform"
 
 
+class NetworkAccessPolicy(str, Enum):
+    """
+    Policy for accessing the disk via network.
+    """
+    ALLOW_ALL = "AllowAll"
+    ALLOW_PRIVATE = "AllowPrivate"
+    DENY_ALL = "DenyAll"
+
+
 class OperatingSystemStateTypes(str, Enum):
     """
     The OS State.
@@ -163,6 +247,15 @@ class PassNames(str, Enum):
     The pass name. Currently, the only allowable value is OobeSystem.
     """
     OOBE_SYSTEM = "OobeSystem"
+
+
+class PrivateEndpointServiceConnectionStatus(str, Enum):
+    """
+    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+    """
+    PENDING = "Pending"
+    APPROVED = "Approved"
+    REJECTED = "Rejected"
 
 
 class ProtocolTypes(str, Enum):
@@ -204,6 +297,15 @@ class SettingNames(str, Enum):
     """
     AUTO_LOGON = "AutoLogon"
     FIRST_LOGON_COMMANDS = "FirstLogonCommands"
+
+
+class SnapshotStorageAccountTypes(str, Enum):
+    """
+    The sku name.
+    """
+    STANDARD_LRS = "Standard_LRS"
+    PREMIUM_LRS = "Premium_LRS"
+    STANDARD_ZRS = "Standard_ZRS"
 
 
 class StatusLevelTypes(str, Enum):

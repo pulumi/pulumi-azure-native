@@ -12,7 +12,7 @@ import (
 )
 
 // Disk resource.
-// API Version: 2020-09-30.
+// API Version: 2020-12-01.
 type Disk struct {
 	pulumi.CustomResourceState
 
@@ -58,14 +58,20 @@ type Disk struct {
 	NetworkAccessPolicy pulumi.StringPtrOutput `pulumi:"networkAccessPolicy"`
 	// The Operating System type.
 	OsType pulumi.StringPtrOutput `pulumi:"osType"`
+	// Properties of the disk for which update is pending.
+	PropertyUpdatesInProgress PropertyUpdatesInProgressResponseOutput `pulumi:"propertyUpdatesInProgress"`
 	// The disk provisioning state.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// Purchase plan information for the the image from which the OS disk was created. E.g. - {name: 2019-Datacenter, publisher: MicrosoftWindowsServer, product: WindowsServer}
 	PurchasePlan PurchasePlanResponsePtrOutput `pulumi:"purchasePlan"`
+	// Contains the security related information for the resource.
+	SecurityProfile DiskSecurityProfileResponsePtrOutput `pulumi:"securityProfile"`
 	// Details of the list of all VMs that have the disk attached. maxShares should be set to a value greater than one for disks to allow attaching them to multiple VMs.
 	ShareInfo ShareInfoElementResponseArrayOutput `pulumi:"shareInfo"`
-	// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
+	// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, UltraSSD_LRS, Premium_ZRS, or StandardSSD_ZRS.
 	Sku DiskSkuResponsePtrOutput `pulumi:"sku"`
+	// Indicates the OS on a disk supports hibernation.
+	SupportsHibernation pulumi.BoolPtrOutput `pulumi:"supportsHibernation"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Performance tier of the disk (e.g, P4, S10) as described here: https://azure.microsoft.com/en-us/pricing/details/managed-disks/. Does not apply to Ultra disks.
@@ -169,6 +175,12 @@ func NewDisk(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20200930:Disk"),
 		},
+		{
+			Type: pulumi.String("azure-native:compute/v20201201:Disk"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:compute/v20201201:Disk"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Disk
@@ -235,14 +247,20 @@ type diskState struct {
 	NetworkAccessPolicy *string `pulumi:"networkAccessPolicy"`
 	// The Operating System type.
 	OsType *string `pulumi:"osType"`
+	// Properties of the disk for which update is pending.
+	PropertyUpdatesInProgress *PropertyUpdatesInProgressResponse `pulumi:"propertyUpdatesInProgress"`
 	// The disk provisioning state.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// Purchase plan information for the the image from which the OS disk was created. E.g. - {name: 2019-Datacenter, publisher: MicrosoftWindowsServer, product: WindowsServer}
 	PurchasePlan *PurchasePlanResponse `pulumi:"purchasePlan"`
+	// Contains the security related information for the resource.
+	SecurityProfile *DiskSecurityProfileResponse `pulumi:"securityProfile"`
 	// Details of the list of all VMs that have the disk attached. maxShares should be set to a value greater than one for disks to allow attaching them to multiple VMs.
 	ShareInfo []ShareInfoElementResponse `pulumi:"shareInfo"`
-	// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
+	// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, UltraSSD_LRS, Premium_ZRS, or StandardSSD_ZRS.
 	Sku *DiskSkuResponse `pulumi:"sku"`
+	// Indicates the OS on a disk supports hibernation.
+	SupportsHibernation *bool `pulumi:"supportsHibernation"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Performance tier of the disk (e.g, P4, S10) as described here: https://azure.microsoft.com/en-us/pricing/details/managed-disks/. Does not apply to Ultra disks.
@@ -300,14 +318,20 @@ type DiskState struct {
 	NetworkAccessPolicy pulumi.StringPtrInput
 	// The Operating System type.
 	OsType pulumi.StringPtrInput
+	// Properties of the disk for which update is pending.
+	PropertyUpdatesInProgress PropertyUpdatesInProgressResponsePtrInput
 	// The disk provisioning state.
 	ProvisioningState pulumi.StringPtrInput
 	// Purchase plan information for the the image from which the OS disk was created. E.g. - {name: 2019-Datacenter, publisher: MicrosoftWindowsServer, product: WindowsServer}
 	PurchasePlan PurchasePlanResponsePtrInput
+	// Contains the security related information for the resource.
+	SecurityProfile DiskSecurityProfileResponsePtrInput
 	// Details of the list of all VMs that have the disk attached. maxShares should be set to a value greater than one for disks to allow attaching them to multiple VMs.
 	ShareInfo ShareInfoElementResponseArrayInput
-	// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
+	// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, UltraSSD_LRS, Premium_ZRS, or StandardSSD_ZRS.
 	Sku DiskSkuResponsePtrInput
+	// Indicates the OS on a disk supports hibernation.
+	SupportsHibernation pulumi.BoolPtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 	// Performance tier of the disk (e.g, P4, S10) as described here: https://azure.microsoft.com/en-us/pricing/details/managed-disks/. Does not apply to Ultra disks.
@@ -365,8 +389,12 @@ type diskArgs struct {
 	PurchasePlan *PurchasePlan `pulumi:"purchasePlan"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
+	// Contains the security related information for the resource.
+	SecurityProfile *DiskSecurityProfile `pulumi:"securityProfile"`
+	// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, UltraSSD_LRS, Premium_ZRS, or StandardSSD_ZRS.
 	Sku *DiskSku `pulumi:"sku"`
+	// Indicates the OS on a disk supports hibernation.
+	SupportsHibernation *bool `pulumi:"supportsHibernation"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Performance tier of the disk (e.g, P4, S10) as described here: https://azure.microsoft.com/en-us/pricing/details/managed-disks/. Does not apply to Ultra disks.
@@ -415,8 +443,12 @@ type DiskArgs struct {
 	PurchasePlan PurchasePlanPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
-	// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
+	// Contains the security related information for the resource.
+	SecurityProfile DiskSecurityProfilePtrInput
+	// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, UltraSSD_LRS, Premium_ZRS, or StandardSSD_ZRS.
 	Sku DiskSkuPtrInput
+	// Indicates the OS on a disk supports hibernation.
+	SupportsHibernation pulumi.BoolPtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 	// Performance tier of the disk (e.g, P4, S10) as described here: https://azure.microsoft.com/en-us/pricing/details/managed-disks/. Does not apply to Ultra disks.

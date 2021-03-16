@@ -63,7 +63,7 @@ export class Topic extends pulumi.CustomResource {
      * Name of the resource.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
-    public readonly privateEndpointConnections!: pulumi.Output<outputs.eventgrid.v20200601.PrivateEndpointConnectionResponse[] | undefined>;
+    public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.eventgrid.v20200601.PrivateEndpointConnectionResponse[]>;
     /**
      * Provisioning state of the topic.
      */
@@ -104,7 +104,6 @@ export class Topic extends pulumi.CustomResource {
             inputs["inputSchema"] = (args ? args.inputSchema : undefined) || "EventGridSchema";
             inputs["inputSchemaMapping"] = args ? args.inputSchemaMapping : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["privateEndpointConnections"] = args ? args.privateEndpointConnections : undefined;
             inputs["publicNetworkAccess"] = (args ? args.publicNetworkAccess : undefined) || "Enabled";
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -112,6 +111,7 @@ export class Topic extends pulumi.CustomResource {
             inputs["endpoint"] = undefined /*out*/;
             inputs["metricResourceId"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["privateEndpointConnections"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -159,7 +159,6 @@ export interface TopicArgs {
      * Location of the resource.
      */
     readonly location?: pulumi.Input<string>;
-    readonly privateEndpointConnections?: pulumi.Input<pulumi.Input<inputs.eventgrid.v20200601.PrivateEndpointConnection>[]>;
     /**
      * This determines if traffic is allowed over public network. By default it is enabled. 
      * You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.TopicProperties.InboundIpRules" />

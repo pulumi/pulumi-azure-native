@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Compute.Latest
     {
         /// <summary>
         /// Disk resource.
-        /// Latest API Version: 2020-09-30.
+        /// Latest API Version: 2020-12-01.
         /// </summary>
         public static Task<GetDiskResult> InvokeAsync(GetDiskArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDiskResult>("azure-native:compute/latest:getDisk", args ?? new GetDiskArgs(), options.WithVersion());
@@ -133,6 +133,10 @@ namespace Pulumi.AzureNative.Compute.Latest
         /// </summary>
         public readonly string? OsType;
         /// <summary>
+        /// Properties of the disk for which update is pending.
+        /// </summary>
+        public readonly Outputs.PropertyUpdatesInProgressResponse PropertyUpdatesInProgress;
+        /// <summary>
         /// The disk provisioning state.
         /// </summary>
         public readonly string ProvisioningState;
@@ -141,13 +145,21 @@ namespace Pulumi.AzureNative.Compute.Latest
         /// </summary>
         public readonly Outputs.PurchasePlanResponse? PurchasePlan;
         /// <summary>
+        /// Contains the security related information for the resource.
+        /// </summary>
+        public readonly Outputs.DiskSecurityProfileResponse? SecurityProfile;
+        /// <summary>
         /// Details of the list of all VMs that have the disk attached. maxShares should be set to a value greater than one for disks to allow attaching them to multiple VMs.
         /// </summary>
         public readonly ImmutableArray<Outputs.ShareInfoElementResponse> ShareInfo;
         /// <summary>
-        /// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
+        /// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, UltraSSD_LRS, Premium_ZRS, or StandardSSD_ZRS.
         /// </summary>
         public readonly Outputs.DiskSkuResponse? Sku;
+        /// <summary>
+        /// Indicates the OS on a disk supports hibernation.
+        /// </summary>
+        public readonly bool? SupportsHibernation;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -219,13 +231,19 @@ namespace Pulumi.AzureNative.Compute.Latest
 
             string? osType,
 
+            Outputs.PropertyUpdatesInProgressResponse propertyUpdatesInProgress,
+
             string provisioningState,
 
             Outputs.PurchasePlanResponse? purchasePlan,
 
+            Outputs.DiskSecurityProfileResponse? securityProfile,
+
             ImmutableArray<Outputs.ShareInfoElementResponse> shareInfo,
 
             Outputs.DiskSkuResponse? sku,
+
+            bool? supportsHibernation,
 
             ImmutableDictionary<string, string>? tags,
 
@@ -261,10 +279,13 @@ namespace Pulumi.AzureNative.Compute.Latest
             Name = name;
             NetworkAccessPolicy = networkAccessPolicy;
             OsType = osType;
+            PropertyUpdatesInProgress = propertyUpdatesInProgress;
             ProvisioningState = provisioningState;
             PurchasePlan = purchasePlan;
+            SecurityProfile = securityProfile;
             ShareInfo = shareInfo;
             Sku = sku;
+            SupportsHibernation = supportsHibernation;
             Tags = tags;
             Tier = tier;
             TimeCreated = timeCreated;

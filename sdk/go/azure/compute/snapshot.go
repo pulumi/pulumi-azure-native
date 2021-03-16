@@ -12,7 +12,7 @@ import (
 )
 
 // Snapshot resource.
-// API Version: 2020-09-30.
+// API Version: 2020-12-01.
 type Snapshot struct {
 	pulumi.CustomResourceState
 
@@ -52,6 +52,8 @@ type Snapshot struct {
 	PurchasePlan PurchasePlanResponsePtrOutput `pulumi:"purchasePlan"`
 	// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS. This is an optional parameter for incremental snapshot and the default behavior is the SKU will be set to the same sku as the previous snapshot
 	Sku SnapshotSkuResponsePtrOutput `pulumi:"sku"`
+	// Indicates the OS on a snapshot supports hibernation.
+	SupportsHibernation pulumi.BoolPtrOutput `pulumi:"supportsHibernation"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The time when the snapshot was created.
@@ -151,6 +153,12 @@ func NewSnapshot(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20200930:Snapshot"),
 		},
+		{
+			Type: pulumi.String("azure-native:compute/v20201201:Snapshot"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:compute/v20201201:Snapshot"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Snapshot
@@ -211,6 +219,8 @@ type snapshotState struct {
 	PurchasePlan *PurchasePlanResponse `pulumi:"purchasePlan"`
 	// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS. This is an optional parameter for incremental snapshot and the default behavior is the SKU will be set to the same sku as the previous snapshot
 	Sku *SnapshotSkuResponse `pulumi:"sku"`
+	// Indicates the OS on a snapshot supports hibernation.
+	SupportsHibernation *bool `pulumi:"supportsHibernation"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// The time when the snapshot was created.
@@ -258,6 +268,8 @@ type SnapshotState struct {
 	PurchasePlan PurchasePlanResponsePtrInput
 	// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS. This is an optional parameter for incremental snapshot and the default behavior is the SKU will be set to the same sku as the previous snapshot
 	Sku SnapshotSkuResponsePtrInput
+	// Indicates the OS on a snapshot supports hibernation.
+	SupportsHibernation pulumi.BoolPtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 	// The time when the snapshot was created.
@@ -303,6 +315,8 @@ type snapshotArgs struct {
 	Sku *SnapshotSku `pulumi:"sku"`
 	// The name of the snapshot that is being created. The name can't be changed after the snapshot is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The max name length is 80 characters.
 	SnapshotName *string `pulumi:"snapshotName"`
+	// Indicates the OS on a snapshot supports hibernation.
+	SupportsHibernation *bool `pulumi:"supportsHibernation"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -339,6 +353,8 @@ type SnapshotArgs struct {
 	Sku SnapshotSkuPtrInput
 	// The name of the snapshot that is being created. The name can't be changed after the snapshot is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The max name length is 80 characters.
 	SnapshotName pulumi.StringPtrInput
+	// Indicates the OS on a snapshot supports hibernation.
+	SupportsHibernation pulumi.BoolPtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 }

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Disk resource.
- * API Version: 2020-09-30.
+ * API Version: 2020-12-01.
  */
 export class Disk extends pulumi.CustomResource {
     /**
@@ -121,6 +121,10 @@ export class Disk extends pulumi.CustomResource {
      */
     public readonly osType!: pulumi.Output<string | undefined>;
     /**
+     * Properties of the disk for which update is pending.
+     */
+    public /*out*/ readonly propertyUpdatesInProgress!: pulumi.Output<outputs.compute.PropertyUpdatesInProgressResponse>;
+    /**
      * The disk provisioning state.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
@@ -129,13 +133,21 @@ export class Disk extends pulumi.CustomResource {
      */
     public readonly purchasePlan!: pulumi.Output<outputs.compute.PurchasePlanResponse | undefined>;
     /**
+     * Contains the security related information for the resource.
+     */
+    public readonly securityProfile!: pulumi.Output<outputs.compute.DiskSecurityProfileResponse | undefined>;
+    /**
      * Details of the list of all VMs that have the disk attached. maxShares should be set to a value greater than one for disks to allow attaching them to multiple VMs.
      */
     public /*out*/ readonly shareInfo!: pulumi.Output<outputs.compute.ShareInfoElementResponse[]>;
     /**
-     * The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
+     * The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, UltraSSD_LRS, Premium_ZRS, or StandardSSD_ZRS.
      */
     public readonly sku!: pulumi.Output<outputs.compute.DiskSkuResponse | undefined>;
+    /**
+     * Indicates the OS on a disk supports hibernation.
+     */
+    public readonly supportsHibernation!: pulumi.Output<boolean | undefined>;
     /**
      * Resource tags
      */
@@ -197,7 +209,9 @@ export class Disk extends pulumi.CustomResource {
             inputs["osType"] = args ? args.osType : undefined;
             inputs["purchasePlan"] = args ? args.purchasePlan : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["securityProfile"] = args ? args.securityProfile : undefined;
             inputs["sku"] = args ? args.sku : undefined;
+            inputs["supportsHibernation"] = args ? args.supportsHibernation : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["tier"] = args ? args.tier : undefined;
             inputs["zones"] = args ? args.zones : undefined;
@@ -206,6 +220,7 @@ export class Disk extends pulumi.CustomResource {
             inputs["managedBy"] = undefined /*out*/;
             inputs["managedByExtended"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["propertyUpdatesInProgress"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["shareInfo"] = undefined /*out*/;
             inputs["timeCreated"] = undefined /*out*/;
@@ -233,10 +248,13 @@ export class Disk extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["networkAccessPolicy"] = undefined /*out*/;
             inputs["osType"] = undefined /*out*/;
+            inputs["propertyUpdatesInProgress"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["purchasePlan"] = undefined /*out*/;
+            inputs["securityProfile"] = undefined /*out*/;
             inputs["shareInfo"] = undefined /*out*/;
             inputs["sku"] = undefined /*out*/;
+            inputs["supportsHibernation"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["tier"] = undefined /*out*/;
             inputs["timeCreated"] = undefined /*out*/;
@@ -247,7 +265,7 @@ export class Disk extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute:Disk" }, { type: "azure-native:compute/latest:Disk" }, { type: "azure-nextgen:compute/latest:Disk" }, { type: "azure-native:compute/v20160430preview:Disk" }, { type: "azure-nextgen:compute/v20160430preview:Disk" }, { type: "azure-native:compute/v20170330:Disk" }, { type: "azure-nextgen:compute/v20170330:Disk" }, { type: "azure-native:compute/v20180401:Disk" }, { type: "azure-nextgen:compute/v20180401:Disk" }, { type: "azure-native:compute/v20180601:Disk" }, { type: "azure-nextgen:compute/v20180601:Disk" }, { type: "azure-native:compute/v20180930:Disk" }, { type: "azure-nextgen:compute/v20180930:Disk" }, { type: "azure-native:compute/v20190301:Disk" }, { type: "azure-nextgen:compute/v20190301:Disk" }, { type: "azure-native:compute/v20190701:Disk" }, { type: "azure-nextgen:compute/v20190701:Disk" }, { type: "azure-native:compute/v20191101:Disk" }, { type: "azure-nextgen:compute/v20191101:Disk" }, { type: "azure-native:compute/v20200501:Disk" }, { type: "azure-nextgen:compute/v20200501:Disk" }, { type: "azure-native:compute/v20200630:Disk" }, { type: "azure-nextgen:compute/v20200630:Disk" }, { type: "azure-native:compute/v20200930:Disk" }, { type: "azure-nextgen:compute/v20200930:Disk" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute:Disk" }, { type: "azure-native:compute/latest:Disk" }, { type: "azure-nextgen:compute/latest:Disk" }, { type: "azure-native:compute/v20160430preview:Disk" }, { type: "azure-nextgen:compute/v20160430preview:Disk" }, { type: "azure-native:compute/v20170330:Disk" }, { type: "azure-nextgen:compute/v20170330:Disk" }, { type: "azure-native:compute/v20180401:Disk" }, { type: "azure-nextgen:compute/v20180401:Disk" }, { type: "azure-native:compute/v20180601:Disk" }, { type: "azure-nextgen:compute/v20180601:Disk" }, { type: "azure-native:compute/v20180930:Disk" }, { type: "azure-nextgen:compute/v20180930:Disk" }, { type: "azure-native:compute/v20190301:Disk" }, { type: "azure-nextgen:compute/v20190301:Disk" }, { type: "azure-native:compute/v20190701:Disk" }, { type: "azure-nextgen:compute/v20190701:Disk" }, { type: "azure-native:compute/v20191101:Disk" }, { type: "azure-nextgen:compute/v20191101:Disk" }, { type: "azure-native:compute/v20200501:Disk" }, { type: "azure-nextgen:compute/v20200501:Disk" }, { type: "azure-native:compute/v20200630:Disk" }, { type: "azure-nextgen:compute/v20200630:Disk" }, { type: "azure-native:compute/v20200930:Disk" }, { type: "azure-nextgen:compute/v20200930:Disk" }, { type: "azure-native:compute/v20201201:Disk" }, { type: "azure-nextgen:compute/v20201201:Disk" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Disk.__pulumiType, name, inputs, opts);
     }
@@ -334,9 +352,17 @@ export interface DiskArgs {
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
+     * Contains the security related information for the resource.
+     */
+    readonly securityProfile?: pulumi.Input<inputs.compute.DiskSecurityProfile>;
+    /**
+     * The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, UltraSSD_LRS, Premium_ZRS, or StandardSSD_ZRS.
      */
     readonly sku?: pulumi.Input<inputs.compute.DiskSku>;
+    /**
+     * Indicates the OS on a disk supports hibernation.
+     */
+    readonly supportsHibernation?: pulumi.Input<boolean>;
     /**
      * Resource tags
      */

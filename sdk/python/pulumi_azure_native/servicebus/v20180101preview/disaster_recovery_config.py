@@ -65,7 +65,7 @@ class DisasterRecoveryConfig(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['role'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:servicebus/v20180101preview:DisasterRecoveryConfig"), pulumi.Alias(type_="azure-native:servicebus:DisasterRecoveryConfig"), pulumi.Alias(type_="azure-nextgen:servicebus:DisasterRecoveryConfig"), pulumi.Alias(type_="azure-native:servicebus/latest:DisasterRecoveryConfig"), pulumi.Alias(type_="azure-nextgen:servicebus/latest:DisasterRecoveryConfig"), pulumi.Alias(type_="azure-native:servicebus/v20170401:DisasterRecoveryConfig"), pulumi.Alias(type_="azure-nextgen:servicebus/v20170401:DisasterRecoveryConfig")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:servicebus/v20180101preview:DisasterRecoveryConfig"), pulumi.Alias(type_="azure-native:servicebus:DisasterRecoveryConfig"), pulumi.Alias(type_="azure-nextgen:servicebus:DisasterRecoveryConfig"), pulumi.Alias(type_="azure-native:servicebus/latest:DisasterRecoveryConfig"), pulumi.Alias(type_="azure-nextgen:servicebus/latest:DisasterRecoveryConfig"), pulumi.Alias(type_="azure-native:servicebus/v20170401:DisasterRecoveryConfig"), pulumi.Alias(type_="azure-nextgen:servicebus/v20170401:DisasterRecoveryConfig"), pulumi.Alias(type_="azure-native:servicebus/v20210101preview:DisasterRecoveryConfig"), pulumi.Alias(type_="azure-nextgen:servicebus/v20210101preview:DisasterRecoveryConfig")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DisasterRecoveryConfig, __self__).__init__(
             'azure-native:servicebus/v20180101preview:DisasterRecoveryConfig',

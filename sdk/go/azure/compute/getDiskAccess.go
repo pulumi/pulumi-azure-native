@@ -8,7 +8,7 @@ import (
 )
 
 // disk access resource.
-// API Version: 2020-09-30.
+// API Version: 2020-12-01.
 func LookupDiskAccess(ctx *pulumi.Context, args *LookupDiskAccessArgs, opts ...pulumi.InvokeOption) (*LookupDiskAccessResult, error) {
 	var rv LookupDiskAccessResult
 	err := ctx.Invoke("azure-native:compute:getDiskAccess", args, &rv, opts...)

@@ -12,7 +12,7 @@ import (
 )
 
 // The Private Endpoint Connection resource.
-// Latest API Version: 2020-09-30.
+// Latest API Version: 2020-12-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:compute:DiskAccessAPrivateEndpointConnection'.
 type DiskAccessAPrivateEndpointConnection struct {
@@ -21,7 +21,7 @@ type DiskAccessAPrivateEndpointConnection struct {
 	// private endpoint connection name
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The resource of private end point.
-	PrivateEndpoint PrivateEndpointResponsePtrOutput `pulumi:"privateEndpoint"`
+	PrivateEndpoint PrivateEndpointResponseOutput `pulumi:"privateEndpoint"`
 	// A collection of information about the state of the connection between DiskAccess and Virtual Network.
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponseOutput `pulumi:"privateLinkServiceConnectionState"`
 	// The provisioning state of the private endpoint connection resource.
@@ -61,6 +61,12 @@ func NewDiskAccessAPrivateEndpointConnection(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20200930:DiskAccessAPrivateEndpointConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:compute/v20201201:DiskAccessAPrivateEndpointConnection"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:compute/v20201201:DiskAccessAPrivateEndpointConnection"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -25,6 +25,8 @@ class PeeringService(pulumi.CustomResource):
                  peering_service_location: Optional[pulumi.Input[str]] = None,
                  peering_service_name: Optional[pulumi.Input[str]] = None,
                  peering_service_provider: Optional[pulumi.Input[str]] = None,
+                 provider_backup_peering_location: Optional[pulumi.Input[str]] = None,
+                 provider_primary_peering_location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['PeeringServiceSkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -33,14 +35,16 @@ class PeeringService(pulumi.CustomResource):
                  __opts__=None):
         """
         Peering Service
-        Latest API Version: 2020-10-01.
+        Latest API Version: 2021-01-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The location of the resource.
-        :param pulumi.Input[str] peering_service_location: The PeeringServiceLocation of the Customer.
+        :param pulumi.Input[str] peering_service_location: The location (state/province) of the customer.
         :param pulumi.Input[str] peering_service_name: The name of the peering service.
-        :param pulumi.Input[str] peering_service_provider: The MAPS Provider Name.
+        :param pulumi.Input[str] peering_service_provider: The name of the service provider.
+        :param pulumi.Input[str] provider_backup_peering_location: The backup peering (Microsoft/service provider) location to be used for customer traffic.
+        :param pulumi.Input[str] provider_primary_peering_location: The primary peering (Microsoft/service provider) location to be used for customer traffic.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[pulumi.InputType['PeeringServiceSkuArgs']] sku: The SKU that defines the type of the peering service.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
@@ -67,6 +71,8 @@ class PeeringService(pulumi.CustomResource):
             __props__['peering_service_location'] = peering_service_location
             __props__['peering_service_name'] = peering_service_name
             __props__['peering_service_provider'] = peering_service_provider
+            __props__['provider_backup_peering_location'] = provider_backup_peering_location
+            __props__['provider_primary_peering_location'] = provider_primary_peering_location
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -103,6 +109,8 @@ class PeeringService(pulumi.CustomResource):
         __props__["name"] = None
         __props__["peering_service_location"] = None
         __props__["peering_service_provider"] = None
+        __props__["provider_backup_peering_location"] = None
+        __props__["provider_primary_peering_location"] = None
         __props__["provisioning_state"] = None
         __props__["sku"] = None
         __props__["tags"] = None
@@ -129,7 +137,7 @@ class PeeringService(pulumi.CustomResource):
     @pulumi.getter(name="peeringServiceLocation")
     def peering_service_location(self) -> pulumi.Output[Optional[str]]:
         """
-        The PeeringServiceLocation of the Customer.
+        The location (state/province) of the customer.
         """
         return pulumi.get(self, "peering_service_location")
 
@@ -137,9 +145,25 @@ class PeeringService(pulumi.CustomResource):
     @pulumi.getter(name="peeringServiceProvider")
     def peering_service_provider(self) -> pulumi.Output[Optional[str]]:
         """
-        The MAPS Provider Name.
+        The name of the service provider.
         """
         return pulumi.get(self, "peering_service_provider")
+
+    @property
+    @pulumi.getter(name="providerBackupPeeringLocation")
+    def provider_backup_peering_location(self) -> pulumi.Output[Optional[str]]:
+        """
+        The backup peering (Microsoft/service provider) location to be used for customer traffic.
+        """
+        return pulumi.get(self, "provider_backup_peering_location")
+
+    @property
+    @pulumi.getter(name="providerPrimaryPeeringLocation")
+    def provider_primary_peering_location(self) -> pulumi.Output[Optional[str]]:
+        """
+        The primary peering (Microsoft/service provider) location to be used for customer traffic.
+        """
+        return pulumi.get(self, "provider_primary_peering_location")
 
     @property
     @pulumi.getter(name="provisioningState")

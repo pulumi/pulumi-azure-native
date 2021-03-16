@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Compute.Inputs
 {
 
     /// <summary>
-    /// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
+    /// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, UltraSSD_LRS, Premium_ZRS, or StandardSSD_ZRS.
     /// </summary>
     public sealed class DiskSkuArgs : Pulumi.ResourceArgs
     {

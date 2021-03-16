@@ -8,7 +8,7 @@ import (
 )
 
 // Disk resource.
-// Latest API Version: 2020-09-30.
+// Latest API Version: 2020-12-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:compute:getDisk'.
 func LookupDisk(ctx *pulumi.Context, args *LookupDiskArgs, opts ...pulumi.InvokeOption) (*LookupDiskResult, error) {
@@ -73,14 +73,20 @@ type LookupDiskResult struct {
 	NetworkAccessPolicy *string `pulumi:"networkAccessPolicy"`
 	// The Operating System type.
 	OsType *string `pulumi:"osType"`
+	// Properties of the disk for which update is pending.
+	PropertyUpdatesInProgress PropertyUpdatesInProgressResponse `pulumi:"propertyUpdatesInProgress"`
 	// The disk provisioning state.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Purchase plan information for the the image from which the OS disk was created. E.g. - {name: 2019-Datacenter, publisher: MicrosoftWindowsServer, product: WindowsServer}
 	PurchasePlan *PurchasePlanResponse `pulumi:"purchasePlan"`
+	// Contains the security related information for the resource.
+	SecurityProfile *DiskSecurityProfileResponse `pulumi:"securityProfile"`
 	// Details of the list of all VMs that have the disk attached. maxShares should be set to a value greater than one for disks to allow attaching them to multiple VMs.
 	ShareInfo []ShareInfoElementResponse `pulumi:"shareInfo"`
-	// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
+	// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, UltraSSD_LRS, Premium_ZRS, or StandardSSD_ZRS.
 	Sku *DiskSkuResponse `pulumi:"sku"`
+	// Indicates the OS on a disk supports hibernation.
+	SupportsHibernation *bool `pulumi:"supportsHibernation"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Performance tier of the disk (e.g, P4, S10) as described here: https://azure.microsoft.com/en-us/pricing/details/managed-disks/. Does not apply to Ultra disks.

@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.Compute.Inputs
     public sealed class KeyForDiskEncryptionSetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Fully versioned Key Url pointing to a key in KeyVault
+        /// Fully versioned Key Url pointing to a key in KeyVault. Version segment of the Url is required regardless of rotationToLatestKeyVersionEnabled value.
         /// </summary>
         [Input("keyUrl", required: true)]
         public Input<string> KeyUrl { get; set; } = null!;

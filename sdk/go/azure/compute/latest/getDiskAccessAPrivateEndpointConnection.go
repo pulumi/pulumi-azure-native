@@ -8,7 +8,7 @@ import (
 )
 
 // The Private Endpoint Connection resource.
-// Latest API Version: 2020-09-30.
+// Latest API Version: 2020-12-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:compute:getDiskAccessAPrivateEndpointConnection'.
 func LookupDiskAccessAPrivateEndpointConnection(ctx *pulumi.Context, args *LookupDiskAccessAPrivateEndpointConnectionArgs, opts ...pulumi.InvokeOption) (*LookupDiskAccessAPrivateEndpointConnectionResult, error) {
@@ -36,7 +36,7 @@ type LookupDiskAccessAPrivateEndpointConnectionResult struct {
 	// private endpoint connection name
 	Name string `pulumi:"name"`
 	// The resource of private end point.
-	PrivateEndpoint *PrivateEndpointResponse `pulumi:"privateEndpoint"`
+	PrivateEndpoint PrivateEndpointResponse `pulumi:"privateEndpoint"`
 	// A collection of information about the state of the connection between DiskAccess and Virtual Network.
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
 	// The provisioning state of the private endpoint connection resource.

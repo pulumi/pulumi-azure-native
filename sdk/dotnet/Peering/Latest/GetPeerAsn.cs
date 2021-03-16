@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Peering.Latest
     {
         /// <summary>
         /// The essential information related to the peer's ASN.
-        /// Latest API Version: 2020-10-01.
+        /// Latest API Version: 2021-01-01.
         /// </summary>
         public static Task<GetPeerAsnResult> InvokeAsync(GetPeerAsnArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPeerAsnResult>("azure-native:peering/latest:getPeerAsn", args ?? new GetPeerAsnArgs(), options.WithVersion());

@@ -8,7 +8,7 @@ import (
 )
 
 // Snapshot resource.
-// Latest API Version: 2020-09-30.
+// Latest API Version: 2020-12-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:compute:getSnapshot'.
 func LookupSnapshot(ctx *pulumi.Context, args *LookupSnapshotArgs, opts ...pulumi.InvokeOption) (*LookupSnapshotResult, error) {
@@ -67,6 +67,8 @@ type LookupSnapshotResult struct {
 	PurchasePlan *PurchasePlanResponse `pulumi:"purchasePlan"`
 	// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS. This is an optional parameter for incremental snapshot and the default behavior is the SKU will be set to the same sku as the previous snapshot
 	Sku *SnapshotSkuResponse `pulumi:"sku"`
+	// Indicates the OS on a snapshot supports hibernation.
+	SupportsHibernation *bool `pulumi:"supportsHibernation"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// The time when the snapshot was created.

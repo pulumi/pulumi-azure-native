@@ -14,9 +14,13 @@ namespace Pulumi.AzureNative.ConfidentialLedger.Outputs
     public sealed class LedgerPropertiesResponse
     {
         /// <summary>
-        /// Array of all the cert based users who can access Confidential Ledger
+        /// Array of all AAD based Security Principals.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ConfidentialLedgerCertUserResponse> CertUsers;
+        public readonly ImmutableArray<Outputs.AADBasedSecurityPrincipalResponse> AadBasedSecurityPrincipals;
+        /// <summary>
+        /// Array of all cert based Security Principals.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.CertBasedSecurityPrincipalResponse> CertBasedSecurityPrincipals;
         /// <summary>
         /// Endpoint for accessing network identity.
         /// </summary>
@@ -48,7 +52,9 @@ namespace Pulumi.AzureNative.ConfidentialLedger.Outputs
 
         [OutputConstructor]
         private LedgerPropertiesResponse(
-            ImmutableArray<Outputs.ConfidentialLedgerCertUserResponse> certUsers,
+            ImmutableArray<Outputs.AADBasedSecurityPrincipalResponse> aadBasedSecurityPrincipals,
+
+            ImmutableArray<Outputs.CertBasedSecurityPrincipalResponse> certBasedSecurityPrincipals,
 
             string identityServiceUri,
 
@@ -64,7 +70,8 @@ namespace Pulumi.AzureNative.ConfidentialLedger.Outputs
 
             string provisioningState)
         {
-            CertUsers = certUsers;
+            AadBasedSecurityPrincipals = aadBasedSecurityPrincipals;
+            CertBasedSecurityPrincipals = certBasedSecurityPrincipals;
             IdentityServiceUri = identityServiceUri;
             LedgerInternalNamespace = ledgerInternalNamespace;
             LedgerName = ledgerName;

@@ -198,14 +198,6 @@ namespace Pulumi.AzureNative.EventGrid.Latest
         [Input("location")]
         public Input<string>? Location { get; set; }
 
-        [Input("privateEndpointConnections")]
-        private InputList<Inputs.PrivateEndpointConnectionArgs>? _privateEndpointConnections;
-        public InputList<Inputs.PrivateEndpointConnectionArgs> PrivateEndpointConnections
-        {
-            get => _privateEndpointConnections ?? (_privateEndpointConnections = new InputList<Inputs.PrivateEndpointConnectionArgs>());
-            set => _privateEndpointConnections = value;
-        }
-
         /// <summary>
         /// This determines if traffic is allowed over public network. By default it is enabled. 
         /// You can further restrict to specific IPs by configuring &lt;seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.TopicProperties.InboundIpRules" /&gt;

@@ -193,6 +193,18 @@ export const DiskEncryptionSetType = {
  */
 export type DiskEncryptionSetType = (typeof DiskEncryptionSetType)[keyof typeof DiskEncryptionSetType];
 
+export const DiskSecurityTypes = {
+    /**
+     * Trusted Launch provides security features such as secure boot and virtual Trusted Platform Module (vTPM)
+     */
+    TrustedLaunch: "TrustedLaunch",
+} as const;
+
+/**
+ * Specifies the SecurityType of the VM. Applicable for OS disks only.
+ */
+export type DiskSecurityTypes = (typeof DiskSecurityTypes)[keyof typeof DiskSecurityTypes];
+
 export const DiskStorageAccountTypes = {
     /**
      * Standard HDD locally redundant storage. Best for backup, non-critical, and infrequent access.
@@ -210,6 +222,14 @@ export const DiskStorageAccountTypes = {
      * Ultra SSD locally redundant storage. Best for IO-intensive workloads such as SAP HANA, top tier databases (for example, SQL, Oracle), and other transaction-heavy workloads.
      */
     UltraSSD_LRS: "UltraSSD_LRS",
+    /**
+     * Premium SSD zone redundant storage. Best for the production workloads that need storage resiliency against zone failures.
+     */
+    Premium_ZRS: "Premium_ZRS",
+    /**
+     * Standard SSD zone redundant storage. Best for web servers, lightly used enterprise applications and dev/test that need storage resiliency against zone failures.
+     */
+    StandardSSD_ZRS: "StandardSSD_ZRS",
 } as const;
 
 /**

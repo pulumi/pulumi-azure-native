@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Compute
 {
     /// <summary>
     /// disk access resource.
-    /// API Version: 2020-09-30.
+    /// API Version: 2020-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:DiskAccess")]
     public partial class DiskAccess : Pulumi.CustomResource
@@ -92,6 +92,8 @@ namespace Pulumi.AzureNative.Compute
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20200630:DiskAccess"},
                     new Pulumi.Alias { Type = "azure-native:compute/v20200930:DiskAccess"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20200930:DiskAccess"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20201201:DiskAccess"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20201201:DiskAccess"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

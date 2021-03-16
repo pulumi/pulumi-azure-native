@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Peering.Latest
     {
         /// <summary>
         /// Peering Service
-        /// Latest API Version: 2020-10-01.
+        /// Latest API Version: 2021-01-01.
         /// </summary>
         public static Task<GetPeeringServiceResult> InvokeAsync(GetPeeringServiceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPeeringServiceResult>("azure-native:peering/latest:getPeeringService", args ?? new GetPeeringServiceArgs(), options.WithVersion());
@@ -57,13 +57,21 @@ namespace Pulumi.AzureNative.Peering.Latest
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The PeeringServiceLocation of the Customer.
+        /// The location (state/province) of the customer.
         /// </summary>
         public readonly string? PeeringServiceLocation;
         /// <summary>
-        /// The MAPS Provider Name.
+        /// The name of the service provider.
         /// </summary>
         public readonly string? PeeringServiceProvider;
+        /// <summary>
+        /// The backup peering (Microsoft/service provider) location to be used for customer traffic.
+        /// </summary>
+        public readonly string? ProviderBackupPeeringLocation;
+        /// <summary>
+        /// The primary peering (Microsoft/service provider) location to be used for customer traffic.
+        /// </summary>
+        public readonly string? ProviderPrimaryPeeringLocation;
         /// <summary>
         /// The provisioning state of the resource.
         /// </summary>
@@ -93,6 +101,10 @@ namespace Pulumi.AzureNative.Peering.Latest
 
             string? peeringServiceProvider,
 
+            string? providerBackupPeeringLocation,
+
+            string? providerPrimaryPeeringLocation,
+
             string provisioningState,
 
             Outputs.PeeringServiceSkuResponse? sku,
@@ -106,6 +118,8 @@ namespace Pulumi.AzureNative.Peering.Latest
             Name = name;
             PeeringServiceLocation = peeringServiceLocation;
             PeeringServiceProvider = peeringServiceProvider;
+            ProviderBackupPeeringLocation = providerBackupPeeringLocation;
+            ProviderPrimaryPeeringLocation = providerPrimaryPeeringLocation;
             ProvisioningState = provisioningState;
             Sku = sku;
             Tags = tags;

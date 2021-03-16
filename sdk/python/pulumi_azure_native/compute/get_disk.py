@@ -20,7 +20,7 @@ class GetDiskResult:
     """
     Disk resource.
     """
-    def __init__(__self__, bursting_enabled=None, creation_data=None, disk_access_id=None, disk_iops_read_only=None, disk_iops_read_write=None, disk_m_bps_read_only=None, disk_m_bps_read_write=None, disk_size_bytes=None, disk_size_gb=None, disk_state=None, encryption=None, encryption_settings_collection=None, extended_location=None, hyper_v_generation=None, id=None, location=None, managed_by=None, managed_by_extended=None, max_shares=None, name=None, network_access_policy=None, os_type=None, provisioning_state=None, purchase_plan=None, share_info=None, sku=None, tags=None, tier=None, time_created=None, type=None, unique_id=None, zones=None):
+    def __init__(__self__, bursting_enabled=None, creation_data=None, disk_access_id=None, disk_iops_read_only=None, disk_iops_read_write=None, disk_m_bps_read_only=None, disk_m_bps_read_write=None, disk_size_bytes=None, disk_size_gb=None, disk_state=None, encryption=None, encryption_settings_collection=None, extended_location=None, hyper_v_generation=None, id=None, location=None, managed_by=None, managed_by_extended=None, max_shares=None, name=None, network_access_policy=None, os_type=None, property_updates_in_progress=None, provisioning_state=None, purchase_plan=None, security_profile=None, share_info=None, sku=None, supports_hibernation=None, tags=None, tier=None, time_created=None, type=None, unique_id=None, zones=None):
         if bursting_enabled and not isinstance(bursting_enabled, bool):
             raise TypeError("Expected argument 'bursting_enabled' to be a bool")
         pulumi.set(__self__, "bursting_enabled", bursting_enabled)
@@ -87,18 +87,27 @@ class GetDiskResult:
         if os_type and not isinstance(os_type, str):
             raise TypeError("Expected argument 'os_type' to be a str")
         pulumi.set(__self__, "os_type", os_type)
+        if property_updates_in_progress and not isinstance(property_updates_in_progress, dict):
+            raise TypeError("Expected argument 'property_updates_in_progress' to be a dict")
+        pulumi.set(__self__, "property_updates_in_progress", property_updates_in_progress)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         if purchase_plan and not isinstance(purchase_plan, dict):
             raise TypeError("Expected argument 'purchase_plan' to be a dict")
         pulumi.set(__self__, "purchase_plan", purchase_plan)
+        if security_profile and not isinstance(security_profile, dict):
+            raise TypeError("Expected argument 'security_profile' to be a dict")
+        pulumi.set(__self__, "security_profile", security_profile)
         if share_info and not isinstance(share_info, list):
             raise TypeError("Expected argument 'share_info' to be a list")
         pulumi.set(__self__, "share_info", share_info)
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
+        if supports_hibernation and not isinstance(supports_hibernation, bool):
+            raise TypeError("Expected argument 'supports_hibernation' to be a bool")
+        pulumi.set(__self__, "supports_hibernation", supports_hibernation)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -295,6 +304,14 @@ class GetDiskResult:
         return pulumi.get(self, "os_type")
 
     @property
+    @pulumi.getter(name="propertyUpdatesInProgress")
+    def property_updates_in_progress(self) -> 'outputs.PropertyUpdatesInProgressResponse':
+        """
+        Properties of the disk for which update is pending.
+        """
+        return pulumi.get(self, "property_updates_in_progress")
+
+    @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
@@ -311,6 +328,14 @@ class GetDiskResult:
         return pulumi.get(self, "purchase_plan")
 
     @property
+    @pulumi.getter(name="securityProfile")
+    def security_profile(self) -> Optional['outputs.DiskSecurityProfileResponse']:
+        """
+        Contains the security related information for the resource.
+        """
+        return pulumi.get(self, "security_profile")
+
+    @property
     @pulumi.getter(name="shareInfo")
     def share_info(self) -> Sequence['outputs.ShareInfoElementResponse']:
         """
@@ -322,9 +347,17 @@ class GetDiskResult:
     @pulumi.getter
     def sku(self) -> Optional['outputs.DiskSkuResponse']:
         """
-        The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
+        The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, UltraSSD_LRS, Premium_ZRS, or StandardSSD_ZRS.
         """
         return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter(name="supportsHibernation")
+    def supports_hibernation(self) -> Optional[bool]:
+        """
+        Indicates the OS on a disk supports hibernation.
+        """
+        return pulumi.get(self, "supports_hibernation")
 
     @property
     @pulumi.getter
@@ -403,10 +436,13 @@ class AwaitableGetDiskResult(GetDiskResult):
             name=self.name,
             network_access_policy=self.network_access_policy,
             os_type=self.os_type,
+            property_updates_in_progress=self.property_updates_in_progress,
             provisioning_state=self.provisioning_state,
             purchase_plan=self.purchase_plan,
+            security_profile=self.security_profile,
             share_info=self.share_info,
             sku=self.sku,
+            supports_hibernation=self.supports_hibernation,
             tags=self.tags,
             tier=self.tier,
             time_created=self.time_created,
@@ -420,7 +456,7 @@ def get_disk(disk_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDiskResult:
     """
     Disk resource.
-    API Version: 2020-09-30.
+    API Version: 2020-12-01.
 
 
     :param str disk_name: The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
@@ -458,10 +494,13 @@ def get_disk(disk_name: Optional[str] = None,
         name=__ret__.name,
         network_access_policy=__ret__.network_access_policy,
         os_type=__ret__.os_type,
+        property_updates_in_progress=__ret__.property_updates_in_progress,
         provisioning_state=__ret__.provisioning_state,
         purchase_plan=__ret__.purchase_plan,
+        security_profile=__ret__.security_profile,
         share_info=__ret__.share_info,
         sku=__ret__.sku,
+        supports_hibernation=__ret__.supports_hibernation,
         tags=__ret__.tags,
         tier=__ret__.tier,
         time_created=__ret__.time_created,

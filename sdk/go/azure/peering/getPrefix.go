@@ -8,7 +8,7 @@ import (
 )
 
 // The peering service prefix class.
-// API Version: 2020-10-01.
+// API Version: 2021-01-01.
 func LookupPrefix(ctx *pulumi.Context, args *LookupPrefixArgs, opts ...pulumi.InvokeOption) (*LookupPrefixResult, error) {
 	var rv LookupPrefixResult
 	err := ctx.Invoke("azure-native:peering:getPrefix", args, &rv, opts...)

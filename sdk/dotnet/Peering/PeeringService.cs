@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Peering
 {
     /// <summary>
     /// Peering Service
-    /// API Version: 2020-10-01.
+    /// API Version: 2021-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:peering:PeeringService")]
     public partial class PeeringService : Pulumi.CustomResource
@@ -29,16 +29,28 @@ namespace Pulumi.AzureNative.Peering
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The PeeringServiceLocation of the Customer.
+        /// The location (state/province) of the customer.
         /// </summary>
         [Output("peeringServiceLocation")]
         public Output<string?> PeeringServiceLocation { get; private set; } = null!;
 
         /// <summary>
-        /// The MAPS Provider Name.
+        /// The name of the service provider.
         /// </summary>
         [Output("peeringServiceProvider")]
         public Output<string?> PeeringServiceProvider { get; private set; } = null!;
+
+        /// <summary>
+        /// The backup peering (Microsoft/service provider) location to be used for customer traffic.
+        /// </summary>
+        [Output("providerBackupPeeringLocation")]
+        public Output<string?> ProviderBackupPeeringLocation { get; private set; } = null!;
+
+        /// <summary>
+        /// The primary peering (Microsoft/service provider) location to be used for customer traffic.
+        /// </summary>
+        [Output("providerPrimaryPeeringLocation")]
+        public Output<string?> ProviderPrimaryPeeringLocation { get; private set; } = null!;
 
         /// <summary>
         /// The provisioning state of the resource.
@@ -134,7 +146,7 @@ namespace Pulumi.AzureNative.Peering
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The PeeringServiceLocation of the Customer.
+        /// The location (state/province) of the customer.
         /// </summary>
         [Input("peeringServiceLocation")]
         public Input<string>? PeeringServiceLocation { get; set; }
@@ -146,10 +158,22 @@ namespace Pulumi.AzureNative.Peering
         public Input<string>? PeeringServiceName { get; set; }
 
         /// <summary>
-        /// The MAPS Provider Name.
+        /// The name of the service provider.
         /// </summary>
         [Input("peeringServiceProvider")]
         public Input<string>? PeeringServiceProvider { get; set; }
+
+        /// <summary>
+        /// The backup peering (Microsoft/service provider) location to be used for customer traffic.
+        /// </summary>
+        [Input("providerBackupPeeringLocation")]
+        public Input<string>? ProviderBackupPeeringLocation { get; set; }
+
+        /// <summary>
+        /// The primary peering (Microsoft/service provider) location to be used for customer traffic.
+        /// </summary>
+        [Input("providerPrimaryPeeringLocation")]
+        public Input<string>? ProviderPrimaryPeeringLocation { get; set; }
 
         /// <summary>
         /// The name of the resource group.

@@ -8,7 +8,7 @@ import (
 )
 
 // Role Assignments
-// API Version: 2020-04-01-preview.
+// API Version: 2020-08-01-preview.
 func LookupRoleAssignment(ctx *pulumi.Context, args *LookupRoleAssignmentArgs, opts ...pulumi.InvokeOption) (*LookupRoleAssignmentResult, error) {
 	var rv LookupRoleAssignmentResult
 	err := ctx.Invoke("azure-native:authorization:getRoleAssignment", args, &rv, opts...)
@@ -19,24 +19,22 @@ func LookupRoleAssignment(ctx *pulumi.Context, args *LookupRoleAssignmentArgs, o
 }
 
 type LookupRoleAssignmentArgs struct {
-	// The name of the role assignment to get.
+	// The name of the role assignment. It can be any valid GUID.
 	RoleAssignmentName string `pulumi:"roleAssignmentName"`
-	// The scope of the role assignment.
+	// The scope of the operation or resource. Valid scopes are: subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
 	Scope string `pulumi:"scope"`
 }
 
 // Role Assignments
 type LookupRoleAssignmentResult struct {
-	// The Delegation flag for the role assignment
-	CanDelegate *bool `pulumi:"canDelegate"`
 	// The conditions on the role assignment. This limits the resources it can be assigned to. e.g.: @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'
 	Condition *string `pulumi:"condition"`
 	// Version of the condition. Currently accepted value is '2.0'
 	ConditionVersion *string `pulumi:"conditionVersion"`
 	// Id of the user who created the assignment
-	CreatedBy *string `pulumi:"createdBy"`
+	CreatedBy string `pulumi:"createdBy"`
 	// Time it was created
-	CreatedOn *string `pulumi:"createdOn"`
+	CreatedOn string `pulumi:"createdOn"`
 	// Id of the delegated managed identity resource
 	DelegatedManagedIdentityResourceId *string `pulumi:"delegatedManagedIdentityResourceId"`
 	// Description of role assignment
@@ -46,17 +44,17 @@ type LookupRoleAssignmentResult struct {
 	// The role assignment name.
 	Name string `pulumi:"name"`
 	// The principal ID.
-	PrincipalId *string `pulumi:"principalId"`
+	PrincipalId string `pulumi:"principalId"`
 	// The principal type of the assigned principal ID.
 	PrincipalType *string `pulumi:"principalType"`
 	// The role definition ID.
-	RoleDefinitionId *string `pulumi:"roleDefinitionId"`
+	RoleDefinitionId string `pulumi:"roleDefinitionId"`
 	// The role assignment scope.
 	Scope *string `pulumi:"scope"`
 	// The role assignment type.
 	Type string `pulumi:"type"`
 	// Id of the user who updated the assignment
-	UpdatedBy *string `pulumi:"updatedBy"`
+	UpdatedBy string `pulumi:"updatedBy"`
 	// Time it was updated
-	UpdatedOn *string `pulumi:"updatedOn"`
+	UpdatedOn string `pulumi:"updatedOn"`
 }

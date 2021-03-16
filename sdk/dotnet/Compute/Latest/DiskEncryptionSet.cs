@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Compute.Latest
 {
     /// <summary>
     /// disk encryption set resource.
-    /// Latest API Version: 2020-09-30.
+    /// Latest API Version: 2020-12-01.
     /// </summary>
     [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:compute:DiskEncryptionSet'.")]
     [AzureNativeResourceType("azure-native:compute/latest:DiskEncryptionSet")]
@@ -36,6 +36,12 @@ namespace Pulumi.AzureNative.Compute.Latest
         public Output<Outputs.EncryptionSetIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
+        /// The time when the active key of this disk encryption set was updated.
+        /// </summary>
+        [Output("lastKeyRotationTimestamp")]
+        public Output<string> LastKeyRotationTimestamp { get; private set; } = null!;
+
+        /// <summary>
         /// Resource location
         /// </summary>
         [Output("location")]
@@ -58,6 +64,12 @@ namespace Pulumi.AzureNative.Compute.Latest
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Set this flag to true to enable auto-updating of this disk encryption set to the latest key version.
+        /// </summary>
+        [Output("rotationToLatestKeyVersionEnabled")]
+        public Output<bool?> RotationToLatestKeyVersionEnabled { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags
@@ -109,6 +121,8 @@ namespace Pulumi.AzureNative.Compute.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20200630:DiskEncryptionSet"},
                     new Pulumi.Alias { Type = "azure-native:compute/v20200930:DiskEncryptionSet"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20200930:DiskEncryptionSet"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20201201:DiskEncryptionSet"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20201201:DiskEncryptionSet"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -167,6 +181,12 @@ namespace Pulumi.AzureNative.Compute.Latest
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Set this flag to true to enable auto-updating of this disk encryption set to the latest key version.
+        /// </summary>
+        [Input("rotationToLatestKeyVersionEnabled")]
+        public Input<bool>? RotationToLatestKeyVersionEnabled { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

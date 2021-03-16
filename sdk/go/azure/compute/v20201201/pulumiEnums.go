@@ -150,6 +150,46 @@ func (e DiffDiskPlacement) ToStringPtrOutputWithContext(ctx context.Context) pul
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// This enumerates the possible sources of a disk's creation.
+type DiskCreateOption pulumi.String
+
+const (
+	// Create an empty data disk of a size given by diskSizeGB.
+	DiskCreateOptionEmpty = DiskCreateOption("Empty")
+	// Disk will be attached to a VM.
+	DiskCreateOptionAttach = DiskCreateOption("Attach")
+	// Create a new disk from a platform image specified by the given imageReference or galleryImageReference.
+	DiskCreateOptionFromImage = DiskCreateOption("FromImage")
+	// Create a disk by importing from a blob specified by a sourceUri in a storage account specified by storageAccountId.
+	DiskCreateOptionImport = DiskCreateOption("Import")
+	// Create a new disk or snapshot by copying from a disk or snapshot specified by the given sourceResourceId.
+	DiskCreateOptionCopy = DiskCreateOption("Copy")
+	// Create a new disk by copying from a backup recovery point.
+	DiskCreateOptionRestore = DiskCreateOption("Restore")
+	// Create a new disk by obtaining a write token and using it to directly upload the contents of the disk.
+	DiskCreateOptionUpload = DiskCreateOption("Upload")
+)
+
+func (DiskCreateOption) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e DiskCreateOption) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DiskCreateOption) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DiskCreateOption) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DiskCreateOption) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // Specifies how the virtual machine should be created.<br><br> Possible values are:<br><br> **Attach** \u2013 This value is used when you are using a specialized disk to create the virtual machine.<br><br> **FromImage** \u2013 This value is used when you are using an image to create the virtual machine. If you are using a platform image, you also use the imageReference element described above. If you are using a marketplace image, you  also use the plan element previously described.
 type DiskCreateOptionTypes pulumi.String
 
@@ -206,6 +246,162 @@ func (e DiskDetachOptionTypes) ToStringPtrOutputWithContext(ctx context.Context)
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// The type of Managed Identity used by the DiskEncryptionSet. Only SystemAssigned is supported for new creations. Disk Encryption Sets can be updated with Identity type None during migration of subscription to a new Azure Active Directory tenant; it will cause the encrypted resources to lose access to the keys.
+type DiskEncryptionSetIdentityType pulumi.String
+
+const (
+	DiskEncryptionSetIdentityTypeSystemAssigned = DiskEncryptionSetIdentityType("SystemAssigned")
+	DiskEncryptionSetIdentityTypeNone           = DiskEncryptionSetIdentityType("None")
+)
+
+func (DiskEncryptionSetIdentityType) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e DiskEncryptionSetIdentityType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DiskEncryptionSetIdentityType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DiskEncryptionSetIdentityType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DiskEncryptionSetIdentityType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// The type of key used to encrypt the data of the disk.
+type DiskEncryptionSetType pulumi.String
+
+const (
+	// Resource using diskEncryptionSet would be encrypted at rest with Customer managed key that can be changed and revoked by a customer.
+	DiskEncryptionSetTypeEncryptionAtRestWithCustomerKey = DiskEncryptionSetType("EncryptionAtRestWithCustomerKey")
+	// Resource using diskEncryptionSet would be encrypted at rest with two layers of encryption. One of the keys is Customer managed and the other key is Platform managed.
+	DiskEncryptionSetTypeEncryptionAtRestWithPlatformAndCustomerKeys = DiskEncryptionSetType("EncryptionAtRestWithPlatformAndCustomerKeys")
+)
+
+func (DiskEncryptionSetType) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e DiskEncryptionSetType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DiskEncryptionSetType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DiskEncryptionSetType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DiskEncryptionSetType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// Specifies the SecurityType of the VM. Applicable for OS disks only.
+type DiskSecurityTypes pulumi.String
+
+const (
+	// Trusted Launch provides security features such as secure boot and virtual Trusted Platform Module (vTPM)
+	DiskSecurityTypesTrustedLaunch = DiskSecurityTypes("TrustedLaunch")
+)
+
+func (DiskSecurityTypes) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e DiskSecurityTypes) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DiskSecurityTypes) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DiskSecurityTypes) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DiskSecurityTypes) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// The sku name.
+type DiskStorageAccountTypes pulumi.String
+
+const (
+	// Standard HDD locally redundant storage. Best for backup, non-critical, and infrequent access.
+	DiskStorageAccountTypes_Standard_LRS = DiskStorageAccountTypes("Standard_LRS")
+	// Premium SSD locally redundant storage. Best for production and performance sensitive workloads.
+	DiskStorageAccountTypes_Premium_LRS = DiskStorageAccountTypes("Premium_LRS")
+	// Standard SSD locally redundant storage. Best for web servers, lightly used enterprise applications and dev/test.
+	DiskStorageAccountTypes_StandardSSD_LRS = DiskStorageAccountTypes("StandardSSD_LRS")
+	// Ultra SSD locally redundant storage. Best for IO-intensive workloads such as SAP HANA, top tier databases (for example, SQL, Oracle), and other transaction-heavy workloads.
+	DiskStorageAccountTypes_UltraSSD_LRS = DiskStorageAccountTypes("UltraSSD_LRS")
+	// Premium SSD zone redundant storage. Best for the production workloads that need storage resiliency against zone failures.
+	DiskStorageAccountTypes_Premium_ZRS = DiskStorageAccountTypes("Premium_ZRS")
+	// Standard SSD zone redundant storage. Best for web servers, lightly used enterprise applications and dev/test that need storage resiliency against zone failures.
+	DiskStorageAccountTypes_StandardSSD_ZRS = DiskStorageAccountTypes("StandardSSD_ZRS")
+)
+
+func (DiskStorageAccountTypes) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e DiskStorageAccountTypes) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DiskStorageAccountTypes) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DiskStorageAccountTypes) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DiskStorageAccountTypes) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// The type of key used to encrypt the data of the disk.
+type EncryptionType pulumi.String
+
+const (
+	// Disk is encrypted at rest with Platform managed key. It is the default encryption type. This is not a valid encryption type for disk encryption sets.
+	EncryptionTypeEncryptionAtRestWithPlatformKey = EncryptionType("EncryptionAtRestWithPlatformKey")
+	// Disk is encrypted at rest with Customer managed key that can be changed and revoked by a customer.
+	EncryptionTypeEncryptionAtRestWithCustomerKey = EncryptionType("EncryptionAtRestWithCustomerKey")
+	// Disk is encrypted at rest with 2 layers of encryption. One of the keys is Customer managed and the other key is Platform managed.
+	EncryptionTypeEncryptionAtRestWithPlatformAndCustomerKeys = EncryptionType("EncryptionAtRestWithPlatformAndCustomerKeys")
+)
+
+func (EncryptionType) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e EncryptionType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EncryptionType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EncryptionType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e EncryptionType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // The type of the extended location.
 type ExtendedLocationTypes pulumi.String
 
@@ -230,6 +426,34 @@ func (e ExtendedLocationTypes) ToStringPtrOutput() pulumi.StringPtrOutput {
 }
 
 func (e ExtendedLocationTypes) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
+type HyperVGeneration pulumi.String
+
+const (
+	HyperVGenerationV1 = HyperVGeneration("V1")
+	HyperVGenerationV2 = HyperVGeneration("V2")
+)
+
+func (HyperVGeneration) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e HyperVGeneration) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e HyperVGeneration) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e HyperVGeneration) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e HyperVGeneration) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
@@ -347,6 +571,38 @@ func (e LinuxVMGuestPatchMode) ToStringPtrOutputWithContext(ctx context.Context)
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// Policy for accessing the disk via network.
+type NetworkAccessPolicy pulumi.String
+
+const (
+	// The disk can be exported or uploaded to from any network.
+	NetworkAccessPolicyAllowAll = NetworkAccessPolicy("AllowAll")
+	// The disk can be exported or uploaded to using a DiskAccess resource's private endpoints.
+	NetworkAccessPolicyAllowPrivate = NetworkAccessPolicy("AllowPrivate")
+	// The disk cannot be exported.
+	NetworkAccessPolicyDenyAll = NetworkAccessPolicy("DenyAll")
+)
+
+func (NetworkAccessPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e NetworkAccessPolicy) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e NetworkAccessPolicy) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e NetworkAccessPolicy) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e NetworkAccessPolicy) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // The OS State.
 type OperatingSystemStateTypes pulumi.String
 
@@ -457,6 +713,35 @@ func (e PassNames) ToStringPtrOutput() pulumi.StringPtrOutput {
 }
 
 func (e PassNames) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+type PrivateEndpointServiceConnectionStatus pulumi.String
+
+const (
+	PrivateEndpointServiceConnectionStatusPending  = PrivateEndpointServiceConnectionStatus("Pending")
+	PrivateEndpointServiceConnectionStatusApproved = PrivateEndpointServiceConnectionStatus("Approved")
+	PrivateEndpointServiceConnectionStatusRejected = PrivateEndpointServiceConnectionStatus("Rejected")
+)
+
+func (PrivateEndpointServiceConnectionStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e PrivateEndpointServiceConnectionStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PrivateEndpointServiceConnectionStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PrivateEndpointServiceConnectionStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PrivateEndpointServiceConnectionStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
@@ -598,6 +883,38 @@ func (e SettingNames) ToStringPtrOutput() pulumi.StringPtrOutput {
 }
 
 func (e SettingNames) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// The sku name.
+type SnapshotStorageAccountTypes pulumi.String
+
+const (
+	// Standard HDD locally redundant storage
+	SnapshotStorageAccountTypes_Standard_LRS = SnapshotStorageAccountTypes("Standard_LRS")
+	// Premium SSD locally redundant storage
+	SnapshotStorageAccountTypes_Premium_LRS = SnapshotStorageAccountTypes("Premium_LRS")
+	// Standard zone redundant storage
+	SnapshotStorageAccountTypes_Standard_ZRS = SnapshotStorageAccountTypes("Standard_ZRS")
+)
+
+func (SnapshotStorageAccountTypes) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e SnapshotStorageAccountTypes) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SnapshotStorageAccountTypes) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SnapshotStorageAccountTypes) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SnapshotStorageAccountTypes) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 

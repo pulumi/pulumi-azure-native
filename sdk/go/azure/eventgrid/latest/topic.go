@@ -237,8 +237,7 @@ type topicArgs struct {
 	// This enables publishing using custom event schemas. An InputSchemaMapping can be specified to map various properties of a source schema to various required properties of the EventGridEvent schema.
 	InputSchemaMapping *JsonInputSchemaMapping `pulumi:"inputSchemaMapping"`
 	// Location of the resource.
-	Location                   *string                         `pulumi:"location"`
-	PrivateEndpointConnections []PrivateEndpointConnectionType `pulumi:"privateEndpointConnections"`
+	Location *string `pulumi:"location"`
 	// This determines if traffic is allowed over public network. By default it is enabled.
 	// You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.TopicProperties.InboundIpRules" />
 	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
@@ -259,8 +258,7 @@ type TopicArgs struct {
 	// This enables publishing using custom event schemas. An InputSchemaMapping can be specified to map various properties of a source schema to various required properties of the EventGridEvent schema.
 	InputSchemaMapping JsonInputSchemaMappingPtrInput
 	// Location of the resource.
-	Location                   pulumi.StringPtrInput
-	PrivateEndpointConnections PrivateEndpointConnectionTypeArrayInput
+	Location pulumi.StringPtrInput
 	// This determines if traffic is allowed over public network. By default it is enabled.
 	// You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.TopicProperties.InboundIpRules" />
 	PublicNetworkAccess pulumi.StringPtrInput

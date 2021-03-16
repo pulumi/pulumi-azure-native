@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Snapshot resource.
- * Latest API Version: 2020-09-30.
+ * Latest API Version: 2020-12-01.
  */
 /** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:compute:getSnapshot'. */
 export function getSnapshot(args: GetSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetSnapshotResult> {
@@ -116,6 +116,10 @@ export interface GetSnapshotResult {
      * The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS. This is an optional parameter for incremental snapshot and the default behavior is the SKU will be set to the same sku as the previous snapshot
      */
     readonly sku?: outputs.compute.latest.SnapshotSkuResponse;
+    /**
+     * Indicates the OS on a snapshot supports hibernation.
+     */
+    readonly supportsHibernation?: boolean;
     /**
      * Resource tags
      */

@@ -76,7 +76,7 @@ export interface GetDomainResult {
     /**
      * List of private endpoint connections.
      */
-    readonly privateEndpointConnections?: outputs.eventgrid.v20201015preview.PrivateEndpointConnectionResponse[];
+    readonly privateEndpointConnections: outputs.eventgrid.v20201015preview.PrivateEndpointConnectionResponse[];
     /**
      * Provisioning state of the domain.
      */

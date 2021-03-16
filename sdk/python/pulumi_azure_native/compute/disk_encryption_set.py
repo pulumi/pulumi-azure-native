@@ -24,13 +24,14 @@ class DiskEncryptionSet(pulumi.CustomResource):
                  identity: Optional[pulumi.Input[pulumi.InputType['EncryptionSetIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 rotation_to_latest_key_version_enabled: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
         """
         disk encryption set resource.
-        API Version: 2020-09-30.
+        API Version: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -40,6 +41,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['EncryptionSetIdentityArgs']] identity: The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[bool] rotation_to_latest_key_version_enabled: Set this flag to true to enable auto-updating of this disk encryption set to the latest key version.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
         if __name__ is not None:
@@ -67,12 +69,14 @@ class DiskEncryptionSet(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['rotation_to_latest_key_version_enabled'] = rotation_to_latest_key_version_enabled
             __props__['tags'] = tags
+            __props__['last_key_rotation_timestamp'] = None
             __props__['name'] = None
             __props__['previous_keys'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute:DiskEncryptionSet"), pulumi.Alias(type_="azure-native:compute/latest:DiskEncryptionSet"), pulumi.Alias(type_="azure-nextgen:compute/latest:DiskEncryptionSet"), pulumi.Alias(type_="azure-native:compute/v20190701:DiskEncryptionSet"), pulumi.Alias(type_="azure-nextgen:compute/v20190701:DiskEncryptionSet"), pulumi.Alias(type_="azure-native:compute/v20191101:DiskEncryptionSet"), pulumi.Alias(type_="azure-nextgen:compute/v20191101:DiskEncryptionSet"), pulumi.Alias(type_="azure-native:compute/v20200501:DiskEncryptionSet"), pulumi.Alias(type_="azure-nextgen:compute/v20200501:DiskEncryptionSet"), pulumi.Alias(type_="azure-native:compute/v20200630:DiskEncryptionSet"), pulumi.Alias(type_="azure-nextgen:compute/v20200630:DiskEncryptionSet"), pulumi.Alias(type_="azure-native:compute/v20200930:DiskEncryptionSet"), pulumi.Alias(type_="azure-nextgen:compute/v20200930:DiskEncryptionSet")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute:DiskEncryptionSet"), pulumi.Alias(type_="azure-native:compute/latest:DiskEncryptionSet"), pulumi.Alias(type_="azure-nextgen:compute/latest:DiskEncryptionSet"), pulumi.Alias(type_="azure-native:compute/v20190701:DiskEncryptionSet"), pulumi.Alias(type_="azure-nextgen:compute/v20190701:DiskEncryptionSet"), pulumi.Alias(type_="azure-native:compute/v20191101:DiskEncryptionSet"), pulumi.Alias(type_="azure-nextgen:compute/v20191101:DiskEncryptionSet"), pulumi.Alias(type_="azure-native:compute/v20200501:DiskEncryptionSet"), pulumi.Alias(type_="azure-nextgen:compute/v20200501:DiskEncryptionSet"), pulumi.Alias(type_="azure-native:compute/v20200630:DiskEncryptionSet"), pulumi.Alias(type_="azure-nextgen:compute/v20200630:DiskEncryptionSet"), pulumi.Alias(type_="azure-native:compute/v20200930:DiskEncryptionSet"), pulumi.Alias(type_="azure-nextgen:compute/v20200930:DiskEncryptionSet"), pulumi.Alias(type_="azure-native:compute/v20201201:DiskEncryptionSet"), pulumi.Alias(type_="azure-nextgen:compute/v20201201:DiskEncryptionSet")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DiskEncryptionSet, __self__).__init__(
             'azure-native:compute:DiskEncryptionSet',
@@ -99,10 +103,12 @@ class DiskEncryptionSet(pulumi.CustomResource):
         __props__["active_key"] = None
         __props__["encryption_type"] = None
         __props__["identity"] = None
+        __props__["last_key_rotation_timestamp"] = None
         __props__["location"] = None
         __props__["name"] = None
         __props__["previous_keys"] = None
         __props__["provisioning_state"] = None
+        __props__["rotation_to_latest_key_version_enabled"] = None
         __props__["tags"] = None
         __props__["type"] = None
         return DiskEncryptionSet(resource_name, opts=opts, __props__=__props__)
@@ -130,6 +136,14 @@ class DiskEncryptionSet(pulumi.CustomResource):
         The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
         """
         return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter(name="lastKeyRotationTimestamp")
+    def last_key_rotation_timestamp(self) -> pulumi.Output[str]:
+        """
+        The time when the active key of this disk encryption set was updated.
+        """
+        return pulumi.get(self, "last_key_rotation_timestamp")
 
     @property
     @pulumi.getter
@@ -162,6 +176,14 @@ class DiskEncryptionSet(pulumi.CustomResource):
         The disk encryption set provisioning state.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="rotationToLatestKeyVersionEnabled")
+    def rotation_to_latest_key_version_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Set this flag to true to enable auto-updating of this disk encryption set to the latest key version.
+        """
+        return pulumi.get(self, "rotation_to_latest_key_version_enabled")
 
     @property
     @pulumi.getter

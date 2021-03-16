@@ -16,6 +16,7 @@ __all__ = [
     'DiskDetachOptionTypes',
     'DiskEncryptionSetIdentityType',
     'DiskEncryptionSetType',
+    'DiskSecurityTypes',
     'DiskStorageAccountTypes',
     'EncryptionType',
     'ExtendedLocationTypes',
@@ -146,6 +147,13 @@ class DiskEncryptionSetType(str, Enum):
     ENCRYPTION_AT_REST_WITH_PLATFORM_AND_CUSTOMER_KEYS = "EncryptionAtRestWithPlatformAndCustomerKeys"
 
 
+class DiskSecurityTypes(str, Enum):
+    """
+    Specifies the SecurityType of the VM. Applicable for OS disks only.
+    """
+    TRUSTED_LAUNCH = "TrustedLaunch"
+
+
 class DiskStorageAccountTypes(str, Enum):
     """
     The sku name.
@@ -154,6 +162,8 @@ class DiskStorageAccountTypes(str, Enum):
     PREMIUM_LRS = "Premium_LRS"
     STANDARD_SS_D_LRS = "StandardSSD_LRS"
     ULTRA_SS_D_LRS = "UltraSSD_LRS"
+    PREMIUM_ZRS = "Premium_ZRS"
+    STANDARD_SS_D_ZRS = "StandardSSD_ZRS"
 
 
 class EncryptionType(str, Enum):

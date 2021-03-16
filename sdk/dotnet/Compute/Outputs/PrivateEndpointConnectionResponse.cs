@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Compute.Outputs
         /// <summary>
         /// The resource of private end point.
         /// </summary>
-        public readonly Outputs.PrivateEndpointResponse? PrivateEndpoint;
+        public readonly Outputs.PrivateEndpointResponse PrivateEndpoint;
         /// <summary>
         /// A collection of information about the state of the connection between DiskAccess and Virtual Network.
         /// </summary>
@@ -44,7 +44,7 @@ namespace Pulumi.AzureNative.Compute.Outputs
 
             string name,
 
-            Outputs.PrivateEndpointResponse? privateEndpoint,
+            Outputs.PrivateEndpointResponse privateEndpoint,
 
             Outputs.PrivateLinkServiceConnectionStateResponse privateLinkServiceConnectionState,
 

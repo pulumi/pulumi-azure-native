@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Peering.Latest
 {
     /// <summary>
     /// The essential information related to the peer's ASN.
-    /// Latest API Version: 2020-10-01.
+    /// Latest API Version: 2021-01-01.
     /// </summary>
     [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:peering:PeerAsn'.")]
     [AzureNativeResourceType("azure-native:peering/latest:PeerAsn")]

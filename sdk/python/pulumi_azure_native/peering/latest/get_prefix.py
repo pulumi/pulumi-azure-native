@@ -160,7 +160,7 @@ def get_prefix(expand: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrefixResult:
     """
     The peering service prefix class.
-    Latest API Version: 2020-10-01.
+    Latest API Version: 2021-01-01.
 
 
     :param str expand: The properties to be expanded.

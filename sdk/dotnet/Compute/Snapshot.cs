@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Compute
 {
     /// <summary>
     /// Snapshot resource.
-    /// API Version: 2020-09-30.
+    /// API Version: 2020-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:Snapshot")]
     public partial class Snapshot : Pulumi.CustomResource
@@ -125,6 +125,12 @@ namespace Pulumi.AzureNative.Compute
         public Output<Outputs.SnapshotSkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
+        /// Indicates the OS on a snapshot supports hibernation.
+        /// </summary>
+        [Output("supportsHibernation")]
+        public Output<bool?> SupportsHibernation { get; private set; } = null!;
+
+        /// <summary>
         /// Resource tags
         /// </summary>
         [Output("tags")]
@@ -198,6 +204,8 @@ namespace Pulumi.AzureNative.Compute
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20200630:Snapshot"},
                     new Pulumi.Alias { Type = "azure-native:compute/v20200930:Snapshot"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20200930:Snapshot"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20201201:Snapshot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20201201:Snapshot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -310,6 +318,12 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         [Input("snapshotName")]
         public Input<string>? SnapshotName { get; set; }
+
+        /// <summary>
+        /// Indicates the OS on a snapshot supports hibernation.
+        /// </summary>
+        [Input("supportsHibernation")]
+        public Input<bool>? SupportsHibernation { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

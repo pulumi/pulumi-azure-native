@@ -22,7 +22,7 @@ class GetPeeringServiceResult:
     """
     Peering Service
     """
-    def __init__(__self__, id=None, location=None, name=None, peering_service_location=None, peering_service_provider=None, provisioning_state=None, sku=None, tags=None, type=None):
+    def __init__(__self__, id=None, location=None, name=None, peering_service_location=None, peering_service_provider=None, provider_backup_peering_location=None, provider_primary_peering_location=None, provisioning_state=None, sku=None, tags=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -38,6 +38,12 @@ class GetPeeringServiceResult:
         if peering_service_provider and not isinstance(peering_service_provider, str):
             raise TypeError("Expected argument 'peering_service_provider' to be a str")
         pulumi.set(__self__, "peering_service_provider", peering_service_provider)
+        if provider_backup_peering_location and not isinstance(provider_backup_peering_location, str):
+            raise TypeError("Expected argument 'provider_backup_peering_location' to be a str")
+        pulumi.set(__self__, "provider_backup_peering_location", provider_backup_peering_location)
+        if provider_primary_peering_location and not isinstance(provider_primary_peering_location, str):
+            raise TypeError("Expected argument 'provider_primary_peering_location' to be a str")
+        pulumi.set(__self__, "provider_primary_peering_location", provider_primary_peering_location)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -79,7 +85,7 @@ class GetPeeringServiceResult:
     @pulumi.getter(name="peeringServiceLocation")
     def peering_service_location(self) -> Optional[str]:
         """
-        The PeeringServiceLocation of the Customer.
+        The location (state/province) of the customer.
         """
         return pulumi.get(self, "peering_service_location")
 
@@ -87,9 +93,25 @@ class GetPeeringServiceResult:
     @pulumi.getter(name="peeringServiceProvider")
     def peering_service_provider(self) -> Optional[str]:
         """
-        The MAPS Provider Name.
+        The name of the service provider.
         """
         return pulumi.get(self, "peering_service_provider")
+
+    @property
+    @pulumi.getter(name="providerBackupPeeringLocation")
+    def provider_backup_peering_location(self) -> Optional[str]:
+        """
+        The backup peering (Microsoft/service provider) location to be used for customer traffic.
+        """
+        return pulumi.get(self, "provider_backup_peering_location")
+
+    @property
+    @pulumi.getter(name="providerPrimaryPeeringLocation")
+    def provider_primary_peering_location(self) -> Optional[str]:
+        """
+        The primary peering (Microsoft/service provider) location to be used for customer traffic.
+        """
+        return pulumi.get(self, "provider_primary_peering_location")
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -135,6 +157,8 @@ class AwaitableGetPeeringServiceResult(GetPeeringServiceResult):
             name=self.name,
             peering_service_location=self.peering_service_location,
             peering_service_provider=self.peering_service_provider,
+            provider_backup_peering_location=self.provider_backup_peering_location,
+            provider_primary_peering_location=self.provider_primary_peering_location,
             provisioning_state=self.provisioning_state,
             sku=self.sku,
             tags=self.tags,
@@ -146,7 +170,7 @@ def get_peering_service(peering_service_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPeeringServiceResult:
     """
     Peering Service
-    Latest API Version: 2020-10-01.
+    Latest API Version: 2021-01-01.
 
 
     :param str peering_service_name: The name of the peering.
@@ -168,6 +192,8 @@ def get_peering_service(peering_service_name: Optional[str] = None,
         name=__ret__.name,
         peering_service_location=__ret__.peering_service_location,
         peering_service_provider=__ret__.peering_service_provider,
+        provider_backup_peering_location=__ret__.provider_backup_peering_location,
+        provider_primary_peering_location=__ret__.provider_primary_peering_location,
         provisioning_state=__ret__.provisioning_state,
         sku=__ret__.sku,
         tags=__ret__.tags,

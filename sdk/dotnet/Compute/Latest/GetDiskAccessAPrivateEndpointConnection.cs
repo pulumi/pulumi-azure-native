@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Compute.Latest
     {
         /// <summary>
         /// The Private Endpoint Connection resource.
-        /// Latest API Version: 2020-09-30.
+        /// Latest API Version: 2020-12-01.
         /// </summary>
         public static Task<GetDiskAccessAPrivateEndpointConnectionResult> InvokeAsync(GetDiskAccessAPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDiskAccessAPrivateEndpointConnectionResult>("azure-native:compute/latest:getDiskAccessAPrivateEndpointConnection", args ?? new GetDiskAccessAPrivateEndpointConnectionArgs(), options.WithVersion());
@@ -61,7 +61,7 @@ namespace Pulumi.AzureNative.Compute.Latest
         /// <summary>
         /// The resource of private end point.
         /// </summary>
-        public readonly Outputs.PrivateEndpointResponse? PrivateEndpoint;
+        public readonly Outputs.PrivateEndpointResponse PrivateEndpoint;
         /// <summary>
         /// A collection of information about the state of the connection between DiskAccess and Virtual Network.
         /// </summary>
@@ -81,7 +81,7 @@ namespace Pulumi.AzureNative.Compute.Latest
 
             string name,
 
-            Outputs.PrivateEndpointResponse? privateEndpoint,
+            Outputs.PrivateEndpointResponse privateEndpoint,
 
             Outputs.PrivateLinkServiceConnectionStateResponse privateLinkServiceConnectionState,
 

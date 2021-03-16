@@ -37,13 +37,14 @@ class Snapshot(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SnapshotSkuArgs']]] = None,
                  snapshot_name: Optional[pulumi.Input[str]] = None,
+                 supports_hibernation: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
         """
         Snapshot resource.
-        Latest API Version: 2020-09-30.
+        Latest API Version: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -62,6 +63,7 @@ class Snapshot(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[pulumi.InputType['SnapshotSkuArgs']] sku: The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS. This is an optional parameter for incremental snapshot and the default behavior is the SKU will be set to the same sku as the previous snapshot
         :param pulumi.Input[str] snapshot_name: The name of the snapshot that is being created. The name can't be changed after the snapshot is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The max name length is 80 characters.
+        :param pulumi.Input[bool] supports_hibernation: Indicates the OS on a snapshot supports hibernation.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
         pulumi.log.warn("""Snapshot is deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:compute:Snapshot'.""")
@@ -101,6 +103,7 @@ class Snapshot(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['sku'] = sku
             __props__['snapshot_name'] = snapshot_name
+            __props__['supports_hibernation'] = supports_hibernation
             __props__['tags'] = tags
             __props__['disk_size_bytes'] = None
             __props__['disk_state'] = None
@@ -110,7 +113,7 @@ class Snapshot(pulumi.CustomResource):
             __props__['time_created'] = None
             __props__['type'] = None
             __props__['unique_id'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute/latest:Snapshot"), pulumi.Alias(type_="azure-native:compute:Snapshot"), pulumi.Alias(type_="azure-nextgen:compute:Snapshot"), pulumi.Alias(type_="azure-native:compute/v20160430preview:Snapshot"), pulumi.Alias(type_="azure-nextgen:compute/v20160430preview:Snapshot"), pulumi.Alias(type_="azure-native:compute/v20170330:Snapshot"), pulumi.Alias(type_="azure-nextgen:compute/v20170330:Snapshot"), pulumi.Alias(type_="azure-native:compute/v20180401:Snapshot"), pulumi.Alias(type_="azure-nextgen:compute/v20180401:Snapshot"), pulumi.Alias(type_="azure-native:compute/v20180601:Snapshot"), pulumi.Alias(type_="azure-nextgen:compute/v20180601:Snapshot"), pulumi.Alias(type_="azure-native:compute/v20180930:Snapshot"), pulumi.Alias(type_="azure-nextgen:compute/v20180930:Snapshot"), pulumi.Alias(type_="azure-native:compute/v20190301:Snapshot"), pulumi.Alias(type_="azure-nextgen:compute/v20190301:Snapshot"), pulumi.Alias(type_="azure-native:compute/v20190701:Snapshot"), pulumi.Alias(type_="azure-nextgen:compute/v20190701:Snapshot"), pulumi.Alias(type_="azure-native:compute/v20191101:Snapshot"), pulumi.Alias(type_="azure-nextgen:compute/v20191101:Snapshot"), pulumi.Alias(type_="azure-native:compute/v20200501:Snapshot"), pulumi.Alias(type_="azure-nextgen:compute/v20200501:Snapshot"), pulumi.Alias(type_="azure-native:compute/v20200630:Snapshot"), pulumi.Alias(type_="azure-nextgen:compute/v20200630:Snapshot"), pulumi.Alias(type_="azure-native:compute/v20200930:Snapshot"), pulumi.Alias(type_="azure-nextgen:compute/v20200930:Snapshot")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute/latest:Snapshot"), pulumi.Alias(type_="azure-native:compute:Snapshot"), pulumi.Alias(type_="azure-nextgen:compute:Snapshot"), pulumi.Alias(type_="azure-native:compute/v20160430preview:Snapshot"), pulumi.Alias(type_="azure-nextgen:compute/v20160430preview:Snapshot"), pulumi.Alias(type_="azure-native:compute/v20170330:Snapshot"), pulumi.Alias(type_="azure-nextgen:compute/v20170330:Snapshot"), pulumi.Alias(type_="azure-native:compute/v20180401:Snapshot"), pulumi.Alias(type_="azure-nextgen:compute/v20180401:Snapshot"), pulumi.Alias(type_="azure-native:compute/v20180601:Snapshot"), pulumi.Alias(type_="azure-nextgen:compute/v20180601:Snapshot"), pulumi.Alias(type_="azure-native:compute/v20180930:Snapshot"), pulumi.Alias(type_="azure-nextgen:compute/v20180930:Snapshot"), pulumi.Alias(type_="azure-native:compute/v20190301:Snapshot"), pulumi.Alias(type_="azure-nextgen:compute/v20190301:Snapshot"), pulumi.Alias(type_="azure-native:compute/v20190701:Snapshot"), pulumi.Alias(type_="azure-nextgen:compute/v20190701:Snapshot"), pulumi.Alias(type_="azure-native:compute/v20191101:Snapshot"), pulumi.Alias(type_="azure-nextgen:compute/v20191101:Snapshot"), pulumi.Alias(type_="azure-native:compute/v20200501:Snapshot"), pulumi.Alias(type_="azure-nextgen:compute/v20200501:Snapshot"), pulumi.Alias(type_="azure-native:compute/v20200630:Snapshot"), pulumi.Alias(type_="azure-nextgen:compute/v20200630:Snapshot"), pulumi.Alias(type_="azure-native:compute/v20200930:Snapshot"), pulumi.Alias(type_="azure-nextgen:compute/v20200930:Snapshot"), pulumi.Alias(type_="azure-native:compute/v20201201:Snapshot"), pulumi.Alias(type_="azure-nextgen:compute/v20201201:Snapshot")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Snapshot, __self__).__init__(
             'azure-native:compute/latest:Snapshot',
@@ -152,6 +155,7 @@ class Snapshot(pulumi.CustomResource):
         __props__["provisioning_state"] = None
         __props__["purchase_plan"] = None
         __props__["sku"] = None
+        __props__["supports_hibernation"] = None
         __props__["tags"] = None
         __props__["time_created"] = None
         __props__["type"] = None
@@ -301,6 +305,14 @@ class Snapshot(pulumi.CustomResource):
         The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS. This is an optional parameter for incremental snapshot and the default behavior is the SKU will be set to the same sku as the previous snapshot
         """
         return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter(name="supportsHibernation")
+    def supports_hibernation(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Indicates the OS on a snapshot supports hibernation.
+        """
+        return pulumi.get(self, "supports_hibernation")
 
     @property
     @pulumi.getter

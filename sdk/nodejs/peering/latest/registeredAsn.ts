@@ -6,7 +6,7 @@ import * as utilities from "../../utilities";
 
 /**
  * The customer's ASN that is registered by the peering service provider.
- * Latest API Version: 2020-10-01.
+ * Latest API Version: 2021-01-01.
  *
  * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:peering:RegisteredAsn'.
  */

@@ -23,6 +23,7 @@ namespace Pulumi.AzureNative.EventGrid.V20201015Preview.Inputs
 
         public ResourceSkuArgs()
         {
+            Name = "Basic";
         }
     }
 }

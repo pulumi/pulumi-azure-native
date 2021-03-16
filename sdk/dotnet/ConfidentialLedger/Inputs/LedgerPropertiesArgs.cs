@@ -15,16 +15,28 @@ namespace Pulumi.AzureNative.ConfidentialLedger.Inputs
     /// </summary>
     public sealed class LedgerPropertiesArgs : Pulumi.ResourceArgs
     {
-        [Input("certUsers")]
-        private InputList<Inputs.ConfidentialLedgerCertUserArgs>? _certUsers;
+        [Input("aadBasedSecurityPrincipals")]
+        private InputList<Inputs.AADBasedSecurityPrincipalArgs>? _aadBasedSecurityPrincipals;
 
         /// <summary>
-        /// Array of all the cert based users who can access Confidential Ledger
+        /// Array of all AAD based Security Principals.
         /// </summary>
-        public InputList<Inputs.ConfidentialLedgerCertUserArgs> CertUsers
+        public InputList<Inputs.AADBasedSecurityPrincipalArgs> AadBasedSecurityPrincipals
         {
-            get => _certUsers ?? (_certUsers = new InputList<Inputs.ConfidentialLedgerCertUserArgs>());
-            set => _certUsers = value;
+            get => _aadBasedSecurityPrincipals ?? (_aadBasedSecurityPrincipals = new InputList<Inputs.AADBasedSecurityPrincipalArgs>());
+            set => _aadBasedSecurityPrincipals = value;
+        }
+
+        [Input("certBasedSecurityPrincipals")]
+        private InputList<Inputs.CertBasedSecurityPrincipalArgs>? _certBasedSecurityPrincipals;
+
+        /// <summary>
+        /// Array of all cert based Security Principals.
+        /// </summary>
+        public InputList<Inputs.CertBasedSecurityPrincipalArgs> CertBasedSecurityPrincipals
+        {
+            get => _certBasedSecurityPrincipals ?? (_certBasedSecurityPrincipals = new InputList<Inputs.CertBasedSecurityPrincipalArgs>());
+            set => _certBasedSecurityPrincipals = value;
         }
 
         /// <summary>

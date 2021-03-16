@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Compute.Latest
     {
         /// <summary>
         /// disk access resource.
-        /// Latest API Version: 2020-09-30.
+        /// Latest API Version: 2020-12-01.
         /// </summary>
         public static Task<GetDiskAccessResult> InvokeAsync(GetDiskAccessArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDiskAccessResult>("azure-native:compute/latest:getDiskAccess", args ?? new GetDiskAccessArgs(), options.WithVersion());

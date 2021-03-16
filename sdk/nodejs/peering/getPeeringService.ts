@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Peering Service
- * API Version: 2020-10-01.
+ * API Version: 2021-01-01.
  */
 export function getPeeringService(args: GetPeeringServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetPeeringServiceResult> {
     if (!opts) {
@@ -51,13 +51,21 @@ export interface GetPeeringServiceResult {
      */
     readonly name: string;
     /**
-     * The PeeringServiceLocation of the Customer.
+     * The location (state/province) of the customer.
      */
     readonly peeringServiceLocation?: string;
     /**
-     * The MAPS Provider Name.
+     * The name of the service provider.
      */
     readonly peeringServiceProvider?: string;
+    /**
+     * The backup peering (Microsoft/service provider) location to be used for customer traffic.
+     */
+    readonly providerBackupPeeringLocation?: string;
+    /**
+     * The primary peering (Microsoft/service provider) location to be used for customer traffic.
+     */
+    readonly providerPrimaryPeeringLocation?: string;
     /**
      * The provisioning state of the resource.
      */

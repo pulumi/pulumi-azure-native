@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Compute.Latest
     {
         /// <summary>
         /// Snapshot resource.
-        /// Latest API Version: 2020-09-30.
+        /// Latest API Version: 2020-12-01.
         /// </summary>
         public static Task<GetSnapshotResult> InvokeAsync(GetSnapshotArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSnapshotResult>("azure-native:compute/latest:getSnapshot", args ?? new GetSnapshotArgs(), options.WithVersion());
@@ -121,6 +121,10 @@ namespace Pulumi.AzureNative.Compute.Latest
         /// </summary>
         public readonly Outputs.SnapshotSkuResponse? Sku;
         /// <summary>
+        /// Indicates the OS on a snapshot supports hibernation.
+        /// </summary>
+        public readonly bool? SupportsHibernation;
+        /// <summary>
         /// Resource tags
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -177,6 +181,8 @@ namespace Pulumi.AzureNative.Compute.Latest
 
             Outputs.SnapshotSkuResponse? sku,
 
+            bool? supportsHibernation,
+
             ImmutableDictionary<string, string>? tags,
 
             string timeCreated,
@@ -204,6 +210,7 @@ namespace Pulumi.AzureNative.Compute.Latest
             ProvisioningState = provisioningState;
             PurchasePlan = purchasePlan;
             Sku = sku;
+            SupportsHibernation = supportsHibernation;
             Tags = tags;
             TimeCreated = timeCreated;
             Type = type;

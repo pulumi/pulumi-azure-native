@@ -36,6 +36,7 @@ __all__ = [
     'DisallowedArgs',
     'DiskEncryptionSetParametersArgs',
     'DiskEncryptionSettingsArgs',
+    'DiskSecurityProfileArgs',
     'DiskSkuArgs',
     'EncryptionArgs',
     'EncryptionImagesArgs',
@@ -1557,11 +1558,35 @@ class DiskEncryptionSettingsArgs:
 
 
 @pulumi.input_type
+class DiskSecurityProfileArgs:
+    def __init__(__self__, *,
+                 security_type: Optional[pulumi.Input[Union[str, 'DiskSecurityTypes']]] = None):
+        """
+        Contains the security related information for the resource.
+        :param pulumi.Input[Union[str, 'DiskSecurityTypes']] security_type: Specifies the SecurityType of the VM. Applicable for OS disks only.
+        """
+        if security_type is not None:
+            pulumi.set(__self__, "security_type", security_type)
+
+    @property
+    @pulumi.getter(name="securityType")
+    def security_type(self) -> Optional[pulumi.Input[Union[str, 'DiskSecurityTypes']]]:
+        """
+        Specifies the SecurityType of the VM. Applicable for OS disks only.
+        """
+        return pulumi.get(self, "security_type")
+
+    @security_type.setter
+    def security_type(self, value: Optional[pulumi.Input[Union[str, 'DiskSecurityTypes']]]):
+        pulumi.set(self, "security_type", value)
+
+
+@pulumi.input_type
 class DiskSkuArgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[Union[str, 'DiskStorageAccountTypes']]] = None):
         """
-        The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
+        The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, UltraSSD_LRS, Premium_ZRS, or StandardSSD_ZRS.
         :param pulumi.Input[Union[str, 'DiskStorageAccountTypes']] name: The sku name.
         """
         if name is not None:
@@ -3005,7 +3030,7 @@ class KeyForDiskEncryptionSetArgs:
                  source_vault: Optional[pulumi.Input['SourceVaultArgs']] = None):
         """
         Key Vault Key Url to be used for server side encryption of Managed Disks and Snapshots
-        :param pulumi.Input[str] key_url: Fully versioned Key Url pointing to a key in KeyVault
+        :param pulumi.Input[str] key_url: Fully versioned Key Url pointing to a key in KeyVault. Version segment of the Url is required regardless of rotationToLatestKeyVersionEnabled value.
         :param pulumi.Input['SourceVaultArgs'] source_vault: Resource id of the KeyVault containing the key or secret. This property is optional and cannot be used if the KeyVault subscription is not the same as the Disk Encryption Set subscription.
         """
         pulumi.set(__self__, "key_url", key_url)
@@ -3016,7 +3041,7 @@ class KeyForDiskEncryptionSetArgs:
     @pulumi.getter(name="keyUrl")
     def key_url(self) -> pulumi.Input[str]:
         """
-        Fully versioned Key Url pointing to a key in KeyVault
+        Fully versioned Key Url pointing to a key in KeyVault. Version segment of the Url is required regardless of rotationToLatestKeyVersionEnabled value.
         """
         return pulumi.get(self, "key_url")
 

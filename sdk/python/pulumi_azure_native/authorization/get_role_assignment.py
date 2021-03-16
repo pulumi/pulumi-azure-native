@@ -19,10 +19,7 @@ class GetRoleAssignmentResult:
     """
     Role Assignments
     """
-    def __init__(__self__, can_delegate=None, condition=None, condition_version=None, created_by=None, created_on=None, delegated_managed_identity_resource_id=None, description=None, id=None, name=None, principal_id=None, principal_type=None, role_definition_id=None, scope=None, type=None, updated_by=None, updated_on=None):
-        if can_delegate and not isinstance(can_delegate, bool):
-            raise TypeError("Expected argument 'can_delegate' to be a bool")
-        pulumi.set(__self__, "can_delegate", can_delegate)
+    def __init__(__self__, condition=None, condition_version=None, created_by=None, created_on=None, delegated_managed_identity_resource_id=None, description=None, id=None, name=None, principal_id=None, principal_type=None, role_definition_id=None, scope=None, type=None, updated_by=None, updated_on=None):
         if condition and not isinstance(condition, str):
             raise TypeError("Expected argument 'condition' to be a str")
         pulumi.set(__self__, "condition", condition)
@@ -70,14 +67,6 @@ class GetRoleAssignmentResult:
         pulumi.set(__self__, "updated_on", updated_on)
 
     @property
-    @pulumi.getter(name="canDelegate")
-    def can_delegate(self) -> Optional[bool]:
-        """
-        The Delegation flag for the role assignment
-        """
-        return pulumi.get(self, "can_delegate")
-
-    @property
     @pulumi.getter
     def condition(self) -> Optional[str]:
         """
@@ -95,7 +84,7 @@ class GetRoleAssignmentResult:
 
     @property
     @pulumi.getter(name="createdBy")
-    def created_by(self) -> Optional[str]:
+    def created_by(self) -> str:
         """
         Id of the user who created the assignment
         """
@@ -103,7 +92,7 @@ class GetRoleAssignmentResult:
 
     @property
     @pulumi.getter(name="createdOn")
-    def created_on(self) -> Optional[str]:
+    def created_on(self) -> str:
         """
         Time it was created
         """
@@ -143,7 +132,7 @@ class GetRoleAssignmentResult:
 
     @property
     @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[str]:
+    def principal_id(self) -> str:
         """
         The principal ID.
         """
@@ -159,7 +148,7 @@ class GetRoleAssignmentResult:
 
     @property
     @pulumi.getter(name="roleDefinitionId")
-    def role_definition_id(self) -> Optional[str]:
+    def role_definition_id(self) -> str:
         """
         The role definition ID.
         """
@@ -183,7 +172,7 @@ class GetRoleAssignmentResult:
 
     @property
     @pulumi.getter(name="updatedBy")
-    def updated_by(self) -> Optional[str]:
+    def updated_by(self) -> str:
         """
         Id of the user who updated the assignment
         """
@@ -191,7 +180,7 @@ class GetRoleAssignmentResult:
 
     @property
     @pulumi.getter(name="updatedOn")
-    def updated_on(self) -> Optional[str]:
+    def updated_on(self) -> str:
         """
         Time it was updated
         """
@@ -204,7 +193,6 @@ class AwaitableGetRoleAssignmentResult(GetRoleAssignmentResult):
         if False:
             yield self
         return GetRoleAssignmentResult(
-            can_delegate=self.can_delegate,
             condition=self.condition,
             condition_version=self.condition_version,
             created_by=self.created_by,
@@ -227,11 +215,11 @@ def get_role_assignment(role_assignment_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRoleAssignmentResult:
     """
     Role Assignments
-    API Version: 2020-04-01-preview.
+    API Version: 2020-08-01-preview.
 
 
-    :param str role_assignment_name: The name of the role assignment to get.
-    :param str scope: The scope of the role assignment.
+    :param str role_assignment_name: The name of the role assignment. It can be any valid GUID.
+    :param str scope: The scope of the operation or resource. Valid scopes are: subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
     """
     __args__ = dict()
     __args__['roleAssignmentName'] = role_assignment_name
@@ -243,7 +231,6 @@ def get_role_assignment(role_assignment_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:authorization:getRoleAssignment', __args__, opts=opts, typ=GetRoleAssignmentResult).value
 
     return AwaitableGetRoleAssignmentResult(
-        can_delegate=__ret__.can_delegate,
         condition=__ret__.condition,
         condition_version=__ret__.condition_version,
         created_by=__ret__.created_by,

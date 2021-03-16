@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Peering Service
- * API Version: 2020-10-01.
+ * API Version: 2021-01-01.
  */
 export class PeeringService extends pulumi.CustomResource {
     /**
@@ -45,13 +45,21 @@ export class PeeringService extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The PeeringServiceLocation of the Customer.
+     * The location (state/province) of the customer.
      */
     public readonly peeringServiceLocation!: pulumi.Output<string | undefined>;
     /**
-     * The MAPS Provider Name.
+     * The name of the service provider.
      */
     public readonly peeringServiceProvider!: pulumi.Output<string | undefined>;
+    /**
+     * The backup peering (Microsoft/service provider) location to be used for customer traffic.
+     */
+    public readonly providerBackupPeeringLocation!: pulumi.Output<string | undefined>;
+    /**
+     * The primary peering (Microsoft/service provider) location to be used for customer traffic.
+     */
+    public readonly providerPrimaryPeeringLocation!: pulumi.Output<string | undefined>;
     /**
      * The provisioning state of the resource.
      */
@@ -87,6 +95,8 @@ export class PeeringService extends pulumi.CustomResource {
             inputs["peeringServiceLocation"] = args ? args.peeringServiceLocation : undefined;
             inputs["peeringServiceName"] = args ? args.peeringServiceName : undefined;
             inputs["peeringServiceProvider"] = args ? args.peeringServiceProvider : undefined;
+            inputs["providerBackupPeeringLocation"] = args ? args.providerBackupPeeringLocation : undefined;
+            inputs["providerPrimaryPeeringLocation"] = args ? args.providerPrimaryPeeringLocation : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -98,6 +108,8 @@ export class PeeringService extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["peeringServiceLocation"] = undefined /*out*/;
             inputs["peeringServiceProvider"] = undefined /*out*/;
+            inputs["providerBackupPeeringLocation"] = undefined /*out*/;
+            inputs["providerPrimaryPeeringLocation"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["sku"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
@@ -121,7 +133,7 @@ export interface PeeringServiceArgs {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * The PeeringServiceLocation of the Customer.
+     * The location (state/province) of the customer.
      */
     readonly peeringServiceLocation?: pulumi.Input<string>;
     /**
@@ -129,9 +141,17 @@ export interface PeeringServiceArgs {
      */
     readonly peeringServiceName?: pulumi.Input<string>;
     /**
-     * The MAPS Provider Name.
+     * The name of the service provider.
      */
     readonly peeringServiceProvider?: pulumi.Input<string>;
+    /**
+     * The backup peering (Microsoft/service provider) location to be used for customer traffic.
+     */
+    readonly providerBackupPeeringLocation?: pulumi.Input<string>;
+    /**
+     * The primary peering (Microsoft/service provider) location to be used for customer traffic.
+     */
+    readonly providerPrimaryPeeringLocation?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

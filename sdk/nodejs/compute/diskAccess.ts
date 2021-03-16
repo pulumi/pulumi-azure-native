@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * disk access resource.
- * API Version: 2020-09-30.
+ * API Version: 2020-12-01.
  */
 export class DiskAccess extends pulumi.CustomResource {
     /**
@@ -100,7 +100,7 @@ export class DiskAccess extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute:DiskAccess" }, { type: "azure-native:compute/latest:DiskAccess" }, { type: "azure-nextgen:compute/latest:DiskAccess" }, { type: "azure-native:compute/v20200501:DiskAccess" }, { type: "azure-nextgen:compute/v20200501:DiskAccess" }, { type: "azure-native:compute/v20200630:DiskAccess" }, { type: "azure-nextgen:compute/v20200630:DiskAccess" }, { type: "azure-native:compute/v20200930:DiskAccess" }, { type: "azure-nextgen:compute/v20200930:DiskAccess" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute:DiskAccess" }, { type: "azure-native:compute/latest:DiskAccess" }, { type: "azure-nextgen:compute/latest:DiskAccess" }, { type: "azure-native:compute/v20200501:DiskAccess" }, { type: "azure-nextgen:compute/v20200501:DiskAccess" }, { type: "azure-native:compute/v20200630:DiskAccess" }, { type: "azure-nextgen:compute/v20200630:DiskAccess" }, { type: "azure-native:compute/v20200930:DiskAccess" }, { type: "azure-nextgen:compute/v20200930:DiskAccess" }, { type: "azure-native:compute/v20201201:DiskAccess" }, { type: "azure-nextgen:compute/v20201201:DiskAccess" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DiskAccess.__pulumiType, name, inputs, opts);
     }

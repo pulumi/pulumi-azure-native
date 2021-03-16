@@ -3750,130 +3750,6 @@ func (o PrivateEndpointPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-type PrivateEndpointConnectionType struct {
-	// GroupIds from the private link service resource.
-	GroupIds []string `pulumi:"groupIds"`
-	// The Private Endpoint resource for this Connection.
-	PrivateEndpoint *PrivateEndpoint `pulumi:"privateEndpoint"`
-	// Details about the state of the connection.
-	PrivateLinkServiceConnectionState *ConnectionState `pulumi:"privateLinkServiceConnectionState"`
-	// Provisioning state of the Private Endpoint Connection.
-	ProvisioningState *string `pulumi:"provisioningState"`
-}
-
-// PrivateEndpointConnectionTypeInput is an input type that accepts PrivateEndpointConnectionTypeArgs and PrivateEndpointConnectionTypeOutput values.
-// You can construct a concrete instance of `PrivateEndpointConnectionTypeInput` via:
-//
-//          PrivateEndpointConnectionTypeArgs{...}
-type PrivateEndpointConnectionTypeInput interface {
-	pulumi.Input
-
-	ToPrivateEndpointConnectionTypeOutput() PrivateEndpointConnectionTypeOutput
-	ToPrivateEndpointConnectionTypeOutputWithContext(context.Context) PrivateEndpointConnectionTypeOutput
-}
-
-type PrivateEndpointConnectionTypeArgs struct {
-	// GroupIds from the private link service resource.
-	GroupIds pulumi.StringArrayInput `pulumi:"groupIds"`
-	// The Private Endpoint resource for this Connection.
-	PrivateEndpoint PrivateEndpointPtrInput `pulumi:"privateEndpoint"`
-	// Details about the state of the connection.
-	PrivateLinkServiceConnectionState ConnectionStatePtrInput `pulumi:"privateLinkServiceConnectionState"`
-	// Provisioning state of the Private Endpoint Connection.
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
-}
-
-func (PrivateEndpointConnectionTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateEndpointConnectionType)(nil)).Elem()
-}
-
-func (i PrivateEndpointConnectionTypeArgs) ToPrivateEndpointConnectionTypeOutput() PrivateEndpointConnectionTypeOutput {
-	return i.ToPrivateEndpointConnectionTypeOutputWithContext(context.Background())
-}
-
-func (i PrivateEndpointConnectionTypeArgs) ToPrivateEndpointConnectionTypeOutputWithContext(ctx context.Context) PrivateEndpointConnectionTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionTypeOutput)
-}
-
-// PrivateEndpointConnectionTypeArrayInput is an input type that accepts PrivateEndpointConnectionTypeArray and PrivateEndpointConnectionTypeArrayOutput values.
-// You can construct a concrete instance of `PrivateEndpointConnectionTypeArrayInput` via:
-//
-//          PrivateEndpointConnectionTypeArray{ PrivateEndpointConnectionTypeArgs{...} }
-type PrivateEndpointConnectionTypeArrayInput interface {
-	pulumi.Input
-
-	ToPrivateEndpointConnectionTypeArrayOutput() PrivateEndpointConnectionTypeArrayOutput
-	ToPrivateEndpointConnectionTypeArrayOutputWithContext(context.Context) PrivateEndpointConnectionTypeArrayOutput
-}
-
-type PrivateEndpointConnectionTypeArray []PrivateEndpointConnectionTypeInput
-
-func (PrivateEndpointConnectionTypeArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PrivateEndpointConnectionType)(nil)).Elem()
-}
-
-func (i PrivateEndpointConnectionTypeArray) ToPrivateEndpointConnectionTypeArrayOutput() PrivateEndpointConnectionTypeArrayOutput {
-	return i.ToPrivateEndpointConnectionTypeArrayOutputWithContext(context.Background())
-}
-
-func (i PrivateEndpointConnectionTypeArray) ToPrivateEndpointConnectionTypeArrayOutputWithContext(ctx context.Context) PrivateEndpointConnectionTypeArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionTypeArrayOutput)
-}
-
-type PrivateEndpointConnectionTypeOutput struct{ *pulumi.OutputState }
-
-func (PrivateEndpointConnectionTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateEndpointConnectionType)(nil)).Elem()
-}
-
-func (o PrivateEndpointConnectionTypeOutput) ToPrivateEndpointConnectionTypeOutput() PrivateEndpointConnectionTypeOutput {
-	return o
-}
-
-func (o PrivateEndpointConnectionTypeOutput) ToPrivateEndpointConnectionTypeOutputWithContext(ctx context.Context) PrivateEndpointConnectionTypeOutput {
-	return o
-}
-
-// GroupIds from the private link service resource.
-func (o PrivateEndpointConnectionTypeOutput) GroupIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionType) []string { return v.GroupIds }).(pulumi.StringArrayOutput)
-}
-
-// The Private Endpoint resource for this Connection.
-func (o PrivateEndpointConnectionTypeOutput) PrivateEndpoint() PrivateEndpointPtrOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionType) *PrivateEndpoint { return v.PrivateEndpoint }).(PrivateEndpointPtrOutput)
-}
-
-// Details about the state of the connection.
-func (o PrivateEndpointConnectionTypeOutput) PrivateLinkServiceConnectionState() ConnectionStatePtrOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionType) *ConnectionState { return v.PrivateLinkServiceConnectionState }).(ConnectionStatePtrOutput)
-}
-
-// Provisioning state of the Private Endpoint Connection.
-func (o PrivateEndpointConnectionTypeOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionType) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
-}
-
-type PrivateEndpointConnectionTypeArrayOutput struct{ *pulumi.OutputState }
-
-func (PrivateEndpointConnectionTypeArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PrivateEndpointConnectionType)(nil)).Elem()
-}
-
-func (o PrivateEndpointConnectionTypeArrayOutput) ToPrivateEndpointConnectionTypeArrayOutput() PrivateEndpointConnectionTypeArrayOutput {
-	return o
-}
-
-func (o PrivateEndpointConnectionTypeArrayOutput) ToPrivateEndpointConnectionTypeArrayOutputWithContext(ctx context.Context) PrivateEndpointConnectionTypeArrayOutput {
-	return o
-}
-
-func (o PrivateEndpointConnectionTypeArrayOutput) Index(i pulumi.IntInput) PrivateEndpointConnectionTypeOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PrivateEndpointConnectionType {
-		return vs[0].([]PrivateEndpointConnectionType)[vs[1].(int)]
-	}).(PrivateEndpointConnectionTypeOutput)
-}
-
 type PrivateEndpointConnectionResponse struct {
 	// GroupIds from the private link service resource.
 	GroupIds []string `pulumi:"groupIds"`
@@ -6492,8 +6368,6 @@ func init() {
 	pulumi.RegisterOutputType(NumberNotInAdvancedFilterResponseOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointPtrOutput{})
-	pulumi.RegisterOutputType(PrivateEndpointConnectionTypeOutput{})
-	pulumi.RegisterOutputType(PrivateEndpointConnectionTypeArrayOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseArrayOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointResponseOutput{})

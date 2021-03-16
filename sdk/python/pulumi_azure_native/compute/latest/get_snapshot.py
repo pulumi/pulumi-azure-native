@@ -22,7 +22,7 @@ class GetSnapshotResult:
     """
     Snapshot resource.
     """
-    def __init__(__self__, creation_data=None, disk_access_id=None, disk_size_bytes=None, disk_size_gb=None, disk_state=None, encryption=None, encryption_settings_collection=None, extended_location=None, hyper_v_generation=None, id=None, incremental=None, location=None, managed_by=None, name=None, network_access_policy=None, os_type=None, provisioning_state=None, purchase_plan=None, sku=None, tags=None, time_created=None, type=None, unique_id=None):
+    def __init__(__self__, creation_data=None, disk_access_id=None, disk_size_bytes=None, disk_size_gb=None, disk_state=None, encryption=None, encryption_settings_collection=None, extended_location=None, hyper_v_generation=None, id=None, incremental=None, location=None, managed_by=None, name=None, network_access_policy=None, os_type=None, provisioning_state=None, purchase_plan=None, sku=None, supports_hibernation=None, tags=None, time_created=None, type=None, unique_id=None):
         if creation_data and not isinstance(creation_data, dict):
             raise TypeError("Expected argument 'creation_data' to be a dict")
         pulumi.set(__self__, "creation_data", creation_data)
@@ -80,6 +80,9 @@ class GetSnapshotResult:
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
+        if supports_hibernation and not isinstance(supports_hibernation, bool):
+            raise TypeError("Expected argument 'supports_hibernation' to be a bool")
+        pulumi.set(__self__, "supports_hibernation", supports_hibernation)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -246,6 +249,14 @@ class GetSnapshotResult:
         return pulumi.get(self, "sku")
 
     @property
+    @pulumi.getter(name="supportsHibernation")
+    def supports_hibernation(self) -> Optional[bool]:
+        """
+        Indicates the OS on a snapshot supports hibernation.
+        """
+        return pulumi.get(self, "supports_hibernation")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
@@ -303,6 +314,7 @@ class AwaitableGetSnapshotResult(GetSnapshotResult):
             provisioning_state=self.provisioning_state,
             purchase_plan=self.purchase_plan,
             sku=self.sku,
+            supports_hibernation=self.supports_hibernation,
             tags=self.tags,
             time_created=self.time_created,
             type=self.type,
@@ -314,7 +326,7 @@ def get_snapshot(resource_group_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSnapshotResult:
     """
     Snapshot resource.
-    Latest API Version: 2020-09-30.
+    Latest API Version: 2020-12-01.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -350,6 +362,7 @@ def get_snapshot(resource_group_name: Optional[str] = None,
         provisioning_state=__ret__.provisioning_state,
         purchase_plan=__ret__.purchase_plan,
         sku=__ret__.sku,
+        supports_hibernation=__ret__.supports_hibernation,
         tags=__ret__.tags,
         time_created=__ret__.time_created,
         type=__ret__.type,

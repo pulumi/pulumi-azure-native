@@ -8,6 +8,38 @@ using Pulumi;
 namespace Pulumi.AzureNative.ConfidentialLedger
 {
     /// <summary>
+    /// LedgerRole associated with the Security Principal of Ledger
+    /// </summary>
+    [EnumType]
+    public readonly struct LedgerRoleName : IEquatable<LedgerRoleName>
+    {
+        private readonly string _value;
+
+        private LedgerRoleName(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LedgerRoleName Reader { get; } = new LedgerRoleName("Reader");
+        public static LedgerRoleName Contributor { get; } = new LedgerRoleName("Contributor");
+        public static LedgerRoleName Administrator { get; } = new LedgerRoleName("Administrator");
+
+        public static bool operator ==(LedgerRoleName left, LedgerRoleName right) => left.Equals(right);
+        public static bool operator !=(LedgerRoleName left, LedgerRoleName right) => !left.Equals(right);
+
+        public static explicit operator string(LedgerRoleName value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LedgerRoleName other && Equals(other);
+        public bool Equals(LedgerRoleName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Type of Confidential Ledger
     /// </summary>
     [EnumType]

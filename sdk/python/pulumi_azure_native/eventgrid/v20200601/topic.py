@@ -22,7 +22,6 @@ class Topic(pulumi.CustomResource):
                  input_schema: Optional[pulumi.Input[Union[str, 'InputSchema']]] = None,
                  input_schema_mapping: Optional[pulumi.Input[pulumi.InputType['JsonInputSchemaMappingArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 private_endpoint_connections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrivateEndpointConnectionArgs']]]]] = None,
                  public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -68,7 +67,6 @@ class Topic(pulumi.CustomResource):
             __props__['input_schema'] = input_schema
             __props__['input_schema_mapping'] = input_schema_mapping
             __props__['location'] = location
-            __props__['private_endpoint_connections'] = private_endpoint_connections
             if public_network_access is None:
                 public_network_access = 'Enabled'
             __props__['public_network_access'] = public_network_access
@@ -80,6 +78,7 @@ class Topic(pulumi.CustomResource):
             __props__['endpoint'] = None
             __props__['metric_resource_id'] = None
             __props__['name'] = None
+            __props__['private_endpoint_connections'] = None
             __props__['provisioning_state'] = None
             __props__['system_data'] = None
             __props__['type'] = None
@@ -180,7 +179,7 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateEndpointConnections")
-    def private_endpoint_connections(self) -> pulumi.Output[Optional[Sequence['outputs.PrivateEndpointConnectionResponse']]]:
+    def private_endpoint_connections(self) -> pulumi.Output[Sequence['outputs.PrivateEndpointConnectionResponse']]:
         return pulumi.get(self, "private_endpoint_connections")
 
     @property

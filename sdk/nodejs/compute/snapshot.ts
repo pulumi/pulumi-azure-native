@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Snapshot resource.
- * API Version: 2020-09-30.
+ * API Version: 2020-12-01.
  */
 export class Snapshot extends pulumi.CustomResource {
     /**
@@ -109,6 +109,10 @@ export class Snapshot extends pulumi.CustomResource {
      */
     public readonly sku!: pulumi.Output<outputs.compute.SnapshotSkuResponse | undefined>;
     /**
+     * Indicates the OS on a snapshot supports hibernation.
+     */
+    public readonly supportsHibernation!: pulumi.Output<boolean | undefined>;
+    /**
      * Resource tags
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -157,6 +161,7 @@ export class Snapshot extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["snapshotName"] = args ? args.snapshotName : undefined;
+            inputs["supportsHibernation"] = args ? args.supportsHibernation : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["diskSizeBytes"] = undefined /*out*/;
             inputs["diskState"] = undefined /*out*/;
@@ -185,6 +190,7 @@ export class Snapshot extends pulumi.CustomResource {
             inputs["provisioningState"] = undefined /*out*/;
             inputs["purchasePlan"] = undefined /*out*/;
             inputs["sku"] = undefined /*out*/;
+            inputs["supportsHibernation"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["timeCreated"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -193,7 +199,7 @@ export class Snapshot extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute:Snapshot" }, { type: "azure-native:compute/latest:Snapshot" }, { type: "azure-nextgen:compute/latest:Snapshot" }, { type: "azure-native:compute/v20160430preview:Snapshot" }, { type: "azure-nextgen:compute/v20160430preview:Snapshot" }, { type: "azure-native:compute/v20170330:Snapshot" }, { type: "azure-nextgen:compute/v20170330:Snapshot" }, { type: "azure-native:compute/v20180401:Snapshot" }, { type: "azure-nextgen:compute/v20180401:Snapshot" }, { type: "azure-native:compute/v20180601:Snapshot" }, { type: "azure-nextgen:compute/v20180601:Snapshot" }, { type: "azure-native:compute/v20180930:Snapshot" }, { type: "azure-nextgen:compute/v20180930:Snapshot" }, { type: "azure-native:compute/v20190301:Snapshot" }, { type: "azure-nextgen:compute/v20190301:Snapshot" }, { type: "azure-native:compute/v20190701:Snapshot" }, { type: "azure-nextgen:compute/v20190701:Snapshot" }, { type: "azure-native:compute/v20191101:Snapshot" }, { type: "azure-nextgen:compute/v20191101:Snapshot" }, { type: "azure-native:compute/v20200501:Snapshot" }, { type: "azure-nextgen:compute/v20200501:Snapshot" }, { type: "azure-native:compute/v20200630:Snapshot" }, { type: "azure-nextgen:compute/v20200630:Snapshot" }, { type: "azure-native:compute/v20200930:Snapshot" }, { type: "azure-nextgen:compute/v20200930:Snapshot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:compute:Snapshot" }, { type: "azure-native:compute/latest:Snapshot" }, { type: "azure-nextgen:compute/latest:Snapshot" }, { type: "azure-native:compute/v20160430preview:Snapshot" }, { type: "azure-nextgen:compute/v20160430preview:Snapshot" }, { type: "azure-native:compute/v20170330:Snapshot" }, { type: "azure-nextgen:compute/v20170330:Snapshot" }, { type: "azure-native:compute/v20180401:Snapshot" }, { type: "azure-nextgen:compute/v20180401:Snapshot" }, { type: "azure-native:compute/v20180601:Snapshot" }, { type: "azure-nextgen:compute/v20180601:Snapshot" }, { type: "azure-native:compute/v20180930:Snapshot" }, { type: "azure-nextgen:compute/v20180930:Snapshot" }, { type: "azure-native:compute/v20190301:Snapshot" }, { type: "azure-nextgen:compute/v20190301:Snapshot" }, { type: "azure-native:compute/v20190701:Snapshot" }, { type: "azure-nextgen:compute/v20190701:Snapshot" }, { type: "azure-native:compute/v20191101:Snapshot" }, { type: "azure-nextgen:compute/v20191101:Snapshot" }, { type: "azure-native:compute/v20200501:Snapshot" }, { type: "azure-nextgen:compute/v20200501:Snapshot" }, { type: "azure-native:compute/v20200630:Snapshot" }, { type: "azure-nextgen:compute/v20200630:Snapshot" }, { type: "azure-native:compute/v20200930:Snapshot" }, { type: "azure-nextgen:compute/v20200930:Snapshot" }, { type: "azure-native:compute/v20201201:Snapshot" }, { type: "azure-nextgen:compute/v20201201:Snapshot" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Snapshot.__pulumiType, name, inputs, opts);
     }
@@ -263,6 +269,10 @@ export interface SnapshotArgs {
      * The name of the snapshot that is being created. The name can't be changed after the snapshot is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The max name length is 80 characters.
      */
     readonly snapshotName?: pulumi.Input<string>;
+    /**
+     * Indicates the OS on a snapshot supports hibernation.
+     */
+    readonly supportsHibernation?: pulumi.Input<boolean>;
     /**
      * Resource tags
      */

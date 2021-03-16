@@ -5,8 +5,18 @@
 from enum import Enum
 
 __all__ = [
+    'LedgerRoleName',
     'LedgerType',
 ]
+
+
+class LedgerRoleName(str, Enum):
+    """
+    LedgerRole associated with the Security Principal of Ledger
+    """
+    READER = "Reader"
+    CONTRIBUTOR = "Contributor"
+    ADMINISTRATOR = "Administrator"
 
 
 class LedgerType(str, Enum):

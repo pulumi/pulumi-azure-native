@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Peering.Latest
 {
     /// <summary>
     /// Peering is a logical representation of a set of connections to the Microsoft Cloud Edge at a location.
-    /// Latest API Version: 2020-10-01.
+    /// Latest API Version: 2021-01-01.
     /// </summary>
     [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:peering:Peering'.")]
     [AzureNativeResourceType("azure-native:peering/latest:Peering")]

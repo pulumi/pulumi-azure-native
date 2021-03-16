@@ -15800,7 +15800,10 @@
           "2016-08-01",
           "2016-07-01",
           "2016-06-01",
-          "2016-03-30"
+          "2016-03-30",
+          "2015-06-15",
+          "2015-05-01-preview",
+          "2014-12-01-preview"
         ],
         "capabilities": "CrossResourceGroupResourceMove, CrossSubscriptionResourceMove, SupportsTags, SupportsLocation",
         "defaultApiVersion": "2020-03-01",
@@ -19567,7 +19570,17 @@
           "2017-06-01",
           "2017-04-01",
           "2017-03-01",
-          "2016-12-01"
+          "2016-12-01",
+          "2016-11-01",
+          "2016-10-01",
+          "2016-09-01",
+          "2016-08-01",
+          "2016-07-01",
+          "2016-06-01",
+          "2016-03-30",
+          "2015-06-15",
+          "2015-05-01-preview",
+          "2014-12-01-preview"
         ],
         "capabilities": "SupportsTags, SupportsLocation",
         "defaultApiVersion": "2020-03-01",
@@ -20182,6 +20195,40 @@
         ],
         "properties": null,
         "resourceType": "expressRouteGateways"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2020-11-01",
+          "2020-08-01",
+          "2020-07-01",
+          "2020-06-01",
+          "2020-05-01",
+          "2020-04-01",
+          "2020-03-01",
+          "2020-01-01",
+          "2019-12-01",
+          "2019-11-01",
+          "2019-09-01",
+          "2019-08-01",
+          "2019-07-01",
+          "2019-06-01",
+          "2019-04-01",
+          "2019-02-01",
+          "2018-12-01",
+          "2018-11-01",
+          "2018-10-01",
+          "2018-08-01"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [
+          "France Central"
+        ],
+        "properties": null,
+        "resourceType": "expressRoutePortsLocations"
       },
       {
         "aliases": null,
@@ -74578,6 +74625,30 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2020-07-01-preview"
+        ],
+        "capabilities": "SystemAssignedResourceIdentity, SupportsExtension",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [
+          "East US",
+          "West Europe",
+          "West Central US",
+          "West US 2",
+          "South Central US",
+          "East US 2",
+          "North Europe",
+          "UK South",
+          "Southeast Asia",
+          "Australia East"
+        ],
+        "properties": null,
+        "resourceType": "extensions"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
           "2021-03-01",
           "2020-10-01-preview",
           "2020-07-01-preview",
@@ -76082,6 +76153,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-01-01",
           "2020-10-01",
           "2020-04-01",
           "2020-01-01-preview",
@@ -76128,6 +76200,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-01-01",
           "2020-10-01",
           "2020-04-01",
           "2020-01-01-preview",
@@ -76145,6 +76218,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-01-01",
           "2020-10-01",
           "2020-04-01",
           "2020-01-01-preview",
@@ -76162,6 +76236,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-01-01",
           "2020-10-01",
           "2020-04-01",
           "2020-01-01-preview",
@@ -76179,6 +76254,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-01-01",
           "2020-10-01",
           "2020-04-01",
           "2020-01-01-preview",
@@ -76225,6 +76301,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-01-01",
           "2020-10-01",
           "2020-04-01",
           "2020-01-01-preview"
@@ -76240,6 +76317,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-01-01",
           "2020-10-01",
           "2020-04-01",
           "2020-01-01-preview",
@@ -76257,6 +76335,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-01-01",
           "2020-10-01",
           "2020-04-01",
           "2020-01-01-preview",
@@ -76274,6 +76353,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-01-01",
           "2020-10-01",
           "2020-04-01",
           "2020-01-01-preview",
@@ -76291,6 +76371,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-01-01",
           "2020-10-01",
           "2020-04-01",
           "2020-01-01-preview",

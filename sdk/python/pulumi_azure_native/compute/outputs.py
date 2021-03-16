@@ -47,6 +47,7 @@ __all__ = [
     'DiskEncryptionSetParametersResponse',
     'DiskEncryptionSettingsResponse',
     'DiskInstanceViewResponse',
+    'DiskSecurityProfileResponse',
     'DiskSkuResponse',
     'EncryptionImagesResponse',
     'EncryptionResponse',
@@ -98,6 +99,7 @@ __all__ = [
     'PrivateEndpointConnectionResponse',
     'PrivateEndpointResponse',
     'PrivateLinkServiceConnectionStateResponse',
+    'PropertyUpdatesInProgressResponse',
     'PurchasePlanResponse',
     'RecommendedMachineConfigurationResponse',
     'RegionalReplicationStatusResponse',
@@ -2024,15 +2026,41 @@ class DiskInstanceViewResponse(dict):
 
 
 @pulumi.output_type
+class DiskSecurityProfileResponse(dict):
+    """
+    Contains the security related information for the resource.
+    """
+    def __init__(__self__, *,
+                 security_type: Optional[str] = None):
+        """
+        Contains the security related information for the resource.
+        :param str security_type: Specifies the SecurityType of the VM. Applicable for OS disks only.
+        """
+        if security_type is not None:
+            pulumi.set(__self__, "security_type", security_type)
+
+    @property
+    @pulumi.getter(name="securityType")
+    def security_type(self) -> Optional[str]:
+        """
+        Specifies the SecurityType of the VM. Applicable for OS disks only.
+        """
+        return pulumi.get(self, "security_type")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class DiskSkuResponse(dict):
     """
-    The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
+    The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, UltraSSD_LRS, Premium_ZRS, or StandardSSD_ZRS.
     """
     def __init__(__self__, *,
                  tier: str,
                  name: Optional[str] = None):
         """
-        The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
+        The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, UltraSSD_LRS, Premium_ZRS, or StandardSSD_ZRS.
         :param str tier: The sku tier.
         :param str name: The sku name.
         """
@@ -3454,7 +3482,7 @@ class KeyForDiskEncryptionSetResponse(dict):
                  source_vault: Optional['outputs.SourceVaultResponse'] = None):
         """
         Key Vault Key Url to be used for server side encryption of Managed Disks and Snapshots
-        :param str key_url: Fully versioned Key Url pointing to a key in KeyVault
+        :param str key_url: Fully versioned Key Url pointing to a key in KeyVault. Version segment of the Url is required regardless of rotationToLatestKeyVersionEnabled value.
         :param 'SourceVaultResponseArgs' source_vault: Resource id of the KeyVault containing the key or secret. This property is optional and cannot be used if the KeyVault subscription is not the same as the Disk Encryption Set subscription.
         """
         pulumi.set(__self__, "key_url", key_url)
@@ -3465,7 +3493,7 @@ class KeyForDiskEncryptionSetResponse(dict):
     @pulumi.getter(name="keyUrl")
     def key_url(self) -> str:
         """
-        Fully versioned Key Url pointing to a key in KeyVault
+        Fully versioned Key Url pointing to a key in KeyVault. Version segment of the Url is required regardless of rotationToLatestKeyVersionEnabled value.
         """
         return pulumi.get(self, "key_url")
 
@@ -4634,26 +4662,25 @@ class PrivateEndpointConnectionResponse(dict):
     def __init__(__self__, *,
                  id: str,
                  name: str,
+                 private_endpoint: 'outputs.PrivateEndpointResponse',
                  private_link_service_connection_state: 'outputs.PrivateLinkServiceConnectionStateResponse',
                  provisioning_state: str,
-                 type: str,
-                 private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None):
+                 type: str):
         """
         The Private Endpoint Connection resource.
         :param str id: private endpoint connection Id
         :param str name: private endpoint connection name
+        :param 'PrivateEndpointResponseArgs' private_endpoint: The resource of private end point.
         :param 'PrivateLinkServiceConnectionStateResponseArgs' private_link_service_connection_state: A collection of information about the state of the connection between DiskAccess and Virtual Network.
         :param str provisioning_state: The provisioning state of the private endpoint connection resource.
         :param str type: private endpoint connection type
-        :param 'PrivateEndpointResponseArgs' private_endpoint: The resource of private end point.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "private_endpoint", private_endpoint)
         pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         pulumi.set(__self__, "type", type)
-        if private_endpoint is not None:
-            pulumi.set(__self__, "private_endpoint", private_endpoint)
 
     @property
     @pulumi.getter
@@ -4670,6 +4697,14 @@ class PrivateEndpointConnectionResponse(dict):
         private endpoint connection name
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> 'outputs.PrivateEndpointResponse':
+        """
+        The resource of private end point.
+        """
+        return pulumi.get(self, "private_endpoint")
 
     @property
     @pulumi.getter(name="privateLinkServiceConnectionState")
@@ -4694,14 +4729,6 @@ class PrivateEndpointConnectionResponse(dict):
         private endpoint connection type
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="privateEndpoint")
-    def private_endpoint(self) -> Optional['outputs.PrivateEndpointResponse']:
-        """
-        The resource of private end point.
-        """
-        return pulumi.get(self, "private_endpoint")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -4777,6 +4804,32 @@ class PrivateLinkServiceConnectionStateResponse(dict):
         Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
         return pulumi.get(self, "status")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class PropertyUpdatesInProgressResponse(dict):
+    """
+    Properties of the disk for which update is pending.
+    """
+    def __init__(__self__, *,
+                 target_tier: Optional[str] = None):
+        """
+        Properties of the disk for which update is pending.
+        :param str target_tier: The target performance tier of the disk if a tier change operation is in progress.
+        """
+        if target_tier is not None:
+            pulumi.set(__self__, "target_tier", target_tier)
+
+    @property
+    @pulumi.getter(name="targetTier")
+    def target_tier(self) -> Optional[str]:
+        """
+        The target performance tier of the disk if a tier change operation is in progress.
+        """
+        return pulumi.get(self, "target_tier")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

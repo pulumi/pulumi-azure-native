@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Peering
     {
         /// <summary>
         /// Peering is a logical representation of a set of connections to the Microsoft Cloud Edge at a location.
-        /// API Version: 2020-10-01.
+        /// API Version: 2021-01-01.
         /// </summary>
         public static Task<GetPeeringResult> InvokeAsync(GetPeeringArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPeeringResult>("azure-native:peering:getPeering", args ?? new GetPeeringArgs(), options.WithVersion());
