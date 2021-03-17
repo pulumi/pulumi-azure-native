@@ -17,6 +17,7 @@ package-lock.json
 **/version.txt
 **/nuget
 **/dist
+**/*.tar.gz
 
 ci-scripts/
 provider/cmd/pulumi-resource-azure-native/schema-full.json
