@@ -262,7 +262,8 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         name: Publish SDKs
         run: ./ci-scripts/ci/publish-tfgen-package ${{ github.workspace }}
-      - name: Check worktree clean
+      - if: always()
+        name: Check worktree clean
         run: ./ci-scripts/ci/check-worktree-is-clean
       - if: failure() && github.event_name == 'push'
         name: Notify Slack
