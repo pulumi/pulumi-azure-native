@@ -167,6 +167,12 @@ namespace Pulumi.AzureNative.DocumentDB.V20210301Preview.Inputs
         }
 
         /// <summary>
+        /// Whether requests from Public Network are allowed
+        /// </summary>
+        [Input("publicNetworkAccess")]
+        public InputUnion<string, Pulumi.AzureNative.DocumentDB.V20210301Preview.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
+
+        /// <summary>
         /// Parameters to indicate the information about the restore.
         /// </summary>
         [Input("restoreParameters")]

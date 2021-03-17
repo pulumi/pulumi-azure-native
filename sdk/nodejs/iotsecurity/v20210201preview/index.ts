@@ -6,7 +6,9 @@ import * as utilities from "../../utilities";
 
 // Export members:
 export * from "./defenderSetting";
+export * from "./deviceGroup";
 export * from "./getDefenderSetting";
+export * from "./getDeviceGroup";
 export * from "./getOnPremiseSensor";
 export * from "./getSensor";
 export * from "./getSite";
@@ -16,6 +18,7 @@ export * from "./site";
 
 // Import resources to register:
 import { DefenderSetting } from "./defenderSetting";
+import { DeviceGroup } from "./deviceGroup";
 import { OnPremiseSensor } from "./onPremiseSensor";
 import { Sensor } from "./sensor";
 import { Site } from "./site";
@@ -26,6 +29,8 @@ const _module = {
         switch (type) {
             case "azure-native:iotsecurity/v20210201preview:DefenderSetting":
                 return new DefenderSetting(name, <any>undefined, { urn })
+            case "azure-native:iotsecurity/v20210201preview:DeviceGroup":
+                return new DeviceGroup(name, <any>undefined, { urn })
             case "azure-native:iotsecurity/v20210201preview:OnPremiseSensor":
                 return new OnPremiseSensor(name, <any>undefined, { urn })
             case "azure-native:iotsecurity/v20210201preview:Sensor":

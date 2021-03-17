@@ -401,7 +401,7 @@ class DatabaseAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> pulumi.Output[str]:
+    def public_network_access(self) -> pulumi.Output[Optional[str]]:
         """
         Whether requests from Public Network are allowed
         """

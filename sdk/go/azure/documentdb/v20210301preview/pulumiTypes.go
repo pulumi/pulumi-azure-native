@@ -6353,6 +6353,8 @@ type DefaultRequestDatabaseAccountCreateUpdateProperties struct {
 	NetworkAclBypass *string `pulumi:"networkAclBypass"`
 	// An array that contains the Resource Ids for Network Acl Bypass for the Cosmos DB account.
 	NetworkAclBypassResourceIds []string `pulumi:"networkAclBypassResourceIds"`
+	// Whether requests from Public Network are allowed
+	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// List of Virtual Network ACL rules configured for the Cosmos DB account.
 	VirtualNetworkRules []VirtualNetworkRule `pulumi:"virtualNetworkRules"`
 }
@@ -6411,6 +6413,8 @@ type DefaultRequestDatabaseAccountCreateUpdatePropertiesArgs struct {
 	NetworkAclBypass *NetworkAclBypass `pulumi:"networkAclBypass"`
 	// An array that contains the Resource Ids for Network Acl Bypass for the Cosmos DB account.
 	NetworkAclBypassResourceIds pulumi.StringArrayInput `pulumi:"networkAclBypassResourceIds"`
+	// Whether requests from Public Network are allowed
+	PublicNetworkAccess pulumi.StringPtrInput `pulumi:"publicNetworkAccess"`
 	// List of Virtual Network ACL rules configured for the Cosmos DB account.
 	VirtualNetworkRules VirtualNetworkRuleArrayInput `pulumi:"virtualNetworkRules"`
 }
@@ -6551,6 +6555,11 @@ func (o DefaultRequestDatabaseAccountCreateUpdatePropertiesOutput) NetworkAclByp
 	return o.ApplyT(func(v DefaultRequestDatabaseAccountCreateUpdateProperties) []string {
 		return v.NetworkAclBypassResourceIds
 	}).(pulumi.StringArrayOutput)
+}
+
+// Whether requests from Public Network are allowed
+func (o DefaultRequestDatabaseAccountCreateUpdatePropertiesOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DefaultRequestDatabaseAccountCreateUpdateProperties) *string { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
 }
 
 // List of Virtual Network ACL rules configured for the Cosmos DB account.
@@ -13585,6 +13594,8 @@ type RestoreReqeustDatabaseAccountCreateUpdateProperties struct {
 	NetworkAclBypass *string `pulumi:"networkAclBypass"`
 	// An array that contains the Resource Ids for Network Acl Bypass for the Cosmos DB account.
 	NetworkAclBypassResourceIds []string `pulumi:"networkAclBypassResourceIds"`
+	// Whether requests from Public Network are allowed
+	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// Parameters to indicate the information about the restore.
 	RestoreParameters *RestoreParameters `pulumi:"restoreParameters"`
 	// List of Virtual Network ACL rules configured for the Cosmos DB account.
@@ -13645,6 +13656,8 @@ type RestoreReqeustDatabaseAccountCreateUpdatePropertiesArgs struct {
 	NetworkAclBypass *NetworkAclBypass `pulumi:"networkAclBypass"`
 	// An array that contains the Resource Ids for Network Acl Bypass for the Cosmos DB account.
 	NetworkAclBypassResourceIds pulumi.StringArrayInput `pulumi:"networkAclBypassResourceIds"`
+	// Whether requests from Public Network are allowed
+	PublicNetworkAccess pulumi.StringPtrInput `pulumi:"publicNetworkAccess"`
 	// Parameters to indicate the information about the restore.
 	RestoreParameters RestoreParametersPtrInput `pulumi:"restoreParameters"`
 	// List of Virtual Network ACL rules configured for the Cosmos DB account.
@@ -13787,6 +13800,11 @@ func (o RestoreReqeustDatabaseAccountCreateUpdatePropertiesOutput) NetworkAclByp
 	return o.ApplyT(func(v RestoreReqeustDatabaseAccountCreateUpdateProperties) []string {
 		return v.NetworkAclBypassResourceIds
 	}).(pulumi.StringArrayOutput)
+}
+
+// Whether requests from Public Network are allowed
+func (o RestoreReqeustDatabaseAccountCreateUpdatePropertiesOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RestoreReqeustDatabaseAccountCreateUpdateProperties) *string { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
 }
 
 // Parameters to indicate the information about the restore.

@@ -21,6 +21,7 @@ __all__ = [
     'ManagedCassandraProvisioningState',
     'NetworkAclBypass',
     'PartitionKind',
+    'PublicNetworkAccess',
     'ResourceIdentityType',
     'RestoreMode',
     'RoleDefinitionType',
@@ -171,6 +172,14 @@ class PartitionKind(str, Enum):
     HASH = "Hash"
     RANGE = "Range"
     MULTI_HASH = "MultiHash"
+
+
+class PublicNetworkAccess(str, Enum):
+    """
+    Whether requests from Public Network are allowed
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 class ResourceIdentityType(str, Enum):

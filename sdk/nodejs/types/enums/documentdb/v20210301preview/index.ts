@@ -176,6 +176,16 @@ export const PartitionKind = {
  */
 export type PartitionKind = (typeof PartitionKind)[keyof typeof PartitionKind];
 
+export const PublicNetworkAccess = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Whether requests from Public Network are allowed
+ */
+export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
+
 export const ResourceIdentityType = {
     SystemAssigned: "SystemAssigned",
     UserAssigned: "UserAssigned",

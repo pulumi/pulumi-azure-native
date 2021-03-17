@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "azure-native:iotsecurity:DefenderSetting":
 		r, err = NewDefenderSetting(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-native:iotsecurity:DeviceGroup":
+		r, err = NewDeviceGroup(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:iotsecurity:OnPremiseSensor":
 		r, err = NewOnPremiseSensor(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:iotsecurity:Sensor":

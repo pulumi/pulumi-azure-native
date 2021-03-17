@@ -193,7 +193,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20210301Preview
         /// Whether requests from Public Network are allowed
         /// </summary>
         [Output("publicNetworkAccess")]
-        public Output<string> PublicNetworkAccess { get; private set; } = null!;
+        public Output<string?> PublicNetworkAccess { get; private set; } = null!;
 
         /// <summary>
         /// An array that contains of the read locations enabled for the Cosmos DB account.

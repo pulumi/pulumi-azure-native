@@ -166,6 +166,12 @@ namespace Pulumi.AzureNative.DocumentDB.V20210301Preview.Inputs
             set => _networkAclBypassResourceIds = value;
         }
 
+        /// <summary>
+        /// Whether requests from Public Network are allowed
+        /// </summary>
+        [Input("publicNetworkAccess")]
+        public InputUnion<string, Pulumi.AzureNative.DocumentDB.V20210301Preview.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
+
         [Input("virtualNetworkRules")]
         private InputList<Inputs.VirtualNetworkRuleArgs>? _virtualNetworkRules;
 

@@ -4,7 +4,9 @@
 
 # Export this package's modules as members:
 from .defender_setting import *
+from .device_group import *
 from .get_defender_setting import *
+from .get_device_group import *
 from .get_on_premise_sensor import *
 from .get_sensor import *
 from .get_site import *
@@ -32,6 +34,8 @@ def _register_module():
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
             if typ == "azure-native:iotsecurity:DefenderSetting":
                 return DefenderSetting(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:iotsecurity:DeviceGroup":
+                return DeviceGroup(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:iotsecurity:OnPremiseSensor":
                 return OnPremiseSensor(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:iotsecurity:Sensor":

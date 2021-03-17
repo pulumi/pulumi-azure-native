@@ -154,7 +154,7 @@ export class DatabaseAccount extends pulumi.CustomResource {
     /**
      * Whether requests from Public Network are allowed
      */
-    public /*out*/ readonly publicNetworkAccess!: pulumi.Output<string>;
+    public /*out*/ readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
     /**
      * An array that contains of the read locations enabled for the Cosmos DB account.
      */

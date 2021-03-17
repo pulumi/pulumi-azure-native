@@ -1141,6 +1141,7 @@ class DefaultRequestDatabaseAccountCreateUpdatePropertiesArgs:
                  key_vault_key_uri: Optional[pulumi.Input[str]] = None,
                  network_acl_bypass: Optional[pulumi.Input['NetworkAclBypass']] = None,
                  network_acl_bypass_resource_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]]] = None):
         """
         Properties for non-restore Azure Cosmos DB database account requests.
@@ -1165,6 +1166,7 @@ class DefaultRequestDatabaseAccountCreateUpdatePropertiesArgs:
         :param pulumi.Input[str] key_vault_key_uri: The URI of the key vault
         :param pulumi.Input['NetworkAclBypass'] network_acl_bypass: Indicates what services are allowed to bypass firewall checks.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_acl_bypass_resource_ids: An array that contains the Resource Ids for Network Acl Bypass for the Cosmos DB account.
+        :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Whether requests from Public Network are allowed
         :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]] virtual_network_rules: List of Virtual Network ACL rules configured for the Cosmos DB account.
         """
         if create_mode is None:
@@ -1206,6 +1208,8 @@ class DefaultRequestDatabaseAccountCreateUpdatePropertiesArgs:
             pulumi.set(__self__, "network_acl_bypass", network_acl_bypass)
         if network_acl_bypass_resource_ids is not None:
             pulumi.set(__self__, "network_acl_bypass_resource_ids", network_acl_bypass_resource_ids)
+        if public_network_access is not None:
+            pulumi.set(__self__, "public_network_access", public_network_access)
         if virtual_network_rules is not None:
             pulumi.set(__self__, "virtual_network_rules", virtual_network_rules)
 
@@ -1449,6 +1453,18 @@ class DefaultRequestDatabaseAccountCreateUpdatePropertiesArgs:
     @network_acl_bypass_resource_ids.setter
     def network_acl_bypass_resource_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "network_acl_bypass_resource_ids", value)
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]]:
+        """
+        Whether requests from Public Network are allowed
+        """
+        return pulumi.get(self, "public_network_access")
+
+    @public_network_access.setter
+    def public_network_access(self, value: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]]):
+        pulumi.set(self, "public_network_access", value)
 
     @property
     @pulumi.getter(name="virtualNetworkRules")
@@ -2432,6 +2448,7 @@ class RestoreReqeustDatabaseAccountCreateUpdatePropertiesArgs:
                  key_vault_key_uri: Optional[pulumi.Input[str]] = None,
                  network_acl_bypass: Optional[pulumi.Input['NetworkAclBypass']] = None,
                  network_acl_bypass_resource_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  restore_parameters: Optional[pulumi.Input['RestoreParametersArgs']] = None,
                  virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]]] = None):
         """
@@ -2457,6 +2474,7 @@ class RestoreReqeustDatabaseAccountCreateUpdatePropertiesArgs:
         :param pulumi.Input[str] key_vault_key_uri: The URI of the key vault
         :param pulumi.Input['NetworkAclBypass'] network_acl_bypass: Indicates what services are allowed to bypass firewall checks.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_acl_bypass_resource_ids: An array that contains the Resource Ids for Network Acl Bypass for the Cosmos DB account.
+        :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Whether requests from Public Network are allowed
         :param pulumi.Input['RestoreParametersArgs'] restore_parameters: Parameters to indicate the information about the restore.
         :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]] virtual_network_rules: List of Virtual Network ACL rules configured for the Cosmos DB account.
         """
@@ -2499,6 +2517,8 @@ class RestoreReqeustDatabaseAccountCreateUpdatePropertiesArgs:
             pulumi.set(__self__, "network_acl_bypass", network_acl_bypass)
         if network_acl_bypass_resource_ids is not None:
             pulumi.set(__self__, "network_acl_bypass_resource_ids", network_acl_bypass_resource_ids)
+        if public_network_access is not None:
+            pulumi.set(__self__, "public_network_access", public_network_access)
         if restore_parameters is not None:
             pulumi.set(__self__, "restore_parameters", restore_parameters)
         if virtual_network_rules is not None:
@@ -2744,6 +2764,18 @@ class RestoreReqeustDatabaseAccountCreateUpdatePropertiesArgs:
     @network_acl_bypass_resource_ids.setter
     def network_acl_bypass_resource_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "network_acl_bypass_resource_ids", value)
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]]:
+        """
+        Whether requests from Public Network are allowed
+        """
+        return pulumi.get(self, "public_network_access")
+
+    @public_network_access.setter
+    def public_network_access(self, value: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]]):
+        pulumi.set(self, "public_network_access", value)
 
     @property
     @pulumi.getter(name="restoreParameters")

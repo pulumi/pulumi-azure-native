@@ -160,7 +160,7 @@ export interface GetDatabaseAccountResult {
     /**
      * Whether requests from Public Network are allowed
      */
-    readonly publicNetworkAccess: string;
+    readonly publicNetworkAccess?: string;
     /**
      * An array that contains of the read locations enabled for the Cosmos DB account.
      */
