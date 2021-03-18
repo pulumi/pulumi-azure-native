@@ -434,6 +434,7 @@ const (
 	extensionLongRunningVia     = "final-state-via"
 	extensionMutability         = "x-ms-mutability"
 	extensionMutabilityCreate   = "create"
+	extensionMutabilityRead     = "read"
 	extensionMutabilityUpdate   = "update"
 	extensionParameterLocation  = "x-ms-parameter-location"
 )
@@ -1027,6 +1028,9 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 
 		var apiProperty resources.AzureAPIProperty
 		if isOutput {
+			if isWriteOnly(resolvedProperty) {
+				continue
+			}
 			if resolvedProperty.ReadOnly {
 				result.requiredSpecs.Add(sdkName)
 			}
@@ -1054,22 +1058,8 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 				}
 			}
 
-			// Mutability extension signals whether a property can be updated in-place. Lack of the extension means
-			// updatable by default.
-			// Note: a non-updatable property at a subtype level (a property of a property of a resource) does not
-			// mandate the replacement of the whole resource. Anyway, it's used very seldom (2 places at the time of writing).
-			// Example: `StorageAccount.encryption.services.blob.keyType` is non-updatable, but a user can remove `blob`
-			// and then re-add it with the new `keyType` without replacing the whole storage account (which would be
-			// very disruptive).
-			if mutability, ok := resolvedProperty.Extensions.GetStringSlice(extensionMutability); ok && !isType {
-				operations := codegen.NewStringSet(mutability...)
-				apiProperty.ForceNew = operations.Has(extensionMutabilityCreate) && !operations.Has(extensionMutabilityUpdate)
-			}
-
 			// Apply manual metadata about Force New properties.
-			if m.forceNew(name) {
-				apiProperty.ForceNew = true
-			}
+			apiProperty.ForceNew = m.forceNew(resolvedProperty, name, isType)
 		}
 
 		if sdkName != name {
@@ -1134,9 +1124,39 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 	return result, nil
 }
 
+// isWriteOnly return true for properties which are annotated with mutability extension that contain no 'read' value.
+func isWriteOnly(schema *openapi.Schema) bool {
+	mutability, has := schema.Extensions.GetStringSlice(extensionMutability)
+	if !has {
+		return false
+	}
+	for _, v := range mutability {
+		if v == extensionMutabilityRead {
+			return false
+		}
+	}
+	return true
+}
+
 // forceNew return true if a property with a given name requires a replacement in the resource
 // that is currently being generated, based on forceNewMap.
-func (m *moduleGenerator) forceNew(propertyName string) bool {
+func (m *moduleGenerator) forceNew(schema *openapi.Schema, propertyName string, isType bool) bool {
+	// Mutability extension signals whether a property can be updated in-place. Lack of the extension means
+	// updatable by default.
+	// Note: a non-updatable property at a subtype level (a property of a property of a resource) does not
+	// mandate the replacement of the whole resource. Anyway, it's used very seldom (2 places at the time of writing).
+	// Example: `StorageAccount.encryption.services.blob.keyType` is non-updatable, but a user can remove `blob`
+	// and then re-add it with the new `keyType` without replacing the whole storage account (which would be
+	// very disruptive).
+	if mutability, ok := schema.Extensions.GetStringSlice(extensionMutability); ok && !isType {
+		for _, v := range mutability {
+			if v == extensionMutabilityUpdate {
+				return false
+			}
+		}
+		return true
+	}
+
 	if resourceMap, ok := forceNewMap[m.prov]; ok {
 		if properties, ok := resourceMap[m.resourceName]; ok {
 			if properties.Has(propertyName) {
