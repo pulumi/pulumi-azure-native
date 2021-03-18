@@ -19,6 +19,8 @@ type DefenderSetting struct {
 	DeviceQuota pulumi.IntOutput `pulumi:"deviceQuota"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The kind of onboarding for the subscription
+	OnboardingKind pulumi.StringOutput `pulumi:"onboardingKind"`
 	// Sentinel Workspace Resource Ids
 	SentinelWorkspaceResourceIds pulumi.StringArrayOutput `pulumi:"sentinelWorkspaceResourceIds"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -34,6 +36,9 @@ func NewDefenderSetting(ctx *pulumi.Context,
 
 	if args.DeviceQuota == nil {
 		return nil, errors.New("invalid value for required argument 'DeviceQuota'")
+	}
+	if args.OnboardingKind == nil {
+		return nil, errors.New("invalid value for required argument 'OnboardingKind'")
 	}
 	if args.SentinelWorkspaceResourceIds == nil {
 		return nil, errors.New("invalid value for required argument 'SentinelWorkspaceResourceIds'")
@@ -76,6 +81,8 @@ type defenderSettingState struct {
 	DeviceQuota *int `pulumi:"deviceQuota"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
+	// The kind of onboarding for the subscription
+	OnboardingKind *string `pulumi:"onboardingKind"`
 	// Sentinel Workspace Resource Ids
 	SentinelWorkspaceResourceIds []string `pulumi:"sentinelWorkspaceResourceIds"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -87,6 +94,8 @@ type DefenderSettingState struct {
 	DeviceQuota pulumi.IntPtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
+	// The kind of onboarding for the subscription
+	OnboardingKind pulumi.StringPtrInput
 	// Sentinel Workspace Resource Ids
 	SentinelWorkspaceResourceIds pulumi.StringArrayInput
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -100,6 +109,8 @@ func (DefenderSettingState) ElementType() reflect.Type {
 type defenderSettingArgs struct {
 	// Size of the device quota (as a opposed to a Pay as You Go billing model). Value is required to be in multiples of 1000.
 	DeviceQuota int `pulumi:"deviceQuota"`
+	// The kind of onboarding for the subscription
+	OnboardingKind string `pulumi:"onboardingKind"`
 	// Sentinel Workspace Resource Ids
 	SentinelWorkspaceResourceIds []string `pulumi:"sentinelWorkspaceResourceIds"`
 }
@@ -108,6 +119,8 @@ type defenderSettingArgs struct {
 type DefenderSettingArgs struct {
 	// Size of the device quota (as a opposed to a Pay as You Go billing model). Value is required to be in multiples of 1000.
 	DeviceQuota pulumi.IntInput
+	// The kind of onboarding for the subscription
+	OnboardingKind pulumi.StringInput
 	// Sentinel Workspace Resource Ids
 	SentinelWorkspaceResourceIds pulumi.StringArrayInput
 }

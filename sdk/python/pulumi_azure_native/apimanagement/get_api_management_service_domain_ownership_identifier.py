@@ -28,7 +28,7 @@ class GetApiManagementServiceDomainOwnershipIdentifierResult:
     @pulumi.getter(name="domainOwnershipIdentifier")
     def domain_ownership_identifier(self) -> str:
         """
-        The domain ownership identifier value.
+        The domain ownership identifer value.
         """
         return pulumi.get(self, "domain_ownership_identifier")
 
@@ -45,7 +45,7 @@ class AwaitableGetApiManagementServiceDomainOwnershipIdentifierResult(GetApiMana
 def get_api_management_service_domain_ownership_identifier(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApiManagementServiceDomainOwnershipIdentifierResult:
     """
     Response of the GetDomainOwnershipIdentifier operation.
-    API Version: 2020-12-01.
+    API Version: 2020-06-01-preview.
     """
     __args__ = dict()
     if opts is None:

@@ -16,6 +16,9 @@ export * from "./onPremiseSensor";
 export * from "./sensor";
 export * from "./site";
 
+// Export enums:
+export * from "../types/enums/iotsecurity";
+
 // Export sub-modules:
 import * as v20210201preview from "./v20210201preview";
 

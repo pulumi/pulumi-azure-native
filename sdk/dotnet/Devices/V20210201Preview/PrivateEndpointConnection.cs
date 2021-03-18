@@ -77,6 +77,8 @@ namespace Pulumi.AzureNative.Devices.V20210201Preview
                     new Pulumi.Alias { Type = "azure-nextgen:devices/v20200831:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:devices/v20200831preview:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices/v20200831preview:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20210303preview:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:devices/v20210303preview:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

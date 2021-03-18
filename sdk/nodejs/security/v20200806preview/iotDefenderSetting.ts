@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -43,6 +44,10 @@ export class IotDefenderSetting extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * The kind of onboarding for the subscription
+     */
+    public readonly onboardingKind!: pulumi.Output<string>;
+    /**
      * Sentinel Workspace Resource Ids
      */
     public readonly sentinelWorkspaceResourceIds!: pulumi.Output<string[]>;
@@ -65,16 +70,21 @@ export class IotDefenderSetting extends pulumi.CustomResource {
             if ((!args || args.deviceQuota === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'deviceQuota'");
             }
+            if ((!args || args.onboardingKind === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'onboardingKind'");
+            }
             if ((!args || args.sentinelWorkspaceResourceIds === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sentinelWorkspaceResourceIds'");
             }
             inputs["deviceQuota"] = args ? args.deviceQuota : undefined;
+            inputs["onboardingKind"] = args ? args.onboardingKind : undefined;
             inputs["sentinelWorkspaceResourceIds"] = args ? args.sentinelWorkspaceResourceIds : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["deviceQuota"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["onboardingKind"] = undefined /*out*/;
             inputs["sentinelWorkspaceResourceIds"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -95,6 +105,10 @@ export interface IotDefenderSettingArgs {
      * Size of the device quota (as a opposed to a Pay as You Go billing model). Value is required to be in multiples of 1000.
      */
     readonly deviceQuota: pulumi.Input<number>;
+    /**
+     * The kind of onboarding for the subscription
+     */
+    readonly onboardingKind: pulumi.Input<string | enums.security.v20200806preview.OnboardingKind>;
     /**
      * Sentinel Workspace Resource Ids
      */

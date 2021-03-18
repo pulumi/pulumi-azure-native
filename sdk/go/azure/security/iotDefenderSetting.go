@@ -20,6 +20,8 @@ type IotDefenderSetting struct {
 	DeviceQuota pulumi.IntOutput `pulumi:"deviceQuota"`
 	// Resource name
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The kind of onboarding for the subscription
+	OnboardingKind pulumi.StringOutput `pulumi:"onboardingKind"`
 	// Sentinel Workspace Resource Ids
 	SentinelWorkspaceResourceIds pulumi.StringArrayOutput `pulumi:"sentinelWorkspaceResourceIds"`
 	// Resource type
@@ -35,6 +37,9 @@ func NewIotDefenderSetting(ctx *pulumi.Context,
 
 	if args.DeviceQuota == nil {
 		return nil, errors.New("invalid value for required argument 'DeviceQuota'")
+	}
+	if args.OnboardingKind == nil {
+		return nil, errors.New("invalid value for required argument 'OnboardingKind'")
 	}
 	if args.SentinelWorkspaceResourceIds == nil {
 		return nil, errors.New("invalid value for required argument 'SentinelWorkspaceResourceIds'")
@@ -77,6 +82,8 @@ type iotDefenderSettingState struct {
 	DeviceQuota *int `pulumi:"deviceQuota"`
 	// Resource name
 	Name *string `pulumi:"name"`
+	// The kind of onboarding for the subscription
+	OnboardingKind *string `pulumi:"onboardingKind"`
 	// Sentinel Workspace Resource Ids
 	SentinelWorkspaceResourceIds []string `pulumi:"sentinelWorkspaceResourceIds"`
 	// Resource type
@@ -88,6 +95,8 @@ type IotDefenderSettingState struct {
 	DeviceQuota pulumi.IntPtrInput
 	// Resource name
 	Name pulumi.StringPtrInput
+	// The kind of onboarding for the subscription
+	OnboardingKind pulumi.StringPtrInput
 	// Sentinel Workspace Resource Ids
 	SentinelWorkspaceResourceIds pulumi.StringArrayInput
 	// Resource type
@@ -101,6 +110,8 @@ func (IotDefenderSettingState) ElementType() reflect.Type {
 type iotDefenderSettingArgs struct {
 	// Size of the device quota (as a opposed to a Pay as You Go billing model). Value is required to be in multiples of 1000.
 	DeviceQuota int `pulumi:"deviceQuota"`
+	// The kind of onboarding for the subscription
+	OnboardingKind string `pulumi:"onboardingKind"`
 	// Sentinel Workspace Resource Ids
 	SentinelWorkspaceResourceIds []string `pulumi:"sentinelWorkspaceResourceIds"`
 }
@@ -109,6 +120,8 @@ type iotDefenderSettingArgs struct {
 type IotDefenderSettingArgs struct {
 	// Size of the device quota (as a opposed to a Pay as You Go billing model). Value is required to be in multiples of 1000.
 	DeviceQuota pulumi.IntInput
+	// The kind of onboarding for the subscription
+	OnboardingKind pulumi.StringInput
 	// Sentinel Workspace Resource Ids
 	SentinelWorkspaceResourceIds pulumi.StringArrayInput
 }

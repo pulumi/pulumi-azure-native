@@ -5,8 +5,17 @@
 from enum import Enum
 
 __all__ = [
+    'OnboardingKind',
     'SensorType',
 ]
+
+
+class OnboardingKind(str, Enum):
+    """
+    The kind of onboarding for the subscription
+    """
+    DEFAULT = "Default"
+    MIGRATED_TO_AZURE = "MigratedToAzure"
 
 
 class SensorType(str, Enum):

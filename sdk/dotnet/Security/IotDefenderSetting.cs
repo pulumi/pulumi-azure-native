@@ -29,6 +29,12 @@ namespace Pulumi.AzureNative.Security
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The kind of onboarding for the subscription
+        /// </summary>
+        [Output("onboardingKind")]
+        public Output<string> OnboardingKind { get; private set; } = null!;
+
+        /// <summary>
         /// Sentinel Workspace Resource Ids
         /// </summary>
         [Output("sentinelWorkspaceResourceIds")]
@@ -96,6 +102,12 @@ namespace Pulumi.AzureNative.Security
         /// </summary>
         [Input("deviceQuota", required: true)]
         public Input<int> DeviceQuota { get; set; } = null!;
+
+        /// <summary>
+        /// The kind of onboarding for the subscription
+        /// </summary>
+        [Input("onboardingKind", required: true)]
+        public InputUnion<string, Pulumi.AzureNative.Security.OnboardingKind> OnboardingKind { get; set; } = null!;
 
         [Input("sentinelWorkspaceResourceIds", required: true)]
         private InputList<string>? _sentinelWorkspaceResourceIds;

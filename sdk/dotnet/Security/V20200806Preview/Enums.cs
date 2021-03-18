@@ -8,6 +8,37 @@ using Pulumi;
 namespace Pulumi.AzureNative.Security.V20200806Preview
 {
     /// <summary>
+    /// The kind of onboarding for the subscription
+    /// </summary>
+    [EnumType]
+    public readonly struct OnboardingKind : IEquatable<OnboardingKind>
+    {
+        private readonly string _value;
+
+        private OnboardingKind(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OnboardingKind Default { get; } = new OnboardingKind("Default");
+        public static OnboardingKind MigratedToAzure { get; } = new OnboardingKind("MigratedToAzure");
+
+        public static bool operator ==(OnboardingKind left, OnboardingKind right) => left.Equals(right);
+        public static bool operator !=(OnboardingKind left, OnboardingKind right) => !left.Equals(right);
+
+        public static explicit operator string(OnboardingKind value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OnboardingKind other && Equals(other);
+        public bool Equals(OnboardingKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Type of sensor
     /// </summary>
     [EnumType]

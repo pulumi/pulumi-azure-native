@@ -28,6 +28,8 @@ type LookupDefenderSettingResult struct {
 	Id string `pulumi:"id"`
 	// The name of the resource
 	Name string `pulumi:"name"`
+	// The kind of onboarding for the subscription
+	OnboardingKind string `pulumi:"onboardingKind"`
 	// Sentinel Workspace Resource Ids
 	SentinelWorkspaceResourceIds []string `pulumi:"sentinelWorkspaceResourceIds"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"

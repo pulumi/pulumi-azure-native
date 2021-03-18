@@ -2,6 +2,16 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const OnboardingKind = {
+    Default: "Default",
+    MigratedToAzure: "MigratedToAzure",
+} as const;
+
+/**
+ * The kind of onboarding for the subscription
+ */
+export type OnboardingKind = (typeof OnboardingKind)[keyof typeof OnboardingKind];
+
 export const SensorType = {
     Ot: "Ot",
     Enterprise: "Enterprise",

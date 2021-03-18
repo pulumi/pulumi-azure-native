@@ -16,6 +16,9 @@ export * from "./onPremiseSensor";
 export * from "./sensor";
 export * from "./site";
 
+// Export enums:
+export * from "../../types/enums/iotsecurity/v20210201preview";
+
 // Import resources to register:
 import { DefenderSetting } from "./defenderSetting";
 import { DeviceGroup } from "./deviceGroup";

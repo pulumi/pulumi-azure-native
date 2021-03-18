@@ -18,6 +18,7 @@ __all__ = [
     'ExportData',
     'ImplementationEffort',
     'MinimalSeverity',
+    'OnboardingKind',
     'Operator',
     'PropertyType',
     'Protocol',
@@ -148,6 +149,14 @@ class MinimalSeverity(str, Enum):
     HIGH = "High"
     MEDIUM = "Medium"
     LOW = "Low"
+
+
+class OnboardingKind(str, Enum):
+    """
+    The kind of onboarding for the subscription
+    """
+    DEFAULT = "Default"
+    MIGRATED_TO_AZURE = "MigratedToAzure"
 
 
 class Operator(str, Enum):

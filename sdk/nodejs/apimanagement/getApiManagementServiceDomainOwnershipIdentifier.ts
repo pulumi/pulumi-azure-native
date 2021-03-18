@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Response of the GetDomainOwnershipIdentifier operation.
- * API Version: 2020-12-01.
+ * API Version: 2020-06-01-preview.
  */
 export function getApiManagementServiceDomainOwnershipIdentifier(args?: GetApiManagementServiceDomainOwnershipIdentifierArgs, opts?: pulumi.InvokeOptions): Promise<GetApiManagementServiceDomainOwnershipIdentifierResult> {
     args = args || {};
@@ -30,7 +30,7 @@ export interface GetApiManagementServiceDomainOwnershipIdentifierArgs {
  */
 export interface GetApiManagementServiceDomainOwnershipIdentifierResult {
     /**
-     * The domain ownership identifier value.
+     * The domain ownership identifer value.
      */
     readonly domainOwnershipIdentifier: string;
 }

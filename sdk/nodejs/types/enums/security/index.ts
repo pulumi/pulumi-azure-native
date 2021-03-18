@@ -211,6 +211,16 @@ export const MinimalSeverity = {
  */
 export type MinimalSeverity = (typeof MinimalSeverity)[keyof typeof MinimalSeverity];
 
+export const OnboardingKind = {
+    Default: "Default",
+    MigratedToAzure: "MigratedToAzure",
+} as const;
+
+/**
+ * The kind of onboarding for the subscription
+ */
+export type OnboardingKind = (typeof OnboardingKind)[keyof typeof OnboardingKind];
+
 export const Operator = {
     /**
      * Applies for decimal and non-decimal operands

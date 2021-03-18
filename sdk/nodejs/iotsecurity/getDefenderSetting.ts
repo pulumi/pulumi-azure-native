@@ -42,6 +42,10 @@ export interface GetDefenderSettingResult {
      */
     readonly name: string;
     /**
+     * The kind of onboarding for the subscription
+     */
+    readonly onboardingKind: string;
+    /**
      * Sentinel Workspace Resource Ids
      */
     readonly sentinelWorkspaceResourceIds: string[];

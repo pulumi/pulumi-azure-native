@@ -36,6 +36,7 @@ export * from "./getApiIssue";
 export * from "./getApiIssueAttachment";
 export * from "./getApiIssueComment";
 export * from "./getApiManagementService";
+export * from "./getApiManagementServiceDomainOwnershipIdentifier";
 export * from "./getApiManagementServiceSsoToken";
 export * from "./getApiOperation";
 export * from "./getApiOperationPolicy";

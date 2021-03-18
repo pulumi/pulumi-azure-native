@@ -28,6 +28,8 @@ type LookupIotDefenderSettingResult struct {
 	Id string `pulumi:"id"`
 	// Resource name
 	Name string `pulumi:"name"`
+	// The kind of onboarding for the subscription
+	OnboardingKind string `pulumi:"onboardingKind"`
 	// Sentinel Workspace Resource Ids
 	SentinelWorkspaceResourceIds []string `pulumi:"sentinelWorkspaceResourceIds"`
 	// Resource type

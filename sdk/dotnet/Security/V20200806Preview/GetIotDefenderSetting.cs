@@ -43,6 +43,10 @@ namespace Pulumi.AzureNative.Security.V20200806Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// The kind of onboarding for the subscription
+        /// </summary>
+        public readonly string OnboardingKind;
+        /// <summary>
         /// Sentinel Workspace Resource Ids
         /// </summary>
         public readonly ImmutableArray<string> SentinelWorkspaceResourceIds;
@@ -59,6 +63,8 @@ namespace Pulumi.AzureNative.Security.V20200806Preview
 
             string name,
 
+            string onboardingKind,
+
             ImmutableArray<string> sentinelWorkspaceResourceIds,
 
             string type)
@@ -66,6 +72,7 @@ namespace Pulumi.AzureNative.Security.V20200806Preview
             DeviceQuota = deviceQuota;
             Id = id;
             Name = name;
+            OnboardingKind = onboardingKind;
             SentinelWorkspaceResourceIds = sentinelWorkspaceResourceIds;
             Type = type;
         }

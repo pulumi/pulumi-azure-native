@@ -33,6 +33,7 @@ __all__ = [
     'LinkedIntegrationRuntimeRbacAuthorizationArgs',
     'ManagedIdentityArgs',
     'ManagedIntegrationRuntimeArgs',
+    'ManagedVirtualNetworkReferenceArgs',
     'ManagedVirtualNetworkSettingsArgs',
     'PrivateEndpointConnectionArgs',
     'PrivateLinkServiceConnectionStateArgs',
@@ -1186,6 +1187,7 @@ class ManagedIntegrationRuntimeArgs:
                  type: pulumi.Input[str],
                  compute_properties: Optional[pulumi.Input['IntegrationRuntimeComputePropertiesArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 managed_virtual_network: Optional[pulumi.Input['ManagedVirtualNetworkReferenceArgs']] = None,
                  ssis_properties: Optional[pulumi.Input['IntegrationRuntimeSsisPropertiesArgs']] = None):
         """
         Managed integration runtime, including managed elastic and managed dedicated integration runtimes.
@@ -1193,6 +1195,7 @@ class ManagedIntegrationRuntimeArgs:
                Expected value is 'Managed'.
         :param pulumi.Input['IntegrationRuntimeComputePropertiesArgs'] compute_properties: The compute resource for managed integration runtime.
         :param pulumi.Input[str] description: Integration runtime description.
+        :param pulumi.Input['ManagedVirtualNetworkReferenceArgs'] managed_virtual_network: Managed Virtual Network reference.
         :param pulumi.Input['IntegrationRuntimeSsisPropertiesArgs'] ssis_properties: SSIS properties for managed integration runtime.
         """
         pulumi.set(__self__, "type", 'Managed')
@@ -1200,6 +1203,8 @@ class ManagedIntegrationRuntimeArgs:
             pulumi.set(__self__, "compute_properties", compute_properties)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if managed_virtual_network is not None:
+            pulumi.set(__self__, "managed_virtual_network", managed_virtual_network)
         if ssis_properties is not None:
             pulumi.set(__self__, "ssis_properties", ssis_properties)
 
@@ -1241,6 +1246,18 @@ class ManagedIntegrationRuntimeArgs:
         pulumi.set(self, "description", value)
 
     @property
+    @pulumi.getter(name="managedVirtualNetwork")
+    def managed_virtual_network(self) -> Optional[pulumi.Input['ManagedVirtualNetworkReferenceArgs']]:
+        """
+        Managed Virtual Network reference.
+        """
+        return pulumi.get(self, "managed_virtual_network")
+
+    @managed_virtual_network.setter
+    def managed_virtual_network(self, value: Optional[pulumi.Input['ManagedVirtualNetworkReferenceArgs']]):
+        pulumi.set(self, "managed_virtual_network", value)
+
+    @property
     @pulumi.getter(name="ssisProperties")
     def ssis_properties(self) -> Optional[pulumi.Input['IntegrationRuntimeSsisPropertiesArgs']]:
         """
@@ -1251,6 +1268,44 @@ class ManagedIntegrationRuntimeArgs:
     @ssis_properties.setter
     def ssis_properties(self, value: Optional[pulumi.Input['IntegrationRuntimeSsisPropertiesArgs']]):
         pulumi.set(self, "ssis_properties", value)
+
+
+@pulumi.input_type
+class ManagedVirtualNetworkReferenceArgs:
+    def __init__(__self__, *,
+                 reference_name: pulumi.Input[str],
+                 type: pulumi.Input[str]):
+        """
+        Managed Virtual Network reference type.
+        :param pulumi.Input[str] reference_name: Reference ManagedVirtualNetwork name.
+        :param pulumi.Input[str] type: Managed Virtual Network reference type.
+        """
+        pulumi.set(__self__, "reference_name", reference_name)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="referenceName")
+    def reference_name(self) -> pulumi.Input[str]:
+        """
+        Reference ManagedVirtualNetwork name.
+        """
+        return pulumi.get(self, "reference_name")
+
+    @reference_name.setter
+    def reference_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "reference_name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Managed Virtual Network reference type.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
 
 
 @pulumi.input_type

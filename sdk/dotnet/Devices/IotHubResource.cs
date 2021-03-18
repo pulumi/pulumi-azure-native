@@ -122,6 +122,8 @@ namespace Pulumi.AzureNative.Devices
                     new Pulumi.Alias { Type = "azure-nextgen:devices/v20200831preview:IotHubResource"},
                     new Pulumi.Alias { Type = "azure-native:devices/v20210201preview:IotHubResource"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices/v20210201preview:IotHubResource"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20210303preview:IotHubResource"},
+                    new Pulumi.Alias { Type = "azure-nextgen:devices/v20210303preview:IotHubResource"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
