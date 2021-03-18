@@ -14,10 +14,10 @@ import (
 	"testing"
 )
 
-var testdataPath = filepath.Join("../testdata", "*/", "*.json")
+var testdataPath = filepath.Join("../testdata", "templates", "*/", "*.json")
 
 var renderOptionsOverride = map[string][]arm2pulumi.RenderOption{
-	"../testdata/armexport/rancher.json": {arm2pulumi.DisableResourceLinking()},
+	"../testdata/templates/armexport/rancher.json": {arm2pulumi.DisableResourceLinking()},
 }
 
 func loadMetadata(t *testing.T) *resources.AzureAPIMetadata {
@@ -85,6 +85,5 @@ func TestTemplateCoverage(t *testing.T) {
 				assert.Equal(t, expected[i], rendered[lang], match)
 			}
 		})
-
 	}
 }

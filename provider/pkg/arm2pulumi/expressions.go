@@ -414,7 +414,7 @@ func (t *TemplateElements) evalFunctionCall(
 					args := v.Args()
 					argsMap, ok := args.(map[string]interface{})
 					if !ok {
-						return fmt.Errorf("invalid payload for resource %s: %T", k, args)
+						return fmt.Errorf("invalid payload for resource %s: %T", v.Name(), args)
 					}
 					name, ok := argsMap["name"]
 					if !ok {

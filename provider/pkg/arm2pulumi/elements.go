@@ -315,12 +315,12 @@ func (t *TemplateElements) EvaluateExpressions() error {
 	// Initially we will skip resolving templates with certain functions. This is required with functions
 	// like reference, resourceId etc. where we may add additional elements due to template evaluation
 	// and since the order of evaluation is random.
-	for name, el := range t.elements {
+	for _, el := range t.elements {
 		args := el.TemplateElement.Args()
 		var err error
 		args, err = t.evalTemplateExpressions(el, args, "", "reference", "resourceId")
 		if err != nil {
-			return fmt.Errorf("failed to evaluate template expression for %s: %w", name, err)
+			return fmt.Errorf("failed to evaluate template expression for %s: %w", el.Name(), err)
 		}
 		el.SetArgs(args)
 	}
@@ -333,12 +333,12 @@ func (t *TemplateElements) EvaluateExpressions() error {
 	// At this point each element should be loaded into memory with auxiliary entries as needed.
 	// All supported template functions are fair game here. However, if resource linking is disabled,
 	// resourceId template function is continued to be ignored.
-	for name, el := range t.elements {
+	for _, el := range t.elements {
 		args := el.TemplateElement.Args()
 		var err error
 		args, err = t.evalTemplateExpressions(el, args, "", funcs...)
 		if err != nil {
-			return fmt.Errorf("failed to evaluate template expression for %s: %w", name, err)
+			return fmt.Errorf("failed to evaluate template expression for %s: %w", el.Name(), err)
 		}
 		el.SetArgs(args)
 	}

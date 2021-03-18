@@ -5,18 +5,19 @@ import "fmt"
 type Severity string
 
 const (
-	SevHigh Severity = "High"
-	SevMed  Severity = "Med"
-	SevLow  Severity = "Low"
+	SevFatal Severity = "Fatal"
+	SevHigh  Severity = "High"
+	SevMed   Severity = "Med"
+	SevLow   Severity = "Low"
 )
 
 // Diagnostic collects useful information for partial or complete failure in converting
 // an item in the template to pulumi code.
 type Diagnostic struct {
-	SourceElement string
-	SourceToken   string
-	Severity      Severity
-	Description   string
+	SourceElement string   `json:"sourceElement"`
+	SourceToken   string   `json:"sourceToken"`
+	Severity      Severity `json:"severity"`
+	Description   string   `json:"description"`
 }
 
 func (d Diagnostic) Error() string {
