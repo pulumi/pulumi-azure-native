@@ -40,10 +40,6 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly administratorLogin!: pulumi.Output<string | undefined>;
     /**
-     * The password of the administrator login (required for server creation).
-     */
-    public readonly administratorLoginPassword!: pulumi.Output<string | undefined>;
-    /**
      * availability Zone information of the server.
      */
     public readonly availabilityZone!: pulumi.Output<string | undefined>;
@@ -51,10 +47,6 @@ export class Server extends pulumi.CustomResource {
      * Status showing whether the data encryption is enabled with customer-managed keys.
      */
     public /*out*/ readonly byokEnforcement!: pulumi.Output<string>;
-    /**
-     * The mode to create a new MySQL server.
-     */
-    public readonly createMode!: pulumi.Output<string | undefined>;
     /**
      * Delegated subnet arguments.
      */
@@ -80,10 +72,6 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly identity!: pulumi.Output<outputs.dbformysql.v20200701privatepreview.IdentityResponse | undefined>;
     /**
-     * Status showing whether the server enabled infrastructure encryption.
-     */
-    public readonly infrastructureEncryption!: pulumi.Output<string | undefined>;
-    /**
      * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
@@ -107,10 +95,6 @@ export class Server extends pulumi.CustomResource {
      * The replication role.
      */
     public readonly replicationRole!: pulumi.Output<string | undefined>;
-    /**
-     * Restore point creation time (ISO8601 format), specifying the time to restore from.
-     */
-    public readonly restorePointInTime!: pulumi.Output<string | undefined>;
     /**
      * The SKU (pricing tier) of the server.
      */
@@ -194,24 +178,20 @@ export class Server extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["administratorLogin"] = undefined /*out*/;
-            inputs["administratorLoginPassword"] = undefined /*out*/;
             inputs["availabilityZone"] = undefined /*out*/;
             inputs["byokEnforcement"] = undefined /*out*/;
-            inputs["createMode"] = undefined /*out*/;
             inputs["delegatedSubnetArguments"] = undefined /*out*/;
             inputs["earliestRestoreDate"] = undefined /*out*/;
             inputs["fullyQualifiedDomainName"] = undefined /*out*/;
             inputs["haEnabled"] = undefined /*out*/;
             inputs["haState"] = undefined /*out*/;
             inputs["identity"] = undefined /*out*/;
-            inputs["infrastructureEncryption"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["maintenanceWindow"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["publicNetworkAccess"] = undefined /*out*/;
             inputs["replicaCapacity"] = undefined /*out*/;
             inputs["replicationRole"] = undefined /*out*/;
-            inputs["restorePointInTime"] = undefined /*out*/;
             inputs["sku"] = undefined /*out*/;
             inputs["sourceServerId"] = undefined /*out*/;
             inputs["sslEnforcement"] = undefined /*out*/;

@@ -51,10 +51,6 @@ export interface GetConnectorResult {
      */
     readonly credentialsKey?: string;
     /**
-     * Credentials secret (eg AWS ExternalId)
-     */
-    readonly credentialsSecret?: string;
-    /**
      * Connector DisplayName (defaults to Name)
      */
     readonly displayName?: string;

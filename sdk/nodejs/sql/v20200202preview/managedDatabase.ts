@@ -36,10 +36,6 @@ export class ManagedDatabase extends pulumi.CustomResource {
     }
 
     /**
-     * Whether to auto complete restore of this managed database.
-     */
-    public readonly autoCompleteRestore!: pulumi.Output<boolean | undefined>;
-    /**
      * Collation of the metadata catalog.
      */
     public readonly catalogCollation!: pulumi.Output<string | undefined>;
@@ -47,10 +43,6 @@ export class ManagedDatabase extends pulumi.CustomResource {
      * Collation of the managed database.
      */
     public readonly collation!: pulumi.Output<string | undefined>;
-    /**
-     * Managed database create mode. PointInTimeRestore: Create a database by restoring a point in time backup of an existing database. SourceDatabaseName, SourceManagedInstanceName and PointInTime must be specified. RestoreExternalBackup: Create a database by restoring from external backup files. Collation, StorageContainerUri and StorageContainerSasToken must be specified. Recovery: Creates a database by restoring a geo-replicated backup. RecoverableDatabaseId must be specified as the recoverable database resource ID to restore. RestoreLongTermRetentionBackup: Create a database by restoring from a long term retention backup (longTermRetentionBackupResourceId required).
-     */
-    public readonly createMode!: pulumi.Output<string | undefined>;
     /**
      * Creation date of the database.
      */
@@ -68,49 +60,17 @@ export class ManagedDatabase extends pulumi.CustomResource {
      */
     public /*out*/ readonly failoverGroupId!: pulumi.Output<string>;
     /**
-     * Last backup file name for restore of this managed database.
-     */
-    public readonly lastBackupName!: pulumi.Output<string | undefined>;
-    /**
      * Resource location.
      */
     public readonly location!: pulumi.Output<string>;
-    /**
-     * The name of the Long Term Retention backup to be used for restore of this managed database.
-     */
-    public readonly longTermRetentionBackupResourceId!: pulumi.Output<string | undefined>;
     /**
      * Resource name.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The resource identifier of the recoverable database associated with create operation of this database.
-     */
-    public readonly recoverableDatabaseId!: pulumi.Output<string | undefined>;
-    /**
-     * The restorable dropped database resource id to restore when creating this database.
-     */
-    public readonly restorableDroppedDatabaseId!: pulumi.Output<string | undefined>;
-    /**
-     * Conditional. If createMode is PointInTimeRestore, this value is required. Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database.
-     */
-    public readonly restorePointInTime!: pulumi.Output<string | undefined>;
-    /**
-     * The resource identifier of the source database associated with create operation of this database.
-     */
-    public readonly sourceDatabaseId!: pulumi.Output<string | undefined>;
-    /**
      * Status of the database.
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
-    /**
-     * Conditional. If createMode is RestoreExternalBackup, this value is required. Specifies the storage container sas token.
-     */
-    public readonly storageContainerSasToken!: pulumi.Output<string | undefined>;
-    /**
-     * Conditional. If createMode is RestoreExternalBackup, this value is required. Specifies the uri of the storage container where backups for this restore are stored.
-     */
-    public readonly storageContainerUri!: pulumi.Output<string | undefined>;
     /**
      * Resource tags.
      */
@@ -162,25 +122,15 @@ export class ManagedDatabase extends pulumi.CustomResource {
             inputs["status"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
-            inputs["autoCompleteRestore"] = undefined /*out*/;
             inputs["catalogCollation"] = undefined /*out*/;
             inputs["collation"] = undefined /*out*/;
-            inputs["createMode"] = undefined /*out*/;
             inputs["creationDate"] = undefined /*out*/;
             inputs["defaultSecondaryLocation"] = undefined /*out*/;
             inputs["earliestRestorePoint"] = undefined /*out*/;
             inputs["failoverGroupId"] = undefined /*out*/;
-            inputs["lastBackupName"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
-            inputs["longTermRetentionBackupResourceId"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
-            inputs["recoverableDatabaseId"] = undefined /*out*/;
-            inputs["restorableDroppedDatabaseId"] = undefined /*out*/;
-            inputs["restorePointInTime"] = undefined /*out*/;
-            inputs["sourceDatabaseId"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
-            inputs["storageContainerSasToken"] = undefined /*out*/;
-            inputs["storageContainerUri"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }

@@ -40,10 +40,6 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly administratorLogin!: pulumi.Output<string | undefined>;
     /**
-     * The administrator login password (required for server creation).
-     */
-    public readonly administratorLoginPassword!: pulumi.Output<string | undefined>;
-    /**
      * availability Zone information of the server.
      */
     public readonly availabilityZone!: pulumi.Output<string | undefined>;
@@ -51,10 +47,6 @@ export class Server extends pulumi.CustomResource {
      * Status showing whether the data encryption is enabled with customer-managed keys.
      */
     public /*out*/ readonly byokEnforcement!: pulumi.Output<string>;
-    /**
-     * The mode to create a new PostgreSQL server.
-     */
-    public readonly createMode!: pulumi.Output<string | undefined>;
     public readonly delegatedSubnetArguments!: pulumi.Output<outputs.dbforpostgresql.v20200214privatepreview.ServerPropertiesResponseDelegatedSubnetArguments | undefined>;
     /**
      * The display name of a server.
@@ -181,10 +173,8 @@ export class Server extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["administratorLogin"] = undefined /*out*/;
-            inputs["administratorLoginPassword"] = undefined /*out*/;
             inputs["availabilityZone"] = undefined /*out*/;
             inputs["byokEnforcement"] = undefined /*out*/;
-            inputs["createMode"] = undefined /*out*/;
             inputs["delegatedSubnetArguments"] = undefined /*out*/;
             inputs["displayName"] = undefined /*out*/;
             inputs["fullyQualifiedDomainName"] = undefined /*out*/;

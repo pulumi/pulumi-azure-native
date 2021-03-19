@@ -47,10 +47,6 @@ export interface GetServerResult {
      */
     readonly administratorLogin?: string;
     /**
-     * The administrator login password (required for server creation).
-     */
-    readonly administratorLoginPassword?: string;
-    /**
      * The Azure Active Directory identity of the server.
      */
     readonly administrators?: outputs.sql.v20201101preview.ServerExternalAdministratorResponse;

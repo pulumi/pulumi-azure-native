@@ -49,10 +49,6 @@ export class ManagedInstanceKey extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The key type like 'ServiceManaged', 'AzureKeyVault'.
-     */
-    public readonly serverKeyType!: pulumi.Output<string>;
-    /**
      * Thumbprint of the key.
      */
     public /*out*/ readonly thumbprint!: pulumi.Output<string>;
@@ -60,10 +56,6 @@ export class ManagedInstanceKey extends pulumi.CustomResource {
      * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * The URI of the key. If the ServerKeyType is AzureKeyVault, then the URI is required.
-     */
-    public readonly uri!: pulumi.Output<string | undefined>;
 
     /**
      * Create a ManagedInstanceKey resource with the given unique name, arguments, and options.
@@ -99,10 +91,8 @@ export class ManagedInstanceKey extends pulumi.CustomResource {
             inputs["creationDate"] = undefined /*out*/;
             inputs["kind"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
-            inputs["serverKeyType"] = undefined /*out*/;
             inputs["thumbprint"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
-            inputs["uri"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});

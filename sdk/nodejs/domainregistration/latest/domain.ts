@@ -45,26 +45,6 @@ export class Domain extends pulumi.CustomResource {
      */
     public readonly autoRenew!: pulumi.Output<boolean | undefined>;
     /**
-     * Legal agreement consent.
-     */
-    public readonly consent!: pulumi.Output<outputs.domainregistration.latest.DomainPurchaseConsentResponse>;
-    /**
-     * Administrative contact.
-     */
-    public readonly contactAdmin!: pulumi.Output<outputs.domainregistration.latest.ContactResponse>;
-    /**
-     * Billing contact.
-     */
-    public readonly contactBilling!: pulumi.Output<outputs.domainregistration.latest.ContactResponse>;
-    /**
-     * Registrant contact.
-     */
-    public readonly contactRegistrant!: pulumi.Output<outputs.domainregistration.latest.ContactResponse>;
-    /**
-     * Technical contact.
-     */
-    public readonly contactTech!: pulumi.Output<outputs.domainregistration.latest.ContactResponse>;
-    /**
      * Domain creation timestamp.
      */
     public /*out*/ readonly createdTime!: pulumi.Output<string>;
@@ -204,11 +184,6 @@ export class Domain extends pulumi.CustomResource {
         } else {
             inputs["authCode"] = undefined /*out*/;
             inputs["autoRenew"] = undefined /*out*/;
-            inputs["consent"] = undefined /*out*/;
-            inputs["contactAdmin"] = undefined /*out*/;
-            inputs["contactBilling"] = undefined /*out*/;
-            inputs["contactRegistrant"] = undefined /*out*/;
-            inputs["contactTech"] = undefined /*out*/;
             inputs["createdTime"] = undefined /*out*/;
             inputs["dnsType"] = undefined /*out*/;
             inputs["dnsZoneId"] = undefined /*out*/;

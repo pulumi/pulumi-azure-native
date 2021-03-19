@@ -48,10 +48,6 @@ export class Connector extends pulumi.CustomResource {
      */
     public readonly credentialsKey!: pulumi.Output<string | undefined>;
     /**
-     * Credentials secret (eg AWS ExternalId)
-     */
-    public readonly credentialsSecret!: pulumi.Output<string | undefined>;
-    /**
      * Connector DisplayName (defaults to Name)
      */
     public readonly displayName!: pulumi.Output<string | undefined>;
@@ -126,7 +122,6 @@ export class Connector extends pulumi.CustomResource {
             inputs["collection"] = undefined /*out*/;
             inputs["createdOn"] = undefined /*out*/;
             inputs["credentialsKey"] = undefined /*out*/;
-            inputs["credentialsSecret"] = undefined /*out*/;
             inputs["displayName"] = undefined /*out*/;
             inputs["kind"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;

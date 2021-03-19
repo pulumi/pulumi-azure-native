@@ -65,10 +65,6 @@ export class Controller extends pulumi.CustomResource {
      */
     public /*out*/ readonly targetContainerHostApiServerFqdn!: pulumi.Output<string>;
     /**
-     * Credentials of the target container host (base64).
-     */
-    public readonly targetContainerHostCredentialsBase64!: pulumi.Output<string>;
-    /**
      * Resource ID of the target container host
      */
     public readonly targetContainerHostResourceId!: pulumi.Output<string>;
@@ -121,7 +117,6 @@ export class Controller extends pulumi.CustomResource {
             inputs["sku"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["targetContainerHostApiServerFqdn"] = undefined /*out*/;
-            inputs["targetContainerHostCredentialsBase64"] = undefined /*out*/;
             inputs["targetContainerHostResourceId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }

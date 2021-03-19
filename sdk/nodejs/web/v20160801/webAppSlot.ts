@@ -48,10 +48,6 @@ export class WebAppSlot extends pulumi.CustomResource {
      */
     public readonly clientCertEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * If specified during app creation, the app is cloned from a source app.
-     */
-    public readonly cloningInfo!: pulumi.Output<outputs.web.v20160801.CloningInfoResponse | undefined>;
-    /**
      * Size of the function container.
      */
     public readonly containerSize!: pulumi.Output<number | undefined>;
@@ -160,10 +156,6 @@ export class WebAppSlot extends pulumi.CustomResource {
      */
     public /*out*/ readonly slotSwapStatus!: pulumi.Output<outputs.web.v20160801.SlotSwapStatusResponse>;
     /**
-     * If specified during app creation, the app is created from a previous snapshot.
-     */
-    public readonly snapshotInfo!: pulumi.Output<outputs.web.v20160801.SnapshotRecoveryRequestResponse | undefined>;
-    /**
      * Current state of the app.
      */
     public /*out*/ readonly state!: pulumi.Output<string>;
@@ -257,7 +249,6 @@ export class WebAppSlot extends pulumi.CustomResource {
             inputs["availabilityState"] = undefined /*out*/;
             inputs["clientAffinityEnabled"] = undefined /*out*/;
             inputs["clientCertEnabled"] = undefined /*out*/;
-            inputs["cloningInfo"] = undefined /*out*/;
             inputs["containerSize"] = undefined /*out*/;
             inputs["dailyMemoryTimeQuota"] = undefined /*out*/;
             inputs["defaultHostName"] = undefined /*out*/;
@@ -284,7 +275,6 @@ export class WebAppSlot extends pulumi.CustomResource {
             inputs["serverFarmId"] = undefined /*out*/;
             inputs["siteConfig"] = undefined /*out*/;
             inputs["slotSwapStatus"] = undefined /*out*/;
-            inputs["snapshotInfo"] = undefined /*out*/;
             inputs["state"] = undefined /*out*/;
             inputs["suspendedTill"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;

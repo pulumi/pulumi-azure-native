@@ -48,10 +48,6 @@ export interface GetSqlServerArgs {
  */
 export interface GetSqlServerResult {
     /**
-     * Cores of the Sql Server.
-     */
-    readonly cores?: number;
-    /**
      * Sql Server Edition.
      */
     readonly edition?: string;

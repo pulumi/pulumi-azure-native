@@ -54,10 +54,6 @@ export interface GetWebAppResult {
      */
     readonly clientCertExclusionPaths?: string;
     /**
-     * If specified during app creation, the app is cloned from a source app.
-     */
-    readonly cloningInfo?: outputs.web.v20181101.CloningInfoResponse;
-    /**
      * Size of the function container.
      */
     readonly containerSize?: number;

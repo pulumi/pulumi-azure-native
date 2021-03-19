@@ -48,10 +48,6 @@ export class SyncGroup extends pulumi.CustomResource {
      */
     public readonly enableConflictLogging!: pulumi.Output<boolean | undefined>;
     /**
-     * Password for the sync group hub database credential.
-     */
-    public readonly hubDatabasePassword!: pulumi.Output<string | undefined>;
-    /**
      * User name for the sync group hub database credential.
      */
     public readonly hubDatabaseUserName!: pulumi.Output<string | undefined>;
@@ -139,7 +135,6 @@ export class SyncGroup extends pulumi.CustomResource {
             inputs["conflictLoggingRetentionInDays"] = undefined /*out*/;
             inputs["conflictResolutionPolicy"] = undefined /*out*/;
             inputs["enableConflictLogging"] = undefined /*out*/;
-            inputs["hubDatabasePassword"] = undefined /*out*/;
             inputs["hubDatabaseUserName"] = undefined /*out*/;
             inputs["interval"] = undefined /*out*/;
             inputs["lastSyncTime"] = undefined /*out*/;

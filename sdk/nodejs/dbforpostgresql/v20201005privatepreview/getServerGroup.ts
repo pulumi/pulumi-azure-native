@@ -42,10 +42,6 @@ export interface GetServerGroupResult {
      */
     readonly administratorLogin?: string;
     /**
-     * The password of the administrator login.
-     */
-    readonly administratorLoginPassword?: string;
-    /**
      * Availability Zone information of the server group.
      */
     readonly availabilityZone?: string;
@@ -57,10 +53,6 @@ export interface GetServerGroupResult {
      * The Citus version of server group.
      */
     readonly citusVersion?: string;
-    /**
-     * The mode to create a new server group.
-     */
-    readonly createMode?: string;
     /**
      * The delegated subnet arguments for a server group.
      */
@@ -98,10 +90,6 @@ export interface GetServerGroupResult {
      */
     readonly name: string;
     /**
-     * Restore point creation time (ISO8601 format), specifying the time to restore from. It's required when 'createMode' is 'PointInTimeRestore'
-     */
-    readonly pointInTimeUTC?: string;
-    /**
      * The PostgreSQL version of server group.
      */
     readonly postgresqlVersion?: string;
@@ -118,25 +106,9 @@ export interface GetServerGroupResult {
      */
     readonly serverRoleGroups?: outputs.dbforpostgresql.v20201005privatepreview.ServerRoleGroupResponse[];
     /**
-     * The source server group location to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'ReadReplica'
-     */
-    readonly sourceLocation?: string;
-    /**
-     * The source resource group name to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'ReadReplica'
-     */
-    readonly sourceResourceGroupName?: string;
-    /**
      * The source server group id for read replica server groups.
      */
     readonly sourceServerGroup: string;
-    /**
-     * The source server group name to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'ReadReplica'
-     */
-    readonly sourceServerGroupName?: string;
-    /**
-     * The source subscription id to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'ReadReplica'
-     */
-    readonly sourceSubscriptionId?: string;
     /**
      * Standby Availability Zone information of the server group.
      */

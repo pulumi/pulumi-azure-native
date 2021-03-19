@@ -52,10 +52,6 @@ export class WebAppSlot extends pulumi.CustomResource {
      */
     public readonly clientCertExclusionPaths!: pulumi.Output<string | undefined>;
     /**
-     * If specified during app creation, the app is cloned from a source app.
-     */
-    public readonly cloningInfo!: pulumi.Output<outputs.web.v20180201.CloningInfoResponse | undefined>;
-    /**
      * Size of the function container.
      */
     public readonly containerSize!: pulumi.Output<number | undefined>;
@@ -279,7 +275,6 @@ export class WebAppSlot extends pulumi.CustomResource {
             inputs["clientAffinityEnabled"] = undefined /*out*/;
             inputs["clientCertEnabled"] = undefined /*out*/;
             inputs["clientCertExclusionPaths"] = undefined /*out*/;
-            inputs["cloningInfo"] = undefined /*out*/;
             inputs["containerSize"] = undefined /*out*/;
             inputs["dailyMemoryTimeQuota"] = undefined /*out*/;
             inputs["defaultHostName"] = undefined /*out*/;

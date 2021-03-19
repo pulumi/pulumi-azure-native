@@ -73,10 +73,6 @@ export interface GetControllerResult {
      */
     readonly targetContainerHostApiServerFqdn: string;
     /**
-     * Credentials of the target container host (base64).
-     */
-    readonly targetContainerHostCredentialsBase64: string;
-    /**
      * Resource ID of the target container host
      */
     readonly targetContainerHostResourceId: string;
