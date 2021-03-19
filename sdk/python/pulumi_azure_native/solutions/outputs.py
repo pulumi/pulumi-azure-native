@@ -11,8 +11,6 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'ApplianceArtifactResponse',
-    'ApplianceProviderAuthorizationResponse',
     'ApplicationArtifactResponse',
     'ApplicationAuthorizationResponse',
     'ApplicationBillingDetailsDefinitionResponse',
@@ -35,92 +33,6 @@ __all__ = [
     'SkuResponse',
     'UserAssignedResourceIdentityResponse',
 ]
-
-@pulumi.output_type
-class ApplianceArtifactResponse(dict):
-    """
-    Appliance artifact.
-    """
-    def __init__(__self__, *,
-                 name: Optional[str] = None,
-                 type: Optional[str] = None,
-                 uri: Optional[str] = None):
-        """
-        Appliance artifact.
-        :param str name: The appliance artifact name.
-        :param str type: The appliance artifact type.
-        :param str uri: The appliance artifact blob uri.
-        """
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-        if uri is not None:
-            pulumi.set(__self__, "uri", uri)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[str]:
-        """
-        The appliance artifact name.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[str]:
-        """
-        The appliance artifact type.
-        """
-        return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter
-    def uri(self) -> Optional[str]:
-        """
-        The appliance artifact blob uri.
-        """
-        return pulumi.get(self, "uri")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class ApplianceProviderAuthorizationResponse(dict):
-    """
-    The appliance provider authorization.
-    """
-    def __init__(__self__, *,
-                 principal_id: str,
-                 role_definition_id: str):
-        """
-        The appliance provider authorization.
-        :param str principal_id: The provider's principal identifier. This is the identity that the provider will use to call ARM to manage the appliance resources.
-        :param str role_definition_id: The provider's role definition identifier. This role will define all the permissions that the provider must have on the appliance's container resource group. This role definition cannot have permission to delete the resource group.
-        """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "role_definition_id", role_definition_id)
-
-    @property
-    @pulumi.getter(name="principalId")
-    def principal_id(self) -> str:
-        """
-        The provider's principal identifier. This is the identity that the provider will use to call ARM to manage the appliance resources.
-        """
-        return pulumi.get(self, "principal_id")
-
-    @property
-    @pulumi.getter(name="roleDefinitionId")
-    def role_definition_id(self) -> str:
-        """
-        The provider's role definition identifier. This role will define all the permissions that the provider must have on the appliance's container resource group. This role definition cannot have permission to delete the resource group.
-        """
-        return pulumi.get(self, "role_definition_id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ApplicationArtifactResponse(dict):

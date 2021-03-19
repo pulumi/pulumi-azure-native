@@ -14,51 +14,23 @@ namespace Pulumi.AzureNative.Web.Outputs
     public sealed class WorkerPoolResponse
     {
         /// <summary>
-        /// Shared or dedicated web app hosting
+        /// Shared or dedicated app hosting.
         /// </summary>
         public readonly string? ComputeMode;
         /// <summary>
-        /// Resource Id
-        /// </summary>
-        public readonly string? Id;
-        /// <summary>
-        /// Names of all instances in the worker pool (read only)
+        /// Names of all instances in the worker pool (read only).
         /// </summary>
         public readonly ImmutableArray<string> InstanceNames;
         /// <summary>
-        /// Kind of resource
-        /// </summary>
-        public readonly string? Kind;
-        /// <summary>
-        /// Resource Location
-        /// </summary>
-        public readonly string Location;
-        /// <summary>
-        /// Resource Name
-        /// </summary>
-        public readonly string? Name;
-        /// <summary>
-        /// Describes a sku for a scalable resource
-        /// </summary>
-        public readonly Outputs.SkuDescriptionResponse? Sku;
-        /// <summary>
-        /// Resource tags
-        /// </summary>
-        public readonly ImmutableDictionary<string, string>? Tags;
-        /// <summary>
-        /// Resource type
-        /// </summary>
-        public readonly string? Type;
-        /// <summary>
-        /// Number of instances in the worker pool
+        /// Number of instances in the worker pool.
         /// </summary>
         public readonly int? WorkerCount;
         /// <summary>
-        /// VM size of the worker pool instances
+        /// VM size of the worker pool instances.
         /// </summary>
         public readonly string? WorkerSize;
         /// <summary>
-        /// Worker size id for referencing this worker pool
+        /// Worker size ID for referencing this worker pool.
         /// </summary>
         public readonly int? WorkerSizeId;
 
@@ -66,21 +38,7 @@ namespace Pulumi.AzureNative.Web.Outputs
         private WorkerPoolResponse(
             string? computeMode,
 
-            string? id,
-
             ImmutableArray<string> instanceNames,
-
-            string? kind,
-
-            string location,
-
-            string? name,
-
-            Outputs.SkuDescriptionResponse? sku,
-
-            ImmutableDictionary<string, string>? tags,
-
-            string? type,
 
             int? workerCount,
 
@@ -89,14 +47,7 @@ namespace Pulumi.AzureNative.Web.Outputs
             int? workerSizeId)
         {
             ComputeMode = computeMode;
-            Id = id;
             InstanceNames = instanceNames;
-            Kind = kind;
-            Location = location;
-            Name = name;
-            Sku = sku;
-            Tags = tags;
-            Type = type;
             WorkerCount = workerCount;
             WorkerSize = workerSize;
             WorkerSizeId = workerSizeId;

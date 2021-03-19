@@ -130,6 +130,8 @@ namespace Pulumi.AzureNative.ContainerRegistry.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry/latest:Task"},
                     new Pulumi.Alias { Type = "azure-native:containerregistry:Task"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry:Task"},
+                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20180201preview:Task"},
+                    new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20180201preview:Task"},
                     new Pulumi.Alias { Type = "azure-native:containerregistry/v20180901:Task"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20180901:Task"},
                     new Pulumi.Alias { Type = "azure-native:containerregistry/v20190401:Task"},

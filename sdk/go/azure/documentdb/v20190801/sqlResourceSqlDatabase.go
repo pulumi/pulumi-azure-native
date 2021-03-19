@@ -62,6 +62,36 @@ func NewSqlResourceSqlDatabase(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:documentdb/latest:SqlResourceSqlDatabase"),
 		},
 		{
+			Type: pulumi.String("azure-native:documentdb/v20150401:SqlResourceSqlDatabase"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:documentdb/v20150401:SqlResourceSqlDatabase"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20150408:SqlResourceSqlDatabase"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:documentdb/v20150408:SqlResourceSqlDatabase"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20151106:SqlResourceSqlDatabase"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:documentdb/v20151106:SqlResourceSqlDatabase"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20160319:SqlResourceSqlDatabase"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:documentdb/v20160319:SqlResourceSqlDatabase"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20160331:SqlResourceSqlDatabase"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:documentdb/v20160331:SqlResourceSqlDatabase"),
+		},
+		{
 			Type: pulumi.String("azure-native:documentdb/v20191212:SqlResourceSqlDatabase"),
 		},
 		{

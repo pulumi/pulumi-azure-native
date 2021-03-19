@@ -19,13 +19,13 @@ __all__ = [
     'IotDpsPropertiesDescriptionResponse',
     'IotDpsSkuInfoResponse',
     'IotHubDefinitionDescriptionResponse',
-    'IpFilterRuleResponse',
     'KeyVaultKeyPropertiesResponse',
     'PrivateEndpointConnectionPropertiesResponse',
     'PrivateEndpointConnectionResponse',
     'PrivateEndpointResponse',
     'PrivateLinkServiceConnectionStateResponse',
     'SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponse',
+    'TargetIpFilterRuleResponse',
 ]
 
 @pulumi.output_type
@@ -293,7 +293,7 @@ class IotDpsPropertiesDescriptionResponse(dict):
                  authorization_policies: Optional[Sequence['outputs.SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponse']] = None,
                  encryption: Optional['outputs.EncryptionPropertiesDescriptionResponse'] = None,
                  iot_hubs: Optional[Sequence['outputs.IotHubDefinitionDescriptionResponse']] = None,
-                 ip_filter_rules: Optional[Sequence['outputs.IpFilterRuleResponse']] = None,
+                 ip_filter_rules: Optional[Sequence['outputs.TargetIpFilterRuleResponse']] = None,
                  private_endpoint_connections: Optional[Sequence['outputs.PrivateEndpointConnectionResponse']] = None,
                  provisioning_state: Optional[str] = None,
                  public_network_access: Optional[str] = None,
@@ -307,7 +307,7 @@ class IotDpsPropertiesDescriptionResponse(dict):
         :param Sequence['SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponseArgs'] authorization_policies: List of authorization keys for a provisioning service.
         :param 'EncryptionPropertiesDescriptionResponseArgs' encryption: The encryption properties for the IoT DPS instance.
         :param Sequence['IotHubDefinitionDescriptionResponseArgs'] iot_hubs: List of IoT hubs associated with this provisioning service.
-        :param Sequence['IpFilterRuleResponseArgs'] ip_filter_rules: The IP filter rules.
+        :param Sequence['TargetIpFilterRuleResponseArgs'] ip_filter_rules: The IP filter rules.
         :param Sequence['PrivateEndpointConnectionResponseArgs'] private_endpoint_connections: Private endpoint connections created on this IotHub
         :param str provisioning_state: The ARM provisioning state of the provisioning service.
         :param str public_network_access: Whether requests from Public Network are allowed
@@ -393,7 +393,7 @@ class IotDpsPropertiesDescriptionResponse(dict):
 
     @property
     @pulumi.getter(name="ipFilterRules")
-    def ip_filter_rules(self) -> Optional[Sequence['outputs.IpFilterRuleResponse']]:
+    def ip_filter_rules(self) -> Optional[Sequence['outputs.TargetIpFilterRuleResponse']]:
         """
         The IP filter rules.
         """
@@ -550,65 +550,6 @@ class IotHubDefinitionDescriptionResponse(dict):
         flag for applying allocationPolicy or not for a given iot hub.
         """
         return pulumi.get(self, "apply_allocation_policy")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class IpFilterRuleResponse(dict):
-    """
-    The IP filter rules for a provisioning Service.
-    """
-    def __init__(__self__, *,
-                 action: str,
-                 filter_name: str,
-                 ip_mask: str,
-                 target: Optional[str] = None):
-        """
-        The IP filter rules for a provisioning Service.
-        :param str action: The desired action for requests captured by this rule.
-        :param str filter_name: The name of the IP filter rule.
-        :param str ip_mask: A string that contains the IP address range in CIDR notation for the rule.
-        :param str target: Target for requests captured by this rule.
-        """
-        pulumi.set(__self__, "action", action)
-        pulumi.set(__self__, "filter_name", filter_name)
-        pulumi.set(__self__, "ip_mask", ip_mask)
-        if target is not None:
-            pulumi.set(__self__, "target", target)
-
-    @property
-    @pulumi.getter
-    def action(self) -> str:
-        """
-        The desired action for requests captured by this rule.
-        """
-        return pulumi.get(self, "action")
-
-    @property
-    @pulumi.getter(name="filterName")
-    def filter_name(self) -> str:
-        """
-        The name of the IP filter rule.
-        """
-        return pulumi.get(self, "filter_name")
-
-    @property
-    @pulumi.getter(name="ipMask")
-    def ip_mask(self) -> str:
-        """
-        A string that contains the IP address range in CIDR notation for the rule.
-        """
-        return pulumi.get(self, "ip_mask")
-
-    @property
-    @pulumi.getter
-    def target(self) -> Optional[str]:
-        """
-        Target for requests captured by this rule.
-        """
-        return pulumi.get(self, "target")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -863,6 +804,65 @@ class SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponse(dict
         Secondary SAS key value.
         """
         return pulumi.get(self, "secondary_key")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class TargetIpFilterRuleResponse(dict):
+    """
+    The IP filter rules for a provisioning Service.
+    """
+    def __init__(__self__, *,
+                 action: str,
+                 filter_name: str,
+                 ip_mask: str,
+                 target: Optional[str] = None):
+        """
+        The IP filter rules for a provisioning Service.
+        :param str action: The desired action for requests captured by this rule.
+        :param str filter_name: The name of the IP filter rule.
+        :param str ip_mask: A string that contains the IP address range in CIDR notation for the rule.
+        :param str target: Target for requests captured by this rule.
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "filter_name", filter_name)
+        pulumi.set(__self__, "ip_mask", ip_mask)
+        if target is not None:
+            pulumi.set(__self__, "target", target)
+
+    @property
+    @pulumi.getter
+    def action(self) -> str:
+        """
+        The desired action for requests captured by this rule.
+        """
+        return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter(name="filterName")
+    def filter_name(self) -> str:
+        """
+        The name of the IP filter rule.
+        """
+        return pulumi.get(self, "filter_name")
+
+    @property
+    @pulumi.getter(name="ipMask")
+    def ip_mask(self) -> str:
+        """
+        A string that contains the IP address range in CIDR notation for the rule.
+        """
+        return pulumi.get(self, "ip_mask")
+
+    @property
+    @pulumi.getter
+    def target(self) -> Optional[str]:
+        """
+        Target for requests captured by this rule.
+        """
+        return pulumi.get(self, "target")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

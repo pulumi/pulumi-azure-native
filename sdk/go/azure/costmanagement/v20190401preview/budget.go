@@ -63,12 +63,6 @@ func NewBudget(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:costmanagement/v20190401preview:Budget"),
 		},
-		{
-			Type: pulumi.String("azure-native:costmanagement:Budget"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:costmanagement:Budget"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource Budget

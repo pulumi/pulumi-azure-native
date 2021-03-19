@@ -73,70 +73,6 @@ namespace Pulumi.AzureNative.DataMigration
     }
 
     /// <summary>
-    /// Describes how changes will be replicated from the source to the target. The default is OneTime.
-    /// </summary>
-    [EnumType]
-    public readonly struct MongoDbReplication : IEquatable<MongoDbReplication>
-    {
-        private readonly string _value;
-
-        private MongoDbReplication(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static MongoDbReplication Disabled { get; } = new MongoDbReplication("Disabled");
-        public static MongoDbReplication OneTime { get; } = new MongoDbReplication("OneTime");
-        public static MongoDbReplication Continuous { get; } = new MongoDbReplication("Continuous");
-
-        public static bool operator ==(MongoDbReplication left, MongoDbReplication right) => left.Equals(right);
-        public static bool operator !=(MongoDbReplication left, MongoDbReplication right) => !left.Equals(right);
-
-        public static explicit operator string(MongoDbReplication value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is MongoDbReplication other && Equals(other);
-        public bool Equals(MongoDbReplication other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The field ordering
-    /// </summary>
-    [EnumType]
-    public readonly struct MongoDbShardKeyOrder : IEquatable<MongoDbShardKeyOrder>
-    {
-        private readonly string _value;
-
-        private MongoDbShardKeyOrder(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static MongoDbShardKeyOrder Forward { get; } = new MongoDbShardKeyOrder("Forward");
-        public static MongoDbShardKeyOrder Reverse { get; } = new MongoDbShardKeyOrder("Reverse");
-        public static MongoDbShardKeyOrder Hashed { get; } = new MongoDbShardKeyOrder("Hashed");
-
-        public static bool operator ==(MongoDbShardKeyOrder left, MongoDbShardKeyOrder right) => left.Equals(right);
-        public static bool operator !=(MongoDbShardKeyOrder left, MongoDbShardKeyOrder right) => !left.Equals(right);
-
-        public static explicit operator string(MongoDbShardKeyOrder value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is MongoDbShardKeyOrder other && Equals(other);
-        public bool Equals(MongoDbShardKeyOrder other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// Source platform for the project
     /// </summary>
     [EnumType]
@@ -254,67 +190,6 @@ namespace Pulumi.AzureNative.DataMigration
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SqlSourcePlatform other && Equals(other);
         public bool Equals(SqlSourcePlatform other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The overwrite option for the SSIS project migration
-    /// </summary>
-    [EnumType]
-    public readonly struct SsisMigrationOverwriteOption : IEquatable<SsisMigrationOverwriteOption>
-    {
-        private readonly string _value;
-
-        private SsisMigrationOverwriteOption(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static SsisMigrationOverwriteOption Ignore { get; } = new SsisMigrationOverwriteOption("Ignore");
-        public static SsisMigrationOverwriteOption Overwrite { get; } = new SsisMigrationOverwriteOption("Overwrite");
-
-        public static bool operator ==(SsisMigrationOverwriteOption left, SsisMigrationOverwriteOption right) => left.Equals(right);
-        public static bool operator !=(SsisMigrationOverwriteOption left, SsisMigrationOverwriteOption right) => !left.Equals(right);
-
-        public static explicit operator string(SsisMigrationOverwriteOption value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is SsisMigrationOverwriteOption other && Equals(other);
-        public bool Equals(SsisMigrationOverwriteOption other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The SSIS store type of source, only SSIS catalog is supported now in DMS
-    /// </summary>
-    [EnumType]
-    public readonly struct SsisStoreType : IEquatable<SsisStoreType>
-    {
-        private readonly string _value;
-
-        private SsisStoreType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static SsisStoreType SsisCatalog { get; } = new SsisStoreType("SsisCatalog");
-
-        public static bool operator ==(SsisStoreType left, SsisStoreType right) => left.Equals(right);
-        public static bool operator !=(SsisStoreType left, SsisStoreType right) => !left.Equals(right);
-
-        public static explicit operator string(SsisStoreType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is SsisStoreType other && Equals(other);
-        public bool Equals(SsisStoreType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

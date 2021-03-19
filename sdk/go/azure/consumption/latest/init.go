@@ -23,8 +23,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "azure-native:consumption/latest:Budget":
 		r, err = NewBudget(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-native:consumption/latest:BudgetByResourceGroupName":
-		r, err = NewBudgetByResourceGroupName(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

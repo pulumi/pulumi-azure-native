@@ -11,13 +11,50 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'EnterpriseSkuResponse',
     'ModuleResponse',
     'PersistenceResponse',
     'PrivateEndpointConnectionResponse',
     'PrivateEndpointResponse',
     'PrivateLinkServiceConnectionStateResponse',
-    'SkuResponse',
 ]
+
+@pulumi.output_type
+class EnterpriseSkuResponse(dict):
+    """
+    SKU parameters supplied to the create RedisEnterprise operation.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 capacity: Optional[int] = None):
+        """
+        SKU parameters supplied to the create RedisEnterprise operation.
+        :param str name: The type of RedisEnterprise cluster to deploy. Possible values: (Enterprise_E10, EnterpriseFlash_F300 etc.)
+        :param int capacity: The size of the RedisEnterprise cluster. Defaults to 2 or 3 depending on SKU. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for Flash SKUs.
+        """
+        pulumi.set(__self__, "name", name)
+        if capacity is not None:
+            pulumi.set(__self__, "capacity", capacity)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The type of RedisEnterprise cluster to deploy. Possible values: (Enterprise_E10, EnterpriseFlash_F300 etc.)
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def capacity(self) -> Optional[int]:
+        """
+        The size of the RedisEnterprise cluster. Defaults to 2 or 3 depending on SKU. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for Flash SKUs.
+        """
+        return pulumi.get(self, "capacity")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
 
 @pulumi.output_type
 class ModuleResponse(dict):
@@ -280,43 +317,6 @@ class PrivateLinkServiceConnectionStateResponse(dict):
         Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
         return pulumi.get(self, "status")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class SkuResponse(dict):
-    """
-    SKU parameters supplied to the create RedisEnterprise operation.
-    """
-    def __init__(__self__, *,
-                 name: str,
-                 capacity: Optional[int] = None):
-        """
-        SKU parameters supplied to the create RedisEnterprise operation.
-        :param str name: The type of RedisEnterprise cluster to deploy. Possible values: (Enterprise_E10, EnterpriseFlash_F300 etc.)
-        :param int capacity: The size of the RedisEnterprise cluster. Defaults to 2 or 3 depending on SKU. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for Flash SKUs.
-        """
-        pulumi.set(__self__, "name", name)
-        if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        The type of RedisEnterprise cluster to deploy. Possible values: (Enterprise_E10, EnterpriseFlash_F300 etc.)
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def capacity(self) -> Optional[int]:
-        """
-        The size of the RedisEnterprise cluster. Defaults to 2 or 3 depending on SKU. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for Flash SKUs.
-        """
-        return pulumi.get(self, "capacity")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

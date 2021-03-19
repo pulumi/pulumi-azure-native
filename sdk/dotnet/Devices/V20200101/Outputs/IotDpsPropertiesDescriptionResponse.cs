@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.Devices.V20200101.Outputs
         /// <summary>
         /// The IP filter rules.
         /// </summary>
-        public readonly ImmutableArray<Outputs.IpFilterRuleResponse> IpFilterRules;
+        public readonly ImmutableArray<Outputs.TargetIpFilterRuleResponse> IpFilterRules;
         /// <summary>
         /// The ARM provisioning state of the provisioning service.
         /// </summary>
@@ -62,7 +62,7 @@ namespace Pulumi.AzureNative.Devices.V20200101.Outputs
 
             ImmutableArray<Outputs.IotHubDefinitionDescriptionResponse> iotHubs,
 
-            ImmutableArray<Outputs.IpFilterRuleResponse> ipFilterRules,
+            ImmutableArray<Outputs.TargetIpFilterRuleResponse> ipFilterRules,
 
             string? provisioningState,
 

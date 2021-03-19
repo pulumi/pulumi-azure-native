@@ -6,10 +6,8 @@ from enum import Enum
 
 __all__ = [
     'AccumulatedType',
-    'CategoryType',
     'ChartType',
     'ConnectorBillingModel',
-    'ConnectorStatus',
     'CostAllocationPolicyType',
     'CostAllocationResourceType',
     'ExportType',
@@ -18,7 +16,6 @@ __all__ = [
     'GranularityType',
     'KpiTypeType',
     'MetricType',
-    'NotificationOperatorType',
     'OperatorType',
     'PivotTypeType',
     'RecurrenceType',
@@ -29,7 +26,6 @@ __all__ = [
     'ReportType',
     'RuleStatus',
     'StatusType',
-    'TimeGrainType',
     'TimeframeType',
 ]
 
@@ -40,14 +36,6 @@ class AccumulatedType(str, Enum):
     """
     TRUE = "true"
     FALSE = "false"
-
-
-class CategoryType(str, Enum):
-    """
-    The category of the budget, whether the budget tracks cost or usage.
-    """
-    COST = "Cost"
-    USAGE = "Usage"
 
 
 class ChartType(str, Enum):
@@ -69,15 +57,6 @@ class ConnectorBillingModel(str, Enum):
     AUTO_UPGRADE = "autoUpgrade"
     PREMIUM = "premium"
     EXPIRED = "expired"
-
-
-class ConnectorStatus(str, Enum):
-    """
-    Connector status
-    """
-    ACTIVE = "active"
-    ERROR = "error"
-    SUSPENDED = "suspended"
 
 
 class CostAllocationPolicyType(str, Enum):
@@ -123,6 +102,7 @@ class GranularityType(str, Enum):
     The granularity of rows in the report.
     """
     DAILY = "Daily"
+    HOURLY = "Hourly"
 
 
 class KpiTypeType(str, Enum):
@@ -140,15 +120,6 @@ class MetricType(str, Enum):
     ACTUAL_COST = "ActualCost"
     AMORTIZED_COST = "AmortizedCost"
     AHUB = "AHUB"
-
-
-class NotificationOperatorType(str, Enum):
-    """
-    The comparison operator.
-    """
-    EQUAL_TO = "EqualTo"
-    GREATER_THAN = "GreaterThan"
-    GREATER_THAN_OR_EQUAL_TO = "GreaterThanOrEqualTo"
 
 
 class OperatorType(str, Enum):
@@ -235,20 +206,10 @@ class StatusType(str, Enum):
     INACTIVE = "Inactive"
 
 
-class TimeGrainType(str, Enum):
-    """
-    The time covered by a budget. Tracking of the amount will be reset based on the time grain.
-    """
-    MONTHLY = "Monthly"
-    QUARTERLY = "Quarterly"
-    ANNUALLY = "Annually"
-
-
 class TimeframeType(str, Enum):
     """
     The time frame for pulling data for the report. If custom, then a specific time period must be provided.
     """
     WEEK_TO_DATE = "WeekToDate"
     MONTH_TO_DATE = "MonthToDate"
-    YEAR_TO_DATE = "YearToDate"
     CUSTOM = "Custom"

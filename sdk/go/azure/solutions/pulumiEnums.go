@@ -10,63 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// The appliance artifact type.
-type ApplianceArtifactType pulumi.String
-
-const (
-	ApplianceArtifactTypeTemplate = ApplianceArtifactType("Template")
-	ApplianceArtifactTypeCustom   = ApplianceArtifactType("Custom")
-)
-
-func (ApplianceArtifactType) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
-}
-
-func (e ApplianceArtifactType) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ApplianceArtifactType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ApplianceArtifactType) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e ApplianceArtifactType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-// The appliance lock level.
-type ApplianceLockLevel pulumi.String
-
-const (
-	ApplianceLockLevelCanNotDelete = ApplianceLockLevel("CanNotDelete")
-	ApplianceLockLevelReadOnly     = ApplianceLockLevel("ReadOnly")
-	ApplianceLockLevelNone         = ApplianceLockLevel("None")
-)
-
-func (ApplianceLockLevel) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
-}
-
-func (e ApplianceLockLevel) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ApplianceLockLevel) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ApplianceLockLevel) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e ApplianceLockLevel) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
 // The managed application definition artifact type.
 type ApplicationArtifactType pulumi.String
 

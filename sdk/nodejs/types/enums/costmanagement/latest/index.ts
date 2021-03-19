@@ -41,7 +41,7 @@ export const FormatType = {
 } as const;
 
 /**
- * The format of the report being delivered.
+ * The format of the export being delivered. Currently only 'Csv' is supported.
  */
 export type FormatType = (typeof FormatType)[keyof typeof FormatType];
 
@@ -59,7 +59,7 @@ export const GranularityType = {
 } as const;
 
 /**
- * The granularity of rows in the report.
+ * The granularity of rows in the export. Currently only 'Daily' is supported.
  */
 export type GranularityType = (typeof GranularityType)[keyof typeof GranularityType];
 
@@ -163,18 +163,20 @@ export const StatusType = {
 } as const;
 
 /**
- * The status of the schedule. Whether active or not. If inactive, the report's scheduled execution is paused.
+ * The status of the export's schedule. If 'Inactive', the export's schedule is paused.
  */
 export type StatusType = (typeof StatusType)[keyof typeof StatusType];
 
 export const TimeframeType = {
-    WeekToDate: "WeekToDate",
     MonthToDate: "MonthToDate",
-    YearToDate: "YearToDate",
+    BillingMonthToDate: "BillingMonthToDate",
+    TheLastMonth: "TheLastMonth",
+    TheLastBillingMonth: "TheLastBillingMonth",
+    WeekToDate: "WeekToDate",
     Custom: "Custom",
 } as const;
 
 /**
- * The time frame for pulling data for the report. If custom, then a specific time period must be provided.
+ * The time frame for pulling data for the export. If custom, then a specific time period must be provided.
  */
 export type TimeframeType = (typeof TimeframeType)[keyof typeof TimeframeType];

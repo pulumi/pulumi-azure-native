@@ -19,7 +19,6 @@ export * from "./expressRouteConnection";
 export * from "./expressRouteCrossConnectionPeering";
 export * from "./expressRouteGateway";
 export * from "./expressRoutePort";
-export * from "./frontDoor";
 export * from "./getApplicationGateway";
 export * from "./getApplicationSecurityGroup";
 export * from "./getAzureFirewall";
@@ -34,7 +33,6 @@ export * from "./getExpressRouteConnection";
 export * from "./getExpressRouteCrossConnectionPeering";
 export * from "./getExpressRouteGateway";
 export * from "./getExpressRoutePort";
-export * from "./getFrontDoor";
 export * from "./getInboundNatRule";
 export * from "./getInterfaceEndpoint";
 export * from "./getLoadBalancer";
@@ -47,7 +45,6 @@ export * from "./getNetworkWatcher";
 export * from "./getP2sVpnGateway";
 export * from "./getP2sVpnServerConfiguration";
 export * from "./getPacketCapture";
-export * from "./getPolicy";
 export * from "./getProfile";
 export * from "./getPublicIPAddress";
 export * from "./getPublicIPPrefix";
@@ -86,7 +83,6 @@ export * from "./networkWatcher";
 export * from "./p2sVpnGateway";
 export * from "./p2sVpnServerConfiguration";
 export * from "./packetCapture";
-export * from "./policy";
 export * from "./profile";
 export * from "./publicIPAddress";
 export * from "./publicIPPrefix";
@@ -128,7 +124,6 @@ import { ExpressRouteConnection } from "./expressRouteConnection";
 import { ExpressRouteCrossConnectionPeering } from "./expressRouteCrossConnectionPeering";
 import { ExpressRouteGateway } from "./expressRouteGateway";
 import { ExpressRoutePort } from "./expressRoutePort";
-import { FrontDoor } from "./frontDoor";
 import { InboundNatRule } from "./inboundNatRule";
 import { InterfaceEndpoint } from "./interfaceEndpoint";
 import { LoadBalancer } from "./loadBalancer";
@@ -141,7 +136,6 @@ import { NetworkWatcher } from "./networkWatcher";
 import { P2sVpnGateway } from "./p2sVpnGateway";
 import { P2sVpnServerConfiguration } from "./p2sVpnServerConfiguration";
 import { PacketCapture } from "./packetCapture";
-import { Policy } from "./policy";
 import { Profile } from "./profile";
 import { PublicIPAddress } from "./publicIPAddress";
 import { PublicIPPrefix } from "./publicIPPrefix";
@@ -197,8 +191,6 @@ const _module = {
                 return new ExpressRouteGateway(name, <any>undefined, { urn })
             case "azure-native:network/v20180801:ExpressRoutePort":
                 return new ExpressRoutePort(name, <any>undefined, { urn })
-            case "azure-native:network/v20180801:FrontDoor":
-                return new FrontDoor(name, <any>undefined, { urn })
             case "azure-native:network/v20180801:InboundNatRule":
                 return new InboundNatRule(name, <any>undefined, { urn })
             case "azure-native:network/v20180801:InterfaceEndpoint":
@@ -223,8 +215,6 @@ const _module = {
                 return new P2sVpnServerConfiguration(name, <any>undefined, { urn })
             case "azure-native:network/v20180801:PacketCapture":
                 return new PacketCapture(name, <any>undefined, { urn })
-            case "azure-native:network/v20180801:Policy":
-                return new Policy(name, <any>undefined, { urn })
             case "azure-native:network/v20180801:Profile":
                 return new Profile(name, <any>undefined, { urn })
             case "azure-native:network/v20180801:PublicIPAddress":

@@ -53,18 +53,6 @@ func NewCertificateCsr(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:web/v20150801:CertificateCsr"),
 		},
-		{
-			Type: pulumi.String("azure-native:web:CertificateCsr"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web:CertificateCsr"),
-		},
-		{
-			Type: pulumi.String("azure-native:web/latest:CertificateCsr"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/latest:CertificateCsr"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource CertificateCsr

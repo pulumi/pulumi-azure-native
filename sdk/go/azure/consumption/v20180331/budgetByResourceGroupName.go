@@ -64,18 +64,6 @@ func NewBudgetByResourceGroupName(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:consumption/v20180331:BudgetByResourceGroupName"),
 		},
 		{
-			Type: pulumi.String("azure-native:consumption:BudgetByResourceGroupName"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:consumption:BudgetByResourceGroupName"),
-		},
-		{
-			Type: pulumi.String("azure-native:consumption/latest:BudgetByResourceGroupName"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:consumption/latest:BudgetByResourceGroupName"),
-		},
-		{
 			Type: pulumi.String("azure-native:consumption/v20180131:BudgetByResourceGroupName"),
 		},
 		{

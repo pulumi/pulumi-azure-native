@@ -88,7 +88,7 @@ __all__ = [
     'DelegationResponse',
     'DevicePropertiesResponse',
     'DhcpOptionsResponse',
-    'EndpointResponse',
+    'ExperimentEndpointResponse',
     'ExpressRouteCircuitAuthorizationResponse',
     'ExpressRouteCircuitConnectionResponse',
     'ExpressRouteCircuitPeeringConfigResponse',
@@ -6368,7 +6368,7 @@ class DhcpOptionsResponse(dict):
 
 
 @pulumi.output_type
-class EndpointResponse(dict):
+class ExperimentEndpointResponse(dict):
     """
     Defines the endpoint properties
     """

@@ -48,18 +48,6 @@ func NewReportConfig(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:costmanagement/v20180531:ReportConfig"),
 		},
-		{
-			Type: pulumi.String("azure-native:costmanagement:ReportConfig"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:costmanagement:ReportConfig"),
-		},
-		{
-			Type: pulumi.String("azure-native:costmanagement/latest:ReportConfig"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:costmanagement/latest:ReportConfig"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource ReportConfig

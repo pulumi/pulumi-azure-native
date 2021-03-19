@@ -63,10 +63,9 @@ __all__ = [
     'SecretObjectResponse',
     'SetValueResponse',
     'SkuResponse',
-    'SourceControlAuthInfoResponse',
+    'SourceControlAuthInfoResponseResult',
     'SourcePropertiesResponse',
     'SourceRegistryCredentialsResponse',
-    'SourceRepositoryPropertiesResponse',
     'SourceResponseResult',
     'SourceTriggerDescriptorResponse',
     'SourceTriggerResponse',
@@ -3503,7 +3502,7 @@ class SkuResponse(dict):
 
 
 @pulumi.output_type
-class SourceControlAuthInfoResponse(dict):
+class SourceControlAuthInfoResponseResult(dict):
     """
     The authorization properties for accessing the source code repository.
     """
@@ -3570,9 +3569,6 @@ class SourceControlAuthInfoResponse(dict):
         The type of Auth token.
         """
         return pulumi.get(self, "token_type")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -3662,68 +3658,6 @@ class SourceRegistryCredentialsResponse(dict):
         the source registry during the run.
         """
         return pulumi.get(self, "login_mode")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class SourceRepositoryPropertiesResponse(dict):
-    """
-    The properties of the source code repository.
-    """
-    def __init__(__self__, *,
-                 repository_url: str,
-                 source_control_type: str,
-                 is_commit_trigger_enabled: Optional[bool] = None,
-                 source_control_auth_properties: Optional['outputs.SourceControlAuthInfoResponse'] = None):
-        """
-        The properties of the source code repository.
-        :param str repository_url: The full URL to the source code repository
-        :param str source_control_type: The type of source control service.
-        :param bool is_commit_trigger_enabled: The value of this property indicates whether the source control commit trigger is enabled or not.
-        :param 'SourceControlAuthInfoResponseArgs' source_control_auth_properties: The authorization properties for accessing the source code repository.
-        """
-        pulumi.set(__self__, "repository_url", repository_url)
-        pulumi.set(__self__, "source_control_type", source_control_type)
-        if is_commit_trigger_enabled is None:
-            is_commit_trigger_enabled = False
-        if is_commit_trigger_enabled is not None:
-            pulumi.set(__self__, "is_commit_trigger_enabled", is_commit_trigger_enabled)
-        if source_control_auth_properties is not None:
-            pulumi.set(__self__, "source_control_auth_properties", source_control_auth_properties)
-
-    @property
-    @pulumi.getter(name="repositoryUrl")
-    def repository_url(self) -> str:
-        """
-        The full URL to the source code repository
-        """
-        return pulumi.get(self, "repository_url")
-
-    @property
-    @pulumi.getter(name="sourceControlType")
-    def source_control_type(self) -> str:
-        """
-        The type of source control service.
-        """
-        return pulumi.get(self, "source_control_type")
-
-    @property
-    @pulumi.getter(name="isCommitTriggerEnabled")
-    def is_commit_trigger_enabled(self) -> Optional[bool]:
-        """
-        The value of this property indicates whether the source control commit trigger is enabled or not.
-        """
-        return pulumi.get(self, "is_commit_trigger_enabled")
-
-    @property
-    @pulumi.getter(name="sourceControlAuthProperties")
-    def source_control_auth_properties(self) -> Optional['outputs.SourceControlAuthInfoResponse']:
-        """
-        The authorization properties for accessing the source code repository.
-        """
-        return pulumi.get(self, "source_control_auth_properties")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

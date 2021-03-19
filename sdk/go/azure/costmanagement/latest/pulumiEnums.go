@@ -98,7 +98,7 @@ func (e ExportType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.Str
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// The format of the report being delivered.
+// The format of the export being delivered. Currently only 'Csv' is supported.
 type FormatType pulumi.String
 
 const (
@@ -152,7 +152,7 @@ func (e FunctionType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.S
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// The granularity of rows in the report.
+// The granularity of rows in the export. Currently only 'Daily' is supported.
 type GranularityType pulumi.String
 
 const (
@@ -435,7 +435,7 @@ func (e ReportType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.Str
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// The status of the schedule. Whether active or not. If inactive, the report's scheduled execution is paused.
+// The status of the export's schedule. If 'Inactive', the export's schedule is paused.
 type StatusType pulumi.String
 
 const (
@@ -463,14 +463,16 @@ func (e StatusType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.Str
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// The time frame for pulling data for the report. If custom, then a specific time period must be provided.
+// The time frame for pulling data for the export. If custom, then a specific time period must be provided.
 type TimeframeType pulumi.String
 
 const (
-	TimeframeTypeWeekToDate  = TimeframeType("WeekToDate")
-	TimeframeTypeMonthToDate = TimeframeType("MonthToDate")
-	TimeframeTypeYearToDate  = TimeframeType("YearToDate")
-	TimeframeTypeCustom      = TimeframeType("Custom")
+	TimeframeTypeMonthToDate         = TimeframeType("MonthToDate")
+	TimeframeTypeBillingMonthToDate  = TimeframeType("BillingMonthToDate")
+	TimeframeTypeTheLastMonth        = TimeframeType("TheLastMonth")
+	TimeframeTypeTheLastBillingMonth = TimeframeType("TheLastBillingMonth")
+	TimeframeTypeWeekToDate          = TimeframeType("WeekToDate")
+	TimeframeTypeCustom              = TimeframeType("Custom")
 )
 
 func (TimeframeType) ElementType() reflect.Type {

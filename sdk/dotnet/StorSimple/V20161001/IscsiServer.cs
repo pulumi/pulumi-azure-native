@@ -83,10 +83,6 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:storsimple/v20161001:IscsiServer"},
-                    new Pulumi.Alias { Type = "azure-native:storsimple:IscsiServer"},
-                    new Pulumi.Alias { Type = "azure-nextgen:storsimple:IscsiServer"},
-                    new Pulumi.Alias { Type = "azure-native:storsimple/latest:IscsiServer"},
-                    new Pulumi.Alias { Type = "azure-nextgen:storsimple/latest:IscsiServer"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

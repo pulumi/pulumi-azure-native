@@ -24,6 +24,23 @@ export const CustomRuleEnabledState = {
  */
 export type CustomRuleEnabledState = (typeof CustomRuleEnabledState)[keyof typeof CustomRuleEnabledState];
 
+export const FrontDoorMatchVariable = {
+    RemoteAddr: "RemoteAddr",
+    RequestMethod: "RequestMethod",
+    QueryString: "QueryString",
+    PostArgs: "PostArgs",
+    RequestUri: "RequestUri",
+    RequestHeader: "RequestHeader",
+    RequestBody: "RequestBody",
+    Cookies: "Cookies",
+    SocketAddr: "SocketAddr",
+} as const;
+
+/**
+ * Request variable to compare with.
+ */
+export type FrontDoorMatchVariable = (typeof FrontDoorMatchVariable)[keyof typeof FrontDoorMatchVariable];
+
 export const ManagedRuleEnabledState = {
     Disabled: "Disabled",
     Enabled: "Enabled",
@@ -58,23 +75,6 @@ export const ManagedRuleExclusionSelectorMatchOperator = {
  * Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to.
  */
 export type ManagedRuleExclusionSelectorMatchOperator = (typeof ManagedRuleExclusionSelectorMatchOperator)[keyof typeof ManagedRuleExclusionSelectorMatchOperator];
-
-export const MatchVariable = {
-    RemoteAddr: "RemoteAddr",
-    RequestMethod: "RequestMethod",
-    QueryString: "QueryString",
-    PostArgs: "PostArgs",
-    RequestUri: "RequestUri",
-    RequestHeader: "RequestHeader",
-    RequestBody: "RequestBody",
-    Cookies: "Cookies",
-    SocketAddr: "SocketAddr",
-} as const;
-
-/**
- * Request variable to compare with.
- */
-export type MatchVariable = (typeof MatchVariable)[keyof typeof MatchVariable];
 
 export const Operator = {
     Any: "Any",

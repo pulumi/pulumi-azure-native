@@ -42,7 +42,7 @@ type LookupPolicyResult struct {
 	// Resource name.
 	Name string `pulumi:"name"`
 	// Describes settings for the policy.
-	PolicySettings *PolicySettingsResponse `pulumi:"policySettings"`
+	PolicySettings *FrontDoorPolicySettingsResponse `pulumi:"policySettings"`
 	// Provisioning state of the policy.
 	ProvisioningState string `pulumi:"provisioningState"`
 	ResourceState     string `pulumi:"resourceState"`

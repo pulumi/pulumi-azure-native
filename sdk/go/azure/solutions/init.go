@@ -21,10 +21,6 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-native:solutions:Appliance":
-		r, err = NewAppliance(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-native:solutions:ApplianceDefinition":
-		r, err = NewApplianceDefinition(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:solutions:Application":
 		r, err = NewApplication(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:solutions:ApplicationDefinition":

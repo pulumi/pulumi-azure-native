@@ -8,7 +8,7 @@ import (
 )
 
 // Event Channel.
-// API Version: 2020-10-15-preview.
+// API Version: 2020-04-01-preview.
 func LookupEventChannel(ctx *pulumi.Context, args *LookupEventChannelArgs, opts ...pulumi.InvokeOption) (*LookupEventChannelResult, error) {
 	var rv LookupEventChannelResult
 	err := ctx.Invoke("azure-native:eventgrid:getEventChannel", args, &rv, opts...)

@@ -60,7 +60,7 @@ export interface GetWatchlistItemResult {
     /**
      * Describes a user that created the watchlist item
      */
-    readonly createdBy?: outputs.securityinsights.UserInfoResponse;
+    readonly createdBy?: outputs.securityinsights.WatchlistUserInfoResponse;
     /**
      * key-value pairs for a watchlist item entity mapping
      */
@@ -100,7 +100,7 @@ export interface GetWatchlistItemResult {
     /**
      * Describes a user that updated the watchlist item
      */
-    readonly updatedBy?: outputs.securityinsights.UserInfoResponse;
+    readonly updatedBy?: outputs.securityinsights.WatchlistUserInfoResponse;
     /**
      * The id (a Guid) of the watchlist item
      */

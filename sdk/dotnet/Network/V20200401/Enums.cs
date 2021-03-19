@@ -1645,6 +1645,44 @@ namespace Pulumi.AzureNative.Network.V20200401
     }
 
     /// <summary>
+    /// Request variable to compare with.
+    /// </summary>
+    [EnumType]
+    public readonly struct FrontDoorMatchVariable : IEquatable<FrontDoorMatchVariable>
+    {
+        private readonly string _value;
+
+        private FrontDoorMatchVariable(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FrontDoorMatchVariable RemoteAddr { get; } = new FrontDoorMatchVariable("RemoteAddr");
+        public static FrontDoorMatchVariable RequestMethod { get; } = new FrontDoorMatchVariable("RequestMethod");
+        public static FrontDoorMatchVariable QueryString { get; } = new FrontDoorMatchVariable("QueryString");
+        public static FrontDoorMatchVariable PostArgs { get; } = new FrontDoorMatchVariable("PostArgs");
+        public static FrontDoorMatchVariable RequestUri { get; } = new FrontDoorMatchVariable("RequestUri");
+        public static FrontDoorMatchVariable RequestHeader { get; } = new FrontDoorMatchVariable("RequestHeader");
+        public static FrontDoorMatchVariable RequestBody { get; } = new FrontDoorMatchVariable("RequestBody");
+        public static FrontDoorMatchVariable Cookies { get; } = new FrontDoorMatchVariable("Cookies");
+        public static FrontDoorMatchVariable SocketAddr { get; } = new FrontDoorMatchVariable("SocketAddr");
+
+        public static bool operator ==(FrontDoorMatchVariable left, FrontDoorMatchVariable right) => left.Equals(right);
+        public static bool operator !=(FrontDoorMatchVariable left, FrontDoorMatchVariable right) => !left.Equals(right);
+
+        public static explicit operator string(FrontDoorMatchVariable value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FrontDoorMatchVariable other && Equals(other);
+        public bool Equals(FrontDoorMatchVariable other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Accepted protocol schemes.
     /// </summary>
     [EnumType]

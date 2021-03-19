@@ -61,7 +61,6 @@ from .get_front_door import *
 from .get_hub_route_table import *
 from .get_hub_virtual_network_connection import *
 from .get_inbound_nat_rule import *
-from .get_interface_endpoint import *
 from .get_ip_allocation import *
 from .get_ip_group import *
 from .get_load_balancer import *
@@ -130,7 +129,6 @@ from .get_zone import *
 from .hub_route_table import *
 from .hub_virtual_network_connection import *
 from .inbound_nat_rule import *
-from .interface_endpoint import *
 from .ip_allocation import *
 from .ip_group import *
 from .load_balancer import *
@@ -260,8 +258,6 @@ def _register_module():
                 return HubVirtualNetworkConnection(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:network/latest:InboundNatRule":
                 return InboundNatRule(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "azure-native:network/latest:InterfaceEndpoint":
-                return InterfaceEndpoint(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:network/latest:IpAllocation":
                 return IpAllocation(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:network/latest:IpGroup":

@@ -7,14 +7,10 @@ from enum import Enum
 __all__ = [
     'AuthenticationType',
     'BackupMode',
-    'MongoDbReplication',
-    'MongoDbShardKeyOrder',
     'ProjectSourcePlatform',
     'ProjectTargetPlatform',
     'ServerLevelPermissionsGroup',
     'SqlSourcePlatform',
-    'SsisMigrationOverwriteOption',
-    'SsisStoreType',
 ]
 
 
@@ -35,24 +31,6 @@ class BackupMode(str, Enum):
     """
     CREATE_BACKUP = "CreateBackup"
     EXISTING_BACKUP = "ExistingBackup"
-
-
-class MongoDbReplication(str, Enum):
-    """
-    Describes how changes will be replicated from the source to the target. The default is OneTime.
-    """
-    DISABLED = "Disabled"
-    ONE_TIME = "OneTime"
-    CONTINUOUS = "Continuous"
-
-
-class MongoDbShardKeyOrder(str, Enum):
-    """
-    The field ordering
-    """
-    FORWARD = "Forward"
-    REVERSE = "Reverse"
-    HASHED = "Hashed"
 
 
 class ProjectSourcePlatform(str, Enum):
@@ -86,18 +64,3 @@ class SqlSourcePlatform(str, Enum):
     Server platform type for connection
     """
     SQL_ON_PREM = "SqlOnPrem"
-
-
-class SsisMigrationOverwriteOption(str, Enum):
-    """
-    The overwrite option for the SSIS project migration
-    """
-    IGNORE = "Ignore"
-    OVERWRITE = "Overwrite"
-
-
-class SsisStoreType(str, Enum):
-    """
-    The SSIS store type of source, only SSIS catalog is supported now in DMS
-    """
-    SSIS_CATALOG = "SsisCatalog"

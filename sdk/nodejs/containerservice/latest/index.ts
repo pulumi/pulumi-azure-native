@@ -6,9 +6,7 @@ import * as utilities from "../../utilities";
 
 // Export members:
 export * from "./agentPool";
-export * from "./containerService";
 export * from "./getAgentPool";
-export * from "./getContainerService";
 export * from "./getMaintenanceConfiguration";
 export * from "./getManagedCluster";
 export * from "./getOpenShiftManagedCluster";
@@ -27,7 +25,6 @@ export * from "../../types/enums/containerservice/latest";
 
 // Import resources to register:
 import { AgentPool } from "./agentPool";
-import { ContainerService } from "./containerService";
 import { MaintenanceConfiguration } from "./maintenanceConfiguration";
 import { ManagedCluster } from "./managedCluster";
 import { OpenShiftManagedCluster } from "./openShiftManagedCluster";
@@ -39,8 +36,6 @@ const _module = {
         switch (type) {
             case "azure-native:containerservice/latest:AgentPool":
                 return new AgentPool(name, <any>undefined, { urn })
-            case "azure-native:containerservice/latest:ContainerService":
-                return new ContainerService(name, <any>undefined, { urn })
             case "azure-native:containerservice/latest:MaintenanceConfiguration":
                 return new MaintenanceConfiguration(name, <any>undefined, { urn })
             case "azure-native:containerservice/latest:ManagedCluster":

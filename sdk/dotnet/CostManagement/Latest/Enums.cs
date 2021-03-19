@@ -105,7 +105,7 @@ namespace Pulumi.AzureNative.CostManagement.Latest
     }
 
     /// <summary>
-    /// The format of the report being delivered.
+    /// The format of the export being delivered. Currently only 'Csv' is supported.
     /// </summary>
     [EnumType]
     public readonly struct FormatType : IEquatable<FormatType>
@@ -165,7 +165,7 @@ namespace Pulumi.AzureNative.CostManagement.Latest
     }
 
     /// <summary>
-    /// The granularity of rows in the report.
+    /// The granularity of rows in the export. Currently only 'Daily' is supported.
     /// </summary>
     [EnumType]
     public readonly struct GranularityType : IEquatable<GranularityType>
@@ -478,7 +478,7 @@ namespace Pulumi.AzureNative.CostManagement.Latest
     }
 
     /// <summary>
-    /// The status of the schedule. Whether active or not. If inactive, the report's scheduled execution is paused.
+    /// The status of the export's schedule. If 'Inactive', the export's schedule is paused.
     /// </summary>
     [EnumType]
     public readonly struct StatusType : IEquatable<StatusType>
@@ -509,7 +509,7 @@ namespace Pulumi.AzureNative.CostManagement.Latest
     }
 
     /// <summary>
-    /// The time frame for pulling data for the report. If custom, then a specific time period must be provided.
+    /// The time frame for pulling data for the export. If custom, then a specific time period must be provided.
     /// </summary>
     [EnumType]
     public readonly struct TimeframeType : IEquatable<TimeframeType>
@@ -521,9 +521,11 @@ namespace Pulumi.AzureNative.CostManagement.Latest
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static TimeframeType WeekToDate { get; } = new TimeframeType("WeekToDate");
         public static TimeframeType MonthToDate { get; } = new TimeframeType("MonthToDate");
-        public static TimeframeType YearToDate { get; } = new TimeframeType("YearToDate");
+        public static TimeframeType BillingMonthToDate { get; } = new TimeframeType("BillingMonthToDate");
+        public static TimeframeType TheLastMonth { get; } = new TimeframeType("TheLastMonth");
+        public static TimeframeType TheLastBillingMonth { get; } = new TimeframeType("TheLastBillingMonth");
+        public static TimeframeType WeekToDate { get; } = new TimeframeType("WeekToDate");
         public static TimeframeType Custom { get; } = new TimeframeType("Custom");
 
         public static bool operator ==(TimeframeType left, TimeframeType right) => left.Equals(right);

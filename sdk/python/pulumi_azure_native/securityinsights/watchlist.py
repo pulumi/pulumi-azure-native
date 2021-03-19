@@ -20,7 +20,7 @@ class Watchlist(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  content_type: Optional[pulumi.Input[str]] = None,
                  created: Optional[pulumi.Input[str]] = None,
-                 created_by: Optional[pulumi.Input[pulumi.InputType['UserInfoArgs']]] = None,
+                 created_by: Optional[pulumi.Input[pulumi.InputType['WatchlistUserInfoArgs']]] = None,
                  default_duration: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
@@ -35,7 +35,7 @@ class Watchlist(pulumi.CustomResource):
                  source: Optional[pulumi.Input[Union[str, 'Source']]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None,
                  updated: Optional[pulumi.Input[str]] = None,
-                 updated_by: Optional[pulumi.Input[pulumi.InputType['UserInfoArgs']]] = None,
+                 updated_by: Optional[pulumi.Input[pulumi.InputType['WatchlistUserInfoArgs']]] = None,
                  upload_status: Optional[pulumi.Input[str]] = None,
                  watchlist_alias: Optional[pulumi.Input[str]] = None,
                  watchlist_id: Optional[pulumi.Input[str]] = None,
@@ -53,7 +53,7 @@ class Watchlist(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] content_type: The content type of the raw content. Example : text/csv or text/tsv 
         :param pulumi.Input[str] created: The time the watchlist was created
-        :param pulumi.Input[pulumi.InputType['UserInfoArgs']] created_by: Describes a user that created the watchlist
+        :param pulumi.Input[pulumi.InputType['WatchlistUserInfoArgs']] created_by: Describes a user that created the watchlist
         :param pulumi.Input[str] default_duration: The default duration of a watchlist (in ISO 8601 duration format)
         :param pulumi.Input[str] description: A description of the watchlist
         :param pulumi.Input[str] display_name: The display name of the watchlist
@@ -68,7 +68,7 @@ class Watchlist(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'Source']] source: The source of the watchlist
         :param pulumi.Input[str] tenant_id: The tenantId where the watchlist belongs to
         :param pulumi.Input[str] updated: The last time the watchlist was updated
-        :param pulumi.Input[pulumi.InputType['UserInfoArgs']] updated_by: Describes a user that updated the watchlist
+        :param pulumi.Input[pulumi.InputType['WatchlistUserInfoArgs']] updated_by: Describes a user that updated the watchlist
         :param pulumi.Input[str] upload_status: The status of the Watchlist upload : New, InProgress or Complete. Pls note : When a Watchlist upload status is equal to InProgress, the Watchlist cannot be deleted
         :param pulumi.Input[str] watchlist_alias: The alias of the watchlist
         :param pulumi.Input[str] watchlist_id: The id (a Guid) of the watchlist
@@ -198,7 +198,7 @@ class Watchlist(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdBy")
-    def created_by(self) -> pulumi.Output[Optional['outputs.UserInfoResponse']]:
+    def created_by(self) -> pulumi.Output[Optional['outputs.WatchlistUserInfoResponse']]:
         """
         Describes a user that created the watchlist
         """
@@ -318,7 +318,7 @@ class Watchlist(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="updatedBy")
-    def updated_by(self) -> pulumi.Output[Optional['outputs.UserInfoResponse']]:
+    def updated_by(self) -> pulumi.Output[Optional['outputs.WatchlistUserInfoResponse']]:
         """
         Describes a user that updated the watchlist
         """

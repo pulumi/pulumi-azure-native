@@ -66,18 +66,6 @@ func NewIscsiDisk(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:storsimple/v20161001:IscsiDisk"),
 		},
-		{
-			Type: pulumi.String("azure-native:storsimple:IscsiDisk"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storsimple:IscsiDisk"),
-		},
-		{
-			Type: pulumi.String("azure-native:storsimple/latest:IscsiDisk"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storsimple/latest:IscsiDisk"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource IscsiDisk

@@ -279,7 +279,10 @@ func PulumiSchema(providerMap openapi.AzureProviders) (*pschema.PackageSpec, *re
 
 			for _, typeName := range resources {
 				resource := items.Resources[typeName]
-				gen.genResources(providerName, typeName, resource)
+				err := gen.genResources(providerName, typeName, resource)
+				if err != nil {
+					return nil, nil, nil, err
+				}
 			}
 
 			// Populate POST invokes.
@@ -446,7 +449,7 @@ type packageGenerator struct {
 	apiVersion string
 }
 
-func (g *packageGenerator) genResources(prov, typeName string, resource *openapi.ResourceSpec) {
+func (g *packageGenerator) genResources(prov, typeName string, resource *openapi.ResourceSpec) error {
 	module := g.providerToModule(prov)
 	swagger := resource.Swagger
 	path := resource.PathItem
@@ -467,19 +470,17 @@ func (g *packageGenerator) genResources(prov, typeName string, resource *openapi
 	autoNamer := resources.NewAutoNamer(resource.Path)
 	resourceRequest, err := gen.genMethodParameters(parameters, swagger.ReferenceContext, &autoNamer)
 	if err != nil {
-		log.Printf("failed to generate '%s': request type: %s", resourceTok, err.Error())
-		return
+		return errors.Wrapf(err, "failed to generate '%s': request type", resourceTok)
 	}
 
 	resourceResponse, err := gen.genResponse(path.Put.Responses.StatusCodeResponses, swagger.ReferenceContext)
 	if err != nil {
-		log.Printf("failed to generate '%s': response type: %s", resourceTok, err.Error())
-		return
+		return errors.Wrapf(err, "failed to generate '%s': response type", resourceTok)
 	}
 
-	if len(resourceResponse.specs) == 0 {
+	if resourceResponse == nil || len(resourceResponse.specs) == 0 {
 		// Response is specified empty, do not generate a resource for it.
-		return
+		return nil
 	}
 
 	gen.escapeCSharpNames(typeName, resourceResponse)
@@ -533,16 +534,14 @@ func (g *packageGenerator) genResources(prov, typeName string, resource *openapi
 	parameters = swagger.MergeParameters(op.Parameters, path.Parameters)
 	requestFunction, err := gen.genMethodParameters(parameters, swagger.ReferenceContext, nil)
 	if err != nil {
-		log.Printf("failed to generate '%s': request type: %s", functionTok, err.Error())
-		return
+		return errors.Wrapf(err, "failed to generate '%s': request type", functionTok)
 	}
 	responseFunction, err := gen.genResponse(op.Responses.StatusCodeResponses, swagger.ReferenceContext)
 	if err != nil {
-		log.Printf("failed to generate '%s': response type: %s", functionTok, err.Error())
-		return
+		return errors.Wrapf(err, "failed to generate '%s': response type", functionTok)
 	}
 
-	if path.Get != nil {
+	if path.Get != nil && responseFunction != nil {
 		functionSpec := pschema.FunctionSpec{
 			Description:        g.formatDescription(resourceResponse, swagger.Info),
 			DeprecationMessage: g.formatDeprecationMessage("function", prov, fmt.Sprintf("get%s", typeName)),
@@ -597,6 +596,7 @@ func (g *packageGenerator) genResources(prov, typeName string, resource *openapi
 	g.metadata.Resources[resourceTok] = r
 
 	g.generateExampleReferences(resourceTok, path, swagger)
+	return nil
 }
 
 func (g *packageGenerator) generateExampleReferences(resourceTok string, path *spec.PathItem, swagger *openapi.Spec) error {
@@ -680,7 +680,7 @@ func (g *packageGenerator) genPostFunctions(prov, typeName, path string, pathIte
 		return
 	}
 
-	if len(response.specs) == 0 {
+	if response == nil || len(response.specs) == 0 {
 		// Response is specified empty, do not generate an invoke for it.
 		return
 	}
@@ -931,7 +931,8 @@ func (m *moduleGenerator) genResponse(statusCodeResponses map[int]spec.Response,
 		}
 
 		if len(responseSchema.Type) > 0 && responseSchema.Type[0] == "array" {
-			return nil, errors.New("array responses are not implemented yet (see issue #120)")
+			// Array responses are not implemented yet (see issue #120).
+			return nil, nil
 		}
 
 		result, err := m.genProperties(responseSchema, true /* isOutput */, false /* isType */)
@@ -1341,8 +1342,6 @@ func (m *moduleGenerator) genTypeSpec(propertyName string, schema *spec.Schema, 
 			return discriminatedType, nil
 		}
 
-		referencedTypeName := fmt.Sprintf("#/types/%s", tok)
-
 		if _, ok := m.visitedTypes[tok]; !ok {
 			m.visitedTypes[tok] = true
 
@@ -1357,7 +1356,7 @@ func (m *moduleGenerator) genTypeSpec(propertyName string, schema *spec.Schema, 
 				return nil, nil
 			}
 
-			m.pkg.Types[tok] = pschema.ComplexTypeSpec{
+			spec := pschema.ComplexTypeSpec{
 				ObjectTypeSpec: pschema.ObjectTypeSpec{
 					Description: resolvedSchema.Description,
 					Type:        "object",
@@ -1366,6 +1365,15 @@ func (m *moduleGenerator) genTypeSpec(propertyName string, schema *spec.Schema, 
 				},
 			}
 
+			if v, has := m.pkg.Types[tok]; has {
+				err := compatibleTypes(spec, v, isOutput)
+				if err != nil {
+					return nil, errors.Wrapf(err, "incompatible type %q for resource %q", tok, m.resourceName)
+				}
+			}
+
+			m.pkg.Types[tok] = spec
+
 			m.metadata.Types[tok] = resources.AzureAPIType{
 				Properties:         props.properties,
 				RequiredProperties: props.requiredProperties.SortedValues(),
@@ -1373,7 +1381,7 @@ func (m *moduleGenerator) genTypeSpec(propertyName string, schema *spec.Schema, 
 		}
 		return &pschema.TypeSpec{
 			Type: "object",
-			Ref:  referencedTypeName,
+			Ref:  fmt.Sprintf("#/types/%s", tok),
 		}, nil
 
 	case len(resolvedSchema.Enum) > 0:
@@ -1433,6 +1441,51 @@ func (m *moduleGenerator) genTypeSpec(propertyName string, schema *spec.Schema, 
 	}
 }
 
+// compatibleTypes checks that two type specs are allowed to be represented as a single schema type.
+// If you face an error coming from this function for a new API change, consider changing the typeNameOverride map
+// or adjusting the way the top-level resources are projected in versioner.go.
+func compatibleTypes(t1 schema.ComplexTypeSpec, t2 schema.ComplexTypeSpec, isOutput bool) error {
+	if t1.Type != t2.Type {
+		return errors.Errorf("types do not match: %s vs %s", t1.Type, t2.Type)
+	}
+	if len(t1.Properties) != len(t2.Properties) {
+		return errors.Errorf("property count do not match: %d vs %d", len(t1.Properties), len(t2.Properties))
+	}
+	if !isOutput && len(t1.Required) != len(t2.Required) {
+		return errors.Errorf("required property count do not match: %d vs %d", len(t1.Required), len(t2.Required))
+	}
+
+	// Check that every property of T2 exists in T1 and has the same type.
+	t1props := map[string]pschema.PropertySpec{}
+	for name, p := range t1.Properties {
+		t1props[name] = p
+	}
+	for name, p2 := range t2.Properties {
+		if p1, ok := t1props[name]; ok {
+			if p1.Type != p2.Type {
+				return errors.Errorf("property %q types do not match: %s vs %s", name, p1.Type, p2.Type)
+			}
+			if p1.Ref != p2.Ref {
+				return errors.Errorf("property %q refs do not match: %s vs %s", name, p1.Ref, p2.Ref)
+			}
+		} else {
+			return errors.Errorf("property %q exists in one but not the other", name)
+		}
+	}
+
+	// Check that required properties are the same. Output types aren't that important in this regards.
+	if !isOutput {
+		t1reqs := codegen.NewStringSet(t1.Required...)
+		for _, name := range t2.Required {
+			if !t1reqs.Has(name) {
+				return errors.Errorf("property %q is required in one but not the other", name)
+			}
+		}
+	}
+
+	return nil
+}
+
 // genEnumType generates the enum type.
 func (m *moduleGenerator) genEnumType(schema *spec.Schema, context *openapi.ReferenceContext, enumExtension map[string]interface{}) (*pschema.TypeSpec, error) {
 	resolvedSchema, err := context.ResolveSchema(schema)
@@ -1447,7 +1500,7 @@ func (m *moduleGenerator) genEnumType(schema *spec.Schema, context *openapi.Refe
 
 	var enumName string
 	if name, ok := enumExtension["name"].(string); ok {
-		enumName = ToUpperCamel(name)
+		enumName = m.typeNameOverride(ToUpperCamel(name))
 	} else {
 		return nil, fmt.Errorf("name key missing from enum metadata")
 	}
@@ -1546,12 +1599,55 @@ func (m *moduleGenerator) genDiscriminatedType(resolvedSchema *openapi.Schema, i
 	}
 }
 
+// typeNameOverrides is a manually-maintained map of alternative names when a type name represents two or more
+// distinct types in the same resource provider. This can happen if there are multiple Open API spec files
+// for the same RP and version, and each of those files has its own definition of the type under the same name.
+// That happens a lot (there are many files for several RPs) but most of the time the definitions are similar
+// enough to treat them as same. The following map lists all exceptions from this rule.
+// If a new mismatch is introduced in a newly published spec, our codegen will catch the difference
+// (see compatibleTypes) and fail. We will have to extend the list below with a new exception to unblock codegen.
+var typeNameOverrides = map[string]string{
+	// SKU for Redis Enterprise is different from SKU for Redis. Keep them as separate types.
+	"Cache.RedisEnterprise.Sku": "EnterpriseSku",
+	// Devices RP comes from "deviceprovisioningservices" and "iothub" which are similar but slightly different.
+	// In particular, the IP Filter Rule has more properties in the DPS version.
+	"Devices.IotDpsResource.IpFilterRule": "TargetIpFilterRule",
+	// Workbook vs. MyWorkbook types are slightly different. Probably, a bug in the spec, but we have to disambiguate.
+	"Insights.MyWorkbook.ManagedIdentity": "MyManagedIdentity",
+	"Insights.MyWorkbook.UserAssignedIdentities": "MyUserAssignedIdentities",
+	// Experiment's endpoint is a much narrower type compared to endpoints in other network resources.
+	"Network.Experiment.Endpoint": "ExperimentEndpoint",
+	// These are all FrontDoor types. FrontDoor shares a bunch of type names with generate Network provider,
+	// but defines them in its own way.
+	"Network.Policy.ManagedRuleGroupOverride": "FrontDoorManagedRuleGroupOverride",
+	"Network.Policy.ManagedRuleOverride": "FrontDoorManagedRuleOverride",
+	"Network.Policy.ManagedRuleSet": "FrontDoorManagedRuleSet",
+	"Network.Policy.MatchCondition": "FrontDoorMatchCondition",
+	"Network.Policy.MatchVariable": "FrontDoorMatchVariable",
+	"Network.Policy.PolicySettings": "FrontDoorPolicySettings",
+	// The following two types are read-only, while the same types in another spec are writable.
+	"RecoveryServices.Vault.PrivateEndpointConnection": "VaultPrivateEndpointConnection",
+	"RecoveryServices.Vault.PrivateLinkServiceConnectionState": "VaultPrivateLinkServiceConnectionState",
+	// Watchlist resources only appear in a preview spec and not in stable specs. Anyway, the shapes of their
+	// types are slightly different from later specs, so we have to disambiguate for top-level resources.
+	"SecurityInsights.Watchlist.UserInfo": "WatchlistUserInfo",
+	"SecurityInsights.WatchlistItem.UserInfo": "WatchlistUserInfo",
+}
+
+func (m *moduleGenerator) typeNameOverride(typeName string) string {
+	key := fmt.Sprintf("%s.%s.%s", m.prov, m.resourceName, typeName)
+	if v, ok := typeNameOverrides[key]; ok {
+		return v
+	}
+	return typeName
+}
+
 func (m *moduleGenerator) typeName(ctx *openapi.ReferenceContext, isOutput bool) string {
 	suffix := ""
 	if isOutput {
 		suffix = "Response"
 	}
-	referenceName := ToUpperCamel(MakeLegalIdentifier(ctx.ReferenceName))
+	referenceName := m.typeNameOverride(ToUpperCamel(MakeLegalIdentifier(ctx.ReferenceName)))
 	return fmt.Sprintf("azure-native:%s:%s%s", m.module, referenceName, suffix)
 }
 

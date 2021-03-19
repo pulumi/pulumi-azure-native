@@ -58,18 +58,6 @@ func NewFileServer(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:storsimple/v20161001:FileServer"),
 		},
-		{
-			Type: pulumi.String("azure-native:storsimple:FileServer"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storsimple:FileServer"),
-		},
-		{
-			Type: pulumi.String("azure-native:storsimple/latest:FileServer"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storsimple/latest:FileServer"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource FileServer

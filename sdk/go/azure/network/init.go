@@ -81,8 +81,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewHubVirtualNetworkConnection(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:network:InboundNatRule":
 		r, err = NewInboundNatRule(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-native:network:InterfaceEndpoint":
-		r, err = NewInterfaceEndpoint(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:network:IpAllocation":
 		r, err = NewIpAllocation(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:network:IpGroup":

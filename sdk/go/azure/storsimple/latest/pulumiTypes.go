@@ -2254,47 +2254,6 @@ func (i TimeArgs) ToTimeOutputWithContext(ctx context.Context) TimeOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TimeOutput)
 }
 
-func (i TimeArgs) ToTimePtrOutput() TimePtrOutput {
-	return i.ToTimePtrOutputWithContext(context.Background())
-}
-
-func (i TimeArgs) ToTimePtrOutputWithContext(ctx context.Context) TimePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TimeOutput).ToTimePtrOutputWithContext(ctx)
-}
-
-// TimePtrInput is an input type that accepts TimeArgs, TimePtr and TimePtrOutput values.
-// You can construct a concrete instance of `TimePtrInput` via:
-//
-//          TimeArgs{...}
-//
-//  or:
-//
-//          nil
-type TimePtrInput interface {
-	pulumi.Input
-
-	ToTimePtrOutput() TimePtrOutput
-	ToTimePtrOutputWithContext(context.Context) TimePtrOutput
-}
-
-type timePtrType TimeArgs
-
-func TimePtr(v *TimeArgs) TimePtrInput {
-	return (*timePtrType)(v)
-}
-
-func (*timePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Time)(nil)).Elem()
-}
-
-func (i *timePtrType) ToTimePtrOutput() TimePtrOutput {
-	return i.ToTimePtrOutputWithContext(context.Background())
-}
-
-func (i *timePtrType) ToTimePtrOutputWithContext(ctx context.Context) TimePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TimePtrOutput)
-}
-
 // The time.
 type TimeOutput struct{ *pulumi.OutputState }
 
@@ -2310,16 +2269,6 @@ func (o TimeOutput) ToTimeOutputWithContext(ctx context.Context) TimeOutput {
 	return o
 }
 
-func (o TimeOutput) ToTimePtrOutput() TimePtrOutput {
-	return o.ToTimePtrOutputWithContext(context.Background())
-}
-
-func (o TimeOutput) ToTimePtrOutputWithContext(ctx context.Context) TimePtrOutput {
-	return o.ApplyT(func(v Time) *Time {
-		return &v
-	}).(TimePtrOutput)
-}
-
 // The hour.
 func (o TimeOutput) Hours() pulumi.IntOutput {
 	return o.ApplyT(func(v Time) int { return v.Hours }).(pulumi.IntOutput)
@@ -2333,54 +2282,6 @@ func (o TimeOutput) Minutes() pulumi.IntOutput {
 // The second.
 func (o TimeOutput) Seconds() pulumi.IntOutput {
 	return o.ApplyT(func(v Time) int { return v.Seconds }).(pulumi.IntOutput)
-}
-
-type TimePtrOutput struct{ *pulumi.OutputState }
-
-func (TimePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Time)(nil)).Elem()
-}
-
-func (o TimePtrOutput) ToTimePtrOutput() TimePtrOutput {
-	return o
-}
-
-func (o TimePtrOutput) ToTimePtrOutputWithContext(ctx context.Context) TimePtrOutput {
-	return o
-}
-
-func (o TimePtrOutput) Elem() TimeOutput {
-	return o.ApplyT(func(v *Time) Time { return *v }).(TimeOutput)
-}
-
-// The hour.
-func (o TimePtrOutput) Hours() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *Time) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.Hours
-	}).(pulumi.IntPtrOutput)
-}
-
-// The minute.
-func (o TimePtrOutput) Minutes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *Time) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.Minutes
-	}).(pulumi.IntPtrOutput)
-}
-
-// The second.
-func (o TimePtrOutput) Seconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *Time) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.Seconds
-	}).(pulumi.IntPtrOutput)
 }
 
 // The time.
@@ -2426,47 +2327,6 @@ func (i TimeResponseArgs) ToTimeResponseOutputWithContext(ctx context.Context) T
 	return pulumi.ToOutputWithContext(ctx, i).(TimeResponseOutput)
 }
 
-func (i TimeResponseArgs) ToTimeResponsePtrOutput() TimeResponsePtrOutput {
-	return i.ToTimeResponsePtrOutputWithContext(context.Background())
-}
-
-func (i TimeResponseArgs) ToTimeResponsePtrOutputWithContext(ctx context.Context) TimeResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TimeResponseOutput).ToTimeResponsePtrOutputWithContext(ctx)
-}
-
-// TimeResponsePtrInput is an input type that accepts TimeResponseArgs, TimeResponsePtr and TimeResponsePtrOutput values.
-// You can construct a concrete instance of `TimeResponsePtrInput` via:
-//
-//          TimeResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type TimeResponsePtrInput interface {
-	pulumi.Input
-
-	ToTimeResponsePtrOutput() TimeResponsePtrOutput
-	ToTimeResponsePtrOutputWithContext(context.Context) TimeResponsePtrOutput
-}
-
-type timeResponsePtrType TimeResponseArgs
-
-func TimeResponsePtr(v *TimeResponseArgs) TimeResponsePtrInput {
-	return (*timeResponsePtrType)(v)
-}
-
-func (*timeResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TimeResponse)(nil)).Elem()
-}
-
-func (i *timeResponsePtrType) ToTimeResponsePtrOutput() TimeResponsePtrOutput {
-	return i.ToTimeResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *timeResponsePtrType) ToTimeResponsePtrOutputWithContext(ctx context.Context) TimeResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TimeResponsePtrOutput)
-}
-
 // The time.
 type TimeResponseOutput struct{ *pulumi.OutputState }
 
@@ -2482,16 +2342,6 @@ func (o TimeResponseOutput) ToTimeResponseOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o TimeResponseOutput) ToTimeResponsePtrOutput() TimeResponsePtrOutput {
-	return o.ToTimeResponsePtrOutputWithContext(context.Background())
-}
-
-func (o TimeResponseOutput) ToTimeResponsePtrOutputWithContext(ctx context.Context) TimeResponsePtrOutput {
-	return o.ApplyT(func(v TimeResponse) *TimeResponse {
-		return &v
-	}).(TimeResponsePtrOutput)
-}
-
 // The hour.
 func (o TimeResponseOutput) Hours() pulumi.IntOutput {
 	return o.ApplyT(func(v TimeResponse) int { return v.Hours }).(pulumi.IntOutput)
@@ -2505,54 +2355,6 @@ func (o TimeResponseOutput) Minutes() pulumi.IntOutput {
 // The second.
 func (o TimeResponseOutput) Seconds() pulumi.IntOutput {
 	return o.ApplyT(func(v TimeResponse) int { return v.Seconds }).(pulumi.IntOutput)
-}
-
-type TimeResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (TimeResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TimeResponse)(nil)).Elem()
-}
-
-func (o TimeResponsePtrOutput) ToTimeResponsePtrOutput() TimeResponsePtrOutput {
-	return o
-}
-
-func (o TimeResponsePtrOutput) ToTimeResponsePtrOutputWithContext(ctx context.Context) TimeResponsePtrOutput {
-	return o
-}
-
-func (o TimeResponsePtrOutput) Elem() TimeResponseOutput {
-	return o.ApplyT(func(v *TimeResponse) TimeResponse { return *v }).(TimeResponseOutput)
-}
-
-// The hour.
-func (o TimeResponsePtrOutput) Hours() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *TimeResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.Hours
-	}).(pulumi.IntPtrOutput)
-}
-
-// The minute.
-func (o TimeResponsePtrOutput) Minutes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *TimeResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.Minutes
-	}).(pulumi.IntPtrOutput)
-}
-
-// The second.
-func (o TimeResponsePtrOutput) Seconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *TimeResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.Seconds
-	}).(pulumi.IntPtrOutput)
 }
 
 // The metadata of the volume container, that is being considered as part of a failover set.
@@ -2850,9 +2652,7 @@ func init() {
 	pulumi.RegisterOutputType(TargetEligibilityResultResponseOutput{})
 	pulumi.RegisterOutputType(TargetEligibilityResultResponsePtrOutput{})
 	pulumi.RegisterOutputType(TimeOutput{})
-	pulumi.RegisterOutputType(TimePtrOutput{})
 	pulumi.RegisterOutputType(TimeResponseOutput{})
-	pulumi.RegisterOutputType(TimeResponsePtrOutput{})
 	pulumi.RegisterOutputType(VolumeContainerFailoverMetadataResponseOutput{})
 	pulumi.RegisterOutputType(VolumeContainerFailoverMetadataResponseArrayOutput{})
 	pulumi.RegisterOutputType(VolumeFailoverMetadataResponseOutput{})

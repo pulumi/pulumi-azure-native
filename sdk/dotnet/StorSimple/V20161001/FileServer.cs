@@ -77,10 +77,6 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:storsimple/v20161001:FileServer"},
-                    new Pulumi.Alias { Type = "azure-native:storsimple:FileServer"},
-                    new Pulumi.Alias { Type = "azure-nextgen:storsimple:FileServer"},
-                    new Pulumi.Alias { Type = "azure-native:storsimple/latest:FileServer"},
-                    new Pulumi.Alias { Type = "azure-nextgen:storsimple/latest:FileServer"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -55,7 +55,7 @@ namespace Pulumi.AzureNative.Network.V20191001
         /// Describes settings for the policy.
         /// </summary>
         [Output("policySettings")]
-        public Output<Outputs.PolicySettingsResponse?> PolicySettings { get; private set; } = null!;
+        public Output<Outputs.FrontDoorPolicySettingsResponse?> PolicySettings { get; private set; } = null!;
 
         /// <summary>
         /// Provisioning state of the policy.
@@ -108,8 +108,6 @@ namespace Pulumi.AzureNative.Network.V20191001
                     new Pulumi.Alias { Type = "azure-nextgen:network:Policy"},
                     new Pulumi.Alias { Type = "azure-native:network/latest:Policy"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/latest:Policy"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20180801:Policy"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180801:Policy"},
                     new Pulumi.Alias { Type = "azure-native:network/v20190301:Policy"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190301:Policy"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200401:Policy"},
@@ -173,7 +171,7 @@ namespace Pulumi.AzureNative.Network.V20191001
         /// Describes settings for the policy.
         /// </summary>
         [Input("policySettings")]
-        public Input<Inputs.PolicySettingsArgs>? PolicySettings { get; set; }
+        public Input<Inputs.FrontDoorPolicySettingsArgs>? PolicySettings { get; set; }
 
         /// <summary>
         /// Name of the Resource group within the Azure subscription.

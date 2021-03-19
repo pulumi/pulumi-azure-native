@@ -36,7 +36,7 @@ type LookupWatchlistItemResult struct {
 	// The time the watchlist item was created
 	Created *string `pulumi:"created"`
 	// Describes a user that created the watchlist item
-	CreatedBy *UserInfoResponse `pulumi:"createdBy"`
+	CreatedBy *WatchlistUserInfoResponse `pulumi:"createdBy"`
 	// key-value pairs for a watchlist item entity mapping
 	EntityMapping interface{} `pulumi:"entityMapping"`
 	// Etag of the azure resource
@@ -56,7 +56,7 @@ type LookupWatchlistItemResult struct {
 	// The last time the watchlist item was updated
 	Updated *string `pulumi:"updated"`
 	// Describes a user that updated the watchlist item
-	UpdatedBy *UserInfoResponse `pulumi:"updatedBy"`
+	UpdatedBy *WatchlistUserInfoResponse `pulumi:"updatedBy"`
 	// The id (a Guid) of the watchlist item
 	WatchlistItemId *string `pulumi:"watchlistItemId"`
 	// The type of the watchlist item

@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// Describes a user that created the watchlist item
         /// </summary>
         [Output("createdBy")]
-        public Output<Outputs.UserInfoResponse?> CreatedBy { get; private set; } = null!;
+        public Output<Outputs.WatchlistUserInfoResponse?> CreatedBy { get; private set; } = null!;
 
         /// <summary>
         /// key-value pairs for a watchlist item entity mapping
@@ -80,7 +80,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// Describes a user that updated the watchlist item
         /// </summary>
         [Output("updatedBy")]
-        public Output<Outputs.UserInfoResponse?> UpdatedBy { get; private set; } = null!;
+        public Output<Outputs.WatchlistUserInfoResponse?> UpdatedBy { get; private set; } = null!;
 
         /// <summary>
         /// The id (a Guid) of the watchlist item
@@ -155,7 +155,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// Describes a user that created the watchlist item
         /// </summary>
         [Input("createdBy")]
-        public Input<Inputs.UserInfoArgs>? CreatedBy { get; set; }
+        public Input<Inputs.WatchlistUserInfoArgs>? CreatedBy { get; set; }
 
         /// <summary>
         /// key-value pairs for a watchlist item entity mapping
@@ -209,7 +209,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// Describes a user that updated the watchlist item
         /// </summary>
         [Input("updatedBy")]
-        public Input<Inputs.UserInfoArgs>? UpdatedBy { get; set; }
+        public Input<Inputs.WatchlistUserInfoArgs>? UpdatedBy { get; set; }
 
         /// <summary>
         /// Watchlist Alias

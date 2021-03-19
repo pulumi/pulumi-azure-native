@@ -8,20 +8,15 @@ from .app_service_environment import *
 from .app_service_plan import *
 from .app_service_plan_route_for_vnet import *
 from .certificate import *
-from .certificate_csr import *
 from .connection import *
 from .connection_gateway import *
 from .custom_api import *
 from .get_app_service_environment import *
 from .get_app_service_plan import *
 from .get_certificate import *
-from .get_certificate_csr import *
 from .get_connection import *
 from .get_connection_gateway import *
 from .get_custom_api import *
-from .get_managed_hosting_environment import *
-from .get_site_instance_deployment import *
-from .get_site_instance_deployment_slot import *
 from .get_static_site import *
 from .get_web_app import *
 from .get_web_app_deployment import *
@@ -90,9 +85,6 @@ from .list_web_app_site_push_settings import *
 from .list_web_app_site_push_settings_slot import *
 from .list_web_app_sync_function_triggers import *
 from .list_web_app_sync_function_triggers_slot import *
-from .managed_hosting_environment import *
-from .site_instance_deployment import *
-from .site_instance_deployment_slot import *
 from .static_site import *
 from .web_app import *
 from .web_app_application_settings import *
@@ -162,20 +154,12 @@ def _register_module():
                 return AppServicePlanRouteForVnet(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:web/latest:Certificate":
                 return Certificate(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "azure-native:web/latest:CertificateCsr":
-                return CertificateCsr(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:web/latest:Connection":
                 return Connection(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:web/latest:ConnectionGateway":
                 return ConnectionGateway(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:web/latest:CustomApi":
                 return CustomApi(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "azure-native:web/latest:ManagedHostingEnvironment":
-                return ManagedHostingEnvironment(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "azure-native:web/latest:SiteInstanceDeployment":
-                return SiteInstanceDeployment(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "azure-native:web/latest:SiteInstanceDeploymentSlot":
-                return SiteInstanceDeploymentSlot(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:web/latest:StaticSite":
                 return StaticSite(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:web/latest:WebApp":

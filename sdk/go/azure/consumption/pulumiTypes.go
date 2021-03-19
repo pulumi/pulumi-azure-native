@@ -1591,388 +1591,6 @@ func (o CurrentSpendResponsePtrOutput) Unit() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// May be used to filter budgets by resource group, resource, or meter.
-type Filters struct {
-	// The list of filters on meters (GUID), mandatory for budgets of usage category.
-	Meters []string `pulumi:"meters"`
-	// The list of filters on resource groups, allowed at subscription level only.
-	ResourceGroups []string `pulumi:"resourceGroups"`
-	// The list of filters on resources.
-	Resources []string `pulumi:"resources"`
-	// The dictionary of filters on tags.
-	Tags map[string][]string `pulumi:"tags"`
-}
-
-// FiltersInput is an input type that accepts FiltersArgs and FiltersOutput values.
-// You can construct a concrete instance of `FiltersInput` via:
-//
-//          FiltersArgs{...}
-type FiltersInput interface {
-	pulumi.Input
-
-	ToFiltersOutput() FiltersOutput
-	ToFiltersOutputWithContext(context.Context) FiltersOutput
-}
-
-// May be used to filter budgets by resource group, resource, or meter.
-type FiltersArgs struct {
-	// The list of filters on meters (GUID), mandatory for budgets of usage category.
-	Meters pulumi.StringArrayInput `pulumi:"meters"`
-	// The list of filters on resource groups, allowed at subscription level only.
-	ResourceGroups pulumi.StringArrayInput `pulumi:"resourceGroups"`
-	// The list of filters on resources.
-	Resources pulumi.StringArrayInput `pulumi:"resources"`
-	// The dictionary of filters on tags.
-	Tags pulumi.StringArrayMapInput `pulumi:"tags"`
-}
-
-func (FiltersArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*Filters)(nil)).Elem()
-}
-
-func (i FiltersArgs) ToFiltersOutput() FiltersOutput {
-	return i.ToFiltersOutputWithContext(context.Background())
-}
-
-func (i FiltersArgs) ToFiltersOutputWithContext(ctx context.Context) FiltersOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FiltersOutput)
-}
-
-func (i FiltersArgs) ToFiltersPtrOutput() FiltersPtrOutput {
-	return i.ToFiltersPtrOutputWithContext(context.Background())
-}
-
-func (i FiltersArgs) ToFiltersPtrOutputWithContext(ctx context.Context) FiltersPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FiltersOutput).ToFiltersPtrOutputWithContext(ctx)
-}
-
-// FiltersPtrInput is an input type that accepts FiltersArgs, FiltersPtr and FiltersPtrOutput values.
-// You can construct a concrete instance of `FiltersPtrInput` via:
-//
-//          FiltersArgs{...}
-//
-//  or:
-//
-//          nil
-type FiltersPtrInput interface {
-	pulumi.Input
-
-	ToFiltersPtrOutput() FiltersPtrOutput
-	ToFiltersPtrOutputWithContext(context.Context) FiltersPtrOutput
-}
-
-type filtersPtrType FiltersArgs
-
-func FiltersPtr(v *FiltersArgs) FiltersPtrInput {
-	return (*filtersPtrType)(v)
-}
-
-func (*filtersPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Filters)(nil)).Elem()
-}
-
-func (i *filtersPtrType) ToFiltersPtrOutput() FiltersPtrOutput {
-	return i.ToFiltersPtrOutputWithContext(context.Background())
-}
-
-func (i *filtersPtrType) ToFiltersPtrOutputWithContext(ctx context.Context) FiltersPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FiltersPtrOutput)
-}
-
-// May be used to filter budgets by resource group, resource, or meter.
-type FiltersOutput struct{ *pulumi.OutputState }
-
-func (FiltersOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Filters)(nil)).Elem()
-}
-
-func (o FiltersOutput) ToFiltersOutput() FiltersOutput {
-	return o
-}
-
-func (o FiltersOutput) ToFiltersOutputWithContext(ctx context.Context) FiltersOutput {
-	return o
-}
-
-func (o FiltersOutput) ToFiltersPtrOutput() FiltersPtrOutput {
-	return o.ToFiltersPtrOutputWithContext(context.Background())
-}
-
-func (o FiltersOutput) ToFiltersPtrOutputWithContext(ctx context.Context) FiltersPtrOutput {
-	return o.ApplyT(func(v Filters) *Filters {
-		return &v
-	}).(FiltersPtrOutput)
-}
-
-// The list of filters on meters (GUID), mandatory for budgets of usage category.
-func (o FiltersOutput) Meters() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v Filters) []string { return v.Meters }).(pulumi.StringArrayOutput)
-}
-
-// The list of filters on resource groups, allowed at subscription level only.
-func (o FiltersOutput) ResourceGroups() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v Filters) []string { return v.ResourceGroups }).(pulumi.StringArrayOutput)
-}
-
-// The list of filters on resources.
-func (o FiltersOutput) Resources() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v Filters) []string { return v.Resources }).(pulumi.StringArrayOutput)
-}
-
-// The dictionary of filters on tags.
-func (o FiltersOutput) Tags() pulumi.StringArrayMapOutput {
-	return o.ApplyT(func(v Filters) map[string][]string { return v.Tags }).(pulumi.StringArrayMapOutput)
-}
-
-type FiltersPtrOutput struct{ *pulumi.OutputState }
-
-func (FiltersPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Filters)(nil)).Elem()
-}
-
-func (o FiltersPtrOutput) ToFiltersPtrOutput() FiltersPtrOutput {
-	return o
-}
-
-func (o FiltersPtrOutput) ToFiltersPtrOutputWithContext(ctx context.Context) FiltersPtrOutput {
-	return o
-}
-
-func (o FiltersPtrOutput) Elem() FiltersOutput {
-	return o.ApplyT(func(v *Filters) Filters { return *v }).(FiltersOutput)
-}
-
-// The list of filters on meters (GUID), mandatory for budgets of usage category.
-func (o FiltersPtrOutput) Meters() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *Filters) []string {
-		if v == nil {
-			return nil
-		}
-		return v.Meters
-	}).(pulumi.StringArrayOutput)
-}
-
-// The list of filters on resource groups, allowed at subscription level only.
-func (o FiltersPtrOutput) ResourceGroups() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *Filters) []string {
-		if v == nil {
-			return nil
-		}
-		return v.ResourceGroups
-	}).(pulumi.StringArrayOutput)
-}
-
-// The list of filters on resources.
-func (o FiltersPtrOutput) Resources() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *Filters) []string {
-		if v == nil {
-			return nil
-		}
-		return v.Resources
-	}).(pulumi.StringArrayOutput)
-}
-
-// The dictionary of filters on tags.
-func (o FiltersPtrOutput) Tags() pulumi.StringArrayMapOutput {
-	return o.ApplyT(func(v *Filters) map[string][]string {
-		if v == nil {
-			return nil
-		}
-		return v.Tags
-	}).(pulumi.StringArrayMapOutput)
-}
-
-// May be used to filter budgets by resource group, resource, or meter.
-type FiltersResponse struct {
-	// The list of filters on meters (GUID), mandatory for budgets of usage category.
-	Meters []string `pulumi:"meters"`
-	// The list of filters on resource groups, allowed at subscription level only.
-	ResourceGroups []string `pulumi:"resourceGroups"`
-	// The list of filters on resources.
-	Resources []string `pulumi:"resources"`
-	// The dictionary of filters on tags.
-	Tags map[string][]string `pulumi:"tags"`
-}
-
-// FiltersResponseInput is an input type that accepts FiltersResponseArgs and FiltersResponseOutput values.
-// You can construct a concrete instance of `FiltersResponseInput` via:
-//
-//          FiltersResponseArgs{...}
-type FiltersResponseInput interface {
-	pulumi.Input
-
-	ToFiltersResponseOutput() FiltersResponseOutput
-	ToFiltersResponseOutputWithContext(context.Context) FiltersResponseOutput
-}
-
-// May be used to filter budgets by resource group, resource, or meter.
-type FiltersResponseArgs struct {
-	// The list of filters on meters (GUID), mandatory for budgets of usage category.
-	Meters pulumi.StringArrayInput `pulumi:"meters"`
-	// The list of filters on resource groups, allowed at subscription level only.
-	ResourceGroups pulumi.StringArrayInput `pulumi:"resourceGroups"`
-	// The list of filters on resources.
-	Resources pulumi.StringArrayInput `pulumi:"resources"`
-	// The dictionary of filters on tags.
-	Tags pulumi.StringArrayMapInput `pulumi:"tags"`
-}
-
-func (FiltersResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FiltersResponse)(nil)).Elem()
-}
-
-func (i FiltersResponseArgs) ToFiltersResponseOutput() FiltersResponseOutput {
-	return i.ToFiltersResponseOutputWithContext(context.Background())
-}
-
-func (i FiltersResponseArgs) ToFiltersResponseOutputWithContext(ctx context.Context) FiltersResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FiltersResponseOutput)
-}
-
-func (i FiltersResponseArgs) ToFiltersResponsePtrOutput() FiltersResponsePtrOutput {
-	return i.ToFiltersResponsePtrOutputWithContext(context.Background())
-}
-
-func (i FiltersResponseArgs) ToFiltersResponsePtrOutputWithContext(ctx context.Context) FiltersResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FiltersResponseOutput).ToFiltersResponsePtrOutputWithContext(ctx)
-}
-
-// FiltersResponsePtrInput is an input type that accepts FiltersResponseArgs, FiltersResponsePtr and FiltersResponsePtrOutput values.
-// You can construct a concrete instance of `FiltersResponsePtrInput` via:
-//
-//          FiltersResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type FiltersResponsePtrInput interface {
-	pulumi.Input
-
-	ToFiltersResponsePtrOutput() FiltersResponsePtrOutput
-	ToFiltersResponsePtrOutputWithContext(context.Context) FiltersResponsePtrOutput
-}
-
-type filtersResponsePtrType FiltersResponseArgs
-
-func FiltersResponsePtr(v *FiltersResponseArgs) FiltersResponsePtrInput {
-	return (*filtersResponsePtrType)(v)
-}
-
-func (*filtersResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FiltersResponse)(nil)).Elem()
-}
-
-func (i *filtersResponsePtrType) ToFiltersResponsePtrOutput() FiltersResponsePtrOutput {
-	return i.ToFiltersResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *filtersResponsePtrType) ToFiltersResponsePtrOutputWithContext(ctx context.Context) FiltersResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FiltersResponsePtrOutput)
-}
-
-// May be used to filter budgets by resource group, resource, or meter.
-type FiltersResponseOutput struct{ *pulumi.OutputState }
-
-func (FiltersResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FiltersResponse)(nil)).Elem()
-}
-
-func (o FiltersResponseOutput) ToFiltersResponseOutput() FiltersResponseOutput {
-	return o
-}
-
-func (o FiltersResponseOutput) ToFiltersResponseOutputWithContext(ctx context.Context) FiltersResponseOutput {
-	return o
-}
-
-func (o FiltersResponseOutput) ToFiltersResponsePtrOutput() FiltersResponsePtrOutput {
-	return o.ToFiltersResponsePtrOutputWithContext(context.Background())
-}
-
-func (o FiltersResponseOutput) ToFiltersResponsePtrOutputWithContext(ctx context.Context) FiltersResponsePtrOutput {
-	return o.ApplyT(func(v FiltersResponse) *FiltersResponse {
-		return &v
-	}).(FiltersResponsePtrOutput)
-}
-
-// The list of filters on meters (GUID), mandatory for budgets of usage category.
-func (o FiltersResponseOutput) Meters() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v FiltersResponse) []string { return v.Meters }).(pulumi.StringArrayOutput)
-}
-
-// The list of filters on resource groups, allowed at subscription level only.
-func (o FiltersResponseOutput) ResourceGroups() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v FiltersResponse) []string { return v.ResourceGroups }).(pulumi.StringArrayOutput)
-}
-
-// The list of filters on resources.
-func (o FiltersResponseOutput) Resources() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v FiltersResponse) []string { return v.Resources }).(pulumi.StringArrayOutput)
-}
-
-// The dictionary of filters on tags.
-func (o FiltersResponseOutput) Tags() pulumi.StringArrayMapOutput {
-	return o.ApplyT(func(v FiltersResponse) map[string][]string { return v.Tags }).(pulumi.StringArrayMapOutput)
-}
-
-type FiltersResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (FiltersResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FiltersResponse)(nil)).Elem()
-}
-
-func (o FiltersResponsePtrOutput) ToFiltersResponsePtrOutput() FiltersResponsePtrOutput {
-	return o
-}
-
-func (o FiltersResponsePtrOutput) ToFiltersResponsePtrOutputWithContext(ctx context.Context) FiltersResponsePtrOutput {
-	return o
-}
-
-func (o FiltersResponsePtrOutput) Elem() FiltersResponseOutput {
-	return o.ApplyT(func(v *FiltersResponse) FiltersResponse { return *v }).(FiltersResponseOutput)
-}
-
-// The list of filters on meters (GUID), mandatory for budgets of usage category.
-func (o FiltersResponsePtrOutput) Meters() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *FiltersResponse) []string {
-		if v == nil {
-			return nil
-		}
-		return v.Meters
-	}).(pulumi.StringArrayOutput)
-}
-
-// The list of filters on resource groups, allowed at subscription level only.
-func (o FiltersResponsePtrOutput) ResourceGroups() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *FiltersResponse) []string {
-		if v == nil {
-			return nil
-		}
-		return v.ResourceGroups
-	}).(pulumi.StringArrayOutput)
-}
-
-// The list of filters on resources.
-func (o FiltersResponsePtrOutput) Resources() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *FiltersResponse) []string {
-		if v == nil {
-			return nil
-		}
-		return v.Resources
-	}).(pulumi.StringArrayOutput)
-}
-
-// The dictionary of filters on tags.
-func (o FiltersResponsePtrOutput) Tags() pulumi.StringArrayMapOutput {
-	return o.ApplyT(func(v *FiltersResponse) map[string][]string {
-		if v == nil {
-			return nil
-		}
-		return v.Tags
-	}).(pulumi.StringArrayMapOutput)
-}
-
 // The forecasted cost which is being tracked for a budget.
 type ForecastSpendResponse struct {
 	// The forecasted cost for the total time period which is being tracked by the budget. This value is only provided if the budget contains a forecast alert type.
@@ -2128,9 +1746,9 @@ func (o ForecastSpendResponsePtrOutput) Unit() pulumi.StringPtrOutput {
 
 // The notification associated with a budget.
 type Notification struct {
-	// Email addresses to send the budget notification to when the threshold is exceeded.
+	// Email addresses to send the budget notification to when the threshold is exceeded. Must have at least one contact email or contact group specified at the Subscription or Resource Group scopes. All other scopes must have at least one contact email specified.
 	ContactEmails []string `pulumi:"contactEmails"`
-	// Action groups to send the budget notification to when the threshold is exceeded.
+	// Action groups to send the budget notification to when the threshold is exceeded. Must be provided as a fully qualified Azure resource id. Only supported at Subscription or Resource Group scopes.
 	ContactGroups []string `pulumi:"contactGroups"`
 	// Contact roles to send the budget notification to when the threshold is exceeded.
 	ContactRoles []string `pulumi:"contactRoles"`
@@ -2140,6 +1758,8 @@ type Notification struct {
 	Operator string `pulumi:"operator"`
 	// Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.
 	Threshold float64 `pulumi:"threshold"`
+	// The type of threshold
+	ThresholdType *string `pulumi:"thresholdType"`
 }
 
 // NotificationInput is an input type that accepts NotificationArgs and NotificationOutput values.
@@ -2155,9 +1775,9 @@ type NotificationInput interface {
 
 // The notification associated with a budget.
 type NotificationArgs struct {
-	// Email addresses to send the budget notification to when the threshold is exceeded.
+	// Email addresses to send the budget notification to when the threshold is exceeded. Must have at least one contact email or contact group specified at the Subscription or Resource Group scopes. All other scopes must have at least one contact email specified.
 	ContactEmails pulumi.StringArrayInput `pulumi:"contactEmails"`
-	// Action groups to send the budget notification to when the threshold is exceeded.
+	// Action groups to send the budget notification to when the threshold is exceeded. Must be provided as a fully qualified Azure resource id. Only supported at Subscription or Resource Group scopes.
 	ContactGroups pulumi.StringArrayInput `pulumi:"contactGroups"`
 	// Contact roles to send the budget notification to when the threshold is exceeded.
 	ContactRoles pulumi.StringArrayInput `pulumi:"contactRoles"`
@@ -2167,6 +1787,8 @@ type NotificationArgs struct {
 	Operator pulumi.StringInput `pulumi:"operator"`
 	// Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.
 	Threshold pulumi.Float64Input `pulumi:"threshold"`
+	// The type of threshold
+	ThresholdType pulumi.StringPtrInput `pulumi:"thresholdType"`
 }
 
 func (NotificationArgs) ElementType() reflect.Type {
@@ -2221,12 +1843,12 @@ func (o NotificationOutput) ToNotificationOutputWithContext(ctx context.Context)
 	return o
 }
 
-// Email addresses to send the budget notification to when the threshold is exceeded.
+// Email addresses to send the budget notification to when the threshold is exceeded. Must have at least one contact email or contact group specified at the Subscription or Resource Group scopes. All other scopes must have at least one contact email specified.
 func (o NotificationOutput) ContactEmails() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v Notification) []string { return v.ContactEmails }).(pulumi.StringArrayOutput)
 }
 
-// Action groups to send the budget notification to when the threshold is exceeded.
+// Action groups to send the budget notification to when the threshold is exceeded. Must be provided as a fully qualified Azure resource id. Only supported at Subscription or Resource Group scopes.
 func (o NotificationOutput) ContactGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v Notification) []string { return v.ContactGroups }).(pulumi.StringArrayOutput)
 }
@@ -2251,6 +1873,11 @@ func (o NotificationOutput) Threshold() pulumi.Float64Output {
 	return o.ApplyT(func(v Notification) float64 { return v.Threshold }).(pulumi.Float64Output)
 }
 
+// The type of threshold
+func (o NotificationOutput) ThresholdType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Notification) *string { return v.ThresholdType }).(pulumi.StringPtrOutput)
+}
+
 type NotificationMapOutput struct{ *pulumi.OutputState }
 
 func (NotificationMapOutput) ElementType() reflect.Type {
@@ -2273,9 +1900,9 @@ func (o NotificationMapOutput) MapIndex(k pulumi.StringInput) NotificationOutput
 
 // The notification associated with a budget.
 type NotificationResponse struct {
-	// Email addresses to send the budget notification to when the threshold is exceeded.
+	// Email addresses to send the budget notification to when the threshold is exceeded. Must have at least one contact email or contact group specified at the Subscription or Resource Group scopes. All other scopes must have at least one contact email specified.
 	ContactEmails []string `pulumi:"contactEmails"`
-	// Action groups to send the budget notification to when the threshold is exceeded.
+	// Action groups to send the budget notification to when the threshold is exceeded. Must be provided as a fully qualified Azure resource id. Only supported at Subscription or Resource Group scopes.
 	ContactGroups []string `pulumi:"contactGroups"`
 	// Contact roles to send the budget notification to when the threshold is exceeded.
 	ContactRoles []string `pulumi:"contactRoles"`
@@ -2285,6 +1912,8 @@ type NotificationResponse struct {
 	Operator string `pulumi:"operator"`
 	// Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.
 	Threshold float64 `pulumi:"threshold"`
+	// The type of threshold
+	ThresholdType *string `pulumi:"thresholdType"`
 }
 
 // NotificationResponseInput is an input type that accepts NotificationResponseArgs and NotificationResponseOutput values.
@@ -2300,9 +1929,9 @@ type NotificationResponseInput interface {
 
 // The notification associated with a budget.
 type NotificationResponseArgs struct {
-	// Email addresses to send the budget notification to when the threshold is exceeded.
+	// Email addresses to send the budget notification to when the threshold is exceeded. Must have at least one contact email or contact group specified at the Subscription or Resource Group scopes. All other scopes must have at least one contact email specified.
 	ContactEmails pulumi.StringArrayInput `pulumi:"contactEmails"`
-	// Action groups to send the budget notification to when the threshold is exceeded.
+	// Action groups to send the budget notification to when the threshold is exceeded. Must be provided as a fully qualified Azure resource id. Only supported at Subscription or Resource Group scopes.
 	ContactGroups pulumi.StringArrayInput `pulumi:"contactGroups"`
 	// Contact roles to send the budget notification to when the threshold is exceeded.
 	ContactRoles pulumi.StringArrayInput `pulumi:"contactRoles"`
@@ -2312,6 +1941,8 @@ type NotificationResponseArgs struct {
 	Operator pulumi.StringInput `pulumi:"operator"`
 	// Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.
 	Threshold pulumi.Float64Input `pulumi:"threshold"`
+	// The type of threshold
+	ThresholdType pulumi.StringPtrInput `pulumi:"thresholdType"`
 }
 
 func (NotificationResponseArgs) ElementType() reflect.Type {
@@ -2366,12 +1997,12 @@ func (o NotificationResponseOutput) ToNotificationResponseOutputWithContext(ctx 
 	return o
 }
 
-// Email addresses to send the budget notification to when the threshold is exceeded.
+// Email addresses to send the budget notification to when the threshold is exceeded. Must have at least one contact email or contact group specified at the Subscription or Resource Group scopes. All other scopes must have at least one contact email specified.
 func (o NotificationResponseOutput) ContactEmails() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v NotificationResponse) []string { return v.ContactEmails }).(pulumi.StringArrayOutput)
 }
 
-// Action groups to send the budget notification to when the threshold is exceeded.
+// Action groups to send the budget notification to when the threshold is exceeded. Must be provided as a fully qualified Azure resource id. Only supported at Subscription or Resource Group scopes.
 func (o NotificationResponseOutput) ContactGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v NotificationResponse) []string { return v.ContactGroups }).(pulumi.StringArrayOutput)
 }
@@ -2394,6 +2025,11 @@ func (o NotificationResponseOutput) Operator() pulumi.StringOutput {
 // Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.
 func (o NotificationResponseOutput) Threshold() pulumi.Float64Output {
 	return o.ApplyT(func(v NotificationResponse) float64 { return v.Threshold }).(pulumi.Float64Output)
+}
+
+// The type of threshold
+func (o NotificationResponseOutput) ThresholdType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NotificationResponse) *string { return v.ThresholdType }).(pulumi.StringPtrOutput)
 }
 
 type NotificationResponseMapOutput struct{ *pulumi.OutputState }
@@ -2437,10 +2073,6 @@ func init() {
 	pulumi.RegisterOutputType(BudgetTimePeriodResponsePtrOutput{})
 	pulumi.RegisterOutputType(CurrentSpendResponseOutput{})
 	pulumi.RegisterOutputType(CurrentSpendResponsePtrOutput{})
-	pulumi.RegisterOutputType(FiltersOutput{})
-	pulumi.RegisterOutputType(FiltersPtrOutput{})
-	pulumi.RegisterOutputType(FiltersResponseOutput{})
-	pulumi.RegisterOutputType(FiltersResponsePtrOutput{})
 	pulumi.RegisterOutputType(ForecastSpendResponseOutput{})
 	pulumi.RegisterOutputType(ForecastSpendResponsePtrOutput{})
 	pulumi.RegisterOutputType(NotificationOutput{})

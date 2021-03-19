@@ -57,6 +57,36 @@ func NewCassandraResourceCassandraKeyspace(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:documentdb:CassandraResourceCassandraKeyspace"),
 		},
 		{
+			Type: pulumi.String("azure-native:documentdb/v20150401:CassandraResourceCassandraKeyspace"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:documentdb/v20150401:CassandraResourceCassandraKeyspace"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20150408:CassandraResourceCassandraKeyspace"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:documentdb/v20150408:CassandraResourceCassandraKeyspace"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20151106:CassandraResourceCassandraKeyspace"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:documentdb/v20151106:CassandraResourceCassandraKeyspace"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20160319:CassandraResourceCassandraKeyspace"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:documentdb/v20160319:CassandraResourceCassandraKeyspace"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20160331:CassandraResourceCassandraKeyspace"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:documentdb/v20160331:CassandraResourceCassandraKeyspace"),
+		},
+		{
 			Type: pulumi.String("azure-native:documentdb/v20190801:CassandraResourceCassandraKeyspace"),
 		},
 		{

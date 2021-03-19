@@ -891,6 +891,23 @@ export const FrontDoorHealthProbeMethod = {
  */
 export type FrontDoorHealthProbeMethod = (typeof FrontDoorHealthProbeMethod)[keyof typeof FrontDoorHealthProbeMethod];
 
+export const FrontDoorMatchVariable = {
+    RemoteAddr: "RemoteAddr",
+    RequestMethod: "RequestMethod",
+    QueryString: "QueryString",
+    PostArgs: "PostArgs",
+    RequestUri: "RequestUri",
+    RequestHeader: "RequestHeader",
+    RequestBody: "RequestBody",
+    Cookies: "Cookies",
+    SocketAddr: "SocketAddr",
+} as const;
+
+/**
+ * Request variable to compare with.
+ */
+export type FrontDoorMatchVariable = (typeof FrontDoorMatchVariable)[keyof typeof FrontDoorMatchVariable];
+
 export const FrontDoorProtocol = {
     Http: "Http",
     Https: "Https",

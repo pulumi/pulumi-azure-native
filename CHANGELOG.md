@@ -5,6 +5,15 @@ CHANGELOG
 
 #### Breaking Changes
 
+- Updated all top-level resources to the latest API versions.
+- Prevent silent clashes of different types under the same name. The types are now disambiguated.
+  [#641](https://github.com/pulumi/pulumi-azure-native/pull/641)
+  [#673](https://github.com/pulumi/pulumi-azure-native/pull/673)
+- The following resources will not appear in the top-level modules anymore:
+  `apimanagement:TenantPolicy`, `consumption:BudgetByResourceGroupName`, `containerregistry:BuildStep`,
+  `containerservice:ContainerService`, `costmanagement:Budget`, `costmanagement:ReportConfig`,
+  `costmanagement:ReportConfigByResourceGroupName`, `datamigration:ServiceTask`, `synapse:SqlDatabase`,
+  `web:CertificateCsr`, `web:SiteInstanceDeployment`, `web:SiteInstanceDeploymentSlot`.
 - Remove env var support for auxiliary tenant IDs (ARM_AUXILIARY_TENANT_IDS).
   This option can still be set directly as a Provider argument or config.
   [#624](https://github.com/pulumi/pulumi-azure-native/pull/624)

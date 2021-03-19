@@ -11,14 +11,12 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'BudgetTimePeriodResponse',
     'CommonExportPropertiesResponse',
     'ConnectorCollectionErrorInfoResponse',
     'ConnectorCollectionInfoResponse',
     'CostAllocationProportionResponse',
     'CostAllocationRuleDetailsResponse',
     'CostAllocationRulePropertiesResponse',
-    'CurrentSpendResponse',
     'ErrorDetailsResponse',
     'ExportDatasetConfigurationResponse',
     'ExportDatasetResponse',
@@ -31,7 +29,6 @@ __all__ = [
     'ExportScheduleResponse',
     'ExportTimePeriodResponse',
     'KpiPropertiesResponse',
-    'NotificationResponse',
     'PivotPropertiesResponse',
     'ReportAggregationResponse',
     'ReportComparisonExpressionResponse',
@@ -39,13 +36,8 @@ __all__ = [
     'ReportConfigComparisonExpressionResponse',
     'ReportConfigDatasetConfigurationResponse',
     'ReportConfigDatasetResponse',
-    'ReportConfigDefinitionResponse',
-    'ReportConfigDeliveryDestinationResponse',
-    'ReportConfigDeliveryInfoResponse',
     'ReportConfigFilterResponse',
     'ReportConfigGroupingResponse',
-    'ReportConfigRecurrencePeriodResponse',
-    'ReportConfigScheduleResponse',
     'ReportConfigSortingResponse',
     'ReportConfigTimePeriodResponse',
     'ReportDatasetConfigurationResponse',
@@ -61,43 +53,6 @@ __all__ = [
     'SourceCostAllocationResourceResponse',
     'TargetCostAllocationResourceResponse',
 ]
-
-@pulumi.output_type
-class BudgetTimePeriodResponse(dict):
-    """
-    The start and end date for a budget.
-    """
-    def __init__(__self__, *,
-                 start_date: str,
-                 end_date: Optional[str] = None):
-        """
-        The start and end date for a budget.
-        :param str start_date: The start date for the budget.
-        :param str end_date: The end date for the budget. If not provided, we default this to 10 years from the start date.
-        """
-        pulumi.set(__self__, "start_date", start_date)
-        if end_date is not None:
-            pulumi.set(__self__, "end_date", end_date)
-
-    @property
-    @pulumi.getter(name="startDate")
-    def start_date(self) -> str:
-        """
-        The start date for the budget.
-        """
-        return pulumi.get(self, "start_date")
-
-    @property
-    @pulumi.getter(name="endDate")
-    def end_date(self) -> Optional[str]:
-        """
-        The end date for the budget. If not provided, we default this to 10 years from the start date.
-        """
-        return pulumi.get(self, "end_date")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CommonExportPropertiesResponse(dict):
@@ -177,15 +132,18 @@ class ConnectorCollectionErrorInfoResponse(dict):
     """
     def __init__(__self__, *,
                  error_code: str,
+                 error_inner_message: str,
                  error_message: str,
                  error_start_time: str):
         """
         Details of any error encountered on last collection attempt
-        :param str error_code: Short error message
+        :param str error_code: Short error code
+        :param str error_inner_message: External Provider error message
         :param str error_message: Detailed error message
-        :param str error_start_time: Time the error started occurring (Last time error occurred in lastRun)
+        :param str error_start_time: Time the error started occurring (Last time error occurred in lastChecked)
         """
         pulumi.set(__self__, "error_code", error_code)
+        pulumi.set(__self__, "error_inner_message", error_inner_message)
         pulumi.set(__self__, "error_message", error_message)
         pulumi.set(__self__, "error_start_time", error_start_time)
 
@@ -193,9 +151,17 @@ class ConnectorCollectionErrorInfoResponse(dict):
     @pulumi.getter(name="errorCode")
     def error_code(self) -> str:
         """
-        Short error message
+        Short error code
         """
         return pulumi.get(self, "error_code")
+
+    @property
+    @pulumi.getter(name="errorInnerMessage")
+    def error_inner_message(self) -> str:
+        """
+        External Provider error message
+        """
+        return pulumi.get(self, "error_inner_message")
 
     @property
     @pulumi.getter(name="errorMessage")
@@ -209,7 +175,7 @@ class ConnectorCollectionErrorInfoResponse(dict):
     @pulumi.getter(name="errorStartTime")
     def error_start_time(self) -> str:
         """
-        Time the error started occurring (Last time error occurred in lastRun)
+        Time the error started occurring (Last time error occurred in lastChecked)
         """
         return pulumi.get(self, "error_start_time")
 
@@ -223,30 +189,30 @@ class ConnectorCollectionInfoResponse(dict):
     Collection and ingestion information
     """
     def __init__(__self__, *,
-                 last_run: str,
+                 last_checked: str,
                  last_updated: str,
                  source_last_updated: str,
                  error: Optional['outputs.ConnectorCollectionErrorInfoResponse'] = None):
         """
         Collection and ingestion information
-        :param str last_run: Last time the data acquisition process completed (even if no new data was found)
+        :param str last_checked: Last time the data acquisition process initiated connecting to the external provider
         :param str last_updated: Last time the external data was updated into Azure
         :param str source_last_updated: Source timestamp of external data currently available in Azure (eg AWS last processed CUR file timestamp)
         :param 'ConnectorCollectionErrorInfoResponseArgs' error: Error information of last collection
         """
-        pulumi.set(__self__, "last_run", last_run)
+        pulumi.set(__self__, "last_checked", last_checked)
         pulumi.set(__self__, "last_updated", last_updated)
         pulumi.set(__self__, "source_last_updated", source_last_updated)
         if error is not None:
             pulumi.set(__self__, "error", error)
 
     @property
-    @pulumi.getter(name="lastRun")
-    def last_run(self) -> str:
+    @pulumi.getter(name="lastChecked")
+    def last_checked(self) -> str:
         """
-        Last time the data acquisition process completed (even if no new data was found)
+        Last time the data acquisition process initiated connecting to the external provider
         """
-        return pulumi.get(self, "last_run")
+        return pulumi.get(self, "last_checked")
 
     @property
     @pulumi.getter(name="lastUpdated")
@@ -415,42 +381,6 @@ class CostAllocationRulePropertiesResponse(dict):
         Description of a cost allocation rule.
         """
         return pulumi.get(self, "description")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class CurrentSpendResponse(dict):
-    """
-    The current amount of cost which is being tracked for a budget.
-    """
-    def __init__(__self__, *,
-                 amount: float,
-                 unit: str):
-        """
-        The current amount of cost which is being tracked for a budget.
-        :param float amount: The total amount of cost which is being tracked by the budget.
-        :param str unit: The unit of measure for the budget amount.
-        """
-        pulumi.set(__self__, "amount", amount)
-        pulumi.set(__self__, "unit", unit)
-
-    @property
-    @pulumi.getter
-    def amount(self) -> float:
-        """
-        The total amount of cost which is being tracked by the budget.
-        """
-        return pulumi.get(self, "amount")
-
-    @property
-    @pulumi.getter
-    def unit(self) -> str:
-        """
-        The unit of measure for the budget amount.
-        """
-        return pulumi.get(self, "unit")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -1055,88 +985,6 @@ class KpiPropertiesResponse(dict):
 
 
 @pulumi.output_type
-class NotificationResponse(dict):
-    """
-    The notification associated with a budget.
-    """
-    def __init__(__self__, *,
-                 contact_emails: Sequence[str],
-                 enabled: bool,
-                 operator: str,
-                 threshold: float,
-                 contact_groups: Optional[Sequence[str]] = None,
-                 contact_roles: Optional[Sequence[str]] = None):
-        """
-        The notification associated with a budget.
-        :param Sequence[str] contact_emails: Email addresses to send the budget notification to when the threshold is exceeded.
-        :param bool enabled: The notification is enabled or not.
-        :param str operator: The comparison operator.
-        :param float threshold: Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.
-        :param Sequence[str] contact_groups: Action groups to send the budget notification to when the threshold is exceeded.
-        :param Sequence[str] contact_roles: Contact roles to send the budget notification to when the threshold is exceeded.
-        """
-        pulumi.set(__self__, "contact_emails", contact_emails)
-        pulumi.set(__self__, "enabled", enabled)
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "threshold", threshold)
-        if contact_groups is not None:
-            pulumi.set(__self__, "contact_groups", contact_groups)
-        if contact_roles is not None:
-            pulumi.set(__self__, "contact_roles", contact_roles)
-
-    @property
-    @pulumi.getter(name="contactEmails")
-    def contact_emails(self) -> Sequence[str]:
-        """
-        Email addresses to send the budget notification to when the threshold is exceeded.
-        """
-        return pulumi.get(self, "contact_emails")
-
-    @property
-    @pulumi.getter
-    def enabled(self) -> bool:
-        """
-        The notification is enabled or not.
-        """
-        return pulumi.get(self, "enabled")
-
-    @property
-    @pulumi.getter
-    def operator(self) -> str:
-        """
-        The comparison operator.
-        """
-        return pulumi.get(self, "operator")
-
-    @property
-    @pulumi.getter
-    def threshold(self) -> float:
-        """
-        Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.
-        """
-        return pulumi.get(self, "threshold")
-
-    @property
-    @pulumi.getter(name="contactGroups")
-    def contact_groups(self) -> Optional[Sequence[str]]:
-        """
-        Action groups to send the budget notification to when the threshold is exceeded.
-        """
-        return pulumi.get(self, "contact_groups")
-
-    @property
-    @pulumi.getter(name="contactRoles")
-    def contact_roles(self) -> Optional[Sequence[str]]:
-        """
-        Contact roles to send the budget notification to when the threshold is exceeded.
-        """
-        return pulumi.get(self, "contact_roles")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
 class PivotPropertiesResponse(dict):
     """
     Each pivot must contain a 'type' and 'name'.
@@ -1453,139 +1301,6 @@ class ReportConfigDatasetResponse(dict):
 
 
 @pulumi.output_type
-class ReportConfigDefinitionResponse(dict):
-    """
-    The definition of a report config.
-    """
-    def __init__(__self__, *,
-                 timeframe: str,
-                 type: str,
-                 dataset: Optional['outputs.ReportConfigDatasetResponse'] = None,
-                 time_period: Optional['outputs.ReportConfigTimePeriodResponse'] = None):
-        """
-        The definition of a report config.
-        :param str timeframe: The time frame for pulling data for the report. If custom, then a specific time period must be provided.
-        :param str type: The type of the report.
-        :param 'ReportConfigDatasetResponseArgs' dataset: Has definition for data in this report config.
-        :param 'ReportConfigTimePeriodResponseArgs' time_period: Has time period for pulling data for the report.
-        """
-        pulumi.set(__self__, "timeframe", timeframe)
-        pulumi.set(__self__, "type", type)
-        if dataset is not None:
-            pulumi.set(__self__, "dataset", dataset)
-        if time_period is not None:
-            pulumi.set(__self__, "time_period", time_period)
-
-    @property
-    @pulumi.getter
-    def timeframe(self) -> str:
-        """
-        The time frame for pulling data for the report. If custom, then a specific time period must be provided.
-        """
-        return pulumi.get(self, "timeframe")
-
-    @property
-    @pulumi.getter
-    def type(self) -> str:
-        """
-        The type of the report.
-        """
-        return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter
-    def dataset(self) -> Optional['outputs.ReportConfigDatasetResponse']:
-        """
-        Has definition for data in this report config.
-        """
-        return pulumi.get(self, "dataset")
-
-    @property
-    @pulumi.getter(name="timePeriod")
-    def time_period(self) -> Optional['outputs.ReportConfigTimePeriodResponse']:
-        """
-        Has time period for pulling data for the report.
-        """
-        return pulumi.get(self, "time_period")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class ReportConfigDeliveryDestinationResponse(dict):
-    """
-    The destination information for the delivery of the report.
-    """
-    def __init__(__self__, *,
-                 container: str,
-                 resource_id: str,
-                 root_folder_path: Optional[str] = None):
-        """
-        The destination information for the delivery of the report.
-        :param str container: The name of the container where reports will be uploaded.
-        :param str resource_id: The resource id of the storage account where reports will be delivered.
-        :param str root_folder_path: The name of the directory where reports will be uploaded.
-        """
-        pulumi.set(__self__, "container", container)
-        pulumi.set(__self__, "resource_id", resource_id)
-        if root_folder_path is not None:
-            pulumi.set(__self__, "root_folder_path", root_folder_path)
-
-    @property
-    @pulumi.getter
-    def container(self) -> str:
-        """
-        The name of the container where reports will be uploaded.
-        """
-        return pulumi.get(self, "container")
-
-    @property
-    @pulumi.getter(name="resourceId")
-    def resource_id(self) -> str:
-        """
-        The resource id of the storage account where reports will be delivered.
-        """
-        return pulumi.get(self, "resource_id")
-
-    @property
-    @pulumi.getter(name="rootFolderPath")
-    def root_folder_path(self) -> Optional[str]:
-        """
-        The name of the directory where reports will be uploaded.
-        """
-        return pulumi.get(self, "root_folder_path")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class ReportConfigDeliveryInfoResponse(dict):
-    """
-    The delivery information associated with a report config.
-    """
-    def __init__(__self__, *,
-                 destination: 'outputs.ReportConfigDeliveryDestinationResponse'):
-        """
-        The delivery information associated with a report config.
-        :param 'ReportConfigDeliveryDestinationResponseArgs' destination: Has destination for the report being delivered.
-        """
-        pulumi.set(__self__, "destination", destination)
-
-    @property
-    @pulumi.getter
-    def destination(self) -> 'outputs.ReportConfigDeliveryDestinationResponse':
-        """
-        Has destination for the report being delivered.
-        """
-        return pulumi.get(self, "destination")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
 class ReportConfigFilterResponse(dict):
     """
     The filter expression to be used in the report.
@@ -1702,91 +1417,6 @@ class ReportConfigGroupingResponse(dict):
         Has type of the column to group.
         """
         return pulumi.get(self, "type")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class ReportConfigRecurrencePeriodResponse(dict):
-    """
-    The start and end date for recurrence schedule.
-    """
-    def __init__(__self__, *,
-                 from_: str,
-                 to: Optional[str] = None):
-        """
-        The start and end date for recurrence schedule.
-        :param str from_: The start date of recurrence.
-        :param str to: The end date of recurrence. If not provided, we default this to 10 years from the start date.
-        """
-        pulumi.set(__self__, "from_", from_)
-        if to is not None:
-            pulumi.set(__self__, "to", to)
-
-    @property
-    @pulumi.getter(name="from")
-    def from_(self) -> str:
-        """
-        The start date of recurrence.
-        """
-        return pulumi.get(self, "from_")
-
-    @property
-    @pulumi.getter
-    def to(self) -> Optional[str]:
-        """
-        The end date of recurrence. If not provided, we default this to 10 years from the start date.
-        """
-        return pulumi.get(self, "to")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class ReportConfigScheduleResponse(dict):
-    """
-    The schedule associated with a report config.
-    """
-    def __init__(__self__, *,
-                 recurrence: str,
-                 recurrence_period: 'outputs.ReportConfigRecurrencePeriodResponse',
-                 status: Optional[str] = None):
-        """
-        The schedule associated with a report config.
-        :param str recurrence: The schedule recurrence.
-        :param 'ReportConfigRecurrencePeriodResponseArgs' recurrence_period: Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
-        :param str status: The status of the schedule. Whether active or not. If inactive, the report's scheduled execution is paused.
-        """
-        pulumi.set(__self__, "recurrence", recurrence)
-        pulumi.set(__self__, "recurrence_period", recurrence_period)
-        if status is not None:
-            pulumi.set(__self__, "status", status)
-
-    @property
-    @pulumi.getter
-    def recurrence(self) -> str:
-        """
-        The schedule recurrence.
-        """
-        return pulumi.get(self, "recurrence")
-
-    @property
-    @pulumi.getter(name="recurrencePeriod")
-    def recurrence_period(self) -> 'outputs.ReportConfigRecurrencePeriodResponse':
-        """
-        Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
-        """
-        return pulumi.get(self, "recurrence_period")
-
-    @property
-    @pulumi.getter
-    def status(self) -> Optional[str]:
-        """
-        The status of the schedule. Whether active or not. If inactive, the report's scheduled execution is paused.
-        """
-        return pulumi.get(self, "status")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

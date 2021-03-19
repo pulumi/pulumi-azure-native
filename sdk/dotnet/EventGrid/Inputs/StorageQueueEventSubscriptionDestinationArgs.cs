@@ -23,12 +23,6 @@ namespace Pulumi.AzureNative.EventGrid.Inputs
         public Input<string> EndpointType { get; set; } = null!;
 
         /// <summary>
-        /// Storage queue message time to live in seconds.
-        /// </summary>
-        [Input("queueMessageTimeToLiveInSeconds")]
-        public Input<double>? QueueMessageTimeToLiveInSeconds { get; set; }
-
-        /// <summary>
         /// The name of the Storage queue under a storage account that is the destination of an event subscription.
         /// </summary>
         [Input("queueName")]

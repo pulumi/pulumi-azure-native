@@ -46,7 +46,7 @@ export class Watchlist extends pulumi.CustomResource {
     /**
      * Describes a user that created the watchlist
      */
-    public readonly createdBy!: pulumi.Output<outputs.securityinsights.v20190101preview.UserInfoResponse | undefined>;
+    public readonly createdBy!: pulumi.Output<outputs.securityinsights.v20190101preview.WatchlistUserInfoResponse | undefined>;
     /**
      * The default duration of a watchlist (in ISO 8601 duration format)
      */
@@ -106,7 +106,7 @@ export class Watchlist extends pulumi.CustomResource {
     /**
      * Describes a user that updated the watchlist
      */
-    public readonly updatedBy!: pulumi.Output<outputs.securityinsights.v20190101preview.UserInfoResponse | undefined>;
+    public readonly updatedBy!: pulumi.Output<outputs.securityinsights.v20190101preview.WatchlistUserInfoResponse | undefined>;
     /**
      * The status of the Watchlist upload : New, InProgress or Complete. Pls note : When a Watchlist upload status is equal to InProgress, the Watchlist cannot be deleted
      */
@@ -232,7 +232,7 @@ export interface WatchlistArgs {
     /**
      * Describes a user that created the watchlist
      */
-    readonly createdBy?: pulumi.Input<inputs.securityinsights.v20190101preview.UserInfo>;
+    readonly createdBy?: pulumi.Input<inputs.securityinsights.v20190101preview.WatchlistUserInfo>;
     /**
      * The default duration of a watchlist (in ISO 8601 duration format)
      */
@@ -292,7 +292,7 @@ export interface WatchlistArgs {
     /**
      * Describes a user that updated the watchlist
      */
-    readonly updatedBy?: pulumi.Input<inputs.securityinsights.v20190101preview.UserInfo>;
+    readonly updatedBy?: pulumi.Input<inputs.securityinsights.v20190101preview.WatchlistUserInfo>;
     /**
      * The status of the Watchlist upload : New, InProgress or Complete. Pls note : When a Watchlist upload status is equal to InProgress, the Watchlist cannot be deleted
      */

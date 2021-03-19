@@ -156,7 +156,7 @@ export class CloudConnector extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:costmanagement/v20190301preview:CloudConnector" }, { type: "azure-native:costmanagement:CloudConnector" }, { type: "azure-nextgen:costmanagement:CloudConnector" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:costmanagement/v20190301preview:CloudConnector" }, { type: "azure-native:costmanagement:CloudConnector" }, { type: "azure-nextgen:costmanagement:CloudConnector" }, { type: "azure-native:costmanagement/v20180801preview:CloudConnector" }, { type: "azure-nextgen:costmanagement/v20180801preview:CloudConnector" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CloudConnector.__pulumiType, name, inputs, opts);
     }

@@ -15,7 +15,6 @@ export * from "./getIpFirewallRule";
 export * from "./getKey";
 export * from "./getPrivateEndpointConnection";
 export * from "./getPrivateLinkHub";
-export * from "./getSqlDatabase";
 export * from "./getSqlPool";
 export * from "./getSqlPoolSensitivityLabel";
 export * from "./getSqlPoolTransparentDataEncryption";
@@ -33,7 +32,6 @@ export * from "./key";
 export * from "./listIntegrationRuntimeAuthKey";
 export * from "./privateEndpointConnection";
 export * from "./privateLinkHub";
-export * from "./sqlDatabase";
 export * from "./sqlPool";
 export * from "./sqlPoolSensitivityLabel";
 export * from "./sqlPoolTransparentDataEncryption";
@@ -71,7 +69,6 @@ import { IpFirewallRule } from "./ipFirewallRule";
 import { Key } from "./key";
 import { PrivateEndpointConnection } from "./privateEndpointConnection";
 import { PrivateLinkHub } from "./privateLinkHub";
-import { SqlDatabase } from "./sqlDatabase";
 import { SqlPool } from "./sqlPool";
 import { SqlPoolSensitivityLabel } from "./sqlPoolSensitivityLabel";
 import { SqlPoolTransparentDataEncryption } from "./sqlPoolTransparentDataEncryption";
@@ -100,8 +97,6 @@ const _module = {
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
             case "azure-native:synapse:PrivateLinkHub":
                 return new PrivateLinkHub(name, <any>undefined, { urn })
-            case "azure-native:synapse:SqlDatabase":
-                return new SqlDatabase(name, <any>undefined, { urn })
             case "azure-native:synapse:SqlPool":
                 return new SqlPool(name, <any>undefined, { urn })
             case "azure-native:synapse:SqlPoolSensitivityLabel":

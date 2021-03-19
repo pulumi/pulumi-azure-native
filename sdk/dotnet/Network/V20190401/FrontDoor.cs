@@ -135,8 +135,6 @@ namespace Pulumi.AzureNative.Network.V20190401
                     new Pulumi.Alias { Type = "azure-nextgen:network:FrontDoor"},
                     new Pulumi.Alias { Type = "azure-native:network/latest:FrontDoor"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/latest:FrontDoor"},
-                    new Pulumi.Alias { Type = "azure-native:network/v20180801:FrontDoor"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180801:FrontDoor"},
                     new Pulumi.Alias { Type = "azure-native:network/v20190501:FrontDoor"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190501:FrontDoor"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200101:FrontDoor"},

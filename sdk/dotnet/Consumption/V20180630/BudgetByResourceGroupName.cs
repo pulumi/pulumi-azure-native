@@ -101,10 +101,6 @@ namespace Pulumi.AzureNative.Consumption.V20180630
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:consumption/v20180630:BudgetByResourceGroupName"},
-                    new Pulumi.Alias { Type = "azure-native:consumption:BudgetByResourceGroupName"},
-                    new Pulumi.Alias { Type = "azure-nextgen:consumption:BudgetByResourceGroupName"},
-                    new Pulumi.Alias { Type = "azure-native:consumption/latest:BudgetByResourceGroupName"},
-                    new Pulumi.Alias { Type = "azure-nextgen:consumption/latest:BudgetByResourceGroupName"},
                     new Pulumi.Alias { Type = "azure-native:consumption/v20180131:BudgetByResourceGroupName"},
                     new Pulumi.Alias { Type = "azure-nextgen:consumption/v20180131:BudgetByResourceGroupName"},
                     new Pulumi.Alias { Type = "azure-native:consumption/v20180331:BudgetByResourceGroupName"},

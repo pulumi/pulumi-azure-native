@@ -35,7 +35,7 @@ type LookupWatchlistResult struct {
 	// The time the watchlist was created
 	Created *string `pulumi:"created"`
 	// Describes a user that created the watchlist
-	CreatedBy *UserInfoResponse `pulumi:"createdBy"`
+	CreatedBy *WatchlistUserInfoResponse `pulumi:"createdBy"`
 	// The default duration of a watchlist (in ISO 8601 duration format)
 	DefaultDuration *string `pulumi:"defaultDuration"`
 	// A description of the watchlist
@@ -67,7 +67,7 @@ type LookupWatchlistResult struct {
 	// The last time the watchlist was updated
 	Updated *string `pulumi:"updated"`
 	// Describes a user that updated the watchlist
-	UpdatedBy *UserInfoResponse `pulumi:"updatedBy"`
+	UpdatedBy *WatchlistUserInfoResponse `pulumi:"updatedBy"`
 	// The status of the Watchlist upload : New, InProgress or Complete. Pls note : When a Watchlist upload status is equal to InProgress, the Watchlist cannot be deleted
 	UploadStatus *string `pulumi:"uploadStatus"`
 	// The alias of the watchlist

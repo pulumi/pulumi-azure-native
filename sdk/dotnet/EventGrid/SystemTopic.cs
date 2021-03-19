@@ -11,17 +11,11 @@ namespace Pulumi.AzureNative.EventGrid
 {
     /// <summary>
     /// EventGrid System Topic.
-    /// API Version: 2020-10-15-preview.
+    /// API Version: 2020-04-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:eventgrid:SystemTopic")]
     public partial class SystemTopic : Pulumi.CustomResource
     {
-        /// <summary>
-        /// Identity information for the resource.
-        /// </summary>
-        [Output("identity")]
-        public Output<Outputs.IdentityInfoResponse?> Identity { get; private set; } = null!;
-
         /// <summary>
         /// Location of the resource.
         /// </summary>
@@ -129,12 +123,6 @@ namespace Pulumi.AzureNative.EventGrid
 
     public sealed class SystemTopicArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Identity information for the resource.
-        /// </summary>
-        [Input("identity")]
-        public Input<Inputs.IdentityInfoArgs>? Identity { get; set; }
-
         /// <summary>
         /// Location of the resource.
         /// </summary>

@@ -18,27 +18,6 @@ export {
     v20200821preview,
 };
 
-export const ApplianceArtifactType = {
-    Template: "Template",
-    Custom: "Custom",
-} as const;
-
-/**
- * The appliance artifact type.
- */
-export type ApplianceArtifactType = (typeof ApplianceArtifactType)[keyof typeof ApplianceArtifactType];
-
-export const ApplianceLockLevel = {
-    CanNotDelete: "CanNotDelete",
-    ReadOnly: "ReadOnly",
-    None: "None",
-} as const;
-
-/**
- * The appliance lock level.
- */
-export type ApplianceLockLevel = (typeof ApplianceLockLevel)[keyof typeof ApplianceLockLevel];
-
 export const ApplicationArtifactType = {
     NotSpecified: "NotSpecified",
     Template: "Template",

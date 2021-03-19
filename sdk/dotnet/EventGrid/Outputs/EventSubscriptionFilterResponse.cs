@@ -18,10 +18,6 @@ namespace Pulumi.AzureNative.EventGrid.Outputs
         /// </summary>
         public readonly ImmutableArray<object> AdvancedFilters;
         /// <summary>
-        /// Allows advanced filters to be evaluated against an array of values instead of expecting a singular value.
-        /// </summary>
-        public readonly bool? EnableAdvancedFilteringOnArrays;
-        /// <summary>
         /// A list of applicable event types that need to be part of the event subscription. If it is desired to subscribe to all default event types, set the IncludedEventTypes to null.
         /// </summary>
         public readonly ImmutableArray<string> IncludedEventTypes;
@@ -46,8 +42,6 @@ namespace Pulumi.AzureNative.EventGrid.Outputs
         private EventSubscriptionFilterResponse(
             ImmutableArray<object> advancedFilters,
 
-            bool? enableAdvancedFilteringOnArrays,
-
             ImmutableArray<string> includedEventTypes,
 
             bool? isSubjectCaseSensitive,
@@ -57,7 +51,6 @@ namespace Pulumi.AzureNative.EventGrid.Outputs
             string? subjectEndsWith)
         {
             AdvancedFilters = advancedFilters;
-            EnableAdvancedFilteringOnArrays = enableAdvancedFilteringOnArrays;
             IncludedEventTypes = includedEventTypes;
             IsSubjectCaseSensitive = isSubjectCaseSensitive;
             SubjectBeginsWith = subjectBeginsWith;

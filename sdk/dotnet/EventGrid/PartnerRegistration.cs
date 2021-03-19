@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.EventGrid
 {
     /// <summary>
     /// Information about a partner registration.
-    /// API Version: 2020-10-15-preview.
+    /// API Version: 2020-04-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:eventgrid:PartnerRegistration")]
     public partial class PartnerRegistration : Pulumi.CustomResource

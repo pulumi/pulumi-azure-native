@@ -22,18 +22,6 @@ export const BackupType = {
  */
 export type BackupType = (typeof BackupType)[keyof typeof BackupType];
 
-export const DataPolicy = {
-    Invalid: "Invalid",
-    Local: "Local",
-    Tiered: "Tiered",
-    Cloud: "Cloud",
-} as const;
-
-/**
- * The data policy.
- */
-export type DataPolicy = (typeof DataPolicy)[keyof typeof DataPolicy];
-
 export const DayOfWeek = {
     Sunday: "Sunday",
     Monday: "Monday",
@@ -46,16 +34,6 @@ export const DayOfWeek = {
 
 export type DayOfWeek = (typeof DayOfWeek)[keyof typeof DayOfWeek];
 
-export const DiskStatus = {
-    Online: "Online",
-    Offline: "Offline",
-} as const;
-
-/**
- * The disk status.
- */
-export type DiskStatus = (typeof DiskStatus)[keyof typeof DiskStatus];
-
 export const EncryptionAlgorithm = {
     None: "None",
     AES256: "AES256",
@@ -66,16 +44,6 @@ export const EncryptionAlgorithm = {
  * The algorithm used to encrypt "Value".
  */
 export type EncryptionAlgorithm = (typeof EncryptionAlgorithm)[keyof typeof EncryptionAlgorithm];
-
-export const EncryptionStatus = {
-    Enabled: "Enabled",
-    Disabled: "Disabled",
-} as const;
-
-/**
- * The encryption status "Enabled | Disabled".
- */
-export type EncryptionStatus = (typeof EncryptionStatus)[keyof typeof EncryptionStatus];
 
 export const Kind = {
     Series8000: "Series8000",
@@ -136,16 +104,6 @@ export const ScheduleStatus = {
  * The schedule status.
  */
 export type ScheduleStatus = (typeof ScheduleStatus)[keyof typeof ScheduleStatus];
-
-export const ShareStatus = {
-    Online: "Online",
-    Offline: "Offline",
-} as const;
-
-/**
- * The Share Status
- */
-export type ShareStatus = (typeof ShareStatus)[keyof typeof ShareStatus];
 
 export const SslStatus = {
     Enabled: "Enabled",

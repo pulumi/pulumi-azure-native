@@ -23,7 +23,7 @@ class Policy(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  managed_rules: Optional[pulumi.Input[pulumi.InputType['ManagedRuleSetListArgs']]] = None,
                  policy_name: Optional[pulumi.Input[str]] = None,
-                 policy_settings: Optional[pulumi.Input[pulumi.InputType['PolicySettingsArgs']]] = None,
+                 policy_settings: Optional[pulumi.Input[pulumi.InputType['FrontDoorPolicySettingsArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -41,7 +41,7 @@ class Policy(pulumi.CustomResource):
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[pulumi.InputType['ManagedRuleSetListArgs']] managed_rules: Describes managed rules inside the policy.
         :param pulumi.Input[str] policy_name: The name of the Web Application Firewall Policy.
-        :param pulumi.Input[pulumi.InputType['PolicySettingsArgs']] policy_settings: Describes settings for the policy.
+        :param pulumi.Input[pulumi.InputType['FrontDoorPolicySettingsArgs']] policy_settings: Describes settings for the policy.
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The pricing tier of web application firewall policy. Defaults to Classic_AzureFrontDoor if not specified.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -81,7 +81,7 @@ class Policy(pulumi.CustomResource):
             __props__['routing_rule_links'] = None
             __props__['security_policy_links'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network:Policy"), pulumi.Alias(type_="azure-native:network/latest:Policy"), pulumi.Alias(type_="azure-nextgen:network/latest:Policy"), pulumi.Alias(type_="azure-native:network/v20180801:Policy"), pulumi.Alias(type_="azure-nextgen:network/v20180801:Policy"), pulumi.Alias(type_="azure-native:network/v20190301:Policy"), pulumi.Alias(type_="azure-nextgen:network/v20190301:Policy"), pulumi.Alias(type_="azure-native:network/v20191001:Policy"), pulumi.Alias(type_="azure-nextgen:network/v20191001:Policy"), pulumi.Alias(type_="azure-native:network/v20200401:Policy"), pulumi.Alias(type_="azure-nextgen:network/v20200401:Policy"), pulumi.Alias(type_="azure-native:network/v20201101:Policy"), pulumi.Alias(type_="azure-nextgen:network/v20201101:Policy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network:Policy"), pulumi.Alias(type_="azure-native:network/latest:Policy"), pulumi.Alias(type_="azure-nextgen:network/latest:Policy"), pulumi.Alias(type_="azure-native:network/v20190301:Policy"), pulumi.Alias(type_="azure-nextgen:network/v20190301:Policy"), pulumi.Alias(type_="azure-native:network/v20191001:Policy"), pulumi.Alias(type_="azure-nextgen:network/v20191001:Policy"), pulumi.Alias(type_="azure-native:network/v20200401:Policy"), pulumi.Alias(type_="azure-nextgen:network/v20200401:Policy"), pulumi.Alias(type_="azure-native:network/v20201101:Policy"), pulumi.Alias(type_="azure-nextgen:network/v20201101:Policy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Policy, __self__).__init__(
             'azure-native:network:Policy',
@@ -171,7 +171,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="policySettings")
-    def policy_settings(self) -> pulumi.Output[Optional['outputs.PolicySettingsResponse']]:
+    def policy_settings(self) -> pulumi.Output[Optional['outputs.FrontDoorPolicySettingsResponse']]:
         """
         Describes settings for the policy.
         """

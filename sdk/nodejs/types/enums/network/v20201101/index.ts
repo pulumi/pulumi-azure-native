@@ -613,6 +613,23 @@ export const FlowLogFormatType = {
  */
 export type FlowLogFormatType = (typeof FlowLogFormatType)[keyof typeof FlowLogFormatType];
 
+export const FrontDoorMatchVariable = {
+    RemoteAddr: "RemoteAddr",
+    RequestMethod: "RequestMethod",
+    QueryString: "QueryString",
+    PostArgs: "PostArgs",
+    RequestUri: "RequestUri",
+    RequestHeader: "RequestHeader",
+    RequestBody: "RequestBody",
+    Cookies: "Cookies",
+    SocketAddr: "SocketAddr",
+} as const;
+
+/**
+ * Request variable to compare with.
+ */
+export type FrontDoorMatchVariable = (typeof FrontDoorMatchVariable)[keyof typeof FrontDoorMatchVariable];
+
 export const HTTPConfigurationMethod = {
     Get: "Get",
     Post: "Post",

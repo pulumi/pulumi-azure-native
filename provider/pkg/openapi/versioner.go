@@ -2,6 +2,7 @@ package openapi
 
 import (
 	"encoding/json"
+	"fmt"
 	"github.com/pulumi/pulumi/pkg/v2/codegen"
 	"io/ioutil"
 	"os"
@@ -74,12 +75,40 @@ var deprecatedProviderVersions = map[string][]string{
 	"Sql": {"v20140401", "v20150501"},
 }
 
+// A manually-maintained list of API versions to ignore while calculating the top-level resources.
+var ignoredProviderVersions = map[string][]string{
+	// This preview version introduces new resources but also changes the shape of some items, so merging it with
+	// the previous stable version isn't easy. Ignore this preview for now. We should be able to remove this entry
+	// once the next stable version ships.
+	"EventGrid": {"v20201015preview"},
+	"StorSimple": {"v20161001"},
+}
+
 // A manually-maintained list of versions where we want to use for the top-level resource. The primary goal is to
 // avoid breaking changes within a single major version of the provider that could come with new API versions.
 // We reset this map every time we release a new major version (or a new 0.x minor version).
 // Currently populated for 0.7.* series.
 var lockedTypeVersions = map[string]string{
 }
+
+// A manually-maintained list of resources that were deprecated and have no direct successor. They "pollute"
+// the top-level resources, including bringing old incompatible types, so we'd rather exclude them. Note that
+// they aren't officially deprecated in the APIs. We want to keep this list as small as possible - mostly to prevent
+// type clashing problems.
+var deprecatedResources = codegen.NewStringSet(
+	"apimanagement:TenantPolicy",
+	"consumption:BudgetByResourceGroupName",
+	"containerregistry:BuildStep",
+	"containerservice:ContainerService",
+	"costmanagement:Budget",
+	"costmanagement:ReportConfig",
+	"costmanagement:ReportConfigByResourceGroupName",
+	"datamigration:ServiceTask",
+	"synapse:SqlDatabase",
+	"web:CertificateCsr",
+	"web:SiteInstanceDeployment",
+	"web:SiteInstanceDeploymentSlot",
+)
 
 // calculateLatestVersions builds a map of latest versions per API paths from a map of all versions of a resource
 // provider. The result is a map from a resource type name to resource specs.
@@ -89,11 +118,17 @@ func (c *versioner) calculateLatestVersions(provider string, versionMap Provider
 	if v, ok := deprecatedProviderVersions[provider]; ok {
 		deprecatedVersions = codegen.NewStringSet(v...)
 	}
+	ignoredVersions := codegen.NewStringSet()
+	if v, ok := ignoredProviderVersions[provider]; ok {
+		ignoredVersions = codegen.NewStringSet(v...)
+	}
 
 	var stables, previews []string
 	for version := range versionMap {
 		switch {
 		case strings.Contains(version, "private"):
+			// skip
+		case ignoredVersions.Has(version):
 			// skip
 		case deprecatedVersions.Has(version):
 			// Treat deprecated versions as preview for sorting purpose.
@@ -120,7 +155,11 @@ func (c *versioner) calculateLatestVersions(provider string, versionMap Provider
 		}
 
 		for typeName, r := range res {
-			if lockedVersion, ok := lockedTypeVersions[typeName]; ok && lockedVersion != version {
+			fullTypeName := fmt.Sprintf("%s:%s", strings.ToLower(provider), typeName)
+			if deprecatedResources.Has(fullTypeName) {
+				continue
+			}
+			if lockedVersion, ok := lockedTypeVersions[fullTypeName]; ok && lockedVersion != version {
 				// If we have a locked version for this resource, ignore all other versions.
 				continue
 			}

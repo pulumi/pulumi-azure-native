@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Event Subscription
- * API Version: 2020-10-15-preview.
+ * API Version: 2020-04-01-preview.
  */
 export class PartnerTopicEventSubscription extends pulumi.CustomResource {
     /**

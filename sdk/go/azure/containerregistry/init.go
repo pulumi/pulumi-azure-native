@@ -23,10 +23,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "azure-native:containerregistry:AgentPool":
 		r, err = NewAgentPool(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-native:containerregistry:BuildStep":
-		r, err = NewBuildStep(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-native:containerregistry:BuildTask":
-		r, err = NewBuildTask(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:containerregistry:ConnectedRegistry":
 		r, err = NewConnectedRegistry(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:containerregistry:ExportPipeline":

@@ -46,11 +46,11 @@ export class Experiment extends pulumi.CustomResource {
     /**
      * The endpoint A of an experiment
      */
-    public readonly endpointA!: pulumi.Output<outputs.network.v20191101.EndpointResponse | undefined>;
+    public readonly endpointA!: pulumi.Output<outputs.network.v20191101.ExperimentEndpointResponse | undefined>;
     /**
      * The endpoint B of an experiment
      */
-    public readonly endpointB!: pulumi.Output<outputs.network.v20191101.EndpointResponse | undefined>;
+    public readonly endpointB!: pulumi.Output<outputs.network.v20191101.ExperimentEndpointResponse | undefined>;
     /**
      * Resource location.
      */
@@ -148,11 +148,11 @@ export interface ExperimentArgs {
     /**
      * The endpoint A of an experiment
      */
-    readonly endpointA?: pulumi.Input<inputs.network.v20191101.Endpoint>;
+    readonly endpointA?: pulumi.Input<inputs.network.v20191101.ExperimentEndpoint>;
     /**
      * The endpoint B of an experiment
      */
-    readonly endpointB?: pulumi.Input<inputs.network.v20191101.Endpoint>;
+    readonly endpointB?: pulumi.Input<inputs.network.v20191101.ExperimentEndpoint>;
     /**
      * The Experiment identifier associated with the Experiment
      */

@@ -59,10 +59,6 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:storsimple/v20161001:BackupScheduleGroup"},
-                    new Pulumi.Alias { Type = "azure-native:storsimple:BackupScheduleGroup"},
-                    new Pulumi.Alias { Type = "azure-nextgen:storsimple:BackupScheduleGroup"},
-                    new Pulumi.Alias { Type = "azure-native:storsimple/latest:BackupScheduleGroup"},
-                    new Pulumi.Alias { Type = "azure-nextgen:storsimple/latest:BackupScheduleGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

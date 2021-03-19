@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EventGrid
     {
         /// <summary>
         /// EventGrid System Topic.
-        /// API Version: 2020-10-15-preview.
+        /// API Version: 2020-04-01-preview.
         /// </summary>
         public static Task<GetSystemTopicResult> InvokeAsync(GetSystemTopicArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSystemTopicResult>("azure-native:eventgrid:getSystemTopic", args ?? new GetSystemTopicArgs(), options.WithVersion());
@@ -47,10 +47,6 @@ namespace Pulumi.AzureNative.EventGrid
         /// Fully qualified identifier of the resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Identity information for the resource.
-        /// </summary>
-        public readonly Outputs.IdentityInfoResponse? Identity;
         /// <summary>
         /// Location of the resource.
         /// </summary>
@@ -92,8 +88,6 @@ namespace Pulumi.AzureNative.EventGrid
         private GetSystemTopicResult(
             string id,
 
-            Outputs.IdentityInfoResponse? identity,
-
             string location,
 
             string metricResourceId,
@@ -113,7 +107,6 @@ namespace Pulumi.AzureNative.EventGrid
             string type)
         {
             Id = id;
-            Identity = identity;
             Location = location;
             MetricResourceId = metricResourceId;
             Name = name;

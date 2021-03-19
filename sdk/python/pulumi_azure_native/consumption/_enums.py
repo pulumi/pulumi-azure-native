@@ -25,7 +25,6 @@ class CategoryType(str, Enum):
     The category of the budget, whether the budget tracks cost or usage.
     """
     COST = "Cost"
-    USAGE = "Usage"
 
 
 class OperatorType(str, Enum):
@@ -46,8 +45,11 @@ class ThresholdType(str, Enum):
 
 class TimeGrainType(str, Enum):
     """
-    The time covered by a budget. Tracking of the amount will be reset based on the time grain.
+    The time covered by a budget. Tracking of the amount will be reset based on the time grain. BillingMonth, BillingQuarter, and BillingAnnual are only supported by WD customers
     """
     MONTHLY = "Monthly"
     QUARTERLY = "Quarterly"
     ANNUALLY = "Annually"
+    BILLING_MONTH = "BillingMonth"
+    BILLING_QUARTER = "BillingQuarter"
+    BILLING_ANNUAL = "BillingAnnual"

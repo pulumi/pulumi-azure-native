@@ -18,9 +18,9 @@ namespace Pulumi.AzureNative.CostManagement.Outputs
         /// </summary>
         public readonly Outputs.ConnectorCollectionErrorInfoResponse? Error;
         /// <summary>
-        /// Last time the data acquisition process completed (even if no new data was found)
+        /// Last time the data acquisition process initiated connecting to the external provider
         /// </summary>
-        public readonly string LastRun;
+        public readonly string LastChecked;
         /// <summary>
         /// Last time the external data was updated into Azure
         /// </summary>
@@ -34,14 +34,14 @@ namespace Pulumi.AzureNative.CostManagement.Outputs
         private ConnectorCollectionInfoResponse(
             Outputs.ConnectorCollectionErrorInfoResponse? error,
 
-            string lastRun,
+            string lastChecked,
 
             string lastUpdated,
 
             string sourceLastUpdated)
         {
             Error = error;
-            LastRun = lastRun;
+            LastChecked = lastChecked;
             LastUpdated = lastUpdated;
             SourceLastUpdated = sourceLastUpdated;
         }

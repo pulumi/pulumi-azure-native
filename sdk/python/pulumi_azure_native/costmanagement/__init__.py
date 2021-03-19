@@ -4,22 +4,16 @@
 
 # Export this package's modules as members:
 from ._enums import *
-from .budget import *
 from .cloud_connector import *
-from .connector import *
 from .cost_allocation_rule import *
 from .export import *
-from .get_budget import *
 from .get_cloud_connector import *
-from .get_connector import *
 from .get_cost_allocation_rule import *
 from .get_export import *
 from .get_report import *
 from .get_report_by_billing_account import *
 from .get_report_by_department import *
 from .get_report_by_resource_group_name import *
-from .get_report_config import *
-from .get_report_config_by_resource_group_name import *
 from .get_setting import *
 from .get_view import *
 from .get_view_by_scope import *
@@ -27,8 +21,6 @@ from .report import *
 from .report_by_billing_account import *
 from .report_by_department import *
 from .report_by_resource_group_name import *
-from .report_config import *
-from .report_config_by_resource_group_name import *
 from .setting import *
 from .view import *
 from .view_by_scope import *
@@ -62,12 +54,8 @@ def _register_module():
             return Module._version
 
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
-            if typ == "azure-native:costmanagement:Budget":
-                return Budget(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "azure-native:costmanagement:CloudConnector":
+            if typ == "azure-native:costmanagement:CloudConnector":
                 return CloudConnector(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "azure-native:costmanagement:Connector":
-                return Connector(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:costmanagement:CostAllocationRule":
                 return CostAllocationRule(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:costmanagement:Export":
@@ -80,10 +68,6 @@ def _register_module():
                 return ReportByDepartment(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:costmanagement:ReportByResourceGroupName":
                 return ReportByResourceGroupName(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "azure-native:costmanagement:ReportConfig":
-                return ReportConfig(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "azure-native:costmanagement:ReportConfigByResourceGroupName":
-                return ReportConfigByResourceGroupName(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:costmanagement:Setting":
                 return Setting(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:costmanagement:View":

@@ -82,7 +82,7 @@ namespace Pulumi.AzureNative.Cache
         /// <summary>
         /// The SKU to create, which affects price, performance, and features.
         /// </summary>
-        public readonly Outputs.SkuResponse Sku;
+        public readonly Outputs.EnterpriseSkuResponse Sku;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -116,7 +116,7 @@ namespace Pulumi.AzureNative.Cache
 
             string resourceState,
 
-            Outputs.SkuResponse sku,
+            Outputs.EnterpriseSkuResponse sku,
 
             ImmutableDictionary<string, string>? tags,
 

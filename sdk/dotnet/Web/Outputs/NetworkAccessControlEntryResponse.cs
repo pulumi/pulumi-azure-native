@@ -13,9 +13,21 @@ namespace Pulumi.AzureNative.Web.Outputs
     [OutputType]
     public sealed class NetworkAccessControlEntryResponse
     {
+        /// <summary>
+        /// Action object.
+        /// </summary>
         public readonly string? Action;
+        /// <summary>
+        /// Description of network access control entry.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// Order of precedence.
+        /// </summary>
         public readonly int? Order;
+        /// <summary>
+        /// Remote subnet.
+        /// </summary>
         public readonly string? RemoteSubnet;
 
         [OutputConstructor]

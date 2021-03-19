@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EventGrid
     {
         /// <summary>
         /// Event Channel.
-        /// API Version: 2020-10-15-preview.
+        /// API Version: 2020-04-01-preview.
         /// </summary>
         public static Task<GetEventChannelResult> InvokeAsync(GetEventChannelArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetEventChannelResult>("azure-native:eventgrid:getEventChannel", args ?? new GetEventChannelArgs(), options.WithVersion());

@@ -69,7 +69,7 @@ namespace Pulumi.AzureNative.Cache.Latest
         /// The SKU to create, which affects price, performance, and features.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponse> Sku { get; private set; } = null!;
+        public Output<Outputs.EnterpriseSkuResponse> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -174,7 +174,7 @@ namespace Pulumi.AzureNative.Cache.Latest
         /// The SKU to create, which affects price, performance, and features.
         /// </summary>
         [Input("sku", required: true)]
-        public Input<Inputs.SkuArgs> Sku { get; set; } = null!;
+        public Input<Inputs.EnterpriseSkuArgs> Sku { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

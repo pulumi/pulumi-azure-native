@@ -72,6 +72,44 @@ namespace Pulumi.AzureNative.Network.V20191001
     }
 
     /// <summary>
+    /// Request variable to compare with.
+    /// </summary>
+    [EnumType]
+    public readonly struct FrontDoorMatchVariable : IEquatable<FrontDoorMatchVariable>
+    {
+        private readonly string _value;
+
+        private FrontDoorMatchVariable(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FrontDoorMatchVariable RemoteAddr { get; } = new FrontDoorMatchVariable("RemoteAddr");
+        public static FrontDoorMatchVariable RequestMethod { get; } = new FrontDoorMatchVariable("RequestMethod");
+        public static FrontDoorMatchVariable QueryString { get; } = new FrontDoorMatchVariable("QueryString");
+        public static FrontDoorMatchVariable PostArgs { get; } = new FrontDoorMatchVariable("PostArgs");
+        public static FrontDoorMatchVariable RequestUri { get; } = new FrontDoorMatchVariable("RequestUri");
+        public static FrontDoorMatchVariable RequestHeader { get; } = new FrontDoorMatchVariable("RequestHeader");
+        public static FrontDoorMatchVariable RequestBody { get; } = new FrontDoorMatchVariable("RequestBody");
+        public static FrontDoorMatchVariable Cookies { get; } = new FrontDoorMatchVariable("Cookies");
+        public static FrontDoorMatchVariable SocketAddr { get; } = new FrontDoorMatchVariable("SocketAddr");
+
+        public static bool operator ==(FrontDoorMatchVariable left, FrontDoorMatchVariable right) => left.Equals(right);
+        public static bool operator !=(FrontDoorMatchVariable left, FrontDoorMatchVariable right) => !left.Equals(right);
+
+        public static explicit operator string(FrontDoorMatchVariable value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FrontDoorMatchVariable other && Equals(other);
+        public bool Equals(FrontDoorMatchVariable other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Describes if the managed rule is in enabled or disabled state. Defaults to Disabled if not specified.
     /// </summary>
     [EnumType]
@@ -162,44 +200,6 @@ namespace Pulumi.AzureNative.Network.V20191001
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ManagedRuleExclusionSelectorMatchOperator other && Equals(other);
         public bool Equals(ManagedRuleExclusionSelectorMatchOperator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Request variable to compare with.
-    /// </summary>
-    [EnumType]
-    public readonly struct MatchVariable : IEquatable<MatchVariable>
-    {
-        private readonly string _value;
-
-        private MatchVariable(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static MatchVariable RemoteAddr { get; } = new MatchVariable("RemoteAddr");
-        public static MatchVariable RequestMethod { get; } = new MatchVariable("RequestMethod");
-        public static MatchVariable QueryString { get; } = new MatchVariable("QueryString");
-        public static MatchVariable PostArgs { get; } = new MatchVariable("PostArgs");
-        public static MatchVariable RequestUri { get; } = new MatchVariable("RequestUri");
-        public static MatchVariable RequestHeader { get; } = new MatchVariable("RequestHeader");
-        public static MatchVariable RequestBody { get; } = new MatchVariable("RequestBody");
-        public static MatchVariable Cookies { get; } = new MatchVariable("Cookies");
-        public static MatchVariable SocketAddr { get; } = new MatchVariable("SocketAddr");
-
-        public static bool operator ==(MatchVariable left, MatchVariable right) => left.Equals(right);
-        public static bool operator !=(MatchVariable left, MatchVariable right) => !left.Equals(right);
-
-        public static explicit operator string(MatchVariable value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is MatchVariable other && Equals(other);
-        public bool Equals(MatchVariable other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

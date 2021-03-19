@@ -27,28 +27,14 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewBackupPolicy(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:storsimple/latest:BackupSchedule":
 		r, err = NewBackupSchedule(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-native:storsimple/latest:BackupScheduleGroup":
-		r, err = NewBackupScheduleGroup(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:storsimple/latest:BandwidthSetting":
 		r, err = NewBandwidthSetting(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-native:storsimple/latest:ChapSetting":
-		r, err = NewChapSetting(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-native:storsimple/latest:FileServer":
-		r, err = NewFileServer(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-native:storsimple/latest:FileShare":
-		r, err = NewFileShare(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-native:storsimple/latest:IscsiDisk":
-		r, err = NewIscsiDisk(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-native:storsimple/latest:IscsiServer":
-		r, err = NewIscsiServer(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:storsimple/latest:Manager":
 		r, err = NewManager(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:storsimple/latest:ManagerExtendedInfo":
 		r, err = NewManagerExtendedInfo(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:storsimple/latest:StorageAccountCredential":
 		r, err = NewStorageAccountCredential(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-native:storsimple/latest:StorageDomain":
-		r, err = NewStorageDomain(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:storsimple/latest:Volume":
 		r, err = NewVolume(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:storsimple/latest:VolumeContainer":

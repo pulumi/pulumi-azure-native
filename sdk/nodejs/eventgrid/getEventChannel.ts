@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Event Channel.
- * API Version: 2020-10-15-preview.
+ * API Version: 2020-04-01-preview.
  */
 export function getEventChannel(args: GetEventChannelArgs, opts?: pulumi.InvokeOptions): Promise<GetEventChannelResult> {
     if (!opts) {

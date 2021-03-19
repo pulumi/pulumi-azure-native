@@ -9,11 +9,9 @@ export * from "./file";
 export * from "./getFile";
 export * from "./getProject";
 export * from "./getService";
-export * from "./getServiceTask";
 export * from "./getTask";
 export * from "./project";
 export * from "./service";
-export * from "./serviceTask";
 export * from "./task";
 
 // Export enums:
@@ -40,7 +38,6 @@ export {
 import { File } from "./file";
 import { Project } from "./project";
 import { Service } from "./service";
-import { ServiceTask } from "./serviceTask";
 import { Task } from "./task";
 
 const _module = {
@@ -53,8 +50,6 @@ const _module = {
                 return new Project(name, <any>undefined, { urn })
             case "azure-native:datamigration:Service":
                 return new Service(name, <any>undefined, { urn })
-            case "azure-native:datamigration:ServiceTask":
-                return new ServiceTask(name, <any>undefined, { urn })
             case "azure-native:datamigration:Task":
                 return new Task(name, <any>undefined, { urn })
             default:

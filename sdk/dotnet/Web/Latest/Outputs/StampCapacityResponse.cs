@@ -14,47 +14,51 @@ namespace Pulumi.AzureNative.Web.Latest.Outputs
     public sealed class StampCapacityResponse
     {
         /// <summary>
-        /// Available capacity (# of machines, bytes of storage etc...)
+        /// Available capacity (# of machines, bytes of storage etc...).
         /// </summary>
         public readonly double? AvailableCapacity;
         /// <summary>
-        /// Shared/Dedicated workers
+        /// Shared/dedicated workers.
         /// </summary>
         public readonly string? ComputeMode;
         /// <summary>
-        /// If true it includes basic sites
-        ///             Basic sites are not used for capacity allocation.
+        /// If &lt;code&gt;true&lt;/code&gt;, it includes basic apps.
+        /// Basic apps are not used for capacity allocation.
         /// </summary>
         public readonly bool? ExcludeFromCapacityAllocation;
         /// <summary>
-        /// Is capacity applicable for all sites?
+        /// &lt;code&gt;true&lt;/code&gt; if capacity is applicable for all apps; otherwise, &lt;code&gt;false&lt;/code&gt;.
         /// </summary>
         public readonly bool? IsApplicableForAllComputeModes;
         /// <summary>
-        /// Name of the stamp
+        /// Is this a linux stamp capacity
+        /// </summary>
+        public readonly bool? IsLinux;
+        /// <summary>
+        /// Name of the stamp.
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Shared or Dedicated
+        /// Shared or Dedicated.
         /// </summary>
         public readonly string? SiteMode;
         /// <summary>
-        /// Total capacity (# of machines, bytes of storage etc...)
+        /// Total capacity (# of machines, bytes of storage etc...).
         /// </summary>
         public readonly double? TotalCapacity;
         /// <summary>
-        /// Name of the unit
+        /// Name of the unit.
         /// </summary>
         public readonly string? Unit;
         /// <summary>
-        /// Size of the machines
+        /// Size of the machines.
         /// </summary>
         public readonly string? WorkerSize;
         /// <summary>
-        /// Size Id of machines: 
-        ///             0 - Small
-        ///             1 - Medium
-        ///             2 - Large
+        /// Size ID of machines: 
+        /// 0 - Small
+        /// 1 - Medium
+        /// 2 - Large
         /// </summary>
         public readonly int? WorkerSizeId;
 
@@ -67,6 +71,8 @@ namespace Pulumi.AzureNative.Web.Latest.Outputs
             bool? excludeFromCapacityAllocation,
 
             bool? isApplicableForAllComputeModes,
+
+            bool? isLinux,
 
             string? name,
 
@@ -84,6 +90,7 @@ namespace Pulumi.AzureNative.Web.Latest.Outputs
             ComputeMode = computeMode;
             ExcludeFromCapacityAllocation = excludeFromCapacityAllocation;
             IsApplicableForAllComputeModes = isApplicableForAllComputeModes;
+            IsLinux = isLinux;
             Name = name;
             SiteMode = siteMode;
             TotalCapacity = totalCapacity;

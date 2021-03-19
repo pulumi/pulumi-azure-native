@@ -4,12 +4,8 @@
 
 # Export this package's modules as members:
 from ._enums import *
-from .appliance import *
-from .appliance_definition import *
 from .application import *
 from .application_definition import *
-from .get_appliance import *
-from .get_appliance_definition import *
 from .get_application import *
 from .get_application_definition import *
 from .get_jit_request import *
@@ -39,11 +35,7 @@ def _register_module():
             return Module._version
 
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
-            if typ == "azure-native:solutions:Appliance":
-                return Appliance(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "azure-native:solutions:ApplianceDefinition":
-                return ApplianceDefinition(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "azure-native:solutions:Application":
+            if typ == "azure-native:solutions:Application":
                 return Application(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:solutions:ApplicationDefinition":
                 return ApplicationDefinition(name, pulumi.ResourceOptions(urn=urn))

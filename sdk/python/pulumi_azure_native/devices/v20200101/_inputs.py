@@ -13,8 +13,8 @@ __all__ = [
     'IotDpsPropertiesDescriptionArgs',
     'IotDpsSkuInfoArgs',
     'IotHubDefinitionDescriptionArgs',
-    'IpFilterRuleArgs',
     'SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArgs',
+    'TargetIpFilterRuleArgs',
 ]
 
 @pulumi.input_type
@@ -23,7 +23,7 @@ class IotDpsPropertiesDescriptionArgs:
                  allocation_policy: Optional[pulumi.Input[Union[str, 'AllocationPolicy']]] = None,
                  authorization_policies: Optional[pulumi.Input[Sequence[pulumi.Input['SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArgs']]]] = None,
                  iot_hubs: Optional[pulumi.Input[Sequence[pulumi.Input['IotHubDefinitionDescriptionArgs']]]] = None,
-                 ip_filter_rules: Optional[pulumi.Input[Sequence[pulumi.Input['IpFilterRuleArgs']]]] = None,
+                 ip_filter_rules: Optional[pulumi.Input[Sequence[pulumi.Input['TargetIpFilterRuleArgs']]]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[Union[str, 'State']]] = None):
         """
@@ -31,7 +31,7 @@ class IotDpsPropertiesDescriptionArgs:
         :param pulumi.Input[Union[str, 'AllocationPolicy']] allocation_policy: Allocation policy to be used by this provisioning service.
         :param pulumi.Input[Sequence[pulumi.Input['SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArgs']]] authorization_policies: List of authorization keys for a provisioning service.
         :param pulumi.Input[Sequence[pulumi.Input['IotHubDefinitionDescriptionArgs']]] iot_hubs: List of IoT hubs associated with this provisioning service.
-        :param pulumi.Input[Sequence[pulumi.Input['IpFilterRuleArgs']]] ip_filter_rules: The IP filter rules.
+        :param pulumi.Input[Sequence[pulumi.Input['TargetIpFilterRuleArgs']]] ip_filter_rules: The IP filter rules.
         :param pulumi.Input[str] provisioning_state: The ARM provisioning state of the provisioning service.
         :param pulumi.Input[Union[str, 'State']] state: Current state of the provisioning service.
         """
@@ -86,14 +86,14 @@ class IotDpsPropertiesDescriptionArgs:
 
     @property
     @pulumi.getter(name="ipFilterRules")
-    def ip_filter_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IpFilterRuleArgs']]]]:
+    def ip_filter_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TargetIpFilterRuleArgs']]]]:
         """
         The IP filter rules.
         """
         return pulumi.get(self, "ip_filter_rules")
 
     @ip_filter_rules.setter
-    def ip_filter_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IpFilterRuleArgs']]]]):
+    def ip_filter_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TargetIpFilterRuleArgs']]]]):
         pulumi.set(self, "ip_filter_rules", value)
 
     @property
@@ -232,75 +232,6 @@ class IotHubDefinitionDescriptionArgs:
 
 
 @pulumi.input_type
-class IpFilterRuleArgs:
-    def __init__(__self__, *,
-                 action: pulumi.Input['IpFilterActionType'],
-                 filter_name: pulumi.Input[str],
-                 ip_mask: pulumi.Input[str],
-                 target: Optional[pulumi.Input['IpFilterTargetType']] = None):
-        """
-        The IP filter rules for the IoT dps.
-        :param pulumi.Input['IpFilterActionType'] action: The desired action for requests captured by this rule.
-        :param pulumi.Input[str] filter_name: The name of the IP filter rule.
-        :param pulumi.Input[str] ip_mask: A string that contains the IP address range in CIDR notation for the rule.
-        :param pulumi.Input['IpFilterTargetType'] target: Target for requests captured by this rule.
-        """
-        pulumi.set(__self__, "action", action)
-        pulumi.set(__self__, "filter_name", filter_name)
-        pulumi.set(__self__, "ip_mask", ip_mask)
-        if target is not None:
-            pulumi.set(__self__, "target", target)
-
-    @property
-    @pulumi.getter
-    def action(self) -> pulumi.Input['IpFilterActionType']:
-        """
-        The desired action for requests captured by this rule.
-        """
-        return pulumi.get(self, "action")
-
-    @action.setter
-    def action(self, value: pulumi.Input['IpFilterActionType']):
-        pulumi.set(self, "action", value)
-
-    @property
-    @pulumi.getter(name="filterName")
-    def filter_name(self) -> pulumi.Input[str]:
-        """
-        The name of the IP filter rule.
-        """
-        return pulumi.get(self, "filter_name")
-
-    @filter_name.setter
-    def filter_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "filter_name", value)
-
-    @property
-    @pulumi.getter(name="ipMask")
-    def ip_mask(self) -> pulumi.Input[str]:
-        """
-        A string that contains the IP address range in CIDR notation for the rule.
-        """
-        return pulumi.get(self, "ip_mask")
-
-    @ip_mask.setter
-    def ip_mask(self, value: pulumi.Input[str]):
-        pulumi.set(self, "ip_mask", value)
-
-    @property
-    @pulumi.getter
-    def target(self) -> Optional[pulumi.Input['IpFilterTargetType']]:
-        """
-        Target for requests captured by this rule.
-        """
-        return pulumi.get(self, "target")
-
-    @target.setter
-    def target(self, value: Optional[pulumi.Input['IpFilterTargetType']]):
-        pulumi.set(self, "target", value)
-
-
-@pulumi.input_type
 class SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArgs:
     def __init__(__self__, *,
                  key_name: pulumi.Input[str],
@@ -368,5 +299,74 @@ class SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArgs:
     @secondary_key.setter
     def secondary_key(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "secondary_key", value)
+
+
+@pulumi.input_type
+class TargetIpFilterRuleArgs:
+    def __init__(__self__, *,
+                 action: pulumi.Input['IpFilterActionType'],
+                 filter_name: pulumi.Input[str],
+                 ip_mask: pulumi.Input[str],
+                 target: Optional[pulumi.Input['IpFilterTargetType']] = None):
+        """
+        The IP filter rules for the IoT dps.
+        :param pulumi.Input['IpFilterActionType'] action: The desired action for requests captured by this rule.
+        :param pulumi.Input[str] filter_name: The name of the IP filter rule.
+        :param pulumi.Input[str] ip_mask: A string that contains the IP address range in CIDR notation for the rule.
+        :param pulumi.Input['IpFilterTargetType'] target: Target for requests captured by this rule.
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "filter_name", filter_name)
+        pulumi.set(__self__, "ip_mask", ip_mask)
+        if target is not None:
+            pulumi.set(__self__, "target", target)
+
+    @property
+    @pulumi.getter
+    def action(self) -> pulumi.Input['IpFilterActionType']:
+        """
+        The desired action for requests captured by this rule.
+        """
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: pulumi.Input['IpFilterActionType']):
+        pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter(name="filterName")
+    def filter_name(self) -> pulumi.Input[str]:
+        """
+        The name of the IP filter rule.
+        """
+        return pulumi.get(self, "filter_name")
+
+    @filter_name.setter
+    def filter_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "filter_name", value)
+
+    @property
+    @pulumi.getter(name="ipMask")
+    def ip_mask(self) -> pulumi.Input[str]:
+        """
+        A string that contains the IP address range in CIDR notation for the rule.
+        """
+        return pulumi.get(self, "ip_mask")
+
+    @ip_mask.setter
+    def ip_mask(self, value: pulumi.Input[str]):
+        pulumi.set(self, "ip_mask", value)
+
+    @property
+    @pulumi.getter
+    def target(self) -> Optional[pulumi.Input['IpFilterTargetType']]:
+        """
+        Target for requests captured by this rule.
+        """
+        return pulumi.get(self, "target")
+
+    @target.setter
+    def target(self, value: Optional[pulumi.Input['IpFilterTargetType']]):
+        pulumi.set(self, "target", value)
 
 

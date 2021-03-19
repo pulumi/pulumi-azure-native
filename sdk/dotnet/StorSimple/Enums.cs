@@ -38,39 +38,6 @@ namespace Pulumi.AzureNative.StorSimple
         public override string ToString() => _value;
     }
 
-    /// <summary>
-    /// The data policy.
-    /// </summary>
-    [EnumType]
-    public readonly struct DataPolicy : IEquatable<DataPolicy>
-    {
-        private readonly string _value;
-
-        private DataPolicy(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static DataPolicy Invalid { get; } = new DataPolicy("Invalid");
-        public static DataPolicy Local { get; } = new DataPolicy("Local");
-        public static DataPolicy Tiered { get; } = new DataPolicy("Tiered");
-        public static DataPolicy Cloud { get; } = new DataPolicy("Cloud");
-
-        public static bool operator ==(DataPolicy left, DataPolicy right) => left.Equals(right);
-        public static bool operator !=(DataPolicy left, DataPolicy right) => !left.Equals(right);
-
-        public static explicit operator string(DataPolicy value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DataPolicy other && Equals(other);
-        public bool Equals(DataPolicy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
     [EnumType]
     public readonly struct DayOfWeek : IEquatable<DayOfWeek>
     {
@@ -105,37 +72,6 @@ namespace Pulumi.AzureNative.StorSimple
     }
 
     /// <summary>
-    /// The disk status.
-    /// </summary>
-    [EnumType]
-    public readonly struct DiskStatus : IEquatable<DiskStatus>
-    {
-        private readonly string _value;
-
-        private DiskStatus(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static DiskStatus Online { get; } = new DiskStatus("Online");
-        public static DiskStatus Offline { get; } = new DiskStatus("Offline");
-
-        public static bool operator ==(DiskStatus left, DiskStatus right) => left.Equals(right);
-        public static bool operator !=(DiskStatus left, DiskStatus right) => !left.Equals(right);
-
-        public static explicit operator string(DiskStatus value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DiskStatus other && Equals(other);
-        public bool Equals(DiskStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// The algorithm used to encrypt "Value".
     /// </summary>
     [EnumType]
@@ -160,37 +96,6 @@ namespace Pulumi.AzureNative.StorSimple
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is EncryptionAlgorithm other && Equals(other);
         public bool Equals(EncryptionAlgorithm other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The encryption status "Enabled | Disabled".
-    /// </summary>
-    [EnumType]
-    public readonly struct EncryptionStatus : IEquatable<EncryptionStatus>
-    {
-        private readonly string _value;
-
-        private EncryptionStatus(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static EncryptionStatus Enabled { get; } = new EncryptionStatus("Enabled");
-        public static EncryptionStatus Disabled { get; } = new EncryptionStatus("Disabled");
-
-        public static bool operator ==(EncryptionStatus left, EncryptionStatus right) => left.Equals(right);
-        public static bool operator !=(EncryptionStatus left, EncryptionStatus right) => !left.Equals(right);
-
-        public static explicit operator string(EncryptionStatus value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is EncryptionStatus other && Equals(other);
-        public bool Equals(EncryptionStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -377,37 +282,6 @@ namespace Pulumi.AzureNative.StorSimple
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ScheduleStatus other && Equals(other);
         public bool Equals(ScheduleStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The Share Status
-    /// </summary>
-    [EnumType]
-    public readonly struct ShareStatus : IEquatable<ShareStatus>
-    {
-        private readonly string _value;
-
-        private ShareStatus(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ShareStatus Online { get; } = new ShareStatus("Online");
-        public static ShareStatus Offline { get; } = new ShareStatus("Offline");
-
-        public static bool operator ==(ShareStatus left, ShareStatus right) => left.Equals(right);
-        public static bool operator !=(ShareStatus left, ShareStatus right) => !left.Equals(right);
-
-        public static explicit operator string(ShareStatus value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ShareStatus other && Equals(other);
-        public bool Equals(ShareStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

@@ -5,22 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./budget";
 export * from "./cloudConnector";
-export * from "./connector";
 export * from "./costAllocationRule";
 export * from "./export";
-export * from "./getBudget";
 export * from "./getCloudConnector";
-export * from "./getConnector";
 export * from "./getCostAllocationRule";
 export * from "./getExport";
 export * from "./getReport";
 export * from "./getReportByBillingAccount";
 export * from "./getReportByDepartment";
 export * from "./getReportByResourceGroupName";
-export * from "./getReportConfig";
-export * from "./getReportConfigByResourceGroupName";
 export * from "./getSetting";
 export * from "./getView";
 export * from "./getViewByScope";
@@ -28,8 +22,6 @@ export * from "./report";
 export * from "./reportByBillingAccount";
 export * from "./reportByDepartment";
 export * from "./reportByResourceGroupName";
-export * from "./reportConfig";
-export * from "./reportConfigByResourceGroupName";
 export * from "./setting";
 export * from "./view";
 export * from "./viewByScope";
@@ -65,17 +57,13 @@ export {
 };
 
 // Import resources to register:
-import { Budget } from "./budget";
 import { CloudConnector } from "./cloudConnector";
-import { Connector } from "./connector";
 import { CostAllocationRule } from "./costAllocationRule";
 import { Export } from "./export";
 import { Report } from "./report";
 import { ReportByBillingAccount } from "./reportByBillingAccount";
 import { ReportByDepartment } from "./reportByDepartment";
 import { ReportByResourceGroupName } from "./reportByResourceGroupName";
-import { ReportConfig } from "./reportConfig";
-import { ReportConfigByResourceGroupName } from "./reportConfigByResourceGroupName";
 import { Setting } from "./setting";
 import { View } from "./view";
 import { ViewByScope } from "./viewByScope";
@@ -84,12 +72,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-native:costmanagement:Budget":
-                return new Budget(name, <any>undefined, { urn })
             case "azure-native:costmanagement:CloudConnector":
                 return new CloudConnector(name, <any>undefined, { urn })
-            case "azure-native:costmanagement:Connector":
-                return new Connector(name, <any>undefined, { urn })
             case "azure-native:costmanagement:CostAllocationRule":
                 return new CostAllocationRule(name, <any>undefined, { urn })
             case "azure-native:costmanagement:Export":
@@ -102,10 +86,6 @@ const _module = {
                 return new ReportByDepartment(name, <any>undefined, { urn })
             case "azure-native:costmanagement:ReportByResourceGroupName":
                 return new ReportByResourceGroupName(name, <any>undefined, { urn })
-            case "azure-native:costmanagement:ReportConfig":
-                return new ReportConfig(name, <any>undefined, { urn })
-            case "azure-native:costmanagement:ReportConfigByResourceGroupName":
-                return new ReportConfigByResourceGroupName(name, <any>undefined, { urn })
             case "azure-native:costmanagement:Setting":
                 return new Setting(name, <any>undefined, { urn })
             case "azure-native:costmanagement:View":

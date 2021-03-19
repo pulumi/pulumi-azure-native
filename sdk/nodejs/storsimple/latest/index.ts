@@ -8,30 +8,16 @@ import * as utilities from "../../utilities";
 export * from "./accessControlRecord";
 export * from "./backupPolicy";
 export * from "./backupSchedule";
-export * from "./backupScheduleGroup";
 export * from "./bandwidthSetting";
-export * from "./chapSetting";
-export * from "./fileServer";
-export * from "./fileShare";
 export * from "./getAccessControlRecord";
 export * from "./getBackupPolicy";
 export * from "./getBackupSchedule";
-export * from "./getBackupScheduleGroup";
 export * from "./getBandwidthSetting";
-export * from "./getChapSetting";
-export * from "./getFileServer";
-export * from "./getFileShare";
-export * from "./getIscsiDisk";
-export * from "./getIscsiServer";
 export * from "./getManager";
-export * from "./getManagerEncryptionKey";
 export * from "./getManagerExtendedInfo";
 export * from "./getStorageAccountCredential";
-export * from "./getStorageDomain";
 export * from "./getVolume";
 export * from "./getVolumeContainer";
-export * from "./iscsiDisk";
-export * from "./iscsiServer";
 export * from "./listDeviceFailoverSets";
 export * from "./listDeviceFailoverTars";
 export * from "./listManagerActivationKey";
@@ -39,7 +25,6 @@ export * from "./listManagerPublicEncryptionKey";
 export * from "./manager";
 export * from "./managerExtendedInfo";
 export * from "./storageAccountCredential";
-export * from "./storageDomain";
 export * from "./volume";
 export * from "./volumeContainer";
 
@@ -50,17 +35,10 @@ export * from "../../types/enums/storsimple/latest";
 import { AccessControlRecord } from "./accessControlRecord";
 import { BackupPolicy } from "./backupPolicy";
 import { BackupSchedule } from "./backupSchedule";
-import { BackupScheduleGroup } from "./backupScheduleGroup";
 import { BandwidthSetting } from "./bandwidthSetting";
-import { ChapSetting } from "./chapSetting";
-import { FileServer } from "./fileServer";
-import { FileShare } from "./fileShare";
-import { IscsiDisk } from "./iscsiDisk";
-import { IscsiServer } from "./iscsiServer";
 import { Manager } from "./manager";
 import { ManagerExtendedInfo } from "./managerExtendedInfo";
 import { StorageAccountCredential } from "./storageAccountCredential";
-import { StorageDomain } from "./storageDomain";
 import { Volume } from "./volume";
 import { VolumeContainer } from "./volumeContainer";
 
@@ -74,28 +52,14 @@ const _module = {
                 return new BackupPolicy(name, <any>undefined, { urn })
             case "azure-native:storsimple/latest:BackupSchedule":
                 return new BackupSchedule(name, <any>undefined, { urn })
-            case "azure-native:storsimple/latest:BackupScheduleGroup":
-                return new BackupScheduleGroup(name, <any>undefined, { urn })
             case "azure-native:storsimple/latest:BandwidthSetting":
                 return new BandwidthSetting(name, <any>undefined, { urn })
-            case "azure-native:storsimple/latest:ChapSetting":
-                return new ChapSetting(name, <any>undefined, { urn })
-            case "azure-native:storsimple/latest:FileServer":
-                return new FileServer(name, <any>undefined, { urn })
-            case "azure-native:storsimple/latest:FileShare":
-                return new FileShare(name, <any>undefined, { urn })
-            case "azure-native:storsimple/latest:IscsiDisk":
-                return new IscsiDisk(name, <any>undefined, { urn })
-            case "azure-native:storsimple/latest:IscsiServer":
-                return new IscsiServer(name, <any>undefined, { urn })
             case "azure-native:storsimple/latest:Manager":
                 return new Manager(name, <any>undefined, { urn })
             case "azure-native:storsimple/latest:ManagerExtendedInfo":
                 return new ManagerExtendedInfo(name, <any>undefined, { urn })
             case "azure-native:storsimple/latest:StorageAccountCredential":
                 return new StorageAccountCredential(name, <any>undefined, { urn })
-            case "azure-native:storsimple/latest:StorageDomain":
-                return new StorageDomain(name, <any>undefined, { urn })
             case "azure-native:storsimple/latest:Volume":
                 return new Volume(name, <any>undefined, { urn })
             case "azure-native:storsimple/latest:VolumeContainer":

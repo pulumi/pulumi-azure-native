@@ -62,7 +62,6 @@ export * from "./getFrontDoor";
 export * from "./getHubRouteTable";
 export * from "./getHubVirtualNetworkConnection";
 export * from "./getInboundNatRule";
-export * from "./getInterfaceEndpoint";
 export * from "./getIpAllocation";
 export * from "./getIpGroup";
 export * from "./getLoadBalancer";
@@ -131,7 +130,6 @@ export * from "./getZone";
 export * from "./hubRouteTable";
 export * from "./hubVirtualNetworkConnection";
 export * from "./inboundNatRule";
-export * from "./interfaceEndpoint";
 export * from "./ipAllocation";
 export * from "./ipGroup";
 export * from "./loadBalancer";
@@ -223,7 +221,6 @@ import { FrontDoor } from "./frontDoor";
 import { HubRouteTable } from "./hubRouteTable";
 import { HubVirtualNetworkConnection } from "./hubVirtualNetworkConnection";
 import { InboundNatRule } from "./inboundNatRule";
-import { InterfaceEndpoint } from "./interfaceEndpoint";
 import { IpAllocation } from "./ipAllocation";
 import { IpGroup } from "./ipGroup";
 import { LoadBalancer } from "./loadBalancer";
@@ -343,8 +340,6 @@ const _module = {
                 return new HubVirtualNetworkConnection(name, <any>undefined, { urn })
             case "azure-native:network/latest:InboundNatRule":
                 return new InboundNatRule(name, <any>undefined, { urn })
-            case "azure-native:network/latest:InterfaceEndpoint":
-                return new InterfaceEndpoint(name, <any>undefined, { urn })
             case "azure-native:network/latest:IpAllocation":
                 return new IpAllocation(name, <any>undefined, { urn })
             case "azure-native:network/latest:IpGroup":

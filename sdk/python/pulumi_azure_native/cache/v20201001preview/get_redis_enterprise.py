@@ -135,7 +135,7 @@ class GetRedisEnterpriseResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> 'outputs.SkuResponse':
+    def sku(self) -> 'outputs.EnterpriseSkuResponse':
         """
         The SKU to create, which affects price, performance, and features.
         """

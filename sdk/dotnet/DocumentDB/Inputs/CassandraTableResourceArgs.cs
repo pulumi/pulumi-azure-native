@@ -11,10 +11,16 @@ namespace Pulumi.AzureNative.DocumentDB.Inputs
 {
 
     /// <summary>
-    /// Cosmos DB Cassandra table id object
+    /// Cosmos DB Cassandra table resource object
     /// </summary>
     public sealed class CassandraTableResourceArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Analytical TTL.
+        /// </summary>
+        [Input("analyticalStorageTtl")]
+        public Input<int>? AnalyticalStorageTtl { get; set; }
+
         /// <summary>
         /// Time to live of the Cosmos DB Cassandra table
         /// </summary>

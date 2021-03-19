@@ -8,7 +8,6 @@ __all__ = [
     'AgentPoolMode',
     'AgentPoolType',
     'ConnectionStatus',
-    'ContainerServiceOrchestratorTypes',
     'ContainerServiceVMSizeTypes',
     'Expander',
     'KubeletDiskType',
@@ -56,16 +55,6 @@ class ConnectionStatus(str, Enum):
     APPROVED = "Approved"
     REJECTED = "Rejected"
     DISCONNECTED = "Disconnected"
-
-
-class ContainerServiceOrchestratorTypes(str, Enum):
-    """
-    The orchestrator to use to manage container service cluster resources. Valid values are Swarm, DCOS, and Custom.
-    """
-    SWARM = "Swarm"
-    DCOS = "DCOS"
-    CUSTOM = "Custom"
-    KUBERNETES = "Kubernetes"
 
 
 class ContainerServiceVMSizeTypes(str, Enum):

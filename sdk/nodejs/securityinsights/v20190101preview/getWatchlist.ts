@@ -58,7 +58,7 @@ export interface GetWatchlistResult {
     /**
      * Describes a user that created the watchlist
      */
-    readonly createdBy?: outputs.securityinsights.v20190101preview.UserInfoResponse;
+    readonly createdBy?: outputs.securityinsights.v20190101preview.WatchlistUserInfoResponse;
     /**
      * The default duration of a watchlist (in ISO 8601 duration format)
      */
@@ -122,7 +122,7 @@ export interface GetWatchlistResult {
     /**
      * Describes a user that updated the watchlist
      */
-    readonly updatedBy?: outputs.securityinsights.v20190101preview.UserInfoResponse;
+    readonly updatedBy?: outputs.securityinsights.v20190101preview.WatchlistUserInfoResponse;
     /**
      * The status of the Watchlist upload : New, InProgress or Complete. Pls note : When a Watchlist upload status is equal to InProgress, the Watchlist cannot be deleted
      */

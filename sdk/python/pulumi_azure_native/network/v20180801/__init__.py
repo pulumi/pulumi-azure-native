@@ -18,7 +18,6 @@ from .express_route_connection import *
 from .express_route_cross_connection_peering import *
 from .express_route_gateway import *
 from .express_route_port import *
-from .front_door import *
 from .get_application_gateway import *
 from .get_application_security_group import *
 from .get_azure_firewall import *
@@ -33,7 +32,6 @@ from .get_express_route_connection import *
 from .get_express_route_cross_connection_peering import *
 from .get_express_route_gateway import *
 from .get_express_route_port import *
-from .get_front_door import *
 from .get_inbound_nat_rule import *
 from .get_interface_endpoint import *
 from .get_load_balancer import *
@@ -46,7 +44,6 @@ from .get_network_watcher import *
 from .get_p2s_vpn_gateway import *
 from .get_p2s_vpn_server_configuration import *
 from .get_packet_capture import *
-from .get_policy import *
 from .get_profile import *
 from .get_public_ip_address import *
 from .get_public_ip_prefix import *
@@ -85,7 +82,6 @@ from .network_watcher import *
 from .p2s_vpn_gateway import *
 from .p2s_vpn_server_configuration import *
 from .packet_capture import *
-from .policy import *
 from .profile import *
 from .public_ip_address import *
 from .public_ip_prefix import *
@@ -151,8 +147,6 @@ def _register_module():
                 return ExpressRouteGateway(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:network/v20180801:ExpressRoutePort":
                 return ExpressRoutePort(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "azure-native:network/v20180801:FrontDoor":
-                return FrontDoor(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:network/v20180801:InboundNatRule":
                 return InboundNatRule(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:network/v20180801:InterfaceEndpoint":
@@ -177,8 +171,6 @@ def _register_module():
                 return P2sVpnServerConfiguration(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:network/v20180801:PacketCapture":
                 return PacketCapture(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "azure-native:network/v20180801:Policy":
-                return Policy(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:network/v20180801:Profile":
                 return Profile(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:network/v20180801:PublicIPAddress":

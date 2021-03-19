@@ -59,8 +59,6 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20180201Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20180201preview:BuildStep"},
-                    new Pulumi.Alias { Type = "azure-native:containerregistry:BuildStep"},
-                    new Pulumi.Alias { Type = "azure-nextgen:containerregistry:BuildStep"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

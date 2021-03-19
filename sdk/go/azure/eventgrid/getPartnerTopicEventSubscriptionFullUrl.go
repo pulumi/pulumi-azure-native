@@ -8,7 +8,7 @@ import (
 )
 
 // Full endpoint url of an event subscription
-// API Version: 2020-10-15-preview.
+// API Version: 2020-04-01-preview.
 func GetPartnerTopicEventSubscriptionFullUrl(ctx *pulumi.Context, args *GetPartnerTopicEventSubscriptionFullUrlArgs, opts ...pulumi.InvokeOption) (*GetPartnerTopicEventSubscriptionFullUrlResult, error) {
 	var rv GetPartnerTopicEventSubscriptionFullUrlResult
 	err := ctx.Invoke("azure-native:eventgrid:getPartnerTopicEventSubscriptionFullUrl", args, &rv, opts...)

@@ -27,12 +27,6 @@ namespace Pulumi.AzureNative.EventGrid.Inputs
             set => _advancedFilters = value;
         }
 
-        /// <summary>
-        /// Allows advanced filters to be evaluated against an array of values instead of expecting a singular value.
-        /// </summary>
-        [Input("enableAdvancedFilteringOnArrays")]
-        public Input<bool>? EnableAdvancedFilteringOnArrays { get; set; }
-
         public EventChannelFilterArgs()
         {
         }

@@ -24,14 +24,11 @@ __all__ = [
     'FtpsState',
     'HostNameType',
     'HostType',
-    'HostingEnvironmentStatus',
-    'InternalLoadBalancingMode',
     'IpFilterTag',
     'LoadBalancingMode',
     'LogLevel',
     'ManagedPipelineMode',
     'ManagedServiceIdentityType',
-    'ProvisioningState',
     'PublicCertificateLocation',
     'RedundancyMode',
     'RouteType',
@@ -41,12 +38,14 @@ __all__ = [
     'SupportedTlsVersions',
     'UnauthenticatedClientAction',
     'UnauthenticatedClientActionV2',
-    'WorkerSizeOptions',
     'WsdlImportMethod',
 ]
 
 
 class AccessControlEntryAction(str, Enum):
+    """
+    Action object.
+    """
     PERMIT = "Permit"
     DENY = "Deny"
 
@@ -116,7 +115,7 @@ class ClientCredentialMethod(str, Enum):
 
 class ComputeModeOptions(str, Enum):
     """
-    Shared or dedicated web app hosting
+    Shared or dedicated app hosting.
     """
     SHARED = "Shared"
     DEDICATED = "Dedicated"
@@ -217,25 +216,6 @@ class HostType(str, Enum):
     REPOSITORY = "Repository"
 
 
-class HostingEnvironmentStatus(str, Enum):
-    """
-    Current status of the hostingEnvironment (App Service Environment)
-    """
-    PREPARING = "Preparing"
-    READY = "Ready"
-    SCALING = "Scaling"
-    DELETING = "Deleting"
-
-
-class InternalLoadBalancingMode(str, Enum):
-    """
-    Specifies which endpoints to serve internally in the hostingEnvironment's (App Service Environment) VNET
-    """
-    NONE = "None"
-    WEB = "Web"
-    PUBLISHING = "Publishing"
-
-
 class IpFilterTag(str, Enum):
     """
     Defines what this IP filter will be used for. This is to support IP filtering on proxies.
@@ -282,17 +262,6 @@ class ManagedServiceIdentityType(str, Enum):
     USER_ASSIGNED = "UserAssigned"
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned, UserAssigned"
     NONE = "None"
-
-
-class ProvisioningState(str, Enum):
-    """
-    Provisioning state of the hostingEnvironment (App Service Environment)
-    """
-    SUCCEEDED = "Succeeded"
-    FAILED = "Failed"
-    CANCELED = "Canceled"
-    IN_PROGRESS = "InProgress"
-    DELETING = "Deleting"
 
 
 class PublicCertificateLocation(str, Enum):
@@ -391,16 +360,6 @@ class UnauthenticatedClientActionV2(str, Enum):
     ALLOW_ANONYMOUS = "AllowAnonymous"
     RETURN401 = "Return401"
     RETURN403 = "Return403"
-
-
-class WorkerSizeOptions(str, Enum):
-    """
-    Size of the machines
-    """
-    DEFAULT = "Default"
-    SMALL = "Small"
-    MEDIUM = "Medium"
-    LARGE = "Large"
 
 
 class WsdlImportMethod(str, Enum):

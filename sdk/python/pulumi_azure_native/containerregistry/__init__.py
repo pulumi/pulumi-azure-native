@@ -5,14 +5,10 @@
 # Export this package's modules as members:
 from ._enums import *
 from .agent_pool import *
-from .build_step import *
-from .build_task import *
 from .connected_registry import *
 from .export_pipeline import *
 from .get_agent_pool import *
 from .get_build_log_link import *
-from .get_build_step import *
-from .get_build_task import *
 from .get_connected_registry import *
 from .get_export_pipeline import *
 from .get_import_pipeline import *
@@ -81,10 +77,6 @@ def _register_module():
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
             if typ == "azure-native:containerregistry:AgentPool":
                 return AgentPool(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "azure-native:containerregistry:BuildStep":
-                return BuildStep(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "azure-native:containerregistry:BuildTask":
-                return BuildTask(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:containerregistry:ConnectedRegistry":
                 return ConnectedRegistry(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:containerregistry:ExportPipeline":

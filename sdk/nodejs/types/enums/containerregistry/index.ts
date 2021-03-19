@@ -80,16 +80,6 @@ export const BaseImageTriggerType = {
  */
 export type BaseImageTriggerType = (typeof BaseImageTriggerType)[keyof typeof BaseImageTriggerType];
 
-export const BuildTaskStatus = {
-    Disabled: "Disabled",
-    Enabled: "Enabled",
-} as const;
-
-/**
- * The current status of build task.
- */
-export type BuildTaskStatus = (typeof BuildTaskStatus)[keyof typeof BuildTaskStatus];
-
 export const ConnectedRegistryMode = {
     Registry: "Registry",
     Mirror: "Mirror",
@@ -144,16 +134,6 @@ export const OS = {
  * The operating system type required for the run.
  */
 export type OS = (typeof OS)[keyof typeof OS];
-
-export const OsType = {
-    Windows: "Windows",
-    Linux: "Linux",
-} as const;
-
-/**
- * The operating system type required for the build.
- */
-export type OsType = (typeof OsType)[keyof typeof OsType];
 
 export const PipelineOptions = {
     OverwriteTags: "OverwriteTags",

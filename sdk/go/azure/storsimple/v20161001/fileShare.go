@@ -66,18 +66,6 @@ func NewFileShare(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:storsimple/v20161001:FileShare"),
 		},
-		{
-			Type: pulumi.String("azure-native:storsimple:FileShare"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storsimple:FileShare"),
-		},
-		{
-			Type: pulumi.String("azure-native:storsimple/latest:FileShare"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storsimple/latest:FileShare"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource FileShare

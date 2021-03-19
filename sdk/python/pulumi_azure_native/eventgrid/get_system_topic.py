@@ -20,13 +20,10 @@ class GetSystemTopicResult:
     """
     EventGrid System Topic.
     """
-    def __init__(__self__, id=None, identity=None, location=None, metric_resource_id=None, name=None, provisioning_state=None, source=None, system_data=None, tags=None, topic_type=None, type=None):
+    def __init__(__self__, id=None, location=None, metric_resource_id=None, name=None, provisioning_state=None, source=None, system_data=None, tags=None, topic_type=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if identity and not isinstance(identity, dict):
-            raise TypeError("Expected argument 'identity' to be a dict")
-        pulumi.set(__self__, "identity", identity)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -62,14 +59,6 @@ class GetSystemTopicResult:
         Fully qualified identifier of the resource.
         """
         return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def identity(self) -> Optional['outputs.IdentityInfoResponse']:
-        """
-        Identity information for the resource.
-        """
-        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter
@@ -151,7 +140,6 @@ class AwaitableGetSystemTopicResult(GetSystemTopicResult):
             yield self
         return GetSystemTopicResult(
             id=self.id,
-            identity=self.identity,
             location=self.location,
             metric_resource_id=self.metric_resource_id,
             name=self.name,
@@ -168,7 +156,7 @@ def get_system_topic(resource_group_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSystemTopicResult:
     """
     EventGrid System Topic.
-    API Version: 2020-10-15-preview.
+    API Version: 2020-04-01-preview.
 
 
     :param str resource_group_name: The name of the resource group within the user's subscription.
@@ -185,7 +173,6 @@ def get_system_topic(resource_group_name: Optional[str] = None,
 
     return AwaitableGetSystemTopicResult(
         id=__ret__.id,
-        identity=__ret__.identity,
         location=__ret__.location,
         metric_resource_id=__ret__.metric_resource_id,
         name=__ret__.name,

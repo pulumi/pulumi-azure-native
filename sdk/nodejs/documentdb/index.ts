@@ -10,29 +10,11 @@ export * from "./cassandraDataCenter";
 export * from "./cassandraResourceCassandraKeyspace";
 export * from "./cassandraResourceCassandraTable";
 export * from "./databaseAccount";
-export * from "./databaseAccountCassandraKeyspace";
-export * from "./databaseAccountCassandraTable";
-export * from "./databaseAccountGremlinDatabase";
-export * from "./databaseAccountGremlinGraph";
-export * from "./databaseAccountMongoDBCollection";
-export * from "./databaseAccountMongoDBDatabase";
-export * from "./databaseAccountSqlContainer";
-export * from "./databaseAccountSqlDatabase";
-export * from "./databaseAccountTable";
 export * from "./getCassandraCluster";
 export * from "./getCassandraDataCenter";
 export * from "./getCassandraResourceCassandraKeyspace";
 export * from "./getCassandraResourceCassandraTable";
 export * from "./getDatabaseAccount";
-export * from "./getDatabaseAccountCassandraKeyspace";
-export * from "./getDatabaseAccountCassandraTable";
-export * from "./getDatabaseAccountGremlinDatabase";
-export * from "./getDatabaseAccountGremlinGraph";
-export * from "./getDatabaseAccountMongoDBCollection";
-export * from "./getDatabaseAccountMongoDBDatabase";
-export * from "./getDatabaseAccountSqlContainer";
-export * from "./getDatabaseAccountSqlDatabase";
-export * from "./getDatabaseAccountTable";
 export * from "./getGremlinResourceGremlinDatabase";
 export * from "./getGremlinResourceGremlinGraph";
 export * from "./getMongoDBResourceMongoDBCollection";
@@ -109,15 +91,6 @@ import { CassandraDataCenter } from "./cassandraDataCenter";
 import { CassandraResourceCassandraKeyspace } from "./cassandraResourceCassandraKeyspace";
 import { CassandraResourceCassandraTable } from "./cassandraResourceCassandraTable";
 import { DatabaseAccount } from "./databaseAccount";
-import { DatabaseAccountCassandraKeyspace } from "./databaseAccountCassandraKeyspace";
-import { DatabaseAccountCassandraTable } from "./databaseAccountCassandraTable";
-import { DatabaseAccountGremlinDatabase } from "./databaseAccountGremlinDatabase";
-import { DatabaseAccountGremlinGraph } from "./databaseAccountGremlinGraph";
-import { DatabaseAccountMongoDBCollection } from "./databaseAccountMongoDBCollection";
-import { DatabaseAccountMongoDBDatabase } from "./databaseAccountMongoDBDatabase";
-import { DatabaseAccountSqlContainer } from "./databaseAccountSqlContainer";
-import { DatabaseAccountSqlDatabase } from "./databaseAccountSqlDatabase";
-import { DatabaseAccountTable } from "./databaseAccountTable";
 import { GremlinResourceGremlinDatabase } from "./gremlinResourceGremlinDatabase";
 import { GremlinResourceGremlinGraph } from "./gremlinResourceGremlinGraph";
 import { MongoDBResourceMongoDBCollection } from "./mongoDBResourceMongoDBCollection";
@@ -147,24 +120,6 @@ const _module = {
                 return new CassandraResourceCassandraTable(name, <any>undefined, { urn })
             case "azure-native:documentdb:DatabaseAccount":
                 return new DatabaseAccount(name, <any>undefined, { urn })
-            case "azure-native:documentdb:DatabaseAccountCassandraKeyspace":
-                return new DatabaseAccountCassandraKeyspace(name, <any>undefined, { urn })
-            case "azure-native:documentdb:DatabaseAccountCassandraTable":
-                return new DatabaseAccountCassandraTable(name, <any>undefined, { urn })
-            case "azure-native:documentdb:DatabaseAccountGremlinDatabase":
-                return new DatabaseAccountGremlinDatabase(name, <any>undefined, { urn })
-            case "azure-native:documentdb:DatabaseAccountGremlinGraph":
-                return new DatabaseAccountGremlinGraph(name, <any>undefined, { urn })
-            case "azure-native:documentdb:DatabaseAccountMongoDBCollection":
-                return new DatabaseAccountMongoDBCollection(name, <any>undefined, { urn })
-            case "azure-native:documentdb:DatabaseAccountMongoDBDatabase":
-                return new DatabaseAccountMongoDBDatabase(name, <any>undefined, { urn })
-            case "azure-native:documentdb:DatabaseAccountSqlContainer":
-                return new DatabaseAccountSqlContainer(name, <any>undefined, { urn })
-            case "azure-native:documentdb:DatabaseAccountSqlDatabase":
-                return new DatabaseAccountSqlDatabase(name, <any>undefined, { urn })
-            case "azure-native:documentdb:DatabaseAccountTable":
-                return new DatabaseAccountTable(name, <any>undefined, { urn })
             case "azure-native:documentdb:GremlinResourceGremlinDatabase":
                 return new GremlinResourceGremlinDatabase(name, <any>undefined, { urn })
             case "azure-native:documentdb:GremlinResourceGremlinGraph":
