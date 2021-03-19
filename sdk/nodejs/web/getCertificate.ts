@@ -99,10 +99,6 @@ export interface GetCertificateResult {
      */
     readonly name: string;
     /**
-     * Certificate password.
-     */
-    readonly password: string;
-    /**
      * Pfx blob.
      */
     readonly pfxBlob?: string;

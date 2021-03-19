@@ -175,7 +175,6 @@ class WebApp(pulumi.CustomResource):
         __props__["client_affinity_enabled"] = None
         __props__["client_cert_enabled"] = None
         __props__["client_cert_exclusion_paths"] = None
-        __props__["cloning_info"] = None
         __props__["container_size"] = None
         __props__["daily_memory_time_quota"] = None
         __props__["default_host_name"] = None
@@ -246,14 +245,6 @@ class WebApp(pulumi.CustomResource):
         client certificate authentication comma-separated exclusion paths
         """
         return pulumi.get(self, "client_cert_exclusion_paths")
-
-    @property
-    @pulumi.getter(name="cloningInfo")
-    def cloning_info(self) -> pulumi.Output[Optional['outputs.CloningInfoResponse']]:
-        """
-        If specified during app creation, the app is cloned from a source app.
-        """
-        return pulumi.get(self, "cloning_info")
 
     @property
     @pulumi.getter(name="containerSize")

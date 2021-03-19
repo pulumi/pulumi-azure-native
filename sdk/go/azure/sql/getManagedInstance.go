@@ -29,14 +29,10 @@ type LookupManagedInstanceArgs struct {
 type LookupManagedInstanceResult struct {
 	// Administrator username for the managed instance. Can only be specified when the managed instance is being created (and is required for creation).
 	AdministratorLogin *string `pulumi:"administratorLogin"`
-	// The administrator login password (required for managed instance creation).
-	AdministratorLoginPassword *string `pulumi:"administratorLoginPassword"`
 	// Collation of the managed instance.
 	Collation *string `pulumi:"collation"`
 	// The Dns Zone that the managed instance is in.
 	DnsZone string `pulumi:"dnsZone"`
-	// The resource id of another managed instance whose DNS zone this managed instance will share after creation.
-	DnsZonePartner *string `pulumi:"dnsZonePartner"`
 	// The fully qualified domain name of the managed instance.
 	FullyQualifiedDomainName string `pulumi:"fullyQualifiedDomainName"`
 	// Resource ID.
@@ -51,12 +47,6 @@ type LookupManagedInstanceResult struct {
 	Location string `pulumi:"location"`
 	// Specifies maintenance configuration id to apply to this managed instance.
 	MaintenanceConfigurationId *string `pulumi:"maintenanceConfigurationId"`
-	// Specifies the mode of database creation.
-	//
-	// Default: Regular instance creation.
-	//
-	// Restore: Creates an instance by restoring a set of backups to specific point in time. RestorePointInTime and SourceManagedInstanceId must be specified.
-	ManagedInstanceCreateMode *string `pulumi:"managedInstanceCreateMode"`
 	// Minimal TLS version. Allowed values: 'None', '1.0', '1.1', '1.2'
 	MinimalTlsVersion *string `pulumi:"minimalTlsVersion"`
 	// Resource name.
@@ -68,12 +58,8 @@ type LookupManagedInstanceResult struct {
 	ProxyOverride *string `pulumi:"proxyOverride"`
 	// Whether or not the public data endpoint is enabled.
 	PublicDataEndpointEnabled *bool `pulumi:"publicDataEndpointEnabled"`
-	// Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database.
-	RestorePointInTime *string `pulumi:"restorePointInTime"`
 	// Managed instance SKU. Allowed values for sku.name: GP_Gen4, GP_Gen5, BC_Gen4, BC_Gen5
 	Sku *SkuResponse `pulumi:"sku"`
-	// The resource identifier of the source managed instance associated with create operation of this instance.
-	SourceManagedInstanceId *string `pulumi:"sourceManagedInstanceId"`
 	// The state of the managed instance.
 	State string `pulumi:"state"`
 	// The storage account type used to store backups for this instance. The options are LRS (LocallyRedundantStorage), ZRS (ZoneRedundantStorage) and GRS (GeoRedundantStorage)

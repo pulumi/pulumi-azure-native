@@ -93,10 +93,6 @@ namespace Pulumi.AzureNative.Sql.Latest
         /// </summary>
         public readonly string State;
         /// <summary>
-        /// Specifies the identifier key of the Threat Detection audit storage account. If state is Enabled, storageAccountAccessKey is required.
-        /// </summary>
-        public readonly string? StorageAccountAccessKey;
-        /// <summary>
         /// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. If state is Enabled, storageEndpoint is required.
         /// </summary>
         public readonly string? StorageEndpoint;
@@ -129,8 +125,6 @@ namespace Pulumi.AzureNative.Sql.Latest
 
             string state,
 
-            string? storageAccountAccessKey,
-
             string? storageEndpoint,
 
             string type,
@@ -146,7 +140,6 @@ namespace Pulumi.AzureNative.Sql.Latest
             Name = name;
             RetentionDays = retentionDays;
             State = state;
-            StorageAccountAccessKey = storageAccountAccessKey;
             StorageEndpoint = storageEndpoint;
             Type = type;
             UseServerDefault = useServerDefault;

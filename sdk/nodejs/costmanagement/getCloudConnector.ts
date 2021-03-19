@@ -55,10 +55,6 @@ export interface GetCloudConnectorResult {
      */
     readonly credentialsKey?: string;
     /**
-     * Credentials secret (eg AWS ExternalId)
-     */
-    readonly credentialsSecret?: string;
-    /**
      * Number of days remaining of trial
      */
     readonly daysTrialRemaining: number;

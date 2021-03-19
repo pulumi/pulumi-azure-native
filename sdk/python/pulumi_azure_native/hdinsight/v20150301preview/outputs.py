@@ -121,18 +121,14 @@ class ApplicationGetHttpsEndpointResponse(dict):
                  public_port: int,
                  access_modes: Optional[Sequence[str]] = None,
                  destination_port: Optional[int] = None,
-                 disable_gateway_auth: Optional[bool] = None,
-                 private_ip_address: Optional[str] = None,
-                 sub_domain_suffix: Optional[str] = None):
+                 private_ip_address: Optional[str] = None):
         """
         Gets the application HTTP endpoints.
         :param str location: The location of the endpoint.
         :param int public_port: The public port to connect to.
         :param Sequence[str] access_modes: The list of access modes for the application.
         :param int destination_port: The destination port to connect to.
-        :param bool disable_gateway_auth: The value indicates whether to disable GatewayAuth.
         :param str private_ip_address: The private ip address of the endpoint.
-        :param str sub_domain_suffix: The subdomain suffix of the application.
         """
         pulumi.set(__self__, "location", location)
         pulumi.set(__self__, "public_port", public_port)
@@ -140,12 +136,8 @@ class ApplicationGetHttpsEndpointResponse(dict):
             pulumi.set(__self__, "access_modes", access_modes)
         if destination_port is not None:
             pulumi.set(__self__, "destination_port", destination_port)
-        if disable_gateway_auth is not None:
-            pulumi.set(__self__, "disable_gateway_auth", disable_gateway_auth)
         if private_ip_address is not None:
             pulumi.set(__self__, "private_ip_address", private_ip_address)
-        if sub_domain_suffix is not None:
-            pulumi.set(__self__, "sub_domain_suffix", sub_domain_suffix)
 
     @property
     @pulumi.getter
@@ -180,28 +172,12 @@ class ApplicationGetHttpsEndpointResponse(dict):
         return pulumi.get(self, "destination_port")
 
     @property
-    @pulumi.getter(name="disableGatewayAuth")
-    def disable_gateway_auth(self) -> Optional[bool]:
-        """
-        The value indicates whether to disable GatewayAuth.
-        """
-        return pulumi.get(self, "disable_gateway_auth")
-
-    @property
     @pulumi.getter(name="privateIPAddress")
     def private_ip_address(self) -> Optional[str]:
         """
         The private ip address of the endpoint.
         """
         return pulumi.get(self, "private_ip_address")
-
-    @property
-    @pulumi.getter(name="subDomainSuffix")
-    def sub_domain_suffix(self) -> Optional[str]:
-        """
-        The subdomain suffix of the application.
-        """
-        return pulumi.get(self, "sub_domain_suffix")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -1771,22 +1747,18 @@ class RuntimeScriptActionResponse(dict):
                  application_name: str,
                  name: str,
                  roles: Sequence[str],
-                 uri: str,
-                 parameters: Optional[str] = None):
+                 uri: str):
         """
         Describes a script action on a running cluster.
         :param str application_name: The application name of the script action, if any.
         :param str name: The name of the script action.
         :param Sequence[str] roles: The list of roles where script will be executed.
         :param str uri: The URI to the script.
-        :param str parameters: The parameters for the script
         """
         pulumi.set(__self__, "application_name", application_name)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "roles", roles)
         pulumi.set(__self__, "uri", uri)
-        if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
 
     @property
     @pulumi.getter(name="applicationName")
@@ -1819,14 +1791,6 @@ class RuntimeScriptActionResponse(dict):
         The URI to the script.
         """
         return pulumi.get(self, "uri")
-
-    @property
-    @pulumi.getter
-    def parameters(self) -> Optional[str]:
-        """
-        The parameters for the script
-        """
-        return pulumi.get(self, "parameters")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

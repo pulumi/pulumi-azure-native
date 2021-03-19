@@ -22,24 +22,6 @@ type Database struct {
 	Collation pulumi.StringPtrOutput `pulumi:"collation"`
 	// The containment state of the database.
 	ContainmentState pulumi.Float64Output `pulumi:"containmentState"`
-	// Specifies the mode of database creation.
-	//
-	// Default: regular database creation.
-	//
-	// Copy: creates a database as a copy of an existing database. sourceDatabaseId must be specified as the resource ID of the source database.
-	//
-	// OnlineSecondary/NonReadableSecondary: creates a database as a (readable or nonreadable) secondary replica of an existing database. sourceDatabaseId must be specified as the resource ID of the existing primary database.
-	//
-	// PointInTimeRestore: Creates a database by restoring a point in time backup of an existing database. sourceDatabaseId must be specified as the resource ID of the existing database, and restorePointInTime must be specified.
-	//
-	// Recovery: Creates a database by restoring a geo-replicated backup. sourceDatabaseId must be specified as the recoverable database resource ID to restore.
-	//
-	// Restore: Creates a database by restoring a backup of a deleted database. sourceDatabaseId must be specified. If sourceDatabaseId is the database's original resource ID, then sourceDatabaseDeletionDate must be specified. Otherwise sourceDatabaseId must be the restorable dropped database resource ID and sourceDatabaseDeletionDate is ignored. restorePointInTime may also be specified to restore from an earlier point in time.
-	//
-	// RestoreLongTermRetentionBackup: Creates a database by restoring from a long term retention vault. recoveryServicesRecoveryPointResourceId must be specified as the recovery point resource ID.
-	//
-	// Copy, NonReadableSecondary, OnlineSecondary and RestoreLongTermRetentionBackup are not supported for DataWarehouse edition.
-	CreateMode pulumi.StringPtrOutput `pulumi:"createMode"`
 	// The creation date of the database (ISO8601 format).
 	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
 	// The current service level objective ID of the database. This is the ID of the service level objective that is currently active.
@@ -70,8 +52,6 @@ type Database struct {
 	ReadScale pulumi.StringPtrOutput `pulumi:"readScale"`
 	// The recommended indices for this database.
 	RecommendedIndex RecommendedIndexResponseArrayOutput `pulumi:"recommendedIndex"`
-	// Conditional. If createMode is RestoreLongTermRetentionBackup, then this value is required. Specifies the resource ID of the recovery point to restore from.
-	RecoveryServicesRecoveryPointResourceId pulumi.StringPtrOutput `pulumi:"recoveryServicesRecoveryPointResourceId"`
 	// The configured service level objective ID of the database. This is the service level objective that is in the process of being applied to the database. Once successfully updated, it will match the value of currentServiceObjectiveId property. If requestedServiceObjectiveId and requestedServiceObjectiveName are both updated, the value of requestedServiceObjectiveId overrides the value of requestedServiceObjectiveName.
 	//
 	// The list of SKUs may vary by region and support offer. To determine the service objective ids that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API.
@@ -80,18 +60,10 @@ type Database struct {
 	//
 	// The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or one of the following commands:
 	RequestedServiceObjectiveName pulumi.StringPtrOutput `pulumi:"requestedServiceObjectiveName"`
-	// Conditional. If createMode is PointInTimeRestore, this value is required. If createMode is Restore, this value is optional. Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. Must be greater than or equal to the source database's earliestRestoreDate value.
-	RestorePointInTime pulumi.StringPtrOutput `pulumi:"restorePointInTime"`
-	// Indicates the name of the sample schema to apply when creating this database. If createMode is not Default, this value is ignored. Not supported for DataWarehouse edition.
-	SampleName pulumi.StringPtrOutput `pulumi:"sampleName"`
 	// The current service level objective of the database.
 	ServiceLevelObjective pulumi.StringOutput `pulumi:"serviceLevelObjective"`
 	// The list of service tier advisors for this database. Expanded property
 	ServiceTierAdvisors ServiceTierAdvisorResponseArrayOutput `pulumi:"serviceTierAdvisors"`
-	// Conditional. If createMode is Restore and sourceDatabaseId is the deleted database's original resource id when it existed (as opposed to its current restorable dropped database id), then this value is required. Specifies the time that the database was deleted.
-	SourceDatabaseDeletionDate pulumi.StringPtrOutput `pulumi:"sourceDatabaseDeletionDate"`
-	// Conditional. If createMode is Copy, NonReadableSecondary, OnlineSecondary, PointInTimeRestore, Recovery, or Restore, then this value is required. Specifies the resource ID of the source database. If createMode is NonReadableSecondary or OnlineSecondary, the name of the source database must be the same as the new database being created.
-	SourceDatabaseId pulumi.StringPtrOutput `pulumi:"sourceDatabaseId"`
 	// The status of the database.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// Resource tags.
@@ -197,24 +169,6 @@ type databaseState struct {
 	Collation *string `pulumi:"collation"`
 	// The containment state of the database.
 	ContainmentState *float64 `pulumi:"containmentState"`
-	// Specifies the mode of database creation.
-	//
-	// Default: regular database creation.
-	//
-	// Copy: creates a database as a copy of an existing database. sourceDatabaseId must be specified as the resource ID of the source database.
-	//
-	// OnlineSecondary/NonReadableSecondary: creates a database as a (readable or nonreadable) secondary replica of an existing database. sourceDatabaseId must be specified as the resource ID of the existing primary database.
-	//
-	// PointInTimeRestore: Creates a database by restoring a point in time backup of an existing database. sourceDatabaseId must be specified as the resource ID of the existing database, and restorePointInTime must be specified.
-	//
-	// Recovery: Creates a database by restoring a geo-replicated backup. sourceDatabaseId must be specified as the recoverable database resource ID to restore.
-	//
-	// Restore: Creates a database by restoring a backup of a deleted database. sourceDatabaseId must be specified. If sourceDatabaseId is the database's original resource ID, then sourceDatabaseDeletionDate must be specified. Otherwise sourceDatabaseId must be the restorable dropped database resource ID and sourceDatabaseDeletionDate is ignored. restorePointInTime may also be specified to restore from an earlier point in time.
-	//
-	// RestoreLongTermRetentionBackup: Creates a database by restoring from a long term retention vault. recoveryServicesRecoveryPointResourceId must be specified as the recovery point resource ID.
-	//
-	// Copy, NonReadableSecondary, OnlineSecondary and RestoreLongTermRetentionBackup are not supported for DataWarehouse edition.
-	CreateMode *string `pulumi:"createMode"`
 	// The creation date of the database (ISO8601 format).
 	CreationDate *string `pulumi:"creationDate"`
 	// The current service level objective ID of the database. This is the ID of the service level objective that is currently active.
@@ -245,8 +199,6 @@ type databaseState struct {
 	ReadScale *string `pulumi:"readScale"`
 	// The recommended indices for this database.
 	RecommendedIndex []RecommendedIndexResponse `pulumi:"recommendedIndex"`
-	// Conditional. If createMode is RestoreLongTermRetentionBackup, then this value is required. Specifies the resource ID of the recovery point to restore from.
-	RecoveryServicesRecoveryPointResourceId *string `pulumi:"recoveryServicesRecoveryPointResourceId"`
 	// The configured service level objective ID of the database. This is the service level objective that is in the process of being applied to the database. Once successfully updated, it will match the value of currentServiceObjectiveId property. If requestedServiceObjectiveId and requestedServiceObjectiveName are both updated, the value of requestedServiceObjectiveId overrides the value of requestedServiceObjectiveName.
 	//
 	// The list of SKUs may vary by region and support offer. To determine the service objective ids that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API.
@@ -255,18 +207,10 @@ type databaseState struct {
 	//
 	// The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or one of the following commands:
 	RequestedServiceObjectiveName *string `pulumi:"requestedServiceObjectiveName"`
-	// Conditional. If createMode is PointInTimeRestore, this value is required. If createMode is Restore, this value is optional. Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. Must be greater than or equal to the source database's earliestRestoreDate value.
-	RestorePointInTime *string `pulumi:"restorePointInTime"`
-	// Indicates the name of the sample schema to apply when creating this database. If createMode is not Default, this value is ignored. Not supported for DataWarehouse edition.
-	SampleName *string `pulumi:"sampleName"`
 	// The current service level objective of the database.
 	ServiceLevelObjective *string `pulumi:"serviceLevelObjective"`
 	// The list of service tier advisors for this database. Expanded property
 	ServiceTierAdvisors []ServiceTierAdvisorResponse `pulumi:"serviceTierAdvisors"`
-	// Conditional. If createMode is Restore and sourceDatabaseId is the deleted database's original resource id when it existed (as opposed to its current restorable dropped database id), then this value is required. Specifies the time that the database was deleted.
-	SourceDatabaseDeletionDate *string `pulumi:"sourceDatabaseDeletionDate"`
-	// Conditional. If createMode is Copy, NonReadableSecondary, OnlineSecondary, PointInTimeRestore, Recovery, or Restore, then this value is required. Specifies the resource ID of the source database. If createMode is NonReadableSecondary or OnlineSecondary, the name of the source database must be the same as the new database being created.
-	SourceDatabaseId *string `pulumi:"sourceDatabaseId"`
 	// The status of the database.
 	Status *string `pulumi:"status"`
 	// Resource tags.
@@ -284,24 +228,6 @@ type DatabaseState struct {
 	Collation pulumi.StringPtrInput
 	// The containment state of the database.
 	ContainmentState pulumi.Float64PtrInput
-	// Specifies the mode of database creation.
-	//
-	// Default: regular database creation.
-	//
-	// Copy: creates a database as a copy of an existing database. sourceDatabaseId must be specified as the resource ID of the source database.
-	//
-	// OnlineSecondary/NonReadableSecondary: creates a database as a (readable or nonreadable) secondary replica of an existing database. sourceDatabaseId must be specified as the resource ID of the existing primary database.
-	//
-	// PointInTimeRestore: Creates a database by restoring a point in time backup of an existing database. sourceDatabaseId must be specified as the resource ID of the existing database, and restorePointInTime must be specified.
-	//
-	// Recovery: Creates a database by restoring a geo-replicated backup. sourceDatabaseId must be specified as the recoverable database resource ID to restore.
-	//
-	// Restore: Creates a database by restoring a backup of a deleted database. sourceDatabaseId must be specified. If sourceDatabaseId is the database's original resource ID, then sourceDatabaseDeletionDate must be specified. Otherwise sourceDatabaseId must be the restorable dropped database resource ID and sourceDatabaseDeletionDate is ignored. restorePointInTime may also be specified to restore from an earlier point in time.
-	//
-	// RestoreLongTermRetentionBackup: Creates a database by restoring from a long term retention vault. recoveryServicesRecoveryPointResourceId must be specified as the recovery point resource ID.
-	//
-	// Copy, NonReadableSecondary, OnlineSecondary and RestoreLongTermRetentionBackup are not supported for DataWarehouse edition.
-	CreateMode pulumi.StringPtrInput
 	// The creation date of the database (ISO8601 format).
 	CreationDate pulumi.StringPtrInput
 	// The current service level objective ID of the database. This is the ID of the service level objective that is currently active.
@@ -332,8 +258,6 @@ type DatabaseState struct {
 	ReadScale pulumi.StringPtrInput
 	// The recommended indices for this database.
 	RecommendedIndex RecommendedIndexResponseArrayInput
-	// Conditional. If createMode is RestoreLongTermRetentionBackup, then this value is required. Specifies the resource ID of the recovery point to restore from.
-	RecoveryServicesRecoveryPointResourceId pulumi.StringPtrInput
 	// The configured service level objective ID of the database. This is the service level objective that is in the process of being applied to the database. Once successfully updated, it will match the value of currentServiceObjectiveId property. If requestedServiceObjectiveId and requestedServiceObjectiveName are both updated, the value of requestedServiceObjectiveId overrides the value of requestedServiceObjectiveName.
 	//
 	// The list of SKUs may vary by region and support offer. To determine the service objective ids that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API.
@@ -342,18 +266,10 @@ type DatabaseState struct {
 	//
 	// The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or one of the following commands:
 	RequestedServiceObjectiveName pulumi.StringPtrInput
-	// Conditional. If createMode is PointInTimeRestore, this value is required. If createMode is Restore, this value is optional. Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. Must be greater than or equal to the source database's earliestRestoreDate value.
-	RestorePointInTime pulumi.StringPtrInput
-	// Indicates the name of the sample schema to apply when creating this database. If createMode is not Default, this value is ignored. Not supported for DataWarehouse edition.
-	SampleName pulumi.StringPtrInput
 	// The current service level objective of the database.
 	ServiceLevelObjective pulumi.StringPtrInput
 	// The list of service tier advisors for this database. Expanded property
 	ServiceTierAdvisors ServiceTierAdvisorResponseArrayInput
-	// Conditional. If createMode is Restore and sourceDatabaseId is the deleted database's original resource id when it existed (as opposed to its current restorable dropped database id), then this value is required. Specifies the time that the database was deleted.
-	SourceDatabaseDeletionDate pulumi.StringPtrInput
-	// Conditional. If createMode is Copy, NonReadableSecondary, OnlineSecondary, PointInTimeRestore, Recovery, or Restore, then this value is required. Specifies the resource ID of the source database. If createMode is NonReadableSecondary or OnlineSecondary, the name of the source database must be the same as the new database being created.
-	SourceDatabaseId pulumi.StringPtrInput
 	// The status of the database.
 	Status pulumi.StringPtrInput
 	// Resource tags.

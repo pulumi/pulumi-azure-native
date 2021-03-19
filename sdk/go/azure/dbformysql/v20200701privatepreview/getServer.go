@@ -28,14 +28,10 @@ type LookupServerArgs struct {
 type LookupServerResult struct {
 	// The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
 	AdministratorLogin *string `pulumi:"administratorLogin"`
-	// The password of the administrator login (required for server creation).
-	AdministratorLoginPassword *string `pulumi:"administratorLoginPassword"`
 	// availability Zone information of the server.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
 	// Status showing whether the data encryption is enabled with customer-managed keys.
 	ByokEnforcement string `pulumi:"byokEnforcement"`
-	// The mode to create a new MySQL server.
-	CreateMode *string `pulumi:"createMode"`
 	// Delegated subnet arguments.
 	DelegatedSubnetArguments *DelegatedSubnetArgumentsResponse `pulumi:"delegatedSubnetArguments"`
 	// Earliest restore point creation time (ISO8601 format)
@@ -50,8 +46,6 @@ type LookupServerResult struct {
 	Id string `pulumi:"id"`
 	// The Azure Active Directory identity of the server.
 	Identity *IdentityResponse `pulumi:"identity"`
-	// Status showing whether the server enabled infrastructure encryption.
-	InfrastructureEncryption *string `pulumi:"infrastructureEncryption"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
 	// Maintenance window of a server.
@@ -64,8 +58,6 @@ type LookupServerResult struct {
 	ReplicaCapacity int `pulumi:"replicaCapacity"`
 	// The replication role.
 	ReplicationRole *string `pulumi:"replicationRole"`
-	// Restore point creation time (ISO8601 format), specifying the time to restore from.
-	RestorePointInTime *string `pulumi:"restorePointInTime"`
 	// The SKU (pricing tier) of the server.
 	Sku *SkuResponse `pulumi:"sku"`
 	// The source MySQL server id.

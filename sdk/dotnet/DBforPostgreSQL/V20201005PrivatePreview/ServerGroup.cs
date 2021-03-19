@@ -22,12 +22,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20201005PrivatePreview
         public Output<string?> AdministratorLogin { get; private set; } = null!;
 
         /// <summary>
-        /// The password of the administrator login.
-        /// </summary>
-        [Output("administratorLoginPassword")]
-        public Output<string?> AdministratorLoginPassword { get; private set; } = null!;
-
-        /// <summary>
         /// Availability Zone information of the server group.
         /// </summary>
         [Output("availabilityZone")]
@@ -44,12 +38,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20201005PrivatePreview
         /// </summary>
         [Output("citusVersion")]
         public Output<string?> CitusVersion { get; private set; } = null!;
-
-        /// <summary>
-        /// The mode to create a new server group.
-        /// </summary>
-        [Output("createMode")]
-        public Output<string?> CreateMode { get; private set; } = null!;
 
         /// <summary>
         /// The delegated subnet arguments for a server group.
@@ -100,12 +88,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20201005PrivatePreview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Restore point creation time (ISO8601 format), specifying the time to restore from. It's required when 'createMode' is 'PointInTimeRestore'
-        /// </summary>
-        [Output("pointInTimeUTC")]
-        public Output<string?> PointInTimeUTC { get; private set; } = null!;
-
-        /// <summary>
         /// The PostgreSQL version of server group.
         /// </summary>
         [Output("postgresqlVersion")]
@@ -130,34 +112,10 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20201005PrivatePreview
         public Output<ImmutableArray<Outputs.ServerRoleGroupResponse>> ServerRoleGroups { get; private set; } = null!;
 
         /// <summary>
-        /// The source server group location to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'ReadReplica'
-        /// </summary>
-        [Output("sourceLocation")]
-        public Output<string?> SourceLocation { get; private set; } = null!;
-
-        /// <summary>
-        /// The source resource group name to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'ReadReplica'
-        /// </summary>
-        [Output("sourceResourceGroupName")]
-        public Output<string?> SourceResourceGroupName { get; private set; } = null!;
-
-        /// <summary>
         /// The source server group id for read replica server groups.
         /// </summary>
         [Output("sourceServerGroup")]
         public Output<string> SourceServerGroup { get; private set; } = null!;
-
-        /// <summary>
-        /// The source server group name to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'ReadReplica'
-        /// </summary>
-        [Output("sourceServerGroupName")]
-        public Output<string?> SourceServerGroupName { get; private set; } = null!;
-
-        /// <summary>
-        /// The source subscription id to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'ReadReplica'
-        /// </summary>
-        [Output("sourceSubscriptionId")]
-        public Output<string?> SourceSubscriptionId { get; private set; } = null!;
 
         /// <summary>
         /// Standby Availability Zone information of the server group.

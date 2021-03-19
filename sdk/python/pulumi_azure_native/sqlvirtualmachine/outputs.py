@@ -68,9 +68,7 @@ class AutoBackupSettingsResponse(dict):
                  full_backup_start_time: Optional[int] = None,
                  full_backup_window_hours: Optional[int] = None,
                  log_backup_frequency: Optional[int] = None,
-                 password: Optional[str] = None,
                  retention_period: Optional[int] = None,
-                 storage_access_key: Optional[str] = None,
                  storage_account_url: Optional[str] = None):
         """
         Configure backups for databases in your SQL virtual machine.
@@ -82,9 +80,7 @@ class AutoBackupSettingsResponse(dict):
         :param int full_backup_start_time: Start time of a given day during which full backups can take place. 0-23 hours.
         :param int full_backup_window_hours: Duration of the time window of a given day during which full backups can take place. 1-23 hours.
         :param int log_backup_frequency: Frequency of log backups. 5-60 minutes.
-        :param str password: Password for encryption on backup.
         :param int retention_period: Retention period of backup: 1-30 days.
-        :param str storage_access_key: Storage account key where backup will be taken to.
         :param str storage_account_url: Storage account url where backup will be taken to.
         """
         if backup_schedule_type is not None:
@@ -103,12 +99,8 @@ class AutoBackupSettingsResponse(dict):
             pulumi.set(__self__, "full_backup_window_hours", full_backup_window_hours)
         if log_backup_frequency is not None:
             pulumi.set(__self__, "log_backup_frequency", log_backup_frequency)
-        if password is not None:
-            pulumi.set(__self__, "password", password)
         if retention_period is not None:
             pulumi.set(__self__, "retention_period", retention_period)
-        if storage_access_key is not None:
-            pulumi.set(__self__, "storage_access_key", storage_access_key)
         if storage_account_url is not None:
             pulumi.set(__self__, "storage_account_url", storage_account_url)
 
@@ -177,28 +169,12 @@ class AutoBackupSettingsResponse(dict):
         return pulumi.get(self, "log_backup_frequency")
 
     @property
-    @pulumi.getter
-    def password(self) -> Optional[str]:
-        """
-        Password for encryption on backup.
-        """
-        return pulumi.get(self, "password")
-
-    @property
     @pulumi.getter(name="retentionPeriod")
     def retention_period(self) -> Optional[int]:
         """
         Retention period of backup: 1-30 days.
         """
         return pulumi.get(self, "retention_period")
-
-    @property
-    @pulumi.getter(name="storageAccessKey")
-    def storage_access_key(self) -> Optional[str]:
-        """
-        Storage account key where backup will be taken to.
-        """
-        return pulumi.get(self, "storage_access_key")
 
     @property
     @pulumi.getter(name="storageAccountUrl")
@@ -283,15 +259,13 @@ class KeyVaultCredentialSettingsResponse(dict):
                  azure_key_vault_url: Optional[str] = None,
                  credential_name: Optional[str] = None,
                  enable: Optional[bool] = None,
-                 service_principal_name: Optional[str] = None,
-                 service_principal_secret: Optional[str] = None):
+                 service_principal_name: Optional[str] = None):
         """
         Configure your SQL virtual machine to be able to connect to the Azure Key Vault service.
         :param str azure_key_vault_url: Azure Key Vault url.
         :param str credential_name: Credential name.
         :param bool enable: Enable or disable key vault credential setting.
         :param str service_principal_name: Service principal name to access key vault.
-        :param str service_principal_secret: Service principal name secret to access key vault.
         """
         if azure_key_vault_url is not None:
             pulumi.set(__self__, "azure_key_vault_url", azure_key_vault_url)
@@ -301,8 +275,6 @@ class KeyVaultCredentialSettingsResponse(dict):
             pulumi.set(__self__, "enable", enable)
         if service_principal_name is not None:
             pulumi.set(__self__, "service_principal_name", service_principal_name)
-        if service_principal_secret is not None:
-            pulumi.set(__self__, "service_principal_secret", service_principal_secret)
 
     @property
     @pulumi.getter(name="azureKeyVaultUrl")
@@ -335,14 +307,6 @@ class KeyVaultCredentialSettingsResponse(dict):
         Service principal name to access key vault.
         """
         return pulumi.get(self, "service_principal_name")
-
-    @property
-    @pulumi.getter(name="servicePrincipalSecret")
-    def service_principal_secret(self) -> Optional[str]:
-        """
-        Service principal name secret to access key vault.
-        """
-        return pulumi.get(self, "service_principal_secret")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -615,24 +579,16 @@ class SqlConnectivityUpdateSettingsResponse(dict):
     """
     def __init__(__self__, *,
                  connectivity_type: Optional[str] = None,
-                 port: Optional[int] = None,
-                 sql_auth_update_password: Optional[str] = None,
-                 sql_auth_update_user_name: Optional[str] = None):
+                 port: Optional[int] = None):
         """
         Set the access level and network port settings for SQL Server.
         :param str connectivity_type: SQL Server connectivity option.
         :param int port: SQL Server port.
-        :param str sql_auth_update_password: SQL Server sysadmin login password.
-        :param str sql_auth_update_user_name: SQL Server sysadmin login to create.
         """
         if connectivity_type is not None:
             pulumi.set(__self__, "connectivity_type", connectivity_type)
         if port is not None:
             pulumi.set(__self__, "port", port)
-        if sql_auth_update_password is not None:
-            pulumi.set(__self__, "sql_auth_update_password", sql_auth_update_password)
-        if sql_auth_update_user_name is not None:
-            pulumi.set(__self__, "sql_auth_update_user_name", sql_auth_update_user_name)
 
     @property
     @pulumi.getter(name="connectivityType")
@@ -649,22 +605,6 @@ class SqlConnectivityUpdateSettingsResponse(dict):
         SQL Server port.
         """
         return pulumi.get(self, "port")
-
-    @property
-    @pulumi.getter(name="sqlAuthUpdatePassword")
-    def sql_auth_update_password(self) -> Optional[str]:
-        """
-        SQL Server sysadmin login password.
-        """
-        return pulumi.get(self, "sql_auth_update_password")
-
-    @property
-    @pulumi.getter(name="sqlAuthUpdateUserName")
-    def sql_auth_update_user_name(self) -> Optional[str]:
-        """
-        SQL Server sysadmin login to create.
-        """
-        return pulumi.get(self, "sql_auth_update_user_name")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -882,7 +822,6 @@ class WsfcDomainProfileResponse(dict):
                  file_share_witness_path: Optional[str] = None,
                  ou_path: Optional[str] = None,
                  sql_service_account: Optional[str] = None,
-                 storage_account_primary_key: Optional[str] = None,
                  storage_account_url: Optional[str] = None):
         """
         Active Directory account details to operate Windows Server Failover Cluster.
@@ -892,7 +831,6 @@ class WsfcDomainProfileResponse(dict):
         :param str file_share_witness_path: Optional path for fileshare witness.
         :param str ou_path: Organizational Unit path in which the nodes and cluster will be present.
         :param str sql_service_account: Account name under which SQL service will run on all participating SQL virtual machines in the cluster.
-        :param str storage_account_primary_key: Primary key of the witness storage account.
         :param str storage_account_url: Fully qualified ARM resource id of the witness storage account.
         """
         if cluster_bootstrap_account is not None:
@@ -907,8 +845,6 @@ class WsfcDomainProfileResponse(dict):
             pulumi.set(__self__, "ou_path", ou_path)
         if sql_service_account is not None:
             pulumi.set(__self__, "sql_service_account", sql_service_account)
-        if storage_account_primary_key is not None:
-            pulumi.set(__self__, "storage_account_primary_key", storage_account_primary_key)
         if storage_account_url is not None:
             pulumi.set(__self__, "storage_account_url", storage_account_url)
 
@@ -959,14 +895,6 @@ class WsfcDomainProfileResponse(dict):
         Account name under which SQL service will run on all participating SQL virtual machines in the cluster.
         """
         return pulumi.get(self, "sql_service_account")
-
-    @property
-    @pulumi.getter(name="storageAccountPrimaryKey")
-    def storage_account_primary_key(self) -> Optional[str]:
-        """
-        Primary key of the witness storage account.
-        """
-        return pulumi.get(self, "storage_account_primary_key")
 
     @property
     @pulumi.getter(name="storageAccountUrl")

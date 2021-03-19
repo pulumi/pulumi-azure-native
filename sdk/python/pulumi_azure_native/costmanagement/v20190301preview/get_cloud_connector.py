@@ -20,7 +20,7 @@ class GetCloudConnectorResult:
     """
     The Connector model definition
     """
-    def __init__(__self__, billing_model=None, collection_info=None, created_on=None, credentials_key=None, credentials_secret=None, days_trial_remaining=None, default_management_group_id=None, display_name=None, external_billing_account_id=None, id=None, kind=None, modified_on=None, name=None, provider_billing_account_display_name=None, provider_billing_account_id=None, report_id=None, status=None, subscription_id=None, type=None):
+    def __init__(__self__, billing_model=None, collection_info=None, created_on=None, credentials_key=None, days_trial_remaining=None, default_management_group_id=None, display_name=None, external_billing_account_id=None, id=None, kind=None, modified_on=None, name=None, provider_billing_account_display_name=None, provider_billing_account_id=None, report_id=None, status=None, subscription_id=None, type=None):
         if billing_model and not isinstance(billing_model, str):
             raise TypeError("Expected argument 'billing_model' to be a str")
         pulumi.set(__self__, "billing_model", billing_model)
@@ -33,9 +33,6 @@ class GetCloudConnectorResult:
         if credentials_key and not isinstance(credentials_key, str):
             raise TypeError("Expected argument 'credentials_key' to be a str")
         pulumi.set(__self__, "credentials_key", credentials_key)
-        if credentials_secret and not isinstance(credentials_secret, str):
-            raise TypeError("Expected argument 'credentials_secret' to be a str")
-        pulumi.set(__self__, "credentials_secret", credentials_secret)
         if days_trial_remaining and not isinstance(days_trial_remaining, int):
             raise TypeError("Expected argument 'days_trial_remaining' to be a int")
         pulumi.set(__self__, "days_trial_remaining", days_trial_remaining)
@@ -110,14 +107,6 @@ class GetCloudConnectorResult:
         Credentials authentication key (eg AWS ARN)
         """
         return pulumi.get(self, "credentials_key")
-
-    @property
-    @pulumi.getter(name="credentialsSecret")
-    def credentials_secret(self) -> Optional[str]:
-        """
-        Credentials secret (eg AWS ExternalId)
-        """
-        return pulumi.get(self, "credentials_secret")
 
     @property
     @pulumi.getter(name="daysTrialRemaining")
@@ -242,7 +231,6 @@ class AwaitableGetCloudConnectorResult(GetCloudConnectorResult):
             collection_info=self.collection_info,
             created_on=self.created_on,
             credentials_key=self.credentials_key,
-            credentials_secret=self.credentials_secret,
             days_trial_remaining=self.days_trial_remaining,
             default_management_group_id=self.default_management_group_id,
             display_name=self.display_name,
@@ -283,7 +271,6 @@ def get_cloud_connector(connector_name: Optional[str] = None,
         collection_info=__ret__.collection_info,
         created_on=__ret__.created_on,
         credentials_key=__ret__.credentials_key,
-        credentials_secret=__ret__.credentials_secret,
         days_trial_remaining=__ret__.days_trial_remaining,
         default_management_group_id=__ret__.default_management_group_id,
         display_name=__ret__.display_name,

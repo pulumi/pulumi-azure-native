@@ -17,12 +17,6 @@ namespace Pulumi.AzureNative.Sql
     public partial class ManagedDatabase : Pulumi.CustomResource
     {
         /// <summary>
-        /// Whether to auto complete restore of this managed database.
-        /// </summary>
-        [Output("autoCompleteRestore")]
-        public Output<bool?> AutoCompleteRestore { get; private set; } = null!;
-
-        /// <summary>
         /// Collation of the metadata catalog.
         /// </summary>
         [Output("catalogCollation")]
@@ -33,12 +27,6 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         [Output("collation")]
         public Output<string?> Collation { get; private set; } = null!;
-
-        /// <summary>
-        /// Managed database create mode. PointInTimeRestore: Create a database by restoring a point in time backup of an existing database. SourceDatabaseName, SourceManagedInstanceName and PointInTime must be specified. RestoreExternalBackup: Create a database by restoring from external backup files. Collation, StorageContainerUri and StorageContainerSasToken must be specified. Recovery: Creates a database by restoring a geo-replicated backup. RecoverableDatabaseId must be specified as the recoverable database resource ID to restore. RestoreLongTermRetentionBackup: Create a database by restoring from a long term retention backup (longTermRetentionBackupResourceId required).
-        /// </summary>
-        [Output("createMode")]
-        public Output<string?> CreateMode { get; private set; } = null!;
 
         /// <summary>
         /// Creation date of the database.
@@ -65,22 +53,10 @@ namespace Pulumi.AzureNative.Sql
         public Output<string> FailoverGroupId { get; private set; } = null!;
 
         /// <summary>
-        /// Last backup file name for restore of this managed database.
-        /// </summary>
-        [Output("lastBackupName")]
-        public Output<string?> LastBackupName { get; private set; } = null!;
-
-        /// <summary>
         /// Resource location.
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
-
-        /// <summary>
-        /// The name of the Long Term Retention backup to be used for restore of this managed database.
-        /// </summary>
-        [Output("longTermRetentionBackupResourceId")]
-        public Output<string?> LongTermRetentionBackupResourceId { get; private set; } = null!;
 
         /// <summary>
         /// Resource name.
@@ -89,46 +65,10 @@ namespace Pulumi.AzureNative.Sql
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The resource identifier of the recoverable database associated with create operation of this database.
-        /// </summary>
-        [Output("recoverableDatabaseId")]
-        public Output<string?> RecoverableDatabaseId { get; private set; } = null!;
-
-        /// <summary>
-        /// The restorable dropped database resource id to restore when creating this database.
-        /// </summary>
-        [Output("restorableDroppedDatabaseId")]
-        public Output<string?> RestorableDroppedDatabaseId { get; private set; } = null!;
-
-        /// <summary>
-        /// Conditional. If createMode is PointInTimeRestore, this value is required. Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database.
-        /// </summary>
-        [Output("restorePointInTime")]
-        public Output<string?> RestorePointInTime { get; private set; } = null!;
-
-        /// <summary>
-        /// The resource identifier of the source database associated with create operation of this database.
-        /// </summary>
-        [Output("sourceDatabaseId")]
-        public Output<string?> SourceDatabaseId { get; private set; } = null!;
-
-        /// <summary>
         /// Status of the database.
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
-
-        /// <summary>
-        /// Conditional. If createMode is RestoreExternalBackup, this value is required. Specifies the storage container sas token.
-        /// </summary>
-        [Output("storageContainerSasToken")]
-        public Output<string?> StorageContainerSasToken { get; private set; } = null!;
-
-        /// <summary>
-        /// Conditional. If createMode is RestoreExternalBackup, this value is required. Specifies the uri of the storage container where backups for this restore are stored.
-        /// </summary>
-        [Output("storageContainerUri")]
-        public Output<string?> StorageContainerUri { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

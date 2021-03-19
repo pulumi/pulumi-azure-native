@@ -40,10 +40,6 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly administratorLogin!: pulumi.Output<string | undefined>;
     /**
-     * The administrator login password (required for server creation).
-     */
-    public readonly administratorLoginPassword!: pulumi.Output<string | undefined>;
-    /**
      * The fully qualified domain name of the server.
      */
     public /*out*/ readonly fullyQualifiedDomainName!: pulumi.Output<string>;
@@ -109,7 +105,6 @@ export class Server extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["administratorLogin"] = undefined /*out*/;
-            inputs["administratorLoginPassword"] = undefined /*out*/;
             inputs["fullyQualifiedDomainName"] = undefined /*out*/;
             inputs["identity"] = undefined /*out*/;
             inputs["kind"] = undefined /*out*/;

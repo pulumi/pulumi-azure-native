@@ -63,10 +63,6 @@ namespace Pulumi.AzureNative.Sql.V20200801Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The credential password.
-        /// </summary>
-        public readonly string Password;
-        /// <summary>
         /// Resource type.
         /// </summary>
         public readonly string Type;
@@ -81,15 +77,12 @@ namespace Pulumi.AzureNative.Sql.V20200801Preview
 
             string name,
 
-            string password,
-
             string type,
 
             string username)
         {
             Id = id;
             Name = name;
-            Password = password;
             Type = type;
             Username = username;
         }

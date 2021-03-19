@@ -118,7 +118,6 @@ class Server(pulumi.CustomResource):
         __props__ = dict()
 
         __props__["administrator_login"] = None
-        __props__["administrator_login_password"] = None
         __props__["administrators"] = None
         __props__["encryption_identity_id"] = None
         __props__["fully_qualified_domain_name"] = None
@@ -144,14 +143,6 @@ class Server(pulumi.CustomResource):
         Administrator username for the server. Once created it cannot be changed.
         """
         return pulumi.get(self, "administrator_login")
-
-    @property
-    @pulumi.getter(name="administratorLoginPassword")
-    def administrator_login_password(self) -> pulumi.Output[Optional[str]]:
-        """
-        The administrator login password (required for server creation).
-        """
-        return pulumi.get(self, "administrator_login_password")
 
     @property
     @pulumi.getter

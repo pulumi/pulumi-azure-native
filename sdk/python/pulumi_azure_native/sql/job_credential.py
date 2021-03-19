@@ -97,7 +97,6 @@ class JobCredential(pulumi.CustomResource):
         __props__ = dict()
 
         __props__["name"] = None
-        __props__["password"] = None
         __props__["type"] = None
         __props__["username"] = None
         return JobCredential(resource_name, opts=opts, __props__=__props__)
@@ -109,14 +108,6 @@ class JobCredential(pulumi.CustomResource):
         Resource name.
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def password(self) -> pulumi.Output[str]:
-        """
-        The credential password.
-        """
-        return pulumi.get(self, "password")
 
     @property
     @pulumi.getter

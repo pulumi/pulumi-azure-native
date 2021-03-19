@@ -19,7 +19,7 @@ class GetManagedInstanceKeyResult:
     """
     A managed instance key.
     """
-    def __init__(__self__, creation_date=None, id=None, kind=None, name=None, server_key_type=None, thumbprint=None, type=None, uri=None):
+    def __init__(__self__, creation_date=None, id=None, kind=None, name=None, thumbprint=None, type=None):
         if creation_date and not isinstance(creation_date, str):
             raise TypeError("Expected argument 'creation_date' to be a str")
         pulumi.set(__self__, "creation_date", creation_date)
@@ -32,18 +32,12 @@ class GetManagedInstanceKeyResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if server_key_type and not isinstance(server_key_type, str):
-            raise TypeError("Expected argument 'server_key_type' to be a str")
-        pulumi.set(__self__, "server_key_type", server_key_type)
         if thumbprint and not isinstance(thumbprint, str):
             raise TypeError("Expected argument 'thumbprint' to be a str")
         pulumi.set(__self__, "thumbprint", thumbprint)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if uri and not isinstance(uri, str):
-            raise TypeError("Expected argument 'uri' to be a str")
-        pulumi.set(__self__, "uri", uri)
 
     @property
     @pulumi.getter(name="creationDate")
@@ -78,14 +72,6 @@ class GetManagedInstanceKeyResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="serverKeyType")
-    def server_key_type(self) -> str:
-        """
-        The key type like 'ServiceManaged', 'AzureKeyVault'.
-        """
-        return pulumi.get(self, "server_key_type")
-
-    @property
     @pulumi.getter
     def thumbprint(self) -> str:
         """
@@ -101,14 +87,6 @@ class GetManagedInstanceKeyResult:
         """
         return pulumi.get(self, "type")
 
-    @property
-    @pulumi.getter
-    def uri(self) -> Optional[str]:
-        """
-        The URI of the key. If the ServerKeyType is AzureKeyVault, then the URI is required.
-        """
-        return pulumi.get(self, "uri")
-
 
 class AwaitableGetManagedInstanceKeyResult(GetManagedInstanceKeyResult):
     # pylint: disable=using-constant-test
@@ -120,10 +98,8 @@ class AwaitableGetManagedInstanceKeyResult(GetManagedInstanceKeyResult):
             id=self.id,
             kind=self.kind,
             name=self.name,
-            server_key_type=self.server_key_type,
             thumbprint=self.thumbprint,
-            type=self.type,
-            uri=self.uri)
+            type=self.type)
 
 
 def get_managed_instance_key(key_name: Optional[str] = None,
@@ -154,7 +130,5 @@ def get_managed_instance_key(key_name: Optional[str] = None,
         id=__ret__.id,
         kind=__ret__.kind,
         name=__ret__.name,
-        server_key_type=__ret__.server_key_type,
         thumbprint=__ret__.thumbprint,
-        type=__ret__.type,
-        uri=__ret__.uri)
+        type=__ret__.type)

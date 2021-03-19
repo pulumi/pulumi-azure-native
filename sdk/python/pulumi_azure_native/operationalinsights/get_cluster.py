@@ -20,7 +20,7 @@ class GetClusterResult:
     """
     The top level Log Analytics cluster resource container.
     """
-    def __init__(__self__, associated_workspaces=None, billing_type=None, capacity_reservation_properties=None, cluster_id=None, created_date=None, id=None, identity=None, is_availability_zones_enabled=None, is_double_encryption_enabled=None, key_vault_properties=None, last_modified_date=None, location=None, name=None, provisioning_state=None, sku=None, tags=None, type=None):
+    def __init__(__self__, associated_workspaces=None, billing_type=None, capacity_reservation_properties=None, cluster_id=None, created_date=None, id=None, identity=None, is_availability_zones_enabled=None, key_vault_properties=None, last_modified_date=None, location=None, name=None, provisioning_state=None, sku=None, tags=None, type=None):
         if associated_workspaces and not isinstance(associated_workspaces, list):
             raise TypeError("Expected argument 'associated_workspaces' to be a list")
         pulumi.set(__self__, "associated_workspaces", associated_workspaces)
@@ -45,9 +45,6 @@ class GetClusterResult:
         if is_availability_zones_enabled and not isinstance(is_availability_zones_enabled, bool):
             raise TypeError("Expected argument 'is_availability_zones_enabled' to be a bool")
         pulumi.set(__self__, "is_availability_zones_enabled", is_availability_zones_enabled)
-        if is_double_encryption_enabled and not isinstance(is_double_encryption_enabled, bool):
-            raise TypeError("Expected argument 'is_double_encryption_enabled' to be a bool")
-        pulumi.set(__self__, "is_double_encryption_enabled", is_double_encryption_enabled)
         if key_vault_properties and not isinstance(key_vault_properties, dict):
             raise TypeError("Expected argument 'key_vault_properties' to be a dict")
         pulumi.set(__self__, "key_vault_properties", key_vault_properties)
@@ -138,14 +135,6 @@ class GetClusterResult:
         return pulumi.get(self, "is_availability_zones_enabled")
 
     @property
-    @pulumi.getter(name="isDoubleEncryptionEnabled")
-    def is_double_encryption_enabled(self) -> Optional[bool]:
-        """
-        Configures whether cluster will use double encryption. This Property can not be modified after cluster creation. Default value is 'true'
-        """
-        return pulumi.get(self, "is_double_encryption_enabled")
-
-    @property
     @pulumi.getter(name="keyVaultProperties")
     def key_vault_properties(self) -> Optional['outputs.KeyVaultPropertiesResponse']:
         """
@@ -224,7 +213,6 @@ class AwaitableGetClusterResult(GetClusterResult):
             id=self.id,
             identity=self.identity,
             is_availability_zones_enabled=self.is_availability_zones_enabled,
-            is_double_encryption_enabled=self.is_double_encryption_enabled,
             key_vault_properties=self.key_vault_properties,
             last_modified_date=self.last_modified_date,
             location=self.location,
@@ -264,7 +252,6 @@ def get_cluster(cluster_name: Optional[str] = None,
         id=__ret__.id,
         identity=__ret__.identity,
         is_availability_zones_enabled=__ret__.is_availability_zones_enabled,
-        is_double_encryption_enabled=__ret__.is_double_encryption_enabled,
         key_vault_properties=__ret__.key_vault_properties,
         last_modified_date=__ret__.last_modified_date,
         location=__ret__.location,

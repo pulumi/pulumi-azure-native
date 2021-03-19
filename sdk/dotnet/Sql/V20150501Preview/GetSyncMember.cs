@@ -77,10 +77,6 @@ namespace Pulumi.AzureNative.Sql.V20150501Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Password of the member database in the sync member.
-        /// </summary>
-        public readonly string? Password;
-        /// <summary>
         /// Server name of the member database in the sync member
         /// </summary>
         public readonly string? ServerName;
@@ -119,8 +115,6 @@ namespace Pulumi.AzureNative.Sql.V20150501Preview
 
             string name,
 
-            string? password,
-
             string? serverName,
 
             string? sqlServerDatabaseId,
@@ -139,7 +133,6 @@ namespace Pulumi.AzureNative.Sql.V20150501Preview
             DatabaseType = databaseType;
             Id = id;
             Name = name;
-            Password = password;
             ServerName = serverName;
             SqlServerDatabaseId = sqlServerDatabaseId;
             SyncAgentId = syncAgentId;

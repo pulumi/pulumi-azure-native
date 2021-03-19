@@ -17,7 +17,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetControllerResult:
-    def __init__(__self__, data_plane_fqdn=None, host_suffix=None, id=None, location=None, name=None, provisioning_state=None, sku=None, tags=None, target_container_host_api_server_fqdn=None, target_container_host_credentials_base64=None, target_container_host_resource_id=None, type=None):
+    def __init__(__self__, data_plane_fqdn=None, host_suffix=None, id=None, location=None, name=None, provisioning_state=None, sku=None, tags=None, target_container_host_api_server_fqdn=None, target_container_host_resource_id=None, type=None):
         if data_plane_fqdn and not isinstance(data_plane_fqdn, str):
             raise TypeError("Expected argument 'data_plane_fqdn' to be a str")
         pulumi.set(__self__, "data_plane_fqdn", data_plane_fqdn)
@@ -45,9 +45,6 @@ class GetControllerResult:
         if target_container_host_api_server_fqdn and not isinstance(target_container_host_api_server_fqdn, str):
             raise TypeError("Expected argument 'target_container_host_api_server_fqdn' to be a str")
         pulumi.set(__self__, "target_container_host_api_server_fqdn", target_container_host_api_server_fqdn)
-        if target_container_host_credentials_base64 and not isinstance(target_container_host_credentials_base64, str):
-            raise TypeError("Expected argument 'target_container_host_credentials_base64' to be a str")
-        pulumi.set(__self__, "target_container_host_credentials_base64", target_container_host_credentials_base64)
         if target_container_host_resource_id and not isinstance(target_container_host_resource_id, str):
             raise TypeError("Expected argument 'target_container_host_resource_id' to be a str")
         pulumi.set(__self__, "target_container_host_resource_id", target_container_host_resource_id)
@@ -128,14 +125,6 @@ class GetControllerResult:
         return pulumi.get(self, "target_container_host_api_server_fqdn")
 
     @property
-    @pulumi.getter(name="targetContainerHostCredentialsBase64")
-    def target_container_host_credentials_base64(self) -> str:
-        """
-        Credentials of the target container host (base64).
-        """
-        return pulumi.get(self, "target_container_host_credentials_base64")
-
-    @property
     @pulumi.getter(name="targetContainerHostResourceId")
     def target_container_host_resource_id(self) -> str:
         """
@@ -167,7 +156,6 @@ class AwaitableGetControllerResult(GetControllerResult):
             sku=self.sku,
             tags=self.tags,
             target_container_host_api_server_fqdn=self.target_container_host_api_server_fqdn,
-            target_container_host_credentials_base64=self.target_container_host_credentials_base64,
             target_container_host_resource_id=self.target_container_host_resource_id,
             type=self.type)
 
@@ -201,6 +189,5 @@ def get_controller(name: Optional[str] = None,
         sku=__ret__.sku,
         tags=__ret__.tags,
         target_container_host_api_server_fqdn=__ret__.target_container_host_api_server_fqdn,
-        target_container_host_credentials_base64=__ret__.target_container_host_credentials_base64,
         target_container_host_resource_id=__ret__.target_container_host_resource_id,
         type=__ret__.type)

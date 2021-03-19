@@ -46,26 +46,6 @@ export interface GetDomainResult {
      */
     readonly autoRenew?: boolean;
     /**
-     * Legal agreement consent.
-     */
-    readonly consent: outputs.domainregistration.latest.DomainPurchaseConsentResponse;
-    /**
-     * Administrative contact.
-     */
-    readonly contactAdmin: outputs.domainregistration.latest.ContactResponse;
-    /**
-     * Billing contact.
-     */
-    readonly contactBilling: outputs.domainregistration.latest.ContactResponse;
-    /**
-     * Registrant contact.
-     */
-    readonly contactRegistrant: outputs.domainregistration.latest.ContactResponse;
-    /**
-     * Technical contact.
-     */
-    readonly contactTech: outputs.domainregistration.latest.ContactResponse;
-    /**
      * Domain creation timestamp.
      */
     readonly createdTime: string;

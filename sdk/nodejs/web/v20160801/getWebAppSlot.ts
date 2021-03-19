@@ -55,10 +55,6 @@ export interface GetWebAppSlotResult {
      */
     readonly clientCertEnabled?: boolean;
     /**
-     * If specified during app creation, the app is cloned from a source app.
-     */
-    readonly cloningInfo?: outputs.web.v20160801.CloningInfoResponse;
-    /**
      * Size of the function container.
      */
     readonly containerSize?: number;
@@ -170,10 +166,6 @@ export interface GetWebAppSlotResult {
      * Status of the last deployment slot swap operation.
      */
     readonly slotSwapStatus: outputs.web.v20160801.SlotSwapStatusResponse;
-    /**
-     * If specified during app creation, the app is created from a previous snapshot.
-     */
-    readonly snapshotInfo?: outputs.web.v20160801.SnapshotRecoveryRequestResponse;
     /**
      * Current state of the app.
      */

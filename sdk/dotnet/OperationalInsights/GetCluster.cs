@@ -76,10 +76,6 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// </summary>
         public readonly bool? IsAvailabilityZonesEnabled;
         /// <summary>
-        /// Configures whether cluster will use double encryption. This Property can not be modified after cluster creation. Default value is 'true'
-        /// </summary>
-        public readonly bool? IsDoubleEncryptionEnabled;
-        /// <summary>
         /// The associated key properties.
         /// </summary>
         public readonly Outputs.KeyVaultPropertiesResponse? KeyVaultProperties;
@@ -130,8 +126,6 @@ namespace Pulumi.AzureNative.OperationalInsights
 
             bool? isAvailabilityZonesEnabled,
 
-            bool? isDoubleEncryptionEnabled,
-
             Outputs.KeyVaultPropertiesResponse? keyVaultProperties,
 
             string lastModifiedDate,
@@ -156,7 +150,6 @@ namespace Pulumi.AzureNative.OperationalInsights
             Id = id;
             Identity = identity;
             IsAvailabilityZonesEnabled = isAvailabilityZonesEnabled;
-            IsDoubleEncryptionEnabled = isDoubleEncryptionEnabled;
             KeyVaultProperties = keyVaultProperties;
             LastModifiedDate = lastModifiedDate;
             Location = location;

@@ -5034,47 +5034,6 @@ func (i CloningInfoResponseArgs) ToCloningInfoResponseOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(CloningInfoResponseOutput)
 }
 
-func (i CloningInfoResponseArgs) ToCloningInfoResponsePtrOutput() CloningInfoResponsePtrOutput {
-	return i.ToCloningInfoResponsePtrOutputWithContext(context.Background())
-}
-
-func (i CloningInfoResponseArgs) ToCloningInfoResponsePtrOutputWithContext(ctx context.Context) CloningInfoResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CloningInfoResponseOutput).ToCloningInfoResponsePtrOutputWithContext(ctx)
-}
-
-// CloningInfoResponsePtrInput is an input type that accepts CloningInfoResponseArgs, CloningInfoResponsePtr and CloningInfoResponsePtrOutput values.
-// You can construct a concrete instance of `CloningInfoResponsePtrInput` via:
-//
-//          CloningInfoResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type CloningInfoResponsePtrInput interface {
-	pulumi.Input
-
-	ToCloningInfoResponsePtrOutput() CloningInfoResponsePtrOutput
-	ToCloningInfoResponsePtrOutputWithContext(context.Context) CloningInfoResponsePtrOutput
-}
-
-type cloningInfoResponsePtrType CloningInfoResponseArgs
-
-func CloningInfoResponsePtr(v *CloningInfoResponseArgs) CloningInfoResponsePtrInput {
-	return (*cloningInfoResponsePtrType)(v)
-}
-
-func (*cloningInfoResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CloningInfoResponse)(nil)).Elem()
-}
-
-func (i *cloningInfoResponsePtrType) ToCloningInfoResponsePtrOutput() CloningInfoResponsePtrOutput {
-	return i.ToCloningInfoResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *cloningInfoResponsePtrType) ToCloningInfoResponsePtrOutputWithContext(ctx context.Context) CloningInfoResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CloningInfoResponsePtrOutput)
-}
-
 // Information needed for cloning operation.
 type CloningInfoResponseOutput struct{ *pulumi.OutputState }
 
@@ -5088,16 +5047,6 @@ func (o CloningInfoResponseOutput) ToCloningInfoResponseOutput() CloningInfoResp
 
 func (o CloningInfoResponseOutput) ToCloningInfoResponseOutputWithContext(ctx context.Context) CloningInfoResponseOutput {
 	return o
-}
-
-func (o CloningInfoResponseOutput) ToCloningInfoResponsePtrOutput() CloningInfoResponsePtrOutput {
-	return o.ToCloningInfoResponsePtrOutputWithContext(context.Background())
-}
-
-func (o CloningInfoResponseOutput) ToCloningInfoResponsePtrOutputWithContext(ctx context.Context) CloningInfoResponsePtrOutput {
-	return o.ApplyT(func(v CloningInfoResponse) *CloningInfoResponse {
-		return &v
-	}).(CloningInfoResponsePtrOutput)
 }
 
 // Application setting overrides for cloned app. If specified, these settings override the settings cloned
@@ -5158,139 +5107,6 @@ func (o CloningInfoResponseOutput) TrafficManagerProfileId() pulumi.StringPtrOut
 // Name of Traffic Manager profile to create. This is only needed if Traffic Manager profile does not already exist.
 func (o CloningInfoResponseOutput) TrafficManagerProfileName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CloningInfoResponse) *string { return v.TrafficManagerProfileName }).(pulumi.StringPtrOutput)
-}
-
-type CloningInfoResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (CloningInfoResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CloningInfoResponse)(nil)).Elem()
-}
-
-func (o CloningInfoResponsePtrOutput) ToCloningInfoResponsePtrOutput() CloningInfoResponsePtrOutput {
-	return o
-}
-
-func (o CloningInfoResponsePtrOutput) ToCloningInfoResponsePtrOutputWithContext(ctx context.Context) CloningInfoResponsePtrOutput {
-	return o
-}
-
-func (o CloningInfoResponsePtrOutput) Elem() CloningInfoResponseOutput {
-	return o.ApplyT(func(v *CloningInfoResponse) CloningInfoResponse { return *v }).(CloningInfoResponseOutput)
-}
-
-// Application setting overrides for cloned app. If specified, these settings override the settings cloned
-// from source app. Otherwise, application settings from source app are retained.
-func (o CloningInfoResponsePtrOutput) AppSettingsOverrides() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *CloningInfoResponse) map[string]string {
-		if v == nil {
-			return nil
-		}
-		return v.AppSettingsOverrides
-	}).(pulumi.StringMapOutput)
-}
-
-// <code>true</code> to clone custom hostnames from source app; otherwise, <code>false</code>.
-func (o CloningInfoResponsePtrOutput) CloneCustomHostNames() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *CloningInfoResponse) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.CloneCustomHostNames
-	}).(pulumi.BoolPtrOutput)
-}
-
-// <code>true</code> to clone source control from source app; otherwise, <code>false</code>.
-func (o CloningInfoResponsePtrOutput) CloneSourceControl() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *CloningInfoResponse) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.CloneSourceControl
-	}).(pulumi.BoolPtrOutput)
-}
-
-// <code>true</code> to configure load balancing for source and destination app.
-func (o CloningInfoResponsePtrOutput) ConfigureLoadBalancing() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *CloningInfoResponse) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.ConfigureLoadBalancing
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Correlation ID of cloning operation. This ID ties multiple cloning operations
-// together to use the same snapshot.
-func (o CloningInfoResponsePtrOutput) CorrelationId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CloningInfoResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CorrelationId
-	}).(pulumi.StringPtrOutput)
-}
-
-// App Service Environment.
-func (o CloningInfoResponsePtrOutput) HostingEnvironment() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CloningInfoResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.HostingEnvironment
-	}).(pulumi.StringPtrOutput)
-}
-
-// <code>true</code> to overwrite destination app; otherwise, <code>false</code>.
-func (o CloningInfoResponsePtrOutput) Overwrite() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *CloningInfoResponse) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.Overwrite
-	}).(pulumi.BoolPtrOutput)
-}
-
-// ARM resource ID of the source app. App resource ID is of the form
-// /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName} for production slots and
-// /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName}/slots/{slotName} for other slots.
-func (o CloningInfoResponsePtrOutput) SourceWebAppId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CloningInfoResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.SourceWebAppId
-	}).(pulumi.StringPtrOutput)
-}
-
-// Location of source app ex: West US or North Europe
-func (o CloningInfoResponsePtrOutput) SourceWebAppLocation() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CloningInfoResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SourceWebAppLocation
-	}).(pulumi.StringPtrOutput)
-}
-
-// ARM resource ID of the Traffic Manager profile to use, if it exists. Traffic Manager resource ID is of the form
-// /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{profileName}.
-func (o CloningInfoResponsePtrOutput) TrafficManagerProfileId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CloningInfoResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TrafficManagerProfileId
-	}).(pulumi.StringPtrOutput)
-}
-
-// Name of Traffic Manager profile to create. This is only needed if Traffic Manager profile does not already exist.
-func (o CloningInfoResponsePtrOutput) TrafficManagerProfileName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CloningInfoResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TrafficManagerProfileName
-	}).(pulumi.StringPtrOutput)
 }
 
 // Database connection string information.
@@ -18367,7 +18183,6 @@ func init() {
 	pulumi.RegisterOutputType(CloningInfoOutput{})
 	pulumi.RegisterOutputType(CloningInfoPtrOutput{})
 	pulumi.RegisterOutputType(CloningInfoResponseOutput{})
-	pulumi.RegisterOutputType(CloningInfoResponsePtrOutput{})
 	pulumi.RegisterOutputType(ConnStringInfoOutput{})
 	pulumi.RegisterOutputType(ConnStringInfoArrayOutput{})
 	pulumi.RegisterOutputType(ConnStringInfoResponseOutput{})

@@ -28,14 +28,10 @@ type LookupServerArgs struct {
 type LookupServerResult struct {
 	// The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
 	AdministratorLogin *string `pulumi:"administratorLogin"`
-	// The administrator login password (required for server creation).
-	AdministratorLoginPassword *string `pulumi:"administratorLoginPassword"`
 	// availability Zone information of the server.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
 	// Status showing whether the data encryption is enabled with customer-managed keys.
-	ByokEnforcement string `pulumi:"byokEnforcement"`
-	// The mode to create a new PostgreSQL server.
-	CreateMode               *string                                           `pulumi:"createMode"`
+	ByokEnforcement          string                                            `pulumi:"byokEnforcement"`
 	DelegatedSubnetArguments *ServerPropertiesResponseDelegatedSubnetArguments `pulumi:"delegatedSubnetArguments"`
 	// The display name of a server.
 	DisplayName *string `pulumi:"displayName"`

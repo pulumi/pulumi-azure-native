@@ -32,16 +32,6 @@ type LookupDomainResult struct {
 	AuthCode *string `pulumi:"authCode"`
 	// <code>true</code> if the domain should be automatically renewed; otherwise, <code>false</code>.
 	AutoRenew *bool `pulumi:"autoRenew"`
-	// Legal agreement consent.
-	Consent DomainPurchaseConsentResponse `pulumi:"consent"`
-	// Administrative contact.
-	ContactAdmin ContactResponse `pulumi:"contactAdmin"`
-	// Billing contact.
-	ContactBilling ContactResponse `pulumi:"contactBilling"`
-	// Registrant contact.
-	ContactRegistrant ContactResponse `pulumi:"contactRegistrant"`
-	// Technical contact.
-	ContactTech ContactResponse `pulumi:"contactTech"`
 	// Domain creation timestamp.
 	CreatedTime string `pulumi:"createdTime"`
 	// Current DNS type

@@ -72,10 +72,6 @@ export class DatabaseThreatDetectionPolicy extends pulumi.CustomResource {
      */
     public readonly state!: pulumi.Output<string>;
     /**
-     * Specifies the identifier key of the Threat Detection audit storage account. If state is Enabled, storageAccountAccessKey is required.
-     */
-    public readonly storageAccountAccessKey!: pulumi.Output<string | undefined>;
-    /**
      * Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. If state is Enabled, storageEndpoint is required.
      */
     public readonly storageEndpoint!: pulumi.Output<string | undefined>;
@@ -138,7 +134,6 @@ export class DatabaseThreatDetectionPolicy extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["retentionDays"] = undefined /*out*/;
             inputs["state"] = undefined /*out*/;
-            inputs["storageAccountAccessKey"] = undefined /*out*/;
             inputs["storageEndpoint"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["useServerDefault"] = undefined /*out*/;

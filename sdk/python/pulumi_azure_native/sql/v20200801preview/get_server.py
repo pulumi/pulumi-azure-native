@@ -20,13 +20,10 @@ class GetServerResult:
     """
     An Azure SQL Database server.
     """
-    def __init__(__self__, administrator_login=None, administrator_login_password=None, fully_qualified_domain_name=None, id=None, identity=None, kind=None, location=None, minimal_tls_version=None, name=None, private_endpoint_connections=None, public_network_access=None, state=None, tags=None, type=None, version=None, workspace_feature=None):
+    def __init__(__self__, administrator_login=None, fully_qualified_domain_name=None, id=None, identity=None, kind=None, location=None, minimal_tls_version=None, name=None, private_endpoint_connections=None, public_network_access=None, state=None, tags=None, type=None, version=None, workspace_feature=None):
         if administrator_login and not isinstance(administrator_login, str):
             raise TypeError("Expected argument 'administrator_login' to be a str")
         pulumi.set(__self__, "administrator_login", administrator_login)
-        if administrator_login_password and not isinstance(administrator_login_password, str):
-            raise TypeError("Expected argument 'administrator_login_password' to be a str")
-        pulumi.set(__self__, "administrator_login_password", administrator_login_password)
         if fully_qualified_domain_name and not isinstance(fully_qualified_domain_name, str):
             raise TypeError("Expected argument 'fully_qualified_domain_name' to be a str")
         pulumi.set(__self__, "fully_qualified_domain_name", fully_qualified_domain_name)
@@ -77,14 +74,6 @@ class GetServerResult:
         Administrator username for the server. Once created it cannot be changed.
         """
         return pulumi.get(self, "administrator_login")
-
-    @property
-    @pulumi.getter(name="administratorLoginPassword")
-    def administrator_login_password(self) -> Optional[str]:
-        """
-        The administrator login password (required for server creation).
-        """
-        return pulumi.get(self, "administrator_login_password")
 
     @property
     @pulumi.getter(name="fullyQualifiedDomainName")
@@ -206,7 +195,6 @@ class AwaitableGetServerResult(GetServerResult):
             yield self
         return GetServerResult(
             administrator_login=self.administrator_login,
-            administrator_login_password=self.administrator_login_password,
             fully_qualified_domain_name=self.fully_qualified_domain_name,
             id=self.id,
             identity=self.identity,
@@ -244,7 +232,6 @@ def get_server(resource_group_name: Optional[str] = None,
 
     return AwaitableGetServerResult(
         administrator_login=__ret__.administrator_login,
-        administrator_login_password=__ret__.administrator_login_password,
         fully_qualified_domain_name=__ret__.fully_qualified_domain_name,
         id=__ret__.id,
         identity=__ret__.identity,

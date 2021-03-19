@@ -641,12 +641,8 @@ type AutoBackupSettingsResponse struct {
 	FullBackupWindowHours *int `pulumi:"fullBackupWindowHours"`
 	// Frequency of log backups. 5-60 minutes.
 	LogBackupFrequency *int `pulumi:"logBackupFrequency"`
-	// Password for encryption on backup.
-	Password *string `pulumi:"password"`
 	// Retention period of backup: 1-30 days.
 	RetentionPeriod *int `pulumi:"retentionPeriod"`
-	// Storage account key where backup will be taken to.
-	StorageAccessKey *string `pulumi:"storageAccessKey"`
 	// Storage account url where backup will be taken to.
 	StorageAccountUrl *string `pulumi:"storageAccountUrl"`
 }
@@ -680,12 +676,8 @@ type AutoBackupSettingsResponseArgs struct {
 	FullBackupWindowHours pulumi.IntPtrInput `pulumi:"fullBackupWindowHours"`
 	// Frequency of log backups. 5-60 minutes.
 	LogBackupFrequency pulumi.IntPtrInput `pulumi:"logBackupFrequency"`
-	// Password for encryption on backup.
-	Password pulumi.StringPtrInput `pulumi:"password"`
 	// Retention period of backup: 1-30 days.
 	RetentionPeriod pulumi.IntPtrInput `pulumi:"retentionPeriod"`
-	// Storage account key where backup will be taken to.
-	StorageAccessKey pulumi.StringPtrInput `pulumi:"storageAccessKey"`
 	// Storage account url where backup will be taken to.
 	StorageAccountUrl pulumi.StringPtrInput `pulumi:"storageAccountUrl"`
 }
@@ -808,19 +800,9 @@ func (o AutoBackupSettingsResponseOutput) LogBackupFrequency() pulumi.IntPtrOutp
 	return o.ApplyT(func(v AutoBackupSettingsResponse) *int { return v.LogBackupFrequency }).(pulumi.IntPtrOutput)
 }
 
-// Password for encryption on backup.
-func (o AutoBackupSettingsResponseOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AutoBackupSettingsResponse) *string { return v.Password }).(pulumi.StringPtrOutput)
-}
-
 // Retention period of backup: 1-30 days.
 func (o AutoBackupSettingsResponseOutput) RetentionPeriod() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AutoBackupSettingsResponse) *int { return v.RetentionPeriod }).(pulumi.IntPtrOutput)
-}
-
-// Storage account key where backup will be taken to.
-func (o AutoBackupSettingsResponseOutput) StorageAccessKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AutoBackupSettingsResponse) *string { return v.StorageAccessKey }).(pulumi.StringPtrOutput)
 }
 
 // Storage account url where backup will be taken to.
@@ -926,16 +908,6 @@ func (o AutoBackupSettingsResponsePtrOutput) LogBackupFrequency() pulumi.IntPtrO
 	}).(pulumi.IntPtrOutput)
 }
 
-// Password for encryption on backup.
-func (o AutoBackupSettingsResponsePtrOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AutoBackupSettingsResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Password
-	}).(pulumi.StringPtrOutput)
-}
-
 // Retention period of backup: 1-30 days.
 func (o AutoBackupSettingsResponsePtrOutput) RetentionPeriod() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AutoBackupSettingsResponse) *int {
@@ -944,16 +916,6 @@ func (o AutoBackupSettingsResponsePtrOutput) RetentionPeriod() pulumi.IntPtrOutp
 		}
 		return v.RetentionPeriod
 	}).(pulumi.IntPtrOutput)
-}
-
-// Storage account key where backup will be taken to.
-func (o AutoBackupSettingsResponsePtrOutput) StorageAccessKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AutoBackupSettingsResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.StorageAccessKey
-	}).(pulumi.StringPtrOutput)
 }
 
 // Storage account url where backup will be taken to.
@@ -1568,8 +1530,6 @@ type KeyVaultCredentialSettingsResponse struct {
 	Enable *bool `pulumi:"enable"`
 	// Service principal name to access key vault.
 	ServicePrincipalName *string `pulumi:"servicePrincipalName"`
-	// Service principal name secret to access key vault.
-	ServicePrincipalSecret *string `pulumi:"servicePrincipalSecret"`
 }
 
 // KeyVaultCredentialSettingsResponseInput is an input type that accepts KeyVaultCredentialSettingsResponseArgs and KeyVaultCredentialSettingsResponseOutput values.
@@ -1593,8 +1553,6 @@ type KeyVaultCredentialSettingsResponseArgs struct {
 	Enable pulumi.BoolPtrInput `pulumi:"enable"`
 	// Service principal name to access key vault.
 	ServicePrincipalName pulumi.StringPtrInput `pulumi:"servicePrincipalName"`
-	// Service principal name secret to access key vault.
-	ServicePrincipalSecret pulumi.StringPtrInput `pulumi:"servicePrincipalSecret"`
 }
 
 func (KeyVaultCredentialSettingsResponseArgs) ElementType() reflect.Type {
@@ -1695,11 +1653,6 @@ func (o KeyVaultCredentialSettingsResponseOutput) ServicePrincipalName() pulumi.
 	return o.ApplyT(func(v KeyVaultCredentialSettingsResponse) *string { return v.ServicePrincipalName }).(pulumi.StringPtrOutput)
 }
 
-// Service principal name secret to access key vault.
-func (o KeyVaultCredentialSettingsResponseOutput) ServicePrincipalSecret() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KeyVaultCredentialSettingsResponse) *string { return v.ServicePrincipalSecret }).(pulumi.StringPtrOutput)
-}
-
 type KeyVaultCredentialSettingsResponsePtrOutput struct{ *pulumi.OutputState }
 
 func (KeyVaultCredentialSettingsResponsePtrOutput) ElementType() reflect.Type {
@@ -1755,16 +1708,6 @@ func (o KeyVaultCredentialSettingsResponsePtrOutput) ServicePrincipalName() pulu
 			return nil
 		}
 		return v.ServicePrincipalName
-	}).(pulumi.StringPtrOutput)
-}
-
-// Service principal name secret to access key vault.
-func (o KeyVaultCredentialSettingsResponsePtrOutput) ServicePrincipalSecret() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KeyVaultCredentialSettingsResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ServicePrincipalSecret
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -3555,10 +3498,6 @@ type SqlConnectivityUpdateSettingsResponse struct {
 	ConnectivityType *string `pulumi:"connectivityType"`
 	// SQL Server port.
 	Port *int `pulumi:"port"`
-	// SQL Server sysadmin login password.
-	SqlAuthUpdatePassword *string `pulumi:"sqlAuthUpdatePassword"`
-	// SQL Server sysadmin login to create.
-	SqlAuthUpdateUserName *string `pulumi:"sqlAuthUpdateUserName"`
 }
 
 // SqlConnectivityUpdateSettingsResponseInput is an input type that accepts SqlConnectivityUpdateSettingsResponseArgs and SqlConnectivityUpdateSettingsResponseOutput values.
@@ -3578,10 +3517,6 @@ type SqlConnectivityUpdateSettingsResponseArgs struct {
 	ConnectivityType pulumi.StringPtrInput `pulumi:"connectivityType"`
 	// SQL Server port.
 	Port pulumi.IntPtrInput `pulumi:"port"`
-	// SQL Server sysadmin login password.
-	SqlAuthUpdatePassword pulumi.StringPtrInput `pulumi:"sqlAuthUpdatePassword"`
-	// SQL Server sysadmin login to create.
-	SqlAuthUpdateUserName pulumi.StringPtrInput `pulumi:"sqlAuthUpdateUserName"`
 }
 
 func (SqlConnectivityUpdateSettingsResponseArgs) ElementType() reflect.Type {
@@ -3672,16 +3607,6 @@ func (o SqlConnectivityUpdateSettingsResponseOutput) Port() pulumi.IntPtrOutput 
 	return o.ApplyT(func(v SqlConnectivityUpdateSettingsResponse) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
-// SQL Server sysadmin login password.
-func (o SqlConnectivityUpdateSettingsResponseOutput) SqlAuthUpdatePassword() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SqlConnectivityUpdateSettingsResponse) *string { return v.SqlAuthUpdatePassword }).(pulumi.StringPtrOutput)
-}
-
-// SQL Server sysadmin login to create.
-func (o SqlConnectivityUpdateSettingsResponseOutput) SqlAuthUpdateUserName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SqlConnectivityUpdateSettingsResponse) *string { return v.SqlAuthUpdateUserName }).(pulumi.StringPtrOutput)
-}
-
 type SqlConnectivityUpdateSettingsResponsePtrOutput struct{ *pulumi.OutputState }
 
 func (SqlConnectivityUpdateSettingsResponsePtrOutput) ElementType() reflect.Type {
@@ -3718,26 +3643,6 @@ func (o SqlConnectivityUpdateSettingsResponsePtrOutput) Port() pulumi.IntPtrOutp
 		}
 		return v.Port
 	}).(pulumi.IntPtrOutput)
-}
-
-// SQL Server sysadmin login password.
-func (o SqlConnectivityUpdateSettingsResponsePtrOutput) SqlAuthUpdatePassword() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SqlConnectivityUpdateSettingsResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SqlAuthUpdatePassword
-	}).(pulumi.StringPtrOutput)
-}
-
-// SQL Server sysadmin login to create.
-func (o SqlConnectivityUpdateSettingsResponsePtrOutput) SqlAuthUpdateUserName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SqlConnectivityUpdateSettingsResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SqlAuthUpdateUserName
-	}).(pulumi.StringPtrOutput)
 }
 
 // Set disk storage settings for SQL Server.
@@ -5397,8 +5302,6 @@ type WsfcDomainProfileResponse struct {
 	OuPath *string `pulumi:"ouPath"`
 	// Account name under which SQL service will run on all participating SQL virtual machines in the cluster.
 	SqlServiceAccount *string `pulumi:"sqlServiceAccount"`
-	// Primary key of the witness storage account.
-	StorageAccountPrimaryKey *string `pulumi:"storageAccountPrimaryKey"`
 	// Fully qualified ARM resource id of the witness storage account.
 	StorageAccountUrl *string `pulumi:"storageAccountUrl"`
 }
@@ -5428,8 +5331,6 @@ type WsfcDomainProfileResponseArgs struct {
 	OuPath pulumi.StringPtrInput `pulumi:"ouPath"`
 	// Account name under which SQL service will run on all participating SQL virtual machines in the cluster.
 	SqlServiceAccount pulumi.StringPtrInput `pulumi:"sqlServiceAccount"`
-	// Primary key of the witness storage account.
-	StorageAccountPrimaryKey pulumi.StringPtrInput `pulumi:"storageAccountPrimaryKey"`
 	// Fully qualified ARM resource id of the witness storage account.
 	StorageAccountUrl pulumi.StringPtrInput `pulumi:"storageAccountUrl"`
 }
@@ -5542,11 +5443,6 @@ func (o WsfcDomainProfileResponseOutput) SqlServiceAccount() pulumi.StringPtrOut
 	return o.ApplyT(func(v WsfcDomainProfileResponse) *string { return v.SqlServiceAccount }).(pulumi.StringPtrOutput)
 }
 
-// Primary key of the witness storage account.
-func (o WsfcDomainProfileResponseOutput) StorageAccountPrimaryKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WsfcDomainProfileResponse) *string { return v.StorageAccountPrimaryKey }).(pulumi.StringPtrOutput)
-}
-
 // Fully qualified ARM resource id of the witness storage account.
 func (o WsfcDomainProfileResponseOutput) StorageAccountUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WsfcDomainProfileResponse) *string { return v.StorageAccountUrl }).(pulumi.StringPtrOutput)
@@ -5627,16 +5523,6 @@ func (o WsfcDomainProfileResponsePtrOutput) SqlServiceAccount() pulumi.StringPtr
 			return nil
 		}
 		return v.SqlServiceAccount
-	}).(pulumi.StringPtrOutput)
-}
-
-// Primary key of the witness storage account.
-func (o WsfcDomainProfileResponsePtrOutput) StorageAccountPrimaryKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WsfcDomainProfileResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.StorageAccountPrimaryKey
 	}).(pulumi.StringPtrOutput)
 }
 

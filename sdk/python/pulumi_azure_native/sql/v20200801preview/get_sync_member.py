@@ -19,7 +19,7 @@ class GetSyncMemberResult:
     """
     An Azure SQL Database sync member.
     """
-    def __init__(__self__, database_name=None, database_type=None, id=None, name=None, password=None, private_endpoint_name=None, server_name=None, sql_server_database_id=None, sync_agent_id=None, sync_direction=None, sync_member_azure_database_resource_id=None, sync_state=None, type=None, use_private_link_connection=None, user_name=None):
+    def __init__(__self__, database_name=None, database_type=None, id=None, name=None, private_endpoint_name=None, server_name=None, sql_server_database_id=None, sync_agent_id=None, sync_direction=None, sync_member_azure_database_resource_id=None, sync_state=None, type=None, use_private_link_connection=None, user_name=None):
         if database_name and not isinstance(database_name, str):
             raise TypeError("Expected argument 'database_name' to be a str")
         pulumi.set(__self__, "database_name", database_name)
@@ -32,9 +32,6 @@ class GetSyncMemberResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if password and not isinstance(password, str):
-            raise TypeError("Expected argument 'password' to be a str")
-        pulumi.set(__self__, "password", password)
         if private_endpoint_name and not isinstance(private_endpoint_name, str):
             raise TypeError("Expected argument 'private_endpoint_name' to be a str")
         pulumi.set(__self__, "private_endpoint_name", private_endpoint_name)
@@ -97,14 +94,6 @@ class GetSyncMemberResult:
         Resource name.
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def password(self) -> Optional[str]:
-        """
-        Password of the member database in the sync member.
-        """
-        return pulumi.get(self, "password")
 
     @property
     @pulumi.getter(name="privateEndpointName")
@@ -197,7 +186,6 @@ class AwaitableGetSyncMemberResult(GetSyncMemberResult):
             database_type=self.database_type,
             id=self.id,
             name=self.name,
-            password=self.password,
             private_endpoint_name=self.private_endpoint_name,
             server_name=self.server_name,
             sql_server_database_id=self.sql_server_database_id,
@@ -243,7 +231,6 @@ def get_sync_member(database_name: Optional[str] = None,
         database_type=__ret__.database_type,
         id=__ret__.id,
         name=__ret__.name,
-        password=__ret__.password,
         private_endpoint_name=__ret__.private_endpoint_name,
         server_name=__ret__.server_name,
         sql_server_database_id=__ret__.sql_server_database_id,

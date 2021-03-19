@@ -56,10 +56,6 @@ export interface GetJobCredentialResult {
      */
     readonly name: string;
     /**
-     * The credential password.
-     */
-    readonly password: string;
-    /**
      * Resource type.
      */
     readonly type: string;

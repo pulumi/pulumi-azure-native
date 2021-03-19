@@ -22,12 +22,6 @@ namespace Pulumi.AzureNative.Sql.V20170301Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The credential password.
-        /// </summary>
-        [Output("password")]
-        public Output<string> Password { get; private set; } = null!;
-
-        /// <summary>
         /// Resource type.
         /// </summary>
         [Output("type")]

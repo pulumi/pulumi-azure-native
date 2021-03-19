@@ -34,12 +34,6 @@ namespace Pulumi.AzureNative.Web.V20160801
         public Output<bool?> ClientCertEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// If specified during app creation, the app is cloned from a source app.
-        /// </summary>
-        [Output("cloningInfo")]
-        public Output<Outputs.CloningInfoResponse?> CloningInfo { get; private set; } = null!;
-
-        /// <summary>
         /// Size of the function container.
         /// </summary>
         [Output("containerSize")]
@@ -198,12 +192,6 @@ namespace Pulumi.AzureNative.Web.V20160801
         /// </summary>
         [Output("slotSwapStatus")]
         public Output<Outputs.SlotSwapStatusResponse> SlotSwapStatus { get; private set; } = null!;
-
-        /// <summary>
-        /// If specified during app creation, the app is created from a previous snapshot.
-        /// </summary>
-        [Output("snapshotInfo")]
-        public Output<Outputs.SnapshotRecoveryRequestResponse?> SnapshotInfo { get; private set; } = null!;
 
         /// <summary>
         /// Current state of the app.

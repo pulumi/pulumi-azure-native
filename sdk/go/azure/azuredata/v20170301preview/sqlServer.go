@@ -15,8 +15,6 @@ import (
 type SqlServer struct {
 	pulumi.CustomResourceState
 
-	// Cores of the Sql Server.
-	Cores pulumi.IntPtrOutput `pulumi:"cores"`
 	// Sql Server Edition.
 	Edition pulumi.StringPtrOutput `pulumi:"edition"`
 	// Resource name.
@@ -84,8 +82,6 @@ func GetSqlServer(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SqlServer resources.
 type sqlServerState struct {
-	// Cores of the Sql Server.
-	Cores *int `pulumi:"cores"`
 	// Sql Server Edition.
 	Edition *string `pulumi:"edition"`
 	// Resource name.
@@ -101,8 +97,6 @@ type sqlServerState struct {
 }
 
 type SqlServerState struct {
-	// Cores of the Sql Server.
-	Cores pulumi.IntPtrInput
 	// Sql Server Edition.
 	Edition pulumi.StringPtrInput
 	// Resource name.

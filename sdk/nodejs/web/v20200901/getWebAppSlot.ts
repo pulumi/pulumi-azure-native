@@ -66,10 +66,6 @@ export interface GetWebAppSlotResult {
      */
     readonly clientCertMode?: string;
     /**
-     * If specified during app creation, the app is cloned from a source app.
-     */
-    readonly cloningInfo?: outputs.web.v20200901.CloningInfoResponse;
-    /**
      * Size of the function container.
      */
     readonly containerSize?: number;

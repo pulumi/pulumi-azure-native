@@ -60,10 +60,6 @@ namespace Pulumi.AzureNative.CostManagement
         /// </summary>
         public readonly string? CredentialsKey;
         /// <summary>
-        /// Credentials secret (eg AWS ExternalId)
-        /// </summary>
-        public readonly string? CredentialsSecret;
-        /// <summary>
         /// Number of days remaining of trial
         /// </summary>
         public readonly int DaysTrialRemaining;
@@ -130,8 +126,6 @@ namespace Pulumi.AzureNative.CostManagement
 
             string? credentialsKey,
 
-            string? credentialsSecret,
-
             int daysTrialRemaining,
 
             string? defaultManagementGroupId,
@@ -164,7 +158,6 @@ namespace Pulumi.AzureNative.CostManagement
             CollectionInfo = collectionInfo;
             CreatedOn = createdOn;
             CredentialsKey = credentialsKey;
-            CredentialsSecret = credentialsSecret;
             DaysTrialRemaining = daysTrialRemaining;
             DefaultManagementGroupId = defaultManagementGroupId;
             DisplayName = displayName;

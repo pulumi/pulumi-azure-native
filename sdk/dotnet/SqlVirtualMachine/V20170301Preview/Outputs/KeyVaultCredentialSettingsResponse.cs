@@ -29,10 +29,6 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.V20170301Preview.Outputs
         /// Service principal name to access key vault.
         /// </summary>
         public readonly string? ServicePrincipalName;
-        /// <summary>
-        /// Service principal name secret to access key vault.
-        /// </summary>
-        public readonly string? ServicePrincipalSecret;
 
         [OutputConstructor]
         private KeyVaultCredentialSettingsResponse(
@@ -42,15 +38,12 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.V20170301Preview.Outputs
 
             bool? enable,
 
-            string? servicePrincipalName,
-
-            string? servicePrincipalSecret)
+            string? servicePrincipalName)
         {
             AzureKeyVaultUrl = azureKeyVaultUrl;
             CredentialName = credentialName;
             Enable = enable;
             ServicePrincipalName = servicePrincipalName;
-            ServicePrincipalSecret = servicePrincipalSecret;
         }
     }
 }

@@ -109,7 +109,6 @@ class CloudConnector(pulumi.CustomResource):
         __props__["collection_info"] = None
         __props__["created_on"] = None
         __props__["credentials_key"] = None
-        __props__["credentials_secret"] = None
         __props__["days_trial_remaining"] = None
         __props__["default_management_group_id"] = None
         __props__["display_name"] = None
@@ -156,14 +155,6 @@ class CloudConnector(pulumi.CustomResource):
         Credentials authentication key (eg AWS ARN)
         """
         return pulumi.get(self, "credentials_key")
-
-    @property
-    @pulumi.getter(name="credentialsSecret")
-    def credentials_secret(self) -> pulumi.Output[Optional[str]]:
-        """
-        Credentials secret (eg AWS ExternalId)
-        """
-        return pulumi.get(self, "credentials_secret")
 
     @property
     @pulumi.getter(name="daysTrialRemaining")

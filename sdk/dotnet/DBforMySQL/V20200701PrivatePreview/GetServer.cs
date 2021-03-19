@@ -47,10 +47,6 @@ namespace Pulumi.AzureNative.DBforMySQL.V20200701PrivatePreview
         /// </summary>
         public readonly string? AdministratorLogin;
         /// <summary>
-        /// The password of the administrator login (required for server creation).
-        /// </summary>
-        public readonly string? AdministratorLoginPassword;
-        /// <summary>
         /// availability Zone information of the server.
         /// </summary>
         public readonly string? AvailabilityZone;
@@ -58,10 +54,6 @@ namespace Pulumi.AzureNative.DBforMySQL.V20200701PrivatePreview
         /// Status showing whether the data encryption is enabled with customer-managed keys.
         /// </summary>
         public readonly string ByokEnforcement;
-        /// <summary>
-        /// The mode to create a new MySQL server.
-        /// </summary>
-        public readonly string? CreateMode;
         /// <summary>
         /// Delegated subnet arguments.
         /// </summary>
@@ -91,10 +83,6 @@ namespace Pulumi.AzureNative.DBforMySQL.V20200701PrivatePreview
         /// </summary>
         public readonly Outputs.IdentityResponse? Identity;
         /// <summary>
-        /// Status showing whether the server enabled infrastructure encryption.
-        /// </summary>
-        public readonly string? InfrastructureEncryption;
-        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
@@ -118,10 +106,6 @@ namespace Pulumi.AzureNative.DBforMySQL.V20200701PrivatePreview
         /// The replication role.
         /// </summary>
         public readonly string? ReplicationRole;
-        /// <summary>
-        /// Restore point creation time (ISO8601 format), specifying the time to restore from.
-        /// </summary>
-        public readonly string? RestorePointInTime;
         /// <summary>
         /// The SKU (pricing tier) of the server.
         /// </summary>
@@ -163,13 +147,9 @@ namespace Pulumi.AzureNative.DBforMySQL.V20200701PrivatePreview
         private GetServerResult(
             string? administratorLogin,
 
-            string? administratorLoginPassword,
-
             string? availabilityZone,
 
             string byokEnforcement,
-
-            string? createMode,
 
             Outputs.DelegatedSubnetArgumentsResponse? delegatedSubnetArguments,
 
@@ -185,8 +165,6 @@ namespace Pulumi.AzureNative.DBforMySQL.V20200701PrivatePreview
 
             Outputs.IdentityResponse? identity,
 
-            string? infrastructureEncryption,
-
             string location,
 
             Outputs.MaintenanceWindowResponse? maintenanceWindow,
@@ -198,8 +176,6 @@ namespace Pulumi.AzureNative.DBforMySQL.V20200701PrivatePreview
             int replicaCapacity,
 
             string? replicationRole,
-
-            string? restorePointInTime,
 
             Outputs.SkuResponse? sku,
 
@@ -220,10 +196,8 @@ namespace Pulumi.AzureNative.DBforMySQL.V20200701PrivatePreview
             string? version)
         {
             AdministratorLogin = administratorLogin;
-            AdministratorLoginPassword = administratorLoginPassword;
             AvailabilityZone = availabilityZone;
             ByokEnforcement = byokEnforcement;
-            CreateMode = createMode;
             DelegatedSubnetArguments = delegatedSubnetArguments;
             EarliestRestoreDate = earliestRestoreDate;
             FullyQualifiedDomainName = fullyQualifiedDomainName;
@@ -231,14 +205,12 @@ namespace Pulumi.AzureNative.DBforMySQL.V20200701PrivatePreview
             HaState = haState;
             Id = id;
             Identity = identity;
-            InfrastructureEncryption = infrastructureEncryption;
             Location = location;
             MaintenanceWindow = maintenanceWindow;
             Name = name;
             PublicNetworkAccess = publicNetworkAccess;
             ReplicaCapacity = replicaCapacity;
             ReplicationRole = replicationRole;
-            RestorePointInTime = restorePointInTime;
             Sku = sku;
             SourceServerId = sourceServerId;
             SslEnforcement = sslEnforcement;

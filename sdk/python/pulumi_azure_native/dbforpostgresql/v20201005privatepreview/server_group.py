@@ -148,11 +148,9 @@ class ServerGroup(pulumi.CustomResource):
         __props__ = dict()
 
         __props__["administrator_login"] = None
-        __props__["administrator_login_password"] = None
         __props__["availability_zone"] = None
         __props__["backup_retention_days"] = None
         __props__["citus_version"] = None
-        __props__["create_mode"] = None
         __props__["delegated_subnet_arguments"] = None
         __props__["earliest_restore_time"] = None
         __props__["enable_mx"] = None
@@ -161,16 +159,11 @@ class ServerGroup(pulumi.CustomResource):
         __props__["location"] = None
         __props__["maintenance_window"] = None
         __props__["name"] = None
-        __props__["point_in_time_utc"] = None
         __props__["postgresql_version"] = None
         __props__["read_replicas"] = None
         __props__["resource_provider_type"] = None
         __props__["server_role_groups"] = None
-        __props__["source_location"] = None
-        __props__["source_resource_group_name"] = None
         __props__["source_server_group"] = None
-        __props__["source_server_group_name"] = None
-        __props__["source_subscription_id"] = None
         __props__["standby_availability_zone"] = None
         __props__["state"] = None
         __props__["system_data"] = None
@@ -185,14 +178,6 @@ class ServerGroup(pulumi.CustomResource):
         The administrator's login name of servers in server group. Can only be specified when the server is being created (and is required for creation).
         """
         return pulumi.get(self, "administrator_login")
-
-    @property
-    @pulumi.getter(name="administratorLoginPassword")
-    def administrator_login_password(self) -> pulumi.Output[Optional[str]]:
-        """
-        The password of the administrator login.
-        """
-        return pulumi.get(self, "administrator_login_password")
 
     @property
     @pulumi.getter(name="availabilityZone")
@@ -217,14 +202,6 @@ class ServerGroup(pulumi.CustomResource):
         The Citus version of server group.
         """
         return pulumi.get(self, "citus_version")
-
-    @property
-    @pulumi.getter(name="createMode")
-    def create_mode(self) -> pulumi.Output[Optional[str]]:
-        """
-        The mode to create a new server group.
-        """
-        return pulumi.get(self, "create_mode")
 
     @property
     @pulumi.getter(name="delegatedSubnetArguments")
@@ -291,14 +268,6 @@ class ServerGroup(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="pointInTimeUTC")
-    def point_in_time_utc(self) -> pulumi.Output[Optional[str]]:
-        """
-        Restore point creation time (ISO8601 format), specifying the time to restore from. It's required when 'createMode' is 'PointInTimeRestore'
-        """
-        return pulumi.get(self, "point_in_time_utc")
-
-    @property
     @pulumi.getter(name="postgresqlVersion")
     def postgresql_version(self) -> pulumi.Output[Optional[str]]:
         """
@@ -331,44 +300,12 @@ class ServerGroup(pulumi.CustomResource):
         return pulumi.get(self, "server_role_groups")
 
     @property
-    @pulumi.getter(name="sourceLocation")
-    def source_location(self) -> pulumi.Output[Optional[str]]:
-        """
-        The source server group location to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'ReadReplica'
-        """
-        return pulumi.get(self, "source_location")
-
-    @property
-    @pulumi.getter(name="sourceResourceGroupName")
-    def source_resource_group_name(self) -> pulumi.Output[Optional[str]]:
-        """
-        The source resource group name to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'ReadReplica'
-        """
-        return pulumi.get(self, "source_resource_group_name")
-
-    @property
     @pulumi.getter(name="sourceServerGroup")
     def source_server_group(self) -> pulumi.Output[str]:
         """
         The source server group id for read replica server groups.
         """
         return pulumi.get(self, "source_server_group")
-
-    @property
-    @pulumi.getter(name="sourceServerGroupName")
-    def source_server_group_name(self) -> pulumi.Output[Optional[str]]:
-        """
-        The source server group name to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'ReadReplica'
-        """
-        return pulumi.get(self, "source_server_group_name")
-
-    @property
-    @pulumi.getter(name="sourceSubscriptionId")
-    def source_subscription_id(self) -> pulumi.Output[Optional[str]]:
-        """
-        The source subscription id to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'ReadReplica'
-        """
-        return pulumi.get(self, "source_subscription_id")
 
     @property
     @pulumi.getter(name="standbyAvailabilityZone")

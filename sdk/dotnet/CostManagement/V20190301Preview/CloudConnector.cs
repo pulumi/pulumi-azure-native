@@ -40,12 +40,6 @@ namespace Pulumi.AzureNative.CostManagement.V20190301Preview
         public Output<string?> CredentialsKey { get; private set; } = null!;
 
         /// <summary>
-        /// Credentials secret (eg AWS ExternalId)
-        /// </summary>
-        [Output("credentialsSecret")]
-        public Output<string?> CredentialsSecret { get; private set; } = null!;
-
-        /// <summary>
         /// Number of days remaining of trial
         /// </summary>
         [Output("daysTrialRemaining")]

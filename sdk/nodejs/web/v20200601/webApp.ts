@@ -59,10 +59,6 @@ export class WebApp extends pulumi.CustomResource {
      */
     public readonly clientCertMode!: pulumi.Output<string | undefined>;
     /**
-     * If specified during app creation, the app is cloned from a source app.
-     */
-    public readonly cloningInfo!: pulumi.Output<outputs.web.v20200601.CloningInfoResponse | undefined>;
-    /**
      * Size of the function container.
      */
     public readonly containerSize!: pulumi.Output<number | undefined>;
@@ -284,7 +280,6 @@ export class WebApp extends pulumi.CustomResource {
             inputs["clientCertEnabled"] = undefined /*out*/;
             inputs["clientCertExclusionPaths"] = undefined /*out*/;
             inputs["clientCertMode"] = undefined /*out*/;
-            inputs["cloningInfo"] = undefined /*out*/;
             inputs["containerSize"] = undefined /*out*/;
             inputs["customDomainVerificationId"] = undefined /*out*/;
             inputs["dailyMemoryTimeQuota"] = undefined /*out*/;

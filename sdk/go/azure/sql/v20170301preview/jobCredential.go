@@ -17,8 +17,6 @@ type JobCredential struct {
 
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The credential password.
-	Password pulumi.StringOutput `pulumi:"password"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 	// The credential user name.
@@ -101,8 +99,6 @@ func GetJobCredential(ctx *pulumi.Context,
 type jobCredentialState struct {
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// The credential password.
-	Password *string `pulumi:"password"`
 	// Resource type.
 	Type *string `pulumi:"type"`
 	// The credential user name.
@@ -112,8 +108,6 @@ type jobCredentialState struct {
 type JobCredentialState struct {
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// The credential password.
-	Password pulumi.StringPtrInput
 	// Resource type.
 	Type pulumi.StringPtrInput
 	// The credential user name.

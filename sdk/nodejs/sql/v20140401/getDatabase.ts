@@ -56,26 +56,6 @@ export interface GetDatabaseResult {
      */
     readonly containmentState: number;
     /**
-     * Specifies the mode of database creation.
-     *
-     * Default: regular database creation.
-     *
-     * Copy: creates a database as a copy of an existing database. sourceDatabaseId must be specified as the resource ID of the source database.
-     *
-     * OnlineSecondary/NonReadableSecondary: creates a database as a (readable or nonreadable) secondary replica of an existing database. sourceDatabaseId must be specified as the resource ID of the existing primary database.
-     *
-     * PointInTimeRestore: Creates a database by restoring a point in time backup of an existing database. sourceDatabaseId must be specified as the resource ID of the existing database, and restorePointInTime must be specified.
-     *
-     * Recovery: Creates a database by restoring a geo-replicated backup. sourceDatabaseId must be specified as the recoverable database resource ID to restore.
-     *
-     * Restore: Creates a database by restoring a backup of a deleted database. sourceDatabaseId must be specified. If sourceDatabaseId is the database's original resource ID, then sourceDatabaseDeletionDate must be specified. Otherwise sourceDatabaseId must be the restorable dropped database resource ID and sourceDatabaseDeletionDate is ignored. restorePointInTime may also be specified to restore from an earlier point in time.
-     *
-     * RestoreLongTermRetentionBackup: Creates a database by restoring from a long term retention vault. recoveryServicesRecoveryPointResourceId must be specified as the recovery point resource ID.
-     *
-     * Copy, NonReadableSecondary, OnlineSecondary and RestoreLongTermRetentionBackup are not supported for DataWarehouse edition.
-     */
-    readonly createMode?: string;
-    /**
      * The creation date of the database (ISO8601 format).
      */
     readonly creationDate: string;
@@ -146,10 +126,6 @@ export interface GetDatabaseResult {
      */
     readonly recommendedIndex: outputs.sql.v20140401.RecommendedIndexResponse[];
     /**
-     * Conditional. If createMode is RestoreLongTermRetentionBackup, then this value is required. Specifies the resource ID of the recovery point to restore from.
-     */
-    readonly recoveryServicesRecoveryPointResourceId?: string;
-    /**
      * The configured service level objective ID of the database. This is the service level objective that is in the process of being applied to the database. Once successfully updated, it will match the value of currentServiceObjectiveId property. If requestedServiceObjectiveId and requestedServiceObjectiveName are both updated, the value of requestedServiceObjectiveId overrides the value of requestedServiceObjectiveName.
      * 
      * The list of SKUs may vary by region and support offer. To determine the service objective ids that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API.
@@ -170,14 +146,6 @@ export interface GetDatabaseResult {
      */
     readonly requestedServiceObjectiveName?: string;
     /**
-     * Conditional. If createMode is PointInTimeRestore, this value is required. If createMode is Restore, this value is optional. Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. Must be greater than or equal to the source database's earliestRestoreDate value.
-     */
-    readonly restorePointInTime?: string;
-    /**
-     * Indicates the name of the sample schema to apply when creating this database. If createMode is not Default, this value is ignored. Not supported for DataWarehouse edition.
-     */
-    readonly sampleName?: string;
-    /**
      * The current service level objective of the database.
      */
     readonly serviceLevelObjective: string;
@@ -185,14 +153,6 @@ export interface GetDatabaseResult {
      * The list of service tier advisors for this database. Expanded property
      */
     readonly serviceTierAdvisors: outputs.sql.v20140401.ServiceTierAdvisorResponse[];
-    /**
-     * Conditional. If createMode is Restore and sourceDatabaseId is the deleted database's original resource id when it existed (as opposed to its current restorable dropped database id), then this value is required. Specifies the time that the database was deleted.
-     */
-    readonly sourceDatabaseDeletionDate?: string;
-    /**
-     * Conditional. If createMode is Copy, NonReadableSecondary, OnlineSecondary, PointInTimeRestore, Recovery, or Restore, then this value is required. Specifies the resource ID of the source database. If createMode is NonReadableSecondary or OnlineSecondary, the name of the source database must be the same as the new database being created.
-     */
-    readonly sourceDatabaseId?: string;
     /**
      * The status of the database.
      */

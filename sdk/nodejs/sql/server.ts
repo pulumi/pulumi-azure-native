@@ -41,10 +41,6 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly administratorLogin!: pulumi.Output<string | undefined>;
     /**
-     * The administrator login password (required for server creation).
-     */
-    public readonly administratorLoginPassword!: pulumi.Output<string | undefined>;
-    /**
      * The Azure Active Directory identity of the server.
      */
     public readonly administrators!: pulumi.Output<outputs.sql.ServerExternalAdministratorResponse | undefined>;
@@ -145,7 +141,6 @@ export class Server extends pulumi.CustomResource {
             inputs["workspaceFeature"] = undefined /*out*/;
         } else {
             inputs["administratorLogin"] = undefined /*out*/;
-            inputs["administratorLoginPassword"] = undefined /*out*/;
             inputs["administrators"] = undefined /*out*/;
             inputs["encryptionIdentityId"] = undefined /*out*/;
             inputs["fullyQualifiedDomainName"] = undefined /*out*/;

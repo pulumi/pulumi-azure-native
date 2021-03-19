@@ -30,8 +30,6 @@ type Controller struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// DNS of the target container host's API server
 	TargetContainerHostApiServerFqdn pulumi.StringOutput `pulumi:"targetContainerHostApiServerFqdn"`
-	// Credentials of the target container host (base64).
-	TargetContainerHostCredentialsBase64 pulumi.StringOutput `pulumi:"targetContainerHostCredentialsBase64"`
 	// Resource ID of the target container host
 	TargetContainerHostResourceId pulumi.StringOutput `pulumi:"targetContainerHostResourceId"`
 	// The type of the resource.
@@ -113,8 +111,6 @@ type controllerState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// DNS of the target container host's API server
 	TargetContainerHostApiServerFqdn *string `pulumi:"targetContainerHostApiServerFqdn"`
-	// Credentials of the target container host (base64).
-	TargetContainerHostCredentialsBase64 *string `pulumi:"targetContainerHostCredentialsBase64"`
 	// Resource ID of the target container host
 	TargetContainerHostResourceId *string `pulumi:"targetContainerHostResourceId"`
 	// The type of the resource.
@@ -138,8 +134,6 @@ type ControllerState struct {
 	Tags pulumi.StringMapInput
 	// DNS of the target container host's API server
 	TargetContainerHostApiServerFqdn pulumi.StringPtrInput
-	// Credentials of the target container host (base64).
-	TargetContainerHostCredentialsBase64 pulumi.StringPtrInput
 	// Resource ID of the target container host
 	TargetContainerHostResourceId pulumi.StringPtrInput
 	// The type of the resource.

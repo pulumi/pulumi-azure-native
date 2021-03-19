@@ -35,10 +35,6 @@ export class SqlServer extends pulumi.CustomResource {
     }
 
     /**
-     * Cores of the Sql Server.
-     */
-    public readonly cores!: pulumi.Output<number | undefined>;
-    /**
      * Sql Server Edition.
      */
     public readonly edition!: pulumi.Output<string | undefined>;
@@ -91,7 +87,6 @@ export class SqlServer extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
-            inputs["cores"] = undefined /*out*/;
             inputs["edition"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["propertyBag"] = undefined /*out*/;

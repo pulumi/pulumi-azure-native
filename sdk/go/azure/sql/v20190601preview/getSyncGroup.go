@@ -32,8 +32,6 @@ type LookupSyncGroupArgs struct {
 type LookupSyncGroupResult struct {
 	// Conflict resolution policy of the sync group.
 	ConflictResolutionPolicy *string `pulumi:"conflictResolutionPolicy"`
-	// Password for the sync group hub database credential.
-	HubDatabasePassword *string `pulumi:"hubDatabasePassword"`
 	// User name for the sync group hub database credential.
 	HubDatabaseUserName *string `pulumi:"hubDatabaseUserName"`
 	// Resource ID.

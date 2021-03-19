@@ -121,7 +121,6 @@ class SyncMember(pulumi.CustomResource):
         __props__["database_name"] = None
         __props__["database_type"] = None
         __props__["name"] = None
-        __props__["password"] = None
         __props__["private_endpoint_name"] = None
         __props__["server_name"] = None
         __props__["sql_server_database_id"] = None
@@ -157,14 +156,6 @@ class SyncMember(pulumi.CustomResource):
         Resource name.
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def password(self) -> pulumi.Output[Optional[str]]:
-        """
-        Password of the member database in the sync member.
-        """
-        return pulumi.get(self, "password")
 
     @property
     @pulumi.getter(name="privateEndpointName")

@@ -656,7 +656,6 @@ class VaultPropertiesResponse(dict):
                  sku: 'outputs.SkuResponse',
                  tenant_id: str,
                  access_policies: Optional[Sequence['outputs.AccessPolicyEntryResponse']] = None,
-                 create_mode: Optional[str] = None,
                  enable_purge_protection: Optional[bool] = None,
                  enable_rbac_authorization: Optional[bool] = None,
                  enable_soft_delete: Optional[bool] = None,
@@ -674,7 +673,6 @@ class VaultPropertiesResponse(dict):
         :param 'SkuResponseArgs' sku: SKU details
         :param str tenant_id: The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
         :param Sequence['AccessPolicyEntryResponseArgs'] access_policies: An array of 0 to 1024 identities that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID. When `createMode` is set to `recover`, access policies are not required. Otherwise, access policies are required.
-        :param str create_mode: The vault's create mode to indicate whether the vault need to be recovered or not.
         :param bool enable_purge_protection: Property specifying whether protection against purge is enabled for this vault. Setting this property to true activates protection against purge for this vault and its content - only the Key Vault service may initiate a hard, irrecoverable deletion. The setting is effective only if soft delete is also enabled. Enabling this functionality is irreversible - that is, the property does not accept false as its value.
         :param bool enable_rbac_authorization: Property that controls how data actions are authorized. When true, the key vault will use Role Based Access Control (RBAC) for authorization of data actions, and the access policies specified in vault properties will be  ignored (warning: this is a preview feature). When false, the key vault will use the access policies specified in vault properties, and any policy stored on Azure Resource Manager will be ignored. If null or not specified, the vault is created with the default value of false. Note that management actions are always authorized with RBAC.
         :param bool enable_soft_delete: Property to specify whether the 'soft delete' functionality is enabled for this key vault. If it's not set to any value(true or false) when creating new key vault, it will be set to true by default. Once set to true, it cannot be reverted to false.
@@ -692,8 +690,6 @@ class VaultPropertiesResponse(dict):
         pulumi.set(__self__, "tenant_id", tenant_id)
         if access_policies is not None:
             pulumi.set(__self__, "access_policies", access_policies)
-        if create_mode is not None:
-            pulumi.set(__self__, "create_mode", create_mode)
         if enable_purge_protection is not None:
             pulumi.set(__self__, "enable_purge_protection", enable_purge_protection)
         if enable_rbac_authorization is None:
@@ -760,14 +756,6 @@ class VaultPropertiesResponse(dict):
         An array of 0 to 1024 identities that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID. When `createMode` is set to `recover`, access policies are not required. Otherwise, access policies are required.
         """
         return pulumi.get(self, "access_policies")
-
-    @property
-    @pulumi.getter(name="createMode")
-    def create_mode(self) -> Optional[str]:
-        """
-        The vault's create mode to indicate whether the vault need to be recovered or not.
-        """
-        return pulumi.get(self, "create_mode")
 
     @property
     @pulumi.getter(name="enablePurgeProtection")

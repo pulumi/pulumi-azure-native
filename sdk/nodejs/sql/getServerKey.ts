@@ -64,10 +64,6 @@ export interface GetServerKeyResult {
      */
     readonly name: string;
     /**
-     * The server key type like 'ServiceManaged', 'AzureKeyVault'.
-     */
-    readonly serverKeyType: string;
-    /**
      * Subregion of the server key.
      */
     readonly subregion: string;
@@ -79,8 +75,4 @@ export interface GetServerKeyResult {
      * Resource type.
      */
     readonly type: string;
-    /**
-     * The URI of the server key. If the ServerKeyType is AzureKeyVault, then the URI is required.
-     */
-    readonly uri?: string;
 }

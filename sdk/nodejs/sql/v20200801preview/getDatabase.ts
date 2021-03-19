@@ -55,26 +55,6 @@ export interface GetDatabaseResult {
      */
     readonly collation?: string;
     /**
-     * Specifies the mode of database creation.
-     * 
-     * Default: regular database creation.
-     * 
-     * Copy: creates a database as a copy of an existing database. sourceDatabaseId must be specified as the resource ID of the source database.
-     * 
-     * Secondary: creates a database as a secondary replica of an existing database. sourceDatabaseId must be specified as the resource ID of the existing primary database.
-     * 
-     * PointInTimeRestore: Creates a database by restoring a point in time backup of an existing database. sourceDatabaseId must be specified as the resource ID of the existing database, and restorePointInTime must be specified.
-     * 
-     * Recovery: Creates a database by restoring a geo-replicated backup. sourceDatabaseId must be specified as the recoverable database resource ID to restore.
-     * 
-     * Restore: Creates a database by restoring a backup of a deleted database. sourceDatabaseId must be specified. If sourceDatabaseId is the database's original resource ID, then sourceDatabaseDeletionDate must be specified. Otherwise sourceDatabaseId must be the restorable dropped database resource ID and sourceDatabaseDeletionDate is ignored. restorePointInTime may also be specified to restore from an earlier point in time.
-     * 
-     * RestoreLongTermRetentionBackup: Creates a database by restoring from a long term retention vault. recoveryServicesRecoveryPointResourceId must be specified as the recovery point resource ID.
-     * 
-     * Copy, Secondary, and RestoreLongTermRetentionBackup are not supported for DataWarehouse edition.
-     */
-    readonly createMode?: string;
-    /**
      * The creation date of the database (ISO8601 format).
      */
     readonly creationDate: string;
@@ -127,10 +107,6 @@ export interface GetDatabaseResult {
      */
     readonly location: string;
     /**
-     * The resource identifier of the long term retention backup associated with create operation of this database.
-     */
-    readonly longTermRetentionBackupResourceId?: string;
-    /**
      * Maintenance configuration id assigned to the database. This configuration defines the period when the maintenance updates will occur.
      */
     readonly maintenanceConfigurationId?: string;
@@ -163,33 +139,13 @@ export interface GetDatabaseResult {
      */
     readonly readScale?: string;
     /**
-     * The resource identifier of the recoverable database associated with create operation of this database.
-     */
-    readonly recoverableDatabaseId?: string;
-    /**
-     * The resource identifier of the recovery point associated with create operation of this database.
-     */
-    readonly recoveryServicesRecoveryPointId?: string;
-    /**
      * The requested service level objective name of the database.
      */
     readonly requestedServiceObjectiveName: string;
     /**
-     * The resource identifier of the restorable dropped database associated with create operation of this database.
-     */
-    readonly restorableDroppedDatabaseId?: string;
-    /**
-     * Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database.
-     */
-    readonly restorePointInTime?: string;
-    /**
      * The date when database was resumed by user action or database login (ISO8601 format). Null if the database is paused.
      */
     readonly resumedDate: string;
-    /**
-     * The name of the sample schema to apply when creating this database.
-     */
-    readonly sampleName?: string;
     /**
      * The secondary type of the database if it is a secondary.  Valid values are Geo and Named.
      */
@@ -208,14 +164,6 @@ export interface GetDatabaseResult {
      * ````
      */
     readonly sku?: outputs.sql.v20200801preview.SkuResponse;
-    /**
-     * Specifies the time that the database was deleted.
-     */
-    readonly sourceDatabaseDeletionDate?: string;
-    /**
-     * The resource identifier of the source database associated with create operation of this database.
-     */
-    readonly sourceDatabaseId?: string;
     /**
      * The status of the database.
      */

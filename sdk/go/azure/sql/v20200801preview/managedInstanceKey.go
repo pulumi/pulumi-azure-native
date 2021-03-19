@@ -21,14 +21,10 @@ type ManagedInstanceKey struct {
 	Kind pulumi.StringOutput `pulumi:"kind"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The key type like 'ServiceManaged', 'AzureKeyVault'.
-	ServerKeyType pulumi.StringOutput `pulumi:"serverKeyType"`
 	// Thumbprint of the key.
 	Thumbprint pulumi.StringOutput `pulumi:"thumbprint"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
-	// The URI of the key. If the ServerKeyType is AzureKeyVault, then the URI is required.
-	Uri pulumi.StringPtrOutput `pulumi:"uri"`
 }
 
 // NewManagedInstanceKey registers a new resource with the given unique name, arguments, and options.
@@ -105,14 +101,10 @@ type managedInstanceKeyState struct {
 	Kind *string `pulumi:"kind"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// The key type like 'ServiceManaged', 'AzureKeyVault'.
-	ServerKeyType *string `pulumi:"serverKeyType"`
 	// Thumbprint of the key.
 	Thumbprint *string `pulumi:"thumbprint"`
 	// Resource type.
 	Type *string `pulumi:"type"`
-	// The URI of the key. If the ServerKeyType is AzureKeyVault, then the URI is required.
-	Uri *string `pulumi:"uri"`
 }
 
 type ManagedInstanceKeyState struct {
@@ -122,14 +114,10 @@ type ManagedInstanceKeyState struct {
 	Kind pulumi.StringPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// The key type like 'ServiceManaged', 'AzureKeyVault'.
-	ServerKeyType pulumi.StringPtrInput
 	// Thumbprint of the key.
 	Thumbprint pulumi.StringPtrInput
 	// Resource type.
 	Type pulumi.StringPtrInput
-	// The URI of the key. If the ServerKeyType is AzureKeyVault, then the URI is required.
-	Uri pulumi.StringPtrInput
 }
 
 func (ManagedInstanceKeyState) ElementType() reflect.Type {

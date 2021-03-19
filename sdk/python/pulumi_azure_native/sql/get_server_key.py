@@ -19,7 +19,7 @@ class GetServerKeyResult:
     """
     A server key.
     """
-    def __init__(__self__, creation_date=None, id=None, kind=None, location=None, name=None, server_key_type=None, subregion=None, thumbprint=None, type=None, uri=None):
+    def __init__(__self__, creation_date=None, id=None, kind=None, location=None, name=None, subregion=None, thumbprint=None, type=None):
         if creation_date and not isinstance(creation_date, str):
             raise TypeError("Expected argument 'creation_date' to be a str")
         pulumi.set(__self__, "creation_date", creation_date)
@@ -35,9 +35,6 @@ class GetServerKeyResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if server_key_type and not isinstance(server_key_type, str):
-            raise TypeError("Expected argument 'server_key_type' to be a str")
-        pulumi.set(__self__, "server_key_type", server_key_type)
         if subregion and not isinstance(subregion, str):
             raise TypeError("Expected argument 'subregion' to be a str")
         pulumi.set(__self__, "subregion", subregion)
@@ -47,9 +44,6 @@ class GetServerKeyResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if uri and not isinstance(uri, str):
-            raise TypeError("Expected argument 'uri' to be a str")
-        pulumi.set(__self__, "uri", uri)
 
     @property
     @pulumi.getter(name="creationDate")
@@ -92,14 +86,6 @@ class GetServerKeyResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="serverKeyType")
-    def server_key_type(self) -> str:
-        """
-        The server key type like 'ServiceManaged', 'AzureKeyVault'.
-        """
-        return pulumi.get(self, "server_key_type")
-
-    @property
     @pulumi.getter
     def subregion(self) -> str:
         """
@@ -123,14 +109,6 @@ class GetServerKeyResult:
         """
         return pulumi.get(self, "type")
 
-    @property
-    @pulumi.getter
-    def uri(self) -> Optional[str]:
-        """
-        The URI of the server key. If the ServerKeyType is AzureKeyVault, then the URI is required.
-        """
-        return pulumi.get(self, "uri")
-
 
 class AwaitableGetServerKeyResult(GetServerKeyResult):
     # pylint: disable=using-constant-test
@@ -143,11 +121,9 @@ class AwaitableGetServerKeyResult(GetServerKeyResult):
             kind=self.kind,
             location=self.location,
             name=self.name,
-            server_key_type=self.server_key_type,
             subregion=self.subregion,
             thumbprint=self.thumbprint,
-            type=self.type,
-            uri=self.uri)
+            type=self.type)
 
 
 def get_server_key(key_name: Optional[str] = None,
@@ -179,8 +155,6 @@ def get_server_key(key_name: Optional[str] = None,
         kind=__ret__.kind,
         location=__ret__.location,
         name=__ret__.name,
-        server_key_type=__ret__.server_key_type,
         subregion=__ret__.subregion,
         thumbprint=__ret__.thumbprint,
-        type=__ret__.type,
-        uri=__ret__.uri)
+        type=__ret__.type)

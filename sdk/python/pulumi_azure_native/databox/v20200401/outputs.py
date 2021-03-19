@@ -2133,21 +2133,17 @@ class ManagedDiskDetailsResponse(dict):
     def __init__(__self__, *,
                  data_account_type: str,
                  resource_group_id: str,
-                 staging_storage_account_id: str,
-                 share_password: Optional[str] = None):
+                 staging_storage_account_id: str):
         """
         Details of the managed disks.
         :param str data_account_type: Account Type of the data to be transferred.
                Expected value is 'ManagedDisk'.
         :param str resource_group_id: Resource Group Id of the compute disks.
         :param str staging_storage_account_id: Resource Id of the storage account that can be used to copy the vhd for staging.
-        :param str share_password: Password for all the shares to be created on the device. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\-$%^!+=;:_()]+
         """
         pulumi.set(__self__, "data_account_type", 'ManagedDisk')
         pulumi.set(__self__, "resource_group_id", resource_group_id)
         pulumi.set(__self__, "staging_storage_account_id", staging_storage_account_id)
-        if share_password is not None:
-            pulumi.set(__self__, "share_password", share_password)
 
     @property
     @pulumi.getter(name="dataAccountType")
@@ -2173,14 +2169,6 @@ class ManagedDiskDetailsResponse(dict):
         Resource Id of the storage account that can be used to copy the vhd for staging.
         """
         return pulumi.get(self, "staging_storage_account_id")
-
-    @property
-    @pulumi.getter(name="sharePassword")
-    def share_password(self) -> Optional[str]:
-        """
-        Password for all the shares to be created on the device. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\-$%^!+=;:_()]+
-        """
-        return pulumi.get(self, "share_password")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -2612,19 +2600,15 @@ class StorageAccountDetailsResponse(dict):
     """
     def __init__(__self__, *,
                  data_account_type: str,
-                 storage_account_id: str,
-                 share_password: Optional[str] = None):
+                 storage_account_id: str):
         """
         Details for the storage account.
         :param str data_account_type: Account Type of the data to be transferred.
                Expected value is 'StorageAccount'.
         :param str storage_account_id: Storage Account Resource Id.
-        :param str share_password: Password for all the shares to be created on the device. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\-$%^!+=;:_()]+
         """
         pulumi.set(__self__, "data_account_type", 'StorageAccount')
         pulumi.set(__self__, "storage_account_id", storage_account_id)
-        if share_password is not None:
-            pulumi.set(__self__, "share_password", share_password)
 
     @property
     @pulumi.getter(name="dataAccountType")
@@ -2642,14 +2626,6 @@ class StorageAccountDetailsResponse(dict):
         Storage Account Resource Id.
         """
         return pulumi.get(self, "storage_account_id")
-
-    @property
-    @pulumi.getter(name="sharePassword")
-    def share_password(self) -> Optional[str]:
-        """
-        Password for all the shares to be created on the device. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\-$%^!+=;:_()]+
-        """
-        return pulumi.get(self, "share_password")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

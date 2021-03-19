@@ -52,10 +52,6 @@ export class ServerKey extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The server key type like 'ServiceManaged', 'AzureKeyVault'.
-     */
-    public readonly serverKeyType!: pulumi.Output<string>;
-    /**
      * Subregion of the server key.
      */
     public /*out*/ readonly subregion!: pulumi.Output<string>;
@@ -67,10 +63,6 @@ export class ServerKey extends pulumi.CustomResource {
      * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * The URI of the server key. If the ServerKeyType is AzureKeyVault, then the URI is required.
-     */
-    public readonly uri!: pulumi.Output<string | undefined>;
 
     /**
      * Create a ServerKey resource with the given unique name, arguments, and options.
@@ -109,11 +101,9 @@ export class ServerKey extends pulumi.CustomResource {
             inputs["kind"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
-            inputs["serverKeyType"] = undefined /*out*/;
             inputs["subregion"] = undefined /*out*/;
             inputs["thumbprint"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
-            inputs["uri"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});

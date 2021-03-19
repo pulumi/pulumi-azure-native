@@ -5025,8 +5025,6 @@ type ManagedDiskDetailsResponse struct {
 	DataAccountType string `pulumi:"dataAccountType"`
 	// Resource Group Id of the compute disks.
 	ResourceGroupId string `pulumi:"resourceGroupId"`
-	// Password for all the shares to be created on the device. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\-$%^!+=;:_()]+
-	SharePassword *string `pulumi:"sharePassword"`
 	// Resource Id of the storage account that can be used to copy the vhd for staging.
 	StagingStorageAccountId string `pulumi:"stagingStorageAccountId"`
 }
@@ -5049,8 +5047,6 @@ type ManagedDiskDetailsResponseArgs struct {
 	DataAccountType pulumi.StringInput `pulumi:"dataAccountType"`
 	// Resource Group Id of the compute disks.
 	ResourceGroupId pulumi.StringInput `pulumi:"resourceGroupId"`
-	// Password for all the shares to be created on the device. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\-$%^!+=;:_()]+
-	SharePassword pulumi.StringPtrInput `pulumi:"sharePassword"`
 	// Resource Id of the storage account that can be used to copy the vhd for staging.
 	StagingStorageAccountId pulumi.StringInput `pulumi:"stagingStorageAccountId"`
 }
@@ -5091,11 +5087,6 @@ func (o ManagedDiskDetailsResponseOutput) DataAccountType() pulumi.StringOutput 
 // Resource Group Id of the compute disks.
 func (o ManagedDiskDetailsResponseOutput) ResourceGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedDiskDetailsResponse) string { return v.ResourceGroupId }).(pulumi.StringOutput)
-}
-
-// Password for all the shares to be created on the device. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\-$%^!+=;:_()]+
-func (o ManagedDiskDetailsResponseOutput) SharePassword() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ManagedDiskDetailsResponse) *string { return v.SharePassword }).(pulumi.StringPtrOutput)
 }
 
 // Resource Id of the storage account that can be used to copy the vhd for staging.
@@ -7177,8 +7168,6 @@ type StorageAccountDetailsResponse struct {
 	// Account Type of the data to be transferred.
 	// Expected value is 'StorageAccount'.
 	DataAccountType string `pulumi:"dataAccountType"`
-	// Password for all the shares to be created on the device. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\-$%^!+=;:_()]+
-	SharePassword *string `pulumi:"sharePassword"`
 	// Storage Account Resource Id.
 	StorageAccountId string `pulumi:"storageAccountId"`
 }
@@ -7199,8 +7188,6 @@ type StorageAccountDetailsResponseArgs struct {
 	// Account Type of the data to be transferred.
 	// Expected value is 'StorageAccount'.
 	DataAccountType pulumi.StringInput `pulumi:"dataAccountType"`
-	// Password for all the shares to be created on the device. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\-$%^!+=;:_()]+
-	SharePassword pulumi.StringPtrInput `pulumi:"sharePassword"`
 	// Storage Account Resource Id.
 	StorageAccountId pulumi.StringInput `pulumi:"storageAccountId"`
 }
@@ -7236,11 +7223,6 @@ func (o StorageAccountDetailsResponseOutput) ToStorageAccountDetailsResponseOutp
 // Expected value is 'StorageAccount'.
 func (o StorageAccountDetailsResponseOutput) DataAccountType() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageAccountDetailsResponse) string { return v.DataAccountType }).(pulumi.StringOutput)
-}
-
-// Password for all the shares to be created on the device. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\-$%^!+=;:_()]+
-func (o StorageAccountDetailsResponseOutput) SharePassword() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StorageAccountDetailsResponse) *string { return v.SharePassword }).(pulumi.StringPtrOutput)
 }
 
 // Storage Account Resource Id.

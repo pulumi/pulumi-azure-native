@@ -20,7 +20,7 @@ class GetConnectorResult:
     """
     The Connector model definition
     """
-    def __init__(__self__, collection=None, created_on=None, credentials_key=None, credentials_secret=None, display_name=None, id=None, kind=None, location=None, modified_on=None, name=None, provider_account_id=None, report_id=None, status=None, tags=None, type=None):
+    def __init__(__self__, collection=None, created_on=None, credentials_key=None, display_name=None, id=None, kind=None, location=None, modified_on=None, name=None, provider_account_id=None, report_id=None, status=None, tags=None, type=None):
         if collection and not isinstance(collection, dict):
             raise TypeError("Expected argument 'collection' to be a dict")
         pulumi.set(__self__, "collection", collection)
@@ -30,9 +30,6 @@ class GetConnectorResult:
         if credentials_key and not isinstance(credentials_key, str):
             raise TypeError("Expected argument 'credentials_key' to be a str")
         pulumi.set(__self__, "credentials_key", credentials_key)
-        if credentials_secret and not isinstance(credentials_secret, str):
-            raise TypeError("Expected argument 'credentials_secret' to be a str")
-        pulumi.set(__self__, "credentials_secret", credentials_secret)
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
         pulumi.set(__self__, "display_name", display_name)
@@ -90,14 +87,6 @@ class GetConnectorResult:
         Credentials authentication key (eg AWS ARN)
         """
         return pulumi.get(self, "credentials_key")
-
-    @property
-    @pulumi.getter(name="credentialsSecret")
-    def credentials_secret(self) -> Optional[str]:
-        """
-        Credentials secret (eg AWS ExternalId)
-        """
-        return pulumi.get(self, "credentials_secret")
 
     @property
     @pulumi.getter(name="displayName")
@@ -197,7 +186,6 @@ class AwaitableGetConnectorResult(GetConnectorResult):
             collection=self.collection,
             created_on=self.created_on,
             credentials_key=self.credentials_key,
-            credentials_secret=self.credentials_secret,
             display_name=self.display_name,
             id=self.id,
             kind=self.kind,
@@ -235,7 +223,6 @@ def get_connector(connector_name: Optional[str] = None,
         collection=__ret__.collection,
         created_on=__ret__.created_on,
         credentials_key=__ret__.credentials_key,
-        credentials_secret=__ret__.credentials_secret,
         display_name=__ret__.display_name,
         id=__ret__.id,
         kind=__ret__.kind,

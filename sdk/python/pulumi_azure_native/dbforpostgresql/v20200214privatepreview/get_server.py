@@ -20,22 +20,16 @@ class GetServerResult:
     """
     Represents a server.
     """
-    def __init__(__self__, administrator_login=None, administrator_login_password=None, availability_zone=None, byok_enforcement=None, create_mode=None, delegated_subnet_arguments=None, display_name=None, fully_qualified_domain_name=None, ha_enabled=None, ha_state=None, id=None, identity=None, location=None, maintenance_window=None, name=None, point_in_time_utc=None, public_network_access=None, sku=None, source_resource_group_name=None, source_server_name=None, source_subscription_id=None, standby_availability_zone=None, state=None, storage_profile=None, tags=None, type=None, version=None):
+    def __init__(__self__, administrator_login=None, availability_zone=None, byok_enforcement=None, delegated_subnet_arguments=None, display_name=None, fully_qualified_domain_name=None, ha_enabled=None, ha_state=None, id=None, identity=None, location=None, maintenance_window=None, name=None, point_in_time_utc=None, public_network_access=None, sku=None, source_resource_group_name=None, source_server_name=None, source_subscription_id=None, standby_availability_zone=None, state=None, storage_profile=None, tags=None, type=None, version=None):
         if administrator_login and not isinstance(administrator_login, str):
             raise TypeError("Expected argument 'administrator_login' to be a str")
         pulumi.set(__self__, "administrator_login", administrator_login)
-        if administrator_login_password and not isinstance(administrator_login_password, str):
-            raise TypeError("Expected argument 'administrator_login_password' to be a str")
-        pulumi.set(__self__, "administrator_login_password", administrator_login_password)
         if availability_zone and not isinstance(availability_zone, str):
             raise TypeError("Expected argument 'availability_zone' to be a str")
         pulumi.set(__self__, "availability_zone", availability_zone)
         if byok_enforcement and not isinstance(byok_enforcement, str):
             raise TypeError("Expected argument 'byok_enforcement' to be a str")
         pulumi.set(__self__, "byok_enforcement", byok_enforcement)
-        if create_mode and not isinstance(create_mode, str):
-            raise TypeError("Expected argument 'create_mode' to be a str")
-        pulumi.set(__self__, "create_mode", create_mode)
         if delegated_subnet_arguments and not isinstance(delegated_subnet_arguments, dict):
             raise TypeError("Expected argument 'delegated_subnet_arguments' to be a dict")
         pulumi.set(__self__, "delegated_subnet_arguments", delegated_subnet_arguments)
@@ -112,14 +106,6 @@ class GetServerResult:
         return pulumi.get(self, "administrator_login")
 
     @property
-    @pulumi.getter(name="administratorLoginPassword")
-    def administrator_login_password(self) -> Optional[str]:
-        """
-        The administrator login password (required for server creation).
-        """
-        return pulumi.get(self, "administrator_login_password")
-
-    @property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> Optional[str]:
         """
@@ -134,14 +120,6 @@ class GetServerResult:
         Status showing whether the data encryption is enabled with customer-managed keys.
         """
         return pulumi.get(self, "byok_enforcement")
-
-    @property
-    @pulumi.getter(name="createMode")
-    def create_mode(self) -> Optional[str]:
-        """
-        The mode to create a new PostgreSQL server.
-        """
-        return pulumi.get(self, "create_mode")
 
     @property
     @pulumi.getter(name="delegatedSubnetArguments")
@@ -324,10 +302,8 @@ class AwaitableGetServerResult(GetServerResult):
             yield self
         return GetServerResult(
             administrator_login=self.administrator_login,
-            administrator_login_password=self.administrator_login_password,
             availability_zone=self.availability_zone,
             byok_enforcement=self.byok_enforcement,
-            create_mode=self.create_mode,
             delegated_subnet_arguments=self.delegated_subnet_arguments,
             display_name=self.display_name,
             fully_qualified_domain_name=self.fully_qualified_domain_name,
@@ -373,10 +349,8 @@ def get_server(resource_group_name: Optional[str] = None,
 
     return AwaitableGetServerResult(
         administrator_login=__ret__.administrator_login,
-        administrator_login_password=__ret__.administrator_login_password,
         availability_zone=__ret__.availability_zone,
         byok_enforcement=__ret__.byok_enforcement,
-        create_mode=__ret__.create_mode,
         delegated_subnet_arguments=__ret__.delegated_subnet_arguments,
         display_name=__ret__.display_name,
         fully_qualified_domain_name=__ret__.fully_qualified_domain_name,

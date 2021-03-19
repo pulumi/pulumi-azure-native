@@ -22,16 +22,13 @@ class GetDatabaseResult:
     """
     Represents a database.
     """
-    def __init__(__self__, collation=None, containment_state=None, create_mode=None, creation_date=None, current_service_objective_id=None, database_id=None, default_secondary_location=None, earliest_restore_date=None, edition=None, elastic_pool_name=None, failover_group_id=None, id=None, kind=None, location=None, max_size_bytes=None, name=None, read_scale=None, recommended_index=None, recovery_services_recovery_point_resource_id=None, requested_service_objective_id=None, requested_service_objective_name=None, restore_point_in_time=None, sample_name=None, service_level_objective=None, service_tier_advisors=None, source_database_deletion_date=None, source_database_id=None, status=None, tags=None, transparent_data_encryption=None, type=None, zone_redundant=None):
+    def __init__(__self__, collation=None, containment_state=None, creation_date=None, current_service_objective_id=None, database_id=None, default_secondary_location=None, earliest_restore_date=None, edition=None, elastic_pool_name=None, failover_group_id=None, id=None, kind=None, location=None, max_size_bytes=None, name=None, read_scale=None, recommended_index=None, requested_service_objective_id=None, requested_service_objective_name=None, service_level_objective=None, service_tier_advisors=None, status=None, tags=None, transparent_data_encryption=None, type=None, zone_redundant=None):
         if collation and not isinstance(collation, str):
             raise TypeError("Expected argument 'collation' to be a str")
         pulumi.set(__self__, "collation", collation)
         if containment_state and not isinstance(containment_state, float):
             raise TypeError("Expected argument 'containment_state' to be a float")
         pulumi.set(__self__, "containment_state", containment_state)
-        if create_mode and not isinstance(create_mode, str):
-            raise TypeError("Expected argument 'create_mode' to be a str")
-        pulumi.set(__self__, "create_mode", create_mode)
         if creation_date and not isinstance(creation_date, str):
             raise TypeError("Expected argument 'creation_date' to be a str")
         pulumi.set(__self__, "creation_date", creation_date)
@@ -77,33 +74,18 @@ class GetDatabaseResult:
         if recommended_index and not isinstance(recommended_index, list):
             raise TypeError("Expected argument 'recommended_index' to be a list")
         pulumi.set(__self__, "recommended_index", recommended_index)
-        if recovery_services_recovery_point_resource_id and not isinstance(recovery_services_recovery_point_resource_id, str):
-            raise TypeError("Expected argument 'recovery_services_recovery_point_resource_id' to be a str")
-        pulumi.set(__self__, "recovery_services_recovery_point_resource_id", recovery_services_recovery_point_resource_id)
         if requested_service_objective_id and not isinstance(requested_service_objective_id, str):
             raise TypeError("Expected argument 'requested_service_objective_id' to be a str")
         pulumi.set(__self__, "requested_service_objective_id", requested_service_objective_id)
         if requested_service_objective_name and not isinstance(requested_service_objective_name, str):
             raise TypeError("Expected argument 'requested_service_objective_name' to be a str")
         pulumi.set(__self__, "requested_service_objective_name", requested_service_objective_name)
-        if restore_point_in_time and not isinstance(restore_point_in_time, str):
-            raise TypeError("Expected argument 'restore_point_in_time' to be a str")
-        pulumi.set(__self__, "restore_point_in_time", restore_point_in_time)
-        if sample_name and not isinstance(sample_name, str):
-            raise TypeError("Expected argument 'sample_name' to be a str")
-        pulumi.set(__self__, "sample_name", sample_name)
         if service_level_objective and not isinstance(service_level_objective, str):
             raise TypeError("Expected argument 'service_level_objective' to be a str")
         pulumi.set(__self__, "service_level_objective", service_level_objective)
         if service_tier_advisors and not isinstance(service_tier_advisors, list):
             raise TypeError("Expected argument 'service_tier_advisors' to be a list")
         pulumi.set(__self__, "service_tier_advisors", service_tier_advisors)
-        if source_database_deletion_date and not isinstance(source_database_deletion_date, str):
-            raise TypeError("Expected argument 'source_database_deletion_date' to be a str")
-        pulumi.set(__self__, "source_database_deletion_date", source_database_deletion_date)
-        if source_database_id and not isinstance(source_database_id, str):
-            raise TypeError("Expected argument 'source_database_id' to be a str")
-        pulumi.set(__self__, "source_database_id", source_database_id)
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
@@ -135,30 +117,6 @@ class GetDatabaseResult:
         The containment state of the database.
         """
         return pulumi.get(self, "containment_state")
-
-    @property
-    @pulumi.getter(name="createMode")
-    def create_mode(self) -> Optional[str]:
-        """
-        Specifies the mode of database creation.
-
-        Default: regular database creation.
-
-        Copy: creates a database as a copy of an existing database. sourceDatabaseId must be specified as the resource ID of the source database.
-
-        OnlineSecondary/NonReadableSecondary: creates a database as a (readable or nonreadable) secondary replica of an existing database. sourceDatabaseId must be specified as the resource ID of the existing primary database.
-
-        PointInTimeRestore: Creates a database by restoring a point in time backup of an existing database. sourceDatabaseId must be specified as the resource ID of the existing database, and restorePointInTime must be specified.
-
-        Recovery: Creates a database by restoring a geo-replicated backup. sourceDatabaseId must be specified as the recoverable database resource ID to restore.
-
-        Restore: Creates a database by restoring a backup of a deleted database. sourceDatabaseId must be specified. If sourceDatabaseId is the database's original resource ID, then sourceDatabaseDeletionDate must be specified. Otherwise sourceDatabaseId must be the restorable dropped database resource ID and sourceDatabaseDeletionDate is ignored. restorePointInTime may also be specified to restore from an earlier point in time.
-
-        RestoreLongTermRetentionBackup: Creates a database by restoring from a long term retention vault. recoveryServicesRecoveryPointResourceId must be specified as the recovery point resource ID.
-
-        Copy, NonReadableSecondary, OnlineSecondary and RestoreLongTermRetentionBackup are not supported for DataWarehouse edition.
-        """
-        return pulumi.get(self, "create_mode")
 
     @property
     @pulumi.getter(name="creationDate")
@@ -291,14 +249,6 @@ class GetDatabaseResult:
         return pulumi.get(self, "recommended_index")
 
     @property
-    @pulumi.getter(name="recoveryServicesRecoveryPointResourceId")
-    def recovery_services_recovery_point_resource_id(self) -> Optional[str]:
-        """
-        Conditional. If createMode is RestoreLongTermRetentionBackup, then this value is required. Specifies the resource ID of the recovery point to restore from.
-        """
-        return pulumi.get(self, "recovery_services_recovery_point_resource_id")
-
-    @property
     @pulumi.getter(name="requestedServiceObjectiveId")
     def requested_service_objective_id(self) -> Optional[str]:
         """
@@ -327,22 +277,6 @@ class GetDatabaseResult:
         return pulumi.get(self, "requested_service_objective_name")
 
     @property
-    @pulumi.getter(name="restorePointInTime")
-    def restore_point_in_time(self) -> Optional[str]:
-        """
-        Conditional. If createMode is PointInTimeRestore, this value is required. If createMode is Restore, this value is optional. Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. Must be greater than or equal to the source database's earliestRestoreDate value.
-        """
-        return pulumi.get(self, "restore_point_in_time")
-
-    @property
-    @pulumi.getter(name="sampleName")
-    def sample_name(self) -> Optional[str]:
-        """
-        Indicates the name of the sample schema to apply when creating this database. If createMode is not Default, this value is ignored. Not supported for DataWarehouse edition.
-        """
-        return pulumi.get(self, "sample_name")
-
-    @property
     @pulumi.getter(name="serviceLevelObjective")
     def service_level_objective(self) -> str:
         """
@@ -357,22 +291,6 @@ class GetDatabaseResult:
         The list of service tier advisors for this database. Expanded property
         """
         return pulumi.get(self, "service_tier_advisors")
-
-    @property
-    @pulumi.getter(name="sourceDatabaseDeletionDate")
-    def source_database_deletion_date(self) -> Optional[str]:
-        """
-        Conditional. If createMode is Restore and sourceDatabaseId is the deleted database's original resource id when it existed (as opposed to its current restorable dropped database id), then this value is required. Specifies the time that the database was deleted.
-        """
-        return pulumi.get(self, "source_database_deletion_date")
-
-    @property
-    @pulumi.getter(name="sourceDatabaseId")
-    def source_database_id(self) -> Optional[str]:
-        """
-        Conditional. If createMode is Copy, NonReadableSecondary, OnlineSecondary, PointInTimeRestore, Recovery, or Restore, then this value is required. Specifies the resource ID of the source database. If createMode is NonReadableSecondary or OnlineSecondary, the name of the source database must be the same as the new database being created.
-        """
-        return pulumi.get(self, "source_database_id")
 
     @property
     @pulumi.getter
@@ -423,7 +341,6 @@ class AwaitableGetDatabaseResult(GetDatabaseResult):
         return GetDatabaseResult(
             collation=self.collation,
             containment_state=self.containment_state,
-            create_mode=self.create_mode,
             creation_date=self.creation_date,
             current_service_objective_id=self.current_service_objective_id,
             database_id=self.database_id,
@@ -439,15 +356,10 @@ class AwaitableGetDatabaseResult(GetDatabaseResult):
             name=self.name,
             read_scale=self.read_scale,
             recommended_index=self.recommended_index,
-            recovery_services_recovery_point_resource_id=self.recovery_services_recovery_point_resource_id,
             requested_service_objective_id=self.requested_service_objective_id,
             requested_service_objective_name=self.requested_service_objective_name,
-            restore_point_in_time=self.restore_point_in_time,
-            sample_name=self.sample_name,
             service_level_objective=self.service_level_objective,
             service_tier_advisors=self.service_tier_advisors,
-            source_database_deletion_date=self.source_database_deletion_date,
-            source_database_id=self.source_database_id,
             status=self.status,
             tags=self.tags,
             transparent_data_encryption=self.transparent_data_encryption,
@@ -485,7 +397,6 @@ def get_database(database_name: Optional[str] = None,
     return AwaitableGetDatabaseResult(
         collation=__ret__.collation,
         containment_state=__ret__.containment_state,
-        create_mode=__ret__.create_mode,
         creation_date=__ret__.creation_date,
         current_service_objective_id=__ret__.current_service_objective_id,
         database_id=__ret__.database_id,
@@ -501,15 +412,10 @@ def get_database(database_name: Optional[str] = None,
         name=__ret__.name,
         read_scale=__ret__.read_scale,
         recommended_index=__ret__.recommended_index,
-        recovery_services_recovery_point_resource_id=__ret__.recovery_services_recovery_point_resource_id,
         requested_service_objective_id=__ret__.requested_service_objective_id,
         requested_service_objective_name=__ret__.requested_service_objective_name,
-        restore_point_in_time=__ret__.restore_point_in_time,
-        sample_name=__ret__.sample_name,
         service_level_objective=__ret__.service_level_objective,
         service_tier_advisors=__ret__.service_tier_advisors,
-        source_database_deletion_date=__ret__.source_database_deletion_date,
-        source_database_id=__ret__.source_database_id,
         status=__ret__.status,
         tags=__ret__.tags,
         transparent_data_encryption=__ret__.transparent_data_encryption,

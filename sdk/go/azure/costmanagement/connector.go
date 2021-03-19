@@ -22,8 +22,6 @@ type Connector struct {
 	CreatedOn pulumi.StringOutput `pulumi:"createdOn"`
 	// Credentials authentication key (eg AWS ARN)
 	CredentialsKey pulumi.StringPtrOutput `pulumi:"credentialsKey"`
-	// Credentials secret (eg AWS ExternalId)
-	CredentialsSecret pulumi.StringPtrOutput `pulumi:"credentialsSecret"`
 	// Connector DisplayName (defaults to Name)
 	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
 	// Connector kind (eg aws)
@@ -96,8 +94,6 @@ type connectorState struct {
 	CreatedOn *string `pulumi:"createdOn"`
 	// Credentials authentication key (eg AWS ARN)
 	CredentialsKey *string `pulumi:"credentialsKey"`
-	// Credentials secret (eg AWS ExternalId)
-	CredentialsSecret *string `pulumi:"credentialsSecret"`
 	// Connector DisplayName (defaults to Name)
 	DisplayName *string `pulumi:"displayName"`
 	// Connector kind (eg aws)
@@ -127,8 +123,6 @@ type ConnectorState struct {
 	CreatedOn pulumi.StringPtrInput
 	// Credentials authentication key (eg AWS ARN)
 	CredentialsKey pulumi.StringPtrInput
-	// Credentials secret (eg AWS ExternalId)
-	CredentialsSecret pulumi.StringPtrInput
 	// Connector DisplayName (defaults to Name)
 	DisplayName pulumi.StringPtrInput
 	// Connector kind (eg aws)

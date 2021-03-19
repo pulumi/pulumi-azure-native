@@ -42,10 +42,6 @@ export interface GetServerResult {
      */
     readonly administratorLogin?: string;
     /**
-     * The administrator login password (required for server creation).
-     */
-    readonly administratorLoginPassword?: string;
-    /**
      * The fully qualified domain name of the server.
      */
     readonly fullyQualifiedDomainName: string;

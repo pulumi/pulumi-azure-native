@@ -17,16 +17,12 @@ type ServerGroup struct {
 
 	// The administrator's login name of servers in server group. Can only be specified when the server is being created (and is required for creation).
 	AdministratorLogin pulumi.StringPtrOutput `pulumi:"administratorLogin"`
-	// The password of the administrator login.
-	AdministratorLoginPassword pulumi.StringPtrOutput `pulumi:"administratorLoginPassword"`
 	// Availability Zone information of the server group.
 	AvailabilityZone pulumi.StringPtrOutput `pulumi:"availabilityZone"`
 	// The backup retention days for server group.
 	BackupRetentionDays pulumi.IntPtrOutput `pulumi:"backupRetentionDays"`
 	// The Citus version of server group.
 	CitusVersion pulumi.StringPtrOutput `pulumi:"citusVersion"`
-	// The mode to create a new server group.
-	CreateMode pulumi.StringPtrOutput `pulumi:"createMode"`
 	// The delegated subnet arguments for a server group.
 	DelegatedSubnetArguments ServerGroupPropertiesResponseDelegatedSubnetArgumentsPtrOutput `pulumi:"delegatedSubnetArguments"`
 	// The earliest restore point time (ISO8601 format) for server group.
@@ -43,8 +39,6 @@ type ServerGroup struct {
 	MaintenanceWindow MaintenanceWindowResponsePtrOutput `pulumi:"maintenanceWindow"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Restore point creation time (ISO8601 format), specifying the time to restore from. It's required when 'createMode' is 'PointInTimeRestore'
-	PointInTimeUTC pulumi.StringPtrOutput `pulumi:"pointInTimeUTC"`
 	// The PostgreSQL version of server group.
 	PostgresqlVersion pulumi.StringPtrOutput `pulumi:"postgresqlVersion"`
 	// The array of read replica server groups.
@@ -53,16 +47,8 @@ type ServerGroup struct {
 	ResourceProviderType pulumi.StringOutput `pulumi:"resourceProviderType"`
 	// The list of server role groups.
 	ServerRoleGroups ServerRoleGroupResponseArrayOutput `pulumi:"serverRoleGroups"`
-	// The source server group location to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'ReadReplica'
-	SourceLocation pulumi.StringPtrOutput `pulumi:"sourceLocation"`
-	// The source resource group name to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'ReadReplica'
-	SourceResourceGroupName pulumi.StringPtrOutput `pulumi:"sourceResourceGroupName"`
 	// The source server group id for read replica server groups.
 	SourceServerGroup pulumi.StringOutput `pulumi:"sourceServerGroup"`
-	// The source server group name to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'ReadReplica'
-	SourceServerGroupName pulumi.StringPtrOutput `pulumi:"sourceServerGroupName"`
-	// The source subscription id to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'ReadReplica'
-	SourceSubscriptionId pulumi.StringPtrOutput `pulumi:"sourceSubscriptionId"`
 	// Standby Availability Zone information of the server group.
 	StandbyAvailabilityZone pulumi.StringPtrOutput `pulumi:"standbyAvailabilityZone"`
 	// A state of a server group that is visible to user.
@@ -115,16 +101,12 @@ func GetServerGroup(ctx *pulumi.Context,
 type serverGroupState struct {
 	// The administrator's login name of servers in server group. Can only be specified when the server is being created (and is required for creation).
 	AdministratorLogin *string `pulumi:"administratorLogin"`
-	// The password of the administrator login.
-	AdministratorLoginPassword *string `pulumi:"administratorLoginPassword"`
 	// Availability Zone information of the server group.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
 	// The backup retention days for server group.
 	BackupRetentionDays *int `pulumi:"backupRetentionDays"`
 	// The Citus version of server group.
 	CitusVersion *string `pulumi:"citusVersion"`
-	// The mode to create a new server group.
-	CreateMode *string `pulumi:"createMode"`
 	// The delegated subnet arguments for a server group.
 	DelegatedSubnetArguments *ServerGroupPropertiesResponseDelegatedSubnetArguments `pulumi:"delegatedSubnetArguments"`
 	// The earliest restore point time (ISO8601 format) for server group.
@@ -141,8 +123,6 @@ type serverGroupState struct {
 	MaintenanceWindow *MaintenanceWindowResponse `pulumi:"maintenanceWindow"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
-	// Restore point creation time (ISO8601 format), specifying the time to restore from. It's required when 'createMode' is 'PointInTimeRestore'
-	PointInTimeUTC *string `pulumi:"pointInTimeUTC"`
 	// The PostgreSQL version of server group.
 	PostgresqlVersion *string `pulumi:"postgresqlVersion"`
 	// The array of read replica server groups.
@@ -151,16 +131,8 @@ type serverGroupState struct {
 	ResourceProviderType *string `pulumi:"resourceProviderType"`
 	// The list of server role groups.
 	ServerRoleGroups []ServerRoleGroupResponse `pulumi:"serverRoleGroups"`
-	// The source server group location to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'ReadReplica'
-	SourceLocation *string `pulumi:"sourceLocation"`
-	// The source resource group name to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'ReadReplica'
-	SourceResourceGroupName *string `pulumi:"sourceResourceGroupName"`
 	// The source server group id for read replica server groups.
 	SourceServerGroup *string `pulumi:"sourceServerGroup"`
-	// The source server group name to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'ReadReplica'
-	SourceServerGroupName *string `pulumi:"sourceServerGroupName"`
-	// The source subscription id to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'ReadReplica'
-	SourceSubscriptionId *string `pulumi:"sourceSubscriptionId"`
 	// Standby Availability Zone information of the server group.
 	StandbyAvailabilityZone *string `pulumi:"standbyAvailabilityZone"`
 	// A state of a server group that is visible to user.
@@ -176,16 +148,12 @@ type serverGroupState struct {
 type ServerGroupState struct {
 	// The administrator's login name of servers in server group. Can only be specified when the server is being created (and is required for creation).
 	AdministratorLogin pulumi.StringPtrInput
-	// The password of the administrator login.
-	AdministratorLoginPassword pulumi.StringPtrInput
 	// Availability Zone information of the server group.
 	AvailabilityZone pulumi.StringPtrInput
 	// The backup retention days for server group.
 	BackupRetentionDays pulumi.IntPtrInput
 	// The Citus version of server group.
 	CitusVersion pulumi.StringPtrInput
-	// The mode to create a new server group.
-	CreateMode pulumi.StringPtrInput
 	// The delegated subnet arguments for a server group.
 	DelegatedSubnetArguments ServerGroupPropertiesResponseDelegatedSubnetArgumentsPtrInput
 	// The earliest restore point time (ISO8601 format) for server group.
@@ -202,8 +170,6 @@ type ServerGroupState struct {
 	MaintenanceWindow MaintenanceWindowResponsePtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
-	// Restore point creation time (ISO8601 format), specifying the time to restore from. It's required when 'createMode' is 'PointInTimeRestore'
-	PointInTimeUTC pulumi.StringPtrInput
 	// The PostgreSQL version of server group.
 	PostgresqlVersion pulumi.StringPtrInput
 	// The array of read replica server groups.
@@ -212,16 +178,8 @@ type ServerGroupState struct {
 	ResourceProviderType pulumi.StringPtrInput
 	// The list of server role groups.
 	ServerRoleGroups ServerRoleGroupResponseArrayInput
-	// The source server group location to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'ReadReplica'
-	SourceLocation pulumi.StringPtrInput
-	// The source resource group name to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'ReadReplica'
-	SourceResourceGroupName pulumi.StringPtrInput
 	// The source server group id for read replica server groups.
 	SourceServerGroup pulumi.StringPtrInput
-	// The source server group name to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'ReadReplica'
-	SourceServerGroupName pulumi.StringPtrInput
-	// The source subscription id to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'ReadReplica'
-	SourceSubscriptionId pulumi.StringPtrInput
 	// Standby Availability Zone information of the server group.
 	StandbyAvailabilityZone pulumi.StringPtrInput
 	// A state of a server group that is visible to user.

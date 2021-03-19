@@ -162,26 +162,21 @@ class ManagedInstance(pulumi.CustomResource):
         __props__ = dict()
 
         __props__["administrator_login"] = None
-        __props__["administrator_login_password"] = None
         __props__["collation"] = None
         __props__["dns_zone"] = None
-        __props__["dns_zone_partner"] = None
         __props__["fully_qualified_domain_name"] = None
         __props__["identity"] = None
         __props__["instance_pool_id"] = None
         __props__["license_type"] = None
         __props__["location"] = None
         __props__["maintenance_configuration_id"] = None
-        __props__["managed_instance_create_mode"] = None
         __props__["minimal_tls_version"] = None
         __props__["name"] = None
         __props__["private_endpoint_connections"] = None
         __props__["provisioning_state"] = None
         __props__["proxy_override"] = None
         __props__["public_data_endpoint_enabled"] = None
-        __props__["restore_point_in_time"] = None
         __props__["sku"] = None
-        __props__["source_managed_instance_id"] = None
         __props__["state"] = None
         __props__["storage_account_type"] = None
         __props__["storage_size_in_gb"] = None
@@ -202,14 +197,6 @@ class ManagedInstance(pulumi.CustomResource):
         return pulumi.get(self, "administrator_login")
 
     @property
-    @pulumi.getter(name="administratorLoginPassword")
-    def administrator_login_password(self) -> pulumi.Output[Optional[str]]:
-        """
-        The administrator login password (required for managed instance creation).
-        """
-        return pulumi.get(self, "administrator_login_password")
-
-    @property
     @pulumi.getter
     def collation(self) -> pulumi.Output[Optional[str]]:
         """
@@ -224,14 +211,6 @@ class ManagedInstance(pulumi.CustomResource):
         The Dns Zone that the managed instance is in.
         """
         return pulumi.get(self, "dns_zone")
-
-    @property
-    @pulumi.getter(name="dnsZonePartner")
-    def dns_zone_partner(self) -> pulumi.Output[Optional[str]]:
-        """
-        The resource id of another managed instance whose DNS zone this managed instance will share after creation.
-        """
-        return pulumi.get(self, "dns_zone_partner")
 
     @property
     @pulumi.getter(name="fullyQualifiedDomainName")
@@ -282,18 +261,6 @@ class ManagedInstance(pulumi.CustomResource):
         return pulumi.get(self, "maintenance_configuration_id")
 
     @property
-    @pulumi.getter(name="managedInstanceCreateMode")
-    def managed_instance_create_mode(self) -> pulumi.Output[Optional[str]]:
-        """
-        Specifies the mode of database creation.
-        
-        Default: Regular instance creation.
-        
-        Restore: Creates an instance by restoring a set of backups to specific point in time. RestorePointInTime and SourceManagedInstanceId must be specified.
-        """
-        return pulumi.get(self, "managed_instance_create_mode")
-
-    @property
     @pulumi.getter(name="minimalTlsVersion")
     def minimal_tls_version(self) -> pulumi.Output[Optional[str]]:
         """
@@ -339,28 +306,12 @@ class ManagedInstance(pulumi.CustomResource):
         return pulumi.get(self, "public_data_endpoint_enabled")
 
     @property
-    @pulumi.getter(name="restorePointInTime")
-    def restore_point_in_time(self) -> pulumi.Output[Optional[str]]:
-        """
-        Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database.
-        """
-        return pulumi.get(self, "restore_point_in_time")
-
-    @property
     @pulumi.getter
     def sku(self) -> pulumi.Output[Optional['outputs.SkuResponse']]:
         """
         Managed instance SKU. Allowed values for sku.name: GP_Gen4, GP_Gen5, BC_Gen4, BC_Gen5
         """
         return pulumi.get(self, "sku")
-
-    @property
-    @pulumi.getter(name="sourceManagedInstanceId")
-    def source_managed_instance_id(self) -> pulumi.Output[Optional[str]]:
-        """
-        The resource identifier of the source managed instance associated with create operation of this instance.
-        """
-        return pulumi.get(self, "source_managed_instance_id")
 
     @property
     @pulumi.getter

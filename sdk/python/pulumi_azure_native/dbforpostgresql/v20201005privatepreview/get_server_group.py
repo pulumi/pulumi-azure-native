@@ -20,13 +20,10 @@ class GetServerGroupResult:
     """
     Represents a server group for create.
     """
-    def __init__(__self__, administrator_login=None, administrator_login_password=None, availability_zone=None, backup_retention_days=None, citus_version=None, create_mode=None, delegated_subnet_arguments=None, earliest_restore_time=None, enable_mx=None, enable_shards_on_coordinator=None, enable_zfs=None, id=None, location=None, maintenance_window=None, name=None, point_in_time_utc=None, postgresql_version=None, read_replicas=None, resource_provider_type=None, server_role_groups=None, source_location=None, source_resource_group_name=None, source_server_group=None, source_server_group_name=None, source_subscription_id=None, standby_availability_zone=None, state=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, administrator_login=None, availability_zone=None, backup_retention_days=None, citus_version=None, delegated_subnet_arguments=None, earliest_restore_time=None, enable_mx=None, enable_shards_on_coordinator=None, enable_zfs=None, id=None, location=None, maintenance_window=None, name=None, postgresql_version=None, read_replicas=None, resource_provider_type=None, server_role_groups=None, source_server_group=None, standby_availability_zone=None, state=None, system_data=None, tags=None, type=None):
         if administrator_login and not isinstance(administrator_login, str):
             raise TypeError("Expected argument 'administrator_login' to be a str")
         pulumi.set(__self__, "administrator_login", administrator_login)
-        if administrator_login_password and not isinstance(administrator_login_password, str):
-            raise TypeError("Expected argument 'administrator_login_password' to be a str")
-        pulumi.set(__self__, "administrator_login_password", administrator_login_password)
         if availability_zone and not isinstance(availability_zone, str):
             raise TypeError("Expected argument 'availability_zone' to be a str")
         pulumi.set(__self__, "availability_zone", availability_zone)
@@ -36,9 +33,6 @@ class GetServerGroupResult:
         if citus_version and not isinstance(citus_version, str):
             raise TypeError("Expected argument 'citus_version' to be a str")
         pulumi.set(__self__, "citus_version", citus_version)
-        if create_mode and not isinstance(create_mode, str):
-            raise TypeError("Expected argument 'create_mode' to be a str")
-        pulumi.set(__self__, "create_mode", create_mode)
         if delegated_subnet_arguments and not isinstance(delegated_subnet_arguments, dict):
             raise TypeError("Expected argument 'delegated_subnet_arguments' to be a dict")
         pulumi.set(__self__, "delegated_subnet_arguments", delegated_subnet_arguments)
@@ -66,9 +60,6 @@ class GetServerGroupResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if point_in_time_utc and not isinstance(point_in_time_utc, str):
-            raise TypeError("Expected argument 'point_in_time_utc' to be a str")
-        pulumi.set(__self__, "point_in_time_utc", point_in_time_utc)
         if postgresql_version and not isinstance(postgresql_version, str):
             raise TypeError("Expected argument 'postgresql_version' to be a str")
         pulumi.set(__self__, "postgresql_version", postgresql_version)
@@ -81,21 +72,9 @@ class GetServerGroupResult:
         if server_role_groups and not isinstance(server_role_groups, list):
             raise TypeError("Expected argument 'server_role_groups' to be a list")
         pulumi.set(__self__, "server_role_groups", server_role_groups)
-        if source_location and not isinstance(source_location, str):
-            raise TypeError("Expected argument 'source_location' to be a str")
-        pulumi.set(__self__, "source_location", source_location)
-        if source_resource_group_name and not isinstance(source_resource_group_name, str):
-            raise TypeError("Expected argument 'source_resource_group_name' to be a str")
-        pulumi.set(__self__, "source_resource_group_name", source_resource_group_name)
         if source_server_group and not isinstance(source_server_group, str):
             raise TypeError("Expected argument 'source_server_group' to be a str")
         pulumi.set(__self__, "source_server_group", source_server_group)
-        if source_server_group_name and not isinstance(source_server_group_name, str):
-            raise TypeError("Expected argument 'source_server_group_name' to be a str")
-        pulumi.set(__self__, "source_server_group_name", source_server_group_name)
-        if source_subscription_id and not isinstance(source_subscription_id, str):
-            raise TypeError("Expected argument 'source_subscription_id' to be a str")
-        pulumi.set(__self__, "source_subscription_id", source_subscription_id)
         if standby_availability_zone and not isinstance(standby_availability_zone, str):
             raise TypeError("Expected argument 'standby_availability_zone' to be a str")
         pulumi.set(__self__, "standby_availability_zone", standby_availability_zone)
@@ -121,14 +100,6 @@ class GetServerGroupResult:
         return pulumi.get(self, "administrator_login")
 
     @property
-    @pulumi.getter(name="administratorLoginPassword")
-    def administrator_login_password(self) -> Optional[str]:
-        """
-        The password of the administrator login.
-        """
-        return pulumi.get(self, "administrator_login_password")
-
-    @property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> Optional[str]:
         """
@@ -151,14 +122,6 @@ class GetServerGroupResult:
         The Citus version of server group.
         """
         return pulumi.get(self, "citus_version")
-
-    @property
-    @pulumi.getter(name="createMode")
-    def create_mode(self) -> Optional[str]:
-        """
-        The mode to create a new server group.
-        """
-        return pulumi.get(self, "create_mode")
 
     @property
     @pulumi.getter(name="delegatedSubnetArguments")
@@ -233,14 +196,6 @@ class GetServerGroupResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="pointInTimeUTC")
-    def point_in_time_utc(self) -> Optional[str]:
-        """
-        Restore point creation time (ISO8601 format), specifying the time to restore from. It's required when 'createMode' is 'PointInTimeRestore'
-        """
-        return pulumi.get(self, "point_in_time_utc")
-
-    @property
     @pulumi.getter(name="postgresqlVersion")
     def postgresql_version(self) -> Optional[str]:
         """
@@ -273,44 +228,12 @@ class GetServerGroupResult:
         return pulumi.get(self, "server_role_groups")
 
     @property
-    @pulumi.getter(name="sourceLocation")
-    def source_location(self) -> Optional[str]:
-        """
-        The source server group location to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'ReadReplica'
-        """
-        return pulumi.get(self, "source_location")
-
-    @property
-    @pulumi.getter(name="sourceResourceGroupName")
-    def source_resource_group_name(self) -> Optional[str]:
-        """
-        The source resource group name to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'ReadReplica'
-        """
-        return pulumi.get(self, "source_resource_group_name")
-
-    @property
     @pulumi.getter(name="sourceServerGroup")
     def source_server_group(self) -> str:
         """
         The source server group id for read replica server groups.
         """
         return pulumi.get(self, "source_server_group")
-
-    @property
-    @pulumi.getter(name="sourceServerGroupName")
-    def source_server_group_name(self) -> Optional[str]:
-        """
-        The source server group name to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'ReadReplica'
-        """
-        return pulumi.get(self, "source_server_group_name")
-
-    @property
-    @pulumi.getter(name="sourceSubscriptionId")
-    def source_subscription_id(self) -> Optional[str]:
-        """
-        The source subscription id to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'ReadReplica'
-        """
-        return pulumi.get(self, "source_subscription_id")
 
     @property
     @pulumi.getter(name="standbyAvailabilityZone")
@@ -360,11 +283,9 @@ class AwaitableGetServerGroupResult(GetServerGroupResult):
             yield self
         return GetServerGroupResult(
             administrator_login=self.administrator_login,
-            administrator_login_password=self.administrator_login_password,
             availability_zone=self.availability_zone,
             backup_retention_days=self.backup_retention_days,
             citus_version=self.citus_version,
-            create_mode=self.create_mode,
             delegated_subnet_arguments=self.delegated_subnet_arguments,
             earliest_restore_time=self.earliest_restore_time,
             enable_mx=self.enable_mx,
@@ -374,16 +295,11 @@ class AwaitableGetServerGroupResult(GetServerGroupResult):
             location=self.location,
             maintenance_window=self.maintenance_window,
             name=self.name,
-            point_in_time_utc=self.point_in_time_utc,
             postgresql_version=self.postgresql_version,
             read_replicas=self.read_replicas,
             resource_provider_type=self.resource_provider_type,
             server_role_groups=self.server_role_groups,
-            source_location=self.source_location,
-            source_resource_group_name=self.source_resource_group_name,
             source_server_group=self.source_server_group,
-            source_server_group_name=self.source_server_group_name,
-            source_subscription_id=self.source_subscription_id,
             standby_availability_zone=self.standby_availability_zone,
             state=self.state,
             system_data=self.system_data,
@@ -412,11 +328,9 @@ def get_server_group(resource_group_name: Optional[str] = None,
 
     return AwaitableGetServerGroupResult(
         administrator_login=__ret__.administrator_login,
-        administrator_login_password=__ret__.administrator_login_password,
         availability_zone=__ret__.availability_zone,
         backup_retention_days=__ret__.backup_retention_days,
         citus_version=__ret__.citus_version,
-        create_mode=__ret__.create_mode,
         delegated_subnet_arguments=__ret__.delegated_subnet_arguments,
         earliest_restore_time=__ret__.earliest_restore_time,
         enable_mx=__ret__.enable_mx,
@@ -426,16 +340,11 @@ def get_server_group(resource_group_name: Optional[str] = None,
         location=__ret__.location,
         maintenance_window=__ret__.maintenance_window,
         name=__ret__.name,
-        point_in_time_utc=__ret__.point_in_time_utc,
         postgresql_version=__ret__.postgresql_version,
         read_replicas=__ret__.read_replicas,
         resource_provider_type=__ret__.resource_provider_type,
         server_role_groups=__ret__.server_role_groups,
-        source_location=__ret__.source_location,
-        source_resource_group_name=__ret__.source_resource_group_name,
         source_server_group=__ret__.source_server_group,
-        source_server_group_name=__ret__.source_server_group_name,
-        source_subscription_id=__ret__.source_subscription_id,
         standby_availability_zone=__ret__.standby_availability_zone,
         state=__ret__.state,
         system_data=__ret__.system_data,

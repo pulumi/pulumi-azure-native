@@ -72,10 +72,6 @@ namespace Pulumi.AzureNative.Web.V20200601
         /// </summary>
         public readonly string? ClientCertMode;
         /// <summary>
-        /// If specified during app creation, the app is cloned from a source app.
-        /// </summary>
-        public readonly Outputs.CloningInfoResponse? CloningInfo;
-        /// <summary>
         /// Size of the function container.
         /// </summary>
         public readonly int? ContainerSize;
@@ -248,8 +244,6 @@ namespace Pulumi.AzureNative.Web.V20200601
 
             string? clientCertMode,
 
-            Outputs.CloningInfoResponse? cloningInfo,
-
             int? containerSize,
 
             string? customDomainVerificationId,
@@ -333,7 +327,6 @@ namespace Pulumi.AzureNative.Web.V20200601
             ClientCertEnabled = clientCertEnabled;
             ClientCertExclusionPaths = clientCertExclusionPaths;
             ClientCertMode = clientCertMode;
-            CloningInfo = cloningInfo;
             ContainerSize = containerSize;
             CustomDomainVerificationId = customDomainVerificationId;
             DailyMemoryTimeQuota = dailyMemoryTimeQuota;

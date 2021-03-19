@@ -59,10 +59,6 @@ namespace Pulumi.AzureNative.Web.V20181101
         /// </summary>
         public readonly string? ClientCertExclusionPaths;
         /// <summary>
-        /// If specified during app creation, the app is cloned from a source app.
-        /// </summary>
-        public readonly Outputs.CloningInfoResponse? CloningInfo;
-        /// <summary>
         /// Size of the function container.
         /// </summary>
         public readonly int? ContainerSize;
@@ -233,8 +229,6 @@ namespace Pulumi.AzureNative.Web.V20181101
 
             string? clientCertExclusionPaths,
 
-            Outputs.CloningInfoResponse? cloningInfo,
-
             int? containerSize,
 
             int? dailyMemoryTimeQuota,
@@ -317,7 +311,6 @@ namespace Pulumi.AzureNative.Web.V20181101
             ClientAffinityEnabled = clientAffinityEnabled;
             ClientCertEnabled = clientCertEnabled;
             ClientCertExclusionPaths = clientCertExclusionPaths;
-            CloningInfo = cloningInfo;
             ContainerSize = containerSize;
             DailyMemoryTimeQuota = dailyMemoryTimeQuota;
             DefaultHostName = defaultHostName;

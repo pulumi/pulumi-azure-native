@@ -40,10 +40,6 @@ export class JobCredential extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The credential password.
-     */
-    public readonly password!: pulumi.Output<string>;
-    /**
      * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -88,7 +84,6 @@ export class JobCredential extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["name"] = undefined /*out*/;
-            inputs["password"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["username"] = undefined /*out*/;
         }

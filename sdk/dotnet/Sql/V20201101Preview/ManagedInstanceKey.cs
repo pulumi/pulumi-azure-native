@@ -34,12 +34,6 @@ namespace Pulumi.AzureNative.Sql.V20201101Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The key type like 'ServiceManaged', 'AzureKeyVault'.
-        /// </summary>
-        [Output("serverKeyType")]
-        public Output<string> ServerKeyType { get; private set; } = null!;
-
-        /// <summary>
         /// Thumbprint of the key.
         /// </summary>
         [Output("thumbprint")]
@@ -50,12 +44,6 @@ namespace Pulumi.AzureNative.Sql.V20201101Preview
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// The URI of the key. If the ServerKeyType is AzureKeyVault, then the URI is required.
-        /// </summary>
-        [Output("uri")]
-        public Output<string?> Uri { get; private set; } = null!;
 
 
         /// <summary>

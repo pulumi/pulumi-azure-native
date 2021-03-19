@@ -24,16 +24,12 @@ type ServerKey struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The server key type like 'ServiceManaged', 'AzureKeyVault'.
-	ServerKeyType pulumi.StringOutput `pulumi:"serverKeyType"`
 	// Subregion of the server key.
 	Subregion pulumi.StringOutput `pulumi:"subregion"`
 	// Thumbprint of the server key.
 	Thumbprint pulumi.StringOutput `pulumi:"thumbprint"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
-	// The URI of the server key. If the ServerKeyType is AzureKeyVault, then the URI is required.
-	Uri pulumi.StringPtrOutput `pulumi:"uri"`
 }
 
 // NewServerKey registers a new resource with the given unique name, arguments, and options.
@@ -112,16 +108,12 @@ type serverKeyState struct {
 	Location *string `pulumi:"location"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// The server key type like 'ServiceManaged', 'AzureKeyVault'.
-	ServerKeyType *string `pulumi:"serverKeyType"`
 	// Subregion of the server key.
 	Subregion *string `pulumi:"subregion"`
 	// Thumbprint of the server key.
 	Thumbprint *string `pulumi:"thumbprint"`
 	// Resource type.
 	Type *string `pulumi:"type"`
-	// The URI of the server key. If the ServerKeyType is AzureKeyVault, then the URI is required.
-	Uri *string `pulumi:"uri"`
 }
 
 type ServerKeyState struct {
@@ -133,16 +125,12 @@ type ServerKeyState struct {
 	Location pulumi.StringPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// The server key type like 'ServiceManaged', 'AzureKeyVault'.
-	ServerKeyType pulumi.StringPtrInput
 	// Subregion of the server key.
 	Subregion pulumi.StringPtrInput
 	// Thumbprint of the server key.
 	Thumbprint pulumi.StringPtrInput
 	// Resource type.
 	Type pulumi.StringPtrInput
-	// The URI of the server key. If the ServerKeyType is AzureKeyVault, then the URI is required.
-	Uri pulumi.StringPtrInput
 }
 
 func (ServerKeyState) ElementType() reflect.Type {

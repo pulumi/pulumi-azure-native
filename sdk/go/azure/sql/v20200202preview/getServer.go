@@ -28,8 +28,6 @@ type LookupServerArgs struct {
 type LookupServerResult struct {
 	// Administrator username for the server. Once created it cannot be changed.
 	AdministratorLogin *string `pulumi:"administratorLogin"`
-	// The administrator login password (required for server creation).
-	AdministratorLoginPassword *string `pulumi:"administratorLoginPassword"`
 	// The fully qualified domain name of the server.
 	FullyQualifiedDomainName string `pulumi:"fullyQualifiedDomainName"`
 	// Resource ID.

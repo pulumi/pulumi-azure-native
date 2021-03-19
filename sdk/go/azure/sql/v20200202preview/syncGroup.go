@@ -21,8 +21,6 @@ type SyncGroup struct {
 	ConflictResolutionPolicy pulumi.StringPtrOutput `pulumi:"conflictResolutionPolicy"`
 	// If conflict logging is enabled.
 	EnableConflictLogging pulumi.BoolPtrOutput `pulumi:"enableConflictLogging"`
-	// Password for the sync group hub database credential.
-	HubDatabasePassword pulumi.StringPtrOutput `pulumi:"hubDatabasePassword"`
 	// User name for the sync group hub database credential.
 	HubDatabaseUserName pulumi.StringPtrOutput `pulumi:"hubDatabaseUserName"`
 	// Sync interval of the sync group.
@@ -127,8 +125,6 @@ type syncGroupState struct {
 	ConflictResolutionPolicy *string `pulumi:"conflictResolutionPolicy"`
 	// If conflict logging is enabled.
 	EnableConflictLogging *bool `pulumi:"enableConflictLogging"`
-	// Password for the sync group hub database credential.
-	HubDatabasePassword *string `pulumi:"hubDatabasePassword"`
 	// User name for the sync group hub database credential.
 	HubDatabaseUserName *string `pulumi:"hubDatabaseUserName"`
 	// Sync interval of the sync group.
@@ -160,8 +156,6 @@ type SyncGroupState struct {
 	ConflictResolutionPolicy pulumi.StringPtrInput
 	// If conflict logging is enabled.
 	EnableConflictLogging pulumi.BoolPtrInput
-	// Password for the sync group hub database credential.
-	HubDatabasePassword pulumi.StringPtrInput
 	// User name for the sync group hub database credential.
 	HubDatabaseUserName pulumi.StringPtrInput
 	// Sync interval of the sync group.

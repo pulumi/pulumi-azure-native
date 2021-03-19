@@ -35,12 +35,6 @@ namespace Pulumi.AzureNative.Sql
         public Output<bool?> EnableConflictLogging { get; private set; } = null!;
 
         /// <summary>
-        /// Password for the sync group hub database credential.
-        /// </summary>
-        [Output("hubDatabasePassword")]
-        public Output<string?> HubDatabasePassword { get; private set; } = null!;
-
-        /// <summary>
         /// User name for the sync group hub database credential.
         /// </summary>
         [Output("hubDatabaseUserName")]

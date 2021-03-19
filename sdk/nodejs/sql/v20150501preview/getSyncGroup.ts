@@ -52,10 +52,6 @@ export interface GetSyncGroupResult {
      */
     readonly conflictResolutionPolicy?: string;
     /**
-     * Password for the sync group hub database credential.
-     */
-    readonly hubDatabasePassword?: string;
-    /**
      * User name for the sync group hub database credential.
      */
     readonly hubDatabaseUserName?: string;

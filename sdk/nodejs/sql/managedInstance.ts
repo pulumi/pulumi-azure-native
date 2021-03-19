@@ -41,10 +41,6 @@ export class ManagedInstance extends pulumi.CustomResource {
      */
     public readonly administratorLogin!: pulumi.Output<string | undefined>;
     /**
-     * The administrator login password (required for managed instance creation).
-     */
-    public readonly administratorLoginPassword!: pulumi.Output<string | undefined>;
-    /**
      * Collation of the managed instance.
      */
     public readonly collation!: pulumi.Output<string | undefined>;
@@ -52,10 +48,6 @@ export class ManagedInstance extends pulumi.CustomResource {
      * The Dns Zone that the managed instance is in.
      */
     public /*out*/ readonly dnsZone!: pulumi.Output<string>;
-    /**
-     * The resource id of another managed instance whose DNS zone this managed instance will share after creation.
-     */
-    public readonly dnsZonePartner!: pulumi.Output<string | undefined>;
     /**
      * The fully qualified domain name of the managed instance.
      */
@@ -81,14 +73,6 @@ export class ManagedInstance extends pulumi.CustomResource {
      */
     public readonly maintenanceConfigurationId!: pulumi.Output<string | undefined>;
     /**
-     * Specifies the mode of database creation.
-     * 
-     * Default: Regular instance creation.
-     * 
-     * Restore: Creates an instance by restoring a set of backups to specific point in time. RestorePointInTime and SourceManagedInstanceId must be specified.
-     */
-    public readonly managedInstanceCreateMode!: pulumi.Output<string | undefined>;
-    /**
      * Minimal TLS version. Allowed values: 'None', '1.0', '1.1', '1.2'
      */
     public readonly minimalTlsVersion!: pulumi.Output<string | undefined>;
@@ -110,17 +94,9 @@ export class ManagedInstance extends pulumi.CustomResource {
      */
     public readonly publicDataEndpointEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database.
-     */
-    public readonly restorePointInTime!: pulumi.Output<string | undefined>;
-    /**
      * Managed instance SKU. Allowed values for sku.name: GP_Gen4, GP_Gen5, BC_Gen4, BC_Gen5
      */
     public readonly sku!: pulumi.Output<outputs.sql.SkuResponse | undefined>;
-    /**
-     * The resource identifier of the source managed instance associated with create operation of this instance.
-     */
-    public readonly sourceManagedInstanceId!: pulumi.Output<string | undefined>;
     /**
      * The state of the managed instance.
      */
@@ -211,26 +187,21 @@ export class ManagedInstance extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["administratorLogin"] = undefined /*out*/;
-            inputs["administratorLoginPassword"] = undefined /*out*/;
             inputs["collation"] = undefined /*out*/;
             inputs["dnsZone"] = undefined /*out*/;
-            inputs["dnsZonePartner"] = undefined /*out*/;
             inputs["fullyQualifiedDomainName"] = undefined /*out*/;
             inputs["identity"] = undefined /*out*/;
             inputs["instancePoolId"] = undefined /*out*/;
             inputs["licenseType"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["maintenanceConfigurationId"] = undefined /*out*/;
-            inputs["managedInstanceCreateMode"] = undefined /*out*/;
             inputs["minimalTlsVersion"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["privateEndpointConnections"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["proxyOverride"] = undefined /*out*/;
             inputs["publicDataEndpointEnabled"] = undefined /*out*/;
-            inputs["restorePointInTime"] = undefined /*out*/;
             inputs["sku"] = undefined /*out*/;
-            inputs["sourceManagedInstanceId"] = undefined /*out*/;
             inputs["state"] = undefined /*out*/;
             inputs["storageAccountType"] = undefined /*out*/;
             inputs["storageSizeInGB"] = undefined /*out*/;

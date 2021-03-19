@@ -22,12 +22,6 @@ namespace Pulumi.AzureNative.Sql.V20200202Preview
         public Output<string?> AdministratorLogin { get; private set; } = null!;
 
         /// <summary>
-        /// The administrator login password (required for managed instance creation).
-        /// </summary>
-        [Output("administratorLoginPassword")]
-        public Output<string?> AdministratorLoginPassword { get; private set; } = null!;
-
-        /// <summary>
         /// Collation of the managed instance.
         /// </summary>
         [Output("collation")]
@@ -38,12 +32,6 @@ namespace Pulumi.AzureNative.Sql.V20200202Preview
         /// </summary>
         [Output("dnsZone")]
         public Output<string> DnsZone { get; private set; } = null!;
-
-        /// <summary>
-        /// The resource id of another managed instance whose DNS zone this managed instance will share after creation.
-        /// </summary>
-        [Output("dnsZonePartner")]
-        public Output<string?> DnsZonePartner { get; private set; } = null!;
 
         /// <summary>
         /// The fully qualified domain name of the managed instance.
@@ -82,16 +70,6 @@ namespace Pulumi.AzureNative.Sql.V20200202Preview
         public Output<string?> MaintenanceConfigurationId { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the mode of database creation.
-        /// 
-        /// Default: Regular instance creation.
-        /// 
-        /// Restore: Creates an instance by restoring a set of backups to specific point in time. RestorePointInTime and SourceManagedInstanceId must be specified.
-        /// </summary>
-        [Output("managedInstanceCreateMode")]
-        public Output<string?> ManagedInstanceCreateMode { get; private set; } = null!;
-
-        /// <summary>
         /// Minimal TLS version. Allowed values: 'None', '1.0', '1.1', '1.2'
         /// </summary>
         [Output("minimalTlsVersion")]
@@ -125,22 +103,10 @@ namespace Pulumi.AzureNative.Sql.V20200202Preview
         public Output<bool?> PublicDataEndpointEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database.
-        /// </summary>
-        [Output("restorePointInTime")]
-        public Output<string?> RestorePointInTime { get; private set; } = null!;
-
-        /// <summary>
         /// Managed instance SKU. Allowed values for sku.name: GP_Gen4, GP_Gen5, BC_Gen4, BC_Gen5
         /// </summary>
         [Output("sku")]
         public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
-
-        /// <summary>
-        /// The resource identifier of the source managed instance associated with create operation of this instance.
-        /// </summary>
-        [Output("sourceManagedInstanceId")]
-        public Output<string?> SourceManagedInstanceId { get; private set; } = null!;
 
         /// <summary>
         /// The state of the managed instance.

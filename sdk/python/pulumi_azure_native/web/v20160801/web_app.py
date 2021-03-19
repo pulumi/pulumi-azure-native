@@ -160,7 +160,6 @@ class WebApp(pulumi.CustomResource):
         __props__["availability_state"] = None
         __props__["client_affinity_enabled"] = None
         __props__["client_cert_enabled"] = None
-        __props__["cloning_info"] = None
         __props__["container_size"] = None
         __props__["daily_memory_time_quota"] = None
         __props__["default_host_name"] = None
@@ -187,7 +186,6 @@ class WebApp(pulumi.CustomResource):
         __props__["server_farm_id"] = None
         __props__["site_config"] = None
         __props__["slot_swap_status"] = None
-        __props__["snapshot_info"] = None
         __props__["state"] = None
         __props__["suspended_till"] = None
         __props__["tags"] = None
@@ -220,14 +218,6 @@ class WebApp(pulumi.CustomResource):
         <code>true</code> to enable client certificate authentication (TLS mutual authentication); otherwise, <code>false</code>. Default is <code>false</code>.
         """
         return pulumi.get(self, "client_cert_enabled")
-
-    @property
-    @pulumi.getter(name="cloningInfo")
-    def cloning_info(self) -> pulumi.Output[Optional['outputs.CloningInfoResponse']]:
-        """
-        If specified during app creation, the app is cloned from a source app.
-        """
-        return pulumi.get(self, "cloning_info")
 
     @property
     @pulumi.getter(name="containerSize")
@@ -440,14 +430,6 @@ class WebApp(pulumi.CustomResource):
         Status of the last deployment slot swap operation.
         """
         return pulumi.get(self, "slot_swap_status")
-
-    @property
-    @pulumi.getter(name="snapshotInfo")
-    def snapshot_info(self) -> pulumi.Output[Optional['outputs.SnapshotRecoveryRequestResponse']]:
-        """
-        If specified during app creation, the app is created from a previous snapshot.
-        """
-        return pulumi.get(self, "snapshot_info")
 
     @property
     @pulumi.getter

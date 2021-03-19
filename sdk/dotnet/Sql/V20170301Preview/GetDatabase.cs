@@ -57,26 +57,6 @@ namespace Pulumi.AzureNative.Sql.V20170301Preview
         /// </summary>
         public readonly string? Collation;
         /// <summary>
-        /// Specifies the mode of database creation.
-        /// 
-        /// Default: regular database creation.
-        /// 
-        /// Copy: creates a database as a copy of an existing database. sourceDatabaseId must be specified as the resource ID of the source database.
-        /// 
-        /// Secondary: creates a database as a secondary replica of an existing database. sourceDatabaseId must be specified as the resource ID of the existing primary database.
-        /// 
-        /// PointInTimeRestore: Creates a database by restoring a point in time backup of an existing database. sourceDatabaseId must be specified as the resource ID of the existing database, and restorePointInTime must be specified.
-        /// 
-        /// Recovery: Creates a database by restoring a geo-replicated backup. sourceDatabaseId must be specified as the recoverable database resource ID to restore.
-        /// 
-        /// Restore: Creates a database by restoring a backup of a deleted database. sourceDatabaseId must be specified. If sourceDatabaseId is the database's original resource ID, then sourceDatabaseDeletionDate must be specified. Otherwise sourceDatabaseId must be the restorable dropped database resource ID and sourceDatabaseDeletionDate is ignored. restorePointInTime may also be specified to restore from an earlier point in time.
-        /// 
-        /// RestoreLongTermRetentionBackup: Creates a database by restoring from a long term retention vault. recoveryServicesRecoveryPointResourceId must be specified as the recovery point resource ID.
-        /// 
-        /// Copy, Secondary, and RestoreLongTermRetentionBackup are not supported for DataWarehouse edition.
-        /// </summary>
-        public readonly string? CreateMode;
-        /// <summary>
         /// The creation date of the database (ISO8601 format).
         /// </summary>
         public readonly string CreationDate;
@@ -113,10 +93,6 @@ namespace Pulumi.AzureNative.Sql.V20170301Preview
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// The resource identifier of the long term retention backup associated with create operation of this database.
-        /// </summary>
-        public readonly string? LongTermRetentionBackupResourceId;
-        /// <summary>
         /// The max size of the database expressed in bytes.
         /// </summary>
         public readonly double? MaxSizeBytes;
@@ -125,37 +101,9 @@ namespace Pulumi.AzureNative.Sql.V20170301Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The resource identifier of the recoverable database associated with create operation of this database.
-        /// </summary>
-        public readonly string? RecoverableDatabaseId;
-        /// <summary>
-        /// The resource identifier of the recovery point associated with create operation of this database.
-        /// </summary>
-        public readonly string? RecoveryServicesRecoveryPointId;
-        /// <summary>
-        /// The resource identifier of the restorable dropped database associated with create operation of this database.
-        /// </summary>
-        public readonly string? RestorableDroppedDatabaseId;
-        /// <summary>
-        /// Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database.
-        /// </summary>
-        public readonly string? RestorePointInTime;
-        /// <summary>
-        /// The name of the sample schema to apply when creating this database.
-        /// </summary>
-        public readonly string? SampleName;
-        /// <summary>
         /// The name and tier of the SKU.
         /// </summary>
         public readonly Outputs.SkuResponse? Sku;
-        /// <summary>
-        /// Specifies the time that the database was deleted.
-        /// </summary>
-        public readonly string? SourceDatabaseDeletionDate;
-        /// <summary>
-        /// The resource identifier of the source database associated with create operation of this database.
-        /// </summary>
-        public readonly string? SourceDatabaseId;
         /// <summary>
         /// The status of the database.
         /// </summary>
@@ -179,8 +127,6 @@ namespace Pulumi.AzureNative.Sql.V20170301Preview
 
             string? collation,
 
-            string? createMode,
-
             string creationDate,
 
             string currentServiceObjectiveName,
@@ -199,27 +145,11 @@ namespace Pulumi.AzureNative.Sql.V20170301Preview
 
             string location,
 
-            string? longTermRetentionBackupResourceId,
-
             double? maxSizeBytes,
 
             string name,
 
-            string? recoverableDatabaseId,
-
-            string? recoveryServicesRecoveryPointId,
-
-            string? restorableDroppedDatabaseId,
-
-            string? restorePointInTime,
-
-            string? sampleName,
-
             Outputs.SkuResponse? sku,
-
-            string? sourceDatabaseDeletionDate,
-
-            string? sourceDatabaseId,
 
             string status,
 
@@ -231,7 +161,6 @@ namespace Pulumi.AzureNative.Sql.V20170301Preview
         {
             CatalogCollation = catalogCollation;
             Collation = collation;
-            CreateMode = createMode;
             CreationDate = creationDate;
             CurrentServiceObjectiveName = currentServiceObjectiveName;
             DatabaseId = databaseId;
@@ -241,17 +170,9 @@ namespace Pulumi.AzureNative.Sql.V20170301Preview
             Id = id;
             Kind = kind;
             Location = location;
-            LongTermRetentionBackupResourceId = longTermRetentionBackupResourceId;
             MaxSizeBytes = maxSizeBytes;
             Name = name;
-            RecoverableDatabaseId = recoverableDatabaseId;
-            RecoveryServicesRecoveryPointId = recoveryServicesRecoveryPointId;
-            RestorableDroppedDatabaseId = restorableDroppedDatabaseId;
-            RestorePointInTime = restorePointInTime;
-            SampleName = sampleName;
             Sku = sku;
-            SourceDatabaseDeletionDate = sourceDatabaseDeletionDate;
-            SourceDatabaseId = sourceDatabaseId;
             Status = status;
             Tags = tags;
             Type = type;

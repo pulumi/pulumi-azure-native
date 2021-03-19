@@ -48,26 +48,6 @@ namespace Pulumi.AzureNative.DomainRegistration.V20200901
         /// </summary>
         public readonly bool? AutoRenew;
         /// <summary>
-        /// Legal agreement consent.
-        /// </summary>
-        public readonly Outputs.DomainPurchaseConsentResponse Consent;
-        /// <summary>
-        /// Administrative contact.
-        /// </summary>
-        public readonly Outputs.ContactResponse ContactAdmin;
-        /// <summary>
-        /// Billing contact.
-        /// </summary>
-        public readonly Outputs.ContactResponse ContactBilling;
-        /// <summary>
-        /// Registrant contact.
-        /// </summary>
-        public readonly Outputs.ContactResponse ContactRegistrant;
-        /// <summary>
-        /// Technical contact.
-        /// </summary>
-        public readonly Outputs.ContactResponse ContactTech;
-        /// <summary>
         /// Domain creation timestamp.
         /// </summary>
         public readonly string CreatedTime;
@@ -155,16 +135,6 @@ namespace Pulumi.AzureNative.DomainRegistration.V20200901
 
             bool? autoRenew,
 
-            Outputs.DomainPurchaseConsentResponse consent,
-
-            Outputs.ContactResponse contactAdmin,
-
-            Outputs.ContactResponse contactBilling,
-
-            Outputs.ContactResponse contactRegistrant,
-
-            Outputs.ContactResponse contactTech,
-
             string createdTime,
 
             string? dnsType,
@@ -207,11 +177,6 @@ namespace Pulumi.AzureNative.DomainRegistration.V20200901
         {
             AuthCode = authCode;
             AutoRenew = autoRenew;
-            Consent = consent;
-            ContactAdmin = contactAdmin;
-            ContactBilling = contactBilling;
-            ContactRegistrant = contactRegistrant;
-            ContactTech = contactTech;
             CreatedTime = createdTime;
             DnsType = dnsType;
             DnsZoneId = dnsZoneId;

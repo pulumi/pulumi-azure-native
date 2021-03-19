@@ -17,19 +17,11 @@ namespace Pulumi.AzureNative.ExtendedLocation.V20200715PrivatePreview.Outputs
         /// The type of the Custom Locations authentication
         /// </summary>
         public readonly string? Type;
-        /// <summary>
-        /// The kubeconfig value.
-        /// </summary>
-        public readonly string? Value;
 
         [OutputConstructor]
-        private CustomLocationPropertiesResponseAuthentication(
-            string? type,
-
-            string? value)
+        private CustomLocationPropertiesResponseAuthentication(string? type)
         {
             Type = type;
-            Value = value;
         }
     }
 }

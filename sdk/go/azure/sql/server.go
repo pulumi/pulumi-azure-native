@@ -18,8 +18,6 @@ type Server struct {
 
 	// Administrator username for the server. Once created it cannot be changed.
 	AdministratorLogin pulumi.StringPtrOutput `pulumi:"administratorLogin"`
-	// The administrator login password (required for server creation).
-	AdministratorLoginPassword pulumi.StringPtrOutput `pulumi:"administratorLoginPassword"`
 	// The Azure Active Directory identity of the server.
 	Administrators ServerExternalAdministratorResponsePtrOutput `pulumi:"administrators"`
 	// The resource id of a user assigned identity to be used to access the customer managed keyvault.
@@ -136,8 +134,6 @@ func GetServer(ctx *pulumi.Context,
 type serverState struct {
 	// Administrator username for the server. Once created it cannot be changed.
 	AdministratorLogin *string `pulumi:"administratorLogin"`
-	// The administrator login password (required for server creation).
-	AdministratorLoginPassword *string `pulumi:"administratorLoginPassword"`
 	// The Azure Active Directory identity of the server.
 	Administrators *ServerExternalAdministratorResponse `pulumi:"administrators"`
 	// The resource id of a user assigned identity to be used to access the customer managed keyvault.
@@ -175,8 +171,6 @@ type serverState struct {
 type ServerState struct {
 	// Administrator username for the server. Once created it cannot be changed.
 	AdministratorLogin pulumi.StringPtrInput
-	// The administrator login password (required for server creation).
-	AdministratorLoginPassword pulumi.StringPtrInput
 	// The Azure Active Directory identity of the server.
 	Administrators ServerExternalAdministratorResponsePtrInput
 	// The resource id of a user assigned identity to be used to access the customer managed keyvault.

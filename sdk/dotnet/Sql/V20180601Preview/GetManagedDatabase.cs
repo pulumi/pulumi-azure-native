@@ -57,10 +57,6 @@ namespace Pulumi.AzureNative.Sql.V20180601Preview
         /// </summary>
         public readonly string? Collation;
         /// <summary>
-        /// Managed database create mode. PointInTimeRestore: Create a database by restoring a point in time backup of an existing database. SourceDatabaseName, SourceManagedInstanceName and PointInTime must be specified. RestoreExternalBackup: Create a database by restoring from external backup files. Collation, StorageContainerUri and StorageContainerSasToken must be specified. Recovery: Creates a database by restoring a geo-replicated backup. RecoverableDatabaseId must be specified as the recoverable database resource ID to restore.
-        /// </summary>
-        public readonly string? CreateMode;
-        /// <summary>
         /// Creation date of the database.
         /// </summary>
         public readonly string CreationDate;
@@ -85,41 +81,13 @@ namespace Pulumi.AzureNative.Sql.V20180601Preview
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// The name of the Long Term Retention backup to be used for restore of this managed database.
-        /// </summary>
-        public readonly string? LongTermRetentionBackupResourceId;
-        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The resource identifier of the recoverable database associated with create operation of this database.
-        /// </summary>
-        public readonly string? RecoverableDatabaseId;
-        /// <summary>
-        /// The restorable dropped database resource id to restore when creating this database.
-        /// </summary>
-        public readonly string? RestorableDroppedDatabaseId;
-        /// <summary>
-        /// Conditional. If createMode is PointInTimeRestore, this value is required. Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database.
-        /// </summary>
-        public readonly string? RestorePointInTime;
-        /// <summary>
-        /// The resource identifier of the source database associated with create operation of this database.
-        /// </summary>
-        public readonly string? SourceDatabaseId;
-        /// <summary>
         /// Status of the database.
         /// </summary>
         public readonly string Status;
-        /// <summary>
-        /// Conditional. If createMode is RestoreExternalBackup, this value is required. Specifies the storage container sas token.
-        /// </summary>
-        public readonly string? StorageContainerSasToken;
-        /// <summary>
-        /// Conditional. If createMode is RestoreExternalBackup, this value is required. Specifies the uri of the storage container where backups for this restore are stored.
-        /// </summary>
-        public readonly string? StorageContainerUri;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -135,8 +103,6 @@ namespace Pulumi.AzureNative.Sql.V20180601Preview
 
             string? collation,
 
-            string? createMode,
-
             string creationDate,
 
             string defaultSecondaryLocation,
@@ -149,23 +115,9 @@ namespace Pulumi.AzureNative.Sql.V20180601Preview
 
             string location,
 
-            string? longTermRetentionBackupResourceId,
-
             string name,
 
-            string? recoverableDatabaseId,
-
-            string? restorableDroppedDatabaseId,
-
-            string? restorePointInTime,
-
-            string? sourceDatabaseId,
-
             string status,
-
-            string? storageContainerSasToken,
-
-            string? storageContainerUri,
 
             ImmutableDictionary<string, string>? tags,
 
@@ -173,22 +125,14 @@ namespace Pulumi.AzureNative.Sql.V20180601Preview
         {
             CatalogCollation = catalogCollation;
             Collation = collation;
-            CreateMode = createMode;
             CreationDate = creationDate;
             DefaultSecondaryLocation = defaultSecondaryLocation;
             EarliestRestorePoint = earliestRestorePoint;
             FailoverGroupId = failoverGroupId;
             Id = id;
             Location = location;
-            LongTermRetentionBackupResourceId = longTermRetentionBackupResourceId;
             Name = name;
-            RecoverableDatabaseId = recoverableDatabaseId;
-            RestorableDroppedDatabaseId = restorableDroppedDatabaseId;
-            RestorePointInTime = restorePointInTime;
-            SourceDatabaseId = sourceDatabaseId;
             Status = status;
-            StorageContainerSasToken = storageContainerSasToken;
-            StorageContainerUri = storageContainerUri;
             Tags = tags;
             Type = type;
         }

@@ -44,10 +44,6 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly administratorLogin!: pulumi.Output<string | undefined>;
     /**
-     * The administrator login password (required for server creation).
-     */
-    public readonly administratorLoginPassword!: pulumi.Output<string | undefined>;
-    /**
      * The display name of the Azure Active Directory object with admin permissions on this server. Legacy parameter, always null. To check for Active Directory admin, query .../servers/{serverName}/administrators
      */
     public /*out*/ readonly externalAdministratorLogin!: pulumi.Output<string>;
@@ -120,7 +116,6 @@ export class Server extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["administratorLogin"] = undefined /*out*/;
-            inputs["administratorLoginPassword"] = undefined /*out*/;
             inputs["externalAdministratorLogin"] = undefined /*out*/;
             inputs["externalAdministratorSid"] = undefined /*out*/;
             inputs["fullyQualifiedDomainName"] = undefined /*out*/;

@@ -59,10 +59,6 @@ export interface GetManagedInstanceKeyResult {
      */
     readonly name: string;
     /**
-     * The key type like 'ServiceManaged', 'AzureKeyVault'.
-     */
-    readonly serverKeyType: string;
-    /**
      * Thumbprint of the key.
      */
     readonly thumbprint: string;
@@ -70,8 +66,4 @@ export interface GetManagedInstanceKeyResult {
      * Resource type.
      */
     readonly type: string;
-    /**
-     * The URI of the key. If the ServerKeyType is AzureKeyVault, then the URI is required.
-     */
-    readonly uri?: string;
 }

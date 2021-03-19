@@ -20,7 +20,7 @@ class GetWebAppResult:
     """
     A web app, a mobile app backend, or an API app.
     """
-    def __init__(__self__, availability_state=None, client_affinity_enabled=None, client_cert_enabled=None, client_cert_exclusion_paths=None, client_cert_mode=None, cloning_info=None, container_size=None, custom_domain_verification_id=None, daily_memory_time_quota=None, default_host_name=None, enabled=None, enabled_host_names=None, host_name_ssl_states=None, host_names=None, host_names_disabled=None, hosting_environment_profile=None, https_only=None, hyper_v=None, id=None, identity=None, in_progress_operation_id=None, is_default_container=None, is_xenon=None, kind=None, last_modified_time_utc=None, location=None, max_number_of_workers=None, name=None, outbound_ip_addresses=None, possible_outbound_ip_addresses=None, redundancy_mode=None, repository_site_name=None, reserved=None, resource_group=None, scm_site_also_stopped=None, server_farm_id=None, site_config=None, slot_swap_status=None, state=None, storage_account_required=None, suspended_till=None, system_data=None, tags=None, target_swap_slot=None, traffic_manager_host_names=None, type=None, usage_state=None):
+    def __init__(__self__, availability_state=None, client_affinity_enabled=None, client_cert_enabled=None, client_cert_exclusion_paths=None, client_cert_mode=None, container_size=None, custom_domain_verification_id=None, daily_memory_time_quota=None, default_host_name=None, enabled=None, enabled_host_names=None, host_name_ssl_states=None, host_names=None, host_names_disabled=None, hosting_environment_profile=None, https_only=None, hyper_v=None, id=None, identity=None, in_progress_operation_id=None, is_default_container=None, is_xenon=None, kind=None, last_modified_time_utc=None, location=None, max_number_of_workers=None, name=None, outbound_ip_addresses=None, possible_outbound_ip_addresses=None, redundancy_mode=None, repository_site_name=None, reserved=None, resource_group=None, scm_site_also_stopped=None, server_farm_id=None, site_config=None, slot_swap_status=None, state=None, storage_account_required=None, suspended_till=None, system_data=None, tags=None, target_swap_slot=None, traffic_manager_host_names=None, type=None, usage_state=None):
         if availability_state and not isinstance(availability_state, str):
             raise TypeError("Expected argument 'availability_state' to be a str")
         pulumi.set(__self__, "availability_state", availability_state)
@@ -36,9 +36,6 @@ class GetWebAppResult:
         if client_cert_mode and not isinstance(client_cert_mode, str):
             raise TypeError("Expected argument 'client_cert_mode' to be a str")
         pulumi.set(__self__, "client_cert_mode", client_cert_mode)
-        if cloning_info and not isinstance(cloning_info, dict):
-            raise TypeError("Expected argument 'cloning_info' to be a dict")
-        pulumi.set(__self__, "cloning_info", cloning_info)
         if container_size and not isinstance(container_size, int):
             raise TypeError("Expected argument 'container_size' to be a int")
         pulumi.set(__self__, "container_size", container_size)
@@ -205,14 +202,6 @@ class GetWebAppResult:
         - ClientCertEnabled: true and ClientCertMode: Optional means ClientCert is optional or accepted.
         """
         return pulumi.get(self, "client_cert_mode")
-
-    @property
-    @pulumi.getter(name="cloningInfo")
-    def cloning_info(self) -> Optional['outputs.CloningInfoResponse']:
-        """
-        If specified during app creation, the app is cloned from a source app.
-        """
-        return pulumi.get(self, "cloning_info")
 
     @property
     @pulumi.getter(name="containerSize")
@@ -558,7 +547,6 @@ class AwaitableGetWebAppResult(GetWebAppResult):
             client_cert_enabled=self.client_cert_enabled,
             client_cert_exclusion_paths=self.client_cert_exclusion_paths,
             client_cert_mode=self.client_cert_mode,
-            cloning_info=self.cloning_info,
             container_size=self.container_size,
             custom_domain_verification_id=self.custom_domain_verification_id,
             daily_memory_time_quota=self.daily_memory_time_quota,
@@ -628,7 +616,6 @@ def get_web_app(name: Optional[str] = None,
         client_cert_enabled=__ret__.client_cert_enabled,
         client_cert_exclusion_paths=__ret__.client_cert_exclusion_paths,
         client_cert_mode=__ret__.client_cert_mode,
-        cloning_info=__ret__.cloning_info,
         container_size=__ret__.container_size,
         custom_domain_verification_id=__ret__.custom_domain_verification_id,
         daily_memory_time_quota=__ret__.daily_memory_time_quota,

@@ -48,10 +48,6 @@ export class SyncMember extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Password of the member database in the sync member.
-     */
-    public readonly password!: pulumi.Output<string | undefined>;
-    /**
      * Server name of the member database in the sync member
      */
     public readonly serverName!: pulumi.Output<string | undefined>;
@@ -121,7 +117,6 @@ export class SyncMember extends pulumi.CustomResource {
             inputs["databaseName"] = undefined /*out*/;
             inputs["databaseType"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
-            inputs["password"] = undefined /*out*/;
             inputs["serverName"] = undefined /*out*/;
             inputs["sqlServerDatabaseId"] = undefined /*out*/;
             inputs["syncAgentId"] = undefined /*out*/;

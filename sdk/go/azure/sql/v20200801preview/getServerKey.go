@@ -38,14 +38,10 @@ type LookupServerKeyResult struct {
 	Location string `pulumi:"location"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// The server key type like 'ServiceManaged', 'AzureKeyVault'.
-	ServerKeyType string `pulumi:"serverKeyType"`
 	// Subregion of the server key.
 	Subregion string `pulumi:"subregion"`
 	// Thumbprint of the server key.
 	Thumbprint string `pulumi:"thumbprint"`
 	// Resource type.
 	Type string `pulumi:"type"`
-	// The URI of the server key. If the ServerKeyType is AzureKeyVault, then the URI is required.
-	Uri *string `pulumi:"uri"`
 }

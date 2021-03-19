@@ -20,7 +20,7 @@ class GetWebAppSlotResult:
     """
     A web app, a mobile app backend, or an API app.
     """
-    def __init__(__self__, availability_state=None, client_affinity_enabled=None, client_cert_enabled=None, cloning_info=None, container_size=None, daily_memory_time_quota=None, default_host_name=None, enabled=None, enabled_host_names=None, host_name_ssl_states=None, host_names=None, host_names_disabled=None, hosting_environment_profile=None, https_only=None, id=None, identity=None, is_default_container=None, kind=None, last_modified_time_utc=None, location=None, max_number_of_workers=None, name=None, outbound_ip_addresses=None, possible_outbound_ip_addresses=None, repository_site_name=None, reserved=None, resource_group=None, scm_site_also_stopped=None, server_farm_id=None, site_config=None, slot_swap_status=None, snapshot_info=None, state=None, suspended_till=None, tags=None, target_swap_slot=None, traffic_manager_host_names=None, type=None, usage_state=None):
+    def __init__(__self__, availability_state=None, client_affinity_enabled=None, client_cert_enabled=None, container_size=None, daily_memory_time_quota=None, default_host_name=None, enabled=None, enabled_host_names=None, host_name_ssl_states=None, host_names=None, host_names_disabled=None, hosting_environment_profile=None, https_only=None, id=None, identity=None, is_default_container=None, kind=None, last_modified_time_utc=None, location=None, max_number_of_workers=None, name=None, outbound_ip_addresses=None, possible_outbound_ip_addresses=None, repository_site_name=None, reserved=None, resource_group=None, scm_site_also_stopped=None, server_farm_id=None, site_config=None, slot_swap_status=None, state=None, suspended_till=None, tags=None, target_swap_slot=None, traffic_manager_host_names=None, type=None, usage_state=None):
         if availability_state and not isinstance(availability_state, str):
             raise TypeError("Expected argument 'availability_state' to be a str")
         pulumi.set(__self__, "availability_state", availability_state)
@@ -30,9 +30,6 @@ class GetWebAppSlotResult:
         if client_cert_enabled and not isinstance(client_cert_enabled, bool):
             raise TypeError("Expected argument 'client_cert_enabled' to be a bool")
         pulumi.set(__self__, "client_cert_enabled", client_cert_enabled)
-        if cloning_info and not isinstance(cloning_info, dict):
-            raise TypeError("Expected argument 'cloning_info' to be a dict")
-        pulumi.set(__self__, "cloning_info", cloning_info)
         if container_size and not isinstance(container_size, int):
             raise TypeError("Expected argument 'container_size' to be a int")
         pulumi.set(__self__, "container_size", container_size)
@@ -114,9 +111,6 @@ class GetWebAppSlotResult:
         if slot_swap_status and not isinstance(slot_swap_status, dict):
             raise TypeError("Expected argument 'slot_swap_status' to be a dict")
         pulumi.set(__self__, "slot_swap_status", slot_swap_status)
-        if snapshot_info and not isinstance(snapshot_info, dict):
-            raise TypeError("Expected argument 'snapshot_info' to be a dict")
-        pulumi.set(__self__, "snapshot_info", snapshot_info)
         if state and not isinstance(state, str):
             raise TypeError("Expected argument 'state' to be a str")
         pulumi.set(__self__, "state", state)
@@ -162,14 +156,6 @@ class GetWebAppSlotResult:
         <code>true</code> to enable client certificate authentication (TLS mutual authentication); otherwise, <code>false</code>. Default is <code>false</code>.
         """
         return pulumi.get(self, "client_cert_enabled")
-
-    @property
-    @pulumi.getter(name="cloningInfo")
-    def cloning_info(self) -> Optional['outputs.CloningInfoResponse']:
-        """
-        If specified during app creation, the app is cloned from a source app.
-        """
-        return pulumi.get(self, "cloning_info")
 
     @property
     @pulumi.getter(name="containerSize")
@@ -392,14 +378,6 @@ class GetWebAppSlotResult:
         return pulumi.get(self, "slot_swap_status")
 
     @property
-    @pulumi.getter(name="snapshotInfo")
-    def snapshot_info(self) -> Optional['outputs.SnapshotRecoveryRequestResponse']:
-        """
-        If specified during app creation, the app is created from a previous snapshot.
-        """
-        return pulumi.get(self, "snapshot_info")
-
-    @property
     @pulumi.getter
     def state(self) -> str:
         """
@@ -465,7 +443,6 @@ class AwaitableGetWebAppSlotResult(GetWebAppSlotResult):
             availability_state=self.availability_state,
             client_affinity_enabled=self.client_affinity_enabled,
             client_cert_enabled=self.client_cert_enabled,
-            cloning_info=self.cloning_info,
             container_size=self.container_size,
             daily_memory_time_quota=self.daily_memory_time_quota,
             default_host_name=self.default_host_name,
@@ -493,7 +470,6 @@ class AwaitableGetWebAppSlotResult(GetWebAppSlotResult):
             server_farm_id=self.server_farm_id,
             site_config=self.site_config,
             slot_swap_status=self.slot_swap_status,
-            snapshot_info=self.snapshot_info,
             state=self.state,
             suspended_till=self.suspended_till,
             tags=self.tags,
@@ -529,7 +505,6 @@ def get_web_app_slot(name: Optional[str] = None,
         availability_state=__ret__.availability_state,
         client_affinity_enabled=__ret__.client_affinity_enabled,
         client_cert_enabled=__ret__.client_cert_enabled,
-        cloning_info=__ret__.cloning_info,
         container_size=__ret__.container_size,
         daily_memory_time_quota=__ret__.daily_memory_time_quota,
         default_host_name=__ret__.default_host_name,
@@ -557,7 +532,6 @@ def get_web_app_slot(name: Optional[str] = None,
         server_farm_id=__ret__.server_farm_id,
         site_config=__ret__.site_config,
         slot_swap_status=__ret__.slot_swap_status,
-        snapshot_info=__ret__.snapshot_info,
         state=__ret__.state,
         suspended_till=__ret__.suspended_till,
         tags=__ret__.tags,

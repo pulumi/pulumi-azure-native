@@ -235,38 +235,14 @@ class DatadogOrganizationPropertiesResponse(dict):
     """
     def __init__(__self__, *,
                  id: str,
-                 name: str,
-                 api_key: Optional[str] = None,
-                 application_key: Optional[str] = None,
-                 enterprise_app_id: Optional[str] = None,
-                 linking_auth_code: Optional[str] = None,
-                 linking_client_id: Optional[str] = None,
-                 redirect_uri: Optional[str] = None):
+                 name: str):
         """
         Datadog organization properties
         :param str id: Id of the Datadog organization.
         :param str name: Name of the Datadog organization.
-        :param str api_key: Api key associated to the Datadog organization.
-        :param str application_key: Application key associated to the Datadog organization.
-        :param str enterprise_app_id: The Id of the Enterprise App used for Single sign on.
-        :param str linking_auth_code: The auth code used to linking to an existing datadog organization.
-        :param str linking_client_id: The client_id from an existing in exchange for an auth token to link organization.
-        :param str redirect_uri: The redirect uri for linking.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
-        if api_key is not None:
-            pulumi.set(__self__, "api_key", api_key)
-        if application_key is not None:
-            pulumi.set(__self__, "application_key", application_key)
-        if enterprise_app_id is not None:
-            pulumi.set(__self__, "enterprise_app_id", enterprise_app_id)
-        if linking_auth_code is not None:
-            pulumi.set(__self__, "linking_auth_code", linking_auth_code)
-        if linking_client_id is not None:
-            pulumi.set(__self__, "linking_client_id", linking_client_id)
-        if redirect_uri is not None:
-            pulumi.set(__self__, "redirect_uri", redirect_uri)
 
     @property
     @pulumi.getter
@@ -283,54 +259,6 @@ class DatadogOrganizationPropertiesResponse(dict):
         Name of the Datadog organization.
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="apiKey")
-    def api_key(self) -> Optional[str]:
-        """
-        Api key associated to the Datadog organization.
-        """
-        return pulumi.get(self, "api_key")
-
-    @property
-    @pulumi.getter(name="applicationKey")
-    def application_key(self) -> Optional[str]:
-        """
-        Application key associated to the Datadog organization.
-        """
-        return pulumi.get(self, "application_key")
-
-    @property
-    @pulumi.getter(name="enterpriseAppId")
-    def enterprise_app_id(self) -> Optional[str]:
-        """
-        The Id of the Enterprise App used for Single sign on.
-        """
-        return pulumi.get(self, "enterprise_app_id")
-
-    @property
-    @pulumi.getter(name="linkingAuthCode")
-    def linking_auth_code(self) -> Optional[str]:
-        """
-        The auth code used to linking to an existing datadog organization.
-        """
-        return pulumi.get(self, "linking_auth_code")
-
-    @property
-    @pulumi.getter(name="linkingClientId")
-    def linking_client_id(self) -> Optional[str]:
-        """
-        The client_id from an existing in exchange for an auth token to link organization.
-        """
-        return pulumi.get(self, "linking_client_id")
-
-    @property
-    @pulumi.getter(name="redirectUri")
-    def redirect_uri(self) -> Optional[str]:
-        """
-        The redirect uri for linking.
-        """
-        return pulumi.get(self, "redirect_uri")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

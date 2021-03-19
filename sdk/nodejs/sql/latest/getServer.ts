@@ -45,10 +45,6 @@ export interface GetServerResult {
      */
     readonly administratorLogin?: string;
     /**
-     * The administrator login password (required for server creation).
-     */
-    readonly administratorLoginPassword?: string;
-    /**
      * The display name of the Azure Active Directory object with admin permissions on this server. Legacy parameter, always null. To check for Active Directory admin, query .../servers/{serverName}/administrators
      */
     readonly externalAdministratorLogin: string;

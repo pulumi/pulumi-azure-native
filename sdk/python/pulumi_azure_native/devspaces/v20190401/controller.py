@@ -109,7 +109,6 @@ class Controller(pulumi.CustomResource):
         __props__["sku"] = None
         __props__["tags"] = None
         __props__["target_container_host_api_server_fqdn"] = None
-        __props__["target_container_host_credentials_base64"] = None
         __props__["target_container_host_resource_id"] = None
         __props__["type"] = None
         return Controller(resource_name, opts=opts, __props__=__props__)
@@ -177,14 +176,6 @@ class Controller(pulumi.CustomResource):
         DNS of the target container host's API server
         """
         return pulumi.get(self, "target_container_host_api_server_fqdn")
-
-    @property
-    @pulumi.getter(name="targetContainerHostCredentialsBase64")
-    def target_container_host_credentials_base64(self) -> pulumi.Output[str]:
-        """
-        Credentials of the target container host (base64).
-        """
-        return pulumi.get(self, "target_container_host_credentials_base64")
 
     @property
     @pulumi.getter(name="targetContainerHostResourceId")

@@ -95,7 +95,6 @@ class SqlServer(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__["cores"] = None
         __props__["edition"] = None
         __props__["name"] = None
         __props__["property_bag"] = None
@@ -103,14 +102,6 @@ class SqlServer(pulumi.CustomResource):
         __props__["type"] = None
         __props__["version"] = None
         return SqlServer(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter
-    def cores(self) -> pulumi.Output[Optional[int]]:
-        """
-        Cores of the Sql Server.
-        """
-        return pulumi.get(self, "cores")
 
     @property
     @pulumi.getter

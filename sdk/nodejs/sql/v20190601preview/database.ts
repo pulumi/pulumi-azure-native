@@ -48,26 +48,6 @@ export class Database extends pulumi.CustomResource {
      */
     public readonly collation!: pulumi.Output<string | undefined>;
     /**
-     * Specifies the mode of database creation.
-     * 
-     * Default: regular database creation.
-     * 
-     * Copy: creates a database as a copy of an existing database. sourceDatabaseId must be specified as the resource ID of the source database.
-     * 
-     * Secondary: creates a database as a secondary replica of an existing database. sourceDatabaseId must be specified as the resource ID of the existing primary database.
-     * 
-     * PointInTimeRestore: Creates a database by restoring a point in time backup of an existing database. sourceDatabaseId must be specified as the resource ID of the existing database, and restorePointInTime must be specified.
-     * 
-     * Recovery: Creates a database by restoring a geo-replicated backup. sourceDatabaseId must be specified as the recoverable database resource ID to restore.
-     * 
-     * Restore: Creates a database by restoring a backup of a deleted database. sourceDatabaseId must be specified. If sourceDatabaseId is the database's original resource ID, then sourceDatabaseDeletionDate must be specified. Otherwise sourceDatabaseId must be the restorable dropped database resource ID and sourceDatabaseDeletionDate is ignored. restorePointInTime may also be specified to restore from an earlier point in time.
-     * 
-     * RestoreLongTermRetentionBackup: Creates a database by restoring from a long term retention vault. recoveryServicesRecoveryPointResourceId must be specified as the recovery point resource ID.
-     * 
-     * Copy, Secondary, and RestoreLongTermRetentionBackup are not supported for DataWarehouse edition.
-     */
-    public readonly createMode!: pulumi.Output<string | undefined>;
-    /**
      * The creation date of the database (ISO8601 format).
      */
     public /*out*/ readonly creationDate!: pulumi.Output<string>;
@@ -112,10 +92,6 @@ export class Database extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * The resource identifier of the long term retention backup associated with create operation of this database.
-     */
-    public readonly longTermRetentionBackupResourceId!: pulumi.Output<string | undefined>;
-    /**
      * Resource that manages the database.
      */
     public /*out*/ readonly managedBy!: pulumi.Output<string>;
@@ -148,33 +124,13 @@ export class Database extends pulumi.CustomResource {
      */
     public readonly readScale!: pulumi.Output<string | undefined>;
     /**
-     * The resource identifier of the recoverable database associated with create operation of this database.
-     */
-    public readonly recoverableDatabaseId!: pulumi.Output<string | undefined>;
-    /**
-     * The resource identifier of the recovery point associated with create operation of this database.
-     */
-    public readonly recoveryServicesRecoveryPointId!: pulumi.Output<string | undefined>;
-    /**
      * The requested service level objective name of the database.
      */
     public /*out*/ readonly requestedServiceObjectiveName!: pulumi.Output<string>;
     /**
-     * The resource identifier of the restorable dropped database associated with create operation of this database.
-     */
-    public readonly restorableDroppedDatabaseId!: pulumi.Output<string | undefined>;
-    /**
-     * Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database.
-     */
-    public readonly restorePointInTime!: pulumi.Output<string | undefined>;
-    /**
      * The date when database was resumed by user action or database login (ISO8601 format). Null if the database is paused.
      */
     public /*out*/ readonly resumedDate!: pulumi.Output<string>;
-    /**
-     * The name of the sample schema to apply when creating this database.
-     */
-    public readonly sampleName!: pulumi.Output<string | undefined>;
     /**
      * The database SKU.
      * 
@@ -189,14 +145,6 @@ export class Database extends pulumi.CustomResource {
      * ````
      */
     public readonly sku!: pulumi.Output<outputs.sql.v20190601preview.SkuResponse | undefined>;
-    /**
-     * Specifies the time that the database was deleted.
-     */
-    public readonly sourceDatabaseDeletionDate!: pulumi.Output<string | undefined>;
-    /**
-     * The resource identifier of the source database associated with create operation of this database.
-     */
-    public readonly sourceDatabaseId!: pulumi.Output<string | undefined>;
     /**
      * The status of the database.
      */
@@ -281,7 +229,6 @@ export class Database extends pulumi.CustomResource {
             inputs["autoPauseDelay"] = undefined /*out*/;
             inputs["catalogCollation"] = undefined /*out*/;
             inputs["collation"] = undefined /*out*/;
-            inputs["createMode"] = undefined /*out*/;
             inputs["creationDate"] = undefined /*out*/;
             inputs["currentServiceObjectiveName"] = undefined /*out*/;
             inputs["currentSku"] = undefined /*out*/;
@@ -293,7 +240,6 @@ export class Database extends pulumi.CustomResource {
             inputs["kind"] = undefined /*out*/;
             inputs["licenseType"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
-            inputs["longTermRetentionBackupResourceId"] = undefined /*out*/;
             inputs["managedBy"] = undefined /*out*/;
             inputs["maxLogSizeBytes"] = undefined /*out*/;
             inputs["maxSizeBytes"] = undefined /*out*/;
@@ -302,16 +248,9 @@ export class Database extends pulumi.CustomResource {
             inputs["pausedDate"] = undefined /*out*/;
             inputs["readReplicaCount"] = undefined /*out*/;
             inputs["readScale"] = undefined /*out*/;
-            inputs["recoverableDatabaseId"] = undefined /*out*/;
-            inputs["recoveryServicesRecoveryPointId"] = undefined /*out*/;
             inputs["requestedServiceObjectiveName"] = undefined /*out*/;
-            inputs["restorableDroppedDatabaseId"] = undefined /*out*/;
-            inputs["restorePointInTime"] = undefined /*out*/;
             inputs["resumedDate"] = undefined /*out*/;
-            inputs["sampleName"] = undefined /*out*/;
             inputs["sku"] = undefined /*out*/;
-            inputs["sourceDatabaseDeletionDate"] = undefined /*out*/;
-            inputs["sourceDatabaseId"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
             inputs["storageAccountType"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;

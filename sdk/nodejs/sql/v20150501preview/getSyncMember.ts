@@ -69,10 +69,6 @@ export interface GetSyncMemberResult {
      */
     readonly name: string;
     /**
-     * Password of the member database in the sync member.
-     */
-    readonly password?: string;
-    /**
      * Server name of the member database in the sync member
      */
     readonly serverName?: string;

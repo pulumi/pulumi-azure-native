@@ -47,10 +47,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20200214PrivatePreview
         /// </summary>
         public readonly string? AdministratorLogin;
         /// <summary>
-        /// The administrator login password (required for server creation).
-        /// </summary>
-        public readonly string? AdministratorLoginPassword;
-        /// <summary>
         /// availability Zone information of the server.
         /// </summary>
         public readonly string? AvailabilityZone;
@@ -58,10 +54,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20200214PrivatePreview
         /// Status showing whether the data encryption is enabled with customer-managed keys.
         /// </summary>
         public readonly string ByokEnforcement;
-        /// <summary>
-        /// The mode to create a new PostgreSQL server.
-        /// </summary>
-        public readonly string? CreateMode;
         public readonly Outputs.ServerPropertiesResponseDelegatedSubnetArguments? DelegatedSubnetArguments;
         /// <summary>
         /// The display name of a server.
@@ -152,13 +144,9 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20200214PrivatePreview
         private GetServerResult(
             string? administratorLogin,
 
-            string? administratorLoginPassword,
-
             string? availabilityZone,
 
             string byokEnforcement,
-
-            string? createMode,
 
             Outputs.ServerPropertiesResponseDelegatedSubnetArguments? delegatedSubnetArguments,
 
@@ -205,10 +193,8 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20200214PrivatePreview
             string? version)
         {
             AdministratorLogin = administratorLogin;
-            AdministratorLoginPassword = administratorLoginPassword;
             AvailabilityZone = availabilityZone;
             ByokEnforcement = byokEnforcement;
-            CreateMode = createMode;
             DelegatedSubnetArguments = delegatedSubnetArguments;
             DisplayName = displayName;
             FullyQualifiedDomainName = fullyQualifiedDomainName;

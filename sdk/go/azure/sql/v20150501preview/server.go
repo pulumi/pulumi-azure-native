@@ -17,8 +17,6 @@ type Server struct {
 
 	// Administrator username for the server. Once created it cannot be changed.
 	AdministratorLogin pulumi.StringPtrOutput `pulumi:"administratorLogin"`
-	// The administrator login password (required for server creation).
-	AdministratorLoginPassword pulumi.StringPtrOutput `pulumi:"administratorLoginPassword"`
 	// The fully qualified domain name of the server.
 	FullyQualifiedDomainName pulumi.StringOutput `pulumi:"fullyQualifiedDomainName"`
 	// The Azure Active Directory identity of the server.
@@ -121,8 +119,6 @@ func GetServer(ctx *pulumi.Context,
 type serverState struct {
 	// Administrator username for the server. Once created it cannot be changed.
 	AdministratorLogin *string `pulumi:"administratorLogin"`
-	// The administrator login password (required for server creation).
-	AdministratorLoginPassword *string `pulumi:"administratorLoginPassword"`
 	// The fully qualified domain name of the server.
 	FullyQualifiedDomainName *string `pulumi:"fullyQualifiedDomainName"`
 	// The Azure Active Directory identity of the server.
@@ -146,8 +142,6 @@ type serverState struct {
 type ServerState struct {
 	// Administrator username for the server. Once created it cannot be changed.
 	AdministratorLogin pulumi.StringPtrInput
-	// The administrator login password (required for server creation).
-	AdministratorLoginPassword pulumi.StringPtrInput
 	// The fully qualified domain name of the server.
 	FullyQualifiedDomainName pulumi.StringPtrInput
 	// The Azure Active Directory identity of the server.

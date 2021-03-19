@@ -99,11 +99,9 @@ class ServerKey(pulumi.CustomResource):
         __props__["kind"] = None
         __props__["location"] = None
         __props__["name"] = None
-        __props__["server_key_type"] = None
         __props__["subregion"] = None
         __props__["thumbprint"] = None
         __props__["type"] = None
-        __props__["uri"] = None
         return ServerKey(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -139,14 +137,6 @@ class ServerKey(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="serverKeyType")
-    def server_key_type(self) -> pulumi.Output[str]:
-        """
-        The server key type like 'ServiceManaged', 'AzureKeyVault'.
-        """
-        return pulumi.get(self, "server_key_type")
-
-    @property
     @pulumi.getter
     def subregion(self) -> pulumi.Output[str]:
         """
@@ -169,14 +159,6 @@ class ServerKey(pulumi.CustomResource):
         Resource type.
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter
-    def uri(self) -> pulumi.Output[Optional[str]]:
-        """
-        The URI of the server key. If the ServerKeyType is AzureKeyVault, then the URI is required.
-        """
-        return pulumi.get(self, "uri")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

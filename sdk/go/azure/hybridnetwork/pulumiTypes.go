@@ -3095,8 +3095,6 @@ type OsDiskResponse struct {
 	Name *string `pulumi:"name"`
 	// The OS type.
 	OsType *string `pulumi:"osType"`
-	// The virtual hard disk.
-	Vhd *VirtualHardDiskResponse `pulumi:"vhd"`
 }
 
 // OsDiskResponseInput is an input type that accepts OsDiskResponseArgs and OsDiskResponseOutput values.
@@ -3118,8 +3116,6 @@ type OsDiskResponseArgs struct {
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The OS type.
 	OsType pulumi.StringPtrInput `pulumi:"osType"`
-	// The virtual hard disk.
-	Vhd VirtualHardDiskResponsePtrInput `pulumi:"vhd"`
 }
 
 func (OsDiskResponseArgs) ElementType() reflect.Type {
@@ -3215,11 +3211,6 @@ func (o OsDiskResponseOutput) OsType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OsDiskResponse) *string { return v.OsType }).(pulumi.StringPtrOutput)
 }
 
-// The virtual hard disk.
-func (o OsDiskResponseOutput) Vhd() VirtualHardDiskResponsePtrOutput {
-	return o.ApplyT(func(v OsDiskResponse) *VirtualHardDiskResponse { return v.Vhd }).(VirtualHardDiskResponsePtrOutput)
-}
-
 type OsDiskResponsePtrOutput struct{ *pulumi.OutputState }
 
 func (OsDiskResponsePtrOutput) ElementType() reflect.Type {
@@ -3266,16 +3257,6 @@ func (o OsDiskResponsePtrOutput) OsType() pulumi.StringPtrOutput {
 		}
 		return v.OsType
 	}).(pulumi.StringPtrOutput)
-}
-
-// The virtual hard disk.
-func (o OsDiskResponsePtrOutput) Vhd() VirtualHardDiskResponsePtrOutput {
-	return o.ApplyT(func(v *OsDiskResponse) *VirtualHardDiskResponse {
-		if v == nil {
-			return nil
-		}
-		return v.Vhd
-	}).(VirtualHardDiskResponsePtrOutput)
 }
 
 // Specifies the operating system settings for the role instance.
@@ -4937,140 +4918,6 @@ func (o VirtualHardDiskPtrOutput) Uri() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes the uri of a disk.
-type VirtualHardDiskResponse struct {
-	// Specifies the virtual hard disk's uri.
-	Uri *string `pulumi:"uri"`
-}
-
-// VirtualHardDiskResponseInput is an input type that accepts VirtualHardDiskResponseArgs and VirtualHardDiskResponseOutput values.
-// You can construct a concrete instance of `VirtualHardDiskResponseInput` via:
-//
-//          VirtualHardDiskResponseArgs{...}
-type VirtualHardDiskResponseInput interface {
-	pulumi.Input
-
-	ToVirtualHardDiskResponseOutput() VirtualHardDiskResponseOutput
-	ToVirtualHardDiskResponseOutputWithContext(context.Context) VirtualHardDiskResponseOutput
-}
-
-// Describes the uri of a disk.
-type VirtualHardDiskResponseArgs struct {
-	// Specifies the virtual hard disk's uri.
-	Uri pulumi.StringPtrInput `pulumi:"uri"`
-}
-
-func (VirtualHardDiskResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualHardDiskResponse)(nil)).Elem()
-}
-
-func (i VirtualHardDiskResponseArgs) ToVirtualHardDiskResponseOutput() VirtualHardDiskResponseOutput {
-	return i.ToVirtualHardDiskResponseOutputWithContext(context.Background())
-}
-
-func (i VirtualHardDiskResponseArgs) ToVirtualHardDiskResponseOutputWithContext(ctx context.Context) VirtualHardDiskResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualHardDiskResponseOutput)
-}
-
-func (i VirtualHardDiskResponseArgs) ToVirtualHardDiskResponsePtrOutput() VirtualHardDiskResponsePtrOutput {
-	return i.ToVirtualHardDiskResponsePtrOutputWithContext(context.Background())
-}
-
-func (i VirtualHardDiskResponseArgs) ToVirtualHardDiskResponsePtrOutputWithContext(ctx context.Context) VirtualHardDiskResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualHardDiskResponseOutput).ToVirtualHardDiskResponsePtrOutputWithContext(ctx)
-}
-
-// VirtualHardDiskResponsePtrInput is an input type that accepts VirtualHardDiskResponseArgs, VirtualHardDiskResponsePtr and VirtualHardDiskResponsePtrOutput values.
-// You can construct a concrete instance of `VirtualHardDiskResponsePtrInput` via:
-//
-//          VirtualHardDiskResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type VirtualHardDiskResponsePtrInput interface {
-	pulumi.Input
-
-	ToVirtualHardDiskResponsePtrOutput() VirtualHardDiskResponsePtrOutput
-	ToVirtualHardDiskResponsePtrOutputWithContext(context.Context) VirtualHardDiskResponsePtrOutput
-}
-
-type virtualHardDiskResponsePtrType VirtualHardDiskResponseArgs
-
-func VirtualHardDiskResponsePtr(v *VirtualHardDiskResponseArgs) VirtualHardDiskResponsePtrInput {
-	return (*virtualHardDiskResponsePtrType)(v)
-}
-
-func (*virtualHardDiskResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualHardDiskResponse)(nil)).Elem()
-}
-
-func (i *virtualHardDiskResponsePtrType) ToVirtualHardDiskResponsePtrOutput() VirtualHardDiskResponsePtrOutput {
-	return i.ToVirtualHardDiskResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *virtualHardDiskResponsePtrType) ToVirtualHardDiskResponsePtrOutputWithContext(ctx context.Context) VirtualHardDiskResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualHardDiskResponsePtrOutput)
-}
-
-// Describes the uri of a disk.
-type VirtualHardDiskResponseOutput struct{ *pulumi.OutputState }
-
-func (VirtualHardDiskResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualHardDiskResponse)(nil)).Elem()
-}
-
-func (o VirtualHardDiskResponseOutput) ToVirtualHardDiskResponseOutput() VirtualHardDiskResponseOutput {
-	return o
-}
-
-func (o VirtualHardDiskResponseOutput) ToVirtualHardDiskResponseOutputWithContext(ctx context.Context) VirtualHardDiskResponseOutput {
-	return o
-}
-
-func (o VirtualHardDiskResponseOutput) ToVirtualHardDiskResponsePtrOutput() VirtualHardDiskResponsePtrOutput {
-	return o.ToVirtualHardDiskResponsePtrOutputWithContext(context.Background())
-}
-
-func (o VirtualHardDiskResponseOutput) ToVirtualHardDiskResponsePtrOutputWithContext(ctx context.Context) VirtualHardDiskResponsePtrOutput {
-	return o.ApplyT(func(v VirtualHardDiskResponse) *VirtualHardDiskResponse {
-		return &v
-	}).(VirtualHardDiskResponsePtrOutput)
-}
-
-// Specifies the virtual hard disk's uri.
-func (o VirtualHardDiskResponseOutput) Uri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VirtualHardDiskResponse) *string { return v.Uri }).(pulumi.StringPtrOutput)
-}
-
-type VirtualHardDiskResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (VirtualHardDiskResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualHardDiskResponse)(nil)).Elem()
-}
-
-func (o VirtualHardDiskResponsePtrOutput) ToVirtualHardDiskResponsePtrOutput() VirtualHardDiskResponsePtrOutput {
-	return o
-}
-
-func (o VirtualHardDiskResponsePtrOutput) ToVirtualHardDiskResponsePtrOutputWithContext(ctx context.Context) VirtualHardDiskResponsePtrOutput {
-	return o
-}
-
-func (o VirtualHardDiskResponsePtrOutput) Elem() VirtualHardDiskResponseOutput {
-	return o.ApplyT(func(v *VirtualHardDiskResponse) VirtualHardDiskResponse { return *v }).(VirtualHardDiskResponseOutput)
-}
-
-// Specifies the virtual hard disk's uri.
-func (o VirtualHardDiskResponsePtrOutput) Uri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VirtualHardDiskResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Uri
-	}).(pulumi.StringPtrOutput)
-}
-
 func init() {
 	pulumi.RegisterOutputType(CustomProfileOutput{})
 	pulumi.RegisterOutputType(CustomProfilePtrOutput{})
@@ -5139,6 +4986,4 @@ func init() {
 	pulumi.RegisterOutputType(SubResourceResponseArrayOutput{})
 	pulumi.RegisterOutputType(VirtualHardDiskOutput{})
 	pulumi.RegisterOutputType(VirtualHardDiskPtrOutput{})
-	pulumi.RegisterOutputType(VirtualHardDiskResponseOutput{})
-	pulumi.RegisterOutputType(VirtualHardDiskResponsePtrOutput{})
 }

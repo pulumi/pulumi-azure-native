@@ -61,10 +61,6 @@ export interface GetWebAppResult {
      */
     readonly clientCertMode?: string;
     /**
-     * If specified during app creation, the app is cloned from a source app.
-     */
-    readonly cloningInfo?: outputs.web.v20200601.CloningInfoResponse;
-    /**
      * Size of the function container.
      */
     readonly containerSize?: number;

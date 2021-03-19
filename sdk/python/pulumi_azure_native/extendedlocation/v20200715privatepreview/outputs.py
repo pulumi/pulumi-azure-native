@@ -20,17 +20,13 @@ class CustomLocationPropertiesResponseAuthentication(dict):
     This is optional input that contains the authentication that should be used to generate the namespace.
     """
     def __init__(__self__, *,
-                 type: Optional[str] = None,
-                 value: Optional[str] = None):
+                 type: Optional[str] = None):
         """
         This is optional input that contains the authentication that should be used to generate the namespace.
         :param str type: The type of the Custom Locations authentication
-        :param str value: The kubeconfig value.
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -39,14 +35,6 @@ class CustomLocationPropertiesResponseAuthentication(dict):
         The type of the Custom Locations authentication
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[str]:
-        """
-        The kubeconfig value.
-        """
-        return pulumi.get(self, "value")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

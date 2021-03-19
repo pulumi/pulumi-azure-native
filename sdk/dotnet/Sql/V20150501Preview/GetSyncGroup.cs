@@ -59,10 +59,6 @@ namespace Pulumi.AzureNative.Sql.V20150501Preview
         /// </summary>
         public readonly string? ConflictResolutionPolicy;
         /// <summary>
-        /// Password for the sync group hub database credential.
-        /// </summary>
-        public readonly string? HubDatabasePassword;
-        /// <summary>
         /// User name for the sync group hub database credential.
         /// </summary>
         public readonly string? HubDatabaseUserName;
@@ -103,8 +99,6 @@ namespace Pulumi.AzureNative.Sql.V20150501Preview
         private GetSyncGroupResult(
             string? conflictResolutionPolicy,
 
-            string? hubDatabasePassword,
-
             string? hubDatabaseUserName,
 
             string id,
@@ -124,7 +118,6 @@ namespace Pulumi.AzureNative.Sql.V20150501Preview
             string type)
         {
             ConflictResolutionPolicy = conflictResolutionPolicy;
-            HubDatabasePassword = hubDatabasePassword;
             HubDatabaseUserName = hubDatabaseUserName;
             Id = id;
             Interval = interval;

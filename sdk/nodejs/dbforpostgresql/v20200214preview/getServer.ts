@@ -42,10 +42,6 @@ export interface GetServerResult {
      */
     readonly administratorLogin?: string;
     /**
-     * The administrator login password (required for server creation).
-     */
-    readonly administratorLoginPassword?: string;
-    /**
      * availability Zone information of the server.
      */
     readonly availabilityZone?: string;
@@ -53,10 +49,6 @@ export interface GetServerResult {
      * Status showing whether the data encryption is enabled with customer-managed keys.
      */
     readonly byokEnforcement: string;
-    /**
-     * The mode to create a new PostgreSQL server.
-     */
-    readonly createMode?: string;
     readonly delegatedSubnetArguments?: outputs.dbforpostgresql.v20200214preview.ServerPropertiesResponseDelegatedSubnetArguments;
     /**
      * The display name of a server.

@@ -40,10 +40,6 @@ export class ServerGroup extends pulumi.CustomResource {
      */
     public readonly administratorLogin!: pulumi.Output<string | undefined>;
     /**
-     * The password of the administrator login.
-     */
-    public readonly administratorLoginPassword!: pulumi.Output<string | undefined>;
-    /**
      * Availability Zone information of the server group.
      */
     public readonly availabilityZone!: pulumi.Output<string | undefined>;
@@ -55,10 +51,6 @@ export class ServerGroup extends pulumi.CustomResource {
      * The Citus version of server group.
      */
     public readonly citusVersion!: pulumi.Output<string | undefined>;
-    /**
-     * The mode to create a new server group.
-     */
-    public readonly createMode!: pulumi.Output<string | undefined>;
     /**
      * The delegated subnet arguments for a server group.
      */
@@ -92,10 +84,6 @@ export class ServerGroup extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Restore point creation time (ISO8601 format), specifying the time to restore from. It's required when 'createMode' is 'PointInTimeRestore'
-     */
-    public readonly pointInTimeUTC!: pulumi.Output<string | undefined>;
-    /**
      * The PostgreSQL version of server group.
      */
     public readonly postgresqlVersion!: pulumi.Output<string | undefined>;
@@ -112,25 +100,9 @@ export class ServerGroup extends pulumi.CustomResource {
      */
     public readonly serverRoleGroups!: pulumi.Output<outputs.dbforpostgresql.v20201005privatepreview.ServerRoleGroupResponse[] | undefined>;
     /**
-     * The source server group location to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'ReadReplica'
-     */
-    public readonly sourceLocation!: pulumi.Output<string | undefined>;
-    /**
-     * The source resource group name to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'ReadReplica'
-     */
-    public readonly sourceResourceGroupName!: pulumi.Output<string | undefined>;
-    /**
      * The source server group id for read replica server groups.
      */
     public /*out*/ readonly sourceServerGroup!: pulumi.Output<string>;
-    /**
-     * The source server group name to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'ReadReplica'
-     */
-    public readonly sourceServerGroupName!: pulumi.Output<string | undefined>;
-    /**
-     * The source subscription id to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'ReadReplica'
-     */
-    public readonly sourceSubscriptionId!: pulumi.Output<string | undefined>;
     /**
      * Standby Availability Zone information of the server group.
      */
@@ -199,11 +171,9 @@ export class ServerGroup extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["administratorLogin"] = undefined /*out*/;
-            inputs["administratorLoginPassword"] = undefined /*out*/;
             inputs["availabilityZone"] = undefined /*out*/;
             inputs["backupRetentionDays"] = undefined /*out*/;
             inputs["citusVersion"] = undefined /*out*/;
-            inputs["createMode"] = undefined /*out*/;
             inputs["delegatedSubnetArguments"] = undefined /*out*/;
             inputs["earliestRestoreTime"] = undefined /*out*/;
             inputs["enableMx"] = undefined /*out*/;
@@ -212,16 +182,11 @@ export class ServerGroup extends pulumi.CustomResource {
             inputs["location"] = undefined /*out*/;
             inputs["maintenanceWindow"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
-            inputs["pointInTimeUTC"] = undefined /*out*/;
             inputs["postgresqlVersion"] = undefined /*out*/;
             inputs["readReplicas"] = undefined /*out*/;
             inputs["resourceProviderType"] = undefined /*out*/;
             inputs["serverRoleGroups"] = undefined /*out*/;
-            inputs["sourceLocation"] = undefined /*out*/;
-            inputs["sourceResourceGroupName"] = undefined /*out*/;
             inputs["sourceServerGroup"] = undefined /*out*/;
-            inputs["sourceServerGroupName"] = undefined /*out*/;
-            inputs["sourceSubscriptionId"] = undefined /*out*/;
             inputs["standbyAvailabilityZone"] = undefined /*out*/;
             inputs["state"] = undefined /*out*/;
             inputs["systemData"] = undefined /*out*/;

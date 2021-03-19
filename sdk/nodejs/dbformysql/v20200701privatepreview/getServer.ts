@@ -42,10 +42,6 @@ export interface GetServerResult {
      */
     readonly administratorLogin?: string;
     /**
-     * The password of the administrator login (required for server creation).
-     */
-    readonly administratorLoginPassword?: string;
-    /**
      * availability Zone information of the server.
      */
     readonly availabilityZone?: string;
@@ -53,10 +49,6 @@ export interface GetServerResult {
      * Status showing whether the data encryption is enabled with customer-managed keys.
      */
     readonly byokEnforcement: string;
-    /**
-     * The mode to create a new MySQL server.
-     */
-    readonly createMode?: string;
     /**
      * Delegated subnet arguments.
      */
@@ -86,10 +78,6 @@ export interface GetServerResult {
      */
     readonly identity?: outputs.dbformysql.v20200701privatepreview.IdentityResponse;
     /**
-     * Status showing whether the server enabled infrastructure encryption.
-     */
-    readonly infrastructureEncryption?: string;
-    /**
      * The geo-location where the resource lives
      */
     readonly location: string;
@@ -113,10 +101,6 @@ export interface GetServerResult {
      * The replication role.
      */
     readonly replicationRole?: string;
-    /**
-     * Restore point creation time (ISO8601 format), specifying the time to restore from.
-     */
-    readonly restorePointInTime?: string;
     /**
      * The SKU (pricing tier) of the server.
      */

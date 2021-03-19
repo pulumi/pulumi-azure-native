@@ -40,8 +40,6 @@ type LookupSyncMemberResult struct {
 	Id string `pulumi:"id"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// Password of the member database in the sync member.
-	Password *string `pulumi:"password"`
 	// Private endpoint name of the sync member if use private link connection is enabled, for sync members in Azure.
 	PrivateEndpointName string `pulumi:"privateEndpointName"`
 	// Server name of the member database in the sync member

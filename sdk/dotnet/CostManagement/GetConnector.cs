@@ -56,10 +56,6 @@ namespace Pulumi.AzureNative.CostManagement
         /// </summary>
         public readonly string? CredentialsKey;
         /// <summary>
-        /// Credentials secret (eg AWS ExternalId)
-        /// </summary>
-        public readonly string? CredentialsSecret;
-        /// <summary>
         /// Connector DisplayName (defaults to Name)
         /// </summary>
         public readonly string? DisplayName;
@@ -112,8 +108,6 @@ namespace Pulumi.AzureNative.CostManagement
 
             string? credentialsKey,
 
-            string? credentialsSecret,
-
             string? displayName,
 
             string id,
@@ -139,7 +133,6 @@ namespace Pulumi.AzureNative.CostManagement
             Collection = collection;
             CreatedOn = createdOn;
             CredentialsKey = credentialsKey;
-            CredentialsSecret = credentialsSecret;
             DisplayName = displayName;
             Id = id;
             Kind = kind;

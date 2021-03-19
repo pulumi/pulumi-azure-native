@@ -43,10 +43,6 @@ export interface GetManagedInstanceResult {
      */
     readonly administratorLogin?: string;
     /**
-     * The administrator login password (required for managed instance creation).
-     */
-    readonly administratorLoginPassword?: string;
-    /**
      * Collation of the managed instance.
      */
     readonly collation?: string;
@@ -54,10 +50,6 @@ export interface GetManagedInstanceResult {
      * The Dns Zone that the managed instance is in.
      */
     readonly dnsZone: string;
-    /**
-     * The resource id of another managed instance whose DNS zone this managed instance will share after creation.
-     */
-    readonly dnsZonePartner?: string;
     /**
      * The fully qualified domain name of the managed instance.
      */
@@ -87,14 +79,6 @@ export interface GetManagedInstanceResult {
      */
     readonly maintenanceConfigurationId?: string;
     /**
-     * Specifies the mode of database creation.
-     * 
-     * Default: Regular instance creation.
-     * 
-     * Restore: Creates an instance by restoring a set of backups to specific point in time. RestorePointInTime and SourceManagedInstanceId must be specified.
-     */
-    readonly managedInstanceCreateMode?: string;
-    /**
      * Minimal TLS version. Allowed values: 'None', '1.0', '1.1', '1.2'
      */
     readonly minimalTlsVersion?: string;
@@ -116,17 +100,9 @@ export interface GetManagedInstanceResult {
      */
     readonly publicDataEndpointEnabled?: boolean;
     /**
-     * Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database.
-     */
-    readonly restorePointInTime?: string;
-    /**
      * Managed instance SKU. Allowed values for sku.name: GP_Gen4, GP_Gen5, BC_Gen4, BC_Gen5
      */
     readonly sku?: outputs.sql.SkuResponse;
-    /**
-     * The resource identifier of the source managed instance associated with create operation of this instance.
-     */
-    readonly sourceManagedInstanceId?: string;
     /**
      * The state of the managed instance.
      */

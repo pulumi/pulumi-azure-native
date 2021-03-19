@@ -19,7 +19,7 @@ class GetDatabaseThreatDetectionPolicyResult:
     """
     Contains information about a database Threat Detection policy.
     """
-    def __init__(__self__, disabled_alerts=None, email_account_admins=None, email_addresses=None, id=None, kind=None, location=None, name=None, retention_days=None, state=None, storage_account_access_key=None, storage_endpoint=None, type=None, use_server_default=None):
+    def __init__(__self__, disabled_alerts=None, email_account_admins=None, email_addresses=None, id=None, kind=None, location=None, name=None, retention_days=None, state=None, storage_endpoint=None, type=None, use_server_default=None):
         if disabled_alerts and not isinstance(disabled_alerts, str):
             raise TypeError("Expected argument 'disabled_alerts' to be a str")
         pulumi.set(__self__, "disabled_alerts", disabled_alerts)
@@ -47,9 +47,6 @@ class GetDatabaseThreatDetectionPolicyResult:
         if state and not isinstance(state, str):
             raise TypeError("Expected argument 'state' to be a str")
         pulumi.set(__self__, "state", state)
-        if storage_account_access_key and not isinstance(storage_account_access_key, str):
-            raise TypeError("Expected argument 'storage_account_access_key' to be a str")
-        pulumi.set(__self__, "storage_account_access_key", storage_account_access_key)
         if storage_endpoint and not isinstance(storage_endpoint, str):
             raise TypeError("Expected argument 'storage_endpoint' to be a str")
         pulumi.set(__self__, "storage_endpoint", storage_endpoint)
@@ -133,14 +130,6 @@ class GetDatabaseThreatDetectionPolicyResult:
         return pulumi.get(self, "state")
 
     @property
-    @pulumi.getter(name="storageAccountAccessKey")
-    def storage_account_access_key(self) -> Optional[str]:
-        """
-        Specifies the identifier key of the Threat Detection audit storage account. If state is Enabled, storageAccountAccessKey is required.
-        """
-        return pulumi.get(self, "storage_account_access_key")
-
-    @property
     @pulumi.getter(name="storageEndpoint")
     def storage_endpoint(self) -> Optional[str]:
         """
@@ -180,7 +169,6 @@ class AwaitableGetDatabaseThreatDetectionPolicyResult(GetDatabaseThreatDetection
             name=self.name,
             retention_days=self.retention_days,
             state=self.state,
-            storage_account_access_key=self.storage_account_access_key,
             storage_endpoint=self.storage_endpoint,
             type=self.type,
             use_server_default=self.use_server_default)
@@ -221,7 +209,6 @@ def get_database_threat_detection_policy(database_name: Optional[str] = None,
         name=__ret__.name,
         retention_days=__ret__.retention_days,
         state=__ret__.state,
-        storage_account_access_key=__ret__.storage_account_access_key,
         storage_endpoint=__ret__.storage_endpoint,
         type=__ret__.type,
         use_server_default=__ret__.use_server_default)

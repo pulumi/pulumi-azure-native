@@ -17,14 +17,10 @@ type Server struct {
 
 	// The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
 	AdministratorLogin pulumi.StringPtrOutput `pulumi:"administratorLogin"`
-	// The password of the administrator login (required for server creation).
-	AdministratorLoginPassword pulumi.StringPtrOutput `pulumi:"administratorLoginPassword"`
 	// availability Zone information of the server.
 	AvailabilityZone pulumi.StringPtrOutput `pulumi:"availabilityZone"`
 	// Status showing whether the data encryption is enabled with customer-managed keys.
 	ByokEnforcement pulumi.StringOutput `pulumi:"byokEnforcement"`
-	// The mode to create a new MySQL server.
-	CreateMode pulumi.StringPtrOutput `pulumi:"createMode"`
 	// Delegated subnet arguments.
 	DelegatedSubnetArguments DelegatedSubnetArgumentsResponsePtrOutput `pulumi:"delegatedSubnetArguments"`
 	// Earliest restore point creation time (ISO8601 format)
@@ -37,8 +33,6 @@ type Server struct {
 	HaState pulumi.StringOutput `pulumi:"haState"`
 	// The Azure Active Directory identity of the server.
 	Identity IdentityResponsePtrOutput `pulumi:"identity"`
-	// Status showing whether the server enabled infrastructure encryption.
-	InfrastructureEncryption pulumi.StringPtrOutput `pulumi:"infrastructureEncryption"`
 	// The geo-location where the resource lives
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Maintenance window of a server.
@@ -51,8 +45,6 @@ type Server struct {
 	ReplicaCapacity pulumi.IntOutput `pulumi:"replicaCapacity"`
 	// The replication role.
 	ReplicationRole pulumi.StringPtrOutput `pulumi:"replicationRole"`
-	// Restore point creation time (ISO8601 format), specifying the time to restore from.
-	RestorePointInTime pulumi.StringPtrOutput `pulumi:"restorePointInTime"`
 	// The SKU (pricing tier) of the server.
 	Sku SkuResponsePtrOutput `pulumi:"sku"`
 	// The source MySQL server id.
@@ -119,14 +111,10 @@ func GetServer(ctx *pulumi.Context,
 type serverState struct {
 	// The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
 	AdministratorLogin *string `pulumi:"administratorLogin"`
-	// The password of the administrator login (required for server creation).
-	AdministratorLoginPassword *string `pulumi:"administratorLoginPassword"`
 	// availability Zone information of the server.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
 	// Status showing whether the data encryption is enabled with customer-managed keys.
 	ByokEnforcement *string `pulumi:"byokEnforcement"`
-	// The mode to create a new MySQL server.
-	CreateMode *string `pulumi:"createMode"`
 	// Delegated subnet arguments.
 	DelegatedSubnetArguments *DelegatedSubnetArgumentsResponse `pulumi:"delegatedSubnetArguments"`
 	// Earliest restore point creation time (ISO8601 format)
@@ -139,8 +127,6 @@ type serverState struct {
 	HaState *string `pulumi:"haState"`
 	// The Azure Active Directory identity of the server.
 	Identity *IdentityResponse `pulumi:"identity"`
-	// Status showing whether the server enabled infrastructure encryption.
-	InfrastructureEncryption *string `pulumi:"infrastructureEncryption"`
 	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
 	// Maintenance window of a server.
@@ -153,8 +139,6 @@ type serverState struct {
 	ReplicaCapacity *int `pulumi:"replicaCapacity"`
 	// The replication role.
 	ReplicationRole *string `pulumi:"replicationRole"`
-	// Restore point creation time (ISO8601 format), specifying the time to restore from.
-	RestorePointInTime *string `pulumi:"restorePointInTime"`
 	// The SKU (pricing tier) of the server.
 	Sku *SkuResponse `pulumi:"sku"`
 	// The source MySQL server id.
@@ -178,14 +162,10 @@ type serverState struct {
 type ServerState struct {
 	// The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
 	AdministratorLogin pulumi.StringPtrInput
-	// The password of the administrator login (required for server creation).
-	AdministratorLoginPassword pulumi.StringPtrInput
 	// availability Zone information of the server.
 	AvailabilityZone pulumi.StringPtrInput
 	// Status showing whether the data encryption is enabled with customer-managed keys.
 	ByokEnforcement pulumi.StringPtrInput
-	// The mode to create a new MySQL server.
-	CreateMode pulumi.StringPtrInput
 	// Delegated subnet arguments.
 	DelegatedSubnetArguments DelegatedSubnetArgumentsResponsePtrInput
 	// Earliest restore point creation time (ISO8601 format)
@@ -198,8 +178,6 @@ type ServerState struct {
 	HaState pulumi.StringPtrInput
 	// The Azure Active Directory identity of the server.
 	Identity IdentityResponsePtrInput
-	// Status showing whether the server enabled infrastructure encryption.
-	InfrastructureEncryption pulumi.StringPtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
 	// Maintenance window of a server.
@@ -212,8 +190,6 @@ type ServerState struct {
 	ReplicaCapacity pulumi.IntPtrInput
 	// The replication role.
 	ReplicationRole pulumi.StringPtrInput
-	// Restore point creation time (ISO8601 format), specifying the time to restore from.
-	RestorePointInTime pulumi.StringPtrInput
 	// The SKU (pricing tier) of the server.
 	Sku SkuResponsePtrInput
 	// The source MySQL server id.

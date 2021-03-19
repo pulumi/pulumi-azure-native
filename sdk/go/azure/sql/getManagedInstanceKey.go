@@ -37,12 +37,8 @@ type LookupManagedInstanceKeyResult struct {
 	Kind string `pulumi:"kind"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// The key type like 'ServiceManaged', 'AzureKeyVault'.
-	ServerKeyType string `pulumi:"serverKeyType"`
 	// Thumbprint of the key.
 	Thumbprint string `pulumi:"thumbprint"`
 	// Resource type.
 	Type string `pulumi:"type"`
-	// The URI of the key. If the ServerKeyType is AzureKeyVault, then the URI is required.
-	Uri *string `pulumi:"uri"`
 }

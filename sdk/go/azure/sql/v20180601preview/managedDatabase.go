@@ -19,8 +19,6 @@ type ManagedDatabase struct {
 	CatalogCollation pulumi.StringPtrOutput `pulumi:"catalogCollation"`
 	// Collation of the managed database.
 	Collation pulumi.StringPtrOutput `pulumi:"collation"`
-	// Managed database create mode. PointInTimeRestore: Create a database by restoring a point in time backup of an existing database. SourceDatabaseName, SourceManagedInstanceName and PointInTime must be specified. RestoreExternalBackup: Create a database by restoring from external backup files. Collation, StorageContainerUri and StorageContainerSasToken must be specified. Recovery: Creates a database by restoring a geo-replicated backup. RecoverableDatabaseId must be specified as the recoverable database resource ID to restore.
-	CreateMode pulumi.StringPtrOutput `pulumi:"createMode"`
 	// Creation date of the database.
 	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
 	// Geo paired region.
@@ -31,24 +29,10 @@ type ManagedDatabase struct {
 	FailoverGroupId pulumi.StringOutput `pulumi:"failoverGroupId"`
 	// Resource location.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the Long Term Retention backup to be used for restore of this managed database.
-	LongTermRetentionBackupResourceId pulumi.StringPtrOutput `pulumi:"longTermRetentionBackupResourceId"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The resource identifier of the recoverable database associated with create operation of this database.
-	RecoverableDatabaseId pulumi.StringPtrOutput `pulumi:"recoverableDatabaseId"`
-	// The restorable dropped database resource id to restore when creating this database.
-	RestorableDroppedDatabaseId pulumi.StringPtrOutput `pulumi:"restorableDroppedDatabaseId"`
-	// Conditional. If createMode is PointInTimeRestore, this value is required. Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database.
-	RestorePointInTime pulumi.StringPtrOutput `pulumi:"restorePointInTime"`
-	// The resource identifier of the source database associated with create operation of this database.
-	SourceDatabaseId pulumi.StringPtrOutput `pulumi:"sourceDatabaseId"`
 	// Status of the database.
 	Status pulumi.StringOutput `pulumi:"status"`
-	// Conditional. If createMode is RestoreExternalBackup, this value is required. Specifies the storage container sas token.
-	StorageContainerSasToken pulumi.StringPtrOutput `pulumi:"storageContainerSasToken"`
-	// Conditional. If createMode is RestoreExternalBackup, this value is required. Specifies the uri of the storage container where backups for this restore are stored.
-	StorageContainerUri pulumi.StringPtrOutput `pulumi:"storageContainerUri"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type.
@@ -136,8 +120,6 @@ type managedDatabaseState struct {
 	CatalogCollation *string `pulumi:"catalogCollation"`
 	// Collation of the managed database.
 	Collation *string `pulumi:"collation"`
-	// Managed database create mode. PointInTimeRestore: Create a database by restoring a point in time backup of an existing database. SourceDatabaseName, SourceManagedInstanceName and PointInTime must be specified. RestoreExternalBackup: Create a database by restoring from external backup files. Collation, StorageContainerUri and StorageContainerSasToken must be specified. Recovery: Creates a database by restoring a geo-replicated backup. RecoverableDatabaseId must be specified as the recoverable database resource ID to restore.
-	CreateMode *string `pulumi:"createMode"`
 	// Creation date of the database.
 	CreationDate *string `pulumi:"creationDate"`
 	// Geo paired region.
@@ -148,24 +130,10 @@ type managedDatabaseState struct {
 	FailoverGroupId *string `pulumi:"failoverGroupId"`
 	// Resource location.
 	Location *string `pulumi:"location"`
-	// The name of the Long Term Retention backup to be used for restore of this managed database.
-	LongTermRetentionBackupResourceId *string `pulumi:"longTermRetentionBackupResourceId"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// The resource identifier of the recoverable database associated with create operation of this database.
-	RecoverableDatabaseId *string `pulumi:"recoverableDatabaseId"`
-	// The restorable dropped database resource id to restore when creating this database.
-	RestorableDroppedDatabaseId *string `pulumi:"restorableDroppedDatabaseId"`
-	// Conditional. If createMode is PointInTimeRestore, this value is required. Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database.
-	RestorePointInTime *string `pulumi:"restorePointInTime"`
-	// The resource identifier of the source database associated with create operation of this database.
-	SourceDatabaseId *string `pulumi:"sourceDatabaseId"`
 	// Status of the database.
 	Status *string `pulumi:"status"`
-	// Conditional. If createMode is RestoreExternalBackup, this value is required. Specifies the storage container sas token.
-	StorageContainerSasToken *string `pulumi:"storageContainerSasToken"`
-	// Conditional. If createMode is RestoreExternalBackup, this value is required. Specifies the uri of the storage container where backups for this restore are stored.
-	StorageContainerUri *string `pulumi:"storageContainerUri"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
@@ -177,8 +145,6 @@ type ManagedDatabaseState struct {
 	CatalogCollation pulumi.StringPtrInput
 	// Collation of the managed database.
 	Collation pulumi.StringPtrInput
-	// Managed database create mode. PointInTimeRestore: Create a database by restoring a point in time backup of an existing database. SourceDatabaseName, SourceManagedInstanceName and PointInTime must be specified. RestoreExternalBackup: Create a database by restoring from external backup files. Collation, StorageContainerUri and StorageContainerSasToken must be specified. Recovery: Creates a database by restoring a geo-replicated backup. RecoverableDatabaseId must be specified as the recoverable database resource ID to restore.
-	CreateMode pulumi.StringPtrInput
 	// Creation date of the database.
 	CreationDate pulumi.StringPtrInput
 	// Geo paired region.
@@ -189,24 +155,10 @@ type ManagedDatabaseState struct {
 	FailoverGroupId pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
-	// The name of the Long Term Retention backup to be used for restore of this managed database.
-	LongTermRetentionBackupResourceId pulumi.StringPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// The resource identifier of the recoverable database associated with create operation of this database.
-	RecoverableDatabaseId pulumi.StringPtrInput
-	// The restorable dropped database resource id to restore when creating this database.
-	RestorableDroppedDatabaseId pulumi.StringPtrInput
-	// Conditional. If createMode is PointInTimeRestore, this value is required. Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database.
-	RestorePointInTime pulumi.StringPtrInput
-	// The resource identifier of the source database associated with create operation of this database.
-	SourceDatabaseId pulumi.StringPtrInput
 	// Status of the database.
 	Status pulumi.StringPtrInput
-	// Conditional. If createMode is RestoreExternalBackup, this value is required. Specifies the storage container sas token.
-	StorageContainerSasToken pulumi.StringPtrInput
-	// Conditional. If createMode is RestoreExternalBackup, this value is required. Specifies the uri of the storage container where backups for this restore are stored.
-	StorageContainerUri pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// Resource type.

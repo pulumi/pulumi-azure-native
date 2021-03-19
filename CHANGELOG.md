@@ -5,7 +5,11 @@ CHANGELOG
 
 #### Breaking Changes
 
-- Remove env var support for auxiliary tenant IDs (ARM_AUXILIARY_TENANT_IDS). This option can still be set directly as a Provider argument or config.
+- Remove env var support for auxiliary tenant IDs (ARM_AUXILIARY_TENANT_IDS).
+  This option can still be set directly as a Provider argument or config.
+  [#624](https://github.com/pulumi/pulumi-azure-native/pull/624)
+- Respect x-ms-mutability annotations for write-only properties.
+  [#679](https://github.com/pulumi/pulumi-azure-native/pull/679)
 
 #### Improvements
 

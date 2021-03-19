@@ -35,24 +35,6 @@ type LookupDatabaseResult struct {
 	CatalogCollation *string `pulumi:"catalogCollation"`
 	// The collation of the database.
 	Collation *string `pulumi:"collation"`
-	// Specifies the mode of database creation.
-	//
-	// Default: regular database creation.
-	//
-	// Copy: creates a database as a copy of an existing database. sourceDatabaseId must be specified as the resource ID of the source database.
-	//
-	// Secondary: creates a database as a secondary replica of an existing database. sourceDatabaseId must be specified as the resource ID of the existing primary database.
-	//
-	// PointInTimeRestore: Creates a database by restoring a point in time backup of an existing database. sourceDatabaseId must be specified as the resource ID of the existing database, and restorePointInTime must be specified.
-	//
-	// Recovery: Creates a database by restoring a geo-replicated backup. sourceDatabaseId must be specified as the recoverable database resource ID to restore.
-	//
-	// Restore: Creates a database by restoring a backup of a deleted database. sourceDatabaseId must be specified. If sourceDatabaseId is the database's original resource ID, then sourceDatabaseDeletionDate must be specified. Otherwise sourceDatabaseId must be the restorable dropped database resource ID and sourceDatabaseDeletionDate is ignored. restorePointInTime may also be specified to restore from an earlier point in time.
-	//
-	// RestoreLongTermRetentionBackup: Creates a database by restoring from a long term retention vault. recoveryServicesRecoveryPointResourceId must be specified as the recovery point resource ID.
-	//
-	// Copy, Secondary, and RestoreLongTermRetentionBackup are not supported for DataWarehouse edition.
-	CreateMode *string `pulumi:"createMode"`
 	// The creation date of the database (ISO8601 format).
 	CreationDate string `pulumi:"creationDate"`
 	// The storage account type used to store backups for this database.
@@ -81,8 +63,6 @@ type LookupDatabaseResult struct {
 	LicenseType *string `pulumi:"licenseType"`
 	// Resource location.
 	Location string `pulumi:"location"`
-	// The resource identifier of the long term retention backup associated with create operation of this database.
-	LongTermRetentionBackupResourceId *string `pulumi:"longTermRetentionBackupResourceId"`
 	// Maintenance configuration id assigned to the database. This configuration defines the period when the maintenance updates will occur.
 	MaintenanceConfigurationId *string `pulumi:"maintenanceConfigurationId"`
 	// Resource that manages the database.
@@ -99,32 +79,18 @@ type LookupDatabaseResult struct {
 	PausedDate string `pulumi:"pausedDate"`
 	// The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region.
 	ReadScale *string `pulumi:"readScale"`
-	// The resource identifier of the recoverable database associated with create operation of this database.
-	RecoverableDatabaseId *string `pulumi:"recoverableDatabaseId"`
-	// The resource identifier of the recovery point associated with create operation of this database.
-	RecoveryServicesRecoveryPointId *string `pulumi:"recoveryServicesRecoveryPointId"`
 	// The storage account type to be used to store backups for this database.
 	RequestedBackupStorageRedundancy *string `pulumi:"requestedBackupStorageRedundancy"`
 	// The requested service level objective name of the database.
 	RequestedServiceObjectiveName string `pulumi:"requestedServiceObjectiveName"`
-	// The resource identifier of the restorable dropped database associated with create operation of this database.
-	RestorableDroppedDatabaseId *string `pulumi:"restorableDroppedDatabaseId"`
-	// Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database.
-	RestorePointInTime *string `pulumi:"restorePointInTime"`
 	// The date when database was resumed by user action or database login (ISO8601 format). Null if the database is paused.
 	ResumedDate string `pulumi:"resumedDate"`
-	// The name of the sample schema to apply when creating this database.
-	SampleName *string `pulumi:"sampleName"`
 	// The secondary type of the database if it is a secondary.  Valid values are Geo and Named.
 	SecondaryType *string `pulumi:"secondaryType"`
 	// The database SKU.
 	//
 	// The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or one of the following commands:
 	Sku *SkuResponse `pulumi:"sku"`
-	// Specifies the time that the database was deleted.
-	SourceDatabaseDeletionDate *string `pulumi:"sourceDatabaseDeletionDate"`
-	// The resource identifier of the source database associated with create operation of this database.
-	SourceDatabaseId *string `pulumi:"sourceDatabaseId"`
 	// The status of the database.
 	Status string `pulumi:"status"`
 	// Resource tags.

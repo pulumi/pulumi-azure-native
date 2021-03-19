@@ -22,12 +22,6 @@ namespace Pulumi.AzureNative.DBforMySQL.V20200701Preview
         public Output<string?> AdministratorLogin { get; private set; } = null!;
 
         /// <summary>
-        /// The password of the administrator login (required for server creation).
-        /// </summary>
-        [Output("administratorLoginPassword")]
-        public Output<string?> AdministratorLoginPassword { get; private set; } = null!;
-
-        /// <summary>
         /// availability Zone information of the server.
         /// </summary>
         [Output("availabilityZone")]
@@ -38,12 +32,6 @@ namespace Pulumi.AzureNative.DBforMySQL.V20200701Preview
         /// </summary>
         [Output("byokEnforcement")]
         public Output<string> ByokEnforcement { get; private set; } = null!;
-
-        /// <summary>
-        /// The mode to create a new MySQL server.
-        /// </summary>
-        [Output("createMode")]
-        public Output<string?> CreateMode { get; private set; } = null!;
 
         /// <summary>
         /// Delegated subnet arguments.
@@ -82,12 +70,6 @@ namespace Pulumi.AzureNative.DBforMySQL.V20200701Preview
         public Output<Outputs.IdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
-        /// Status showing whether the server enabled infrastructure encryption.
-        /// </summary>
-        [Output("infrastructureEncryption")]
-        public Output<string?> InfrastructureEncryption { get; private set; } = null!;
-
-        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
@@ -122,12 +104,6 @@ namespace Pulumi.AzureNative.DBforMySQL.V20200701Preview
         /// </summary>
         [Output("replicationRole")]
         public Output<string?> ReplicationRole { get; private set; } = null!;
-
-        /// <summary>
-        /// Restore point creation time (ISO8601 format), specifying the time to restore from.
-        /// </summary>
-        [Output("restorePointInTime")]
-        public Output<string?> RestorePointInTime { get; private set; } = null!;
 
         /// <summary>
         /// The SKU (pricing tier) of the server.

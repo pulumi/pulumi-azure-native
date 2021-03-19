@@ -93,10 +93,6 @@ export class Certificate extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Certificate password.
-     */
-    public readonly password!: pulumi.Output<string>;
-    /**
      * Pfx blob.
      */
     public readonly pfxBlob!: pulumi.Output<string | undefined>;
@@ -200,7 +196,6 @@ export class Certificate extends pulumi.CustomResource {
             inputs["kind"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
-            inputs["password"] = undefined /*out*/;
             inputs["pfxBlob"] = undefined /*out*/;
             inputs["publicKeyHash"] = undefined /*out*/;
             inputs["selfLink"] = undefined /*out*/;
