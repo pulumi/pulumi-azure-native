@@ -71,7 +71,7 @@ export interface GetPolicyResult {
     /**
      * Describes settings for the policy.
      */
-    readonly policySettings?: outputs.network.latest.PolicySettingsResponse;
+    readonly policySettings?: outputs.network.latest.FrontDoorPolicySettingsResponse;
     /**
      * Provisioning state of the policy.
      */

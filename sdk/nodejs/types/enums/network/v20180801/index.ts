@@ -12,17 +12,6 @@ export const Access = {
  */
 export type Access = (typeof Access)[keyof typeof Access];
 
-export const Action = {
-    Allow: "Allow",
-    Block: "Block",
-    Log: "Log",
-} as const;
-
-/**
- * Type of Actions
- */
-export type Action = (typeof Action)[keyof typeof Action];
-
 export const AllowedEndpointRecordType = {
     DomainName: "DomainName",
     IPv4Address: "IPv4Address",
@@ -260,26 +249,6 @@ export const DhGroup = {
  */
 export type DhGroup = (typeof DhGroup)[keyof typeof DhGroup];
 
-export const DynamicCompressionEnabled = {
-    Enabled: "Enabled",
-    Disabled: "Disabled",
-} as const;
-
-/**
- * Whether to use dynamic compression for cached content
- */
-export type DynamicCompressionEnabled = (typeof DynamicCompressionEnabled)[keyof typeof DynamicCompressionEnabled];
-
-export const EnabledState = {
-    Disabled: "Disabled",
-    Enabled: "Enabled",
-} as const;
-
-/**
- * describes if the policy is in enabled state or disabled state
- */
-export type EnabledState = (typeof EnabledState)[keyof typeof EnabledState];
-
 export const EndpointMonitorStatus = {
     CheckingEndpoint: "CheckingEndpoint",
     Online: "Online",
@@ -388,47 +357,6 @@ export const ExpressRoutePortsEncapsulation = {
  */
 export type ExpressRoutePortsEncapsulation = (typeof ExpressRoutePortsEncapsulation)[keyof typeof ExpressRoutePortsEncapsulation];
 
-export const FrontDoorEnabledState = {
-    Enabled: "Enabled",
-    Disabled: "Disabled",
-} as const;
-
-/**
- * Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
- */
-export type FrontDoorEnabledState = (typeof FrontDoorEnabledState)[keyof typeof FrontDoorEnabledState];
-
-export const FrontDoorForwardingProtocol = {
-    HttpOnly: "HttpOnly",
-    HttpsOnly: "HttpsOnly",
-    MatchRequest: "MatchRequest",
-} as const;
-
-/**
- * Protocol this rule will use when forwarding traffic to backends.
- */
-export type FrontDoorForwardingProtocol = (typeof FrontDoorForwardingProtocol)[keyof typeof FrontDoorForwardingProtocol];
-
-export const FrontDoorProtocol = {
-    Http: "Http",
-    Https: "Https",
-} as const;
-
-/**
- * Accepted protocol schemes.
- */
-export type FrontDoorProtocol = (typeof FrontDoorProtocol)[keyof typeof FrontDoorProtocol];
-
-export const FrontDoorQuery = {
-    StripNone: "StripNone",
-    StripAll: "StripAll",
-} as const;
-
-/**
- * Treatment of URL query terms when forming the cache key.
- */
-export type FrontDoorQuery = (typeof FrontDoorQuery)[keyof typeof FrontDoorQuery];
-
 export const IPAllocationMethod = {
     Static: "Static",
     Dynamic: "Dynamic",
@@ -530,16 +458,6 @@ export const LoadDistribution = {
  */
 export type LoadDistribution = (typeof LoadDistribution)[keyof typeof LoadDistribution];
 
-export const Mode = {
-    Prevention: "Prevention",
-    Detection: "Detection",
-} as const;
-
-/**
- * Describes if it is in detection mode  or prevention mode at policy level
- */
-export type Mode = (typeof Mode)[keyof typeof Mode];
-
 export const MonitorProtocol = {
     HTTP: "HTTP",
     HTTPS: "HTTPS",
@@ -550,25 +468,6 @@ export const MonitorProtocol = {
  * The protocol (HTTP, HTTPS or TCP) used to probe for endpoint health.
  */
 export type MonitorProtocol = (typeof MonitorProtocol)[keyof typeof MonitorProtocol];
-
-export const Operator = {
-    Any: "Any",
-    IPMatch: "IPMatch",
-    GeoMatch: "GeoMatch",
-    Equal: "Equal",
-    Contains: "Contains",
-    LessThan: "LessThan",
-    GreaterThan: "GreaterThan",
-    LessThanOrEqual: "LessThanOrEqual",
-    GreaterThanOrEqual: "GreaterThanOrEqual",
-    BeginsWith: "BeginsWith",
-    EndsWith: "EndsWith",
-} as const;
-
-/**
- * Describes operator to be matched
- */
-export type Operator = (typeof Operator)[keyof typeof Operator];
 
 export const PcProtocol = {
     TCP: "TCP",
@@ -673,26 +572,6 @@ export const RouteNextHopType = {
  */
 export type RouteNextHopType = (typeof RouteNextHopType)[keyof typeof RouteNextHopType];
 
-export const RuleGroupOverride = {
-    SqlInjection: "SqlInjection",
-    XSS: "XSS",
-} as const;
-
-/**
- * Describes override rule group
- */
-export type RuleGroupOverride = (typeof RuleGroupOverride)[keyof typeof RuleGroupOverride];
-
-export const RuleType = {
-    MatchRule: "MatchRule",
-    RateLimitRule: "RateLimitRule",
-} as const;
-
-/**
- * Describes type of rule
- */
-export type RuleType = (typeof RuleType)[keyof typeof RuleType];
-
 export const SecurityRuleAccess = {
     Allow: "Allow",
     Deny: "Deny",
@@ -736,16 +615,6 @@ export const ServiceProviderProvisioningState = {
  */
 export type ServiceProviderProvisioningState = (typeof ServiceProviderProvisioningState)[keyof typeof ServiceProviderProvisioningState];
 
-export const SessionAffinityEnabledState = {
-    Enabled: "Enabled",
-    Disabled: "Disabled",
-} as const;
-
-/**
- * Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'
- */
-export type SessionAffinityEnabledState = (typeof SessionAffinityEnabledState)[keyof typeof SessionAffinityEnabledState];
-
 export const TrafficRoutingMethod = {
     Performance: "Performance",
     Priority: "Priority",
@@ -769,21 +638,6 @@ export const TrafficViewEnrollmentStatus = {
  * Indicates whether Traffic View is 'Enabled' or 'Disabled' for the Traffic Manager profile. Null, indicates 'Disabled'. Enabling this feature will increase the cost of the Traffic Manage profile.
  */
 export type TrafficViewEnrollmentStatus = (typeof TrafficViewEnrollmentStatus)[keyof typeof TrafficViewEnrollmentStatus];
-
-export const Transform = {
-    Lowercase: "Lowercase",
-    Uppercase: "Uppercase",
-    Trim: "Trim",
-    UrlDecode: "UrlDecode",
-    UrlEncode: "UrlEncode",
-    RemoveNulls: "RemoveNulls",
-    HtmlEntityDecode: "HtmlEntityDecode",
-} as const;
-
-/**
- * Describes what transforms applied before matching
- */
-export type Transform = (typeof Transform)[keyof typeof Transform];
 
 export const TransportProtocol = {
     Udp: "Udp",

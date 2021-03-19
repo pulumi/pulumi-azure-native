@@ -50,7 +50,7 @@ export class MyWorkbook extends pulumi.CustomResource {
     /**
      * Identity used for BYOS
      */
-    public readonly identity!: pulumi.Output<outputs.insights.v20201020.ManagedIdentityResponse | undefined>;
+    public readonly identity!: pulumi.Output<outputs.insights.v20201020.MyManagedIdentityResponse | undefined>;
     /**
      * The kind of workbook. Choices are user and shared.
      */
@@ -186,7 +186,7 @@ export interface MyWorkbookArgs {
     /**
      * Identity used for BYOS
      */
-    readonly identity?: pulumi.Input<inputs.insights.v20201020.ManagedIdentity>;
+    readonly identity?: pulumi.Input<inputs.insights.v20201020.MyManagedIdentity>;
     /**
      * The kind of workbook. Choices are user and shared.
      */

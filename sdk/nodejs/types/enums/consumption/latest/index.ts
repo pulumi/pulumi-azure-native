@@ -13,7 +13,6 @@ export type BudgetOperatorType = (typeof BudgetOperatorType)[keyof typeof Budget
 
 export const CategoryType = {
     Cost: "Cost",
-    Usage: "Usage",
 } as const;
 
 /**
@@ -45,9 +44,12 @@ export const TimeGrainType = {
     Monthly: "Monthly",
     Quarterly: "Quarterly",
     Annually: "Annually",
+    BillingMonth: "BillingMonth",
+    BillingQuarter: "BillingQuarter",
+    BillingAnnual: "BillingAnnual",
 } as const;
 
 /**
- * The time covered by a budget. Tracking of the amount will be reset based on the time grain.
+ * The time covered by a budget. Tracking of the amount will be reset based on the time grain. BillingMonth, BillingQuarter, and BillingAnnual are only supported by WD customers
  */
 export type TimeGrainType = (typeof TimeGrainType)[keyof typeof TimeGrainType];

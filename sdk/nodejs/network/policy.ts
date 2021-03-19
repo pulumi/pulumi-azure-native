@@ -63,7 +63,7 @@ export class Policy extends pulumi.CustomResource {
     /**
      * Describes settings for the policy.
      */
-    public readonly policySettings!: pulumi.Output<outputs.network.PolicySettingsResponse | undefined>;
+    public readonly policySettings!: pulumi.Output<outputs.network.FrontDoorPolicySettingsResponse | undefined>;
     /**
      * Provisioning state of the policy.
      */
@@ -139,7 +139,7 @@ export class Policy extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network:Policy" }, { type: "azure-native:network/latest:Policy" }, { type: "azure-nextgen:network/latest:Policy" }, { type: "azure-native:network/v20180801:Policy" }, { type: "azure-nextgen:network/v20180801:Policy" }, { type: "azure-native:network/v20190301:Policy" }, { type: "azure-nextgen:network/v20190301:Policy" }, { type: "azure-native:network/v20191001:Policy" }, { type: "azure-nextgen:network/v20191001:Policy" }, { type: "azure-native:network/v20200401:Policy" }, { type: "azure-nextgen:network/v20200401:Policy" }, { type: "azure-native:network/v20201101:Policy" }, { type: "azure-nextgen:network/v20201101:Policy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network:Policy" }, { type: "azure-native:network/latest:Policy" }, { type: "azure-nextgen:network/latest:Policy" }, { type: "azure-native:network/v20190301:Policy" }, { type: "azure-nextgen:network/v20190301:Policy" }, { type: "azure-native:network/v20191001:Policy" }, { type: "azure-nextgen:network/v20191001:Policy" }, { type: "azure-native:network/v20200401:Policy" }, { type: "azure-nextgen:network/v20200401:Policy" }, { type: "azure-native:network/v20201101:Policy" }, { type: "azure-nextgen:network/v20201101:Policy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Policy.__pulumiType, name, inputs, opts);
     }
@@ -172,7 +172,7 @@ export interface PolicyArgs {
     /**
      * Describes settings for the policy.
      */
-    readonly policySettings?: pulumi.Input<inputs.network.PolicySettings>;
+    readonly policySettings?: pulumi.Input<inputs.network.FrontDoorPolicySettings>;
     /**
      * Name of the Resource group within the Azure subscription.
      */

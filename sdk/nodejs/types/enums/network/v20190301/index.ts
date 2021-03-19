@@ -24,17 +24,7 @@ export const CustomRuleEnabledState = {
  */
 export type CustomRuleEnabledState = (typeof CustomRuleEnabledState)[keyof typeof CustomRuleEnabledState];
 
-export const ManagedRuleEnabledState = {
-    Disabled: "Disabled",
-    Enabled: "Enabled",
-} as const;
-
-/**
- * Describes if the managed rule is in enabled or disabled state. Defaults to Disabled if not specified.
- */
-export type ManagedRuleEnabledState = (typeof ManagedRuleEnabledState)[keyof typeof ManagedRuleEnabledState];
-
-export const MatchVariable = {
+export const FrontDoorMatchVariable = {
     RemoteAddr: "RemoteAddr",
     RequestMethod: "RequestMethod",
     QueryString: "QueryString",
@@ -49,7 +39,17 @@ export const MatchVariable = {
 /**
  * Request variable to compare with.
  */
-export type MatchVariable = (typeof MatchVariable)[keyof typeof MatchVariable];
+export type FrontDoorMatchVariable = (typeof FrontDoorMatchVariable)[keyof typeof FrontDoorMatchVariable];
+
+export const ManagedRuleEnabledState = {
+    Disabled: "Disabled",
+    Enabled: "Enabled",
+} as const;
+
+/**
+ * Describes if the managed rule is in enabled or disabled state. Defaults to Disabled if not specified.
+ */
+export type ManagedRuleEnabledState = (typeof ManagedRuleEnabledState)[keyof typeof ManagedRuleEnabledState];
 
 export const Operator = {
     Any: "Any",

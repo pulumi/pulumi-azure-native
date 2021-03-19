@@ -7,6 +7,9 @@ export const AccessControlEntryAction = {
     Deny: "Deny",
 } as const;
 
+/**
+ * Action object.
+ */
 export type AccessControlEntryAction = (typeof AccessControlEntryAction)[keyof typeof AccessControlEntryAction];
 
 export const ApiType = {
@@ -93,7 +96,7 @@ export const ComputeModeOptions = {
 } as const;
 
 /**
- * Shared or dedicated web app hosting
+ * Shared or dedicated app hosting.
  */
 export type ComputeModeOptions = (typeof ComputeModeOptions)[keyof typeof ComputeModeOptions];
 
@@ -211,29 +214,6 @@ export const HostType = {
  */
 export type HostType = (typeof HostType)[keyof typeof HostType];
 
-export const HostingEnvironmentStatus = {
-    Preparing: "Preparing",
-    Ready: "Ready",
-    Scaling: "Scaling",
-    Deleting: "Deleting",
-} as const;
-
-/**
- * Current status of the hostingEnvironment (App Service Environment)
- */
-export type HostingEnvironmentStatus = (typeof HostingEnvironmentStatus)[keyof typeof HostingEnvironmentStatus];
-
-export const InternalLoadBalancingMode = {
-    None: "None",
-    Web: "Web",
-    Publishing: "Publishing",
-} as const;
-
-/**
- * Specifies which endpoints to serve internally in the hostingEnvironment's (App Service Environment) VNET
- */
-export type InternalLoadBalancingMode = (typeof InternalLoadBalancingMode)[keyof typeof InternalLoadBalancingMode];
-
 export const IpFilterTag = {
     Default: "Default",
     XffProxy: "XffProxy",
@@ -291,19 +271,6 @@ export const ManagedServiceIdentityType = {
  * Type of managed service identity.
  */
 export type ManagedServiceIdentityType = (typeof ManagedServiceIdentityType)[keyof typeof ManagedServiceIdentityType];
-
-export const ProvisioningState = {
-    Succeeded: "Succeeded",
-    Failed: "Failed",
-    Canceled: "Canceled",
-    InProgress: "InProgress",
-    Deleting: "Deleting",
-} as const;
-
-/**
- * Provisioning state of the hostingEnvironment (App Service Environment)
- */
-export type ProvisioningState = (typeof ProvisioningState)[keyof typeof ProvisioningState];
 
 export const PublicCertificateLocation = {
     CurrentUserMy: "CurrentUserMy",
@@ -420,18 +387,6 @@ export const UnauthenticatedClientActionV2 = {
 } as const;
 
 export type UnauthenticatedClientActionV2 = (typeof UnauthenticatedClientActionV2)[keyof typeof UnauthenticatedClientActionV2];
-
-export const WorkerSizeOptions = {
-    Default: "Default",
-    Small: "Small",
-    Medium: "Medium",
-    Large: "Large",
-} as const;
-
-/**
- * Size of the machines
- */
-export type WorkerSizeOptions = (typeof WorkerSizeOptions)[keyof typeof WorkerSizeOptions];
 
 export const WsdlImportMethod = {
     NotSpecified: "NotSpecified",

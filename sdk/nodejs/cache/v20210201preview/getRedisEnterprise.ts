@@ -76,7 +76,7 @@ export interface GetRedisEnterpriseResult {
     /**
      * The SKU to create, which affects price, performance, and features.
      */
-    readonly sku: outputs.cache.v20210201preview.SkuResponse;
+    readonly sku: outputs.cache.v20210201preview.EnterpriseSkuResponse;
     /**
      * Resource tags.
      */

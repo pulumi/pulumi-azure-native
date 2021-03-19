@@ -57,7 +57,7 @@ export interface GetMyWorkbookResult {
     /**
      * Identity used for BYOS
      */
-    readonly identity?: outputs.insights.ManagedIdentityResponse;
+    readonly identity?: outputs.insights.MyManagedIdentityResponse;
     /**
      * The kind of workbook. Choices are user and shared.
      */

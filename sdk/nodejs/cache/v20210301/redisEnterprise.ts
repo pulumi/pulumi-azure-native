@@ -70,7 +70,7 @@ export class RedisEnterprise extends pulumi.CustomResource {
     /**
      * The SKU to create, which affects price, performance, and features.
      */
-    public readonly sku!: pulumi.Output<outputs.cache.v20210301.SkuResponse>;
+    public readonly sku!: pulumi.Output<outputs.cache.v20210301.EnterpriseSkuResponse>;
     /**
      * Resource tags.
      */
@@ -161,7 +161,7 @@ export interface RedisEnterpriseArgs {
     /**
      * The SKU to create, which affects price, performance, and features.
      */
-    readonly sku: pulumi.Input<inputs.cache.v20210301.Sku>;
+    readonly sku: pulumi.Input<inputs.cache.v20210301.EnterpriseSku>;
     /**
      * Resource tags.
      */

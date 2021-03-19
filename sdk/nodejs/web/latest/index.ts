@@ -9,20 +9,15 @@ export * from "./appServiceEnvironment";
 export * from "./appServicePlan";
 export * from "./appServicePlanRouteForVnet";
 export * from "./certificate";
-export * from "./certificateCsr";
 export * from "./connection";
 export * from "./connectionGateway";
 export * from "./customApi";
 export * from "./getAppServiceEnvironment";
 export * from "./getAppServicePlan";
 export * from "./getCertificate";
-export * from "./getCertificateCsr";
 export * from "./getConnection";
 export * from "./getConnectionGateway";
 export * from "./getCustomApi";
-export * from "./getManagedHostingEnvironment";
-export * from "./getSiteInstanceDeployment";
-export * from "./getSiteInstanceDeploymentSlot";
 export * from "./getStaticSite";
 export * from "./getWebApp";
 export * from "./getWebAppDeployment";
@@ -91,9 +86,6 @@ export * from "./listWebAppSitePushSettings";
 export * from "./listWebAppSitePushSettingsSlot";
 export * from "./listWebAppSyncFunctionTriggers";
 export * from "./listWebAppSyncFunctionTriggersSlot";
-export * from "./managedHostingEnvironment";
-export * from "./siteInstanceDeployment";
-export * from "./siteInstanceDeploymentSlot";
 export * from "./staticSite";
 export * from "./webApp";
 export * from "./webAppApplicationSettings";
@@ -149,13 +141,9 @@ import { AppServiceEnvironment } from "./appServiceEnvironment";
 import { AppServicePlan } from "./appServicePlan";
 import { AppServicePlanRouteForVnet } from "./appServicePlanRouteForVnet";
 import { Certificate } from "./certificate";
-import { CertificateCsr } from "./certificateCsr";
 import { Connection } from "./connection";
 import { ConnectionGateway } from "./connectionGateway";
 import { CustomApi } from "./customApi";
-import { ManagedHostingEnvironment } from "./managedHostingEnvironment";
-import { SiteInstanceDeployment } from "./siteInstanceDeployment";
-import { SiteInstanceDeploymentSlot } from "./siteInstanceDeploymentSlot";
 import { StaticSite } from "./staticSite";
 import { WebApp } from "./webApp";
 import { WebAppApplicationSettings } from "./webAppApplicationSettings";
@@ -215,20 +203,12 @@ const _module = {
                 return new AppServicePlanRouteForVnet(name, <any>undefined, { urn })
             case "azure-native:web/latest:Certificate":
                 return new Certificate(name, <any>undefined, { urn })
-            case "azure-native:web/latest:CertificateCsr":
-                return new CertificateCsr(name, <any>undefined, { urn })
             case "azure-native:web/latest:Connection":
                 return new Connection(name, <any>undefined, { urn })
             case "azure-native:web/latest:ConnectionGateway":
                 return new ConnectionGateway(name, <any>undefined, { urn })
             case "azure-native:web/latest:CustomApi":
                 return new CustomApi(name, <any>undefined, { urn })
-            case "azure-native:web/latest:ManagedHostingEnvironment":
-                return new ManagedHostingEnvironment(name, <any>undefined, { urn })
-            case "azure-native:web/latest:SiteInstanceDeployment":
-                return new SiteInstanceDeployment(name, <any>undefined, { urn })
-            case "azure-native:web/latest:SiteInstanceDeploymentSlot":
-                return new SiteInstanceDeploymentSlot(name, <any>undefined, { urn })
             case "azure-native:web/latest:StaticSite":
                 return new StaticSite(name, <any>undefined, { urn })
             case "azure-native:web/latest:WebApp":

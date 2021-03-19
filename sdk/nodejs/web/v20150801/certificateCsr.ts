@@ -122,7 +122,7 @@ export class CertificateCsr extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/v20150801:CertificateCsr" }, { type: "azure-native:web:CertificateCsr" }, { type: "azure-nextgen:web:CertificateCsr" }, { type: "azure-native:web/latest:CertificateCsr" }, { type: "azure-nextgen:web/latest:CertificateCsr" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/v20150801:CertificateCsr" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CertificateCsr.__pulumiType, name, inputs, opts);
     }

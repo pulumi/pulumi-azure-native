@@ -38,16 +38,6 @@ export const AccumulatedType = {
  */
 export type AccumulatedType = (typeof AccumulatedType)[keyof typeof AccumulatedType];
 
-export const CategoryType = {
-    Cost: "Cost",
-    Usage: "Usage",
-} as const;
-
-/**
- * The category of the budget, whether the budget tracks cost or usage.
- */
-export type CategoryType = (typeof CategoryType)[keyof typeof CategoryType];
-
 export const ChartType = {
     Area: "Area",
     Line: "Line",
@@ -72,17 +62,6 @@ export const ConnectorBillingModel = {
  * Connector billing model
  */
 export type ConnectorBillingModel = (typeof ConnectorBillingModel)[keyof typeof ConnectorBillingModel];
-
-export const ConnectorStatus = {
-    Active: "active",
-    Error: "error",
-    Suspended: "suspended",
-} as const;
-
-/**
- * Connector status
- */
-export type ConnectorStatus = (typeof ConnectorStatus)[keyof typeof ConnectorStatus];
 
 export const CostAllocationPolicyType = {
     FixedProportion: "FixedProportion",
@@ -140,6 +119,7 @@ export type FunctionType = (typeof FunctionType)[keyof typeof FunctionType];
 
 export const GranularityType = {
     Daily: "Daily",
+    Hourly: "Hourly",
 } as const;
 
 /**
@@ -167,17 +147,6 @@ export const MetricType = {
  * Metric to use when displaying costs.
  */
 export type MetricType = (typeof MetricType)[keyof typeof MetricType];
-
-export const NotificationOperatorType = {
-    EqualTo: "EqualTo",
-    GreaterThan: "GreaterThan",
-    GreaterThanOrEqualTo: "GreaterThanOrEqualTo",
-} as const;
-
-/**
- * The comparison operator.
- */
-export type NotificationOperatorType = (typeof NotificationOperatorType)[keyof typeof NotificationOperatorType];
 
 export const OperatorType = {
     In: "In",
@@ -292,21 +261,9 @@ export const StatusType = {
  */
 export type StatusType = (typeof StatusType)[keyof typeof StatusType];
 
-export const TimeGrainType = {
-    Monthly: "Monthly",
-    Quarterly: "Quarterly",
-    Annually: "Annually",
-} as const;
-
-/**
- * The time covered by a budget. Tracking of the amount will be reset based on the time grain.
- */
-export type TimeGrainType = (typeof TimeGrainType)[keyof typeof TimeGrainType];
-
 export const TimeframeType = {
     WeekToDate: "WeekToDate",
     MonthToDate: "MonthToDate",
-    YearToDate: "YearToDate",
     Custom: "Custom",
 } as const;
 

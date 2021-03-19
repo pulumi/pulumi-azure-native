@@ -6,16 +6,13 @@ import * as utilities from "../../utilities";
 
 // Export members:
 export * from "./budget";
-export * from "./budgetByResourceGroupName";
 export * from "./getBudget";
-export * from "./getBudgetByResourceGroupName";
 
 // Export enums:
 export * from "../../types/enums/consumption/latest";
 
 // Import resources to register:
 import { Budget } from "./budget";
-import { BudgetByResourceGroupName } from "./budgetByResourceGroupName";
 
 const _module = {
     version: utilities.getVersion(),
@@ -23,8 +20,6 @@ const _module = {
         switch (type) {
             case "azure-native:consumption/latest:Budget":
                 return new Budget(name, <any>undefined, { urn })
-            case "azure-native:consumption/latest:BudgetByResourceGroupName":
-                return new BudgetByResourceGroupName(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

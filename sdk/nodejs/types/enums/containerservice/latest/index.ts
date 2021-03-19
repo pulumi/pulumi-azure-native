@@ -34,18 +34,6 @@ export const ConnectionStatus = {
  */
 export type ConnectionStatus = (typeof ConnectionStatus)[keyof typeof ConnectionStatus];
 
-export const ContainerServiceOrchestratorTypes = {
-    Swarm: "Swarm",
-    DCOS: "DCOS",
-    Custom: "Custom",
-    Kubernetes: "Kubernetes",
-} as const;
-
-/**
- * The orchestrator to use to manage container service cluster resources. Valid values are Swarm, DCOS, and Custom.
- */
-export type ContainerServiceOrchestratorTypes = (typeof ContainerServiceOrchestratorTypes)[keyof typeof ContainerServiceOrchestratorTypes];
-
 export const ContainerServiceVMSizeTypes = {
     Standard_A1: "Standard_A1",
     Standard_A10: "Standard_A10",

@@ -5,12 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./appliance";
-export * from "./applianceDefinition";
 export * from "./application";
 export * from "./applicationDefinition";
-export * from "./getAppliance";
-export * from "./getApplianceDefinition";
 export * from "./getApplication";
 export * from "./getApplicationDefinition";
 export * from "./getJitRequest";
@@ -37,8 +33,6 @@ export {
 };
 
 // Import resources to register:
-import { Appliance } from "./appliance";
-import { ApplianceDefinition } from "./applianceDefinition";
 import { Application } from "./application";
 import { ApplicationDefinition } from "./applicationDefinition";
 import { JitRequest } from "./jitRequest";
@@ -47,10 +41,6 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-native:solutions:Appliance":
-                return new Appliance(name, <any>undefined, { urn })
-            case "azure-native:solutions:ApplianceDefinition":
-                return new ApplianceDefinition(name, <any>undefined, { urn })
             case "azure-native:solutions:Application":
                 return new Application(name, <any>undefined, { urn })
             case "azure-native:solutions:ApplicationDefinition":

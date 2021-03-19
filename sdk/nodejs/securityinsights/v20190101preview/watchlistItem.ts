@@ -42,7 +42,7 @@ export class WatchlistItem extends pulumi.CustomResource {
     /**
      * Describes a user that created the watchlist item
      */
-    public readonly createdBy!: pulumi.Output<outputs.securityinsights.v20190101preview.UserInfoResponse | undefined>;
+    public readonly createdBy!: pulumi.Output<outputs.securityinsights.v20190101preview.WatchlistUserInfoResponse | undefined>;
     /**
      * key-value pairs for a watchlist item entity mapping
      */
@@ -78,7 +78,7 @@ export class WatchlistItem extends pulumi.CustomResource {
     /**
      * Describes a user that updated the watchlist item
      */
-    public readonly updatedBy!: pulumi.Output<outputs.securityinsights.v20190101preview.UserInfoResponse | undefined>;
+    public readonly updatedBy!: pulumi.Output<outputs.securityinsights.v20190101preview.WatchlistUserInfoResponse | undefined>;
     /**
      * The id (a Guid) of the watchlist item
      */
@@ -166,7 +166,7 @@ export interface WatchlistItemArgs {
     /**
      * Describes a user that created the watchlist item
      */
-    readonly createdBy?: pulumi.Input<inputs.securityinsights.v20190101preview.UserInfo>;
+    readonly createdBy?: pulumi.Input<inputs.securityinsights.v20190101preview.WatchlistUserInfo>;
     /**
      * key-value pairs for a watchlist item entity mapping
      */
@@ -202,7 +202,7 @@ export interface WatchlistItemArgs {
     /**
      * Describes a user that updated the watchlist item
      */
-    readonly updatedBy?: pulumi.Input<inputs.securityinsights.v20190101preview.UserInfo>;
+    readonly updatedBy?: pulumi.Input<inputs.securityinsights.v20190101preview.WatchlistUserInfo>;
     /**
      * Watchlist Alias
      */

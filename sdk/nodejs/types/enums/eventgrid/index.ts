@@ -45,13 +45,6 @@ export const AdvancedFilterOperatorType = {
     StringBeginsWith: "StringBeginsWith",
     StringEndsWith: "StringEndsWith",
     StringContains: "StringContains",
-    NumberInRange: "NumberInRange",
-    NumberNotInRange: "NumberNotInRange",
-    StringNotBeginsWith: "StringNotBeginsWith",
-    StringNotEndsWith: "StringNotEndsWith",
-    StringNotContains: "StringNotContains",
-    IsNullOrUndefined: "IsNullOrUndefined",
-    IsNotNull: "IsNotNull",
 } as const;
 
 /**
@@ -67,16 +60,6 @@ export const DeadLetterEndPointType = {
  * Type of the endpoint for the dead letter destination
  */
 export type DeadLetterEndPointType = (typeof DeadLetterEndPointType)[keyof typeof DeadLetterEndPointType];
-
-export const DeliveryAttributeMappingType = {
-    Static: "Static",
-    Dynamic: "Dynamic",
-} as const;
-
-/**
- * Type of the delivery attribute or header name.
- */
-export type DeliveryAttributeMappingType = (typeof DeliveryAttributeMappingType)[keyof typeof DeliveryAttributeMappingType];
 
 export const EndpointType = {
     WebHook: "WebHook",
@@ -113,18 +96,6 @@ export const EventSubscriptionIdentityType = {
  * The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identity.
  */
 export type EventSubscriptionIdentityType = (typeof EventSubscriptionIdentityType)[keyof typeof EventSubscriptionIdentityType];
-
-export const IdentityType = {
-    None: "None",
-    SystemAssigned: "SystemAssigned",
-    UserAssigned: "UserAssigned",
-    SystemAssigned_UserAssigned: "SystemAssigned, UserAssigned",
-} as const;
-
-/**
- * The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identity.
- */
-export type IdentityType = (typeof IdentityType)[keyof typeof IdentityType];
 
 export const InputSchema = {
     EventGridSchema: "EventGridSchema",

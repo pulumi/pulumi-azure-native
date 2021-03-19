@@ -6,14 +6,10 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./agentPool";
-export * from "./buildStep";
-export * from "./buildTask";
 export * from "./connectedRegistry";
 export * from "./exportPipeline";
 export * from "./getAgentPool";
 export * from "./getBuildLogLink";
-export * from "./getBuildStep";
-export * from "./getBuildTask";
 export * from "./getConnectedRegistry";
 export * from "./getExportPipeline";
 export * from "./getImportPipeline";
@@ -85,8 +81,6 @@ export {
 
 // Import resources to register:
 import { AgentPool } from "./agentPool";
-import { BuildStep } from "./buildStep";
-import { BuildTask } from "./buildTask";
 import { ConnectedRegistry } from "./connectedRegistry";
 import { ExportPipeline } from "./exportPipeline";
 import { ImportPipeline } from "./importPipeline";
@@ -106,10 +100,6 @@ const _module = {
         switch (type) {
             case "azure-native:containerregistry:AgentPool":
                 return new AgentPool(name, <any>undefined, { urn })
-            case "azure-native:containerregistry:BuildStep":
-                return new BuildStep(name, <any>undefined, { urn })
-            case "azure-native:containerregistry:BuildTask":
-                return new BuildTask(name, <any>undefined, { urn })
             case "azure-native:containerregistry:ConnectedRegistry":
                 return new ConnectedRegistry(name, <any>undefined, { urn })
             case "azure-native:containerregistry:ExportPipeline":

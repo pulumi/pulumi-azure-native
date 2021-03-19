@@ -41,28 +41,6 @@ export const BackupMode = {
  */
 export type BackupMode = (typeof BackupMode)[keyof typeof BackupMode];
 
-export const MongoDbReplication = {
-    Disabled: "Disabled",
-    OneTime: "OneTime",
-    Continuous: "Continuous",
-} as const;
-
-/**
- * Describes how changes will be replicated from the source to the target. The default is OneTime.
- */
-export type MongoDbReplication = (typeof MongoDbReplication)[keyof typeof MongoDbReplication];
-
-export const MongoDbShardKeyOrder = {
-    Forward: "Forward",
-    Reverse: "Reverse",
-    Hashed: "Hashed",
-} as const;
-
-/**
- * The field ordering
- */
-export type MongoDbShardKeyOrder = (typeof MongoDbShardKeyOrder)[keyof typeof MongoDbShardKeyOrder];
-
 export const ProjectSourcePlatform = {
     SQL: "SQL",
     Unknown: "Unknown",
@@ -103,22 +81,3 @@ export const SqlSourcePlatform = {
  * Server platform type for connection
  */
 export type SqlSourcePlatform = (typeof SqlSourcePlatform)[keyof typeof SqlSourcePlatform];
-
-export const SsisMigrationOverwriteOption = {
-    Ignore: "Ignore",
-    Overwrite: "Overwrite",
-} as const;
-
-/**
- * The overwrite option for the SSIS project migration
- */
-export type SsisMigrationOverwriteOption = (typeof SsisMigrationOverwriteOption)[keyof typeof SsisMigrationOverwriteOption];
-
-export const SsisStoreType = {
-    SsisCatalog: "SsisCatalog",
-} as const;
-
-/**
- * The SSIS store type of source, only SSIS catalog is supported now in DMS
- */
-export type SsisStoreType = (typeof SsisStoreType)[keyof typeof SsisStoreType];
