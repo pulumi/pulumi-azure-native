@@ -30,8 +30,6 @@ type Cluster struct {
 	Identity IdentityResponsePtrOutput `pulumi:"identity"`
 	// Sets whether the cluster will support availability zones. This can be set as true only in regions where Azure Data Explorer support Availability Zones. This Property can not be modified after cluster creation. Default value is 'true' if region supports Availability Zones.
 	IsAvailabilityZonesEnabled pulumi.BoolPtrOutput `pulumi:"isAvailabilityZonesEnabled"`
-	// Configures whether cluster will use double encryption. This Property can not be modified after cluster creation. Default value is 'true'
-	IsDoubleEncryptionEnabled pulumi.BoolPtrOutput `pulumi:"isDoubleEncryptionEnabled"`
 	// The associated key properties.
 	KeyVaultProperties KeyVaultPropertiesResponsePtrOutput `pulumi:"keyVaultProperties"`
 	// The last time the cluster was updated.
@@ -132,8 +130,6 @@ type clusterState struct {
 	Identity *IdentityResponse `pulumi:"identity"`
 	// Sets whether the cluster will support availability zones. This can be set as true only in regions where Azure Data Explorer support Availability Zones. This Property can not be modified after cluster creation. Default value is 'true' if region supports Availability Zones.
 	IsAvailabilityZonesEnabled *bool `pulumi:"isAvailabilityZonesEnabled"`
-	// Configures whether cluster will use double encryption. This Property can not be modified after cluster creation. Default value is 'true'
-	IsDoubleEncryptionEnabled *bool `pulumi:"isDoubleEncryptionEnabled"`
 	// The associated key properties.
 	KeyVaultProperties *KeyVaultPropertiesResponse `pulumi:"keyVaultProperties"`
 	// The last time the cluster was updated.
@@ -167,8 +163,6 @@ type ClusterState struct {
 	Identity IdentityResponsePtrInput
 	// Sets whether the cluster will support availability zones. This can be set as true only in regions where Azure Data Explorer support Availability Zones. This Property can not be modified after cluster creation. Default value is 'true' if region supports Availability Zones.
 	IsAvailabilityZonesEnabled pulumi.BoolPtrInput
-	// Configures whether cluster will use double encryption. This Property can not be modified after cluster creation. Default value is 'true'
-	IsDoubleEncryptionEnabled pulumi.BoolPtrInput
 	// The associated key properties.
 	KeyVaultProperties KeyVaultPropertiesResponsePtrInput
 	// The last time the cluster was updated.

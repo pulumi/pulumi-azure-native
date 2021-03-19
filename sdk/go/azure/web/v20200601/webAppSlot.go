@@ -28,8 +28,6 @@ type WebAppSlot struct {
 	// - ClientCertEnabled: true and ClientCertMode: Required means ClientCert is required.
 	// - ClientCertEnabled: true and ClientCertMode: Optional means ClientCert is optional or accepted.
 	ClientCertMode pulumi.StringPtrOutput `pulumi:"clientCertMode"`
-	// If specified during app creation, the app is cloned from a source app.
-	CloningInfo CloningInfoResponsePtrOutput `pulumi:"cloningInfo"`
 	// Size of the function container.
 	ContainerSize pulumi.IntPtrOutput `pulumi:"containerSize"`
 	// Unique identifier that verifies the custom domains assigned to the app. Customer will add this id to a txt record for verification.
@@ -232,8 +230,6 @@ type webAppSlotState struct {
 	// - ClientCertEnabled: true and ClientCertMode: Required means ClientCert is required.
 	// - ClientCertEnabled: true and ClientCertMode: Optional means ClientCert is optional or accepted.
 	ClientCertMode *string `pulumi:"clientCertMode"`
-	// If specified during app creation, the app is cloned from a source app.
-	CloningInfo *CloningInfoResponse `pulumi:"cloningInfo"`
 	// Size of the function container.
 	ContainerSize *int `pulumi:"containerSize"`
 	// Unique identifier that verifies the custom domains assigned to the app. Customer will add this id to a txt record for verification.
@@ -330,8 +326,6 @@ type WebAppSlotState struct {
 	// - ClientCertEnabled: true and ClientCertMode: Required means ClientCert is required.
 	// - ClientCertEnabled: true and ClientCertMode: Optional means ClientCert is optional or accepted.
 	ClientCertMode pulumi.StringPtrInput
-	// If specified during app creation, the app is cloned from a source app.
-	CloningInfo CloningInfoResponsePtrInput
 	// Size of the function container.
 	ContainerSize pulumi.IntPtrInput
 	// Unique identifier that verifies the custom domains assigned to the app. Customer will add this id to a txt record for verification.

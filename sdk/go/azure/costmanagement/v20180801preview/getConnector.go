@@ -32,8 +32,6 @@ type LookupConnectorResult struct {
 	CreatedOn string `pulumi:"createdOn"`
 	// Credentials authentication key (eg AWS ARN)
 	CredentialsKey *string `pulumi:"credentialsKey"`
-	// Credentials secret (eg AWS ExternalId)
-	CredentialsSecret *string `pulumi:"credentialsSecret"`
 	// Connector DisplayName (defaults to Name)
 	DisplayName *string `pulumi:"displayName"`
 	// Connector id

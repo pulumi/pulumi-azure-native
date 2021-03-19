@@ -17,14 +17,10 @@ type ManagedInstance struct {
 
 	// Administrator username for the managed instance. Can only be specified when the managed instance is being created (and is required for creation).
 	AdministratorLogin pulumi.StringPtrOutput `pulumi:"administratorLogin"`
-	// The administrator login password (required for managed instance creation).
-	AdministratorLoginPassword pulumi.StringPtrOutput `pulumi:"administratorLoginPassword"`
 	// Collation of the managed instance.
 	Collation pulumi.StringPtrOutput `pulumi:"collation"`
 	// The Dns Zone that the managed instance is in.
 	DnsZone pulumi.StringOutput `pulumi:"dnsZone"`
-	// The resource id of another managed instance whose DNS zone this managed instance will share after creation.
-	DnsZonePartner pulumi.StringPtrOutput `pulumi:"dnsZonePartner"`
 	// The fully qualified domain name of the managed instance.
 	FullyQualifiedDomainName pulumi.StringOutput `pulumi:"fullyQualifiedDomainName"`
 	// The Azure Active Directory identity of the managed instance.
@@ -37,12 +33,6 @@ type ManagedInstance struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies maintenance configuration id to apply to this managed instance.
 	MaintenanceConfigurationId pulumi.StringPtrOutput `pulumi:"maintenanceConfigurationId"`
-	// Specifies the mode of database creation.
-	//
-	// Default: Regular instance creation.
-	//
-	// Restore: Creates an instance by restoring a set of backups to specific point in time. RestorePointInTime and SourceManagedInstanceId must be specified.
-	ManagedInstanceCreateMode pulumi.StringPtrOutput `pulumi:"managedInstanceCreateMode"`
 	// Minimal TLS version. Allowed values: 'None', '1.0', '1.1', '1.2'
 	MinimalTlsVersion pulumi.StringPtrOutput `pulumi:"minimalTlsVersion"`
 	// Resource name.
@@ -54,12 +44,8 @@ type ManagedInstance struct {
 	ProxyOverride pulumi.StringPtrOutput `pulumi:"proxyOverride"`
 	// Whether or not the public data endpoint is enabled.
 	PublicDataEndpointEnabled pulumi.BoolPtrOutput `pulumi:"publicDataEndpointEnabled"`
-	// Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database.
-	RestorePointInTime pulumi.StringPtrOutput `pulumi:"restorePointInTime"`
 	// Managed instance SKU. Allowed values for sku.name: GP_Gen4, GP_Gen5, BC_Gen4, BC_Gen5
 	Sku SkuResponsePtrOutput `pulumi:"sku"`
-	// The resource identifier of the source managed instance associated with create operation of this instance.
-	SourceManagedInstanceId pulumi.StringPtrOutput `pulumi:"sourceManagedInstanceId"`
 	// The state of the managed instance.
 	State pulumi.StringOutput `pulumi:"state"`
 	// The storage account type used to store backups for this instance. The options are LRS (LocallyRedundantStorage), ZRS (ZoneRedundantStorage) and GRS (GeoRedundantStorage)
@@ -155,14 +141,10 @@ func GetManagedInstance(ctx *pulumi.Context,
 type managedInstanceState struct {
 	// Administrator username for the managed instance. Can only be specified when the managed instance is being created (and is required for creation).
 	AdministratorLogin *string `pulumi:"administratorLogin"`
-	// The administrator login password (required for managed instance creation).
-	AdministratorLoginPassword *string `pulumi:"administratorLoginPassword"`
 	// Collation of the managed instance.
 	Collation *string `pulumi:"collation"`
 	// The Dns Zone that the managed instance is in.
 	DnsZone *string `pulumi:"dnsZone"`
-	// The resource id of another managed instance whose DNS zone this managed instance will share after creation.
-	DnsZonePartner *string `pulumi:"dnsZonePartner"`
 	// The fully qualified domain name of the managed instance.
 	FullyQualifiedDomainName *string `pulumi:"fullyQualifiedDomainName"`
 	// The Azure Active Directory identity of the managed instance.
@@ -175,12 +157,6 @@ type managedInstanceState struct {
 	Location *string `pulumi:"location"`
 	// Specifies maintenance configuration id to apply to this managed instance.
 	MaintenanceConfigurationId *string `pulumi:"maintenanceConfigurationId"`
-	// Specifies the mode of database creation.
-	//
-	// Default: Regular instance creation.
-	//
-	// Restore: Creates an instance by restoring a set of backups to specific point in time. RestorePointInTime and SourceManagedInstanceId must be specified.
-	ManagedInstanceCreateMode *string `pulumi:"managedInstanceCreateMode"`
 	// Minimal TLS version. Allowed values: 'None', '1.0', '1.1', '1.2'
 	MinimalTlsVersion *string `pulumi:"minimalTlsVersion"`
 	// Resource name.
@@ -192,12 +168,8 @@ type managedInstanceState struct {
 	ProxyOverride *string `pulumi:"proxyOverride"`
 	// Whether or not the public data endpoint is enabled.
 	PublicDataEndpointEnabled *bool `pulumi:"publicDataEndpointEnabled"`
-	// Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database.
-	RestorePointInTime *string `pulumi:"restorePointInTime"`
 	// Managed instance SKU. Allowed values for sku.name: GP_Gen4, GP_Gen5, BC_Gen4, BC_Gen5
 	Sku *SkuResponse `pulumi:"sku"`
-	// The resource identifier of the source managed instance associated with create operation of this instance.
-	SourceManagedInstanceId *string `pulumi:"sourceManagedInstanceId"`
 	// The state of the managed instance.
 	State *string `pulumi:"state"`
 	// The storage account type used to store backups for this instance. The options are LRS (LocallyRedundantStorage), ZRS (ZoneRedundantStorage) and GRS (GeoRedundantStorage)
@@ -226,14 +198,10 @@ type managedInstanceState struct {
 type ManagedInstanceState struct {
 	// Administrator username for the managed instance. Can only be specified when the managed instance is being created (and is required for creation).
 	AdministratorLogin pulumi.StringPtrInput
-	// The administrator login password (required for managed instance creation).
-	AdministratorLoginPassword pulumi.StringPtrInput
 	// Collation of the managed instance.
 	Collation pulumi.StringPtrInput
 	// The Dns Zone that the managed instance is in.
 	DnsZone pulumi.StringPtrInput
-	// The resource id of another managed instance whose DNS zone this managed instance will share after creation.
-	DnsZonePartner pulumi.StringPtrInput
 	// The fully qualified domain name of the managed instance.
 	FullyQualifiedDomainName pulumi.StringPtrInput
 	// The Azure Active Directory identity of the managed instance.
@@ -246,12 +214,6 @@ type ManagedInstanceState struct {
 	Location pulumi.StringPtrInput
 	// Specifies maintenance configuration id to apply to this managed instance.
 	MaintenanceConfigurationId pulumi.StringPtrInput
-	// Specifies the mode of database creation.
-	//
-	// Default: Regular instance creation.
-	//
-	// Restore: Creates an instance by restoring a set of backups to specific point in time. RestorePointInTime and SourceManagedInstanceId must be specified.
-	ManagedInstanceCreateMode pulumi.StringPtrInput
 	// Minimal TLS version. Allowed values: 'None', '1.0', '1.1', '1.2'
 	MinimalTlsVersion pulumi.StringPtrInput
 	// Resource name.
@@ -263,12 +225,8 @@ type ManagedInstanceState struct {
 	ProxyOverride pulumi.StringPtrInput
 	// Whether or not the public data endpoint is enabled.
 	PublicDataEndpointEnabled pulumi.BoolPtrInput
-	// Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database.
-	RestorePointInTime pulumi.StringPtrInput
 	// Managed instance SKU. Allowed values for sku.name: GP_Gen4, GP_Gen5, BC_Gen4, BC_Gen5
 	Sku SkuResponsePtrInput
-	// The resource identifier of the source managed instance associated with create operation of this instance.
-	SourceManagedInstanceId pulumi.StringPtrInput
 	// The state of the managed instance.
 	State pulumi.StringPtrInput
 	// The storage account type used to store backups for this instance. The options are LRS (LocallyRedundantStorage), ZRS (ZoneRedundantStorage) and GRS (GeoRedundantStorage)

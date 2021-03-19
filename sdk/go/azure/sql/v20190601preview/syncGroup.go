@@ -17,8 +17,6 @@ type SyncGroup struct {
 
 	// Conflict resolution policy of the sync group.
 	ConflictResolutionPolicy pulumi.StringPtrOutput `pulumi:"conflictResolutionPolicy"`
-	// Password for the sync group hub database credential.
-	HubDatabasePassword pulumi.StringPtrOutput `pulumi:"hubDatabasePassword"`
 	// User name for the sync group hub database credential.
 	HubDatabaseUserName pulumi.StringPtrOutput `pulumi:"hubDatabaseUserName"`
 	// Sync interval of the sync group.
@@ -117,8 +115,6 @@ func GetSyncGroup(ctx *pulumi.Context,
 type syncGroupState struct {
 	// Conflict resolution policy of the sync group.
 	ConflictResolutionPolicy *string `pulumi:"conflictResolutionPolicy"`
-	// Password for the sync group hub database credential.
-	HubDatabasePassword *string `pulumi:"hubDatabasePassword"`
 	// User name for the sync group hub database credential.
 	HubDatabaseUserName *string `pulumi:"hubDatabaseUserName"`
 	// Sync interval of the sync group.
@@ -144,8 +140,6 @@ type syncGroupState struct {
 type SyncGroupState struct {
 	// Conflict resolution policy of the sync group.
 	ConflictResolutionPolicy pulumi.StringPtrInput
-	// Password for the sync group hub database credential.
-	HubDatabasePassword pulumi.StringPtrInput
 	// User name for the sync group hub database credential.
 	HubDatabaseUserName pulumi.StringPtrInput
 	// Sync interval of the sync group.

@@ -19,24 +19,6 @@ type Database struct {
 	CatalogCollation pulumi.StringPtrOutput `pulumi:"catalogCollation"`
 	// The collation of the database.
 	Collation pulumi.StringPtrOutput `pulumi:"collation"`
-	// Specifies the mode of database creation.
-	//
-	// Default: regular database creation.
-	//
-	// Copy: creates a database as a copy of an existing database. sourceDatabaseId must be specified as the resource ID of the source database.
-	//
-	// Secondary: creates a database as a secondary replica of an existing database. sourceDatabaseId must be specified as the resource ID of the existing primary database.
-	//
-	// PointInTimeRestore: Creates a database by restoring a point in time backup of an existing database. sourceDatabaseId must be specified as the resource ID of the existing database, and restorePointInTime must be specified.
-	//
-	// Recovery: Creates a database by restoring a geo-replicated backup. sourceDatabaseId must be specified as the recoverable database resource ID to restore.
-	//
-	// Restore: Creates a database by restoring a backup of a deleted database. sourceDatabaseId must be specified. If sourceDatabaseId is the database's original resource ID, then sourceDatabaseDeletionDate must be specified. Otherwise sourceDatabaseId must be the restorable dropped database resource ID and sourceDatabaseDeletionDate is ignored. restorePointInTime may also be specified to restore from an earlier point in time.
-	//
-	// RestoreLongTermRetentionBackup: Creates a database by restoring from a long term retention vault. recoveryServicesRecoveryPointResourceId must be specified as the recovery point resource ID.
-	//
-	// Copy, Secondary, and RestoreLongTermRetentionBackup are not supported for DataWarehouse edition.
-	CreateMode pulumi.StringPtrOutput `pulumi:"createMode"`
 	// The creation date of the database (ISO8601 format).
 	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
 	// The current service level objective name of the database.
@@ -53,28 +35,12 @@ type Database struct {
 	Kind pulumi.StringOutput `pulumi:"kind"`
 	// Resource location.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// The resource identifier of the long term retention backup associated with create operation of this database.
-	LongTermRetentionBackupResourceId pulumi.StringPtrOutput `pulumi:"longTermRetentionBackupResourceId"`
 	// The max size of the database expressed in bytes.
 	MaxSizeBytes pulumi.Float64PtrOutput `pulumi:"maxSizeBytes"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The resource identifier of the recoverable database associated with create operation of this database.
-	RecoverableDatabaseId pulumi.StringPtrOutput `pulumi:"recoverableDatabaseId"`
-	// The resource identifier of the recovery point associated with create operation of this database.
-	RecoveryServicesRecoveryPointId pulumi.StringPtrOutput `pulumi:"recoveryServicesRecoveryPointId"`
-	// The resource identifier of the restorable dropped database associated with create operation of this database.
-	RestorableDroppedDatabaseId pulumi.StringPtrOutput `pulumi:"restorableDroppedDatabaseId"`
-	// Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database.
-	RestorePointInTime pulumi.StringPtrOutput `pulumi:"restorePointInTime"`
-	// The name of the sample schema to apply when creating this database.
-	SampleName pulumi.StringPtrOutput `pulumi:"sampleName"`
 	// The name and tier of the SKU.
 	Sku SkuResponsePtrOutput `pulumi:"sku"`
-	// Specifies the time that the database was deleted.
-	SourceDatabaseDeletionDate pulumi.StringPtrOutput `pulumi:"sourceDatabaseDeletionDate"`
-	// The resource identifier of the source database associated with create operation of this database.
-	SourceDatabaseId pulumi.StringPtrOutput `pulumi:"sourceDatabaseId"`
 	// The status of the database.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// Resource tags.
@@ -178,24 +144,6 @@ type databaseState struct {
 	CatalogCollation *string `pulumi:"catalogCollation"`
 	// The collation of the database.
 	Collation *string `pulumi:"collation"`
-	// Specifies the mode of database creation.
-	//
-	// Default: regular database creation.
-	//
-	// Copy: creates a database as a copy of an existing database. sourceDatabaseId must be specified as the resource ID of the source database.
-	//
-	// Secondary: creates a database as a secondary replica of an existing database. sourceDatabaseId must be specified as the resource ID of the existing primary database.
-	//
-	// PointInTimeRestore: Creates a database by restoring a point in time backup of an existing database. sourceDatabaseId must be specified as the resource ID of the existing database, and restorePointInTime must be specified.
-	//
-	// Recovery: Creates a database by restoring a geo-replicated backup. sourceDatabaseId must be specified as the recoverable database resource ID to restore.
-	//
-	// Restore: Creates a database by restoring a backup of a deleted database. sourceDatabaseId must be specified. If sourceDatabaseId is the database's original resource ID, then sourceDatabaseDeletionDate must be specified. Otherwise sourceDatabaseId must be the restorable dropped database resource ID and sourceDatabaseDeletionDate is ignored. restorePointInTime may also be specified to restore from an earlier point in time.
-	//
-	// RestoreLongTermRetentionBackup: Creates a database by restoring from a long term retention vault. recoveryServicesRecoveryPointResourceId must be specified as the recovery point resource ID.
-	//
-	// Copy, Secondary, and RestoreLongTermRetentionBackup are not supported for DataWarehouse edition.
-	CreateMode *string `pulumi:"createMode"`
 	// The creation date of the database (ISO8601 format).
 	CreationDate *string `pulumi:"creationDate"`
 	// The current service level objective name of the database.
@@ -212,28 +160,12 @@ type databaseState struct {
 	Kind *string `pulumi:"kind"`
 	// Resource location.
 	Location *string `pulumi:"location"`
-	// The resource identifier of the long term retention backup associated with create operation of this database.
-	LongTermRetentionBackupResourceId *string `pulumi:"longTermRetentionBackupResourceId"`
 	// The max size of the database expressed in bytes.
 	MaxSizeBytes *float64 `pulumi:"maxSizeBytes"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// The resource identifier of the recoverable database associated with create operation of this database.
-	RecoverableDatabaseId *string `pulumi:"recoverableDatabaseId"`
-	// The resource identifier of the recovery point associated with create operation of this database.
-	RecoveryServicesRecoveryPointId *string `pulumi:"recoveryServicesRecoveryPointId"`
-	// The resource identifier of the restorable dropped database associated with create operation of this database.
-	RestorableDroppedDatabaseId *string `pulumi:"restorableDroppedDatabaseId"`
-	// Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database.
-	RestorePointInTime *string `pulumi:"restorePointInTime"`
-	// The name of the sample schema to apply when creating this database.
-	SampleName *string `pulumi:"sampleName"`
 	// The name and tier of the SKU.
 	Sku *SkuResponse `pulumi:"sku"`
-	// Specifies the time that the database was deleted.
-	SourceDatabaseDeletionDate *string `pulumi:"sourceDatabaseDeletionDate"`
-	// The resource identifier of the source database associated with create operation of this database.
-	SourceDatabaseId *string `pulumi:"sourceDatabaseId"`
 	// The status of the database.
 	Status *string `pulumi:"status"`
 	// Resource tags.
@@ -249,24 +181,6 @@ type DatabaseState struct {
 	CatalogCollation pulumi.StringPtrInput
 	// The collation of the database.
 	Collation pulumi.StringPtrInput
-	// Specifies the mode of database creation.
-	//
-	// Default: regular database creation.
-	//
-	// Copy: creates a database as a copy of an existing database. sourceDatabaseId must be specified as the resource ID of the source database.
-	//
-	// Secondary: creates a database as a secondary replica of an existing database. sourceDatabaseId must be specified as the resource ID of the existing primary database.
-	//
-	// PointInTimeRestore: Creates a database by restoring a point in time backup of an existing database. sourceDatabaseId must be specified as the resource ID of the existing database, and restorePointInTime must be specified.
-	//
-	// Recovery: Creates a database by restoring a geo-replicated backup. sourceDatabaseId must be specified as the recoverable database resource ID to restore.
-	//
-	// Restore: Creates a database by restoring a backup of a deleted database. sourceDatabaseId must be specified. If sourceDatabaseId is the database's original resource ID, then sourceDatabaseDeletionDate must be specified. Otherwise sourceDatabaseId must be the restorable dropped database resource ID and sourceDatabaseDeletionDate is ignored. restorePointInTime may also be specified to restore from an earlier point in time.
-	//
-	// RestoreLongTermRetentionBackup: Creates a database by restoring from a long term retention vault. recoveryServicesRecoveryPointResourceId must be specified as the recovery point resource ID.
-	//
-	// Copy, Secondary, and RestoreLongTermRetentionBackup are not supported for DataWarehouse edition.
-	CreateMode pulumi.StringPtrInput
 	// The creation date of the database (ISO8601 format).
 	CreationDate pulumi.StringPtrInput
 	// The current service level objective name of the database.
@@ -283,28 +197,12 @@ type DatabaseState struct {
 	Kind pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
-	// The resource identifier of the long term retention backup associated with create operation of this database.
-	LongTermRetentionBackupResourceId pulumi.StringPtrInput
 	// The max size of the database expressed in bytes.
 	MaxSizeBytes pulumi.Float64PtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// The resource identifier of the recoverable database associated with create operation of this database.
-	RecoverableDatabaseId pulumi.StringPtrInput
-	// The resource identifier of the recovery point associated with create operation of this database.
-	RecoveryServicesRecoveryPointId pulumi.StringPtrInput
-	// The resource identifier of the restorable dropped database associated with create operation of this database.
-	RestorableDroppedDatabaseId pulumi.StringPtrInput
-	// Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database.
-	RestorePointInTime pulumi.StringPtrInput
-	// The name of the sample schema to apply when creating this database.
-	SampleName pulumi.StringPtrInput
 	// The name and tier of the SKU.
 	Sku SkuResponsePtrInput
-	// Specifies the time that the database was deleted.
-	SourceDatabaseDeletionDate pulumi.StringPtrInput
-	// The resource identifier of the source database associated with create operation of this database.
-	SourceDatabaseId pulumi.StringPtrInput
 	// The status of the database.
 	Status pulumi.StringPtrInput
 	// Resource tags.

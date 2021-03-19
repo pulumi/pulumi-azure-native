@@ -46,8 +46,6 @@ type Certificate struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Resource Name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Certificate password.
-	Password pulumi.StringOutput `pulumi:"password"`
 	// Pfx blob.
 	PfxBlob pulumi.StringPtrOutput `pulumi:"pfxBlob"`
 	// Public key hash.
@@ -195,8 +193,6 @@ type certificateState struct {
 	Location *string `pulumi:"location"`
 	// Resource Name.
 	Name *string `pulumi:"name"`
-	// Certificate password.
-	Password *string `pulumi:"password"`
 	// Pfx blob.
 	PfxBlob *string `pulumi:"pfxBlob"`
 	// Public key hash.
@@ -250,8 +246,6 @@ type CertificateState struct {
 	Location pulumi.StringPtrInput
 	// Resource Name.
 	Name pulumi.StringPtrInput
-	// Certificate password.
-	Password pulumi.StringPtrInput
 	// Pfx blob.
 	PfxBlob pulumi.StringPtrInput
 	// Public key hash.

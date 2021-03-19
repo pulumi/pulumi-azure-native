@@ -947,22 +947,10 @@ func (o DatadogOrganizationPropertiesPtrOutput) RedirectUri() pulumi.StringPtrOu
 
 // Datadog organization properties
 type DatadogOrganizationPropertiesResponse struct {
-	// Api key associated to the Datadog organization.
-	ApiKey *string `pulumi:"apiKey"`
-	// Application key associated to the Datadog organization.
-	ApplicationKey *string `pulumi:"applicationKey"`
-	// The Id of the Enterprise App used for Single sign on.
-	EnterpriseAppId *string `pulumi:"enterpriseAppId"`
 	// Id of the Datadog organization.
 	Id string `pulumi:"id"`
-	// The auth code used to linking to an existing datadog organization.
-	LinkingAuthCode *string `pulumi:"linkingAuthCode"`
-	// The client_id from an existing in exchange for an auth token to link organization.
-	LinkingClientId *string `pulumi:"linkingClientId"`
 	// Name of the Datadog organization.
 	Name string `pulumi:"name"`
-	// The redirect uri for linking.
-	RedirectUri *string `pulumi:"redirectUri"`
 }
 
 // DatadogOrganizationPropertiesResponseInput is an input type that accepts DatadogOrganizationPropertiesResponseArgs and DatadogOrganizationPropertiesResponseOutput values.
@@ -978,22 +966,10 @@ type DatadogOrganizationPropertiesResponseInput interface {
 
 // Datadog organization properties
 type DatadogOrganizationPropertiesResponseArgs struct {
-	// Api key associated to the Datadog organization.
-	ApiKey pulumi.StringPtrInput `pulumi:"apiKey"`
-	// Application key associated to the Datadog organization.
-	ApplicationKey pulumi.StringPtrInput `pulumi:"applicationKey"`
-	// The Id of the Enterprise App used for Single sign on.
-	EnterpriseAppId pulumi.StringPtrInput `pulumi:"enterpriseAppId"`
 	// Id of the Datadog organization.
 	Id pulumi.StringInput `pulumi:"id"`
-	// The auth code used to linking to an existing datadog organization.
-	LinkingAuthCode pulumi.StringPtrInput `pulumi:"linkingAuthCode"`
-	// The client_id from an existing in exchange for an auth token to link organization.
-	LinkingClientId pulumi.StringPtrInput `pulumi:"linkingClientId"`
 	// Name of the Datadog organization.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The redirect uri for linking.
-	RedirectUri pulumi.StringPtrInput `pulumi:"redirectUri"`
 }
 
 func (DatadogOrganizationPropertiesResponseArgs) ElementType() reflect.Type {
@@ -1074,44 +1050,14 @@ func (o DatadogOrganizationPropertiesResponseOutput) ToDatadogOrganizationProper
 	}).(DatadogOrganizationPropertiesResponsePtrOutput)
 }
 
-// Api key associated to the Datadog organization.
-func (o DatadogOrganizationPropertiesResponseOutput) ApiKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatadogOrganizationPropertiesResponse) *string { return v.ApiKey }).(pulumi.StringPtrOutput)
-}
-
-// Application key associated to the Datadog organization.
-func (o DatadogOrganizationPropertiesResponseOutput) ApplicationKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatadogOrganizationPropertiesResponse) *string { return v.ApplicationKey }).(pulumi.StringPtrOutput)
-}
-
-// The Id of the Enterprise App used for Single sign on.
-func (o DatadogOrganizationPropertiesResponseOutput) EnterpriseAppId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatadogOrganizationPropertiesResponse) *string { return v.EnterpriseAppId }).(pulumi.StringPtrOutput)
-}
-
 // Id of the Datadog organization.
 func (o DatadogOrganizationPropertiesResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v DatadogOrganizationPropertiesResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The auth code used to linking to an existing datadog organization.
-func (o DatadogOrganizationPropertiesResponseOutput) LinkingAuthCode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatadogOrganizationPropertiesResponse) *string { return v.LinkingAuthCode }).(pulumi.StringPtrOutput)
-}
-
-// The client_id from an existing in exchange for an auth token to link organization.
-func (o DatadogOrganizationPropertiesResponseOutput) LinkingClientId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatadogOrganizationPropertiesResponse) *string { return v.LinkingClientId }).(pulumi.StringPtrOutput)
-}
-
 // Name of the Datadog organization.
 func (o DatadogOrganizationPropertiesResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DatadogOrganizationPropertiesResponse) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The redirect uri for linking.
-func (o DatadogOrganizationPropertiesResponseOutput) RedirectUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatadogOrganizationPropertiesResponse) *string { return v.RedirectUri }).(pulumi.StringPtrOutput)
 }
 
 type DatadogOrganizationPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
@@ -1132,36 +1078,6 @@ func (o DatadogOrganizationPropertiesResponsePtrOutput) Elem() DatadogOrganizati
 	return o.ApplyT(func(v *DatadogOrganizationPropertiesResponse) DatadogOrganizationPropertiesResponse { return *v }).(DatadogOrganizationPropertiesResponseOutput)
 }
 
-// Api key associated to the Datadog organization.
-func (o DatadogOrganizationPropertiesResponsePtrOutput) ApiKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DatadogOrganizationPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ApiKey
-	}).(pulumi.StringPtrOutput)
-}
-
-// Application key associated to the Datadog organization.
-func (o DatadogOrganizationPropertiesResponsePtrOutput) ApplicationKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DatadogOrganizationPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ApplicationKey
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Id of the Enterprise App used for Single sign on.
-func (o DatadogOrganizationPropertiesResponsePtrOutput) EnterpriseAppId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DatadogOrganizationPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.EnterpriseAppId
-	}).(pulumi.StringPtrOutput)
-}
-
 // Id of the Datadog organization.
 func (o DatadogOrganizationPropertiesResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatadogOrganizationPropertiesResponse) *string {
@@ -1172,26 +1088,6 @@ func (o DatadogOrganizationPropertiesResponsePtrOutput) Id() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The auth code used to linking to an existing datadog organization.
-func (o DatadogOrganizationPropertiesResponsePtrOutput) LinkingAuthCode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DatadogOrganizationPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LinkingAuthCode
-	}).(pulumi.StringPtrOutput)
-}
-
-// The client_id from an existing in exchange for an auth token to link organization.
-func (o DatadogOrganizationPropertiesResponsePtrOutput) LinkingClientId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DatadogOrganizationPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LinkingClientId
-	}).(pulumi.StringPtrOutput)
-}
-
 // Name of the Datadog organization.
 func (o DatadogOrganizationPropertiesResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatadogOrganizationPropertiesResponse) *string {
@@ -1199,16 +1095,6 @@ func (o DatadogOrganizationPropertiesResponsePtrOutput) Name() pulumi.StringPtrO
 			return nil
 		}
 		return &v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// The redirect uri for linking.
-func (o DatadogOrganizationPropertiesResponsePtrOutput) RedirectUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DatadogOrganizationPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.RedirectUri
 	}).(pulumi.StringPtrOutput)
 }
 

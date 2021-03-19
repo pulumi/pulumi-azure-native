@@ -30,8 +30,6 @@ type LookupSqlServerArgs struct {
 
 // A SQL server.
 type LookupSqlServerResult struct {
-	// Cores of the Sql Server.
-	Cores *int `pulumi:"cores"`
 	// Sql Server Edition.
 	Edition *string `pulumi:"edition"`
 	// Resource ID.

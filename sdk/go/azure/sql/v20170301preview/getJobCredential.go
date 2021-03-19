@@ -34,8 +34,6 @@ type LookupJobCredentialResult struct {
 	Id string `pulumi:"id"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// The credential password.
-	Password string `pulumi:"password"`
 	// Resource type.
 	Type string `pulumi:"type"`
 	// The credential user name.

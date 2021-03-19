@@ -406,16 +406,12 @@ type ApplicationGetHttpsEndpointResponse struct {
 	AccessModes []string `pulumi:"accessModes"`
 	// The destination port to connect to.
 	DestinationPort *int `pulumi:"destinationPort"`
-	// The value indicates whether to disable GatewayAuth.
-	DisableGatewayAuth *bool `pulumi:"disableGatewayAuth"`
 	// The location of the endpoint.
 	Location string `pulumi:"location"`
 	// The private ip address of the endpoint.
 	PrivateIPAddress *string `pulumi:"privateIPAddress"`
 	// The public port to connect to.
 	PublicPort int `pulumi:"publicPort"`
-	// The subdomain suffix of the application.
-	SubDomainSuffix *string `pulumi:"subDomainSuffix"`
 }
 
 // ApplicationGetHttpsEndpointResponseInput is an input type that accepts ApplicationGetHttpsEndpointResponseArgs and ApplicationGetHttpsEndpointResponseOutput values.
@@ -435,16 +431,12 @@ type ApplicationGetHttpsEndpointResponseArgs struct {
 	AccessModes pulumi.StringArrayInput `pulumi:"accessModes"`
 	// The destination port to connect to.
 	DestinationPort pulumi.IntPtrInput `pulumi:"destinationPort"`
-	// The value indicates whether to disable GatewayAuth.
-	DisableGatewayAuth pulumi.BoolPtrInput `pulumi:"disableGatewayAuth"`
 	// The location of the endpoint.
 	Location pulumi.StringInput `pulumi:"location"`
 	// The private ip address of the endpoint.
 	PrivateIPAddress pulumi.StringPtrInput `pulumi:"privateIPAddress"`
 	// The public port to connect to.
 	PublicPort pulumi.IntInput `pulumi:"publicPort"`
-	// The subdomain suffix of the application.
-	SubDomainSuffix pulumi.StringPtrInput `pulumi:"subDomainSuffix"`
 }
 
 func (ApplicationGetHttpsEndpointResponseArgs) ElementType() reflect.Type {
@@ -509,11 +501,6 @@ func (o ApplicationGetHttpsEndpointResponseOutput) DestinationPort() pulumi.IntP
 	return o.ApplyT(func(v ApplicationGetHttpsEndpointResponse) *int { return v.DestinationPort }).(pulumi.IntPtrOutput)
 }
 
-// The value indicates whether to disable GatewayAuth.
-func (o ApplicationGetHttpsEndpointResponseOutput) DisableGatewayAuth() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ApplicationGetHttpsEndpointResponse) *bool { return v.DisableGatewayAuth }).(pulumi.BoolPtrOutput)
-}
-
 // The location of the endpoint.
 func (o ApplicationGetHttpsEndpointResponseOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationGetHttpsEndpointResponse) string { return v.Location }).(pulumi.StringOutput)
@@ -527,11 +514,6 @@ func (o ApplicationGetHttpsEndpointResponseOutput) PrivateIPAddress() pulumi.Str
 // The public port to connect to.
 func (o ApplicationGetHttpsEndpointResponseOutput) PublicPort() pulumi.IntOutput {
 	return o.ApplyT(func(v ApplicationGetHttpsEndpointResponse) int { return v.PublicPort }).(pulumi.IntOutput)
-}
-
-// The subdomain suffix of the application.
-func (o ApplicationGetHttpsEndpointResponseOutput) SubDomainSuffix() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationGetHttpsEndpointResponse) *string { return v.SubDomainSuffix }).(pulumi.StringPtrOutput)
 }
 
 type ApplicationGetHttpsEndpointResponseArrayOutput struct{ *pulumi.OutputState }
@@ -8919,8 +8901,6 @@ type RuntimeScriptActionResponse struct {
 	ApplicationName string `pulumi:"applicationName"`
 	// The name of the script action.
 	Name string `pulumi:"name"`
-	// The parameters for the script
-	Parameters *string `pulumi:"parameters"`
 	// The list of roles where script will be executed.
 	Roles []string `pulumi:"roles"`
 	// The URI to the script.
@@ -8944,8 +8924,6 @@ type RuntimeScriptActionResponseArgs struct {
 	ApplicationName pulumi.StringInput `pulumi:"applicationName"`
 	// The name of the script action.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The parameters for the script
-	Parameters pulumi.StringPtrInput `pulumi:"parameters"`
 	// The list of roles where script will be executed.
 	Roles pulumi.StringArrayInput `pulumi:"roles"`
 	// The URI to the script.
@@ -9012,11 +8990,6 @@ func (o RuntimeScriptActionResponseOutput) ApplicationName() pulumi.StringOutput
 // The name of the script action.
 func (o RuntimeScriptActionResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RuntimeScriptActionResponse) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The parameters for the script
-func (o RuntimeScriptActionResponseOutput) Parameters() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RuntimeScriptActionResponse) *string { return v.Parameters }).(pulumi.StringPtrOutput)
 }
 
 // The list of roles where script will be executed.

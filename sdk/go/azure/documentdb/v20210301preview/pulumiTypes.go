@@ -3142,16 +3142,12 @@ type ClusterResourceResponseProperties struct {
 	GossipCertificates []CertificateResponse `pulumi:"gossipCertificates"`
 	// Number of hours to wait between taking a backup of the cluster. To disable backups, set this property to 0.
 	HoursBetweenBackups *int `pulumi:"hoursBetweenBackups"`
-	// Initial password for clients connecting as admin to the cluster. Should be changed after cluster creation. Returns null on GET. This field only applies when the authenticationMethod field is 'Cassandra'.
-	InitialCassandraAdminPassword *string `pulumi:"initialCassandraAdminPassword"`
 	// Hostname or IP address where the Prometheus endpoint containing data about the managed Cassandra nodes can be reached.
 	PrometheusEndpoint *SeedNodeResponse `pulumi:"prometheusEndpoint"`
 	// The status of the resource at the time the operation was called.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// Should automatic repairs run on this cluster? If omitted, this is true, and should stay true unless you are running a hybrid cluster where you are already doing your own repairs.
 	RepairEnabled *bool `pulumi:"repairEnabled"`
-	// To create an empty cluster, omit this field or set it to null. To restore a backup into a new cluster, set this field to the resource id of the backup.
-	RestoreFromBackupId *string `pulumi:"restoreFromBackupId"`
 	// List of IP addresses of seed nodes in the managed data centers. These should be added to the seed node lists of all unmanaged nodes.
 	SeedNodes []SeedNodeResponse `pulumi:"seedNodes"`
 }
@@ -3187,16 +3183,12 @@ type ClusterResourceResponsePropertiesArgs struct {
 	GossipCertificates CertificateResponseArrayInput `pulumi:"gossipCertificates"`
 	// Number of hours to wait between taking a backup of the cluster. To disable backups, set this property to 0.
 	HoursBetweenBackups pulumi.IntPtrInput `pulumi:"hoursBetweenBackups"`
-	// Initial password for clients connecting as admin to the cluster. Should be changed after cluster creation. Returns null on GET. This field only applies when the authenticationMethod field is 'Cassandra'.
-	InitialCassandraAdminPassword pulumi.StringPtrInput `pulumi:"initialCassandraAdminPassword"`
 	// Hostname or IP address where the Prometheus endpoint containing data about the managed Cassandra nodes can be reached.
 	PrometheusEndpoint SeedNodeResponsePtrInput `pulumi:"prometheusEndpoint"`
 	// The status of the resource at the time the operation was called.
 	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
 	// Should automatic repairs run on this cluster? If omitted, this is true, and should stay true unless you are running a hybrid cluster where you are already doing your own repairs.
 	RepairEnabled pulumi.BoolPtrInput `pulumi:"repairEnabled"`
-	// To create an empty cluster, omit this field or set it to null. To restore a backup into a new cluster, set this field to the resource id of the backup.
-	RestoreFromBackupId pulumi.StringPtrInput `pulumi:"restoreFromBackupId"`
 	// List of IP addresses of seed nodes in the managed data centers. These should be added to the seed node lists of all unmanaged nodes.
 	SeedNodes SeedNodeResponseArrayInput `pulumi:"seedNodes"`
 }
@@ -3324,11 +3316,6 @@ func (o ClusterResourceResponsePropertiesOutput) HoursBetweenBackups() pulumi.In
 	return o.ApplyT(func(v ClusterResourceResponseProperties) *int { return v.HoursBetweenBackups }).(pulumi.IntPtrOutput)
 }
 
-// Initial password for clients connecting as admin to the cluster. Should be changed after cluster creation. Returns null on GET. This field only applies when the authenticationMethod field is 'Cassandra'.
-func (o ClusterResourceResponsePropertiesOutput) InitialCassandraAdminPassword() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterResourceResponseProperties) *string { return v.InitialCassandraAdminPassword }).(pulumi.StringPtrOutput)
-}
-
 // Hostname or IP address where the Prometheus endpoint containing data about the managed Cassandra nodes can be reached.
 func (o ClusterResourceResponsePropertiesOutput) PrometheusEndpoint() SeedNodeResponsePtrOutput {
 	return o.ApplyT(func(v ClusterResourceResponseProperties) *SeedNodeResponse { return v.PrometheusEndpoint }).(SeedNodeResponsePtrOutput)
@@ -3342,11 +3329,6 @@ func (o ClusterResourceResponsePropertiesOutput) ProvisioningState() pulumi.Stri
 // Should automatic repairs run on this cluster? If omitted, this is true, and should stay true unless you are running a hybrid cluster where you are already doing your own repairs.
 func (o ClusterResourceResponsePropertiesOutput) RepairEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterResourceResponseProperties) *bool { return v.RepairEnabled }).(pulumi.BoolPtrOutput)
-}
-
-// To create an empty cluster, omit this field or set it to null. To restore a backup into a new cluster, set this field to the resource id of the backup.
-func (o ClusterResourceResponsePropertiesOutput) RestoreFromBackupId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterResourceResponseProperties) *string { return v.RestoreFromBackupId }).(pulumi.StringPtrOutput)
 }
 
 // List of IP addresses of seed nodes in the managed data centers. These should be added to the seed node lists of all unmanaged nodes.
@@ -3462,16 +3444,6 @@ func (o ClusterResourceResponsePropertiesPtrOutput) HoursBetweenBackups() pulumi
 	}).(pulumi.IntPtrOutput)
 }
 
-// Initial password for clients connecting as admin to the cluster. Should be changed after cluster creation. Returns null on GET. This field only applies when the authenticationMethod field is 'Cassandra'.
-func (o ClusterResourceResponsePropertiesPtrOutput) InitialCassandraAdminPassword() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterResourceResponseProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.InitialCassandraAdminPassword
-	}).(pulumi.StringPtrOutput)
-}
-
 // Hostname or IP address where the Prometheus endpoint containing data about the managed Cassandra nodes can be reached.
 func (o ClusterResourceResponsePropertiesPtrOutput) PrometheusEndpoint() SeedNodeResponsePtrOutput {
 	return o.ApplyT(func(v *ClusterResourceResponseProperties) *SeedNodeResponse {
@@ -3500,16 +3472,6 @@ func (o ClusterResourceResponsePropertiesPtrOutput) RepairEnabled() pulumi.BoolP
 		}
 		return v.RepairEnabled
 	}).(pulumi.BoolPtrOutput)
-}
-
-// To create an empty cluster, omit this field or set it to null. To restore a backup into a new cluster, set this field to the resource id of the backup.
-func (o ClusterResourceResponsePropertiesPtrOutput) RestoreFromBackupId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterResourceResponseProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.RestoreFromBackupId
-	}).(pulumi.StringPtrOutput)
 }
 
 // List of IP addresses of seed nodes in the managed data centers. These should be added to the seed node lists of all unmanaged nodes.

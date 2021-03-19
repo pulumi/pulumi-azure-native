@@ -167,8 +167,6 @@ func (o CustomLocationPropertiesAuthenticationPtrOutput) Value() pulumi.StringPt
 type CustomLocationPropertiesResponseAuthentication struct {
 	// The type of the Custom Locations authentication
 	Type *string `pulumi:"type"`
-	// The kubeconfig value.
-	Value *string `pulumi:"value"`
 }
 
 // CustomLocationPropertiesResponseAuthenticationInput is an input type that accepts CustomLocationPropertiesResponseAuthenticationArgs and CustomLocationPropertiesResponseAuthenticationOutput values.
@@ -186,8 +184,6 @@ type CustomLocationPropertiesResponseAuthenticationInput interface {
 type CustomLocationPropertiesResponseAuthenticationArgs struct {
 	// The type of the Custom Locations authentication
 	Type pulumi.StringPtrInput `pulumi:"type"`
-	// The kubeconfig value.
-	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (CustomLocationPropertiesResponseAuthenticationArgs) ElementType() reflect.Type {
@@ -273,11 +269,6 @@ func (o CustomLocationPropertiesResponseAuthenticationOutput) Type() pulumi.Stri
 	return o.ApplyT(func(v CustomLocationPropertiesResponseAuthentication) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// The kubeconfig value.
-func (o CustomLocationPropertiesResponseAuthenticationOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CustomLocationPropertiesResponseAuthentication) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
 type CustomLocationPropertiesResponseAuthenticationPtrOutput struct{ *pulumi.OutputState }
 
 func (CustomLocationPropertiesResponseAuthenticationPtrOutput) ElementType() reflect.Type {
@@ -305,16 +296,6 @@ func (o CustomLocationPropertiesResponseAuthenticationPtrOutput) Type() pulumi.S
 			return nil
 		}
 		return v.Type
-	}).(pulumi.StringPtrOutput)
-}
-
-// The kubeconfig value.
-func (o CustomLocationPropertiesResponseAuthenticationPtrOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CustomLocationPropertiesResponseAuthentication) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Value
 	}).(pulumi.StringPtrOutput)
 }
 

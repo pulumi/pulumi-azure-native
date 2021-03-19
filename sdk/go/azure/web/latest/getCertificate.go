@@ -59,8 +59,6 @@ type LookupCertificateResult struct {
 	Location string `pulumi:"location"`
 	// Resource Name.
 	Name string `pulumi:"name"`
-	// Certificate password.
-	Password string `pulumi:"password"`
 	// Pfx blob.
 	PfxBlob *string `pulumi:"pfxBlob"`
 	// Public key hash.

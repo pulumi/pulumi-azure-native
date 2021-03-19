@@ -21,8 +21,6 @@ type SyncMember struct {
 	DatabaseType pulumi.StringPtrOutput `pulumi:"databaseType"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Password of the member database in the sync member.
-	Password pulumi.StringPtrOutput `pulumi:"password"`
 	// Server name of the member database in the sync member
 	ServerName pulumi.StringPtrOutput `pulumi:"serverName"`
 	// SQL Server database id of the sync member.
@@ -122,8 +120,6 @@ type syncMemberState struct {
 	DatabaseType *string `pulumi:"databaseType"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// Password of the member database in the sync member.
-	Password *string `pulumi:"password"`
 	// Server name of the member database in the sync member
 	ServerName *string `pulumi:"serverName"`
 	// SQL Server database id of the sync member.
@@ -147,8 +143,6 @@ type SyncMemberState struct {
 	DatabaseType pulumi.StringPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// Password of the member database in the sync member.
-	Password pulumi.StringPtrInput
 	// Server name of the member database in the sync member
 	ServerName pulumi.StringPtrInput
 	// SQL Server database id of the sync member.

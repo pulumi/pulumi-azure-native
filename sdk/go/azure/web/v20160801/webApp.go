@@ -21,8 +21,6 @@ type WebApp struct {
 	ClientAffinityEnabled pulumi.BoolPtrOutput `pulumi:"clientAffinityEnabled"`
 	// <code>true</code> to enable client certificate authentication (TLS mutual authentication); otherwise, <code>false</code>. Default is <code>false</code>.
 	ClientCertEnabled pulumi.BoolPtrOutput `pulumi:"clientCertEnabled"`
-	// If specified during app creation, the app is cloned from a source app.
-	CloningInfo CloningInfoResponsePtrOutput `pulumi:"cloningInfo"`
 	// Size of the function container.
 	ContainerSize pulumi.IntPtrOutput `pulumi:"containerSize"`
 	// Maximum allowed daily memory-time quota (applicable on dynamic apps only).
@@ -79,8 +77,6 @@ type WebApp struct {
 	SiteConfig SiteConfigResponsePtrOutput `pulumi:"siteConfig"`
 	// Status of the last deployment slot swap operation.
 	SlotSwapStatus SlotSwapStatusResponseOutput `pulumi:"slotSwapStatus"`
-	// If specified during app creation, the app is created from a previous snapshot.
-	SnapshotInfo SnapshotRecoveryRequestResponsePtrOutput `pulumi:"snapshotInfo"`
 	// Current state of the app.
 	State pulumi.StringOutput `pulumi:"state"`
 	// App suspended till in case memory-time quota is exceeded.
@@ -201,8 +197,6 @@ type webAppState struct {
 	ClientAffinityEnabled *bool `pulumi:"clientAffinityEnabled"`
 	// <code>true</code> to enable client certificate authentication (TLS mutual authentication); otherwise, <code>false</code>. Default is <code>false</code>.
 	ClientCertEnabled *bool `pulumi:"clientCertEnabled"`
-	// If specified during app creation, the app is cloned from a source app.
-	CloningInfo *CloningInfoResponse `pulumi:"cloningInfo"`
 	// Size of the function container.
 	ContainerSize *int `pulumi:"containerSize"`
 	// Maximum allowed daily memory-time quota (applicable on dynamic apps only).
@@ -259,8 +253,6 @@ type webAppState struct {
 	SiteConfig *SiteConfigResponse `pulumi:"siteConfig"`
 	// Status of the last deployment slot swap operation.
 	SlotSwapStatus *SlotSwapStatusResponse `pulumi:"slotSwapStatus"`
-	// If specified during app creation, the app is created from a previous snapshot.
-	SnapshotInfo *SnapshotRecoveryRequestResponse `pulumi:"snapshotInfo"`
 	// Current state of the app.
 	State *string `pulumi:"state"`
 	// App suspended till in case memory-time quota is exceeded.
@@ -284,8 +276,6 @@ type WebAppState struct {
 	ClientAffinityEnabled pulumi.BoolPtrInput
 	// <code>true</code> to enable client certificate authentication (TLS mutual authentication); otherwise, <code>false</code>. Default is <code>false</code>.
 	ClientCertEnabled pulumi.BoolPtrInput
-	// If specified during app creation, the app is cloned from a source app.
-	CloningInfo CloningInfoResponsePtrInput
 	// Size of the function container.
 	ContainerSize pulumi.IntPtrInput
 	// Maximum allowed daily memory-time quota (applicable on dynamic apps only).
@@ -342,8 +332,6 @@ type WebAppState struct {
 	SiteConfig SiteConfigResponsePtrInput
 	// Status of the last deployment slot swap operation.
 	SlotSwapStatus SlotSwapStatusResponsePtrInput
-	// If specified during app creation, the app is created from a previous snapshot.
-	SnapshotInfo SnapshotRecoveryRequestResponsePtrInput
 	// Current state of the app.
 	State pulumi.StringPtrInput
 	// App suspended till in case memory-time quota is exceeded.

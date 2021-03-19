@@ -826,47 +826,6 @@ func (i ContactResponseArgs) ToContactResponseOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ContactResponseOutput)
 }
 
-func (i ContactResponseArgs) ToContactResponsePtrOutput() ContactResponsePtrOutput {
-	return i.ToContactResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ContactResponseArgs) ToContactResponsePtrOutputWithContext(ctx context.Context) ContactResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContactResponseOutput).ToContactResponsePtrOutputWithContext(ctx)
-}
-
-// ContactResponsePtrInput is an input type that accepts ContactResponseArgs, ContactResponsePtr and ContactResponsePtrOutput values.
-// You can construct a concrete instance of `ContactResponsePtrInput` via:
-//
-//          ContactResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type ContactResponsePtrInput interface {
-	pulumi.Input
-
-	ToContactResponsePtrOutput() ContactResponsePtrOutput
-	ToContactResponsePtrOutputWithContext(context.Context) ContactResponsePtrOutput
-}
-
-type contactResponsePtrType ContactResponseArgs
-
-func ContactResponsePtr(v *ContactResponseArgs) ContactResponsePtrInput {
-	return (*contactResponsePtrType)(v)
-}
-
-func (*contactResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ContactResponse)(nil)).Elem()
-}
-
-func (i *contactResponsePtrType) ToContactResponsePtrOutput() ContactResponsePtrOutput {
-	return i.ToContactResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *contactResponsePtrType) ToContactResponsePtrOutputWithContext(ctx context.Context) ContactResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContactResponsePtrOutput)
-}
-
 // Contact information for domain registration. If 'Domain Privacy' option is not selected then the contact information is made publicly available through the Whois
 // directories as per ICANN requirements.
 type ContactResponseOutput struct{ *pulumi.OutputState }
@@ -881,16 +840,6 @@ func (o ContactResponseOutput) ToContactResponseOutput() ContactResponseOutput {
 
 func (o ContactResponseOutput) ToContactResponseOutputWithContext(ctx context.Context) ContactResponseOutput {
 	return o
-}
-
-func (o ContactResponseOutput) ToContactResponsePtrOutput() ContactResponsePtrOutput {
-	return o.ToContactResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ContactResponseOutput) ToContactResponsePtrOutputWithContext(ctx context.Context) ContactResponsePtrOutput {
-	return o.ApplyT(func(v ContactResponse) *ContactResponse {
-		return &v
-	}).(ContactResponsePtrOutput)
 }
 
 // Mailing address.
@@ -936,114 +885,6 @@ func (o ContactResponseOutput) Organization() pulumi.StringPtrOutput {
 // Phone number.
 func (o ContactResponseOutput) Phone() pulumi.StringOutput {
 	return o.ApplyT(func(v ContactResponse) string { return v.Phone }).(pulumi.StringOutput)
-}
-
-type ContactResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ContactResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ContactResponse)(nil)).Elem()
-}
-
-func (o ContactResponsePtrOutput) ToContactResponsePtrOutput() ContactResponsePtrOutput {
-	return o
-}
-
-func (o ContactResponsePtrOutput) ToContactResponsePtrOutputWithContext(ctx context.Context) ContactResponsePtrOutput {
-	return o
-}
-
-func (o ContactResponsePtrOutput) Elem() ContactResponseOutput {
-	return o.ApplyT(func(v *ContactResponse) ContactResponse { return *v }).(ContactResponseOutput)
-}
-
-// Mailing address.
-func (o ContactResponsePtrOutput) AddressMailing() AddressResponsePtrOutput {
-	return o.ApplyT(func(v *ContactResponse) *AddressResponse {
-		if v == nil {
-			return nil
-		}
-		return v.AddressMailing
-	}).(AddressResponsePtrOutput)
-}
-
-// Email address.
-func (o ContactResponsePtrOutput) Email() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ContactResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Email
-	}).(pulumi.StringPtrOutput)
-}
-
-// Fax number.
-func (o ContactResponsePtrOutput) Fax() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ContactResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Fax
-	}).(pulumi.StringPtrOutput)
-}
-
-// Job title.
-func (o ContactResponsePtrOutput) JobTitle() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ContactResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.JobTitle
-	}).(pulumi.StringPtrOutput)
-}
-
-// First name.
-func (o ContactResponsePtrOutput) NameFirst() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ContactResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.NameFirst
-	}).(pulumi.StringPtrOutput)
-}
-
-// Last name.
-func (o ContactResponsePtrOutput) NameLast() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ContactResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.NameLast
-	}).(pulumi.StringPtrOutput)
-}
-
-// Middle name.
-func (o ContactResponsePtrOutput) NameMiddle() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ContactResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.NameMiddle
-	}).(pulumi.StringPtrOutput)
-}
-
-// Organization contact belongs to.
-func (o ContactResponsePtrOutput) Organization() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ContactResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Organization
-	}).(pulumi.StringPtrOutput)
-}
-
-// Phone number.
-func (o ContactResponsePtrOutput) Phone() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ContactResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Phone
-	}).(pulumi.StringPtrOutput)
 }
 
 // Domain purchase consent object, representing acceptance of applicable legal agreements.
@@ -1261,47 +1102,6 @@ func (i DomainPurchaseConsentResponseArgs) ToDomainPurchaseConsentResponseOutput
 	return pulumi.ToOutputWithContext(ctx, i).(DomainPurchaseConsentResponseOutput)
 }
 
-func (i DomainPurchaseConsentResponseArgs) ToDomainPurchaseConsentResponsePtrOutput() DomainPurchaseConsentResponsePtrOutput {
-	return i.ToDomainPurchaseConsentResponsePtrOutputWithContext(context.Background())
-}
-
-func (i DomainPurchaseConsentResponseArgs) ToDomainPurchaseConsentResponsePtrOutputWithContext(ctx context.Context) DomainPurchaseConsentResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DomainPurchaseConsentResponseOutput).ToDomainPurchaseConsentResponsePtrOutputWithContext(ctx)
-}
-
-// DomainPurchaseConsentResponsePtrInput is an input type that accepts DomainPurchaseConsentResponseArgs, DomainPurchaseConsentResponsePtr and DomainPurchaseConsentResponsePtrOutput values.
-// You can construct a concrete instance of `DomainPurchaseConsentResponsePtrInput` via:
-//
-//          DomainPurchaseConsentResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type DomainPurchaseConsentResponsePtrInput interface {
-	pulumi.Input
-
-	ToDomainPurchaseConsentResponsePtrOutput() DomainPurchaseConsentResponsePtrOutput
-	ToDomainPurchaseConsentResponsePtrOutputWithContext(context.Context) DomainPurchaseConsentResponsePtrOutput
-}
-
-type domainPurchaseConsentResponsePtrType DomainPurchaseConsentResponseArgs
-
-func DomainPurchaseConsentResponsePtr(v *DomainPurchaseConsentResponseArgs) DomainPurchaseConsentResponsePtrInput {
-	return (*domainPurchaseConsentResponsePtrType)(v)
-}
-
-func (*domainPurchaseConsentResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DomainPurchaseConsentResponse)(nil)).Elem()
-}
-
-func (i *domainPurchaseConsentResponsePtrType) ToDomainPurchaseConsentResponsePtrOutput() DomainPurchaseConsentResponsePtrOutput {
-	return i.ToDomainPurchaseConsentResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *domainPurchaseConsentResponsePtrType) ToDomainPurchaseConsentResponsePtrOutputWithContext(ctx context.Context) DomainPurchaseConsentResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DomainPurchaseConsentResponsePtrOutput)
-}
-
 // Domain purchase consent object, representing acceptance of applicable legal agreements.
 type DomainPurchaseConsentResponseOutput struct{ *pulumi.OutputState }
 
@@ -1317,16 +1117,6 @@ func (o DomainPurchaseConsentResponseOutput) ToDomainPurchaseConsentResponseOutp
 	return o
 }
 
-func (o DomainPurchaseConsentResponseOutput) ToDomainPurchaseConsentResponsePtrOutput() DomainPurchaseConsentResponsePtrOutput {
-	return o.ToDomainPurchaseConsentResponsePtrOutputWithContext(context.Background())
-}
-
-func (o DomainPurchaseConsentResponseOutput) ToDomainPurchaseConsentResponsePtrOutputWithContext(ctx context.Context) DomainPurchaseConsentResponsePtrOutput {
-	return o.ApplyT(func(v DomainPurchaseConsentResponse) *DomainPurchaseConsentResponse {
-		return &v
-	}).(DomainPurchaseConsentResponsePtrOutput)
-}
-
 // Timestamp when the agreements were accepted.
 func (o DomainPurchaseConsentResponseOutput) AgreedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainPurchaseConsentResponse) *string { return v.AgreedAt }).(pulumi.StringPtrOutput)
@@ -1340,54 +1130,6 @@ func (o DomainPurchaseConsentResponseOutput) AgreedBy() pulumi.StringPtrOutput {
 // List of applicable legal agreement keys. This list can be retrieved using ListLegalAgreements API under <code>TopLevelDomain</code> resource.
 func (o DomainPurchaseConsentResponseOutput) AgreementKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DomainPurchaseConsentResponse) []string { return v.AgreementKeys }).(pulumi.StringArrayOutput)
-}
-
-type DomainPurchaseConsentResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (DomainPurchaseConsentResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DomainPurchaseConsentResponse)(nil)).Elem()
-}
-
-func (o DomainPurchaseConsentResponsePtrOutput) ToDomainPurchaseConsentResponsePtrOutput() DomainPurchaseConsentResponsePtrOutput {
-	return o
-}
-
-func (o DomainPurchaseConsentResponsePtrOutput) ToDomainPurchaseConsentResponsePtrOutputWithContext(ctx context.Context) DomainPurchaseConsentResponsePtrOutput {
-	return o
-}
-
-func (o DomainPurchaseConsentResponsePtrOutput) Elem() DomainPurchaseConsentResponseOutput {
-	return o.ApplyT(func(v *DomainPurchaseConsentResponse) DomainPurchaseConsentResponse { return *v }).(DomainPurchaseConsentResponseOutput)
-}
-
-// Timestamp when the agreements were accepted.
-func (o DomainPurchaseConsentResponsePtrOutput) AgreedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DomainPurchaseConsentResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AgreedAt
-	}).(pulumi.StringPtrOutput)
-}
-
-// Client IP address.
-func (o DomainPurchaseConsentResponsePtrOutput) AgreedBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DomainPurchaseConsentResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AgreedBy
-	}).(pulumi.StringPtrOutput)
-}
-
-// List of applicable legal agreement keys. This list can be retrieved using ListLegalAgreements API under <code>TopLevelDomain</code> resource.
-func (o DomainPurchaseConsentResponsePtrOutput) AgreementKeys() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *DomainPurchaseConsentResponse) []string {
-		if v == nil {
-			return nil
-		}
-		return v.AgreementKeys
-	}).(pulumi.StringArrayOutput)
 }
 
 // Details of a hostname derived from a domain.
@@ -1999,11 +1741,9 @@ func init() {
 	pulumi.RegisterOutputType(ContactOutput{})
 	pulumi.RegisterOutputType(ContactPtrOutput{})
 	pulumi.RegisterOutputType(ContactResponseOutput{})
-	pulumi.RegisterOutputType(ContactResponsePtrOutput{})
 	pulumi.RegisterOutputType(DomainPurchaseConsentOutput{})
 	pulumi.RegisterOutputType(DomainPurchaseConsentPtrOutput{})
 	pulumi.RegisterOutputType(DomainPurchaseConsentResponseOutput{})
-	pulumi.RegisterOutputType(DomainPurchaseConsentResponsePtrOutput{})
 	pulumi.RegisterOutputType(HostNameResponseOutput{})
 	pulumi.RegisterOutputType(HostNameResponseArrayOutput{})
 	pulumi.RegisterOutputType(NameIdentifierResponseOutput{})

@@ -35,8 +35,6 @@ type LookupCloudConnectorResult struct {
 	CreatedOn string `pulumi:"createdOn"`
 	// Credentials authentication key (eg AWS ARN)
 	CredentialsKey *string `pulumi:"credentialsKey"`
-	// Credentials secret (eg AWS ExternalId)
-	CredentialsSecret *string `pulumi:"credentialsSecret"`
 	// Number of days remaining of trial
 	DaysTrialRemaining int `pulumi:"daysTrialRemaining"`
 	// Default ManagementGroupId

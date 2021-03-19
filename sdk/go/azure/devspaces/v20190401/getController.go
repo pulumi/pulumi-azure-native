@@ -42,8 +42,6 @@ type LookupControllerResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// DNS of the target container host's API server
 	TargetContainerHostApiServerFqdn string `pulumi:"targetContainerHostApiServerFqdn"`
-	// Credentials of the target container host (base64).
-	TargetContainerHostCredentialsBase64 string `pulumi:"targetContainerHostCredentialsBase64"`
 	// Resource ID of the target container host
 	TargetContainerHostResourceId string `pulumi:"targetContainerHostResourceId"`
 	// The type of the resource.

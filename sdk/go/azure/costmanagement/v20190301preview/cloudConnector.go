@@ -22,8 +22,6 @@ type CloudConnector struct {
 	CreatedOn pulumi.StringOutput `pulumi:"createdOn"`
 	// Credentials authentication key (eg AWS ARN)
 	CredentialsKey pulumi.StringPtrOutput `pulumi:"credentialsKey"`
-	// Credentials secret (eg AWS ExternalId)
-	CredentialsSecret pulumi.StringPtrOutput `pulumi:"credentialsSecret"`
 	// Number of days remaining of trial
 	DaysTrialRemaining pulumi.IntOutput `pulumi:"daysTrialRemaining"`
 	// Default ManagementGroupId
@@ -101,8 +99,6 @@ type cloudConnectorState struct {
 	CreatedOn *string `pulumi:"createdOn"`
 	// Credentials authentication key (eg AWS ARN)
 	CredentialsKey *string `pulumi:"credentialsKey"`
-	// Credentials secret (eg AWS ExternalId)
-	CredentialsSecret *string `pulumi:"credentialsSecret"`
 	// Number of days remaining of trial
 	DaysTrialRemaining *int `pulumi:"daysTrialRemaining"`
 	// Default ManagementGroupId
@@ -140,8 +136,6 @@ type CloudConnectorState struct {
 	CreatedOn pulumi.StringPtrInput
 	// Credentials authentication key (eg AWS ARN)
 	CredentialsKey pulumi.StringPtrInput
-	// Credentials secret (eg AWS ExternalId)
-	CredentialsSecret pulumi.StringPtrInput
 	// Number of days remaining of trial
 	DaysTrialRemaining pulumi.IntPtrInput
 	// Default ManagementGroupId

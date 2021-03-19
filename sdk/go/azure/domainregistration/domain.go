@@ -19,16 +19,6 @@ type Domain struct {
 	AuthCode pulumi.StringPtrOutput `pulumi:"authCode"`
 	// <code>true</code> if the domain should be automatically renewed; otherwise, <code>false</code>.
 	AutoRenew pulumi.BoolPtrOutput `pulumi:"autoRenew"`
-	// Legal agreement consent.
-	Consent DomainPurchaseConsentResponseOutput `pulumi:"consent"`
-	// Administrative contact.
-	ContactAdmin ContactResponseOutput `pulumi:"contactAdmin"`
-	// Billing contact.
-	ContactBilling ContactResponseOutput `pulumi:"contactBilling"`
-	// Registrant contact.
-	ContactRegistrant ContactResponseOutput `pulumi:"contactRegistrant"`
-	// Technical contact.
-	ContactTech ContactResponseOutput `pulumi:"contactTech"`
 	// Domain creation timestamp.
 	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
 	// Current DNS type
@@ -171,16 +161,6 @@ type domainState struct {
 	AuthCode *string `pulumi:"authCode"`
 	// <code>true</code> if the domain should be automatically renewed; otherwise, <code>false</code>.
 	AutoRenew *bool `pulumi:"autoRenew"`
-	// Legal agreement consent.
-	Consent *DomainPurchaseConsentResponse `pulumi:"consent"`
-	// Administrative contact.
-	ContactAdmin *ContactResponse `pulumi:"contactAdmin"`
-	// Billing contact.
-	ContactBilling *ContactResponse `pulumi:"contactBilling"`
-	// Registrant contact.
-	ContactRegistrant *ContactResponse `pulumi:"contactRegistrant"`
-	// Technical contact.
-	ContactTech *ContactResponse `pulumi:"contactTech"`
 	// Domain creation timestamp.
 	CreatedTime *string `pulumi:"createdTime"`
 	// Current DNS type
@@ -226,16 +206,6 @@ type DomainState struct {
 	AuthCode pulumi.StringPtrInput
 	// <code>true</code> if the domain should be automatically renewed; otherwise, <code>false</code>.
 	AutoRenew pulumi.BoolPtrInput
-	// Legal agreement consent.
-	Consent DomainPurchaseConsentResponsePtrInput
-	// Administrative contact.
-	ContactAdmin ContactResponsePtrInput
-	// Billing contact.
-	ContactBilling ContactResponsePtrInput
-	// Registrant contact.
-	ContactRegistrant ContactResponsePtrInput
-	// Technical contact.
-	ContactTech ContactResponsePtrInput
 	// Domain creation timestamp.
 	CreatedTime pulumi.StringPtrInput
 	// Current DNS type

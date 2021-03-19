@@ -51,8 +51,6 @@ type LookupDatabaseThreatDetectionPolicyResult struct {
 	RetentionDays *int `pulumi:"retentionDays"`
 	// Specifies the state of the policy. If state is Enabled, storageEndpoint and storageAccountAccessKey are required.
 	State string `pulumi:"state"`
-	// Specifies the identifier key of the Threat Detection audit storage account. If state is Enabled, storageAccountAccessKey is required.
-	StorageAccountAccessKey *string `pulumi:"storageAccountAccessKey"`
 	// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. If state is Enabled, storageEndpoint is required.
 	StorageEndpoint *string `pulumi:"storageEndpoint"`
 	// Resource type.

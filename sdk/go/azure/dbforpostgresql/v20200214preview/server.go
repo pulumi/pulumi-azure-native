@@ -17,14 +17,10 @@ type Server struct {
 
 	// The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
 	AdministratorLogin pulumi.StringPtrOutput `pulumi:"administratorLogin"`
-	// The administrator login password (required for server creation).
-	AdministratorLoginPassword pulumi.StringPtrOutput `pulumi:"administratorLoginPassword"`
 	// availability Zone information of the server.
 	AvailabilityZone pulumi.StringPtrOutput `pulumi:"availabilityZone"`
 	// Status showing whether the data encryption is enabled with customer-managed keys.
-	ByokEnforcement pulumi.StringOutput `pulumi:"byokEnforcement"`
-	// The mode to create a new PostgreSQL server.
-	CreateMode               pulumi.StringPtrOutput                                    `pulumi:"createMode"`
+	ByokEnforcement          pulumi.StringOutput                                       `pulumi:"byokEnforcement"`
 	DelegatedSubnetArguments ServerPropertiesResponseDelegatedSubnetArgumentsPtrOutput `pulumi:"delegatedSubnetArguments"`
 	// The display name of a server.
 	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
@@ -114,14 +110,10 @@ func GetServer(ctx *pulumi.Context,
 type serverState struct {
 	// The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
 	AdministratorLogin *string `pulumi:"administratorLogin"`
-	// The administrator login password (required for server creation).
-	AdministratorLoginPassword *string `pulumi:"administratorLoginPassword"`
 	// availability Zone information of the server.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
 	// Status showing whether the data encryption is enabled with customer-managed keys.
-	ByokEnforcement *string `pulumi:"byokEnforcement"`
-	// The mode to create a new PostgreSQL server.
-	CreateMode               *string                                           `pulumi:"createMode"`
+	ByokEnforcement          *string                                           `pulumi:"byokEnforcement"`
 	DelegatedSubnetArguments *ServerPropertiesResponseDelegatedSubnetArguments `pulumi:"delegatedSubnetArguments"`
 	// The display name of a server.
 	DisplayName *string `pulumi:"displayName"`
@@ -168,14 +160,10 @@ type serverState struct {
 type ServerState struct {
 	// The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
 	AdministratorLogin pulumi.StringPtrInput
-	// The administrator login password (required for server creation).
-	AdministratorLoginPassword pulumi.StringPtrInput
 	// availability Zone information of the server.
 	AvailabilityZone pulumi.StringPtrInput
 	// Status showing whether the data encryption is enabled with customer-managed keys.
-	ByokEnforcement pulumi.StringPtrInput
-	// The mode to create a new PostgreSQL server.
-	CreateMode               pulumi.StringPtrInput
+	ByokEnforcement          pulumi.StringPtrInput
 	DelegatedSubnetArguments ServerPropertiesResponseDelegatedSubnetArgumentsPtrInput
 	// The display name of a server.
 	DisplayName pulumi.StringPtrInput

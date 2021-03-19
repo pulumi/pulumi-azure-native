@@ -40,8 +40,6 @@ type LookupSyncMemberResult struct {
 	Id string `pulumi:"id"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// Password of the member database in the sync member.
-	Password *string `pulumi:"password"`
 	// Server name of the member database in the sync member
 	ServerName *string `pulumi:"serverName"`
 	// SQL Server database id of the sync member.

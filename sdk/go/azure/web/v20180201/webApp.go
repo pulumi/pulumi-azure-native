@@ -23,8 +23,6 @@ type WebApp struct {
 	ClientCertEnabled pulumi.BoolPtrOutput `pulumi:"clientCertEnabled"`
 	// client certificate authentication comma-separated exclusion paths
 	ClientCertExclusionPaths pulumi.StringPtrOutput `pulumi:"clientCertExclusionPaths"`
-	// If specified during app creation, the app is cloned from a source app.
-	CloningInfo CloningInfoResponsePtrOutput `pulumi:"cloningInfo"`
 	// Size of the function container.
 	ContainerSize pulumi.IntPtrOutput `pulumi:"containerSize"`
 	// Maximum allowed daily memory-time quota (applicable on dynamic apps only).
@@ -219,8 +217,6 @@ type webAppState struct {
 	ClientCertEnabled *bool `pulumi:"clientCertEnabled"`
 	// client certificate authentication comma-separated exclusion paths
 	ClientCertExclusionPaths *string `pulumi:"clientCertExclusionPaths"`
-	// If specified during app creation, the app is cloned from a source app.
-	CloningInfo *CloningInfoResponse `pulumi:"cloningInfo"`
 	// Size of the function container.
 	ContainerSize *int `pulumi:"containerSize"`
 	// Maximum allowed daily memory-time quota (applicable on dynamic apps only).
@@ -312,8 +308,6 @@ type WebAppState struct {
 	ClientCertEnabled pulumi.BoolPtrInput
 	// client certificate authentication comma-separated exclusion paths
 	ClientCertExclusionPaths pulumi.StringPtrInput
-	// If specified during app creation, the app is cloned from a source app.
-	CloningInfo CloningInfoResponsePtrInput
 	// Size of the function container.
 	ContainerSize pulumi.IntPtrInput
 	// Maximum allowed daily memory-time quota (applicable on dynamic apps only).
