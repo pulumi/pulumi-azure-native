@@ -72,10 +72,10 @@ generate_nodejs::
 build_nodejs:: VERSION := $(shell pulumictl get version --language javascript)
 build_nodejs::
 	cd ${PACKDIR}/nodejs/ && \
-		yarn install && \
-		node --max-old-space-size=4096 /usr/local/bin/tsc --diagnostics && \
-		cp ../../README.md ../../LICENSE package.json yarn.lock ./bin/ && \
-		sed -i.bak -e "s/\$${VERSION}/$(VERSION)/g" ./bin/package.json
+	yarn install && \
+	node --max-old-space-size=4096 /usr/local/bin/tsc --diagnostics && \
+	cp ../../README.md ../../LICENSE package.json yarn.lock ./bin/ && \
+	sed -i.bak -e "s/\$${VERSION}/$(VERSION)/g" ./bin/package.json
 
 generate_python::
 	$(WORKING_DIR)/bin/$(CODEGEN) python ${VERSION}
@@ -83,12 +83,12 @@ generate_python::
 build_python:: VERSION := $(shell pulumictl get version --language python)
 build_python::
 	cd sdk/python/ && \
-        cp ../../README.md . && \
-        python3 setup.py clean --all 2>/dev/null && \
-        rm -rf ./bin/ ../python.bin/ && cp -R . ../python.bin && mv ../python.bin ./bin && \
-        sed -i.bak -e "s/\$${VERSION}/$(VERSION)/g" -e "s/\$${PLUGIN_VERSION}/$(VERSION)/g" ./bin/setup.py && \
-        rm ./bin/setup.py.bak && \
-        cd ./bin && python3 setup.py build sdist
+	cp ../../README.md . && \
+	python3 setup.py clean --all 2>/dev/null && \
+	rm -rf ./bin/ ../python.bin/ && cp -R . ../python.bin && mv ../python.bin ./bin && \
+	sed -i.bak -e "s/\$${VERSION}/$(VERSION)/g" -e "s/\$${PLUGIN_VERSION}/$(VERSION)/g" ./bin/setup.py && \
+	rm ./bin/setup.py.bak && \
+	cd ./bin && python3 setup.py build sdist
 
 generate_dotnet::
 	$(WORKING_DIR)/bin/$(CODEGEN) dotnet ${VERSION}
@@ -106,7 +106,7 @@ build_go::
 
 clean::
 	rm -rf sdk/nodejs && mkdir sdk/nodejs && touch sdk/nodejs/go.mod
-	rm -rf sdk/python && mkdir sdk/python && touch sdk/python/go.mod
+	rm -rf sdk/python && mkdir sdk/python && touch sdk/python/go.mod && cp README.md sdk/python
 	rm -rf sdk/dotnet && mkdir sdk/dotnet && touch sdk/dotnet/go.mod
 	rm -rf sdk/go/azure
 	rm -rf sdk/schema
