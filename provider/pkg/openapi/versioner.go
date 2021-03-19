@@ -77,7 +77,7 @@ var deprecatedProviderVersions = map[string][]string{
 
 // A manually-maintained list of API versions to ignore while calculating the top-level resources.
 var ignoredProviderVersions = map[string][]string{
-	// This preview version introduces new resources but also changes the shape of some times, so merging it with
+	// This preview version introduces new resources but also changes the shape of some items, so merging it with
 	// the previous stable version isn't easy. Ignore this preview for now. We should be able to remove this entry
 	// once the next stable version ships.
 	"EventGrid": {"v20201015preview"},
@@ -95,20 +95,20 @@ var lockedTypeVersions = map[string]string{
 // the top-level resources, including bringing old incompatible types, so we'd rather exclude them. Note that
 // they aren't officially deprecated in the APIs. We want to keep this list as small as possible - mostly to prevent
 // type clashing problems.
-var deprecatedResources = map[string]bool {
-	"apimanagement:TenantPolicy": true,
-	"consumption:BudgetByResourceGroupName": true,
-	"containerregistry:BuildStep": true,
-	"containerservice:ContainerService": true,
-	"costmanagement:Budget": true,
-	"costmanagement:ReportConfig": true,
-	"costmanagement:ReportConfigByResourceGroupName": true,
-	"datamigration:ServiceTask": true,
-	"synapse:SqlDatabase": true,
-	"web:CertificateCsr": true,
-	"web:SiteInstanceDeployment": true,
-	"web:SiteInstanceDeploymentSlot": true,
-}
+var deprecatedResources = codegen.NewStringSet(
+	"apimanagement:TenantPolicy",
+	"consumption:BudgetByResourceGroupName",
+	"containerregistry:BuildStep",
+	"containerservice:ContainerService",
+	"costmanagement:Budget",
+	"costmanagement:ReportConfig",
+	"costmanagement:ReportConfigByResourceGroupName",
+	"datamigration:ServiceTask",
+	"synapse:SqlDatabase",
+	"web:CertificateCsr",
+	"web:SiteInstanceDeployment",
+	"web:SiteInstanceDeploymentSlot",
+)
 
 // calculateLatestVersions builds a map of latest versions per API paths from a map of all versions of a resource
 // provider. The result is a map from a resource type name to resource specs.
@@ -156,7 +156,7 @@ func (c *versioner) calculateLatestVersions(provider string, versionMap Provider
 
 		for typeName, r := range res {
 			fullTypeName := fmt.Sprintf("%s:%s", strings.ToLower(provider), typeName)
-			if _, has := deprecatedResources[fullTypeName]; has {
+			if deprecatedResources.Has(fullTypeName) {
 				continue
 			}
 			if lockedVersion, ok := lockedTypeVersions[fullTypeName]; ok && lockedVersion != version {

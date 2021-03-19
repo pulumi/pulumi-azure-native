@@ -1442,6 +1442,8 @@ func (m *moduleGenerator) genTypeSpec(propertyName string, schema *spec.Schema, 
 }
 
 // compatibleTypes checks that two type specs are allowed to be represented as a single schema type.
+// If you face an error coming from this function for a new API change, consider changing the typeNameOverride map
+// or adjusting the way the top-level resources are projected in versioner.go.
 func compatibleTypes(t1 schema.ComplexTypeSpec, t2 schema.ComplexTypeSpec, isOutput bool) error {
 	if t1.Type != t2.Type {
 		return errors.Errorf("types do not match: %s vs %s", t1.Type, t2.Type)

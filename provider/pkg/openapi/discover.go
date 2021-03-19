@@ -135,16 +135,10 @@ func swaggerLocations() ([]string, error) {
 	return files, nil
 }
 
-var excludeRegexPatterns = []string{
+var excludeRegexes = []*regexp.Regexp{
 	// This preview version defines two types with the same name (one enum, one object) which fails to pass our codegen.
 	// It's old, preview, and not important - so exclude the files of this version.
-	".*frontdoor/resource-manager/Microsoft.Network/preview/2018-08-01-preview.*",
-}
-var excludeRegexes []*regexp.Regexp
-func init() {
-	for _, pattern := range excludeRegexPatterns {
-		excludeRegexes = append(excludeRegexes, regexp.MustCompile(pattern))
-	}
+	regexp.MustCompile(".*frontdoor/resource-manager/Microsoft.Network/preview/2018-08-01-preview.*"),
 }
 
 // addAPIPath considers whether an API path contains resources and/or invokes and adds corresponding entries to the
