@@ -31,13 +31,13 @@ namespace Pulumi.AzureNative.Network.V20191101
         /// The endpoint A of an experiment
         /// </summary>
         [Output("endpointA")]
-        public Output<Outputs.EndpointResponse?> EndpointA { get; private set; } = null!;
+        public Output<Outputs.ExperimentEndpointResponse?> EndpointA { get; private set; } = null!;
 
         /// <summary>
         /// The endpoint B of an experiment
         /// </summary>
         [Output("endpointB")]
-        public Output<Outputs.EndpointResponse?> EndpointB { get; private set; } = null!;
+        public Output<Outputs.ExperimentEndpointResponse?> EndpointB { get; private set; } = null!;
 
         /// <summary>
         /// Resource location.
@@ -150,13 +150,13 @@ namespace Pulumi.AzureNative.Network.V20191101
         /// The endpoint A of an experiment
         /// </summary>
         [Input("endpointA")]
-        public Input<Inputs.EndpointArgs>? EndpointA { get; set; }
+        public Input<Inputs.ExperimentEndpointArgs>? EndpointA { get; set; }
 
         /// <summary>
         /// The endpoint B of an experiment
         /// </summary>
         [Input("endpointB")]
-        public Input<Inputs.EndpointArgs>? EndpointB { get; set; }
+        public Input<Inputs.ExperimentEndpointArgs>? EndpointB { get; set; }
 
         /// <summary>
         /// The Experiment identifier associated with the Experiment

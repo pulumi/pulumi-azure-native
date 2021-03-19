@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DocumentDB.Latest.Inputs
 {
 
     /// <summary>
-    /// Cosmos DB Cassandra keyspace id object
+    /// Cosmos DB Cassandra keyspace resource object
     /// </summary>
     public sealed class CassandraKeyspaceResourceArgs : Pulumi.ResourceArgs
     {

@@ -14,31 +14,31 @@ namespace Pulumi.AzureNative.Web.Latest.Outputs
     public sealed class VirtualNetworkProfileResponse
     {
         /// <summary>
-        /// Resource id of the virtual network
+        /// Resource id of the Virtual Network.
         /// </summary>
         public readonly string? Id;
         /// <summary>
-        /// Name of the virtual network (read-only)
+        /// Name of the Virtual Network (read-only).
         /// </summary>
-        public readonly string? Name;
+        public readonly string Name;
         /// <summary>
-        /// Subnet within the virtual network
+        /// Subnet within the Virtual Network.
         /// </summary>
         public readonly string? Subnet;
         /// <summary>
-        /// Resource type of the virtual network (read-only)
+        /// Resource type of the Virtual Network (read-only).
         /// </summary>
-        public readonly string? Type;
+        public readonly string Type;
 
         [OutputConstructor]
         private VirtualNetworkProfileResponse(
             string? id,
 
-            string? name,
+            string name,
 
             string? subnet,
 
-            string? type)
+            string type)
         {
             Id = id;
             Name = name;

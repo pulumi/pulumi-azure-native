@@ -60,11 +60,11 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The endpoint A of an experiment
         /// </summary>
-        public readonly Outputs.EndpointResponse? EndpointA;
+        public readonly Outputs.ExperimentEndpointResponse? EndpointA;
         /// <summary>
         /// The endpoint B of an experiment
         /// </summary>
-        public readonly Outputs.EndpointResponse? EndpointB;
+        public readonly Outputs.ExperimentEndpointResponse? EndpointB;
         /// <summary>
         /// Resource ID.
         /// </summary>
@@ -104,9 +104,9 @@ namespace Pulumi.AzureNative.Network
 
             string? enabledState,
 
-            Outputs.EndpointResponse? endpointA,
+            Outputs.ExperimentEndpointResponse? endpointA,
 
-            Outputs.EndpointResponse? endpointB,
+            Outputs.ExperimentEndpointResponse? endpointB,
 
             string id,
 

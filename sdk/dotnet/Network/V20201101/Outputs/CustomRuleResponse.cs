@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Network.V20201101.Outputs
         /// <summary>
         /// List of match conditions.
         /// </summary>
-        public readonly ImmutableArray<Outputs.MatchConditionResponse> MatchConditions;
+        public readonly ImmutableArray<Outputs.FrontDoorMatchConditionResponse> MatchConditions;
         /// <summary>
         /// Describes the name of the rule.
         /// </summary>
@@ -52,7 +52,7 @@ namespace Pulumi.AzureNative.Network.V20201101.Outputs
 
             string? enabledState,
 
-            ImmutableArray<Outputs.MatchConditionResponse> matchConditions,
+            ImmutableArray<Outputs.FrontDoorMatchConditionResponse> matchConditions,
 
             string? name,
 

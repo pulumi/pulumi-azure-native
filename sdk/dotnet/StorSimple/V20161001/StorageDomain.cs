@@ -71,10 +71,6 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:storsimple/v20161001:StorageDomain"},
-                    new Pulumi.Alias { Type = "azure-native:storsimple:StorageDomain"},
-                    new Pulumi.Alias { Type = "azure-nextgen:storsimple:StorageDomain"},
-                    new Pulumi.Alias { Type = "azure-native:storsimple/latest:StorageDomain"},
-                    new Pulumi.Alias { Type = "azure-nextgen:storsimple/latest:StorageDomain"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

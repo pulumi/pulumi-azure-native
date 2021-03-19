@@ -39,38 +39,6 @@ namespace Pulumi.AzureNative.Network.V20180801
     }
 
     /// <summary>
-    /// Type of Actions
-    /// </summary>
-    [EnumType]
-    public readonly struct Action : IEquatable<Action>
-    {
-        private readonly string _value;
-
-        private Action(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static Action Allow { get; } = new Action("Allow");
-        public static Action Block { get; } = new Action("Block");
-        public static Action Log { get; } = new Action("Log");
-
-        public static bool operator ==(Action left, Action right) => left.Equals(right);
-        public static bool operator !=(Action left, Action right) => !left.Equals(right);
-
-        public static explicit operator string(Action value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is Action other && Equals(other);
-        public bool Equals(Action other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// The allowed type DNS record types for this profile.
     /// </summary>
     [EnumType]
@@ -707,68 +675,6 @@ namespace Pulumi.AzureNative.Network.V20180801
     }
 
     /// <summary>
-    /// Whether to use dynamic compression for cached content
-    /// </summary>
-    [EnumType]
-    public readonly struct DynamicCompressionEnabled : IEquatable<DynamicCompressionEnabled>
-    {
-        private readonly string _value;
-
-        private DynamicCompressionEnabled(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static DynamicCompressionEnabled Enabled { get; } = new DynamicCompressionEnabled("Enabled");
-        public static DynamicCompressionEnabled Disabled { get; } = new DynamicCompressionEnabled("Disabled");
-
-        public static bool operator ==(DynamicCompressionEnabled left, DynamicCompressionEnabled right) => left.Equals(right);
-        public static bool operator !=(DynamicCompressionEnabled left, DynamicCompressionEnabled right) => !left.Equals(right);
-
-        public static explicit operator string(DynamicCompressionEnabled value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DynamicCompressionEnabled other && Equals(other);
-        public bool Equals(DynamicCompressionEnabled other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// describes if the policy is in enabled state or disabled state
-    /// </summary>
-    [EnumType]
-    public readonly struct EnabledState : IEquatable<EnabledState>
-    {
-        private readonly string _value;
-
-        private EnabledState(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static EnabledState Disabled { get; } = new EnabledState("Disabled");
-        public static EnabledState Enabled { get; } = new EnabledState("Enabled");
-
-        public static bool operator ==(EnabledState left, EnabledState right) => left.Equals(right);
-        public static bool operator !=(EnabledState left, EnabledState right) => !left.Equals(right);
-
-        public static explicit operator string(EnabledState value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is EnabledState other && Equals(other);
-        public bool Equals(EnabledState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// The monitoring status of the endpoint.
     /// </summary>
     [EnumType]
@@ -1087,131 +993,6 @@ namespace Pulumi.AzureNative.Network.V20180801
     }
 
     /// <summary>
-    /// Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
-    /// </summary>
-    [EnumType]
-    public readonly struct FrontDoorEnabledState : IEquatable<FrontDoorEnabledState>
-    {
-        private readonly string _value;
-
-        private FrontDoorEnabledState(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static FrontDoorEnabledState Enabled { get; } = new FrontDoorEnabledState("Enabled");
-        public static FrontDoorEnabledState Disabled { get; } = new FrontDoorEnabledState("Disabled");
-
-        public static bool operator ==(FrontDoorEnabledState left, FrontDoorEnabledState right) => left.Equals(right);
-        public static bool operator !=(FrontDoorEnabledState left, FrontDoorEnabledState right) => !left.Equals(right);
-
-        public static explicit operator string(FrontDoorEnabledState value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is FrontDoorEnabledState other && Equals(other);
-        public bool Equals(FrontDoorEnabledState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Protocol this rule will use when forwarding traffic to backends.
-    /// </summary>
-    [EnumType]
-    public readonly struct FrontDoorForwardingProtocol : IEquatable<FrontDoorForwardingProtocol>
-    {
-        private readonly string _value;
-
-        private FrontDoorForwardingProtocol(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static FrontDoorForwardingProtocol HttpOnly { get; } = new FrontDoorForwardingProtocol("HttpOnly");
-        public static FrontDoorForwardingProtocol HttpsOnly { get; } = new FrontDoorForwardingProtocol("HttpsOnly");
-        public static FrontDoorForwardingProtocol MatchRequest { get; } = new FrontDoorForwardingProtocol("MatchRequest");
-
-        public static bool operator ==(FrontDoorForwardingProtocol left, FrontDoorForwardingProtocol right) => left.Equals(right);
-        public static bool operator !=(FrontDoorForwardingProtocol left, FrontDoorForwardingProtocol right) => !left.Equals(right);
-
-        public static explicit operator string(FrontDoorForwardingProtocol value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is FrontDoorForwardingProtocol other && Equals(other);
-        public bool Equals(FrontDoorForwardingProtocol other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Accepted protocol schemes.
-    /// </summary>
-    [EnumType]
-    public readonly struct FrontDoorProtocol : IEquatable<FrontDoorProtocol>
-    {
-        private readonly string _value;
-
-        private FrontDoorProtocol(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static FrontDoorProtocol Http { get; } = new FrontDoorProtocol("Http");
-        public static FrontDoorProtocol Https { get; } = new FrontDoorProtocol("Https");
-
-        public static bool operator ==(FrontDoorProtocol left, FrontDoorProtocol right) => left.Equals(right);
-        public static bool operator !=(FrontDoorProtocol left, FrontDoorProtocol right) => !left.Equals(right);
-
-        public static explicit operator string(FrontDoorProtocol value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is FrontDoorProtocol other && Equals(other);
-        public bool Equals(FrontDoorProtocol other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Treatment of URL query terms when forming the cache key.
-    /// </summary>
-    [EnumType]
-    public readonly struct FrontDoorQuery : IEquatable<FrontDoorQuery>
-    {
-        private readonly string _value;
-
-        private FrontDoorQuery(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static FrontDoorQuery StripNone { get; } = new FrontDoorQuery("StripNone");
-        public static FrontDoorQuery StripAll { get; } = new FrontDoorQuery("StripAll");
-
-        public static bool operator ==(FrontDoorQuery left, FrontDoorQuery right) => left.Equals(right);
-        public static bool operator !=(FrontDoorQuery left, FrontDoorQuery right) => !left.Equals(right);
-
-        public static explicit operator string(FrontDoorQuery value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is FrontDoorQuery other && Equals(other);
-        public bool Equals(FrontDoorQuery other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// Defines how a private IP address is assigned. Possible values are: 'Static' and 'Dynamic'.
     /// </summary>
     [EnumType]
@@ -1481,37 +1262,6 @@ namespace Pulumi.AzureNative.Network.V20180801
     }
 
     /// <summary>
-    /// Describes if it is in detection mode  or prevention mode at policy level
-    /// </summary>
-    [EnumType]
-    public readonly struct Mode : IEquatable<Mode>
-    {
-        private readonly string _value;
-
-        private Mode(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static Mode Prevention { get; } = new Mode("Prevention");
-        public static Mode Detection { get; } = new Mode("Detection");
-
-        public static bool operator ==(Mode left, Mode right) => left.Equals(right);
-        public static bool operator !=(Mode left, Mode right) => !left.Equals(right);
-
-        public static explicit operator string(Mode value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is Mode other && Equals(other);
-        public bool Equals(Mode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// The protocol (HTTP, HTTPS or TCP) used to probe for endpoint health.
     /// </summary>
     [EnumType]
@@ -1536,46 +1286,6 @@ namespace Pulumi.AzureNative.Network.V20180801
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is MonitorProtocol other && Equals(other);
         public bool Equals(MonitorProtocol other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Describes operator to be matched
-    /// </summary>
-    [EnumType]
-    public readonly struct Operator : IEquatable<Operator>
-    {
-        private readonly string _value;
-
-        private Operator(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static Operator Any { get; } = new Operator("Any");
-        public static Operator IPMatch { get; } = new Operator("IPMatch");
-        public static Operator GeoMatch { get; } = new Operator("GeoMatch");
-        public static Operator Equal { get; } = new Operator("Equal");
-        public static Operator Contains { get; } = new Operator("Contains");
-        public static Operator LessThan { get; } = new Operator("LessThan");
-        public static Operator GreaterThan { get; } = new Operator("GreaterThan");
-        public static Operator LessThanOrEqual { get; } = new Operator("LessThanOrEqual");
-        public static Operator GreaterThanOrEqual { get; } = new Operator("GreaterThanOrEqual");
-        public static Operator BeginsWith { get; } = new Operator("BeginsWith");
-        public static Operator EndsWith { get; } = new Operator("EndsWith");
-
-        public static bool operator ==(Operator left, Operator right) => left.Equals(right);
-        public static bool operator !=(Operator left, Operator right) => !left.Equals(right);
-
-        public static explicit operator string(Operator value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is Operator other && Equals(other);
-        public bool Equals(Operator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -1876,68 +1586,6 @@ namespace Pulumi.AzureNative.Network.V20180801
     }
 
     /// <summary>
-    /// Describes override rule group
-    /// </summary>
-    [EnumType]
-    public readonly struct RuleGroupOverride : IEquatable<RuleGroupOverride>
-    {
-        private readonly string _value;
-
-        private RuleGroupOverride(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static RuleGroupOverride SqlInjection { get; } = new RuleGroupOverride("SqlInjection");
-        public static RuleGroupOverride XSS { get; } = new RuleGroupOverride("XSS");
-
-        public static bool operator ==(RuleGroupOverride left, RuleGroupOverride right) => left.Equals(right);
-        public static bool operator !=(RuleGroupOverride left, RuleGroupOverride right) => !left.Equals(right);
-
-        public static explicit operator string(RuleGroupOverride value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is RuleGroupOverride other && Equals(other);
-        public bool Equals(RuleGroupOverride other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Describes type of rule
-    /// </summary>
-    [EnumType]
-    public readonly struct RuleType : IEquatable<RuleType>
-    {
-        private readonly string _value;
-
-        private RuleType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static RuleType MatchRule { get; } = new RuleType("MatchRule");
-        public static RuleType RateLimitRule { get; } = new RuleType("RateLimitRule");
-
-        public static bool operator ==(RuleType left, RuleType right) => left.Equals(right);
-        public static bool operator !=(RuleType left, RuleType right) => !left.Equals(right);
-
-        public static explicit operator string(RuleType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is RuleType other && Equals(other);
-        public bool Equals(RuleType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// The network traffic is allowed or denied. Possible values are: 'Allow' and 'Deny'.
     /// </summary>
     [EnumType]
@@ -2065,37 +1713,6 @@ namespace Pulumi.AzureNative.Network.V20180801
     }
 
     /// <summary>
-    /// Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'
-    /// </summary>
-    [EnumType]
-    public readonly struct SessionAffinityEnabledState : IEquatable<SessionAffinityEnabledState>
-    {
-        private readonly string _value;
-
-        private SessionAffinityEnabledState(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static SessionAffinityEnabledState Enabled { get; } = new SessionAffinityEnabledState("Enabled");
-        public static SessionAffinityEnabledState Disabled { get; } = new SessionAffinityEnabledState("Disabled");
-
-        public static bool operator ==(SessionAffinityEnabledState left, SessionAffinityEnabledState right) => left.Equals(right);
-        public static bool operator !=(SessionAffinityEnabledState left, SessionAffinityEnabledState right) => !left.Equals(right);
-
-        public static explicit operator string(SessionAffinityEnabledState value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is SessionAffinityEnabledState other && Equals(other);
-        public bool Equals(SessionAffinityEnabledState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// The traffic routing method of the Traffic Manager profile.
     /// </summary>
     [EnumType]
@@ -2154,42 +1771,6 @@ namespace Pulumi.AzureNative.Network.V20180801
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is TrafficViewEnrollmentStatus other && Equals(other);
         public bool Equals(TrafficViewEnrollmentStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Describes what transforms applied before matching
-    /// </summary>
-    [EnumType]
-    public readonly struct Transform : IEquatable<Transform>
-    {
-        private readonly string _value;
-
-        private Transform(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static Transform Lowercase { get; } = new Transform("Lowercase");
-        public static Transform Uppercase { get; } = new Transform("Uppercase");
-        public static Transform Trim { get; } = new Transform("Trim");
-        public static Transform UrlDecode { get; } = new Transform("UrlDecode");
-        public static Transform UrlEncode { get; } = new Transform("UrlEncode");
-        public static Transform RemoveNulls { get; } = new Transform("RemoveNulls");
-        public static Transform HtmlEntityDecode { get; } = new Transform("HtmlEntityDecode");
-
-        public static bool operator ==(Transform left, Transform right) => left.Equals(right);
-        public static bool operator !=(Transform left, Transform right) => !left.Equals(right);
-
-        public static explicit operator string(Transform value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is Transform other && Equals(other);
-        public bool Equals(Transform other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

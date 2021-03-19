@@ -28,14 +28,14 @@ namespace Pulumi.AzureNative.Network.Latest.Inputs
         public InputUnion<string, Pulumi.AzureNative.Network.Latest.CustomRuleEnabledState>? EnabledState { get; set; }
 
         [Input("matchConditions", required: true)]
-        private InputList<Inputs.MatchConditionArgs>? _matchConditions;
+        private InputList<Inputs.FrontDoorMatchConditionArgs>? _matchConditions;
 
         /// <summary>
         /// List of match conditions.
         /// </summary>
-        public InputList<Inputs.MatchConditionArgs> MatchConditions
+        public InputList<Inputs.FrontDoorMatchConditionArgs> MatchConditions
         {
-            get => _matchConditions ?? (_matchConditions = new InputList<Inputs.MatchConditionArgs>());
+            get => _matchConditions ?? (_matchConditions = new InputList<Inputs.FrontDoorMatchConditionArgs>());
             set => _matchConditions = value;
         }
 

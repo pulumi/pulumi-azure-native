@@ -67,7 +67,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
         /// <summary>
         /// Describes a user that created the watchlist item
         /// </summary>
-        public readonly Outputs.UserInfoResponse? CreatedBy;
+        public readonly Outputs.WatchlistUserInfoResponse? CreatedBy;
         /// <summary>
         /// key-value pairs for a watchlist item entity mapping
         /// </summary>
@@ -107,7 +107,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
         /// <summary>
         /// Describes a user that updated the watchlist item
         /// </summary>
-        public readonly Outputs.UserInfoResponse? UpdatedBy;
+        public readonly Outputs.WatchlistUserInfoResponse? UpdatedBy;
         /// <summary>
         /// The id (a Guid) of the watchlist item
         /// </summary>
@@ -121,7 +121,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
         private GetWatchlistItemResult(
             string? created,
 
-            Outputs.UserInfoResponse? createdBy,
+            Outputs.WatchlistUserInfoResponse? createdBy,
 
             object? entityMapping,
 
@@ -141,7 +141,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
 
             string? updated,
 
-            Outputs.UserInfoResponse? updatedBy,
+            Outputs.WatchlistUserInfoResponse? updatedBy,
 
             string? watchlistItemId,
 

@@ -14,19 +14,23 @@ namespace Pulumi.AzureNative.Web.Latest.Outputs
     public sealed class VirtualIPMappingResponse
     {
         /// <summary>
-        /// Is VIP mapping in use
+        /// Is virtual IP mapping in use.
         /// </summary>
         public readonly bool? InUse;
         /// <summary>
-        /// Internal HTTP port
+        /// Internal HTTP port.
         /// </summary>
         public readonly int? InternalHttpPort;
         /// <summary>
-        /// Internal HTTPS port
+        /// Internal HTTPS port.
         /// </summary>
         public readonly int? InternalHttpsPort;
         /// <summary>
-        /// Virtual IP address
+        /// name of the service that virtual IP is assigned to
+        /// </summary>
+        public readonly string? ServiceName;
+        /// <summary>
+        /// Virtual IP address.
         /// </summary>
         public readonly string? VirtualIP;
 
@@ -38,11 +42,14 @@ namespace Pulumi.AzureNative.Web.Latest.Outputs
 
             int? internalHttpsPort,
 
+            string? serviceName,
+
             string? virtualIP)
         {
             InUse = inUse;
             InternalHttpPort = internalHttpPort;
             InternalHttpsPort = internalHttpsPort;
+            ServiceName = serviceName;
             VirtualIP = virtualIP;
         }
     }

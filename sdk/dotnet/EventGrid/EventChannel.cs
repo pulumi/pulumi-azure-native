@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.EventGrid
 {
     /// <summary>
     /// Event Channel.
-    /// API Version: 2020-10-15-preview.
+    /// API Version: 2020-04-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:eventgrid:EventChannel")]
     public partial class EventChannel : Pulumi.CustomResource

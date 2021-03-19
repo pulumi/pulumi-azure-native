@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EventGrid
     {
         /// <summary>
         /// Event Subscription
-        /// API Version: 2020-10-15-preview.
+        /// API Version: 2020-04-01-preview.
         /// </summary>
         public static Task<GetSystemTopicEventSubscriptionResult> InvokeAsync(GetSystemTopicEventSubscriptionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSystemTopicEventSubscriptionResult>("azure-native:eventgrid:getSystemTopicEventSubscription", args ?? new GetSystemTopicEventSubscriptionArgs(), options.WithVersion());

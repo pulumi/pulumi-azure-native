@@ -52,14 +52,14 @@ namespace Pulumi.AzureNative.Devices.V20200901Preview.Inputs
         }
 
         [Input("ipFilterRules")]
-        private InputList<Inputs.IpFilterRuleArgs>? _ipFilterRules;
+        private InputList<Inputs.TargetIpFilterRuleArgs>? _ipFilterRules;
 
         /// <summary>
         /// The IP filter rules.
         /// </summary>
-        public InputList<Inputs.IpFilterRuleArgs> IpFilterRules
+        public InputList<Inputs.TargetIpFilterRuleArgs> IpFilterRules
         {
-            get => _ipFilterRules ?? (_ipFilterRules = new InputList<Inputs.IpFilterRuleArgs>());
+            get => _ipFilterRules ?? (_ipFilterRules = new InputList<Inputs.TargetIpFilterRuleArgs>());
             set => _ipFilterRules = value;
         }
 

@@ -119,10 +119,6 @@ namespace Pulumi.AzureNative.ContainerService.V20170131
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20170131:ContainerService"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice:ContainerService"},
-                    new Pulumi.Alias { Type = "azure-nextgen:containerservice:ContainerService"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/latest:ContainerService"},
-                    new Pulumi.Alias { Type = "azure-nextgen:containerservice/latest:ContainerService"},
                     new Pulumi.Alias { Type = "azure-native:containerservice/v20151101preview:ContainerService"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20151101preview:ContainerService"},
                     new Pulumi.Alias { Type = "azure-native:containerservice/v20160330:ContainerService"},

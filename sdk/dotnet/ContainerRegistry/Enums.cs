@@ -165,37 +165,6 @@ namespace Pulumi.AzureNative.ContainerRegistry
     }
 
     /// <summary>
-    /// The current status of build task.
-    /// </summary>
-    [EnumType]
-    public readonly struct BuildTaskStatus : IEquatable<BuildTaskStatus>
-    {
-        private readonly string _value;
-
-        private BuildTaskStatus(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static BuildTaskStatus Disabled { get; } = new BuildTaskStatus("Disabled");
-        public static BuildTaskStatus Enabled { get; } = new BuildTaskStatus("Enabled");
-
-        public static bool operator ==(BuildTaskStatus left, BuildTaskStatus right) => left.Equals(right);
-        public static bool operator !=(BuildTaskStatus left, BuildTaskStatus right) => !left.Equals(right);
-
-        public static explicit operator string(BuildTaskStatus value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is BuildTaskStatus other && Equals(other);
-        public bool Equals(BuildTaskStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// The mode of the connected registry resource that indicates the permissions of the registry.
     /// </summary>
     [EnumType]
@@ -348,37 +317,6 @@ namespace Pulumi.AzureNative.ContainerRegistry
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is OS other && Equals(other);
         public bool Equals(OS other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The operating system type required for the build.
-    /// </summary>
-    [EnumType]
-    public readonly struct OsType : IEquatable<OsType>
-    {
-        private readonly string _value;
-
-        private OsType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static OsType Windows { get; } = new OsType("Windows");
-        public static OsType Linux { get; } = new OsType("Linux");
-
-        public static bool operator ==(OsType left, OsType right) => left.Equals(right);
-        public static bool operator !=(OsType left, OsType right) => !left.Equals(right);
-
-        public static explicit operator string(OsType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is OsType other && Equals(other);
-        public bool Equals(OsType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

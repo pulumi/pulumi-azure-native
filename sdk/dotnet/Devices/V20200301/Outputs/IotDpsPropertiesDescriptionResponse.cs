@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.Devices.V20200301.Outputs
         /// <summary>
         /// The IP filter rules.
         /// </summary>
-        public readonly ImmutableArray<Outputs.IpFilterRuleResponse> IpFilterRules;
+        public readonly ImmutableArray<Outputs.TargetIpFilterRuleResponse> IpFilterRules;
         /// <summary>
         /// Private endpoint connections created on this IotHub
         /// </summary>
@@ -70,7 +70,7 @@ namespace Pulumi.AzureNative.Devices.V20200301.Outputs
 
             ImmutableArray<Outputs.IotHubDefinitionDescriptionResponse> iotHubs,
 
-            ImmutableArray<Outputs.IpFilterRuleResponse> ipFilterRules,
+            ImmutableArray<Outputs.TargetIpFilterRuleResponse> ipFilterRules,
 
             ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
 

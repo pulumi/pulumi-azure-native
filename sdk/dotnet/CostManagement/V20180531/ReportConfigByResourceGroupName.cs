@@ -83,10 +83,6 @@ namespace Pulumi.AzureNative.CostManagement.V20180531
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:costmanagement/v20180531:ReportConfigByResourceGroupName"},
-                    new Pulumi.Alias { Type = "azure-native:costmanagement:ReportConfigByResourceGroupName"},
-                    new Pulumi.Alias { Type = "azure-nextgen:costmanagement:ReportConfigByResourceGroupName"},
-                    new Pulumi.Alias { Type = "azure-native:costmanagement/latest:ReportConfigByResourceGroupName"},
-                    new Pulumi.Alias { Type = "azure-nextgen:costmanagement/latest:ReportConfigByResourceGroupName"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

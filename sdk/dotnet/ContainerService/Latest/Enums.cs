@@ -103,39 +103,6 @@ namespace Pulumi.AzureNative.ContainerService.Latest
     }
 
     /// <summary>
-    /// The orchestrator to use to manage container service cluster resources. Valid values are Swarm, DCOS, and Custom.
-    /// </summary>
-    [EnumType]
-    public readonly struct ContainerServiceOrchestratorTypes : IEquatable<ContainerServiceOrchestratorTypes>
-    {
-        private readonly string _value;
-
-        private ContainerServiceOrchestratorTypes(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ContainerServiceOrchestratorTypes Swarm { get; } = new ContainerServiceOrchestratorTypes("Swarm");
-        public static ContainerServiceOrchestratorTypes DCOS { get; } = new ContainerServiceOrchestratorTypes("DCOS");
-        public static ContainerServiceOrchestratorTypes Custom { get; } = new ContainerServiceOrchestratorTypes("Custom");
-        public static ContainerServiceOrchestratorTypes Kubernetes { get; } = new ContainerServiceOrchestratorTypes("Kubernetes");
-
-        public static bool operator ==(ContainerServiceOrchestratorTypes left, ContainerServiceOrchestratorTypes right) => left.Equals(right);
-        public static bool operator !=(ContainerServiceOrchestratorTypes left, ContainerServiceOrchestratorTypes right) => !left.Equals(right);
-
-        public static explicit operator string(ContainerServiceOrchestratorTypes value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ContainerServiceOrchestratorTypes other && Equals(other);
-        public bool Equals(ContainerServiceOrchestratorTypes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// Size of agent VMs.
     /// </summary>
     [EnumType]

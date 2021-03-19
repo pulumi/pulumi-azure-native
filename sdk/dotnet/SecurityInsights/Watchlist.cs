@@ -32,7 +32,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// Describes a user that created the watchlist
         /// </summary>
         [Output("createdBy")]
-        public Output<Outputs.UserInfoResponse?> CreatedBy { get; private set; } = null!;
+        public Output<Outputs.WatchlistUserInfoResponse?> CreatedBy { get; private set; } = null!;
 
         /// <summary>
         /// The default duration of a watchlist (in ISO 8601 duration format)
@@ -122,7 +122,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// Describes a user that updated the watchlist
         /// </summary>
         [Output("updatedBy")]
-        public Output<Outputs.UserInfoResponse?> UpdatedBy { get; private set; } = null!;
+        public Output<Outputs.WatchlistUserInfoResponse?> UpdatedBy { get; private set; } = null!;
 
         /// <summary>
         /// The status of the Watchlist upload : New, InProgress or Complete. Pls note : When a Watchlist upload status is equal to InProgress, the Watchlist cannot be deleted
@@ -221,7 +221,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// Describes a user that created the watchlist
         /// </summary>
         [Input("createdBy")]
-        public Input<Inputs.UserInfoArgs>? CreatedBy { get; set; }
+        public Input<Inputs.WatchlistUserInfoArgs>? CreatedBy { get; set; }
 
         /// <summary>
         /// The default duration of a watchlist (in ISO 8601 duration format)
@@ -317,7 +317,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// Describes a user that updated the watchlist
         /// </summary>
         [Input("updatedBy")]
-        public Input<Inputs.UserInfoArgs>? UpdatedBy { get; set; }
+        public Input<Inputs.WatchlistUserInfoArgs>? UpdatedBy { get; set; }
 
         /// <summary>
         /// The status of the Watchlist upload : New, InProgress or Complete. Pls note : When a Watchlist upload status is equal to InProgress, the Watchlist cannot be deleted

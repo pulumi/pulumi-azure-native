@@ -101,10 +101,6 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:storsimple/v20161001:IscsiDisk"},
-                    new Pulumi.Alias { Type = "azure-native:storsimple:IscsiDisk"},
-                    new Pulumi.Alias { Type = "azure-nextgen:storsimple:IscsiDisk"},
-                    new Pulumi.Alias { Type = "azure-native:storsimple/latest:IscsiDisk"},
-                    new Pulumi.Alias { Type = "azure-nextgen:storsimple/latest:IscsiDisk"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

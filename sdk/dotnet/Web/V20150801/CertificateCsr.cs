@@ -107,10 +107,6 @@ namespace Pulumi.AzureNative.Web.V20150801
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20150801:CertificateCsr"},
-                    new Pulumi.Alias { Type = "azure-native:web:CertificateCsr"},
-                    new Pulumi.Alias { Type = "azure-nextgen:web:CertificateCsr"},
-                    new Pulumi.Alias { Type = "azure-native:web/latest:CertificateCsr"},
-                    new Pulumi.Alias { Type = "azure-nextgen:web/latest:CertificateCsr"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -133,6 +133,16 @@ namespace Pulumi.AzureNative.Solutions.V20160901Preview
                     new Pulumi.Alias { Type = "azure-nextgen:solutions/v20160901preview:Appliance"},
                     new Pulumi.Alias { Type = "azure-native:solutions:Appliance"},
                     new Pulumi.Alias { Type = "azure-nextgen:solutions:Appliance"},
+                    new Pulumi.Alias { Type = "azure-native:solutions/latest:Appliance"},
+                    new Pulumi.Alias { Type = "azure-nextgen:solutions/latest:Appliance"},
+                    new Pulumi.Alias { Type = "azure-native:solutions/v20170901:Appliance"},
+                    new Pulumi.Alias { Type = "azure-nextgen:solutions/v20170901:Appliance"},
+                    new Pulumi.Alias { Type = "azure-native:solutions/v20180601:Appliance"},
+                    new Pulumi.Alias { Type = "azure-nextgen:solutions/v20180601:Appliance"},
+                    new Pulumi.Alias { Type = "azure-native:solutions/v20190701:Appliance"},
+                    new Pulumi.Alias { Type = "azure-nextgen:solutions/v20190701:Appliance"},
+                    new Pulumi.Alias { Type = "azure-native:solutions/v20200821preview:Appliance"},
+                    new Pulumi.Alias { Type = "azure-nextgen:solutions/v20200821preview:Appliance"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

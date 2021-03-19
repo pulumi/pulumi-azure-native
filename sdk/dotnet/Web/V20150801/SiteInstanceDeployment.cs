@@ -125,10 +125,6 @@ namespace Pulumi.AzureNative.Web.V20150801
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20150801:SiteInstanceDeployment"},
-                    new Pulumi.Alias { Type = "azure-native:web:SiteInstanceDeployment"},
-                    new Pulumi.Alias { Type = "azure-nextgen:web:SiteInstanceDeployment"},
-                    new Pulumi.Alias { Type = "azure-native:web/latest:SiteInstanceDeployment"},
-                    new Pulumi.Alias { Type = "azure-nextgen:web/latest:SiteInstanceDeployment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

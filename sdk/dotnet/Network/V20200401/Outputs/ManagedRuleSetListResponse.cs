@@ -16,10 +16,10 @@ namespace Pulumi.AzureNative.Network.V20200401.Outputs
         /// <summary>
         /// List of rule sets.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ManagedRuleSetResponse> ManagedRuleSets;
+        public readonly ImmutableArray<Outputs.FrontDoorManagedRuleSetResponse> ManagedRuleSets;
 
         [OutputConstructor]
-        private ManagedRuleSetListResponse(ImmutableArray<Outputs.ManagedRuleSetResponse> managedRuleSets)
+        private ManagedRuleSetListResponse(ImmutableArray<Outputs.FrontDoorManagedRuleSetResponse> managedRuleSets)
         {
             ManagedRuleSets = managedRuleSets;
         }

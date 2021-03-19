@@ -51,7 +51,6 @@ namespace Pulumi.AzureNative.Consumption
         }
 
         public static CategoryType Cost { get; } = new CategoryType("Cost");
-        public static CategoryType Usage { get; } = new CategoryType("Usage");
 
         public static bool operator ==(CategoryType left, CategoryType right) => left.Equals(right);
         public static bool operator !=(CategoryType left, CategoryType right) => !left.Equals(right);
@@ -131,7 +130,7 @@ namespace Pulumi.AzureNative.Consumption
     }
 
     /// <summary>
-    /// The time covered by a budget. Tracking of the amount will be reset based on the time grain.
+    /// The time covered by a budget. Tracking of the amount will be reset based on the time grain. BillingMonth, BillingQuarter, and BillingAnnual are only supported by WD customers
     /// </summary>
     [EnumType]
     public readonly struct TimeGrainType : IEquatable<TimeGrainType>
@@ -146,6 +145,9 @@ namespace Pulumi.AzureNative.Consumption
         public static TimeGrainType Monthly { get; } = new TimeGrainType("Monthly");
         public static TimeGrainType Quarterly { get; } = new TimeGrainType("Quarterly");
         public static TimeGrainType Annually { get; } = new TimeGrainType("Annually");
+        public static TimeGrainType BillingMonth { get; } = new TimeGrainType("BillingMonth");
+        public static TimeGrainType BillingQuarter { get; } = new TimeGrainType("BillingQuarter");
+        public static TimeGrainType BillingAnnual { get; } = new TimeGrainType("BillingAnnual");
 
         public static bool operator ==(TimeGrainType left, TimeGrainType right) => left.Equals(right);
         public static bool operator !=(TimeGrainType left, TimeGrainType right) => !left.Equals(right);

@@ -11,33 +11,21 @@ namespace Pulumi.AzureNative.Web.Inputs
 {
 
     /// <summary>
-    /// Specification for using a virtual network
+    /// Specification for using a Virtual Network.
     /// </summary>
     public sealed class VirtualNetworkProfileArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Resource id of the virtual network
+        /// Resource id of the Virtual Network.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// Name of the virtual network (read-only)
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        /// <summary>
-        /// Subnet within the virtual network
+        /// Subnet within the Virtual Network.
         /// </summary>
         [Input("subnet")]
         public Input<string>? Subnet { get; set; }
-
-        /// <summary>
-        /// Resource type of the virtual network (read-only)
-        /// </summary>
-        [Input("type")]
-        public Input<string>? Type { get; set; }
 
         public VirtualNetworkProfileArgs()
         {

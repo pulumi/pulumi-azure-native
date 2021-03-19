@@ -256,6 +256,18 @@ namespace Pulumi.AzureNative.Web.V20150801
                     new Pulumi.Alias { Type = "azure-nextgen:web:ManagedHostingEnvironment"},
                     new Pulumi.Alias { Type = "azure-native:web/latest:ManagedHostingEnvironment"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/latest:ManagedHostingEnvironment"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20160901:ManagedHostingEnvironment"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20160901:ManagedHostingEnvironment"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20180201:ManagedHostingEnvironment"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:ManagedHostingEnvironment"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20190801:ManagedHostingEnvironment"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20190801:ManagedHostingEnvironment"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200601:ManagedHostingEnvironment"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:ManagedHostingEnvironment"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20200901:ManagedHostingEnvironment"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:ManagedHostingEnvironment"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201001:ManagedHostingEnvironment"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:ManagedHostingEnvironment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

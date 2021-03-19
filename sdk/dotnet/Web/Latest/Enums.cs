@@ -7,6 +7,9 @@ using Pulumi;
 
 namespace Pulumi.AzureNative.Web.Latest
 {
+    /// <summary>
+    /// Action object.
+    /// </summary>
     [EnumType]
     public readonly struct AccessControlEntryAction : IEquatable<AccessControlEntryAction>
     {
@@ -260,7 +263,7 @@ namespace Pulumi.AzureNative.Web.Latest
     }
 
     /// <summary>
-    /// Shared or dedicated web app hosting
+    /// Shared or dedicated app hosting.
     /// </summary>
     [EnumType]
     public readonly struct ComputeModeOptions : IEquatable<ComputeModeOptions>
@@ -616,71 +619,6 @@ namespace Pulumi.AzureNative.Web.Latest
     }
 
     /// <summary>
-    /// Current status of the hostingEnvironment (App Service Environment)
-    /// </summary>
-    [EnumType]
-    public readonly struct HostingEnvironmentStatus : IEquatable<HostingEnvironmentStatus>
-    {
-        private readonly string _value;
-
-        private HostingEnvironmentStatus(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static HostingEnvironmentStatus Preparing { get; } = new HostingEnvironmentStatus("Preparing");
-        public static HostingEnvironmentStatus Ready { get; } = new HostingEnvironmentStatus("Ready");
-        public static HostingEnvironmentStatus Scaling { get; } = new HostingEnvironmentStatus("Scaling");
-        public static HostingEnvironmentStatus Deleting { get; } = new HostingEnvironmentStatus("Deleting");
-
-        public static bool operator ==(HostingEnvironmentStatus left, HostingEnvironmentStatus right) => left.Equals(right);
-        public static bool operator !=(HostingEnvironmentStatus left, HostingEnvironmentStatus right) => !left.Equals(right);
-
-        public static explicit operator string(HostingEnvironmentStatus value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is HostingEnvironmentStatus other && Equals(other);
-        public bool Equals(HostingEnvironmentStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Specifies which endpoints to serve internally in the hostingEnvironment's (App Service Environment) VNET
-    /// </summary>
-    [EnumType]
-    public readonly struct InternalLoadBalancingMode : IEquatable<InternalLoadBalancingMode>
-    {
-        private readonly string _value;
-
-        private InternalLoadBalancingMode(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static InternalLoadBalancingMode None { get; } = new InternalLoadBalancingMode("None");
-        public static InternalLoadBalancingMode Web { get; } = new InternalLoadBalancingMode("Web");
-        public static InternalLoadBalancingMode Publishing { get; } = new InternalLoadBalancingMode("Publishing");
-
-        public static bool operator ==(InternalLoadBalancingMode left, InternalLoadBalancingMode right) => left.Equals(right);
-        public static bool operator !=(InternalLoadBalancingMode left, InternalLoadBalancingMode right) => !left.Equals(right);
-
-        public static explicit operator string(InternalLoadBalancingMode value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is InternalLoadBalancingMode other && Equals(other);
-        public bool Equals(InternalLoadBalancingMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// Defines what this IP filter will be used for. This is to support IP filtering on proxies.
     /// </summary>
     [EnumType]
@@ -836,40 +774,6 @@ namespace Pulumi.AzureNative.Web.Latest
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ManagedServiceIdentityType other && Equals(other);
         public bool Equals(ManagedServiceIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Provisioning state of the hostingEnvironment (App Service Environment)
-    /// </summary>
-    [EnumType]
-    public readonly struct ProvisioningState : IEquatable<ProvisioningState>
-    {
-        private readonly string _value;
-
-        private ProvisioningState(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ProvisioningState Succeeded { get; } = new ProvisioningState("Succeeded");
-        public static ProvisioningState Failed { get; } = new ProvisioningState("Failed");
-        public static ProvisioningState Canceled { get; } = new ProvisioningState("Canceled");
-        public static ProvisioningState InProgress { get; } = new ProvisioningState("InProgress");
-        public static ProvisioningState Deleting { get; } = new ProvisioningState("Deleting");
-
-        public static bool operator ==(ProvisioningState left, ProvisioningState right) => left.Equals(right);
-        public static bool operator !=(ProvisioningState left, ProvisioningState right) => !left.Equals(right);
-
-        public static explicit operator string(ProvisioningState value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ProvisioningState other && Equals(other);
-        public bool Equals(ProvisioningState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -1175,39 +1079,6 @@ namespace Pulumi.AzureNative.Web.Latest
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is UnauthenticatedClientActionV2 other && Equals(other);
         public bool Equals(UnauthenticatedClientActionV2 other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Size of the machines
-    /// </summary>
-    [EnumType]
-    public readonly struct WorkerSizeOptions : IEquatable<WorkerSizeOptions>
-    {
-        private readonly string _value;
-
-        private WorkerSizeOptions(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static WorkerSizeOptions Default { get; } = new WorkerSizeOptions("Default");
-        public static WorkerSizeOptions Small { get; } = new WorkerSizeOptions("Small");
-        public static WorkerSizeOptions Medium { get; } = new WorkerSizeOptions("Medium");
-        public static WorkerSizeOptions Large { get; } = new WorkerSizeOptions("Large");
-
-        public static bool operator ==(WorkerSizeOptions left, WorkerSizeOptions right) => left.Equals(right);
-        public static bool operator !=(WorkerSizeOptions left, WorkerSizeOptions right) => !left.Equals(right);
-
-        public static explicit operator string(WorkerSizeOptions value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is WorkerSizeOptions other && Equals(other);
-        public bool Equals(WorkerSizeOptions other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

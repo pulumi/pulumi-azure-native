@@ -17,19 +17,11 @@ namespace Pulumi.AzureNative.EventGrid.Outputs
         /// An array of advanced filters that are used for filtering event channels.
         /// </summary>
         public readonly ImmutableArray<object> AdvancedFilters;
-        /// <summary>
-        /// Allows advanced filters to be evaluated against an array of values instead of expecting a singular value.
-        /// </summary>
-        public readonly bool? EnableAdvancedFilteringOnArrays;
 
         [OutputConstructor]
-        private EventChannelFilterResponse(
-            ImmutableArray<object> advancedFilters,
-
-            bool? enableAdvancedFilteringOnArrays)
+        private EventChannelFilterResponse(ImmutableArray<object> advancedFilters)
         {
             AdvancedFilters = advancedFilters;
-            EnableAdvancedFilteringOnArrays = enableAdvancedFilteringOnArrays;
         }
     }
 }

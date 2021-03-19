@@ -95,8 +95,6 @@ namespace Pulumi.AzureNative.Synapse.V20200401Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/v20200401preview:SqlDatabase"},
-                    new Pulumi.Alias { Type = "azure-native:synapse:SqlDatabase"},
-                    new Pulumi.Alias { Type = "azure-nextgen:synapse:SqlDatabase"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

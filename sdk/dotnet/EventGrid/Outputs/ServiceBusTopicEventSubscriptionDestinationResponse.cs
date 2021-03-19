@@ -14,10 +14,6 @@ namespace Pulumi.AzureNative.EventGrid.Outputs
     public sealed class ServiceBusTopicEventSubscriptionDestinationResponse
     {
         /// <summary>
-        /// Delivery attribute details.
-        /// </summary>
-        public readonly ImmutableArray<Union<Outputs.DynamicDeliveryAttributeMappingResponse, Outputs.StaticDeliveryAttributeMappingResponse>> DeliveryAttributeMappings;
-        /// <summary>
         /// Type of the endpoint for the event subscription destination.
         /// Expected value is 'ServiceBusTopic'.
         /// </summary>
@@ -29,13 +25,10 @@ namespace Pulumi.AzureNative.EventGrid.Outputs
 
         [OutputConstructor]
         private ServiceBusTopicEventSubscriptionDestinationResponse(
-            ImmutableArray<Union<Outputs.DynamicDeliveryAttributeMappingResponse, Outputs.StaticDeliveryAttributeMappingResponse>> deliveryAttributeMappings,
-
             string endpointType,
 
             string? resourceId)
         {
-            DeliveryAttributeMappings = deliveryAttributeMappings;
             EndpointType = endpointType;
             ResourceId = resourceId;
         }

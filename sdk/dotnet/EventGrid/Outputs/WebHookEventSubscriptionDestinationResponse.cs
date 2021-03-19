@@ -22,10 +22,6 @@ namespace Pulumi.AzureNative.EventGrid.Outputs
         /// </summary>
         public readonly string? AzureActiveDirectoryTenantId;
         /// <summary>
-        /// Delivery attribute details.
-        /// </summary>
-        public readonly ImmutableArray<Union<Outputs.DynamicDeliveryAttributeMappingResponse, Outputs.StaticDeliveryAttributeMappingResponse>> DeliveryAttributeMappings;
-        /// <summary>
         /// The base URL that represents the endpoint of the destination of an event subscription.
         /// </summary>
         public readonly string EndpointBaseUrl;
@@ -53,8 +49,6 @@ namespace Pulumi.AzureNative.EventGrid.Outputs
 
             string? azureActiveDirectoryTenantId,
 
-            ImmutableArray<Union<Outputs.DynamicDeliveryAttributeMappingResponse, Outputs.StaticDeliveryAttributeMappingResponse>> deliveryAttributeMappings,
-
             string endpointBaseUrl,
 
             string endpointType,
@@ -67,7 +61,6 @@ namespace Pulumi.AzureNative.EventGrid.Outputs
         {
             AzureActiveDirectoryApplicationIdOrUri = azureActiveDirectoryApplicationIdOrUri;
             AzureActiveDirectoryTenantId = azureActiveDirectoryTenantId;
-            DeliveryAttributeMappings = deliveryAttributeMappings;
             EndpointBaseUrl = endpointBaseUrl;
             EndpointType = endpointType;
             EndpointUrl = endpointUrl;

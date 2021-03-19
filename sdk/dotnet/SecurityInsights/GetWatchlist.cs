@@ -66,7 +66,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// Describes a user that created the watchlist
         /// </summary>
-        public readonly Outputs.UserInfoResponse? CreatedBy;
+        public readonly Outputs.WatchlistUserInfoResponse? CreatedBy;
         /// <summary>
         /// The default duration of a watchlist (in ISO 8601 duration format)
         /// </summary>
@@ -130,7 +130,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// Describes a user that updated the watchlist
         /// </summary>
-        public readonly Outputs.UserInfoResponse? UpdatedBy;
+        public readonly Outputs.WatchlistUserInfoResponse? UpdatedBy;
         /// <summary>
         /// The status of the Watchlist upload : New, InProgress or Complete. Pls note : When a Watchlist upload status is equal to InProgress, the Watchlist cannot be deleted
         /// </summary>
@@ -158,7 +158,7 @@ namespace Pulumi.AzureNative.SecurityInsights
 
             string? created,
 
-            Outputs.UserInfoResponse? createdBy,
+            Outputs.WatchlistUserInfoResponse? createdBy,
 
             string? defaultDuration,
 
@@ -190,7 +190,7 @@ namespace Pulumi.AzureNative.SecurityInsights
 
             string? updated,
 
-            Outputs.UserInfoResponse? updatedBy,
+            Outputs.WatchlistUserInfoResponse? updatedBy,
 
             string? uploadStatus,
 

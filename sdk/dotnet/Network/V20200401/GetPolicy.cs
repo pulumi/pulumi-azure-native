@@ -73,7 +73,7 @@ namespace Pulumi.AzureNative.Network.V20200401
         /// <summary>
         /// Describes settings for the policy.
         /// </summary>
-        public readonly Outputs.PolicySettingsResponse? PolicySettings;
+        public readonly Outputs.FrontDoorPolicySettingsResponse? PolicySettings;
         /// <summary>
         /// Provisioning state of the policy.
         /// </summary>
@@ -108,7 +108,7 @@ namespace Pulumi.AzureNative.Network.V20200401
 
             string name,
 
-            Outputs.PolicySettingsResponse? policySettings,
+            Outputs.FrontDoorPolicySettingsResponse? policySettings,
 
             string provisioningState,
 
