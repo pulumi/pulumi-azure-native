@@ -18,7 +18,7 @@ type WatchlistItem struct {
 	// The time the watchlist item was created
 	Created pulumi.StringPtrOutput `pulumi:"created"`
 	// Describes a user that created the watchlist item
-	CreatedBy UserInfoResponsePtrOutput `pulumi:"createdBy"`
+	CreatedBy WatchlistUserInfoResponsePtrOutput `pulumi:"createdBy"`
 	// key-value pairs for a watchlist item entity mapping
 	EntityMapping pulumi.AnyOutput `pulumi:"entityMapping"`
 	// Etag of the azure resource
@@ -36,7 +36,7 @@ type WatchlistItem struct {
 	// The last time the watchlist item was updated
 	Updated pulumi.StringPtrOutput `pulumi:"updated"`
 	// Describes a user that updated the watchlist item
-	UpdatedBy UserInfoResponsePtrOutput `pulumi:"updatedBy"`
+	UpdatedBy WatchlistUserInfoResponsePtrOutput `pulumi:"updatedBy"`
 	// The id (a Guid) of the watchlist item
 	WatchlistItemId pulumi.StringPtrOutput `pulumi:"watchlistItemId"`
 	// The type of the watchlist item
@@ -102,7 +102,7 @@ type watchlistItemState struct {
 	// The time the watchlist item was created
 	Created *string `pulumi:"created"`
 	// Describes a user that created the watchlist item
-	CreatedBy *UserInfoResponse `pulumi:"createdBy"`
+	CreatedBy *WatchlistUserInfoResponse `pulumi:"createdBy"`
 	// key-value pairs for a watchlist item entity mapping
 	EntityMapping interface{} `pulumi:"entityMapping"`
 	// Etag of the azure resource
@@ -120,7 +120,7 @@ type watchlistItemState struct {
 	// The last time the watchlist item was updated
 	Updated *string `pulumi:"updated"`
 	// Describes a user that updated the watchlist item
-	UpdatedBy *UserInfoResponse `pulumi:"updatedBy"`
+	UpdatedBy *WatchlistUserInfoResponse `pulumi:"updatedBy"`
 	// The id (a Guid) of the watchlist item
 	WatchlistItemId *string `pulumi:"watchlistItemId"`
 	// The type of the watchlist item
@@ -131,7 +131,7 @@ type WatchlistItemState struct {
 	// The time the watchlist item was created
 	Created pulumi.StringPtrInput
 	// Describes a user that created the watchlist item
-	CreatedBy UserInfoResponsePtrInput
+	CreatedBy WatchlistUserInfoResponsePtrInput
 	// key-value pairs for a watchlist item entity mapping
 	EntityMapping pulumi.Input
 	// Etag of the azure resource
@@ -149,7 +149,7 @@ type WatchlistItemState struct {
 	// The last time the watchlist item was updated
 	Updated pulumi.StringPtrInput
 	// Describes a user that updated the watchlist item
-	UpdatedBy UserInfoResponsePtrInput
+	UpdatedBy WatchlistUserInfoResponsePtrInput
 	// The id (a Guid) of the watchlist item
 	WatchlistItemId pulumi.StringPtrInput
 	// The type of the watchlist item
@@ -164,7 +164,7 @@ type watchlistItemArgs struct {
 	// The time the watchlist item was created
 	Created *string `pulumi:"created"`
 	// Describes a user that created the watchlist item
-	CreatedBy *UserInfo `pulumi:"createdBy"`
+	CreatedBy *WatchlistUserInfo `pulumi:"createdBy"`
 	// key-value pairs for a watchlist item entity mapping
 	EntityMapping interface{} `pulumi:"entityMapping"`
 	// Etag of the azure resource
@@ -182,7 +182,7 @@ type watchlistItemArgs struct {
 	// The last time the watchlist item was updated
 	Updated *string `pulumi:"updated"`
 	// Describes a user that updated the watchlist item
-	UpdatedBy *UserInfo `pulumi:"updatedBy"`
+	UpdatedBy *WatchlistUserInfo `pulumi:"updatedBy"`
 	// Watchlist Alias
 	WatchlistAlias string `pulumi:"watchlistAlias"`
 	// The id (a Guid) of the watchlist item
@@ -198,7 +198,7 @@ type WatchlistItemArgs struct {
 	// The time the watchlist item was created
 	Created pulumi.StringPtrInput
 	// Describes a user that created the watchlist item
-	CreatedBy UserInfoPtrInput
+	CreatedBy WatchlistUserInfoPtrInput
 	// key-value pairs for a watchlist item entity mapping
 	EntityMapping pulumi.Input
 	// Etag of the azure resource
@@ -216,7 +216,7 @@ type WatchlistItemArgs struct {
 	// The last time the watchlist item was updated
 	Updated pulumi.StringPtrInput
 	// Describes a user that updated the watchlist item
-	UpdatedBy UserInfoPtrInput
+	UpdatedBy WatchlistUserInfoPtrInput
 	// Watchlist Alias
 	WatchlistAlias pulumi.StringInput
 	// The id (a Guid) of the watchlist item

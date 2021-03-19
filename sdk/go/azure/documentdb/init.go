@@ -31,24 +31,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewCassandraResourceCassandraTable(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:documentdb:DatabaseAccount":
 		r, err = NewDatabaseAccount(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-native:documentdb:DatabaseAccountCassandraKeyspace":
-		r, err = NewDatabaseAccountCassandraKeyspace(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-native:documentdb:DatabaseAccountCassandraTable":
-		r, err = NewDatabaseAccountCassandraTable(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-native:documentdb:DatabaseAccountGremlinDatabase":
-		r, err = NewDatabaseAccountGremlinDatabase(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-native:documentdb:DatabaseAccountGremlinGraph":
-		r, err = NewDatabaseAccountGremlinGraph(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-native:documentdb:DatabaseAccountMongoDBCollection":
-		r, err = NewDatabaseAccountMongoDBCollection(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-native:documentdb:DatabaseAccountMongoDBDatabase":
-		r, err = NewDatabaseAccountMongoDBDatabase(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-native:documentdb:DatabaseAccountSqlContainer":
-		r, err = NewDatabaseAccountSqlContainer(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-native:documentdb:DatabaseAccountSqlDatabase":
-		r, err = NewDatabaseAccountSqlDatabase(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-native:documentdb:DatabaseAccountTable":
-		r, err = NewDatabaseAccountTable(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:documentdb:GremlinResourceGremlinDatabase":
 		r, err = NewGremlinResourceGremlinDatabase(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:documentdb:GremlinResourceGremlinGraph":

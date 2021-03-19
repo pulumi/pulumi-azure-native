@@ -1078,7 +1078,7 @@ func (o CassandraKeyspaceGetPropertiesResponseResourcePtrOutput) Ts() pulumi.Flo
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Cosmos DB Cassandra keyspace id object
+// Cosmos DB Cassandra keyspace resource object
 type CassandraKeyspaceResource struct {
 	// Name of the Cosmos DB Cassandra keyspace
 	Id string `pulumi:"id"`
@@ -1095,7 +1095,7 @@ type CassandraKeyspaceResourceInput interface {
 	ToCassandraKeyspaceResourceOutputWithContext(context.Context) CassandraKeyspaceResourceOutput
 }
 
-// Cosmos DB Cassandra keyspace id object
+// Cosmos DB Cassandra keyspace resource object
 type CassandraKeyspaceResourceArgs struct {
 	// Name of the Cosmos DB Cassandra keyspace
 	Id pulumi.StringInput `pulumi:"id"`
@@ -1154,7 +1154,7 @@ func (i *cassandraKeyspaceResourcePtrType) ToCassandraKeyspaceResourcePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(CassandraKeyspaceResourcePtrOutput)
 }
 
-// Cosmos DB Cassandra keyspace id object
+// Cosmos DB Cassandra keyspace resource object
 type CassandraKeyspaceResourceOutput struct{ *pulumi.OutputState }
 
 func (CassandraKeyspaceResourceOutput) ElementType() reflect.Type {
@@ -2157,8 +2157,10 @@ func (o CassandraTableGetPropertiesResponseResourcePtrOutput) Ts() pulumi.Float6
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Cosmos DB Cassandra table id object
+// Cosmos DB Cassandra table resource object
 type CassandraTableResource struct {
+	// Analytical TTL.
+	AnalyticalStorageTtl *int `pulumi:"analyticalStorageTtl"`
 	// Time to live of the Cosmos DB Cassandra table
 	DefaultTtl *int `pulumi:"defaultTtl"`
 	// Name of the Cosmos DB Cassandra table
@@ -2178,8 +2180,10 @@ type CassandraTableResourceInput interface {
 	ToCassandraTableResourceOutputWithContext(context.Context) CassandraTableResourceOutput
 }
 
-// Cosmos DB Cassandra table id object
+// Cosmos DB Cassandra table resource object
 type CassandraTableResourceArgs struct {
+	// Analytical TTL.
+	AnalyticalStorageTtl pulumi.IntPtrInput `pulumi:"analyticalStorageTtl"`
 	// Time to live of the Cosmos DB Cassandra table
 	DefaultTtl pulumi.IntPtrInput `pulumi:"defaultTtl"`
 	// Name of the Cosmos DB Cassandra table
@@ -2241,7 +2245,7 @@ func (i *cassandraTableResourcePtrType) ToCassandraTableResourcePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(CassandraTableResourcePtrOutput)
 }
 
-// Cosmos DB Cassandra table id object
+// Cosmos DB Cassandra table resource object
 type CassandraTableResourceOutput struct{ *pulumi.OutputState }
 
 func (CassandraTableResourceOutput) ElementType() reflect.Type {
@@ -2264,6 +2268,11 @@ func (o CassandraTableResourceOutput) ToCassandraTableResourcePtrOutputWithConte
 	return o.ApplyT(func(v CassandraTableResource) *CassandraTableResource {
 		return &v
 	}).(CassandraTableResourcePtrOutput)
+}
+
+// Analytical TTL.
+func (o CassandraTableResourceOutput) AnalyticalStorageTtl() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CassandraTableResource) *int { return v.AnalyticalStorageTtl }).(pulumi.IntPtrOutput)
 }
 
 // Time to live of the Cosmos DB Cassandra table
@@ -2297,6 +2306,16 @@ func (o CassandraTableResourcePtrOutput) ToCassandraTableResourcePtrOutputWithCo
 
 func (o CassandraTableResourcePtrOutput) Elem() CassandraTableResourceOutput {
 	return o.ApplyT(func(v *CassandraTableResource) CassandraTableResource { return *v }).(CassandraTableResourceOutput)
+}
+
+// Analytical TTL.
+func (o CassandraTableResourcePtrOutput) AnalyticalStorageTtl() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CassandraTableResource) *int {
+		if v == nil {
+			return nil
+		}
+		return v.AnalyticalStorageTtl
+	}).(pulumi.IntPtrOutput)
 }
 
 // Time to live of the Cosmos DB Cassandra table

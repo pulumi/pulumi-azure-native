@@ -63,6 +63,12 @@ func NewConnector(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:costmanagement:Connector"),
 		},
+		{
+			Type: pulumi.String("azure-native:costmanagement/v20190301preview:Connector"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:costmanagement/v20190301preview:Connector"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Connector

@@ -57,18 +57,6 @@ func NewIscsiServer(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:storsimple/v20161001:IscsiServer"),
 		},
-		{
-			Type: pulumi.String("azure-native:storsimple:IscsiServer"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storsimple:IscsiServer"),
-		},
-		{
-			Type: pulumi.String("azure-native:storsimple/latest:IscsiServer"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storsimple/latest:IscsiServer"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource IscsiServer

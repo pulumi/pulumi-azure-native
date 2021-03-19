@@ -46,18 +46,6 @@ func NewChapSetting(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:storsimple/v20161001:ChapSetting"),
 		},
-		{
-			Type: pulumi.String("azure-native:storsimple:ChapSetting"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storsimple:ChapSetting"),
-		},
-		{
-			Type: pulumi.String("azure-native:storsimple/latest:ChapSetting"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storsimple/latest:ChapSetting"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource ChapSetting

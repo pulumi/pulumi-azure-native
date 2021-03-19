@@ -22696,141 +22696,141 @@ func (o DhcpOptionsResponsePtrOutput) DnsServers() pulumi.StringArrayOutput {
 }
 
 // Defines the endpoint properties
-type Endpoint struct {
+type ExperimentEndpoint struct {
 	// The endpoint URL
 	Endpoint *string `pulumi:"endpoint"`
 	// The name of the endpoint
 	Name *string `pulumi:"name"`
 }
 
-// EndpointInput is an input type that accepts EndpointArgs and EndpointOutput values.
-// You can construct a concrete instance of `EndpointInput` via:
+// ExperimentEndpointInput is an input type that accepts ExperimentEndpointArgs and ExperimentEndpointOutput values.
+// You can construct a concrete instance of `ExperimentEndpointInput` via:
 //
-//          EndpointArgs{...}
-type EndpointInput interface {
+//          ExperimentEndpointArgs{...}
+type ExperimentEndpointInput interface {
 	pulumi.Input
 
-	ToEndpointOutput() EndpointOutput
-	ToEndpointOutputWithContext(context.Context) EndpointOutput
+	ToExperimentEndpointOutput() ExperimentEndpointOutput
+	ToExperimentEndpointOutputWithContext(context.Context) ExperimentEndpointOutput
 }
 
 // Defines the endpoint properties
-type EndpointArgs struct {
+type ExperimentEndpointArgs struct {
 	// The endpoint URL
 	Endpoint pulumi.StringPtrInput `pulumi:"endpoint"`
 	// The name of the endpoint
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
-func (EndpointArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*Endpoint)(nil)).Elem()
+func (ExperimentEndpointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExperimentEndpoint)(nil)).Elem()
 }
 
-func (i EndpointArgs) ToEndpointOutput() EndpointOutput {
-	return i.ToEndpointOutputWithContext(context.Background())
+func (i ExperimentEndpointArgs) ToExperimentEndpointOutput() ExperimentEndpointOutput {
+	return i.ToExperimentEndpointOutputWithContext(context.Background())
 }
 
-func (i EndpointArgs) ToEndpointOutputWithContext(ctx context.Context) EndpointOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EndpointOutput)
+func (i ExperimentEndpointArgs) ToExperimentEndpointOutputWithContext(ctx context.Context) ExperimentEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExperimentEndpointOutput)
 }
 
-func (i EndpointArgs) ToEndpointPtrOutput() EndpointPtrOutput {
-	return i.ToEndpointPtrOutputWithContext(context.Background())
+func (i ExperimentEndpointArgs) ToExperimentEndpointPtrOutput() ExperimentEndpointPtrOutput {
+	return i.ToExperimentEndpointPtrOutputWithContext(context.Background())
 }
 
-func (i EndpointArgs) ToEndpointPtrOutputWithContext(ctx context.Context) EndpointPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EndpointOutput).ToEndpointPtrOutputWithContext(ctx)
+func (i ExperimentEndpointArgs) ToExperimentEndpointPtrOutputWithContext(ctx context.Context) ExperimentEndpointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExperimentEndpointOutput).ToExperimentEndpointPtrOutputWithContext(ctx)
 }
 
-// EndpointPtrInput is an input type that accepts EndpointArgs, EndpointPtr and EndpointPtrOutput values.
-// You can construct a concrete instance of `EndpointPtrInput` via:
+// ExperimentEndpointPtrInput is an input type that accepts ExperimentEndpointArgs, ExperimentEndpointPtr and ExperimentEndpointPtrOutput values.
+// You can construct a concrete instance of `ExperimentEndpointPtrInput` via:
 //
-//          EndpointArgs{...}
+//          ExperimentEndpointArgs{...}
 //
 //  or:
 //
 //          nil
-type EndpointPtrInput interface {
+type ExperimentEndpointPtrInput interface {
 	pulumi.Input
 
-	ToEndpointPtrOutput() EndpointPtrOutput
-	ToEndpointPtrOutputWithContext(context.Context) EndpointPtrOutput
+	ToExperimentEndpointPtrOutput() ExperimentEndpointPtrOutput
+	ToExperimentEndpointPtrOutputWithContext(context.Context) ExperimentEndpointPtrOutput
 }
 
-type endpointPtrType EndpointArgs
+type experimentEndpointPtrType ExperimentEndpointArgs
 
-func EndpointPtr(v *EndpointArgs) EndpointPtrInput {
-	return (*endpointPtrType)(v)
+func ExperimentEndpointPtr(v *ExperimentEndpointArgs) ExperimentEndpointPtrInput {
+	return (*experimentEndpointPtrType)(v)
 }
 
-func (*endpointPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Endpoint)(nil)).Elem()
+func (*experimentEndpointPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExperimentEndpoint)(nil)).Elem()
 }
 
-func (i *endpointPtrType) ToEndpointPtrOutput() EndpointPtrOutput {
-	return i.ToEndpointPtrOutputWithContext(context.Background())
+func (i *experimentEndpointPtrType) ToExperimentEndpointPtrOutput() ExperimentEndpointPtrOutput {
+	return i.ToExperimentEndpointPtrOutputWithContext(context.Background())
 }
 
-func (i *endpointPtrType) ToEndpointPtrOutputWithContext(ctx context.Context) EndpointPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EndpointPtrOutput)
+func (i *experimentEndpointPtrType) ToExperimentEndpointPtrOutputWithContext(ctx context.Context) ExperimentEndpointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExperimentEndpointPtrOutput)
 }
 
 // Defines the endpoint properties
-type EndpointOutput struct{ *pulumi.OutputState }
+type ExperimentEndpointOutput struct{ *pulumi.OutputState }
 
-func (EndpointOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Endpoint)(nil)).Elem()
+func (ExperimentEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExperimentEndpoint)(nil)).Elem()
 }
 
-func (o EndpointOutput) ToEndpointOutput() EndpointOutput {
+func (o ExperimentEndpointOutput) ToExperimentEndpointOutput() ExperimentEndpointOutput {
 	return o
 }
 
-func (o EndpointOutput) ToEndpointOutputWithContext(ctx context.Context) EndpointOutput {
+func (o ExperimentEndpointOutput) ToExperimentEndpointOutputWithContext(ctx context.Context) ExperimentEndpointOutput {
 	return o
 }
 
-func (o EndpointOutput) ToEndpointPtrOutput() EndpointPtrOutput {
-	return o.ToEndpointPtrOutputWithContext(context.Background())
+func (o ExperimentEndpointOutput) ToExperimentEndpointPtrOutput() ExperimentEndpointPtrOutput {
+	return o.ToExperimentEndpointPtrOutputWithContext(context.Background())
 }
 
-func (o EndpointOutput) ToEndpointPtrOutputWithContext(ctx context.Context) EndpointPtrOutput {
-	return o.ApplyT(func(v Endpoint) *Endpoint {
+func (o ExperimentEndpointOutput) ToExperimentEndpointPtrOutputWithContext(ctx context.Context) ExperimentEndpointPtrOutput {
+	return o.ApplyT(func(v ExperimentEndpoint) *ExperimentEndpoint {
 		return &v
-	}).(EndpointPtrOutput)
+	}).(ExperimentEndpointPtrOutput)
 }
 
 // The endpoint URL
-func (o EndpointOutput) Endpoint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Endpoint) *string { return v.Endpoint }).(pulumi.StringPtrOutput)
+func (o ExperimentEndpointOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExperimentEndpoint) *string { return v.Endpoint }).(pulumi.StringPtrOutput)
 }
 
 // The name of the endpoint
-func (o EndpointOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Endpoint) *string { return v.Name }).(pulumi.StringPtrOutput)
+func (o ExperimentEndpointOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExperimentEndpoint) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-type EndpointPtrOutput struct{ *pulumi.OutputState }
+type ExperimentEndpointPtrOutput struct{ *pulumi.OutputState }
 
-func (EndpointPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Endpoint)(nil)).Elem()
+func (ExperimentEndpointPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExperimentEndpoint)(nil)).Elem()
 }
 
-func (o EndpointPtrOutput) ToEndpointPtrOutput() EndpointPtrOutput {
+func (o ExperimentEndpointPtrOutput) ToExperimentEndpointPtrOutput() ExperimentEndpointPtrOutput {
 	return o
 }
 
-func (o EndpointPtrOutput) ToEndpointPtrOutputWithContext(ctx context.Context) EndpointPtrOutput {
+func (o ExperimentEndpointPtrOutput) ToExperimentEndpointPtrOutputWithContext(ctx context.Context) ExperimentEndpointPtrOutput {
 	return o
 }
 
-func (o EndpointPtrOutput) Elem() EndpointOutput {
-	return o.ApplyT(func(v *Endpoint) Endpoint { return *v }).(EndpointOutput)
+func (o ExperimentEndpointPtrOutput) Elem() ExperimentEndpointOutput {
+	return o.ApplyT(func(v *ExperimentEndpoint) ExperimentEndpoint { return *v }).(ExperimentEndpointOutput)
 }
 
 // The endpoint URL
-func (o EndpointPtrOutput) Endpoint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Endpoint) *string {
+func (o ExperimentEndpointPtrOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExperimentEndpoint) *string {
 		if v == nil {
 			return nil
 		}
@@ -22839,8 +22839,8 @@ func (o EndpointPtrOutput) Endpoint() pulumi.StringPtrOutput {
 }
 
 // The name of the endpoint
-func (o EndpointPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Endpoint) *string {
+func (o ExperimentEndpointPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExperimentEndpoint) *string {
 		if v == nil {
 			return nil
 		}
@@ -22849,141 +22849,141 @@ func (o EndpointPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 // Defines the endpoint properties
-type EndpointResponse struct {
+type ExperimentEndpointResponse struct {
 	// The endpoint URL
 	Endpoint *string `pulumi:"endpoint"`
 	// The name of the endpoint
 	Name *string `pulumi:"name"`
 }
 
-// EndpointResponseInput is an input type that accepts EndpointResponseArgs and EndpointResponseOutput values.
-// You can construct a concrete instance of `EndpointResponseInput` via:
+// ExperimentEndpointResponseInput is an input type that accepts ExperimentEndpointResponseArgs and ExperimentEndpointResponseOutput values.
+// You can construct a concrete instance of `ExperimentEndpointResponseInput` via:
 //
-//          EndpointResponseArgs{...}
-type EndpointResponseInput interface {
+//          ExperimentEndpointResponseArgs{...}
+type ExperimentEndpointResponseInput interface {
 	pulumi.Input
 
-	ToEndpointResponseOutput() EndpointResponseOutput
-	ToEndpointResponseOutputWithContext(context.Context) EndpointResponseOutput
+	ToExperimentEndpointResponseOutput() ExperimentEndpointResponseOutput
+	ToExperimentEndpointResponseOutputWithContext(context.Context) ExperimentEndpointResponseOutput
 }
 
 // Defines the endpoint properties
-type EndpointResponseArgs struct {
+type ExperimentEndpointResponseArgs struct {
 	// The endpoint URL
 	Endpoint pulumi.StringPtrInput `pulumi:"endpoint"`
 	// The name of the endpoint
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
-func (EndpointResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EndpointResponse)(nil)).Elem()
+func (ExperimentEndpointResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExperimentEndpointResponse)(nil)).Elem()
 }
 
-func (i EndpointResponseArgs) ToEndpointResponseOutput() EndpointResponseOutput {
-	return i.ToEndpointResponseOutputWithContext(context.Background())
+func (i ExperimentEndpointResponseArgs) ToExperimentEndpointResponseOutput() ExperimentEndpointResponseOutput {
+	return i.ToExperimentEndpointResponseOutputWithContext(context.Background())
 }
 
-func (i EndpointResponseArgs) ToEndpointResponseOutputWithContext(ctx context.Context) EndpointResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EndpointResponseOutput)
+func (i ExperimentEndpointResponseArgs) ToExperimentEndpointResponseOutputWithContext(ctx context.Context) ExperimentEndpointResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExperimentEndpointResponseOutput)
 }
 
-func (i EndpointResponseArgs) ToEndpointResponsePtrOutput() EndpointResponsePtrOutput {
-	return i.ToEndpointResponsePtrOutputWithContext(context.Background())
+func (i ExperimentEndpointResponseArgs) ToExperimentEndpointResponsePtrOutput() ExperimentEndpointResponsePtrOutput {
+	return i.ToExperimentEndpointResponsePtrOutputWithContext(context.Background())
 }
 
-func (i EndpointResponseArgs) ToEndpointResponsePtrOutputWithContext(ctx context.Context) EndpointResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EndpointResponseOutput).ToEndpointResponsePtrOutputWithContext(ctx)
+func (i ExperimentEndpointResponseArgs) ToExperimentEndpointResponsePtrOutputWithContext(ctx context.Context) ExperimentEndpointResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExperimentEndpointResponseOutput).ToExperimentEndpointResponsePtrOutputWithContext(ctx)
 }
 
-// EndpointResponsePtrInput is an input type that accepts EndpointResponseArgs, EndpointResponsePtr and EndpointResponsePtrOutput values.
-// You can construct a concrete instance of `EndpointResponsePtrInput` via:
+// ExperimentEndpointResponsePtrInput is an input type that accepts ExperimentEndpointResponseArgs, ExperimentEndpointResponsePtr and ExperimentEndpointResponsePtrOutput values.
+// You can construct a concrete instance of `ExperimentEndpointResponsePtrInput` via:
 //
-//          EndpointResponseArgs{...}
+//          ExperimentEndpointResponseArgs{...}
 //
 //  or:
 //
 //          nil
-type EndpointResponsePtrInput interface {
+type ExperimentEndpointResponsePtrInput interface {
 	pulumi.Input
 
-	ToEndpointResponsePtrOutput() EndpointResponsePtrOutput
-	ToEndpointResponsePtrOutputWithContext(context.Context) EndpointResponsePtrOutput
+	ToExperimentEndpointResponsePtrOutput() ExperimentEndpointResponsePtrOutput
+	ToExperimentEndpointResponsePtrOutputWithContext(context.Context) ExperimentEndpointResponsePtrOutput
 }
 
-type endpointResponsePtrType EndpointResponseArgs
+type experimentEndpointResponsePtrType ExperimentEndpointResponseArgs
 
-func EndpointResponsePtr(v *EndpointResponseArgs) EndpointResponsePtrInput {
-	return (*endpointResponsePtrType)(v)
+func ExperimentEndpointResponsePtr(v *ExperimentEndpointResponseArgs) ExperimentEndpointResponsePtrInput {
+	return (*experimentEndpointResponsePtrType)(v)
 }
 
-func (*endpointResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EndpointResponse)(nil)).Elem()
+func (*experimentEndpointResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExperimentEndpointResponse)(nil)).Elem()
 }
 
-func (i *endpointResponsePtrType) ToEndpointResponsePtrOutput() EndpointResponsePtrOutput {
-	return i.ToEndpointResponsePtrOutputWithContext(context.Background())
+func (i *experimentEndpointResponsePtrType) ToExperimentEndpointResponsePtrOutput() ExperimentEndpointResponsePtrOutput {
+	return i.ToExperimentEndpointResponsePtrOutputWithContext(context.Background())
 }
 
-func (i *endpointResponsePtrType) ToEndpointResponsePtrOutputWithContext(ctx context.Context) EndpointResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EndpointResponsePtrOutput)
+func (i *experimentEndpointResponsePtrType) ToExperimentEndpointResponsePtrOutputWithContext(ctx context.Context) ExperimentEndpointResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExperimentEndpointResponsePtrOutput)
 }
 
 // Defines the endpoint properties
-type EndpointResponseOutput struct{ *pulumi.OutputState }
+type ExperimentEndpointResponseOutput struct{ *pulumi.OutputState }
 
-func (EndpointResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EndpointResponse)(nil)).Elem()
+func (ExperimentEndpointResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExperimentEndpointResponse)(nil)).Elem()
 }
 
-func (o EndpointResponseOutput) ToEndpointResponseOutput() EndpointResponseOutput {
+func (o ExperimentEndpointResponseOutput) ToExperimentEndpointResponseOutput() ExperimentEndpointResponseOutput {
 	return o
 }
 
-func (o EndpointResponseOutput) ToEndpointResponseOutputWithContext(ctx context.Context) EndpointResponseOutput {
+func (o ExperimentEndpointResponseOutput) ToExperimentEndpointResponseOutputWithContext(ctx context.Context) ExperimentEndpointResponseOutput {
 	return o
 }
 
-func (o EndpointResponseOutput) ToEndpointResponsePtrOutput() EndpointResponsePtrOutput {
-	return o.ToEndpointResponsePtrOutputWithContext(context.Background())
+func (o ExperimentEndpointResponseOutput) ToExperimentEndpointResponsePtrOutput() ExperimentEndpointResponsePtrOutput {
+	return o.ToExperimentEndpointResponsePtrOutputWithContext(context.Background())
 }
 
-func (o EndpointResponseOutput) ToEndpointResponsePtrOutputWithContext(ctx context.Context) EndpointResponsePtrOutput {
-	return o.ApplyT(func(v EndpointResponse) *EndpointResponse {
+func (o ExperimentEndpointResponseOutput) ToExperimentEndpointResponsePtrOutputWithContext(ctx context.Context) ExperimentEndpointResponsePtrOutput {
+	return o.ApplyT(func(v ExperimentEndpointResponse) *ExperimentEndpointResponse {
 		return &v
-	}).(EndpointResponsePtrOutput)
+	}).(ExperimentEndpointResponsePtrOutput)
 }
 
 // The endpoint URL
-func (o EndpointResponseOutput) Endpoint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EndpointResponse) *string { return v.Endpoint }).(pulumi.StringPtrOutput)
+func (o ExperimentEndpointResponseOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExperimentEndpointResponse) *string { return v.Endpoint }).(pulumi.StringPtrOutput)
 }
 
 // The name of the endpoint
-func (o EndpointResponseOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EndpointResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+func (o ExperimentEndpointResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExperimentEndpointResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-type EndpointResponsePtrOutput struct{ *pulumi.OutputState }
+type ExperimentEndpointResponsePtrOutput struct{ *pulumi.OutputState }
 
-func (EndpointResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EndpointResponse)(nil)).Elem()
+func (ExperimentEndpointResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExperimentEndpointResponse)(nil)).Elem()
 }
 
-func (o EndpointResponsePtrOutput) ToEndpointResponsePtrOutput() EndpointResponsePtrOutput {
+func (o ExperimentEndpointResponsePtrOutput) ToExperimentEndpointResponsePtrOutput() ExperimentEndpointResponsePtrOutput {
 	return o
 }
 
-func (o EndpointResponsePtrOutput) ToEndpointResponsePtrOutputWithContext(ctx context.Context) EndpointResponsePtrOutput {
+func (o ExperimentEndpointResponsePtrOutput) ToExperimentEndpointResponsePtrOutputWithContext(ctx context.Context) ExperimentEndpointResponsePtrOutput {
 	return o
 }
 
-func (o EndpointResponsePtrOutput) Elem() EndpointResponseOutput {
-	return o.ApplyT(func(v *EndpointResponse) EndpointResponse { return *v }).(EndpointResponseOutput)
+func (o ExperimentEndpointResponsePtrOutput) Elem() ExperimentEndpointResponseOutput {
+	return o.ApplyT(func(v *ExperimentEndpointResponse) ExperimentEndpointResponse { return *v }).(ExperimentEndpointResponseOutput)
 }
 
 // The endpoint URL
-func (o EndpointResponsePtrOutput) Endpoint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EndpointResponse) *string {
+func (o ExperimentEndpointResponsePtrOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExperimentEndpointResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -22992,8 +22992,8 @@ func (o EndpointResponsePtrOutput) Endpoint() pulumi.StringPtrOutput {
 }
 
 // The name of the endpoint
-func (o EndpointResponsePtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EndpointResponse) *string {
+func (o ExperimentEndpointResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExperimentEndpointResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -60249,10 +60249,10 @@ func init() {
 	pulumi.RegisterOutputType(DhcpOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DhcpOptionsResponseOutput{})
 	pulumi.RegisterOutputType(DhcpOptionsResponsePtrOutput{})
-	pulumi.RegisterOutputType(EndpointOutput{})
-	pulumi.RegisterOutputType(EndpointPtrOutput{})
-	pulumi.RegisterOutputType(EndpointResponseOutput{})
-	pulumi.RegisterOutputType(EndpointResponsePtrOutput{})
+	pulumi.RegisterOutputType(ExperimentEndpointOutput{})
+	pulumi.RegisterOutputType(ExperimentEndpointPtrOutput{})
+	pulumi.RegisterOutputType(ExperimentEndpointResponseOutput{})
+	pulumi.RegisterOutputType(ExperimentEndpointResponsePtrOutput{})
 	pulumi.RegisterOutputType(ExpressRouteCircuitAuthorizationTypeOutput{})
 	pulumi.RegisterOutputType(ExpressRouteCircuitAuthorizationTypeArrayOutput{})
 	pulumi.RegisterOutputType(ExpressRouteCircuitAuthorizationResponseOutput{})

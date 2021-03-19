@@ -35,7 +35,7 @@ type RedisEnterprise struct {
 	// Current resource status of the cluster
 	ResourceState pulumi.StringOutput `pulumi:"resourceState"`
 	// The SKU to create, which affects price, performance, and features.
-	Sku SkuResponseOutput `pulumi:"sku"`
+	Sku EnterpriseSkuResponseOutput `pulumi:"sku"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -126,7 +126,7 @@ type redisEnterpriseState struct {
 	// Current resource status of the cluster
 	ResourceState *string `pulumi:"resourceState"`
 	// The SKU to create, which affects price, performance, and features.
-	Sku *SkuResponse `pulumi:"sku"`
+	Sku *EnterpriseSkuResponse `pulumi:"sku"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -153,7 +153,7 @@ type RedisEnterpriseState struct {
 	// Current resource status of the cluster
 	ResourceState pulumi.StringPtrInput
 	// The SKU to create, which affects price, performance, and features.
-	Sku SkuResponsePtrInput
+	Sku EnterpriseSkuResponsePtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -176,7 +176,7 @@ type redisEnterpriseArgs struct {
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The SKU to create, which affects price, performance, and features.
-	Sku Sku `pulumi:"sku"`
+	Sku EnterpriseSku `pulumi:"sku"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The Availability Zones where this cluster will be deployed.
@@ -194,7 +194,7 @@ type RedisEnterpriseArgs struct {
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// The SKU to create, which affects price, performance, and features.
-	Sku SkuInput
+	Sku EnterpriseSkuInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// The Availability Zones where this cluster will be deployed.

@@ -23,8 +23,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "azure-native:containerservice/latest:AgentPool":
 		r, err = NewAgentPool(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-native:containerservice/latest:ContainerService":
-		r, err = NewContainerService(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:containerservice/latest:MaintenanceConfiguration":
 		r, err = NewMaintenanceConfiguration(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:containerservice/latest:ManagedCluster":

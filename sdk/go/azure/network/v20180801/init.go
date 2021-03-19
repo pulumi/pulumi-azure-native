@@ -49,8 +49,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewExpressRouteGateway(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:network/v20180801:ExpressRoutePort":
 		r, err = NewExpressRoutePort(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-native:network/v20180801:FrontDoor":
-		r, err = NewFrontDoor(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:network/v20180801:InboundNatRule":
 		r, err = NewInboundNatRule(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:network/v20180801:InterfaceEndpoint":
@@ -75,8 +73,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewP2sVpnServerConfiguration(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:network/v20180801:PacketCapture":
 		r, err = NewPacketCapture(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-native:network/v20180801:Policy":
-		r, err = NewPolicy(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:network/v20180801:Profile":
 		r, err = NewProfile(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:network/v20180801:PublicIPAddress":

@@ -21,7 +21,7 @@ type Watchlist struct {
 	// The time the watchlist was created
 	Created pulumi.StringPtrOutput `pulumi:"created"`
 	// Describes a user that created the watchlist
-	CreatedBy UserInfoResponsePtrOutput `pulumi:"createdBy"`
+	CreatedBy WatchlistUserInfoResponsePtrOutput `pulumi:"createdBy"`
 	// The default duration of a watchlist (in ISO 8601 duration format)
 	DefaultDuration pulumi.StringPtrOutput `pulumi:"defaultDuration"`
 	// A description of the watchlist
@@ -51,7 +51,7 @@ type Watchlist struct {
 	// The last time the watchlist was updated
 	Updated pulumi.StringPtrOutput `pulumi:"updated"`
 	// Describes a user that updated the watchlist
-	UpdatedBy UserInfoResponsePtrOutput `pulumi:"updatedBy"`
+	UpdatedBy WatchlistUserInfoResponsePtrOutput `pulumi:"updatedBy"`
 	// The status of the Watchlist upload : New, InProgress or Complete. Pls note : When a Watchlist upload status is equal to InProgress, the Watchlist cannot be deleted
 	UploadStatus pulumi.StringPtrOutput `pulumi:"uploadStatus"`
 	// The alias of the watchlist
@@ -128,7 +128,7 @@ type watchlistState struct {
 	// The time the watchlist was created
 	Created *string `pulumi:"created"`
 	// Describes a user that created the watchlist
-	CreatedBy *UserInfoResponse `pulumi:"createdBy"`
+	CreatedBy *WatchlistUserInfoResponse `pulumi:"createdBy"`
 	// The default duration of a watchlist (in ISO 8601 duration format)
 	DefaultDuration *string `pulumi:"defaultDuration"`
 	// A description of the watchlist
@@ -158,7 +158,7 @@ type watchlistState struct {
 	// The last time the watchlist was updated
 	Updated *string `pulumi:"updated"`
 	// Describes a user that updated the watchlist
-	UpdatedBy *UserInfoResponse `pulumi:"updatedBy"`
+	UpdatedBy *WatchlistUserInfoResponse `pulumi:"updatedBy"`
 	// The status of the Watchlist upload : New, InProgress or Complete. Pls note : When a Watchlist upload status is equal to InProgress, the Watchlist cannot be deleted
 	UploadStatus *string `pulumi:"uploadStatus"`
 	// The alias of the watchlist
@@ -177,7 +177,7 @@ type WatchlistState struct {
 	// The time the watchlist was created
 	Created pulumi.StringPtrInput
 	// Describes a user that created the watchlist
-	CreatedBy UserInfoResponsePtrInput
+	CreatedBy WatchlistUserInfoResponsePtrInput
 	// The default duration of a watchlist (in ISO 8601 duration format)
 	DefaultDuration pulumi.StringPtrInput
 	// A description of the watchlist
@@ -207,7 +207,7 @@ type WatchlistState struct {
 	// The last time the watchlist was updated
 	Updated pulumi.StringPtrInput
 	// Describes a user that updated the watchlist
-	UpdatedBy UserInfoResponsePtrInput
+	UpdatedBy WatchlistUserInfoResponsePtrInput
 	// The status of the Watchlist upload : New, InProgress or Complete. Pls note : When a Watchlist upload status is equal to InProgress, the Watchlist cannot be deleted
 	UploadStatus pulumi.StringPtrInput
 	// The alias of the watchlist
@@ -230,7 +230,7 @@ type watchlistArgs struct {
 	// The time the watchlist was created
 	Created *string `pulumi:"created"`
 	// Describes a user that created the watchlist
-	CreatedBy *UserInfo `pulumi:"createdBy"`
+	CreatedBy *WatchlistUserInfo `pulumi:"createdBy"`
 	// The default duration of a watchlist (in ISO 8601 duration format)
 	DefaultDuration *string `pulumi:"defaultDuration"`
 	// A description of the watchlist
@@ -260,7 +260,7 @@ type watchlistArgs struct {
 	// The last time the watchlist was updated
 	Updated *string `pulumi:"updated"`
 	// Describes a user that updated the watchlist
-	UpdatedBy *UserInfo `pulumi:"updatedBy"`
+	UpdatedBy *WatchlistUserInfo `pulumi:"updatedBy"`
 	// The status of the Watchlist upload : New, InProgress or Complete. Pls note : When a Watchlist upload status is equal to InProgress, the Watchlist cannot be deleted
 	UploadStatus *string `pulumi:"uploadStatus"`
 	// The alias of the watchlist
@@ -282,7 +282,7 @@ type WatchlistArgs struct {
 	// The time the watchlist was created
 	Created pulumi.StringPtrInput
 	// Describes a user that created the watchlist
-	CreatedBy UserInfoPtrInput
+	CreatedBy WatchlistUserInfoPtrInput
 	// The default duration of a watchlist (in ISO 8601 duration format)
 	DefaultDuration pulumi.StringPtrInput
 	// A description of the watchlist
@@ -312,7 +312,7 @@ type WatchlistArgs struct {
 	// The last time the watchlist was updated
 	Updated pulumi.StringPtrInput
 	// Describes a user that updated the watchlist
-	UpdatedBy UserInfoPtrInput
+	UpdatedBy WatchlistUserInfoPtrInput
 	// The status of the Watchlist upload : New, InProgress or Complete. Pls note : When a Watchlist upload status is equal to InProgress, the Watchlist cannot be deleted
 	UploadStatus pulumi.StringPtrInput
 	// The alias of the watchlist

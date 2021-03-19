@@ -12,7 +12,7 @@ import (
 )
 
 // Information about a partner registration.
-// API Version: 2020-10-15-preview.
+// API Version: 2020-04-01-preview.
 type PartnerRegistration struct {
 	pulumi.CustomResourceState
 

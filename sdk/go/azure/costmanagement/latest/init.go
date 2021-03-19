@@ -23,10 +23,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "azure-native:costmanagement/latest:Export":
 		r, err = NewExport(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-native:costmanagement/latest:ReportConfig":
-		r, err = NewReportConfig(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-native:costmanagement/latest:ReportConfigByResourceGroupName":
-		r, err = NewReportConfigByResourceGroupName(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:costmanagement/latest:Setting":
 		r, err = NewSetting(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:costmanagement/latest:View":

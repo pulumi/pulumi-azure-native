@@ -29,20 +29,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewAppServicePlanRouteForVnet(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:web:Certificate":
 		r, err = NewCertificate(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-native:web:CertificateCsr":
-		r, err = NewCertificateCsr(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:web:Connection":
 		r, err = NewConnection(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:web:ConnectionGateway":
 		r, err = NewConnectionGateway(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:web:CustomApi":
 		r, err = NewCustomApi(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-native:web:ManagedHostingEnvironment":
-		r, err = NewManagedHostingEnvironment(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-native:web:SiteInstanceDeployment":
-		r, err = NewSiteInstanceDeployment(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-native:web:SiteInstanceDeploymentSlot":
-		r, err = NewSiteInstanceDeploymentSlot(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:web:StaticSite":
 		r, err = NewStaticSite(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:web:WebApp":

@@ -63,6 +63,36 @@ func NewMongoDBResourceMongoDBCollection(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:documentdb/latest:MongoDBResourceMongoDBCollection"),
 		},
 		{
+			Type: pulumi.String("azure-native:documentdb/v20150401:MongoDBResourceMongoDBCollection"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:documentdb/v20150401:MongoDBResourceMongoDBCollection"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20150408:MongoDBResourceMongoDBCollection"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:documentdb/v20150408:MongoDBResourceMongoDBCollection"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20151106:MongoDBResourceMongoDBCollection"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:documentdb/v20151106:MongoDBResourceMongoDBCollection"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20160319:MongoDBResourceMongoDBCollection"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:documentdb/v20160319:MongoDBResourceMongoDBCollection"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20160331:MongoDBResourceMongoDBCollection"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:documentdb/v20160331:MongoDBResourceMongoDBCollection"),
+		},
+		{
 			Type: pulumi.String("azure-native:documentdb/v20190801:MongoDBResourceMongoDBCollection"),
 		},
 		{

@@ -68,6 +68,36 @@ func NewGremlinResourceGremlinGraph(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:documentdb/latest:GremlinResourceGremlinGraph"),
 		},
 		{
+			Type: pulumi.String("azure-native:documentdb/v20150401:GremlinResourceGremlinGraph"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:documentdb/v20150401:GremlinResourceGremlinGraph"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20150408:GremlinResourceGremlinGraph"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:documentdb/v20150408:GremlinResourceGremlinGraph"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20151106:GremlinResourceGremlinGraph"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:documentdb/v20151106:GremlinResourceGremlinGraph"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20160319:GremlinResourceGremlinGraph"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:documentdb/v20160319:GremlinResourceGremlinGraph"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20160331:GremlinResourceGremlinGraph"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:documentdb/v20160331:GremlinResourceGremlinGraph"),
+		},
+		{
 			Type: pulumi.String("azure-native:documentdb/v20190801:GremlinResourceGremlinGraph"),
 		},
 		{

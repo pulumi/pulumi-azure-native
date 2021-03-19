@@ -45,7 +45,7 @@ type LookupRedisEnterpriseResult struct {
 	// Current resource status of the cluster
 	ResourceState string `pulumi:"resourceState"`
 	// The SKU to create, which affects price, performance, and features.
-	Sku SkuResponse `pulumi:"sku"`
+	Sku EnterpriseSkuResponse `pulumi:"sku"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"

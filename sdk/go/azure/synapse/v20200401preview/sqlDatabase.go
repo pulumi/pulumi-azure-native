@@ -52,12 +52,6 @@ func NewSqlDatabase(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:synapse/v20200401preview:SqlDatabase"),
 		},
-		{
-			Type: pulumi.String("azure-native:synapse:SqlDatabase"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:synapse:SqlDatabase"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource SqlDatabase

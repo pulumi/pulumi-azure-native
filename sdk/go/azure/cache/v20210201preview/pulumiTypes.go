@@ -316,6 +316,312 @@ func (o DatabasePropertiesResponseGeoReplicationPtrOutput) LinkedDatabases() Lin
 	}).(LinkedDatabaseResponseArrayOutput)
 }
 
+// SKU parameters supplied to the create RedisEnterprise operation.
+type EnterpriseSku struct {
+	// The size of the RedisEnterprise cluster. Defaults to 2 or 3 depending on SKU. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for Flash SKUs.
+	Capacity *int `pulumi:"capacity"`
+	// The type of RedisEnterprise cluster to deploy. Possible values: (Enterprise_E10, EnterpriseFlash_F300 etc.)
+	Name string `pulumi:"name"`
+}
+
+// EnterpriseSkuInput is an input type that accepts EnterpriseSkuArgs and EnterpriseSkuOutput values.
+// You can construct a concrete instance of `EnterpriseSkuInput` via:
+//
+//          EnterpriseSkuArgs{...}
+type EnterpriseSkuInput interface {
+	pulumi.Input
+
+	ToEnterpriseSkuOutput() EnterpriseSkuOutput
+	ToEnterpriseSkuOutputWithContext(context.Context) EnterpriseSkuOutput
+}
+
+// SKU parameters supplied to the create RedisEnterprise operation.
+type EnterpriseSkuArgs struct {
+	// The size of the RedisEnterprise cluster. Defaults to 2 or 3 depending on SKU. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for Flash SKUs.
+	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
+	// The type of RedisEnterprise cluster to deploy. Possible values: (Enterprise_E10, EnterpriseFlash_F300 etc.)
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (EnterpriseSkuArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnterpriseSku)(nil)).Elem()
+}
+
+func (i EnterpriseSkuArgs) ToEnterpriseSkuOutput() EnterpriseSkuOutput {
+	return i.ToEnterpriseSkuOutputWithContext(context.Background())
+}
+
+func (i EnterpriseSkuArgs) ToEnterpriseSkuOutputWithContext(ctx context.Context) EnterpriseSkuOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnterpriseSkuOutput)
+}
+
+func (i EnterpriseSkuArgs) ToEnterpriseSkuPtrOutput() EnterpriseSkuPtrOutput {
+	return i.ToEnterpriseSkuPtrOutputWithContext(context.Background())
+}
+
+func (i EnterpriseSkuArgs) ToEnterpriseSkuPtrOutputWithContext(ctx context.Context) EnterpriseSkuPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnterpriseSkuOutput).ToEnterpriseSkuPtrOutputWithContext(ctx)
+}
+
+// EnterpriseSkuPtrInput is an input type that accepts EnterpriseSkuArgs, EnterpriseSkuPtr and EnterpriseSkuPtrOutput values.
+// You can construct a concrete instance of `EnterpriseSkuPtrInput` via:
+//
+//          EnterpriseSkuArgs{...}
+//
+//  or:
+//
+//          nil
+type EnterpriseSkuPtrInput interface {
+	pulumi.Input
+
+	ToEnterpriseSkuPtrOutput() EnterpriseSkuPtrOutput
+	ToEnterpriseSkuPtrOutputWithContext(context.Context) EnterpriseSkuPtrOutput
+}
+
+type enterpriseSkuPtrType EnterpriseSkuArgs
+
+func EnterpriseSkuPtr(v *EnterpriseSkuArgs) EnterpriseSkuPtrInput {
+	return (*enterpriseSkuPtrType)(v)
+}
+
+func (*enterpriseSkuPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EnterpriseSku)(nil)).Elem()
+}
+
+func (i *enterpriseSkuPtrType) ToEnterpriseSkuPtrOutput() EnterpriseSkuPtrOutput {
+	return i.ToEnterpriseSkuPtrOutputWithContext(context.Background())
+}
+
+func (i *enterpriseSkuPtrType) ToEnterpriseSkuPtrOutputWithContext(ctx context.Context) EnterpriseSkuPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnterpriseSkuPtrOutput)
+}
+
+// SKU parameters supplied to the create RedisEnterprise operation.
+type EnterpriseSkuOutput struct{ *pulumi.OutputState }
+
+func (EnterpriseSkuOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnterpriseSku)(nil)).Elem()
+}
+
+func (o EnterpriseSkuOutput) ToEnterpriseSkuOutput() EnterpriseSkuOutput {
+	return o
+}
+
+func (o EnterpriseSkuOutput) ToEnterpriseSkuOutputWithContext(ctx context.Context) EnterpriseSkuOutput {
+	return o
+}
+
+func (o EnterpriseSkuOutput) ToEnterpriseSkuPtrOutput() EnterpriseSkuPtrOutput {
+	return o.ToEnterpriseSkuPtrOutputWithContext(context.Background())
+}
+
+func (o EnterpriseSkuOutput) ToEnterpriseSkuPtrOutputWithContext(ctx context.Context) EnterpriseSkuPtrOutput {
+	return o.ApplyT(func(v EnterpriseSku) *EnterpriseSku {
+		return &v
+	}).(EnterpriseSkuPtrOutput)
+}
+
+// The size of the RedisEnterprise cluster. Defaults to 2 or 3 depending on SKU. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for Flash SKUs.
+func (o EnterpriseSkuOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EnterpriseSku) *int { return v.Capacity }).(pulumi.IntPtrOutput)
+}
+
+// The type of RedisEnterprise cluster to deploy. Possible values: (Enterprise_E10, EnterpriseFlash_F300 etc.)
+func (o EnterpriseSkuOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v EnterpriseSku) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type EnterpriseSkuPtrOutput struct{ *pulumi.OutputState }
+
+func (EnterpriseSkuPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EnterpriseSku)(nil)).Elem()
+}
+
+func (o EnterpriseSkuPtrOutput) ToEnterpriseSkuPtrOutput() EnterpriseSkuPtrOutput {
+	return o
+}
+
+func (o EnterpriseSkuPtrOutput) ToEnterpriseSkuPtrOutputWithContext(ctx context.Context) EnterpriseSkuPtrOutput {
+	return o
+}
+
+func (o EnterpriseSkuPtrOutput) Elem() EnterpriseSkuOutput {
+	return o.ApplyT(func(v *EnterpriseSku) EnterpriseSku { return *v }).(EnterpriseSkuOutput)
+}
+
+// The size of the RedisEnterprise cluster. Defaults to 2 or 3 depending on SKU. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for Flash SKUs.
+func (o EnterpriseSkuPtrOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EnterpriseSku) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Capacity
+	}).(pulumi.IntPtrOutput)
+}
+
+// The type of RedisEnterprise cluster to deploy. Possible values: (Enterprise_E10, EnterpriseFlash_F300 etc.)
+func (o EnterpriseSkuPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EnterpriseSku) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// SKU parameters supplied to the create RedisEnterprise operation.
+type EnterpriseSkuResponse struct {
+	// The size of the RedisEnterprise cluster. Defaults to 2 or 3 depending on SKU. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for Flash SKUs.
+	Capacity *int `pulumi:"capacity"`
+	// The type of RedisEnterprise cluster to deploy. Possible values: (Enterprise_E10, EnterpriseFlash_F300 etc.)
+	Name string `pulumi:"name"`
+}
+
+// EnterpriseSkuResponseInput is an input type that accepts EnterpriseSkuResponseArgs and EnterpriseSkuResponseOutput values.
+// You can construct a concrete instance of `EnterpriseSkuResponseInput` via:
+//
+//          EnterpriseSkuResponseArgs{...}
+type EnterpriseSkuResponseInput interface {
+	pulumi.Input
+
+	ToEnterpriseSkuResponseOutput() EnterpriseSkuResponseOutput
+	ToEnterpriseSkuResponseOutputWithContext(context.Context) EnterpriseSkuResponseOutput
+}
+
+// SKU parameters supplied to the create RedisEnterprise operation.
+type EnterpriseSkuResponseArgs struct {
+	// The size of the RedisEnterprise cluster. Defaults to 2 or 3 depending on SKU. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for Flash SKUs.
+	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
+	// The type of RedisEnterprise cluster to deploy. Possible values: (Enterprise_E10, EnterpriseFlash_F300 etc.)
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (EnterpriseSkuResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnterpriseSkuResponse)(nil)).Elem()
+}
+
+func (i EnterpriseSkuResponseArgs) ToEnterpriseSkuResponseOutput() EnterpriseSkuResponseOutput {
+	return i.ToEnterpriseSkuResponseOutputWithContext(context.Background())
+}
+
+func (i EnterpriseSkuResponseArgs) ToEnterpriseSkuResponseOutputWithContext(ctx context.Context) EnterpriseSkuResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnterpriseSkuResponseOutput)
+}
+
+func (i EnterpriseSkuResponseArgs) ToEnterpriseSkuResponsePtrOutput() EnterpriseSkuResponsePtrOutput {
+	return i.ToEnterpriseSkuResponsePtrOutputWithContext(context.Background())
+}
+
+func (i EnterpriseSkuResponseArgs) ToEnterpriseSkuResponsePtrOutputWithContext(ctx context.Context) EnterpriseSkuResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnterpriseSkuResponseOutput).ToEnterpriseSkuResponsePtrOutputWithContext(ctx)
+}
+
+// EnterpriseSkuResponsePtrInput is an input type that accepts EnterpriseSkuResponseArgs, EnterpriseSkuResponsePtr and EnterpriseSkuResponsePtrOutput values.
+// You can construct a concrete instance of `EnterpriseSkuResponsePtrInput` via:
+//
+//          EnterpriseSkuResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type EnterpriseSkuResponsePtrInput interface {
+	pulumi.Input
+
+	ToEnterpriseSkuResponsePtrOutput() EnterpriseSkuResponsePtrOutput
+	ToEnterpriseSkuResponsePtrOutputWithContext(context.Context) EnterpriseSkuResponsePtrOutput
+}
+
+type enterpriseSkuResponsePtrType EnterpriseSkuResponseArgs
+
+func EnterpriseSkuResponsePtr(v *EnterpriseSkuResponseArgs) EnterpriseSkuResponsePtrInput {
+	return (*enterpriseSkuResponsePtrType)(v)
+}
+
+func (*enterpriseSkuResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EnterpriseSkuResponse)(nil)).Elem()
+}
+
+func (i *enterpriseSkuResponsePtrType) ToEnterpriseSkuResponsePtrOutput() EnterpriseSkuResponsePtrOutput {
+	return i.ToEnterpriseSkuResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *enterpriseSkuResponsePtrType) ToEnterpriseSkuResponsePtrOutputWithContext(ctx context.Context) EnterpriseSkuResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnterpriseSkuResponsePtrOutput)
+}
+
+// SKU parameters supplied to the create RedisEnterprise operation.
+type EnterpriseSkuResponseOutput struct{ *pulumi.OutputState }
+
+func (EnterpriseSkuResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnterpriseSkuResponse)(nil)).Elem()
+}
+
+func (o EnterpriseSkuResponseOutput) ToEnterpriseSkuResponseOutput() EnterpriseSkuResponseOutput {
+	return o
+}
+
+func (o EnterpriseSkuResponseOutput) ToEnterpriseSkuResponseOutputWithContext(ctx context.Context) EnterpriseSkuResponseOutput {
+	return o
+}
+
+func (o EnterpriseSkuResponseOutput) ToEnterpriseSkuResponsePtrOutput() EnterpriseSkuResponsePtrOutput {
+	return o.ToEnterpriseSkuResponsePtrOutputWithContext(context.Background())
+}
+
+func (o EnterpriseSkuResponseOutput) ToEnterpriseSkuResponsePtrOutputWithContext(ctx context.Context) EnterpriseSkuResponsePtrOutput {
+	return o.ApplyT(func(v EnterpriseSkuResponse) *EnterpriseSkuResponse {
+		return &v
+	}).(EnterpriseSkuResponsePtrOutput)
+}
+
+// The size of the RedisEnterprise cluster. Defaults to 2 or 3 depending on SKU. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for Flash SKUs.
+func (o EnterpriseSkuResponseOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EnterpriseSkuResponse) *int { return v.Capacity }).(pulumi.IntPtrOutput)
+}
+
+// The type of RedisEnterprise cluster to deploy. Possible values: (Enterprise_E10, EnterpriseFlash_F300 etc.)
+func (o EnterpriseSkuResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v EnterpriseSkuResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type EnterpriseSkuResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (EnterpriseSkuResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EnterpriseSkuResponse)(nil)).Elem()
+}
+
+func (o EnterpriseSkuResponsePtrOutput) ToEnterpriseSkuResponsePtrOutput() EnterpriseSkuResponsePtrOutput {
+	return o
+}
+
+func (o EnterpriseSkuResponsePtrOutput) ToEnterpriseSkuResponsePtrOutputWithContext(ctx context.Context) EnterpriseSkuResponsePtrOutput {
+	return o
+}
+
+func (o EnterpriseSkuResponsePtrOutput) Elem() EnterpriseSkuResponseOutput {
+	return o.ApplyT(func(v *EnterpriseSkuResponse) EnterpriseSkuResponse { return *v }).(EnterpriseSkuResponseOutput)
+}
+
+// The size of the RedisEnterprise cluster. Defaults to 2 or 3 depending on SKU. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for Flash SKUs.
+func (o EnterpriseSkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EnterpriseSkuResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Capacity
+	}).(pulumi.IntPtrOutput)
+}
+
+// The type of RedisEnterprise cluster to deploy. Possible values: (Enterprise_E10, EnterpriseFlash_F300 etc.)
+func (o EnterpriseSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EnterpriseSkuResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
 // Specifies details of a linked database resource.
 type LinkedDatabase struct {
 	// Resource ID of a database resource to link with this database.
@@ -1761,317 +2067,15 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Status() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// SKU parameters supplied to the create RedisEnterprise operation.
-type Sku struct {
-	// The size of the RedisEnterprise cluster. Defaults to 2 or 3 depending on SKU. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for Flash SKUs.
-	Capacity *int `pulumi:"capacity"`
-	// The type of RedisEnterprise cluster to deploy. Possible values: (Enterprise_E10, EnterpriseFlash_F300 etc.)
-	Name string `pulumi:"name"`
-}
-
-// SkuInput is an input type that accepts SkuArgs and SkuOutput values.
-// You can construct a concrete instance of `SkuInput` via:
-//
-//          SkuArgs{...}
-type SkuInput interface {
-	pulumi.Input
-
-	ToSkuOutput() SkuOutput
-	ToSkuOutputWithContext(context.Context) SkuOutput
-}
-
-// SKU parameters supplied to the create RedisEnterprise operation.
-type SkuArgs struct {
-	// The size of the RedisEnterprise cluster. Defaults to 2 or 3 depending on SKU. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for Flash SKUs.
-	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
-	// The type of RedisEnterprise cluster to deploy. Possible values: (Enterprise_E10, EnterpriseFlash_F300 etc.)
-	Name pulumi.StringInput `pulumi:"name"`
-}
-
-func (SkuArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*Sku)(nil)).Elem()
-}
-
-func (i SkuArgs) ToSkuOutput() SkuOutput {
-	return i.ToSkuOutputWithContext(context.Background())
-}
-
-func (i SkuArgs) ToSkuOutputWithContext(ctx context.Context) SkuOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SkuOutput)
-}
-
-func (i SkuArgs) ToSkuPtrOutput() SkuPtrOutput {
-	return i.ToSkuPtrOutputWithContext(context.Background())
-}
-
-func (i SkuArgs) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SkuOutput).ToSkuPtrOutputWithContext(ctx)
-}
-
-// SkuPtrInput is an input type that accepts SkuArgs, SkuPtr and SkuPtrOutput values.
-// You can construct a concrete instance of `SkuPtrInput` via:
-//
-//          SkuArgs{...}
-//
-//  or:
-//
-//          nil
-type SkuPtrInput interface {
-	pulumi.Input
-
-	ToSkuPtrOutput() SkuPtrOutput
-	ToSkuPtrOutputWithContext(context.Context) SkuPtrOutput
-}
-
-type skuPtrType SkuArgs
-
-func SkuPtr(v *SkuArgs) SkuPtrInput {
-	return (*skuPtrType)(v)
-}
-
-func (*skuPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Sku)(nil)).Elem()
-}
-
-func (i *skuPtrType) ToSkuPtrOutput() SkuPtrOutput {
-	return i.ToSkuPtrOutputWithContext(context.Background())
-}
-
-func (i *skuPtrType) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SkuPtrOutput)
-}
-
-// SKU parameters supplied to the create RedisEnterprise operation.
-type SkuOutput struct{ *pulumi.OutputState }
-
-func (SkuOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Sku)(nil)).Elem()
-}
-
-func (o SkuOutput) ToSkuOutput() SkuOutput {
-	return o
-}
-
-func (o SkuOutput) ToSkuOutputWithContext(ctx context.Context) SkuOutput {
-	return o
-}
-
-func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
-	return o.ToSkuPtrOutputWithContext(context.Background())
-}
-
-func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyT(func(v Sku) *Sku {
-		return &v
-	}).(SkuPtrOutput)
-}
-
-// The size of the RedisEnterprise cluster. Defaults to 2 or 3 depending on SKU. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for Flash SKUs.
-func (o SkuOutput) Capacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v Sku) *int { return v.Capacity }).(pulumi.IntPtrOutput)
-}
-
-// The type of RedisEnterprise cluster to deploy. Possible values: (Enterprise_E10, EnterpriseFlash_F300 etc.)
-func (o SkuOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v Sku) string { return v.Name }).(pulumi.StringOutput)
-}
-
-type SkuPtrOutput struct{ *pulumi.OutputState }
-
-func (SkuPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Sku)(nil)).Elem()
-}
-
-func (o SkuPtrOutput) ToSkuPtrOutput() SkuPtrOutput {
-	return o
-}
-
-func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o
-}
-
-func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
-}
-
-// The size of the RedisEnterprise cluster. Defaults to 2 or 3 depending on SKU. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for Flash SKUs.
-func (o SkuPtrOutput) Capacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *Sku) *int {
-		if v == nil {
-			return nil
-		}
-		return v.Capacity
-	}).(pulumi.IntPtrOutput)
-}
-
-// The type of RedisEnterprise cluster to deploy. Possible values: (Enterprise_E10, EnterpriseFlash_F300 etc.)
-func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Sku) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// SKU parameters supplied to the create RedisEnterprise operation.
-type SkuResponse struct {
-	// The size of the RedisEnterprise cluster. Defaults to 2 or 3 depending on SKU. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for Flash SKUs.
-	Capacity *int `pulumi:"capacity"`
-	// The type of RedisEnterprise cluster to deploy. Possible values: (Enterprise_E10, EnterpriseFlash_F300 etc.)
-	Name string `pulumi:"name"`
-}
-
-// SkuResponseInput is an input type that accepts SkuResponseArgs and SkuResponseOutput values.
-// You can construct a concrete instance of `SkuResponseInput` via:
-//
-//          SkuResponseArgs{...}
-type SkuResponseInput interface {
-	pulumi.Input
-
-	ToSkuResponseOutput() SkuResponseOutput
-	ToSkuResponseOutputWithContext(context.Context) SkuResponseOutput
-}
-
-// SKU parameters supplied to the create RedisEnterprise operation.
-type SkuResponseArgs struct {
-	// The size of the RedisEnterprise cluster. Defaults to 2 or 3 depending on SKU. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for Flash SKUs.
-	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
-	// The type of RedisEnterprise cluster to deploy. Possible values: (Enterprise_E10, EnterpriseFlash_F300 etc.)
-	Name pulumi.StringInput `pulumi:"name"`
-}
-
-func (SkuResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SkuResponse)(nil)).Elem()
-}
-
-func (i SkuResponseArgs) ToSkuResponseOutput() SkuResponseOutput {
-	return i.ToSkuResponseOutputWithContext(context.Background())
-}
-
-func (i SkuResponseArgs) ToSkuResponseOutputWithContext(ctx context.Context) SkuResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SkuResponseOutput)
-}
-
-func (i SkuResponseArgs) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
-	return i.ToSkuResponsePtrOutputWithContext(context.Background())
-}
-
-func (i SkuResponseArgs) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SkuResponseOutput).ToSkuResponsePtrOutputWithContext(ctx)
-}
-
-// SkuResponsePtrInput is an input type that accepts SkuResponseArgs, SkuResponsePtr and SkuResponsePtrOutput values.
-// You can construct a concrete instance of `SkuResponsePtrInput` via:
-//
-//          SkuResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type SkuResponsePtrInput interface {
-	pulumi.Input
-
-	ToSkuResponsePtrOutput() SkuResponsePtrOutput
-	ToSkuResponsePtrOutputWithContext(context.Context) SkuResponsePtrOutput
-}
-
-type skuResponsePtrType SkuResponseArgs
-
-func SkuResponsePtr(v *SkuResponseArgs) SkuResponsePtrInput {
-	return (*skuResponsePtrType)(v)
-}
-
-func (*skuResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SkuResponse)(nil)).Elem()
-}
-
-func (i *skuResponsePtrType) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
-	return i.ToSkuResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *skuResponsePtrType) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SkuResponsePtrOutput)
-}
-
-// SKU parameters supplied to the create RedisEnterprise operation.
-type SkuResponseOutput struct{ *pulumi.OutputState }
-
-func (SkuResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SkuResponse)(nil)).Elem()
-}
-
-func (o SkuResponseOutput) ToSkuResponseOutput() SkuResponseOutput {
-	return o
-}
-
-func (o SkuResponseOutput) ToSkuResponseOutputWithContext(ctx context.Context) SkuResponseOutput {
-	return o
-}
-
-func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
-	return o.ToSkuResponsePtrOutputWithContext(context.Background())
-}
-
-func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyT(func(v SkuResponse) *SkuResponse {
-		return &v
-	}).(SkuResponsePtrOutput)
-}
-
-// The size of the RedisEnterprise cluster. Defaults to 2 or 3 depending on SKU. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for Flash SKUs.
-func (o SkuResponseOutput) Capacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SkuResponse) *int { return v.Capacity }).(pulumi.IntPtrOutput)
-}
-
-// The type of RedisEnterprise cluster to deploy. Possible values: (Enterprise_E10, EnterpriseFlash_F300 etc.)
-func (o SkuResponseOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v SkuResponse) string { return v.Name }).(pulumi.StringOutput)
-}
-
-type SkuResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (SkuResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SkuResponse)(nil)).Elem()
-}
-
-func (o SkuResponsePtrOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
-	return o
-}
-
-func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o
-}
-
-func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
-}
-
-// The size of the RedisEnterprise cluster. Defaults to 2 or 3 depending on SKU. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for Flash SKUs.
-func (o SkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SkuResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return v.Capacity
-	}).(pulumi.IntPtrOutput)
-}
-
-// The type of RedisEnterprise cluster to deploy. Possible values: (Enterprise_E10, EnterpriseFlash_F300 etc.)
-func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SkuResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
 func init() {
 	pulumi.RegisterOutputType(DatabasePropertiesGeoReplicationOutput{})
 	pulumi.RegisterOutputType(DatabasePropertiesGeoReplicationPtrOutput{})
 	pulumi.RegisterOutputType(DatabasePropertiesResponseGeoReplicationOutput{})
 	pulumi.RegisterOutputType(DatabasePropertiesResponseGeoReplicationPtrOutput{})
+	pulumi.RegisterOutputType(EnterpriseSkuOutput{})
+	pulumi.RegisterOutputType(EnterpriseSkuPtrOutput{})
+	pulumi.RegisterOutputType(EnterpriseSkuResponseOutput{})
+	pulumi.RegisterOutputType(EnterpriseSkuResponsePtrOutput{})
 	pulumi.RegisterOutputType(LinkedDatabaseOutput{})
 	pulumi.RegisterOutputType(LinkedDatabaseArrayOutput{})
 	pulumi.RegisterOutputType(LinkedDatabaseResponseOutput{})
@@ -2092,8 +2096,4 @@ func init() {
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStatePtrOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateResponseOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateResponsePtrOutput{})
-	pulumi.RegisterOutputType(SkuOutput{})
-	pulumi.RegisterOutputType(SkuPtrOutput{})
-	pulumi.RegisterOutputType(SkuResponseOutput{})
-	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
 }

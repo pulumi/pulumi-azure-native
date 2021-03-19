@@ -63,6 +63,12 @@ func NewCloudConnector(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:costmanagement:CloudConnector"),
 		},
 		{
+			Type: pulumi.String("azure-native:costmanagement/v20180801preview:CloudConnector"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:costmanagement/v20180801preview:CloudConnector"),
+		},
+		{
 			Type: pulumi.String("azure-native:costmanagement/v20190301preview:CloudConnector"),
 		},
 		{

@@ -103,6 +103,54 @@ func NewDatabaseAccountSqlContainer(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20160331:DatabaseAccountSqlContainer"),
 		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20190801:DatabaseAccountSqlContainer"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:documentdb/v20190801:DatabaseAccountSqlContainer"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20191212:DatabaseAccountSqlContainer"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:documentdb/v20191212:DatabaseAccountSqlContainer"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20200301:DatabaseAccountSqlContainer"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:documentdb/v20200301:DatabaseAccountSqlContainer"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20200401:DatabaseAccountSqlContainer"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:documentdb/v20200401:DatabaseAccountSqlContainer"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20200601preview:DatabaseAccountSqlContainer"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:documentdb/v20200601preview:DatabaseAccountSqlContainer"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20200901:DatabaseAccountSqlContainer"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:documentdb/v20200901:DatabaseAccountSqlContainer"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20210115:DatabaseAccountSqlContainer"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:documentdb/v20210115:DatabaseAccountSqlContainer"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20210301preview:DatabaseAccountSqlContainer"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:documentdb/v20210301preview:DatabaseAccountSqlContainer"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource DatabaseAccountSqlContainer

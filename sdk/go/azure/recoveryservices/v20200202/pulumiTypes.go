@@ -1236,14 +1236,14 @@ func (o PrivateEndpointConnectionTypePtrOutput) ProvisioningState() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// Private Endpoint Connection Response Properties.
+// Private Endpoint Connection Response Properties
 type PrivateEndpointConnectionResponse struct {
-	// The Private Endpoint network resource that is linked to the Private Endpoint connection.
-	PrivateEndpoint PrivateEndpointResponse `pulumi:"privateEndpoint"`
-	// Gets or sets private link service connection state.
-	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
-	// Gets or sets provisioning state of the private endpoint connection.
-	ProvisioningState string `pulumi:"provisioningState"`
+	// Gets or sets private endpoint associated with the private endpoint connection
+	PrivateEndpoint *PrivateEndpointResponse `pulumi:"privateEndpoint"`
+	// Gets or sets private link service connection state
+	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
+	// Gets or sets provisioning state of the private endpoint connection
+	ProvisioningState *string `pulumi:"provisioningState"`
 }
 
 // PrivateEndpointConnectionResponseInput is an input type that accepts PrivateEndpointConnectionResponseArgs and PrivateEndpointConnectionResponseOutput values.
@@ -1257,14 +1257,14 @@ type PrivateEndpointConnectionResponseInput interface {
 	ToPrivateEndpointConnectionResponseOutputWithContext(context.Context) PrivateEndpointConnectionResponseOutput
 }
 
-// Private Endpoint Connection Response Properties.
+// Private Endpoint Connection Response Properties
 type PrivateEndpointConnectionResponseArgs struct {
-	// The Private Endpoint network resource that is linked to the Private Endpoint connection.
-	PrivateEndpoint PrivateEndpointResponseInput `pulumi:"privateEndpoint"`
-	// Gets or sets private link service connection state.
-	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponseInput `pulumi:"privateLinkServiceConnectionState"`
-	// Gets or sets provisioning state of the private endpoint connection.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+	// Gets or sets private endpoint associated with the private endpoint connection
+	PrivateEndpoint PrivateEndpointResponsePtrInput `pulumi:"privateEndpoint"`
+	// Gets or sets private link service connection state
+	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponsePtrInput `pulumi:"privateLinkServiceConnectionState"`
+	// Gets or sets provisioning state of the private endpoint connection
+	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
 }
 
 func (PrivateEndpointConnectionResponseArgs) ElementType() reflect.Type {
@@ -1320,7 +1320,7 @@ func (i *privateEndpointConnectionResponsePtrType) ToPrivateEndpointConnectionRe
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionResponsePtrOutput)
 }
 
-// Private Endpoint Connection Response Properties.
+// Private Endpoint Connection Response Properties
 type PrivateEndpointConnectionResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointConnectionResponseOutput) ElementType() reflect.Type {
@@ -1345,21 +1345,21 @@ func (o PrivateEndpointConnectionResponseOutput) ToPrivateEndpointConnectionResp
 	}).(PrivateEndpointConnectionResponsePtrOutput)
 }
 
-// The Private Endpoint network resource that is linked to the Private Endpoint connection.
-func (o PrivateEndpointConnectionResponseOutput) PrivateEndpoint() PrivateEndpointResponseOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionResponse) PrivateEndpointResponse { return v.PrivateEndpoint }).(PrivateEndpointResponseOutput)
+// Gets or sets private endpoint associated with the private endpoint connection
+func (o PrivateEndpointConnectionResponseOutput) PrivateEndpoint() PrivateEndpointResponsePtrOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) *PrivateEndpointResponse { return v.PrivateEndpoint }).(PrivateEndpointResponsePtrOutput)
 }
 
-// Gets or sets private link service connection state.
-func (o PrivateEndpointConnectionResponseOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStateResponseOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionResponse) PrivateLinkServiceConnectionStateResponse {
+// Gets or sets private link service connection state
+func (o PrivateEndpointConnectionResponseOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStateResponsePtrOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) *PrivateLinkServiceConnectionStateResponse {
 		return v.PrivateLinkServiceConnectionState
-	}).(PrivateLinkServiceConnectionStateResponseOutput)
+	}).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
 
-// Gets or sets provisioning state of the private endpoint connection.
-func (o PrivateEndpointConnectionResponseOutput) ProvisioningState() pulumi.StringOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+// Gets or sets provisioning state of the private endpoint connection
+func (o PrivateEndpointConnectionResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
 
 type PrivateEndpointConnectionResponsePtrOutput struct{ *pulumi.OutputState }
@@ -1380,33 +1380,33 @@ func (o PrivateEndpointConnectionResponsePtrOutput) Elem() PrivateEndpointConnec
 	return o.ApplyT(func(v *PrivateEndpointConnectionResponse) PrivateEndpointConnectionResponse { return *v }).(PrivateEndpointConnectionResponseOutput)
 }
 
-// The Private Endpoint network resource that is linked to the Private Endpoint connection.
+// Gets or sets private endpoint associated with the private endpoint connection
 func (o PrivateEndpointConnectionResponsePtrOutput) PrivateEndpoint() PrivateEndpointResponsePtrOutput {
 	return o.ApplyT(func(v *PrivateEndpointConnectionResponse) *PrivateEndpointResponse {
 		if v == nil {
 			return nil
 		}
-		return &v.PrivateEndpoint
+		return v.PrivateEndpoint
 	}).(PrivateEndpointResponsePtrOutput)
 }
 
-// Gets or sets private link service connection state.
+// Gets or sets private link service connection state
 func (o PrivateEndpointConnectionResponsePtrOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStateResponsePtrOutput {
 	return o.ApplyT(func(v *PrivateEndpointConnectionResponse) *PrivateLinkServiceConnectionStateResponse {
 		if v == nil {
 			return nil
 		}
-		return &v.PrivateLinkServiceConnectionState
+		return v.PrivateLinkServiceConnectionState
 	}).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
 
-// Gets or sets provisioning state of the private endpoint connection.
+// Gets or sets provisioning state of the private endpoint connection
 func (o PrivateEndpointConnectionResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateEndpointConnectionResponse) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.ProvisioningState
+		return v.ProvisioningState
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1415,7 +1415,7 @@ type PrivateEndpointConnectionVaultPropertiesResponse struct {
 	// Format of id subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.[Service]/{resource}/{resourceName}/privateEndpointConnections/{connectionName}.
 	Id string `pulumi:"id"`
 	// Private Endpoint Connection Response Properties.
-	Properties PrivateEndpointConnectionResponse `pulumi:"properties"`
+	Properties VaultPrivateEndpointConnectionResponse `pulumi:"properties"`
 }
 
 // PrivateEndpointConnectionVaultPropertiesResponseInput is an input type that accepts PrivateEndpointConnectionVaultPropertiesResponseArgs and PrivateEndpointConnectionVaultPropertiesResponseOutput values.
@@ -1434,7 +1434,7 @@ type PrivateEndpointConnectionVaultPropertiesResponseArgs struct {
 	// Format of id subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.[Service]/{resource}/{resourceName}/privateEndpointConnections/{connectionName}.
 	Id pulumi.StringInput `pulumi:"id"`
 	// Private Endpoint Connection Response Properties.
-	Properties PrivateEndpointConnectionResponseInput `pulumi:"properties"`
+	Properties VaultPrivateEndpointConnectionResponseInput `pulumi:"properties"`
 }
 
 func (PrivateEndpointConnectionVaultPropertiesResponseArgs) ElementType() reflect.Type {
@@ -1495,10 +1495,10 @@ func (o PrivateEndpointConnectionVaultPropertiesResponseOutput) Id() pulumi.Stri
 }
 
 // Private Endpoint Connection Response Properties.
-func (o PrivateEndpointConnectionVaultPropertiesResponseOutput) Properties() PrivateEndpointConnectionResponseOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionVaultPropertiesResponse) PrivateEndpointConnectionResponse {
+func (o PrivateEndpointConnectionVaultPropertiesResponseOutput) Properties() VaultPrivateEndpointConnectionResponseOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionVaultPropertiesResponse) VaultPrivateEndpointConnectionResponse {
 		return v.Properties
-	}).(PrivateEndpointConnectionResponseOutput)
+	}).(VaultPrivateEndpointConnectionResponseOutput)
 }
 
 type PrivateEndpointConnectionVaultPropertiesResponseArrayOutput struct{ *pulumi.OutputState }
@@ -1827,14 +1827,14 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) Status() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets private link service connection state.
+// Private Link Service Connection State
 type PrivateLinkServiceConnectionStateResponse struct {
-	// Gets or sets actions required.
-	ActionsRequired string `pulumi:"actionsRequired"`
-	// Gets or sets description.
-	Description string `pulumi:"description"`
-	// Gets or sets the status.
-	Status string `pulumi:"status"`
+	// Gets or sets actions required
+	ActionRequired *string `pulumi:"actionRequired"`
+	// Gets or sets description
+	Description *string `pulumi:"description"`
+	// Gets or sets the status
+	Status *string `pulumi:"status"`
 }
 
 // PrivateLinkServiceConnectionStateResponseInput is an input type that accepts PrivateLinkServiceConnectionStateResponseArgs and PrivateLinkServiceConnectionStateResponseOutput values.
@@ -1848,14 +1848,14 @@ type PrivateLinkServiceConnectionStateResponseInput interface {
 	ToPrivateLinkServiceConnectionStateResponseOutputWithContext(context.Context) PrivateLinkServiceConnectionStateResponseOutput
 }
 
-// Gets or sets private link service connection state.
+// Private Link Service Connection State
 type PrivateLinkServiceConnectionStateResponseArgs struct {
-	// Gets or sets actions required.
-	ActionsRequired pulumi.StringInput `pulumi:"actionsRequired"`
-	// Gets or sets description.
-	Description pulumi.StringInput `pulumi:"description"`
-	// Gets or sets the status.
-	Status pulumi.StringInput `pulumi:"status"`
+	// Gets or sets actions required
+	ActionRequired pulumi.StringPtrInput `pulumi:"actionRequired"`
+	// Gets or sets description
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Gets or sets the status
+	Status pulumi.StringPtrInput `pulumi:"status"`
 }
 
 func (PrivateLinkServiceConnectionStateResponseArgs) ElementType() reflect.Type {
@@ -1911,7 +1911,7 @@ func (i *privateLinkServiceConnectionStateResponsePtrType) ToPrivateLinkServiceC
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
 
-// Gets or sets private link service connection state.
+// Private Link Service Connection State
 type PrivateLinkServiceConnectionStateResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkServiceConnectionStateResponseOutput) ElementType() reflect.Type {
@@ -1936,19 +1936,19 @@ func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceCon
 	}).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
 
-// Gets or sets actions required.
-func (o PrivateLinkServiceConnectionStateResponseOutput) ActionsRequired() pulumi.StringOutput {
-	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) string { return v.ActionsRequired }).(pulumi.StringOutput)
+// Gets or sets actions required
+func (o PrivateLinkServiceConnectionStateResponseOutput) ActionRequired() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.ActionRequired }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets description.
-func (o PrivateLinkServiceConnectionStateResponseOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) string { return v.Description }).(pulumi.StringOutput)
+// Gets or sets description
+func (o PrivateLinkServiceConnectionStateResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the status.
-func (o PrivateLinkServiceConnectionStateResponseOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) string { return v.Status }).(pulumi.StringOutput)
+// Gets or sets the status
+func (o PrivateLinkServiceConnectionStateResponseOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 type PrivateLinkServiceConnectionStateResponsePtrOutput struct{ *pulumi.OutputState }
@@ -1971,33 +1971,33 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Elem() PrivateLinkSe
 	}).(PrivateLinkServiceConnectionStateResponseOutput)
 }
 
-// Gets or sets actions required.
-func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ActionsRequired() pulumi.StringPtrOutput {
+// Gets or sets actions required
+func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ActionRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.ActionsRequired
+		return v.ActionRequired
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets description.
+// Gets or sets description
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.Description
+		return v.Description
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the status.
+// Gets or sets the status
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.Status
+		return v.Status
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -2662,6 +2662,154 @@ func (o UserIdentityResponseMapOutput) MapIndex(k pulumi.StringInput) UserIdenti
 	return pulumi.All(o, k).ApplyT(func(vs []interface{}) UserIdentityResponse {
 		return vs[0].(map[string]UserIdentityResponse)[vs[1].(string)]
 	}).(UserIdentityResponseOutput)
+}
+
+// Private Endpoint Connection Response Properties.
+type VaultPrivateEndpointConnectionResponse struct {
+	// The Private Endpoint network resource that is linked to the Private Endpoint connection.
+	PrivateEndpoint PrivateEndpointResponse `pulumi:"privateEndpoint"`
+	// Gets or sets private link service connection state.
+	PrivateLinkServiceConnectionState VaultPrivateLinkServiceConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
+	// Gets or sets provisioning state of the private endpoint connection.
+	ProvisioningState string `pulumi:"provisioningState"`
+}
+
+// VaultPrivateEndpointConnectionResponseInput is an input type that accepts VaultPrivateEndpointConnectionResponseArgs and VaultPrivateEndpointConnectionResponseOutput values.
+// You can construct a concrete instance of `VaultPrivateEndpointConnectionResponseInput` via:
+//
+//          VaultPrivateEndpointConnectionResponseArgs{...}
+type VaultPrivateEndpointConnectionResponseInput interface {
+	pulumi.Input
+
+	ToVaultPrivateEndpointConnectionResponseOutput() VaultPrivateEndpointConnectionResponseOutput
+	ToVaultPrivateEndpointConnectionResponseOutputWithContext(context.Context) VaultPrivateEndpointConnectionResponseOutput
+}
+
+// Private Endpoint Connection Response Properties.
+type VaultPrivateEndpointConnectionResponseArgs struct {
+	// The Private Endpoint network resource that is linked to the Private Endpoint connection.
+	PrivateEndpoint PrivateEndpointResponseInput `pulumi:"privateEndpoint"`
+	// Gets or sets private link service connection state.
+	PrivateLinkServiceConnectionState VaultPrivateLinkServiceConnectionStateResponseInput `pulumi:"privateLinkServiceConnectionState"`
+	// Gets or sets provisioning state of the private endpoint connection.
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+}
+
+func (VaultPrivateEndpointConnectionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VaultPrivateEndpointConnectionResponse)(nil)).Elem()
+}
+
+func (i VaultPrivateEndpointConnectionResponseArgs) ToVaultPrivateEndpointConnectionResponseOutput() VaultPrivateEndpointConnectionResponseOutput {
+	return i.ToVaultPrivateEndpointConnectionResponseOutputWithContext(context.Background())
+}
+
+func (i VaultPrivateEndpointConnectionResponseArgs) ToVaultPrivateEndpointConnectionResponseOutputWithContext(ctx context.Context) VaultPrivateEndpointConnectionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VaultPrivateEndpointConnectionResponseOutput)
+}
+
+// Private Endpoint Connection Response Properties.
+type VaultPrivateEndpointConnectionResponseOutput struct{ *pulumi.OutputState }
+
+func (VaultPrivateEndpointConnectionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VaultPrivateEndpointConnectionResponse)(nil)).Elem()
+}
+
+func (o VaultPrivateEndpointConnectionResponseOutput) ToVaultPrivateEndpointConnectionResponseOutput() VaultPrivateEndpointConnectionResponseOutput {
+	return o
+}
+
+func (o VaultPrivateEndpointConnectionResponseOutput) ToVaultPrivateEndpointConnectionResponseOutputWithContext(ctx context.Context) VaultPrivateEndpointConnectionResponseOutput {
+	return o
+}
+
+// The Private Endpoint network resource that is linked to the Private Endpoint connection.
+func (o VaultPrivateEndpointConnectionResponseOutput) PrivateEndpoint() PrivateEndpointResponseOutput {
+	return o.ApplyT(func(v VaultPrivateEndpointConnectionResponse) PrivateEndpointResponse { return v.PrivateEndpoint }).(PrivateEndpointResponseOutput)
+}
+
+// Gets or sets private link service connection state.
+func (o VaultPrivateEndpointConnectionResponseOutput) PrivateLinkServiceConnectionState() VaultPrivateLinkServiceConnectionStateResponseOutput {
+	return o.ApplyT(func(v VaultPrivateEndpointConnectionResponse) VaultPrivateLinkServiceConnectionStateResponse {
+		return v.PrivateLinkServiceConnectionState
+	}).(VaultPrivateLinkServiceConnectionStateResponseOutput)
+}
+
+// Gets or sets provisioning state of the private endpoint connection.
+func (o VaultPrivateEndpointConnectionResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v VaultPrivateEndpointConnectionResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Gets or sets private link service connection state.
+type VaultPrivateLinkServiceConnectionStateResponse struct {
+	// Gets or sets actions required.
+	ActionsRequired string `pulumi:"actionsRequired"`
+	// Gets or sets description.
+	Description string `pulumi:"description"`
+	// Gets or sets the status.
+	Status string `pulumi:"status"`
+}
+
+// VaultPrivateLinkServiceConnectionStateResponseInput is an input type that accepts VaultPrivateLinkServiceConnectionStateResponseArgs and VaultPrivateLinkServiceConnectionStateResponseOutput values.
+// You can construct a concrete instance of `VaultPrivateLinkServiceConnectionStateResponseInput` via:
+//
+//          VaultPrivateLinkServiceConnectionStateResponseArgs{...}
+type VaultPrivateLinkServiceConnectionStateResponseInput interface {
+	pulumi.Input
+
+	ToVaultPrivateLinkServiceConnectionStateResponseOutput() VaultPrivateLinkServiceConnectionStateResponseOutput
+	ToVaultPrivateLinkServiceConnectionStateResponseOutputWithContext(context.Context) VaultPrivateLinkServiceConnectionStateResponseOutput
+}
+
+// Gets or sets private link service connection state.
+type VaultPrivateLinkServiceConnectionStateResponseArgs struct {
+	// Gets or sets actions required.
+	ActionsRequired pulumi.StringInput `pulumi:"actionsRequired"`
+	// Gets or sets description.
+	Description pulumi.StringInput `pulumi:"description"`
+	// Gets or sets the status.
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (VaultPrivateLinkServiceConnectionStateResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VaultPrivateLinkServiceConnectionStateResponse)(nil)).Elem()
+}
+
+func (i VaultPrivateLinkServiceConnectionStateResponseArgs) ToVaultPrivateLinkServiceConnectionStateResponseOutput() VaultPrivateLinkServiceConnectionStateResponseOutput {
+	return i.ToVaultPrivateLinkServiceConnectionStateResponseOutputWithContext(context.Background())
+}
+
+func (i VaultPrivateLinkServiceConnectionStateResponseArgs) ToVaultPrivateLinkServiceConnectionStateResponseOutputWithContext(ctx context.Context) VaultPrivateLinkServiceConnectionStateResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VaultPrivateLinkServiceConnectionStateResponseOutput)
+}
+
+// Gets or sets private link service connection state.
+type VaultPrivateLinkServiceConnectionStateResponseOutput struct{ *pulumi.OutputState }
+
+func (VaultPrivateLinkServiceConnectionStateResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VaultPrivateLinkServiceConnectionStateResponse)(nil)).Elem()
+}
+
+func (o VaultPrivateLinkServiceConnectionStateResponseOutput) ToVaultPrivateLinkServiceConnectionStateResponseOutput() VaultPrivateLinkServiceConnectionStateResponseOutput {
+	return o
+}
+
+func (o VaultPrivateLinkServiceConnectionStateResponseOutput) ToVaultPrivateLinkServiceConnectionStateResponseOutputWithContext(ctx context.Context) VaultPrivateLinkServiceConnectionStateResponseOutput {
+	return o
+}
+
+// Gets or sets actions required.
+func (o VaultPrivateLinkServiceConnectionStateResponseOutput) ActionsRequired() pulumi.StringOutput {
+	return o.ApplyT(func(v VaultPrivateLinkServiceConnectionStateResponse) string { return v.ActionsRequired }).(pulumi.StringOutput)
+}
+
+// Gets or sets description.
+func (o VaultPrivateLinkServiceConnectionStateResponseOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v VaultPrivateLinkServiceConnectionStateResponse) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// Gets or sets the status.
+func (o VaultPrivateLinkServiceConnectionStateResponseOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v VaultPrivateLinkServiceConnectionStateResponse) string { return v.Status }).(pulumi.StringOutput)
 }
 
 // Properties of the vault.
@@ -3408,6 +3556,8 @@ func init() {
 	pulumi.RegisterOutputType(UpgradeDetailsResponsePtrOutput{})
 	pulumi.RegisterOutputType(UserIdentityResponseOutput{})
 	pulumi.RegisterOutputType(UserIdentityResponseMapOutput{})
+	pulumi.RegisterOutputType(VaultPrivateEndpointConnectionResponseOutput{})
+	pulumi.RegisterOutputType(VaultPrivateLinkServiceConnectionStateResponseOutput{})
 	pulumi.RegisterOutputType(VaultPropertiesOutput{})
 	pulumi.RegisterOutputType(VaultPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(VaultPropertiesEncryptionOutput{})

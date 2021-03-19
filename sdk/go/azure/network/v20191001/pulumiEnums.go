@@ -68,6 +68,41 @@ func (e CustomRuleEnabledState) ToStringPtrOutputWithContext(ctx context.Context
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// Request variable to compare with.
+type FrontDoorMatchVariable pulumi.String
+
+const (
+	FrontDoorMatchVariableRemoteAddr    = FrontDoorMatchVariable("RemoteAddr")
+	FrontDoorMatchVariableRequestMethod = FrontDoorMatchVariable("RequestMethod")
+	FrontDoorMatchVariableQueryString   = FrontDoorMatchVariable("QueryString")
+	FrontDoorMatchVariablePostArgs      = FrontDoorMatchVariable("PostArgs")
+	FrontDoorMatchVariableRequestUri    = FrontDoorMatchVariable("RequestUri")
+	FrontDoorMatchVariableRequestHeader = FrontDoorMatchVariable("RequestHeader")
+	FrontDoorMatchVariableRequestBody   = FrontDoorMatchVariable("RequestBody")
+	FrontDoorMatchVariableCookies       = FrontDoorMatchVariable("Cookies")
+	FrontDoorMatchVariableSocketAddr    = FrontDoorMatchVariable("SocketAddr")
+)
+
+func (FrontDoorMatchVariable) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e FrontDoorMatchVariable) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FrontDoorMatchVariable) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FrontDoorMatchVariable) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FrontDoorMatchVariable) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // Describes if the managed rule is in enabled or disabled state. Defaults to Disabled if not specified.
 type ManagedRuleEnabledState pulumi.String
 
@@ -154,41 +189,6 @@ func (e ManagedRuleExclusionSelectorMatchOperator) ToStringPtrOutput() pulumi.St
 }
 
 func (e ManagedRuleExclusionSelectorMatchOperator) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-// Request variable to compare with.
-type MatchVariable pulumi.String
-
-const (
-	MatchVariableRemoteAddr    = MatchVariable("RemoteAddr")
-	MatchVariableRequestMethod = MatchVariable("RequestMethod")
-	MatchVariableQueryString   = MatchVariable("QueryString")
-	MatchVariablePostArgs      = MatchVariable("PostArgs")
-	MatchVariableRequestUri    = MatchVariable("RequestUri")
-	MatchVariableRequestHeader = MatchVariable("RequestHeader")
-	MatchVariableRequestBody   = MatchVariable("RequestBody")
-	MatchVariableCookies       = MatchVariable("Cookies")
-	MatchVariableSocketAddr    = MatchVariable("SocketAddr")
-)
-
-func (MatchVariable) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
-}
-
-func (e MatchVariable) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e MatchVariable) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e MatchVariable) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e MatchVariable) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 

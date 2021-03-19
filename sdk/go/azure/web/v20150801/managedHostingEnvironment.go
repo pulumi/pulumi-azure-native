@@ -114,6 +114,42 @@ func NewManagedHostingEnvironment(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:web/latest:ManagedHostingEnvironment"),
 		},
+		{
+			Type: pulumi.String("azure-native:web/v20160901:ManagedHostingEnvironment"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20160901:ManagedHostingEnvironment"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20180201:ManagedHostingEnvironment"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20180201:ManagedHostingEnvironment"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20190801:ManagedHostingEnvironment"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20190801:ManagedHostingEnvironment"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20200601:ManagedHostingEnvironment"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20200601:ManagedHostingEnvironment"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20200901:ManagedHostingEnvironment"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20200901:ManagedHostingEnvironment"),
+		},
+		{
+			Type: pulumi.String("azure-native:web/v20201001:ManagedHostingEnvironment"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20201001:ManagedHostingEnvironment"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ManagedHostingEnvironment

@@ -27,8 +27,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewProject(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:datamigration:Service":
 		r, err = NewService(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-native:datamigration:ServiceTask":
-		r, err = NewServiceTask(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:datamigration:Task":
 		r, err = NewTask(ctx, name, nil, pulumi.URN_(urn))
 	default:

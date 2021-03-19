@@ -96,36 +96,6 @@ func (e ConnectionStatus) ToStringPtrOutputWithContext(ctx context.Context) pulu
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// The orchestrator to use to manage container service cluster resources. Valid values are Swarm, DCOS, and Custom.
-type ContainerServiceOrchestratorTypes pulumi.String
-
-const (
-	ContainerServiceOrchestratorTypesSwarm      = ContainerServiceOrchestratorTypes("Swarm")
-	ContainerServiceOrchestratorTypesDCOS       = ContainerServiceOrchestratorTypes("DCOS")
-	ContainerServiceOrchestratorTypesCustom     = ContainerServiceOrchestratorTypes("Custom")
-	ContainerServiceOrchestratorTypesKubernetes = ContainerServiceOrchestratorTypes("Kubernetes")
-)
-
-func (ContainerServiceOrchestratorTypes) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
-}
-
-func (e ContainerServiceOrchestratorTypes) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ContainerServiceOrchestratorTypes) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ContainerServiceOrchestratorTypes) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e ContainerServiceOrchestratorTypes) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
 // Size of agent VMs.
 type ContainerServiceVMSizeTypes pulumi.String
 

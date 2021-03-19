@@ -1317,7 +1317,7 @@ type IotDpsPropertiesDescription struct {
 	// List of IoT hubs associated with this provisioning service.
 	IotHubs []IotHubDefinitionDescription `pulumi:"iotHubs"`
 	// The IP filter rules.
-	IpFilterRules []IpFilterRule `pulumi:"ipFilterRules"`
+	IpFilterRules []TargetIpFilterRule `pulumi:"ipFilterRules"`
 	// Private endpoint connections created on this IotHub
 	PrivateEndpointConnections []PrivateEndpointConnection `pulumi:"privateEndpointConnections"`
 	// The ARM provisioning state of the provisioning service.
@@ -1350,7 +1350,7 @@ type IotDpsPropertiesDescriptionArgs struct {
 	// List of IoT hubs associated with this provisioning service.
 	IotHubs IotHubDefinitionDescriptionArrayInput `pulumi:"iotHubs"`
 	// The IP filter rules.
-	IpFilterRules IpFilterRuleArrayInput `pulumi:"ipFilterRules"`
+	IpFilterRules TargetIpFilterRuleArrayInput `pulumi:"ipFilterRules"`
 	// Private endpoint connections created on this IotHub
 	PrivateEndpointConnections PrivateEndpointConnectionArrayInput `pulumi:"privateEndpointConnections"`
 	// The ARM provisioning state of the provisioning service.
@@ -1462,8 +1462,8 @@ func (o IotDpsPropertiesDescriptionOutput) IotHubs() IotHubDefinitionDescription
 }
 
 // The IP filter rules.
-func (o IotDpsPropertiesDescriptionOutput) IpFilterRules() IpFilterRuleArrayOutput {
-	return o.ApplyT(func(v IotDpsPropertiesDescription) []IpFilterRule { return v.IpFilterRules }).(IpFilterRuleArrayOutput)
+func (o IotDpsPropertiesDescriptionOutput) IpFilterRules() TargetIpFilterRuleArrayOutput {
+	return o.ApplyT(func(v IotDpsPropertiesDescription) []TargetIpFilterRule { return v.IpFilterRules }).(TargetIpFilterRuleArrayOutput)
 }
 
 // Private endpoint connections created on this IotHub
@@ -1545,13 +1545,13 @@ func (o IotDpsPropertiesDescriptionPtrOutput) IotHubs() IotHubDefinitionDescript
 }
 
 // The IP filter rules.
-func (o IotDpsPropertiesDescriptionPtrOutput) IpFilterRules() IpFilterRuleArrayOutput {
-	return o.ApplyT(func(v *IotDpsPropertiesDescription) []IpFilterRule {
+func (o IotDpsPropertiesDescriptionPtrOutput) IpFilterRules() TargetIpFilterRuleArrayOutput {
+	return o.ApplyT(func(v *IotDpsPropertiesDescription) []TargetIpFilterRule {
 		if v == nil {
 			return nil
 		}
 		return v.IpFilterRules
-	}).(IpFilterRuleArrayOutput)
+	}).(TargetIpFilterRuleArrayOutput)
 }
 
 // Private endpoint connections created on this IotHub
@@ -1609,7 +1609,7 @@ type IotDpsPropertiesDescriptionResponse struct {
 	// List of IoT hubs associated with this provisioning service.
 	IotHubs []IotHubDefinitionDescriptionResponse `pulumi:"iotHubs"`
 	// The IP filter rules.
-	IpFilterRules []IpFilterRuleResponse `pulumi:"ipFilterRules"`
+	IpFilterRules []TargetIpFilterRuleResponse `pulumi:"ipFilterRules"`
 	// Private endpoint connections created on this IotHub
 	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
 	// The ARM provisioning state of the provisioning service.
@@ -1648,7 +1648,7 @@ type IotDpsPropertiesDescriptionResponseArgs struct {
 	// List of IoT hubs associated with this provisioning service.
 	IotHubs IotHubDefinitionDescriptionResponseArrayInput `pulumi:"iotHubs"`
 	// The IP filter rules.
-	IpFilterRules IpFilterRuleResponseArrayInput `pulumi:"ipFilterRules"`
+	IpFilterRules TargetIpFilterRuleResponseArrayInput `pulumi:"ipFilterRules"`
 	// Private endpoint connections created on this IotHub
 	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayInput `pulumi:"privateEndpointConnections"`
 	// The ARM provisioning state of the provisioning service.
@@ -1774,8 +1774,8 @@ func (o IotDpsPropertiesDescriptionResponseOutput) IotHubs() IotHubDefinitionDes
 }
 
 // The IP filter rules.
-func (o IotDpsPropertiesDescriptionResponseOutput) IpFilterRules() IpFilterRuleResponseArrayOutput {
-	return o.ApplyT(func(v IotDpsPropertiesDescriptionResponse) []IpFilterRuleResponse { return v.IpFilterRules }).(IpFilterRuleResponseArrayOutput)
+func (o IotDpsPropertiesDescriptionResponseOutput) IpFilterRules() TargetIpFilterRuleResponseArrayOutput {
+	return o.ApplyT(func(v IotDpsPropertiesDescriptionResponse) []TargetIpFilterRuleResponse { return v.IpFilterRules }).(TargetIpFilterRuleResponseArrayOutput)
 }
 
 // Private endpoint connections created on this IotHub
@@ -1884,13 +1884,13 @@ func (o IotDpsPropertiesDescriptionResponsePtrOutput) IotHubs() IotHubDefinition
 }
 
 // The IP filter rules.
-func (o IotDpsPropertiesDescriptionResponsePtrOutput) IpFilterRules() IpFilterRuleResponseArrayOutput {
-	return o.ApplyT(func(v *IotDpsPropertiesDescriptionResponse) []IpFilterRuleResponse {
+func (o IotDpsPropertiesDescriptionResponsePtrOutput) IpFilterRules() TargetIpFilterRuleResponseArrayOutput {
+	return o.ApplyT(func(v *IotDpsPropertiesDescriptionResponse) []TargetIpFilterRuleResponse {
 		if v == nil {
 			return nil
 		}
 		return v.IpFilterRules
-	}).(IpFilterRuleResponseArrayOutput)
+	}).(TargetIpFilterRuleResponseArrayOutput)
 }
 
 // Private endpoint connections created on this IotHub
@@ -2529,260 +2529,6 @@ func (o IotHubDefinitionDescriptionResponseArrayOutput) Index(i pulumi.IntInput)
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IotHubDefinitionDescriptionResponse {
 		return vs[0].([]IotHubDefinitionDescriptionResponse)[vs[1].(int)]
 	}).(IotHubDefinitionDescriptionResponseOutput)
-}
-
-// The IP filter rules for a provisioning Service.
-type IpFilterRule struct {
-	// The desired action for requests captured by this rule.
-	Action string `pulumi:"action"`
-	// The name of the IP filter rule.
-	FilterName string `pulumi:"filterName"`
-	// A string that contains the IP address range in CIDR notation for the rule.
-	IpMask string `pulumi:"ipMask"`
-	// Target for requests captured by this rule.
-	Target *string `pulumi:"target"`
-}
-
-// IpFilterRuleInput is an input type that accepts IpFilterRuleArgs and IpFilterRuleOutput values.
-// You can construct a concrete instance of `IpFilterRuleInput` via:
-//
-//          IpFilterRuleArgs{...}
-type IpFilterRuleInput interface {
-	pulumi.Input
-
-	ToIpFilterRuleOutput() IpFilterRuleOutput
-	ToIpFilterRuleOutputWithContext(context.Context) IpFilterRuleOutput
-}
-
-// The IP filter rules for a provisioning Service.
-type IpFilterRuleArgs struct {
-	// The desired action for requests captured by this rule.
-	Action IpFilterActionType `pulumi:"action"`
-	// The name of the IP filter rule.
-	FilterName pulumi.StringInput `pulumi:"filterName"`
-	// A string that contains the IP address range in CIDR notation for the rule.
-	IpMask pulumi.StringInput `pulumi:"ipMask"`
-	// Target for requests captured by this rule.
-	Target *IpFilterTargetType `pulumi:"target"`
-}
-
-func (IpFilterRuleArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*IpFilterRule)(nil)).Elem()
-}
-
-func (i IpFilterRuleArgs) ToIpFilterRuleOutput() IpFilterRuleOutput {
-	return i.ToIpFilterRuleOutputWithContext(context.Background())
-}
-
-func (i IpFilterRuleArgs) ToIpFilterRuleOutputWithContext(ctx context.Context) IpFilterRuleOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IpFilterRuleOutput)
-}
-
-// IpFilterRuleArrayInput is an input type that accepts IpFilterRuleArray and IpFilterRuleArrayOutput values.
-// You can construct a concrete instance of `IpFilterRuleArrayInput` via:
-//
-//          IpFilterRuleArray{ IpFilterRuleArgs{...} }
-type IpFilterRuleArrayInput interface {
-	pulumi.Input
-
-	ToIpFilterRuleArrayOutput() IpFilterRuleArrayOutput
-	ToIpFilterRuleArrayOutputWithContext(context.Context) IpFilterRuleArrayOutput
-}
-
-type IpFilterRuleArray []IpFilterRuleInput
-
-func (IpFilterRuleArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]IpFilterRule)(nil)).Elem()
-}
-
-func (i IpFilterRuleArray) ToIpFilterRuleArrayOutput() IpFilterRuleArrayOutput {
-	return i.ToIpFilterRuleArrayOutputWithContext(context.Background())
-}
-
-func (i IpFilterRuleArray) ToIpFilterRuleArrayOutputWithContext(ctx context.Context) IpFilterRuleArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IpFilterRuleArrayOutput)
-}
-
-// The IP filter rules for a provisioning Service.
-type IpFilterRuleOutput struct{ *pulumi.OutputState }
-
-func (IpFilterRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IpFilterRule)(nil)).Elem()
-}
-
-func (o IpFilterRuleOutput) ToIpFilterRuleOutput() IpFilterRuleOutput {
-	return o
-}
-
-func (o IpFilterRuleOutput) ToIpFilterRuleOutputWithContext(ctx context.Context) IpFilterRuleOutput {
-	return o
-}
-
-// The desired action for requests captured by this rule.
-func (o IpFilterRuleOutput) Action() pulumi.StringOutput {
-	return o.ApplyT(func(v IpFilterRule) string { return v.Action }).(pulumi.StringOutput)
-}
-
-// The name of the IP filter rule.
-func (o IpFilterRuleOutput) FilterName() pulumi.StringOutput {
-	return o.ApplyT(func(v IpFilterRule) string { return v.FilterName }).(pulumi.StringOutput)
-}
-
-// A string that contains the IP address range in CIDR notation for the rule.
-func (o IpFilterRuleOutput) IpMask() pulumi.StringOutput {
-	return o.ApplyT(func(v IpFilterRule) string { return v.IpMask }).(pulumi.StringOutput)
-}
-
-// Target for requests captured by this rule.
-func (o IpFilterRuleOutput) Target() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v IpFilterRule) *string { return v.Target }).(pulumi.StringPtrOutput)
-}
-
-type IpFilterRuleArrayOutput struct{ *pulumi.OutputState }
-
-func (IpFilterRuleArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]IpFilterRule)(nil)).Elem()
-}
-
-func (o IpFilterRuleArrayOutput) ToIpFilterRuleArrayOutput() IpFilterRuleArrayOutput {
-	return o
-}
-
-func (o IpFilterRuleArrayOutput) ToIpFilterRuleArrayOutputWithContext(ctx context.Context) IpFilterRuleArrayOutput {
-	return o
-}
-
-func (o IpFilterRuleArrayOutput) Index(i pulumi.IntInput) IpFilterRuleOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IpFilterRule {
-		return vs[0].([]IpFilterRule)[vs[1].(int)]
-	}).(IpFilterRuleOutput)
-}
-
-// The IP filter rules for a provisioning Service.
-type IpFilterRuleResponse struct {
-	// The desired action for requests captured by this rule.
-	Action string `pulumi:"action"`
-	// The name of the IP filter rule.
-	FilterName string `pulumi:"filterName"`
-	// A string that contains the IP address range in CIDR notation for the rule.
-	IpMask string `pulumi:"ipMask"`
-	// Target for requests captured by this rule.
-	Target *string `pulumi:"target"`
-}
-
-// IpFilterRuleResponseInput is an input type that accepts IpFilterRuleResponseArgs and IpFilterRuleResponseOutput values.
-// You can construct a concrete instance of `IpFilterRuleResponseInput` via:
-//
-//          IpFilterRuleResponseArgs{...}
-type IpFilterRuleResponseInput interface {
-	pulumi.Input
-
-	ToIpFilterRuleResponseOutput() IpFilterRuleResponseOutput
-	ToIpFilterRuleResponseOutputWithContext(context.Context) IpFilterRuleResponseOutput
-}
-
-// The IP filter rules for a provisioning Service.
-type IpFilterRuleResponseArgs struct {
-	// The desired action for requests captured by this rule.
-	Action pulumi.StringInput `pulumi:"action"`
-	// The name of the IP filter rule.
-	FilterName pulumi.StringInput `pulumi:"filterName"`
-	// A string that contains the IP address range in CIDR notation for the rule.
-	IpMask pulumi.StringInput `pulumi:"ipMask"`
-	// Target for requests captured by this rule.
-	Target pulumi.StringPtrInput `pulumi:"target"`
-}
-
-func (IpFilterRuleResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*IpFilterRuleResponse)(nil)).Elem()
-}
-
-func (i IpFilterRuleResponseArgs) ToIpFilterRuleResponseOutput() IpFilterRuleResponseOutput {
-	return i.ToIpFilterRuleResponseOutputWithContext(context.Background())
-}
-
-func (i IpFilterRuleResponseArgs) ToIpFilterRuleResponseOutputWithContext(ctx context.Context) IpFilterRuleResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IpFilterRuleResponseOutput)
-}
-
-// IpFilterRuleResponseArrayInput is an input type that accepts IpFilterRuleResponseArray and IpFilterRuleResponseArrayOutput values.
-// You can construct a concrete instance of `IpFilterRuleResponseArrayInput` via:
-//
-//          IpFilterRuleResponseArray{ IpFilterRuleResponseArgs{...} }
-type IpFilterRuleResponseArrayInput interface {
-	pulumi.Input
-
-	ToIpFilterRuleResponseArrayOutput() IpFilterRuleResponseArrayOutput
-	ToIpFilterRuleResponseArrayOutputWithContext(context.Context) IpFilterRuleResponseArrayOutput
-}
-
-type IpFilterRuleResponseArray []IpFilterRuleResponseInput
-
-func (IpFilterRuleResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]IpFilterRuleResponse)(nil)).Elem()
-}
-
-func (i IpFilterRuleResponseArray) ToIpFilterRuleResponseArrayOutput() IpFilterRuleResponseArrayOutput {
-	return i.ToIpFilterRuleResponseArrayOutputWithContext(context.Background())
-}
-
-func (i IpFilterRuleResponseArray) ToIpFilterRuleResponseArrayOutputWithContext(ctx context.Context) IpFilterRuleResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IpFilterRuleResponseArrayOutput)
-}
-
-// The IP filter rules for a provisioning Service.
-type IpFilterRuleResponseOutput struct{ *pulumi.OutputState }
-
-func (IpFilterRuleResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IpFilterRuleResponse)(nil)).Elem()
-}
-
-func (o IpFilterRuleResponseOutput) ToIpFilterRuleResponseOutput() IpFilterRuleResponseOutput {
-	return o
-}
-
-func (o IpFilterRuleResponseOutput) ToIpFilterRuleResponseOutputWithContext(ctx context.Context) IpFilterRuleResponseOutput {
-	return o
-}
-
-// The desired action for requests captured by this rule.
-func (o IpFilterRuleResponseOutput) Action() pulumi.StringOutput {
-	return o.ApplyT(func(v IpFilterRuleResponse) string { return v.Action }).(pulumi.StringOutput)
-}
-
-// The name of the IP filter rule.
-func (o IpFilterRuleResponseOutput) FilterName() pulumi.StringOutput {
-	return o.ApplyT(func(v IpFilterRuleResponse) string { return v.FilterName }).(pulumi.StringOutput)
-}
-
-// A string that contains the IP address range in CIDR notation for the rule.
-func (o IpFilterRuleResponseOutput) IpMask() pulumi.StringOutput {
-	return o.ApplyT(func(v IpFilterRuleResponse) string { return v.IpMask }).(pulumi.StringOutput)
-}
-
-// Target for requests captured by this rule.
-func (o IpFilterRuleResponseOutput) Target() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v IpFilterRuleResponse) *string { return v.Target }).(pulumi.StringPtrOutput)
-}
-
-type IpFilterRuleResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (IpFilterRuleResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]IpFilterRuleResponse)(nil)).Elem()
-}
-
-func (o IpFilterRuleResponseArrayOutput) ToIpFilterRuleResponseArrayOutput() IpFilterRuleResponseArrayOutput {
-	return o
-}
-
-func (o IpFilterRuleResponseArrayOutput) ToIpFilterRuleResponseArrayOutputWithContext(ctx context.Context) IpFilterRuleResponseArrayOutput {
-	return o
-}
-
-func (o IpFilterRuleResponseArrayOutput) Index(i pulumi.IntInput) IpFilterRuleResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IpFilterRuleResponse {
-		return vs[0].([]IpFilterRuleResponse)[vs[1].(int)]
-	}).(IpFilterRuleResponseOutput)
 }
 
 // The properties of the KeyVault key.
@@ -4245,6 +3991,260 @@ func (o SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponseArr
 	}).(SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponseOutput)
 }
 
+// The IP filter rules for a provisioning Service.
+type TargetIpFilterRule struct {
+	// The desired action for requests captured by this rule.
+	Action string `pulumi:"action"`
+	// The name of the IP filter rule.
+	FilterName string `pulumi:"filterName"`
+	// A string that contains the IP address range in CIDR notation for the rule.
+	IpMask string `pulumi:"ipMask"`
+	// Target for requests captured by this rule.
+	Target *string `pulumi:"target"`
+}
+
+// TargetIpFilterRuleInput is an input type that accepts TargetIpFilterRuleArgs and TargetIpFilterRuleOutput values.
+// You can construct a concrete instance of `TargetIpFilterRuleInput` via:
+//
+//          TargetIpFilterRuleArgs{...}
+type TargetIpFilterRuleInput interface {
+	pulumi.Input
+
+	ToTargetIpFilterRuleOutput() TargetIpFilterRuleOutput
+	ToTargetIpFilterRuleOutputWithContext(context.Context) TargetIpFilterRuleOutput
+}
+
+// The IP filter rules for a provisioning Service.
+type TargetIpFilterRuleArgs struct {
+	// The desired action for requests captured by this rule.
+	Action IpFilterActionType `pulumi:"action"`
+	// The name of the IP filter rule.
+	FilterName pulumi.StringInput `pulumi:"filterName"`
+	// A string that contains the IP address range in CIDR notation for the rule.
+	IpMask pulumi.StringInput `pulumi:"ipMask"`
+	// Target for requests captured by this rule.
+	Target *IpFilterTargetType `pulumi:"target"`
+}
+
+func (TargetIpFilterRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TargetIpFilterRule)(nil)).Elem()
+}
+
+func (i TargetIpFilterRuleArgs) ToTargetIpFilterRuleOutput() TargetIpFilterRuleOutput {
+	return i.ToTargetIpFilterRuleOutputWithContext(context.Background())
+}
+
+func (i TargetIpFilterRuleArgs) ToTargetIpFilterRuleOutputWithContext(ctx context.Context) TargetIpFilterRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TargetIpFilterRuleOutput)
+}
+
+// TargetIpFilterRuleArrayInput is an input type that accepts TargetIpFilterRuleArray and TargetIpFilterRuleArrayOutput values.
+// You can construct a concrete instance of `TargetIpFilterRuleArrayInput` via:
+//
+//          TargetIpFilterRuleArray{ TargetIpFilterRuleArgs{...} }
+type TargetIpFilterRuleArrayInput interface {
+	pulumi.Input
+
+	ToTargetIpFilterRuleArrayOutput() TargetIpFilterRuleArrayOutput
+	ToTargetIpFilterRuleArrayOutputWithContext(context.Context) TargetIpFilterRuleArrayOutput
+}
+
+type TargetIpFilterRuleArray []TargetIpFilterRuleInput
+
+func (TargetIpFilterRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TargetIpFilterRule)(nil)).Elem()
+}
+
+func (i TargetIpFilterRuleArray) ToTargetIpFilterRuleArrayOutput() TargetIpFilterRuleArrayOutput {
+	return i.ToTargetIpFilterRuleArrayOutputWithContext(context.Background())
+}
+
+func (i TargetIpFilterRuleArray) ToTargetIpFilterRuleArrayOutputWithContext(ctx context.Context) TargetIpFilterRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TargetIpFilterRuleArrayOutput)
+}
+
+// The IP filter rules for a provisioning Service.
+type TargetIpFilterRuleOutput struct{ *pulumi.OutputState }
+
+func (TargetIpFilterRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TargetIpFilterRule)(nil)).Elem()
+}
+
+func (o TargetIpFilterRuleOutput) ToTargetIpFilterRuleOutput() TargetIpFilterRuleOutput {
+	return o
+}
+
+func (o TargetIpFilterRuleOutput) ToTargetIpFilterRuleOutputWithContext(ctx context.Context) TargetIpFilterRuleOutput {
+	return o
+}
+
+// The desired action for requests captured by this rule.
+func (o TargetIpFilterRuleOutput) Action() pulumi.StringOutput {
+	return o.ApplyT(func(v TargetIpFilterRule) string { return v.Action }).(pulumi.StringOutput)
+}
+
+// The name of the IP filter rule.
+func (o TargetIpFilterRuleOutput) FilterName() pulumi.StringOutput {
+	return o.ApplyT(func(v TargetIpFilterRule) string { return v.FilterName }).(pulumi.StringOutput)
+}
+
+// A string that contains the IP address range in CIDR notation for the rule.
+func (o TargetIpFilterRuleOutput) IpMask() pulumi.StringOutput {
+	return o.ApplyT(func(v TargetIpFilterRule) string { return v.IpMask }).(pulumi.StringOutput)
+}
+
+// Target for requests captured by this rule.
+func (o TargetIpFilterRuleOutput) Target() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TargetIpFilterRule) *string { return v.Target }).(pulumi.StringPtrOutput)
+}
+
+type TargetIpFilterRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (TargetIpFilterRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TargetIpFilterRule)(nil)).Elem()
+}
+
+func (o TargetIpFilterRuleArrayOutput) ToTargetIpFilterRuleArrayOutput() TargetIpFilterRuleArrayOutput {
+	return o
+}
+
+func (o TargetIpFilterRuleArrayOutput) ToTargetIpFilterRuleArrayOutputWithContext(ctx context.Context) TargetIpFilterRuleArrayOutput {
+	return o
+}
+
+func (o TargetIpFilterRuleArrayOutput) Index(i pulumi.IntInput) TargetIpFilterRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TargetIpFilterRule {
+		return vs[0].([]TargetIpFilterRule)[vs[1].(int)]
+	}).(TargetIpFilterRuleOutput)
+}
+
+// The IP filter rules for a provisioning Service.
+type TargetIpFilterRuleResponse struct {
+	// The desired action for requests captured by this rule.
+	Action string `pulumi:"action"`
+	// The name of the IP filter rule.
+	FilterName string `pulumi:"filterName"`
+	// A string that contains the IP address range in CIDR notation for the rule.
+	IpMask string `pulumi:"ipMask"`
+	// Target for requests captured by this rule.
+	Target *string `pulumi:"target"`
+}
+
+// TargetIpFilterRuleResponseInput is an input type that accepts TargetIpFilterRuleResponseArgs and TargetIpFilterRuleResponseOutput values.
+// You can construct a concrete instance of `TargetIpFilterRuleResponseInput` via:
+//
+//          TargetIpFilterRuleResponseArgs{...}
+type TargetIpFilterRuleResponseInput interface {
+	pulumi.Input
+
+	ToTargetIpFilterRuleResponseOutput() TargetIpFilterRuleResponseOutput
+	ToTargetIpFilterRuleResponseOutputWithContext(context.Context) TargetIpFilterRuleResponseOutput
+}
+
+// The IP filter rules for a provisioning Service.
+type TargetIpFilterRuleResponseArgs struct {
+	// The desired action for requests captured by this rule.
+	Action pulumi.StringInput `pulumi:"action"`
+	// The name of the IP filter rule.
+	FilterName pulumi.StringInput `pulumi:"filterName"`
+	// A string that contains the IP address range in CIDR notation for the rule.
+	IpMask pulumi.StringInput `pulumi:"ipMask"`
+	// Target for requests captured by this rule.
+	Target pulumi.StringPtrInput `pulumi:"target"`
+}
+
+func (TargetIpFilterRuleResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TargetIpFilterRuleResponse)(nil)).Elem()
+}
+
+func (i TargetIpFilterRuleResponseArgs) ToTargetIpFilterRuleResponseOutput() TargetIpFilterRuleResponseOutput {
+	return i.ToTargetIpFilterRuleResponseOutputWithContext(context.Background())
+}
+
+func (i TargetIpFilterRuleResponseArgs) ToTargetIpFilterRuleResponseOutputWithContext(ctx context.Context) TargetIpFilterRuleResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TargetIpFilterRuleResponseOutput)
+}
+
+// TargetIpFilterRuleResponseArrayInput is an input type that accepts TargetIpFilterRuleResponseArray and TargetIpFilterRuleResponseArrayOutput values.
+// You can construct a concrete instance of `TargetIpFilterRuleResponseArrayInput` via:
+//
+//          TargetIpFilterRuleResponseArray{ TargetIpFilterRuleResponseArgs{...} }
+type TargetIpFilterRuleResponseArrayInput interface {
+	pulumi.Input
+
+	ToTargetIpFilterRuleResponseArrayOutput() TargetIpFilterRuleResponseArrayOutput
+	ToTargetIpFilterRuleResponseArrayOutputWithContext(context.Context) TargetIpFilterRuleResponseArrayOutput
+}
+
+type TargetIpFilterRuleResponseArray []TargetIpFilterRuleResponseInput
+
+func (TargetIpFilterRuleResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TargetIpFilterRuleResponse)(nil)).Elem()
+}
+
+func (i TargetIpFilterRuleResponseArray) ToTargetIpFilterRuleResponseArrayOutput() TargetIpFilterRuleResponseArrayOutput {
+	return i.ToTargetIpFilterRuleResponseArrayOutputWithContext(context.Background())
+}
+
+func (i TargetIpFilterRuleResponseArray) ToTargetIpFilterRuleResponseArrayOutputWithContext(ctx context.Context) TargetIpFilterRuleResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TargetIpFilterRuleResponseArrayOutput)
+}
+
+// The IP filter rules for a provisioning Service.
+type TargetIpFilterRuleResponseOutput struct{ *pulumi.OutputState }
+
+func (TargetIpFilterRuleResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TargetIpFilterRuleResponse)(nil)).Elem()
+}
+
+func (o TargetIpFilterRuleResponseOutput) ToTargetIpFilterRuleResponseOutput() TargetIpFilterRuleResponseOutput {
+	return o
+}
+
+func (o TargetIpFilterRuleResponseOutput) ToTargetIpFilterRuleResponseOutputWithContext(ctx context.Context) TargetIpFilterRuleResponseOutput {
+	return o
+}
+
+// The desired action for requests captured by this rule.
+func (o TargetIpFilterRuleResponseOutput) Action() pulumi.StringOutput {
+	return o.ApplyT(func(v TargetIpFilterRuleResponse) string { return v.Action }).(pulumi.StringOutput)
+}
+
+// The name of the IP filter rule.
+func (o TargetIpFilterRuleResponseOutput) FilterName() pulumi.StringOutput {
+	return o.ApplyT(func(v TargetIpFilterRuleResponse) string { return v.FilterName }).(pulumi.StringOutput)
+}
+
+// A string that contains the IP address range in CIDR notation for the rule.
+func (o TargetIpFilterRuleResponseOutput) IpMask() pulumi.StringOutput {
+	return o.ApplyT(func(v TargetIpFilterRuleResponse) string { return v.IpMask }).(pulumi.StringOutput)
+}
+
+// Target for requests captured by this rule.
+func (o TargetIpFilterRuleResponseOutput) Target() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TargetIpFilterRuleResponse) *string { return v.Target }).(pulumi.StringPtrOutput)
+}
+
+type TargetIpFilterRuleResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (TargetIpFilterRuleResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TargetIpFilterRuleResponse)(nil)).Elem()
+}
+
+func (o TargetIpFilterRuleResponseArrayOutput) ToTargetIpFilterRuleResponseArrayOutput() TargetIpFilterRuleResponseArrayOutput {
+	return o
+}
+
+func (o TargetIpFilterRuleResponseArrayOutput) ToTargetIpFilterRuleResponseArrayOutputWithContext(ctx context.Context) TargetIpFilterRuleResponseArrayOutput {
+	return o
+}
+
+func (o TargetIpFilterRuleResponseArrayOutput) Index(i pulumi.IntInput) TargetIpFilterRuleResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TargetIpFilterRuleResponse {
+		return vs[0].([]TargetIpFilterRuleResponse)[vs[1].(int)]
+	}).(TargetIpFilterRuleResponseOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ArmIdentityOutput{})
 	pulumi.RegisterOutputType(ArmIdentityPtrOutput{})
@@ -4274,10 +4274,6 @@ func init() {
 	pulumi.RegisterOutputType(IotHubDefinitionDescriptionArrayOutput{})
 	pulumi.RegisterOutputType(IotHubDefinitionDescriptionResponseOutput{})
 	pulumi.RegisterOutputType(IotHubDefinitionDescriptionResponseArrayOutput{})
-	pulumi.RegisterOutputType(IpFilterRuleOutput{})
-	pulumi.RegisterOutputType(IpFilterRuleArrayOutput{})
-	pulumi.RegisterOutputType(IpFilterRuleResponseOutput{})
-	pulumi.RegisterOutputType(IpFilterRuleResponseArrayOutput{})
 	pulumi.RegisterOutputType(KeyVaultKeyPropertiesOutput{})
 	pulumi.RegisterOutputType(KeyVaultKeyPropertiesArrayOutput{})
 	pulumi.RegisterOutputType(KeyVaultKeyPropertiesResponseOutput{})
@@ -4300,4 +4296,8 @@ func init() {
 	pulumi.RegisterOutputType(SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArrayOutput{})
 	pulumi.RegisterOutputType(SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponseOutput{})
 	pulumi.RegisterOutputType(SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponseArrayOutput{})
+	pulumi.RegisterOutputType(TargetIpFilterRuleOutput{})
+	pulumi.RegisterOutputType(TargetIpFilterRuleArrayOutput{})
+	pulumi.RegisterOutputType(TargetIpFilterRuleResponseOutput{})
+	pulumi.RegisterOutputType(TargetIpFilterRuleResponseArrayOutput{})
 }

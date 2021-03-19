@@ -51,18 +51,6 @@ func NewReportConfigByResourceGroupName(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:costmanagement/v20180531:ReportConfigByResourceGroupName"),
 		},
-		{
-			Type: pulumi.String("azure-native:costmanagement:ReportConfigByResourceGroupName"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:costmanagement:ReportConfigByResourceGroupName"),
-		},
-		{
-			Type: pulumi.String("azure-native:costmanagement/latest:ReportConfigByResourceGroupName"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:costmanagement/latest:ReportConfigByResourceGroupName"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource ReportConfigByResourceGroupName

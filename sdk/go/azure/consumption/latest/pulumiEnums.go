@@ -41,8 +41,7 @@ func (e BudgetOperatorType) ToStringPtrOutputWithContext(ctx context.Context) pu
 type CategoryType pulumi.String
 
 const (
-	CategoryTypeCost  = CategoryType("Cost")
-	CategoryTypeUsage = CategoryType("Usage")
+	CategoryTypeCost = CategoryType("Cost")
 )
 
 func (CategoryType) ElementType() reflect.Type {
@@ -121,13 +120,16 @@ func (e ThresholdType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// The time covered by a budget. Tracking of the amount will be reset based on the time grain.
+// The time covered by a budget. Tracking of the amount will be reset based on the time grain. BillingMonth, BillingQuarter, and BillingAnnual are only supported by WD customers
 type TimeGrainType pulumi.String
 
 const (
-	TimeGrainTypeMonthly   = TimeGrainType("Monthly")
-	TimeGrainTypeQuarterly = TimeGrainType("Quarterly")
-	TimeGrainTypeAnnually  = TimeGrainType("Annually")
+	TimeGrainTypeMonthly        = TimeGrainType("Monthly")
+	TimeGrainTypeQuarterly      = TimeGrainType("Quarterly")
+	TimeGrainTypeAnnually       = TimeGrainType("Annually")
+	TimeGrainTypeBillingMonth   = TimeGrainType("BillingMonth")
+	TimeGrainTypeBillingQuarter = TimeGrainType("BillingQuarter")
+	TimeGrainTypeBillingAnnual  = TimeGrainType("BillingAnnual")
 )
 
 func (TimeGrainType) ElementType() reflect.Type {

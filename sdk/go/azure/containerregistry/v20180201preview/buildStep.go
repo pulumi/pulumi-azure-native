@@ -43,12 +43,6 @@ func NewBuildStep(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:containerregistry/v20180201preview:BuildStep"),
 		},
-		{
-			Type: pulumi.String("azure-native:containerregistry:BuildStep"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:containerregistry:BuildStep"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource BuildStep

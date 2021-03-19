@@ -91,6 +91,54 @@ func NewDatabaseAccountCassandraTable(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20160319:DatabaseAccountCassandraTable"),
 		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20190801:DatabaseAccountCassandraTable"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:documentdb/v20190801:DatabaseAccountCassandraTable"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20191212:DatabaseAccountCassandraTable"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:documentdb/v20191212:DatabaseAccountCassandraTable"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20200301:DatabaseAccountCassandraTable"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:documentdb/v20200301:DatabaseAccountCassandraTable"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20200401:DatabaseAccountCassandraTable"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:documentdb/v20200401:DatabaseAccountCassandraTable"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20200601preview:DatabaseAccountCassandraTable"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:documentdb/v20200601preview:DatabaseAccountCassandraTable"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20200901:DatabaseAccountCassandraTable"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:documentdb/v20200901:DatabaseAccountCassandraTable"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20210115:DatabaseAccountCassandraTable"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:documentdb/v20210115:DatabaseAccountCassandraTable"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20210301preview:DatabaseAccountCassandraTable"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:documentdb/v20210301preview:DatabaseAccountCassandraTable"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource DatabaseAccountCassandraTable

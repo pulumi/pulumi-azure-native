@@ -38,35 +38,6 @@ func (e Access) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringP
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// Type of Actions
-type Action pulumi.String
-
-const (
-	ActionAllow = Action("Allow")
-	ActionBlock = Action("Block")
-	ActionLog   = Action("Log")
-)
-
-func (Action) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
-}
-
-func (e Action) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e Action) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e Action) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e Action) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
 // The allowed type DNS record types for this profile.
 type AllowedEndpointRecordType pulumi.String
 
@@ -646,62 +617,6 @@ func (e DhGroup) ToStringPtrOutputWithContext(ctx context.Context) pulumi.String
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// Whether to use dynamic compression for cached content
-type DynamicCompressionEnabled pulumi.String
-
-const (
-	DynamicCompressionEnabledEnabled  = DynamicCompressionEnabled("Enabled")
-	DynamicCompressionEnabledDisabled = DynamicCompressionEnabled("Disabled")
-)
-
-func (DynamicCompressionEnabled) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
-}
-
-func (e DynamicCompressionEnabled) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e DynamicCompressionEnabled) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e DynamicCompressionEnabled) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e DynamicCompressionEnabled) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-// describes if the policy is in enabled state or disabled state
-type EnabledState pulumi.String
-
-const (
-	EnabledStateDisabled = EnabledState("Disabled")
-	EnabledStateEnabled  = EnabledState("Enabled")
-)
-
-func (EnabledState) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
-}
-
-func (e EnabledState) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e EnabledState) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e EnabledState) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e EnabledState) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
 // The monitoring status of the endpoint.
 type EndpointMonitorStatus pulumi.String
 
@@ -990,119 +905,6 @@ func (e ExpressRoutePortsEncapsulation) ToStringPtrOutputWithContext(ctx context
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
-type FrontDoorEnabledState pulumi.String
-
-const (
-	FrontDoorEnabledStateEnabled  = FrontDoorEnabledState("Enabled")
-	FrontDoorEnabledStateDisabled = FrontDoorEnabledState("Disabled")
-)
-
-func (FrontDoorEnabledState) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
-}
-
-func (e FrontDoorEnabledState) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e FrontDoorEnabledState) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e FrontDoorEnabledState) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e FrontDoorEnabledState) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-// Protocol this rule will use when forwarding traffic to backends.
-type FrontDoorForwardingProtocol pulumi.String
-
-const (
-	FrontDoorForwardingProtocolHttpOnly     = FrontDoorForwardingProtocol("HttpOnly")
-	FrontDoorForwardingProtocolHttpsOnly    = FrontDoorForwardingProtocol("HttpsOnly")
-	FrontDoorForwardingProtocolMatchRequest = FrontDoorForwardingProtocol("MatchRequest")
-)
-
-func (FrontDoorForwardingProtocol) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
-}
-
-func (e FrontDoorForwardingProtocol) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e FrontDoorForwardingProtocol) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e FrontDoorForwardingProtocol) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e FrontDoorForwardingProtocol) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-// Accepted protocol schemes.
-type FrontDoorProtocol pulumi.String
-
-const (
-	FrontDoorProtocolHttp  = FrontDoorProtocol("Http")
-	FrontDoorProtocolHttps = FrontDoorProtocol("Https")
-)
-
-func (FrontDoorProtocol) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
-}
-
-func (e FrontDoorProtocol) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e FrontDoorProtocol) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e FrontDoorProtocol) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e FrontDoorProtocol) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-// Treatment of URL query terms when forming the cache key.
-type FrontDoorQuery pulumi.String
-
-const (
-	FrontDoorQueryStripNone = FrontDoorQuery("StripNone")
-	FrontDoorQueryStripAll  = FrontDoorQuery("StripAll")
-)
-
-func (FrontDoorQuery) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
-}
-
-func (e FrontDoorQuery) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e FrontDoorQuery) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e FrontDoorQuery) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e FrontDoorQuery) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
 // Defines how a private IP address is assigned. Possible values are: 'Static' and 'Dynamic'.
 type IPAllocationMethod pulumi.String
 
@@ -1348,34 +1150,6 @@ func (e LoadDistribution) ToStringPtrOutputWithContext(ctx context.Context) pulu
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// Describes if it is in detection mode  or prevention mode at policy level
-type Mode pulumi.String
-
-const (
-	ModePrevention = Mode("Prevention")
-	ModeDetection  = Mode("Detection")
-)
-
-func (Mode) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
-}
-
-func (e Mode) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e Mode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e Mode) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e Mode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
 // The protocol (HTTP, HTTPS or TCP) used to probe for endpoint health.
 type MonitorProtocol pulumi.String
 
@@ -1402,43 +1176,6 @@ func (e MonitorProtocol) ToStringPtrOutput() pulumi.StringPtrOutput {
 }
 
 func (e MonitorProtocol) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-// Describes operator to be matched
-type Operator pulumi.String
-
-const (
-	OperatorAny                = Operator("Any")
-	OperatorIPMatch            = Operator("IPMatch")
-	OperatorGeoMatch           = Operator("GeoMatch")
-	OperatorEqual              = Operator("Equal")
-	OperatorContains           = Operator("Contains")
-	OperatorLessThan           = Operator("LessThan")
-	OperatorGreaterThan        = Operator("GreaterThan")
-	OperatorLessThanOrEqual    = Operator("LessThanOrEqual")
-	OperatorGreaterThanOrEqual = Operator("GreaterThanOrEqual")
-	OperatorBeginsWith         = Operator("BeginsWith")
-	OperatorEndsWith           = Operator("EndsWith")
-)
-
-func (Operator) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
-}
-
-func (e Operator) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e Operator) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e Operator) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e Operator) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
@@ -1707,62 +1444,6 @@ func (e RouteNextHopType) ToStringPtrOutputWithContext(ctx context.Context) pulu
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// Describes override rule group
-type RuleGroupOverride pulumi.String
-
-const (
-	RuleGroupOverrideSqlInjection = RuleGroupOverride("SqlInjection")
-	RuleGroupOverrideXSS          = RuleGroupOverride("XSS")
-)
-
-func (RuleGroupOverride) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
-}
-
-func (e RuleGroupOverride) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e RuleGroupOverride) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e RuleGroupOverride) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e RuleGroupOverride) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-// Describes type of rule
-type RuleType pulumi.String
-
-const (
-	RuleTypeMatchRule     = RuleType("MatchRule")
-	RuleTypeRateLimitRule = RuleType("RateLimitRule")
-)
-
-func (RuleType) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
-}
-
-func (e RuleType) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e RuleType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e RuleType) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e RuleType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
 // The network traffic is allowed or denied. Possible values are: 'Allow' and 'Deny'.
 type SecurityRuleAccess pulumi.String
 
@@ -1878,34 +1559,6 @@ func (e ServiceProviderProvisioningState) ToStringPtrOutputWithContext(ctx conte
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'
-type SessionAffinityEnabledState pulumi.String
-
-const (
-	SessionAffinityEnabledStateEnabled  = SessionAffinityEnabledState("Enabled")
-	SessionAffinityEnabledStateDisabled = SessionAffinityEnabledState("Disabled")
-)
-
-func (SessionAffinityEnabledState) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
-}
-
-func (e SessionAffinityEnabledState) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e SessionAffinityEnabledState) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e SessionAffinityEnabledState) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e SessionAffinityEnabledState) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
 // The traffic routing method of the Traffic Manager profile.
 type TrafficRoutingMethod pulumi.String
 
@@ -1963,39 +1616,6 @@ func (e TrafficViewEnrollmentStatus) ToStringPtrOutput() pulumi.StringPtrOutput 
 }
 
 func (e TrafficViewEnrollmentStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-// Describes what transforms applied before matching
-type Transform pulumi.String
-
-const (
-	TransformLowercase        = Transform("Lowercase")
-	TransformUppercase        = Transform("Uppercase")
-	TransformTrim             = Transform("Trim")
-	TransformUrlDecode        = Transform("UrlDecode")
-	TransformUrlEncode        = Transform("UrlEncode")
-	TransformRemoveNulls      = Transform("RemoveNulls")
-	TransformHtmlEntityDecode = Transform("HtmlEntityDecode")
-)
-
-func (Transform) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
-}
-
-func (e Transform) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e Transform) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e Transform) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e Transform) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 

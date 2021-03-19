@@ -74,12 +74,6 @@ func NewFrontDoor(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:network/latest:FrontDoor"),
 		},
 		{
-			Type: pulumi.String("azure-native:network/v20180801:FrontDoor"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20180801:FrontDoor"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20190501:FrontDoor"),
 		},
 		{

@@ -25044,10 +25044,15 @@ func (o NameValuePairResponseArrayOutput) Index(i pulumi.IntInput) NameValuePair
 	}).(NameValuePairResponseOutput)
 }
 
+// Network access control entry.
 type NetworkAccessControlEntry struct {
-	Action       *string `pulumi:"action"`
-	Description  *string `pulumi:"description"`
-	Order        *int    `pulumi:"order"`
+	// Action object.
+	Action *string `pulumi:"action"`
+	// Description of network access control entry.
+	Description *string `pulumi:"description"`
+	// Order of precedence.
+	Order *int `pulumi:"order"`
+	// Remote subnet.
 	RemoteSubnet *string `pulumi:"remoteSubnet"`
 }
 
@@ -25062,11 +25067,16 @@ type NetworkAccessControlEntryInput interface {
 	ToNetworkAccessControlEntryOutputWithContext(context.Context) NetworkAccessControlEntryOutput
 }
 
+// Network access control entry.
 type NetworkAccessControlEntryArgs struct {
-	Action       *AccessControlEntryAction `pulumi:"action"`
-	Description  pulumi.StringPtrInput     `pulumi:"description"`
-	Order        pulumi.IntPtrInput        `pulumi:"order"`
-	RemoteSubnet pulumi.StringPtrInput     `pulumi:"remoteSubnet"`
+	// Action object.
+	Action *AccessControlEntryAction `pulumi:"action"`
+	// Description of network access control entry.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Order of precedence.
+	Order pulumi.IntPtrInput `pulumi:"order"`
+	// Remote subnet.
+	RemoteSubnet pulumi.StringPtrInput `pulumi:"remoteSubnet"`
 }
 
 func (NetworkAccessControlEntryArgs) ElementType() reflect.Type {
@@ -25106,6 +25116,7 @@ func (i NetworkAccessControlEntryArray) ToNetworkAccessControlEntryArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkAccessControlEntryArrayOutput)
 }
 
+// Network access control entry.
 type NetworkAccessControlEntryOutput struct{ *pulumi.OutputState }
 
 func (NetworkAccessControlEntryOutput) ElementType() reflect.Type {
@@ -25120,18 +25131,22 @@ func (o NetworkAccessControlEntryOutput) ToNetworkAccessControlEntryOutputWithCo
 	return o
 }
 
+// Action object.
 func (o NetworkAccessControlEntryOutput) Action() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkAccessControlEntry) *string { return v.Action }).(pulumi.StringPtrOutput)
 }
 
+// Description of network access control entry.
 func (o NetworkAccessControlEntryOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkAccessControlEntry) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Order of precedence.
 func (o NetworkAccessControlEntryOutput) Order() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v NetworkAccessControlEntry) *int { return v.Order }).(pulumi.IntPtrOutput)
 }
 
+// Remote subnet.
 func (o NetworkAccessControlEntryOutput) RemoteSubnet() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkAccessControlEntry) *string { return v.RemoteSubnet }).(pulumi.StringPtrOutput)
 }
@@ -25156,10 +25171,15 @@ func (o NetworkAccessControlEntryArrayOutput) Index(i pulumi.IntInput) NetworkAc
 	}).(NetworkAccessControlEntryOutput)
 }
 
+// Network access control entry.
 type NetworkAccessControlEntryResponse struct {
-	Action       *string `pulumi:"action"`
-	Description  *string `pulumi:"description"`
-	Order        *int    `pulumi:"order"`
+	// Action object.
+	Action *string `pulumi:"action"`
+	// Description of network access control entry.
+	Description *string `pulumi:"description"`
+	// Order of precedence.
+	Order *int `pulumi:"order"`
+	// Remote subnet.
 	RemoteSubnet *string `pulumi:"remoteSubnet"`
 }
 
@@ -25174,10 +25194,15 @@ type NetworkAccessControlEntryResponseInput interface {
 	ToNetworkAccessControlEntryResponseOutputWithContext(context.Context) NetworkAccessControlEntryResponseOutput
 }
 
+// Network access control entry.
 type NetworkAccessControlEntryResponseArgs struct {
-	Action       pulumi.StringPtrInput `pulumi:"action"`
-	Description  pulumi.StringPtrInput `pulumi:"description"`
-	Order        pulumi.IntPtrInput    `pulumi:"order"`
+	// Action object.
+	Action pulumi.StringPtrInput `pulumi:"action"`
+	// Description of network access control entry.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Order of precedence.
+	Order pulumi.IntPtrInput `pulumi:"order"`
+	// Remote subnet.
 	RemoteSubnet pulumi.StringPtrInput `pulumi:"remoteSubnet"`
 }
 
@@ -25218,6 +25243,7 @@ func (i NetworkAccessControlEntryResponseArray) ToNetworkAccessControlEntryRespo
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkAccessControlEntryResponseArrayOutput)
 }
 
+// Network access control entry.
 type NetworkAccessControlEntryResponseOutput struct{ *pulumi.OutputState }
 
 func (NetworkAccessControlEntryResponseOutput) ElementType() reflect.Type {
@@ -25232,18 +25258,22 @@ func (o NetworkAccessControlEntryResponseOutput) ToNetworkAccessControlEntryResp
 	return o
 }
 
+// Action object.
 func (o NetworkAccessControlEntryResponseOutput) Action() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkAccessControlEntryResponse) *string { return v.Action }).(pulumi.StringPtrOutput)
 }
 
+// Description of network access control entry.
 func (o NetworkAccessControlEntryResponseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkAccessControlEntryResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Order of precedence.
 func (o NetworkAccessControlEntryResponseOutput) Order() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v NetworkAccessControlEntryResponse) *int { return v.Order }).(pulumi.IntPtrOutput)
 }
 
+// Remote subnet.
 func (o NetworkAccessControlEntryResponseOutput) RemoteSubnet() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkAccessControlEntryResponse) *string { return v.RemoteSubnet }).(pulumi.StringPtrOutput)
 }
@@ -33280,224 +33310,33 @@ func (o SlowRequestsBasedTriggerResponsePtrOutput) TimeTaken() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Class containing stamp capacity information
-type StampCapacity struct {
-	// Available capacity (# of machines, bytes of storage etc...)
-	AvailableCapacity *float64 `pulumi:"availableCapacity"`
-	// Shared/Dedicated workers
-	ComputeMode *string `pulumi:"computeMode"`
-	// If true it includes basic sites
-	//             Basic sites are not used for capacity allocation.
-	ExcludeFromCapacityAllocation *bool `pulumi:"excludeFromCapacityAllocation"`
-	// Is capacity applicable for all sites?
-	IsApplicableForAllComputeModes *bool `pulumi:"isApplicableForAllComputeModes"`
-	// Name of the stamp
-	Name *string `pulumi:"name"`
-	// Shared or Dedicated
-	SiteMode *string `pulumi:"siteMode"`
-	// Total capacity (# of machines, bytes of storage etc...)
-	TotalCapacity *float64 `pulumi:"totalCapacity"`
-	// Name of the unit
-	Unit *string `pulumi:"unit"`
-	// Size of the machines
-	WorkerSize *string `pulumi:"workerSize"`
-	// Size Id of machines:
-	//             0 - Small
-	//             1 - Medium
-	//             2 - Large
-	WorkerSizeId *int `pulumi:"workerSizeId"`
-}
-
-// StampCapacityInput is an input type that accepts StampCapacityArgs and StampCapacityOutput values.
-// You can construct a concrete instance of `StampCapacityInput` via:
-//
-//          StampCapacityArgs{...}
-type StampCapacityInput interface {
-	pulumi.Input
-
-	ToStampCapacityOutput() StampCapacityOutput
-	ToStampCapacityOutputWithContext(context.Context) StampCapacityOutput
-}
-
-// Class containing stamp capacity information
-type StampCapacityArgs struct {
-	// Available capacity (# of machines, bytes of storage etc...)
-	AvailableCapacity pulumi.Float64PtrInput `pulumi:"availableCapacity"`
-	// Shared/Dedicated workers
-	ComputeMode *ComputeModeOptions `pulumi:"computeMode"`
-	// If true it includes basic sites
-	//             Basic sites are not used for capacity allocation.
-	ExcludeFromCapacityAllocation pulumi.BoolPtrInput `pulumi:"excludeFromCapacityAllocation"`
-	// Is capacity applicable for all sites?
-	IsApplicableForAllComputeModes pulumi.BoolPtrInput `pulumi:"isApplicableForAllComputeModes"`
-	// Name of the stamp
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Shared or Dedicated
-	SiteMode pulumi.StringPtrInput `pulumi:"siteMode"`
-	// Total capacity (# of machines, bytes of storage etc...)
-	TotalCapacity pulumi.Float64PtrInput `pulumi:"totalCapacity"`
-	// Name of the unit
-	Unit pulumi.StringPtrInput `pulumi:"unit"`
-	// Size of the machines
-	WorkerSize *WorkerSizeOptions `pulumi:"workerSize"`
-	// Size Id of machines:
-	//             0 - Small
-	//             1 - Medium
-	//             2 - Large
-	WorkerSizeId pulumi.IntPtrInput `pulumi:"workerSizeId"`
-}
-
-func (StampCapacityArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StampCapacity)(nil)).Elem()
-}
-
-func (i StampCapacityArgs) ToStampCapacityOutput() StampCapacityOutput {
-	return i.ToStampCapacityOutputWithContext(context.Background())
-}
-
-func (i StampCapacityArgs) ToStampCapacityOutputWithContext(ctx context.Context) StampCapacityOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StampCapacityOutput)
-}
-
-// StampCapacityArrayInput is an input type that accepts StampCapacityArray and StampCapacityArrayOutput values.
-// You can construct a concrete instance of `StampCapacityArrayInput` via:
-//
-//          StampCapacityArray{ StampCapacityArgs{...} }
-type StampCapacityArrayInput interface {
-	pulumi.Input
-
-	ToStampCapacityArrayOutput() StampCapacityArrayOutput
-	ToStampCapacityArrayOutputWithContext(context.Context) StampCapacityArrayOutput
-}
-
-type StampCapacityArray []StampCapacityInput
-
-func (StampCapacityArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StampCapacity)(nil)).Elem()
-}
-
-func (i StampCapacityArray) ToStampCapacityArrayOutput() StampCapacityArrayOutput {
-	return i.ToStampCapacityArrayOutputWithContext(context.Background())
-}
-
-func (i StampCapacityArray) ToStampCapacityArrayOutputWithContext(ctx context.Context) StampCapacityArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StampCapacityArrayOutput)
-}
-
-// Class containing stamp capacity information
-type StampCapacityOutput struct{ *pulumi.OutputState }
-
-func (StampCapacityOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StampCapacity)(nil)).Elem()
-}
-
-func (o StampCapacityOutput) ToStampCapacityOutput() StampCapacityOutput {
-	return o
-}
-
-func (o StampCapacityOutput) ToStampCapacityOutputWithContext(ctx context.Context) StampCapacityOutput {
-	return o
-}
-
-// Available capacity (# of machines, bytes of storage etc...)
-func (o StampCapacityOutput) AvailableCapacity() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v StampCapacity) *float64 { return v.AvailableCapacity }).(pulumi.Float64PtrOutput)
-}
-
-// Shared/Dedicated workers
-func (o StampCapacityOutput) ComputeMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StampCapacity) *string { return v.ComputeMode }).(pulumi.StringPtrOutput)
-}
-
-// If true it includes basic sites
-//             Basic sites are not used for capacity allocation.
-func (o StampCapacityOutput) ExcludeFromCapacityAllocation() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v StampCapacity) *bool { return v.ExcludeFromCapacityAllocation }).(pulumi.BoolPtrOutput)
-}
-
-// Is capacity applicable for all sites?
-func (o StampCapacityOutput) IsApplicableForAllComputeModes() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v StampCapacity) *bool { return v.IsApplicableForAllComputeModes }).(pulumi.BoolPtrOutput)
-}
-
-// Name of the stamp
-func (o StampCapacityOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StampCapacity) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-// Shared or Dedicated
-func (o StampCapacityOutput) SiteMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StampCapacity) *string { return v.SiteMode }).(pulumi.StringPtrOutput)
-}
-
-// Total capacity (# of machines, bytes of storage etc...)
-func (o StampCapacityOutput) TotalCapacity() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v StampCapacity) *float64 { return v.TotalCapacity }).(pulumi.Float64PtrOutput)
-}
-
-// Name of the unit
-func (o StampCapacityOutput) Unit() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StampCapacity) *string { return v.Unit }).(pulumi.StringPtrOutput)
-}
-
-// Size of the machines
-func (o StampCapacityOutput) WorkerSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StampCapacity) *string { return v.WorkerSize }).(pulumi.StringPtrOutput)
-}
-
-// Size Id of machines:
-//             0 - Small
-//             1 - Medium
-//             2 - Large
-func (o StampCapacityOutput) WorkerSizeId() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v StampCapacity) *int { return v.WorkerSizeId }).(pulumi.IntPtrOutput)
-}
-
-type StampCapacityArrayOutput struct{ *pulumi.OutputState }
-
-func (StampCapacityArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StampCapacity)(nil)).Elem()
-}
-
-func (o StampCapacityArrayOutput) ToStampCapacityArrayOutput() StampCapacityArrayOutput {
-	return o
-}
-
-func (o StampCapacityArrayOutput) ToStampCapacityArrayOutputWithContext(ctx context.Context) StampCapacityArrayOutput {
-	return o
-}
-
-func (o StampCapacityArrayOutput) Index(i pulumi.IntInput) StampCapacityOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StampCapacity {
-		return vs[0].([]StampCapacity)[vs[1].(int)]
-	}).(StampCapacityOutput)
-}
-
-// Class containing stamp capacity information
+// Stamp capacity information.
 type StampCapacityResponse struct {
-	// Available capacity (# of machines, bytes of storage etc...)
+	// Available capacity (# of machines, bytes of storage etc...).
 	AvailableCapacity *float64 `pulumi:"availableCapacity"`
-	// Shared/Dedicated workers
+	// Shared/dedicated workers.
 	ComputeMode *string `pulumi:"computeMode"`
-	// If true it includes basic sites
-	//             Basic sites are not used for capacity allocation.
+	// If <code>true</code>, it includes basic apps.
+	// Basic apps are not used for capacity allocation.
 	ExcludeFromCapacityAllocation *bool `pulumi:"excludeFromCapacityAllocation"`
-	// Is capacity applicable for all sites?
+	// <code>true</code> if capacity is applicable for all apps; otherwise, <code>false</code>.
 	IsApplicableForAllComputeModes *bool `pulumi:"isApplicableForAllComputeModes"`
-	// Name of the stamp
+	// Is this a linux stamp capacity
+	IsLinux *bool `pulumi:"isLinux"`
+	// Name of the stamp.
 	Name *string `pulumi:"name"`
-	// Shared or Dedicated
+	// Shared or Dedicated.
 	SiteMode *string `pulumi:"siteMode"`
-	// Total capacity (# of machines, bytes of storage etc...)
+	// Total capacity (# of machines, bytes of storage etc...).
 	TotalCapacity *float64 `pulumi:"totalCapacity"`
-	// Name of the unit
+	// Name of the unit.
 	Unit *string `pulumi:"unit"`
-	// Size of the machines
+	// Size of the machines.
 	WorkerSize *string `pulumi:"workerSize"`
-	// Size Id of machines:
-	//             0 - Small
-	//             1 - Medium
-	//             2 - Large
+	// Size ID of machines:
+	// 0 - Small
+	// 1 - Medium
+	// 2 - Large
 	WorkerSizeId *int `pulumi:"workerSizeId"`
 }
 
@@ -33512,31 +33351,33 @@ type StampCapacityResponseInput interface {
 	ToStampCapacityResponseOutputWithContext(context.Context) StampCapacityResponseOutput
 }
 
-// Class containing stamp capacity information
+// Stamp capacity information.
 type StampCapacityResponseArgs struct {
-	// Available capacity (# of machines, bytes of storage etc...)
+	// Available capacity (# of machines, bytes of storage etc...).
 	AvailableCapacity pulumi.Float64PtrInput `pulumi:"availableCapacity"`
-	// Shared/Dedicated workers
+	// Shared/dedicated workers.
 	ComputeMode pulumi.StringPtrInput `pulumi:"computeMode"`
-	// If true it includes basic sites
-	//             Basic sites are not used for capacity allocation.
+	// If <code>true</code>, it includes basic apps.
+	// Basic apps are not used for capacity allocation.
 	ExcludeFromCapacityAllocation pulumi.BoolPtrInput `pulumi:"excludeFromCapacityAllocation"`
-	// Is capacity applicable for all sites?
+	// <code>true</code> if capacity is applicable for all apps; otherwise, <code>false</code>.
 	IsApplicableForAllComputeModes pulumi.BoolPtrInput `pulumi:"isApplicableForAllComputeModes"`
-	// Name of the stamp
+	// Is this a linux stamp capacity
+	IsLinux pulumi.BoolPtrInput `pulumi:"isLinux"`
+	// Name of the stamp.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Shared or Dedicated
+	// Shared or Dedicated.
 	SiteMode pulumi.StringPtrInput `pulumi:"siteMode"`
-	// Total capacity (# of machines, bytes of storage etc...)
+	// Total capacity (# of machines, bytes of storage etc...).
 	TotalCapacity pulumi.Float64PtrInput `pulumi:"totalCapacity"`
-	// Name of the unit
+	// Name of the unit.
 	Unit pulumi.StringPtrInput `pulumi:"unit"`
-	// Size of the machines
+	// Size of the machines.
 	WorkerSize pulumi.StringPtrInput `pulumi:"workerSize"`
-	// Size Id of machines:
-	//             0 - Small
-	//             1 - Medium
-	//             2 - Large
+	// Size ID of machines:
+	// 0 - Small
+	// 1 - Medium
+	// 2 - Large
 	WorkerSizeId pulumi.IntPtrInput `pulumi:"workerSizeId"`
 }
 
@@ -33577,7 +33418,7 @@ func (i StampCapacityResponseArray) ToStampCapacityResponseArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(StampCapacityResponseArrayOutput)
 }
 
-// Class containing stamp capacity information
+// Stamp capacity information.
 type StampCapacityResponseOutput struct{ *pulumi.OutputState }
 
 func (StampCapacityResponseOutput) ElementType() reflect.Type {
@@ -33592,56 +33433,61 @@ func (o StampCapacityResponseOutput) ToStampCapacityResponseOutputWithContext(ct
 	return o
 }
 
-// Available capacity (# of machines, bytes of storage etc...)
+// Available capacity (# of machines, bytes of storage etc...).
 func (o StampCapacityResponseOutput) AvailableCapacity() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v StampCapacityResponse) *float64 { return v.AvailableCapacity }).(pulumi.Float64PtrOutput)
 }
 
-// Shared/Dedicated workers
+// Shared/dedicated workers.
 func (o StampCapacityResponseOutput) ComputeMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StampCapacityResponse) *string { return v.ComputeMode }).(pulumi.StringPtrOutput)
 }
 
-// If true it includes basic sites
-//             Basic sites are not used for capacity allocation.
+// If <code>true</code>, it includes basic apps.
+// Basic apps are not used for capacity allocation.
 func (o StampCapacityResponseOutput) ExcludeFromCapacityAllocation() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v StampCapacityResponse) *bool { return v.ExcludeFromCapacityAllocation }).(pulumi.BoolPtrOutput)
 }
 
-// Is capacity applicable for all sites?
+// <code>true</code> if capacity is applicable for all apps; otherwise, <code>false</code>.
 func (o StampCapacityResponseOutput) IsApplicableForAllComputeModes() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v StampCapacityResponse) *bool { return v.IsApplicableForAllComputeModes }).(pulumi.BoolPtrOutput)
 }
 
-// Name of the stamp
+// Is this a linux stamp capacity
+func (o StampCapacityResponseOutput) IsLinux() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v StampCapacityResponse) *bool { return v.IsLinux }).(pulumi.BoolPtrOutput)
+}
+
+// Name of the stamp.
 func (o StampCapacityResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StampCapacityResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Shared or Dedicated
+// Shared or Dedicated.
 func (o StampCapacityResponseOutput) SiteMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StampCapacityResponse) *string { return v.SiteMode }).(pulumi.StringPtrOutput)
 }
 
-// Total capacity (# of machines, bytes of storage etc...)
+// Total capacity (# of machines, bytes of storage etc...).
 func (o StampCapacityResponseOutput) TotalCapacity() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v StampCapacityResponse) *float64 { return v.TotalCapacity }).(pulumi.Float64PtrOutput)
 }
 
-// Name of the unit
+// Name of the unit.
 func (o StampCapacityResponseOutput) Unit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StampCapacityResponse) *string { return v.Unit }).(pulumi.StringPtrOutput)
 }
 
-// Size of the machines
+// Size of the machines.
 func (o StampCapacityResponseOutput) WorkerSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StampCapacityResponse) *string { return v.WorkerSize }).(pulumi.StringPtrOutput)
 }
 
-// Size Id of machines:
-//             0 - Small
-//             1 - Medium
-//             2 - Large
+// Size ID of machines:
+// 0 - Small
+// 1 - Medium
+// 2 - Large
 func (o StampCapacityResponseOutput) WorkerSizeId() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v StampCapacityResponse) *int { return v.WorkerSizeId }).(pulumi.IntPtrOutput)
 }
@@ -36403,142 +36249,17 @@ func (o VirtualDirectoryResponseArrayOutput) Index(i pulumi.IntInput) VirtualDir
 	}).(VirtualDirectoryResponseOutput)
 }
 
-// Class that represents a VIP mapping
-type VirtualIPMapping struct {
-	// Is VIP mapping in use
-	InUse *bool `pulumi:"inUse"`
-	// Internal HTTP port
-	InternalHttpPort *int `pulumi:"internalHttpPort"`
-	// Internal HTTPS port
-	InternalHttpsPort *int `pulumi:"internalHttpsPort"`
-	// Virtual IP address
-	VirtualIP *string `pulumi:"virtualIP"`
-}
-
-// VirtualIPMappingInput is an input type that accepts VirtualIPMappingArgs and VirtualIPMappingOutput values.
-// You can construct a concrete instance of `VirtualIPMappingInput` via:
-//
-//          VirtualIPMappingArgs{...}
-type VirtualIPMappingInput interface {
-	pulumi.Input
-
-	ToVirtualIPMappingOutput() VirtualIPMappingOutput
-	ToVirtualIPMappingOutputWithContext(context.Context) VirtualIPMappingOutput
-}
-
-// Class that represents a VIP mapping
-type VirtualIPMappingArgs struct {
-	// Is VIP mapping in use
-	InUse pulumi.BoolPtrInput `pulumi:"inUse"`
-	// Internal HTTP port
-	InternalHttpPort pulumi.IntPtrInput `pulumi:"internalHttpPort"`
-	// Internal HTTPS port
-	InternalHttpsPort pulumi.IntPtrInput `pulumi:"internalHttpsPort"`
-	// Virtual IP address
-	VirtualIP pulumi.StringPtrInput `pulumi:"virtualIP"`
-}
-
-func (VirtualIPMappingArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualIPMapping)(nil)).Elem()
-}
-
-func (i VirtualIPMappingArgs) ToVirtualIPMappingOutput() VirtualIPMappingOutput {
-	return i.ToVirtualIPMappingOutputWithContext(context.Background())
-}
-
-func (i VirtualIPMappingArgs) ToVirtualIPMappingOutputWithContext(ctx context.Context) VirtualIPMappingOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualIPMappingOutput)
-}
-
-// VirtualIPMappingArrayInput is an input type that accepts VirtualIPMappingArray and VirtualIPMappingArrayOutput values.
-// You can construct a concrete instance of `VirtualIPMappingArrayInput` via:
-//
-//          VirtualIPMappingArray{ VirtualIPMappingArgs{...} }
-type VirtualIPMappingArrayInput interface {
-	pulumi.Input
-
-	ToVirtualIPMappingArrayOutput() VirtualIPMappingArrayOutput
-	ToVirtualIPMappingArrayOutputWithContext(context.Context) VirtualIPMappingArrayOutput
-}
-
-type VirtualIPMappingArray []VirtualIPMappingInput
-
-func (VirtualIPMappingArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VirtualIPMapping)(nil)).Elem()
-}
-
-func (i VirtualIPMappingArray) ToVirtualIPMappingArrayOutput() VirtualIPMappingArrayOutput {
-	return i.ToVirtualIPMappingArrayOutputWithContext(context.Background())
-}
-
-func (i VirtualIPMappingArray) ToVirtualIPMappingArrayOutputWithContext(ctx context.Context) VirtualIPMappingArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualIPMappingArrayOutput)
-}
-
-// Class that represents a VIP mapping
-type VirtualIPMappingOutput struct{ *pulumi.OutputState }
-
-func (VirtualIPMappingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualIPMapping)(nil)).Elem()
-}
-
-func (o VirtualIPMappingOutput) ToVirtualIPMappingOutput() VirtualIPMappingOutput {
-	return o
-}
-
-func (o VirtualIPMappingOutput) ToVirtualIPMappingOutputWithContext(ctx context.Context) VirtualIPMappingOutput {
-	return o
-}
-
-// Is VIP mapping in use
-func (o VirtualIPMappingOutput) InUse() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v VirtualIPMapping) *bool { return v.InUse }).(pulumi.BoolPtrOutput)
-}
-
-// Internal HTTP port
-func (o VirtualIPMappingOutput) InternalHttpPort() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v VirtualIPMapping) *int { return v.InternalHttpPort }).(pulumi.IntPtrOutput)
-}
-
-// Internal HTTPS port
-func (o VirtualIPMappingOutput) InternalHttpsPort() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v VirtualIPMapping) *int { return v.InternalHttpsPort }).(pulumi.IntPtrOutput)
-}
-
-// Virtual IP address
-func (o VirtualIPMappingOutput) VirtualIP() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VirtualIPMapping) *string { return v.VirtualIP }).(pulumi.StringPtrOutput)
-}
-
-type VirtualIPMappingArrayOutput struct{ *pulumi.OutputState }
-
-func (VirtualIPMappingArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VirtualIPMapping)(nil)).Elem()
-}
-
-func (o VirtualIPMappingArrayOutput) ToVirtualIPMappingArrayOutput() VirtualIPMappingArrayOutput {
-	return o
-}
-
-func (o VirtualIPMappingArrayOutput) ToVirtualIPMappingArrayOutputWithContext(ctx context.Context) VirtualIPMappingArrayOutput {
-	return o
-}
-
-func (o VirtualIPMappingArrayOutput) Index(i pulumi.IntInput) VirtualIPMappingOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualIPMapping {
-		return vs[0].([]VirtualIPMapping)[vs[1].(int)]
-	}).(VirtualIPMappingOutput)
-}
-
-// Class that represents a VIP mapping
+// Virtual IP mapping.
 type VirtualIPMappingResponse struct {
-	// Is VIP mapping in use
+	// Is virtual IP mapping in use.
 	InUse *bool `pulumi:"inUse"`
-	// Internal HTTP port
+	// Internal HTTP port.
 	InternalHttpPort *int `pulumi:"internalHttpPort"`
-	// Internal HTTPS port
+	// Internal HTTPS port.
 	InternalHttpsPort *int `pulumi:"internalHttpsPort"`
-	// Virtual IP address
+	// name of the service that virtual IP is assigned to
+	ServiceName *string `pulumi:"serviceName"`
+	// Virtual IP address.
 	VirtualIP *string `pulumi:"virtualIP"`
 }
 
@@ -36553,15 +36274,17 @@ type VirtualIPMappingResponseInput interface {
 	ToVirtualIPMappingResponseOutputWithContext(context.Context) VirtualIPMappingResponseOutput
 }
 
-// Class that represents a VIP mapping
+// Virtual IP mapping.
 type VirtualIPMappingResponseArgs struct {
-	// Is VIP mapping in use
+	// Is virtual IP mapping in use.
 	InUse pulumi.BoolPtrInput `pulumi:"inUse"`
-	// Internal HTTP port
+	// Internal HTTP port.
 	InternalHttpPort pulumi.IntPtrInput `pulumi:"internalHttpPort"`
-	// Internal HTTPS port
+	// Internal HTTPS port.
 	InternalHttpsPort pulumi.IntPtrInput `pulumi:"internalHttpsPort"`
-	// Virtual IP address
+	// name of the service that virtual IP is assigned to
+	ServiceName pulumi.StringPtrInput `pulumi:"serviceName"`
+	// Virtual IP address.
 	VirtualIP pulumi.StringPtrInput `pulumi:"virtualIP"`
 }
 
@@ -36602,7 +36325,7 @@ func (i VirtualIPMappingResponseArray) ToVirtualIPMappingResponseArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualIPMappingResponseArrayOutput)
 }
 
-// Class that represents a VIP mapping
+// Virtual IP mapping.
 type VirtualIPMappingResponseOutput struct{ *pulumi.OutputState }
 
 func (VirtualIPMappingResponseOutput) ElementType() reflect.Type {
@@ -36617,22 +36340,27 @@ func (o VirtualIPMappingResponseOutput) ToVirtualIPMappingResponseOutputWithCont
 	return o
 }
 
-// Is VIP mapping in use
+// Is virtual IP mapping in use.
 func (o VirtualIPMappingResponseOutput) InUse() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VirtualIPMappingResponse) *bool { return v.InUse }).(pulumi.BoolPtrOutput)
 }
 
-// Internal HTTP port
+// Internal HTTP port.
 func (o VirtualIPMappingResponseOutput) InternalHttpPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v VirtualIPMappingResponse) *int { return v.InternalHttpPort }).(pulumi.IntPtrOutput)
 }
 
-// Internal HTTPS port
+// Internal HTTPS port.
 func (o VirtualIPMappingResponseOutput) InternalHttpsPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v VirtualIPMappingResponse) *int { return v.InternalHttpsPort }).(pulumi.IntPtrOutput)
 }
 
-// Virtual IP address
+// name of the service that virtual IP is assigned to
+func (o VirtualIPMappingResponseOutput) ServiceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualIPMappingResponse) *string { return v.ServiceName }).(pulumi.StringPtrOutput)
+}
+
+// Virtual IP address.
 func (o VirtualIPMappingResponseOutput) VirtualIP() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualIPMappingResponse) *string { return v.VirtualIP }).(pulumi.StringPtrOutput)
 }
@@ -36657,16 +36385,12 @@ func (o VirtualIPMappingResponseArrayOutput) Index(i pulumi.IntInput) VirtualIPM
 	}).(VirtualIPMappingResponseOutput)
 }
 
-// Specification for using a virtual network
+// Specification for using a Virtual Network.
 type VirtualNetworkProfile struct {
-	// Resource id of the virtual network
+	// Resource id of the Virtual Network.
 	Id *string `pulumi:"id"`
-	// Name of the virtual network (read-only)
-	Name *string `pulumi:"name"`
-	// Subnet within the virtual network
+	// Subnet within the Virtual Network.
 	Subnet *string `pulumi:"subnet"`
-	// Resource type of the virtual network (read-only)
-	Type *string `pulumi:"type"`
 }
 
 // VirtualNetworkProfileInput is an input type that accepts VirtualNetworkProfileArgs and VirtualNetworkProfileOutput values.
@@ -36680,16 +36404,12 @@ type VirtualNetworkProfileInput interface {
 	ToVirtualNetworkProfileOutputWithContext(context.Context) VirtualNetworkProfileOutput
 }
 
-// Specification for using a virtual network
+// Specification for using a Virtual Network.
 type VirtualNetworkProfileArgs struct {
-	// Resource id of the virtual network
+	// Resource id of the Virtual Network.
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Name of the virtual network (read-only)
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Subnet within the virtual network
+	// Subnet within the Virtual Network.
 	Subnet pulumi.StringPtrInput `pulumi:"subnet"`
-	// Resource type of the virtual network (read-only)
-	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (VirtualNetworkProfileArgs) ElementType() reflect.Type {
@@ -36745,7 +36465,7 @@ func (i *virtualNetworkProfilePtrType) ToVirtualNetworkProfilePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkProfilePtrOutput)
 }
 
-// Specification for using a virtual network
+// Specification for using a Virtual Network.
 type VirtualNetworkProfileOutput struct{ *pulumi.OutputState }
 
 func (VirtualNetworkProfileOutput) ElementType() reflect.Type {
@@ -36770,24 +36490,14 @@ func (o VirtualNetworkProfileOutput) ToVirtualNetworkProfilePtrOutputWithContext
 	}).(VirtualNetworkProfilePtrOutput)
 }
 
-// Resource id of the virtual network
+// Resource id of the Virtual Network.
 func (o VirtualNetworkProfileOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualNetworkProfile) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Name of the virtual network (read-only)
-func (o VirtualNetworkProfileOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VirtualNetworkProfile) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-// Subnet within the virtual network
+// Subnet within the Virtual Network.
 func (o VirtualNetworkProfileOutput) Subnet() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualNetworkProfile) *string { return v.Subnet }).(pulumi.StringPtrOutput)
-}
-
-// Resource type of the virtual network (read-only)
-func (o VirtualNetworkProfileOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VirtualNetworkProfile) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 type VirtualNetworkProfilePtrOutput struct{ *pulumi.OutputState }
@@ -36808,7 +36518,7 @@ func (o VirtualNetworkProfilePtrOutput) Elem() VirtualNetworkProfileOutput {
 	return o.ApplyT(func(v *VirtualNetworkProfile) VirtualNetworkProfile { return *v }).(VirtualNetworkProfileOutput)
 }
 
-// Resource id of the virtual network
+// Resource id of the Virtual Network.
 func (o VirtualNetworkProfilePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNetworkProfile) *string {
 		if v == nil {
@@ -36818,17 +36528,7 @@ func (o VirtualNetworkProfilePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the virtual network (read-only)
-func (o VirtualNetworkProfilePtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VirtualNetworkProfile) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// Subnet within the virtual network
+// Subnet within the Virtual Network.
 func (o VirtualNetworkProfilePtrOutput) Subnet() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNetworkProfile) *string {
 		if v == nil {
@@ -36838,26 +36538,16 @@ func (o VirtualNetworkProfilePtrOutput) Subnet() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource type of the virtual network (read-only)
-func (o VirtualNetworkProfilePtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VirtualNetworkProfile) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Type
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specification for using a virtual network
+// Specification for using a Virtual Network.
 type VirtualNetworkProfileResponse struct {
-	// Resource id of the virtual network
+	// Resource id of the Virtual Network.
 	Id *string `pulumi:"id"`
-	// Name of the virtual network (read-only)
-	Name *string `pulumi:"name"`
-	// Subnet within the virtual network
+	// Name of the Virtual Network (read-only).
+	Name string `pulumi:"name"`
+	// Subnet within the Virtual Network.
 	Subnet *string `pulumi:"subnet"`
-	// Resource type of the virtual network (read-only)
-	Type *string `pulumi:"type"`
+	// Resource type of the Virtual Network (read-only).
+	Type string `pulumi:"type"`
 }
 
 // VirtualNetworkProfileResponseInput is an input type that accepts VirtualNetworkProfileResponseArgs and VirtualNetworkProfileResponseOutput values.
@@ -36871,16 +36561,16 @@ type VirtualNetworkProfileResponseInput interface {
 	ToVirtualNetworkProfileResponseOutputWithContext(context.Context) VirtualNetworkProfileResponseOutput
 }
 
-// Specification for using a virtual network
+// Specification for using a Virtual Network.
 type VirtualNetworkProfileResponseArgs struct {
-	// Resource id of the virtual network
+	// Resource id of the Virtual Network.
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Name of the virtual network (read-only)
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Subnet within the virtual network
+	// Name of the Virtual Network (read-only).
+	Name pulumi.StringInput `pulumi:"name"`
+	// Subnet within the Virtual Network.
 	Subnet pulumi.StringPtrInput `pulumi:"subnet"`
-	// Resource type of the virtual network (read-only)
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	// Resource type of the Virtual Network (read-only).
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (VirtualNetworkProfileResponseArgs) ElementType() reflect.Type {
@@ -36936,7 +36626,7 @@ func (i *virtualNetworkProfileResponsePtrType) ToVirtualNetworkProfileResponsePt
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkProfileResponsePtrOutput)
 }
 
-// Specification for using a virtual network
+// Specification for using a Virtual Network.
 type VirtualNetworkProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (VirtualNetworkProfileResponseOutput) ElementType() reflect.Type {
@@ -36961,24 +36651,24 @@ func (o VirtualNetworkProfileResponseOutput) ToVirtualNetworkProfileResponsePtrO
 	}).(VirtualNetworkProfileResponsePtrOutput)
 }
 
-// Resource id of the virtual network
+// Resource id of the Virtual Network.
 func (o VirtualNetworkProfileResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualNetworkProfileResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Name of the virtual network (read-only)
-func (o VirtualNetworkProfileResponseOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VirtualNetworkProfileResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+// Name of the Virtual Network (read-only).
+func (o VirtualNetworkProfileResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualNetworkProfileResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Subnet within the virtual network
+// Subnet within the Virtual Network.
 func (o VirtualNetworkProfileResponseOutput) Subnet() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualNetworkProfileResponse) *string { return v.Subnet }).(pulumi.StringPtrOutput)
 }
 
-// Resource type of the virtual network (read-only)
-func (o VirtualNetworkProfileResponseOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VirtualNetworkProfileResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+// Resource type of the Virtual Network (read-only).
+func (o VirtualNetworkProfileResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualNetworkProfileResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type VirtualNetworkProfileResponsePtrOutput struct{ *pulumi.OutputState }
@@ -36999,7 +36689,7 @@ func (o VirtualNetworkProfileResponsePtrOutput) Elem() VirtualNetworkProfileResp
 	return o.ApplyT(func(v *VirtualNetworkProfileResponse) VirtualNetworkProfileResponse { return *v }).(VirtualNetworkProfileResponseOutput)
 }
 
-// Resource id of the virtual network
+// Resource id of the Virtual Network.
 func (o VirtualNetworkProfileResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNetworkProfileResponse) *string {
 		if v == nil {
@@ -37009,17 +36699,17 @@ func (o VirtualNetworkProfileResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the virtual network (read-only)
+// Name of the Virtual Network (read-only).
 func (o VirtualNetworkProfileResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNetworkProfileResponse) *string {
 		if v == nil {
 			return nil
 		}
-		return v.Name
+		return &v.Name
 	}).(pulumi.StringPtrOutput)
 }
 
-// Subnet within the virtual network
+// Subnet within the Virtual Network.
 func (o VirtualNetworkProfileResponsePtrOutput) Subnet() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNetworkProfileResponse) *string {
 		if v == nil {
@@ -37029,13 +36719,13 @@ func (o VirtualNetworkProfileResponsePtrOutput) Subnet() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource type of the virtual network (read-only)
+// Resource type of the Virtual Network (read-only).
 func (o VirtualNetworkProfileResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNetworkProfileResponse) *string {
 		if v == nil {
 			return nil
 		}
-		return v.Type
+		return &v.Type
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -37217,31 +36907,15 @@ func (o VnetRouteResponseArrayOutput) Index(i pulumi.IntInput) VnetRouteResponse
 	}).(VnetRouteResponseOutput)
 }
 
-// Worker pool of a hostingEnvironment (App Service Environment)
+// Worker pool of an App Service Environment.
 type WorkerPool struct {
-	// Shared or dedicated web app hosting
+	// Shared or dedicated app hosting.
 	ComputeMode *string `pulumi:"computeMode"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// Names of all instances in the worker pool (read only)
-	InstanceNames []string `pulumi:"instanceNames"`
-	// Kind of resource
-	Kind *string `pulumi:"kind"`
-	// Resource Location
-	Location string `pulumi:"location"`
-	// Resource Name
-	Name *string `pulumi:"name"`
-	// Describes a sku for a scalable resource
-	Sku *SkuDescription `pulumi:"sku"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type *string `pulumi:"type"`
-	// Number of instances in the worker pool
+	// Number of instances in the worker pool.
 	WorkerCount *int `pulumi:"workerCount"`
-	// VM size of the worker pool instances
+	// VM size of the worker pool instances.
 	WorkerSize *string `pulumi:"workerSize"`
-	// Worker size id for referencing this worker pool
+	// Worker size ID for referencing this worker pool.
 	WorkerSizeId *int `pulumi:"workerSizeId"`
 }
 
@@ -37256,31 +36930,15 @@ type WorkerPoolInput interface {
 	ToWorkerPoolOutputWithContext(context.Context) WorkerPoolOutput
 }
 
-// Worker pool of a hostingEnvironment (App Service Environment)
+// Worker pool of an App Service Environment.
 type WorkerPoolArgs struct {
-	// Shared or dedicated web app hosting
+	// Shared or dedicated app hosting.
 	ComputeMode *ComputeModeOptions `pulumi:"computeMode"`
-	// Resource Id
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Names of all instances in the worker pool (read only)
-	InstanceNames pulumi.StringArrayInput `pulumi:"instanceNames"`
-	// Kind of resource
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// Resource Location
-	Location pulumi.StringInput `pulumi:"location"`
-	// Resource Name
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Describes a sku for a scalable resource
-	Sku SkuDescriptionPtrInput `pulumi:"sku"`
-	// Resource tags
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringPtrInput `pulumi:"type"`
-	// Number of instances in the worker pool
+	// Number of instances in the worker pool.
 	WorkerCount pulumi.IntPtrInput `pulumi:"workerCount"`
-	// VM size of the worker pool instances
+	// VM size of the worker pool instances.
 	WorkerSize pulumi.StringPtrInput `pulumi:"workerSize"`
-	// Worker size id for referencing this worker pool
+	// Worker size ID for referencing this worker pool.
 	WorkerSizeId pulumi.IntPtrInput `pulumi:"workerSizeId"`
 }
 
@@ -37321,7 +36979,7 @@ func (i WorkerPoolArray) ToWorkerPoolArrayOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(WorkerPoolArrayOutput)
 }
 
-// Worker pool of a hostingEnvironment (App Service Environment)
+// Worker pool of an App Service Environment.
 type WorkerPoolOutput struct{ *pulumi.OutputState }
 
 func (WorkerPoolOutput) ElementType() reflect.Type {
@@ -37336,62 +36994,22 @@ func (o WorkerPoolOutput) ToWorkerPoolOutputWithContext(ctx context.Context) Wor
 	return o
 }
 
-// Shared or dedicated web app hosting
+// Shared or dedicated app hosting.
 func (o WorkerPoolOutput) ComputeMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkerPool) *string { return v.ComputeMode }).(pulumi.StringPtrOutput)
 }
 
-// Resource Id
-func (o WorkerPoolOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WorkerPool) *string { return v.Id }).(pulumi.StringPtrOutput)
-}
-
-// Names of all instances in the worker pool (read only)
-func (o WorkerPoolOutput) InstanceNames() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v WorkerPool) []string { return v.InstanceNames }).(pulumi.StringArrayOutput)
-}
-
-// Kind of resource
-func (o WorkerPoolOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WorkerPool) *string { return v.Kind }).(pulumi.StringPtrOutput)
-}
-
-// Resource Location
-func (o WorkerPoolOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v WorkerPool) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// Resource Name
-func (o WorkerPoolOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WorkerPool) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-// Describes a sku for a scalable resource
-func (o WorkerPoolOutput) Sku() SkuDescriptionPtrOutput {
-	return o.ApplyT(func(v WorkerPool) *SkuDescription { return v.Sku }).(SkuDescriptionPtrOutput)
-}
-
-// Resource tags
-func (o WorkerPoolOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v WorkerPool) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Resource type
-func (o WorkerPoolOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WorkerPool) *string { return v.Type }).(pulumi.StringPtrOutput)
-}
-
-// Number of instances in the worker pool
+// Number of instances in the worker pool.
 func (o WorkerPoolOutput) WorkerCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v WorkerPool) *int { return v.WorkerCount }).(pulumi.IntPtrOutput)
 }
 
-// VM size of the worker pool instances
+// VM size of the worker pool instances.
 func (o WorkerPoolOutput) WorkerSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkerPool) *string { return v.WorkerSize }).(pulumi.StringPtrOutput)
 }
 
-// Worker size id for referencing this worker pool
+// Worker size ID for referencing this worker pool.
 func (o WorkerPoolOutput) WorkerSizeId() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v WorkerPool) *int { return v.WorkerSizeId }).(pulumi.IntPtrOutput)
 }
@@ -37416,31 +37034,17 @@ func (o WorkerPoolArrayOutput) Index(i pulumi.IntInput) WorkerPoolOutput {
 	}).(WorkerPoolOutput)
 }
 
-// Worker pool of a hostingEnvironment (App Service Environment)
+// Worker pool of an App Service Environment.
 type WorkerPoolResponse struct {
-	// Shared or dedicated web app hosting
+	// Shared or dedicated app hosting.
 	ComputeMode *string `pulumi:"computeMode"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// Names of all instances in the worker pool (read only)
+	// Names of all instances in the worker pool (read only).
 	InstanceNames []string `pulumi:"instanceNames"`
-	// Kind of resource
-	Kind *string `pulumi:"kind"`
-	// Resource Location
-	Location string `pulumi:"location"`
-	// Resource Name
-	Name *string `pulumi:"name"`
-	// Describes a sku for a scalable resource
-	Sku *SkuDescriptionResponse `pulumi:"sku"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type *string `pulumi:"type"`
-	// Number of instances in the worker pool
+	// Number of instances in the worker pool.
 	WorkerCount *int `pulumi:"workerCount"`
-	// VM size of the worker pool instances
+	// VM size of the worker pool instances.
 	WorkerSize *string `pulumi:"workerSize"`
-	// Worker size id for referencing this worker pool
+	// Worker size ID for referencing this worker pool.
 	WorkerSizeId *int `pulumi:"workerSizeId"`
 }
 
@@ -37455,31 +37059,17 @@ type WorkerPoolResponseInput interface {
 	ToWorkerPoolResponseOutputWithContext(context.Context) WorkerPoolResponseOutput
 }
 
-// Worker pool of a hostingEnvironment (App Service Environment)
+// Worker pool of an App Service Environment.
 type WorkerPoolResponseArgs struct {
-	// Shared or dedicated web app hosting
+	// Shared or dedicated app hosting.
 	ComputeMode pulumi.StringPtrInput `pulumi:"computeMode"`
-	// Resource Id
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Names of all instances in the worker pool (read only)
+	// Names of all instances in the worker pool (read only).
 	InstanceNames pulumi.StringArrayInput `pulumi:"instanceNames"`
-	// Kind of resource
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// Resource Location
-	Location pulumi.StringInput `pulumi:"location"`
-	// Resource Name
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Describes a sku for a scalable resource
-	Sku SkuDescriptionResponsePtrInput `pulumi:"sku"`
-	// Resource tags
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringPtrInput `pulumi:"type"`
-	// Number of instances in the worker pool
+	// Number of instances in the worker pool.
 	WorkerCount pulumi.IntPtrInput `pulumi:"workerCount"`
-	// VM size of the worker pool instances
+	// VM size of the worker pool instances.
 	WorkerSize pulumi.StringPtrInput `pulumi:"workerSize"`
-	// Worker size id for referencing this worker pool
+	// Worker size ID for referencing this worker pool.
 	WorkerSizeId pulumi.IntPtrInput `pulumi:"workerSizeId"`
 }
 
@@ -37520,7 +37110,7 @@ func (i WorkerPoolResponseArray) ToWorkerPoolResponseArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(WorkerPoolResponseArrayOutput)
 }
 
-// Worker pool of a hostingEnvironment (App Service Environment)
+// Worker pool of an App Service Environment.
 type WorkerPoolResponseOutput struct{ *pulumi.OutputState }
 
 func (WorkerPoolResponseOutput) ElementType() reflect.Type {
@@ -37535,62 +37125,27 @@ func (o WorkerPoolResponseOutput) ToWorkerPoolResponseOutputWithContext(ctx cont
 	return o
 }
 
-// Shared or dedicated web app hosting
+// Shared or dedicated app hosting.
 func (o WorkerPoolResponseOutput) ComputeMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkerPoolResponse) *string { return v.ComputeMode }).(pulumi.StringPtrOutput)
 }
 
-// Resource Id
-func (o WorkerPoolResponseOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WorkerPoolResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
-}
-
-// Names of all instances in the worker pool (read only)
+// Names of all instances in the worker pool (read only).
 func (o WorkerPoolResponseOutput) InstanceNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v WorkerPoolResponse) []string { return v.InstanceNames }).(pulumi.StringArrayOutput)
 }
 
-// Kind of resource
-func (o WorkerPoolResponseOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WorkerPoolResponse) *string { return v.Kind }).(pulumi.StringPtrOutput)
-}
-
-// Resource Location
-func (o WorkerPoolResponseOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v WorkerPoolResponse) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// Resource Name
-func (o WorkerPoolResponseOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WorkerPoolResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-// Describes a sku for a scalable resource
-func (o WorkerPoolResponseOutput) Sku() SkuDescriptionResponsePtrOutput {
-	return o.ApplyT(func(v WorkerPoolResponse) *SkuDescriptionResponse { return v.Sku }).(SkuDescriptionResponsePtrOutput)
-}
-
-// Resource tags
-func (o WorkerPoolResponseOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v WorkerPoolResponse) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Resource type
-func (o WorkerPoolResponseOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WorkerPoolResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
-}
-
-// Number of instances in the worker pool
+// Number of instances in the worker pool.
 func (o WorkerPoolResponseOutput) WorkerCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v WorkerPoolResponse) *int { return v.WorkerCount }).(pulumi.IntPtrOutput)
 }
 
-// VM size of the worker pool instances
+// VM size of the worker pool instances.
 func (o WorkerPoolResponseOutput) WorkerSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkerPoolResponse) *string { return v.WorkerSize }).(pulumi.StringPtrOutput)
 }
 
-// Worker size id for referencing this worker pool
+// Worker size ID for referencing this worker pool.
 func (o WorkerPoolResponseOutput) WorkerSizeId() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v WorkerPoolResponse) *int { return v.WorkerSizeId }).(pulumi.IntPtrOutput)
 }
@@ -38688,8 +38243,6 @@ func init() {
 	pulumi.RegisterOutputType(SlowRequestsBasedTriggerPtrOutput{})
 	pulumi.RegisterOutputType(SlowRequestsBasedTriggerResponseOutput{})
 	pulumi.RegisterOutputType(SlowRequestsBasedTriggerResponsePtrOutput{})
-	pulumi.RegisterOutputType(StampCapacityOutput{})
-	pulumi.RegisterOutputType(StampCapacityArrayOutput{})
 	pulumi.RegisterOutputType(StampCapacityResponseOutput{})
 	pulumi.RegisterOutputType(StampCapacityResponseArrayOutput{})
 	pulumi.RegisterOutputType(StaticSiteBuildPropertiesOutput{})
@@ -38724,8 +38277,6 @@ func init() {
 	pulumi.RegisterOutputType(VirtualDirectoryArrayOutput{})
 	pulumi.RegisterOutputType(VirtualDirectoryResponseOutput{})
 	pulumi.RegisterOutputType(VirtualDirectoryResponseArrayOutput{})
-	pulumi.RegisterOutputType(VirtualIPMappingOutput{})
-	pulumi.RegisterOutputType(VirtualIPMappingArrayOutput{})
 	pulumi.RegisterOutputType(VirtualIPMappingResponseOutput{})
 	pulumi.RegisterOutputType(VirtualIPMappingResponseArrayOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkProfileOutput{})

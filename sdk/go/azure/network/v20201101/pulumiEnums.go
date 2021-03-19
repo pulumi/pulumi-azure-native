@@ -1593,6 +1593,41 @@ func (e FlowLogFormatType) ToStringPtrOutputWithContext(ctx context.Context) pul
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// Request variable to compare with.
+type FrontDoorMatchVariable pulumi.String
+
+const (
+	FrontDoorMatchVariableRemoteAddr    = FrontDoorMatchVariable("RemoteAddr")
+	FrontDoorMatchVariableRequestMethod = FrontDoorMatchVariable("RequestMethod")
+	FrontDoorMatchVariableQueryString   = FrontDoorMatchVariable("QueryString")
+	FrontDoorMatchVariablePostArgs      = FrontDoorMatchVariable("PostArgs")
+	FrontDoorMatchVariableRequestUri    = FrontDoorMatchVariable("RequestUri")
+	FrontDoorMatchVariableRequestHeader = FrontDoorMatchVariable("RequestHeader")
+	FrontDoorMatchVariableRequestBody   = FrontDoorMatchVariable("RequestBody")
+	FrontDoorMatchVariableCookies       = FrontDoorMatchVariable("Cookies")
+	FrontDoorMatchVariableSocketAddr    = FrontDoorMatchVariable("SocketAddr")
+)
+
+func (FrontDoorMatchVariable) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e FrontDoorMatchVariable) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FrontDoorMatchVariable) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FrontDoorMatchVariable) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FrontDoorMatchVariable) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // The HTTP method to use.
 type HTTPConfigurationMethod pulumi.String
 

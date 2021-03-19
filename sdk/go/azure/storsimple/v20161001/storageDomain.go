@@ -47,18 +47,6 @@ func NewStorageDomain(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:storsimple/v20161001:StorageDomain"),
 		},
-		{
-			Type: pulumi.String("azure-native:storsimple:StorageDomain"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storsimple:StorageDomain"),
-		},
-		{
-			Type: pulumi.String("azure-native:storsimple/latest:StorageDomain"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storsimple/latest:StorageDomain"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource StorageDomain

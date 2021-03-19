@@ -83,6 +83,12 @@ func NewTask(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:containerregistry/latest:Task"),
 		},
 		{
+			Type: pulumi.String("azure-native:containerregistry/v20180201preview:Task"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:containerregistry/v20180201preview:Task"),
+		},
+		{
 			Type: pulumi.String("azure-native:containerregistry/v20190401:Task"),
 		},
 		{

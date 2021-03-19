@@ -21,9 +21,9 @@ type Experiment struct {
 	// The state of the Experiment
 	EnabledState pulumi.StringPtrOutput `pulumi:"enabledState"`
 	// The endpoint A of an experiment
-	EndpointA EndpointResponsePtrOutput `pulumi:"endpointA"`
+	EndpointA ExperimentEndpointResponsePtrOutput `pulumi:"endpointA"`
 	// The endpoint B of an experiment
-	EndpointB EndpointResponsePtrOutput `pulumi:"endpointB"`
+	EndpointB ExperimentEndpointResponsePtrOutput `pulumi:"endpointB"`
 	// Resource location.
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// Resource name.
@@ -98,9 +98,9 @@ type experimentState struct {
 	// The state of the Experiment
 	EnabledState *string `pulumi:"enabledState"`
 	// The endpoint A of an experiment
-	EndpointA *EndpointResponse `pulumi:"endpointA"`
+	EndpointA *ExperimentEndpointResponse `pulumi:"endpointA"`
 	// The endpoint B of an experiment
-	EndpointB *EndpointResponse `pulumi:"endpointB"`
+	EndpointB *ExperimentEndpointResponse `pulumi:"endpointB"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Resource name.
@@ -123,9 +123,9 @@ type ExperimentState struct {
 	// The state of the Experiment
 	EnabledState pulumi.StringPtrInput
 	// The endpoint A of an experiment
-	EndpointA EndpointResponsePtrInput
+	EndpointA ExperimentEndpointResponsePtrInput
 	// The endpoint B of an experiment
-	EndpointB EndpointResponsePtrInput
+	EndpointB ExperimentEndpointResponsePtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// Resource name.
@@ -152,9 +152,9 @@ type experimentArgs struct {
 	// The state of the Experiment
 	EnabledState *string `pulumi:"enabledState"`
 	// The endpoint A of an experiment
-	EndpointA *EndpointType `pulumi:"endpointA"`
+	EndpointA *ExperimentEndpoint `pulumi:"endpointA"`
 	// The endpoint B of an experiment
-	EndpointB *EndpointType `pulumi:"endpointB"`
+	EndpointB *ExperimentEndpoint `pulumi:"endpointB"`
 	// The Experiment identifier associated with the Experiment
 	ExperimentName *string `pulumi:"experimentName"`
 	// Resource location.
@@ -174,9 +174,9 @@ type ExperimentArgs struct {
 	// The state of the Experiment
 	EnabledState pulumi.StringPtrInput
 	// The endpoint A of an experiment
-	EndpointA EndpointTypePtrInput
+	EndpointA ExperimentEndpointPtrInput
 	// The endpoint B of an experiment
-	EndpointB EndpointTypePtrInput
+	EndpointB ExperimentEndpointPtrInput
 	// The Experiment identifier associated with the Experiment
 	ExperimentName pulumi.StringPtrInput
 	// Resource location.

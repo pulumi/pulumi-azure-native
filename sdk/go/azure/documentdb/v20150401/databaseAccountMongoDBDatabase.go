@@ -84,6 +84,54 @@ func NewDatabaseAccountMongoDBDatabase(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20160331:DatabaseAccountMongoDBDatabase"),
 		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20190801:DatabaseAccountMongoDBDatabase"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:documentdb/v20190801:DatabaseAccountMongoDBDatabase"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20191212:DatabaseAccountMongoDBDatabase"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:documentdb/v20191212:DatabaseAccountMongoDBDatabase"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20200301:DatabaseAccountMongoDBDatabase"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:documentdb/v20200301:DatabaseAccountMongoDBDatabase"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20200401:DatabaseAccountMongoDBDatabase"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:documentdb/v20200401:DatabaseAccountMongoDBDatabase"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20200601preview:DatabaseAccountMongoDBDatabase"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:documentdb/v20200601preview:DatabaseAccountMongoDBDatabase"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20200901:DatabaseAccountMongoDBDatabase"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:documentdb/v20200901:DatabaseAccountMongoDBDatabase"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20210115:DatabaseAccountMongoDBDatabase"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:documentdb/v20210115:DatabaseAccountMongoDBDatabase"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20210301preview:DatabaseAccountMongoDBDatabase"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:documentdb/v20210301preview:DatabaseAccountMongoDBDatabase"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource DatabaseAccountMongoDBDatabase

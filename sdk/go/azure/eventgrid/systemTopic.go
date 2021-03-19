@@ -12,12 +12,10 @@ import (
 )
 
 // EventGrid System Topic.
-// API Version: 2020-10-15-preview.
+// API Version: 2020-04-01-preview.
 type SystemTopic struct {
 	pulumi.CustomResourceState
 
-	// Identity information for the resource.
-	Identity IdentityInfoResponsePtrOutput `pulumi:"identity"`
 	// Location of the resource.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Metric resource id for the system topic.
@@ -88,8 +86,6 @@ func GetSystemTopic(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SystemTopic resources.
 type systemTopicState struct {
-	// Identity information for the resource.
-	Identity *IdentityInfoResponse `pulumi:"identity"`
 	// Location of the resource.
 	Location *string `pulumi:"location"`
 	// Metric resource id for the system topic.
@@ -111,8 +107,6 @@ type systemTopicState struct {
 }
 
 type SystemTopicState struct {
-	// Identity information for the resource.
-	Identity IdentityInfoResponsePtrInput
 	// Location of the resource.
 	Location pulumi.StringPtrInput
 	// Metric resource id for the system topic.
@@ -138,8 +132,6 @@ func (SystemTopicState) ElementType() reflect.Type {
 }
 
 type systemTopicArgs struct {
-	// Identity information for the resource.
-	Identity *IdentityInfo `pulumi:"identity"`
 	// Location of the resource.
 	Location *string `pulumi:"location"`
 	// The name of the resource group within the user's subscription.
@@ -156,8 +148,6 @@ type systemTopicArgs struct {
 
 // The set of arguments for constructing a SystemTopic resource.
 type SystemTopicArgs struct {
-	// Identity information for the resource.
-	Identity IdentityInfoPtrInput
 	// Location of the resource.
 	Location pulumi.StringPtrInput
 	// The name of the resource group within the user's subscription.

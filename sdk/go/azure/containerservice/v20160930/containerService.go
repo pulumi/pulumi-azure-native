@@ -67,18 +67,6 @@ func NewContainerService(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:containerservice/v20160930:ContainerService"),
 		},
 		{
-			Type: pulumi.String("azure-native:containerservice:ContainerService"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:containerservice:ContainerService"),
-		},
-		{
-			Type: pulumi.String("azure-native:containerservice/latest:ContainerService"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:containerservice/latest:ContainerService"),
-		},
-		{
 			Type: pulumi.String("azure-native:containerservice/v20151101preview:ContainerService"),
 		},
 		{

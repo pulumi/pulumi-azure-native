@@ -36,7 +36,7 @@ type LookupMyWorkbookResult struct {
 	// Azure resource Id
 	Id *string `pulumi:"id"`
 	// Identity used for BYOS
-	Identity *ManagedIdentityResponse `pulumi:"identity"`
+	Identity *MyManagedIdentityResponse `pulumi:"identity"`
 	// The kind of workbook. Choices are user and shared.
 	Kind *string `pulumi:"kind"`
 	// Resource location

@@ -38,34 +38,6 @@ func (e AccumulatedType) ToStringPtrOutputWithContext(ctx context.Context) pulum
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// The category of the budget, whether the budget tracks cost or usage.
-type CategoryType pulumi.String
-
-const (
-	CategoryTypeCost  = CategoryType("Cost")
-	CategoryTypeUsage = CategoryType("Usage")
-)
-
-func (CategoryType) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
-}
-
-func (e CategoryType) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e CategoryType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e CategoryType) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e CategoryType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
 // Chart type of the main view in Cost Analysis. Required.
 type ChartType pulumi.String
 
@@ -124,35 +96,6 @@ func (e ConnectorBillingModel) ToStringPtrOutput() pulumi.StringPtrOutput {
 }
 
 func (e ConnectorBillingModel) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-// Connector status
-type ConnectorStatus pulumi.String
-
-const (
-	ConnectorStatusActive    = ConnectorStatus("active")
-	ConnectorStatusError     = ConnectorStatus("error")
-	ConnectorStatusSuspended = ConnectorStatus("suspended")
-)
-
-func (ConnectorStatus) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
-}
-
-func (e ConnectorStatus) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ConnectorStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ConnectorStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e ConnectorStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
@@ -300,7 +243,8 @@ func (e FunctionType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.S
 type GranularityType pulumi.String
 
 const (
-	GranularityTypeDaily = GranularityType("Daily")
+	GranularityTypeDaily  = GranularityType("Daily")
+	GranularityTypeHourly = GranularityType("Hourly")
 )
 
 func (GranularityType) ElementType() reflect.Type {
@@ -377,35 +321,6 @@ func (e MetricType) ToStringPtrOutput() pulumi.StringPtrOutput {
 }
 
 func (e MetricType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-// The comparison operator.
-type NotificationOperatorType pulumi.String
-
-const (
-	NotificationOperatorTypeEqualTo              = NotificationOperatorType("EqualTo")
-	NotificationOperatorTypeGreaterThan          = NotificationOperatorType("GreaterThan")
-	NotificationOperatorTypeGreaterThanOrEqualTo = NotificationOperatorType("GreaterThanOrEqualTo")
-)
-
-func (NotificationOperatorType) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
-}
-
-func (e NotificationOperatorType) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e NotificationOperatorType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e NotificationOperatorType) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e NotificationOperatorType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
@@ -696,42 +611,12 @@ func (e StatusType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.Str
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// The time covered by a budget. Tracking of the amount will be reset based on the time grain.
-type TimeGrainType pulumi.String
-
-const (
-	TimeGrainTypeMonthly   = TimeGrainType("Monthly")
-	TimeGrainTypeQuarterly = TimeGrainType("Quarterly")
-	TimeGrainTypeAnnually  = TimeGrainType("Annually")
-)
-
-func (TimeGrainType) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
-}
-
-func (e TimeGrainType) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e TimeGrainType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e TimeGrainType) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e TimeGrainType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
 // The time frame for pulling data for the report. If custom, then a specific time period must be provided.
 type TimeframeType pulumi.String
 
 const (
 	TimeframeTypeWeekToDate  = TimeframeType("WeekToDate")
 	TimeframeTypeMonthToDate = TimeframeType("MonthToDate")
-	TimeframeTypeYearToDate  = TimeframeType("YearToDate")
 	TimeframeTypeCustom      = TimeframeType("Custom")
 )
 

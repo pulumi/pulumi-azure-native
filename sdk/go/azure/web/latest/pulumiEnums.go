@@ -10,6 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Action object.
 type AccessControlEntryAction pulumi.String
 
 const (
@@ -242,7 +243,7 @@ func (e ClientCredentialMethod) ToStringPtrOutputWithContext(ctx context.Context
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// Shared or dedicated web app hosting
+// Shared or dedicated app hosting.
 type ComputeModeOptions pulumi.String
 
 const (
@@ -569,65 +570,6 @@ func (e HostType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.Strin
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// Current status of the hostingEnvironment (App Service Environment)
-type HostingEnvironmentStatus pulumi.String
-
-const (
-	HostingEnvironmentStatusPreparing = HostingEnvironmentStatus("Preparing")
-	HostingEnvironmentStatusReady     = HostingEnvironmentStatus("Ready")
-	HostingEnvironmentStatusScaling   = HostingEnvironmentStatus("Scaling")
-	HostingEnvironmentStatusDeleting  = HostingEnvironmentStatus("Deleting")
-)
-
-func (HostingEnvironmentStatus) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
-}
-
-func (e HostingEnvironmentStatus) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e HostingEnvironmentStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e HostingEnvironmentStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e HostingEnvironmentStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-// Specifies which endpoints to serve internally in the hostingEnvironment's (App Service Environment) VNET
-type InternalLoadBalancingMode pulumi.String
-
-const (
-	InternalLoadBalancingModeNone       = InternalLoadBalancingMode("None")
-	InternalLoadBalancingModeWeb        = InternalLoadBalancingMode("Web")
-	InternalLoadBalancingModePublishing = InternalLoadBalancingMode("Publishing")
-)
-
-func (InternalLoadBalancingMode) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
-}
-
-func (e InternalLoadBalancingMode) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e InternalLoadBalancingMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e InternalLoadBalancingMode) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e InternalLoadBalancingMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
 // Defines what this IP filter will be used for. This is to support IP filtering on proxies.
 type IpFilterTag pulumi.String
 
@@ -773,37 +715,6 @@ func (e ManagedServiceIdentityType) ToStringPtrOutput() pulumi.StringPtrOutput {
 }
 
 func (e ManagedServiceIdentityType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-// Provisioning state of the hostingEnvironment (App Service Environment)
-type ProvisioningState pulumi.String
-
-const (
-	ProvisioningStateSucceeded  = ProvisioningState("Succeeded")
-	ProvisioningStateFailed     = ProvisioningState("Failed")
-	ProvisioningStateCanceled   = ProvisioningState("Canceled")
-	ProvisioningStateInProgress = ProvisioningState("InProgress")
-	ProvisioningStateDeleting   = ProvisioningState("Deleting")
-)
-
-func (ProvisioningState) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
-}
-
-func (e ProvisioningState) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ProvisioningState) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ProvisioningState) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e ProvisioningState) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
@@ -1084,36 +995,6 @@ func (e UnauthenticatedClientActionV2) ToStringPtrOutput() pulumi.StringPtrOutpu
 }
 
 func (e UnauthenticatedClientActionV2) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-// Size of the machines
-type WorkerSizeOptions pulumi.String
-
-const (
-	WorkerSizeOptionsDefault = WorkerSizeOptions("Default")
-	WorkerSizeOptionsSmall   = WorkerSizeOptions("Small")
-	WorkerSizeOptionsMedium  = WorkerSizeOptions("Medium")
-	WorkerSizeOptionsLarge   = WorkerSizeOptions("Large")
-)
-
-func (WorkerSizeOptions) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
-}
-
-func (e WorkerSizeOptions) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e WorkerSizeOptions) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e WorkerSizeOptions) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e WorkerSizeOptions) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 

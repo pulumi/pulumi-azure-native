@@ -28,7 +28,7 @@ type Policy struct {
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Describes settings for the policy.
-	PolicySettings PolicySettingsResponsePtrOutput `pulumi:"policySettings"`
+	PolicySettings FrontDoorPolicySettingsResponsePtrOutput `pulumi:"policySettings"`
 	// Provisioning state of the policy.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	ResourceState     pulumi.StringOutput `pulumi:"resourceState"`
@@ -65,12 +65,6 @@ func NewPolicy(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:network/latest:Policy"),
-		},
-		{
-			Type: pulumi.String("azure-native:network/v20180801:Policy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20180801:Policy"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20190301:Policy"),
@@ -127,7 +121,7 @@ type policyState struct {
 	// Resource name.
 	Name *string `pulumi:"name"`
 	// Describes settings for the policy.
-	PolicySettings *PolicySettingsResponse `pulumi:"policySettings"`
+	PolicySettings *FrontDoorPolicySettingsResponse `pulumi:"policySettings"`
 	// Provisioning state of the policy.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	ResourceState     *string `pulumi:"resourceState"`
@@ -153,7 +147,7 @@ type PolicyState struct {
 	// Resource name.
 	Name pulumi.StringPtrInput
 	// Describes settings for the policy.
-	PolicySettings PolicySettingsResponsePtrInput
+	PolicySettings FrontDoorPolicySettingsResponsePtrInput
 	// Provisioning state of the policy.
 	ProvisioningState pulumi.StringPtrInput
 	ResourceState     pulumi.StringPtrInput
@@ -181,7 +175,7 @@ type policyArgs struct {
 	// The name of the Web Application Firewall Policy.
 	PolicyName *string `pulumi:"policyName"`
 	// Describes settings for the policy.
-	PolicySettings *PolicySettings `pulumi:"policySettings"`
+	PolicySettings *FrontDoorPolicySettings `pulumi:"policySettings"`
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
@@ -201,7 +195,7 @@ type PolicyArgs struct {
 	// The name of the Web Application Firewall Policy.
 	PolicyName pulumi.StringPtrInput
 	// Describes settings for the policy.
-	PolicySettings PolicySettingsPtrInput
+	PolicySettings FrontDoorPolicySettingsPtrInput
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.

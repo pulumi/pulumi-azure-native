@@ -69,6 +69,36 @@ func NewApplianceDefinition(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:solutions:ApplianceDefinition"),
 		},
+		{
+			Type: pulumi.String("azure-native:solutions/latest:ApplianceDefinition"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:solutions/latest:ApplianceDefinition"),
+		},
+		{
+			Type: pulumi.String("azure-native:solutions/v20170901:ApplianceDefinition"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:solutions/v20170901:ApplianceDefinition"),
+		},
+		{
+			Type: pulumi.String("azure-native:solutions/v20180601:ApplianceDefinition"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:solutions/v20180601:ApplianceDefinition"),
+		},
+		{
+			Type: pulumi.String("azure-native:solutions/v20190701:ApplianceDefinition"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:solutions/v20190701:ApplianceDefinition"),
+		},
+		{
+			Type: pulumi.String("azure-native:solutions/v20200821preview:ApplianceDefinition"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:solutions/v20200821preview:ApplianceDefinition"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ApplianceDefinition
