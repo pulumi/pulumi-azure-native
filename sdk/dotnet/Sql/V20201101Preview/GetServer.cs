@@ -53,10 +53,6 @@ namespace Pulumi.AzureNative.Sql.V20201101Preview
         /// </summary>
         public readonly string? AdministratorLogin;
         /// <summary>
-        /// The administrator login password (required for server creation).
-        /// </summary>
-        public readonly string? AdministratorLoginPassword;
-        /// <summary>
         /// The Azure Active Directory identity of the server.
         /// </summary>
         public readonly Outputs.ServerExternalAdministratorResponse? Administrators;
@@ -129,8 +125,6 @@ namespace Pulumi.AzureNative.Sql.V20201101Preview
         private GetServerResult(
             string? administratorLogin,
 
-            string? administratorLoginPassword,
-
             Outputs.ServerExternalAdministratorResponse? administrators,
 
             string? encryptionIdentityId,
@@ -166,7 +160,6 @@ namespace Pulumi.AzureNative.Sql.V20201101Preview
             string workspaceFeature)
         {
             AdministratorLogin = administratorLogin;
-            AdministratorLoginPassword = administratorLoginPassword;
             Administrators = administrators;
             EncryptionIdentityId = encryptionIdentityId;
             FullyQualifiedDomainName = fullyQualifiedDomainName;

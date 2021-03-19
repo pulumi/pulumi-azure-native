@@ -14,64 +14,22 @@ namespace Pulumi.AzureNative.Datadog.Outputs
     public sealed class DatadogOrganizationPropertiesResponse
     {
         /// <summary>
-        /// Api key associated to the Datadog organization.
-        /// </summary>
-        public readonly string? ApiKey;
-        /// <summary>
-        /// Application key associated to the Datadog organization.
-        /// </summary>
-        public readonly string? ApplicationKey;
-        /// <summary>
-        /// The Id of the Enterprise App used for Single sign on.
-        /// </summary>
-        public readonly string? EnterpriseAppId;
-        /// <summary>
         /// Id of the Datadog organization.
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The auth code used to linking to an existing datadog organization.
-        /// </summary>
-        public readonly string? LinkingAuthCode;
-        /// <summary>
-        /// The client_id from an existing in exchange for an auth token to link organization.
-        /// </summary>
-        public readonly string? LinkingClientId;
-        /// <summary>
         /// Name of the Datadog organization.
         /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// The redirect uri for linking.
-        /// </summary>
-        public readonly string? RedirectUri;
 
         [OutputConstructor]
         private DatadogOrganizationPropertiesResponse(
-            string? apiKey,
-
-            string? applicationKey,
-
-            string? enterpriseAppId,
-
             string id,
 
-            string? linkingAuthCode,
-
-            string? linkingClientId,
-
-            string name,
-
-            string? redirectUri)
+            string name)
         {
-            ApiKey = apiKey;
-            ApplicationKey = applicationKey;
-            EnterpriseAppId = enterpriseAppId;
             Id = id;
-            LinkingAuthCode = linkingAuthCode;
-            LinkingClientId = linkingClientId;
             Name = name;
-            RedirectUri = redirectUri;
         }
     }
 }

@@ -34,12 +34,6 @@ namespace Pulumi.AzureNative.Sql.V20150501Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Password of the member database in the sync member.
-        /// </summary>
-        [Output("password")]
-        public Output<string?> Password { get; private set; } = null!;
-
-        /// <summary>
         /// Server name of the member database in the sync member
         /// </summary>
         [Output("serverName")]

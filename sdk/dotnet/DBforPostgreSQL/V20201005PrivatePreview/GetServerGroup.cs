@@ -47,10 +47,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20201005PrivatePreview
         /// </summary>
         public readonly string? AdministratorLogin;
         /// <summary>
-        /// The password of the administrator login.
-        /// </summary>
-        public readonly string? AdministratorLoginPassword;
-        /// <summary>
         /// Availability Zone information of the server group.
         /// </summary>
         public readonly string? AvailabilityZone;
@@ -62,10 +58,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20201005PrivatePreview
         /// The Citus version of server group.
         /// </summary>
         public readonly string? CitusVersion;
-        /// <summary>
-        /// The mode to create a new server group.
-        /// </summary>
-        public readonly string? CreateMode;
         /// <summary>
         /// The delegated subnet arguments for a server group.
         /// </summary>
@@ -103,10 +95,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20201005PrivatePreview
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Restore point creation time (ISO8601 format), specifying the time to restore from. It's required when 'createMode' is 'PointInTimeRestore'
-        /// </summary>
-        public readonly string? PointInTimeUTC;
-        /// <summary>
         /// The PostgreSQL version of server group.
         /// </summary>
         public readonly string? PostgresqlVersion;
@@ -123,25 +111,9 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20201005PrivatePreview
         /// </summary>
         public readonly ImmutableArray<Outputs.ServerRoleGroupResponse> ServerRoleGroups;
         /// <summary>
-        /// The source server group location to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'ReadReplica'
-        /// </summary>
-        public readonly string? SourceLocation;
-        /// <summary>
-        /// The source resource group name to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'ReadReplica'
-        /// </summary>
-        public readonly string? SourceResourceGroupName;
-        /// <summary>
         /// The source server group id for read replica server groups.
         /// </summary>
         public readonly string SourceServerGroup;
-        /// <summary>
-        /// The source server group name to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'ReadReplica'
-        /// </summary>
-        public readonly string? SourceServerGroupName;
-        /// <summary>
-        /// The source subscription id to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'ReadReplica'
-        /// </summary>
-        public readonly string? SourceSubscriptionId;
         /// <summary>
         /// Standby Availability Zone information of the server group.
         /// </summary>
@@ -167,15 +139,11 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20201005PrivatePreview
         private GetServerGroupResult(
             string? administratorLogin,
 
-            string? administratorLoginPassword,
-
             string? availabilityZone,
 
             int? backupRetentionDays,
 
             string? citusVersion,
-
-            string? createMode,
 
             Outputs.ServerGroupPropertiesResponseDelegatedSubnetArguments? delegatedSubnetArguments,
 
@@ -195,8 +163,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20201005PrivatePreview
 
             string name,
 
-            string? pointInTimeUTC,
-
             string? postgresqlVersion,
 
             ImmutableArray<string> readReplicas,
@@ -205,15 +171,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20201005PrivatePreview
 
             ImmutableArray<Outputs.ServerRoleGroupResponse> serverRoleGroups,
 
-            string? sourceLocation,
-
-            string? sourceResourceGroupName,
-
             string sourceServerGroup,
-
-            string? sourceServerGroupName,
-
-            string? sourceSubscriptionId,
 
             string? standbyAvailabilityZone,
 
@@ -226,11 +184,9 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20201005PrivatePreview
             string type)
         {
             AdministratorLogin = administratorLogin;
-            AdministratorLoginPassword = administratorLoginPassword;
             AvailabilityZone = availabilityZone;
             BackupRetentionDays = backupRetentionDays;
             CitusVersion = citusVersion;
-            CreateMode = createMode;
             DelegatedSubnetArguments = delegatedSubnetArguments;
             EarliestRestoreTime = earliestRestoreTime;
             EnableMx = enableMx;
@@ -240,16 +196,11 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20201005PrivatePreview
             Location = location;
             MaintenanceWindow = maintenanceWindow;
             Name = name;
-            PointInTimeUTC = pointInTimeUTC;
             PostgresqlVersion = postgresqlVersion;
             ReadReplicas = readReplicas;
             ResourceProviderType = resourceProviderType;
             ServerRoleGroups = serverRoleGroups;
-            SourceLocation = sourceLocation;
-            SourceResourceGroupName = sourceResourceGroupName;
             SourceServerGroup = sourceServerGroup;
-            SourceServerGroupName = sourceServerGroupName;
-            SourceSubscriptionId = sourceSubscriptionId;
             StandbyAvailabilityZone = standbyAvailabilityZone;
             State = state;
             SystemData = systemData;

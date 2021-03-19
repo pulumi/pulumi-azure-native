@@ -68,10 +68,6 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         public readonly bool? EnableConflictLogging;
         /// <summary>
-        /// Password for the sync group hub database credential.
-        /// </summary>
-        public readonly string? HubDatabasePassword;
-        /// <summary>
         /// User name for the sync group hub database credential.
         /// </summary>
         public readonly string? HubDatabaseUserName;
@@ -128,8 +124,6 @@ namespace Pulumi.AzureNative.Sql
 
             bool? enableConflictLogging,
 
-            string? hubDatabasePassword,
-
             string? hubDatabaseUserName,
 
             string id,
@@ -157,7 +151,6 @@ namespace Pulumi.AzureNative.Sql
             ConflictLoggingRetentionInDays = conflictLoggingRetentionInDays;
             ConflictResolutionPolicy = conflictResolutionPolicy;
             EnableConflictLogging = enableConflictLogging;
-            HubDatabasePassword = hubDatabasePassword;
             HubDatabaseUserName = hubDatabaseUserName;
             Id = id;
             Interval = interval;

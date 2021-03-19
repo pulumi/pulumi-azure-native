@@ -16,12 +16,6 @@ namespace Pulumi.AzureNative.AzureData.V20170301Preview
     public partial class SqlServer : Pulumi.CustomResource
     {
         /// <summary>
-        /// Cores of the Sql Server.
-        /// </summary>
-        [Output("cores")]
-        public Output<int?> Cores { get; private set; } = null!;
-
-        /// <summary>
         /// Sql Server Edition.
         /// </summary>
         [Output("edition")]

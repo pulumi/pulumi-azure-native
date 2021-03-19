@@ -25,10 +25,6 @@ namespace Pulumi.AzureNative.HybridNetwork.V20200101Preview.Outputs
         /// The OS type.
         /// </summary>
         public readonly string? OsType;
-        /// <summary>
-        /// The virtual hard disk.
-        /// </summary>
-        public readonly Outputs.VirtualHardDiskResponse? Vhd;
 
         [OutputConstructor]
         private OsDiskResponse(
@@ -36,14 +32,11 @@ namespace Pulumi.AzureNative.HybridNetwork.V20200101Preview.Outputs
 
             string? name,
 
-            string? osType,
-
-            Outputs.VirtualHardDiskResponse? vhd)
+            string? osType)
         {
             DiskSizeGB = diskSizeGB;
             Name = name;
             OsType = osType;
-            Vhd = vhd;
         }
     }
 }

@@ -65,26 +65,6 @@ namespace Pulumi.AzureNative.Sql.Latest
         /// </summary>
         public readonly double ContainmentState;
         /// <summary>
-        /// Specifies the mode of database creation.
-        /// 
-        /// Default: regular database creation.
-        /// 
-        /// Copy: creates a database as a copy of an existing database. sourceDatabaseId must be specified as the resource ID of the source database.
-        /// 
-        /// OnlineSecondary/NonReadableSecondary: creates a database as a (readable or nonreadable) secondary replica of an existing database. sourceDatabaseId must be specified as the resource ID of the existing primary database.
-        /// 
-        /// PointInTimeRestore: Creates a database by restoring a point in time backup of an existing database. sourceDatabaseId must be specified as the resource ID of the existing database, and restorePointInTime must be specified.
-        /// 
-        /// Recovery: Creates a database by restoring a geo-replicated backup. sourceDatabaseId must be specified as the recoverable database resource ID to restore.
-        /// 
-        /// Restore: Creates a database by restoring a backup of a deleted database. sourceDatabaseId must be specified. If sourceDatabaseId is the database's original resource ID, then sourceDatabaseDeletionDate must be specified. Otherwise sourceDatabaseId must be the restorable dropped database resource ID and sourceDatabaseDeletionDate is ignored. restorePointInTime may also be specified to restore from an earlier point in time.
-        /// 
-        /// RestoreLongTermRetentionBackup: Creates a database by restoring from a long term retention vault. recoveryServicesRecoveryPointResourceId must be specified as the recovery point resource ID.
-        /// 
-        /// Copy, NonReadableSecondary, OnlineSecondary and RestoreLongTermRetentionBackup are not supported for DataWarehouse edition.
-        /// </summary>
-        public readonly string? CreateMode;
-        /// <summary>
         /// The creation date of the database (ISO8601 format).
         /// </summary>
         public readonly string CreationDate;
@@ -155,10 +135,6 @@ namespace Pulumi.AzureNative.Sql.Latest
         /// </summary>
         public readonly ImmutableArray<Outputs.RecommendedIndexResponse> RecommendedIndex;
         /// <summary>
-        /// Conditional. If createMode is RestoreLongTermRetentionBackup, then this value is required. Specifies the resource ID of the recovery point to restore from.
-        /// </summary>
-        public readonly string? RecoveryServicesRecoveryPointResourceId;
-        /// <summary>
         /// The configured service level objective ID of the database. This is the service level objective that is in the process of being applied to the database. Once successfully updated, it will match the value of currentServiceObjectiveId property. If requestedServiceObjectiveId and requestedServiceObjectiveName are both updated, the value of requestedServiceObjectiveId overrides the value of requestedServiceObjectiveName.
         /// 
         /// The list of SKUs may vary by region and support offer. To determine the service objective ids that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API.
@@ -179,14 +155,6 @@ namespace Pulumi.AzureNative.Sql.Latest
         /// </summary>
         public readonly string? RequestedServiceObjectiveName;
         /// <summary>
-        /// Conditional. If createMode is PointInTimeRestore, this value is required. If createMode is Restore, this value is optional. Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. Must be greater than or equal to the source database's earliestRestoreDate value.
-        /// </summary>
-        public readonly string? RestorePointInTime;
-        /// <summary>
-        /// Indicates the name of the sample schema to apply when creating this database. If createMode is not Default, this value is ignored. Not supported for DataWarehouse edition.
-        /// </summary>
-        public readonly string? SampleName;
-        /// <summary>
         /// The current service level objective of the database.
         /// </summary>
         public readonly string ServiceLevelObjective;
@@ -194,14 +162,6 @@ namespace Pulumi.AzureNative.Sql.Latest
         /// The list of service tier advisors for this database. Expanded property
         /// </summary>
         public readonly ImmutableArray<Outputs.ServiceTierAdvisorResponse> ServiceTierAdvisors;
-        /// <summary>
-        /// Conditional. If createMode is Restore and sourceDatabaseId is the deleted database's original resource id when it existed (as opposed to its current restorable dropped database id), then this value is required. Specifies the time that the database was deleted.
-        /// </summary>
-        public readonly string? SourceDatabaseDeletionDate;
-        /// <summary>
-        /// Conditional. If createMode is Copy, NonReadableSecondary, OnlineSecondary, PointInTimeRestore, Recovery, or Restore, then this value is required. Specifies the resource ID of the source database. If createMode is NonReadableSecondary or OnlineSecondary, the name of the source database must be the same as the new database being created.
-        /// </summary>
-        public readonly string? SourceDatabaseId;
         /// <summary>
         /// The status of the database.
         /// </summary>
@@ -228,8 +188,6 @@ namespace Pulumi.AzureNative.Sql.Latest
             string? collation,
 
             double containmentState,
-
-            string? createMode,
 
             string creationDate,
 
@@ -261,23 +219,13 @@ namespace Pulumi.AzureNative.Sql.Latest
 
             ImmutableArray<Outputs.RecommendedIndexResponse> recommendedIndex,
 
-            string? recoveryServicesRecoveryPointResourceId,
-
             string? requestedServiceObjectiveId,
 
             string? requestedServiceObjectiveName,
 
-            string? restorePointInTime,
-
-            string? sampleName,
-
             string serviceLevelObjective,
 
             ImmutableArray<Outputs.ServiceTierAdvisorResponse> serviceTierAdvisors,
-
-            string? sourceDatabaseDeletionDate,
-
-            string? sourceDatabaseId,
 
             string status,
 
@@ -291,7 +239,6 @@ namespace Pulumi.AzureNative.Sql.Latest
         {
             Collation = collation;
             ContainmentState = containmentState;
-            CreateMode = createMode;
             CreationDate = creationDate;
             CurrentServiceObjectiveId = currentServiceObjectiveId;
             DatabaseId = databaseId;
@@ -307,15 +254,10 @@ namespace Pulumi.AzureNative.Sql.Latest
             Name = name;
             ReadScale = readScale;
             RecommendedIndex = recommendedIndex;
-            RecoveryServicesRecoveryPointResourceId = recoveryServicesRecoveryPointResourceId;
             RequestedServiceObjectiveId = requestedServiceObjectiveId;
             RequestedServiceObjectiveName = requestedServiceObjectiveName;
-            RestorePointInTime = restorePointInTime;
-            SampleName = sampleName;
             ServiceLevelObjective = serviceLevelObjective;
             ServiceTierAdvisors = serviceTierAdvisors;
-            SourceDatabaseDeletionDate = sourceDatabaseDeletionDate;
-            SourceDatabaseId = sourceDatabaseId;
             Status = status;
             Tags = tags;
             TransparentDataEncryption = transparentDataEncryption;

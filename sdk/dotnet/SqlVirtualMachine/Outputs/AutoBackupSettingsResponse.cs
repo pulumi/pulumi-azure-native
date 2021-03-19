@@ -46,17 +46,9 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.Outputs
         /// </summary>
         public readonly int? LogBackupFrequency;
         /// <summary>
-        /// Password for encryption on backup.
-        /// </summary>
-        public readonly string? Password;
-        /// <summary>
         /// Retention period of backup: 1-30 days.
         /// </summary>
         public readonly int? RetentionPeriod;
-        /// <summary>
-        /// Storage account key where backup will be taken to.
-        /// </summary>
-        public readonly string? StorageAccessKey;
         /// <summary>
         /// Storage account url where backup will be taken to.
         /// </summary>
@@ -80,11 +72,7 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.Outputs
 
             int? logBackupFrequency,
 
-            string? password,
-
             int? retentionPeriod,
-
-            string? storageAccessKey,
 
             string? storageAccountUrl)
         {
@@ -96,9 +84,7 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.Outputs
             FullBackupStartTime = fullBackupStartTime;
             FullBackupWindowHours = fullBackupWindowHours;
             LogBackupFrequency = logBackupFrequency;
-            Password = password;
             RetentionPeriod = retentionPeriod;
-            StorageAccessKey = storageAccessKey;
             StorageAccountUrl = storageAccountUrl;
         }
     }

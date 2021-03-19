@@ -78,10 +78,6 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Password of the member database in the sync member.
-        /// </summary>
-        public readonly string? Password;
-        /// <summary>
         /// Private endpoint name of the sync member if use private link connection is enabled, for sync members in Azure.
         /// </summary>
         public readonly string PrivateEndpointName;
@@ -132,8 +128,6 @@ namespace Pulumi.AzureNative.Sql
 
             string name,
 
-            string? password,
-
             string privateEndpointName,
 
             string? serverName,
@@ -158,7 +152,6 @@ namespace Pulumi.AzureNative.Sql
             DatabaseType = databaseType;
             Id = id;
             Name = name;
-            Password = password;
             PrivateEndpointName = privateEndpointName;
             ServerName = serverName;
             SqlServerDatabaseId = sqlServerDatabaseId;

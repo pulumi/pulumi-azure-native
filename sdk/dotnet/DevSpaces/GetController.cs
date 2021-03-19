@@ -80,10 +80,6 @@ namespace Pulumi.AzureNative.DevSpaces
         /// </summary>
         public readonly string TargetContainerHostApiServerFqdn;
         /// <summary>
-        /// Credentials of the target container host (base64).
-        /// </summary>
-        public readonly string TargetContainerHostCredentialsBase64;
-        /// <summary>
         /// Resource ID of the target container host
         /// </summary>
         public readonly string TargetContainerHostResourceId;
@@ -112,8 +108,6 @@ namespace Pulumi.AzureNative.DevSpaces
 
             string targetContainerHostApiServerFqdn,
 
-            string targetContainerHostCredentialsBase64,
-
             string targetContainerHostResourceId,
 
             string type)
@@ -127,7 +121,6 @@ namespace Pulumi.AzureNative.DevSpaces
             Sku = sku;
             Tags = tags;
             TargetContainerHostApiServerFqdn = targetContainerHostApiServerFqdn;
-            TargetContainerHostCredentialsBase64 = targetContainerHostCredentialsBase64;
             TargetContainerHostResourceId = targetContainerHostResourceId;
             Type = type;
         }

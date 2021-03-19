@@ -22,12 +22,6 @@ namespace Pulumi.AzureNative.Sql.V20200202Preview
         public Output<string?> AdministratorLogin { get; private set; } = null!;
 
         /// <summary>
-        /// The administrator login password (required for server creation).
-        /// </summary>
-        [Output("administratorLoginPassword")]
-        public Output<string?> AdministratorLoginPassword { get; private set; } = null!;
-
-        /// <summary>
         /// The fully qualified domain name of the server.
         /// </summary>
         [Output("fullyQualifiedDomainName")]

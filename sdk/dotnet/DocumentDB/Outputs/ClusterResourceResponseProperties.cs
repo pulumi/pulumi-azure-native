@@ -50,10 +50,6 @@ namespace Pulumi.AzureNative.DocumentDB.Outputs
         /// </summary>
         public readonly int? HoursBetweenBackups;
         /// <summary>
-        /// Initial password for clients connecting as admin to the cluster. Should be changed after cluster creation. Returns null on GET. This field only applies when the authenticationMethod field is 'Cassandra'.
-        /// </summary>
-        public readonly string? InitialCassandraAdminPassword;
-        /// <summary>
         /// Hostname or IP address where the Prometheus endpoint containing data about the managed Cassandra nodes can be reached.
         /// </summary>
         public readonly Outputs.SeedNodeResponse? PrometheusEndpoint;
@@ -65,10 +61,6 @@ namespace Pulumi.AzureNative.DocumentDB.Outputs
         /// Should automatic repairs run on this cluster? If omitted, this is true, and should stay true unless you are running a hybrid cluster where you are already doing your own repairs.
         /// </summary>
         public readonly bool? RepairEnabled;
-        /// <summary>
-        /// To create an empty cluster, omit this field or set it to null. To restore a backup into a new cluster, set this field to the resource id of the backup.
-        /// </summary>
-        public readonly string? RestoreFromBackupId;
         /// <summary>
         /// List of IP addresses of seed nodes in the managed data centers. These should be added to the seed node lists of all unmanaged nodes.
         /// </summary>
@@ -94,15 +86,11 @@ namespace Pulumi.AzureNative.DocumentDB.Outputs
 
             int? hoursBetweenBackups,
 
-            string? initialCassandraAdminPassword,
-
             Outputs.SeedNodeResponse? prometheusEndpoint,
 
             string? provisioningState,
 
             bool? repairEnabled,
-
-            string? restoreFromBackupId,
 
             ImmutableArray<Outputs.SeedNodeResponse> seedNodes)
         {
@@ -115,11 +103,9 @@ namespace Pulumi.AzureNative.DocumentDB.Outputs
             ExternalSeedNodes = externalSeedNodes;
             GossipCertificates = gossipCertificates;
             HoursBetweenBackups = hoursBetweenBackups;
-            InitialCassandraAdminPassword = initialCassandraAdminPassword;
             PrometheusEndpoint = prometheusEndpoint;
             ProvisioningState = provisioningState;
             RepairEnabled = repairEnabled;
-            RestoreFromBackupId = restoreFromBackupId;
             SeedNodes = seedNodes;
         }
     }

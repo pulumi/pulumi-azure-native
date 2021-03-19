@@ -99,10 +99,6 @@ namespace Pulumi.AzureNative.Web.V20180201
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Certificate password.
-        /// </summary>
-        public readonly string Password;
-        /// <summary>
         /// Pfx blob.
         /// </summary>
         public readonly string? PfxBlob;
@@ -173,8 +169,6 @@ namespace Pulumi.AzureNative.Web.V20180201
 
             string name,
 
-            string password,
-
             string? pfxBlob,
 
             string publicKeyHash,
@@ -209,7 +203,6 @@ namespace Pulumi.AzureNative.Web.V20180201
             Kind = kind;
             Location = location;
             Name = name;
-            Password = password;
             PfxBlob = pfxBlob;
             PublicKeyHash = publicKeyHash;
             SelfLink = selfLink;

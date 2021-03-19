@@ -26,36 +26,6 @@ namespace Pulumi.AzureNative.DomainRegistration
         public Output<bool?> AutoRenew { get; private set; } = null!;
 
         /// <summary>
-        /// Legal agreement consent.
-        /// </summary>
-        [Output("consent")]
-        public Output<Outputs.DomainPurchaseConsentResponse> Consent { get; private set; } = null!;
-
-        /// <summary>
-        /// Administrative contact.
-        /// </summary>
-        [Output("contactAdmin")]
-        public Output<Outputs.ContactResponse> ContactAdmin { get; private set; } = null!;
-
-        /// <summary>
-        /// Billing contact.
-        /// </summary>
-        [Output("contactBilling")]
-        public Output<Outputs.ContactResponse> ContactBilling { get; private set; } = null!;
-
-        /// <summary>
-        /// Registrant contact.
-        /// </summary>
-        [Output("contactRegistrant")]
-        public Output<Outputs.ContactResponse> ContactRegistrant { get; private set; } = null!;
-
-        /// <summary>
-        /// Technical contact.
-        /// </summary>
-        [Output("contactTech")]
-        public Output<Outputs.ContactResponse> ContactTech { get; private set; } = null!;
-
-        /// <summary>
         /// Domain creation timestamp.
         /// </summary>
         [Output("createdTime")]

@@ -49,12 +49,6 @@ namespace Pulumi.AzureNative.Web.V20201001
         public Output<string?> ClientCertMode { get; private set; } = null!;
 
         /// <summary>
-        /// If specified during app creation, the app is cloned from a source app.
-        /// </summary>
-        [Output("cloningInfo")]
-        public Output<Outputs.CloningInfoResponse?> CloningInfo { get; private set; } = null!;
-
-        /// <summary>
         /// Size of the function container.
         /// </summary>
         [Output("containerSize")]

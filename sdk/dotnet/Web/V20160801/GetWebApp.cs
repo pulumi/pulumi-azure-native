@@ -55,10 +55,6 @@ namespace Pulumi.AzureNative.Web.V20160801
         /// </summary>
         public readonly bool? ClientCertEnabled;
         /// <summary>
-        /// If specified during app creation, the app is cloned from a source app.
-        /// </summary>
-        public readonly Outputs.CloningInfoResponse? CloningInfo;
-        /// <summary>
         /// Size of the function container.
         /// </summary>
         public readonly int? ContainerSize;
@@ -171,10 +167,6 @@ namespace Pulumi.AzureNative.Web.V20160801
         /// </summary>
         public readonly Outputs.SlotSwapStatusResponse SlotSwapStatus;
         /// <summary>
-        /// If specified during app creation, the app is created from a previous snapshot.
-        /// </summary>
-        public readonly Outputs.SnapshotRecoveryRequestResponse? SnapshotInfo;
-        /// <summary>
         /// Current state of the app.
         /// </summary>
         public readonly string State;
@@ -210,8 +202,6 @@ namespace Pulumi.AzureNative.Web.V20160801
             bool? clientAffinityEnabled,
 
             bool? clientCertEnabled,
-
-            Outputs.CloningInfoResponse? cloningInfo,
 
             int? containerSize,
 
@@ -267,8 +257,6 @@ namespace Pulumi.AzureNative.Web.V20160801
 
             Outputs.SlotSwapStatusResponse slotSwapStatus,
 
-            Outputs.SnapshotRecoveryRequestResponse? snapshotInfo,
-
             string state,
 
             string suspendedTill,
@@ -286,7 +274,6 @@ namespace Pulumi.AzureNative.Web.V20160801
             AvailabilityState = availabilityState;
             ClientAffinityEnabled = clientAffinityEnabled;
             ClientCertEnabled = clientCertEnabled;
-            CloningInfo = cloningInfo;
             ContainerSize = containerSize;
             DailyMemoryTimeQuota = dailyMemoryTimeQuota;
             DefaultHostName = defaultHostName;
@@ -314,7 +301,6 @@ namespace Pulumi.AzureNative.Web.V20160801
             ServerFarmId = serverFarmId;
             SiteConfig = siteConfig;
             SlotSwapStatus = slotSwapStatus;
-            SnapshotInfo = snapshotInfo;
             State = state;
             SuspendedTill = suspendedTill;
             Tags = tags;

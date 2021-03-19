@@ -38,10 +38,6 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.V20170301Preview.Outputs
         /// </summary>
         public readonly string? SqlServiceAccount;
         /// <summary>
-        /// Primary key of the witness storage account.
-        /// </summary>
-        public readonly string? StorageAccountPrimaryKey;
-        /// <summary>
         /// Fully qualified ARM resource id of the witness storage account.
         /// </summary>
         public readonly string? StorageAccountUrl;
@@ -60,8 +56,6 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.V20170301Preview.Outputs
 
             string? sqlServiceAccount,
 
-            string? storageAccountPrimaryKey,
-
             string? storageAccountUrl)
         {
             ClusterBootstrapAccount = clusterBootstrapAccount;
@@ -70,7 +64,6 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.V20170301Preview.Outputs
             FileShareWitnessPath = fileShareWitnessPath;
             OuPath = ouPath;
             SqlServiceAccount = sqlServiceAccount;
-            StorageAccountPrimaryKey = storageAccountPrimaryKey;
             StorageAccountUrl = storageAccountUrl;
         }
     }

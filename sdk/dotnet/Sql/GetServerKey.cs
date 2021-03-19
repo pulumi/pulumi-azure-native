@@ -70,10 +70,6 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The server key type like 'ServiceManaged', 'AzureKeyVault'.
-        /// </summary>
-        public readonly string ServerKeyType;
-        /// <summary>
         /// Subregion of the server key.
         /// </summary>
         public readonly string Subregion;
@@ -85,10 +81,6 @@ namespace Pulumi.AzureNative.Sql
         /// Resource type.
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// The URI of the server key. If the ServerKeyType is AzureKeyVault, then the URI is required.
-        /// </summary>
-        public readonly string? Uri;
 
         [OutputConstructor]
         private GetServerKeyResult(
@@ -102,26 +94,20 @@ namespace Pulumi.AzureNative.Sql
 
             string name,
 
-            string serverKeyType,
-
             string subregion,
 
             string thumbprint,
 
-            string type,
-
-            string? uri)
+            string type)
         {
             CreationDate = creationDate;
             Id = id;
             Kind = kind;
             Location = location;
             Name = name;
-            ServerKeyType = serverKeyType;
             Subregion = subregion;
             Thumbprint = thumbprint;
             Type = type;
-            Uri = uri;
         }
     }
 }

@@ -22,12 +22,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20200214PrivatePreview
         public Output<string?> AdministratorLogin { get; private set; } = null!;
 
         /// <summary>
-        /// The administrator login password (required for server creation).
-        /// </summary>
-        [Output("administratorLoginPassword")]
-        public Output<string?> AdministratorLoginPassword { get; private set; } = null!;
-
-        /// <summary>
         /// availability Zone information of the server.
         /// </summary>
         [Output("availabilityZone")]
@@ -38,12 +32,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20200214PrivatePreview
         /// </summary>
         [Output("byokEnforcement")]
         public Output<string> ByokEnforcement { get; private set; } = null!;
-
-        /// <summary>
-        /// The mode to create a new PostgreSQL server.
-        /// </summary>
-        [Output("createMode")]
-        public Output<string?> CreateMode { get; private set; } = null!;
 
         [Output("delegatedSubnetArguments")]
         public Output<Outputs.ServerPropertiesResponseDelegatedSubnetArguments?> DelegatedSubnetArguments { get; private set; } = null!;

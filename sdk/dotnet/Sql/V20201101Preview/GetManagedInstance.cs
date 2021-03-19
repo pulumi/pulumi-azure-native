@@ -47,10 +47,6 @@ namespace Pulumi.AzureNative.Sql.V20201101Preview
         /// </summary>
         public readonly string? AdministratorLogin;
         /// <summary>
-        /// The administrator login password (required for managed instance creation).
-        /// </summary>
-        public readonly string? AdministratorLoginPassword;
-        /// <summary>
         /// Collation of the managed instance.
         /// </summary>
         public readonly string? Collation;
@@ -58,10 +54,6 @@ namespace Pulumi.AzureNative.Sql.V20201101Preview
         /// The Dns Zone that the managed instance is in.
         /// </summary>
         public readonly string DnsZone;
-        /// <summary>
-        /// The resource id of another managed instance whose DNS zone this managed instance will share after creation.
-        /// </summary>
-        public readonly string? DnsZonePartner;
         /// <summary>
         /// The fully qualified domain name of the managed instance.
         /// </summary>
@@ -91,14 +83,6 @@ namespace Pulumi.AzureNative.Sql.V20201101Preview
         /// </summary>
         public readonly string? MaintenanceConfigurationId;
         /// <summary>
-        /// Specifies the mode of database creation.
-        /// 
-        /// Default: Regular instance creation.
-        /// 
-        /// Restore: Creates an instance by restoring a set of backups to specific point in time. RestorePointInTime and SourceManagedInstanceId must be specified.
-        /// </summary>
-        public readonly string? ManagedInstanceCreateMode;
-        /// <summary>
         /// Minimal TLS version. Allowed values: 'None', '1.0', '1.1', '1.2'
         /// </summary>
         public readonly string? MinimalTlsVersion;
@@ -120,17 +104,9 @@ namespace Pulumi.AzureNative.Sql.V20201101Preview
         /// </summary>
         public readonly bool? PublicDataEndpointEnabled;
         /// <summary>
-        /// Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database.
-        /// </summary>
-        public readonly string? RestorePointInTime;
-        /// <summary>
         /// Managed instance SKU. Allowed values for sku.name: GP_Gen4, GP_Gen5, BC_Gen4, BC_Gen5
         /// </summary>
         public readonly Outputs.SkuResponse? Sku;
-        /// <summary>
-        /// The resource identifier of the source managed instance associated with create operation of this instance.
-        /// </summary>
-        public readonly string? SourceManagedInstanceId;
         /// <summary>
         /// The state of the managed instance.
         /// </summary>
@@ -177,13 +153,9 @@ namespace Pulumi.AzureNative.Sql.V20201101Preview
         private GetManagedInstanceResult(
             string? administratorLogin,
 
-            string? administratorLoginPassword,
-
             string? collation,
 
             string dnsZone,
-
-            string? dnsZonePartner,
 
             string fullyQualifiedDomainName,
 
@@ -199,8 +171,6 @@ namespace Pulumi.AzureNative.Sql.V20201101Preview
 
             string? maintenanceConfigurationId,
 
-            string? managedInstanceCreateMode,
-
             string? minimalTlsVersion,
 
             string name,
@@ -213,11 +183,7 @@ namespace Pulumi.AzureNative.Sql.V20201101Preview
 
             bool? publicDataEndpointEnabled,
 
-            string? restorePointInTime,
-
             Outputs.SkuResponse? sku,
-
-            string? sourceManagedInstanceId,
 
             string state,
 
@@ -238,10 +204,8 @@ namespace Pulumi.AzureNative.Sql.V20201101Preview
             bool? zoneRedundant)
         {
             AdministratorLogin = administratorLogin;
-            AdministratorLoginPassword = administratorLoginPassword;
             Collation = collation;
             DnsZone = dnsZone;
-            DnsZonePartner = dnsZonePartner;
             FullyQualifiedDomainName = fullyQualifiedDomainName;
             Id = id;
             Identity = identity;
@@ -249,16 +213,13 @@ namespace Pulumi.AzureNative.Sql.V20201101Preview
             LicenseType = licenseType;
             Location = location;
             MaintenanceConfigurationId = maintenanceConfigurationId;
-            ManagedInstanceCreateMode = managedInstanceCreateMode;
             MinimalTlsVersion = minimalTlsVersion;
             Name = name;
             PrivateEndpointConnections = privateEndpointConnections;
             ProvisioningState = provisioningState;
             ProxyOverride = proxyOverride;
             PublicDataEndpointEnabled = publicDataEndpointEnabled;
-            RestorePointInTime = restorePointInTime;
             Sku = sku;
-            SourceManagedInstanceId = sourceManagedInstanceId;
             State = state;
             StorageAccountType = storageAccountType;
             StorageSizeInGB = storageSizeInGB;

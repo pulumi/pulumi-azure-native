@@ -34,12 +34,6 @@ namespace Pulumi.AzureNative.Sql.V20201101Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Password of the member database in the sync member.
-        /// </summary>
-        [Output("password")]
-        public Output<string?> Password { get; private set; } = null!;
-
-        /// <summary>
         /// Private endpoint name of the sync member if use private link connection is enabled, for sync members in Azure.
         /// </summary>
         [Output("privateEndpointName")]

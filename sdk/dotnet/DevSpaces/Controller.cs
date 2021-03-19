@@ -64,12 +64,6 @@ namespace Pulumi.AzureNative.DevSpaces
         public Output<string> TargetContainerHostApiServerFqdn { get; private set; } = null!;
 
         /// <summary>
-        /// Credentials of the target container host (base64).
-        /// </summary>
-        [Output("targetContainerHostCredentialsBase64")]
-        public Output<string> TargetContainerHostCredentialsBase64 { get; private set; } = null!;
-
-        /// <summary>
         /// Resource ID of the target container host
         /// </summary>
         [Output("targetContainerHostResourceId")]

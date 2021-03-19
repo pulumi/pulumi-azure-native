@@ -21,29 +21,15 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.Outputs
         /// SQL Server port.
         /// </summary>
         public readonly int? Port;
-        /// <summary>
-        /// SQL Server sysadmin login password.
-        /// </summary>
-        public readonly string? SqlAuthUpdatePassword;
-        /// <summary>
-        /// SQL Server sysadmin login to create.
-        /// </summary>
-        public readonly string? SqlAuthUpdateUserName;
 
         [OutputConstructor]
         private SqlConnectivityUpdateSettingsResponse(
             string? connectivityType,
 
-            int? port,
-
-            string? sqlAuthUpdatePassword,
-
-            string? sqlAuthUpdateUserName)
+            int? port)
         {
             ConnectivityType = connectivityType;
             Port = port;
-            SqlAuthUpdatePassword = sqlAuthUpdatePassword;
-            SqlAuthUpdateUserName = sqlAuthUpdateUserName;
         }
     }
 }

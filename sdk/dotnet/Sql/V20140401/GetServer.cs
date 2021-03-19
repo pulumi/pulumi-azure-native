@@ -47,10 +47,6 @@ namespace Pulumi.AzureNative.Sql.V20140401
         /// </summary>
         public readonly string? AdministratorLogin;
         /// <summary>
-        /// The administrator login password (required for server creation).
-        /// </summary>
-        public readonly string? AdministratorLoginPassword;
-        /// <summary>
         /// The display name of the Azure Active Directory object with admin permissions on this server. Legacy parameter, always null. To check for Active Directory admin, query .../servers/{serverName}/administrators
         /// </summary>
         public readonly string ExternalAdministratorLogin;
@@ -99,8 +95,6 @@ namespace Pulumi.AzureNative.Sql.V20140401
         private GetServerResult(
             string? administratorLogin,
 
-            string? administratorLoginPassword,
-
             string externalAdministratorLogin,
 
             string externalAdministratorSid,
@@ -124,7 +118,6 @@ namespace Pulumi.AzureNative.Sql.V20140401
             string? version)
         {
             AdministratorLogin = administratorLogin;
-            AdministratorLoginPassword = administratorLoginPassword;
             ExternalAdministratorLogin = externalAdministratorLogin;
             ExternalAdministratorSid = externalAdministratorSid;
             FullyQualifiedDomainName = fullyQualifiedDomainName;

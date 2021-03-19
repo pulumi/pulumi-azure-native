@@ -47,10 +47,6 @@ namespace Pulumi.AzureNative.Sql.V20200202Preview
         /// </summary>
         public readonly string? AdministratorLogin;
         /// <summary>
-        /// The administrator login password (required for server creation).
-        /// </summary>
-        public readonly string? AdministratorLoginPassword;
-        /// <summary>
         /// The fully qualified domain name of the server.
         /// </summary>
         public readonly string FullyQualifiedDomainName;
@@ -107,8 +103,6 @@ namespace Pulumi.AzureNative.Sql.V20200202Preview
         private GetServerResult(
             string? administratorLogin,
 
-            string? administratorLoginPassword,
-
             string fullyQualifiedDomainName,
 
             string id,
@@ -136,7 +130,6 @@ namespace Pulumi.AzureNative.Sql.V20200202Preview
             string? version)
         {
             AdministratorLogin = administratorLogin;
-            AdministratorLoginPassword = administratorLoginPassword;
             FullyQualifiedDomainName = fullyQualifiedDomainName;
             Id = id;
             Identity = identity;

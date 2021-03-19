@@ -55,10 +55,6 @@ namespace Pulumi.AzureNative.AzureData.V20170301Preview
     public sealed class GetSqlServerResult
     {
         /// <summary>
-        /// Cores of the Sql Server.
-        /// </summary>
-        public readonly int? Cores;
-        /// <summary>
         /// Sql Server Edition.
         /// </summary>
         public readonly string? Edition;
@@ -89,8 +85,6 @@ namespace Pulumi.AzureNative.AzureData.V20170301Preview
 
         [OutputConstructor]
         private GetSqlServerResult(
-            int? cores,
-
             string? edition,
 
             string id,
@@ -105,7 +99,6 @@ namespace Pulumi.AzureNative.AzureData.V20170301Preview
 
             string? version)
         {
-            Cores = cores;
             Edition = edition;
             Id = id;
             Name = name;

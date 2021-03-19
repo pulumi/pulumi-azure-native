@@ -94,12 +94,6 @@ namespace Pulumi.AzureNative.Web.V20180201
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Certificate password.
-        /// </summary>
-        [Output("password")]
-        public Output<string> Password { get; private set; } = null!;
-
-        /// <summary>
         /// Pfx blob.
         /// </summary>
         [Output("pfxBlob")]

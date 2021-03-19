@@ -22,10 +22,6 @@ namespace Pulumi.AzureNative.HDInsight.V20150301Preview.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The parameters for the script
-        /// </summary>
-        public readonly string? Parameters;
-        /// <summary>
         /// The list of roles where script will be executed.
         /// </summary>
         public readonly ImmutableArray<string> Roles;
@@ -40,15 +36,12 @@ namespace Pulumi.AzureNative.HDInsight.V20150301Preview.Outputs
 
             string name,
 
-            string? parameters,
-
             ImmutableArray<string> roles,
 
             string uri)
         {
             ApplicationName = applicationName;
             Name = name;
-            Parameters = parameters;
             Roles = roles;
             Uri = uri;
         }
