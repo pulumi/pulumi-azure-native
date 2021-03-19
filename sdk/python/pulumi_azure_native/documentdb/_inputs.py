@@ -136,7 +136,7 @@ class CassandraKeyspaceResourceArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str]):
         """
-        Cosmos DB Cassandra keyspace id object
+        Cosmos DB Cassandra keyspace resource object
         :param pulumi.Input[str] id: Name of the Cosmos DB Cassandra keyspace
         """
         pulumi.set(__self__, "id", id)
@@ -238,15 +238,19 @@ class CassandraSchemaArgs:
 class CassandraTableResourceArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str],
+                 analytical_storage_ttl: Optional[pulumi.Input[int]] = None,
                  default_ttl: Optional[pulumi.Input[int]] = None,
                  schema: Optional[pulumi.Input['CassandraSchemaArgs']] = None):
         """
-        Cosmos DB Cassandra table id object
+        Cosmos DB Cassandra table resource object
         :param pulumi.Input[str] id: Name of the Cosmos DB Cassandra table
+        :param pulumi.Input[int] analytical_storage_ttl: Analytical TTL.
         :param pulumi.Input[int] default_ttl: Time to live of the Cosmos DB Cassandra table
         :param pulumi.Input['CassandraSchemaArgs'] schema: Schema of the Cosmos DB Cassandra table
         """
         pulumi.set(__self__, "id", id)
+        if analytical_storage_ttl is not None:
+            pulumi.set(__self__, "analytical_storage_ttl", analytical_storage_ttl)
         if default_ttl is not None:
             pulumi.set(__self__, "default_ttl", default_ttl)
         if schema is not None:
@@ -263,6 +267,18 @@ class CassandraTableResourceArgs:
     @id.setter
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter(name="analyticalStorageTtl")
+    def analytical_storage_ttl(self) -> Optional[pulumi.Input[int]]:
+        """
+        Analytical TTL.
+        """
+        return pulumi.get(self, "analytical_storage_ttl")
+
+    @analytical_storage_ttl.setter
+    def analytical_storage_ttl(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "analytical_storage_ttl", value)
 
     @property
     @pulumi.getter(name="defaultTtl")

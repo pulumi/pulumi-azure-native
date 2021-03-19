@@ -11,10 +11,35 @@ from ._enums import *
 
 __all__ = [
     'ManagedIdentityArgs',
+    'MyManagedIdentityArgs',
 ]
 
 @pulumi.input_type
 class ManagedIdentityArgs:
+    def __init__(__self__, *,
+                 type: Optional[pulumi.Input[str]] = None):
+        """
+        Customer Managed Identity
+        :param pulumi.Input[str] type: The identity type.
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identity type.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class MyManagedIdentityArgs:
     def __init__(__self__, *,
                  type: Optional[pulumi.Input[str]] = None):
         """

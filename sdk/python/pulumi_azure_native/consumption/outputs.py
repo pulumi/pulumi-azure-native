@@ -16,7 +16,6 @@ __all__ = [
     'BudgetFilterResponse',
     'BudgetTimePeriodResponse',
     'CurrentSpendResponse',
-    'FiltersResponse',
     'ForecastSpendResponse',
     'NotificationResponse',
 ]
@@ -242,68 +241,6 @@ class CurrentSpendResponse(dict):
 
 
 @pulumi.output_type
-class FiltersResponse(dict):
-    """
-    May be used to filter budgets by resource group, resource, or meter.
-    """
-    def __init__(__self__, *,
-                 meters: Optional[Sequence[str]] = None,
-                 resource_groups: Optional[Sequence[str]] = None,
-                 resources: Optional[Sequence[str]] = None,
-                 tags: Optional[Mapping[str, Sequence[str]]] = None):
-        """
-        May be used to filter budgets by resource group, resource, or meter.
-        :param Sequence[str] meters: The list of filters on meters (GUID), mandatory for budgets of usage category. 
-        :param Sequence[str] resource_groups: The list of filters on resource groups, allowed at subscription level only.
-        :param Sequence[str] resources: The list of filters on resources.
-        :param Mapping[str, Sequence[str]] tags: The dictionary of filters on tags.
-        """
-        if meters is not None:
-            pulumi.set(__self__, "meters", meters)
-        if resource_groups is not None:
-            pulumi.set(__self__, "resource_groups", resource_groups)
-        if resources is not None:
-            pulumi.set(__self__, "resources", resources)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter
-    def meters(self) -> Optional[Sequence[str]]:
-        """
-        The list of filters on meters (GUID), mandatory for budgets of usage category. 
-        """
-        return pulumi.get(self, "meters")
-
-    @property
-    @pulumi.getter(name="resourceGroups")
-    def resource_groups(self) -> Optional[Sequence[str]]:
-        """
-        The list of filters on resource groups, allowed at subscription level only.
-        """
-        return pulumi.get(self, "resource_groups")
-
-    @property
-    @pulumi.getter
-    def resources(self) -> Optional[Sequence[str]]:
-        """
-        The list of filters on resources.
-        """
-        return pulumi.get(self, "resources")
-
-    @property
-    @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, Sequence[str]]]:
-        """
-        The dictionary of filters on tags.
-        """
-        return pulumi.get(self, "tags")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
 class ForecastSpendResponse(dict):
     """
     The forecasted cost which is being tracked for a budget.
@@ -350,15 +287,17 @@ class NotificationResponse(dict):
                  operator: str,
                  threshold: float,
                  contact_groups: Optional[Sequence[str]] = None,
-                 contact_roles: Optional[Sequence[str]] = None):
+                 contact_roles: Optional[Sequence[str]] = None,
+                 threshold_type: Optional[str] = None):
         """
         The notification associated with a budget.
-        :param Sequence[str] contact_emails: Email addresses to send the budget notification to when the threshold is exceeded.
+        :param Sequence[str] contact_emails: Email addresses to send the budget notification to when the threshold is exceeded. Must have at least one contact email or contact group specified at the Subscription or Resource Group scopes. All other scopes must have at least one contact email specified.
         :param bool enabled: The notification is enabled or not.
         :param str operator: The comparison operator.
         :param float threshold: Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.
-        :param Sequence[str] contact_groups: Action groups to send the budget notification to when the threshold is exceeded.
+        :param Sequence[str] contact_groups: Action groups to send the budget notification to when the threshold is exceeded. Must be provided as a fully qualified Azure resource id. Only supported at Subscription or Resource Group scopes.
         :param Sequence[str] contact_roles: Contact roles to send the budget notification to when the threshold is exceeded.
+        :param str threshold_type: The type of threshold
         """
         pulumi.set(__self__, "contact_emails", contact_emails)
         pulumi.set(__self__, "enabled", enabled)
@@ -368,12 +307,16 @@ class NotificationResponse(dict):
             pulumi.set(__self__, "contact_groups", contact_groups)
         if contact_roles is not None:
             pulumi.set(__self__, "contact_roles", contact_roles)
+        if threshold_type is None:
+            threshold_type = 'Actual'
+        if threshold_type is not None:
+            pulumi.set(__self__, "threshold_type", threshold_type)
 
     @property
     @pulumi.getter(name="contactEmails")
     def contact_emails(self) -> Sequence[str]:
         """
-        Email addresses to send the budget notification to when the threshold is exceeded.
+        Email addresses to send the budget notification to when the threshold is exceeded. Must have at least one contact email or contact group specified at the Subscription or Resource Group scopes. All other scopes must have at least one contact email specified.
         """
         return pulumi.get(self, "contact_emails")
 
@@ -405,7 +348,7 @@ class NotificationResponse(dict):
     @pulumi.getter(name="contactGroups")
     def contact_groups(self) -> Optional[Sequence[str]]:
         """
-        Action groups to send the budget notification to when the threshold is exceeded.
+        Action groups to send the budget notification to when the threshold is exceeded. Must be provided as a fully qualified Azure resource id. Only supported at Subscription or Resource Group scopes.
         """
         return pulumi.get(self, "contact_groups")
 
@@ -416,6 +359,14 @@ class NotificationResponse(dict):
         Contact roles to send the budget notification to when the threshold is exceeded.
         """
         return pulumi.get(self, "contact_roles")
+
+    @property
+    @pulumi.getter(name="thresholdType")
+    def threshold_type(self) -> Optional[str]:
+        """
+        The type of threshold
+        """
+        return pulumi.get(self, "threshold_type")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

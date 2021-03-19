@@ -11,6 +11,7 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'EnterpriseSkuResponse',
     'ModuleResponse',
     'PersistenceResponse',
     'PrivateEndpointConnectionResponse',
@@ -22,6 +23,43 @@ __all__ = [
     'ScheduleEntryResponse',
     'SkuResponse',
 ]
+
+@pulumi.output_type
+class EnterpriseSkuResponse(dict):
+    """
+    SKU parameters supplied to the create RedisEnterprise operation.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 capacity: Optional[int] = None):
+        """
+        SKU parameters supplied to the create RedisEnterprise operation.
+        :param str name: The type of RedisEnterprise cluster to deploy. Possible values: (Enterprise_E10, EnterpriseFlash_F300 etc.)
+        :param int capacity: The size of the RedisEnterprise cluster. Defaults to 2 or 3 depending on SKU. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for Flash SKUs.
+        """
+        pulumi.set(__self__, "name", name)
+        if capacity is not None:
+            pulumi.set(__self__, "capacity", capacity)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The type of RedisEnterprise cluster to deploy. Possible values: (Enterprise_E10, EnterpriseFlash_F300 etc.)
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def capacity(self) -> Optional[int]:
+        """
+        The size of the RedisEnterprise cluster. Defaults to 2 or 3 depending on SKU. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for Flash SKUs.
+        """
+        return pulumi.get(self, "capacity")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
 
 @pulumi.output_type
 class ModuleResponse(dict):
@@ -470,35 +508,45 @@ class ScheduleEntryResponse(dict):
 @pulumi.output_type
 class SkuResponse(dict):
     """
-    SKU parameters supplied to the create RedisEnterprise operation.
+    SKU parameters supplied to the create Redis operation.
     """
     def __init__(__self__, *,
-                 name: str,
-                 capacity: Optional[int] = None):
+                 capacity: int,
+                 family: str,
+                 name: str):
         """
-        SKU parameters supplied to the create RedisEnterprise operation.
-        :param str name: The type of RedisEnterprise cluster to deploy. Possible values: (Enterprise_E10, EnterpriseFlash_F300 etc.)
-        :param int capacity: The size of the RedisEnterprise cluster. Defaults to 2 or 3 depending on SKU. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for Flash SKUs.
+        SKU parameters supplied to the create Redis operation.
+        :param int capacity: The size of the Redis cache to deploy. Valid values: for C (Basic/Standard) family (0, 1, 2, 3, 4, 5, 6), for P (Premium) family (1, 2, 3, 4).
+        :param str family: The SKU family to use. Valid values: (C, P). (C = Basic/Standard, P = Premium).
+        :param str name: The type of Redis cache to deploy. Valid values: (Basic, Standard, Premium)
         """
+        pulumi.set(__self__, "capacity", capacity)
+        pulumi.set(__self__, "family", family)
         pulumi.set(__self__, "name", name)
-        if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
+
+    @property
+    @pulumi.getter
+    def capacity(self) -> int:
+        """
+        The size of the Redis cache to deploy. Valid values: for C (Basic/Standard) family (0, 1, 2, 3, 4, 5, 6), for P (Premium) family (1, 2, 3, 4).
+        """
+        return pulumi.get(self, "capacity")
+
+    @property
+    @pulumi.getter
+    def family(self) -> str:
+        """
+        The SKU family to use. Valid values: (C, P). (C = Basic/Standard, P = Premium).
+        """
+        return pulumi.get(self, "family")
 
     @property
     @pulumi.getter
     def name(self) -> str:
         """
-        The type of RedisEnterprise cluster to deploy. Possible values: (Enterprise_E10, EnterpriseFlash_F300 etc.)
+        The type of Redis cache to deploy. Valid values: (Basic, Standard, Premium)
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def capacity(self) -> Optional[int]:
-        """
-        The size of the RedisEnterprise cluster. Defaults to 2 or 3 depending on SKU. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for Flash SKUs.
-        """
-        return pulumi.get(self, "capacity")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

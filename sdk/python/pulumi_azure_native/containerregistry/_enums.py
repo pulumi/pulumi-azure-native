@@ -10,13 +10,11 @@ __all__ = [
     'Architecture',
     'AuditLogStatus',
     'BaseImageTriggerType',
-    'BuildTaskStatus',
     'ConnectedRegistryMode',
     'ConnectionStatus',
     'DefaultAction',
     'LogLevel',
     'OS',
-    'OsType',
     'PipelineOptions',
     'PipelineRunSourceType',
     'PipelineRunTargetType',
@@ -83,14 +81,6 @@ class BaseImageTriggerType(str, Enum):
     RUNTIME = "Runtime"
 
 
-class BuildTaskStatus(str, Enum):
-    """
-    The current status of build task.
-    """
-    DISABLED = "Disabled"
-    ENABLED = "Enabled"
-
-
 class ConnectedRegistryMode(str, Enum):
     """
     The mode of the connected registry resource that indicates the permissions of the registry.
@@ -131,14 +121,6 @@ class LogLevel(str, Enum):
 class OS(str, Enum):
     """
     The operating system type required for the run.
-    """
-    WINDOWS = "Windows"
-    LINUX = "Linux"
-
-
-class OsType(str, Enum):
-    """
-    The operating system type required for the build.
     """
     WINDOWS = "Windows"
     LINUX = "Linux"

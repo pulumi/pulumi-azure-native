@@ -118,7 +118,7 @@ __all__ = [
     'EndpointPropertiesResponseCustomHeaders',
     'EndpointPropertiesResponseSubnets',
     'EndpointResponse',
-    'EndpointServiceResponse',
+    'ExperimentEndpointResponse',
     'ExpressRouteCircuitAuthorizationResponse',
     'ExpressRouteCircuitConnectionResponse',
     'ExpressRouteCircuitPeeringConfigResponse',
@@ -159,6 +159,11 @@ __all__ = [
     'FlowLogFormatParametersResponse',
     'FlowLogResponse',
     'ForwardingConfigurationResponse',
+    'FrontDoorManagedRuleGroupOverrideResponse',
+    'FrontDoorManagedRuleOverrideResponse',
+    'FrontDoorManagedRuleSetResponse',
+    'FrontDoorMatchConditionResponse',
+    'FrontDoorPolicySettingsResponse',
     'FrontendEndpointLinkResponse',
     'FrontendEndpointResponse',
     'FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLink',
@@ -186,6 +191,7 @@ __all__ = [
     'LoadBalancingRuleResponse',
     'LoadBalancingSettingsModelResponse',
     'LocalNetworkGatewayResponse',
+    'ManagedRuleExclusionResponse',
     'ManagedRuleGroupOverrideResponse',
     'ManagedRuleOverrideResponse',
     'ManagedRuleSetListResponse',
@@ -7937,7 +7943,7 @@ class CustomRuleResponse(dict):
     """
     def __init__(__self__, *,
                  action: str,
-                 match_conditions: Sequence['outputs.MatchConditionResponse'],
+                 match_conditions: Sequence['outputs.FrontDoorMatchConditionResponse'],
                  priority: int,
                  rule_type: str,
                  enabled_state: Optional[str] = None,
@@ -7947,7 +7953,7 @@ class CustomRuleResponse(dict):
         """
         Defines contents of a web application rule
         :param str action: Describes what action to be applied when rule matches.
-        :param Sequence['MatchConditionResponseArgs'] match_conditions: List of match conditions.
+        :param Sequence['FrontDoorMatchConditionResponseArgs'] match_conditions: List of match conditions.
         :param int priority: Describes priority of the rule. Rules with a lower value will be evaluated before rules with a higher value.
         :param str rule_type: Describes type of rule.
         :param str enabled_state: Describes if the custom rule is in enabled or disabled state. Defaults to Enabled if not specified.
@@ -7978,7 +7984,7 @@ class CustomRuleResponse(dict):
 
     @property
     @pulumi.getter(name="matchConditions")
-    def match_conditions(self) -> Sequence['outputs.MatchConditionResponse']:
+    def match_conditions(self) -> Sequence['outputs.FrontDoorMatchConditionResponse']:
         """
         List of match conditions.
         """
@@ -8721,26 +8727,38 @@ class EndpointResponse(dict):
 
 
 @pulumi.output_type
-class EndpointServiceResponse(dict):
+class ExperimentEndpointResponse(dict):
     """
-    Identifies the service being brought into the virtual network.
+    Defines the endpoint properties
     """
     def __init__(__self__, *,
-                 id: Optional[str] = None):
+                 endpoint: Optional[str] = None,
+                 name: Optional[str] = None):
         """
-        Identifies the service being brought into the virtual network.
-        :param str id: A unique identifier of the service being referenced by the interface endpoint.
+        Defines the endpoint properties
+        :param str endpoint: The endpoint URL
+        :param str name: The name of the endpoint
         """
-        if id is not None:
-            pulumi.set(__self__, "id", id)
+        if endpoint is not None:
+            pulumi.set(__self__, "endpoint", endpoint)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def id(self) -> Optional[str]:
+    def endpoint(self) -> Optional[str]:
         """
-        A unique identifier of the service being referenced by the interface endpoint.
+        The endpoint URL
         """
-        return pulumi.get(self, "id")
+        return pulumi.get(self, "endpoint")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the endpoint
+        """
+        return pulumi.get(self, "name")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -11297,6 +11315,357 @@ class ForwardingConfigurationResponse(dict):
 
 
 @pulumi.output_type
+class FrontDoorManagedRuleGroupOverrideResponse(dict):
+    """
+    Defines a managed rule group override setting.
+    """
+    def __init__(__self__, *,
+                 rule_group_name: str,
+                 exclusions: Optional[Sequence['outputs.ManagedRuleExclusionResponse']] = None,
+                 rules: Optional[Sequence['outputs.FrontDoorManagedRuleOverrideResponse']] = None):
+        """
+        Defines a managed rule group override setting.
+        :param str rule_group_name: Describes the managed rule group to override.
+        :param Sequence['ManagedRuleExclusionResponseArgs'] exclusions: Describes the exclusions that are applied to all rules in the group.
+        :param Sequence['FrontDoorManagedRuleOverrideResponseArgs'] rules: List of rules that will be disabled. If none specified, all rules in the group will be disabled.
+        """
+        pulumi.set(__self__, "rule_group_name", rule_group_name)
+        if exclusions is not None:
+            pulumi.set(__self__, "exclusions", exclusions)
+        if rules is not None:
+            pulumi.set(__self__, "rules", rules)
+
+    @property
+    @pulumi.getter(name="ruleGroupName")
+    def rule_group_name(self) -> str:
+        """
+        Describes the managed rule group to override.
+        """
+        return pulumi.get(self, "rule_group_name")
+
+    @property
+    @pulumi.getter
+    def exclusions(self) -> Optional[Sequence['outputs.ManagedRuleExclusionResponse']]:
+        """
+        Describes the exclusions that are applied to all rules in the group.
+        """
+        return pulumi.get(self, "exclusions")
+
+    @property
+    @pulumi.getter
+    def rules(self) -> Optional[Sequence['outputs.FrontDoorManagedRuleOverrideResponse']]:
+        """
+        List of rules that will be disabled. If none specified, all rules in the group will be disabled.
+        """
+        return pulumi.get(self, "rules")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class FrontDoorManagedRuleOverrideResponse(dict):
+    """
+    Defines a managed rule group override setting.
+    """
+    def __init__(__self__, *,
+                 rule_id: str,
+                 action: Optional[str] = None,
+                 enabled_state: Optional[str] = None,
+                 exclusions: Optional[Sequence['outputs.ManagedRuleExclusionResponse']] = None):
+        """
+        Defines a managed rule group override setting.
+        :param str rule_id: Identifier for the managed rule.
+        :param str action: Describes the override action to be applied when rule matches.
+        :param str enabled_state: Describes if the managed rule is in enabled or disabled state. Defaults to Disabled if not specified.
+        :param Sequence['ManagedRuleExclusionResponseArgs'] exclusions: Describes the exclusions that are applied to this specific rule.
+        """
+        pulumi.set(__self__, "rule_id", rule_id)
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if enabled_state is not None:
+            pulumi.set(__self__, "enabled_state", enabled_state)
+        if exclusions is not None:
+            pulumi.set(__self__, "exclusions", exclusions)
+
+    @property
+    @pulumi.getter(name="ruleId")
+    def rule_id(self) -> str:
+        """
+        Identifier for the managed rule.
+        """
+        return pulumi.get(self, "rule_id")
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[str]:
+        """
+        Describes the override action to be applied when rule matches.
+        """
+        return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter(name="enabledState")
+    def enabled_state(self) -> Optional[str]:
+        """
+        Describes if the managed rule is in enabled or disabled state. Defaults to Disabled if not specified.
+        """
+        return pulumi.get(self, "enabled_state")
+
+    @property
+    @pulumi.getter
+    def exclusions(self) -> Optional[Sequence['outputs.ManagedRuleExclusionResponse']]:
+        """
+        Describes the exclusions that are applied to this specific rule.
+        """
+        return pulumi.get(self, "exclusions")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class FrontDoorManagedRuleSetResponse(dict):
+    """
+    Defines a managed rule set.
+    """
+    def __init__(__self__, *,
+                 rule_set_type: str,
+                 rule_set_version: str,
+                 exclusions: Optional[Sequence['outputs.ManagedRuleExclusionResponse']] = None,
+                 rule_group_overrides: Optional[Sequence['outputs.FrontDoorManagedRuleGroupOverrideResponse']] = None,
+                 rule_set_action: Optional[str] = None):
+        """
+        Defines a managed rule set.
+        :param str rule_set_type: Defines the rule set type to use.
+        :param str rule_set_version: Defines the version of the rule set to use.
+        :param Sequence['ManagedRuleExclusionResponseArgs'] exclusions: Describes the exclusions that are applied to all rules in the set.
+        :param Sequence['FrontDoorManagedRuleGroupOverrideResponseArgs'] rule_group_overrides: Defines the rule group overrides to apply to the rule set.
+        :param str rule_set_action: Defines the action to take when a managed rule set score threshold is met.
+        """
+        pulumi.set(__self__, "rule_set_type", rule_set_type)
+        pulumi.set(__self__, "rule_set_version", rule_set_version)
+        if exclusions is not None:
+            pulumi.set(__self__, "exclusions", exclusions)
+        if rule_group_overrides is not None:
+            pulumi.set(__self__, "rule_group_overrides", rule_group_overrides)
+        if rule_set_action is not None:
+            pulumi.set(__self__, "rule_set_action", rule_set_action)
+
+    @property
+    @pulumi.getter(name="ruleSetType")
+    def rule_set_type(self) -> str:
+        """
+        Defines the rule set type to use.
+        """
+        return pulumi.get(self, "rule_set_type")
+
+    @property
+    @pulumi.getter(name="ruleSetVersion")
+    def rule_set_version(self) -> str:
+        """
+        Defines the version of the rule set to use.
+        """
+        return pulumi.get(self, "rule_set_version")
+
+    @property
+    @pulumi.getter
+    def exclusions(self) -> Optional[Sequence['outputs.ManagedRuleExclusionResponse']]:
+        """
+        Describes the exclusions that are applied to all rules in the set.
+        """
+        return pulumi.get(self, "exclusions")
+
+    @property
+    @pulumi.getter(name="ruleGroupOverrides")
+    def rule_group_overrides(self) -> Optional[Sequence['outputs.FrontDoorManagedRuleGroupOverrideResponse']]:
+        """
+        Defines the rule group overrides to apply to the rule set.
+        """
+        return pulumi.get(self, "rule_group_overrides")
+
+    @property
+    @pulumi.getter(name="ruleSetAction")
+    def rule_set_action(self) -> Optional[str]:
+        """
+        Defines the action to take when a managed rule set score threshold is met.
+        """
+        return pulumi.get(self, "rule_set_action")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class FrontDoorMatchConditionResponse(dict):
+    """
+    Define a match condition.
+    """
+    def __init__(__self__, *,
+                 match_value: Sequence[str],
+                 match_variable: str,
+                 operator: str,
+                 negate_condition: Optional[bool] = None,
+                 selector: Optional[str] = None,
+                 transforms: Optional[Sequence[str]] = None):
+        """
+        Define a match condition.
+        :param Sequence[str] match_value: List of possible match values.
+        :param str match_variable: Request variable to compare with.
+        :param str operator: Comparison type to use for matching with the variable value.
+        :param bool negate_condition: Describes if the result of this condition should be negated.
+        :param str selector: Match against a specific key from the QueryString, PostArgs, RequestHeader or Cookies variables. Default is null.
+        :param Sequence[str] transforms: List of transforms.
+        """
+        pulumi.set(__self__, "match_value", match_value)
+        pulumi.set(__self__, "match_variable", match_variable)
+        pulumi.set(__self__, "operator", operator)
+        if negate_condition is not None:
+            pulumi.set(__self__, "negate_condition", negate_condition)
+        if selector is not None:
+            pulumi.set(__self__, "selector", selector)
+        if transforms is not None:
+            pulumi.set(__self__, "transforms", transforms)
+
+    @property
+    @pulumi.getter(name="matchValue")
+    def match_value(self) -> Sequence[str]:
+        """
+        List of possible match values.
+        """
+        return pulumi.get(self, "match_value")
+
+    @property
+    @pulumi.getter(name="matchVariable")
+    def match_variable(self) -> str:
+        """
+        Request variable to compare with.
+        """
+        return pulumi.get(self, "match_variable")
+
+    @property
+    @pulumi.getter
+    def operator(self) -> str:
+        """
+        Comparison type to use for matching with the variable value.
+        """
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter(name="negateCondition")
+    def negate_condition(self) -> Optional[bool]:
+        """
+        Describes if the result of this condition should be negated.
+        """
+        return pulumi.get(self, "negate_condition")
+
+    @property
+    @pulumi.getter
+    def selector(self) -> Optional[str]:
+        """
+        Match against a specific key from the QueryString, PostArgs, RequestHeader or Cookies variables. Default is null.
+        """
+        return pulumi.get(self, "selector")
+
+    @property
+    @pulumi.getter
+    def transforms(self) -> Optional[Sequence[str]]:
+        """
+        List of transforms.
+        """
+        return pulumi.get(self, "transforms")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class FrontDoorPolicySettingsResponse(dict):
+    """
+    Defines top-level WebApplicationFirewallPolicy configuration settings.
+    """
+    def __init__(__self__, *,
+                 custom_block_response_body: Optional[str] = None,
+                 custom_block_response_status_code: Optional[int] = None,
+                 enabled_state: Optional[str] = None,
+                 mode: Optional[str] = None,
+                 redirect_url: Optional[str] = None,
+                 request_body_check: Optional[str] = None):
+        """
+        Defines top-level WebApplicationFirewallPolicy configuration settings.
+        :param str custom_block_response_body: If the action type is block, customer can override the response body. The body must be specified in base64 encoding.
+        :param int custom_block_response_status_code: If the action type is block, customer can override the response status code.
+        :param str enabled_state: Describes if the policy is in enabled or disabled state. Defaults to Enabled if not specified.
+        :param str mode: Describes if it is in detection mode or prevention mode at policy level.
+        :param str redirect_url: If action type is redirect, this field represents redirect URL for the client.
+        :param str request_body_check: Describes if policy managed rules will inspect the request body content.
+        """
+        if custom_block_response_body is not None:
+            pulumi.set(__self__, "custom_block_response_body", custom_block_response_body)
+        if custom_block_response_status_code is not None:
+            pulumi.set(__self__, "custom_block_response_status_code", custom_block_response_status_code)
+        if enabled_state is not None:
+            pulumi.set(__self__, "enabled_state", enabled_state)
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+        if redirect_url is not None:
+            pulumi.set(__self__, "redirect_url", redirect_url)
+        if request_body_check is not None:
+            pulumi.set(__self__, "request_body_check", request_body_check)
+
+    @property
+    @pulumi.getter(name="customBlockResponseBody")
+    def custom_block_response_body(self) -> Optional[str]:
+        """
+        If the action type is block, customer can override the response body. The body must be specified in base64 encoding.
+        """
+        return pulumi.get(self, "custom_block_response_body")
+
+    @property
+    @pulumi.getter(name="customBlockResponseStatusCode")
+    def custom_block_response_status_code(self) -> Optional[int]:
+        """
+        If the action type is block, customer can override the response status code.
+        """
+        return pulumi.get(self, "custom_block_response_status_code")
+
+    @property
+    @pulumi.getter(name="enabledState")
+    def enabled_state(self) -> Optional[str]:
+        """
+        Describes if the policy is in enabled or disabled state. Defaults to Enabled if not specified.
+        """
+        return pulumi.get(self, "enabled_state")
+
+    @property
+    @pulumi.getter
+    def mode(self) -> Optional[str]:
+        """
+        Describes if it is in detection mode or prevention mode at policy level.
+        """
+        return pulumi.get(self, "mode")
+
+    @property
+    @pulumi.getter(name="redirectUrl")
+    def redirect_url(self) -> Optional[str]:
+        """
+        If action type is redirect, this field represents redirect URL for the client.
+        """
+        return pulumi.get(self, "redirect_url")
+
+    @property
+    @pulumi.getter(name="requestBodyCheck")
+    def request_body_check(self) -> Optional[str]:
+        """
+        Describes if policy managed rules will inspect the request body content.
+        """
+        return pulumi.get(self, "request_body_check")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class FrontendEndpointLinkResponse(dict):
     """
     Defines the Resource ID for a Frontend Endpoint.
@@ -13586,6 +13955,53 @@ class LocalNetworkGatewayResponse(dict):
 
 
 @pulumi.output_type
+class ManagedRuleExclusionResponse(dict):
+    """
+    Exclude variables from managed rule evaluation.
+    """
+    def __init__(__self__, *,
+                 match_variable: str,
+                 selector: str,
+                 selector_match_operator: str):
+        """
+        Exclude variables from managed rule evaluation.
+        :param str match_variable: The variable type to be excluded.
+        :param str selector: Selector value for which elements in the collection this exclusion applies to.
+        :param str selector_match_operator: Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to.
+        """
+        pulumi.set(__self__, "match_variable", match_variable)
+        pulumi.set(__self__, "selector", selector)
+        pulumi.set(__self__, "selector_match_operator", selector_match_operator)
+
+    @property
+    @pulumi.getter(name="matchVariable")
+    def match_variable(self) -> str:
+        """
+        The variable type to be excluded.
+        """
+        return pulumi.get(self, "match_variable")
+
+    @property
+    @pulumi.getter
+    def selector(self) -> str:
+        """
+        Selector value for which elements in the collection this exclusion applies to.
+        """
+        return pulumi.get(self, "selector")
+
+    @property
+    @pulumi.getter(name="selectorMatchOperator")
+    def selector_match_operator(self) -> str:
+        """
+        Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to.
+        """
+        return pulumi.get(self, "selector_match_operator")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class ManagedRuleGroupOverrideResponse(dict):
     """
     Defines a managed rule group override setting.
@@ -13665,17 +14081,17 @@ class ManagedRuleSetListResponse(dict):
     Defines the list of managed rule sets for the policy.
     """
     def __init__(__self__, *,
-                 managed_rule_sets: Optional[Sequence['outputs.ManagedRuleSetResponse']] = None):
+                 managed_rule_sets: Optional[Sequence['outputs.FrontDoorManagedRuleSetResponse']] = None):
         """
         Defines the list of managed rule sets for the policy.
-        :param Sequence['ManagedRuleSetResponseArgs'] managed_rule_sets: List of rule sets.
+        :param Sequence['FrontDoorManagedRuleSetResponseArgs'] managed_rule_sets: List of rule sets.
         """
         if managed_rule_sets is not None:
             pulumi.set(__self__, "managed_rule_sets", managed_rule_sets)
 
     @property
     @pulumi.getter(name="managedRuleSets")
-    def managed_rule_sets(self) -> Optional[Sequence['outputs.ManagedRuleSetResponse']]:
+    def managed_rule_sets(self) -> Optional[Sequence['outputs.FrontDoorManagedRuleSetResponse']]:
         """
         List of rule sets.
         """

@@ -55,7 +55,7 @@ class ExportType(str, Enum):
 
 class FormatType(str, Enum):
     """
-    The format of the report being delivered.
+    The format of the export being delivered. Currently only 'Csv' is supported.
     """
     CSV = "Csv"
 
@@ -69,7 +69,7 @@ class FunctionType(str, Enum):
 
 class GranularityType(str, Enum):
     """
-    The granularity of rows in the report.
+    The granularity of rows in the export. Currently only 'Daily' is supported.
     """
     DAILY = "Daily"
 
@@ -152,7 +152,7 @@ class ReportType(str, Enum):
 
 class StatusType(str, Enum):
     """
-    The status of the schedule. Whether active or not. If inactive, the report's scheduled execution is paused.
+    The status of the export's schedule. If 'Inactive', the export's schedule is paused.
     """
     ACTIVE = "Active"
     INACTIVE = "Inactive"
@@ -160,9 +160,11 @@ class StatusType(str, Enum):
 
 class TimeframeType(str, Enum):
     """
-    The time frame for pulling data for the report. If custom, then a specific time period must be provided.
+    The time frame for pulling data for the export. If custom, then a specific time period must be provided.
     """
-    WEEK_TO_DATE = "WeekToDate"
     MONTH_TO_DATE = "MonthToDate"
-    YEAR_TO_DATE = "YearToDate"
+    BILLING_MONTH_TO_DATE = "BillingMonthToDate"
+    THE_LAST_MONTH = "TheLastMonth"
+    THE_LAST_BILLING_MONTH = "TheLastBillingMonth"
+    WEEK_TO_DATE = "WeekToDate"
     CUSTOM = "Custom"

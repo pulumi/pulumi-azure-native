@@ -6,7 +6,6 @@ from enum import Enum
 
 __all__ = [
     'Access',
-    'Action',
     'AllowedEndpointRecordType',
     'ApplicationGatewayCookieBasedAffinity',
     'ApplicationGatewayCustomErrorStatusCode',
@@ -26,8 +25,6 @@ __all__ = [
     'AzureFirewallNetworkRuleProtocol',
     'AzureFirewallRCActionType',
     'DhGroup',
-    'DynamicCompressionEnabled',
-    'EnabledState',
     'EndpointMonitorStatus',
     'EndpointStatus',
     'ExpressRouteCircuitPeeringAdvertisedPublicPrefixState',
@@ -38,10 +35,6 @@ __all__ = [
     'ExpressRoutePeeringState',
     'ExpressRoutePeeringType',
     'ExpressRoutePortsEncapsulation',
-    'FrontDoorEnabledState',
-    'FrontDoorForwardingProtocol',
-    'FrontDoorProtocol',
-    'FrontDoorQuery',
     'IPAllocationMethod',
     'IPVersion',
     'IkeEncryption',
@@ -50,9 +43,7 @@ __all__ = [
     'IpsecIntegrity',
     'LoadBalancerSkuName',
     'LoadDistribution',
-    'Mode',
     'MonitorProtocol',
-    'Operator',
     'PcProtocol',
     'PfsGroup',
     'ProbeProtocol',
@@ -62,16 +53,12 @@ __all__ = [
     'PublicIPPrefixSkuName',
     'RouteFilterRuleType',
     'RouteNextHopType',
-    'RuleGroupOverride',
-    'RuleType',
     'SecurityRuleAccess',
     'SecurityRuleDirection',
     'SecurityRuleProtocol',
     'ServiceProviderProvisioningState',
-    'SessionAffinityEnabledState',
     'TrafficRoutingMethod',
     'TrafficViewEnrollmentStatus',
-    'Transform',
     'TransportProtocol',
     'VirtualNetworkGatewayConnectionProtocol',
     'VirtualNetworkGatewayConnectionType',
@@ -91,15 +78,6 @@ class Access(str, Enum):
     """
     ALLOW = "Allow"
     DENY = "Deny"
-
-
-class Action(str, Enum):
-    """
-    Type of Actions
-    """
-    ALLOW = "Allow"
-    BLOCK = "Block"
-    LOG = "Log"
 
 
 class AllowedEndpointRecordType(str, Enum):
@@ -301,22 +279,6 @@ class DhGroup(str, Enum):
     DH_GROUP24 = "DHGroup24"
 
 
-class DynamicCompressionEnabled(str, Enum):
-    """
-    Whether to use dynamic compression for cached content
-    """
-    ENABLED = "Enabled"
-    DISABLED = "Disabled"
-
-
-class EnabledState(str, Enum):
-    """
-    describes if the policy is in enabled state or disabled state
-    """
-    DISABLED = "Disabled"
-    ENABLED = "Enabled"
-
-
 class EndpointMonitorStatus(str, Enum):
     """
     The monitoring status of the endpoint.
@@ -405,39 +367,6 @@ class ExpressRoutePortsEncapsulation(str, Enum):
     QIN_Q = "QinQ"
 
 
-class FrontDoorEnabledState(str, Enum):
-    """
-    Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
-    """
-    ENABLED = "Enabled"
-    DISABLED = "Disabled"
-
-
-class FrontDoorForwardingProtocol(str, Enum):
-    """
-    Protocol this rule will use when forwarding traffic to backends.
-    """
-    HTTP_ONLY = "HttpOnly"
-    HTTPS_ONLY = "HttpsOnly"
-    MATCH_REQUEST = "MatchRequest"
-
-
-class FrontDoorProtocol(str, Enum):
-    """
-    Accepted protocol schemes.
-    """
-    HTTP = "Http"
-    HTTPS = "Https"
-
-
-class FrontDoorQuery(str, Enum):
-    """
-    Treatment of URL query terms when forming the cache key.
-    """
-    STRIP_NONE = "StripNone"
-    STRIP_ALL = "StripAll"
-
-
 class IPAllocationMethod(str, Enum):
     """
     Defines how a private IP address is assigned. Possible values are: 'Static' and 'Dynamic'.
@@ -523,14 +452,6 @@ class LoadDistribution(str, Enum):
     SOURCE_IP_PROTOCOL = "SourceIPProtocol"
 
 
-class Mode(str, Enum):
-    """
-    Describes if it is in detection mode  or prevention mode at policy level
-    """
-    PREVENTION = "Prevention"
-    DETECTION = "Detection"
-
-
 class MonitorProtocol(str, Enum):
     """
     The protocol (HTTP, HTTPS or TCP) used to probe for endpoint health.
@@ -538,23 +459,6 @@ class MonitorProtocol(str, Enum):
     HTTP = "HTTP"
     HTTPS = "HTTPS"
     TCP = "TCP"
-
-
-class Operator(str, Enum):
-    """
-    Describes operator to be matched
-    """
-    ANY = "Any"
-    IP_MATCH = "IPMatch"
-    GEO_MATCH = "GeoMatch"
-    EQUAL = "Equal"
-    CONTAINS = "Contains"
-    LESS_THAN = "LessThan"
-    GREATER_THAN = "GreaterThan"
-    LESS_THAN_OR_EQUAL = "LessThanOrEqual"
-    GREATER_THAN_OR_EQUAL = "GreaterThanOrEqual"
-    BEGINS_WITH = "BeginsWith"
-    ENDS_WITH = "EndsWith"
 
 
 class PcProtocol(str, Enum):
@@ -642,22 +546,6 @@ class RouteNextHopType(str, Enum):
     NONE = "None"
 
 
-class RuleGroupOverride(str, Enum):
-    """
-    Describes override rule group
-    """
-    SQL_INJECTION = "SqlInjection"
-    XSS = "XSS"
-
-
-class RuleType(str, Enum):
-    """
-    Describes type of rule
-    """
-    MATCH_RULE = "MatchRule"
-    RATE_LIMIT_RULE = "RateLimitRule"
-
-
 class SecurityRuleAccess(str, Enum):
     """
     The network traffic is allowed or denied. Possible values are: 'Allow' and 'Deny'.
@@ -693,14 +581,6 @@ class ServiceProviderProvisioningState(str, Enum):
     DEPROVISIONING = "Deprovisioning"
 
 
-class SessionAffinityEnabledState(str, Enum):
-    """
-    Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'
-    """
-    ENABLED = "Enabled"
-    DISABLED = "Disabled"
-
-
 class TrafficRoutingMethod(str, Enum):
     """
     The traffic routing method of the Traffic Manager profile.
@@ -719,19 +599,6 @@ class TrafficViewEnrollmentStatus(str, Enum):
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
-
-
-class Transform(str, Enum):
-    """
-    Describes what transforms applied before matching
-    """
-    LOWERCASE = "Lowercase"
-    UPPERCASE = "Uppercase"
-    TRIM = "Trim"
-    URL_DECODE = "UrlDecode"
-    URL_ENCODE = "UrlEncode"
-    REMOVE_NULLS = "RemoveNulls"
-    HTML_ENTITY_DECODE = "HtmlEntityDecode"
 
 
 class TransportProtocol(str, Enum):

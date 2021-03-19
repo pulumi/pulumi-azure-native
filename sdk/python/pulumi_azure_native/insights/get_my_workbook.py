@@ -104,7 +104,7 @@ class GetMyWorkbookResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.ManagedIdentityResponse']:
+    def identity(self) -> Optional['outputs.MyManagedIdentityResponse']:
         """
         Identity used for BYOS
         """

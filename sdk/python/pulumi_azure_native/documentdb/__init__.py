@@ -9,29 +9,11 @@ from .cassandra_data_center import *
 from .cassandra_resource_cassandra_keyspace import *
 from .cassandra_resource_cassandra_table import *
 from .database_account import *
-from .database_account_cassandra_keyspace import *
-from .database_account_cassandra_table import *
-from .database_account_gremlin_database import *
-from .database_account_gremlin_graph import *
-from .database_account_mongo_db_collection import *
-from .database_account_mongo_db_database import *
-from .database_account_sql_container import *
-from .database_account_sql_database import *
-from .database_account_table import *
 from .get_cassandra_cluster import *
 from .get_cassandra_data_center import *
 from .get_cassandra_resource_cassandra_keyspace import *
 from .get_cassandra_resource_cassandra_table import *
 from .get_database_account import *
-from .get_database_account_cassandra_keyspace import *
-from .get_database_account_cassandra_table import *
-from .get_database_account_gremlin_database import *
-from .get_database_account_gremlin_graph import *
-from .get_database_account_mongo_db_collection import *
-from .get_database_account_mongo_db_database import *
-from .get_database_account_sql_container import *
-from .get_database_account_sql_database import *
-from .get_database_account_table import *
 from .get_gremlin_resource_gremlin_database import *
 from .get_gremlin_resource_gremlin_graph import *
 from .get_mongo_db_resource_mongo_db_collection import *
@@ -107,24 +89,6 @@ def _register_module():
                 return CassandraResourceCassandraTable(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:documentdb:DatabaseAccount":
                 return DatabaseAccount(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "azure-native:documentdb:DatabaseAccountCassandraKeyspace":
-                return DatabaseAccountCassandraKeyspace(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "azure-native:documentdb:DatabaseAccountCassandraTable":
-                return DatabaseAccountCassandraTable(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "azure-native:documentdb:DatabaseAccountGremlinDatabase":
-                return DatabaseAccountGremlinDatabase(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "azure-native:documentdb:DatabaseAccountGremlinGraph":
-                return DatabaseAccountGremlinGraph(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "azure-native:documentdb:DatabaseAccountMongoDBCollection":
-                return DatabaseAccountMongoDBCollection(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "azure-native:documentdb:DatabaseAccountMongoDBDatabase":
-                return DatabaseAccountMongoDBDatabase(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "azure-native:documentdb:DatabaseAccountSqlContainer":
-                return DatabaseAccountSqlContainer(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "azure-native:documentdb:DatabaseAccountSqlDatabase":
-                return DatabaseAccountSqlDatabase(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "azure-native:documentdb:DatabaseAccountTable":
-                return DatabaseAccountTable(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:documentdb:GremlinResourceGremlinDatabase":
                 return GremlinResourceGremlinDatabase(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:documentdb:GremlinResourceGremlinGraph":

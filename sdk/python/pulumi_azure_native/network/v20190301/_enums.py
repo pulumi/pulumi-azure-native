@@ -7,8 +7,8 @@ from enum import Enum
 __all__ = [
     'ActionType',
     'CustomRuleEnabledState',
+    'FrontDoorMatchVariable',
     'ManagedRuleEnabledState',
-    'MatchVariable',
     'Operator',
     'PolicyEnabledState',
     'PolicyMode',
@@ -35,15 +35,7 @@ class CustomRuleEnabledState(str, Enum):
     ENABLED = "Enabled"
 
 
-class ManagedRuleEnabledState(str, Enum):
-    """
-    Describes if the managed rule is in enabled or disabled state. Defaults to Disabled if not specified.
-    """
-    DISABLED = "Disabled"
-    ENABLED = "Enabled"
-
-
-class MatchVariable(str, Enum):
+class FrontDoorMatchVariable(str, Enum):
     """
     Request variable to compare with.
     """
@@ -56,6 +48,14 @@ class MatchVariable(str, Enum):
     REQUEST_BODY = "RequestBody"
     COOKIES = "Cookies"
     SOCKET_ADDR = "SocketAddr"
+
+
+class ManagedRuleEnabledState(str, Enum):
+    """
+    Describes if the managed rule is in enabled or disabled state. Defaults to Disabled if not specified.
+    """
+    DISABLED = "Disabled"
+    ENABLED = "Enabled"
 
 
 class Operator(str, Enum):

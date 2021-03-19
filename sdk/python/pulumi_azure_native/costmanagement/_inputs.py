@@ -10,7 +10,6 @@ from .. import _utilities, _tables
 from ._enums import *
 
 __all__ = [
-    'BudgetTimePeriodArgs',
     'CostAllocationProportionArgs',
     'CostAllocationRuleDetailsArgs',
     'CostAllocationRulePropertiesArgs',
@@ -23,7 +22,6 @@ __all__ = [
     'ExportScheduleArgs',
     'ExportTimePeriodArgs',
     'KpiPropertiesArgs',
-    'NotificationArgs',
     'PivotPropertiesArgs',
     'ReportAggregationArgs',
     'ReportComparisonExpressionArgs',
@@ -31,13 +29,8 @@ __all__ = [
     'ReportConfigComparisonExpressionArgs',
     'ReportConfigDatasetArgs',
     'ReportConfigDatasetConfigurationArgs',
-    'ReportConfigDefinitionArgs',
-    'ReportConfigDeliveryDestinationArgs',
-    'ReportConfigDeliveryInfoArgs',
     'ReportConfigFilterArgs',
     'ReportConfigGroupingArgs',
-    'ReportConfigRecurrencePeriodArgs',
-    'ReportConfigScheduleArgs',
     'ReportConfigSortingArgs',
     'ReportConfigTimePeriodArgs',
     'ReportDatasetArgs',
@@ -53,45 +46,6 @@ __all__ = [
     'SourceCostAllocationResourceArgs',
     'TargetCostAllocationResourceArgs',
 ]
-
-@pulumi.input_type
-class BudgetTimePeriodArgs:
-    def __init__(__self__, *,
-                 start_date: pulumi.Input[str],
-                 end_date: Optional[pulumi.Input[str]] = None):
-        """
-        The start and end date for a budget.
-        :param pulumi.Input[str] start_date: The start date for the budget.
-        :param pulumi.Input[str] end_date: The end date for the budget. If not provided, we default this to 10 years from the start date.
-        """
-        pulumi.set(__self__, "start_date", start_date)
-        if end_date is not None:
-            pulumi.set(__self__, "end_date", end_date)
-
-    @property
-    @pulumi.getter(name="startDate")
-    def start_date(self) -> pulumi.Input[str]:
-        """
-        The start date for the budget.
-        """
-        return pulumi.get(self, "start_date")
-
-    @start_date.setter
-    def start_date(self, value: pulumi.Input[str]):
-        pulumi.set(self, "start_date", value)
-
-    @property
-    @pulumi.getter(name="endDate")
-    def end_date(self) -> Optional[pulumi.Input[str]]:
-        """
-        The end date for the budget. If not provided, we default this to 10 years from the start date.
-        """
-        return pulumi.get(self, "end_date")
-
-    @end_date.setter
-    def end_date(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "end_date", value)
-
 
 @pulumi.input_type
 class CostAllocationProportionArgs:
@@ -626,106 +580,6 @@ class KpiPropertiesArgs:
 
 
 @pulumi.input_type
-class NotificationArgs:
-    def __init__(__self__, *,
-                 contact_emails: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 enabled: pulumi.Input[bool],
-                 operator: pulumi.Input[Union[str, 'NotificationOperatorType']],
-                 threshold: pulumi.Input[float],
-                 contact_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 contact_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        """
-        The notification associated with a budget.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] contact_emails: Email addresses to send the budget notification to when the threshold is exceeded.
-        :param pulumi.Input[bool] enabled: The notification is enabled or not.
-        :param pulumi.Input[Union[str, 'NotificationOperatorType']] operator: The comparison operator.
-        :param pulumi.Input[float] threshold: Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] contact_groups: Action groups to send the budget notification to when the threshold is exceeded.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] contact_roles: Contact roles to send the budget notification to when the threshold is exceeded.
-        """
-        pulumi.set(__self__, "contact_emails", contact_emails)
-        pulumi.set(__self__, "enabled", enabled)
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "threshold", threshold)
-        if contact_groups is not None:
-            pulumi.set(__self__, "contact_groups", contact_groups)
-        if contact_roles is not None:
-            pulumi.set(__self__, "contact_roles", contact_roles)
-
-    @property
-    @pulumi.getter(name="contactEmails")
-    def contact_emails(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        Email addresses to send the budget notification to when the threshold is exceeded.
-        """
-        return pulumi.get(self, "contact_emails")
-
-    @contact_emails.setter
-    def contact_emails(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(self, "contact_emails", value)
-
-    @property
-    @pulumi.getter
-    def enabled(self) -> pulumi.Input[bool]:
-        """
-        The notification is enabled or not.
-        """
-        return pulumi.get(self, "enabled")
-
-    @enabled.setter
-    def enabled(self, value: pulumi.Input[bool]):
-        pulumi.set(self, "enabled", value)
-
-    @property
-    @pulumi.getter
-    def operator(self) -> pulumi.Input[Union[str, 'NotificationOperatorType']]:
-        """
-        The comparison operator.
-        """
-        return pulumi.get(self, "operator")
-
-    @operator.setter
-    def operator(self, value: pulumi.Input[Union[str, 'NotificationOperatorType']]):
-        pulumi.set(self, "operator", value)
-
-    @property
-    @pulumi.getter
-    def threshold(self) -> pulumi.Input[float]:
-        """
-        Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.
-        """
-        return pulumi.get(self, "threshold")
-
-    @threshold.setter
-    def threshold(self, value: pulumi.Input[float]):
-        pulumi.set(self, "threshold", value)
-
-    @property
-    @pulumi.getter(name="contactGroups")
-    def contact_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Action groups to send the budget notification to when the threshold is exceeded.
-        """
-        return pulumi.get(self, "contact_groups")
-
-    @contact_groups.setter
-    def contact_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "contact_groups", value)
-
-    @property
-    @pulumi.getter(name="contactRoles")
-    def contact_roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Contact roles to send the budget notification to when the threshold is exceeded.
-        """
-        return pulumi.get(self, "contact_roles")
-
-    @contact_roles.setter
-    def contact_roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "contact_roles", value)
-
-
-@pulumi.input_type
 class PivotPropertiesArgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
@@ -1076,153 +930,6 @@ class ReportConfigDatasetConfigurationArgs:
 
 
 @pulumi.input_type
-class ReportConfigDefinitionArgs:
-    def __init__(__self__, *,
-                 timeframe: pulumi.Input[Union[str, 'TimeframeType']],
-                 type: pulumi.Input[Union[str, 'ReportType']],
-                 dataset: Optional[pulumi.Input['ReportConfigDatasetArgs']] = None,
-                 time_period: Optional[pulumi.Input['ReportConfigTimePeriodArgs']] = None):
-        """
-        The definition of a report config.
-        :param pulumi.Input[Union[str, 'TimeframeType']] timeframe: The time frame for pulling data for the report. If custom, then a specific time period must be provided.
-        :param pulumi.Input[Union[str, 'ReportType']] type: The type of the report.
-        :param pulumi.Input['ReportConfigDatasetArgs'] dataset: Has definition for data in this report config.
-        :param pulumi.Input['ReportConfigTimePeriodArgs'] time_period: Has time period for pulling data for the report.
-        """
-        pulumi.set(__self__, "timeframe", timeframe)
-        pulumi.set(__self__, "type", type)
-        if dataset is not None:
-            pulumi.set(__self__, "dataset", dataset)
-        if time_period is not None:
-            pulumi.set(__self__, "time_period", time_period)
-
-    @property
-    @pulumi.getter
-    def timeframe(self) -> pulumi.Input[Union[str, 'TimeframeType']]:
-        """
-        The time frame for pulling data for the report. If custom, then a specific time period must be provided.
-        """
-        return pulumi.get(self, "timeframe")
-
-    @timeframe.setter
-    def timeframe(self, value: pulumi.Input[Union[str, 'TimeframeType']]):
-        pulumi.set(self, "timeframe", value)
-
-    @property
-    @pulumi.getter
-    def type(self) -> pulumi.Input[Union[str, 'ReportType']]:
-        """
-        The type of the report.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: pulumi.Input[Union[str, 'ReportType']]):
-        pulumi.set(self, "type", value)
-
-    @property
-    @pulumi.getter
-    def dataset(self) -> Optional[pulumi.Input['ReportConfigDatasetArgs']]:
-        """
-        Has definition for data in this report config.
-        """
-        return pulumi.get(self, "dataset")
-
-    @dataset.setter
-    def dataset(self, value: Optional[pulumi.Input['ReportConfigDatasetArgs']]):
-        pulumi.set(self, "dataset", value)
-
-    @property
-    @pulumi.getter(name="timePeriod")
-    def time_period(self) -> Optional[pulumi.Input['ReportConfigTimePeriodArgs']]:
-        """
-        Has time period for pulling data for the report.
-        """
-        return pulumi.get(self, "time_period")
-
-    @time_period.setter
-    def time_period(self, value: Optional[pulumi.Input['ReportConfigTimePeriodArgs']]):
-        pulumi.set(self, "time_period", value)
-
-
-@pulumi.input_type
-class ReportConfigDeliveryDestinationArgs:
-    def __init__(__self__, *,
-                 container: pulumi.Input[str],
-                 resource_id: pulumi.Input[str],
-                 root_folder_path: Optional[pulumi.Input[str]] = None):
-        """
-        The destination information for the delivery of the report.
-        :param pulumi.Input[str] container: The name of the container where reports will be uploaded.
-        :param pulumi.Input[str] resource_id: The resource id of the storage account where reports will be delivered.
-        :param pulumi.Input[str] root_folder_path: The name of the directory where reports will be uploaded.
-        """
-        pulumi.set(__self__, "container", container)
-        pulumi.set(__self__, "resource_id", resource_id)
-        if root_folder_path is not None:
-            pulumi.set(__self__, "root_folder_path", root_folder_path)
-
-    @property
-    @pulumi.getter
-    def container(self) -> pulumi.Input[str]:
-        """
-        The name of the container where reports will be uploaded.
-        """
-        return pulumi.get(self, "container")
-
-    @container.setter
-    def container(self, value: pulumi.Input[str]):
-        pulumi.set(self, "container", value)
-
-    @property
-    @pulumi.getter(name="resourceId")
-    def resource_id(self) -> pulumi.Input[str]:
-        """
-        The resource id of the storage account where reports will be delivered.
-        """
-        return pulumi.get(self, "resource_id")
-
-    @resource_id.setter
-    def resource_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "resource_id", value)
-
-    @property
-    @pulumi.getter(name="rootFolderPath")
-    def root_folder_path(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the directory where reports will be uploaded.
-        """
-        return pulumi.get(self, "root_folder_path")
-
-    @root_folder_path.setter
-    def root_folder_path(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "root_folder_path", value)
-
-
-@pulumi.input_type
-class ReportConfigDeliveryInfoArgs:
-    def __init__(__self__, *,
-                 destination: pulumi.Input['ReportConfigDeliveryDestinationArgs']):
-        """
-        The delivery information associated with a report config.
-        :param pulumi.Input['ReportConfigDeliveryDestinationArgs'] destination: Has destination for the report being delivered.
-        """
-        pulumi.set(__self__, "destination", destination)
-
-    @property
-    @pulumi.getter
-    def destination(self) -> pulumi.Input['ReportConfigDeliveryDestinationArgs']:
-        """
-        Has destination for the report being delivered.
-        """
-        return pulumi.get(self, "destination")
-
-    @destination.setter
-    def destination(self, value: pulumi.Input['ReportConfigDeliveryDestinationArgs']):
-        pulumi.set(self, "destination", value)
-
-
-@pulumi.input_type
 class ReportConfigFilterArgs:
     def __init__(__self__, *,
                  and_: Optional[pulumi.Input[Sequence[pulumi.Input['ReportConfigFilterArgs']]]] = None,
@@ -1362,99 +1069,6 @@ class ReportConfigGroupingArgs:
     @type.setter
     def type(self, value: pulumi.Input[Union[str, 'ReportConfigColumnType']]):
         pulumi.set(self, "type", value)
-
-
-@pulumi.input_type
-class ReportConfigRecurrencePeriodArgs:
-    def __init__(__self__, *,
-                 from_: pulumi.Input[str],
-                 to: Optional[pulumi.Input[str]] = None):
-        """
-        The start and end date for recurrence schedule.
-        :param pulumi.Input[str] from_: The start date of recurrence.
-        :param pulumi.Input[str] to: The end date of recurrence. If not provided, we default this to 10 years from the start date.
-        """
-        pulumi.set(__self__, "from_", from_)
-        if to is not None:
-            pulumi.set(__self__, "to", to)
-
-    @property
-    @pulumi.getter(name="from")
-    def from_(self) -> pulumi.Input[str]:
-        """
-        The start date of recurrence.
-        """
-        return pulumi.get(self, "from_")
-
-    @from_.setter
-    def from_(self, value: pulumi.Input[str]):
-        pulumi.set(self, "from_", value)
-
-    @property
-    @pulumi.getter
-    def to(self) -> Optional[pulumi.Input[str]]:
-        """
-        The end date of recurrence. If not provided, we default this to 10 years from the start date.
-        """
-        return pulumi.get(self, "to")
-
-    @to.setter
-    def to(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "to", value)
-
-
-@pulumi.input_type
-class ReportConfigScheduleArgs:
-    def __init__(__self__, *,
-                 recurrence: pulumi.Input[Union[str, 'RecurrenceType']],
-                 recurrence_period: pulumi.Input['ReportConfigRecurrencePeriodArgs'],
-                 status: Optional[pulumi.Input[Union[str, 'StatusType']]] = None):
-        """
-        The schedule associated with a report config.
-        :param pulumi.Input[Union[str, 'RecurrenceType']] recurrence: The schedule recurrence.
-        :param pulumi.Input['ReportConfigRecurrencePeriodArgs'] recurrence_period: Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
-        :param pulumi.Input[Union[str, 'StatusType']] status: The status of the schedule. Whether active or not. If inactive, the report's scheduled execution is paused.
-        """
-        pulumi.set(__self__, "recurrence", recurrence)
-        pulumi.set(__self__, "recurrence_period", recurrence_period)
-        if status is not None:
-            pulumi.set(__self__, "status", status)
-
-    @property
-    @pulumi.getter
-    def recurrence(self) -> pulumi.Input[Union[str, 'RecurrenceType']]:
-        """
-        The schedule recurrence.
-        """
-        return pulumi.get(self, "recurrence")
-
-    @recurrence.setter
-    def recurrence(self, value: pulumi.Input[Union[str, 'RecurrenceType']]):
-        pulumi.set(self, "recurrence", value)
-
-    @property
-    @pulumi.getter(name="recurrencePeriod")
-    def recurrence_period(self) -> pulumi.Input['ReportConfigRecurrencePeriodArgs']:
-        """
-        Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
-        """
-        return pulumi.get(self, "recurrence_period")
-
-    @recurrence_period.setter
-    def recurrence_period(self, value: pulumi.Input['ReportConfigRecurrencePeriodArgs']):
-        pulumi.set(self, "recurrence_period", value)
-
-    @property
-    @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[Union[str, 'StatusType']]]:
-        """
-        The status of the schedule. Whether active or not. If inactive, the report's scheduled execution is paused.
-        """
-        return pulumi.get(self, "status")
-
-    @status.setter
-    def status(self, value: Optional[pulumi.Input[Union[str, 'StatusType']]]):
-        pulumi.set(self, "status", value)
 
 
 @pulumi.input_type

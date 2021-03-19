@@ -92,7 +92,6 @@ __all__ = [
     'SkuCapacityArgs',
     'SkuDescriptionArgs',
     'SlowRequestsBasedTriggerArgs',
-    'StampCapacityArgs',
     'StaticSiteBuildPropertiesArgs',
     'StatusCodesBasedTriggerArgs',
     'TokenStoreArgs',
@@ -100,7 +99,6 @@ __all__ = [
     'TwitterRegistrationArgs',
     'VirtualApplicationArgs',
     'VirtualDirectoryArgs',
-    'VirtualIPMappingArgs',
     'VirtualNetworkProfileArgs',
     'WorkerPoolArgs',
     'WsdlDefinitionArgs',
@@ -4442,6 +4440,13 @@ class NetworkAccessControlEntryArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  order: Optional[pulumi.Input[int]] = None,
                  remote_subnet: Optional[pulumi.Input[str]] = None):
+        """
+        Network access control entry.
+        :param pulumi.Input['AccessControlEntryAction'] action: Action object.
+        :param pulumi.Input[str] description: Description of network access control entry.
+        :param pulumi.Input[int] order: Order of precedence.
+        :param pulumi.Input[str] remote_subnet: Remote subnet.
+        """
         if action is not None:
             pulumi.set(__self__, "action", action)
         if description is not None:
@@ -4454,6 +4459,9 @@ class NetworkAccessControlEntryArgs:
     @property
     @pulumi.getter
     def action(self) -> Optional[pulumi.Input['AccessControlEntryAction']]:
+        """
+        Action object.
+        """
         return pulumi.get(self, "action")
 
     @action.setter
@@ -4463,6 +4471,9 @@ class NetworkAccessControlEntryArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of network access control entry.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -4472,6 +4483,9 @@ class NetworkAccessControlEntryArgs:
     @property
     @pulumi.getter
     def order(self) -> Optional[pulumi.Input[int]]:
+        """
+        Order of precedence.
+        """
         return pulumi.get(self, "order")
 
     @order.setter
@@ -4481,6 +4495,9 @@ class NetworkAccessControlEntryArgs:
     @property
     @pulumi.getter(name="remoteSubnet")
     def remote_subnet(self) -> Optional[pulumi.Input[str]]:
+        """
+        Remote subnet.
+        """
         return pulumi.get(self, "remote_subnet")
 
     @remote_subnet.setter
@@ -6351,182 +6368,6 @@ class SlowRequestsBasedTriggerArgs:
 
 
 @pulumi.input_type
-class StampCapacityArgs:
-    def __init__(__self__, *,
-                 available_capacity: Optional[pulumi.Input[float]] = None,
-                 compute_mode: Optional[pulumi.Input['ComputeModeOptions']] = None,
-                 exclude_from_capacity_allocation: Optional[pulumi.Input[bool]] = None,
-                 is_applicable_for_all_compute_modes: Optional[pulumi.Input[bool]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
-                 site_mode: Optional[pulumi.Input[str]] = None,
-                 total_capacity: Optional[pulumi.Input[float]] = None,
-                 unit: Optional[pulumi.Input[str]] = None,
-                 worker_size: Optional[pulumi.Input['WorkerSizeOptions']] = None,
-                 worker_size_id: Optional[pulumi.Input[int]] = None):
-        """
-        Class containing stamp capacity information
-        :param pulumi.Input[float] available_capacity: Available capacity (# of machines, bytes of storage etc...)
-        :param pulumi.Input['ComputeModeOptions'] compute_mode: Shared/Dedicated workers
-        :param pulumi.Input[bool] exclude_from_capacity_allocation: If true it includes basic sites
-                           Basic sites are not used for capacity allocation.
-        :param pulumi.Input[bool] is_applicable_for_all_compute_modes: Is capacity applicable for all sites?
-        :param pulumi.Input[str] name: Name of the stamp
-        :param pulumi.Input[str] site_mode: Shared or Dedicated
-        :param pulumi.Input[float] total_capacity: Total capacity (# of machines, bytes of storage etc...)
-        :param pulumi.Input[str] unit: Name of the unit
-        :param pulumi.Input['WorkerSizeOptions'] worker_size: Size of the machines
-        :param pulumi.Input[int] worker_size_id: Size Id of machines: 
-                           0 - Small
-                           1 - Medium
-                           2 - Large
-        """
-        if available_capacity is not None:
-            pulumi.set(__self__, "available_capacity", available_capacity)
-        if compute_mode is not None:
-            pulumi.set(__self__, "compute_mode", compute_mode)
-        if exclude_from_capacity_allocation is not None:
-            pulumi.set(__self__, "exclude_from_capacity_allocation", exclude_from_capacity_allocation)
-        if is_applicable_for_all_compute_modes is not None:
-            pulumi.set(__self__, "is_applicable_for_all_compute_modes", is_applicable_for_all_compute_modes)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if site_mode is not None:
-            pulumi.set(__self__, "site_mode", site_mode)
-        if total_capacity is not None:
-            pulumi.set(__self__, "total_capacity", total_capacity)
-        if unit is not None:
-            pulumi.set(__self__, "unit", unit)
-        if worker_size is not None:
-            pulumi.set(__self__, "worker_size", worker_size)
-        if worker_size_id is not None:
-            pulumi.set(__self__, "worker_size_id", worker_size_id)
-
-    @property
-    @pulumi.getter(name="availableCapacity")
-    def available_capacity(self) -> Optional[pulumi.Input[float]]:
-        """
-        Available capacity (# of machines, bytes of storage etc...)
-        """
-        return pulumi.get(self, "available_capacity")
-
-    @available_capacity.setter
-    def available_capacity(self, value: Optional[pulumi.Input[float]]):
-        pulumi.set(self, "available_capacity", value)
-
-    @property
-    @pulumi.getter(name="computeMode")
-    def compute_mode(self) -> Optional[pulumi.Input['ComputeModeOptions']]:
-        """
-        Shared/Dedicated workers
-        """
-        return pulumi.get(self, "compute_mode")
-
-    @compute_mode.setter
-    def compute_mode(self, value: Optional[pulumi.Input['ComputeModeOptions']]):
-        pulumi.set(self, "compute_mode", value)
-
-    @property
-    @pulumi.getter(name="excludeFromCapacityAllocation")
-    def exclude_from_capacity_allocation(self) -> Optional[pulumi.Input[bool]]:
-        """
-        If true it includes basic sites
-                    Basic sites are not used for capacity allocation.
-        """
-        return pulumi.get(self, "exclude_from_capacity_allocation")
-
-    @exclude_from_capacity_allocation.setter
-    def exclude_from_capacity_allocation(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "exclude_from_capacity_allocation", value)
-
-    @property
-    @pulumi.getter(name="isApplicableForAllComputeModes")
-    def is_applicable_for_all_compute_modes(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Is capacity applicable for all sites?
-        """
-        return pulumi.get(self, "is_applicable_for_all_compute_modes")
-
-    @is_applicable_for_all_compute_modes.setter
-    def is_applicable_for_all_compute_modes(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "is_applicable_for_all_compute_modes", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the stamp
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter(name="siteMode")
-    def site_mode(self) -> Optional[pulumi.Input[str]]:
-        """
-        Shared or Dedicated
-        """
-        return pulumi.get(self, "site_mode")
-
-    @site_mode.setter
-    def site_mode(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "site_mode", value)
-
-    @property
-    @pulumi.getter(name="totalCapacity")
-    def total_capacity(self) -> Optional[pulumi.Input[float]]:
-        """
-        Total capacity (# of machines, bytes of storage etc...)
-        """
-        return pulumi.get(self, "total_capacity")
-
-    @total_capacity.setter
-    def total_capacity(self, value: Optional[pulumi.Input[float]]):
-        pulumi.set(self, "total_capacity", value)
-
-    @property
-    @pulumi.getter
-    def unit(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the unit
-        """
-        return pulumi.get(self, "unit")
-
-    @unit.setter
-    def unit(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "unit", value)
-
-    @property
-    @pulumi.getter(name="workerSize")
-    def worker_size(self) -> Optional[pulumi.Input['WorkerSizeOptions']]:
-        """
-        Size of the machines
-        """
-        return pulumi.get(self, "worker_size")
-
-    @worker_size.setter
-    def worker_size(self, value: Optional[pulumi.Input['WorkerSizeOptions']]):
-        pulumi.set(self, "worker_size", value)
-
-    @property
-    @pulumi.getter(name="workerSizeId")
-    def worker_size_id(self) -> Optional[pulumi.Input[int]]:
-        """
-        Size Id of machines: 
-                    0 - Small
-                    1 - Medium
-                    2 - Large
-        """
-        return pulumi.get(self, "worker_size_id")
-
-    @worker_size_id.setter
-    def worker_size_id(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "worker_size_id", value)
-
-
-@pulumi.input_type
 class StaticSiteBuildPropertiesArgs:
     def __init__(__self__, *,
                  api_location: Optional[pulumi.Input[str]] = None,
@@ -6948,105 +6789,25 @@ class VirtualDirectoryArgs:
 
 
 @pulumi.input_type
-class VirtualIPMappingArgs:
-    def __init__(__self__, *,
-                 in_use: Optional[pulumi.Input[bool]] = None,
-                 internal_http_port: Optional[pulumi.Input[int]] = None,
-                 internal_https_port: Optional[pulumi.Input[int]] = None,
-                 virtual_ip: Optional[pulumi.Input[str]] = None):
-        """
-        Class that represents a VIP mapping
-        :param pulumi.Input[bool] in_use: Is VIP mapping in use
-        :param pulumi.Input[int] internal_http_port: Internal HTTP port
-        :param pulumi.Input[int] internal_https_port: Internal HTTPS port
-        :param pulumi.Input[str] virtual_ip: Virtual IP address
-        """
-        if in_use is not None:
-            pulumi.set(__self__, "in_use", in_use)
-        if internal_http_port is not None:
-            pulumi.set(__self__, "internal_http_port", internal_http_port)
-        if internal_https_port is not None:
-            pulumi.set(__self__, "internal_https_port", internal_https_port)
-        if virtual_ip is not None:
-            pulumi.set(__self__, "virtual_ip", virtual_ip)
-
-    @property
-    @pulumi.getter(name="inUse")
-    def in_use(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Is VIP mapping in use
-        """
-        return pulumi.get(self, "in_use")
-
-    @in_use.setter
-    def in_use(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "in_use", value)
-
-    @property
-    @pulumi.getter(name="internalHttpPort")
-    def internal_http_port(self) -> Optional[pulumi.Input[int]]:
-        """
-        Internal HTTP port
-        """
-        return pulumi.get(self, "internal_http_port")
-
-    @internal_http_port.setter
-    def internal_http_port(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "internal_http_port", value)
-
-    @property
-    @pulumi.getter(name="internalHttpsPort")
-    def internal_https_port(self) -> Optional[pulumi.Input[int]]:
-        """
-        Internal HTTPS port
-        """
-        return pulumi.get(self, "internal_https_port")
-
-    @internal_https_port.setter
-    def internal_https_port(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "internal_https_port", value)
-
-    @property
-    @pulumi.getter(name="virtualIP")
-    def virtual_ip(self) -> Optional[pulumi.Input[str]]:
-        """
-        Virtual IP address
-        """
-        return pulumi.get(self, "virtual_ip")
-
-    @virtual_ip.setter
-    def virtual_ip(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "virtual_ip", value)
-
-
-@pulumi.input_type
 class VirtualNetworkProfileArgs:
     def __init__(__self__, *,
                  id: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
-                 subnet: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input[str]] = None):
+                 subnet: Optional[pulumi.Input[str]] = None):
         """
-        Specification for using a virtual network
-        :param pulumi.Input[str] id: Resource id of the virtual network
-        :param pulumi.Input[str] name: Name of the virtual network (read-only)
-        :param pulumi.Input[str] subnet: Subnet within the virtual network
-        :param pulumi.Input[str] type: Resource type of the virtual network (read-only)
+        Specification for using a Virtual Network.
+        :param pulumi.Input[str] id: Resource id of the Virtual Network.
+        :param pulumi.Input[str] subnet: Subnet within the Virtual Network.
         """
         if id is not None:
             pulumi.set(__self__, "id", id)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
         if subnet is not None:
             pulumi.set(__self__, "subnet", subnet)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
         """
-        Resource id of the virtual network
+        Resource id of the Virtual Network.
         """
         return pulumi.get(self, "id")
 
@@ -7056,21 +6817,9 @@ class VirtualNetworkProfileArgs:
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the virtual network (read-only)
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
     def subnet(self) -> Optional[pulumi.Input[str]]:
         """
-        Subnet within the virtual network
+        Subnet within the Virtual Network.
         """
         return pulumi.get(self, "subnet")
 
@@ -7078,66 +6827,23 @@ class VirtualNetworkProfileArgs:
     def subnet(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "subnet", value)
 
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
-        """
-        Resource type of the virtual network (read-only)
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "type", value)
-
 
 @pulumi.input_type
 class WorkerPoolArgs:
     def __init__(__self__, *,
-                 location: pulumi.Input[str],
                  compute_mode: Optional[pulumi.Input['ComputeModeOptions']] = None,
-                 id: Optional[pulumi.Input[str]] = None,
-                 instance_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 kind: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input['SkuDescriptionArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 type: Optional[pulumi.Input[str]] = None,
                  worker_count: Optional[pulumi.Input[int]] = None,
                  worker_size: Optional[pulumi.Input[str]] = None,
                  worker_size_id: Optional[pulumi.Input[int]] = None):
         """
-        Worker pool of a hostingEnvironment (App Service Environment)
-        :param pulumi.Input[str] location: Resource Location
-        :param pulumi.Input['ComputeModeOptions'] compute_mode: Shared or dedicated web app hosting
-        :param pulumi.Input[str] id: Resource Id
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] instance_names: Names of all instances in the worker pool (read only)
-        :param pulumi.Input[str] kind: Kind of resource
-        :param pulumi.Input[str] name: Resource Name
-        :param pulumi.Input['SkuDescriptionArgs'] sku: Describes a sku for a scalable resource
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
-        :param pulumi.Input[str] type: Resource type
-        :param pulumi.Input[int] worker_count: Number of instances in the worker pool
-        :param pulumi.Input[str] worker_size: VM size of the worker pool instances
-        :param pulumi.Input[int] worker_size_id: Worker size id for referencing this worker pool
+        Worker pool of an App Service Environment.
+        :param pulumi.Input['ComputeModeOptions'] compute_mode: Shared or dedicated app hosting.
+        :param pulumi.Input[int] worker_count: Number of instances in the worker pool.
+        :param pulumi.Input[str] worker_size: VM size of the worker pool instances.
+        :param pulumi.Input[int] worker_size_id: Worker size ID for referencing this worker pool.
         """
-        pulumi.set(__self__, "location", location)
         if compute_mode is not None:
             pulumi.set(__self__, "compute_mode", compute_mode)
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-        if instance_names is not None:
-            pulumi.set(__self__, "instance_names", instance_names)
-        if kind is not None:
-            pulumi.set(__self__, "kind", kind)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if sku is not None:
-            pulumi.set(__self__, "sku", sku)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
         if worker_count is not None:
             pulumi.set(__self__, "worker_count", worker_count)
         if worker_size is not None:
@@ -7146,22 +6852,10 @@ class WorkerPoolArgs:
             pulumi.set(__self__, "worker_size_id", worker_size_id)
 
     @property
-    @pulumi.getter
-    def location(self) -> pulumi.Input[str]:
-        """
-        Resource Location
-        """
-        return pulumi.get(self, "location")
-
-    @location.setter
-    def location(self, value: pulumi.Input[str]):
-        pulumi.set(self, "location", value)
-
-    @property
     @pulumi.getter(name="computeMode")
     def compute_mode(self) -> Optional[pulumi.Input['ComputeModeOptions']]:
         """
-        Shared or dedicated web app hosting
+        Shared or dedicated app hosting.
         """
         return pulumi.get(self, "compute_mode")
 
@@ -7170,94 +6864,10 @@ class WorkerPoolArgs:
         pulumi.set(self, "compute_mode", value)
 
     @property
-    @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Resource Id
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "id", value)
-
-    @property
-    @pulumi.getter(name="instanceNames")
-    def instance_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Names of all instances in the worker pool (read only)
-        """
-        return pulumi.get(self, "instance_names")
-
-    @instance_names.setter
-    def instance_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "instance_names", value)
-
-    @property
-    @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[str]]:
-        """
-        Kind of resource
-        """
-        return pulumi.get(self, "kind")
-
-    @kind.setter
-    def kind(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "kind", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Resource Name
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input['SkuDescriptionArgs']]:
-        """
-        Describes a sku for a scalable resource
-        """
-        return pulumi.get(self, "sku")
-
-    @sku.setter
-    def sku(self, value: Optional[pulumi.Input['SkuDescriptionArgs']]):
-        pulumi.set(self, "sku", value)
-
-    @property
-    @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Resource tags
-        """
-        return pulumi.get(self, "tags")
-
-    @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
-        """
-        Resource type
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "type", value)
-
-    @property
     @pulumi.getter(name="workerCount")
     def worker_count(self) -> Optional[pulumi.Input[int]]:
         """
-        Number of instances in the worker pool
+        Number of instances in the worker pool.
         """
         return pulumi.get(self, "worker_count")
 
@@ -7269,7 +6879,7 @@ class WorkerPoolArgs:
     @pulumi.getter(name="workerSize")
     def worker_size(self) -> Optional[pulumi.Input[str]]:
         """
-        VM size of the worker pool instances
+        VM size of the worker pool instances.
         """
         return pulumi.get(self, "worker_size")
 
@@ -7281,7 +6891,7 @@ class WorkerPoolArgs:
     @pulumi.getter(name="workerSizeId")
     def worker_size_id(self) -> Optional[pulumi.Input[int]]:
         """
-        Worker size id for referencing this worker pool
+        Worker size ID for referencing this worker pool.
         """
         return pulumi.get(self, "worker_size_id")
 

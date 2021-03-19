@@ -19,6 +19,7 @@ __all__ = [
     'ThreatIntelligenceParsedPatternArgs',
     'ThreatIntelligenceParsedPatternTypeValueArgs',
     'UserInfoArgs',
+    'WatchlistUserInfoArgs',
 ]
 
 @pulumi.input_type
@@ -454,6 +455,29 @@ class ThreatIntelligenceParsedPatternTypeValueArgs:
 
 @pulumi.input_type
 class UserInfoArgs:
+    def __init__(__self__, *,
+                 object_id: pulumi.Input[str]):
+        """
+        User information that made some action
+        :param pulumi.Input[str] object_id: The object id of the user.
+        """
+        pulumi.set(__self__, "object_id", object_id)
+
+    @property
+    @pulumi.getter(name="objectId")
+    def object_id(self) -> pulumi.Input[str]:
+        """
+        The object id of the user.
+        """
+        return pulumi.get(self, "object_id")
+
+    @object_id.setter
+    def object_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "object_id", value)
+
+
+@pulumi.input_type
+class WatchlistUserInfoArgs:
     def __init__(__self__, *,
                  object_id: Optional[pulumi.Input[str]] = None):
         """

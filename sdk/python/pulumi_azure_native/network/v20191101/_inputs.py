@@ -77,7 +77,7 @@ __all__ = [
     'DelegationArgs',
     'DevicePropertiesArgs',
     'DhcpOptionsArgs',
-    'EndpointArgs',
+    'ExperimentEndpointArgs',
     'ExpressRouteCircuitAuthorizationArgs',
     'ExpressRouteCircuitConnectionArgs',
     'ExpressRouteCircuitPeeringArgs',
@@ -5221,7 +5221,7 @@ class DhcpOptionsArgs:
 
 
 @pulumi.input_type
-class EndpointArgs:
+class ExperimentEndpointArgs:
     def __init__(__self__, *,
                  endpoint: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None):

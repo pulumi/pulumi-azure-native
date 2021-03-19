@@ -127,7 +127,7 @@ class GetPolicyResult:
 
     @property
     @pulumi.getter(name="policySettings")
-    def policy_settings(self) -> Optional['outputs.PolicySettingsResponse']:
+    def policy_settings(self) -> Optional['outputs.FrontDoorPolicySettingsResponse']:
         """
         Describes settings for the policy.
         """

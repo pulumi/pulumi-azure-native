@@ -73,6 +73,7 @@ __all__ = [
     'FrontDoorEnabledState',
     'FrontDoorForwardingProtocol',
     'FrontDoorHealthProbeMethod',
+    'FrontDoorMatchVariable',
     'FrontDoorProtocol',
     'FrontDoorQuery',
     'FrontDoorRedirectProtocol',
@@ -783,6 +784,21 @@ class FrontDoorHealthProbeMethod(str, Enum):
     """
     GET = "GET"
     HEAD = "HEAD"
+
+
+class FrontDoorMatchVariable(str, Enum):
+    """
+    Request variable to compare with.
+    """
+    REMOTE_ADDR = "RemoteAddr"
+    REQUEST_METHOD = "RequestMethod"
+    QUERY_STRING = "QueryString"
+    POST_ARGS = "PostArgs"
+    REQUEST_URI = "RequestUri"
+    REQUEST_HEADER = "RequestHeader"
+    REQUEST_BODY = "RequestBody"
+    COOKIES = "Cookies"
+    SOCKET_ADDR = "SocketAddr"
 
 
 class FrontDoorProtocol(str, Enum):

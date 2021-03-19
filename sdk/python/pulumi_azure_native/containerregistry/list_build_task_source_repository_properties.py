@@ -52,7 +52,7 @@ class ListBuildTaskSourceRepositoryPropertiesResult:
 
     @property
     @pulumi.getter(name="sourceControlAuthProperties")
-    def source_control_auth_properties(self) -> Optional['outputs.SourceControlAuthInfoResponse']:
+    def source_control_auth_properties(self) -> Optional['outputs.SourceControlAuthInfoResponseResult']:
         """
         The authorization properties for accessing the source code repository.
         """

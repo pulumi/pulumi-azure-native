@@ -5,8 +5,6 @@
 from enum import Enum
 
 __all__ = [
-    'ApplianceArtifactType',
-    'ApplianceLockLevel',
     'ApplicationArtifactType',
     'ApplicationDefinitionArtifactName',
     'ApplicationLockLevel',
@@ -16,23 +14,6 @@ __all__ = [
     'JitApproverType',
     'ResourceIdentityType',
 ]
-
-
-class ApplianceArtifactType(str, Enum):
-    """
-    The appliance artifact type.
-    """
-    TEMPLATE = "Template"
-    CUSTOM = "Custom"
-
-
-class ApplianceLockLevel(str, Enum):
-    """
-    The appliance lock level.
-    """
-    CAN_NOT_DELETE = "CanNotDelete"
-    READ_ONLY = "ReadOnly"
-    NONE = "None"
 
 
 class ApplicationArtifactType(str, Enum):

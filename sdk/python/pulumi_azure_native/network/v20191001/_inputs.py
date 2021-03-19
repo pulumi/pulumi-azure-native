@@ -12,20 +12,20 @@ from ._enums import *
 __all__ = [
     'CustomRuleArgs',
     'CustomRuleListArgs',
+    'FrontDoorManagedRuleGroupOverrideArgs',
+    'FrontDoorManagedRuleOverrideArgs',
+    'FrontDoorManagedRuleSetArgs',
+    'FrontDoorMatchConditionArgs',
+    'FrontDoorPolicySettingsArgs',
     'ManagedRuleExclusionArgs',
-    'ManagedRuleGroupOverrideArgs',
-    'ManagedRuleOverrideArgs',
-    'ManagedRuleSetArgs',
     'ManagedRuleSetListArgs',
-    'MatchConditionArgs',
-    'PolicySettingsArgs',
 ]
 
 @pulumi.input_type
 class CustomRuleArgs:
     def __init__(__self__, *,
                  action: pulumi.Input[Union[str, 'ActionType']],
-                 match_conditions: pulumi.Input[Sequence[pulumi.Input['MatchConditionArgs']]],
+                 match_conditions: pulumi.Input[Sequence[pulumi.Input['FrontDoorMatchConditionArgs']]],
                  priority: pulumi.Input[int],
                  rule_type: pulumi.Input[Union[str, 'RuleType']],
                  enabled_state: Optional[pulumi.Input[Union[str, 'CustomRuleEnabledState']]] = None,
@@ -35,7 +35,7 @@ class CustomRuleArgs:
         """
         Defines contents of a web application rule
         :param pulumi.Input[Union[str, 'ActionType']] action: Describes what action to be applied when rule matches.
-        :param pulumi.Input[Sequence[pulumi.Input['MatchConditionArgs']]] match_conditions: List of match conditions.
+        :param pulumi.Input[Sequence[pulumi.Input['FrontDoorMatchConditionArgs']]] match_conditions: List of match conditions.
         :param pulumi.Input[int] priority: Describes priority of the rule. Rules with a lower value will be evaluated before rules with a higher value.
         :param pulumi.Input[Union[str, 'RuleType']] rule_type: Describes type of rule.
         :param pulumi.Input[Union[str, 'CustomRuleEnabledState']] enabled_state: Describes if the custom rule is in enabled or disabled state. Defaults to Enabled if not specified.
@@ -70,14 +70,14 @@ class CustomRuleArgs:
 
     @property
     @pulumi.getter(name="matchConditions")
-    def match_conditions(self) -> pulumi.Input[Sequence[pulumi.Input['MatchConditionArgs']]]:
+    def match_conditions(self) -> pulumi.Input[Sequence[pulumi.Input['FrontDoorMatchConditionArgs']]]:
         """
         List of match conditions.
         """
         return pulumi.get(self, "match_conditions")
 
     @match_conditions.setter
-    def match_conditions(self, value: pulumi.Input[Sequence[pulumi.Input['MatchConditionArgs']]]):
+    def match_conditions(self, value: pulumi.Input[Sequence[pulumi.Input['FrontDoorMatchConditionArgs']]]):
         pulumi.set(self, "match_conditions", value)
 
     @property
@@ -178,69 +178,16 @@ class CustomRuleListArgs:
 
 
 @pulumi.input_type
-class ManagedRuleExclusionArgs:
-    def __init__(__self__, *,
-                 match_variable: pulumi.Input[Union[str, 'ManagedRuleExclusionMatchVariable']],
-                 selector: pulumi.Input[str],
-                 selector_match_operator: pulumi.Input[Union[str, 'ManagedRuleExclusionSelectorMatchOperator']]):
-        """
-        Exclude variables from managed rule evaluation.
-        :param pulumi.Input[Union[str, 'ManagedRuleExclusionMatchVariable']] match_variable: The variable type to be excluded.
-        :param pulumi.Input[str] selector: Selector value for which elements in the collection this exclusion applies to.
-        :param pulumi.Input[Union[str, 'ManagedRuleExclusionSelectorMatchOperator']] selector_match_operator: Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to.
-        """
-        pulumi.set(__self__, "match_variable", match_variable)
-        pulumi.set(__self__, "selector", selector)
-        pulumi.set(__self__, "selector_match_operator", selector_match_operator)
-
-    @property
-    @pulumi.getter(name="matchVariable")
-    def match_variable(self) -> pulumi.Input[Union[str, 'ManagedRuleExclusionMatchVariable']]:
-        """
-        The variable type to be excluded.
-        """
-        return pulumi.get(self, "match_variable")
-
-    @match_variable.setter
-    def match_variable(self, value: pulumi.Input[Union[str, 'ManagedRuleExclusionMatchVariable']]):
-        pulumi.set(self, "match_variable", value)
-
-    @property
-    @pulumi.getter
-    def selector(self) -> pulumi.Input[str]:
-        """
-        Selector value for which elements in the collection this exclusion applies to.
-        """
-        return pulumi.get(self, "selector")
-
-    @selector.setter
-    def selector(self, value: pulumi.Input[str]):
-        pulumi.set(self, "selector", value)
-
-    @property
-    @pulumi.getter(name="selectorMatchOperator")
-    def selector_match_operator(self) -> pulumi.Input[Union[str, 'ManagedRuleExclusionSelectorMatchOperator']]:
-        """
-        Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to.
-        """
-        return pulumi.get(self, "selector_match_operator")
-
-    @selector_match_operator.setter
-    def selector_match_operator(self, value: pulumi.Input[Union[str, 'ManagedRuleExclusionSelectorMatchOperator']]):
-        pulumi.set(self, "selector_match_operator", value)
-
-
-@pulumi.input_type
-class ManagedRuleGroupOverrideArgs:
+class FrontDoorManagedRuleGroupOverrideArgs:
     def __init__(__self__, *,
                  rule_group_name: pulumi.Input[str],
                  exclusions: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedRuleExclusionArgs']]]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedRuleOverrideArgs']]]] = None):
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['FrontDoorManagedRuleOverrideArgs']]]] = None):
         """
         Defines a managed rule group override setting.
         :param pulumi.Input[str] rule_group_name: Describes the managed rule group to override.
         :param pulumi.Input[Sequence[pulumi.Input['ManagedRuleExclusionArgs']]] exclusions: Describes the exclusions that are applied to all rules in the group.
-        :param pulumi.Input[Sequence[pulumi.Input['ManagedRuleOverrideArgs']]] rules: List of rules that will be disabled. If none specified, all rules in the group will be disabled.
+        :param pulumi.Input[Sequence[pulumi.Input['FrontDoorManagedRuleOverrideArgs']]] rules: List of rules that will be disabled. If none specified, all rules in the group will be disabled.
         """
         pulumi.set(__self__, "rule_group_name", rule_group_name)
         if exclusions is not None:
@@ -274,19 +221,19 @@ class ManagedRuleGroupOverrideArgs:
 
     @property
     @pulumi.getter
-    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ManagedRuleOverrideArgs']]]]:
+    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontDoorManagedRuleOverrideArgs']]]]:
         """
         List of rules that will be disabled. If none specified, all rules in the group will be disabled.
         """
         return pulumi.get(self, "rules")
 
     @rules.setter
-    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedRuleOverrideArgs']]]]):
+    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontDoorManagedRuleOverrideArgs']]]]):
         pulumi.set(self, "rules", value)
 
 
 @pulumi.input_type
-class ManagedRuleOverrideArgs:
+class FrontDoorManagedRuleOverrideArgs:
     def __init__(__self__, *,
                  rule_id: pulumi.Input[str],
                  action: Optional[pulumi.Input[Union[str, 'ActionType']]] = None,
@@ -357,18 +304,18 @@ class ManagedRuleOverrideArgs:
 
 
 @pulumi.input_type
-class ManagedRuleSetArgs:
+class FrontDoorManagedRuleSetArgs:
     def __init__(__self__, *,
                  rule_set_type: pulumi.Input[str],
                  rule_set_version: pulumi.Input[str],
                  exclusions: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedRuleExclusionArgs']]]] = None,
-                 rule_group_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedRuleGroupOverrideArgs']]]] = None):
+                 rule_group_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['FrontDoorManagedRuleGroupOverrideArgs']]]] = None):
         """
         Defines a managed rule set.
         :param pulumi.Input[str] rule_set_type: Defines the rule set type to use.
         :param pulumi.Input[str] rule_set_version: Defines the version of the rule set to use.
         :param pulumi.Input[Sequence[pulumi.Input['ManagedRuleExclusionArgs']]] exclusions: Describes the exclusions that are applied to all rules in the set.
-        :param pulumi.Input[Sequence[pulumi.Input['ManagedRuleGroupOverrideArgs']]] rule_group_overrides: Defines the rule group overrides to apply to the rule set.
+        :param pulumi.Input[Sequence[pulumi.Input['FrontDoorManagedRuleGroupOverrideArgs']]] rule_group_overrides: Defines the rule group overrides to apply to the rule set.
         """
         pulumi.set(__self__, "rule_set_type", rule_set_type)
         pulumi.set(__self__, "rule_set_version", rule_set_version)
@@ -415,46 +362,22 @@ class ManagedRuleSetArgs:
 
     @property
     @pulumi.getter(name="ruleGroupOverrides")
-    def rule_group_overrides(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ManagedRuleGroupOverrideArgs']]]]:
+    def rule_group_overrides(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontDoorManagedRuleGroupOverrideArgs']]]]:
         """
         Defines the rule group overrides to apply to the rule set.
         """
         return pulumi.get(self, "rule_group_overrides")
 
     @rule_group_overrides.setter
-    def rule_group_overrides(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedRuleGroupOverrideArgs']]]]):
+    def rule_group_overrides(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontDoorManagedRuleGroupOverrideArgs']]]]):
         pulumi.set(self, "rule_group_overrides", value)
 
 
 @pulumi.input_type
-class ManagedRuleSetListArgs:
-    def __init__(__self__, *,
-                 managed_rule_sets: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedRuleSetArgs']]]] = None):
-        """
-        Defines the list of managed rule sets for the policy.
-        :param pulumi.Input[Sequence[pulumi.Input['ManagedRuleSetArgs']]] managed_rule_sets: List of rule sets.
-        """
-        if managed_rule_sets is not None:
-            pulumi.set(__self__, "managed_rule_sets", managed_rule_sets)
-
-    @property
-    @pulumi.getter(name="managedRuleSets")
-    def managed_rule_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ManagedRuleSetArgs']]]]:
-        """
-        List of rule sets.
-        """
-        return pulumi.get(self, "managed_rule_sets")
-
-    @managed_rule_sets.setter
-    def managed_rule_sets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedRuleSetArgs']]]]):
-        pulumi.set(self, "managed_rule_sets", value)
-
-
-@pulumi.input_type
-class MatchConditionArgs:
+class FrontDoorMatchConditionArgs:
     def __init__(__self__, *,
                  match_value: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 match_variable: pulumi.Input[Union[str, 'MatchVariable']],
+                 match_variable: pulumi.Input[Union[str, 'FrontDoorMatchVariable']],
                  operator: pulumi.Input[Union[str, 'Operator']],
                  negate_condition: Optional[pulumi.Input[bool]] = None,
                  selector: Optional[pulumi.Input[str]] = None,
@@ -462,7 +385,7 @@ class MatchConditionArgs:
         """
         Define a match condition.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] match_value: List of possible match values.
-        :param pulumi.Input[Union[str, 'MatchVariable']] match_variable: Request variable to compare with.
+        :param pulumi.Input[Union[str, 'FrontDoorMatchVariable']] match_variable: Request variable to compare with.
         :param pulumi.Input[Union[str, 'Operator']] operator: Comparison type to use for matching with the variable value.
         :param pulumi.Input[bool] negate_condition: Describes if the result of this condition should be negated.
         :param pulumi.Input[str] selector: Match against a specific key from the QueryString, PostArgs, RequestHeader or Cookies variables. Default is null.
@@ -492,14 +415,14 @@ class MatchConditionArgs:
 
     @property
     @pulumi.getter(name="matchVariable")
-    def match_variable(self) -> pulumi.Input[Union[str, 'MatchVariable']]:
+    def match_variable(self) -> pulumi.Input[Union[str, 'FrontDoorMatchVariable']]:
         """
         Request variable to compare with.
         """
         return pulumi.get(self, "match_variable")
 
     @match_variable.setter
-    def match_variable(self, value: pulumi.Input[Union[str, 'MatchVariable']]):
+    def match_variable(self, value: pulumi.Input[Union[str, 'FrontDoorMatchVariable']]):
         pulumi.set(self, "match_variable", value)
 
     @property
@@ -552,7 +475,7 @@ class MatchConditionArgs:
 
 
 @pulumi.input_type
-class PolicySettingsArgs:
+class FrontDoorPolicySettingsArgs:
     def __init__(__self__, *,
                  custom_block_response_body: Optional[pulumi.Input[str]] = None,
                  custom_block_response_status_code: Optional[pulumi.Input[int]] = None,
@@ -637,5 +560,82 @@ class PolicySettingsArgs:
     @redirect_url.setter
     def redirect_url(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "redirect_url", value)
+
+
+@pulumi.input_type
+class ManagedRuleExclusionArgs:
+    def __init__(__self__, *,
+                 match_variable: pulumi.Input[Union[str, 'ManagedRuleExclusionMatchVariable']],
+                 selector: pulumi.Input[str],
+                 selector_match_operator: pulumi.Input[Union[str, 'ManagedRuleExclusionSelectorMatchOperator']]):
+        """
+        Exclude variables from managed rule evaluation.
+        :param pulumi.Input[Union[str, 'ManagedRuleExclusionMatchVariable']] match_variable: The variable type to be excluded.
+        :param pulumi.Input[str] selector: Selector value for which elements in the collection this exclusion applies to.
+        :param pulumi.Input[Union[str, 'ManagedRuleExclusionSelectorMatchOperator']] selector_match_operator: Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to.
+        """
+        pulumi.set(__self__, "match_variable", match_variable)
+        pulumi.set(__self__, "selector", selector)
+        pulumi.set(__self__, "selector_match_operator", selector_match_operator)
+
+    @property
+    @pulumi.getter(name="matchVariable")
+    def match_variable(self) -> pulumi.Input[Union[str, 'ManagedRuleExclusionMatchVariable']]:
+        """
+        The variable type to be excluded.
+        """
+        return pulumi.get(self, "match_variable")
+
+    @match_variable.setter
+    def match_variable(self, value: pulumi.Input[Union[str, 'ManagedRuleExclusionMatchVariable']]):
+        pulumi.set(self, "match_variable", value)
+
+    @property
+    @pulumi.getter
+    def selector(self) -> pulumi.Input[str]:
+        """
+        Selector value for which elements in the collection this exclusion applies to.
+        """
+        return pulumi.get(self, "selector")
+
+    @selector.setter
+    def selector(self, value: pulumi.Input[str]):
+        pulumi.set(self, "selector", value)
+
+    @property
+    @pulumi.getter(name="selectorMatchOperator")
+    def selector_match_operator(self) -> pulumi.Input[Union[str, 'ManagedRuleExclusionSelectorMatchOperator']]:
+        """
+        Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to.
+        """
+        return pulumi.get(self, "selector_match_operator")
+
+    @selector_match_operator.setter
+    def selector_match_operator(self, value: pulumi.Input[Union[str, 'ManagedRuleExclusionSelectorMatchOperator']]):
+        pulumi.set(self, "selector_match_operator", value)
+
+
+@pulumi.input_type
+class ManagedRuleSetListArgs:
+    def __init__(__self__, *,
+                 managed_rule_sets: Optional[pulumi.Input[Sequence[pulumi.Input['FrontDoorManagedRuleSetArgs']]]] = None):
+        """
+        Defines the list of managed rule sets for the policy.
+        :param pulumi.Input[Sequence[pulumi.Input['FrontDoorManagedRuleSetArgs']]] managed_rule_sets: List of rule sets.
+        """
+        if managed_rule_sets is not None:
+            pulumi.set(__self__, "managed_rule_sets", managed_rule_sets)
+
+    @property
+    @pulumi.getter(name="managedRuleSets")
+    def managed_rule_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontDoorManagedRuleSetArgs']]]]:
+        """
+        List of rule sets.
+        """
+        return pulumi.get(self, "managed_rule_sets")
+
+    @managed_rule_sets.setter
+    def managed_rule_sets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontDoorManagedRuleSetArgs']]]]):
+        pulumi.set(self, "managed_rule_sets", value)
 
 

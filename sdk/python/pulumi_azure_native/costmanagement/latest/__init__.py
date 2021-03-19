@@ -6,13 +6,9 @@
 from ._enums import *
 from .export import *
 from .get_export import *
-from .get_report_config import *
-from .get_report_config_by_resource_group_name import *
 from .get_setting import *
 from .get_view import *
 from .get_view_by_scope import *
-from .report_config import *
-from .report_config_by_resource_group_name import *
 from .setting import *
 from .view import *
 from .view_by_scope import *
@@ -33,10 +29,6 @@ def _register_module():
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
             if typ == "azure-native:costmanagement/latest:Export":
                 return Export(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "azure-native:costmanagement/latest:ReportConfig":
-                return ReportConfig(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "azure-native:costmanagement/latest:ReportConfigByResourceGroupName":
-                return ReportConfigByResourceGroupName(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:costmanagement/latest:Setting":
                 return Setting(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:costmanagement/latest:View":

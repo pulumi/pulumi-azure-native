@@ -13,13 +13,13 @@ from ._enums import *
 __all__ = [
     'CustomRuleListResponse',
     'CustomRuleResponse',
+    'FrontDoorManagedRuleGroupOverrideResponse',
+    'FrontDoorManagedRuleOverrideResponse',
+    'FrontDoorManagedRuleSetResponse',
+    'FrontDoorMatchConditionResponse',
+    'FrontDoorPolicySettingsResponse',
     'FrontendEndpointLinkResponse',
-    'ManagedRuleGroupOverrideResponse',
-    'ManagedRuleOverrideResponse',
     'ManagedRuleSetListResponse',
-    'ManagedRuleSetResponse',
-    'MatchConditionResponse',
-    'PolicySettingsResponse',
 ]
 
 @pulumi.output_type
@@ -55,7 +55,7 @@ class CustomRuleResponse(dict):
     """
     def __init__(__self__, *,
                  action: str,
-                 match_conditions: Sequence['outputs.MatchConditionResponse'],
+                 match_conditions: Sequence['outputs.FrontDoorMatchConditionResponse'],
                  priority: int,
                  rule_type: str,
                  enabled_state: Optional[str] = None,
@@ -65,7 +65,7 @@ class CustomRuleResponse(dict):
         """
         Defines contents of a web application rule
         :param str action: Describes what action to be applied when rule matches.
-        :param Sequence['MatchConditionResponseArgs'] match_conditions: List of match conditions.
+        :param Sequence['FrontDoorMatchConditionResponseArgs'] match_conditions: List of match conditions.
         :param int priority: Describes priority of the rule. Rules with a lower value will be evaluated before rules with a higher value.
         :param str rule_type: Describes type of rule.
         :param str enabled_state: Describes if the custom rule is in enabled or disabled state. Defaults to Enabled if not specified.
@@ -96,7 +96,7 @@ class CustomRuleResponse(dict):
 
     @property
     @pulumi.getter(name="matchConditions")
-    def match_conditions(self) -> Sequence['outputs.MatchConditionResponse']:
+    def match_conditions(self) -> Sequence['outputs.FrontDoorMatchConditionResponse']:
         """
         List of match conditions.
         """
@@ -155,43 +155,17 @@ class CustomRuleResponse(dict):
 
 
 @pulumi.output_type
-class FrontendEndpointLinkResponse(dict):
-    """
-    Defines the Resource ID for a Frontend Endpoint.
-    """
-    def __init__(__self__, *,
-                 id: Optional[str] = None):
-        """
-        Defines the Resource ID for a Frontend Endpoint.
-        :param str id: Resource ID.
-        """
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        """
-        Resource ID.
-        """
-        return pulumi.get(self, "id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class ManagedRuleGroupOverrideResponse(dict):
+class FrontDoorManagedRuleGroupOverrideResponse(dict):
     """
     Defines a managed rule group override setting.
     """
     def __init__(__self__, *,
                  rule_group_name: str,
-                 rules: Optional[Sequence['outputs.ManagedRuleOverrideResponse']] = None):
+                 rules: Optional[Sequence['outputs.FrontDoorManagedRuleOverrideResponse']] = None):
         """
         Defines a managed rule group override setting.
         :param str rule_group_name: Describes the managed rule group to override.
-        :param Sequence['ManagedRuleOverrideResponseArgs'] rules: List of rules that will be disabled. If none specified, all rules in the group will be disabled.
+        :param Sequence['FrontDoorManagedRuleOverrideResponseArgs'] rules: List of rules that will be disabled. If none specified, all rules in the group will be disabled.
         """
         pulumi.set(__self__, "rule_group_name", rule_group_name)
         if rules is not None:
@@ -207,7 +181,7 @@ class ManagedRuleGroupOverrideResponse(dict):
 
     @property
     @pulumi.getter
-    def rules(self) -> Optional[Sequence['outputs.ManagedRuleOverrideResponse']]:
+    def rules(self) -> Optional[Sequence['outputs.FrontDoorManagedRuleOverrideResponse']]:
         """
         List of rules that will be disabled. If none specified, all rules in the group will be disabled.
         """
@@ -218,7 +192,7 @@ class ManagedRuleGroupOverrideResponse(dict):
 
 
 @pulumi.output_type
-class ManagedRuleOverrideResponse(dict):
+class FrontDoorManagedRuleOverrideResponse(dict):
     """
     Defines a managed rule group override setting.
     """
@@ -267,45 +241,19 @@ class ManagedRuleOverrideResponse(dict):
 
 
 @pulumi.output_type
-class ManagedRuleSetListResponse(dict):
-    """
-    Defines the list of managed rule sets for the policy.
-    """
-    def __init__(__self__, *,
-                 managed_rule_sets: Optional[Sequence['outputs.ManagedRuleSetResponse']] = None):
-        """
-        Defines the list of managed rule sets for the policy.
-        :param Sequence['ManagedRuleSetResponseArgs'] managed_rule_sets: List of rule sets.
-        """
-        if managed_rule_sets is not None:
-            pulumi.set(__self__, "managed_rule_sets", managed_rule_sets)
-
-    @property
-    @pulumi.getter(name="managedRuleSets")
-    def managed_rule_sets(self) -> Optional[Sequence['outputs.ManagedRuleSetResponse']]:
-        """
-        List of rule sets.
-        """
-        return pulumi.get(self, "managed_rule_sets")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class ManagedRuleSetResponse(dict):
+class FrontDoorManagedRuleSetResponse(dict):
     """
     Defines a managed rule set.
     """
     def __init__(__self__, *,
                  rule_set_type: str,
                  rule_set_version: str,
-                 rule_group_overrides: Optional[Sequence['outputs.ManagedRuleGroupOverrideResponse']] = None):
+                 rule_group_overrides: Optional[Sequence['outputs.FrontDoorManagedRuleGroupOverrideResponse']] = None):
         """
         Defines a managed rule set.
         :param str rule_set_type: Defines the rule set type to use.
         :param str rule_set_version: Defines the version of the rule set to use.
-        :param Sequence['ManagedRuleGroupOverrideResponseArgs'] rule_group_overrides: Defines the rule group overrides to apply to the rule set.
+        :param Sequence['FrontDoorManagedRuleGroupOverrideResponseArgs'] rule_group_overrides: Defines the rule group overrides to apply to the rule set.
         """
         pulumi.set(__self__, "rule_set_type", rule_set_type)
         pulumi.set(__self__, "rule_set_version", rule_set_version)
@@ -330,7 +278,7 @@ class ManagedRuleSetResponse(dict):
 
     @property
     @pulumi.getter(name="ruleGroupOverrides")
-    def rule_group_overrides(self) -> Optional[Sequence['outputs.ManagedRuleGroupOverrideResponse']]:
+    def rule_group_overrides(self) -> Optional[Sequence['outputs.FrontDoorManagedRuleGroupOverrideResponse']]:
         """
         Defines the rule group overrides to apply to the rule set.
         """
@@ -341,7 +289,7 @@ class ManagedRuleSetResponse(dict):
 
 
 @pulumi.output_type
-class MatchConditionResponse(dict):
+class FrontDoorMatchConditionResponse(dict):
     """
     Define a match condition.
     """
@@ -424,7 +372,7 @@ class MatchConditionResponse(dict):
 
 
 @pulumi.output_type
-class PolicySettingsResponse(dict):
+class FrontDoorPolicySettingsResponse(dict):
     """
     Defines top-level WebApplicationFirewallPolicy configuration settings.
     """
@@ -492,6 +440,58 @@ class PolicySettingsResponse(dict):
         If action type is redirect, this field represents redirect URL for the client.
         """
         return pulumi.get(self, "redirect_url")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class FrontendEndpointLinkResponse(dict):
+    """
+    Defines the Resource ID for a Frontend Endpoint.
+    """
+    def __init__(__self__, *,
+                 id: Optional[str] = None):
+        """
+        Defines the Resource ID for a Frontend Endpoint.
+        :param str id: Resource ID.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ManagedRuleSetListResponse(dict):
+    """
+    Defines the list of managed rule sets for the policy.
+    """
+    def __init__(__self__, *,
+                 managed_rule_sets: Optional[Sequence['outputs.FrontDoorManagedRuleSetResponse']] = None):
+        """
+        Defines the list of managed rule sets for the policy.
+        :param Sequence['FrontDoorManagedRuleSetResponseArgs'] managed_rule_sets: List of rule sets.
+        """
+        if managed_rule_sets is not None:
+            pulumi.set(__self__, "managed_rule_sets", managed_rule_sets)
+
+    @property
+    @pulumi.getter(name="managedRuleSets")
+    def managed_rule_sets(self) -> Optional[Sequence['outputs.FrontDoorManagedRuleSetResponse']]:
+        """
+        List of rule sets.
+        """
+        return pulumi.get(self, "managed_rule_sets")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

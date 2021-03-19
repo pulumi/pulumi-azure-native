@@ -7,10 +7,10 @@ from enum import Enum
 __all__ = [
     'ActionType',
     'CustomRuleEnabledState',
+    'FrontDoorMatchVariable',
     'ManagedRuleEnabledState',
     'ManagedRuleExclusionMatchVariable',
     'ManagedRuleExclusionSelectorMatchOperator',
-    'MatchVariable',
     'Operator',
     'PolicyEnabledState',
     'PolicyMode',
@@ -35,6 +35,21 @@ class CustomRuleEnabledState(str, Enum):
     """
     DISABLED = "Disabled"
     ENABLED = "Enabled"
+
+
+class FrontDoorMatchVariable(str, Enum):
+    """
+    Request variable to compare with.
+    """
+    REMOTE_ADDR = "RemoteAddr"
+    REQUEST_METHOD = "RequestMethod"
+    QUERY_STRING = "QueryString"
+    POST_ARGS = "PostArgs"
+    REQUEST_URI = "RequestUri"
+    REQUEST_HEADER = "RequestHeader"
+    REQUEST_BODY = "RequestBody"
+    COOKIES = "Cookies"
+    SOCKET_ADDR = "SocketAddr"
 
 
 class ManagedRuleEnabledState(str, Enum):
@@ -64,21 +79,6 @@ class ManagedRuleExclusionSelectorMatchOperator(str, Enum):
     STARTS_WITH = "StartsWith"
     ENDS_WITH = "EndsWith"
     EQUALS_ANY = "EqualsAny"
-
-
-class MatchVariable(str, Enum):
-    """
-    Request variable to compare with.
-    """
-    REMOTE_ADDR = "RemoteAddr"
-    REQUEST_METHOD = "RequestMethod"
-    QUERY_STRING = "QueryString"
-    POST_ARGS = "PostArgs"
-    REQUEST_URI = "RequestUri"
-    REQUEST_HEADER = "RequestHeader"
-    REQUEST_BODY = "RequestBody"
-    COOKIES = "Cookies"
-    SOCKET_ADDR = "SocketAddr"
 
 
 class Operator(str, Enum):

@@ -29,6 +29,7 @@ __all__ = [
     'TimelineErrorResponseResult',
     'TimelineResultsMetadataResponseResult',
     'UserInfoResponse',
+    'WatchlistUserInfoResponse',
 ]
 
 @pulumi.output_type
@@ -1031,6 +1032,54 @@ class TimelineResultsMetadataResponseResult(dict):
 
 @pulumi.output_type
 class UserInfoResponse(dict):
+    """
+    User information that made some action
+    """
+    def __init__(__self__, *,
+                 email: str,
+                 name: str,
+                 object_id: Optional[str] = None):
+        """
+        User information that made some action
+        :param str email: The email of the user.
+        :param str name: The name of the user.
+        :param str object_id: The object id of the user.
+        """
+        pulumi.set(__self__, "email", email)
+        pulumi.set(__self__, "name", name)
+        if object_id is not None:
+            pulumi.set(__self__, "object_id", object_id)
+
+    @property
+    @pulumi.getter
+    def email(self) -> str:
+        """
+        The email of the user.
+        """
+        return pulumi.get(self, "email")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the user.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="objectId")
+    def object_id(self) -> Optional[str]:
+        """
+        The object id of the user.
+        """
+        return pulumi.get(self, "object_id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class WatchlistUserInfoResponse(dict):
     """
     User information that made some action
     """

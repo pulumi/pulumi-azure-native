@@ -59,6 +59,7 @@ __all__ = [
     'FirewallPolicyRuleType',
     'FirewallPolicySkuTier',
     'FlowLogFormatType',
+    'FrontDoorMatchVariable',
     'HTTPConfigurationMethod',
     'IPAllocationMethod',
     'IPVersion',
@@ -630,6 +631,21 @@ class FlowLogFormatType(str, Enum):
     The file type of flow log.
     """
     JSON = "JSON"
+
+
+class FrontDoorMatchVariable(str, Enum):
+    """
+    Request variable to compare with.
+    """
+    REMOTE_ADDR = "RemoteAddr"
+    REQUEST_METHOD = "RequestMethod"
+    QUERY_STRING = "QueryString"
+    POST_ARGS = "PostArgs"
+    REQUEST_URI = "RequestUri"
+    REQUEST_HEADER = "RequestHeader"
+    REQUEST_BODY = "RequestBody"
+    COOKIES = "Cookies"
+    SOCKET_ADDR = "SocketAddr"
 
 
 class HTTPConfigurationMethod(str, Enum):

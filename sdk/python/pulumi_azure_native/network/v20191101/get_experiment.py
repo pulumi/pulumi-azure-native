@@ -76,7 +76,7 @@ class GetExperimentResult:
 
     @property
     @pulumi.getter(name="endpointA")
-    def endpoint_a(self) -> Optional['outputs.EndpointResponse']:
+    def endpoint_a(self) -> Optional['outputs.ExperimentEndpointResponse']:
         """
         The endpoint A of an experiment
         """
@@ -84,7 +84,7 @@ class GetExperimentResult:
 
     @property
     @pulumi.getter(name="endpointB")
-    def endpoint_b(self) -> Optional['outputs.EndpointResponse']:
+    def endpoint_b(self) -> Optional['outputs.ExperimentEndpointResponse']:
         """
         The endpoint B of an experiment
         """

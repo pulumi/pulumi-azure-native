@@ -10,8 +10,6 @@ from .. import _utilities, _tables
 from ._enums import *
 
 __all__ = [
-    'ApplianceArtifactArgs',
-    'ApplianceProviderAuthorizationArgs',
     'ApplicationAuthorizationArgs',
     'ApplicationDefinitionArtifactArgs',
     'ApplicationDeploymentPolicyArgs',
@@ -28,100 +26,6 @@ __all__ = [
     'PlanArgs',
     'SkuArgs',
 ]
-
-@pulumi.input_type
-class ApplianceArtifactArgs:
-    def __init__(__self__, *,
-                 name: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input['ApplianceArtifactType']] = None,
-                 uri: Optional[pulumi.Input[str]] = None):
-        """
-        Appliance artifact.
-        :param pulumi.Input[str] name: The appliance artifact name.
-        :param pulumi.Input['ApplianceArtifactType'] type: The appliance artifact type.
-        :param pulumi.Input[str] uri: The appliance artifact blob uri.
-        """
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-        if uri is not None:
-            pulumi.set(__self__, "uri", uri)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The appliance artifact name.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[pulumi.Input['ApplianceArtifactType']]:
-        """
-        The appliance artifact type.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: Optional[pulumi.Input['ApplianceArtifactType']]):
-        pulumi.set(self, "type", value)
-
-    @property
-    @pulumi.getter
-    def uri(self) -> Optional[pulumi.Input[str]]:
-        """
-        The appliance artifact blob uri.
-        """
-        return pulumi.get(self, "uri")
-
-    @uri.setter
-    def uri(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "uri", value)
-
-
-@pulumi.input_type
-class ApplianceProviderAuthorizationArgs:
-    def __init__(__self__, *,
-                 principal_id: pulumi.Input[str],
-                 role_definition_id: pulumi.Input[str]):
-        """
-        The appliance provider authorization.
-        :param pulumi.Input[str] principal_id: The provider's principal identifier. This is the identity that the provider will use to call ARM to manage the appliance resources.
-        :param pulumi.Input[str] role_definition_id: The provider's role definition identifier. This role will define all the permissions that the provider must have on the appliance's container resource group. This role definition cannot have permission to delete the resource group.
-        """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "role_definition_id", role_definition_id)
-
-    @property
-    @pulumi.getter(name="principalId")
-    def principal_id(self) -> pulumi.Input[str]:
-        """
-        The provider's principal identifier. This is the identity that the provider will use to call ARM to manage the appliance resources.
-        """
-        return pulumi.get(self, "principal_id")
-
-    @principal_id.setter
-    def principal_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "principal_id", value)
-
-    @property
-    @pulumi.getter(name="roleDefinitionId")
-    def role_definition_id(self) -> pulumi.Input[str]:
-        """
-        The provider's role definition identifier. This role will define all the permissions that the provider must have on the appliance's container resource group. This role definition cannot have permission to delete the resource group.
-        """
-        return pulumi.get(self, "role_definition_id")
-
-    @role_definition_id.setter
-    def role_definition_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "role_definition_id", value)
-
 
 @pulumi.input_type
 class ApplicationAuthorizationArgs:

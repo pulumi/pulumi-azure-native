@@ -10,12 +10,52 @@ from .. import _utilities, _tables
 from ._enums import *
 
 __all__ = [
+    'EnterpriseSkuArgs',
     'ModuleArgs',
     'PersistenceArgs',
     'PrivateLinkServiceConnectionStateArgs',
     'ScheduleEntryArgs',
     'SkuArgs',
 ]
+
+@pulumi.input_type
+class EnterpriseSkuArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[Union[str, 'SkuName']],
+                 capacity: Optional[pulumi.Input[int]] = None):
+        """
+        SKU parameters supplied to the create RedisEnterprise operation.
+        :param pulumi.Input[Union[str, 'SkuName']] name: The type of RedisEnterprise cluster to deploy. Possible values: (Enterprise_E10, EnterpriseFlash_F300 etc.)
+        :param pulumi.Input[int] capacity: The size of the RedisEnterprise cluster. Defaults to 2 or 3 depending on SKU. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for Flash SKUs.
+        """
+        pulumi.set(__self__, "name", name)
+        if capacity is not None:
+            pulumi.set(__self__, "capacity", capacity)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[Union[str, 'SkuName']]:
+        """
+        The type of RedisEnterprise cluster to deploy. Possible values: (Enterprise_E10, EnterpriseFlash_F300 etc.)
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[Union[str, 'SkuName']]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def capacity(self) -> Optional[pulumi.Input[int]]:
+        """
+        The size of the RedisEnterprise cluster. Defaults to 2 or 3 depending on SKU. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for Flash SKUs.
+        """
+        return pulumi.get(self, "capacity")
+
+    @capacity.setter
+    def capacity(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "capacity", value)
+
 
 @pulumi.input_type
 class ModuleArgs:
@@ -241,39 +281,53 @@ class ScheduleEntryArgs:
 @pulumi.input_type
 class SkuArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[Union[str, 'SkuName']],
-                 capacity: Optional[pulumi.Input[int]] = None):
+                 capacity: pulumi.Input[int],
+                 family: pulumi.Input[Union[str, 'SkuFamily']],
+                 name: pulumi.Input[Union[str, 'SkuName']]):
         """
-        SKU parameters supplied to the create RedisEnterprise operation.
-        :param pulumi.Input[Union[str, 'SkuName']] name: The type of RedisEnterprise cluster to deploy. Possible values: (Enterprise_E10, EnterpriseFlash_F300 etc.)
-        :param pulumi.Input[int] capacity: The size of the RedisEnterprise cluster. Defaults to 2 or 3 depending on SKU. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for Flash SKUs.
+        SKU parameters supplied to the create Redis operation.
+        :param pulumi.Input[int] capacity: The size of the Redis cache to deploy. Valid values: for C (Basic/Standard) family (0, 1, 2, 3, 4, 5, 6), for P (Premium) family (1, 2, 3, 4).
+        :param pulumi.Input[Union[str, 'SkuFamily']] family: The SKU family to use. Valid values: (C, P). (C = Basic/Standard, P = Premium).
+        :param pulumi.Input[Union[str, 'SkuName']] name: The type of Redis cache to deploy. Valid values: (Basic, Standard, Premium)
         """
+        pulumi.set(__self__, "capacity", capacity)
+        pulumi.set(__self__, "family", family)
         pulumi.set(__self__, "name", name)
-        if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
+
+    @property
+    @pulumi.getter
+    def capacity(self) -> pulumi.Input[int]:
+        """
+        The size of the Redis cache to deploy. Valid values: for C (Basic/Standard) family (0, 1, 2, 3, 4, 5, 6), for P (Premium) family (1, 2, 3, 4).
+        """
+        return pulumi.get(self, "capacity")
+
+    @capacity.setter
+    def capacity(self, value: pulumi.Input[int]):
+        pulumi.set(self, "capacity", value)
+
+    @property
+    @pulumi.getter
+    def family(self) -> pulumi.Input[Union[str, 'SkuFamily']]:
+        """
+        The SKU family to use. Valid values: (C, P). (C = Basic/Standard, P = Premium).
+        """
+        return pulumi.get(self, "family")
+
+    @family.setter
+    def family(self, value: pulumi.Input[Union[str, 'SkuFamily']]):
+        pulumi.set(self, "family", value)
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[Union[str, 'SkuName']]:
         """
-        The type of RedisEnterprise cluster to deploy. Possible values: (Enterprise_E10, EnterpriseFlash_F300 etc.)
+        The type of Redis cache to deploy. Valid values: (Basic, Standard, Premium)
         """
         return pulumi.get(self, "name")
 
     @name.setter
     def name(self, value: pulumi.Input[Union[str, 'SkuName']]):
         pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[int]]:
-        """
-        The size of the RedisEnterprise cluster. Defaults to 2 or 3 depending on SKU. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for Flash SKUs.
-        """
-        return pulumi.get(self, "capacity")
-
-    @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "capacity", value)
 
 

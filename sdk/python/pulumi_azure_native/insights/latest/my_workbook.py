@@ -26,7 +26,7 @@ class MyWorkbook(pulumi.CustomResource):
                  display_name: Optional[pulumi.Input[str]] = None,
                  etag: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  id: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['MyManagedIdentityArgs']]] = None,
                  kind: Optional[pulumi.Input[Union[str, 'Kind']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -51,7 +51,7 @@ class MyWorkbook(pulumi.CustomResource):
         :param pulumi.Input[str] display_name: The user-defined name of the private workbook.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] etag: Resource etag
         :param pulumi.Input[str] id: Azure resource Id
-        :param pulumi.Input[pulumi.InputType['ManagedIdentityArgs']] identity: Identity used for BYOS
+        :param pulumi.Input[pulumi.InputType['MyManagedIdentityArgs']] identity: Identity used for BYOS
         :param pulumi.Input[Union[str, 'Kind']] kind: The kind of workbook. Choices are user and shared.
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] name: Azure resource name
@@ -175,7 +175,7 @@ class MyWorkbook(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identity(self) -> pulumi.Output[Optional['outputs.ManagedIdentityResponse']]:
+    def identity(self) -> pulumi.Output[Optional['outputs.MyManagedIdentityResponse']]:
         """
         Identity used for BYOS
         """

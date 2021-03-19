@@ -5,9 +5,7 @@
 # Export this package's modules as members:
 from ._enums import *
 from .agent_pool import *
-from .container_service import *
 from .get_agent_pool import *
-from .get_container_service import *
 from .get_maintenance_configuration import *
 from .get_managed_cluster import *
 from .get_open_shift_managed_cluster import *
@@ -69,8 +67,6 @@ def _register_module():
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
             if typ == "azure-native:containerservice:AgentPool":
                 return AgentPool(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "azure-native:containerservice:ContainerService":
-                return ContainerService(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:containerservice:MaintenanceConfiguration":
                 return MaintenanceConfiguration(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:containerservice:ManagedCluster":

@@ -6,18 +6,14 @@ from enum import Enum
 
 __all__ = [
     'BackupType',
-    'DataPolicy',
     'DayOfWeek',
-    'DiskStatus',
     'EncryptionAlgorithm',
-    'EncryptionStatus',
     'Kind',
     'ManagerSkuType',
     'ManagerType',
     'MonitoringStatus',
     'RecurrenceType',
     'ScheduleStatus',
-    'ShareStatus',
     'SslStatus',
     'VolumeStatus',
     'VolumeType',
@@ -32,16 +28,6 @@ class BackupType(str, Enum):
     CLOUD_SNAPSHOT = "CloudSnapshot"
 
 
-class DataPolicy(str, Enum):
-    """
-    The data policy.
-    """
-    INVALID = "Invalid"
-    LOCAL = "Local"
-    TIERED = "Tiered"
-    CLOUD = "Cloud"
-
-
 class DayOfWeek(str, Enum):
     SUNDAY = "Sunday"
     MONDAY = "Monday"
@@ -52,14 +38,6 @@ class DayOfWeek(str, Enum):
     SATURDAY = "Saturday"
 
 
-class DiskStatus(str, Enum):
-    """
-    The disk status.
-    """
-    ONLINE = "Online"
-    OFFLINE = "Offline"
-
-
 class EncryptionAlgorithm(str, Enum):
     """
     The algorithm used to encrypt "Value".
@@ -67,14 +45,6 @@ class EncryptionAlgorithm(str, Enum):
     NONE = "None"
     AES256 = "AES256"
     RSAE_S_PKCS1_V_1_5 = "RSAES_PKCS1_v_1_5"
-
-
-class EncryptionStatus(str, Enum):
-    """
-    The encryption status "Enabled | Disabled".
-    """
-    ENABLED = "Enabled"
-    DISABLED = "Disabled"
 
 
 class Kind(str, Enum):
@@ -123,14 +93,6 @@ class ScheduleStatus(str, Enum):
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
-
-
-class ShareStatus(str, Enum):
-    """
-    The Share Status
-    """
-    ONLINE = "Online"
-    OFFLINE = "Offline"
 
 
 class SslStatus(str, Enum):

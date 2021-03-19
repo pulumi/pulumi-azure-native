@@ -8,11 +8,9 @@ from .file import *
 from .get_file import *
 from .get_project import *
 from .get_service import *
-from .get_service_task import *
 from .get_task import *
 from .project import *
 from .service import *
-from .service_task import *
 from .task import *
 from ._inputs import *
 from . import outputs
@@ -45,8 +43,6 @@ def _register_module():
                 return Project(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:datamigration:Service":
                 return Service(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "azure-native:datamigration:ServiceTask":
-                return ServiceTask(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:datamigration:Task":
                 return Task(name, pulumi.ResourceOptions(urn=urn))
             else:
