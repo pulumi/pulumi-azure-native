@@ -88,6 +88,7 @@ jobs:
         run: make build_${{ matrix.language }}
       - name: Check worktree clean
         run: ./ci-scripts/ci/check-worktree-is-clean
+      - run: git status --porcelain
       - name: Compress SDK folder
         run: tar -zcf sdk/${{ matrix.language }}.tar.gz -C sdk/${{ matrix.language }} .
       - name: Upload artifacts
@@ -140,6 +141,7 @@ jobs:
         run: make provider
       - name: Check worktree clean
         run: ./ci-scripts/ci/check-worktree-is-clean
+      - run: git status --porcelain
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
         with:
@@ -265,6 +267,7 @@ jobs:
       - if: always()
         name: Check worktree clean
         run: ./ci-scripts/ci/check-worktree-is-clean
+      - run: git status --porcelain
       - if: failure() && github.event_name == 'push'
         name: Notify Slack
         uses: 8398a7/action-slack@v3
