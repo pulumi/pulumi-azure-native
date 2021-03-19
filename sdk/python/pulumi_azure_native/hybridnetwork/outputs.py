@@ -27,7 +27,6 @@ __all__ = [
     'SshPublicKeyResponse',
     'StorageProfileResponse',
     'SubResourceResponse',
-    'VirtualHardDiskResponse',
 ]
 
 @pulumi.output_type
@@ -598,14 +597,12 @@ class OsDiskResponse(dict):
     def __init__(__self__, *,
                  disk_size_gb: Optional[int] = None,
                  name: Optional[str] = None,
-                 os_type: Optional[str] = None,
-                 vhd: Optional['outputs.VirtualHardDiskResponse'] = None):
+                 os_type: Optional[str] = None):
         """
         Specifies information about the operating system disk used by the virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
         :param int disk_size_gb: Specifies the size of os disk in gigabytes. This is the fully expanded disk size needed of the VHD image on the ASE. This disk size should be greater than the size of the VHD provided in vhdUri.
         :param str name: The VHD name.
         :param str os_type: The OS type.
-        :param 'VirtualHardDiskResponseArgs' vhd: The virtual hard disk.
         """
         if disk_size_gb is not None:
             pulumi.set(__self__, "disk_size_gb", disk_size_gb)
@@ -613,8 +610,6 @@ class OsDiskResponse(dict):
             pulumi.set(__self__, "name", name)
         if os_type is not None:
             pulumi.set(__self__, "os_type", os_type)
-        if vhd is not None:
-            pulumi.set(__self__, "vhd", vhd)
 
     @property
     @pulumi.getter(name="diskSizeGB")
@@ -639,14 +634,6 @@ class OsDiskResponse(dict):
         The OS type.
         """
         return pulumi.get(self, "os_type")
-
-    @property
-    @pulumi.getter
-    def vhd(self) -> Optional['outputs.VirtualHardDiskResponse']:
-        """
-        The virtual hard disk.
-        """
-        return pulumi.get(self, "vhd")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -851,32 +838,6 @@ class SubResourceResponse(dict):
         Resource ID.
         """
         return pulumi.get(self, "id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class VirtualHardDiskResponse(dict):
-    """
-    Describes the uri of a disk.
-    """
-    def __init__(__self__, *,
-                 uri: Optional[str] = None):
-        """
-        Describes the uri of a disk.
-        :param str uri: Specifies the virtual hard disk's uri.
-        """
-        if uri is not None:
-            pulumi.set(__self__, "uri", uri)
-
-    @property
-    @pulumi.getter
-    def uri(self) -> Optional[str]:
-        """
-        Specifies the virtual hard disk's uri.
-        """
-        return pulumi.get(self, "uri")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

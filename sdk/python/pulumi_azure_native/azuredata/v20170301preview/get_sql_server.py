@@ -19,10 +19,7 @@ class GetSqlServerResult:
     """
     A SQL server.
     """
-    def __init__(__self__, cores=None, edition=None, id=None, name=None, property_bag=None, registration_id=None, type=None, version=None):
-        if cores and not isinstance(cores, int):
-            raise TypeError("Expected argument 'cores' to be a int")
-        pulumi.set(__self__, "cores", cores)
+    def __init__(__self__, edition=None, id=None, name=None, property_bag=None, registration_id=None, type=None, version=None):
         if edition and not isinstance(edition, str):
             raise TypeError("Expected argument 'edition' to be a str")
         pulumi.set(__self__, "edition", edition)
@@ -44,14 +41,6 @@ class GetSqlServerResult:
         if version and not isinstance(version, str):
             raise TypeError("Expected argument 'version' to be a str")
         pulumi.set(__self__, "version", version)
-
-    @property
-    @pulumi.getter
-    def cores(self) -> Optional[int]:
-        """
-        Cores of the Sql Server.
-        """
-        return pulumi.get(self, "cores")
 
     @property
     @pulumi.getter
@@ -116,7 +105,6 @@ class AwaitableGetSqlServerResult(GetSqlServerResult):
         if False:
             yield self
         return GetSqlServerResult(
-            cores=self.cores,
             edition=self.edition,
             id=self.id,
             name=self.name,
@@ -152,7 +140,6 @@ def get_sql_server(expand: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:azuredata/v20170301preview:getSqlServer', __args__, opts=opts, typ=GetSqlServerResult).value
 
     return AwaitableGetSqlServerResult(
-        cores=__ret__.cores,
         edition=__ret__.edition,
         id=__ret__.id,
         name=__ret__.name,

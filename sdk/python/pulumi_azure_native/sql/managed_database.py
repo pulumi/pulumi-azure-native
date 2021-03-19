@@ -129,36 +129,18 @@ class ManagedDatabase(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__["auto_complete_restore"] = None
         __props__["catalog_collation"] = None
         __props__["collation"] = None
-        __props__["create_mode"] = None
         __props__["creation_date"] = None
         __props__["default_secondary_location"] = None
         __props__["earliest_restore_point"] = None
         __props__["failover_group_id"] = None
-        __props__["last_backup_name"] = None
         __props__["location"] = None
-        __props__["long_term_retention_backup_resource_id"] = None
         __props__["name"] = None
-        __props__["recoverable_database_id"] = None
-        __props__["restorable_dropped_database_id"] = None
-        __props__["restore_point_in_time"] = None
-        __props__["source_database_id"] = None
         __props__["status"] = None
-        __props__["storage_container_sas_token"] = None
-        __props__["storage_container_uri"] = None
         __props__["tags"] = None
         __props__["type"] = None
         return ManagedDatabase(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="autoCompleteRestore")
-    def auto_complete_restore(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Whether to auto complete restore of this managed database.
-        """
-        return pulumi.get(self, "auto_complete_restore")
 
     @property
     @pulumi.getter(name="catalogCollation")
@@ -175,14 +157,6 @@ class ManagedDatabase(pulumi.CustomResource):
         Collation of the managed database.
         """
         return pulumi.get(self, "collation")
-
-    @property
-    @pulumi.getter(name="createMode")
-    def create_mode(self) -> pulumi.Output[Optional[str]]:
-        """
-        Managed database create mode. PointInTimeRestore: Create a database by restoring a point in time backup of an existing database. SourceDatabaseName, SourceManagedInstanceName and PointInTime must be specified. RestoreExternalBackup: Create a database by restoring from external backup files. Collation, StorageContainerUri and StorageContainerSasToken must be specified. Recovery: Creates a database by restoring a geo-replicated backup. RecoverableDatabaseId must be specified as the recoverable database resource ID to restore. RestoreLongTermRetentionBackup: Create a database by restoring from a long term retention backup (longTermRetentionBackupResourceId required).
-        """
-        return pulumi.get(self, "create_mode")
 
     @property
     @pulumi.getter(name="creationDate")
@@ -217,28 +191,12 @@ class ManagedDatabase(pulumi.CustomResource):
         return pulumi.get(self, "failover_group_id")
 
     @property
-    @pulumi.getter(name="lastBackupName")
-    def last_backup_name(self) -> pulumi.Output[Optional[str]]:
-        """
-        Last backup file name for restore of this managed database.
-        """
-        return pulumi.get(self, "last_backup_name")
-
-    @property
     @pulumi.getter
     def location(self) -> pulumi.Output[str]:
         """
         Resource location.
         """
         return pulumi.get(self, "location")
-
-    @property
-    @pulumi.getter(name="longTermRetentionBackupResourceId")
-    def long_term_retention_backup_resource_id(self) -> pulumi.Output[Optional[str]]:
-        """
-        The name of the Long Term Retention backup to be used for restore of this managed database.
-        """
-        return pulumi.get(self, "long_term_retention_backup_resource_id")
 
     @property
     @pulumi.getter
@@ -249,60 +207,12 @@ class ManagedDatabase(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="recoverableDatabaseId")
-    def recoverable_database_id(self) -> pulumi.Output[Optional[str]]:
-        """
-        The resource identifier of the recoverable database associated with create operation of this database.
-        """
-        return pulumi.get(self, "recoverable_database_id")
-
-    @property
-    @pulumi.getter(name="restorableDroppedDatabaseId")
-    def restorable_dropped_database_id(self) -> pulumi.Output[Optional[str]]:
-        """
-        The restorable dropped database resource id to restore when creating this database.
-        """
-        return pulumi.get(self, "restorable_dropped_database_id")
-
-    @property
-    @pulumi.getter(name="restorePointInTime")
-    def restore_point_in_time(self) -> pulumi.Output[Optional[str]]:
-        """
-        Conditional. If createMode is PointInTimeRestore, this value is required. Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database.
-        """
-        return pulumi.get(self, "restore_point_in_time")
-
-    @property
-    @pulumi.getter(name="sourceDatabaseId")
-    def source_database_id(self) -> pulumi.Output[Optional[str]]:
-        """
-        The resource identifier of the source database associated with create operation of this database.
-        """
-        return pulumi.get(self, "source_database_id")
-
-    @property
     @pulumi.getter
     def status(self) -> pulumi.Output[str]:
         """
         Status of the database.
         """
         return pulumi.get(self, "status")
-
-    @property
-    @pulumi.getter(name="storageContainerSasToken")
-    def storage_container_sas_token(self) -> pulumi.Output[Optional[str]]:
-        """
-        Conditional. If createMode is RestoreExternalBackup, this value is required. Specifies the storage container sas token.
-        """
-        return pulumi.get(self, "storage_container_sas_token")
-
-    @property
-    @pulumi.getter(name="storageContainerUri")
-    def storage_container_uri(self) -> pulumi.Output[Optional[str]]:
-        """
-        Conditional. If createMode is RestoreExternalBackup, this value is required. Specifies the uri of the storage container where backups for this restore are stored.
-        """
-        return pulumi.get(self, "storage_container_uri")
 
     @property
     @pulumi.getter

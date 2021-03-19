@@ -195,7 +195,6 @@ class WebApp(pulumi.CustomResource):
         __props__["client_cert_enabled"] = None
         __props__["client_cert_exclusion_paths"] = None
         __props__["client_cert_mode"] = None
-        __props__["cloning_info"] = None
         __props__["container_size"] = None
         __props__["custom_domain_verification_id"] = None
         __props__["daily_memory_time_quota"] = None
@@ -280,14 +279,6 @@ class WebApp(pulumi.CustomResource):
         - ClientCertEnabled: true and ClientCertMode: Optional means ClientCert is optional or accepted.
         """
         return pulumi.get(self, "client_cert_mode")
-
-    @property
-    @pulumi.getter(name="cloningInfo")
-    def cloning_info(self) -> pulumi.Output[Optional['outputs.CloningInfoResponse']]:
-        """
-        If specified during app creation, the app is cloned from a source app.
-        """
-        return pulumi.get(self, "cloning_info")
 
     @property
     @pulumi.getter(name="containerSize")

@@ -124,7 +124,6 @@ class DatabaseThreatDetectionPolicy(pulumi.CustomResource):
         __props__["name"] = None
         __props__["retention_days"] = None
         __props__["state"] = None
-        __props__["storage_account_access_key"] = None
         __props__["storage_endpoint"] = None
         __props__["type"] = None
         __props__["use_server_default"] = None
@@ -193,14 +192,6 @@ class DatabaseThreatDetectionPolicy(pulumi.CustomResource):
         Specifies the state of the policy. If state is Enabled, storageEndpoint and storageAccountAccessKey are required.
         """
         return pulumi.get(self, "state")
-
-    @property
-    @pulumi.getter(name="storageAccountAccessKey")
-    def storage_account_access_key(self) -> pulumi.Output[Optional[str]]:
-        """
-        Specifies the identifier key of the Threat Detection audit storage account. If state is Enabled, storageAccountAccessKey is required.
-        """
-        return pulumi.get(self, "storage_account_access_key")
 
     @property
     @pulumi.getter(name="storageEndpoint")

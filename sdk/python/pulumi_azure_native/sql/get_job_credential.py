@@ -19,16 +19,13 @@ class GetJobCredentialResult:
     """
     A stored credential that can be used by a job to connect to target databases.
     """
-    def __init__(__self__, id=None, name=None, password=None, type=None, username=None):
+    def __init__(__self__, id=None, name=None, type=None, username=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if password and not isinstance(password, str):
-            raise TypeError("Expected argument 'password' to be a str")
-        pulumi.set(__self__, "password", password)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -51,14 +48,6 @@ class GetJobCredentialResult:
         Resource name.
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def password(self) -> str:
-        """
-        The credential password.
-        """
-        return pulumi.get(self, "password")
 
     @property
     @pulumi.getter
@@ -85,7 +74,6 @@ class AwaitableGetJobCredentialResult(GetJobCredentialResult):
         return GetJobCredentialResult(
             id=self.id,
             name=self.name,
-            password=self.password,
             type=self.type,
             username=self.username)
 
@@ -119,6 +107,5 @@ def get_job_credential(credential_name: Optional[str] = None,
     return AwaitableGetJobCredentialResult(
         id=__ret__.id,
         name=__ret__.name,
-        password=__ret__.password,
         type=__ret__.type,
         username=__ret__.username)

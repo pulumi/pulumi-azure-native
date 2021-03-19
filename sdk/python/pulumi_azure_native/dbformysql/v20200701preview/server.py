@@ -141,24 +141,20 @@ class Server(pulumi.CustomResource):
         __props__ = dict()
 
         __props__["administrator_login"] = None
-        __props__["administrator_login_password"] = None
         __props__["availability_zone"] = None
         __props__["byok_enforcement"] = None
-        __props__["create_mode"] = None
         __props__["delegated_subnet_arguments"] = None
         __props__["earliest_restore_date"] = None
         __props__["fully_qualified_domain_name"] = None
         __props__["ha_enabled"] = None
         __props__["ha_state"] = None
         __props__["identity"] = None
-        __props__["infrastructure_encryption"] = None
         __props__["location"] = None
         __props__["maintenance_window"] = None
         __props__["name"] = None
         __props__["public_network_access"] = None
         __props__["replica_capacity"] = None
         __props__["replication_role"] = None
-        __props__["restore_point_in_time"] = None
         __props__["sku"] = None
         __props__["source_server_id"] = None
         __props__["ssl_enforcement"] = None
@@ -179,14 +175,6 @@ class Server(pulumi.CustomResource):
         return pulumi.get(self, "administrator_login")
 
     @property
-    @pulumi.getter(name="administratorLoginPassword")
-    def administrator_login_password(self) -> pulumi.Output[Optional[str]]:
-        """
-        The password of the administrator login (required for server creation).
-        """
-        return pulumi.get(self, "administrator_login_password")
-
-    @property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> pulumi.Output[Optional[str]]:
         """
@@ -201,14 +189,6 @@ class Server(pulumi.CustomResource):
         Status showing whether the data encryption is enabled with customer-managed keys.
         """
         return pulumi.get(self, "byok_enforcement")
-
-    @property
-    @pulumi.getter(name="createMode")
-    def create_mode(self) -> pulumi.Output[Optional[str]]:
-        """
-        The mode to create a new MySQL server.
-        """
-        return pulumi.get(self, "create_mode")
 
     @property
     @pulumi.getter(name="delegatedSubnetArguments")
@@ -259,14 +239,6 @@ class Server(pulumi.CustomResource):
         return pulumi.get(self, "identity")
 
     @property
-    @pulumi.getter(name="infrastructureEncryption")
-    def infrastructure_encryption(self) -> pulumi.Output[Optional[str]]:
-        """
-        Status showing whether the server enabled infrastructure encryption.
-        """
-        return pulumi.get(self, "infrastructure_encryption")
-
-    @property
     @pulumi.getter
     def location(self) -> pulumi.Output[str]:
         """
@@ -313,14 +285,6 @@ class Server(pulumi.CustomResource):
         The replication role.
         """
         return pulumi.get(self, "replication_role")
-
-    @property
-    @pulumi.getter(name="restorePointInTime")
-    def restore_point_in_time(self) -> pulumi.Output[Optional[str]]:
-        """
-        Restore point creation time (ISO8601 format), specifying the time to restore from.
-        """
-        return pulumi.get(self, "restore_point_in_time")
 
     @property
     @pulumi.getter

@@ -138,10 +138,8 @@ class Server(pulumi.CustomResource):
         __props__ = dict()
 
         __props__["administrator_login"] = None
-        __props__["administrator_login_password"] = None
         __props__["availability_zone"] = None
         __props__["byok_enforcement"] = None
-        __props__["create_mode"] = None
         __props__["delegated_subnet_arguments"] = None
         __props__["display_name"] = None
         __props__["fully_qualified_domain_name"] = None
@@ -174,14 +172,6 @@ class Server(pulumi.CustomResource):
         return pulumi.get(self, "administrator_login")
 
     @property
-    @pulumi.getter(name="administratorLoginPassword")
-    def administrator_login_password(self) -> pulumi.Output[Optional[str]]:
-        """
-        The administrator login password (required for server creation).
-        """
-        return pulumi.get(self, "administrator_login_password")
-
-    @property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> pulumi.Output[Optional[str]]:
         """
@@ -196,14 +186,6 @@ class Server(pulumi.CustomResource):
         Status showing whether the data encryption is enabled with customer-managed keys.
         """
         return pulumi.get(self, "byok_enforcement")
-
-    @property
-    @pulumi.getter(name="createMode")
-    def create_mode(self) -> pulumi.Output[Optional[str]]:
-        """
-        The mode to create a new PostgreSQL server.
-        """
-        return pulumi.get(self, "create_mode")
 
     @property
     @pulumi.getter(name="delegatedSubnetArguments")

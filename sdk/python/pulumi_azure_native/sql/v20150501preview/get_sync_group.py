@@ -20,13 +20,10 @@ class GetSyncGroupResult:
     """
     An Azure SQL Database sync group.
     """
-    def __init__(__self__, conflict_resolution_policy=None, hub_database_password=None, hub_database_user_name=None, id=None, interval=None, last_sync_time=None, name=None, schema=None, sync_database_id=None, sync_state=None, type=None):
+    def __init__(__self__, conflict_resolution_policy=None, hub_database_user_name=None, id=None, interval=None, last_sync_time=None, name=None, schema=None, sync_database_id=None, sync_state=None, type=None):
         if conflict_resolution_policy and not isinstance(conflict_resolution_policy, str):
             raise TypeError("Expected argument 'conflict_resolution_policy' to be a str")
         pulumi.set(__self__, "conflict_resolution_policy", conflict_resolution_policy)
-        if hub_database_password and not isinstance(hub_database_password, str):
-            raise TypeError("Expected argument 'hub_database_password' to be a str")
-        pulumi.set(__self__, "hub_database_password", hub_database_password)
         if hub_database_user_name and not isinstance(hub_database_user_name, str):
             raise TypeError("Expected argument 'hub_database_user_name' to be a str")
         pulumi.set(__self__, "hub_database_user_name", hub_database_user_name)
@@ -62,14 +59,6 @@ class GetSyncGroupResult:
         Conflict resolution policy of the sync group.
         """
         return pulumi.get(self, "conflict_resolution_policy")
-
-    @property
-    @pulumi.getter(name="hubDatabasePassword")
-    def hub_database_password(self) -> Optional[str]:
-        """
-        Password for the sync group hub database credential.
-        """
-        return pulumi.get(self, "hub_database_password")
 
     @property
     @pulumi.getter(name="hubDatabaseUserName")
@@ -151,7 +140,6 @@ class AwaitableGetSyncGroupResult(GetSyncGroupResult):
             yield self
         return GetSyncGroupResult(
             conflict_resolution_policy=self.conflict_resolution_policy,
-            hub_database_password=self.hub_database_password,
             hub_database_user_name=self.hub_database_user_name,
             id=self.id,
             interval=self.interval,
@@ -190,7 +178,6 @@ def get_sync_group(database_name: Optional[str] = None,
 
     return AwaitableGetSyncGroupResult(
         conflict_resolution_policy=__ret__.conflict_resolution_policy,
-        hub_database_password=__ret__.hub_database_password,
         hub_database_user_name=__ret__.hub_database_user_name,
         id=__ret__.id,
         interval=__ret__.interval,

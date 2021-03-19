@@ -109,7 +109,6 @@ class SyncGroup(pulumi.CustomResource):
         __props__ = dict()
 
         __props__["conflict_resolution_policy"] = None
-        __props__["hub_database_password"] = None
         __props__["hub_database_user_name"] = None
         __props__["interval"] = None
         __props__["last_sync_time"] = None
@@ -127,14 +126,6 @@ class SyncGroup(pulumi.CustomResource):
         Conflict resolution policy of the sync group.
         """
         return pulumi.get(self, "conflict_resolution_policy")
-
-    @property
-    @pulumi.getter(name="hubDatabasePassword")
-    def hub_database_password(self) -> pulumi.Output[Optional[str]]:
-        """
-        Password for the sync group hub database credential.
-        """
-        return pulumi.get(self, "hub_database_password")
 
     @property
     @pulumi.getter(name="hubDatabaseUserName")

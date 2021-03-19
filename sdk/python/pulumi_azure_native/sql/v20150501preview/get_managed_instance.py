@@ -20,22 +20,16 @@ class GetManagedInstanceResult:
     """
     An Azure SQL managed instance.
     """
-    def __init__(__self__, administrator_login=None, administrator_login_password=None, collation=None, dns_zone=None, dns_zone_partner=None, fully_qualified_domain_name=None, id=None, identity=None, instance_pool_id=None, license_type=None, location=None, maintenance_configuration_id=None, managed_instance_create_mode=None, minimal_tls_version=None, name=None, proxy_override=None, public_data_endpoint_enabled=None, restore_point_in_time=None, sku=None, source_managed_instance_id=None, state=None, storage_size_in_gb=None, subnet_id=None, tags=None, timezone_id=None, type=None, v_cores=None):
+    def __init__(__self__, administrator_login=None, collation=None, dns_zone=None, fully_qualified_domain_name=None, id=None, identity=None, instance_pool_id=None, license_type=None, location=None, maintenance_configuration_id=None, minimal_tls_version=None, name=None, proxy_override=None, public_data_endpoint_enabled=None, sku=None, state=None, storage_size_in_gb=None, subnet_id=None, tags=None, timezone_id=None, type=None, v_cores=None):
         if administrator_login and not isinstance(administrator_login, str):
             raise TypeError("Expected argument 'administrator_login' to be a str")
         pulumi.set(__self__, "administrator_login", administrator_login)
-        if administrator_login_password and not isinstance(administrator_login_password, str):
-            raise TypeError("Expected argument 'administrator_login_password' to be a str")
-        pulumi.set(__self__, "administrator_login_password", administrator_login_password)
         if collation and not isinstance(collation, str):
             raise TypeError("Expected argument 'collation' to be a str")
         pulumi.set(__self__, "collation", collation)
         if dns_zone and not isinstance(dns_zone, str):
             raise TypeError("Expected argument 'dns_zone' to be a str")
         pulumi.set(__self__, "dns_zone", dns_zone)
-        if dns_zone_partner and not isinstance(dns_zone_partner, str):
-            raise TypeError("Expected argument 'dns_zone_partner' to be a str")
-        pulumi.set(__self__, "dns_zone_partner", dns_zone_partner)
         if fully_qualified_domain_name and not isinstance(fully_qualified_domain_name, str):
             raise TypeError("Expected argument 'fully_qualified_domain_name' to be a str")
         pulumi.set(__self__, "fully_qualified_domain_name", fully_qualified_domain_name)
@@ -57,9 +51,6 @@ class GetManagedInstanceResult:
         if maintenance_configuration_id and not isinstance(maintenance_configuration_id, str):
             raise TypeError("Expected argument 'maintenance_configuration_id' to be a str")
         pulumi.set(__self__, "maintenance_configuration_id", maintenance_configuration_id)
-        if managed_instance_create_mode and not isinstance(managed_instance_create_mode, str):
-            raise TypeError("Expected argument 'managed_instance_create_mode' to be a str")
-        pulumi.set(__self__, "managed_instance_create_mode", managed_instance_create_mode)
         if minimal_tls_version and not isinstance(minimal_tls_version, str):
             raise TypeError("Expected argument 'minimal_tls_version' to be a str")
         pulumi.set(__self__, "minimal_tls_version", minimal_tls_version)
@@ -72,15 +63,9 @@ class GetManagedInstanceResult:
         if public_data_endpoint_enabled and not isinstance(public_data_endpoint_enabled, bool):
             raise TypeError("Expected argument 'public_data_endpoint_enabled' to be a bool")
         pulumi.set(__self__, "public_data_endpoint_enabled", public_data_endpoint_enabled)
-        if restore_point_in_time and not isinstance(restore_point_in_time, str):
-            raise TypeError("Expected argument 'restore_point_in_time' to be a str")
-        pulumi.set(__self__, "restore_point_in_time", restore_point_in_time)
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
-        if source_managed_instance_id and not isinstance(source_managed_instance_id, str):
-            raise TypeError("Expected argument 'source_managed_instance_id' to be a str")
-        pulumi.set(__self__, "source_managed_instance_id", source_managed_instance_id)
         if state and not isinstance(state, str):
             raise TypeError("Expected argument 'state' to be a str")
         pulumi.set(__self__, "state", state)
@@ -112,14 +97,6 @@ class GetManagedInstanceResult:
         return pulumi.get(self, "administrator_login")
 
     @property
-    @pulumi.getter(name="administratorLoginPassword")
-    def administrator_login_password(self) -> Optional[str]:
-        """
-        The administrator login password (required for managed instance creation).
-        """
-        return pulumi.get(self, "administrator_login_password")
-
-    @property
     @pulumi.getter
     def collation(self) -> Optional[str]:
         """
@@ -134,14 +111,6 @@ class GetManagedInstanceResult:
         The Dns Zone that the managed instance is in.
         """
         return pulumi.get(self, "dns_zone")
-
-    @property
-    @pulumi.getter(name="dnsZonePartner")
-    def dns_zone_partner(self) -> Optional[str]:
-        """
-        The resource id of another managed instance whose DNS zone this managed instance will share after creation.
-        """
-        return pulumi.get(self, "dns_zone_partner")
 
     @property
     @pulumi.getter(name="fullyQualifiedDomainName")
@@ -200,18 +169,6 @@ class GetManagedInstanceResult:
         return pulumi.get(self, "maintenance_configuration_id")
 
     @property
-    @pulumi.getter(name="managedInstanceCreateMode")
-    def managed_instance_create_mode(self) -> Optional[str]:
-        """
-        Specifies the mode of database creation.
-        
-        Default: Regular instance creation.
-        
-        Restore: Creates an instance by restoring a set of backups to specific point in time. RestorePointInTime and SourceManagedInstanceId must be specified.
-        """
-        return pulumi.get(self, "managed_instance_create_mode")
-
-    @property
     @pulumi.getter(name="minimalTlsVersion")
     def minimal_tls_version(self) -> Optional[str]:
         """
@@ -244,28 +201,12 @@ class GetManagedInstanceResult:
         return pulumi.get(self, "public_data_endpoint_enabled")
 
     @property
-    @pulumi.getter(name="restorePointInTime")
-    def restore_point_in_time(self) -> Optional[str]:
-        """
-        Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database.
-        """
-        return pulumi.get(self, "restore_point_in_time")
-
-    @property
     @pulumi.getter
     def sku(self) -> Optional['outputs.SkuResponse']:
         """
         Managed instance SKU. Allowed values for sku.name: GP_Gen4, GP_Gen5, BC_Gen4, BC_Gen5
         """
         return pulumi.get(self, "sku")
-
-    @property
-    @pulumi.getter(name="sourceManagedInstanceId")
-    def source_managed_instance_id(self) -> Optional[str]:
-        """
-        The resource identifier of the source managed instance associated with create operation of this instance.
-        """
-        return pulumi.get(self, "source_managed_instance_id")
 
     @property
     @pulumi.getter
@@ -336,10 +277,8 @@ class AwaitableGetManagedInstanceResult(GetManagedInstanceResult):
             yield self
         return GetManagedInstanceResult(
             administrator_login=self.administrator_login,
-            administrator_login_password=self.administrator_login_password,
             collation=self.collation,
             dns_zone=self.dns_zone,
-            dns_zone_partner=self.dns_zone_partner,
             fully_qualified_domain_name=self.fully_qualified_domain_name,
             id=self.id,
             identity=self.identity,
@@ -347,14 +286,11 @@ class AwaitableGetManagedInstanceResult(GetManagedInstanceResult):
             license_type=self.license_type,
             location=self.location,
             maintenance_configuration_id=self.maintenance_configuration_id,
-            managed_instance_create_mode=self.managed_instance_create_mode,
             minimal_tls_version=self.minimal_tls_version,
             name=self.name,
             proxy_override=self.proxy_override,
             public_data_endpoint_enabled=self.public_data_endpoint_enabled,
-            restore_point_in_time=self.restore_point_in_time,
             sku=self.sku,
-            source_managed_instance_id=self.source_managed_instance_id,
             state=self.state,
             storage_size_in_gb=self.storage_size_in_gb,
             subnet_id=self.subnet_id,
@@ -385,10 +321,8 @@ def get_managed_instance(managed_instance_name: Optional[str] = None,
 
     return AwaitableGetManagedInstanceResult(
         administrator_login=__ret__.administrator_login,
-        administrator_login_password=__ret__.administrator_login_password,
         collation=__ret__.collation,
         dns_zone=__ret__.dns_zone,
-        dns_zone_partner=__ret__.dns_zone_partner,
         fully_qualified_domain_name=__ret__.fully_qualified_domain_name,
         id=__ret__.id,
         identity=__ret__.identity,
@@ -396,14 +330,11 @@ def get_managed_instance(managed_instance_name: Optional[str] = None,
         license_type=__ret__.license_type,
         location=__ret__.location,
         maintenance_configuration_id=__ret__.maintenance_configuration_id,
-        managed_instance_create_mode=__ret__.managed_instance_create_mode,
         minimal_tls_version=__ret__.minimal_tls_version,
         name=__ret__.name,
         proxy_override=__ret__.proxy_override,
         public_data_endpoint_enabled=__ret__.public_data_endpoint_enabled,
-        restore_point_in_time=__ret__.restore_point_in_time,
         sku=__ret__.sku,
-        source_managed_instance_id=__ret__.source_managed_instance_id,
         state=__ret__.state,
         storage_size_in_gb=__ret__.storage_size_in_gb,
         subnet_id=__ret__.subnet_id,

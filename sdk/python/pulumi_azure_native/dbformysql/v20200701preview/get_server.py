@@ -20,22 +20,16 @@ class GetServerResult:
     """
     Represents a server.
     """
-    def __init__(__self__, administrator_login=None, administrator_login_password=None, availability_zone=None, byok_enforcement=None, create_mode=None, delegated_subnet_arguments=None, earliest_restore_date=None, fully_qualified_domain_name=None, ha_enabled=None, ha_state=None, id=None, identity=None, infrastructure_encryption=None, location=None, maintenance_window=None, name=None, public_network_access=None, replica_capacity=None, replication_role=None, restore_point_in_time=None, sku=None, source_server_id=None, ssl_enforcement=None, standby_availability_zone=None, state=None, storage_profile=None, tags=None, type=None, version=None):
+    def __init__(__self__, administrator_login=None, availability_zone=None, byok_enforcement=None, delegated_subnet_arguments=None, earliest_restore_date=None, fully_qualified_domain_name=None, ha_enabled=None, ha_state=None, id=None, identity=None, location=None, maintenance_window=None, name=None, public_network_access=None, replica_capacity=None, replication_role=None, sku=None, source_server_id=None, ssl_enforcement=None, standby_availability_zone=None, state=None, storage_profile=None, tags=None, type=None, version=None):
         if administrator_login and not isinstance(administrator_login, str):
             raise TypeError("Expected argument 'administrator_login' to be a str")
         pulumi.set(__self__, "administrator_login", administrator_login)
-        if administrator_login_password and not isinstance(administrator_login_password, str):
-            raise TypeError("Expected argument 'administrator_login_password' to be a str")
-        pulumi.set(__self__, "administrator_login_password", administrator_login_password)
         if availability_zone and not isinstance(availability_zone, str):
             raise TypeError("Expected argument 'availability_zone' to be a str")
         pulumi.set(__self__, "availability_zone", availability_zone)
         if byok_enforcement and not isinstance(byok_enforcement, str):
             raise TypeError("Expected argument 'byok_enforcement' to be a str")
         pulumi.set(__self__, "byok_enforcement", byok_enforcement)
-        if create_mode and not isinstance(create_mode, str):
-            raise TypeError("Expected argument 'create_mode' to be a str")
-        pulumi.set(__self__, "create_mode", create_mode)
         if delegated_subnet_arguments and not isinstance(delegated_subnet_arguments, dict):
             raise TypeError("Expected argument 'delegated_subnet_arguments' to be a dict")
         pulumi.set(__self__, "delegated_subnet_arguments", delegated_subnet_arguments)
@@ -57,9 +51,6 @@ class GetServerResult:
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
-        if infrastructure_encryption and not isinstance(infrastructure_encryption, str):
-            raise TypeError("Expected argument 'infrastructure_encryption' to be a str")
-        pulumi.set(__self__, "infrastructure_encryption", infrastructure_encryption)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -78,9 +69,6 @@ class GetServerResult:
         if replication_role and not isinstance(replication_role, str):
             raise TypeError("Expected argument 'replication_role' to be a str")
         pulumi.set(__self__, "replication_role", replication_role)
-        if restore_point_in_time and not isinstance(restore_point_in_time, str):
-            raise TypeError("Expected argument 'restore_point_in_time' to be a str")
-        pulumi.set(__self__, "restore_point_in_time", restore_point_in_time)
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
@@ -118,14 +106,6 @@ class GetServerResult:
         return pulumi.get(self, "administrator_login")
 
     @property
-    @pulumi.getter(name="administratorLoginPassword")
-    def administrator_login_password(self) -> Optional[str]:
-        """
-        The password of the administrator login (required for server creation).
-        """
-        return pulumi.get(self, "administrator_login_password")
-
-    @property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> Optional[str]:
         """
@@ -140,14 +120,6 @@ class GetServerResult:
         Status showing whether the data encryption is enabled with customer-managed keys.
         """
         return pulumi.get(self, "byok_enforcement")
-
-    @property
-    @pulumi.getter(name="createMode")
-    def create_mode(self) -> Optional[str]:
-        """
-        The mode to create a new MySQL server.
-        """
-        return pulumi.get(self, "create_mode")
 
     @property
     @pulumi.getter(name="delegatedSubnetArguments")
@@ -206,14 +178,6 @@ class GetServerResult:
         return pulumi.get(self, "identity")
 
     @property
-    @pulumi.getter(name="infrastructureEncryption")
-    def infrastructure_encryption(self) -> Optional[str]:
-        """
-        Status showing whether the server enabled infrastructure encryption.
-        """
-        return pulumi.get(self, "infrastructure_encryption")
-
-    @property
     @pulumi.getter
     def location(self) -> str:
         """
@@ -260,14 +224,6 @@ class GetServerResult:
         The replication role.
         """
         return pulumi.get(self, "replication_role")
-
-    @property
-    @pulumi.getter(name="restorePointInTime")
-    def restore_point_in_time(self) -> Optional[str]:
-        """
-        Restore point creation time (ISO8601 format), specifying the time to restore from.
-        """
-        return pulumi.get(self, "restore_point_in_time")
 
     @property
     @pulumi.getter
@@ -349,10 +305,8 @@ class AwaitableGetServerResult(GetServerResult):
             yield self
         return GetServerResult(
             administrator_login=self.administrator_login,
-            administrator_login_password=self.administrator_login_password,
             availability_zone=self.availability_zone,
             byok_enforcement=self.byok_enforcement,
-            create_mode=self.create_mode,
             delegated_subnet_arguments=self.delegated_subnet_arguments,
             earliest_restore_date=self.earliest_restore_date,
             fully_qualified_domain_name=self.fully_qualified_domain_name,
@@ -360,14 +314,12 @@ class AwaitableGetServerResult(GetServerResult):
             ha_state=self.ha_state,
             id=self.id,
             identity=self.identity,
-            infrastructure_encryption=self.infrastructure_encryption,
             location=self.location,
             maintenance_window=self.maintenance_window,
             name=self.name,
             public_network_access=self.public_network_access,
             replica_capacity=self.replica_capacity,
             replication_role=self.replication_role,
-            restore_point_in_time=self.restore_point_in_time,
             sku=self.sku,
             source_server_id=self.source_server_id,
             ssl_enforcement=self.ssl_enforcement,
@@ -400,10 +352,8 @@ def get_server(resource_group_name: Optional[str] = None,
 
     return AwaitableGetServerResult(
         administrator_login=__ret__.administrator_login,
-        administrator_login_password=__ret__.administrator_login_password,
         availability_zone=__ret__.availability_zone,
         byok_enforcement=__ret__.byok_enforcement,
-        create_mode=__ret__.create_mode,
         delegated_subnet_arguments=__ret__.delegated_subnet_arguments,
         earliest_restore_date=__ret__.earliest_restore_date,
         fully_qualified_domain_name=__ret__.fully_qualified_domain_name,
@@ -411,14 +361,12 @@ def get_server(resource_group_name: Optional[str] = None,
         ha_state=__ret__.ha_state,
         id=__ret__.id,
         identity=__ret__.identity,
-        infrastructure_encryption=__ret__.infrastructure_encryption,
         location=__ret__.location,
         maintenance_window=__ret__.maintenance_window,
         name=__ret__.name,
         public_network_access=__ret__.public_network_access,
         replica_capacity=__ret__.replica_capacity,
         replication_role=__ret__.replication_role,
-        restore_point_in_time=__ret__.restore_point_in_time,
         sku=__ret__.sku,
         source_server_id=__ret__.source_server_id,
         ssl_enforcement=__ret__.ssl_enforcement,

@@ -20,7 +20,7 @@ class GetSyncGroupResult:
     """
     An Azure SQL Database sync group.
     """
-    def __init__(__self__, conflict_logging_retention_in_days=None, conflict_resolution_policy=None, enable_conflict_logging=None, hub_database_password=None, hub_database_user_name=None, id=None, interval=None, last_sync_time=None, name=None, private_endpoint_name=None, schema=None, sku=None, sync_database_id=None, sync_state=None, type=None, use_private_link_connection=None):
+    def __init__(__self__, conflict_logging_retention_in_days=None, conflict_resolution_policy=None, enable_conflict_logging=None, hub_database_user_name=None, id=None, interval=None, last_sync_time=None, name=None, private_endpoint_name=None, schema=None, sku=None, sync_database_id=None, sync_state=None, type=None, use_private_link_connection=None):
         if conflict_logging_retention_in_days and not isinstance(conflict_logging_retention_in_days, int):
             raise TypeError("Expected argument 'conflict_logging_retention_in_days' to be a int")
         pulumi.set(__self__, "conflict_logging_retention_in_days", conflict_logging_retention_in_days)
@@ -30,9 +30,6 @@ class GetSyncGroupResult:
         if enable_conflict_logging and not isinstance(enable_conflict_logging, bool):
             raise TypeError("Expected argument 'enable_conflict_logging' to be a bool")
         pulumi.set(__self__, "enable_conflict_logging", enable_conflict_logging)
-        if hub_database_password and not isinstance(hub_database_password, str):
-            raise TypeError("Expected argument 'hub_database_password' to be a str")
-        pulumi.set(__self__, "hub_database_password", hub_database_password)
         if hub_database_user_name and not isinstance(hub_database_user_name, str):
             raise TypeError("Expected argument 'hub_database_user_name' to be a str")
         pulumi.set(__self__, "hub_database_user_name", hub_database_user_name)
@@ -93,14 +90,6 @@ class GetSyncGroupResult:
         If conflict logging is enabled.
         """
         return pulumi.get(self, "enable_conflict_logging")
-
-    @property
-    @pulumi.getter(name="hubDatabasePassword")
-    def hub_database_password(self) -> Optional[str]:
-        """
-        Password for the sync group hub database credential.
-        """
-        return pulumi.get(self, "hub_database_password")
 
     @property
     @pulumi.getter(name="hubDatabaseUserName")
@@ -208,7 +197,6 @@ class AwaitableGetSyncGroupResult(GetSyncGroupResult):
             conflict_logging_retention_in_days=self.conflict_logging_retention_in_days,
             conflict_resolution_policy=self.conflict_resolution_policy,
             enable_conflict_logging=self.enable_conflict_logging,
-            hub_database_password=self.hub_database_password,
             hub_database_user_name=self.hub_database_user_name,
             id=self.id,
             interval=self.interval,
@@ -252,7 +240,6 @@ def get_sync_group(database_name: Optional[str] = None,
         conflict_logging_retention_in_days=__ret__.conflict_logging_retention_in_days,
         conflict_resolution_policy=__ret__.conflict_resolution_policy,
         enable_conflict_logging=__ret__.enable_conflict_logging,
-        hub_database_password=__ret__.hub_database_password,
         hub_database_user_name=__ret__.hub_database_user_name,
         id=__ret__.id,
         interval=__ret__.interval,

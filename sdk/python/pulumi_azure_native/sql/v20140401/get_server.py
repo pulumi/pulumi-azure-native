@@ -19,13 +19,10 @@ class GetServerResult:
     """
     Represents a server.
     """
-    def __init__(__self__, administrator_login=None, administrator_login_password=None, external_administrator_login=None, external_administrator_sid=None, fully_qualified_domain_name=None, id=None, kind=None, location=None, name=None, state=None, tags=None, type=None, version=None):
+    def __init__(__self__, administrator_login=None, external_administrator_login=None, external_administrator_sid=None, fully_qualified_domain_name=None, id=None, kind=None, location=None, name=None, state=None, tags=None, type=None, version=None):
         if administrator_login and not isinstance(administrator_login, str):
             raise TypeError("Expected argument 'administrator_login' to be a str")
         pulumi.set(__self__, "administrator_login", administrator_login)
-        if administrator_login_password and not isinstance(administrator_login_password, str):
-            raise TypeError("Expected argument 'administrator_login_password' to be a str")
-        pulumi.set(__self__, "administrator_login_password", administrator_login_password)
         if external_administrator_login and not isinstance(external_administrator_login, str):
             raise TypeError("Expected argument 'external_administrator_login' to be a str")
         pulumi.set(__self__, "external_administrator_login", external_administrator_login)
@@ -67,14 +64,6 @@ class GetServerResult:
         Administrator username for the server. Can only be specified when the server is being created (and is required for creation).
         """
         return pulumi.get(self, "administrator_login")
-
-    @property
-    @pulumi.getter(name="administratorLoginPassword")
-    def administrator_login_password(self) -> Optional[str]:
-        """
-        The administrator login password (required for server creation).
-        """
-        return pulumi.get(self, "administrator_login_password")
 
     @property
     @pulumi.getter(name="externalAdministratorLogin")
@@ -172,7 +161,6 @@ class AwaitableGetServerResult(GetServerResult):
             yield self
         return GetServerResult(
             administrator_login=self.administrator_login,
-            administrator_login_password=self.administrator_login_password,
             external_administrator_login=self.external_administrator_login,
             external_administrator_sid=self.external_administrator_sid,
             fully_qualified_domain_name=self.fully_qualified_domain_name,
@@ -207,7 +195,6 @@ def get_server(resource_group_name: Optional[str] = None,
 
     return AwaitableGetServerResult(
         administrator_login=__ret__.administrator_login,
-        administrator_login_password=__ret__.administrator_login_password,
         external_administrator_login=__ret__.external_administrator_login,
         external_administrator_sid=__ret__.external_administrator_sid,
         fully_qualified_domain_name=__ret__.fully_qualified_domain_name,

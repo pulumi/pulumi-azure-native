@@ -202,7 +202,6 @@ class Database(pulumi.CustomResource):
         __props__["auto_pause_delay"] = None
         __props__["catalog_collation"] = None
         __props__["collation"] = None
-        __props__["create_mode"] = None
         __props__["creation_date"] = None
         __props__["current_backup_storage_redundancy"] = None
         __props__["current_service_objective_name"] = None
@@ -216,7 +215,6 @@ class Database(pulumi.CustomResource):
         __props__["kind"] = None
         __props__["license_type"] = None
         __props__["location"] = None
-        __props__["long_term_retention_backup_resource_id"] = None
         __props__["maintenance_configuration_id"] = None
         __props__["managed_by"] = None
         __props__["max_log_size_bytes"] = None
@@ -225,18 +223,11 @@ class Database(pulumi.CustomResource):
         __props__["name"] = None
         __props__["paused_date"] = None
         __props__["read_scale"] = None
-        __props__["recoverable_database_id"] = None
-        __props__["recovery_services_recovery_point_id"] = None
         __props__["requested_backup_storage_redundancy"] = None
         __props__["requested_service_objective_name"] = None
-        __props__["restorable_dropped_database_id"] = None
-        __props__["restore_point_in_time"] = None
         __props__["resumed_date"] = None
-        __props__["sample_name"] = None
         __props__["secondary_type"] = None
         __props__["sku"] = None
-        __props__["source_database_deletion_date"] = None
-        __props__["source_database_id"] = None
         __props__["status"] = None
         __props__["tags"] = None
         __props__["type"] = None
@@ -266,30 +257,6 @@ class Database(pulumi.CustomResource):
         The collation of the database.
         """
         return pulumi.get(self, "collation")
-
-    @property
-    @pulumi.getter(name="createMode")
-    def create_mode(self) -> pulumi.Output[Optional[str]]:
-        """
-        Specifies the mode of database creation.
-        
-        Default: regular database creation.
-        
-        Copy: creates a database as a copy of an existing database. sourceDatabaseId must be specified as the resource ID of the source database.
-        
-        Secondary: creates a database as a secondary replica of an existing database. sourceDatabaseId must be specified as the resource ID of the existing primary database.
-        
-        PointInTimeRestore: Creates a database by restoring a point in time backup of an existing database. sourceDatabaseId must be specified as the resource ID of the existing database, and restorePointInTime must be specified.
-        
-        Recovery: Creates a database by restoring a geo-replicated backup. sourceDatabaseId must be specified as the recoverable database resource ID to restore.
-        
-        Restore: Creates a database by restoring a backup of a deleted database. sourceDatabaseId must be specified. If sourceDatabaseId is the database's original resource ID, then sourceDatabaseDeletionDate must be specified. Otherwise sourceDatabaseId must be the restorable dropped database resource ID and sourceDatabaseDeletionDate is ignored. restorePointInTime may also be specified to restore from an earlier point in time.
-        
-        RestoreLongTermRetentionBackup: Creates a database by restoring from a long term retention vault. recoveryServicesRecoveryPointResourceId must be specified as the recovery point resource ID.
-        
-        Copy, Secondary, and RestoreLongTermRetentionBackup are not supported for DataWarehouse edition.
-        """
-        return pulumi.get(self, "create_mode")
 
     @property
     @pulumi.getter(name="creationDate")
@@ -396,14 +363,6 @@ class Database(pulumi.CustomResource):
         return pulumi.get(self, "location")
 
     @property
-    @pulumi.getter(name="longTermRetentionBackupResourceId")
-    def long_term_retention_backup_resource_id(self) -> pulumi.Output[Optional[str]]:
-        """
-        The resource identifier of the long term retention backup associated with create operation of this database.
-        """
-        return pulumi.get(self, "long_term_retention_backup_resource_id")
-
-    @property
     @pulumi.getter(name="maintenanceConfigurationId")
     def maintenance_configuration_id(self) -> pulumi.Output[Optional[str]]:
         """
@@ -468,22 +427,6 @@ class Database(pulumi.CustomResource):
         return pulumi.get(self, "read_scale")
 
     @property
-    @pulumi.getter(name="recoverableDatabaseId")
-    def recoverable_database_id(self) -> pulumi.Output[Optional[str]]:
-        """
-        The resource identifier of the recoverable database associated with create operation of this database.
-        """
-        return pulumi.get(self, "recoverable_database_id")
-
-    @property
-    @pulumi.getter(name="recoveryServicesRecoveryPointId")
-    def recovery_services_recovery_point_id(self) -> pulumi.Output[Optional[str]]:
-        """
-        The resource identifier of the recovery point associated with create operation of this database.
-        """
-        return pulumi.get(self, "recovery_services_recovery_point_id")
-
-    @property
     @pulumi.getter(name="requestedBackupStorageRedundancy")
     def requested_backup_storage_redundancy(self) -> pulumi.Output[Optional[str]]:
         """
@@ -500,36 +443,12 @@ class Database(pulumi.CustomResource):
         return pulumi.get(self, "requested_service_objective_name")
 
     @property
-    @pulumi.getter(name="restorableDroppedDatabaseId")
-    def restorable_dropped_database_id(self) -> pulumi.Output[Optional[str]]:
-        """
-        The resource identifier of the restorable dropped database associated with create operation of this database.
-        """
-        return pulumi.get(self, "restorable_dropped_database_id")
-
-    @property
-    @pulumi.getter(name="restorePointInTime")
-    def restore_point_in_time(self) -> pulumi.Output[Optional[str]]:
-        """
-        Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database.
-        """
-        return pulumi.get(self, "restore_point_in_time")
-
-    @property
     @pulumi.getter(name="resumedDate")
     def resumed_date(self) -> pulumi.Output[str]:
         """
         The date when database was resumed by user action or database login (ISO8601 format). Null if the database is paused.
         """
         return pulumi.get(self, "resumed_date")
-
-    @property
-    @pulumi.getter(name="sampleName")
-    def sample_name(self) -> pulumi.Output[Optional[str]]:
-        """
-        The name of the sample schema to apply when creating this database.
-        """
-        return pulumi.get(self, "sample_name")
 
     @property
     @pulumi.getter(name="secondaryType")
@@ -556,22 +475,6 @@ class Database(pulumi.CustomResource):
         ````
         """
         return pulumi.get(self, "sku")
-
-    @property
-    @pulumi.getter(name="sourceDatabaseDeletionDate")
-    def source_database_deletion_date(self) -> pulumi.Output[Optional[str]]:
-        """
-        Specifies the time that the database was deleted.
-        """
-        return pulumi.get(self, "source_database_deletion_date")
-
-    @property
-    @pulumi.getter(name="sourceDatabaseId")
-    def source_database_id(self) -> pulumi.Output[Optional[str]]:
-        """
-        The resource identifier of the source database associated with create operation of this database.
-        """
-        return pulumi.get(self, "source_database_id")
 
     @property
     @pulumi.getter

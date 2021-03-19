@@ -183,7 +183,6 @@ class Database(pulumi.CustomResource):
 
         __props__["collation"] = None
         __props__["containment_state"] = None
-        __props__["create_mode"] = None
         __props__["creation_date"] = None
         __props__["current_service_objective_id"] = None
         __props__["database_id"] = None
@@ -198,15 +197,10 @@ class Database(pulumi.CustomResource):
         __props__["name"] = None
         __props__["read_scale"] = None
         __props__["recommended_index"] = None
-        __props__["recovery_services_recovery_point_resource_id"] = None
         __props__["requested_service_objective_id"] = None
         __props__["requested_service_objective_name"] = None
-        __props__["restore_point_in_time"] = None
-        __props__["sample_name"] = None
         __props__["service_level_objective"] = None
         __props__["service_tier_advisors"] = None
-        __props__["source_database_deletion_date"] = None
-        __props__["source_database_id"] = None
         __props__["status"] = None
         __props__["tags"] = None
         __props__["transparent_data_encryption"] = None
@@ -229,30 +223,6 @@ class Database(pulumi.CustomResource):
         The containment state of the database.
         """
         return pulumi.get(self, "containment_state")
-
-    @property
-    @pulumi.getter(name="createMode")
-    def create_mode(self) -> pulumi.Output[Optional[str]]:
-        """
-        Specifies the mode of database creation.
-
-        Default: regular database creation.
-
-        Copy: creates a database as a copy of an existing database. sourceDatabaseId must be specified as the resource ID of the source database.
-
-        OnlineSecondary/NonReadableSecondary: creates a database as a (readable or nonreadable) secondary replica of an existing database. sourceDatabaseId must be specified as the resource ID of the existing primary database.
-
-        PointInTimeRestore: Creates a database by restoring a point in time backup of an existing database. sourceDatabaseId must be specified as the resource ID of the existing database, and restorePointInTime must be specified.
-
-        Recovery: Creates a database by restoring a geo-replicated backup. sourceDatabaseId must be specified as the recoverable database resource ID to restore.
-
-        Restore: Creates a database by restoring a backup of a deleted database. sourceDatabaseId must be specified. If sourceDatabaseId is the database's original resource ID, then sourceDatabaseDeletionDate must be specified. Otherwise sourceDatabaseId must be the restorable dropped database resource ID and sourceDatabaseDeletionDate is ignored. restorePointInTime may also be specified to restore from an earlier point in time.
-
-        RestoreLongTermRetentionBackup: Creates a database by restoring from a long term retention vault. recoveryServicesRecoveryPointResourceId must be specified as the recovery point resource ID.
-
-        Copy, NonReadableSecondary, OnlineSecondary and RestoreLongTermRetentionBackup are not supported for DataWarehouse edition.
-        """
-        return pulumi.get(self, "create_mode")
 
     @property
     @pulumi.getter(name="creationDate")
@@ -377,14 +347,6 @@ class Database(pulumi.CustomResource):
         return pulumi.get(self, "recommended_index")
 
     @property
-    @pulumi.getter(name="recoveryServicesRecoveryPointResourceId")
-    def recovery_services_recovery_point_resource_id(self) -> pulumi.Output[Optional[str]]:
-        """
-        Conditional. If createMode is RestoreLongTermRetentionBackup, then this value is required. Specifies the resource ID of the recovery point to restore from.
-        """
-        return pulumi.get(self, "recovery_services_recovery_point_resource_id")
-
-    @property
     @pulumi.getter(name="requestedServiceObjectiveId")
     def requested_service_objective_id(self) -> pulumi.Output[Optional[str]]:
         """
@@ -413,22 +375,6 @@ class Database(pulumi.CustomResource):
         return pulumi.get(self, "requested_service_objective_name")
 
     @property
-    @pulumi.getter(name="restorePointInTime")
-    def restore_point_in_time(self) -> pulumi.Output[Optional[str]]:
-        """
-        Conditional. If createMode is PointInTimeRestore, this value is required. If createMode is Restore, this value is optional. Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. Must be greater than or equal to the source database's earliestRestoreDate value.
-        """
-        return pulumi.get(self, "restore_point_in_time")
-
-    @property
-    @pulumi.getter(name="sampleName")
-    def sample_name(self) -> pulumi.Output[Optional[str]]:
-        """
-        Indicates the name of the sample schema to apply when creating this database. If createMode is not Default, this value is ignored. Not supported for DataWarehouse edition.
-        """
-        return pulumi.get(self, "sample_name")
-
-    @property
     @pulumi.getter(name="serviceLevelObjective")
     def service_level_objective(self) -> pulumi.Output[str]:
         """
@@ -443,22 +389,6 @@ class Database(pulumi.CustomResource):
         The list of service tier advisors for this database. Expanded property
         """
         return pulumi.get(self, "service_tier_advisors")
-
-    @property
-    @pulumi.getter(name="sourceDatabaseDeletionDate")
-    def source_database_deletion_date(self) -> pulumi.Output[Optional[str]]:
-        """
-        Conditional. If createMode is Restore and sourceDatabaseId is the deleted database's original resource id when it existed (as opposed to its current restorable dropped database id), then this value is required. Specifies the time that the database was deleted.
-        """
-        return pulumi.get(self, "source_database_deletion_date")
-
-    @property
-    @pulumi.getter(name="sourceDatabaseId")
-    def source_database_id(self) -> pulumi.Output[Optional[str]]:
-        """
-        Conditional. If createMode is Copy, NonReadableSecondary, OnlineSecondary, PointInTimeRestore, Recovery, or Restore, then this value is required. Specifies the resource ID of the source database. If createMode is NonReadableSecondary or OnlineSecondary, the name of the source database must be the same as the new database being created.
-        """
-        return pulumi.get(self, "source_database_id")
 
     @property
     @pulumi.getter

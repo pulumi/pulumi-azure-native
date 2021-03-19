@@ -20,7 +20,7 @@ class GetDatabaseResult:
     """
     A database resource.
     """
-    def __init__(__self__, auto_pause_delay=None, catalog_collation=None, collation=None, create_mode=None, creation_date=None, current_service_objective_name=None, current_sku=None, database_id=None, default_secondary_location=None, earliest_restore_date=None, elastic_pool_id=None, failover_group_id=None, id=None, kind=None, license_type=None, location=None, long_term_retention_backup_resource_id=None, managed_by=None, max_log_size_bytes=None, max_size_bytes=None, min_capacity=None, name=None, paused_date=None, read_replica_count=None, read_scale=None, recoverable_database_id=None, recovery_services_recovery_point_id=None, requested_service_objective_name=None, restorable_dropped_database_id=None, restore_point_in_time=None, resumed_date=None, sample_name=None, sku=None, source_database_deletion_date=None, source_database_id=None, status=None, storage_account_type=None, tags=None, type=None, zone_redundant=None):
+    def __init__(__self__, auto_pause_delay=None, catalog_collation=None, collation=None, creation_date=None, current_service_objective_name=None, current_sku=None, database_id=None, default_secondary_location=None, earliest_restore_date=None, elastic_pool_id=None, failover_group_id=None, id=None, kind=None, license_type=None, location=None, managed_by=None, max_log_size_bytes=None, max_size_bytes=None, min_capacity=None, name=None, paused_date=None, read_replica_count=None, read_scale=None, requested_service_objective_name=None, resumed_date=None, sku=None, status=None, storage_account_type=None, tags=None, type=None, zone_redundant=None):
         if auto_pause_delay and not isinstance(auto_pause_delay, int):
             raise TypeError("Expected argument 'auto_pause_delay' to be a int")
         pulumi.set(__self__, "auto_pause_delay", auto_pause_delay)
@@ -30,9 +30,6 @@ class GetDatabaseResult:
         if collation and not isinstance(collation, str):
             raise TypeError("Expected argument 'collation' to be a str")
         pulumi.set(__self__, "collation", collation)
-        if create_mode and not isinstance(create_mode, str):
-            raise TypeError("Expected argument 'create_mode' to be a str")
-        pulumi.set(__self__, "create_mode", create_mode)
         if creation_date and not isinstance(creation_date, str):
             raise TypeError("Expected argument 'creation_date' to be a str")
         pulumi.set(__self__, "creation_date", creation_date)
@@ -69,9 +66,6 @@ class GetDatabaseResult:
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
-        if long_term_retention_backup_resource_id and not isinstance(long_term_retention_backup_resource_id, str):
-            raise TypeError("Expected argument 'long_term_retention_backup_resource_id' to be a str")
-        pulumi.set(__self__, "long_term_retention_backup_resource_id", long_term_retention_backup_resource_id)
         if managed_by and not isinstance(managed_by, str):
             raise TypeError("Expected argument 'managed_by' to be a str")
         pulumi.set(__self__, "managed_by", managed_by)
@@ -96,36 +90,15 @@ class GetDatabaseResult:
         if read_scale and not isinstance(read_scale, str):
             raise TypeError("Expected argument 'read_scale' to be a str")
         pulumi.set(__self__, "read_scale", read_scale)
-        if recoverable_database_id and not isinstance(recoverable_database_id, str):
-            raise TypeError("Expected argument 'recoverable_database_id' to be a str")
-        pulumi.set(__self__, "recoverable_database_id", recoverable_database_id)
-        if recovery_services_recovery_point_id and not isinstance(recovery_services_recovery_point_id, str):
-            raise TypeError("Expected argument 'recovery_services_recovery_point_id' to be a str")
-        pulumi.set(__self__, "recovery_services_recovery_point_id", recovery_services_recovery_point_id)
         if requested_service_objective_name and not isinstance(requested_service_objective_name, str):
             raise TypeError("Expected argument 'requested_service_objective_name' to be a str")
         pulumi.set(__self__, "requested_service_objective_name", requested_service_objective_name)
-        if restorable_dropped_database_id and not isinstance(restorable_dropped_database_id, str):
-            raise TypeError("Expected argument 'restorable_dropped_database_id' to be a str")
-        pulumi.set(__self__, "restorable_dropped_database_id", restorable_dropped_database_id)
-        if restore_point_in_time and not isinstance(restore_point_in_time, str):
-            raise TypeError("Expected argument 'restore_point_in_time' to be a str")
-        pulumi.set(__self__, "restore_point_in_time", restore_point_in_time)
         if resumed_date and not isinstance(resumed_date, str):
             raise TypeError("Expected argument 'resumed_date' to be a str")
         pulumi.set(__self__, "resumed_date", resumed_date)
-        if sample_name and not isinstance(sample_name, str):
-            raise TypeError("Expected argument 'sample_name' to be a str")
-        pulumi.set(__self__, "sample_name", sample_name)
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
-        if source_database_deletion_date and not isinstance(source_database_deletion_date, str):
-            raise TypeError("Expected argument 'source_database_deletion_date' to be a str")
-        pulumi.set(__self__, "source_database_deletion_date", source_database_deletion_date)
-        if source_database_id and not isinstance(source_database_id, str):
-            raise TypeError("Expected argument 'source_database_id' to be a str")
-        pulumi.set(__self__, "source_database_id", source_database_id)
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
@@ -165,30 +138,6 @@ class GetDatabaseResult:
         The collation of the database.
         """
         return pulumi.get(self, "collation")
-
-    @property
-    @pulumi.getter(name="createMode")
-    def create_mode(self) -> Optional[str]:
-        """
-        Specifies the mode of database creation.
-        
-        Default: regular database creation.
-        
-        Copy: creates a database as a copy of an existing database. sourceDatabaseId must be specified as the resource ID of the source database.
-        
-        Secondary: creates a database as a secondary replica of an existing database. sourceDatabaseId must be specified as the resource ID of the existing primary database.
-        
-        PointInTimeRestore: Creates a database by restoring a point in time backup of an existing database. sourceDatabaseId must be specified as the resource ID of the existing database, and restorePointInTime must be specified.
-        
-        Recovery: Creates a database by restoring a geo-replicated backup. sourceDatabaseId must be specified as the recoverable database resource ID to restore.
-        
-        Restore: Creates a database by restoring a backup of a deleted database. sourceDatabaseId must be specified. If sourceDatabaseId is the database's original resource ID, then sourceDatabaseDeletionDate must be specified. Otherwise sourceDatabaseId must be the restorable dropped database resource ID and sourceDatabaseDeletionDate is ignored. restorePointInTime may also be specified to restore from an earlier point in time.
-        
-        RestoreLongTermRetentionBackup: Creates a database by restoring from a long term retention vault. recoveryServicesRecoveryPointResourceId must be specified as the recovery point resource ID.
-        
-        Copy, Secondary, and RestoreLongTermRetentionBackup are not supported for DataWarehouse edition.
-        """
-        return pulumi.get(self, "create_mode")
 
     @property
     @pulumi.getter(name="creationDate")
@@ -287,14 +236,6 @@ class GetDatabaseResult:
         return pulumi.get(self, "location")
 
     @property
-    @pulumi.getter(name="longTermRetentionBackupResourceId")
-    def long_term_retention_backup_resource_id(self) -> Optional[str]:
-        """
-        The resource identifier of the long term retention backup associated with create operation of this database.
-        """
-        return pulumi.get(self, "long_term_retention_backup_resource_id")
-
-    @property
     @pulumi.getter(name="managedBy")
     def managed_by(self) -> str:
         """
@@ -359,22 +300,6 @@ class GetDatabaseResult:
         return pulumi.get(self, "read_scale")
 
     @property
-    @pulumi.getter(name="recoverableDatabaseId")
-    def recoverable_database_id(self) -> Optional[str]:
-        """
-        The resource identifier of the recoverable database associated with create operation of this database.
-        """
-        return pulumi.get(self, "recoverable_database_id")
-
-    @property
-    @pulumi.getter(name="recoveryServicesRecoveryPointId")
-    def recovery_services_recovery_point_id(self) -> Optional[str]:
-        """
-        The resource identifier of the recovery point associated with create operation of this database.
-        """
-        return pulumi.get(self, "recovery_services_recovery_point_id")
-
-    @property
     @pulumi.getter(name="requestedServiceObjectiveName")
     def requested_service_objective_name(self) -> str:
         """
@@ -383,36 +308,12 @@ class GetDatabaseResult:
         return pulumi.get(self, "requested_service_objective_name")
 
     @property
-    @pulumi.getter(name="restorableDroppedDatabaseId")
-    def restorable_dropped_database_id(self) -> Optional[str]:
-        """
-        The resource identifier of the restorable dropped database associated with create operation of this database.
-        """
-        return pulumi.get(self, "restorable_dropped_database_id")
-
-    @property
-    @pulumi.getter(name="restorePointInTime")
-    def restore_point_in_time(self) -> Optional[str]:
-        """
-        Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database.
-        """
-        return pulumi.get(self, "restore_point_in_time")
-
-    @property
     @pulumi.getter(name="resumedDate")
     def resumed_date(self) -> str:
         """
         The date when database was resumed by user action or database login (ISO8601 format). Null if the database is paused.
         """
         return pulumi.get(self, "resumed_date")
-
-    @property
-    @pulumi.getter(name="sampleName")
-    def sample_name(self) -> Optional[str]:
-        """
-        The name of the sample schema to apply when creating this database.
-        """
-        return pulumi.get(self, "sample_name")
 
     @property
     @pulumi.getter
@@ -431,22 +332,6 @@ class GetDatabaseResult:
         ````
         """
         return pulumi.get(self, "sku")
-
-    @property
-    @pulumi.getter(name="sourceDatabaseDeletionDate")
-    def source_database_deletion_date(self) -> Optional[str]:
-        """
-        Specifies the time that the database was deleted.
-        """
-        return pulumi.get(self, "source_database_deletion_date")
-
-    @property
-    @pulumi.getter(name="sourceDatabaseId")
-    def source_database_id(self) -> Optional[str]:
-        """
-        The resource identifier of the source database associated with create operation of this database.
-        """
-        return pulumi.get(self, "source_database_id")
 
     @property
     @pulumi.getter
@@ -498,7 +383,6 @@ class AwaitableGetDatabaseResult(GetDatabaseResult):
             auto_pause_delay=self.auto_pause_delay,
             catalog_collation=self.catalog_collation,
             collation=self.collation,
-            create_mode=self.create_mode,
             creation_date=self.creation_date,
             current_service_objective_name=self.current_service_objective_name,
             current_sku=self.current_sku,
@@ -511,7 +395,6 @@ class AwaitableGetDatabaseResult(GetDatabaseResult):
             kind=self.kind,
             license_type=self.license_type,
             location=self.location,
-            long_term_retention_backup_resource_id=self.long_term_retention_backup_resource_id,
             managed_by=self.managed_by,
             max_log_size_bytes=self.max_log_size_bytes,
             max_size_bytes=self.max_size_bytes,
@@ -520,16 +403,9 @@ class AwaitableGetDatabaseResult(GetDatabaseResult):
             paused_date=self.paused_date,
             read_replica_count=self.read_replica_count,
             read_scale=self.read_scale,
-            recoverable_database_id=self.recoverable_database_id,
-            recovery_services_recovery_point_id=self.recovery_services_recovery_point_id,
             requested_service_objective_name=self.requested_service_objective_name,
-            restorable_dropped_database_id=self.restorable_dropped_database_id,
-            restore_point_in_time=self.restore_point_in_time,
             resumed_date=self.resumed_date,
-            sample_name=self.sample_name,
             sku=self.sku,
-            source_database_deletion_date=self.source_database_deletion_date,
-            source_database_id=self.source_database_id,
             status=self.status,
             storage_account_type=self.storage_account_type,
             tags=self.tags,
@@ -563,7 +439,6 @@ def get_database(database_name: Optional[str] = None,
         auto_pause_delay=__ret__.auto_pause_delay,
         catalog_collation=__ret__.catalog_collation,
         collation=__ret__.collation,
-        create_mode=__ret__.create_mode,
         creation_date=__ret__.creation_date,
         current_service_objective_name=__ret__.current_service_objective_name,
         current_sku=__ret__.current_sku,
@@ -576,7 +451,6 @@ def get_database(database_name: Optional[str] = None,
         kind=__ret__.kind,
         license_type=__ret__.license_type,
         location=__ret__.location,
-        long_term_retention_backup_resource_id=__ret__.long_term_retention_backup_resource_id,
         managed_by=__ret__.managed_by,
         max_log_size_bytes=__ret__.max_log_size_bytes,
         max_size_bytes=__ret__.max_size_bytes,
@@ -585,16 +459,9 @@ def get_database(database_name: Optional[str] = None,
         paused_date=__ret__.paused_date,
         read_replica_count=__ret__.read_replica_count,
         read_scale=__ret__.read_scale,
-        recoverable_database_id=__ret__.recoverable_database_id,
-        recovery_services_recovery_point_id=__ret__.recovery_services_recovery_point_id,
         requested_service_objective_name=__ret__.requested_service_objective_name,
-        restorable_dropped_database_id=__ret__.restorable_dropped_database_id,
-        restore_point_in_time=__ret__.restore_point_in_time,
         resumed_date=__ret__.resumed_date,
-        sample_name=__ret__.sample_name,
         sku=__ret__.sku,
-        source_database_deletion_date=__ret__.source_database_deletion_date,
-        source_database_id=__ret__.source_database_id,
         status=__ret__.status,
         storage_account_type=__ret__.storage_account_type,
         tags=__ret__.tags,

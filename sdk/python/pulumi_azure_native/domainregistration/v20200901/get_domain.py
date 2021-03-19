@@ -20,28 +20,13 @@ class GetDomainResult:
     """
     Information about a domain.
     """
-    def __init__(__self__, auth_code=None, auto_renew=None, consent=None, contact_admin=None, contact_billing=None, contact_registrant=None, contact_tech=None, created_time=None, dns_type=None, dns_zone_id=None, domain_not_renewable_reasons=None, expiration_time=None, id=None, kind=None, last_renewed_time=None, location=None, managed_host_names=None, name=None, name_servers=None, privacy=None, provisioning_state=None, ready_for_dns_record_management=None, registration_status=None, system_data=None, tags=None, target_dns_type=None, type=None):
+    def __init__(__self__, auth_code=None, auto_renew=None, created_time=None, dns_type=None, dns_zone_id=None, domain_not_renewable_reasons=None, expiration_time=None, id=None, kind=None, last_renewed_time=None, location=None, managed_host_names=None, name=None, name_servers=None, privacy=None, provisioning_state=None, ready_for_dns_record_management=None, registration_status=None, system_data=None, tags=None, target_dns_type=None, type=None):
         if auth_code and not isinstance(auth_code, str):
             raise TypeError("Expected argument 'auth_code' to be a str")
         pulumi.set(__self__, "auth_code", auth_code)
         if auto_renew and not isinstance(auto_renew, bool):
             raise TypeError("Expected argument 'auto_renew' to be a bool")
         pulumi.set(__self__, "auto_renew", auto_renew)
-        if consent and not isinstance(consent, dict):
-            raise TypeError("Expected argument 'consent' to be a dict")
-        pulumi.set(__self__, "consent", consent)
-        if contact_admin and not isinstance(contact_admin, dict):
-            raise TypeError("Expected argument 'contact_admin' to be a dict")
-        pulumi.set(__self__, "contact_admin", contact_admin)
-        if contact_billing and not isinstance(contact_billing, dict):
-            raise TypeError("Expected argument 'contact_billing' to be a dict")
-        pulumi.set(__self__, "contact_billing", contact_billing)
-        if contact_registrant and not isinstance(contact_registrant, dict):
-            raise TypeError("Expected argument 'contact_registrant' to be a dict")
-        pulumi.set(__self__, "contact_registrant", contact_registrant)
-        if contact_tech and not isinstance(contact_tech, dict):
-            raise TypeError("Expected argument 'contact_tech' to be a dict")
-        pulumi.set(__self__, "contact_tech", contact_tech)
         if created_time and not isinstance(created_time, str):
             raise TypeError("Expected argument 'created_time' to be a str")
         pulumi.set(__self__, "created_time", created_time)
@@ -115,46 +100,6 @@ class GetDomainResult:
         <code>true</code> if the domain should be automatically renewed; otherwise, <code>false</code>.
         """
         return pulumi.get(self, "auto_renew")
-
-    @property
-    @pulumi.getter
-    def consent(self) -> 'outputs.DomainPurchaseConsentResponse':
-        """
-        Legal agreement consent.
-        """
-        return pulumi.get(self, "consent")
-
-    @property
-    @pulumi.getter(name="contactAdmin")
-    def contact_admin(self) -> 'outputs.ContactResponse':
-        """
-        Administrative contact.
-        """
-        return pulumi.get(self, "contact_admin")
-
-    @property
-    @pulumi.getter(name="contactBilling")
-    def contact_billing(self) -> 'outputs.ContactResponse':
-        """
-        Billing contact.
-        """
-        return pulumi.get(self, "contact_billing")
-
-    @property
-    @pulumi.getter(name="contactRegistrant")
-    def contact_registrant(self) -> 'outputs.ContactResponse':
-        """
-        Registrant contact.
-        """
-        return pulumi.get(self, "contact_registrant")
-
-    @property
-    @pulumi.getter(name="contactTech")
-    def contact_tech(self) -> 'outputs.ContactResponse':
-        """
-        Technical contact.
-        """
-        return pulumi.get(self, "contact_tech")
 
     @property
     @pulumi.getter(name="createdTime")
@@ -326,11 +271,6 @@ class AwaitableGetDomainResult(GetDomainResult):
         return GetDomainResult(
             auth_code=self.auth_code,
             auto_renew=self.auto_renew,
-            consent=self.consent,
-            contact_admin=self.contact_admin,
-            contact_billing=self.contact_billing,
-            contact_registrant=self.contact_registrant,
-            contact_tech=self.contact_tech,
             created_time=self.created_time,
             dns_type=self.dns_type,
             dns_zone_id=self.dns_zone_id,
@@ -375,11 +315,6 @@ def get_domain(domain_name: Optional[str] = None,
     return AwaitableGetDomainResult(
         auth_code=__ret__.auth_code,
         auto_renew=__ret__.auto_renew,
-        consent=__ret__.consent,
-        contact_admin=__ret__.contact_admin,
-        contact_billing=__ret__.contact_billing,
-        contact_registrant=__ret__.contact_registrant,
-        contact_tech=__ret__.contact_tech,
         created_time=__ret__.created_time,
         dns_type=__ret__.dns_type,
         dns_zone_id=__ret__.dns_zone_id,

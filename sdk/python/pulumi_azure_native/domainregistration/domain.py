@@ -144,11 +144,6 @@ class Domain(pulumi.CustomResource):
 
         __props__["auth_code"] = None
         __props__["auto_renew"] = None
-        __props__["consent"] = None
-        __props__["contact_admin"] = None
-        __props__["contact_billing"] = None
-        __props__["contact_registrant"] = None
-        __props__["contact_tech"] = None
         __props__["created_time"] = None
         __props__["dns_type"] = None
         __props__["dns_zone_id"] = None
@@ -182,46 +177,6 @@ class Domain(pulumi.CustomResource):
         <code>true</code> if the domain should be automatically renewed; otherwise, <code>false</code>.
         """
         return pulumi.get(self, "auto_renew")
-
-    @property
-    @pulumi.getter
-    def consent(self) -> pulumi.Output['outputs.DomainPurchaseConsentResponse']:
-        """
-        Legal agreement consent.
-        """
-        return pulumi.get(self, "consent")
-
-    @property
-    @pulumi.getter(name="contactAdmin")
-    def contact_admin(self) -> pulumi.Output['outputs.ContactResponse']:
-        """
-        Administrative contact.
-        """
-        return pulumi.get(self, "contact_admin")
-
-    @property
-    @pulumi.getter(name="contactBilling")
-    def contact_billing(self) -> pulumi.Output['outputs.ContactResponse']:
-        """
-        Billing contact.
-        """
-        return pulumi.get(self, "contact_billing")
-
-    @property
-    @pulumi.getter(name="contactRegistrant")
-    def contact_registrant(self) -> pulumi.Output['outputs.ContactResponse']:
-        """
-        Registrant contact.
-        """
-        return pulumi.get(self, "contact_registrant")
-
-    @property
-    @pulumi.getter(name="contactTech")
-    def contact_tech(self) -> pulumi.Output['outputs.ContactResponse']:
-        """
-        Technical contact.
-        """
-        return pulumi.get(self, "contact_tech")
 
     @property
     @pulumi.getter(name="createdTime")

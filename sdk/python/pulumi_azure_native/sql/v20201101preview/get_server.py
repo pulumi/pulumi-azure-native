@@ -20,13 +20,10 @@ class GetServerResult:
     """
     An Azure SQL Database server.
     """
-    def __init__(__self__, administrator_login=None, administrator_login_password=None, administrators=None, encryption_identity_id=None, fully_qualified_domain_name=None, id=None, identity=None, key_id=None, kind=None, location=None, minimal_tls_version=None, name=None, private_endpoint_connections=None, public_network_access=None, state=None, tags=None, type=None, version=None, workspace_feature=None):
+    def __init__(__self__, administrator_login=None, administrators=None, encryption_identity_id=None, fully_qualified_domain_name=None, id=None, identity=None, key_id=None, kind=None, location=None, minimal_tls_version=None, name=None, private_endpoint_connections=None, public_network_access=None, state=None, tags=None, type=None, version=None, workspace_feature=None):
         if administrator_login and not isinstance(administrator_login, str):
             raise TypeError("Expected argument 'administrator_login' to be a str")
         pulumi.set(__self__, "administrator_login", administrator_login)
-        if administrator_login_password and not isinstance(administrator_login_password, str):
-            raise TypeError("Expected argument 'administrator_login_password' to be a str")
-        pulumi.set(__self__, "administrator_login_password", administrator_login_password)
         if administrators and not isinstance(administrators, dict):
             raise TypeError("Expected argument 'administrators' to be a dict")
         pulumi.set(__self__, "administrators", administrators)
@@ -86,14 +83,6 @@ class GetServerResult:
         Administrator username for the server. Once created it cannot be changed.
         """
         return pulumi.get(self, "administrator_login")
-
-    @property
-    @pulumi.getter(name="administratorLoginPassword")
-    def administrator_login_password(self) -> Optional[str]:
-        """
-        The administrator login password (required for server creation).
-        """
-        return pulumi.get(self, "administrator_login_password")
 
     @property
     @pulumi.getter
@@ -239,7 +228,6 @@ class AwaitableGetServerResult(GetServerResult):
             yield self
         return GetServerResult(
             administrator_login=self.administrator_login,
-            administrator_login_password=self.administrator_login_password,
             administrators=self.administrators,
             encryption_identity_id=self.encryption_identity_id,
             fully_qualified_domain_name=self.fully_qualified_domain_name,
@@ -283,7 +271,6 @@ def get_server(expand: Optional[str] = None,
 
     return AwaitableGetServerResult(
         administrator_login=__ret__.administrator_login,
-        administrator_login_password=__ret__.administrator_login_password,
         administrators=__ret__.administrators,
         encryption_identity_id=__ret__.encryption_identity_id,
         fully_qualified_domain_name=__ret__.fully_qualified_domain_name,

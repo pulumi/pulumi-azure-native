@@ -135,7 +135,6 @@ class Certificate(pulumi.CustomResource):
         __props__["kind"] = None
         __props__["location"] = None
         __props__["name"] = None
-        __props__["password"] = None
         __props__["pfx_blob"] = None
         __props__["public_key_hash"] = None
         __props__["self_link"] = None
@@ -260,14 +259,6 @@ class Certificate(pulumi.CustomResource):
         Resource Name.
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def password(self) -> pulumi.Output[str]:
-        """
-        Certificate password.
-        """
-        return pulumi.get(self, "password")
 
     @property
     @pulumi.getter(name="pfxBlob")

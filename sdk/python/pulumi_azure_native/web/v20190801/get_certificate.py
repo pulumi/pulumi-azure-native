@@ -20,7 +20,7 @@ class GetCertificateResult:
     """
     SSL certificate for an app.
     """
-    def __init__(__self__, canonical_name=None, cer_blob=None, expiration_date=None, friendly_name=None, host_names=None, hosting_environment_profile=None, id=None, issue_date=None, issuer=None, key_vault_id=None, key_vault_secret_name=None, key_vault_secret_status=None, kind=None, location=None, name=None, password=None, pfx_blob=None, public_key_hash=None, self_link=None, server_farm_id=None, site_name=None, subject_name=None, tags=None, thumbprint=None, type=None, valid=None):
+    def __init__(__self__, canonical_name=None, cer_blob=None, expiration_date=None, friendly_name=None, host_names=None, hosting_environment_profile=None, id=None, issue_date=None, issuer=None, key_vault_id=None, key_vault_secret_name=None, key_vault_secret_status=None, kind=None, location=None, name=None, pfx_blob=None, public_key_hash=None, self_link=None, server_farm_id=None, site_name=None, subject_name=None, tags=None, thumbprint=None, type=None, valid=None):
         if canonical_name and not isinstance(canonical_name, str):
             raise TypeError("Expected argument 'canonical_name' to be a str")
         pulumi.set(__self__, "canonical_name", canonical_name)
@@ -66,9 +66,6 @@ class GetCertificateResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if password and not isinstance(password, str):
-            raise TypeError("Expected argument 'password' to be a str")
-        pulumi.set(__self__, "password", password)
         if pfx_blob and not isinstance(pfx_blob, str):
             raise TypeError("Expected argument 'pfx_blob' to be a str")
         pulumi.set(__self__, "pfx_blob", pfx_blob)
@@ -221,14 +218,6 @@ class GetCertificateResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter
-    def password(self) -> str:
-        """
-        Certificate password.
-        """
-        return pulumi.get(self, "password")
-
-    @property
     @pulumi.getter(name="pfxBlob")
     def pfx_blob(self) -> Optional[str]:
         """
@@ -330,7 +319,6 @@ class AwaitableGetCertificateResult(GetCertificateResult):
             kind=self.kind,
             location=self.location,
             name=self.name,
-            password=self.password,
             pfx_blob=self.pfx_blob,
             public_key_hash=self.public_key_hash,
             self_link=self.self_link,
@@ -378,7 +366,6 @@ def get_certificate(name: Optional[str] = None,
         kind=__ret__.kind,
         location=__ret__.location,
         name=__ret__.name,
-        password=__ret__.password,
         pfx_blob=__ret__.pfx_blob,
         public_key_hash=__ret__.public_key_hash,
         self_link=__ret__.self_link,
