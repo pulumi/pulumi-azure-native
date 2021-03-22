@@ -76,6 +76,7 @@ import * as digitaltwins from "./digitaltwins";
 import * as documentdb from "./documentdb";
 import * as domainregistration from "./domainregistration";
 import * as edgeorder from "./edgeorder";
+import * as elastic from "./elastic";
 import * as engagementfabric from "./engagementfabric";
 import * as enterpriseknowledgegraph from "./enterpriseknowledgegraph";
 import * as eventgrid from "./eventgrid";
@@ -240,6 +241,7 @@ export {
     documentdb,
     domainregistration,
     edgeorder,
+    elastic,
     engagementfabric,
     enterpriseknowledgegraph,
     eventgrid,

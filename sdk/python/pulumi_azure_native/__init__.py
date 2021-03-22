@@ -75,6 +75,7 @@ from . import (
     documentdb,
     domainregistration,
     edgeorder,
+    elastic,
     engagementfabric,
     enterpriseknowledgegraph,
     eventgrid,

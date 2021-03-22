@@ -35,6 +35,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewManagedPrivateEndpoint(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:datafactory:Pipeline":
 		r, err = NewPipeline(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-native:datafactory:PrivateEndpointConnection":
+		r, err = NewPrivateEndpointConnection(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:datafactory:Trigger":
 		r, err = NewTrigger(ctx, name, nil, pulumi.URN_(urn))
 	default:

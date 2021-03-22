@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
+from . import outputs
 
 __all__ = ['RoleManagementPolicyAssignment']
 
@@ -57,6 +58,7 @@ class RoleManagementPolicyAssignment(pulumi.CustomResource):
                 raise TypeError("Missing required property 'scope'")
             __props__['scope'] = scope
             __props__['name'] = None
+            __props__['policy_assignment_properties'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:authorization:RoleManagementPolicyAssignment"), pulumi.Alias(type_="azure-native:authorization/v20201001preview:RoleManagementPolicyAssignment"), pulumi.Alias(type_="azure-nextgen:authorization/v20201001preview:RoleManagementPolicyAssignment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -83,6 +85,7 @@ class RoleManagementPolicyAssignment(pulumi.CustomResource):
         __props__ = dict()
 
         __props__["name"] = None
+        __props__["policy_assignment_properties"] = None
         __props__["policy_id"] = None
         __props__["role_definition_id"] = None
         __props__["scope"] = None
@@ -96,6 +99,14 @@ class RoleManagementPolicyAssignment(pulumi.CustomResource):
         The role management policy name.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="policyAssignmentProperties")
+    def policy_assignment_properties(self) -> pulumi.Output['outputs.PolicyAssignmentPropertiesResponse']:
+        """
+        Additional properties of scope, role definition and policy
+        """
+        return pulumi.get(self, "policy_assignment_properties")
 
     @property
     @pulumi.getter(name="policyId")

@@ -30,6 +30,8 @@ type LookupRoleManagementPolicyAssignmentResult struct {
 	Id string `pulumi:"id"`
 	// The role management policy name.
 	Name string `pulumi:"name"`
+	// Additional properties of scope, role definition and policy
+	PolicyAssignmentProperties PolicyAssignmentPropertiesResponse `pulumi:"policyAssignmentProperties"`
 	// The policy id role management policy assignment.
 	PolicyId *string `pulumi:"policyId"`
 	// The role definition of management policy assignment.

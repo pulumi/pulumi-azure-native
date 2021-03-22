@@ -380,6 +380,8 @@ __all__ = [
     'PrestoLinkedServiceArgs',
     'PrestoObjectDatasetArgs',
     'PrestoSourceArgs',
+    'PrivateLinkConnectionApprovalRequestArgs',
+    'PrivateLinkConnectionStateArgs',
     'QuickBooksLinkedServiceArgs',
     'QuickBooksObjectDatasetArgs',
     'QuickBooksSourceArgs',
@@ -52084,6 +52086,86 @@ class PrestoSourceArgs:
     @source_retry_wait.setter
     def source_retry_wait(self, value: Optional[Any]):
         pulumi.set(self, "source_retry_wait", value)
+
+
+@pulumi.input_type
+class PrivateLinkConnectionApprovalRequestArgs:
+    def __init__(__self__, *,
+                 private_link_service_connection_state: Optional[pulumi.Input['PrivateLinkConnectionStateArgs']] = None):
+        """
+        A request to approve or reject a private endpoint connection
+        :param pulumi.Input['PrivateLinkConnectionStateArgs'] private_link_service_connection_state: The state of a private link connection
+        """
+        if private_link_service_connection_state is not None:
+            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+
+    @property
+    @pulumi.getter(name="privateLinkServiceConnectionState")
+    def private_link_service_connection_state(self) -> Optional[pulumi.Input['PrivateLinkConnectionStateArgs']]:
+        """
+        The state of a private link connection
+        """
+        return pulumi.get(self, "private_link_service_connection_state")
+
+    @private_link_service_connection_state.setter
+    def private_link_service_connection_state(self, value: Optional[pulumi.Input['PrivateLinkConnectionStateArgs']]):
+        pulumi.set(self, "private_link_service_connection_state", value)
+
+
+@pulumi.input_type
+class PrivateLinkConnectionStateArgs:
+    def __init__(__self__, *,
+                 actions_required: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[str]] = None):
+        """
+        The state of a private link connection
+        :param pulumi.Input[str] actions_required: ActionsRequired for a private link connection
+        :param pulumi.Input[str] description: Description of a private link connection
+        :param pulumi.Input[str] status: Status of a private link connection
+        """
+        if actions_required is not None:
+            pulumi.set(__self__, "actions_required", actions_required)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="actionsRequired")
+    def actions_required(self) -> Optional[pulumi.Input[str]]:
+        """
+        ActionsRequired for a private link connection
+        """
+        return pulumi.get(self, "actions_required")
+
+    @actions_required.setter
+    def actions_required(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "actions_required", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of a private link connection
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Status of a private link connection
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status", value)
 
 
 @pulumi.input_type

@@ -125,6 +125,8 @@ namespace Pulumi.AzureNative.Aad.V20170601
                     new Pulumi.Alias { Type = "azure-nextgen:aad/latest:OuContainer"},
                     new Pulumi.Alias { Type = "azure-native:aad/v20200101:OuContainer"},
                     new Pulumi.Alias { Type = "azure-nextgen:aad/v20200101:OuContainer"},
+                    new Pulumi.Alias { Type = "azure-native:aad/v20210301:OuContainer"},
+                    new Pulumi.Alias { Type = "azure-nextgen:aad/v20210301:OuContainer"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

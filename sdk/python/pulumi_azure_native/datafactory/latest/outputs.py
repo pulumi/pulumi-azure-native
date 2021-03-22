@@ -28,6 +28,7 @@ __all__ = [
     'AmazonS3LocationResponse',
     'AmazonS3ReadSettingsResponse',
     'AppendVariableActivityResponse',
+    'ArmIdWrapperResponse',
     'AvroDatasetResponse',
     'AvroFormatResponse',
     'AvroSinkResponse',
@@ -387,6 +388,7 @@ __all__ = [
     'PrestoLinkedServiceResponse',
     'PrestoObjectDatasetResponse',
     'PrestoSourceResponse',
+    'PrivateLinkConnectionStateResponse',
     'QuickBooksLinkedServiceResponse',
     'QuickBooksObjectDatasetResponse',
     'QuickBooksSourceResponse',
@@ -396,6 +398,7 @@ __all__ = [
     'RedshiftUnloadSettingsResponse',
     'RelationalSourceResponse',
     'RelationalTableDatasetResponse',
+    'RemotePrivateEndpointConnectionResponse',
     'RerunTumblingWindowTriggerResponse',
     'ResponsysLinkedServiceResponse',
     'ResponsysObjectDatasetResponse',
@@ -2547,6 +2550,27 @@ class AppendVariableActivityResponse(dict):
         Name of the variable whose value needs to be appended to.
         """
         return pulumi.get(self, "variable_name")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ArmIdWrapperResponse(dict):
+    """
+    A wrapper for an ARM resource id
+    """
+    def __init__(__self__, *,
+                 id: str):
+        """
+        A wrapper for an ARM resource id
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        return pulumi.get(self, "id")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -42674,6 +42698,56 @@ class PrestoSourceResponse(dict):
 
 
 @pulumi.output_type
+class PrivateLinkConnectionStateResponse(dict):
+    """
+    The state of a private link connection
+    """
+    def __init__(__self__, *,
+                 actions_required: Optional[str] = None,
+                 description: Optional[str] = None,
+                 status: Optional[str] = None):
+        """
+        The state of a private link connection
+        :param str actions_required: ActionsRequired for a private link connection
+        :param str description: Description of a private link connection
+        :param str status: Status of a private link connection
+        """
+        if actions_required is not None:
+            pulumi.set(__self__, "actions_required", actions_required)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="actionsRequired")
+    def actions_required(self) -> Optional[str]:
+        """
+        ActionsRequired for a private link connection
+        """
+        return pulumi.get(self, "actions_required")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Description of a private link connection
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        Status of a private link connection
+        """
+        return pulumi.get(self, "status")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class QuickBooksLinkedServiceResponse(dict):
     """
     QuickBooks server linked service.
@@ -43466,6 +43540,51 @@ class RelationalTableDatasetResponse(dict):
         The relational table name. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "table_name")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class RemotePrivateEndpointConnectionResponse(dict):
+    """
+    A remote private endpoint connection
+    """
+    def __init__(__self__, *,
+                 provisioning_state: str,
+                 private_endpoint: Optional['outputs.ArmIdWrapperResponse'] = None,
+                 private_link_service_connection_state: Optional['outputs.PrivateLinkConnectionStateResponse'] = None):
+        """
+        A remote private endpoint connection
+        :param 'ArmIdWrapperResponseArgs' private_endpoint: PrivateEndpoint of a remote private endpoint connection
+        :param 'PrivateLinkConnectionStateResponseArgs' private_link_service_connection_state: The state of a private link connection
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if private_endpoint is not None:
+            pulumi.set(__self__, "private_endpoint", private_endpoint)
+        if private_link_service_connection_state is not None:
+            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> Optional['outputs.ArmIdWrapperResponse']:
+        """
+        PrivateEndpoint of a remote private endpoint connection
+        """
+        return pulumi.get(self, "private_endpoint")
+
+    @property
+    @pulumi.getter(name="privateLinkServiceConnectionState")
+    def private_link_service_connection_state(self) -> Optional['outputs.PrivateLinkConnectionStateResponse']:
+        """
+        The state of a private link connection
+        """
+        return pulumi.get(self, "private_link_service_connection_state")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

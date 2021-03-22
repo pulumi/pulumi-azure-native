@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The Setting.
- * API Version: 2019-01-01-preview.
+ * API Version: 2021-03-01-preview.
  */
 export class ProductSetting extends pulumi.CustomResource {
     /**
@@ -49,6 +49,10 @@ export class ProductSetting extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.securityinsights.SystemDataResponse>;
+    /**
      * Azure resource type
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -83,11 +87,13 @@ export class ProductSetting extends pulumi.CustomResource {
             inputs["settingsName"] = args ? args.settingsName : undefined;
             inputs["workspaceName"] = args ? args.workspaceName : undefined;
             inputs["name"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["etag"] = undefined /*out*/;
             inputs["kind"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -116,7 +122,7 @@ export interface ProductSettingArgs {
      */
     readonly operationalInsightsResourceProvider: pulumi.Input<string>;
     /**
-     * The name of the resource group within the user's subscription. The name is case insensitive.
+     * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**

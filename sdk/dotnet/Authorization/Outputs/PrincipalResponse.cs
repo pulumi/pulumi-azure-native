@@ -14,20 +14,34 @@ namespace Pulumi.AzureNative.Authorization.Outputs
     public sealed class PrincipalResponse
     {
         /// <summary>
-        /// Object ID of the Azure AD principal (user, group, or service principal) to which the deny assignment applies. An empty guid '00000000-0000-0000-0000-000000000000' as principal id and principal type as 'Everyone' represents all users, groups and service principals.
+        /// The name of the principal made changes
+        /// </summary>
+        public readonly string? DisplayName;
+        /// <summary>
+        /// Email of principal
+        /// </summary>
+        public readonly string? Email;
+        /// <summary>
+        /// The id of the principal made changes
         /// </summary>
         public readonly string? Id;
         /// <summary>
-        /// Type of object represented by principal id (user, group, or service principal). An empty guid '00000000-0000-0000-0000-000000000000' as principal id and principal type as 'Everyone' represents all users, groups and service principals.
+        /// Type of principal such as user , group etc
         /// </summary>
         public readonly string? Type;
 
         [OutputConstructor]
         private PrincipalResponse(
+            string? displayName,
+
+            string? email,
+
             string? id,
 
             string? type)
         {
+            DisplayName = displayName;
+            Email = email;
             Id = id;
             Type = type;
         }

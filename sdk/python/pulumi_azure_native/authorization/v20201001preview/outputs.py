@@ -8,699 +8,267 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
-from ._enums import *
 
 __all__ = [
-    'ApprovalSettingsResponse',
-    'ApprovalStageResponse',
-    'RoleManagementPolicyApprovalRuleResponse',
-    'RoleManagementPolicyAuthenticationContextRuleResponse',
-    'RoleManagementPolicyEnablementRuleResponse',
-    'RoleManagementPolicyExpirationRuleResponse',
-    'RoleManagementPolicyNotificationRuleResponse',
-    'RoleManagementPolicyRuleTargetResponse',
-    'SingleUserResponse',
+    'PolicyAssignmentPropertiesResponse',
+    'PolicyAssignmentPropertiesResponsePolicy',
+    'PolicyAssignmentPropertiesResponseRoleDefinition',
+    'PolicyAssignmentPropertiesResponseScope',
+    'PrincipalResponse',
 ]
 
 @pulumi.output_type
-class ApprovalSettingsResponse(dict):
-    """
-    The approval settings.
-    """
+class PolicyAssignmentPropertiesResponse(dict):
     def __init__(__self__, *,
-                 approval_mode: Optional[str] = None,
-                 approval_stages: Optional[Sequence['outputs.ApprovalStageResponse']] = None,
-                 is_approval_required: Optional[bool] = None,
-                 is_approval_required_for_extension: Optional[bool] = None,
-                 is_requestor_justification_required: Optional[bool] = None):
+                 policy: Optional['outputs.PolicyAssignmentPropertiesResponsePolicy'] = None,
+                 role_definition: Optional['outputs.PolicyAssignmentPropertiesResponseRoleDefinition'] = None,
+                 scope: Optional['outputs.PolicyAssignmentPropertiesResponseScope'] = None):
         """
-        The approval settings.
-        :param str approval_mode: The type of rule
-        :param Sequence['ApprovalStageResponseArgs'] approval_stages: The approval stages of the request.
-        :param bool is_approval_required: Determine whether approval is required or not.
-        :param bool is_approval_required_for_extension: Determine whether approval is required for assignment extension.
-        :param bool is_requestor_justification_required: Determine whether requestor justification required.
+        :param 'PolicyAssignmentPropertiesResponsePolicyArgs' policy: Details of the policy
+        :param 'PolicyAssignmentPropertiesResponseRoleDefinitionArgs' role_definition: Details of role definition
+        :param 'PolicyAssignmentPropertiesResponseScopeArgs' scope: Details of the resource scope
         """
-        if approval_mode is not None:
-            pulumi.set(__self__, "approval_mode", approval_mode)
-        if approval_stages is not None:
-            pulumi.set(__self__, "approval_stages", approval_stages)
-        if is_approval_required is not None:
-            pulumi.set(__self__, "is_approval_required", is_approval_required)
-        if is_approval_required_for_extension is not None:
-            pulumi.set(__self__, "is_approval_required_for_extension", is_approval_required_for_extension)
-        if is_requestor_justification_required is not None:
-            pulumi.set(__self__, "is_requestor_justification_required", is_requestor_justification_required)
+        if policy is not None:
+            pulumi.set(__self__, "policy", policy)
+        if role_definition is not None:
+            pulumi.set(__self__, "role_definition", role_definition)
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
 
     @property
-    @pulumi.getter(name="approvalMode")
-    def approval_mode(self) -> Optional[str]:
+    @pulumi.getter
+    def policy(self) -> Optional['outputs.PolicyAssignmentPropertiesResponsePolicy']:
         """
-        The type of rule
+        Details of the policy
         """
-        return pulumi.get(self, "approval_mode")
+        return pulumi.get(self, "policy")
 
     @property
-    @pulumi.getter(name="approvalStages")
-    def approval_stages(self) -> Optional[Sequence['outputs.ApprovalStageResponse']]:
+    @pulumi.getter(name="roleDefinition")
+    def role_definition(self) -> Optional['outputs.PolicyAssignmentPropertiesResponseRoleDefinition']:
         """
-        The approval stages of the request.
+        Details of role definition
         """
-        return pulumi.get(self, "approval_stages")
+        return pulumi.get(self, "role_definition")
 
     @property
-    @pulumi.getter(name="isApprovalRequired")
-    def is_approval_required(self) -> Optional[bool]:
+    @pulumi.getter
+    def scope(self) -> Optional['outputs.PolicyAssignmentPropertiesResponseScope']:
         """
-        Determine whether approval is required or not.
+        Details of the resource scope
         """
-        return pulumi.get(self, "is_approval_required")
-
-    @property
-    @pulumi.getter(name="isApprovalRequiredForExtension")
-    def is_approval_required_for_extension(self) -> Optional[bool]:
-        """
-        Determine whether approval is required for assignment extension.
-        """
-        return pulumi.get(self, "is_approval_required_for_extension")
-
-    @property
-    @pulumi.getter(name="isRequestorJustificationRequired")
-    def is_requestor_justification_required(self) -> Optional[bool]:
-        """
-        Determine whether requestor justification required.
-        """
-        return pulumi.get(self, "is_requestor_justification_required")
+        return pulumi.get(self, "scope")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
-class ApprovalStageResponse(dict):
+class PolicyAssignmentPropertiesResponsePolicy(dict):
     """
-    The approval stage.
-    """
-    def __init__(__self__, *,
-                 approval_stage_time_out_in_days: Optional[int] = None,
-                 escalation_approvers: Optional[Sequence['outputs.SingleUserResponse']] = None,
-                 escalation_time_in_minutes: Optional[int] = None,
-                 is_approver_justification_required: Optional[bool] = None,
-                 is_escalation_enabled: Optional[bool] = None,
-                 primary_approvers: Optional[Sequence['outputs.SingleUserResponse']] = None):
-        """
-        The approval stage.
-        :param int approval_stage_time_out_in_days: The time in days when approval request would be timed out.
-        :param Sequence['SingleUserResponseArgs'] escalation_approvers: The escalation approver of the request.
-        :param int escalation_time_in_minutes: The time in minutes when the approval request would be escalated if the primary approver does not approves.
-        :param bool is_approver_justification_required: Determine whether approver need to provide justification for his decision.
-        :param bool is_escalation_enabled: The value determine whether escalation feature is enabled.
-        :param Sequence['SingleUserResponseArgs'] primary_approvers: The primary approver of the request.
-        """
-        if approval_stage_time_out_in_days is not None:
-            pulumi.set(__self__, "approval_stage_time_out_in_days", approval_stage_time_out_in_days)
-        if escalation_approvers is not None:
-            pulumi.set(__self__, "escalation_approvers", escalation_approvers)
-        if escalation_time_in_minutes is not None:
-            pulumi.set(__self__, "escalation_time_in_minutes", escalation_time_in_minutes)
-        if is_approver_justification_required is not None:
-            pulumi.set(__self__, "is_approver_justification_required", is_approver_justification_required)
-        if is_escalation_enabled is not None:
-            pulumi.set(__self__, "is_escalation_enabled", is_escalation_enabled)
-        if primary_approvers is not None:
-            pulumi.set(__self__, "primary_approvers", primary_approvers)
-
-    @property
-    @pulumi.getter(name="approvalStageTimeOutInDays")
-    def approval_stage_time_out_in_days(self) -> Optional[int]:
-        """
-        The time in days when approval request would be timed out.
-        """
-        return pulumi.get(self, "approval_stage_time_out_in_days")
-
-    @property
-    @pulumi.getter(name="escalationApprovers")
-    def escalation_approvers(self) -> Optional[Sequence['outputs.SingleUserResponse']]:
-        """
-        The escalation approver of the request.
-        """
-        return pulumi.get(self, "escalation_approvers")
-
-    @property
-    @pulumi.getter(name="escalationTimeInMinutes")
-    def escalation_time_in_minutes(self) -> Optional[int]:
-        """
-        The time in minutes when the approval request would be escalated if the primary approver does not approves.
-        """
-        return pulumi.get(self, "escalation_time_in_minutes")
-
-    @property
-    @pulumi.getter(name="isApproverJustificationRequired")
-    def is_approver_justification_required(self) -> Optional[bool]:
-        """
-        Determine whether approver need to provide justification for his decision.
-        """
-        return pulumi.get(self, "is_approver_justification_required")
-
-    @property
-    @pulumi.getter(name="isEscalationEnabled")
-    def is_escalation_enabled(self) -> Optional[bool]:
-        """
-        The value determine whether escalation feature is enabled.
-        """
-        return pulumi.get(self, "is_escalation_enabled")
-
-    @property
-    @pulumi.getter(name="primaryApprovers")
-    def primary_approvers(self) -> Optional[Sequence['outputs.SingleUserResponse']]:
-        """
-        The primary approver of the request.
-        """
-        return pulumi.get(self, "primary_approvers")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class RoleManagementPolicyApprovalRuleResponse(dict):
-    """
-    The role management policy rule.
+    Details of the policy
     """
     def __init__(__self__, *,
-                 rule_type: str,
+                 last_modified_by: 'outputs.PrincipalResponse',
                  id: Optional[str] = None,
-                 setting: Optional['outputs.ApprovalSettingsResponse'] = None,
-                 target: Optional['outputs.RoleManagementPolicyRuleTargetResponse'] = None):
+                 last_modified_date_time: Optional[str] = None):
         """
-        The role management policy rule.
-        :param str rule_type: The type of rule
-               Expected value is 'RoleManagementPolicyApprovalRule'.
-        :param str id: The id of the rule.
-        :param 'ApprovalSettingsResponseArgs' setting: The approval setting
-        :param 'RoleManagementPolicyRuleTargetResponseArgs' target: The target of the current rule.
+        Details of the policy
+        :param 'PrincipalResponseArgs' last_modified_by: The name of the entity last modified it
+        :param str id: Id of the policy
+        :param str last_modified_date_time: The last modified date time.
         """
-        pulumi.set(__self__, "rule_type", 'RoleManagementPolicyApprovalRule')
+        pulumi.set(__self__, "last_modified_by", last_modified_by)
         if id is not None:
             pulumi.set(__self__, "id", id)
-        if setting is not None:
-            pulumi.set(__self__, "setting", setting)
-        if target is not None:
-            pulumi.set(__self__, "target", target)
+        if last_modified_date_time is not None:
+            pulumi.set(__self__, "last_modified_date_time", last_modified_date_time)
 
     @property
-    @pulumi.getter(name="ruleType")
-    def rule_type(self) -> str:
+    @pulumi.getter(name="lastModifiedBy")
+    def last_modified_by(self) -> 'outputs.PrincipalResponse':
         """
-        The type of rule
-        Expected value is 'RoleManagementPolicyApprovalRule'.
+        The name of the entity last modified it
         """
-        return pulumi.get(self, "rule_type")
+        return pulumi.get(self, "last_modified_by")
 
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
         """
-        The id of the rule.
+        Id of the policy
         """
         return pulumi.get(self, "id")
 
     @property
-    @pulumi.getter
-    def setting(self) -> Optional['outputs.ApprovalSettingsResponse']:
+    @pulumi.getter(name="lastModifiedDateTime")
+    def last_modified_date_time(self) -> Optional[str]:
         """
-        The approval setting
+        The last modified date time.
         """
-        return pulumi.get(self, "setting")
-
-    @property
-    @pulumi.getter
-    def target(self) -> Optional['outputs.RoleManagementPolicyRuleTargetResponse']:
-        """
-        The target of the current rule.
-        """
-        return pulumi.get(self, "target")
+        return pulumi.get(self, "last_modified_date_time")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
-class RoleManagementPolicyAuthenticationContextRuleResponse(dict):
+class PolicyAssignmentPropertiesResponseRoleDefinition(dict):
     """
-    The role management policy rule.
+    Details of role definition
     """
     def __init__(__self__, *,
-                 rule_type: str,
-                 claim_value: Optional[str] = None,
+                 display_name: Optional[str] = None,
                  id: Optional[str] = None,
-                 is_enabled: Optional[bool] = None,
-                 target: Optional['outputs.RoleManagementPolicyRuleTargetResponse'] = None):
+                 type: Optional[str] = None):
         """
-        The role management policy rule.
-        :param str rule_type: The type of rule
-               Expected value is 'RoleManagementPolicyAuthenticationContextRule'.
-        :param str claim_value: The claim value.
-        :param str id: The id of the rule.
-        :param bool is_enabled: The value indicating if rule is enabled.
-        :param 'RoleManagementPolicyRuleTargetResponseArgs' target: The target of the current rule.
+        Details of role definition
+        :param str display_name: Display name of the role definition
+        :param str id: Id of the role definition
+        :param str type: Type of the role definition
         """
-        pulumi.set(__self__, "rule_type", 'RoleManagementPolicyAuthenticationContextRule')
-        if claim_value is not None:
-            pulumi.set(__self__, "claim_value", claim_value)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
         if id is not None:
             pulumi.set(__self__, "id", id)
-        if is_enabled is not None:
-            pulumi.set(__self__, "is_enabled", is_enabled)
-        if target is not None:
-            pulumi.set(__self__, "target", target)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
 
     @property
-    @pulumi.getter(name="ruleType")
-    def rule_type(self) -> str:
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[str]:
         """
-        The type of rule
-        Expected value is 'RoleManagementPolicyAuthenticationContextRule'.
+        Display name of the role definition
         """
-        return pulumi.get(self, "rule_type")
-
-    @property
-    @pulumi.getter(name="claimValue")
-    def claim_value(self) -> Optional[str]:
-        """
-        The claim value.
-        """
-        return pulumi.get(self, "claim_value")
+        return pulumi.get(self, "display_name")
 
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
         """
-        The id of the rule.
+        Id of the role definition
         """
         return pulumi.get(self, "id")
 
     @property
-    @pulumi.getter(name="isEnabled")
-    def is_enabled(self) -> Optional[bool]:
-        """
-        The value indicating if rule is enabled.
-        """
-        return pulumi.get(self, "is_enabled")
-
-    @property
     @pulumi.getter
-    def target(self) -> Optional['outputs.RoleManagementPolicyRuleTargetResponse']:
+    def type(self) -> Optional[str]:
         """
-        The target of the current rule.
+        Type of the role definition
         """
-        return pulumi.get(self, "target")
+        return pulumi.get(self, "type")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
-class RoleManagementPolicyEnablementRuleResponse(dict):
+class PolicyAssignmentPropertiesResponseScope(dict):
     """
-    The role management policy rule.
+    Details of the resource scope
     """
     def __init__(__self__, *,
-                 rule_type: str,
-                 enabled_rules: Optional[Sequence[str]] = None,
+                 display_name: Optional[str] = None,
                  id: Optional[str] = None,
-                 target: Optional['outputs.RoleManagementPolicyRuleTargetResponse'] = None):
+                 type: Optional[str] = None):
         """
-        The role management policy rule.
-        :param str rule_type: The type of rule
-               Expected value is 'RoleManagementPolicyEnablementRule'.
-        :param Sequence[str] enabled_rules: The list of enabled rules.
-        :param str id: The id of the rule.
-        :param 'RoleManagementPolicyRuleTargetResponseArgs' target: The target of the current rule.
+        Details of the resource scope
+        :param str display_name: Display name of the resource
+        :param str id: Scope id of the resource
+        :param str type: Type of the resource
         """
-        pulumi.set(__self__, "rule_type", 'RoleManagementPolicyEnablementRule')
-        if enabled_rules is not None:
-            pulumi.set(__self__, "enabled_rules", enabled_rules)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
         if id is not None:
             pulumi.set(__self__, "id", id)
-        if target is not None:
-            pulumi.set(__self__, "target", target)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
 
     @property
-    @pulumi.getter(name="ruleType")
-    def rule_type(self) -> str:
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[str]:
         """
-        The type of rule
-        Expected value is 'RoleManagementPolicyEnablementRule'.
+        Display name of the resource
         """
-        return pulumi.get(self, "rule_type")
-
-    @property
-    @pulumi.getter(name="enabledRules")
-    def enabled_rules(self) -> Optional[Sequence[str]]:
-        """
-        The list of enabled rules.
-        """
-        return pulumi.get(self, "enabled_rules")
+        return pulumi.get(self, "display_name")
 
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
         """
-        The id of the rule.
+        Scope id of the resource
         """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
-    def target(self) -> Optional['outputs.RoleManagementPolicyRuleTargetResponse']:
+    def type(self) -> Optional[str]:
         """
-        The target of the current rule.
+        Type of the resource
         """
-        return pulumi.get(self, "target")
+        return pulumi.get(self, "type")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
-class RoleManagementPolicyExpirationRuleResponse(dict):
+class PrincipalResponse(dict):
     """
-    The role management policy rule.
+    The name of the entity last modified it
     """
     def __init__(__self__, *,
-                 rule_type: str,
+                 display_name: Optional[str] = None,
+                 email: Optional[str] = None,
                  id: Optional[str] = None,
-                 is_expiration_required: Optional[bool] = None,
-                 maximum_duration: Optional[str] = None,
-                 target: Optional['outputs.RoleManagementPolicyRuleTargetResponse'] = None):
+                 type: Optional[str] = None):
         """
-        The role management policy rule.
-        :param str rule_type: The type of rule
-               Expected value is 'RoleManagementPolicyExpirationRule'.
-        :param str id: The id of the rule.
-        :param bool is_expiration_required: The value indicating whether expiration is required.
-        :param str maximum_duration: The maximum duration of expiration in timespan.
-        :param 'RoleManagementPolicyRuleTargetResponseArgs' target: The target of the current rule.
+        The name of the entity last modified it
+        :param str display_name: The name of the principal made changes
+        :param str email: Email of principal
+        :param str id: The id of the principal made changes
+        :param str type: Type of principal such as user , group etc
         """
-        pulumi.set(__self__, "rule_type", 'RoleManagementPolicyExpirationRule')
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if email is not None:
+            pulumi.set(__self__, "email", email)
         if id is not None:
             pulumi.set(__self__, "id", id)
-        if is_expiration_required is not None:
-            pulumi.set(__self__, "is_expiration_required", is_expiration_required)
-        if maximum_duration is not None:
-            pulumi.set(__self__, "maximum_duration", maximum_duration)
-        if target is not None:
-            pulumi.set(__self__, "target", target)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
 
     @property
-    @pulumi.getter(name="ruleType")
-    def rule_type(self) -> str:
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[str]:
         """
-        The type of rule
-        Expected value is 'RoleManagementPolicyExpirationRule'.
+        The name of the principal made changes
         """
-        return pulumi.get(self, "rule_type")
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def email(self) -> Optional[str]:
+        """
+        Email of principal
+        """
+        return pulumi.get(self, "email")
 
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
         """
-        The id of the rule.
+        The id of the principal made changes
         """
         return pulumi.get(self, "id")
 
     @property
-    @pulumi.getter(name="isExpirationRequired")
-    def is_expiration_required(self) -> Optional[bool]:
-        """
-        The value indicating whether expiration is required.
-        """
-        return pulumi.get(self, "is_expiration_required")
-
-    @property
-    @pulumi.getter(name="maximumDuration")
-    def maximum_duration(self) -> Optional[str]:
-        """
-        The maximum duration of expiration in timespan.
-        """
-        return pulumi.get(self, "maximum_duration")
-
-    @property
     @pulumi.getter
-    def target(self) -> Optional['outputs.RoleManagementPolicyRuleTargetResponse']:
+    def type(self) -> Optional[str]:
         """
-        The target of the current rule.
+        Type of principal such as user , group etc
         """
-        return pulumi.get(self, "target")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class RoleManagementPolicyNotificationRuleResponse(dict):
-    """
-    The role management policy rule.
-    """
-    def __init__(__self__, *,
-                 rule_type: str,
-                 id: Optional[str] = None,
-                 notification_level: Optional[str] = None,
-                 notification_recipients: Optional[Sequence[str]] = None,
-                 notification_type: Optional[str] = None,
-                 recipient_type: Optional[str] = None,
-                 target: Optional['outputs.RoleManagementPolicyRuleTargetResponse'] = None):
-        """
-        The role management policy rule.
-        :param str rule_type: The type of rule
-               Expected value is 'RoleManagementPolicyNotificationRule'.
-        :param str id: The id of the rule.
-        :param str notification_level: The notification level.
-        :param Sequence[str] notification_recipients: The list notification recipients.
-        :param str notification_type: The type of notification.
-        :param str recipient_type: The recipient type.
-        :param 'RoleManagementPolicyRuleTargetResponseArgs' target: The target of the current rule.
-        """
-        pulumi.set(__self__, "rule_type", 'RoleManagementPolicyNotificationRule')
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-        if notification_level is not None:
-            pulumi.set(__self__, "notification_level", notification_level)
-        if notification_recipients is not None:
-            pulumi.set(__self__, "notification_recipients", notification_recipients)
-        if notification_type is not None:
-            pulumi.set(__self__, "notification_type", notification_type)
-        if recipient_type is not None:
-            pulumi.set(__self__, "recipient_type", recipient_type)
-        if target is not None:
-            pulumi.set(__self__, "target", target)
-
-    @property
-    @pulumi.getter(name="ruleType")
-    def rule_type(self) -> str:
-        """
-        The type of rule
-        Expected value is 'RoleManagementPolicyNotificationRule'.
-        """
-        return pulumi.get(self, "rule_type")
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        """
-        The id of the rule.
-        """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter(name="notificationLevel")
-    def notification_level(self) -> Optional[str]:
-        """
-        The notification level.
-        """
-        return pulumi.get(self, "notification_level")
-
-    @property
-    @pulumi.getter(name="notificationRecipients")
-    def notification_recipients(self) -> Optional[Sequence[str]]:
-        """
-        The list notification recipients.
-        """
-        return pulumi.get(self, "notification_recipients")
-
-    @property
-    @pulumi.getter(name="notificationType")
-    def notification_type(self) -> Optional[str]:
-        """
-        The type of notification.
-        """
-        return pulumi.get(self, "notification_type")
-
-    @property
-    @pulumi.getter(name="recipientType")
-    def recipient_type(self) -> Optional[str]:
-        """
-        The recipient type.
-        """
-        return pulumi.get(self, "recipient_type")
-
-    @property
-    @pulumi.getter
-    def target(self) -> Optional['outputs.RoleManagementPolicyRuleTargetResponse']:
-        """
-        The target of the current rule.
-        """
-        return pulumi.get(self, "target")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class RoleManagementPolicyRuleTargetResponse(dict):
-    """
-    The role management policy rule target.
-    """
-    def __init__(__self__, *,
-                 caller: Optional[str] = None,
-                 enforced_settings: Optional[Sequence[str]] = None,
-                 inheritable_settings: Optional[Sequence[str]] = None,
-                 level: Optional[str] = None,
-                 operations: Optional[Sequence[str]] = None,
-                 target_objects: Optional[Sequence[str]] = None):
-        """
-        The role management policy rule target.
-        :param str caller: The caller of the setting.
-        :param Sequence[str] enforced_settings: The list of enforced settings.
-        :param Sequence[str] inheritable_settings: The list of inheritable settings.
-        :param str level: The assignment level to which it is applied.
-        :param Sequence[str] operations: The type of operation.
-        :param Sequence[str] target_objects: The list of target objects.
-        """
-        if caller is not None:
-            pulumi.set(__self__, "caller", caller)
-        if enforced_settings is not None:
-            pulumi.set(__self__, "enforced_settings", enforced_settings)
-        if inheritable_settings is not None:
-            pulumi.set(__self__, "inheritable_settings", inheritable_settings)
-        if level is not None:
-            pulumi.set(__self__, "level", level)
-        if operations is not None:
-            pulumi.set(__self__, "operations", operations)
-        if target_objects is not None:
-            pulumi.set(__self__, "target_objects", target_objects)
-
-    @property
-    @pulumi.getter
-    def caller(self) -> Optional[str]:
-        """
-        The caller of the setting.
-        """
-        return pulumi.get(self, "caller")
-
-    @property
-    @pulumi.getter(name="enforcedSettings")
-    def enforced_settings(self) -> Optional[Sequence[str]]:
-        """
-        The list of enforced settings.
-        """
-        return pulumi.get(self, "enforced_settings")
-
-    @property
-    @pulumi.getter(name="inheritableSettings")
-    def inheritable_settings(self) -> Optional[Sequence[str]]:
-        """
-        The list of inheritable settings.
-        """
-        return pulumi.get(self, "inheritable_settings")
-
-    @property
-    @pulumi.getter
-    def level(self) -> Optional[str]:
-        """
-        The assignment level to which it is applied.
-        """
-        return pulumi.get(self, "level")
-
-    @property
-    @pulumi.getter
-    def operations(self) -> Optional[Sequence[str]]:
-        """
-        The type of operation.
-        """
-        return pulumi.get(self, "operations")
-
-    @property
-    @pulumi.getter(name="targetObjects")
-    def target_objects(self) -> Optional[Sequence[str]]:
-        """
-        The list of target objects.
-        """
-        return pulumi.get(self, "target_objects")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class SingleUserResponse(dict):
-    """
-    The detail of a user.
-    """
-    def __init__(__self__, *,
-                 user_type: str,
-                 description: Optional[str] = None,
-                 id: Optional[str] = None,
-                 is_backup: Optional[bool] = None):
-        """
-        The detail of a user.
-        :param str user_type: The object id of the user.
-               Expected value is 'SingleUser'.
-        :param str description: The description of the user.
-        :param str id: The object id of the user.
-        :param bool is_backup: The value indicating whether the user is a backup fallback approver
-        """
-        pulumi.set(__self__, "user_type", 'SingleUser')
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-        if is_backup is not None:
-            pulumi.set(__self__, "is_backup", is_backup)
-
-    @property
-    @pulumi.getter(name="userType")
-    def user_type(self) -> str:
-        """
-        The object id of the user.
-        Expected value is 'SingleUser'.
-        """
-        return pulumi.get(self, "user_type")
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[str]:
-        """
-        The description of the user.
-        """
-        return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        """
-        The object id of the user.
-        """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter(name="isBackup")
-    def is_backup(self) -> Optional[bool]:
-        """
-        The value indicating whether the user is a backup fallback approver
-        """
-        return pulumi.get(self, "is_backup")
+        return pulumi.get(self, "type")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

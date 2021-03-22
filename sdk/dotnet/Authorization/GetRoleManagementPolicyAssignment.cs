@@ -52,6 +52,10 @@ namespace Pulumi.AzureNative.Authorization
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// Additional properties of scope, role definition and policy
+        /// </summary>
+        public readonly Outputs.PolicyAssignmentPropertiesResponse PolicyAssignmentProperties;
+        /// <summary>
         /// The policy id role management policy assignment.
         /// </summary>
         public readonly string? PolicyId;
@@ -74,6 +78,8 @@ namespace Pulumi.AzureNative.Authorization
 
             string name,
 
+            Outputs.PolicyAssignmentPropertiesResponse policyAssignmentProperties,
+
             string? policyId,
 
             string? roleDefinitionId,
@@ -84,6 +90,7 @@ namespace Pulumi.AzureNative.Authorization
         {
             Id = id;
             Name = name;
+            PolicyAssignmentProperties = policyAssignmentProperties;
             PolicyId = policyId;
             RoleDefinitionId = roleDefinitionId;
             Scope = scope;

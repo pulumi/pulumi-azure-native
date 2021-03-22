@@ -10,11 +10,13 @@ export * from "./getProtectedItem";
 export * from "./getProtectionContainer";
 export * from "./getProtectionIntent";
 export * from "./getProtectionPolicy";
+export * from "./getResourceGuardProxy";
 export * from "./privateEndpointConnection";
 export * from "./protectedItem";
 export * from "./protectionContainer";
 export * from "./protectionIntent";
 export * from "./protectionPolicy";
+export * from "./resourceGuardProxy";
 
 // Export enums:
 export * from "../../types/enums/recoveryservices/v20210201preview";
@@ -25,6 +27,7 @@ import { ProtectedItem } from "./protectedItem";
 import { ProtectionContainer } from "./protectionContainer";
 import { ProtectionIntent } from "./protectionIntent";
 import { ProtectionPolicy } from "./protectionPolicy";
+import { ResourceGuardProxy } from "./resourceGuardProxy";
 
 const _module = {
     version: utilities.getVersion(),
@@ -40,6 +43,8 @@ const _module = {
                 return new ProtectionIntent(name, <any>undefined, { urn })
             case "azure-native:recoveryservices/v20210201preview:ProtectionPolicy":
                 return new ProtectionPolicy(name, <any>undefined, { urn })
+            case "azure-native:recoveryservices/v20210201preview:ResourceGuardProxy":
+                return new ResourceGuardProxy(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

@@ -51,6 +51,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewReplicationStorageClassificationMapping(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:recoveryservices:ReplicationvCenter":
 		r, err = NewReplicationvCenter(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-native:recoveryservices:ResourceGuardProxy":
+		r, err = NewResourceGuardProxy(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:recoveryservices:Vault":
 		r, err = NewVault(ctx, name, nil, pulumi.URN_(urn))
 	default:

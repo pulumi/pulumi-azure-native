@@ -76,6 +76,8 @@ __all__ = [
     'PrivateEndpointConnectionResponse',
     'PrivateEndpointResponse',
     'PrivateLinkServiceConnectionStateResponse',
+    'ResourceGuardOperationDetailResponse',
+    'ResourceGuardProxyBaseResponse',
     'ResourceHealthDetailsResponse',
     'RetentionDurationResponse',
     'SettingsResponse',
@@ -7700,6 +7702,62 @@ class PrivateLinkServiceConnectionStateResponse(dict):
         Gets or sets the status
         """
         return pulumi.get(self, "status")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ResourceGuardOperationDetailResponse(dict):
+    def __init__(__self__, *,
+                 default_resource_request: Optional[str] = None,
+                 vault_critical_operation: Optional[str] = None):
+        if default_resource_request is not None:
+            pulumi.set(__self__, "default_resource_request", default_resource_request)
+        if vault_critical_operation is not None:
+            pulumi.set(__self__, "vault_critical_operation", vault_critical_operation)
+
+    @property
+    @pulumi.getter(name="defaultResourceRequest")
+    def default_resource_request(self) -> Optional[str]:
+        return pulumi.get(self, "default_resource_request")
+
+    @property
+    @pulumi.getter(name="vaultCriticalOperation")
+    def vault_critical_operation(self) -> Optional[str]:
+        return pulumi.get(self, "vault_critical_operation")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ResourceGuardProxyBaseResponse(dict):
+    def __init__(__self__, *,
+                 last_updated_time: Optional[str] = None,
+                 resource_guard_operation_details: Optional[Sequence['outputs.ResourceGuardOperationDetailResponse']] = None,
+                 resource_guard_resource_id: Optional[str] = None):
+        if last_updated_time is not None:
+            pulumi.set(__self__, "last_updated_time", last_updated_time)
+        if resource_guard_operation_details is not None:
+            pulumi.set(__self__, "resource_guard_operation_details", resource_guard_operation_details)
+        if resource_guard_resource_id is not None:
+            pulumi.set(__self__, "resource_guard_resource_id", resource_guard_resource_id)
+
+    @property
+    @pulumi.getter(name="lastUpdatedTime")
+    def last_updated_time(self) -> Optional[str]:
+        return pulumi.get(self, "last_updated_time")
+
+    @property
+    @pulumi.getter(name="resourceGuardOperationDetails")
+    def resource_guard_operation_details(self) -> Optional[Sequence['outputs.ResourceGuardOperationDetailResponse']]:
+        return pulumi.get(self, "resource_guard_operation_details")
+
+    @property
+    @pulumi.getter(name="resourceGuardResourceId")
+    def resource_guard_resource_id(self) -> Optional[str]:
+        return pulumi.get(self, "resource_guard_resource_id")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

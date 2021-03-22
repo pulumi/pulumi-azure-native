@@ -12,7 +12,7 @@ import (
 )
 
 // The Setting.
-// API Version: 2019-01-01-preview.
+// API Version: 2021-03-01-preview.
 type ProductSetting struct {
 	pulumi.CustomResourceState
 
@@ -22,6 +22,8 @@ type ProductSetting struct {
 	Kind pulumi.StringOutput `pulumi:"kind"`
 	// Azure resource name
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Azure resource type
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -91,6 +93,8 @@ type productSettingState struct {
 	Kind *string `pulumi:"kind"`
 	// Azure resource name
 	Name *string `pulumi:"name"`
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Azure resource type
 	Type *string `pulumi:"type"`
 }
@@ -102,6 +106,8 @@ type ProductSettingState struct {
 	Kind pulumi.StringPtrInput
 	// Azure resource name
 	Name pulumi.StringPtrInput
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData SystemDataResponsePtrInput
 	// Azure resource type
 	Type pulumi.StringPtrInput
 }
@@ -117,7 +123,7 @@ type productSettingArgs struct {
 	Kind string `pulumi:"kind"`
 	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
 	OperationalInsightsResourceProvider string `pulumi:"operationalInsightsResourceProvider"`
-	// The name of the resource group within the user's subscription. The name is case insensitive.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The setting name. Supports - EyesOn, EntityAnalytics, Ueba
 	SettingsName *string `pulumi:"settingsName"`
@@ -133,7 +139,7 @@ type ProductSettingArgs struct {
 	Kind pulumi.StringInput
 	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
 	OperationalInsightsResourceProvider pulumi.StringInput
-	// The name of the resource group within the user's subscription. The name is case insensitive.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// The setting name. Supports - EyesOn, EntityAnalytics, Ueba
 	SettingsName pulumi.StringPtrInput
