@@ -46,6 +46,10 @@ export interface GetRoleManagementPolicyAssignmentResult {
      */
     readonly name: string;
     /**
+     * Additional properties of scope, role definition and policy
+     */
+    readonly policyAssignmentProperties: outputs.authorization.v20201001preview.PolicyAssignmentPropertiesResponse;
+    /**
      * The policy id role management policy assignment.
      */
     readonly policyId?: string;

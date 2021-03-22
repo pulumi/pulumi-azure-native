@@ -16,6 +16,7 @@ import * as v20200601preview from "./v20200601preview";
 import * as v20200901 from "./v20200901";
 import * as v20210115 from "./v20210115";
 import * as v20210301preview from "./v20210301preview";
+import * as v20210401preview from "./v20210401preview";
 
 export {
     latest,
@@ -32,6 +33,7 @@ export {
     v20200901,
     v20210115,
     v20210301preview,
+    v20210401preview,
 };
 
 export const AuthenticationMethod = {

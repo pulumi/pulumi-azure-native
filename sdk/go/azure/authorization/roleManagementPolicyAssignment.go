@@ -18,6 +18,8 @@ type RoleManagementPolicyAssignment struct {
 
 	// The role management policy name.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Additional properties of scope, role definition and policy
+	PolicyAssignmentProperties PolicyAssignmentPropertiesResponseOutput `pulumi:"policyAssignmentProperties"`
 	// The policy id role management policy assignment.
 	PolicyId pulumi.StringPtrOutput `pulumi:"policyId"`
 	// The role definition of management policy assignment.
@@ -74,6 +76,8 @@ func GetRoleManagementPolicyAssignment(ctx *pulumi.Context,
 type roleManagementPolicyAssignmentState struct {
 	// The role management policy name.
 	Name *string `pulumi:"name"`
+	// Additional properties of scope, role definition and policy
+	PolicyAssignmentProperties *PolicyAssignmentPropertiesResponse `pulumi:"policyAssignmentProperties"`
 	// The policy id role management policy assignment.
 	PolicyId *string `pulumi:"policyId"`
 	// The role definition of management policy assignment.
@@ -87,6 +91,8 @@ type roleManagementPolicyAssignmentState struct {
 type RoleManagementPolicyAssignmentState struct {
 	// The role management policy name.
 	Name pulumi.StringPtrInput
+	// Additional properties of scope, role definition and policy
+	PolicyAssignmentProperties PolicyAssignmentPropertiesResponsePtrInput
 	// The policy id role management policy assignment.
 	PolicyId pulumi.StringPtrInput
 	// The role definition of management policy assignment.

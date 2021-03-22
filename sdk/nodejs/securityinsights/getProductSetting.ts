@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The Setting.
- * API Version: 2019-01-01-preview.
+ * API Version: 2021-03-01-preview.
  */
 export function getProductSetting(args: GetProductSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetProductSettingResult> {
     if (!opts) {
@@ -31,7 +31,7 @@ export interface GetProductSettingArgs {
      */
     readonly operationalInsightsResourceProvider: string;
     /**
-     * The name of the resource group within the user's subscription. The name is case insensitive.
+     * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: string;
     /**
@@ -64,6 +64,10 @@ export interface GetProductSettingResult {
      * Azure resource name
      */
     readonly name: string;
+    /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.securityinsights.SystemDataResponse;
     /**
      * Azure resource type
      */

@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -39,6 +40,10 @@ export class RoleManagementPolicyAssignment extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * Additional properties of scope, role definition and policy
+     */
+    public /*out*/ readonly policyAssignmentProperties!: pulumi.Output<outputs.authorization.v20201001preview.PolicyAssignmentPropertiesResponse>;
+    /**
      * The policy id role management policy assignment.
      */
     public readonly policyId!: pulumi.Output<string | undefined>;
@@ -74,9 +79,11 @@ export class RoleManagementPolicyAssignment extends pulumi.CustomResource {
             inputs["roleManagementPolicyAssignmentName"] = args ? args.roleManagementPolicyAssignmentName : undefined;
             inputs["scope"] = args ? args.scope : undefined;
             inputs["name"] = undefined /*out*/;
+            inputs["policyAssignmentProperties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["name"] = undefined /*out*/;
+            inputs["policyAssignmentProperties"] = undefined /*out*/;
             inputs["policyId"] = undefined /*out*/;
             inputs["roleDefinitionId"] = undefined /*out*/;
             inputs["scope"] = undefined /*out*/;

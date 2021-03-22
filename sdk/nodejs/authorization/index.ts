@@ -23,7 +23,6 @@ export * from "./getPolicySetDefinition";
 export * from "./getPolicySetDefinitionAtManagementGroup";
 export * from "./getRoleAssignment";
 export * from "./getRoleDefinition";
-export * from "./getRoleManagementPolicy";
 export * from "./getRoleManagementPolicyAssignment";
 export * from "./managementLockAtResourceGroupLevel";
 export * from "./managementLockAtResourceLevel";
@@ -37,7 +36,6 @@ export * from "./policySetDefinition";
 export * from "./policySetDefinitionAtManagementGroup";
 export * from "./roleAssignment";
 export * from "./roleDefinition";
-export * from "./roleManagementPolicy";
 export * from "./roleManagementPolicyAssignment";
 
 // Export enums:
@@ -113,7 +111,6 @@ import { PolicySetDefinition } from "./policySetDefinition";
 import { PolicySetDefinitionAtManagementGroup } from "./policySetDefinitionAtManagementGroup";
 import { RoleAssignment } from "./roleAssignment";
 import { RoleDefinition } from "./roleDefinition";
-import { RoleManagementPolicy } from "./roleManagementPolicy";
 import { RoleManagementPolicyAssignment } from "./roleManagementPolicyAssignment";
 
 const _module = {
@@ -148,8 +145,6 @@ const _module = {
                 return new RoleAssignment(name, <any>undefined, { urn })
             case "azure-native:authorization:RoleDefinition":
                 return new RoleDefinition(name, <any>undefined, { urn })
-            case "azure-native:authorization:RoleManagementPolicy":
-                return new RoleManagementPolicy(name, <any>undefined, { urn })
             case "azure-native:authorization:RoleManagementPolicyAssignment":
                 return new RoleManagementPolicyAssignment(name, <any>undefined, { urn })
             default:

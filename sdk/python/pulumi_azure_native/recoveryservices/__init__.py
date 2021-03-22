@@ -19,6 +19,7 @@ from .get_replication_recovery_plan import *
 from .get_replication_recovery_services_provider import *
 from .get_replication_storage_classification_mapping import *
 from .get_replicationv_center import *
+from .get_resource_guard_proxy import *
 from .get_vault import *
 from .private_endpoint_connection import *
 from .protected_item import *
@@ -35,6 +36,7 @@ from .replication_recovery_plan import *
 from .replication_recovery_services_provider import *
 from .replication_storage_classification_mapping import *
 from .replicationv_center import *
+from .resource_guard_proxy import *
 from .vault import *
 from ._inputs import *
 from . import outputs
@@ -100,6 +102,8 @@ def _register_module():
                 return ReplicationStorageClassificationMapping(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:recoveryservices:ReplicationvCenter":
                 return ReplicationvCenter(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:recoveryservices:ResourceGuardProxy":
+                return ResourceGuardProxy(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:recoveryservices:Vault":
                 return Vault(name, pulumi.ResourceOptions(urn=urn))
             else:

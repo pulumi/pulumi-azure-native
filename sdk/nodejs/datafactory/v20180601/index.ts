@@ -22,6 +22,7 @@ export * from "./getIntegrationRuntimeStatus";
 export * from "./getLinkedService";
 export * from "./getManagedPrivateEndpoint";
 export * from "./getPipeline";
+export * from "./getPrivateEndpointConnection";
 export * from "./getTrigger";
 export * from "./getTriggerEventSubscriptionStatus";
 export * from "./integrationRuntime";
@@ -29,6 +30,7 @@ export * from "./linkedService";
 export * from "./listIntegrationRuntimeAuthKeys";
 export * from "./managedPrivateEndpoint";
 export * from "./pipeline";
+export * from "./privateEndpointConnection";
 export * from "./trigger";
 
 // Export enums:
@@ -42,6 +44,7 @@ import { IntegrationRuntime } from "./integrationRuntime";
 import { LinkedService } from "./linkedService";
 import { ManagedPrivateEndpoint } from "./managedPrivateEndpoint";
 import { Pipeline } from "./pipeline";
+import { PrivateEndpointConnection } from "./privateEndpointConnection";
 import { Trigger } from "./trigger";
 
 const _module = {
@@ -62,6 +65,8 @@ const _module = {
                 return new ManagedPrivateEndpoint(name, <any>undefined, { urn })
             case "azure-native:datafactory/v20180601:Pipeline":
                 return new Pipeline(name, <any>undefined, { urn })
+            case "azure-native:datafactory/v20180601:PrivateEndpointConnection":
+                return new PrivateEndpointConnection(name, <any>undefined, { urn })
             case "azure-native:datafactory/v20180601:Trigger":
                 return new Trigger(name, <any>undefined, { urn })
             default:

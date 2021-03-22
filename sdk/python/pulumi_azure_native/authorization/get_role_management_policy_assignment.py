@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
+from . import outputs
 
 __all__ = [
     'GetRoleManagementPolicyAssignmentResult',
@@ -19,13 +20,16 @@ class GetRoleManagementPolicyAssignmentResult:
     """
     Role management policy
     """
-    def __init__(__self__, id=None, name=None, policy_id=None, role_definition_id=None, scope=None, type=None):
+    def __init__(__self__, id=None, name=None, policy_assignment_properties=None, policy_id=None, role_definition_id=None, scope=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if policy_assignment_properties and not isinstance(policy_assignment_properties, dict):
+            raise TypeError("Expected argument 'policy_assignment_properties' to be a dict")
+        pulumi.set(__self__, "policy_assignment_properties", policy_assignment_properties)
         if policy_id and not isinstance(policy_id, str):
             raise TypeError("Expected argument 'policy_id' to be a str")
         pulumi.set(__self__, "policy_id", policy_id)
@@ -54,6 +58,14 @@ class GetRoleManagementPolicyAssignmentResult:
         The role management policy name.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="policyAssignmentProperties")
+    def policy_assignment_properties(self) -> 'outputs.PolicyAssignmentPropertiesResponse':
+        """
+        Additional properties of scope, role definition and policy
+        """
+        return pulumi.get(self, "policy_assignment_properties")
 
     @property
     @pulumi.getter(name="policyId")
@@ -96,6 +108,7 @@ class AwaitableGetRoleManagementPolicyAssignmentResult(GetRoleManagementPolicyAs
         return GetRoleManagementPolicyAssignmentResult(
             id=self.id,
             name=self.name,
+            policy_assignment_properties=self.policy_assignment_properties,
             policy_id=self.policy_id,
             role_definition_id=self.role_definition_id,
             scope=self.scope,
@@ -125,6 +138,7 @@ def get_role_management_policy_assignment(role_management_policy_assignment_name
     return AwaitableGetRoleManagementPolicyAssignmentResult(
         id=__ret__.id,
         name=__ret__.name,
+        policy_assignment_properties=__ret__.policy_assignment_properties,
         policy_id=__ret__.policy_id,
         role_definition_id=__ret__.role_definition_id,
         scope=__ret__.scope,

@@ -83,7 +83,7 @@ class OuContainer(pulumi.CustomResource):
             __props__['tags'] = None
             __props__['tenant_id'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:aad/latest:OuContainer"), pulumi.Alias(type_="azure-native:aad:OuContainer"), pulumi.Alias(type_="azure-nextgen:aad:OuContainer"), pulumi.Alias(type_="azure-native:aad/v20170601:OuContainer"), pulumi.Alias(type_="azure-nextgen:aad/v20170601:OuContainer"), pulumi.Alias(type_="azure-native:aad/v20200101:OuContainer"), pulumi.Alias(type_="azure-nextgen:aad/v20200101:OuContainer")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:aad/latest:OuContainer"), pulumi.Alias(type_="azure-native:aad:OuContainer"), pulumi.Alias(type_="azure-nextgen:aad:OuContainer"), pulumi.Alias(type_="azure-native:aad/v20170601:OuContainer"), pulumi.Alias(type_="azure-nextgen:aad/v20170601:OuContainer"), pulumi.Alias(type_="azure-native:aad/v20200101:OuContainer"), pulumi.Alias(type_="azure-nextgen:aad/v20200101:OuContainer"), pulumi.Alias(type_="azure-native:aad/v20210301:OuContainer"), pulumi.Alias(type_="azure-nextgen:aad/v20210301:OuContainer")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(OuContainer, __self__).__init__(
             'azure-native:aad/latest:OuContainer',

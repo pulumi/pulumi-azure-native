@@ -31,6 +31,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewProtectionIntent(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:recoveryservices/v20210201preview:ProtectionPolicy":
 		r, err = NewProtectionPolicy(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-native:recoveryservices/v20210201preview:ResourceGuardProxy":
+		r, err = NewResourceGuardProxy(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

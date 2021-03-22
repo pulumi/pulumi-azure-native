@@ -23,6 +23,12 @@ namespace Pulumi.AzureNative.Authorization
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Additional properties of scope, role definition and policy
+        /// </summary>
+        [Output("policyAssignmentProperties")]
+        public Output<Outputs.PolicyAssignmentPropertiesResponse> PolicyAssignmentProperties { get; private set; } = null!;
+
+        /// <summary>
         /// The policy id role management policy assignment.
         /// </summary>
         [Output("policyId")]

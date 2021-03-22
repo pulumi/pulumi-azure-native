@@ -22,7 +22,6 @@ from .get_policy_set_definition import *
 from .get_policy_set_definition_at_management_group import *
 from .get_role_assignment import *
 from .get_role_definition import *
-from .get_role_management_policy import *
 from .get_role_management_policy_assignment import *
 from .management_lock_at_resource_group_level import *
 from .management_lock_at_resource_level import *
@@ -36,7 +35,6 @@ from .policy_set_definition import *
 from .policy_set_definition_at_management_group import *
 from .role_assignment import *
 from .role_definition import *
-from .role_management_policy import *
 from .role_management_policy_assignment import *
 from ._inputs import *
 from . import outputs
@@ -110,8 +108,6 @@ def _register_module():
                 return RoleAssignment(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:authorization:RoleDefinition":
                 return RoleDefinition(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "azure-native:authorization:RoleManagementPolicy":
-                return RoleManagementPolicy(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:authorization:RoleManagementPolicyAssignment":
                 return RoleManagementPolicyAssignment(name, pulumi.ResourceOptions(urn=urn))
             else:

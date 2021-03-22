@@ -8,7 +8,7 @@ import (
 )
 
 // The Setting.
-// API Version: 2019-01-01-preview.
+// API Version: 2021-03-01-preview.
 func LookupProductSetting(ctx *pulumi.Context, args *LookupProductSettingArgs, opts ...pulumi.InvokeOption) (*LookupProductSettingResult, error) {
 	var rv LookupProductSettingResult
 	err := ctx.Invoke("azure-native:securityinsights:getProductSetting", args, &rv, opts...)
@@ -21,7 +21,7 @@ func LookupProductSetting(ctx *pulumi.Context, args *LookupProductSettingArgs, o
 type LookupProductSettingArgs struct {
 	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
 	OperationalInsightsResourceProvider string `pulumi:"operationalInsightsResourceProvider"`
-	// The name of the resource group within the user's subscription. The name is case insensitive.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The setting name. Supports - EyesOn, EntityAnalytics, Ueba
 	SettingsName string `pulumi:"settingsName"`
@@ -39,6 +39,8 @@ type LookupProductSettingResult struct {
 	Kind string `pulumi:"kind"`
 	// Azure resource name
 	Name string `pulumi:"name"`
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Azure resource type
 	Type string `pulumi:"type"`
 }

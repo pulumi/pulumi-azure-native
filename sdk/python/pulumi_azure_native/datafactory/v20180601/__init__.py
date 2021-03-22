@@ -21,6 +21,7 @@ from .get_integration_runtime_status import *
 from .get_linked_service import *
 from .get_managed_private_endpoint import *
 from .get_pipeline import *
+from .get_private_endpoint_connection import *
 from .get_trigger import *
 from .get_trigger_event_subscription_status import *
 from .integration_runtime import *
@@ -28,6 +29,7 @@ from .linked_service import *
 from .list_integration_runtime_auth_keys import *
 from .managed_private_endpoint import *
 from .pipeline import *
+from .private_endpoint_connection import *
 from .trigger import *
 from ._inputs import *
 from . import outputs
@@ -58,6 +60,8 @@ def _register_module():
                 return ManagedPrivateEndpoint(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:datafactory/v20180601:Pipeline":
                 return Pipeline(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:datafactory/v20180601:PrivateEndpointConnection":
+                return PrivateEndpointConnection(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:datafactory/v20180601:Trigger":
                 return Trigger(name, pulumi.ResourceOptions(urn=urn))
             else:

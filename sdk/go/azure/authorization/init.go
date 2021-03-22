@@ -49,8 +49,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewRoleAssignment(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:authorization:RoleDefinition":
 		r, err = NewRoleDefinition(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-native:authorization:RoleManagementPolicy":
-		r, err = NewRoleManagementPolicy(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:authorization:RoleManagementPolicyAssignment":
 		r, err = NewRoleManagementPolicyAssignment(ctx, name, nil, pulumi.URN_(urn))
 	default:
