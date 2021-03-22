@@ -59,6 +59,9 @@ jobs:
         run: make provider
       - name: Check worktree clean
         run: ./ci-scripts/ci/check-worktree-is-clean
+      - run: git status --porcelain
+      - run: git diff-files --name-status --ignore-space-at-eol
+      - run: git diff
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
         with:
