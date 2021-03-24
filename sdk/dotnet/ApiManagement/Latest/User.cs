@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ApiManagement.Latest
 {
     /// <summary>
     /// User details.
-    /// Latest API Version: 2020-12-01.
+    /// Latest API Version: 2019-12-01.
     /// </summary>
     [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:User'.")]
     [AzureNativeResourceType("azure-native:apimanagement/latest:User")]

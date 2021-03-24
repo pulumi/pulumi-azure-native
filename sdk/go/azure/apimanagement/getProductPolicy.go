@@ -8,7 +8,7 @@ import (
 )
 
 // Policy Contract details.
-// API Version: 2020-12-01.
+// API Version: 2019-12-01.
 func LookupProductPolicy(ctx *pulumi.Context, args *LookupProductPolicyArgs, opts ...pulumi.InvokeOption) (*LookupProductPolicyResult, error) {
 	var rv LookupProductPolicyResult
 	err := ctx.Invoke("azure-native:apimanagement:getProductPolicy", args, &rv, opts...)

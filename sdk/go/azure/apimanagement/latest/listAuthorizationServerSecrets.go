@@ -7,8 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// OAuth Server Secrets Contract.
-// Latest API Version: 2020-12-01.
+// Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
+// Latest API Version: 2019-12-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:listAuthorizationServerSecrets'.
 func ListAuthorizationServerSecrets(ctx *pulumi.Context, args *ListAuthorizationServerSecretsArgs, opts ...pulumi.InvokeOption) (*ListAuthorizationServerSecretsResult, error) {
@@ -29,12 +29,8 @@ type ListAuthorizationServerSecretsArgs struct {
 	ServiceName string `pulumi:"serviceName"`
 }
 
-// OAuth Server Secrets Contract.
+// Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
 type ListAuthorizationServerSecretsResult struct {
-	// oAuth Authorization Server Secrets.
+	// Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
 	ClientSecret *string `pulumi:"clientSecret"`
-	// Can be optionally specified when resource owner password grant type is supported by this authorization server. Default resource owner password.
-	ResourceOwnerPassword *string `pulumi:"resourceOwnerPassword"`
-	// Can be optionally specified when resource owner password grant type is supported by this authorization server. Default resource owner username.
-	ResourceOwnerUsername *string `pulumi:"resourceOwnerUsername"`
 }

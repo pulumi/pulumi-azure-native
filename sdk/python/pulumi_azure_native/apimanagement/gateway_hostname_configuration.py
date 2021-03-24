@@ -19,18 +19,15 @@ class GatewayHostnameConfiguration(pulumi.CustomResource):
                  gateway_id: Optional[pulumi.Input[str]] = None,
                  hc_id: Optional[pulumi.Input[str]] = None,
                  hostname: Optional[pulumi.Input[str]] = None,
-                 http2_enabled: Optional[pulumi.Input[bool]] = None,
                  negotiate_client_certificate: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
-                 tls10_enabled: Optional[pulumi.Input[bool]] = None,
-                 tls11_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
         """
         Gateway hostname configuration details.
-        API Version: 2020-12-01.
+        API Version: 2019-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -38,12 +35,9 @@ class GatewayHostnameConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] gateway_id: Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
         :param pulumi.Input[str] hc_id: Gateway hostname configuration identifier. Must be unique in the scope of parent Gateway entity.
         :param pulumi.Input[str] hostname: Hostname value. Supports valid domain name, partial or full wildcard
-        :param pulumi.Input[bool] http2_enabled: Specifies if HTTP/2.0 is supported
         :param pulumi.Input[bool] negotiate_client_certificate: Determines whether gateway requests client certificate
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] service_name: The name of the API Management service.
-        :param pulumi.Input[bool] tls10_enabled: Specifies if TLS 1.0 is supported
-        :param pulumi.Input[bool] tls11_enabled: Specifies if TLS 1.1 is supported
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -68,7 +62,6 @@ class GatewayHostnameConfiguration(pulumi.CustomResource):
             __props__['gateway_id'] = gateway_id
             __props__['hc_id'] = hc_id
             __props__['hostname'] = hostname
-            __props__['http2_enabled'] = http2_enabled
             __props__['negotiate_client_certificate'] = negotiate_client_certificate
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -76,8 +69,6 @@ class GatewayHostnameConfiguration(pulumi.CustomResource):
             if service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
-            __props__['tls10_enabled'] = tls10_enabled
-            __props__['tls11_enabled'] = tls11_enabled
             __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement:GatewayHostnameConfiguration"), pulumi.Alias(type_="azure-native:apimanagement/latest:GatewayHostnameConfiguration"), pulumi.Alias(type_="azure-nextgen:apimanagement/latest:GatewayHostnameConfiguration"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:GatewayHostnameConfiguration"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:GatewayHostnameConfiguration"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:GatewayHostnameConfiguration"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201preview:GatewayHostnameConfiguration"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:GatewayHostnameConfiguration"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20200601preview:GatewayHostnameConfiguration"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:GatewayHostnameConfiguration"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20201201:GatewayHostnameConfiguration"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:GatewayHostnameConfiguration"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20210101preview:GatewayHostnameConfiguration")])
@@ -106,11 +97,8 @@ class GatewayHostnameConfiguration(pulumi.CustomResource):
 
         __props__["certificate_id"] = None
         __props__["hostname"] = None
-        __props__["http2_enabled"] = None
         __props__["name"] = None
         __props__["negotiate_client_certificate"] = None
-        __props__["tls10_enabled"] = None
-        __props__["tls11_enabled"] = None
         __props__["type"] = None
         return GatewayHostnameConfiguration(resource_name, opts=opts, __props__=__props__)
 
@@ -131,14 +119,6 @@ class GatewayHostnameConfiguration(pulumi.CustomResource):
         return pulumi.get(self, "hostname")
 
     @property
-    @pulumi.getter(name="http2Enabled")
-    def http2_enabled(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Specifies if HTTP/2.0 is supported
-        """
-        return pulumi.get(self, "http2_enabled")
-
-    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
@@ -153,22 +133,6 @@ class GatewayHostnameConfiguration(pulumi.CustomResource):
         Determines whether gateway requests client certificate
         """
         return pulumi.get(self, "negotiate_client_certificate")
-
-    @property
-    @pulumi.getter(name="tls10Enabled")
-    def tls10_enabled(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Specifies if TLS 1.0 is supported
-        """
-        return pulumi.get(self, "tls10_enabled")
-
-    @property
-    @pulumi.getter(name="tls11Enabled")
-    def tls11_enabled(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Specifies if TLS 1.1 is supported
-        """
-        return pulumi.get(self, "tls11_enabled")
 
     @property
     @pulumi.getter

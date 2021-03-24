@@ -2,12 +2,11 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
  * NamedValue details.
- * API Version: 2020-12-01.
+ * API Version: 2019-12-01.
  */
 export class NamedValue extends pulumi.CustomResource {
     /**
@@ -40,10 +39,6 @@ export class NamedValue extends pulumi.CustomResource {
      * Unique name of NamedValue. It may contain only letters, digits, period, dash, and underscore characters.
      */
     public readonly displayName!: pulumi.Output<string>;
-    /**
-     * KeyVault location details of the namedValue.
-     */
-    public readonly keyVault!: pulumi.Output<outputs.apimanagement.KeyVaultContractPropertiesResponse | undefined>;
     /**
      * Resource name.
      */
@@ -85,8 +80,10 @@ export class NamedValue extends pulumi.CustomResource {
             if ((!args || args.serviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
+            if ((!args || args.value === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'value'");
+            }
             inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["keyVault"] = args ? args.keyVault : undefined;
             inputs["namedValueId"] = args ? args.namedValueId : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["secret"] = args ? args.secret : undefined;
@@ -97,7 +94,6 @@ export class NamedValue extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["displayName"] = undefined /*out*/;
-            inputs["keyVault"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["secret"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
@@ -122,10 +118,6 @@ export interface NamedValueArgs {
      */
     readonly displayName: pulumi.Input<string>;
     /**
-     * KeyVault location details of the namedValue.
-     */
-    readonly keyVault?: pulumi.Input<inputs.apimanagement.KeyVaultContractCreateProperties>;
-    /**
      * Identifier of the NamedValue.
      */
     readonly namedValueId?: pulumi.Input<string>;
@@ -148,5 +140,5 @@ export interface NamedValueArgs {
     /**
      * Value of the NamedValue. Can contain policy expressions. It may not be empty or consist only of whitespace. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
      */
-    readonly value?: pulumi.Input<string>;
+    readonly value: pulumi.Input<string>;
 }

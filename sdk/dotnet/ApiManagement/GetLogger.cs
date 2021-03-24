@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement
     {
         /// <summary>
         /// Logger details.
-        /// API Version: 2020-12-01.
+        /// API Version: 2019-12-01.
         /// </summary>
         public static Task<GetLoggerResult> InvokeAsync(GetLoggerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLoggerResult>("azure-native:apimanagement:getLogger", args ?? new GetLoggerArgs(), options.WithVersion());
@@ -53,7 +53,7 @@ namespace Pulumi.AzureNative.ApiManagement
         /// The name and SendRule connection string of the event hub for azureEventHub logger.
         /// Instrumentation key for applicationInsights logger.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? Credentials;
+        public readonly ImmutableDictionary<string, string> Credentials;
         /// <summary>
         /// Logger description.
         /// </summary>
@@ -85,7 +85,7 @@ namespace Pulumi.AzureNative.ApiManagement
 
         [OutputConstructor]
         private GetLoggerResult(
-            ImmutableDictionary<string, string>? credentials,
+            ImmutableDictionary<string, string> credentials,
 
             string? description,
 

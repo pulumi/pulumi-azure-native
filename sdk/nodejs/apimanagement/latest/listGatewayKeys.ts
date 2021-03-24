@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Gateway authentication keys.
- * Latest API Version: 2020-12-01.
+ * Latest API Version: 2019-12-01.
  */
 /** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:listGatewayKeys'. */
 export function listGatewayKeys(args: ListGatewayKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListGatewayKeysResult> {

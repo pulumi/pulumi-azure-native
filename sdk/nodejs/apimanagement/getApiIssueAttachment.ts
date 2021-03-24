@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Issue Attachment Contract details.
- * API Version: 2020-12-01.
+ * API Version: 2019-12-01.
  */
 export function getApiIssueAttachment(args: GetApiIssueAttachmentArgs, opts?: pulumi.InvokeOptions): Promise<GetApiIssueAttachmentResult> {
     if (!opts) {

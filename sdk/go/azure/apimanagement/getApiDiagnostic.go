@@ -8,7 +8,7 @@ import (
 )
 
 // Diagnostic details.
-// API Version: 2020-12-01.
+// API Version: 2019-12-01.
 func LookupApiDiagnostic(ctx *pulumi.Context, args *LookupApiDiagnosticArgs, opts ...pulumi.InvokeOption) (*LookupApiDiagnosticResult, error) {
 	var rv LookupApiDiagnosticResult
 	err := ctx.Invoke("azure-native:apimanagement:getApiDiagnostic", args, &rv, opts...)
@@ -47,8 +47,6 @@ type LookupApiDiagnosticResult struct {
 	LoggerId string `pulumi:"loggerId"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// The format of the Operation Name for Application Insights telemetries. Default is Name.
-	OperationNameFormat *string `pulumi:"operationNameFormat"`
 	// Sampling settings for Diagnostic.
 	Sampling *SamplingSettingsResponse `pulumi:"sampling"`
 	// Resource type for API Management resource.

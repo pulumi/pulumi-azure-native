@@ -8,7 +8,7 @@ import (
 )
 
 // Api Operation details.
-// API Version: 2020-12-01.
+// API Version: 2019-12-01.
 func LookupApiOperation(ctx *pulumi.Context, args *LookupApiOperationArgs, opts ...pulumi.InvokeOption) (*LookupApiOperationResult, error) {
 	var rv LookupApiOperationResult
 	err := ctx.Invoke("azure-native:apimanagement:getApiOperation", args, &rv, opts...)

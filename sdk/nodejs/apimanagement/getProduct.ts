@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Product details.
- * API Version: 2020-12-01.
+ * API Version: 2019-12-01.
  */
 export function getProduct(args: GetProductArgs, opts?: pulumi.InvokeOptions): Promise<GetProductResult> {
     if (!opts) {
@@ -44,7 +44,7 @@ export interface GetProductArgs {
  */
 export interface GetProductResult {
     /**
-     * whether subscription approval is required. If false, new subscriptions will be approved automatically enabling developers to call the product’s APIs immediately after subscribing. If true, administrators must manually approve the subscription before the developer can any of the product’s APIs. Can be present only if subscriptionRequired property is present and has a value of false.
+     * whether subscription approval is required. If false, new subscriptions will be approved automatically enabling developers to call the product’s APIs immediately after subscribing. If true, administrators must manually approve the subscription before the developer can any of the product’s APIs. Can be present only if subscriptionRequired property is present and has a value of true.
      */
     readonly approvalRequired?: boolean;
     /**
@@ -72,7 +72,7 @@ export interface GetProductResult {
      */
     readonly subscriptionRequired?: boolean;
     /**
-     * Whether the number of subscriptions a user can have to this product at the same time. Set to null or omit to allow unlimited per user subscriptions. Can be present only if subscriptionRequired property is present and has a value of false.
+     * Whether the number of subscriptions a user can have to this product at the same time. Set to null or omit to allow unlimited per user subscriptions. Can be present only if subscriptionRequired property is present and has a value of true.
      */
     readonly subscriptionsLimit?: number;
     /**

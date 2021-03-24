@@ -8,7 +8,7 @@ import (
 )
 
 // Cache details.
-// API Version: 2020-12-01.
+// API Version: 2019-12-01.
 func LookupCache(ctx *pulumi.Context, args *LookupCacheArgs, opts ...pulumi.InvokeOption) (*LookupCacheResult, error) {
 	var rv LookupCacheResult
 	err := ctx.Invoke("azure-native:apimanagement:getCache", args, &rv, opts...)
@@ -41,6 +41,4 @@ type LookupCacheResult struct {
 	ResourceId *string `pulumi:"resourceId"`
 	// Resource type for API Management resource.
 	Type string `pulumi:"type"`
-	// Location identifier to use cache from (should be either 'default' or valid Azure region identifier)
-	UseFromLocation string `pulumi:"useFromLocation"`
 }

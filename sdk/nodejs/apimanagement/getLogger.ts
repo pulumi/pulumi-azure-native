@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Logger details.
- * API Version: 2020-12-01.
+ * API Version: 2019-12-01.
  */
 export function getLogger(args: GetLoggerArgs, opts?: pulumi.InvokeOptions): Promise<GetLoggerResult> {
     if (!opts) {
@@ -47,7 +47,7 @@ export interface GetLoggerResult {
      * The name and SendRule connection string of the event hub for azureEventHub logger.
      * Instrumentation key for applicationInsights logger.
      */
-    readonly credentials?: {[key: string]: string};
+    readonly credentials: {[key: string]: string};
     /**
      * Logger description.
      */

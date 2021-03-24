@@ -33,7 +33,7 @@ class Logger(pulumi.CustomResource):
                  __opts__=None):
         """
         Logger details.
-        Latest API Version: 2020-12-01.
+        Latest API Version: 2019-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -65,6 +65,8 @@ class Logger(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if credentials is None and not opts.urn:
+                raise TypeError("Missing required property 'credentials'")
             __props__['credentials'] = credentials
             __props__['description'] = description
             __props__['is_buffered'] = is_buffered
@@ -116,7 +118,7 @@ class Logger(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def credentials(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+    def credentials(self) -> pulumi.Output[Mapping[str, str]]:
         """
         The name and SendRule connection string of the event hub for azureEventHub logger.
         Instrumentation key for applicationInsights logger.

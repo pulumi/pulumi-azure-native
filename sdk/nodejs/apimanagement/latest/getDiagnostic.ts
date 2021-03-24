@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Diagnostic details.
- * Latest API Version: 2020-12-01.
+ * Latest API Version: 2019-12-01.
  */
 /** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getDiagnostic'. */
 export function getDiagnostic(args: GetDiagnosticArgs, opts?: pulumi.InvokeOptions): Promise<GetDiagnosticResult> {
@@ -77,10 +77,6 @@ export interface GetDiagnosticResult {
      * Resource name.
      */
     readonly name: string;
-    /**
-     * The format of the Operation Name for Application Insights telemetries. Default is Name.
-     */
-    readonly operationNameFormat?: string;
     /**
      * Sampling settings for Diagnostic.
      */

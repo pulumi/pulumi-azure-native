@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ApiManagement
 {
     /// <summary>
     /// Subscription details.
-    /// API Version: 2020-12-01.
+    /// API Version: 2019-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:Subscription")]
     public partial class Subscription : Pulumi.CustomResource

@@ -8,7 +8,7 @@ import (
 )
 
 // Response of the GetDomainOwnershipIdentifier operation.
-// API Version: 2020-12-01.
+// API Version: 2021-01-01-preview.
 func GetApiManagementServiceDomainOwnershipIdentifier(ctx *pulumi.Context, args *GetApiManagementServiceDomainOwnershipIdentifierArgs, opts ...pulumi.InvokeOption) (*GetApiManagementServiceDomainOwnershipIdentifierResult, error) {
 	var rv GetApiManagementServiceDomainOwnershipIdentifierResult
 	err := ctx.Invoke("azure-native:apimanagement:getApiManagementServiceDomainOwnershipIdentifier", args, &rv, opts...)

@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Contract details.
- * Latest API Version: 2020-12-01.
+ * Latest API Version: 2019-12-01.
  */
 /** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getGroup'. */
 export function getGroup(args: GetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetGroupResult> {

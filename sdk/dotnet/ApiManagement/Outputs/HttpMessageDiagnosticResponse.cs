@@ -18,10 +18,6 @@ namespace Pulumi.AzureNative.ApiManagement.Outputs
         /// </summary>
         public readonly Outputs.BodyDiagnosticSettingsResponse? Body;
         /// <summary>
-        /// Data masking settings.
-        /// </summary>
-        public readonly Outputs.DataMaskingResponse? DataMasking;
-        /// <summary>
         /// Array of HTTP Headers to log.
         /// </summary>
         public readonly ImmutableArray<string> Headers;
@@ -30,12 +26,9 @@ namespace Pulumi.AzureNative.ApiManagement.Outputs
         private HttpMessageDiagnosticResponse(
             Outputs.BodyDiagnosticSettingsResponse? body,
 
-            Outputs.DataMaskingResponse? dataMasking,
-
             ImmutableArray<string> headers)
         {
             Body = body;
-            DataMasking = dataMasking;
             Headers = headers;
         }
     }

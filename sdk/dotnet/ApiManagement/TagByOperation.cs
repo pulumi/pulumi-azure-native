@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ApiManagement
 {
     /// <summary>
     /// Tag Contract details.
-    /// API Version: 2020-12-01.
+    /// API Version: 2019-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:TagByOperation")]
     public partial class TagByOperation : Pulumi.CustomResource

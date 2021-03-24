@@ -98,7 +98,7 @@ def get_product_policy(format: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProductPolicyResult:
     """
     Policy Contract details.
-    API Version: 2020-12-01.
+    API Version: 2019-12-01.
 
 
     :param str format: Policy Export Format.

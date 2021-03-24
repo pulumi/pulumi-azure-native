@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Diagnostic details.
- * API Version: 2020-12-01.
+ * API Version: 2019-12-01.
  */
 export function getApiDiagnostic(args: GetApiDiagnosticArgs, opts?: pulumi.InvokeOptions): Promise<GetApiDiagnosticResult> {
     if (!opts) {
@@ -80,10 +80,6 @@ export interface GetApiDiagnosticResult {
      * Resource name.
      */
     readonly name: string;
-    /**
-     * The format of the Operation Name for Application Insights telemetries. Default is Name.
-     */
-    readonly operationNameFormat?: string;
     /**
      * Sampling settings for Diagnostic.
      */

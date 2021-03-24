@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Contract details.
- * API Version: 2020-12-01.
+ * API Version: 2019-12-01.
  */
 export function getGroup(args: GetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetGroupResult> {
     if (!opts) {

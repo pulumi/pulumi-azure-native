@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.ApiManagement.Latest
     {
         /// <summary>
         /// User details.
-        /// Latest API Version: 2020-12-01.
+        /// Latest API Version: 2019-12-01.
         /// </summary>
         public static Task<GetUserResult> InvokeAsync(GetUserArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetUserResult>("azure-native:apimanagement/latest:getUser", args ?? new GetUserArgs(), options.WithVersion());

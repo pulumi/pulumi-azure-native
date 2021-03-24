@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement
     {
         /// <summary>
         /// Schema Contract details.
-        /// API Version: 2020-12-01.
+        /// API Version: 2019-12-01.
         /// </summary>
         public static Task<GetApiSchemaResult> InvokeAsync(GetApiSchemaArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApiSchemaResult>("azure-native:apimanagement:getApiSchema", args ?? new GetApiSchemaArgs(), options.WithVersion());

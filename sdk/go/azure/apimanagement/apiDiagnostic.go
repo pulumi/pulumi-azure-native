@@ -12,7 +12,7 @@ import (
 )
 
 // Diagnostic details.
-// API Version: 2020-12-01.
+// API Version: 2019-12-01.
 type ApiDiagnostic struct {
 	pulumi.CustomResourceState
 
@@ -30,8 +30,6 @@ type ApiDiagnostic struct {
 	LoggerId pulumi.StringOutput `pulumi:"loggerId"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The format of the Operation Name for Application Insights telemetries. Default is Name.
-	OperationNameFormat pulumi.StringPtrOutput `pulumi:"operationNameFormat"`
 	// Sampling settings for Diagnostic.
 	Sampling SamplingSettingsResponsePtrOutput `pulumi:"sampling"`
 	// Resource type for API Management resource.
@@ -161,8 +159,6 @@ type apiDiagnosticState struct {
 	LoggerId *string `pulumi:"loggerId"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// The format of the Operation Name for Application Insights telemetries. Default is Name.
-	OperationNameFormat *string `pulumi:"operationNameFormat"`
 	// Sampling settings for Diagnostic.
 	Sampling *SamplingSettingsResponse `pulumi:"sampling"`
 	// Resource type for API Management resource.
@@ -186,8 +182,6 @@ type ApiDiagnosticState struct {
 	LoggerId pulumi.StringPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// The format of the Operation Name for Application Insights telemetries. Default is Name.
-	OperationNameFormat pulumi.StringPtrInput
 	// Sampling settings for Diagnostic.
 	Sampling SamplingSettingsResponsePtrInput
 	// Resource type for API Management resource.
@@ -217,8 +211,6 @@ type apiDiagnosticArgs struct {
 	LogClientIp *bool `pulumi:"logClientIp"`
 	// Resource Id of a target logger.
 	LoggerId string `pulumi:"loggerId"`
-	// The format of the Operation Name for Application Insights telemetries. Default is Name.
-	OperationNameFormat *string `pulumi:"operationNameFormat"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Sampling settings for Diagnostic.
@@ -247,8 +239,6 @@ type ApiDiagnosticArgs struct {
 	LogClientIp pulumi.BoolPtrInput
 	// Resource Id of a target logger.
 	LoggerId pulumi.StringInput
-	// The format of the Operation Name for Application Insights telemetries. Default is Name.
-	OperationNameFormat pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Sampling settings for Diagnostic.

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Tenant access information contract of the API Management service.
- * API Version: 2020-12-01.
+ * API Version: 2019-12-01.
  */
 export function listTenantAccessSecrets(args: ListTenantAccessSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListTenantAccessSecretsResult> {
     if (!opts) {
@@ -48,17 +48,13 @@ export interface ListTenantAccessSecretsResult {
      */
     readonly enabled?: boolean;
     /**
-     * Access Information type ('access' or 'gitAccess')
+     * Identifier.
      */
     readonly id?: string;
     /**
      * Primary access key. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
      */
     readonly primaryKey?: string;
-    /**
-     * Principal (User) Identifier.
-     */
-    readonly principalId?: string;
     /**
      * Secondary access key. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
      */

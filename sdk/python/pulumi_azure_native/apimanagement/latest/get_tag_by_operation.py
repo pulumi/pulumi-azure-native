@@ -88,7 +88,7 @@ def get_tag_by_operation(api_id: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTagByOperationResult:
     """
     Tag Contract details.
-    Latest API Version: 2020-12-01.
+    Latest API Version: 2019-12-01.
 
 
     :param str api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.

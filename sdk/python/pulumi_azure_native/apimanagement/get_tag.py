@@ -84,7 +84,7 @@ def get_tag(resource_group_name: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTagResult:
     """
     Tag Contract details.
-    API Version: 2020-12-01.
+    API Version: 2019-12-01.
 
 
     :param str resource_group_name: The name of the resource group.

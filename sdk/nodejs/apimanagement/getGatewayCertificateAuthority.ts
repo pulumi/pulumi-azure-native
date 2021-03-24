@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gateway certificate authority details.
- * API Version: 2020-12-01.
+ * API Version: 2021-01-01-preview.
  */
 export function getGatewayCertificateAuthority(args: GetGatewayCertificateAuthorityArgs, opts?: pulumi.InvokeOptions): Promise<GetGatewayCertificateAuthorityResult> {
     if (!opts) {

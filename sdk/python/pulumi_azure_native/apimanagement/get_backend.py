@@ -181,7 +181,7 @@ def get_backend(backend_id: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBackendResult:
     """
     Backend details.
-    API Version: 2020-12-01.
+    API Version: 2019-12-01.
 
 
     :param str backend_id: Identifier of the Backend entity. Must be unique in the current API Management service instance.

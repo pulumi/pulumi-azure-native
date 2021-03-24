@@ -20,8 +20,6 @@ type AdditionalLocation struct {
 	Sku ApiManagementServiceSkuProperties `pulumi:"sku"`
 	// Virtual network configuration for the location.
 	VirtualNetworkConfiguration *VirtualNetworkConfiguration `pulumi:"virtualNetworkConfiguration"`
-	// A list of availability zones denoting where the resource needs to come from.
-	Zones []string `pulumi:"zones"`
 }
 
 // AdditionalLocationInput is an input type that accepts AdditionalLocationArgs and AdditionalLocationOutput values.
@@ -45,8 +43,6 @@ type AdditionalLocationArgs struct {
 	Sku ApiManagementServiceSkuPropertiesInput `pulumi:"sku"`
 	// Virtual network configuration for the location.
 	VirtualNetworkConfiguration VirtualNetworkConfigurationPtrInput `pulumi:"virtualNetworkConfiguration"`
-	// A list of availability zones denoting where the resource needs to come from.
-	Zones pulumi.StringArrayInput `pulumi:"zones"`
 }
 
 func (AdditionalLocationArgs) ElementType() reflect.Type {
@@ -121,11 +117,6 @@ func (o AdditionalLocationOutput) VirtualNetworkConfiguration() VirtualNetworkCo
 	return o.ApplyT(func(v AdditionalLocation) *VirtualNetworkConfiguration { return v.VirtualNetworkConfiguration }).(VirtualNetworkConfigurationPtrOutput)
 }
 
-// A list of availability zones denoting where the resource needs to come from.
-func (o AdditionalLocationOutput) Zones() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v AdditionalLocation) []string { return v.Zones }).(pulumi.StringArrayOutput)
-}
-
 type AdditionalLocationArrayOutput struct{ *pulumi.OutputState }
 
 func (AdditionalLocationArrayOutput) ElementType() reflect.Type {
@@ -154,16 +145,14 @@ type AdditionalLocationResponse struct {
 	GatewayRegionalUrl string `pulumi:"gatewayRegionalUrl"`
 	// The location name of the additional region among Azure Data center regions.
 	Location string `pulumi:"location"`
-	// Private Static Load Balanced IP addresses of the API Management service which is deployed in an Internal Virtual Network in a particular additional location. Available only for Basic, Standard, Premium and Isolated SKU.
+	// Private Static Load Balanced IP addresses of the API Management service which is deployed in an Internal Virtual Network in a particular additional location. Available only for Basic, Standard and Premium SKU.
 	PrivateIPAddresses []string `pulumi:"privateIPAddresses"`
-	// Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard, Premium and Isolated SKU.
+	// Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
 	PublicIPAddresses []string `pulumi:"publicIPAddresses"`
 	// SKU properties of the API Management service.
 	Sku ApiManagementServiceSkuPropertiesResponse `pulumi:"sku"`
 	// Virtual network configuration for the location.
 	VirtualNetworkConfiguration *VirtualNetworkConfigurationResponse `pulumi:"virtualNetworkConfiguration"`
-	// A list of availability zones denoting where the resource needs to come from.
-	Zones []string `pulumi:"zones"`
 }
 
 // AdditionalLocationResponseInput is an input type that accepts AdditionalLocationResponseArgs and AdditionalLocationResponseOutput values.
@@ -185,16 +174,14 @@ type AdditionalLocationResponseArgs struct {
 	GatewayRegionalUrl pulumi.StringInput `pulumi:"gatewayRegionalUrl"`
 	// The location name of the additional region among Azure Data center regions.
 	Location pulumi.StringInput `pulumi:"location"`
-	// Private Static Load Balanced IP addresses of the API Management service which is deployed in an Internal Virtual Network in a particular additional location. Available only for Basic, Standard, Premium and Isolated SKU.
+	// Private Static Load Balanced IP addresses of the API Management service which is deployed in an Internal Virtual Network in a particular additional location. Available only for Basic, Standard and Premium SKU.
 	PrivateIPAddresses pulumi.StringArrayInput `pulumi:"privateIPAddresses"`
-	// Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard, Premium and Isolated SKU.
+	// Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
 	PublicIPAddresses pulumi.StringArrayInput `pulumi:"publicIPAddresses"`
 	// SKU properties of the API Management service.
 	Sku ApiManagementServiceSkuPropertiesResponseInput `pulumi:"sku"`
 	// Virtual network configuration for the location.
 	VirtualNetworkConfiguration VirtualNetworkConfigurationResponsePtrInput `pulumi:"virtualNetworkConfiguration"`
-	// A list of availability zones denoting where the resource needs to come from.
-	Zones pulumi.StringArrayInput `pulumi:"zones"`
 }
 
 func (AdditionalLocationResponseArgs) ElementType() reflect.Type {
@@ -264,12 +251,12 @@ func (o AdditionalLocationResponseOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v AdditionalLocationResponse) string { return v.Location }).(pulumi.StringOutput)
 }
 
-// Private Static Load Balanced IP addresses of the API Management service which is deployed in an Internal Virtual Network in a particular additional location. Available only for Basic, Standard, Premium and Isolated SKU.
+// Private Static Load Balanced IP addresses of the API Management service which is deployed in an Internal Virtual Network in a particular additional location. Available only for Basic, Standard and Premium SKU.
 func (o AdditionalLocationResponseOutput) PrivateIPAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AdditionalLocationResponse) []string { return v.PrivateIPAddresses }).(pulumi.StringArrayOutput)
 }
 
-// Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard, Premium and Isolated SKU.
+// Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
 func (o AdditionalLocationResponseOutput) PublicIPAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AdditionalLocationResponse) []string { return v.PublicIPAddresses }).(pulumi.StringArrayOutput)
 }
@@ -284,11 +271,6 @@ func (o AdditionalLocationResponseOutput) VirtualNetworkConfiguration() VirtualN
 	return o.ApplyT(func(v AdditionalLocationResponse) *VirtualNetworkConfigurationResponse {
 		return v.VirtualNetworkConfiguration
 	}).(VirtualNetworkConfigurationResponsePtrOutput)
-}
-
-// A list of availability zones denoting where the resource needs to come from.
-func (o AdditionalLocationResponseOutput) Zones() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v AdditionalLocationResponse) []string { return v.Zones }).(pulumi.StringArrayOutput)
 }
 
 type AdditionalLocationResponseArrayOutput struct{ *pulumi.OutputState }
@@ -2492,10 +2474,8 @@ func (o BackendAuthorizationHeaderCredentialsResponsePtrOutput) Scheme() pulumi.
 type BackendCredentialsContract struct {
 	// Authorization header authentication
 	Authorization *BackendAuthorizationHeaderCredentials `pulumi:"authorization"`
-	// List of Client Certificate Thumbprints. Will be ignored if certificatesIds are provided.
+	// List of Client Certificate Thumbprint.
 	Certificate []string `pulumi:"certificate"`
-	// List of Client Certificate Ids.
-	CertificateIds []string `pulumi:"certificateIds"`
 	// Header Parameter description.
 	Header map[string][]string `pulumi:"header"`
 	// Query Parameter description.
@@ -2517,10 +2497,8 @@ type BackendCredentialsContractInput interface {
 type BackendCredentialsContractArgs struct {
 	// Authorization header authentication
 	Authorization BackendAuthorizationHeaderCredentialsPtrInput `pulumi:"authorization"`
-	// List of Client Certificate Thumbprints. Will be ignored if certificatesIds are provided.
+	// List of Client Certificate Thumbprint.
 	Certificate pulumi.StringArrayInput `pulumi:"certificate"`
-	// List of Client Certificate Ids.
-	CertificateIds pulumi.StringArrayInput `pulumi:"certificateIds"`
 	// Header Parameter description.
 	Header pulumi.StringArrayMapInput `pulumi:"header"`
 	// Query Parameter description.
@@ -2610,14 +2588,9 @@ func (o BackendCredentialsContractOutput) Authorization() BackendAuthorizationHe
 	return o.ApplyT(func(v BackendCredentialsContract) *BackendAuthorizationHeaderCredentials { return v.Authorization }).(BackendAuthorizationHeaderCredentialsPtrOutput)
 }
 
-// List of Client Certificate Thumbprints. Will be ignored if certificatesIds are provided.
+// List of Client Certificate Thumbprint.
 func (o BackendCredentialsContractOutput) Certificate() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BackendCredentialsContract) []string { return v.Certificate }).(pulumi.StringArrayOutput)
-}
-
-// List of Client Certificate Ids.
-func (o BackendCredentialsContractOutput) CertificateIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v BackendCredentialsContract) []string { return v.CertificateIds }).(pulumi.StringArrayOutput)
 }
 
 // Header Parameter description.
@@ -2658,23 +2631,13 @@ func (o BackendCredentialsContractPtrOutput) Authorization() BackendAuthorizatio
 	}).(BackendAuthorizationHeaderCredentialsPtrOutput)
 }
 
-// List of Client Certificate Thumbprints. Will be ignored if certificatesIds are provided.
+// List of Client Certificate Thumbprint.
 func (o BackendCredentialsContractPtrOutput) Certificate() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BackendCredentialsContract) []string {
 		if v == nil {
 			return nil
 		}
 		return v.Certificate
-	}).(pulumi.StringArrayOutput)
-}
-
-// List of Client Certificate Ids.
-func (o BackendCredentialsContractPtrOutput) CertificateIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *BackendCredentialsContract) []string {
-		if v == nil {
-			return nil
-		}
-		return v.CertificateIds
 	}).(pulumi.StringArrayOutput)
 }
 
@@ -2702,10 +2665,8 @@ func (o BackendCredentialsContractPtrOutput) Query() pulumi.StringArrayMapOutput
 type BackendCredentialsContractResponse struct {
 	// Authorization header authentication
 	Authorization *BackendAuthorizationHeaderCredentialsResponse `pulumi:"authorization"`
-	// List of Client Certificate Thumbprints. Will be ignored if certificatesIds are provided.
+	// List of Client Certificate Thumbprint.
 	Certificate []string `pulumi:"certificate"`
-	// List of Client Certificate Ids.
-	CertificateIds []string `pulumi:"certificateIds"`
 	// Header Parameter description.
 	Header map[string][]string `pulumi:"header"`
 	// Query Parameter description.
@@ -2727,10 +2688,8 @@ type BackendCredentialsContractResponseInput interface {
 type BackendCredentialsContractResponseArgs struct {
 	// Authorization header authentication
 	Authorization BackendAuthorizationHeaderCredentialsResponsePtrInput `pulumi:"authorization"`
-	// List of Client Certificate Thumbprints. Will be ignored if certificatesIds are provided.
+	// List of Client Certificate Thumbprint.
 	Certificate pulumi.StringArrayInput `pulumi:"certificate"`
-	// List of Client Certificate Ids.
-	CertificateIds pulumi.StringArrayInput `pulumi:"certificateIds"`
 	// Header Parameter description.
 	Header pulumi.StringArrayMapInput `pulumi:"header"`
 	// Query Parameter description.
@@ -2822,14 +2781,9 @@ func (o BackendCredentialsContractResponseOutput) Authorization() BackendAuthori
 	}).(BackendAuthorizationHeaderCredentialsResponsePtrOutput)
 }
 
-// List of Client Certificate Thumbprints. Will be ignored if certificatesIds are provided.
+// List of Client Certificate Thumbprint.
 func (o BackendCredentialsContractResponseOutput) Certificate() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BackendCredentialsContractResponse) []string { return v.Certificate }).(pulumi.StringArrayOutput)
-}
-
-// List of Client Certificate Ids.
-func (o BackendCredentialsContractResponseOutput) CertificateIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v BackendCredentialsContractResponse) []string { return v.CertificateIds }).(pulumi.StringArrayOutput)
 }
 
 // Header Parameter description.
@@ -2870,23 +2824,13 @@ func (o BackendCredentialsContractResponsePtrOutput) Authorization() BackendAuth
 	}).(BackendAuthorizationHeaderCredentialsResponsePtrOutput)
 }
 
-// List of Client Certificate Thumbprints. Will be ignored if certificatesIds are provided.
+// List of Client Certificate Thumbprint.
 func (o BackendCredentialsContractResponsePtrOutput) Certificate() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BackendCredentialsContractResponse) []string {
 		if v == nil {
 			return nil
 		}
 		return v.Certificate
-	}).(pulumi.StringArrayOutput)
-}
-
-// List of Client Certificate Ids.
-func (o BackendCredentialsContractResponsePtrOutput) CertificateIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *BackendCredentialsContractResponse) []string {
-		if v == nil {
-			return nil
-		}
-		return v.CertificateIds
 	}).(pulumi.StringArrayOutput)
 }
 
@@ -3526,10 +3470,8 @@ func (o BackendProxyContractResponsePtrOutput) Username() pulumi.StringPtrOutput
 
 // Properties of the Service Fabric Type Backend.
 type BackendServiceFabricClusterProperties struct {
-	// The client certificate id for the management endpoint.
-	ClientCertificateId *string `pulumi:"clientCertificateId"`
-	// The client certificate thumbprint for the management endpoint. Will be ignored if certificatesIds are provided
-	ClientCertificatethumbprint *string `pulumi:"clientCertificatethumbprint"`
+	// The client certificate thumbprint for the management endpoint.
+	ClientCertificatethumbprint string `pulumi:"clientCertificatethumbprint"`
 	// The cluster management endpoint.
 	ManagementEndpoints []string `pulumi:"managementEndpoints"`
 	// Maximum number of retries while attempting resolve the partition.
@@ -3553,10 +3495,8 @@ type BackendServiceFabricClusterPropertiesInput interface {
 
 // Properties of the Service Fabric Type Backend.
 type BackendServiceFabricClusterPropertiesArgs struct {
-	// The client certificate id for the management endpoint.
-	ClientCertificateId pulumi.StringPtrInput `pulumi:"clientCertificateId"`
-	// The client certificate thumbprint for the management endpoint. Will be ignored if certificatesIds are provided
-	ClientCertificatethumbprint pulumi.StringPtrInput `pulumi:"clientCertificatethumbprint"`
+	// The client certificate thumbprint for the management endpoint.
+	ClientCertificatethumbprint pulumi.StringInput `pulumi:"clientCertificatethumbprint"`
 	// The cluster management endpoint.
 	ManagementEndpoints pulumi.StringArrayInput `pulumi:"managementEndpoints"`
 	// Maximum number of retries while attempting resolve the partition.
@@ -3645,14 +3585,9 @@ func (o BackendServiceFabricClusterPropertiesOutput) ToBackendServiceFabricClust
 	}).(BackendServiceFabricClusterPropertiesPtrOutput)
 }
 
-// The client certificate id for the management endpoint.
-func (o BackendServiceFabricClusterPropertiesOutput) ClientCertificateId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BackendServiceFabricClusterProperties) *string { return v.ClientCertificateId }).(pulumi.StringPtrOutput)
-}
-
-// The client certificate thumbprint for the management endpoint. Will be ignored if certificatesIds are provided
-func (o BackendServiceFabricClusterPropertiesOutput) ClientCertificatethumbprint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BackendServiceFabricClusterProperties) *string { return v.ClientCertificatethumbprint }).(pulumi.StringPtrOutput)
+// The client certificate thumbprint for the management endpoint.
+func (o BackendServiceFabricClusterPropertiesOutput) ClientCertificatethumbprint() pulumi.StringOutput {
+	return o.ApplyT(func(v BackendServiceFabricClusterProperties) string { return v.ClientCertificatethumbprint }).(pulumi.StringOutput)
 }
 
 // The cluster management endpoint.
@@ -3693,23 +3628,13 @@ func (o BackendServiceFabricClusterPropertiesPtrOutput) Elem() BackendServiceFab
 	return o.ApplyT(func(v *BackendServiceFabricClusterProperties) BackendServiceFabricClusterProperties { return *v }).(BackendServiceFabricClusterPropertiesOutput)
 }
 
-// The client certificate id for the management endpoint.
-func (o BackendServiceFabricClusterPropertiesPtrOutput) ClientCertificateId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BackendServiceFabricClusterProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ClientCertificateId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The client certificate thumbprint for the management endpoint. Will be ignored if certificatesIds are provided
+// The client certificate thumbprint for the management endpoint.
 func (o BackendServiceFabricClusterPropertiesPtrOutput) ClientCertificatethumbprint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BackendServiceFabricClusterProperties) *string {
 		if v == nil {
 			return nil
 		}
-		return v.ClientCertificatethumbprint
+		return &v.ClientCertificatethumbprint
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -3755,10 +3680,8 @@ func (o BackendServiceFabricClusterPropertiesPtrOutput) ServerX509Names() X509Ce
 
 // Properties of the Service Fabric Type Backend.
 type BackendServiceFabricClusterPropertiesResponse struct {
-	// The client certificate id for the management endpoint.
-	ClientCertificateId *string `pulumi:"clientCertificateId"`
-	// The client certificate thumbprint for the management endpoint. Will be ignored if certificatesIds are provided
-	ClientCertificatethumbprint *string `pulumi:"clientCertificatethumbprint"`
+	// The client certificate thumbprint for the management endpoint.
+	ClientCertificatethumbprint string `pulumi:"clientCertificatethumbprint"`
 	// The cluster management endpoint.
 	ManagementEndpoints []string `pulumi:"managementEndpoints"`
 	// Maximum number of retries while attempting resolve the partition.
@@ -3782,10 +3705,8 @@ type BackendServiceFabricClusterPropertiesResponseInput interface {
 
 // Properties of the Service Fabric Type Backend.
 type BackendServiceFabricClusterPropertiesResponseArgs struct {
-	// The client certificate id for the management endpoint.
-	ClientCertificateId pulumi.StringPtrInput `pulumi:"clientCertificateId"`
-	// The client certificate thumbprint for the management endpoint. Will be ignored if certificatesIds are provided
-	ClientCertificatethumbprint pulumi.StringPtrInput `pulumi:"clientCertificatethumbprint"`
+	// The client certificate thumbprint for the management endpoint.
+	ClientCertificatethumbprint pulumi.StringInput `pulumi:"clientCertificatethumbprint"`
 	// The cluster management endpoint.
 	ManagementEndpoints pulumi.StringArrayInput `pulumi:"managementEndpoints"`
 	// Maximum number of retries while attempting resolve the partition.
@@ -3874,14 +3795,9 @@ func (o BackendServiceFabricClusterPropertiesResponseOutput) ToBackendServiceFab
 	}).(BackendServiceFabricClusterPropertiesResponsePtrOutput)
 }
 
-// The client certificate id for the management endpoint.
-func (o BackendServiceFabricClusterPropertiesResponseOutput) ClientCertificateId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BackendServiceFabricClusterPropertiesResponse) *string { return v.ClientCertificateId }).(pulumi.StringPtrOutput)
-}
-
-// The client certificate thumbprint for the management endpoint. Will be ignored if certificatesIds are provided
-func (o BackendServiceFabricClusterPropertiesResponseOutput) ClientCertificatethumbprint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BackendServiceFabricClusterPropertiesResponse) *string { return v.ClientCertificatethumbprint }).(pulumi.StringPtrOutput)
+// The client certificate thumbprint for the management endpoint.
+func (o BackendServiceFabricClusterPropertiesResponseOutput) ClientCertificatethumbprint() pulumi.StringOutput {
+	return o.ApplyT(func(v BackendServiceFabricClusterPropertiesResponse) string { return v.ClientCertificatethumbprint }).(pulumi.StringOutput)
 }
 
 // The cluster management endpoint.
@@ -3926,23 +3842,13 @@ func (o BackendServiceFabricClusterPropertiesResponsePtrOutput) Elem() BackendSe
 	}).(BackendServiceFabricClusterPropertiesResponseOutput)
 }
 
-// The client certificate id for the management endpoint.
-func (o BackendServiceFabricClusterPropertiesResponsePtrOutput) ClientCertificateId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BackendServiceFabricClusterPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ClientCertificateId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The client certificate thumbprint for the management endpoint. Will be ignored if certificatesIds are provided
+// The client certificate thumbprint for the management endpoint.
 func (o BackendServiceFabricClusterPropertiesResponsePtrOutput) ClientCertificatethumbprint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BackendServiceFabricClusterPropertiesResponse) *string {
 		if v == nil {
 			return nil
 		}
-		return v.ClientCertificatethumbprint
+		return &v.ClientCertificatethumbprint
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -5158,518 +5064,6 @@ func (o CertificateInformationResponsePtrOutput) Thumbprint() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-type DataMasking struct {
-	// Masking settings for headers
-	Headers []DataMaskingEntity `pulumi:"headers"`
-	// Masking settings for Url query parameters
-	QueryParams []DataMaskingEntity `pulumi:"queryParams"`
-}
-
-// DataMaskingInput is an input type that accepts DataMaskingArgs and DataMaskingOutput values.
-// You can construct a concrete instance of `DataMaskingInput` via:
-//
-//          DataMaskingArgs{...}
-type DataMaskingInput interface {
-	pulumi.Input
-
-	ToDataMaskingOutput() DataMaskingOutput
-	ToDataMaskingOutputWithContext(context.Context) DataMaskingOutput
-}
-
-type DataMaskingArgs struct {
-	// Masking settings for headers
-	Headers DataMaskingEntityArrayInput `pulumi:"headers"`
-	// Masking settings for Url query parameters
-	QueryParams DataMaskingEntityArrayInput `pulumi:"queryParams"`
-}
-
-func (DataMaskingArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataMasking)(nil)).Elem()
-}
-
-func (i DataMaskingArgs) ToDataMaskingOutput() DataMaskingOutput {
-	return i.ToDataMaskingOutputWithContext(context.Background())
-}
-
-func (i DataMaskingArgs) ToDataMaskingOutputWithContext(ctx context.Context) DataMaskingOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataMaskingOutput)
-}
-
-func (i DataMaskingArgs) ToDataMaskingPtrOutput() DataMaskingPtrOutput {
-	return i.ToDataMaskingPtrOutputWithContext(context.Background())
-}
-
-func (i DataMaskingArgs) ToDataMaskingPtrOutputWithContext(ctx context.Context) DataMaskingPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataMaskingOutput).ToDataMaskingPtrOutputWithContext(ctx)
-}
-
-// DataMaskingPtrInput is an input type that accepts DataMaskingArgs, DataMaskingPtr and DataMaskingPtrOutput values.
-// You can construct a concrete instance of `DataMaskingPtrInput` via:
-//
-//          DataMaskingArgs{...}
-//
-//  or:
-//
-//          nil
-type DataMaskingPtrInput interface {
-	pulumi.Input
-
-	ToDataMaskingPtrOutput() DataMaskingPtrOutput
-	ToDataMaskingPtrOutputWithContext(context.Context) DataMaskingPtrOutput
-}
-
-type dataMaskingPtrType DataMaskingArgs
-
-func DataMaskingPtr(v *DataMaskingArgs) DataMaskingPtrInput {
-	return (*dataMaskingPtrType)(v)
-}
-
-func (*dataMaskingPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataMasking)(nil)).Elem()
-}
-
-func (i *dataMaskingPtrType) ToDataMaskingPtrOutput() DataMaskingPtrOutput {
-	return i.ToDataMaskingPtrOutputWithContext(context.Background())
-}
-
-func (i *dataMaskingPtrType) ToDataMaskingPtrOutputWithContext(ctx context.Context) DataMaskingPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataMaskingPtrOutput)
-}
-
-type DataMaskingOutput struct{ *pulumi.OutputState }
-
-func (DataMaskingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataMasking)(nil)).Elem()
-}
-
-func (o DataMaskingOutput) ToDataMaskingOutput() DataMaskingOutput {
-	return o
-}
-
-func (o DataMaskingOutput) ToDataMaskingOutputWithContext(ctx context.Context) DataMaskingOutput {
-	return o
-}
-
-func (o DataMaskingOutput) ToDataMaskingPtrOutput() DataMaskingPtrOutput {
-	return o.ToDataMaskingPtrOutputWithContext(context.Background())
-}
-
-func (o DataMaskingOutput) ToDataMaskingPtrOutputWithContext(ctx context.Context) DataMaskingPtrOutput {
-	return o.ApplyT(func(v DataMasking) *DataMasking {
-		return &v
-	}).(DataMaskingPtrOutput)
-}
-
-// Masking settings for headers
-func (o DataMaskingOutput) Headers() DataMaskingEntityArrayOutput {
-	return o.ApplyT(func(v DataMasking) []DataMaskingEntity { return v.Headers }).(DataMaskingEntityArrayOutput)
-}
-
-// Masking settings for Url query parameters
-func (o DataMaskingOutput) QueryParams() DataMaskingEntityArrayOutput {
-	return o.ApplyT(func(v DataMasking) []DataMaskingEntity { return v.QueryParams }).(DataMaskingEntityArrayOutput)
-}
-
-type DataMaskingPtrOutput struct{ *pulumi.OutputState }
-
-func (DataMaskingPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataMasking)(nil)).Elem()
-}
-
-func (o DataMaskingPtrOutput) ToDataMaskingPtrOutput() DataMaskingPtrOutput {
-	return o
-}
-
-func (o DataMaskingPtrOutput) ToDataMaskingPtrOutputWithContext(ctx context.Context) DataMaskingPtrOutput {
-	return o
-}
-
-func (o DataMaskingPtrOutput) Elem() DataMaskingOutput {
-	return o.ApplyT(func(v *DataMasking) DataMasking { return *v }).(DataMaskingOutput)
-}
-
-// Masking settings for headers
-func (o DataMaskingPtrOutput) Headers() DataMaskingEntityArrayOutput {
-	return o.ApplyT(func(v *DataMasking) []DataMaskingEntity {
-		if v == nil {
-			return nil
-		}
-		return v.Headers
-	}).(DataMaskingEntityArrayOutput)
-}
-
-// Masking settings for Url query parameters
-func (o DataMaskingPtrOutput) QueryParams() DataMaskingEntityArrayOutput {
-	return o.ApplyT(func(v *DataMasking) []DataMaskingEntity {
-		if v == nil {
-			return nil
-		}
-		return v.QueryParams
-	}).(DataMaskingEntityArrayOutput)
-}
-
-type DataMaskingEntity struct {
-	// Data masking mode.
-	Mode *string `pulumi:"mode"`
-	// The name of an entity to mask (e.g. a name of a header or a query parameter).
-	Value *string `pulumi:"value"`
-}
-
-// DataMaskingEntityInput is an input type that accepts DataMaskingEntityArgs and DataMaskingEntityOutput values.
-// You can construct a concrete instance of `DataMaskingEntityInput` via:
-//
-//          DataMaskingEntityArgs{...}
-type DataMaskingEntityInput interface {
-	pulumi.Input
-
-	ToDataMaskingEntityOutput() DataMaskingEntityOutput
-	ToDataMaskingEntityOutputWithContext(context.Context) DataMaskingEntityOutput
-}
-
-type DataMaskingEntityArgs struct {
-	// Data masking mode.
-	Mode pulumi.StringPtrInput `pulumi:"mode"`
-	// The name of an entity to mask (e.g. a name of a header or a query parameter).
-	Value pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (DataMaskingEntityArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataMaskingEntity)(nil)).Elem()
-}
-
-func (i DataMaskingEntityArgs) ToDataMaskingEntityOutput() DataMaskingEntityOutput {
-	return i.ToDataMaskingEntityOutputWithContext(context.Background())
-}
-
-func (i DataMaskingEntityArgs) ToDataMaskingEntityOutputWithContext(ctx context.Context) DataMaskingEntityOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataMaskingEntityOutput)
-}
-
-// DataMaskingEntityArrayInput is an input type that accepts DataMaskingEntityArray and DataMaskingEntityArrayOutput values.
-// You can construct a concrete instance of `DataMaskingEntityArrayInput` via:
-//
-//          DataMaskingEntityArray{ DataMaskingEntityArgs{...} }
-type DataMaskingEntityArrayInput interface {
-	pulumi.Input
-
-	ToDataMaskingEntityArrayOutput() DataMaskingEntityArrayOutput
-	ToDataMaskingEntityArrayOutputWithContext(context.Context) DataMaskingEntityArrayOutput
-}
-
-type DataMaskingEntityArray []DataMaskingEntityInput
-
-func (DataMaskingEntityArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DataMaskingEntity)(nil)).Elem()
-}
-
-func (i DataMaskingEntityArray) ToDataMaskingEntityArrayOutput() DataMaskingEntityArrayOutput {
-	return i.ToDataMaskingEntityArrayOutputWithContext(context.Background())
-}
-
-func (i DataMaskingEntityArray) ToDataMaskingEntityArrayOutputWithContext(ctx context.Context) DataMaskingEntityArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataMaskingEntityArrayOutput)
-}
-
-type DataMaskingEntityOutput struct{ *pulumi.OutputState }
-
-func (DataMaskingEntityOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataMaskingEntity)(nil)).Elem()
-}
-
-func (o DataMaskingEntityOutput) ToDataMaskingEntityOutput() DataMaskingEntityOutput {
-	return o
-}
-
-func (o DataMaskingEntityOutput) ToDataMaskingEntityOutputWithContext(ctx context.Context) DataMaskingEntityOutput {
-	return o
-}
-
-// Data masking mode.
-func (o DataMaskingEntityOutput) Mode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DataMaskingEntity) *string { return v.Mode }).(pulumi.StringPtrOutput)
-}
-
-// The name of an entity to mask (e.g. a name of a header or a query parameter).
-func (o DataMaskingEntityOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DataMaskingEntity) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type DataMaskingEntityArrayOutput struct{ *pulumi.OutputState }
-
-func (DataMaskingEntityArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DataMaskingEntity)(nil)).Elem()
-}
-
-func (o DataMaskingEntityArrayOutput) ToDataMaskingEntityArrayOutput() DataMaskingEntityArrayOutput {
-	return o
-}
-
-func (o DataMaskingEntityArrayOutput) ToDataMaskingEntityArrayOutputWithContext(ctx context.Context) DataMaskingEntityArrayOutput {
-	return o
-}
-
-func (o DataMaskingEntityArrayOutput) Index(i pulumi.IntInput) DataMaskingEntityOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataMaskingEntity {
-		return vs[0].([]DataMaskingEntity)[vs[1].(int)]
-	}).(DataMaskingEntityOutput)
-}
-
-type DataMaskingEntityResponse struct {
-	// Data masking mode.
-	Mode *string `pulumi:"mode"`
-	// The name of an entity to mask (e.g. a name of a header or a query parameter).
-	Value *string `pulumi:"value"`
-}
-
-// DataMaskingEntityResponseInput is an input type that accepts DataMaskingEntityResponseArgs and DataMaskingEntityResponseOutput values.
-// You can construct a concrete instance of `DataMaskingEntityResponseInput` via:
-//
-//          DataMaskingEntityResponseArgs{...}
-type DataMaskingEntityResponseInput interface {
-	pulumi.Input
-
-	ToDataMaskingEntityResponseOutput() DataMaskingEntityResponseOutput
-	ToDataMaskingEntityResponseOutputWithContext(context.Context) DataMaskingEntityResponseOutput
-}
-
-type DataMaskingEntityResponseArgs struct {
-	// Data masking mode.
-	Mode pulumi.StringPtrInput `pulumi:"mode"`
-	// The name of an entity to mask (e.g. a name of a header or a query parameter).
-	Value pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (DataMaskingEntityResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataMaskingEntityResponse)(nil)).Elem()
-}
-
-func (i DataMaskingEntityResponseArgs) ToDataMaskingEntityResponseOutput() DataMaskingEntityResponseOutput {
-	return i.ToDataMaskingEntityResponseOutputWithContext(context.Background())
-}
-
-func (i DataMaskingEntityResponseArgs) ToDataMaskingEntityResponseOutputWithContext(ctx context.Context) DataMaskingEntityResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataMaskingEntityResponseOutput)
-}
-
-// DataMaskingEntityResponseArrayInput is an input type that accepts DataMaskingEntityResponseArray and DataMaskingEntityResponseArrayOutput values.
-// You can construct a concrete instance of `DataMaskingEntityResponseArrayInput` via:
-//
-//          DataMaskingEntityResponseArray{ DataMaskingEntityResponseArgs{...} }
-type DataMaskingEntityResponseArrayInput interface {
-	pulumi.Input
-
-	ToDataMaskingEntityResponseArrayOutput() DataMaskingEntityResponseArrayOutput
-	ToDataMaskingEntityResponseArrayOutputWithContext(context.Context) DataMaskingEntityResponseArrayOutput
-}
-
-type DataMaskingEntityResponseArray []DataMaskingEntityResponseInput
-
-func (DataMaskingEntityResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DataMaskingEntityResponse)(nil)).Elem()
-}
-
-func (i DataMaskingEntityResponseArray) ToDataMaskingEntityResponseArrayOutput() DataMaskingEntityResponseArrayOutput {
-	return i.ToDataMaskingEntityResponseArrayOutputWithContext(context.Background())
-}
-
-func (i DataMaskingEntityResponseArray) ToDataMaskingEntityResponseArrayOutputWithContext(ctx context.Context) DataMaskingEntityResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataMaskingEntityResponseArrayOutput)
-}
-
-type DataMaskingEntityResponseOutput struct{ *pulumi.OutputState }
-
-func (DataMaskingEntityResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataMaskingEntityResponse)(nil)).Elem()
-}
-
-func (o DataMaskingEntityResponseOutput) ToDataMaskingEntityResponseOutput() DataMaskingEntityResponseOutput {
-	return o
-}
-
-func (o DataMaskingEntityResponseOutput) ToDataMaskingEntityResponseOutputWithContext(ctx context.Context) DataMaskingEntityResponseOutput {
-	return o
-}
-
-// Data masking mode.
-func (o DataMaskingEntityResponseOutput) Mode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DataMaskingEntityResponse) *string { return v.Mode }).(pulumi.StringPtrOutput)
-}
-
-// The name of an entity to mask (e.g. a name of a header or a query parameter).
-func (o DataMaskingEntityResponseOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DataMaskingEntityResponse) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type DataMaskingEntityResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (DataMaskingEntityResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DataMaskingEntityResponse)(nil)).Elem()
-}
-
-func (o DataMaskingEntityResponseArrayOutput) ToDataMaskingEntityResponseArrayOutput() DataMaskingEntityResponseArrayOutput {
-	return o
-}
-
-func (o DataMaskingEntityResponseArrayOutput) ToDataMaskingEntityResponseArrayOutputWithContext(ctx context.Context) DataMaskingEntityResponseArrayOutput {
-	return o
-}
-
-func (o DataMaskingEntityResponseArrayOutput) Index(i pulumi.IntInput) DataMaskingEntityResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataMaskingEntityResponse {
-		return vs[0].([]DataMaskingEntityResponse)[vs[1].(int)]
-	}).(DataMaskingEntityResponseOutput)
-}
-
-type DataMaskingResponse struct {
-	// Masking settings for headers
-	Headers []DataMaskingEntityResponse `pulumi:"headers"`
-	// Masking settings for Url query parameters
-	QueryParams []DataMaskingEntityResponse `pulumi:"queryParams"`
-}
-
-// DataMaskingResponseInput is an input type that accepts DataMaskingResponseArgs and DataMaskingResponseOutput values.
-// You can construct a concrete instance of `DataMaskingResponseInput` via:
-//
-//          DataMaskingResponseArgs{...}
-type DataMaskingResponseInput interface {
-	pulumi.Input
-
-	ToDataMaskingResponseOutput() DataMaskingResponseOutput
-	ToDataMaskingResponseOutputWithContext(context.Context) DataMaskingResponseOutput
-}
-
-type DataMaskingResponseArgs struct {
-	// Masking settings for headers
-	Headers DataMaskingEntityResponseArrayInput `pulumi:"headers"`
-	// Masking settings for Url query parameters
-	QueryParams DataMaskingEntityResponseArrayInput `pulumi:"queryParams"`
-}
-
-func (DataMaskingResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataMaskingResponse)(nil)).Elem()
-}
-
-func (i DataMaskingResponseArgs) ToDataMaskingResponseOutput() DataMaskingResponseOutput {
-	return i.ToDataMaskingResponseOutputWithContext(context.Background())
-}
-
-func (i DataMaskingResponseArgs) ToDataMaskingResponseOutputWithContext(ctx context.Context) DataMaskingResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataMaskingResponseOutput)
-}
-
-func (i DataMaskingResponseArgs) ToDataMaskingResponsePtrOutput() DataMaskingResponsePtrOutput {
-	return i.ToDataMaskingResponsePtrOutputWithContext(context.Background())
-}
-
-func (i DataMaskingResponseArgs) ToDataMaskingResponsePtrOutputWithContext(ctx context.Context) DataMaskingResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataMaskingResponseOutput).ToDataMaskingResponsePtrOutputWithContext(ctx)
-}
-
-// DataMaskingResponsePtrInput is an input type that accepts DataMaskingResponseArgs, DataMaskingResponsePtr and DataMaskingResponsePtrOutput values.
-// You can construct a concrete instance of `DataMaskingResponsePtrInput` via:
-//
-//          DataMaskingResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type DataMaskingResponsePtrInput interface {
-	pulumi.Input
-
-	ToDataMaskingResponsePtrOutput() DataMaskingResponsePtrOutput
-	ToDataMaskingResponsePtrOutputWithContext(context.Context) DataMaskingResponsePtrOutput
-}
-
-type dataMaskingResponsePtrType DataMaskingResponseArgs
-
-func DataMaskingResponsePtr(v *DataMaskingResponseArgs) DataMaskingResponsePtrInput {
-	return (*dataMaskingResponsePtrType)(v)
-}
-
-func (*dataMaskingResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataMaskingResponse)(nil)).Elem()
-}
-
-func (i *dataMaskingResponsePtrType) ToDataMaskingResponsePtrOutput() DataMaskingResponsePtrOutput {
-	return i.ToDataMaskingResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *dataMaskingResponsePtrType) ToDataMaskingResponsePtrOutputWithContext(ctx context.Context) DataMaskingResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataMaskingResponsePtrOutput)
-}
-
-type DataMaskingResponseOutput struct{ *pulumi.OutputState }
-
-func (DataMaskingResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataMaskingResponse)(nil)).Elem()
-}
-
-func (o DataMaskingResponseOutput) ToDataMaskingResponseOutput() DataMaskingResponseOutput {
-	return o
-}
-
-func (o DataMaskingResponseOutput) ToDataMaskingResponseOutputWithContext(ctx context.Context) DataMaskingResponseOutput {
-	return o
-}
-
-func (o DataMaskingResponseOutput) ToDataMaskingResponsePtrOutput() DataMaskingResponsePtrOutput {
-	return o.ToDataMaskingResponsePtrOutputWithContext(context.Background())
-}
-
-func (o DataMaskingResponseOutput) ToDataMaskingResponsePtrOutputWithContext(ctx context.Context) DataMaskingResponsePtrOutput {
-	return o.ApplyT(func(v DataMaskingResponse) *DataMaskingResponse {
-		return &v
-	}).(DataMaskingResponsePtrOutput)
-}
-
-// Masking settings for headers
-func (o DataMaskingResponseOutput) Headers() DataMaskingEntityResponseArrayOutput {
-	return o.ApplyT(func(v DataMaskingResponse) []DataMaskingEntityResponse { return v.Headers }).(DataMaskingEntityResponseArrayOutput)
-}
-
-// Masking settings for Url query parameters
-func (o DataMaskingResponseOutput) QueryParams() DataMaskingEntityResponseArrayOutput {
-	return o.ApplyT(func(v DataMaskingResponse) []DataMaskingEntityResponse { return v.QueryParams }).(DataMaskingEntityResponseArrayOutput)
-}
-
-type DataMaskingResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (DataMaskingResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataMaskingResponse)(nil)).Elem()
-}
-
-func (o DataMaskingResponsePtrOutput) ToDataMaskingResponsePtrOutput() DataMaskingResponsePtrOutput {
-	return o
-}
-
-func (o DataMaskingResponsePtrOutput) ToDataMaskingResponsePtrOutputWithContext(ctx context.Context) DataMaskingResponsePtrOutput {
-	return o
-}
-
-func (o DataMaskingResponsePtrOutput) Elem() DataMaskingResponseOutput {
-	return o.ApplyT(func(v *DataMaskingResponse) DataMaskingResponse { return *v }).(DataMaskingResponseOutput)
-}
-
-// Masking settings for headers
-func (o DataMaskingResponsePtrOutput) Headers() DataMaskingEntityResponseArrayOutput {
-	return o.ApplyT(func(v *DataMaskingResponse) []DataMaskingEntityResponse {
-		if v == nil {
-			return nil
-		}
-		return v.Headers
-	}).(DataMaskingEntityResponseArrayOutput)
-}
-
-// Masking settings for Url query parameters
-func (o DataMaskingResponsePtrOutput) QueryParams() DataMaskingEntityResponseArrayOutput {
-	return o.ApplyT(func(v *DataMaskingResponse) []DataMaskingEntityResponse {
-		if v == nil {
-			return nil
-		}
-		return v.QueryParams
-	}).(DataMaskingEntityResponseArrayOutput)
-}
-
 // Email Template Parameter contract.
 type EmailTemplateParametersContractProperties struct {
 	// Template parameter description.
@@ -6054,9 +5448,7 @@ type HostnameConfiguration struct {
 	EncodedCertificate *string `pulumi:"encodedCertificate"`
 	// Hostname to configure on the Api Management service.
 	HostName string `pulumi:"hostName"`
-	// System or User Assigned Managed identity clientId as generated by Azure AD, which has GET access to the keyVault containing the SSL certificate.
-	IdentityClientId *string `pulumi:"identityClientId"`
-	// Url to the KeyVault Secret containing the Ssl Certificate. If absolute Url containing version is provided, auto-update of ssl certificate will not work. This requires Api Management service to be configured with aka.ms/apimmsi. The secret should be of type *application/x-pkcs12*
+	// Url to the KeyVault Secret containing the Ssl Certificate. If absolute Url containing version is provided, auto-update of ssl certificate will not work. This requires Api Management service to be configured with MSI. The secret should be of type *application/x-pkcs12*
 	KeyVaultId *string `pulumi:"keyVaultId"`
 	// Specify true to always negotiate client certificate on the hostname. Default Value is false.
 	NegotiateClientCertificate *bool `pulumi:"negotiateClientCertificate"`
@@ -6087,9 +5479,7 @@ type HostnameConfigurationArgs struct {
 	EncodedCertificate pulumi.StringPtrInput `pulumi:"encodedCertificate"`
 	// Hostname to configure on the Api Management service.
 	HostName pulumi.StringInput `pulumi:"hostName"`
-	// System or User Assigned Managed identity clientId as generated by Azure AD, which has GET access to the keyVault containing the SSL certificate.
-	IdentityClientId pulumi.StringPtrInput `pulumi:"identityClientId"`
-	// Url to the KeyVault Secret containing the Ssl Certificate. If absolute Url containing version is provided, auto-update of ssl certificate will not work. This requires Api Management service to be configured with aka.ms/apimmsi. The secret should be of type *application/x-pkcs12*
+	// Url to the KeyVault Secret containing the Ssl Certificate. If absolute Url containing version is provided, auto-update of ssl certificate will not work. This requires Api Management service to be configured with MSI. The secret should be of type *application/x-pkcs12*
 	KeyVaultId pulumi.StringPtrInput `pulumi:"keyVaultId"`
 	// Specify true to always negotiate client certificate on the hostname. Default Value is false.
 	NegotiateClientCertificate pulumi.BoolPtrInput `pulumi:"negotiateClientCertificate"`
@@ -6174,12 +5564,7 @@ func (o HostnameConfigurationOutput) HostName() pulumi.StringOutput {
 	return o.ApplyT(func(v HostnameConfiguration) string { return v.HostName }).(pulumi.StringOutput)
 }
 
-// System or User Assigned Managed identity clientId as generated by Azure AD, which has GET access to the keyVault containing the SSL certificate.
-func (o HostnameConfigurationOutput) IdentityClientId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HostnameConfiguration) *string { return v.IdentityClientId }).(pulumi.StringPtrOutput)
-}
-
-// Url to the KeyVault Secret containing the Ssl Certificate. If absolute Url containing version is provided, auto-update of ssl certificate will not work. This requires Api Management service to be configured with aka.ms/apimmsi. The secret should be of type *application/x-pkcs12*
+// Url to the KeyVault Secret containing the Ssl Certificate. If absolute Url containing version is provided, auto-update of ssl certificate will not work. This requires Api Management service to be configured with MSI. The secret should be of type *application/x-pkcs12*
 func (o HostnameConfigurationOutput) KeyVaultId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HostnameConfiguration) *string { return v.KeyVaultId }).(pulumi.StringPtrOutput)
 }
@@ -6226,9 +5611,7 @@ type HostnameConfigurationResponse struct {
 	EncodedCertificate *string `pulumi:"encodedCertificate"`
 	// Hostname to configure on the Api Management service.
 	HostName string `pulumi:"hostName"`
-	// System or User Assigned Managed identity clientId as generated by Azure AD, which has GET access to the keyVault containing the SSL certificate.
-	IdentityClientId *string `pulumi:"identityClientId"`
-	// Url to the KeyVault Secret containing the Ssl Certificate. If absolute Url containing version is provided, auto-update of ssl certificate will not work. This requires Api Management service to be configured with aka.ms/apimmsi. The secret should be of type *application/x-pkcs12*
+	// Url to the KeyVault Secret containing the Ssl Certificate. If absolute Url containing version is provided, auto-update of ssl certificate will not work. This requires Api Management service to be configured with MSI. The secret should be of type *application/x-pkcs12*
 	KeyVaultId *string `pulumi:"keyVaultId"`
 	// Specify true to always negotiate client certificate on the hostname. Default Value is false.
 	NegotiateClientCertificate *bool `pulumi:"negotiateClientCertificate"`
@@ -6259,9 +5642,7 @@ type HostnameConfigurationResponseArgs struct {
 	EncodedCertificate pulumi.StringPtrInput `pulumi:"encodedCertificate"`
 	// Hostname to configure on the Api Management service.
 	HostName pulumi.StringInput `pulumi:"hostName"`
-	// System or User Assigned Managed identity clientId as generated by Azure AD, which has GET access to the keyVault containing the SSL certificate.
-	IdentityClientId pulumi.StringPtrInput `pulumi:"identityClientId"`
-	// Url to the KeyVault Secret containing the Ssl Certificate. If absolute Url containing version is provided, auto-update of ssl certificate will not work. This requires Api Management service to be configured with aka.ms/apimmsi. The secret should be of type *application/x-pkcs12*
+	// Url to the KeyVault Secret containing the Ssl Certificate. If absolute Url containing version is provided, auto-update of ssl certificate will not work. This requires Api Management service to be configured with MSI. The secret should be of type *application/x-pkcs12*
 	KeyVaultId pulumi.StringPtrInput `pulumi:"keyVaultId"`
 	// Specify true to always negotiate client certificate on the hostname. Default Value is false.
 	NegotiateClientCertificate pulumi.BoolPtrInput `pulumi:"negotiateClientCertificate"`
@@ -6346,12 +5727,7 @@ func (o HostnameConfigurationResponseOutput) HostName() pulumi.StringOutput {
 	return o.ApplyT(func(v HostnameConfigurationResponse) string { return v.HostName }).(pulumi.StringOutput)
 }
 
-// System or User Assigned Managed identity clientId as generated by Azure AD, which has GET access to the keyVault containing the SSL certificate.
-func (o HostnameConfigurationResponseOutput) IdentityClientId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HostnameConfigurationResponse) *string { return v.IdentityClientId }).(pulumi.StringPtrOutput)
-}
-
-// Url to the KeyVault Secret containing the Ssl Certificate. If absolute Url containing version is provided, auto-update of ssl certificate will not work. This requires Api Management service to be configured with aka.ms/apimmsi. The secret should be of type *application/x-pkcs12*
+// Url to the KeyVault Secret containing the Ssl Certificate. If absolute Url containing version is provided, auto-update of ssl certificate will not work. This requires Api Management service to be configured with MSI. The secret should be of type *application/x-pkcs12*
 func (o HostnameConfigurationResponseOutput) KeyVaultId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HostnameConfigurationResponse) *string { return v.KeyVaultId }).(pulumi.StringPtrOutput)
 }
@@ -6390,8 +5766,6 @@ func (o HostnameConfigurationResponseArrayOutput) Index(i pulumi.IntInput) Hostn
 type HttpMessageDiagnostic struct {
 	// Body logging settings.
 	Body *BodyDiagnosticSettings `pulumi:"body"`
-	// Data masking settings.
-	DataMasking *DataMasking `pulumi:"dataMasking"`
 	// Array of HTTP Headers to log.
 	Headers []string `pulumi:"headers"`
 }
@@ -6411,8 +5785,6 @@ type HttpMessageDiagnosticInput interface {
 type HttpMessageDiagnosticArgs struct {
 	// Body logging settings.
 	Body BodyDiagnosticSettingsPtrInput `pulumi:"body"`
-	// Data masking settings.
-	DataMasking DataMaskingPtrInput `pulumi:"dataMasking"`
 	// Array of HTTP Headers to log.
 	Headers pulumi.StringArrayInput `pulumi:"headers"`
 }
@@ -6500,11 +5872,6 @@ func (o HttpMessageDiagnosticOutput) Body() BodyDiagnosticSettingsPtrOutput {
 	return o.ApplyT(func(v HttpMessageDiagnostic) *BodyDiagnosticSettings { return v.Body }).(BodyDiagnosticSettingsPtrOutput)
 }
 
-// Data masking settings.
-func (o HttpMessageDiagnosticOutput) DataMasking() DataMaskingPtrOutput {
-	return o.ApplyT(func(v HttpMessageDiagnostic) *DataMasking { return v.DataMasking }).(DataMaskingPtrOutput)
-}
-
 // Array of HTTP Headers to log.
 func (o HttpMessageDiagnosticOutput) Headers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v HttpMessageDiagnostic) []string { return v.Headers }).(pulumi.StringArrayOutput)
@@ -6538,16 +5905,6 @@ func (o HttpMessageDiagnosticPtrOutput) Body() BodyDiagnosticSettingsPtrOutput {
 	}).(BodyDiagnosticSettingsPtrOutput)
 }
 
-// Data masking settings.
-func (o HttpMessageDiagnosticPtrOutput) DataMasking() DataMaskingPtrOutput {
-	return o.ApplyT(func(v *HttpMessageDiagnostic) *DataMasking {
-		if v == nil {
-			return nil
-		}
-		return v.DataMasking
-	}).(DataMaskingPtrOutput)
-}
-
 // Array of HTTP Headers to log.
 func (o HttpMessageDiagnosticPtrOutput) Headers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *HttpMessageDiagnostic) []string {
@@ -6562,8 +5919,6 @@ func (o HttpMessageDiagnosticPtrOutput) Headers() pulumi.StringArrayOutput {
 type HttpMessageDiagnosticResponse struct {
 	// Body logging settings.
 	Body *BodyDiagnosticSettingsResponse `pulumi:"body"`
-	// Data masking settings.
-	DataMasking *DataMaskingResponse `pulumi:"dataMasking"`
 	// Array of HTTP Headers to log.
 	Headers []string `pulumi:"headers"`
 }
@@ -6583,8 +5938,6 @@ type HttpMessageDiagnosticResponseInput interface {
 type HttpMessageDiagnosticResponseArgs struct {
 	// Body logging settings.
 	Body BodyDiagnosticSettingsResponsePtrInput `pulumi:"body"`
-	// Data masking settings.
-	DataMasking DataMaskingResponsePtrInput `pulumi:"dataMasking"`
 	// Array of HTTP Headers to log.
 	Headers pulumi.StringArrayInput `pulumi:"headers"`
 }
@@ -6672,11 +6025,6 @@ func (o HttpMessageDiagnosticResponseOutput) Body() BodyDiagnosticSettingsRespon
 	return o.ApplyT(func(v HttpMessageDiagnosticResponse) *BodyDiagnosticSettingsResponse { return v.Body }).(BodyDiagnosticSettingsResponsePtrOutput)
 }
 
-// Data masking settings.
-func (o HttpMessageDiagnosticResponseOutput) DataMasking() DataMaskingResponsePtrOutput {
-	return o.ApplyT(func(v HttpMessageDiagnosticResponse) *DataMaskingResponse { return v.DataMasking }).(DataMaskingResponsePtrOutput)
-}
-
 // Array of HTTP Headers to log.
 func (o HttpMessageDiagnosticResponseOutput) Headers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v HttpMessageDiagnosticResponse) []string { return v.Headers }).(pulumi.StringArrayOutput)
@@ -6710,16 +6058,6 @@ func (o HttpMessageDiagnosticResponsePtrOutput) Body() BodyDiagnosticSettingsRes
 	}).(BodyDiagnosticSettingsResponsePtrOutput)
 }
 
-// Data masking settings.
-func (o HttpMessageDiagnosticResponsePtrOutput) DataMasking() DataMaskingResponsePtrOutput {
-	return o.ApplyT(func(v *HttpMessageDiagnosticResponse) *DataMaskingResponse {
-		if v == nil {
-			return nil
-		}
-		return v.DataMasking
-	}).(DataMaskingResponsePtrOutput)
-}
-
 // Array of HTTP Headers to log.
 func (o HttpMessageDiagnosticResponsePtrOutput) Headers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *HttpMessageDiagnosticResponse) []string {
@@ -6728,507 +6066,6 @@ func (o HttpMessageDiagnosticResponsePtrOutput) Headers() pulumi.StringArrayOutp
 		}
 		return v.Headers
 	}).(pulumi.StringArrayOutput)
-}
-
-// Create keyVault contract details.
-type KeyVaultContractCreateProperties struct {
-	// SystemAssignedIdentity or UserAssignedIdentity Client Id which will be used to access key vault secret.
-	IdentityClientId *string `pulumi:"identityClientId"`
-	// Key vault secret identifier for fetching secret. Providing a versioned secret will prevent auto-refresh. This requires Api Management service to be configured with aka.ms/apimmsi
-	SecretIdentifier *string `pulumi:"secretIdentifier"`
-}
-
-// KeyVaultContractCreatePropertiesInput is an input type that accepts KeyVaultContractCreatePropertiesArgs and KeyVaultContractCreatePropertiesOutput values.
-// You can construct a concrete instance of `KeyVaultContractCreatePropertiesInput` via:
-//
-//          KeyVaultContractCreatePropertiesArgs{...}
-type KeyVaultContractCreatePropertiesInput interface {
-	pulumi.Input
-
-	ToKeyVaultContractCreatePropertiesOutput() KeyVaultContractCreatePropertiesOutput
-	ToKeyVaultContractCreatePropertiesOutputWithContext(context.Context) KeyVaultContractCreatePropertiesOutput
-}
-
-// Create keyVault contract details.
-type KeyVaultContractCreatePropertiesArgs struct {
-	// SystemAssignedIdentity or UserAssignedIdentity Client Id which will be used to access key vault secret.
-	IdentityClientId pulumi.StringPtrInput `pulumi:"identityClientId"`
-	// Key vault secret identifier for fetching secret. Providing a versioned secret will prevent auto-refresh. This requires Api Management service to be configured with aka.ms/apimmsi
-	SecretIdentifier pulumi.StringPtrInput `pulumi:"secretIdentifier"`
-}
-
-func (KeyVaultContractCreatePropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*KeyVaultContractCreateProperties)(nil)).Elem()
-}
-
-func (i KeyVaultContractCreatePropertiesArgs) ToKeyVaultContractCreatePropertiesOutput() KeyVaultContractCreatePropertiesOutput {
-	return i.ToKeyVaultContractCreatePropertiesOutputWithContext(context.Background())
-}
-
-func (i KeyVaultContractCreatePropertiesArgs) ToKeyVaultContractCreatePropertiesOutputWithContext(ctx context.Context) KeyVaultContractCreatePropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultContractCreatePropertiesOutput)
-}
-
-func (i KeyVaultContractCreatePropertiesArgs) ToKeyVaultContractCreatePropertiesPtrOutput() KeyVaultContractCreatePropertiesPtrOutput {
-	return i.ToKeyVaultContractCreatePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i KeyVaultContractCreatePropertiesArgs) ToKeyVaultContractCreatePropertiesPtrOutputWithContext(ctx context.Context) KeyVaultContractCreatePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultContractCreatePropertiesOutput).ToKeyVaultContractCreatePropertiesPtrOutputWithContext(ctx)
-}
-
-// KeyVaultContractCreatePropertiesPtrInput is an input type that accepts KeyVaultContractCreatePropertiesArgs, KeyVaultContractCreatePropertiesPtr and KeyVaultContractCreatePropertiesPtrOutput values.
-// You can construct a concrete instance of `KeyVaultContractCreatePropertiesPtrInput` via:
-//
-//          KeyVaultContractCreatePropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type KeyVaultContractCreatePropertiesPtrInput interface {
-	pulumi.Input
-
-	ToKeyVaultContractCreatePropertiesPtrOutput() KeyVaultContractCreatePropertiesPtrOutput
-	ToKeyVaultContractCreatePropertiesPtrOutputWithContext(context.Context) KeyVaultContractCreatePropertiesPtrOutput
-}
-
-type keyVaultContractCreatePropertiesPtrType KeyVaultContractCreatePropertiesArgs
-
-func KeyVaultContractCreatePropertiesPtr(v *KeyVaultContractCreatePropertiesArgs) KeyVaultContractCreatePropertiesPtrInput {
-	return (*keyVaultContractCreatePropertiesPtrType)(v)
-}
-
-func (*keyVaultContractCreatePropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**KeyVaultContractCreateProperties)(nil)).Elem()
-}
-
-func (i *keyVaultContractCreatePropertiesPtrType) ToKeyVaultContractCreatePropertiesPtrOutput() KeyVaultContractCreatePropertiesPtrOutput {
-	return i.ToKeyVaultContractCreatePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *keyVaultContractCreatePropertiesPtrType) ToKeyVaultContractCreatePropertiesPtrOutputWithContext(ctx context.Context) KeyVaultContractCreatePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultContractCreatePropertiesPtrOutput)
-}
-
-// Create keyVault contract details.
-type KeyVaultContractCreatePropertiesOutput struct{ *pulumi.OutputState }
-
-func (KeyVaultContractCreatePropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KeyVaultContractCreateProperties)(nil)).Elem()
-}
-
-func (o KeyVaultContractCreatePropertiesOutput) ToKeyVaultContractCreatePropertiesOutput() KeyVaultContractCreatePropertiesOutput {
-	return o
-}
-
-func (o KeyVaultContractCreatePropertiesOutput) ToKeyVaultContractCreatePropertiesOutputWithContext(ctx context.Context) KeyVaultContractCreatePropertiesOutput {
-	return o
-}
-
-func (o KeyVaultContractCreatePropertiesOutput) ToKeyVaultContractCreatePropertiesPtrOutput() KeyVaultContractCreatePropertiesPtrOutput {
-	return o.ToKeyVaultContractCreatePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o KeyVaultContractCreatePropertiesOutput) ToKeyVaultContractCreatePropertiesPtrOutputWithContext(ctx context.Context) KeyVaultContractCreatePropertiesPtrOutput {
-	return o.ApplyT(func(v KeyVaultContractCreateProperties) *KeyVaultContractCreateProperties {
-		return &v
-	}).(KeyVaultContractCreatePropertiesPtrOutput)
-}
-
-// SystemAssignedIdentity or UserAssignedIdentity Client Id which will be used to access key vault secret.
-func (o KeyVaultContractCreatePropertiesOutput) IdentityClientId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KeyVaultContractCreateProperties) *string { return v.IdentityClientId }).(pulumi.StringPtrOutput)
-}
-
-// Key vault secret identifier for fetching secret. Providing a versioned secret will prevent auto-refresh. This requires Api Management service to be configured with aka.ms/apimmsi
-func (o KeyVaultContractCreatePropertiesOutput) SecretIdentifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KeyVaultContractCreateProperties) *string { return v.SecretIdentifier }).(pulumi.StringPtrOutput)
-}
-
-type KeyVaultContractCreatePropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (KeyVaultContractCreatePropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**KeyVaultContractCreateProperties)(nil)).Elem()
-}
-
-func (o KeyVaultContractCreatePropertiesPtrOutput) ToKeyVaultContractCreatePropertiesPtrOutput() KeyVaultContractCreatePropertiesPtrOutput {
-	return o
-}
-
-func (o KeyVaultContractCreatePropertiesPtrOutput) ToKeyVaultContractCreatePropertiesPtrOutputWithContext(ctx context.Context) KeyVaultContractCreatePropertiesPtrOutput {
-	return o
-}
-
-func (o KeyVaultContractCreatePropertiesPtrOutput) Elem() KeyVaultContractCreatePropertiesOutput {
-	return o.ApplyT(func(v *KeyVaultContractCreateProperties) KeyVaultContractCreateProperties { return *v }).(KeyVaultContractCreatePropertiesOutput)
-}
-
-// SystemAssignedIdentity or UserAssignedIdentity Client Id which will be used to access key vault secret.
-func (o KeyVaultContractCreatePropertiesPtrOutput) IdentityClientId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KeyVaultContractCreateProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.IdentityClientId
-	}).(pulumi.StringPtrOutput)
-}
-
-// Key vault secret identifier for fetching secret. Providing a versioned secret will prevent auto-refresh. This requires Api Management service to be configured with aka.ms/apimmsi
-func (o KeyVaultContractCreatePropertiesPtrOutput) SecretIdentifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KeyVaultContractCreateProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SecretIdentifier
-	}).(pulumi.StringPtrOutput)
-}
-
-// KeyVault contract details.
-type KeyVaultContractPropertiesResponse struct {
-	// SystemAssignedIdentity or UserAssignedIdentity Client Id which will be used to access key vault secret.
-	IdentityClientId *string `pulumi:"identityClientId"`
-	// Last time sync and refresh status of secret from key vault.
-	LastStatus *KeyVaultLastAccessStatusContractPropertiesResponse `pulumi:"lastStatus"`
-	// Key vault secret identifier for fetching secret. Providing a versioned secret will prevent auto-refresh. This requires Api Management service to be configured with aka.ms/apimmsi
-	SecretIdentifier *string `pulumi:"secretIdentifier"`
-}
-
-// KeyVaultContractPropertiesResponseInput is an input type that accepts KeyVaultContractPropertiesResponseArgs and KeyVaultContractPropertiesResponseOutput values.
-// You can construct a concrete instance of `KeyVaultContractPropertiesResponseInput` via:
-//
-//          KeyVaultContractPropertiesResponseArgs{...}
-type KeyVaultContractPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToKeyVaultContractPropertiesResponseOutput() KeyVaultContractPropertiesResponseOutput
-	ToKeyVaultContractPropertiesResponseOutputWithContext(context.Context) KeyVaultContractPropertiesResponseOutput
-}
-
-// KeyVault contract details.
-type KeyVaultContractPropertiesResponseArgs struct {
-	// SystemAssignedIdentity or UserAssignedIdentity Client Id which will be used to access key vault secret.
-	IdentityClientId pulumi.StringPtrInput `pulumi:"identityClientId"`
-	// Last time sync and refresh status of secret from key vault.
-	LastStatus KeyVaultLastAccessStatusContractPropertiesResponsePtrInput `pulumi:"lastStatus"`
-	// Key vault secret identifier for fetching secret. Providing a versioned secret will prevent auto-refresh. This requires Api Management service to be configured with aka.ms/apimmsi
-	SecretIdentifier pulumi.StringPtrInput `pulumi:"secretIdentifier"`
-}
-
-func (KeyVaultContractPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*KeyVaultContractPropertiesResponse)(nil)).Elem()
-}
-
-func (i KeyVaultContractPropertiesResponseArgs) ToKeyVaultContractPropertiesResponseOutput() KeyVaultContractPropertiesResponseOutput {
-	return i.ToKeyVaultContractPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i KeyVaultContractPropertiesResponseArgs) ToKeyVaultContractPropertiesResponseOutputWithContext(ctx context.Context) KeyVaultContractPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultContractPropertiesResponseOutput)
-}
-
-func (i KeyVaultContractPropertiesResponseArgs) ToKeyVaultContractPropertiesResponsePtrOutput() KeyVaultContractPropertiesResponsePtrOutput {
-	return i.ToKeyVaultContractPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i KeyVaultContractPropertiesResponseArgs) ToKeyVaultContractPropertiesResponsePtrOutputWithContext(ctx context.Context) KeyVaultContractPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultContractPropertiesResponseOutput).ToKeyVaultContractPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// KeyVaultContractPropertiesResponsePtrInput is an input type that accepts KeyVaultContractPropertiesResponseArgs, KeyVaultContractPropertiesResponsePtr and KeyVaultContractPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `KeyVaultContractPropertiesResponsePtrInput` via:
-//
-//          KeyVaultContractPropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type KeyVaultContractPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToKeyVaultContractPropertiesResponsePtrOutput() KeyVaultContractPropertiesResponsePtrOutput
-	ToKeyVaultContractPropertiesResponsePtrOutputWithContext(context.Context) KeyVaultContractPropertiesResponsePtrOutput
-}
-
-type keyVaultContractPropertiesResponsePtrType KeyVaultContractPropertiesResponseArgs
-
-func KeyVaultContractPropertiesResponsePtr(v *KeyVaultContractPropertiesResponseArgs) KeyVaultContractPropertiesResponsePtrInput {
-	return (*keyVaultContractPropertiesResponsePtrType)(v)
-}
-
-func (*keyVaultContractPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**KeyVaultContractPropertiesResponse)(nil)).Elem()
-}
-
-func (i *keyVaultContractPropertiesResponsePtrType) ToKeyVaultContractPropertiesResponsePtrOutput() KeyVaultContractPropertiesResponsePtrOutput {
-	return i.ToKeyVaultContractPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *keyVaultContractPropertiesResponsePtrType) ToKeyVaultContractPropertiesResponsePtrOutputWithContext(ctx context.Context) KeyVaultContractPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultContractPropertiesResponsePtrOutput)
-}
-
-// KeyVault contract details.
-type KeyVaultContractPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (KeyVaultContractPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KeyVaultContractPropertiesResponse)(nil)).Elem()
-}
-
-func (o KeyVaultContractPropertiesResponseOutput) ToKeyVaultContractPropertiesResponseOutput() KeyVaultContractPropertiesResponseOutput {
-	return o
-}
-
-func (o KeyVaultContractPropertiesResponseOutput) ToKeyVaultContractPropertiesResponseOutputWithContext(ctx context.Context) KeyVaultContractPropertiesResponseOutput {
-	return o
-}
-
-func (o KeyVaultContractPropertiesResponseOutput) ToKeyVaultContractPropertiesResponsePtrOutput() KeyVaultContractPropertiesResponsePtrOutput {
-	return o.ToKeyVaultContractPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o KeyVaultContractPropertiesResponseOutput) ToKeyVaultContractPropertiesResponsePtrOutputWithContext(ctx context.Context) KeyVaultContractPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v KeyVaultContractPropertiesResponse) *KeyVaultContractPropertiesResponse {
-		return &v
-	}).(KeyVaultContractPropertiesResponsePtrOutput)
-}
-
-// SystemAssignedIdentity or UserAssignedIdentity Client Id which will be used to access key vault secret.
-func (o KeyVaultContractPropertiesResponseOutput) IdentityClientId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KeyVaultContractPropertiesResponse) *string { return v.IdentityClientId }).(pulumi.StringPtrOutput)
-}
-
-// Last time sync and refresh status of secret from key vault.
-func (o KeyVaultContractPropertiesResponseOutput) LastStatus() KeyVaultLastAccessStatusContractPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v KeyVaultContractPropertiesResponse) *KeyVaultLastAccessStatusContractPropertiesResponse {
-		return v.LastStatus
-	}).(KeyVaultLastAccessStatusContractPropertiesResponsePtrOutput)
-}
-
-// Key vault secret identifier for fetching secret. Providing a versioned secret will prevent auto-refresh. This requires Api Management service to be configured with aka.ms/apimmsi
-func (o KeyVaultContractPropertiesResponseOutput) SecretIdentifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KeyVaultContractPropertiesResponse) *string { return v.SecretIdentifier }).(pulumi.StringPtrOutput)
-}
-
-type KeyVaultContractPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (KeyVaultContractPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**KeyVaultContractPropertiesResponse)(nil)).Elem()
-}
-
-func (o KeyVaultContractPropertiesResponsePtrOutput) ToKeyVaultContractPropertiesResponsePtrOutput() KeyVaultContractPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o KeyVaultContractPropertiesResponsePtrOutput) ToKeyVaultContractPropertiesResponsePtrOutputWithContext(ctx context.Context) KeyVaultContractPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o KeyVaultContractPropertiesResponsePtrOutput) Elem() KeyVaultContractPropertiesResponseOutput {
-	return o.ApplyT(func(v *KeyVaultContractPropertiesResponse) KeyVaultContractPropertiesResponse { return *v }).(KeyVaultContractPropertiesResponseOutput)
-}
-
-// SystemAssignedIdentity or UserAssignedIdentity Client Id which will be used to access key vault secret.
-func (o KeyVaultContractPropertiesResponsePtrOutput) IdentityClientId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KeyVaultContractPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.IdentityClientId
-	}).(pulumi.StringPtrOutput)
-}
-
-// Last time sync and refresh status of secret from key vault.
-func (o KeyVaultContractPropertiesResponsePtrOutput) LastStatus() KeyVaultLastAccessStatusContractPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v *KeyVaultContractPropertiesResponse) *KeyVaultLastAccessStatusContractPropertiesResponse {
-		if v == nil {
-			return nil
-		}
-		return v.LastStatus
-	}).(KeyVaultLastAccessStatusContractPropertiesResponsePtrOutput)
-}
-
-// Key vault secret identifier for fetching secret. Providing a versioned secret will prevent auto-refresh. This requires Api Management service to be configured with aka.ms/apimmsi
-func (o KeyVaultContractPropertiesResponsePtrOutput) SecretIdentifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KeyVaultContractPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SecretIdentifier
-	}).(pulumi.StringPtrOutput)
-}
-
-// Issue contract Update Properties.
-type KeyVaultLastAccessStatusContractPropertiesResponse struct {
-	// Last status code for sync and refresh of secret from key vault.
-	Code *string `pulumi:"code"`
-	// Details of the error else empty.
-	Message *string `pulumi:"message"`
-	// Last time secret was accessed. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
-	TimeStampUtc *string `pulumi:"timeStampUtc"`
-}
-
-// KeyVaultLastAccessStatusContractPropertiesResponseInput is an input type that accepts KeyVaultLastAccessStatusContractPropertiesResponseArgs and KeyVaultLastAccessStatusContractPropertiesResponseOutput values.
-// You can construct a concrete instance of `KeyVaultLastAccessStatusContractPropertiesResponseInput` via:
-//
-//          KeyVaultLastAccessStatusContractPropertiesResponseArgs{...}
-type KeyVaultLastAccessStatusContractPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToKeyVaultLastAccessStatusContractPropertiesResponseOutput() KeyVaultLastAccessStatusContractPropertiesResponseOutput
-	ToKeyVaultLastAccessStatusContractPropertiesResponseOutputWithContext(context.Context) KeyVaultLastAccessStatusContractPropertiesResponseOutput
-}
-
-// Issue contract Update Properties.
-type KeyVaultLastAccessStatusContractPropertiesResponseArgs struct {
-	// Last status code for sync and refresh of secret from key vault.
-	Code pulumi.StringPtrInput `pulumi:"code"`
-	// Details of the error else empty.
-	Message pulumi.StringPtrInput `pulumi:"message"`
-	// Last time secret was accessed. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
-	TimeStampUtc pulumi.StringPtrInput `pulumi:"timeStampUtc"`
-}
-
-func (KeyVaultLastAccessStatusContractPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*KeyVaultLastAccessStatusContractPropertiesResponse)(nil)).Elem()
-}
-
-func (i KeyVaultLastAccessStatusContractPropertiesResponseArgs) ToKeyVaultLastAccessStatusContractPropertiesResponseOutput() KeyVaultLastAccessStatusContractPropertiesResponseOutput {
-	return i.ToKeyVaultLastAccessStatusContractPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i KeyVaultLastAccessStatusContractPropertiesResponseArgs) ToKeyVaultLastAccessStatusContractPropertiesResponseOutputWithContext(ctx context.Context) KeyVaultLastAccessStatusContractPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultLastAccessStatusContractPropertiesResponseOutput)
-}
-
-func (i KeyVaultLastAccessStatusContractPropertiesResponseArgs) ToKeyVaultLastAccessStatusContractPropertiesResponsePtrOutput() KeyVaultLastAccessStatusContractPropertiesResponsePtrOutput {
-	return i.ToKeyVaultLastAccessStatusContractPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i KeyVaultLastAccessStatusContractPropertiesResponseArgs) ToKeyVaultLastAccessStatusContractPropertiesResponsePtrOutputWithContext(ctx context.Context) KeyVaultLastAccessStatusContractPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultLastAccessStatusContractPropertiesResponseOutput).ToKeyVaultLastAccessStatusContractPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// KeyVaultLastAccessStatusContractPropertiesResponsePtrInput is an input type that accepts KeyVaultLastAccessStatusContractPropertiesResponseArgs, KeyVaultLastAccessStatusContractPropertiesResponsePtr and KeyVaultLastAccessStatusContractPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `KeyVaultLastAccessStatusContractPropertiesResponsePtrInput` via:
-//
-//          KeyVaultLastAccessStatusContractPropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type KeyVaultLastAccessStatusContractPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToKeyVaultLastAccessStatusContractPropertiesResponsePtrOutput() KeyVaultLastAccessStatusContractPropertiesResponsePtrOutput
-	ToKeyVaultLastAccessStatusContractPropertiesResponsePtrOutputWithContext(context.Context) KeyVaultLastAccessStatusContractPropertiesResponsePtrOutput
-}
-
-type keyVaultLastAccessStatusContractPropertiesResponsePtrType KeyVaultLastAccessStatusContractPropertiesResponseArgs
-
-func KeyVaultLastAccessStatusContractPropertiesResponsePtr(v *KeyVaultLastAccessStatusContractPropertiesResponseArgs) KeyVaultLastAccessStatusContractPropertiesResponsePtrInput {
-	return (*keyVaultLastAccessStatusContractPropertiesResponsePtrType)(v)
-}
-
-func (*keyVaultLastAccessStatusContractPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**KeyVaultLastAccessStatusContractPropertiesResponse)(nil)).Elem()
-}
-
-func (i *keyVaultLastAccessStatusContractPropertiesResponsePtrType) ToKeyVaultLastAccessStatusContractPropertiesResponsePtrOutput() KeyVaultLastAccessStatusContractPropertiesResponsePtrOutput {
-	return i.ToKeyVaultLastAccessStatusContractPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *keyVaultLastAccessStatusContractPropertiesResponsePtrType) ToKeyVaultLastAccessStatusContractPropertiesResponsePtrOutputWithContext(ctx context.Context) KeyVaultLastAccessStatusContractPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultLastAccessStatusContractPropertiesResponsePtrOutput)
-}
-
-// Issue contract Update Properties.
-type KeyVaultLastAccessStatusContractPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (KeyVaultLastAccessStatusContractPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KeyVaultLastAccessStatusContractPropertiesResponse)(nil)).Elem()
-}
-
-func (o KeyVaultLastAccessStatusContractPropertiesResponseOutput) ToKeyVaultLastAccessStatusContractPropertiesResponseOutput() KeyVaultLastAccessStatusContractPropertiesResponseOutput {
-	return o
-}
-
-func (o KeyVaultLastAccessStatusContractPropertiesResponseOutput) ToKeyVaultLastAccessStatusContractPropertiesResponseOutputWithContext(ctx context.Context) KeyVaultLastAccessStatusContractPropertiesResponseOutput {
-	return o
-}
-
-func (o KeyVaultLastAccessStatusContractPropertiesResponseOutput) ToKeyVaultLastAccessStatusContractPropertiesResponsePtrOutput() KeyVaultLastAccessStatusContractPropertiesResponsePtrOutput {
-	return o.ToKeyVaultLastAccessStatusContractPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o KeyVaultLastAccessStatusContractPropertiesResponseOutput) ToKeyVaultLastAccessStatusContractPropertiesResponsePtrOutputWithContext(ctx context.Context) KeyVaultLastAccessStatusContractPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v KeyVaultLastAccessStatusContractPropertiesResponse) *KeyVaultLastAccessStatusContractPropertiesResponse {
-		return &v
-	}).(KeyVaultLastAccessStatusContractPropertiesResponsePtrOutput)
-}
-
-// Last status code for sync and refresh of secret from key vault.
-func (o KeyVaultLastAccessStatusContractPropertiesResponseOutput) Code() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KeyVaultLastAccessStatusContractPropertiesResponse) *string { return v.Code }).(pulumi.StringPtrOutput)
-}
-
-// Details of the error else empty.
-func (o KeyVaultLastAccessStatusContractPropertiesResponseOutput) Message() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KeyVaultLastAccessStatusContractPropertiesResponse) *string { return v.Message }).(pulumi.StringPtrOutput)
-}
-
-// Last time secret was accessed. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
-func (o KeyVaultLastAccessStatusContractPropertiesResponseOutput) TimeStampUtc() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KeyVaultLastAccessStatusContractPropertiesResponse) *string { return v.TimeStampUtc }).(pulumi.StringPtrOutput)
-}
-
-type KeyVaultLastAccessStatusContractPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (KeyVaultLastAccessStatusContractPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**KeyVaultLastAccessStatusContractPropertiesResponse)(nil)).Elem()
-}
-
-func (o KeyVaultLastAccessStatusContractPropertiesResponsePtrOutput) ToKeyVaultLastAccessStatusContractPropertiesResponsePtrOutput() KeyVaultLastAccessStatusContractPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o KeyVaultLastAccessStatusContractPropertiesResponsePtrOutput) ToKeyVaultLastAccessStatusContractPropertiesResponsePtrOutputWithContext(ctx context.Context) KeyVaultLastAccessStatusContractPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o KeyVaultLastAccessStatusContractPropertiesResponsePtrOutput) Elem() KeyVaultLastAccessStatusContractPropertiesResponseOutput {
-	return o.ApplyT(func(v *KeyVaultLastAccessStatusContractPropertiesResponse) KeyVaultLastAccessStatusContractPropertiesResponse {
-		return *v
-	}).(KeyVaultLastAccessStatusContractPropertiesResponseOutput)
-}
-
-// Last status code for sync and refresh of secret from key vault.
-func (o KeyVaultLastAccessStatusContractPropertiesResponsePtrOutput) Code() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KeyVaultLastAccessStatusContractPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Code
-	}).(pulumi.StringPtrOutput)
-}
-
-// Details of the error else empty.
-func (o KeyVaultLastAccessStatusContractPropertiesResponsePtrOutput) Message() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KeyVaultLastAccessStatusContractPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Message
-	}).(pulumi.StringPtrOutput)
-}
-
-// Last time secret was accessed. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
-func (o KeyVaultLastAccessStatusContractPropertiesResponsePtrOutput) TimeStampUtc() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KeyVaultLastAccessStatusContractPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TimeStampUtc
-	}).(pulumi.StringPtrOutput)
 }
 
 // API OAuth2 Authentication settings details.
@@ -11582,14 +10419,6 @@ func init() {
 	pulumi.RegisterOutputType(CertificateInformationPtrOutput{})
 	pulumi.RegisterOutputType(CertificateInformationResponseOutput{})
 	pulumi.RegisterOutputType(CertificateInformationResponsePtrOutput{})
-	pulumi.RegisterOutputType(DataMaskingOutput{})
-	pulumi.RegisterOutputType(DataMaskingPtrOutput{})
-	pulumi.RegisterOutputType(DataMaskingEntityOutput{})
-	pulumi.RegisterOutputType(DataMaskingEntityArrayOutput{})
-	pulumi.RegisterOutputType(DataMaskingEntityResponseOutput{})
-	pulumi.RegisterOutputType(DataMaskingEntityResponseArrayOutput{})
-	pulumi.RegisterOutputType(DataMaskingResponseOutput{})
-	pulumi.RegisterOutputType(DataMaskingResponsePtrOutput{})
 	pulumi.RegisterOutputType(EmailTemplateParametersContractPropertiesOutput{})
 	pulumi.RegisterOutputType(EmailTemplateParametersContractPropertiesArrayOutput{})
 	pulumi.RegisterOutputType(EmailTemplateParametersContractPropertiesResponseOutput{})
@@ -11604,12 +10433,6 @@ func init() {
 	pulumi.RegisterOutputType(HttpMessageDiagnosticPtrOutput{})
 	pulumi.RegisterOutputType(HttpMessageDiagnosticResponseOutput{})
 	pulumi.RegisterOutputType(HttpMessageDiagnosticResponsePtrOutput{})
-	pulumi.RegisterOutputType(KeyVaultContractCreatePropertiesOutput{})
-	pulumi.RegisterOutputType(KeyVaultContractCreatePropertiesPtrOutput{})
-	pulumi.RegisterOutputType(KeyVaultContractPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(KeyVaultContractPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(KeyVaultLastAccessStatusContractPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(KeyVaultLastAccessStatusContractPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(OAuth2AuthenticationSettingsContractOutput{})
 	pulumi.RegisterOutputType(OAuth2AuthenticationSettingsContractPtrOutput{})
 	pulumi.RegisterOutputType(OAuth2AuthenticationSettingsContractResponseOutput{})

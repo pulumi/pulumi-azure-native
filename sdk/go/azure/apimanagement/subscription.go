@@ -12,7 +12,7 @@ import (
 )
 
 // Subscription details.
-// API Version: 2020-12-01.
+// API Version: 2019-12-01.
 type Subscription struct {
 	pulumi.CustomResourceState
 

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gateway details.
- * API Version: 2020-12-01.
+ * API Version: 2019-12-01.
  */
 export function getGateway(args: GetGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetGatewayResult> {
     if (!opts) {

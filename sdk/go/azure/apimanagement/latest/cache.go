@@ -12,7 +12,7 @@ import (
 )
 
 // Cache details.
-// Latest API Version: 2020-12-01.
+// Latest API Version: 2019-12-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:Cache'.
 type Cache struct {
@@ -28,8 +28,6 @@ type Cache struct {
 	ResourceId pulumi.StringPtrOutput `pulumi:"resourceId"`
 	// Resource type for API Management resource.
 	Type pulumi.StringOutput `pulumi:"type"`
-	// Location identifier to use cache from (should be either 'default' or valid Azure region identifier)
-	UseFromLocation pulumi.StringOutput `pulumi:"useFromLocation"`
 }
 
 // NewCache registers a new resource with the given unique name, arguments, and options.
@@ -47,9 +45,6 @@ func NewCache(ctx *pulumi.Context,
 	}
 	if args.ServiceName == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceName'")
-	}
-	if args.UseFromLocation == nil {
-		return nil, errors.New("invalid value for required argument 'UseFromLocation'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -137,8 +132,6 @@ type cacheState struct {
 	ResourceId *string `pulumi:"resourceId"`
 	// Resource type for API Management resource.
 	Type *string `pulumi:"type"`
-	// Location identifier to use cache from (should be either 'default' or valid Azure region identifier)
-	UseFromLocation *string `pulumi:"useFromLocation"`
 }
 
 type CacheState struct {
@@ -152,8 +145,6 @@ type CacheState struct {
 	ResourceId pulumi.StringPtrInput
 	// Resource type for API Management resource.
 	Type pulumi.StringPtrInput
-	// Location identifier to use cache from (should be either 'default' or valid Azure region identifier)
-	UseFromLocation pulumi.StringPtrInput
 }
 
 func (CacheState) ElementType() reflect.Type {
@@ -173,8 +164,6 @@ type cacheArgs struct {
 	ResourceId *string `pulumi:"resourceId"`
 	// The name of the API Management service.
 	ServiceName string `pulumi:"serviceName"`
-	// Location identifier to use cache from (should be either 'default' or valid Azure region identifier)
-	UseFromLocation string `pulumi:"useFromLocation"`
 }
 
 // The set of arguments for constructing a Cache resource.
@@ -191,8 +180,6 @@ type CacheArgs struct {
 	ResourceId pulumi.StringPtrInput
 	// The name of the API Management service.
 	ServiceName pulumi.StringInput
-	// Location identifier to use cache from (should be either 'default' or valid Azure region identifier)
-	UseFromLocation pulumi.StringInput
 }
 
 func (CacheArgs) ElementType() reflect.Type {

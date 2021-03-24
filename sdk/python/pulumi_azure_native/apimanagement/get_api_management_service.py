@@ -20,7 +20,7 @@ class GetApiManagementServiceResult:
     """
     A single API Management service resource in List or Get response.
     """
-    def __init__(__self__, additional_locations=None, api_version_constraint=None, certificates=None, created_at_utc=None, custom_properties=None, developer_portal_url=None, disable_gateway=None, enable_client_certificate=None, etag=None, gateway_regional_url=None, gateway_url=None, hostname_configurations=None, id=None, identity=None, location=None, management_api_url=None, name=None, notification_sender_email=None, portal_url=None, private_ip_addresses=None, provisioning_state=None, public_ip_addresses=None, publisher_email=None, publisher_name=None, restore=None, scm_url=None, sku=None, tags=None, target_provisioning_state=None, type=None, virtual_network_configuration=None, virtual_network_type=None, zones=None):
+    def __init__(__self__, additional_locations=None, api_version_constraint=None, certificates=None, created_at_utc=None, custom_properties=None, developer_portal_url=None, disable_gateway=None, enable_client_certificate=None, etag=None, gateway_regional_url=None, gateway_url=None, hostname_configurations=None, id=None, identity=None, location=None, management_api_url=None, name=None, notification_sender_email=None, portal_url=None, private_ip_addresses=None, provisioning_state=None, public_ip_addresses=None, publisher_email=None, publisher_name=None, scm_url=None, sku=None, tags=None, target_provisioning_state=None, type=None, virtual_network_configuration=None, virtual_network_type=None):
         if additional_locations and not isinstance(additional_locations, list):
             raise TypeError("Expected argument 'additional_locations' to be a list")
         pulumi.set(__self__, "additional_locations", additional_locations)
@@ -93,9 +93,6 @@ class GetApiManagementServiceResult:
         if publisher_name and not isinstance(publisher_name, str):
             raise TypeError("Expected argument 'publisher_name' to be a str")
         pulumi.set(__self__, "publisher_name", publisher_name)
-        if restore and not isinstance(restore, bool):
-            raise TypeError("Expected argument 'restore' to be a bool")
-        pulumi.set(__self__, "restore", restore)
         if scm_url and not isinstance(scm_url, str):
             raise TypeError("Expected argument 'scm_url' to be a str")
         pulumi.set(__self__, "scm_url", scm_url)
@@ -117,9 +114,6 @@ class GetApiManagementServiceResult:
         if virtual_network_type and not isinstance(virtual_network_type, str):
             raise TypeError("Expected argument 'virtual_network_type' to be a str")
         pulumi.set(__self__, "virtual_network_type", virtual_network_type)
-        if zones and not isinstance(zones, list):
-            raise TypeError("Expected argument 'zones' to be a list")
-        pulumi.set(__self__, "zones", zones)
 
     @property
     @pulumi.getter(name="additionalLocations")
@@ -157,7 +151,7 @@ class GetApiManagementServiceResult:
     @pulumi.getter(name="customProperties")
     def custom_properties(self) -> Optional[Mapping[str, str]]:
         """
-        Custom properties of the API Management service.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TripleDes168` will disable the cipher TLS_RSA_WITH_3DES_EDE_CBC_SHA for all TLS(1.0, 1.1 and 1.2).</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls11` can be used to disable just TLS 1.1.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls10` can be used to disable TLS 1.0 on an API Management service.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls11` can be used to disable just TLS 1.1 for communications with backends.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls10` can be used to disable TLS 1.0 for communications with backends.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Protocols.Server.Http2` can be used to enable HTTP2 protocol on an API Management service.</br>Not specifying any of these properties on PATCH operation will reset omitted properties' values to their defaults. For all the settings except Http2 the default value is `True` if the service was created on or before April 1st 2018 and `False` otherwise. Http2 setting's default value is `False`.</br></br>You can disable any of next ciphers by using settings `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.[cipher_name]`: TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA, TLS_RSA_WITH_AES_128_GCM_SHA256, TLS_RSA_WITH_AES_256_CBC_SHA256, TLS_RSA_WITH_AES_128_CBC_SHA256, TLS_RSA_WITH_AES_256_CBC_SHA, TLS_RSA_WITH_AES_128_CBC_SHA. For example, `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_128_CBC_SHA256`:`false`. The default value is `true` for them.  Note: next ciphers can't be disabled since they are required by Azure CloudService internal components: TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256,TLS_RSA_WITH_AES_256_GCM_SHA384
+        Custom properties of the API Management service.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TripleDes168` will disable the cipher TLS_RSA_WITH_3DES_EDE_CBC_SHA for all TLS(1.0, 1.1 and 1.2).</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls11` can be used to disable just TLS 1.1.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls10` can be used to disable TLS 1.0 on an API Management service.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls11` can be used to disable just TLS 1.1 for communications with backends.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls10` can be used to disable TLS 1.0 for communications with backends.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Protocols.Server.Http2` can be used to enable HTTP2 protocol on an API Management service.</br></br>Not specifying any of these properties on PATCH operation will reset omitted properties' values to their defaults. For all the settings except Http2 the default value is `True` if the service was created on or before April 1st 2018 and `False` otherwise. Http2 setting's default value is `False`.</br></br>You can disable any of next ciphers by using settings `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.[cipher_name]`:</br>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA</br>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA</br>TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA</br>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA</br>TLS_RSA_WITH_AES_128_GCM_SHA256</br>TLS_RSA_WITH_AES_256_CBC_SHA256<br/>TLS_RSA_WITH_AES_128_CBC_SHA256<br/>TLS_RSA_WITH_AES_256_CBC_SHA<br/>TLS_RSA_WITH_AES_128_CBC_SHA.<br/><br/>For example: `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_128_CBC_SHA256`:`false`. The default value is `true` for all of them.<br/><br/>Note: next ciphers can't be disabled since they are required by Azure CloudService internal components:<br/>TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384<br/>TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256<br/>TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384<br/>TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256<br/>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384<br/>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256<br/>TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384<br/>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256<br/>TLS_RSA_WITH_AES_256_GCM_SHA384
         """
         return pulumi.get(self, "custom_properties")
 
@@ -277,7 +271,7 @@ class GetApiManagementServiceResult:
     @pulumi.getter(name="privateIPAddresses")
     def private_ip_addresses(self) -> Sequence[str]:
         """
-        Private Static Load Balanced IP addresses of the API Management service in Primary region which is deployed in an Internal Virtual Network. Available only for Basic, Standard, Premium and Isolated SKU.
+        Private Static Load Balanced IP addresses of the API Management service in Primary region which is deployed in an Internal Virtual Network. Available only for Basic, Standard and Premium SKU.
         """
         return pulumi.get(self, "private_ip_addresses")
 
@@ -293,7 +287,7 @@ class GetApiManagementServiceResult:
     @pulumi.getter(name="publicIPAddresses")
     def public_ip_addresses(self) -> Sequence[str]:
         """
-        Public Static Load Balanced IP addresses of the API Management service in Primary region. Available only for Basic, Standard, Premium and Isolated SKU.
+        Public Static Load Balanced IP addresses of the API Management service in Primary region. Available only for Basic, Standard and Premium SKU.
         """
         return pulumi.get(self, "public_ip_addresses")
 
@@ -312,14 +306,6 @@ class GetApiManagementServiceResult:
         Publisher name.
         """
         return pulumi.get(self, "publisher_name")
-
-    @property
-    @pulumi.getter
-    def restore(self) -> Optional[bool]:
-        """
-        Undelete Api Management Service if it was previously soft-deleted. If this flag is specified and set to True all other properties will be ignored.
-        """
-        return pulumi.get(self, "restore")
 
     @property
     @pulumi.getter(name="scmUrl")
@@ -377,14 +363,6 @@ class GetApiManagementServiceResult:
         """
         return pulumi.get(self, "virtual_network_type")
 
-    @property
-    @pulumi.getter
-    def zones(self) -> Optional[Sequence[str]]:
-        """
-        A list of availability zones denoting where the resource needs to come from.
-        """
-        return pulumi.get(self, "zones")
-
 
 class AwaitableGetApiManagementServiceResult(GetApiManagementServiceResult):
     # pylint: disable=using-constant-test
@@ -416,15 +394,13 @@ class AwaitableGetApiManagementServiceResult(GetApiManagementServiceResult):
             public_ip_addresses=self.public_ip_addresses,
             publisher_email=self.publisher_email,
             publisher_name=self.publisher_name,
-            restore=self.restore,
             scm_url=self.scm_url,
             sku=self.sku,
             tags=self.tags,
             target_provisioning_state=self.target_provisioning_state,
             type=self.type,
             virtual_network_configuration=self.virtual_network_configuration,
-            virtual_network_type=self.virtual_network_type,
-            zones=self.zones)
+            virtual_network_type=self.virtual_network_type)
 
 
 def get_api_management_service(resource_group_name: Optional[str] = None,
@@ -432,7 +408,7 @@ def get_api_management_service(resource_group_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApiManagementServiceResult:
     """
     A single API Management service resource in List or Get response.
-    API Version: 2020-12-01.
+    API Version: 2019-12-01.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -472,12 +448,10 @@ def get_api_management_service(resource_group_name: Optional[str] = None,
         public_ip_addresses=__ret__.public_ip_addresses,
         publisher_email=__ret__.publisher_email,
         publisher_name=__ret__.publisher_name,
-        restore=__ret__.restore,
         scm_url=__ret__.scm_url,
         sku=__ret__.sku,
         tags=__ret__.tags,
         target_provisioning_state=__ret__.target_provisioning_state,
         type=__ret__.type,
         virtual_network_configuration=__ret__.virtual_network_configuration,
-        virtual_network_type=__ret__.virtual_network_type,
-        zones=__ret__.zones)
+        virtual_network_type=__ret__.virtual_network_type)

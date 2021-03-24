@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ApiManagement
 {
     /// <summary>
     /// Content type contract details.
-    /// API Version: 2020-12-01.
+    /// API Version: 2019-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:ContentType")]
     public partial class ContentType : Pulumi.CustomResource

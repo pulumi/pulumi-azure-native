@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Certificate details.
- * Latest API Version: 2020-12-01.
+ * Latest API Version: 2019-12-01.
  */
 /** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getCertificate'. */
 export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateResult> {
@@ -53,10 +53,6 @@ export interface GetCertificateResult {
      * Resource ID.
      */
     readonly id: string;
-    /**
-     * KeyVault location details of the certificate.
-     */
-    readonly keyVault?: outputs.apimanagement.latest.KeyVaultContractPropertiesResponse;
     /**
      * Resource name.
      */

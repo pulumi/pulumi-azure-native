@@ -82,6 +82,8 @@ var ignoredProviderVersions = map[string][]string{
 	// once the next stable version ships.
 	"EventGrid": {"v20201015preview"},
 	"StorSimple": {"v20161001"},
+	// Not supported yet (2020-03-23)? Check back later.
+	"ApiManagement": {"v20201201"},
 }
 
 // A manually-maintained list of versions where we want to use for the top-level resource. The primary goal is to

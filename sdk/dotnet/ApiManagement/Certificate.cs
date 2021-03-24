@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ApiManagement
 {
     /// <summary>
     /// Certificate details.
-    /// API Version: 2020-12-01.
+    /// API Version: 2019-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:Certificate")]
     public partial class Certificate : Pulumi.CustomResource
@@ -21,12 +21,6 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         [Output("expirationDate")]
         public Output<string> ExpirationDate { get; private set; } = null!;
-
-        /// <summary>
-        /// KeyVault location details of the certificate.
-        /// </summary>
-        [Output("keyVault")]
-        public Output<Outputs.KeyVaultContractPropertiesResponse?> KeyVault { get; private set; } = null!;
 
         /// <summary>
         /// Resource name.
@@ -134,20 +128,14 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Base 64 encoded certificate using the application/x-pkcs12 representation.
         /// </summary>
-        [Input("data")]
-        public Input<string>? Data { get; set; }
-
-        /// <summary>
-        /// KeyVault location details of the certificate.
-        /// </summary>
-        [Input("keyVault")]
-        public Input<Inputs.KeyVaultContractCreatePropertiesArgs>? KeyVault { get; set; }
+        [Input("data", required: true)]
+        public Input<string> Data { get; set; } = null!;
 
         /// <summary>
         /// Password for the Certificate
         /// </summary>
-        [Input("password")]
-        public Input<string>? Password { get; set; }
+        [Input("password", required: true)]
+        public Input<string> Password { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

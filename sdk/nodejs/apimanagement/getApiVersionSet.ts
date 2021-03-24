@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Api Version Set Contract details.
- * API Version: 2020-12-01.
+ * API Version: 2019-12-01.
  */
 export function getApiVersionSet(args: GetApiVersionSetArgs, opts?: pulumi.InvokeOptions): Promise<GetApiVersionSetResult> {
     if (!opts) {

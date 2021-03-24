@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Subscription keys.
- * API Version: 2020-12-01.
+ * API Version: 2019-12-01.
  */
 export function listSubscriptionSecrets(args: ListSubscriptionSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListSubscriptionSecretsResult> {
     if (!opts) {

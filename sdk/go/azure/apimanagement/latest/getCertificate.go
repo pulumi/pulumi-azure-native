@@ -8,7 +8,7 @@ import (
 )
 
 // Certificate details.
-// Latest API Version: 2020-12-01.
+// Latest API Version: 2019-12-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getCertificate'.
 func LookupCertificate(ctx *pulumi.Context, args *LookupCertificateArgs, opts ...pulumi.InvokeOption) (*LookupCertificateResult, error) {
@@ -35,8 +35,6 @@ type LookupCertificateResult struct {
 	ExpirationDate string `pulumi:"expirationDate"`
 	// Resource ID.
 	Id string `pulumi:"id"`
-	// KeyVault location details of the certificate.
-	KeyVault *KeyVaultContractPropertiesResponse `pulumi:"keyVault"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// Subject attribute of the certificate.

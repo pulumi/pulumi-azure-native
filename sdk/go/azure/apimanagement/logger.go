@@ -12,7 +12,7 @@ import (
 )
 
 // Logger details.
-// API Version: 2020-12-01.
+// API Version: 2019-12-01.
 type Logger struct {
 	pulumi.CustomResourceState
 
@@ -40,6 +40,9 @@ func NewLogger(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Credentials == nil {
+		return nil, errors.New("invalid value for required argument 'Credentials'")
+	}
 	if args.LoggerType == nil {
 		return nil, errors.New("invalid value for required argument 'LoggerType'")
 	}

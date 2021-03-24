@@ -6,8 +6,8 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * OAuth Server Secrets Contract.
- * API Version: 2020-12-01.
+ * Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
+ * API Version: 2019-12-01.
  */
 export function listAuthorizationServerSecrets(args: ListAuthorizationServerSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListAuthorizationServerSecretsResult> {
     if (!opts) {
@@ -40,19 +40,11 @@ export interface ListAuthorizationServerSecretsArgs {
 }
 
 /**
- * OAuth Server Secrets Contract.
+ * Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
  */
 export interface ListAuthorizationServerSecretsResult {
     /**
-     * oAuth Authorization Server Secrets.
+     * Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
      */
     readonly clientSecret?: string;
-    /**
-     * Can be optionally specified when resource owner password grant type is supported by this authorization server. Default resource owner password.
-     */
-    readonly resourceOwnerPassword?: string;
-    /**
-     * Can be optionally specified when resource owner password grant type is supported by this authorization server. Default resource owner username.
-     */
-    readonly resourceOwnerUsername?: string;
 }

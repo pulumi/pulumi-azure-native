@@ -2,12 +2,11 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
  * Certificate details.
- * API Version: 2020-12-01.
+ * API Version: 2019-12-01.
  */
 export class Certificate extends pulumi.CustomResource {
     /**
@@ -41,10 +40,6 @@ export class Certificate extends pulumi.CustomResource {
      */
     public /*out*/ readonly expirationDate!: pulumi.Output<string>;
     /**
-     * KeyVault location details of the certificate.
-     */
-    public readonly keyVault!: pulumi.Output<outputs.apimanagement.KeyVaultContractPropertiesResponse | undefined>;
-    /**
      * Resource name.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
@@ -72,6 +67,12 @@ export class Certificate extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.data === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'data'");
+            }
+            if ((!args || args.password === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'password'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -80,7 +81,6 @@ export class Certificate extends pulumi.CustomResource {
             }
             inputs["certificateId"] = args ? args.certificateId : undefined;
             inputs["data"] = args ? args.data : undefined;
-            inputs["keyVault"] = args ? args.keyVault : undefined;
             inputs["password"] = args ? args.password : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
@@ -91,7 +91,6 @@ export class Certificate extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["expirationDate"] = undefined /*out*/;
-            inputs["keyVault"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["subject"] = undefined /*out*/;
             inputs["thumbprint"] = undefined /*out*/;
@@ -117,15 +116,11 @@ export interface CertificateArgs {
     /**
      * Base 64 encoded certificate using the application/x-pkcs12 representation.
      */
-    readonly data?: pulumi.Input<string>;
-    /**
-     * KeyVault location details of the certificate.
-     */
-    readonly keyVault?: pulumi.Input<inputs.apimanagement.KeyVaultContractCreateProperties>;
+    readonly data: pulumi.Input<string>;
     /**
      * Password for the Certificate
      */
-    readonly password?: pulumi.Input<string>;
+    readonly password: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

@@ -18,13 +18,9 @@ namespace Pulumi.AzureNative.ApiManagement.Outputs
         /// </summary>
         public readonly Outputs.BackendAuthorizationHeaderCredentialsResponse? Authorization;
         /// <summary>
-        /// List of Client Certificate Thumbprints. Will be ignored if certificatesIds are provided.
+        /// List of Client Certificate Thumbprint.
         /// </summary>
         public readonly ImmutableArray<string> Certificate;
-        /// <summary>
-        /// List of Client Certificate Ids.
-        /// </summary>
-        public readonly ImmutableArray<string> CertificateIds;
         /// <summary>
         /// Header Parameter description.
         /// </summary>
@@ -40,15 +36,12 @@ namespace Pulumi.AzureNative.ApiManagement.Outputs
 
             ImmutableArray<string> certificate,
 
-            ImmutableArray<string> certificateIds,
-
             ImmutableDictionary<string, ImmutableArray<string>>? header,
 
             ImmutableDictionary<string, ImmutableArray<string>>? query)
         {
             Authorization = authorization;
             Certificate = certificate;
-            CertificateIds = certificateIds;
             Header = header;
             Query = query;
         }

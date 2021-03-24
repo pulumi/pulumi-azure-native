@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ApiManagement
 {
     /// <summary>
     /// NamedValue details.
-    /// API Version: 2020-12-01.
+    /// API Version: 2019-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:NamedValue")]
     public partial class NamedValue : Pulumi.CustomResource
@@ -21,12 +21,6 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         [Output("displayName")]
         public Output<string> DisplayName { get; private set; } = null!;
-
-        /// <summary>
-        /// KeyVault location details of the namedValue.
-        /// </summary>
-        [Output("keyVault")]
-        public Output<Outputs.KeyVaultContractPropertiesResponse?> KeyVault { get; private set; } = null!;
 
         /// <summary>
         /// Resource name.
@@ -126,12 +120,6 @@ namespace Pulumi.AzureNative.ApiManagement
         public Input<string> DisplayName { get; set; } = null!;
 
         /// <summary>
-        /// KeyVault location details of the namedValue.
-        /// </summary>
-        [Input("keyVault")]
-        public Input<Inputs.KeyVaultContractCreatePropertiesArgs>? KeyVault { get; set; }
-
-        /// <summary>
         /// Identifier of the NamedValue.
         /// </summary>
         [Input("namedValueId")]
@@ -170,8 +158,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Value of the NamedValue. Can contain policy expressions. It may not be empty or consist only of whitespace. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
         /// </summary>
-        [Input("value")]
-        public Input<string>? Value { get; set; }
+        [Input("value", required: true)]
+        public Input<string> Value { get; set; } = null!;
 
         public NamedValueArgs()
         {

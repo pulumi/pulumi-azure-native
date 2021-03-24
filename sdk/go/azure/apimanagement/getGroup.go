@@ -8,7 +8,7 @@ import (
 )
 
 // Contract details.
-// API Version: 2020-12-01.
+// API Version: 2019-12-01.
 func LookupGroup(ctx *pulumi.Context, args *LookupGroupArgs, opts ...pulumi.InvokeOption) (*LookupGroupResult, error) {
 	var rv LookupGroupResult
 	err := ctx.Invoke("azure-native:apimanagement:getGroup", args, &rv, opts...)

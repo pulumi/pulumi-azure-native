@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Content type contract details.
- * API Version: 2020-12-01.
+ * API Version: 2019-12-01.
  */
 export class ContentType extends pulumi.CustomResource {
     /**

@@ -50,7 +50,7 @@ def list_open_id_connect_provider_secrets(opid: Optional[str] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListOpenIdConnectProviderSecretsResult:
     """
     Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
-    Latest API Version: 2020-12-01.
+    Latest API Version: 2019-12-01.
 
 
     :param str opid: Identifier of the OpenID Connect Provider.

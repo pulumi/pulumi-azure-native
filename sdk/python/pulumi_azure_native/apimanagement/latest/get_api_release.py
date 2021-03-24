@@ -123,7 +123,7 @@ def get_api_release(api_id: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApiReleaseResult:
     """
     ApiRelease details.
-    Latest API Version: 2020-12-01.
+    Latest API Version: 2019-12-01.
 
 
     :param str api_id: API identifier. Must be unique in the current API Management service instance.

@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Content type contract details.
- * Latest API Version: 2020-12-01.
+ * Latest API Version: 2019-12-01.
  */
 /** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getContentItem'. */
 export function getContentItem(args: GetContentItemArgs, opts?: pulumi.InvokeOptions): Promise<GetContentItemResult> {

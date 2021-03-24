@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Recipient User details.
- * API Version: 2020-12-01.
+ * API Version: 2019-12-01.
  */
 export class NotificationRecipientUser extends pulumi.CustomResource {
     /**

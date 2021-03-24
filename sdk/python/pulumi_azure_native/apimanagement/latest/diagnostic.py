@@ -29,7 +29,6 @@ class Diagnostic(pulumi.CustomResource):
                  http_correlation_protocol: Optional[pulumi.Input[Union[str, 'HttpCorrelationProtocol']]] = None,
                  log_client_ip: Optional[pulumi.Input[bool]] = None,
                  logger_id: Optional[pulumi.Input[str]] = None,
-                 operation_name_format: Optional[pulumi.Input[Union[str, 'OperationNameFormat']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sampling: Optional[pulumi.Input[pulumi.InputType['SamplingSettingsArgs']]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
@@ -39,7 +38,7 @@ class Diagnostic(pulumi.CustomResource):
                  __opts__=None):
         """
         Diagnostic details.
-        Latest API Version: 2020-12-01.
+        Latest API Version: 2019-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -50,7 +49,6 @@ class Diagnostic(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'HttpCorrelationProtocol']] http_correlation_protocol: Sets correlation protocol to use for Application Insights diagnostics.
         :param pulumi.Input[bool] log_client_ip: Log the ClientIP. Default is false.
         :param pulumi.Input[str] logger_id: Resource Id of a target logger.
-        :param pulumi.Input[Union[str, 'OperationNameFormat']] operation_name_format: The format of the Operation Name for Application Insights telemetries. Default is Name.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[pulumi.InputType['SamplingSettingsArgs']] sampling: Sampling settings for Diagnostic.
         :param pulumi.Input[str] service_name: The name of the API Management service.
@@ -83,7 +81,6 @@ class Diagnostic(pulumi.CustomResource):
             if logger_id is None and not opts.urn:
                 raise TypeError("Missing required property 'logger_id'")
             __props__['logger_id'] = logger_id
-            __props__['operation_name_format'] = operation_name_format
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -125,7 +122,6 @@ class Diagnostic(pulumi.CustomResource):
         __props__["log_client_ip"] = None
         __props__["logger_id"] = None
         __props__["name"] = None
-        __props__["operation_name_format"] = None
         __props__["sampling"] = None
         __props__["type"] = None
         __props__["verbosity"] = None
@@ -186,14 +182,6 @@ class Diagnostic(pulumi.CustomResource):
         Resource name.
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="operationNameFormat")
-    def operation_name_format(self) -> pulumi.Output[Optional[str]]:
-        """
-        The format of the Operation Name for Application Insights telemetries. Default is Name.
-        """
-        return pulumi.get(self, "operation_name_format")
 
     @property
     @pulumi.getter

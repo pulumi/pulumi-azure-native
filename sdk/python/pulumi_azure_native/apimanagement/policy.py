@@ -26,7 +26,7 @@ class Policy(pulumi.CustomResource):
                  __opts__=None):
         """
         Policy Contract details.
-        API Version: 2020-12-01.
+        API Version: 2019-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

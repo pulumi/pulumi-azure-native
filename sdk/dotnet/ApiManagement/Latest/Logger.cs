@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ApiManagement.Latest
 {
     /// <summary>
     /// Logger details.
-    /// Latest API Version: 2020-12-01.
+    /// Latest API Version: 2019-12-01.
     /// </summary>
     [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:Logger'.")]
     [AzureNativeResourceType("azure-native:apimanagement/latest:Logger")]
@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.ApiManagement.Latest
         /// Instrumentation key for applicationInsights logger.
         /// </summary>
         [Output("credentials")]
-        public Output<ImmutableDictionary<string, string>?> Credentials { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>> Credentials { get; private set; } = null!;
 
         /// <summary>
         /// Logger description.
@@ -133,7 +133,7 @@ namespace Pulumi.AzureNative.ApiManagement.Latest
 
     public sealed class LoggerArgs : Pulumi.ResourceArgs
     {
-        [Input("credentials")]
+        [Input("credentials", required: true)]
         private InputMap<string>? _credentials;
 
         /// <summary>

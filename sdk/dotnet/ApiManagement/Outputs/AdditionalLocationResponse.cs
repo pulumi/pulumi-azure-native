@@ -26,11 +26,11 @@ namespace Pulumi.AzureNative.ApiManagement.Outputs
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// Private Static Load Balanced IP addresses of the API Management service which is deployed in an Internal Virtual Network in a particular additional location. Available only for Basic, Standard, Premium and Isolated SKU.
+        /// Private Static Load Balanced IP addresses of the API Management service which is deployed in an Internal Virtual Network in a particular additional location. Available only for Basic, Standard and Premium SKU.
         /// </summary>
         public readonly ImmutableArray<string> PrivateIPAddresses;
         /// <summary>
-        /// Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard, Premium and Isolated SKU.
+        /// Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
         /// </summary>
         public readonly ImmutableArray<string> PublicIPAddresses;
         /// <summary>
@@ -41,10 +41,6 @@ namespace Pulumi.AzureNative.ApiManagement.Outputs
         /// Virtual network configuration for the location.
         /// </summary>
         public readonly Outputs.VirtualNetworkConfigurationResponse? VirtualNetworkConfiguration;
-        /// <summary>
-        /// A list of availability zones denoting where the resource needs to come from.
-        /// </summary>
-        public readonly ImmutableArray<string> Zones;
 
         [OutputConstructor]
         private AdditionalLocationResponse(
@@ -60,9 +56,7 @@ namespace Pulumi.AzureNative.ApiManagement.Outputs
 
             Outputs.ApiManagementServiceSkuPropertiesResponse sku,
 
-            Outputs.VirtualNetworkConfigurationResponse? virtualNetworkConfiguration,
-
-            ImmutableArray<string> zones)
+            Outputs.VirtualNetworkConfigurationResponse? virtualNetworkConfiguration)
         {
             DisableGateway = disableGateway;
             GatewayRegionalUrl = gatewayRegionalUrl;
@@ -71,7 +65,6 @@ namespace Pulumi.AzureNative.ApiManagement.Outputs
             PublicIPAddresses = publicIPAddresses;
             Sku = sku;
             VirtualNetworkConfiguration = virtualNetworkConfiguration;
-            Zones = zones;
         }
     }
 }

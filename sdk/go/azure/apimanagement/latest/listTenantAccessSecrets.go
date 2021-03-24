@@ -8,7 +8,7 @@ import (
 )
 
 // Tenant access information contract of the API Management service.
-// Latest API Version: 2020-12-01.
+// Latest API Version: 2019-12-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:listTenantAccessSecrets'.
 func ListTenantAccessSecrets(ctx *pulumi.Context, args *ListTenantAccessSecretsArgs, opts ...pulumi.InvokeOption) (*ListTenantAccessSecretsResult, error) {
@@ -33,12 +33,10 @@ type ListTenantAccessSecretsArgs struct {
 type ListTenantAccessSecretsResult struct {
 	// Determines whether direct access is enabled.
 	Enabled *bool `pulumi:"enabled"`
-	// Access Information type ('access' or 'gitAccess')
+	// Identifier.
 	Id *string `pulumi:"id"`
 	// Primary access key. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
 	PrimaryKey *string `pulumi:"primaryKey"`
-	// Principal (User) Identifier.
-	PrincipalId *string `pulumi:"principalId"`
 	// Secondary access key. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
 	SecondaryKey *string `pulumi:"secondaryKey"`
 }

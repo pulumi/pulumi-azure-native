@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Identity Provider details.
- * API Version: 2020-12-01.
+ * API Version: 2019-12-01.
  */
 export function getIdentityProvider(args: GetIdentityProviderArgs, opts?: pulumi.InvokeOptions): Promise<GetIdentityProviderResult> {
     if (!opts) {

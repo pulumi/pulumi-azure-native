@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement
     {
         /// <summary>
         /// Gateway hostname configuration details.
-        /// API Version: 2020-12-01.
+        /// API Version: 2019-12-01.
         /// </summary>
         public static Task<GetGatewayHostnameConfigurationResult> InvokeAsync(GetGatewayHostnameConfigurationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGatewayHostnameConfigurationResult>("azure-native:apimanagement:getGatewayHostnameConfiguration", args ?? new GetGatewayHostnameConfigurationArgs(), options.WithVersion());
@@ -64,10 +64,6 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         public readonly string? Hostname;
         /// <summary>
-        /// Specifies if HTTP/2.0 is supported
-        /// </summary>
-        public readonly bool? Http2Enabled;
-        /// <summary>
         /// Resource ID.
         /// </summary>
         public readonly string Id;
@@ -80,14 +76,6 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         public readonly bool? NegotiateClientCertificate;
         /// <summary>
-        /// Specifies if TLS 1.0 is supported
-        /// </summary>
-        public readonly bool? Tls10Enabled;
-        /// <summary>
-        /// Specifies if TLS 1.1 is supported
-        /// </summary>
-        public readonly bool? Tls11Enabled;
-        /// <summary>
         /// Resource type for API Management resource.
         /// </summary>
         public readonly string Type;
@@ -98,28 +86,19 @@ namespace Pulumi.AzureNative.ApiManagement
 
             string? hostname,
 
-            bool? http2Enabled,
-
             string id,
 
             string name,
 
             bool? negotiateClientCertificate,
 
-            bool? tls10Enabled,
-
-            bool? tls11Enabled,
-
             string type)
         {
             CertificateId = certificateId;
             Hostname = hostname;
-            Http2Enabled = http2Enabled;
             Id = id;
             Name = name;
             NegotiateClientCertificate = negotiateClientCertificate;
-            Tls10Enabled = tls10Enabled;
-            Tls11Enabled = tls11Enabled;
             Type = type;
         }
     }

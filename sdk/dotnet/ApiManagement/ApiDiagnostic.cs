@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ApiManagement
 {
     /// <summary>
     /// Diagnostic details.
-    /// API Version: 2020-12-01.
+    /// API Version: 2019-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:ApiDiagnostic")]
     public partial class ApiDiagnostic : Pulumi.CustomResource
@@ -57,12 +57,6 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
-
-        /// <summary>
-        /// The format of the Operation Name for Application Insights telemetries. Default is Name.
-        /// </summary>
-        [Output("operationNameFormat")]
-        public Output<string?> OperationNameFormat { get; private set; } = null!;
 
         /// <summary>
         /// Sampling settings for Diagnostic.
@@ -198,12 +192,6 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         [Input("loggerId", required: true)]
         public Input<string> LoggerId { get; set; } = null!;
-
-        /// <summary>
-        /// The format of the Operation Name for Application Insights telemetries. Default is Name.
-        /// </summary>
-        [Input("operationNameFormat")]
-        public InputUnion<string, Pulumi.AzureNative.ApiManagement.OperationNameFormat>? OperationNameFormat { get; set; }
 
         /// <summary>
         /// The name of the resource group.

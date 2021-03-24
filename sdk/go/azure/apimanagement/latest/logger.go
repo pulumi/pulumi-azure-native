@@ -12,7 +12,7 @@ import (
 )
 
 // Logger details.
-// Latest API Version: 2020-12-01.
+// Latest API Version: 2019-12-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:Logger'.
 type Logger struct {
@@ -42,6 +42,9 @@ func NewLogger(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Credentials == nil {
+		return nil, errors.New("invalid value for required argument 'Credentials'")
+	}
 	if args.LoggerType == nil {
 		return nil, errors.New("invalid value for required argument 'LoggerType'")
 	}

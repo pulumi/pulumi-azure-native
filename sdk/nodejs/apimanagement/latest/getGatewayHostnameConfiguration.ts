@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Gateway hostname configuration details.
- * Latest API Version: 2020-12-01.
+ * Latest API Version: 2019-12-01.
  */
 /** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getGatewayHostnameConfiguration'. */
 export function getGatewayHostnameConfiguration(args: GetGatewayHostnameConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetGatewayHostnameConfigurationResult> {
@@ -59,10 +59,6 @@ export interface GetGatewayHostnameConfigurationResult {
      */
     readonly hostname?: string;
     /**
-     * Specifies if HTTP/2.0 is supported
-     */
-    readonly http2Enabled?: boolean;
-    /**
      * Resource ID.
      */
     readonly id: string;
@@ -74,14 +70,6 @@ export interface GetGatewayHostnameConfigurationResult {
      * Determines whether gateway requests client certificate
      */
     readonly negotiateClientCertificate?: boolean;
-    /**
-     * Specifies if TLS 1.0 is supported
-     */
-    readonly tls10Enabled?: boolean;
-    /**
-     * Specifies if TLS 1.1 is supported
-     */
-    readonly tls11Enabled?: boolean;
     /**
      * Resource type for API Management resource.
      */

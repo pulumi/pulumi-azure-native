@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Email Template details.
- * API Version: 2020-12-01.
+ * API Version: 2019-12-01.
  */
 export function getEmailTemplate(args: GetEmailTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetEmailTemplateResult> {
     if (!opts) {

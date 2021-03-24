@@ -49,7 +49,7 @@ class GetLoggerResult:
 
     @property
     @pulumi.getter
-    def credentials(self) -> Optional[Mapping[str, str]]:
+    def credentials(self) -> Mapping[str, str]:
         """
         The name and SendRule connection string of the event hub for azureEventHub logger.
         Instrumentation key for applicationInsights logger.
@@ -135,7 +135,7 @@ def get_logger(logger_id: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLoggerResult:
     """
     Logger details.
-    Latest API Version: 2020-12-01.
+    Latest API Version: 2019-12-01.
 
 
     :param str logger_id: Logger identifier. Must be unique in the API Management service instance.

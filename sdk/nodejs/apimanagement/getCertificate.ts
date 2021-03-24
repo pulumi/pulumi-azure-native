@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Certificate details.
- * API Version: 2020-12-01.
+ * API Version: 2019-12-01.
  */
 export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateResult> {
     if (!opts) {
@@ -51,10 +51,6 @@ export interface GetCertificateResult {
      * Resource ID.
      */
     readonly id: string;
-    /**
-     * KeyVault location details of the certificate.
-     */
-    readonly keyVault?: outputs.apimanagement.KeyVaultContractPropertiesResponse;
     /**
      * Resource name.
      */

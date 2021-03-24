@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
- * API Version: 2020-12-01.
+ * API Version: 2019-12-01.
  */
 export function listOpenIdConnectProviderSecrets(args: ListOpenIdConnectProviderSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListOpenIdConnectProviderSecretsResult> {
     if (!opts) {

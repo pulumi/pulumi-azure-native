@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement
     {
         /// <summary>
         /// Tenant access information contract of the API Management service.
-        /// API Version: 2020-12-01.
+        /// API Version: 2019-12-01.
         /// </summary>
         public static Task<ListTenantAccessSecretsResult> InvokeAsync(ListTenantAccessSecretsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListTenantAccessSecretsResult>("azure-native:apimanagement:listTenantAccessSecrets", args ?? new ListTenantAccessSecretsArgs(), options.WithVersion());
@@ -54,17 +54,13 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
-        /// Access Information type ('access' or 'gitAccess')
+        /// Identifier.
         /// </summary>
         public readonly string? Id;
         /// <summary>
         /// Primary access key. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
         /// </summary>
         public readonly string? PrimaryKey;
-        /// <summary>
-        /// Principal (User) Identifier.
-        /// </summary>
-        public readonly string? PrincipalId;
         /// <summary>
         /// Secondary access key. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
         /// </summary>
@@ -78,14 +74,11 @@ namespace Pulumi.AzureNative.ApiManagement
 
             string? primaryKey,
 
-            string? principalId,
-
             string? secondaryKey)
         {
             Enabled = enabled;
             Id = id;
             PrimaryKey = primaryKey;
-            PrincipalId = principalId;
             SecondaryKey = secondaryKey;
         }
     }

@@ -8,7 +8,7 @@ import (
 )
 
 // Identity Provider details.
-// API Version: 2020-12-01.
+// API Version: 2019-12-01.
 func LookupIdentityProvider(ctx *pulumi.Context, args *LookupIdentityProviderArgs, opts ...pulumi.InvokeOption) (*LookupIdentityProviderResult, error) {
 	var rv LookupIdentityProviderResult
 	err := ctx.Invoke("azure-native:apimanagement:getIdentityProvider", args, &rv, opts...)

@@ -12,14 +12,12 @@ import (
 )
 
 // Certificate details.
-// API Version: 2020-12-01.
+// API Version: 2019-12-01.
 type Certificate struct {
 	pulumi.CustomResourceState
 
 	// Expiration date of the certificate. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
 	ExpirationDate pulumi.StringOutput `pulumi:"expirationDate"`
-	// KeyVault location details of the certificate.
-	KeyVault KeyVaultContractPropertiesResponsePtrOutput `pulumi:"keyVault"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Subject attribute of the certificate.
@@ -37,6 +35,12 @@ func NewCertificate(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Data == nil {
+		return nil, errors.New("invalid value for required argument 'Data'")
+	}
+	if args.Password == nil {
+		return nil, errors.New("invalid value for required argument 'Password'")
+	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -145,8 +149,6 @@ func GetCertificate(ctx *pulumi.Context,
 type certificateState struct {
 	// Expiration date of the certificate. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
 	ExpirationDate *string `pulumi:"expirationDate"`
-	// KeyVault location details of the certificate.
-	KeyVault *KeyVaultContractPropertiesResponse `pulumi:"keyVault"`
 	// Resource name.
 	Name *string `pulumi:"name"`
 	// Subject attribute of the certificate.
@@ -160,8 +162,6 @@ type certificateState struct {
 type CertificateState struct {
 	// Expiration date of the certificate. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
 	ExpirationDate pulumi.StringPtrInput
-	// KeyVault location details of the certificate.
-	KeyVault KeyVaultContractPropertiesResponsePtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
 	// Subject attribute of the certificate.
@@ -180,11 +180,9 @@ type certificateArgs struct {
 	// Identifier of the certificate entity. Must be unique in the current API Management service instance.
 	CertificateId *string `pulumi:"certificateId"`
 	// Base 64 encoded certificate using the application/x-pkcs12 representation.
-	Data *string `pulumi:"data"`
-	// KeyVault location details of the certificate.
-	KeyVault *KeyVaultContractCreateProperties `pulumi:"keyVault"`
+	Data string `pulumi:"data"`
 	// Password for the Certificate
-	Password *string `pulumi:"password"`
+	Password string `pulumi:"password"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the API Management service.
@@ -196,11 +194,9 @@ type CertificateArgs struct {
 	// Identifier of the certificate entity. Must be unique in the current API Management service instance.
 	CertificateId pulumi.StringPtrInput
 	// Base 64 encoded certificate using the application/x-pkcs12 representation.
-	Data pulumi.StringPtrInput
-	// KeyVault location details of the certificate.
-	KeyVault KeyVaultContractCreatePropertiesPtrInput
+	Data pulumi.StringInput
 	// Password for the Certificate
-	Password pulumi.StringPtrInput
+	Password pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the API Management service.

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.ApiManagement.Latest
     {
         /// <summary>
         /// Cache details.
-        /// Latest API Version: 2020-12-01.
+        /// Latest API Version: 2019-12-01.
         /// </summary>
         public static Task<GetCacheResult> InvokeAsync(GetCacheArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCacheResult>("azure-native:apimanagement/latest:getCache", args ?? new GetCacheArgs(), options.WithVersion());
@@ -74,10 +74,6 @@ namespace Pulumi.AzureNative.ApiManagement.Latest
         /// Resource type for API Management resource.
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// Location identifier to use cache from (should be either 'default' or valid Azure region identifier)
-        /// </summary>
-        public readonly string UseFromLocation;
 
         [OutputConstructor]
         private GetCacheResult(
@@ -91,9 +87,7 @@ namespace Pulumi.AzureNative.ApiManagement.Latest
 
             string? resourceId,
 
-            string type,
-
-            string useFromLocation)
+            string type)
         {
             ConnectionString = connectionString;
             Description = description;
@@ -101,7 +95,6 @@ namespace Pulumi.AzureNative.ApiManagement.Latest
             Name = name;
             ResourceId = resourceId;
             Type = type;
-            UseFromLocation = useFromLocation;
         }
     }
 }

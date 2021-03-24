@@ -21,7 +21,7 @@ class ListTenantAccessSecretsResult:
     """
     Tenant access information contract of the API Management service.
     """
-    def __init__(__self__, enabled=None, id=None, primary_key=None, principal_id=None, secondary_key=None):
+    def __init__(__self__, enabled=None, id=None, primary_key=None, secondary_key=None):
         if enabled and not isinstance(enabled, bool):
             raise TypeError("Expected argument 'enabled' to be a bool")
         pulumi.set(__self__, "enabled", enabled)
@@ -31,9 +31,6 @@ class ListTenantAccessSecretsResult:
         if primary_key and not isinstance(primary_key, str):
             raise TypeError("Expected argument 'primary_key' to be a str")
         pulumi.set(__self__, "primary_key", primary_key)
-        if principal_id and not isinstance(principal_id, str):
-            raise TypeError("Expected argument 'principal_id' to be a str")
-        pulumi.set(__self__, "principal_id", principal_id)
         if secondary_key and not isinstance(secondary_key, str):
             raise TypeError("Expected argument 'secondary_key' to be a str")
         pulumi.set(__self__, "secondary_key", secondary_key)
@@ -50,7 +47,7 @@ class ListTenantAccessSecretsResult:
     @pulumi.getter
     def id(self) -> Optional[str]:
         """
-        Access Information type ('access' or 'gitAccess')
+        Identifier.
         """
         return pulumi.get(self, "id")
 
@@ -61,14 +58,6 @@ class ListTenantAccessSecretsResult:
         Primary access key. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
         """
         return pulumi.get(self, "primary_key")
-
-    @property
-    @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[str]:
-        """
-        Principal (User) Identifier.
-        """
-        return pulumi.get(self, "principal_id")
 
     @property
     @pulumi.getter(name="secondaryKey")
@@ -88,7 +77,6 @@ class AwaitableListTenantAccessSecretsResult(ListTenantAccessSecretsResult):
             enabled=self.enabled,
             id=self.id,
             primary_key=self.primary_key,
-            principal_id=self.principal_id,
             secondary_key=self.secondary_key)
 
 
@@ -98,7 +86,7 @@ def list_tenant_access_secrets(access_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListTenantAccessSecretsResult:
     """
     Tenant access information contract of the API Management service.
-    Latest API Version: 2020-12-01.
+    Latest API Version: 2019-12-01.
 
 
     :param str access_name: The identifier of the Access configuration.
@@ -120,5 +108,4 @@ def list_tenant_access_secrets(access_name: Optional[str] = None,
         enabled=__ret__.enabled,
         id=__ret__.id,
         primary_key=__ret__.primary_key,
-        principal_id=__ret__.principal_id,
         secondary_key=__ret__.secondary_key)

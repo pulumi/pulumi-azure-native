@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Cache details.
- * Latest API Version: 2020-12-01.
+ * Latest API Version: 2019-12-01.
  */
 /** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getCache'. */
 export function getCache(args: GetCacheArgs, opts?: pulumi.InvokeOptions): Promise<GetCacheResult> {
@@ -69,8 +69,4 @@ export interface GetCacheResult {
      * Resource type for API Management resource.
      */
     readonly type: string;
-    /**
-     * Location identifier to use cache from (should be either 'default' or valid Azure region identifier)
-     */
-    readonly useFromLocation: string;
 }
