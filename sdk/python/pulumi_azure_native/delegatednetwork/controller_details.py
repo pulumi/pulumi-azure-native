@@ -24,7 +24,7 @@ class ControllerDetails(pulumi.CustomResource):
                  __opts__=None):
         """
         Represents an instance of a DNC controller.
-        API Version: 2020-08-08-preview.
+        API Version: 2021-03-15.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -63,7 +63,7 @@ class ControllerDetails(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['resource_guid'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:delegatednetwork:ControllerDetails"), pulumi.Alias(type_="azure-native:delegatednetwork/v20200808preview:ControllerDetails"), pulumi.Alias(type_="azure-nextgen:delegatednetwork/v20200808preview:ControllerDetails")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:delegatednetwork:ControllerDetails"), pulumi.Alias(type_="azure-native:delegatednetwork/latest:ControllerDetails"), pulumi.Alias(type_="azure-nextgen:delegatednetwork/latest:ControllerDetails"), pulumi.Alias(type_="azure-native:delegatednetwork/v20200808preview:ControllerDetails"), pulumi.Alias(type_="azure-nextgen:delegatednetwork/v20200808preview:ControllerDetails"), pulumi.Alias(type_="azure-native:delegatednetwork/v20210315:ControllerDetails"), pulumi.Alias(type_="azure-nextgen:delegatednetwork/v20210315:ControllerDetails")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ControllerDetails, __self__).__init__(
             'azure-native:delegatednetwork:ControllerDetails',

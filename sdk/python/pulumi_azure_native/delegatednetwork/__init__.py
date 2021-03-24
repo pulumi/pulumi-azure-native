@@ -15,7 +15,9 @@ from . import outputs
 
 # Make subpackages available:
 from . import (
+    latest,
     v20200808preview,
+    v20210315,
 )
 
 def _register_module():

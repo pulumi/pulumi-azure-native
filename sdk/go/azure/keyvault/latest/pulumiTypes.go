@@ -870,7 +870,10 @@ type KeyProperties struct {
 	// The attributes of the key.
 	Attributes *KeyAttributes `pulumi:"attributes"`
 	// The elliptic curve name. For valid values, see JsonWebKeyCurveName.
-	CurveName *string `pulumi:"curveName"`
+	CurveName *string  `pulumi:"curveName"`
+	KeyOps    []string `pulumi:"keyOps"`
+	// The key size in bits. For example: 2048, 3072, or 4096 for RSA.
+	KeySize *int `pulumi:"keySize"`
 	// The type of the key. For valid values, see JsonWebKeyType.
 	Kty *string `pulumi:"kty"`
 }
@@ -891,7 +894,10 @@ type KeyPropertiesArgs struct {
 	// The attributes of the key.
 	Attributes KeyAttributesPtrInput `pulumi:"attributes"`
 	// The elliptic curve name. For valid values, see JsonWebKeyCurveName.
-	CurveName pulumi.StringPtrInput `pulumi:"curveName"`
+	CurveName pulumi.StringPtrInput   `pulumi:"curveName"`
+	KeyOps    pulumi.StringArrayInput `pulumi:"keyOps"`
+	// The key size in bits. For example: 2048, 3072, or 4096 for RSA.
+	KeySize pulumi.IntPtrInput `pulumi:"keySize"`
 	// The type of the key. For valid values, see JsonWebKeyType.
 	Kty pulumi.StringPtrInput `pulumi:"kty"`
 }
@@ -984,6 +990,15 @@ func (o KeyPropertiesOutput) CurveName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyProperties) *string { return v.CurveName }).(pulumi.StringPtrOutput)
 }
 
+func (o KeyPropertiesOutput) KeyOps() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v KeyProperties) []string { return v.KeyOps }).(pulumi.StringArrayOutput)
+}
+
+// The key size in bits. For example: 2048, 3072, or 4096 for RSA.
+func (o KeyPropertiesOutput) KeySize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KeyProperties) *int { return v.KeySize }).(pulumi.IntPtrOutput)
+}
+
 // The type of the key. For valid values, see JsonWebKeyType.
 func (o KeyPropertiesOutput) Kty() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyProperties) *string { return v.Kty }).(pulumi.StringPtrOutput)
@@ -1025,6 +1040,25 @@ func (o KeyPropertiesPtrOutput) CurveName() pulumi.StringPtrOutput {
 		}
 		return v.CurveName
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o KeyPropertiesPtrOutput) KeyOps() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *KeyProperties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyOps
+	}).(pulumi.StringArrayOutput)
+}
+
+// The key size in bits. For example: 2048, 3072, or 4096 for RSA.
+func (o KeyPropertiesPtrOutput) KeySize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KeyProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return v.KeySize
+	}).(pulumi.IntPtrOutput)
 }
 
 // The type of the key. For valid values, see JsonWebKeyType.

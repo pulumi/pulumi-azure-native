@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents an instance of a orchestrator.
- * API Version: 2020-08-08-preview.
+ * API Version: 2021-03-15.
  */
 export function getOrchestratorInstanceServiceDetails(args: GetOrchestratorInstanceServiceDetailsArgs, opts?: pulumi.InvokeOptions): Promise<GetOrchestratorInstanceServiceDetailsResult> {
     if (!opts) {
@@ -39,7 +39,7 @@ export interface GetOrchestratorInstanceServiceDetailsArgs {
  */
 export interface GetOrchestratorInstanceServiceDetailsResult {
     /**
-     * K8s APIServer url
+     * K8s APIServer url. Either one of apiServerEndpoint or privateLinkResourceId can be specified
      */
     readonly apiServerEndpoint?: string;
     /**
@@ -78,6 +78,10 @@ export interface GetOrchestratorInstanceServiceDetailsResult {
      * TenantID of server App ID
      */
     readonly orchestratorTenantId?: string;
+    /**
+     * private link arm resource id. Either one of apiServerEndpoint or privateLinkResourceId can be specified
+     */
+    readonly privateLinkResourceId?: string;
     /**
      * The current state of orchestratorInstance resource.
      */

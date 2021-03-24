@@ -80,7 +80,7 @@ export class CassandraDataCenter extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb:CassandraDataCenter" }, { type: "azure-native:documentdb/v20210301preview:CassandraDataCenter" }, { type: "azure-nextgen:documentdb/v20210301preview:CassandraDataCenter" }, { type: "azure-native:documentdb/v20210401preview:CassandraDataCenter" }, { type: "azure-nextgen:documentdb/v20210401preview:CassandraDataCenter" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb:CassandraDataCenter" }, { type: "azure-native:documentdb/v20210301preview:CassandraDataCenter" }, { type: "azure-nextgen:documentdb/v20210301preview:CassandraDataCenter" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CassandraDataCenter.__pulumiType, name, inputs, opts);
     }

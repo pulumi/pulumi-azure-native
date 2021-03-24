@@ -144,7 +144,7 @@ def get_delegated_subnet_service_details(resource_group_name: Optional[str] = No
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDelegatedSubnetServiceDetailsResult:
     """
     Represents an instance of a orchestrator.
-    API Version: 2020-08-08-preview.
+    API Version: 2021-03-15.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

@@ -21,7 +21,7 @@ type Key struct {
 	CurveName pulumi.StringPtrOutput   `pulumi:"curveName"`
 	KeyOps    pulumi.StringArrayOutput `pulumi:"keyOps"`
 	// The key size in bits. For example: 2048, 3072, or 4096 for RSA.
-	KeySize pulumi.IntOutput `pulumi:"keySize"`
+	KeySize pulumi.IntPtrOutput `pulumi:"keySize"`
 	// The URI to retrieve the current version of the key.
 	KeyUri pulumi.StringOutput `pulumi:"keyUri"`
 	// The URI to retrieve the specific version of the key.

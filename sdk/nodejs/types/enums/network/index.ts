@@ -1825,6 +1825,26 @@ export const VirtualNetworkPeeringState = {
  */
 export type VirtualNetworkPeeringState = (typeof VirtualNetworkPeeringState)[keyof typeof VirtualNetworkPeeringState];
 
+export const VirtualNetworkPrivateEndpointNetworkPolicies = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Enable or Disable apply network policies on private end point in the subnet.
+ */
+export type VirtualNetworkPrivateEndpointNetworkPolicies = (typeof VirtualNetworkPrivateEndpointNetworkPolicies)[keyof typeof VirtualNetworkPrivateEndpointNetworkPolicies];
+
+export const VirtualNetworkPrivateLinkServiceNetworkPolicies = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Enable or Disable apply network policies on private link service in the subnet.
+ */
+export type VirtualNetworkPrivateLinkServiceNetworkPolicies = (typeof VirtualNetworkPrivateLinkServiceNetworkPolicies)[keyof typeof VirtualNetworkPrivateLinkServiceNetworkPolicies];
+
 export const VpnAuthenticationType = {
     Certificate: "Certificate",
     Radius: "Radius",

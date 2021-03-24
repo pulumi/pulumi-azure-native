@@ -4862,6 +4862,68 @@ namespace Pulumi.AzureNative.Network
     }
 
     /// <summary>
+    /// Enable or Disable apply network policies on private end point in the subnet.
+    /// </summary>
+    [EnumType]
+    public readonly struct VirtualNetworkPrivateEndpointNetworkPolicies : IEquatable<VirtualNetworkPrivateEndpointNetworkPolicies>
+    {
+        private readonly string _value;
+
+        private VirtualNetworkPrivateEndpointNetworkPolicies(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VirtualNetworkPrivateEndpointNetworkPolicies Enabled { get; } = new VirtualNetworkPrivateEndpointNetworkPolicies("Enabled");
+        public static VirtualNetworkPrivateEndpointNetworkPolicies Disabled { get; } = new VirtualNetworkPrivateEndpointNetworkPolicies("Disabled");
+
+        public static bool operator ==(VirtualNetworkPrivateEndpointNetworkPolicies left, VirtualNetworkPrivateEndpointNetworkPolicies right) => left.Equals(right);
+        public static bool operator !=(VirtualNetworkPrivateEndpointNetworkPolicies left, VirtualNetworkPrivateEndpointNetworkPolicies right) => !left.Equals(right);
+
+        public static explicit operator string(VirtualNetworkPrivateEndpointNetworkPolicies value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VirtualNetworkPrivateEndpointNetworkPolicies other && Equals(other);
+        public bool Equals(VirtualNetworkPrivateEndpointNetworkPolicies other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Enable or Disable apply network policies on private link service in the subnet.
+    /// </summary>
+    [EnumType]
+    public readonly struct VirtualNetworkPrivateLinkServiceNetworkPolicies : IEquatable<VirtualNetworkPrivateLinkServiceNetworkPolicies>
+    {
+        private readonly string _value;
+
+        private VirtualNetworkPrivateLinkServiceNetworkPolicies(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VirtualNetworkPrivateLinkServiceNetworkPolicies Enabled { get; } = new VirtualNetworkPrivateLinkServiceNetworkPolicies("Enabled");
+        public static VirtualNetworkPrivateLinkServiceNetworkPolicies Disabled { get; } = new VirtualNetworkPrivateLinkServiceNetworkPolicies("Disabled");
+
+        public static bool operator ==(VirtualNetworkPrivateLinkServiceNetworkPolicies left, VirtualNetworkPrivateLinkServiceNetworkPolicies right) => left.Equals(right);
+        public static bool operator !=(VirtualNetworkPrivateLinkServiceNetworkPolicies left, VirtualNetworkPrivateLinkServiceNetworkPolicies right) => !left.Equals(right);
+
+        public static explicit operator string(VirtualNetworkPrivateLinkServiceNetworkPolicies value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VirtualNetworkPrivateLinkServiceNetworkPolicies other && Equals(other);
+        public bool Equals(VirtualNetworkPrivateLinkServiceNetworkPolicies other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// VPN authentication types enabled for the VpnServerConfiguration.
     /// </summary>
     [EnumType]

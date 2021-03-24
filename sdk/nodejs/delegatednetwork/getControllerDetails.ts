@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents an instance of a DNC controller.
- * API Version: 2020-08-08-preview.
+ * API Version: 2021-03-15.
  */
 export function getControllerDetails(args: GetControllerDetailsArgs, opts?: pulumi.InvokeOptions): Promise<GetControllerDetailsResult> {
     if (!opts) {

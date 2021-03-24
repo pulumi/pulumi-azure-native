@@ -110,6 +110,39 @@ func (e JsonWebKeyCurveName) ToStringPtrOutputWithContext(ctx context.Context) p
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// The permitted JSON web key operations of the key. For more information, see JsonWebKeyOperation.
+type JsonWebKeyOperation pulumi.String
+
+const (
+	JsonWebKeyOperationEncrypt   = JsonWebKeyOperation("encrypt")
+	JsonWebKeyOperationDecrypt   = JsonWebKeyOperation("decrypt")
+	JsonWebKeyOperationSign      = JsonWebKeyOperation("sign")
+	JsonWebKeyOperationVerify    = JsonWebKeyOperation("verify")
+	JsonWebKeyOperationWrapKey   = JsonWebKeyOperation("wrapKey")
+	JsonWebKeyOperationUnwrapKey = JsonWebKeyOperation("unwrapKey")
+	JsonWebKeyOperationImport    = JsonWebKeyOperation("import")
+)
+
+func (JsonWebKeyOperation) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e JsonWebKeyOperation) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e JsonWebKeyOperation) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e JsonWebKeyOperation) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e JsonWebKeyOperation) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // The type of the key. For valid values, see JsonWebKeyType.
 type JsonWebKeyType pulumi.String
 

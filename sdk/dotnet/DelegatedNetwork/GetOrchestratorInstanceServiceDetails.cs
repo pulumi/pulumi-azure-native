@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DelegatedNetwork
     {
         /// <summary>
         /// Represents an instance of a orchestrator.
-        /// API Version: 2020-08-08-preview.
+        /// API Version: 2021-03-15.
         /// </summary>
         public static Task<GetOrchestratorInstanceServiceDetailsResult> InvokeAsync(GetOrchestratorInstanceServiceDetailsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetOrchestratorInstanceServiceDetailsResult>("azure-native:delegatednetwork:getOrchestratorInstanceServiceDetails", args ?? new GetOrchestratorInstanceServiceDetailsArgs(), options.WithVersion());
@@ -44,7 +44,7 @@ namespace Pulumi.AzureNative.DelegatedNetwork
     public sealed class GetOrchestratorInstanceServiceDetailsResult
     {
         /// <summary>
-        /// K8s APIServer url
+        /// K8s APIServer url. Either one of apiServerEndpoint or privateLinkResourceId can be specified
         /// </summary>
         public readonly string? ApiServerEndpoint;
         /// <summary>
@@ -84,6 +84,10 @@ namespace Pulumi.AzureNative.DelegatedNetwork
         /// </summary>
         public readonly string? OrchestratorTenantId;
         /// <summary>
+        /// private link arm resource id. Either one of apiServerEndpoint or privateLinkResourceId can be specified
+        /// </summary>
+        public readonly string? PrivateLinkResourceId;
+        /// <summary>
         /// The current state of orchestratorInstance resource.
         /// </summary>
         public readonly string ProvisioningState;
@@ -122,6 +126,8 @@ namespace Pulumi.AzureNative.DelegatedNetwork
 
             string? orchestratorTenantId,
 
+            string? privateLinkResourceId,
+
             string provisioningState,
 
             string resourceGuid,
@@ -140,6 +146,7 @@ namespace Pulumi.AzureNative.DelegatedNetwork
             Name = name;
             OrchestratorAppId = orchestratorAppId;
             OrchestratorTenantId = orchestratorTenantId;
+            PrivateLinkResourceId = privateLinkResourceId;
             ProvisioningState = provisioningState;
             ResourceGuid = resourceGuid;
             Tags = tags;

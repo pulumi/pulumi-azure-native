@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents an instance of a DNC controller.
- * API Version: 2020-08-08-preview.
+ * API Version: 2021-03-15.
  */
 export class ControllerDetails extends pulumi.CustomResource {
     /**
@@ -111,7 +111,7 @@ export class ControllerDetails extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:delegatednetwork:ControllerDetails" }, { type: "azure-native:delegatednetwork/v20200808preview:ControllerDetails" }, { type: "azure-nextgen:delegatednetwork/v20200808preview:ControllerDetails" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:delegatednetwork:ControllerDetails" }, { type: "azure-native:delegatednetwork/latest:ControllerDetails" }, { type: "azure-nextgen:delegatednetwork/latest:ControllerDetails" }, { type: "azure-native:delegatednetwork/v20200808preview:ControllerDetails" }, { type: "azure-nextgen:delegatednetwork/v20200808preview:ControllerDetails" }, { type: "azure-native:delegatednetwork/v20210315:ControllerDetails" }, { type: "azure-nextgen:delegatednetwork/v20210315:ControllerDetails" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ControllerDetails.__pulumiType, name, inputs, opts);
     }

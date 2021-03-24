@@ -8,7 +8,7 @@ import (
 )
 
 // Represents an instance of a DNC controller.
-// API Version: 2020-08-08-preview.
+// API Version: 2021-03-15.
 func LookupControllerDetails(ctx *pulumi.Context, args *LookupControllerDetailsArgs, opts ...pulumi.InvokeOption) (*LookupControllerDetailsResult, error) {
 	var rv LookupControllerDetailsResult
 	err := ctx.Invoke("azure-native:delegatednetwork:getControllerDetails", args, &rv, opts...)

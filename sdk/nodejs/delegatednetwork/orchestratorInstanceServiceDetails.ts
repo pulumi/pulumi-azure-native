@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents an instance of a orchestrator.
- * API Version: 2020-08-08-preview.
+ * API Version: 2021-03-15.
  */
 export class OrchestratorInstanceServiceDetails extends pulumi.CustomResource {
     /**
@@ -37,7 +37,7 @@ export class OrchestratorInstanceServiceDetails extends pulumi.CustomResource {
     }
 
     /**
-     * K8s APIServer url
+     * K8s APIServer url. Either one of apiServerEndpoint or privateLinkResourceId can be specified
      */
     public readonly apiServerEndpoint!: pulumi.Output<string | undefined>;
     /**
@@ -72,6 +72,10 @@ export class OrchestratorInstanceServiceDetails extends pulumi.CustomResource {
      * TenantID of server App ID
      */
     public readonly orchestratorTenantId!: pulumi.Output<string | undefined>;
+    /**
+     * private link arm resource id. Either one of apiServerEndpoint or privateLinkResourceId can be specified
+     */
+    public readonly privateLinkResourceId!: pulumi.Output<string | undefined>;
     /**
      * The current state of orchestratorInstance resource.
      */
@@ -117,6 +121,7 @@ export class OrchestratorInstanceServiceDetails extends pulumi.CustomResource {
             inputs["location"] = args ? args.location : undefined;
             inputs["orchestratorAppId"] = args ? args.orchestratorAppId : undefined;
             inputs["orchestratorTenantId"] = args ? args.orchestratorTenantId : undefined;
+            inputs["privateLinkResourceId"] = args ? args.privateLinkResourceId : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["resourceName"] = args ? args.resourceName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -134,6 +139,7 @@ export class OrchestratorInstanceServiceDetails extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["orchestratorAppId"] = undefined /*out*/;
             inputs["orchestratorTenantId"] = undefined /*out*/;
+            inputs["privateLinkResourceId"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["resourceGuid"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
@@ -142,7 +148,7 @@ export class OrchestratorInstanceServiceDetails extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:delegatednetwork:OrchestratorInstanceServiceDetails" }, { type: "azure-native:delegatednetwork/v20200808preview:OrchestratorInstanceServiceDetails" }, { type: "azure-nextgen:delegatednetwork/v20200808preview:OrchestratorInstanceServiceDetails" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:delegatednetwork:OrchestratorInstanceServiceDetails" }, { type: "azure-native:delegatednetwork/latest:OrchestratorInstanceServiceDetails" }, { type: "azure-nextgen:delegatednetwork/latest:OrchestratorInstanceServiceDetails" }, { type: "azure-native:delegatednetwork/v20200808preview:OrchestratorInstanceServiceDetails" }, { type: "azure-nextgen:delegatednetwork/v20200808preview:OrchestratorInstanceServiceDetails" }, { type: "azure-native:delegatednetwork/v20210315:OrchestratorInstanceServiceDetails" }, { type: "azure-nextgen:delegatednetwork/v20210315:OrchestratorInstanceServiceDetails" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(OrchestratorInstanceServiceDetails.__pulumiType, name, inputs, opts);
     }
@@ -153,7 +159,7 @@ export class OrchestratorInstanceServiceDetails extends pulumi.CustomResource {
  */
 export interface OrchestratorInstanceServiceDetailsArgs {
     /**
-     * K8s APIServer url
+     * K8s APIServer url. Either one of apiServerEndpoint or privateLinkResourceId can be specified
      */
     readonly apiServerEndpoint?: pulumi.Input<string>;
     /**
@@ -184,6 +190,10 @@ export interface OrchestratorInstanceServiceDetailsArgs {
      * TenantID of server App ID
      */
     readonly orchestratorTenantId?: pulumi.Input<string>;
+    /**
+     * private link arm resource id. Either one of apiServerEndpoint or privateLinkResourceId can be specified
+     */
+    readonly privateLinkResourceId?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

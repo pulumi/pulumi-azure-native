@@ -20,7 +20,7 @@ class GetOrchestratorInstanceServiceDetailsResult:
     """
     Represents an instance of a orchestrator.
     """
-    def __init__(__self__, api_server_endpoint=None, cluster_root_ca=None, controller_details=None, id=None, identity=None, kind=None, location=None, name=None, orchestrator_app_id=None, orchestrator_tenant_id=None, provisioning_state=None, resource_guid=None, tags=None, type=None):
+    def __init__(__self__, api_server_endpoint=None, cluster_root_ca=None, controller_details=None, id=None, identity=None, kind=None, location=None, name=None, orchestrator_app_id=None, orchestrator_tenant_id=None, private_link_resource_id=None, provisioning_state=None, resource_guid=None, tags=None, type=None):
         if api_server_endpoint and not isinstance(api_server_endpoint, str):
             raise TypeError("Expected argument 'api_server_endpoint' to be a str")
         pulumi.set(__self__, "api_server_endpoint", api_server_endpoint)
@@ -51,6 +51,9 @@ class GetOrchestratorInstanceServiceDetailsResult:
         if orchestrator_tenant_id and not isinstance(orchestrator_tenant_id, str):
             raise TypeError("Expected argument 'orchestrator_tenant_id' to be a str")
         pulumi.set(__self__, "orchestrator_tenant_id", orchestrator_tenant_id)
+        if private_link_resource_id and not isinstance(private_link_resource_id, str):
+            raise TypeError("Expected argument 'private_link_resource_id' to be a str")
+        pulumi.set(__self__, "private_link_resource_id", private_link_resource_id)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -68,7 +71,7 @@ class GetOrchestratorInstanceServiceDetailsResult:
     @pulumi.getter(name="apiServerEndpoint")
     def api_server_endpoint(self) -> Optional[str]:
         """
-        K8s APIServer url
+        K8s APIServer url. Either one of apiServerEndpoint or privateLinkResourceId can be specified
         """
         return pulumi.get(self, "api_server_endpoint")
 
@@ -145,6 +148,14 @@ class GetOrchestratorInstanceServiceDetailsResult:
         return pulumi.get(self, "orchestrator_tenant_id")
 
     @property
+    @pulumi.getter(name="privateLinkResourceId")
+    def private_link_resource_id(self) -> Optional[str]:
+        """
+        private link arm resource id. Either one of apiServerEndpoint or privateLinkResourceId can be specified
+        """
+        return pulumi.get(self, "private_link_resource_id")
+
+    @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
@@ -193,6 +204,7 @@ class AwaitableGetOrchestratorInstanceServiceDetailsResult(GetOrchestratorInstan
             name=self.name,
             orchestrator_app_id=self.orchestrator_app_id,
             orchestrator_tenant_id=self.orchestrator_tenant_id,
+            private_link_resource_id=self.private_link_resource_id,
             provisioning_state=self.provisioning_state,
             resource_guid=self.resource_guid,
             tags=self.tags,
@@ -204,7 +216,7 @@ def get_orchestrator_instance_service_details(resource_group_name: Optional[str]
                                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOrchestratorInstanceServiceDetailsResult:
     """
     Represents an instance of a orchestrator.
-    API Version: 2020-08-08-preview.
+    API Version: 2021-03-15.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -230,6 +242,7 @@ def get_orchestrator_instance_service_details(resource_group_name: Optional[str]
         name=__ret__.name,
         orchestrator_app_id=__ret__.orchestrator_app_id,
         orchestrator_tenant_id=__ret__.orchestrator_tenant_id,
+        private_link_resource_id=__ret__.private_link_resource_id,
         provisioning_state=__ret__.provisioning_state,
         resource_guid=__ret__.resource_guid,
         tags=__ret__.tags,

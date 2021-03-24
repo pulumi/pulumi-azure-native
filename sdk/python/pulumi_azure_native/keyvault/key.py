@@ -131,12 +131,12 @@ class Key(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="keyOps")
-    def key_ops(self) -> pulumi.Output[Sequence[str]]:
+    def key_ops(self) -> pulumi.Output[Optional[Sequence[str]]]:
         return pulumi.get(self, "key_ops")
 
     @property
     @pulumi.getter(name="keySize")
-    def key_size(self) -> pulumi.Output[int]:
+    def key_size(self) -> pulumi.Output[Optional[int]]:
         """
         The key size in bits. For example: 2048, 3072, or 4096 for RSA.
         """

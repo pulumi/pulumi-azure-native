@@ -12,7 +12,7 @@ import (
 )
 
 // Represents an instance of a DNC controller.
-// API Version: 2020-08-08-preview.
+// API Version: 2021-03-15.
 type ControllerDetails struct {
 	pulumi.CustomResourceState
 
@@ -51,10 +51,22 @@ func NewControllerDetails(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:delegatednetwork:ControllerDetails"),
 		},
 		{
+			Type: pulumi.String("azure-native:delegatednetwork/latest:ControllerDetails"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:delegatednetwork/latest:ControllerDetails"),
+		},
+		{
 			Type: pulumi.String("azure-native:delegatednetwork/v20200808preview:ControllerDetails"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:delegatednetwork/v20200808preview:ControllerDetails"),
+		},
+		{
+			Type: pulumi.String("azure-native:delegatednetwork/v20210315:ControllerDetails"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:delegatednetwork/v20210315:ControllerDetails"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -12,11 +12,11 @@ import (
 )
 
 // Represents an instance of a orchestrator.
-// API Version: 2020-08-08-preview.
+// API Version: 2021-03-15.
 type OrchestratorInstanceServiceDetails struct {
 	pulumi.CustomResourceState
 
-	// K8s APIServer url
+	// K8s APIServer url. Either one of apiServerEndpoint or privateLinkResourceId can be specified
 	ApiServerEndpoint pulumi.StringPtrOutput `pulumi:"apiServerEndpoint"`
 	// RootCA certificate of kubernetes cluster base64 encoded
 	ClusterRootCA pulumi.StringPtrOutput `pulumi:"clusterRootCA"`
@@ -34,6 +34,8 @@ type OrchestratorInstanceServiceDetails struct {
 	OrchestratorAppId pulumi.StringPtrOutput `pulumi:"orchestratorAppId"`
 	// TenantID of server App ID
 	OrchestratorTenantId pulumi.StringPtrOutput `pulumi:"orchestratorTenantId"`
+	// private link arm resource id. Either one of apiServerEndpoint or privateLinkResourceId can be specified
+	PrivateLinkResourceId pulumi.StringPtrOutput `pulumi:"privateLinkResourceId"`
 	// The current state of orchestratorInstance resource.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// Resource guid.
@@ -65,10 +67,22 @@ func NewOrchestratorInstanceServiceDetails(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:delegatednetwork:OrchestratorInstanceServiceDetails"),
 		},
 		{
+			Type: pulumi.String("azure-native:delegatednetwork/latest:OrchestratorInstanceServiceDetails"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:delegatednetwork/latest:OrchestratorInstanceServiceDetails"),
+		},
+		{
 			Type: pulumi.String("azure-native:delegatednetwork/v20200808preview:OrchestratorInstanceServiceDetails"),
 		},
 		{
 			Type: pulumi.String("azure-nextgen:delegatednetwork/v20200808preview:OrchestratorInstanceServiceDetails"),
+		},
+		{
+			Type: pulumi.String("azure-native:delegatednetwork/v20210315:OrchestratorInstanceServiceDetails"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:delegatednetwork/v20210315:OrchestratorInstanceServiceDetails"),
 		},
 	})
 	opts = append(opts, aliases)
@@ -94,7 +108,7 @@ func GetOrchestratorInstanceServiceDetails(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering OrchestratorInstanceServiceDetails resources.
 type orchestratorInstanceServiceDetailsState struct {
-	// K8s APIServer url
+	// K8s APIServer url. Either one of apiServerEndpoint or privateLinkResourceId can be specified
 	ApiServerEndpoint *string `pulumi:"apiServerEndpoint"`
 	// RootCA certificate of kubernetes cluster base64 encoded
 	ClusterRootCA *string `pulumi:"clusterRootCA"`
@@ -112,6 +126,8 @@ type orchestratorInstanceServiceDetailsState struct {
 	OrchestratorAppId *string `pulumi:"orchestratorAppId"`
 	// TenantID of server App ID
 	OrchestratorTenantId *string `pulumi:"orchestratorTenantId"`
+	// private link arm resource id. Either one of apiServerEndpoint or privateLinkResourceId can be specified
+	PrivateLinkResourceId *string `pulumi:"privateLinkResourceId"`
 	// The current state of orchestratorInstance resource.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// Resource guid.
@@ -123,7 +139,7 @@ type orchestratorInstanceServiceDetailsState struct {
 }
 
 type OrchestratorInstanceServiceDetailsState struct {
-	// K8s APIServer url
+	// K8s APIServer url. Either one of apiServerEndpoint or privateLinkResourceId can be specified
 	ApiServerEndpoint pulumi.StringPtrInput
 	// RootCA certificate of kubernetes cluster base64 encoded
 	ClusterRootCA pulumi.StringPtrInput
@@ -141,6 +157,8 @@ type OrchestratorInstanceServiceDetailsState struct {
 	OrchestratorAppId pulumi.StringPtrInput
 	// TenantID of server App ID
 	OrchestratorTenantId pulumi.StringPtrInput
+	// private link arm resource id. Either one of apiServerEndpoint or privateLinkResourceId can be specified
+	PrivateLinkResourceId pulumi.StringPtrInput
 	// The current state of orchestratorInstance resource.
 	ProvisioningState pulumi.StringPtrInput
 	// Resource guid.
@@ -156,7 +174,7 @@ func (OrchestratorInstanceServiceDetailsState) ElementType() reflect.Type {
 }
 
 type orchestratorInstanceServiceDetailsArgs struct {
-	// K8s APIServer url
+	// K8s APIServer url. Either one of apiServerEndpoint or privateLinkResourceId can be specified
 	ApiServerEndpoint *string `pulumi:"apiServerEndpoint"`
 	// RootCA certificate of kubernetes cluster base64 encoded
 	ClusterRootCA *string `pulumi:"clusterRootCA"`
@@ -172,6 +190,8 @@ type orchestratorInstanceServiceDetailsArgs struct {
 	OrchestratorAppId *string `pulumi:"orchestratorAppId"`
 	// TenantID of server App ID
 	OrchestratorTenantId *string `pulumi:"orchestratorTenantId"`
+	// private link arm resource id. Either one of apiServerEndpoint or privateLinkResourceId can be specified
+	PrivateLinkResourceId *string `pulumi:"privateLinkResourceId"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the resource. It must be a minimum of 3 characters, and a maximum of 63.
@@ -182,7 +202,7 @@ type orchestratorInstanceServiceDetailsArgs struct {
 
 // The set of arguments for constructing a OrchestratorInstanceServiceDetails resource.
 type OrchestratorInstanceServiceDetailsArgs struct {
-	// K8s APIServer url
+	// K8s APIServer url. Either one of apiServerEndpoint or privateLinkResourceId can be specified
 	ApiServerEndpoint pulumi.StringPtrInput
 	// RootCA certificate of kubernetes cluster base64 encoded
 	ClusterRootCA pulumi.StringPtrInput
@@ -198,6 +218,8 @@ type OrchestratorInstanceServiceDetailsArgs struct {
 	OrchestratorAppId pulumi.StringPtrInput
 	// TenantID of server App ID
 	OrchestratorTenantId pulumi.StringPtrInput
+	// private link arm resource id. Either one of apiServerEndpoint or privateLinkResourceId can be specified
+	PrivateLinkResourceId pulumi.StringPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// The name of the resource. It must be a minimum of 3 characters, and a maximum of 63.

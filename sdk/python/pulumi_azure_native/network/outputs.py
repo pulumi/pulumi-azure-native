@@ -21004,8 +21004,12 @@ class SubnetResponse(dict):
             pulumi.set(__self__, "nat_gateway", nat_gateway)
         if network_security_group is not None:
             pulumi.set(__self__, "network_security_group", network_security_group)
+        if private_endpoint_network_policies is None:
+            private_endpoint_network_policies = 'Enabled'
         if private_endpoint_network_policies is not None:
             pulumi.set(__self__, "private_endpoint_network_policies", private_endpoint_network_policies)
+        if private_link_service_network_policies is None:
+            private_link_service_network_policies = 'Enabled'
         if private_link_service_network_policies is not None:
             pulumi.set(__self__, "private_link_service_network_policies", private_link_service_network_policies)
         if route_table is not None:

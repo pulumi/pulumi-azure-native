@@ -8,7 +8,7 @@ import (
 )
 
 // Represents an instance of a orchestrator.
-// API Version: 2020-08-08-preview.
+// API Version: 2021-03-15.
 func LookupOrchestratorInstanceServiceDetails(ctx *pulumi.Context, args *LookupOrchestratorInstanceServiceDetailsArgs, opts ...pulumi.InvokeOption) (*LookupOrchestratorInstanceServiceDetailsResult, error) {
 	var rv LookupOrchestratorInstanceServiceDetailsResult
 	err := ctx.Invoke("azure-native:delegatednetwork:getOrchestratorInstanceServiceDetails", args, &rv, opts...)
@@ -27,7 +27,7 @@ type LookupOrchestratorInstanceServiceDetailsArgs struct {
 
 // Represents an instance of a orchestrator.
 type LookupOrchestratorInstanceServiceDetailsResult struct {
-	// K8s APIServer url
+	// K8s APIServer url. Either one of apiServerEndpoint or privateLinkResourceId can be specified
 	ApiServerEndpoint *string `pulumi:"apiServerEndpoint"`
 	// RootCA certificate of kubernetes cluster base64 encoded
 	ClusterRootCA *string `pulumi:"clusterRootCA"`
@@ -47,6 +47,8 @@ type LookupOrchestratorInstanceServiceDetailsResult struct {
 	OrchestratorAppId *string `pulumi:"orchestratorAppId"`
 	// TenantID of server App ID
 	OrchestratorTenantId *string `pulumi:"orchestratorTenantId"`
+	// private link arm resource id. Either one of apiServerEndpoint or privateLinkResourceId can be specified
+	PrivateLinkResourceId *string `pulumi:"privateLinkResourceId"`
 	// The current state of orchestratorInstance resource.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Resource guid.

@@ -8,6 +8,7 @@ __all__ = [
     'CertificatePermissions',
     'CreateMode',
     'JsonWebKeyCurveName',
+    'JsonWebKeyOperation',
     'JsonWebKeyType',
     'KeyPermissions',
     'NetworkRuleAction',
@@ -57,6 +58,19 @@ class JsonWebKeyCurveName(str, Enum):
     P_384 = "P-384"
     P_521 = "P-521"
     P_256_K = "P-256K"
+
+
+class JsonWebKeyOperation(str, Enum):
+    """
+    The permitted JSON web key operations of the key. For more information, see JsonWebKeyOperation.
+    """
+    ENCRYPT = "encrypt"
+    DECRYPT = "decrypt"
+    SIGN = "sign"
+    VERIFY = "verify"
+    WRAP_KEY = "wrapKey"
+    UNWRAP_KEY = "unwrapKey"
+    IMPORT_ = "import"
 
 
 class JsonWebKeyType(str, Enum):

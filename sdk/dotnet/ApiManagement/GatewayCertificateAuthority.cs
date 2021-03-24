@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ApiManagement
 {
     /// <summary>
     /// Gateway certificate authority details.
-    /// API Version: 2020-06-01-preview.
+    /// API Version: 2021-01-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:GatewayCertificateAuthority")]
     public partial class GatewayCertificateAuthority : Pulumi.CustomResource
@@ -60,8 +60,6 @@ namespace Pulumi.AzureNative.ApiManagement
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement:GatewayCertificateAuthority"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/latest:GatewayCertificateAuthority"},
-                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:GatewayCertificateAuthority"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:GatewayCertificateAuthority"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20200601preview:GatewayCertificateAuthority"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20201201:GatewayCertificateAuthority"},

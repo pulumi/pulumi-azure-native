@@ -97,6 +97,10 @@ namespace Pulumi.AzureNative.DelegatedNetwork.V20200808Preview
                     new Pulumi.Alias { Type = "azure-nextgen:delegatednetwork/v20200808preview:ControllerDetails"},
                     new Pulumi.Alias { Type = "azure-native:delegatednetwork:ControllerDetails"},
                     new Pulumi.Alias { Type = "azure-nextgen:delegatednetwork:ControllerDetails"},
+                    new Pulumi.Alias { Type = "azure-native:delegatednetwork/latest:ControllerDetails"},
+                    new Pulumi.Alias { Type = "azure-nextgen:delegatednetwork/latest:ControllerDetails"},
+                    new Pulumi.Alias { Type = "azure-native:delegatednetwork/v20210315:ControllerDetails"},
+                    new Pulumi.Alias { Type = "azure-nextgen:delegatednetwork/v20210315:ControllerDetails"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

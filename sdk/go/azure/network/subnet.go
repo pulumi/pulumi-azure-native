@@ -71,6 +71,12 @@ func NewSubnet(ctx *pulumi.Context,
 	if args.VirtualNetworkName == nil {
 		return nil, errors.New("invalid value for required argument 'VirtualNetworkName'")
 	}
+	if args.PrivateEndpointNetworkPolicies == nil {
+		args.PrivateEndpointNetworkPolicies = pulumi.StringPtr("Enabled")
+	}
+	if args.PrivateLinkServiceNetworkPolicies == nil {
+		args.PrivateLinkServiceNetworkPolicies = pulumi.StringPtr("Enabled")
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:network:Subnet"),

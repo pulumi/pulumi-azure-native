@@ -154,6 +154,8 @@ __all__ = [
     'VirtualNetworkGatewaySkuTier',
     'VirtualNetworkGatewayType',
     'VirtualNetworkPeeringState',
+    'VirtualNetworkPrivateEndpointNetworkPolicies',
+    'VirtualNetworkPrivateLinkServiceNetworkPolicies',
     'VpnAuthenticationType',
     'VpnClientProtocol',
     'VpnGatewayGeneration',
@@ -1598,6 +1600,22 @@ class VirtualNetworkPeeringState(str, Enum):
     INITIATED = "Initiated"
     CONNECTED = "Connected"
     DISCONNECTED = "Disconnected"
+
+
+class VirtualNetworkPrivateEndpointNetworkPolicies(str, Enum):
+    """
+    Enable or Disable apply network policies on private end point in the subnet.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+
+
+class VirtualNetworkPrivateLinkServiceNetworkPolicies(str, Enum):
+    """
+    Enable or Disable apply network policies on private link service in the subnet.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 class VpnAuthenticationType(str, Enum):

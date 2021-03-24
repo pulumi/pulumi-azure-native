@@ -29,7 +29,6 @@ from .diagnostic_logger import *
 from .email_template import *
 from .gateway import *
 from .gateway_api_entity_tag import *
-from .gateway_certificate_authority import *
 from .gateway_hostname_configuration import *
 from .get_api import *
 from .get_api_diagnostic import *
@@ -37,7 +36,6 @@ from .get_api_issue import *
 from .get_api_issue_attachment import *
 from .get_api_issue_comment import *
 from .get_api_management_service import *
-from .get_api_management_service_domain_ownership_identifier import *
 from .get_api_management_service_sso_token import *
 from .get_api_operation import *
 from .get_api_operation_policy import *
@@ -55,7 +53,6 @@ from .get_content_type import *
 from .get_diagnostic import *
 from .get_email_template import *
 from .get_gateway import *
-from .get_gateway_certificate_authority import *
 from .get_gateway_hostname_configuration import *
 from .get_group import *
 from .get_identity_provider import *
@@ -166,8 +163,6 @@ def _register_module():
                 return Gateway(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:apimanagement/latest:GatewayApiEntityTag":
                 return GatewayApiEntityTag(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "azure-native:apimanagement/latest:GatewayCertificateAuthority":
-                return GatewayCertificateAuthority(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:apimanagement/latest:GatewayHostnameConfiguration":
                 return GatewayHostnameConfiguration(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:apimanagement/latest:Group":

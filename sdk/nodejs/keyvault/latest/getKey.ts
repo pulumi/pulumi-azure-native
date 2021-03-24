@@ -57,11 +57,11 @@ export interface GetKeyResult {
      * Fully qualified identifier of the key vault resource.
      */
     readonly id: string;
-    readonly keyOps: string[];
+    readonly keyOps?: string[];
     /**
      * The key size in bits. For example: 2048, 3072, or 4096 for RSA.
      */
-    readonly keySize: number;
+    readonly keySize?: number;
     /**
      * The URI to retrieve the current version of the key.
      */

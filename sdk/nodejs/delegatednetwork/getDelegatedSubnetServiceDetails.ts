@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents an instance of a orchestrator.
- * API Version: 2020-08-08-preview.
+ * API Version: 2021-03-15.
  */
 export function getDelegatedSubnetServiceDetails(args: GetDelegatedSubnetServiceDetailsArgs, opts?: pulumi.InvokeOptions): Promise<GetDelegatedSubnetServiceDetailsResult> {
     if (!opts) {

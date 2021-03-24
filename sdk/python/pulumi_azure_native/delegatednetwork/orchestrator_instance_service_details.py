@@ -26,6 +26,7 @@ class OrchestratorInstanceServiceDetails(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  orchestrator_app_id: Optional[pulumi.Input[str]] = None,
                  orchestrator_tenant_id: Optional[pulumi.Input[str]] = None,
+                 private_link_resource_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -34,11 +35,11 @@ class OrchestratorInstanceServiceDetails(pulumi.CustomResource):
                  __opts__=None):
         """
         Represents an instance of a orchestrator.
-        API Version: 2020-08-08-preview.
+        API Version: 2021-03-15.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] api_server_endpoint: K8s APIServer url
+        :param pulumi.Input[str] api_server_endpoint: K8s APIServer url. Either one of apiServerEndpoint or privateLinkResourceId can be specified
         :param pulumi.Input[str] cluster_root_ca: RootCA certificate of kubernetes cluster base64 encoded
         :param pulumi.Input[pulumi.InputType['ControllerDetailsArgs']] controller_details: Properties of the controller.
         :param pulumi.Input[pulumi.InputType['OrchestratorIdentityArgs']] identity: The identity of the orchestrator
@@ -46,6 +47,7 @@ class OrchestratorInstanceServiceDetails(pulumi.CustomResource):
         :param pulumi.Input[str] location: Location of the resource.
         :param pulumi.Input[str] orchestrator_app_id: AAD ID used with apiserver
         :param pulumi.Input[str] orchestrator_tenant_id: TenantID of server App ID
+        :param pulumi.Input[str] private_link_resource_id: private link arm resource id. Either one of apiServerEndpoint or privateLinkResourceId can be specified
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] resource_name_: The name of the resource. It must be a minimum of 3 characters, and a maximum of 63.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
@@ -79,6 +81,7 @@ class OrchestratorInstanceServiceDetails(pulumi.CustomResource):
             __props__['location'] = location
             __props__['orchestrator_app_id'] = orchestrator_app_id
             __props__['orchestrator_tenant_id'] = orchestrator_tenant_id
+            __props__['private_link_resource_id'] = private_link_resource_id
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -88,7 +91,7 @@ class OrchestratorInstanceServiceDetails(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['resource_guid'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:delegatednetwork:OrchestratorInstanceServiceDetails"), pulumi.Alias(type_="azure-native:delegatednetwork/v20200808preview:OrchestratorInstanceServiceDetails"), pulumi.Alias(type_="azure-nextgen:delegatednetwork/v20200808preview:OrchestratorInstanceServiceDetails")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:delegatednetwork:OrchestratorInstanceServiceDetails"), pulumi.Alias(type_="azure-native:delegatednetwork/latest:OrchestratorInstanceServiceDetails"), pulumi.Alias(type_="azure-nextgen:delegatednetwork/latest:OrchestratorInstanceServiceDetails"), pulumi.Alias(type_="azure-native:delegatednetwork/v20200808preview:OrchestratorInstanceServiceDetails"), pulumi.Alias(type_="azure-nextgen:delegatednetwork/v20200808preview:OrchestratorInstanceServiceDetails"), pulumi.Alias(type_="azure-native:delegatednetwork/v20210315:OrchestratorInstanceServiceDetails"), pulumi.Alias(type_="azure-nextgen:delegatednetwork/v20210315:OrchestratorInstanceServiceDetails")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(OrchestratorInstanceServiceDetails, __self__).__init__(
             'azure-native:delegatednetwork:OrchestratorInstanceServiceDetails',
@@ -121,6 +124,7 @@ class OrchestratorInstanceServiceDetails(pulumi.CustomResource):
         __props__["name"] = None
         __props__["orchestrator_app_id"] = None
         __props__["orchestrator_tenant_id"] = None
+        __props__["private_link_resource_id"] = None
         __props__["provisioning_state"] = None
         __props__["resource_guid"] = None
         __props__["tags"] = None
@@ -131,7 +135,7 @@ class OrchestratorInstanceServiceDetails(pulumi.CustomResource):
     @pulumi.getter(name="apiServerEndpoint")
     def api_server_endpoint(self) -> pulumi.Output[Optional[str]]:
         """
-        K8s APIServer url
+        K8s APIServer url. Either one of apiServerEndpoint or privateLinkResourceId can be specified
         """
         return pulumi.get(self, "api_server_endpoint")
 
@@ -198,6 +202,14 @@ class OrchestratorInstanceServiceDetails(pulumi.CustomResource):
         TenantID of server App ID
         """
         return pulumi.get(self, "orchestrator_tenant_id")
+
+    @property
+    @pulumi.getter(name="privateLinkResourceId")
+    def private_link_resource_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        private link arm resource id. Either one of apiServerEndpoint or privateLinkResourceId can be specified
+        """
+        return pulumi.get(self, "private_link_resource_id")
 
     @property
     @pulumi.getter(name="provisioningState")

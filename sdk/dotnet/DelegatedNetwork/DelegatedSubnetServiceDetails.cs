@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DelegatedNetwork
 {
     /// <summary>
     /// Represents an instance of a orchestrator.
-    /// API Version: 2020-08-08-preview.
+    /// API Version: 2021-03-15.
     /// </summary>
     [AzureNativeResourceType("azure-native:delegatednetwork:DelegatedSubnetServiceDetails")]
     public partial class DelegatedSubnetServiceDetails : Pulumi.CustomResource
@@ -90,8 +90,12 @@ namespace Pulumi.AzureNative.DelegatedNetwork
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:delegatednetwork:DelegatedSubnetServiceDetails"},
+                    new Pulumi.Alias { Type = "azure-native:delegatednetwork/latest:DelegatedSubnetServiceDetails"},
+                    new Pulumi.Alias { Type = "azure-nextgen:delegatednetwork/latest:DelegatedSubnetServiceDetails"},
                     new Pulumi.Alias { Type = "azure-native:delegatednetwork/v20200808preview:DelegatedSubnetServiceDetails"},
                     new Pulumi.Alias { Type = "azure-nextgen:delegatednetwork/v20200808preview:DelegatedSubnetServiceDetails"},
+                    new Pulumi.Alias { Type = "azure-native:delegatednetwork/v20210315:DelegatedSubnetServiceDetails"},
+                    new Pulumi.Alias { Type = "azure-nextgen:delegatednetwork/v20210315:DelegatedSubnetServiceDetails"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

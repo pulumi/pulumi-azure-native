@@ -11,13 +11,13 @@ namespace Pulumi.AzureNative.DelegatedNetwork
 {
     /// <summary>
     /// Represents an instance of a orchestrator.
-    /// API Version: 2020-08-08-preview.
+    /// API Version: 2021-03-15.
     /// </summary>
     [AzureNativeResourceType("azure-native:delegatednetwork:OrchestratorInstanceServiceDetails")]
     public partial class OrchestratorInstanceServiceDetails : Pulumi.CustomResource
     {
         /// <summary>
-        /// K8s APIServer url
+        /// K8s APIServer url. Either one of apiServerEndpoint or privateLinkResourceId can be specified
         /// </summary>
         [Output("apiServerEndpoint")]
         public Output<string?> ApiServerEndpoint { get; private set; } = null!;
@@ -71,6 +71,12 @@ namespace Pulumi.AzureNative.DelegatedNetwork
         public Output<string?> OrchestratorTenantId { get; private set; } = null!;
 
         /// <summary>
+        /// private link arm resource id. Either one of apiServerEndpoint or privateLinkResourceId can be specified
+        /// </summary>
+        [Output("privateLinkResourceId")]
+        public Output<string?> PrivateLinkResourceId { get; private set; } = null!;
+
+        /// <summary>
         /// The current state of orchestratorInstance resource.
         /// </summary>
         [Output("provisioningState")]
@@ -120,8 +126,12 @@ namespace Pulumi.AzureNative.DelegatedNetwork
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:delegatednetwork:OrchestratorInstanceServiceDetails"},
+                    new Pulumi.Alias { Type = "azure-native:delegatednetwork/latest:OrchestratorInstanceServiceDetails"},
+                    new Pulumi.Alias { Type = "azure-nextgen:delegatednetwork/latest:OrchestratorInstanceServiceDetails"},
                     new Pulumi.Alias { Type = "azure-native:delegatednetwork/v20200808preview:OrchestratorInstanceServiceDetails"},
                     new Pulumi.Alias { Type = "azure-nextgen:delegatednetwork/v20200808preview:OrchestratorInstanceServiceDetails"},
+                    new Pulumi.Alias { Type = "azure-native:delegatednetwork/v20210315:OrchestratorInstanceServiceDetails"},
+                    new Pulumi.Alias { Type = "azure-nextgen:delegatednetwork/v20210315:OrchestratorInstanceServiceDetails"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -146,7 +156,7 @@ namespace Pulumi.AzureNative.DelegatedNetwork
     public sealed class OrchestratorInstanceServiceDetailsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// K8s APIServer url
+        /// K8s APIServer url. Either one of apiServerEndpoint or privateLinkResourceId can be specified
         /// </summary>
         [Input("apiServerEndpoint")]
         public Input<string>? ApiServerEndpoint { get; set; }
@@ -192,6 +202,12 @@ namespace Pulumi.AzureNative.DelegatedNetwork
         /// </summary>
         [Input("orchestratorTenantId")]
         public Input<string>? OrchestratorTenantId { get; set; }
+
+        /// <summary>
+        /// private link arm resource id. Either one of apiServerEndpoint or privateLinkResourceId can be specified
+        /// </summary>
+        [Input("privateLinkResourceId")]
+        public Input<string>? PrivateLinkResourceId { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

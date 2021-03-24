@@ -151,12 +151,6 @@ func NewDatabaseAccountGremlinGraph(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20210301preview:DatabaseAccountGremlinGraph"),
 		},
-		{
-			Type: pulumi.String("azure-native:documentdb/v20210401preview:DatabaseAccountGremlinGraph"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20210401preview:DatabaseAccountGremlinGraph"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource DatabaseAccountGremlinGraph

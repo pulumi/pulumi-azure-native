@@ -142,8 +142,8 @@ export class Subnet extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["natGateway"] = args ? args.natGateway : undefined;
             inputs["networkSecurityGroup"] = args ? args.networkSecurityGroup : undefined;
-            inputs["privateEndpointNetworkPolicies"] = args ? args.privateEndpointNetworkPolicies : undefined;
-            inputs["privateLinkServiceNetworkPolicies"] = args ? args.privateLinkServiceNetworkPolicies : undefined;
+            inputs["privateEndpointNetworkPolicies"] = (args ? args.privateEndpointNetworkPolicies : undefined) || "Enabled";
+            inputs["privateLinkServiceNetworkPolicies"] = (args ? args.privateLinkServiceNetworkPolicies : undefined) || "Enabled";
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["routeTable"] = args ? args.routeTable : undefined;
             inputs["serviceEndpointPolicies"] = args ? args.serviceEndpointPolicies : undefined;
@@ -228,11 +228,11 @@ export interface SubnetArgs {
     /**
      * Enable or Disable apply network policies on private end point in the subnet.
      */
-    readonly privateEndpointNetworkPolicies?: pulumi.Input<string>;
+    readonly privateEndpointNetworkPolicies?: pulumi.Input<string | enums.network.VirtualNetworkPrivateEndpointNetworkPolicies>;
     /**
      * Enable or Disable apply network policies on private link service in the subnet.
      */
-    readonly privateLinkServiceNetworkPolicies?: pulumi.Input<string>;
+    readonly privateLinkServiceNetworkPolicies?: pulumi.Input<string | enums.network.VirtualNetworkPrivateLinkServiceNetworkPolicies>;
     /**
      * The name of the resource group.
      */

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DelegatedNetwork
 {
     /// <summary>
     /// Represents an instance of a DNC controller.
-    /// API Version: 2020-08-08-preview.
+    /// API Version: 2021-03-15.
     /// </summary>
     [AzureNativeResourceType("azure-native:delegatednetwork:ControllerDetails")]
     public partial class ControllerDetails : Pulumi.CustomResource
@@ -96,8 +96,12 @@ namespace Pulumi.AzureNative.DelegatedNetwork
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:delegatednetwork:ControllerDetails"},
+                    new Pulumi.Alias { Type = "azure-native:delegatednetwork/latest:ControllerDetails"},
+                    new Pulumi.Alias { Type = "azure-nextgen:delegatednetwork/latest:ControllerDetails"},
                     new Pulumi.Alias { Type = "azure-native:delegatednetwork/v20200808preview:ControllerDetails"},
                     new Pulumi.Alias { Type = "azure-nextgen:delegatednetwork/v20200808preview:ControllerDetails"},
+                    new Pulumi.Alias { Type = "azure-native:delegatednetwork/v20210315:ControllerDetails"},
+                    new Pulumi.Alias { Type = "azure-nextgen:delegatednetwork/v20210315:ControllerDetails"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

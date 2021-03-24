@@ -17541,8 +17541,8 @@ class SubnetArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  nat_gateway: Optional[pulumi.Input['SubResourceArgs']] = None,
                  network_security_group: Optional[pulumi.Input['NetworkSecurityGroupArgs']] = None,
-                 private_endpoint_network_policies: Optional[pulumi.Input[str]] = None,
-                 private_link_service_network_policies: Optional[pulumi.Input[str]] = None,
+                 private_endpoint_network_policies: Optional[pulumi.Input[Union[str, 'VirtualNetworkPrivateEndpointNetworkPolicies']]] = None,
+                 private_link_service_network_policies: Optional[pulumi.Input[Union[str, 'VirtualNetworkPrivateLinkServiceNetworkPolicies']]] = None,
                  route_table: Optional[pulumi.Input['RouteTableArgs']] = None,
                  service_endpoint_policies: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEndpointPolicyArgs']]]] = None,
                  service_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEndpointPropertiesFormatArgs']]]] = None):
@@ -17556,8 +17556,8 @@ class SubnetArgs:
         :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param pulumi.Input['SubResourceArgs'] nat_gateway: Nat gateway associated with this subnet.
         :param pulumi.Input['NetworkSecurityGroupArgs'] network_security_group: The reference to the NetworkSecurityGroup resource.
-        :param pulumi.Input[str] private_endpoint_network_policies: Enable or Disable apply network policies on private end point in the subnet.
-        :param pulumi.Input[str] private_link_service_network_policies: Enable or Disable apply network policies on private link service in the subnet.
+        :param pulumi.Input[Union[str, 'VirtualNetworkPrivateEndpointNetworkPolicies']] private_endpoint_network_policies: Enable or Disable apply network policies on private end point in the subnet.
+        :param pulumi.Input[Union[str, 'VirtualNetworkPrivateLinkServiceNetworkPolicies']] private_link_service_network_policies: Enable or Disable apply network policies on private link service in the subnet.
         :param pulumi.Input['RouteTableArgs'] route_table: The reference to the RouteTable resource.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceEndpointPolicyArgs']]] service_endpoint_policies: An array of service endpoint policies.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceEndpointPropertiesFormatArgs']]] service_endpoints: An array of service endpoints.
@@ -17578,8 +17578,12 @@ class SubnetArgs:
             pulumi.set(__self__, "nat_gateway", nat_gateway)
         if network_security_group is not None:
             pulumi.set(__self__, "network_security_group", network_security_group)
+        if private_endpoint_network_policies is None:
+            private_endpoint_network_policies = 'Enabled'
         if private_endpoint_network_policies is not None:
             pulumi.set(__self__, "private_endpoint_network_policies", private_endpoint_network_policies)
+        if private_link_service_network_policies is None:
+            private_link_service_network_policies = 'Enabled'
         if private_link_service_network_policies is not None:
             pulumi.set(__self__, "private_link_service_network_policies", private_link_service_network_policies)
         if route_table is not None:
@@ -17687,26 +17691,26 @@ class SubnetArgs:
 
     @property
     @pulumi.getter(name="privateEndpointNetworkPolicies")
-    def private_endpoint_network_policies(self) -> Optional[pulumi.Input[str]]:
+    def private_endpoint_network_policies(self) -> Optional[pulumi.Input[Union[str, 'VirtualNetworkPrivateEndpointNetworkPolicies']]]:
         """
         Enable or Disable apply network policies on private end point in the subnet.
         """
         return pulumi.get(self, "private_endpoint_network_policies")
 
     @private_endpoint_network_policies.setter
-    def private_endpoint_network_policies(self, value: Optional[pulumi.Input[str]]):
+    def private_endpoint_network_policies(self, value: Optional[pulumi.Input[Union[str, 'VirtualNetworkPrivateEndpointNetworkPolicies']]]):
         pulumi.set(self, "private_endpoint_network_policies", value)
 
     @property
     @pulumi.getter(name="privateLinkServiceNetworkPolicies")
-    def private_link_service_network_policies(self) -> Optional[pulumi.Input[str]]:
+    def private_link_service_network_policies(self) -> Optional[pulumi.Input[Union[str, 'VirtualNetworkPrivateLinkServiceNetworkPolicies']]]:
         """
         Enable or Disable apply network policies on private link service in the subnet.
         """
         return pulumi.get(self, "private_link_service_network_policies")
 
     @private_link_service_network_policies.setter
-    def private_link_service_network_policies(self, value: Optional[pulumi.Input[str]]):
+    def private_link_service_network_policies(self, value: Optional[pulumi.Input[Union[str, 'VirtualNetworkPrivateLinkServiceNetworkPolicies']]]):
         pulumi.set(self, "private_link_service_network_policies", value)
 
     @property

@@ -43,11 +43,11 @@ export class Key extends pulumi.CustomResource {
      * The elliptic curve name. For valid values, see JsonWebKeyCurveName.
      */
     public /*out*/ readonly curveName!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly keyOps!: pulumi.Output<string[]>;
+    public /*out*/ readonly keyOps!: pulumi.Output<string[] | undefined>;
     /**
      * The key size in bits. For example: 2048, 3072, or 4096 for RSA.
      */
-    public /*out*/ readonly keySize!: pulumi.Output<number>;
+    public /*out*/ readonly keySize!: pulumi.Output<number | undefined>;
     /**
      * The URI to retrieve the current version of the key.
      */
