@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Storage
     {
         /// <summary>
         /// Properties of the blob container, including Id, resource name, resource type, Etag.
-        /// API Version: 2021-01-01.
+        /// API Version: 2021-02-01.
         /// </summary>
         public static Task<GetBlobContainerResult> InvokeAsync(GetBlobContainerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBlobContainerResult>("azure-native:storage:getBlobContainer", args ?? new GetBlobContainerArgs(), options.WithVersion());

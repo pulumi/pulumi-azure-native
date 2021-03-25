@@ -83,7 +83,7 @@ def list_database_account_keys(account_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListDatabaseAccountKeysResult:
     """
     The access keys for the given database account.
-    API Version: 2021-01-15.
+    API Version: 2021-03-15.
 
 
     :param str account_name: Cosmos DB database account name.

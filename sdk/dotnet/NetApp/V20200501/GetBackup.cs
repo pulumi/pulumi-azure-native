@@ -61,7 +61,7 @@ namespace Pulumi.AzureNative.NetApp.V20200501
     public sealed class GetBackupResult
     {
         /// <summary>
-        /// Type of backup adhoc or scheduled
+        /// Type of backup Manual or Scheduled
         /// </summary>
         public readonly string BackupType;
         /// <summary>

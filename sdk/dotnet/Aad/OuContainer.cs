@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Aad
 {
     /// <summary>
     /// Resource for OuContainer.
-    /// API Version: 2020-01-01.
+    /// API Version: 2021-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:aad:OuContainer")]
     public partial class OuContainer : Pulumi.CustomResource
@@ -75,6 +75,12 @@ namespace Pulumi.AzureNative.Aad
         /// </summary>
         [Output("serviceStatus")]
         public Output<string> ServiceStatus { get; private set; } = null!;
+
+        /// <summary>
+        /// The system meta data relating to this resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

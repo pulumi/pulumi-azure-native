@@ -6,7 +6,7 @@ import * as utilities from "../../utilities";
 
 /**
  * A notebook workspace resource
- * Latest API Version: 2021-01-15.
+ * Latest API Version: 2021-03-15.
  *
  * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:documentdb:NotebookWorkspace'.
  */
@@ -90,7 +90,7 @@ export class NotebookWorkspace extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb/latest:NotebookWorkspace" }, { type: "azure-native:documentdb:NotebookWorkspace" }, { type: "azure-nextgen:documentdb:NotebookWorkspace" }, { type: "azure-native:documentdb/v20190801:NotebookWorkspace" }, { type: "azure-nextgen:documentdb/v20190801:NotebookWorkspace" }, { type: "azure-native:documentdb/v20191212:NotebookWorkspace" }, { type: "azure-nextgen:documentdb/v20191212:NotebookWorkspace" }, { type: "azure-native:documentdb/v20200301:NotebookWorkspace" }, { type: "azure-nextgen:documentdb/v20200301:NotebookWorkspace" }, { type: "azure-native:documentdb/v20200401:NotebookWorkspace" }, { type: "azure-nextgen:documentdb/v20200401:NotebookWorkspace" }, { type: "azure-native:documentdb/v20200601preview:NotebookWorkspace" }, { type: "azure-nextgen:documentdb/v20200601preview:NotebookWorkspace" }, { type: "azure-native:documentdb/v20200901:NotebookWorkspace" }, { type: "azure-nextgen:documentdb/v20200901:NotebookWorkspace" }, { type: "azure-native:documentdb/v20210115:NotebookWorkspace" }, { type: "azure-nextgen:documentdb/v20210115:NotebookWorkspace" }, { type: "azure-native:documentdb/v20210301preview:NotebookWorkspace" }, { type: "azure-nextgen:documentdb/v20210301preview:NotebookWorkspace" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb/latest:NotebookWorkspace" }, { type: "azure-native:documentdb:NotebookWorkspace" }, { type: "azure-nextgen:documentdb:NotebookWorkspace" }, { type: "azure-native:documentdb/v20190801:NotebookWorkspace" }, { type: "azure-nextgen:documentdb/v20190801:NotebookWorkspace" }, { type: "azure-native:documentdb/v20191212:NotebookWorkspace" }, { type: "azure-nextgen:documentdb/v20191212:NotebookWorkspace" }, { type: "azure-native:documentdb/v20200301:NotebookWorkspace" }, { type: "azure-nextgen:documentdb/v20200301:NotebookWorkspace" }, { type: "azure-native:documentdb/v20200401:NotebookWorkspace" }, { type: "azure-nextgen:documentdb/v20200401:NotebookWorkspace" }, { type: "azure-native:documentdb/v20200601preview:NotebookWorkspace" }, { type: "azure-nextgen:documentdb/v20200601preview:NotebookWorkspace" }, { type: "azure-native:documentdb/v20200901:NotebookWorkspace" }, { type: "azure-nextgen:documentdb/v20200901:NotebookWorkspace" }, { type: "azure-native:documentdb/v20210115:NotebookWorkspace" }, { type: "azure-nextgen:documentdb/v20210115:NotebookWorkspace" }, { type: "azure-native:documentdb/v20210301preview:NotebookWorkspace" }, { type: "azure-nextgen:documentdb/v20210301preview:NotebookWorkspace" }, { type: "azure-native:documentdb/v20210315:NotebookWorkspace" }, { type: "azure-nextgen:documentdb/v20210315:NotebookWorkspace" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NotebookWorkspace.__pulumiType, name, inputs, opts);
     }

@@ -12,7 +12,7 @@ import (
 )
 
 // An Azure Cosmos DB userDefinedFunction.
-// API Version: 2021-01-15.
+// API Version: 2021-03-15.
 type SqlResourceSqlUserDefinedFunction struct {
 	pulumi.CustomResourceState
 
@@ -106,6 +106,12 @@ func NewSqlResourceSqlUserDefinedFunction(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20210301preview:SqlResourceSqlUserDefinedFunction"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20210315:SqlResourceSqlUserDefinedFunction"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:documentdb/v20210315:SqlResourceSqlUserDefinedFunction"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -12,7 +12,7 @@ import (
 )
 
 // An Azure Cosmos DB trigger.
-// Latest API Version: 2021-01-15.
+// Latest API Version: 2021-03-15.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:documentdb:SqlResourceSqlTrigger'.
 type SqlResourceSqlTrigger struct {
@@ -108,6 +108,12 @@ func NewSqlResourceSqlTrigger(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20210301preview:SqlResourceSqlTrigger"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20210315:SqlResourceSqlTrigger"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:documentdb/v20210315:SqlResourceSqlTrigger"),
 		},
 	})
 	opts = append(opts, aliases)

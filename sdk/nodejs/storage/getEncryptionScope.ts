@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The Encryption Scope resource.
- * API Version: 2021-01-01.
+ * API Version: 2021-02-01.
  */
 export function getEncryptionScope(args: GetEncryptionScopeArgs, opts?: pulumi.InvokeOptions): Promise<GetEncryptionScopeResult> {
     if (!opts) {

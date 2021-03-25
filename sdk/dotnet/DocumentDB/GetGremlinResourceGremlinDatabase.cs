@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DocumentDB
     {
         /// <summary>
         /// An Azure Cosmos DB Gremlin database.
-        /// API Version: 2021-01-15.
+        /// API Version: 2021-03-15.
         /// </summary>
         public static Task<GetGremlinResourceGremlinDatabaseResult> InvokeAsync(GetGremlinResourceGremlinDatabaseArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGremlinResourceGremlinDatabaseResult>("azure-native:documentdb:getGremlinResourceGremlinDatabase", args ?? new GetGremlinResourceGremlinDatabaseArgs(), options.WithVersion());

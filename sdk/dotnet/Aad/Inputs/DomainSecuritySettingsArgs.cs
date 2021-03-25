@@ -16,6 +16,18 @@ namespace Pulumi.AzureNative.Aad.Inputs
     public sealed class DomainSecuritySettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// A flag to determine whether or not KerberosArmoring is enabled or disabled.
+        /// </summary>
+        [Input("kerberosArmoring")]
+        public InputUnion<string, Pulumi.AzureNative.Aad.KerberosArmoring>? KerberosArmoring { get; set; }
+
+        /// <summary>
+        /// A flag to determine whether or not KerberosRc4Encryption is enabled or disabled.
+        /// </summary>
+        [Input("kerberosRc4Encryption")]
+        public InputUnion<string, Pulumi.AzureNative.Aad.KerberosRc4Encryption>? KerberosRc4Encryption { get; set; }
+
+        /// <summary>
         /// A flag to determine whether or not NtlmV1 is enabled or disabled.
         /// </summary>
         [Input("ntlmV1")]
@@ -47,6 +59,8 @@ namespace Pulumi.AzureNative.Aad.Inputs
 
         public DomainSecuritySettingsArgs()
         {
+            KerberosArmoring = "Disabled";
+            KerberosRc4Encryption = "Enabled";
             NtlmV1 = "Enabled";
             SyncKerberosPasswords = "Enabled";
             SyncNtlmPasswords = "Enabled";

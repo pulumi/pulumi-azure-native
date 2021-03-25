@@ -8,7 +8,7 @@ import (
 )
 
 // Properties of the table, including Id, resource name, resource type.
-// Latest API Version: 2021-01-01.
+// Latest API Version: 2021-02-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storage:getTable'.
 func LookupTable(ctx *pulumi.Context, args *LookupTableArgs, opts ...pulumi.InvokeOption) (*LookupTableResult, error) {

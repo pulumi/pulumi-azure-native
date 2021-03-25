@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Storage.Latest
     {
         /// <summary>
         /// The storage account blob inventory policy.
-        /// Latest API Version: 2021-01-01.
+        /// Latest API Version: 2021-02-01.
         /// </summary>
         public static Task<GetBlobInventoryPolicyResult> InvokeAsync(GetBlobInventoryPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBlobInventoryPolicyResult>("azure-native:storage/latest:getBlobInventoryPolicy", args ?? new GetBlobInventoryPolicyArgs(), options.WithVersion());

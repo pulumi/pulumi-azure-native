@@ -22,6 +22,7 @@ __all__ = [
     'NotificationSettingsResponse',
     'ReplicaSetResponse',
     'ResourceForestSettingsResponse',
+    'SystemDataResponse',
 ]
 
 @pulumi.output_type
@@ -80,6 +81,8 @@ class DomainSecuritySettingsResponse(dict):
     Domain Security Settings
     """
     def __init__(__self__, *,
+                 kerberos_armoring: Optional[str] = None,
+                 kerberos_rc4_encryption: Optional[str] = None,
                  ntlm_v1: Optional[str] = None,
                  sync_kerberos_passwords: Optional[str] = None,
                  sync_ntlm_passwords: Optional[str] = None,
@@ -87,12 +90,22 @@ class DomainSecuritySettingsResponse(dict):
                  tls_v1: Optional[str] = None):
         """
         Domain Security Settings
+        :param str kerberos_armoring: A flag to determine whether or not KerberosArmoring is enabled or disabled.
+        :param str kerberos_rc4_encryption: A flag to determine whether or not KerberosRc4Encryption is enabled or disabled.
         :param str ntlm_v1: A flag to determine whether or not NtlmV1 is enabled or disabled.
         :param str sync_kerberos_passwords: A flag to determine whether or not SyncKerberosPasswords is enabled or disabled.
         :param str sync_ntlm_passwords: A flag to determine whether or not SyncNtlmPasswords is enabled or disabled.
         :param str sync_on_prem_passwords: A flag to determine whether or not SyncOnPremPasswords is enabled or disabled.
         :param str tls_v1: A flag to determine whether or not TlsV1 is enabled or disabled.
         """
+        if kerberos_armoring is None:
+            kerberos_armoring = 'Disabled'
+        if kerberos_armoring is not None:
+            pulumi.set(__self__, "kerberos_armoring", kerberos_armoring)
+        if kerberos_rc4_encryption is None:
+            kerberos_rc4_encryption = 'Enabled'
+        if kerberos_rc4_encryption is not None:
+            pulumi.set(__self__, "kerberos_rc4_encryption", kerberos_rc4_encryption)
         if ntlm_v1 is None:
             ntlm_v1 = 'Enabled'
         if ntlm_v1 is not None:
@@ -113,6 +126,22 @@ class DomainSecuritySettingsResponse(dict):
             tls_v1 = 'Enabled'
         if tls_v1 is not None:
             pulumi.set(__self__, "tls_v1", tls_v1)
+
+    @property
+    @pulumi.getter(name="kerberosArmoring")
+    def kerberos_armoring(self) -> Optional[str]:
+        """
+        A flag to determine whether or not KerberosArmoring is enabled or disabled.
+        """
+        return pulumi.get(self, "kerberos_armoring")
+
+    @property
+    @pulumi.getter(name="kerberosRc4Encryption")
+    def kerberos_rc4_encryption(self) -> Optional[str]:
+        """
+        A flag to determine whether or not KerberosRc4Encryption is enabled or disabled.
+        """
+        return pulumi.get(self, "kerberos_rc4_encryption")
 
     @property
     @pulumi.getter(name="ntlmV1")
@@ -763,6 +792,92 @@ class ResourceForestSettingsResponse(dict):
         List of settings for Resource Forest
         """
         return pulumi.get(self, "settings")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SystemDataResponse(dict):
+    """
+    Metadata pertaining to creation and last modification of the resource.
+    """
+    def __init__(__self__, *,
+                 created_at: Optional[str] = None,
+                 created_by: Optional[str] = None,
+                 created_by_type: Optional[str] = None,
+                 last_modified_at: Optional[str] = None,
+                 last_modified_by: Optional[str] = None,
+                 last_modified_by_type: Optional[str] = None):
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        :param str created_at: The timestamp of resource creation (UTC).
+        :param str created_by: The identity that created the resource.
+        :param str created_by_type: The type of identity that created the resource.
+        :param str last_modified_at: The timestamp of resource last modification (UTC)
+        :param str last_modified_by: The identity that last modified the resource.
+        :param str last_modified_by_type: The type of identity that last modified the resource.
+        """
+        if created_at is not None:
+            pulumi.set(__self__, "created_at", created_at)
+        if created_by is not None:
+            pulumi.set(__self__, "created_by", created_by)
+        if created_by_type is not None:
+            pulumi.set(__self__, "created_by_type", created_by_type)
+        if last_modified_at is not None:
+            pulumi.set(__self__, "last_modified_at", last_modified_at)
+        if last_modified_by is not None:
+            pulumi.set(__self__, "last_modified_by", last_modified_by)
+        if last_modified_by_type is not None:
+            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[str]:
+        """
+        The timestamp of resource creation (UTC).
+        """
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> Optional[str]:
+        """
+        The identity that created the resource.
+        """
+        return pulumi.get(self, "created_by")
+
+    @property
+    @pulumi.getter(name="createdByType")
+    def created_by_type(self) -> Optional[str]:
+        """
+        The type of identity that created the resource.
+        """
+        return pulumi.get(self, "created_by_type")
+
+    @property
+    @pulumi.getter(name="lastModifiedAt")
+    def last_modified_at(self) -> Optional[str]:
+        """
+        The timestamp of resource last modification (UTC)
+        """
+        return pulumi.get(self, "last_modified_at")
+
+    @property
+    @pulumi.getter(name="lastModifiedBy")
+    def last_modified_by(self) -> Optional[str]:
+        """
+        The identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by")
+
+    @property
+    @pulumi.getter(name="lastModifiedByType")
+    def last_modified_by_type(self) -> Optional[str]:
+        """
+        The type of identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by_type")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

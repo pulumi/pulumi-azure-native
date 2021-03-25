@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * API Version: 2021-01-01.
+ * API Version: 2021-02-01.
  */
 export class Queue extends pulumi.CustomResource {
     /**
@@ -84,7 +84,7 @@ export class Queue extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:storage:Queue" }, { type: "azure-native:storage/latest:Queue" }, { type: "azure-nextgen:storage/latest:Queue" }, { type: "azure-native:storage/v20190601:Queue" }, { type: "azure-nextgen:storage/v20190601:Queue" }, { type: "azure-native:storage/v20200801preview:Queue" }, { type: "azure-nextgen:storage/v20200801preview:Queue" }, { type: "azure-native:storage/v20210101:Queue" }, { type: "azure-nextgen:storage/v20210101:Queue" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:storage:Queue" }, { type: "azure-native:storage/latest:Queue" }, { type: "azure-nextgen:storage/latest:Queue" }, { type: "azure-native:storage/v20190601:Queue" }, { type: "azure-nextgen:storage/v20190601:Queue" }, { type: "azure-native:storage/v20200801preview:Queue" }, { type: "azure-nextgen:storage/v20200801preview:Queue" }, { type: "azure-native:storage/v20210101:Queue" }, { type: "azure-nextgen:storage/v20210101:Queue" }, { type: "azure-native:storage/v20210201:Queue" }, { type: "azure-nextgen:storage/v20210201:Queue" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Queue.__pulumiType, name, inputs, opts);
     }

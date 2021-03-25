@@ -118,7 +118,7 @@ def get_gremlin_resource_gremlin_graph(account_name: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGremlinResourceGremlinGraphResult:
     """
     An Azure Cosmos DB Gremlin graph.
-    Latest API Version: 2021-01-15.
+    Latest API Version: 2021-03-15.
 
 
     :param str account_name: Cosmos DB database account name.

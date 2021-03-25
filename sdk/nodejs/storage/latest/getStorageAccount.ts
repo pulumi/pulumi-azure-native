@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * The storage account.
- * Latest API Version: 2021-01-01.
+ * Latest API Version: 2021-02-01.
  */
 /** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storage:getStorageAccount'. */
 export function getStorageAccount(args: GetStorageAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageAccountResult> {
@@ -110,6 +110,14 @@ export interface GetStorageAccountResult {
      */
     readonly isHnsEnabled?: boolean;
     /**
+     * Gets the list of storage account keys creation time.
+     */
+    readonly keyCreationTime: {[key: string]: string};
+    /**
+     * KeyPolicy assigned to the storage account.
+     */
+    readonly keyPolicy: outputs.storage.latest.KeyPolicyResponse;
+    /**
      * Gets the Kind.
      */
     readonly kind: string;
@@ -157,6 +165,10 @@ export interface GetStorageAccountResult {
      * Maintains information about the network routing choice opted by the user for data transfer
      */
     readonly routingPreference?: outputs.storage.latest.RoutingPreferenceResponse;
+    /**
+     * SasPolicy assigned to the storage account.
+     */
+    readonly sasPolicy: outputs.storage.latest.SasPolicyResponse;
     /**
      * Gets the URLs that are used to perform a retrieval of a public blob, queue, or table object from the secondary location of the storage account. Only available if the SKU name is Standard_RAGRS.
      */

@@ -12,7 +12,7 @@ import (
 )
 
 // The storage account blob inventory policy.
-// API Version: 2021-01-01.
+// API Version: 2021-02-01.
 type BlobInventoryPolicy struct {
 	pulumi.CustomResourceState
 
@@ -71,6 +71,12 @@ func NewBlobInventoryPolicy(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storage/v20210101:BlobInventoryPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:storage/v20210201:BlobInventoryPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:storage/v20210201:BlobInventoryPolicy"),
 		},
 	})
 	opts = append(opts, aliases)

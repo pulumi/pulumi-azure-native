@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * An Azure Cosmos DB database account.
- * Latest API Version: 2021-01-15.
+ * Latest API Version: 2021-03-15.
  */
 /** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:documentdb:getDatabaseAccount'. */
 export function getDatabaseAccount(args: GetDatabaseAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseAccountResult> {
@@ -68,6 +68,10 @@ export interface GetDatabaseAccountResult {
      * The offer type for the Cosmos DB database account. Default value: Standard.
      */
     readonly databaseAccountOfferType: string;
+    /**
+     * The default identity for accessing key vault used in features like customer managed keys. The default identity needs to be explicitly set by the users. It can be "FirstPartyIdentity", "SystemAssignedIdentity" and more.
+     */
+    readonly defaultIdentity?: string;
     /**
      * Disable write operations on metadata resources (databases, containers, throughput) via account keys
      */

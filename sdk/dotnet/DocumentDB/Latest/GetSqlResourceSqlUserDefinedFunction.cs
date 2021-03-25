@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DocumentDB.Latest
     {
         /// <summary>
         /// An Azure Cosmos DB userDefinedFunction.
-        /// Latest API Version: 2021-01-15.
+        /// Latest API Version: 2021-03-15.
         /// </summary>
         public static Task<GetSqlResourceSqlUserDefinedFunctionResult> InvokeAsync(GetSqlResourceSqlUserDefinedFunctionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSqlResourceSqlUserDefinedFunctionResult>("azure-native:documentdb/latest:getSqlResourceSqlUserDefinedFunction", args ?? new GetSqlResourceSqlUserDefinedFunctionArgs(), options.WithVersion());

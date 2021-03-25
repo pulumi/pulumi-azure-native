@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DocumentDB
 {
     /// <summary>
     /// A notebook workspace resource
-    /// API Version: 2021-01-15.
+    /// API Version: 2021-03-15.
     /// </summary>
     [AzureNativeResourceType("azure-native:documentdb:NotebookWorkspace")]
     public partial class NotebookWorkspace : Pulumi.CustomResource
@@ -84,6 +84,8 @@ namespace Pulumi.AzureNative.DocumentDB
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20210115:NotebookWorkspace"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20210301preview:NotebookWorkspace"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20210301preview:NotebookWorkspace"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210315:NotebookWorkspace"},
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20210315:NotebookWorkspace"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

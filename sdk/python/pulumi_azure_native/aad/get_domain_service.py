@@ -20,7 +20,7 @@ class GetDomainServiceResult:
     """
     Domain service.
     """
-    def __init__(__self__, deployment_id=None, domain_configuration_type=None, domain_name=None, domain_security_settings=None, etag=None, filtered_sync=None, id=None, ldaps_settings=None, location=None, migration_properties=None, name=None, notification_settings=None, provisioning_state=None, replica_sets=None, resource_forest_settings=None, sku=None, sync_owner=None, tags=None, tenant_id=None, type=None, version=None):
+    def __init__(__self__, deployment_id=None, domain_configuration_type=None, domain_name=None, domain_security_settings=None, etag=None, filtered_sync=None, id=None, ldaps_settings=None, location=None, migration_properties=None, name=None, notification_settings=None, provisioning_state=None, replica_sets=None, resource_forest_settings=None, sku=None, sync_owner=None, system_data=None, tags=None, tenant_id=None, type=None, version=None):
         if deployment_id and not isinstance(deployment_id, str):
             raise TypeError("Expected argument 'deployment_id' to be a str")
         pulumi.set(__self__, "deployment_id", deployment_id)
@@ -72,6 +72,9 @@ class GetDomainServiceResult:
         if sync_owner and not isinstance(sync_owner, str):
             raise TypeError("Expected argument 'sync_owner' to be a str")
         pulumi.set(__self__, "sync_owner", sync_owner)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -222,6 +225,14 @@ class GetDomainServiceResult:
         return pulumi.get(self, "sync_owner")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        The system meta data relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
@@ -277,6 +288,7 @@ class AwaitableGetDomainServiceResult(GetDomainServiceResult):
             resource_forest_settings=self.resource_forest_settings,
             sku=self.sku,
             sync_owner=self.sync_owner,
+            system_data=self.system_data,
             tags=self.tags,
             tenant_id=self.tenant_id,
             type=self.type,
@@ -288,7 +300,7 @@ def get_domain_service(domain_service_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDomainServiceResult:
     """
     Domain service.
-    API Version: 2020-01-01.
+    API Version: 2021-03-01.
 
 
     :param str domain_service_name: The name of the domain service.
@@ -321,6 +333,7 @@ def get_domain_service(domain_service_name: Optional[str] = None,
         resource_forest_settings=__ret__.resource_forest_settings,
         sku=__ret__.sku,
         sync_owner=__ret__.sync_owner,
+        system_data=__ret__.system_data,
         tags=__ret__.tags,
         tenant_id=__ret__.tenant_id,
         type=__ret__.type,

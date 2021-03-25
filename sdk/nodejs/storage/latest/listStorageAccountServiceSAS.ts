@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * The List service SAS credentials operation response.
- * Latest API Version: 2021-01-01.
+ * Latest API Version: 2021-02-01.
  */
 /** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storage:listStorageAccountServiceSAS'. */
 export function listStorageAccountServiceSAS(args: ListStorageAccountServiceSASArgs, opts?: pulumi.InvokeOptions): Promise<ListStorageAccountServiceSASResult> {

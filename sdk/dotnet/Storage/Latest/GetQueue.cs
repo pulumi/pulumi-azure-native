@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Storage.Latest
     {
         /// <summary>
         /// 
-        /// Latest API Version: 2021-01-01.
+        /// Latest API Version: 2021-02-01.
         /// </summary>
         public static Task<GetQueueResult> InvokeAsync(GetQueueArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetQueueResult>("azure-native:storage/latest:getQueue", args ?? new GetQueueArgs(), options.WithVersion());

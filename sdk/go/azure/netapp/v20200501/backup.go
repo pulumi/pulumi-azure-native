@@ -15,7 +15,7 @@ import (
 type Backup struct {
 	pulumi.CustomResourceState
 
-	// Type of backup adhoc or scheduled
+	// Type of backup Manual or Scheduled
 	BackupType pulumi.StringOutput `pulumi:"backupType"`
 	// The creation date of the backup
 	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
@@ -128,7 +128,7 @@ func GetBackup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Backup resources.
 type backupState struct {
-	// Type of backup adhoc or scheduled
+	// Type of backup Manual or Scheduled
 	BackupType *string `pulumi:"backupType"`
 	// The creation date of the backup
 	CreationDate *string `pulumi:"creationDate"`
@@ -147,7 +147,7 @@ type backupState struct {
 }
 
 type BackupState struct {
-	// Type of backup adhoc or scheduled
+	// Type of backup Manual or Scheduled
 	BackupType pulumi.StringPtrInput
 	// The creation date of the backup
 	CreationDate pulumi.StringPtrInput

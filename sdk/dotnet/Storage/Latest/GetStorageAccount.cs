@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Storage.Latest
     {
         /// <summary>
         /// The storage account.
-        /// Latest API Version: 2021-01-01.
+        /// Latest API Version: 2021-02-01.
         /// </summary>
         public static Task<GetStorageAccountResult> InvokeAsync(GetStorageAccountArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetStorageAccountResult>("azure-native:storage/latest:getStorageAccount", args ?? new GetStorageAccountArgs(), options.WithVersion());
@@ -115,6 +115,14 @@ namespace Pulumi.AzureNative.Storage.Latest
         /// </summary>
         public readonly bool? IsHnsEnabled;
         /// <summary>
+        /// Gets the list of storage account keys creation time.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string> KeyCreationTime;
+        /// <summary>
+        /// KeyPolicy assigned to the storage account.
+        /// </summary>
+        public readonly Outputs.KeyPolicyResponse KeyPolicy;
+        /// <summary>
         /// Gets the Kind.
         /// </summary>
         public readonly string Kind;
@@ -162,6 +170,10 @@ namespace Pulumi.AzureNative.Storage.Latest
         /// Maintains information about the network routing choice opted by the user for data transfer
         /// </summary>
         public readonly Outputs.RoutingPreferenceResponse? RoutingPreference;
+        /// <summary>
+        /// SasPolicy assigned to the storage account.
+        /// </summary>
+        public readonly Outputs.SasPolicyResponse SasPolicy;
         /// <summary>
         /// Gets the URLs that are used to perform a retrieval of a public blob, queue, or table object from the secondary location of the storage account. Only available if the SKU name is Standard_RAGRS.
         /// </summary>
@@ -225,6 +237,10 @@ namespace Pulumi.AzureNative.Storage.Latest
 
             bool? isHnsEnabled,
 
+            ImmutableDictionary<string, string> keyCreationTime,
+
+            Outputs.KeyPolicyResponse keyPolicy,
+
             string kind,
 
             string? largeFileSharesState,
@@ -248,6 +264,8 @@ namespace Pulumi.AzureNative.Storage.Latest
             string provisioningState,
 
             Outputs.RoutingPreferenceResponse? routingPreference,
+
+            Outputs.SasPolicyResponse sasPolicy,
 
             Outputs.EndpointsResponse secondaryEndpoints,
 
@@ -279,6 +297,8 @@ namespace Pulumi.AzureNative.Storage.Latest
             Id = id;
             Identity = identity;
             IsHnsEnabled = isHnsEnabled;
+            KeyCreationTime = keyCreationTime;
+            KeyPolicy = keyPolicy;
             Kind = kind;
             LargeFileSharesState = largeFileSharesState;
             LastGeoFailoverTime = lastGeoFailoverTime;
@@ -291,6 +311,7 @@ namespace Pulumi.AzureNative.Storage.Latest
             PrivateEndpointConnections = privateEndpointConnections;
             ProvisioningState = provisioningState;
             RoutingPreference = routingPreference;
+            SasPolicy = sasPolicy;
             SecondaryEndpoints = secondaryEndpoints;
             SecondaryLocation = secondaryLocation;
             Sku = sku;

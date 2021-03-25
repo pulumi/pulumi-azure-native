@@ -7,6 +7,8 @@ from enum import Enum
 __all__ = [
     'ExternalAccess',
     'FilteredSync',
+    'KerberosArmoring',
+    'KerberosRc4Encryption',
     'Ldaps',
     'NotifyDcAdmins',
     'NotifyGlobalAdmins',
@@ -29,6 +31,22 @@ class ExternalAccess(str, Enum):
 class FilteredSync(str, Enum):
     """
     Enabled or Disabled flag to turn on Group-based filtered sync
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+
+
+class KerberosArmoring(str, Enum):
+    """
+    A flag to determine whether or not KerberosArmoring is enabled or disabled.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+
+
+class KerberosRc4Encryption(str, Enum):
+    """
+    A flag to determine whether or not KerberosRc4Encryption is enabled or disabled.
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"

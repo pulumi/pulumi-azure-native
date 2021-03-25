@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Aad
     {
         /// <summary>
         /// Resource for OuContainer.
-        /// API Version: 2020-01-01.
+        /// API Version: 2021-03-01.
         /// </summary>
         public static Task<GetOuContainerResult> InvokeAsync(GetOuContainerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetOuContainerResult>("azure-native:aad:getOuContainer", args ?? new GetOuContainerArgs(), options.WithVersion());
@@ -94,6 +94,10 @@ namespace Pulumi.AzureNative.Aad
         /// </summary>
         public readonly string ServiceStatus;
         /// <summary>
+        /// The system meta data relating to this resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Resource tags
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -130,6 +134,8 @@ namespace Pulumi.AzureNative.Aad
 
             string serviceStatus,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string tenantId,
@@ -147,6 +153,7 @@ namespace Pulumi.AzureNative.Aad
             Name = name;
             ProvisioningState = provisioningState;
             ServiceStatus = serviceStatus;
+            SystemData = systemData;
             Tags = tags;
             TenantId = tenantId;
             Type = type;

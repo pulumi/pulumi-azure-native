@@ -8,7 +8,7 @@ import (
 )
 
 // Domain service.
-// Latest API Version: 2020-01-01.
+// Latest API Version: 2021-03-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:aad:getDomainService'.
 func LookupDomainService(ctx *pulumi.Context, args *LookupDomainServiceArgs, opts ...pulumi.InvokeOption) (*LookupDomainServiceResult, error) {
@@ -63,6 +63,8 @@ type LookupDomainServiceResult struct {
 	Sku *string `pulumi:"sku"`
 	// SyncOwner ReplicaSet Id
 	SyncOwner string `pulumi:"syncOwner"`
+	// The system meta data relating to this resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Azure Active Directory Tenant Id

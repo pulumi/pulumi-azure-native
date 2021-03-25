@@ -12,7 +12,7 @@ import (
 )
 
 // A private endpoint connection
-// Latest API Version: 2021-01-15.
+// Latest API Version: 2021-03-15.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:documentdb:PrivateEndpointConnection'.
 type PrivateEndpointConnection struct {
@@ -72,6 +72,12 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20210301preview:PrivateEndpointConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20210315:PrivateEndpointConnection"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:documentdb/v20210315:PrivateEndpointConnection"),
 		},
 	})
 	opts = append(opts, aliases)

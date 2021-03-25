@@ -8,7 +8,7 @@ import (
 )
 
 // An Azure Cosmos DB Cassandra table.
-// API Version: 2021-01-15.
+// API Version: 2021-03-15.
 func LookupCassandraResourceCassandraTable(ctx *pulumi.Context, args *LookupCassandraResourceCassandraTableArgs, opts ...pulumi.InvokeOption) (*LookupCassandraResourceCassandraTableResult, error) {
 	var rv LookupCassandraResourceCassandraTableResult
 	err := ctx.Invoke("azure-native:documentdb:getCassandraResourceCassandraTable", args, &rv, opts...)

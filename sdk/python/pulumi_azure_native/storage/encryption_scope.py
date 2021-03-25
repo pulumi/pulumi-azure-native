@@ -30,7 +30,7 @@ class EncryptionScope(pulumi.CustomResource):
                  __opts__=None):
         """
         The Encryption Scope resource.
-        API Version: 2021-01-01.
+        API Version: 2021-02-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -74,7 +74,7 @@ class EncryptionScope(pulumi.CustomResource):
             __props__['last_modified_time'] = None
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storage:EncryptionScope"), pulumi.Alias(type_="azure-native:storage/latest:EncryptionScope"), pulumi.Alias(type_="azure-nextgen:storage/latest:EncryptionScope"), pulumi.Alias(type_="azure-native:storage/v20190601:EncryptionScope"), pulumi.Alias(type_="azure-nextgen:storage/v20190601:EncryptionScope"), pulumi.Alias(type_="azure-native:storage/v20200801preview:EncryptionScope"), pulumi.Alias(type_="azure-nextgen:storage/v20200801preview:EncryptionScope"), pulumi.Alias(type_="azure-native:storage/v20210101:EncryptionScope"), pulumi.Alias(type_="azure-nextgen:storage/v20210101:EncryptionScope")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storage:EncryptionScope"), pulumi.Alias(type_="azure-native:storage/latest:EncryptionScope"), pulumi.Alias(type_="azure-nextgen:storage/latest:EncryptionScope"), pulumi.Alias(type_="azure-native:storage/v20190601:EncryptionScope"), pulumi.Alias(type_="azure-nextgen:storage/v20190601:EncryptionScope"), pulumi.Alias(type_="azure-native:storage/v20200801preview:EncryptionScope"), pulumi.Alias(type_="azure-nextgen:storage/v20200801preview:EncryptionScope"), pulumi.Alias(type_="azure-native:storage/v20210101:EncryptionScope"), pulumi.Alias(type_="azure-nextgen:storage/v20210101:EncryptionScope"), pulumi.Alias(type_="azure-native:storage/v20210201:EncryptionScope"), pulumi.Alias(type_="azure-nextgen:storage/v20210201:EncryptionScope")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(EncryptionScope, __self__).__init__(
             'azure-native:storage:EncryptionScope',

@@ -12,7 +12,7 @@ import (
 )
 
 // Properties of the file share, including Id, resource name, resource type, Etag.
-// API Version: 2021-01-01.
+// API Version: 2021-02-01.
 type FileShare struct {
 	pulumi.CustomResourceState
 
@@ -98,6 +98,12 @@ func NewFileShare(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storage/v20210101:FileShare"),
+		},
+		{
+			Type: pulumi.String("azure-native:storage/v20210201:FileShare"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:storage/v20210201:FileShare"),
 		},
 	})
 	opts = append(opts, aliases)

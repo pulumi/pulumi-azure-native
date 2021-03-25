@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DocumentDB
 {
     /// <summary>
     /// An Azure Cosmos DB database account.
-    /// API Version: 2021-01-15.
+    /// API Version: 2021-03-15.
     /// </summary>
     [AzureNativeResourceType("azure-native:documentdb:DatabaseAccount")]
     public partial class DatabaseAccount : Pulumi.CustomResource
@@ -57,6 +57,12 @@ namespace Pulumi.AzureNative.DocumentDB
         /// </summary>
         [Output("databaseAccountOfferType")]
         public Output<string> DatabaseAccountOfferType { get; private set; } = null!;
+
+        /// <summary>
+        /// The default identity for accessing key vault used in features like customer managed keys. The default identity needs to be explicitly set by the users. It can be "FirstPartyIdentity", "SystemAssignedIdentity" and more.
+        /// </summary>
+        [Output("defaultIdentity")]
+        public Output<string?> DefaultIdentity { get; private set; } = null!;
 
         /// <summary>
         /// Disable write operations on metadata resources (databases, containers, throughput) via account keys
@@ -268,6 +274,8 @@ namespace Pulumi.AzureNative.DocumentDB
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20210115:DatabaseAccount"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20210301preview:DatabaseAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20210301preview:DatabaseAccount"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210315:DatabaseAccount"},
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20210315:DatabaseAccount"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -350,6 +358,12 @@ namespace Pulumi.AzureNative.DocumentDB
         /// </summary>
         [Input("databaseAccountOfferType", required: true)]
         public Input<Pulumi.AzureNative.DocumentDB.DatabaseAccountOfferType> DatabaseAccountOfferType { get; set; } = null!;
+
+        /// <summary>
+        /// The default identity for accessing key vault used in features like customer managed keys. The default identity needs to be explicitly set by the users. It can be "FirstPartyIdentity", "SystemAssignedIdentity" and more.
+        /// </summary>
+        [Input("defaultIdentity")]
+        public Input<string>? DefaultIdentity { get; set; }
 
         /// <summary>
         /// Disable write operations on metadata resources (databases, containers, throughput) via account keys

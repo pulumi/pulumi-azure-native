@@ -258,6 +258,36 @@ namespace Pulumi.AzureNative.Storage.Latest
     }
 
     /// <summary>
+    /// The SAS expiration action. Can only be Log.
+    /// </summary>
+    [EnumType]
+    public readonly struct ExpirationAction : IEquatable<ExpirationAction>
+    {
+        private readonly string _value;
+
+        private ExpirationAction(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ExpirationAction Log { get; } = new ExpirationAction("Log");
+
+        public static bool operator ==(ExpirationAction left, ExpirationAction right) => left.Equals(right);
+        public static bool operator !=(ExpirationAction left, ExpirationAction right) => !left.Equals(right);
+
+        public static explicit operator string(ExpirationAction value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ExpirationAction other && Equals(other);
+        public bool Equals(ExpirationAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of the extended location.
     /// </summary>
     [EnumType]

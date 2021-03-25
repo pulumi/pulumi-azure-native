@@ -12,7 +12,7 @@ import (
 )
 
 // The properties of a storage account’s Queue service.
-// Latest API Version: 2021-01-01.
+// Latest API Version: 2021-02-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storage:QueueServiceProperties'.
 type QueueServiceProperties struct {
@@ -66,6 +66,12 @@ func NewQueueServiceProperties(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storage/v20210101:QueueServiceProperties"),
+		},
+		{
+			Type: pulumi.String("azure-native:storage/v20210201:QueueServiceProperties"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:storage/v20210201:QueueServiceProperties"),
 		},
 	})
 	opts = append(opts, aliases)

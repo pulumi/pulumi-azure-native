@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Storage.Latest
     {
         /// <summary>
         /// The Get Storage Account ManagementPolicies operation response.
-        /// Latest API Version: 2021-01-01.
+        /// Latest API Version: 2021-02-01.
         /// </summary>
         public static Task<GetManagementPolicyResult> InvokeAsync(GetManagementPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetManagementPolicyResult>("azure-native:storage/latest:getManagementPolicy", args ?? new GetManagementPolicyArgs(), options.WithVersion());

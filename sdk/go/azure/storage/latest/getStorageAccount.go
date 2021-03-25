@@ -8,7 +8,7 @@ import (
 )
 
 // The storage account.
-// Latest API Version: 2021-01-01.
+// Latest API Version: 2021-02-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storage:getStorageAccount'.
 func LookupStorageAccount(ctx *pulumi.Context, args *LookupStorageAccountArgs, opts ...pulumi.InvokeOption) (*LookupStorageAccountResult, error) {
@@ -63,6 +63,10 @@ type LookupStorageAccountResult struct {
 	Identity *IdentityResponse `pulumi:"identity"`
 	// Account HierarchicalNamespace enabled if sets to true.
 	IsHnsEnabled *bool `pulumi:"isHnsEnabled"`
+	// Gets the list of storage account keys creation time.
+	KeyCreationTime map[string]string `pulumi:"keyCreationTime"`
+	// KeyPolicy assigned to the storage account.
+	KeyPolicy KeyPolicyResponse `pulumi:"keyPolicy"`
 	// Gets the Kind.
 	Kind string `pulumi:"kind"`
 	// Allow large file shares if sets to Enabled. It cannot be disabled once it is enabled.
@@ -87,6 +91,8 @@ type LookupStorageAccountResult struct {
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Maintains information about the network routing choice opted by the user for data transfer
 	RoutingPreference *RoutingPreferenceResponse `pulumi:"routingPreference"`
+	// SasPolicy assigned to the storage account.
+	SasPolicy SasPolicyResponse `pulumi:"sasPolicy"`
 	// Gets the URLs that are used to perform a retrieval of a public blob, queue, or table object from the secondary location of the storage account. Only available if the SKU name is Standard_RAGRS.
 	SecondaryEndpoints EndpointsResponse `pulumi:"secondaryEndpoints"`
 	// Gets the location of the geo-replicated secondary for the storage account. Only available if the accountType is Standard_GRS or Standard_RAGRS.

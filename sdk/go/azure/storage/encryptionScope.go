@@ -12,7 +12,7 @@ import (
 )
 
 // The Encryption Scope resource.
-// API Version: 2021-01-01.
+// API Version: 2021-02-01.
 type EncryptionScope struct {
 	pulumi.CustomResourceState
 
@@ -74,6 +74,12 @@ func NewEncryptionScope(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storage/v20210101:EncryptionScope"),
+		},
+		{
+			Type: pulumi.String("azure-native:storage/v20210201:EncryptionScope"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:storage/v20210201:EncryptionScope"),
 		},
 	})
 	opts = append(opts, aliases)

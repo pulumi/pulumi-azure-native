@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The replication policy between two storage accounts. Multiple rules can be defined in one policy.
- * API Version: 2021-01-01.
+ * API Version: 2021-02-01.
  */
 export function getObjectReplicationPolicy(args: GetObjectReplicationPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetObjectReplicationPolicyResult> {
     if (!opts) {

@@ -8,7 +8,7 @@ import (
 )
 
 // The access keys for the given database account.
-// Latest API Version: 2021-01-15.
+// Latest API Version: 2021-03-15.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:documentdb:listDatabaseAccountKeys'.
 func ListDatabaseAccountKeys(ctx *pulumi.Context, args *ListDatabaseAccountKeysArgs, opts ...pulumi.InvokeOption) (*ListDatabaseAccountKeysResult, error) {

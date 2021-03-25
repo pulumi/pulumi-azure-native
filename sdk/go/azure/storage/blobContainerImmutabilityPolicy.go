@@ -12,7 +12,7 @@ import (
 )
 
 // The ImmutabilityPolicy property of a blob container, including Id, resource name, resource type, Etag.
-// API Version: 2021-01-01.
+// API Version: 2021-02-01.
 type BlobContainerImmutabilityPolicy struct {
 	pulumi.CustomResourceState
 
@@ -103,6 +103,12 @@ func NewBlobContainerImmutabilityPolicy(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storage/v20210101:BlobContainerImmutabilityPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:storage/v20210201:BlobContainerImmutabilityPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:storage/v20210201:BlobContainerImmutabilityPolicy"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DocumentDB.Latest
     {
         /// <summary>
         /// The connection strings for the given database account.
-        /// Latest API Version: 2021-01-15.
+        /// Latest API Version: 2021-03-15.
         /// </summary>
         public static Task<ListDatabaseAccountConnectionStringsResult> InvokeAsync(ListDatabaseAccountConnectionStringsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListDatabaseAccountConnectionStringsResult>("azure-native:documentdb/latest:listDatabaseAccountConnectionStrings", args ?? new ListDatabaseAccountConnectionStringsArgs(), options.WithVersion());

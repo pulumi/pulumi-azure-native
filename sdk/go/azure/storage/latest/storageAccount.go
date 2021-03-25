@@ -12,7 +12,7 @@ import (
 )
 
 // The storage account.
-// Latest API Version: 2021-01-01.
+// Latest API Version: 2021-02-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storage:StorageAccount'.
 type StorageAccount struct {
@@ -48,6 +48,10 @@ type StorageAccount struct {
 	Identity IdentityResponsePtrOutput `pulumi:"identity"`
 	// Account HierarchicalNamespace enabled if sets to true.
 	IsHnsEnabled pulumi.BoolPtrOutput `pulumi:"isHnsEnabled"`
+	// Gets the list of storage account keys creation time.
+	KeyCreationTime pulumi.StringMapOutput `pulumi:"keyCreationTime"`
+	// KeyPolicy assigned to the storage account.
+	KeyPolicy KeyPolicyResponseOutput `pulumi:"keyPolicy"`
 	// Gets the Kind.
 	Kind pulumi.StringOutput `pulumi:"kind"`
 	// Allow large file shares if sets to Enabled. It cannot be disabled once it is enabled.
@@ -72,6 +76,8 @@ type StorageAccount struct {
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// Maintains information about the network routing choice opted by the user for data transfer
 	RoutingPreference RoutingPreferenceResponsePtrOutput `pulumi:"routingPreference"`
+	// SasPolicy assigned to the storage account.
+	SasPolicy SasPolicyResponseOutput `pulumi:"sasPolicy"`
 	// Gets the URLs that are used to perform a retrieval of a public blob, queue, or table object from the secondary location of the storage account. Only available if the SKU name is Standard_RAGRS.
 	SecondaryEndpoints EndpointsResponseOutput `pulumi:"secondaryEndpoints"`
 	// Gets the location of the geo-replicated secondary for the storage account. Only available if the accountType is Standard_GRS or Standard_RAGRS.
@@ -204,6 +210,12 @@ func NewStorageAccount(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:storage/v20210101:StorageAccount"),
 		},
+		{
+			Type: pulumi.String("azure-native:storage/v20210201:StorageAccount"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:storage/v20210201:StorageAccount"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource StorageAccount
@@ -258,6 +270,10 @@ type storageAccountState struct {
 	Identity *IdentityResponse `pulumi:"identity"`
 	// Account HierarchicalNamespace enabled if sets to true.
 	IsHnsEnabled *bool `pulumi:"isHnsEnabled"`
+	// Gets the list of storage account keys creation time.
+	KeyCreationTime map[string]string `pulumi:"keyCreationTime"`
+	// KeyPolicy assigned to the storage account.
+	KeyPolicy *KeyPolicyResponse `pulumi:"keyPolicy"`
 	// Gets the Kind.
 	Kind *string `pulumi:"kind"`
 	// Allow large file shares if sets to Enabled. It cannot be disabled once it is enabled.
@@ -282,6 +298,8 @@ type storageAccountState struct {
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// Maintains information about the network routing choice opted by the user for data transfer
 	RoutingPreference *RoutingPreferenceResponse `pulumi:"routingPreference"`
+	// SasPolicy assigned to the storage account.
+	SasPolicy *SasPolicyResponse `pulumi:"sasPolicy"`
 	// Gets the URLs that are used to perform a retrieval of a public blob, queue, or table object from the secondary location of the storage account. Only available if the SKU name is Standard_RAGRS.
 	SecondaryEndpoints *EndpointsResponse `pulumi:"secondaryEndpoints"`
 	// Gets the location of the geo-replicated secondary for the storage account. Only available if the accountType is Standard_GRS or Standard_RAGRS.
@@ -329,6 +347,10 @@ type StorageAccountState struct {
 	Identity IdentityResponsePtrInput
 	// Account HierarchicalNamespace enabled if sets to true.
 	IsHnsEnabled pulumi.BoolPtrInput
+	// Gets the list of storage account keys creation time.
+	KeyCreationTime pulumi.StringMapInput
+	// KeyPolicy assigned to the storage account.
+	KeyPolicy KeyPolicyResponsePtrInput
 	// Gets the Kind.
 	Kind pulumi.StringPtrInput
 	// Allow large file shares if sets to Enabled. It cannot be disabled once it is enabled.
@@ -353,6 +375,8 @@ type StorageAccountState struct {
 	ProvisioningState pulumi.StringPtrInput
 	// Maintains information about the network routing choice opted by the user for data transfer
 	RoutingPreference RoutingPreferenceResponsePtrInput
+	// SasPolicy assigned to the storage account.
+	SasPolicy SasPolicyResponsePtrInput
 	// Gets the URLs that are used to perform a retrieval of a public blob, queue, or table object from the secondary location of the storage account. Only available if the SKU name is Standard_RAGRS.
 	SecondaryEndpoints EndpointsResponsePtrInput
 	// Gets the location of the geo-replicated secondary for the storage account. Only available if the accountType is Standard_GRS or Standard_RAGRS.
@@ -398,6 +422,8 @@ type storageAccountArgs struct {
 	Identity *Identity `pulumi:"identity"`
 	// Account HierarchicalNamespace enabled if sets to true.
 	IsHnsEnabled *bool `pulumi:"isHnsEnabled"`
+	// KeyPolicy assigned to the storage account.
+	KeyPolicy *KeyPolicy `pulumi:"keyPolicy"`
 	// Required. Indicates the type of storage account.
 	Kind string `pulumi:"kind"`
 	// Allow large file shares if sets to Enabled. It cannot be disabled once it is enabled.
@@ -412,6 +438,8 @@ type storageAccountArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Maintains information about the network routing choice opted by the user for data transfer
 	RoutingPreference *RoutingPreference `pulumi:"routingPreference"`
+	// SasPolicy assigned to the storage account.
+	SasPolicy *SasPolicy `pulumi:"sasPolicy"`
 	// Required. Gets or sets the SKU name.
 	Sku Sku `pulumi:"sku"`
 	// Gets or sets a list of key value pairs that describe the resource. These tags can be used for viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key with a length no greater than 128 characters and a value with a length no greater than 256 characters.
@@ -444,6 +472,8 @@ type StorageAccountArgs struct {
 	Identity IdentityPtrInput
 	// Account HierarchicalNamespace enabled if sets to true.
 	IsHnsEnabled pulumi.BoolPtrInput
+	// KeyPolicy assigned to the storage account.
+	KeyPolicy KeyPolicyPtrInput
 	// Required. Indicates the type of storage account.
 	Kind pulumi.StringInput
 	// Allow large file shares if sets to Enabled. It cannot be disabled once it is enabled.
@@ -458,6 +488,8 @@ type StorageAccountArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// Maintains information about the network routing choice opted by the user for data transfer
 	RoutingPreference RoutingPreferencePtrInput
+	// SasPolicy assigned to the storage account.
+	SasPolicy SasPolicyPtrInput
 	// Required. Gets or sets the SKU name.
 	Sku SkuInput
 	// Gets or sets a list of key value pairs that describe the resource. These tags can be used for viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key with a length no greater than 128 characters and a value with a length no greater than 256 characters.

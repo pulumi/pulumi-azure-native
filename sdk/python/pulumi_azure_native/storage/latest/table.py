@@ -27,7 +27,7 @@ class Table(pulumi.CustomResource):
                  __opts__=None):
         """
         Properties of the table, including Id, resource name, resource type.
-        Latest API Version: 2021-01-01.
+        Latest API Version: 2021-02-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -62,7 +62,7 @@ class Table(pulumi.CustomResource):
             __props__['table_name'] = table_name
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storage/latest:Table"), pulumi.Alias(type_="azure-native:storage:Table"), pulumi.Alias(type_="azure-nextgen:storage:Table"), pulumi.Alias(type_="azure-native:storage/v20190601:Table"), pulumi.Alias(type_="azure-nextgen:storage/v20190601:Table"), pulumi.Alias(type_="azure-native:storage/v20200801preview:Table"), pulumi.Alias(type_="azure-nextgen:storage/v20200801preview:Table"), pulumi.Alias(type_="azure-native:storage/v20210101:Table"), pulumi.Alias(type_="azure-nextgen:storage/v20210101:Table")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storage/latest:Table"), pulumi.Alias(type_="azure-native:storage:Table"), pulumi.Alias(type_="azure-nextgen:storage:Table"), pulumi.Alias(type_="azure-native:storage/v20190601:Table"), pulumi.Alias(type_="azure-nextgen:storage/v20190601:Table"), pulumi.Alias(type_="azure-native:storage/v20200801preview:Table"), pulumi.Alias(type_="azure-nextgen:storage/v20200801preview:Table"), pulumi.Alias(type_="azure-native:storage/v20210101:Table"), pulumi.Alias(type_="azure-nextgen:storage/v20210101:Table"), pulumi.Alias(type_="azure-native:storage/v20210201:Table"), pulumi.Alias(type_="azure-nextgen:storage/v20210201:Table")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Table, __self__).__init__(
             'azure-native:storage/latest:Table',

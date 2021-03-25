@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Resource for OuContainer.
- * Latest API Version: 2020-01-01.
+ * Latest API Version: 2021-03-01.
  */
 /** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:aad:getOuContainer'. */
 export function getOuContainer(args: GetOuContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetOuContainerResult> {
@@ -89,6 +89,10 @@ export interface GetOuContainerResult {
      * Status of OuContainer instance
      */
     readonly serviceStatus: string;
+    /**
+     * The system meta data relating to this resource.
+     */
+    readonly systemData: outputs.aad.latest.SystemDataResponse;
     /**
      * Resource tags
      */

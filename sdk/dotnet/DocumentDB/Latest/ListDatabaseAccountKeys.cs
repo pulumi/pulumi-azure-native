@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DocumentDB.Latest
     {
         /// <summary>
         /// The access keys for the given database account.
-        /// Latest API Version: 2021-01-15.
+        /// Latest API Version: 2021-03-15.
         /// </summary>
         public static Task<ListDatabaseAccountKeysResult> InvokeAsync(ListDatabaseAccountKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListDatabaseAccountKeysResult>("azure-native:documentdb/latest:listDatabaseAccountKeys", args ?? new ListDatabaseAccountKeysArgs(), options.WithVersion());

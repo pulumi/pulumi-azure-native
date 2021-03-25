@@ -22,7 +22,7 @@ class GetOuContainerResult:
     """
     Resource for OuContainer.
     """
-    def __init__(__self__, accounts=None, container_id=None, deployment_id=None, distinguished_name=None, domain_name=None, etag=None, id=None, location=None, name=None, provisioning_state=None, service_status=None, tags=None, tenant_id=None, type=None):
+    def __init__(__self__, accounts=None, container_id=None, deployment_id=None, distinguished_name=None, domain_name=None, etag=None, id=None, location=None, name=None, provisioning_state=None, service_status=None, system_data=None, tags=None, tenant_id=None, type=None):
         if accounts and not isinstance(accounts, list):
             raise TypeError("Expected argument 'accounts' to be a list")
         pulumi.set(__self__, "accounts", accounts)
@@ -56,6 +56,9 @@ class GetOuContainerResult:
         if service_status and not isinstance(service_status, str):
             raise TypeError("Expected argument 'service_status' to be a str")
         pulumi.set(__self__, "service_status", service_status)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -155,6 +158,14 @@ class GetOuContainerResult:
         return pulumi.get(self, "service_status")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        The system meta data relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
@@ -196,6 +207,7 @@ class AwaitableGetOuContainerResult(GetOuContainerResult):
             name=self.name,
             provisioning_state=self.provisioning_state,
             service_status=self.service_status,
+            system_data=self.system_data,
             tags=self.tags,
             tenant_id=self.tenant_id,
             type=self.type)
@@ -207,7 +219,7 @@ def get_ou_container(domain_service_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOuContainerResult:
     """
     Resource for OuContainer.
-    Latest API Version: 2020-01-01.
+    Latest API Version: 2021-03-01.
 
 
     :param str domain_service_name: The name of the domain service.
@@ -237,6 +249,7 @@ def get_ou_container(domain_service_name: Optional[str] = None,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
         service_status=__ret__.service_status,
+        system_data=__ret__.system_data,
         tags=__ret__.tags,
         tenant_id=__ret__.tenant_id,
         type=__ret__.type)

@@ -8,7 +8,7 @@ import (
 )
 
 // Domain service.
-// API Version: 2020-01-01.
+// API Version: 2021-03-01.
 func LookupDomainService(ctx *pulumi.Context, args *LookupDomainServiceArgs, opts ...pulumi.InvokeOption) (*LookupDomainServiceResult, error) {
 	var rv LookupDomainServiceResult
 	err := ctx.Invoke("azure-native:aad:getDomainService", args, &rv, opts...)
@@ -61,6 +61,8 @@ type LookupDomainServiceResult struct {
 	Sku *string `pulumi:"sku"`
 	// SyncOwner ReplicaSet Id
 	SyncOwner string `pulumi:"syncOwner"`
+	// The system meta data relating to this resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Azure Active Directory Tenant Id

@@ -12,7 +12,7 @@ import (
 )
 
 // The properties of File services in storage account.
-// API Version: 2021-01-01.
+// API Version: 2021-02-01.
 type FileServiceProperties struct {
 	pulumi.CustomResourceState
 
@@ -76,6 +76,12 @@ func NewFileServiceProperties(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storage/v20210101:FileServiceProperties"),
+		},
+		{
+			Type: pulumi.String("azure-native:storage/v20210201:FileServiceProperties"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:storage/v20210201:FileServiceProperties"),
 		},
 	})
 	opts = append(opts, aliases)

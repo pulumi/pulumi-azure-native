@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * An Azure Cosmos DB MongoDB database.
- * Latest API Version: 2021-01-15.
+ * Latest API Version: 2021-03-15.
  */
 /** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:documentdb:getMongoDBResourceMongoDBDatabase'. */
 export function getMongoDBResourceMongoDBDatabase(args: GetMongoDBResourceMongoDBDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetMongoDBResourceMongoDBDatabaseResult> {

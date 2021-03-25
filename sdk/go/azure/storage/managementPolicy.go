@@ -12,7 +12,7 @@ import (
 )
 
 // The Get Storage Account ManagementPolicies operation response.
-// API Version: 2021-01-01.
+// API Version: 2021-02-01.
 type ManagementPolicy struct {
 	pulumi.CustomResourceState
 
@@ -87,6 +87,12 @@ func NewManagementPolicy(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storage/v20210101:ManagementPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:storage/v20210201:ManagementPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:storage/v20210201:ManagementPolicy"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DocumentDB
     {
         /// <summary>
         /// The access keys for the given database account.
-        /// API Version: 2021-01-15.
+        /// API Version: 2021-03-15.
         /// </summary>
         public static Task<ListDatabaseAccountKeysResult> InvokeAsync(ListDatabaseAccountKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListDatabaseAccountKeysResult>("azure-native:documentdb:listDatabaseAccountKeys", args ?? new ListDatabaseAccountKeysArgs(), options.WithVersion());

@@ -30,6 +30,7 @@ class StorageAccount(pulumi.CustomResource):
                  extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
                  is_hns_enabled: Optional[pulumi.Input[bool]] = None,
+                 key_policy: Optional[pulumi.Input[pulumi.InputType['KeyPolicyArgs']]] = None,
                  kind: Optional[pulumi.Input[Union[str, 'Kind']]] = None,
                  large_file_shares_state: Optional[pulumi.Input[Union[str, 'LargeFileSharesState']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -37,6 +38,7 @@ class StorageAccount(pulumi.CustomResource):
                  network_rule_set: Optional[pulumi.Input[pulumi.InputType['NetworkRuleSetArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  routing_preference: Optional[pulumi.Input[pulumi.InputType['RoutingPreferenceArgs']]] = None,
+                 sas_policy: Optional[pulumi.Input[pulumi.InputType['SasPolicyArgs']]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
@@ -44,7 +46,7 @@ class StorageAccount(pulumi.CustomResource):
                  __opts__=None):
         """
         The storage account.
-        API Version: 2021-01-01.
+        API Version: 2021-02-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -60,6 +62,7 @@ class StorageAccount(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: Optional. Set the extended location of the resource. If not set, the storage account will be created in Azure main region. Otherwise it will be created in the specified extended location
         :param pulumi.Input[pulumi.InputType['IdentityArgs']] identity: The identity of the resource.
         :param pulumi.Input[bool] is_hns_enabled: Account HierarchicalNamespace enabled if sets to true.
+        :param pulumi.Input[pulumi.InputType['KeyPolicyArgs']] key_policy: KeyPolicy assigned to the storage account.
         :param pulumi.Input[Union[str, 'Kind']] kind: Required. Indicates the type of storage account.
         :param pulumi.Input[Union[str, 'LargeFileSharesState']] large_file_shares_state: Allow large file shares if sets to Enabled. It cannot be disabled once it is enabled.
         :param pulumi.Input[str] location: Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update, the request will succeed.
@@ -67,6 +70,7 @@ class StorageAccount(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['NetworkRuleSetArgs']] network_rule_set: Network rule set
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         :param pulumi.Input[pulumi.InputType['RoutingPreferenceArgs']] routing_preference: Maintains information about the network routing choice opted by the user for data transfer
+        :param pulumi.Input[pulumi.InputType['SasPolicyArgs']] sas_policy: SasPolicy assigned to the storage account.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: Required. Gets or sets the SKU name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets a list of key value pairs that describe the resource. These tags can be used for viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key with a length no greater than 128 characters and a value with a length no greater than 256 characters.
         """
@@ -99,6 +103,7 @@ class StorageAccount(pulumi.CustomResource):
             __props__['extended_location'] = extended_location
             __props__['identity'] = identity
             __props__['is_hns_enabled'] = is_hns_enabled
+            __props__['key_policy'] = key_policy
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
             __props__['kind'] = kind
@@ -110,6 +115,7 @@ class StorageAccount(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['routing_preference'] = routing_preference
+            __props__['sas_policy'] = sas_policy
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__['sku'] = sku
@@ -118,6 +124,7 @@ class StorageAccount(pulumi.CustomResource):
             __props__['creation_time'] = None
             __props__['failover_in_progress'] = None
             __props__['geo_replication_stats'] = None
+            __props__['key_creation_time'] = None
             __props__['last_geo_failover_time'] = None
             __props__['name'] = None
             __props__['primary_endpoints'] = None
@@ -129,7 +136,7 @@ class StorageAccount(pulumi.CustomResource):
             __props__['status_of_primary'] = None
             __props__['status_of_secondary'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storage:StorageAccount"), pulumi.Alias(type_="azure-native:storage/latest:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/latest:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20150501preview:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20150501preview:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20150615:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20150615:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20160101:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20160101:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20160501:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20160501:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20161201:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20161201:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20170601:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20170601:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20171001:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20171001:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20180201:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20180201:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20180301preview:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20180301preview:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20180701:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20180701:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20181101:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20181101:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20190401:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20190401:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20190601:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20190601:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20200801preview:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20200801preview:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20210101:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20210101:StorageAccount")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storage:StorageAccount"), pulumi.Alias(type_="azure-native:storage/latest:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/latest:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20150501preview:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20150501preview:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20150615:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20150615:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20160101:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20160101:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20160501:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20160501:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20161201:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20161201:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20170601:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20170601:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20171001:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20171001:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20180201:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20180201:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20180301preview:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20180301preview:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20180701:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20180701:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20181101:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20181101:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20190401:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20190401:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20190601:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20190601:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20200801preview:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20200801preview:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20210101:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20210101:StorageAccount"), pulumi.Alias(type_="azure-native:storage/v20210201:StorageAccount"), pulumi.Alias(type_="azure-nextgen:storage/v20210201:StorageAccount")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(StorageAccount, __self__).__init__(
             'azure-native:storage:StorageAccount',
@@ -168,6 +175,8 @@ class StorageAccount(pulumi.CustomResource):
         __props__["geo_replication_stats"] = None
         __props__["identity"] = None
         __props__["is_hns_enabled"] = None
+        __props__["key_creation_time"] = None
+        __props__["key_policy"] = None
         __props__["kind"] = None
         __props__["large_file_shares_state"] = None
         __props__["last_geo_failover_time"] = None
@@ -180,6 +189,7 @@ class StorageAccount(pulumi.CustomResource):
         __props__["private_endpoint_connections"] = None
         __props__["provisioning_state"] = None
         __props__["routing_preference"] = None
+        __props__["sas_policy"] = None
         __props__["secondary_endpoints"] = None
         __props__["secondary_location"] = None
         __props__["sku"] = None
@@ -310,6 +320,22 @@ class StorageAccount(pulumi.CustomResource):
         return pulumi.get(self, "is_hns_enabled")
 
     @property
+    @pulumi.getter(name="keyCreationTime")
+    def key_creation_time(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        Gets the list of storage account keys creation time.
+        """
+        return pulumi.get(self, "key_creation_time")
+
+    @property
+    @pulumi.getter(name="keyPolicy")
+    def key_policy(self) -> pulumi.Output['outputs.KeyPolicyResponse']:
+        """
+        KeyPolicy assigned to the storage account.
+        """
+        return pulumi.get(self, "key_policy")
+
+    @property
     @pulumi.getter
     def kind(self) -> pulumi.Output[str]:
         """
@@ -404,6 +430,14 @@ class StorageAccount(pulumi.CustomResource):
         Maintains information about the network routing choice opted by the user for data transfer
         """
         return pulumi.get(self, "routing_preference")
+
+    @property
+    @pulumi.getter(name="sasPolicy")
+    def sas_policy(self) -> pulumi.Output['outputs.SasPolicyResponse']:
+        """
+        SasPolicy assigned to the storage account.
+        """
+        return pulumi.get(self, "sas_policy")
 
     @property
     @pulumi.getter(name="secondaryEndpoints")

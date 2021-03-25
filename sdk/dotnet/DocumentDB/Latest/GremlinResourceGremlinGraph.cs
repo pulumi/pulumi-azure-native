@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DocumentDB.Latest
 {
     /// <summary>
     /// An Azure Cosmos DB Gremlin graph.
-    /// Latest API Version: 2021-01-15.
+    /// Latest API Version: 2021-03-15.
     /// </summary>
     [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:documentdb:GremlinResourceGremlinGraph'.")]
     [AzureNativeResourceType("azure-native:documentdb/latest:GremlinResourceGremlinGraph")]
@@ -101,6 +101,8 @@ namespace Pulumi.AzureNative.DocumentDB.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20210115:GremlinResourceGremlinGraph"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20210301preview:GremlinResourceGremlinGraph"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20210301preview:GremlinResourceGremlinGraph"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210315:GremlinResourceGremlinGraph"},
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20210315:GremlinResourceGremlinGraph"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

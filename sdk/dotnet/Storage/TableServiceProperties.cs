@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Storage
 {
     /// <summary>
     /// The properties of a storage account’s Table service.
-    /// API Version: 2021-01-01.
+    /// API Version: 2021-02-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:storage:TableServiceProperties")]
     public partial class TableServiceProperties : Pulumi.CustomResource
@@ -68,6 +68,8 @@ namespace Pulumi.AzureNative.Storage
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20200801preview:TableServiceProperties"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20210101:TableServiceProperties"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20210101:TableServiceProperties"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20210201:TableServiceProperties"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20210201:TableServiceProperties"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

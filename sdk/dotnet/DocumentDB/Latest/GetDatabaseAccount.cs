@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DocumentDB.Latest
     {
         /// <summary>
         /// An Azure Cosmos DB database account.
-        /// Latest API Version: 2021-01-15.
+        /// Latest API Version: 2021-03-15.
         /// </summary>
         public static Task<GetDatabaseAccountResult> InvokeAsync(GetDatabaseAccountArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseAccountResult>("azure-native:documentdb/latest:getDatabaseAccount", args ?? new GetDatabaseAccountArgs(), options.WithVersion());
@@ -72,6 +72,10 @@ namespace Pulumi.AzureNative.DocumentDB.Latest
         /// The offer type for the Cosmos DB database account. Default value: Standard.
         /// </summary>
         public readonly string DatabaseAccountOfferType;
+        /// <summary>
+        /// The default identity for accessing key vault used in features like customer managed keys. The default identity needs to be explicitly set by the users. It can be "FirstPartyIdentity", "SystemAssignedIdentity" and more.
+        /// </summary>
+        public readonly string? DefaultIdentity;
         /// <summary>
         /// Disable write operations on metadata resources (databases, containers, throughput) via account keys
         /// </summary>
@@ -197,6 +201,8 @@ namespace Pulumi.AzureNative.DocumentDB.Latest
 
             string databaseAccountOfferType,
 
+            string? defaultIdentity,
+
             bool? disableKeyBasedMetadataWriteAccess,
 
             string documentEndpoint,
@@ -258,6 +264,7 @@ namespace Pulumi.AzureNative.DocumentDB.Latest
             ConsistencyPolicy = consistencyPolicy;
             Cors = cors;
             DatabaseAccountOfferType = databaseAccountOfferType;
+            DefaultIdentity = defaultIdentity;
             DisableKeyBasedMetadataWriteAccess = disableKeyBasedMetadataWriteAccess;
             DocumentEndpoint = documentEndpoint;
             EnableAnalyticalStorage = enableAnalyticalStorage;

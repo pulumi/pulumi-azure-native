@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * An Azure Cosmos DB trigger.
- * API Version: 2021-01-15.
+ * API Version: 2021-03-15.
  */
 export function getSqlResourceSqlTrigger(args: GetSqlResourceSqlTriggerArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlResourceSqlTriggerResult> {
     if (!opts) {

@@ -18,6 +18,7 @@ import * as v20190401 from "./v20190401";
 import * as v20190601 from "./v20190601";
 import * as v20200801preview from "./v20200801preview";
 import * as v20210101 from "./v20210101";
+import * as v20210201 from "./v20210201";
 
 export {
     latest,
@@ -36,6 +37,7 @@ export {
     v20190601,
     v20200801preview,
     v20210101,
+    v20210201,
 };
 
 export const AccessTier = {
@@ -155,6 +157,15 @@ export const EncryptionScopeState = {
  * The state of the encryption scope. Possible values (case-insensitive):  Enabled, Disabled.
  */
 export type EncryptionScopeState = (typeof EncryptionScopeState)[keyof typeof EncryptionScopeState];
+
+export const ExpirationAction = {
+    Log: "Log",
+} as const;
+
+/**
+ * The SAS expiration action. Can only be Log.
+ */
+export type ExpirationAction = (typeof ExpirationAction)[keyof typeof ExpirationAction];
 
 export const ExtendedLocationTypes = {
     EdgeZone: "EdgeZone",

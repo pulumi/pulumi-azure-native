@@ -12,7 +12,7 @@ import (
 )
 
 // An Azure Cosmos DB storedProcedure.
-// API Version: 2021-01-15.
+// API Version: 2021-03-15.
 type SqlResourceSqlStoredProcedure struct {
 	pulumi.CustomResourceState
 
@@ -106,6 +106,12 @@ func NewSqlResourceSqlStoredProcedure(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20210301preview:SqlResourceSqlStoredProcedure"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20210315:SqlResourceSqlStoredProcedure"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:documentdb/v20210315:SqlResourceSqlStoredProcedure"),
 		},
 	})
 	opts = append(opts, aliases)

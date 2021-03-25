@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DocumentDB
 {
     /// <summary>
     /// An Azure Cosmos DB Table.
-    /// API Version: 2021-01-15.
+    /// API Version: 2021-03-15.
     /// </summary>
     [AzureNativeResourceType("azure-native:documentdb:TableResourceTable")]
     public partial class TableResourceTable : Pulumi.CustomResource
@@ -100,6 +100,8 @@ namespace Pulumi.AzureNative.DocumentDB
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20210115:TableResourceTable"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20210301preview:TableResourceTable"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20210301preview:TableResourceTable"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210315:TableResourceTable"},
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20210315:TableResourceTable"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

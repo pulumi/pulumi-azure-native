@@ -53,7 +53,7 @@ export interface GetBackupArgs {
  */
 export interface GetBackupResult {
     /**
-     * Type of backup adhoc or scheduled
+     * Type of backup Manual or Scheduled
      */
     readonly backupType: string;
     /**

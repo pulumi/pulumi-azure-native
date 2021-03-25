@@ -114,7 +114,7 @@ class Backup(pulumi.CustomResource):
     @pulumi.getter(name="backupType")
     def backup_type(self) -> pulumi.Output[str]:
         """
-        Type of backup adhoc or scheduled
+        Type of backup Manual or Scheduled
         """
         return pulumi.get(self, "backup_type")
 

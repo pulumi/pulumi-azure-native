@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Storage
 {
     /// <summary>
     /// The storage account.
-    /// API Version: 2021-01-01.
+    /// API Version: 2021-02-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:storage:StorageAccount")]
     public partial class StorageAccount : Pulumi.CustomResource
@@ -107,6 +107,18 @@ namespace Pulumi.AzureNative.Storage
         public Output<bool?> IsHnsEnabled { get; private set; } = null!;
 
         /// <summary>
+        /// Gets the list of storage account keys creation time.
+        /// </summary>
+        [Output("keyCreationTime")]
+        public Output<ImmutableDictionary<string, string>> KeyCreationTime { get; private set; } = null!;
+
+        /// <summary>
+        /// KeyPolicy assigned to the storage account.
+        /// </summary>
+        [Output("keyPolicy")]
+        public Output<Outputs.KeyPolicyResponse> KeyPolicy { get; private set; } = null!;
+
+        /// <summary>
         /// Gets the Kind.
         /// </summary>
         [Output("kind")]
@@ -177,6 +189,12 @@ namespace Pulumi.AzureNative.Storage
         /// </summary>
         [Output("routingPreference")]
         public Output<Outputs.RoutingPreferenceResponse?> RoutingPreference { get; private set; } = null!;
+
+        /// <summary>
+        /// SasPolicy assigned to the storage account.
+        /// </summary>
+        [Output("sasPolicy")]
+        public Output<Outputs.SasPolicyResponse> SasPolicy { get; private set; } = null!;
 
         /// <summary>
         /// Gets the URLs that are used to perform a retrieval of a public blob, queue, or table object from the secondary location of the storage account. Only available if the SKU name is Standard_RAGRS.
@@ -278,6 +296,8 @@ namespace Pulumi.AzureNative.Storage
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20200801preview:StorageAccount"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20210101:StorageAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20210101:StorageAccount"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20210201:StorageAccount"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20210201:StorageAccount"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -374,6 +394,12 @@ namespace Pulumi.AzureNative.Storage
         public Input<bool>? IsHnsEnabled { get; set; }
 
         /// <summary>
+        /// KeyPolicy assigned to the storage account.
+        /// </summary>
+        [Input("keyPolicy")]
+        public Input<Inputs.KeyPolicyArgs>? KeyPolicy { get; set; }
+
+        /// <summary>
         /// Required. Indicates the type of storage account.
         /// </summary>
         [Input("kind", required: true)]
@@ -414,6 +440,12 @@ namespace Pulumi.AzureNative.Storage
         /// </summary>
         [Input("routingPreference")]
         public Input<Inputs.RoutingPreferenceArgs>? RoutingPreference { get; set; }
+
+        /// <summary>
+        /// SasPolicy assigned to the storage account.
+        /// </summary>
+        [Input("sasPolicy")]
+        public Input<Inputs.SasPolicyArgs>? SasPolicy { get; set; }
 
         /// <summary>
         /// Required. Gets or sets the SKU name.

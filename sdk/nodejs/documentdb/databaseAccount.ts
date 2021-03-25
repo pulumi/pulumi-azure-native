@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * An Azure Cosmos DB database account.
- * API Version: 2021-01-15.
+ * API Version: 2021-03-15.
  */
 export class DatabaseAccount extends pulumi.CustomResource {
     /**
@@ -64,6 +64,10 @@ export class DatabaseAccount extends pulumi.CustomResource {
      * The offer type for the Cosmos DB database account. Default value: Standard.
      */
     public readonly databaseAccountOfferType!: pulumi.Output<string>;
+    /**
+     * The default identity for accessing key vault used in features like customer managed keys. The default identity needs to be explicitly set by the users. It can be "FirstPartyIdentity", "SystemAssignedIdentity" and more.
+     */
+    public readonly defaultIdentity!: pulumi.Output<string | undefined>;
     /**
      * Disable write operations on metadata resources (databases, containers, throughput) via account keys
      */
@@ -197,6 +201,7 @@ export class DatabaseAccount extends pulumi.CustomResource {
             inputs["consistencyPolicy"] = args ? args.consistencyPolicy : undefined;
             inputs["cors"] = args ? args.cors : undefined;
             inputs["databaseAccountOfferType"] = args ? args.databaseAccountOfferType : undefined;
+            inputs["defaultIdentity"] = args ? args.defaultIdentity : undefined;
             inputs["disableKeyBasedMetadataWriteAccess"] = args ? args.disableKeyBasedMetadataWriteAccess : undefined;
             inputs["enableAnalyticalStorage"] = args ? args.enableAnalyticalStorage : undefined;
             inputs["enableAutomaticFailover"] = args ? args.enableAutomaticFailover : undefined;
@@ -232,6 +237,7 @@ export class DatabaseAccount extends pulumi.CustomResource {
             inputs["consistencyPolicy"] = undefined /*out*/;
             inputs["cors"] = undefined /*out*/;
             inputs["databaseAccountOfferType"] = undefined /*out*/;
+            inputs["defaultIdentity"] = undefined /*out*/;
             inputs["disableKeyBasedMetadataWriteAccess"] = undefined /*out*/;
             inputs["documentEndpoint"] = undefined /*out*/;
             inputs["enableAnalyticalStorage"] = undefined /*out*/;
@@ -262,7 +268,7 @@ export class DatabaseAccount extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb:DatabaseAccount" }, { type: "azure-native:documentdb/latest:DatabaseAccount" }, { type: "azure-nextgen:documentdb/latest:DatabaseAccount" }, { type: "azure-native:documentdb/v20150401:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20150401:DatabaseAccount" }, { type: "azure-native:documentdb/v20150408:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20150408:DatabaseAccount" }, { type: "azure-native:documentdb/v20151106:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20151106:DatabaseAccount" }, { type: "azure-native:documentdb/v20160319:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20160319:DatabaseAccount" }, { type: "azure-native:documentdb/v20160331:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20160331:DatabaseAccount" }, { type: "azure-native:documentdb/v20190801:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20190801:DatabaseAccount" }, { type: "azure-native:documentdb/v20191212:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20191212:DatabaseAccount" }, { type: "azure-native:documentdb/v20200301:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20200301:DatabaseAccount" }, { type: "azure-native:documentdb/v20200401:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20200401:DatabaseAccount" }, { type: "azure-native:documentdb/v20200601preview:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20200601preview:DatabaseAccount" }, { type: "azure-native:documentdb/v20200901:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20200901:DatabaseAccount" }, { type: "azure-native:documentdb/v20210115:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20210115:DatabaseAccount" }, { type: "azure-native:documentdb/v20210301preview:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20210301preview:DatabaseAccount" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb:DatabaseAccount" }, { type: "azure-native:documentdb/latest:DatabaseAccount" }, { type: "azure-nextgen:documentdb/latest:DatabaseAccount" }, { type: "azure-native:documentdb/v20150401:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20150401:DatabaseAccount" }, { type: "azure-native:documentdb/v20150408:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20150408:DatabaseAccount" }, { type: "azure-native:documentdb/v20151106:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20151106:DatabaseAccount" }, { type: "azure-native:documentdb/v20160319:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20160319:DatabaseAccount" }, { type: "azure-native:documentdb/v20160331:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20160331:DatabaseAccount" }, { type: "azure-native:documentdb/v20190801:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20190801:DatabaseAccount" }, { type: "azure-native:documentdb/v20191212:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20191212:DatabaseAccount" }, { type: "azure-native:documentdb/v20200301:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20200301:DatabaseAccount" }, { type: "azure-native:documentdb/v20200401:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20200401:DatabaseAccount" }, { type: "azure-native:documentdb/v20200601preview:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20200601preview:DatabaseAccount" }, { type: "azure-native:documentdb/v20200901:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20200901:DatabaseAccount" }, { type: "azure-native:documentdb/v20210115:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20210115:DatabaseAccount" }, { type: "azure-native:documentdb/v20210301preview:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20210301preview:DatabaseAccount" }, { type: "azure-native:documentdb/v20210315:DatabaseAccount" }, { type: "azure-nextgen:documentdb/v20210315:DatabaseAccount" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DatabaseAccount.__pulumiType, name, inputs, opts);
     }
@@ -304,6 +310,10 @@ export interface DatabaseAccountArgs {
      * The offer type for the database
      */
     readonly databaseAccountOfferType: pulumi.Input<enums.documentdb.DatabaseAccountOfferType>;
+    /**
+     * The default identity for accessing key vault used in features like customer managed keys. The default identity needs to be explicitly set by the users. It can be "FirstPartyIdentity", "SystemAssignedIdentity" and more.
+     */
+    readonly defaultIdentity?: pulumi.Input<string>;
     /**
      * Disable write operations on metadata resources (databases, containers, throughput) via account keys
      */

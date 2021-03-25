@@ -8,7 +8,7 @@ import (
 )
 
 // Resource for OuContainer.
-// Latest API Version: 2020-01-01.
+// Latest API Version: 2021-03-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:aad:getOuContainer'.
 func LookupOuContainer(ctx *pulumi.Context, args *LookupOuContainerArgs, opts ...pulumi.InvokeOption) (*LookupOuContainerResult, error) {
@@ -53,6 +53,8 @@ type LookupOuContainerResult struct {
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Status of OuContainer instance
 	ServiceStatus string `pulumi:"serviceStatus"`
+	// The system meta data relating to this resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Azure Active Directory tenant id

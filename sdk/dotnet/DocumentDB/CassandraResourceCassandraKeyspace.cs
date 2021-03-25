@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DocumentDB
 {
     /// <summary>
     /// An Azure Cosmos DB Cassandra keyspace.
-    /// API Version: 2021-01-15.
+    /// API Version: 2021-03-15.
     /// </summary>
     [AzureNativeResourceType("azure-native:documentdb:CassandraResourceCassandraKeyspace")]
     public partial class CassandraResourceCassandraKeyspace : Pulumi.CustomResource
@@ -100,6 +100,8 @@ namespace Pulumi.AzureNative.DocumentDB
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20210115:CassandraResourceCassandraKeyspace"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20210301preview:CassandraResourceCassandraKeyspace"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20210301preview:CassandraResourceCassandraKeyspace"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210315:CassandraResourceCassandraKeyspace"},
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20210315:CassandraResourceCassandraKeyspace"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

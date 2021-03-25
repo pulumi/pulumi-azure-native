@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DocumentDB
     {
         /// <summary>
         /// An Azure Cosmos DB storedProcedure.
-        /// API Version: 2021-01-15.
+        /// API Version: 2021-03-15.
         /// </summary>
         public static Task<GetSqlResourceSqlStoredProcedureResult> InvokeAsync(GetSqlResourceSqlStoredProcedureArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSqlResourceSqlStoredProcedureResult>("azure-native:documentdb:getSqlResourceSqlStoredProcedure", args ?? new GetSqlResourceSqlStoredProcedureArgs(), options.WithVersion());

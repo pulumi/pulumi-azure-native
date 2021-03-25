@@ -31,7 +31,7 @@ class OuContainer(pulumi.CustomResource):
                  __opts__=None):
         """
         Resource for OuContainer.
-        Latest API Version: 2020-01-01.
+        Latest API Version: 2021-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -80,6 +80,7 @@ class OuContainer(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['service_status'] = None
+            __props__['system_data'] = None
             __props__['tags'] = None
             __props__['tenant_id'] = None
             __props__['type'] = None
@@ -117,6 +118,7 @@ class OuContainer(pulumi.CustomResource):
         __props__["name"] = None
         __props__["provisioning_state"] = None
         __props__["service_status"] = None
+        __props__["system_data"] = None
         __props__["tags"] = None
         __props__["tenant_id"] = None
         __props__["type"] = None
@@ -201,6 +203,14 @@ class OuContainer(pulumi.CustomResource):
         Status of OuContainer instance
         """
         return pulumi.get(self, "service_status")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        The system meta data relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Storage
 {
     /// <summary>
-    /// API Version: 2021-01-01.
+    /// API Version: 2021-02-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:storage:Queue")]
     public partial class Queue : Pulumi.CustomResource
@@ -73,6 +73,8 @@ namespace Pulumi.AzureNative.Storage
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20200801preview:Queue"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20210101:Queue"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20210101:Queue"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20210201:Queue"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20210201:Queue"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

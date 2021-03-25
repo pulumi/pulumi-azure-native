@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * An Azure Cosmos DB storedProcedure.
- * API Version: 2021-01-15.
+ * API Version: 2021-03-15.
  */
 export function getSqlResourceSqlStoredProcedure(args: GetSqlResourceSqlStoredProcedureArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlResourceSqlStoredProcedureResult> {
     if (!opts) {

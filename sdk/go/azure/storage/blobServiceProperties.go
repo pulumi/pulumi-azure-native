@@ -12,7 +12,7 @@ import (
 )
 
 // The properties of a storage account’s Blob service.
-// API Version: 2021-01-01.
+// API Version: 2021-02-01.
 type BlobServiceProperties struct {
 	pulumi.CustomResourceState
 
@@ -100,6 +100,12 @@ func NewBlobServiceProperties(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storage/v20210101:BlobServiceProperties"),
+		},
+		{
+			Type: pulumi.String("azure-native:storage/v20210201:BlobServiceProperties"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:storage/v20210201:BlobServiceProperties"),
 		},
 	})
 	opts = append(opts, aliases)

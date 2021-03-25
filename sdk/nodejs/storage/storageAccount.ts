@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The storage account.
- * API Version: 2021-01-01.
+ * API Version: 2021-02-01.
  */
 export class StorageAccount extends pulumi.CustomResource {
     /**
@@ -97,6 +97,14 @@ export class StorageAccount extends pulumi.CustomResource {
      */
     public readonly isHnsEnabled!: pulumi.Output<boolean | undefined>;
     /**
+     * Gets the list of storage account keys creation time.
+     */
+    public /*out*/ readonly keyCreationTime!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * KeyPolicy assigned to the storage account.
+     */
+    public readonly keyPolicy!: pulumi.Output<outputs.storage.KeyPolicyResponse>;
+    /**
      * Gets the Kind.
      */
     public readonly kind!: pulumi.Output<string>;
@@ -144,6 +152,10 @@ export class StorageAccount extends pulumi.CustomResource {
      * Maintains information about the network routing choice opted by the user for data transfer
      */
     public readonly routingPreference!: pulumi.Output<outputs.storage.RoutingPreferenceResponse | undefined>;
+    /**
+     * SasPolicy assigned to the storage account.
+     */
+    public readonly sasPolicy!: pulumi.Output<outputs.storage.SasPolicyResponse>;
     /**
      * Gets the URLs that are used to perform a retrieval of a public blob, queue, or table object from the secondary location of the storage account. Only available if the SKU name is Standard_RAGRS.
      */
@@ -205,6 +217,7 @@ export class StorageAccount extends pulumi.CustomResource {
             inputs["extendedLocation"] = args ? args.extendedLocation : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["isHnsEnabled"] = args ? args.isHnsEnabled : undefined;
+            inputs["keyPolicy"] = args ? args.keyPolicy : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["largeFileSharesState"] = args ? args.largeFileSharesState : undefined;
             inputs["location"] = args ? args.location : undefined;
@@ -212,12 +225,14 @@ export class StorageAccount extends pulumi.CustomResource {
             inputs["networkRuleSet"] = args ? args.networkRuleSet : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["routingPreference"] = args ? args.routingPreference : undefined;
+            inputs["sasPolicy"] = args ? args.sasPolicy : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["blobRestoreStatus"] = undefined /*out*/;
             inputs["creationTime"] = undefined /*out*/;
             inputs["failoverInProgress"] = undefined /*out*/;
             inputs["geoReplicationStats"] = undefined /*out*/;
+            inputs["keyCreationTime"] = undefined /*out*/;
             inputs["lastGeoFailoverTime"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["primaryEndpoints"] = undefined /*out*/;
@@ -245,6 +260,8 @@ export class StorageAccount extends pulumi.CustomResource {
             inputs["geoReplicationStats"] = undefined /*out*/;
             inputs["identity"] = undefined /*out*/;
             inputs["isHnsEnabled"] = undefined /*out*/;
+            inputs["keyCreationTime"] = undefined /*out*/;
+            inputs["keyPolicy"] = undefined /*out*/;
             inputs["kind"] = undefined /*out*/;
             inputs["largeFileSharesState"] = undefined /*out*/;
             inputs["lastGeoFailoverTime"] = undefined /*out*/;
@@ -257,6 +274,7 @@ export class StorageAccount extends pulumi.CustomResource {
             inputs["privateEndpointConnections"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["routingPreference"] = undefined /*out*/;
+            inputs["sasPolicy"] = undefined /*out*/;
             inputs["secondaryEndpoints"] = undefined /*out*/;
             inputs["secondaryLocation"] = undefined /*out*/;
             inputs["sku"] = undefined /*out*/;
@@ -268,7 +286,7 @@ export class StorageAccount extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:storage:StorageAccount" }, { type: "azure-native:storage/latest:StorageAccount" }, { type: "azure-nextgen:storage/latest:StorageAccount" }, { type: "azure-native:storage/v20150501preview:StorageAccount" }, { type: "azure-nextgen:storage/v20150501preview:StorageAccount" }, { type: "azure-native:storage/v20150615:StorageAccount" }, { type: "azure-nextgen:storage/v20150615:StorageAccount" }, { type: "azure-native:storage/v20160101:StorageAccount" }, { type: "azure-nextgen:storage/v20160101:StorageAccount" }, { type: "azure-native:storage/v20160501:StorageAccount" }, { type: "azure-nextgen:storage/v20160501:StorageAccount" }, { type: "azure-native:storage/v20161201:StorageAccount" }, { type: "azure-nextgen:storage/v20161201:StorageAccount" }, { type: "azure-native:storage/v20170601:StorageAccount" }, { type: "azure-nextgen:storage/v20170601:StorageAccount" }, { type: "azure-native:storage/v20171001:StorageAccount" }, { type: "azure-nextgen:storage/v20171001:StorageAccount" }, { type: "azure-native:storage/v20180201:StorageAccount" }, { type: "azure-nextgen:storage/v20180201:StorageAccount" }, { type: "azure-native:storage/v20180301preview:StorageAccount" }, { type: "azure-nextgen:storage/v20180301preview:StorageAccount" }, { type: "azure-native:storage/v20180701:StorageAccount" }, { type: "azure-nextgen:storage/v20180701:StorageAccount" }, { type: "azure-native:storage/v20181101:StorageAccount" }, { type: "azure-nextgen:storage/v20181101:StorageAccount" }, { type: "azure-native:storage/v20190401:StorageAccount" }, { type: "azure-nextgen:storage/v20190401:StorageAccount" }, { type: "azure-native:storage/v20190601:StorageAccount" }, { type: "azure-nextgen:storage/v20190601:StorageAccount" }, { type: "azure-native:storage/v20200801preview:StorageAccount" }, { type: "azure-nextgen:storage/v20200801preview:StorageAccount" }, { type: "azure-native:storage/v20210101:StorageAccount" }, { type: "azure-nextgen:storage/v20210101:StorageAccount" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:storage:StorageAccount" }, { type: "azure-native:storage/latest:StorageAccount" }, { type: "azure-nextgen:storage/latest:StorageAccount" }, { type: "azure-native:storage/v20150501preview:StorageAccount" }, { type: "azure-nextgen:storage/v20150501preview:StorageAccount" }, { type: "azure-native:storage/v20150615:StorageAccount" }, { type: "azure-nextgen:storage/v20150615:StorageAccount" }, { type: "azure-native:storage/v20160101:StorageAccount" }, { type: "azure-nextgen:storage/v20160101:StorageAccount" }, { type: "azure-native:storage/v20160501:StorageAccount" }, { type: "azure-nextgen:storage/v20160501:StorageAccount" }, { type: "azure-native:storage/v20161201:StorageAccount" }, { type: "azure-nextgen:storage/v20161201:StorageAccount" }, { type: "azure-native:storage/v20170601:StorageAccount" }, { type: "azure-nextgen:storage/v20170601:StorageAccount" }, { type: "azure-native:storage/v20171001:StorageAccount" }, { type: "azure-nextgen:storage/v20171001:StorageAccount" }, { type: "azure-native:storage/v20180201:StorageAccount" }, { type: "azure-nextgen:storage/v20180201:StorageAccount" }, { type: "azure-native:storage/v20180301preview:StorageAccount" }, { type: "azure-nextgen:storage/v20180301preview:StorageAccount" }, { type: "azure-native:storage/v20180701:StorageAccount" }, { type: "azure-nextgen:storage/v20180701:StorageAccount" }, { type: "azure-native:storage/v20181101:StorageAccount" }, { type: "azure-nextgen:storage/v20181101:StorageAccount" }, { type: "azure-native:storage/v20190401:StorageAccount" }, { type: "azure-nextgen:storage/v20190401:StorageAccount" }, { type: "azure-native:storage/v20190601:StorageAccount" }, { type: "azure-nextgen:storage/v20190601:StorageAccount" }, { type: "azure-native:storage/v20200801preview:StorageAccount" }, { type: "azure-nextgen:storage/v20200801preview:StorageAccount" }, { type: "azure-native:storage/v20210101:StorageAccount" }, { type: "azure-nextgen:storage/v20210101:StorageAccount" }, { type: "azure-native:storage/v20210201:StorageAccount" }, { type: "azure-nextgen:storage/v20210201:StorageAccount" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(StorageAccount.__pulumiType, name, inputs, opts);
     }
@@ -327,6 +345,10 @@ export interface StorageAccountArgs {
      */
     readonly isHnsEnabled?: pulumi.Input<boolean>;
     /**
+     * KeyPolicy assigned to the storage account.
+     */
+    readonly keyPolicy?: pulumi.Input<inputs.storage.KeyPolicy>;
+    /**
      * Required. Indicates the type of storage account.
      */
     readonly kind: pulumi.Input<string | enums.storage.Kind>;
@@ -354,6 +376,10 @@ export interface StorageAccountArgs {
      * Maintains information about the network routing choice opted by the user for data transfer
      */
     readonly routingPreference?: pulumi.Input<inputs.storage.RoutingPreference>;
+    /**
+     * SasPolicy assigned to the storage account.
+     */
+    readonly sasPolicy?: pulumi.Input<inputs.storage.SasPolicy>;
     /**
      * Required. Gets or sets the SKU name.
      */

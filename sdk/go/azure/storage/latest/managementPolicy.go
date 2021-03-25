@@ -12,7 +12,7 @@ import (
 )
 
 // The Get Storage Account ManagementPolicies operation response.
-// Latest API Version: 2021-01-01.
+// Latest API Version: 2021-02-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storage:ManagementPolicy'.
 type ManagementPolicy struct {
@@ -89,6 +89,12 @@ func NewManagementPolicy(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storage/v20210101:ManagementPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:storage/v20210201:ManagementPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:storage/v20210201:ManagementPolicy"),
 		},
 	})
 	opts = append(opts, aliases)

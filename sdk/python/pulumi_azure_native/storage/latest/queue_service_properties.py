@@ -30,7 +30,7 @@ class QueueServiceProperties(pulumi.CustomResource):
                  __opts__=None):
         """
         The properties of a storage account’s Queue service.
-        Latest API Version: 2021-01-01.
+        Latest API Version: 2021-02-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -67,7 +67,7 @@ class QueueServiceProperties(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storage/latest:QueueServiceProperties"), pulumi.Alias(type_="azure-native:storage:QueueServiceProperties"), pulumi.Alias(type_="azure-nextgen:storage:QueueServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20190601:QueueServiceProperties"), pulumi.Alias(type_="azure-nextgen:storage/v20190601:QueueServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20200801preview:QueueServiceProperties"), pulumi.Alias(type_="azure-nextgen:storage/v20200801preview:QueueServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20210101:QueueServiceProperties"), pulumi.Alias(type_="azure-nextgen:storage/v20210101:QueueServiceProperties")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storage/latest:QueueServiceProperties"), pulumi.Alias(type_="azure-native:storage:QueueServiceProperties"), pulumi.Alias(type_="azure-nextgen:storage:QueueServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20190601:QueueServiceProperties"), pulumi.Alias(type_="azure-nextgen:storage/v20190601:QueueServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20200801preview:QueueServiceProperties"), pulumi.Alias(type_="azure-nextgen:storage/v20200801preview:QueueServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20210101:QueueServiceProperties"), pulumi.Alias(type_="azure-nextgen:storage/v20210101:QueueServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20210201:QueueServiceProperties"), pulumi.Alias(type_="azure-nextgen:storage/v20210201:QueueServiceProperties")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(QueueServiceProperties, __self__).__init__(
             'azure-native:storage/latest:QueueServiceProperties',

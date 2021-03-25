@@ -8,7 +8,7 @@ import (
 )
 
 // Resource for OuContainer.
-// API Version: 2020-01-01.
+// API Version: 2021-03-01.
 func LookupOuContainer(ctx *pulumi.Context, args *LookupOuContainerArgs, opts ...pulumi.InvokeOption) (*LookupOuContainerResult, error) {
 	var rv LookupOuContainerResult
 	err := ctx.Invoke("azure-native:aad:getOuContainer", args, &rv, opts...)
@@ -51,6 +51,8 @@ type LookupOuContainerResult struct {
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Status of OuContainer instance
 	ServiceStatus string `pulumi:"serviceStatus"`
+	// The system meta data relating to this resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Azure Active Directory tenant id

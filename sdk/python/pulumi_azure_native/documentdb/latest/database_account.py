@@ -30,6 +30,7 @@ class DatabaseAccount(pulumi.CustomResource):
                  consistency_policy: Optional[pulumi.Input[pulumi.InputType['ConsistencyPolicyArgs']]] = None,
                  cors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CorsPolicyArgs']]]]] = None,
                  database_account_offer_type: Optional[pulumi.Input['DatabaseAccountOfferType']] = None,
+                 default_identity: Optional[pulumi.Input[str]] = None,
                  disable_key_based_metadata_write_access: Optional[pulumi.Input[bool]] = None,
                  enable_analytical_storage: Optional[pulumi.Input[bool]] = None,
                  enable_automatic_failover: Optional[pulumi.Input[bool]] = None,
@@ -54,7 +55,7 @@ class DatabaseAccount(pulumi.CustomResource):
                  __opts__=None):
         """
         An Azure Cosmos DB database account.
-        Latest API Version: 2021-01-15.
+        Latest API Version: 2021-03-15.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -66,6 +67,7 @@ class DatabaseAccount(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ConsistencyPolicyArgs']] consistency_policy: The consistency policy for the Cosmos DB account.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CorsPolicyArgs']]]] cors: The CORS policy for the Cosmos DB database account.
         :param pulumi.Input['DatabaseAccountOfferType'] database_account_offer_type: The offer type for the database
+        :param pulumi.Input[str] default_identity: The default identity for accessing key vault used in features like customer managed keys. The default identity needs to be explicitly set by the users. It can be "FirstPartyIdentity", "SystemAssignedIdentity" and more.
         :param pulumi.Input[bool] disable_key_based_metadata_write_access: Disable write operations on metadata resources (databases, containers, throughput) via account keys
         :param pulumi.Input[bool] enable_analytical_storage: Flag to indicate whether to enable storage analytics.
         :param pulumi.Input[bool] enable_automatic_failover: Enables automatic failover of the write region in the rare event that the region is unavailable due to an outage. Automatic failover will result in a new write region for the account and is chosen based on the failover priorities configured for the account.
@@ -114,6 +116,7 @@ class DatabaseAccount(pulumi.CustomResource):
             if database_account_offer_type is None and not opts.urn:
                 raise TypeError("Missing required property 'database_account_offer_type'")
             __props__['database_account_offer_type'] = database_account_offer_type
+            __props__['default_identity'] = default_identity
             __props__['disable_key_based_metadata_write_access'] = disable_key_based_metadata_write_access
             __props__['enable_analytical_storage'] = enable_analytical_storage
             __props__['enable_automatic_failover'] = enable_automatic_failover
@@ -147,7 +150,7 @@ class DatabaseAccount(pulumi.CustomResource):
             __props__['read_locations'] = None
             __props__['type'] = None
             __props__['write_locations'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:documentdb/latest:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb:DatabaseAccount"), pulumi.Alias(type_="azure-nextgen:documentdb:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20150401:DatabaseAccount"), pulumi.Alias(type_="azure-nextgen:documentdb/v20150401:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20150408:DatabaseAccount"), pulumi.Alias(type_="azure-nextgen:documentdb/v20150408:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20151106:DatabaseAccount"), pulumi.Alias(type_="azure-nextgen:documentdb/v20151106:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20160319:DatabaseAccount"), pulumi.Alias(type_="azure-nextgen:documentdb/v20160319:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20160331:DatabaseAccount"), pulumi.Alias(type_="azure-nextgen:documentdb/v20160331:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20190801:DatabaseAccount"), pulumi.Alias(type_="azure-nextgen:documentdb/v20190801:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20191212:DatabaseAccount"), pulumi.Alias(type_="azure-nextgen:documentdb/v20191212:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20200301:DatabaseAccount"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200301:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20200401:DatabaseAccount"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200401:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20200601preview:DatabaseAccount"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200601preview:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20200901:DatabaseAccount"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200901:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20210115:DatabaseAccount"), pulumi.Alias(type_="azure-nextgen:documentdb/v20210115:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20210301preview:DatabaseAccount"), pulumi.Alias(type_="azure-nextgen:documentdb/v20210301preview:DatabaseAccount")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:documentdb/latest:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb:DatabaseAccount"), pulumi.Alias(type_="azure-nextgen:documentdb:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20150401:DatabaseAccount"), pulumi.Alias(type_="azure-nextgen:documentdb/v20150401:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20150408:DatabaseAccount"), pulumi.Alias(type_="azure-nextgen:documentdb/v20150408:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20151106:DatabaseAccount"), pulumi.Alias(type_="azure-nextgen:documentdb/v20151106:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20160319:DatabaseAccount"), pulumi.Alias(type_="azure-nextgen:documentdb/v20160319:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20160331:DatabaseAccount"), pulumi.Alias(type_="azure-nextgen:documentdb/v20160331:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20190801:DatabaseAccount"), pulumi.Alias(type_="azure-nextgen:documentdb/v20190801:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20191212:DatabaseAccount"), pulumi.Alias(type_="azure-nextgen:documentdb/v20191212:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20200301:DatabaseAccount"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200301:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20200401:DatabaseAccount"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200401:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20200601preview:DatabaseAccount"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200601preview:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20200901:DatabaseAccount"), pulumi.Alias(type_="azure-nextgen:documentdb/v20200901:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20210115:DatabaseAccount"), pulumi.Alias(type_="azure-nextgen:documentdb/v20210115:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20210301preview:DatabaseAccount"), pulumi.Alias(type_="azure-nextgen:documentdb/v20210301preview:DatabaseAccount"), pulumi.Alias(type_="azure-native:documentdb/v20210315:DatabaseAccount"), pulumi.Alias(type_="azure-nextgen:documentdb/v20210315:DatabaseAccount")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DatabaseAccount, __self__).__init__(
             'azure-native:documentdb/latest:DatabaseAccount',
@@ -178,6 +181,7 @@ class DatabaseAccount(pulumi.CustomResource):
         __props__["consistency_policy"] = None
         __props__["cors"] = None
         __props__["database_account_offer_type"] = None
+        __props__["default_identity"] = None
         __props__["disable_key_based_metadata_write_access"] = None
         __props__["document_endpoint"] = None
         __props__["enable_analytical_storage"] = None
@@ -261,6 +265,14 @@ class DatabaseAccount(pulumi.CustomResource):
         The offer type for the Cosmos DB database account. Default value: Standard.
         """
         return pulumi.get(self, "database_account_offer_type")
+
+    @property
+    @pulumi.getter(name="defaultIdentity")
+    def default_identity(self) -> pulumi.Output[Optional[str]]:
+        """
+        The default identity for accessing key vault used in features like customer managed keys. The default identity needs to be explicitly set by the users. It can be "FirstPartyIdentity", "SystemAssignedIdentity" and more.
+        """
+        return pulumi.get(self, "default_identity")
 
     @property
     @pulumi.getter(name="disableKeyBasedMetadataWriteAccess")

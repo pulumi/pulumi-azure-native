@@ -32,7 +32,7 @@ class FileServiceProperties(pulumi.CustomResource):
                  __opts__=None):
         """
         The properties of File services in storage account.
-        Latest API Version: 2021-01-01.
+        Latest API Version: 2021-02-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -74,7 +74,7 @@ class FileServiceProperties(pulumi.CustomResource):
             __props__['name'] = None
             __props__['sku'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storage/latest:FileServiceProperties"), pulumi.Alias(type_="azure-native:storage:FileServiceProperties"), pulumi.Alias(type_="azure-nextgen:storage:FileServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20190401:FileServiceProperties"), pulumi.Alias(type_="azure-nextgen:storage/v20190401:FileServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20190601:FileServiceProperties"), pulumi.Alias(type_="azure-nextgen:storage/v20190601:FileServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20200801preview:FileServiceProperties"), pulumi.Alias(type_="azure-nextgen:storage/v20200801preview:FileServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20210101:FileServiceProperties"), pulumi.Alias(type_="azure-nextgen:storage/v20210101:FileServiceProperties")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storage/latest:FileServiceProperties"), pulumi.Alias(type_="azure-native:storage:FileServiceProperties"), pulumi.Alias(type_="azure-nextgen:storage:FileServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20190401:FileServiceProperties"), pulumi.Alias(type_="azure-nextgen:storage/v20190401:FileServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20190601:FileServiceProperties"), pulumi.Alias(type_="azure-nextgen:storage/v20190601:FileServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20200801preview:FileServiceProperties"), pulumi.Alias(type_="azure-nextgen:storage/v20200801preview:FileServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20210101:FileServiceProperties"), pulumi.Alias(type_="azure-nextgen:storage/v20210101:FileServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20210201:FileServiceProperties"), pulumi.Alias(type_="azure-nextgen:storage/v20210201:FileServiceProperties")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(FileServiceProperties, __self__).__init__(
             'azure-native:storage/latest:FileServiceProperties',

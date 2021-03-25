@@ -236,6 +236,33 @@ func (e EncryptionScopeStateEnum) ToStringPtrOutputWithContext(ctx context.Conte
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// The SAS expiration action. Can only be Log.
+type ExpirationAction pulumi.String
+
+const (
+	ExpirationActionLog = ExpirationAction("Log")
+)
+
+func (ExpirationAction) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e ExpirationAction) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ExpirationAction) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ExpirationAction) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ExpirationAction) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // The type of the extended location.
 type ExtendedLocationTypes pulumi.String
 

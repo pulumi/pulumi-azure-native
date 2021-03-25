@@ -12,7 +12,7 @@ import (
 )
 
 // An Azure Cosmos DB MongoDB database.
-// Latest API Version: 2021-01-15.
+// Latest API Version: 2021-03-15.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:documentdb:MongoDBResourceMongoDBDatabase'.
 type MongoDBResourceMongoDBDatabase struct {
@@ -133,6 +133,12 @@ func NewMongoDBResourceMongoDBDatabase(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20210301preview:MongoDBResourceMongoDBDatabase"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20210315:MongoDBResourceMongoDBDatabase"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:documentdb/v20210315:MongoDBResourceMongoDBDatabase"),
 		},
 	})
 	opts = append(opts, aliases)

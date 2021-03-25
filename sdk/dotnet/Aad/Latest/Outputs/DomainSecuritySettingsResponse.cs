@@ -14,6 +14,14 @@ namespace Pulumi.AzureNative.Aad.Latest.Outputs
     public sealed class DomainSecuritySettingsResponse
     {
         /// <summary>
+        /// A flag to determine whether or not KerberosArmoring is enabled or disabled.
+        /// </summary>
+        public readonly string? KerberosArmoring;
+        /// <summary>
+        /// A flag to determine whether or not KerberosRc4Encryption is enabled or disabled.
+        /// </summary>
+        public readonly string? KerberosRc4Encryption;
+        /// <summary>
         /// A flag to determine whether or not NtlmV1 is enabled or disabled.
         /// </summary>
         public readonly string? NtlmV1;
@@ -36,6 +44,10 @@ namespace Pulumi.AzureNative.Aad.Latest.Outputs
 
         [OutputConstructor]
         private DomainSecuritySettingsResponse(
+            string? kerberosArmoring,
+
+            string? kerberosRc4Encryption,
+
             string? ntlmV1,
 
             string? syncKerberosPasswords,
@@ -46,6 +58,8 @@ namespace Pulumi.AzureNative.Aad.Latest.Outputs
 
             string? tlsV1)
         {
+            KerberosArmoring = kerberosArmoring;
+            KerberosRc4Encryption = kerberosRc4Encryption;
             NtlmV1 = ntlmV1;
             SyncKerberosPasswords = syncKerberosPasswords;
             SyncNtlmPasswords = syncNtlmPasswords;

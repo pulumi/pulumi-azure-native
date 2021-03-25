@@ -43,7 +43,7 @@ export class Backup extends pulumi.CustomResource {
      */
     public /*out*/ readonly backupId!: pulumi.Output<string>;
     /**
-     * Type of backup adhoc or scheduled
+     * Type of backup Manual or Scheduled
      */
     public /*out*/ readonly backupType!: pulumi.Output<string>;
     /**

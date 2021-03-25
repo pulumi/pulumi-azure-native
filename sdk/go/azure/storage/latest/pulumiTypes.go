@@ -7377,6 +7377,274 @@ func (o ImmutabilityPolicyPropertiesResponsePtrOutput) UpdateHistory() UpdateHis
 	}).(UpdateHistoryPropertyResponseArrayOutput)
 }
 
+// KeyPolicy assigned to the storage account.
+type KeyPolicy struct {
+	// The key expiration period in days.
+	KeyExpirationPeriodInDays int `pulumi:"keyExpirationPeriodInDays"`
+}
+
+// KeyPolicyInput is an input type that accepts KeyPolicyArgs and KeyPolicyOutput values.
+// You can construct a concrete instance of `KeyPolicyInput` via:
+//
+//          KeyPolicyArgs{...}
+type KeyPolicyInput interface {
+	pulumi.Input
+
+	ToKeyPolicyOutput() KeyPolicyOutput
+	ToKeyPolicyOutputWithContext(context.Context) KeyPolicyOutput
+}
+
+// KeyPolicy assigned to the storage account.
+type KeyPolicyArgs struct {
+	// The key expiration period in days.
+	KeyExpirationPeriodInDays pulumi.IntInput `pulumi:"keyExpirationPeriodInDays"`
+}
+
+func (KeyPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyPolicy)(nil)).Elem()
+}
+
+func (i KeyPolicyArgs) ToKeyPolicyOutput() KeyPolicyOutput {
+	return i.ToKeyPolicyOutputWithContext(context.Background())
+}
+
+func (i KeyPolicyArgs) ToKeyPolicyOutputWithContext(ctx context.Context) KeyPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyPolicyOutput)
+}
+
+func (i KeyPolicyArgs) ToKeyPolicyPtrOutput() KeyPolicyPtrOutput {
+	return i.ToKeyPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i KeyPolicyArgs) ToKeyPolicyPtrOutputWithContext(ctx context.Context) KeyPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyPolicyOutput).ToKeyPolicyPtrOutputWithContext(ctx)
+}
+
+// KeyPolicyPtrInput is an input type that accepts KeyPolicyArgs, KeyPolicyPtr and KeyPolicyPtrOutput values.
+// You can construct a concrete instance of `KeyPolicyPtrInput` via:
+//
+//          KeyPolicyArgs{...}
+//
+//  or:
+//
+//          nil
+type KeyPolicyPtrInput interface {
+	pulumi.Input
+
+	ToKeyPolicyPtrOutput() KeyPolicyPtrOutput
+	ToKeyPolicyPtrOutputWithContext(context.Context) KeyPolicyPtrOutput
+}
+
+type keyPolicyPtrType KeyPolicyArgs
+
+func KeyPolicyPtr(v *KeyPolicyArgs) KeyPolicyPtrInput {
+	return (*keyPolicyPtrType)(v)
+}
+
+func (*keyPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyPolicy)(nil)).Elem()
+}
+
+func (i *keyPolicyPtrType) ToKeyPolicyPtrOutput() KeyPolicyPtrOutput {
+	return i.ToKeyPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *keyPolicyPtrType) ToKeyPolicyPtrOutputWithContext(ctx context.Context) KeyPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyPolicyPtrOutput)
+}
+
+// KeyPolicy assigned to the storage account.
+type KeyPolicyOutput struct{ *pulumi.OutputState }
+
+func (KeyPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyPolicy)(nil)).Elem()
+}
+
+func (o KeyPolicyOutput) ToKeyPolicyOutput() KeyPolicyOutput {
+	return o
+}
+
+func (o KeyPolicyOutput) ToKeyPolicyOutputWithContext(ctx context.Context) KeyPolicyOutput {
+	return o
+}
+
+func (o KeyPolicyOutput) ToKeyPolicyPtrOutput() KeyPolicyPtrOutput {
+	return o.ToKeyPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o KeyPolicyOutput) ToKeyPolicyPtrOutputWithContext(ctx context.Context) KeyPolicyPtrOutput {
+	return o.ApplyT(func(v KeyPolicy) *KeyPolicy {
+		return &v
+	}).(KeyPolicyPtrOutput)
+}
+
+// The key expiration period in days.
+func (o KeyPolicyOutput) KeyExpirationPeriodInDays() pulumi.IntOutput {
+	return o.ApplyT(func(v KeyPolicy) int { return v.KeyExpirationPeriodInDays }).(pulumi.IntOutput)
+}
+
+type KeyPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (KeyPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyPolicy)(nil)).Elem()
+}
+
+func (o KeyPolicyPtrOutput) ToKeyPolicyPtrOutput() KeyPolicyPtrOutput {
+	return o
+}
+
+func (o KeyPolicyPtrOutput) ToKeyPolicyPtrOutputWithContext(ctx context.Context) KeyPolicyPtrOutput {
+	return o
+}
+
+func (o KeyPolicyPtrOutput) Elem() KeyPolicyOutput {
+	return o.ApplyT(func(v *KeyPolicy) KeyPolicy { return *v }).(KeyPolicyOutput)
+}
+
+// The key expiration period in days.
+func (o KeyPolicyPtrOutput) KeyExpirationPeriodInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KeyPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyExpirationPeriodInDays
+	}).(pulumi.IntPtrOutput)
+}
+
+// KeyPolicy assigned to the storage account.
+type KeyPolicyResponse struct {
+	// The key expiration period in days.
+	KeyExpirationPeriodInDays int `pulumi:"keyExpirationPeriodInDays"`
+}
+
+// KeyPolicyResponseInput is an input type that accepts KeyPolicyResponseArgs and KeyPolicyResponseOutput values.
+// You can construct a concrete instance of `KeyPolicyResponseInput` via:
+//
+//          KeyPolicyResponseArgs{...}
+type KeyPolicyResponseInput interface {
+	pulumi.Input
+
+	ToKeyPolicyResponseOutput() KeyPolicyResponseOutput
+	ToKeyPolicyResponseOutputWithContext(context.Context) KeyPolicyResponseOutput
+}
+
+// KeyPolicy assigned to the storage account.
+type KeyPolicyResponseArgs struct {
+	// The key expiration period in days.
+	KeyExpirationPeriodInDays pulumi.IntInput `pulumi:"keyExpirationPeriodInDays"`
+}
+
+func (KeyPolicyResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyPolicyResponse)(nil)).Elem()
+}
+
+func (i KeyPolicyResponseArgs) ToKeyPolicyResponseOutput() KeyPolicyResponseOutput {
+	return i.ToKeyPolicyResponseOutputWithContext(context.Background())
+}
+
+func (i KeyPolicyResponseArgs) ToKeyPolicyResponseOutputWithContext(ctx context.Context) KeyPolicyResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyPolicyResponseOutput)
+}
+
+func (i KeyPolicyResponseArgs) ToKeyPolicyResponsePtrOutput() KeyPolicyResponsePtrOutput {
+	return i.ToKeyPolicyResponsePtrOutputWithContext(context.Background())
+}
+
+func (i KeyPolicyResponseArgs) ToKeyPolicyResponsePtrOutputWithContext(ctx context.Context) KeyPolicyResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyPolicyResponseOutput).ToKeyPolicyResponsePtrOutputWithContext(ctx)
+}
+
+// KeyPolicyResponsePtrInput is an input type that accepts KeyPolicyResponseArgs, KeyPolicyResponsePtr and KeyPolicyResponsePtrOutput values.
+// You can construct a concrete instance of `KeyPolicyResponsePtrInput` via:
+//
+//          KeyPolicyResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type KeyPolicyResponsePtrInput interface {
+	pulumi.Input
+
+	ToKeyPolicyResponsePtrOutput() KeyPolicyResponsePtrOutput
+	ToKeyPolicyResponsePtrOutputWithContext(context.Context) KeyPolicyResponsePtrOutput
+}
+
+type keyPolicyResponsePtrType KeyPolicyResponseArgs
+
+func KeyPolicyResponsePtr(v *KeyPolicyResponseArgs) KeyPolicyResponsePtrInput {
+	return (*keyPolicyResponsePtrType)(v)
+}
+
+func (*keyPolicyResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyPolicyResponse)(nil)).Elem()
+}
+
+func (i *keyPolicyResponsePtrType) ToKeyPolicyResponsePtrOutput() KeyPolicyResponsePtrOutput {
+	return i.ToKeyPolicyResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *keyPolicyResponsePtrType) ToKeyPolicyResponsePtrOutputWithContext(ctx context.Context) KeyPolicyResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyPolicyResponsePtrOutput)
+}
+
+// KeyPolicy assigned to the storage account.
+type KeyPolicyResponseOutput struct{ *pulumi.OutputState }
+
+func (KeyPolicyResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyPolicyResponse)(nil)).Elem()
+}
+
+func (o KeyPolicyResponseOutput) ToKeyPolicyResponseOutput() KeyPolicyResponseOutput {
+	return o
+}
+
+func (o KeyPolicyResponseOutput) ToKeyPolicyResponseOutputWithContext(ctx context.Context) KeyPolicyResponseOutput {
+	return o
+}
+
+func (o KeyPolicyResponseOutput) ToKeyPolicyResponsePtrOutput() KeyPolicyResponsePtrOutput {
+	return o.ToKeyPolicyResponsePtrOutputWithContext(context.Background())
+}
+
+func (o KeyPolicyResponseOutput) ToKeyPolicyResponsePtrOutputWithContext(ctx context.Context) KeyPolicyResponsePtrOutput {
+	return o.ApplyT(func(v KeyPolicyResponse) *KeyPolicyResponse {
+		return &v
+	}).(KeyPolicyResponsePtrOutput)
+}
+
+// The key expiration period in days.
+func (o KeyPolicyResponseOutput) KeyExpirationPeriodInDays() pulumi.IntOutput {
+	return o.ApplyT(func(v KeyPolicyResponse) int { return v.KeyExpirationPeriodInDays }).(pulumi.IntOutput)
+}
+
+type KeyPolicyResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (KeyPolicyResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyPolicyResponse)(nil)).Elem()
+}
+
+func (o KeyPolicyResponsePtrOutput) ToKeyPolicyResponsePtrOutput() KeyPolicyResponsePtrOutput {
+	return o
+}
+
+func (o KeyPolicyResponsePtrOutput) ToKeyPolicyResponsePtrOutputWithContext(ctx context.Context) KeyPolicyResponsePtrOutput {
+	return o
+}
+
+func (o KeyPolicyResponsePtrOutput) Elem() KeyPolicyResponseOutput {
+	return o.ApplyT(func(v *KeyPolicyResponse) KeyPolicyResponse { return *v }).(KeyPolicyResponseOutput)
+}
+
+// The key expiration period in days.
+func (o KeyPolicyResponsePtrOutput) KeyExpirationPeriodInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KeyPolicyResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyExpirationPeriodInDays
+	}).(pulumi.IntPtrOutput)
+}
+
 // Properties of key vault.
 type KeyVaultProperties struct {
 	// The name of KeyVault key.
@@ -13553,6 +13821,312 @@ func (o RoutingPreferenceResponsePtrOutput) RoutingChoice() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// SasPolicy assigned to the storage account.
+type SasPolicy struct {
+	// The SAS expiration action. Can only be Log.
+	ExpirationAction string `pulumi:"expirationAction"`
+	// The SAS expiration period, DD.HH:MM:SS.
+	SasExpirationPeriod string `pulumi:"sasExpirationPeriod"`
+}
+
+// SasPolicyInput is an input type that accepts SasPolicyArgs and SasPolicyOutput values.
+// You can construct a concrete instance of `SasPolicyInput` via:
+//
+//          SasPolicyArgs{...}
+type SasPolicyInput interface {
+	pulumi.Input
+
+	ToSasPolicyOutput() SasPolicyOutput
+	ToSasPolicyOutputWithContext(context.Context) SasPolicyOutput
+}
+
+// SasPolicy assigned to the storage account.
+type SasPolicyArgs struct {
+	// The SAS expiration action. Can only be Log.
+	ExpirationAction pulumi.StringInput `pulumi:"expirationAction"`
+	// The SAS expiration period, DD.HH:MM:SS.
+	SasExpirationPeriod pulumi.StringInput `pulumi:"sasExpirationPeriod"`
+}
+
+func (SasPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SasPolicy)(nil)).Elem()
+}
+
+func (i SasPolicyArgs) ToSasPolicyOutput() SasPolicyOutput {
+	return i.ToSasPolicyOutputWithContext(context.Background())
+}
+
+func (i SasPolicyArgs) ToSasPolicyOutputWithContext(ctx context.Context) SasPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SasPolicyOutput)
+}
+
+func (i SasPolicyArgs) ToSasPolicyPtrOutput() SasPolicyPtrOutput {
+	return i.ToSasPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i SasPolicyArgs) ToSasPolicyPtrOutputWithContext(ctx context.Context) SasPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SasPolicyOutput).ToSasPolicyPtrOutputWithContext(ctx)
+}
+
+// SasPolicyPtrInput is an input type that accepts SasPolicyArgs, SasPolicyPtr and SasPolicyPtrOutput values.
+// You can construct a concrete instance of `SasPolicyPtrInput` via:
+//
+//          SasPolicyArgs{...}
+//
+//  or:
+//
+//          nil
+type SasPolicyPtrInput interface {
+	pulumi.Input
+
+	ToSasPolicyPtrOutput() SasPolicyPtrOutput
+	ToSasPolicyPtrOutputWithContext(context.Context) SasPolicyPtrOutput
+}
+
+type sasPolicyPtrType SasPolicyArgs
+
+func SasPolicyPtr(v *SasPolicyArgs) SasPolicyPtrInput {
+	return (*sasPolicyPtrType)(v)
+}
+
+func (*sasPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SasPolicy)(nil)).Elem()
+}
+
+func (i *sasPolicyPtrType) ToSasPolicyPtrOutput() SasPolicyPtrOutput {
+	return i.ToSasPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *sasPolicyPtrType) ToSasPolicyPtrOutputWithContext(ctx context.Context) SasPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SasPolicyPtrOutput)
+}
+
+// SasPolicy assigned to the storage account.
+type SasPolicyOutput struct{ *pulumi.OutputState }
+
+func (SasPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SasPolicy)(nil)).Elem()
+}
+
+func (o SasPolicyOutput) ToSasPolicyOutput() SasPolicyOutput {
+	return o
+}
+
+func (o SasPolicyOutput) ToSasPolicyOutputWithContext(ctx context.Context) SasPolicyOutput {
+	return o
+}
+
+func (o SasPolicyOutput) ToSasPolicyPtrOutput() SasPolicyPtrOutput {
+	return o.ToSasPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o SasPolicyOutput) ToSasPolicyPtrOutputWithContext(ctx context.Context) SasPolicyPtrOutput {
+	return o.ApplyT(func(v SasPolicy) *SasPolicy {
+		return &v
+	}).(SasPolicyPtrOutput)
+}
+
+// The SAS expiration action. Can only be Log.
+func (o SasPolicyOutput) ExpirationAction() pulumi.StringOutput {
+	return o.ApplyT(func(v SasPolicy) string { return v.ExpirationAction }).(pulumi.StringOutput)
+}
+
+// The SAS expiration period, DD.HH:MM:SS.
+func (o SasPolicyOutput) SasExpirationPeriod() pulumi.StringOutput {
+	return o.ApplyT(func(v SasPolicy) string { return v.SasExpirationPeriod }).(pulumi.StringOutput)
+}
+
+type SasPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (SasPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SasPolicy)(nil)).Elem()
+}
+
+func (o SasPolicyPtrOutput) ToSasPolicyPtrOutput() SasPolicyPtrOutput {
+	return o
+}
+
+func (o SasPolicyPtrOutput) ToSasPolicyPtrOutputWithContext(ctx context.Context) SasPolicyPtrOutput {
+	return o
+}
+
+func (o SasPolicyPtrOutput) Elem() SasPolicyOutput {
+	return o.ApplyT(func(v *SasPolicy) SasPolicy { return *v }).(SasPolicyOutput)
+}
+
+// The SAS expiration action. Can only be Log.
+func (o SasPolicyPtrOutput) ExpirationAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SasPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ExpirationAction
+	}).(pulumi.StringPtrOutput)
+}
+
+// The SAS expiration period, DD.HH:MM:SS.
+func (o SasPolicyPtrOutput) SasExpirationPeriod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SasPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SasExpirationPeriod
+	}).(pulumi.StringPtrOutput)
+}
+
+// SasPolicy assigned to the storage account.
+type SasPolicyResponse struct {
+	// The SAS expiration action. Can only be Log.
+	ExpirationAction string `pulumi:"expirationAction"`
+	// The SAS expiration period, DD.HH:MM:SS.
+	SasExpirationPeriod string `pulumi:"sasExpirationPeriod"`
+}
+
+// SasPolicyResponseInput is an input type that accepts SasPolicyResponseArgs and SasPolicyResponseOutput values.
+// You can construct a concrete instance of `SasPolicyResponseInput` via:
+//
+//          SasPolicyResponseArgs{...}
+type SasPolicyResponseInput interface {
+	pulumi.Input
+
+	ToSasPolicyResponseOutput() SasPolicyResponseOutput
+	ToSasPolicyResponseOutputWithContext(context.Context) SasPolicyResponseOutput
+}
+
+// SasPolicy assigned to the storage account.
+type SasPolicyResponseArgs struct {
+	// The SAS expiration action. Can only be Log.
+	ExpirationAction pulumi.StringInput `pulumi:"expirationAction"`
+	// The SAS expiration period, DD.HH:MM:SS.
+	SasExpirationPeriod pulumi.StringInput `pulumi:"sasExpirationPeriod"`
+}
+
+func (SasPolicyResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SasPolicyResponse)(nil)).Elem()
+}
+
+func (i SasPolicyResponseArgs) ToSasPolicyResponseOutput() SasPolicyResponseOutput {
+	return i.ToSasPolicyResponseOutputWithContext(context.Background())
+}
+
+func (i SasPolicyResponseArgs) ToSasPolicyResponseOutputWithContext(ctx context.Context) SasPolicyResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SasPolicyResponseOutput)
+}
+
+func (i SasPolicyResponseArgs) ToSasPolicyResponsePtrOutput() SasPolicyResponsePtrOutput {
+	return i.ToSasPolicyResponsePtrOutputWithContext(context.Background())
+}
+
+func (i SasPolicyResponseArgs) ToSasPolicyResponsePtrOutputWithContext(ctx context.Context) SasPolicyResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SasPolicyResponseOutput).ToSasPolicyResponsePtrOutputWithContext(ctx)
+}
+
+// SasPolicyResponsePtrInput is an input type that accepts SasPolicyResponseArgs, SasPolicyResponsePtr and SasPolicyResponsePtrOutput values.
+// You can construct a concrete instance of `SasPolicyResponsePtrInput` via:
+//
+//          SasPolicyResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type SasPolicyResponsePtrInput interface {
+	pulumi.Input
+
+	ToSasPolicyResponsePtrOutput() SasPolicyResponsePtrOutput
+	ToSasPolicyResponsePtrOutputWithContext(context.Context) SasPolicyResponsePtrOutput
+}
+
+type sasPolicyResponsePtrType SasPolicyResponseArgs
+
+func SasPolicyResponsePtr(v *SasPolicyResponseArgs) SasPolicyResponsePtrInput {
+	return (*sasPolicyResponsePtrType)(v)
+}
+
+func (*sasPolicyResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SasPolicyResponse)(nil)).Elem()
+}
+
+func (i *sasPolicyResponsePtrType) ToSasPolicyResponsePtrOutput() SasPolicyResponsePtrOutput {
+	return i.ToSasPolicyResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *sasPolicyResponsePtrType) ToSasPolicyResponsePtrOutputWithContext(ctx context.Context) SasPolicyResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SasPolicyResponsePtrOutput)
+}
+
+// SasPolicy assigned to the storage account.
+type SasPolicyResponseOutput struct{ *pulumi.OutputState }
+
+func (SasPolicyResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SasPolicyResponse)(nil)).Elem()
+}
+
+func (o SasPolicyResponseOutput) ToSasPolicyResponseOutput() SasPolicyResponseOutput {
+	return o
+}
+
+func (o SasPolicyResponseOutput) ToSasPolicyResponseOutputWithContext(ctx context.Context) SasPolicyResponseOutput {
+	return o
+}
+
+func (o SasPolicyResponseOutput) ToSasPolicyResponsePtrOutput() SasPolicyResponsePtrOutput {
+	return o.ToSasPolicyResponsePtrOutputWithContext(context.Background())
+}
+
+func (o SasPolicyResponseOutput) ToSasPolicyResponsePtrOutputWithContext(ctx context.Context) SasPolicyResponsePtrOutput {
+	return o.ApplyT(func(v SasPolicyResponse) *SasPolicyResponse {
+		return &v
+	}).(SasPolicyResponsePtrOutput)
+}
+
+// The SAS expiration action. Can only be Log.
+func (o SasPolicyResponseOutput) ExpirationAction() pulumi.StringOutput {
+	return o.ApplyT(func(v SasPolicyResponse) string { return v.ExpirationAction }).(pulumi.StringOutput)
+}
+
+// The SAS expiration period, DD.HH:MM:SS.
+func (o SasPolicyResponseOutput) SasExpirationPeriod() pulumi.StringOutput {
+	return o.ApplyT(func(v SasPolicyResponse) string { return v.SasExpirationPeriod }).(pulumi.StringOutput)
+}
+
+type SasPolicyResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SasPolicyResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SasPolicyResponse)(nil)).Elem()
+}
+
+func (o SasPolicyResponsePtrOutput) ToSasPolicyResponsePtrOutput() SasPolicyResponsePtrOutput {
+	return o
+}
+
+func (o SasPolicyResponsePtrOutput) ToSasPolicyResponsePtrOutputWithContext(ctx context.Context) SasPolicyResponsePtrOutput {
+	return o
+}
+
+func (o SasPolicyResponsePtrOutput) Elem() SasPolicyResponseOutput {
+	return o.ApplyT(func(v *SasPolicyResponse) SasPolicyResponse { return *v }).(SasPolicyResponseOutput)
+}
+
+// The SAS expiration action. Can only be Log.
+func (o SasPolicyResponsePtrOutput) ExpirationAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SasPolicyResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ExpirationAction
+	}).(pulumi.StringPtrOutput)
+}
+
+// The SAS expiration period, DD.HH:MM:SS.
+func (o SasPolicyResponsePtrOutput) SasExpirationPeriod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SasPolicyResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SasExpirationPeriod
+	}).(pulumi.StringPtrOutput)
+}
+
 // The SKU of the storage account.
 type Sku struct {
 	// The SKU name. Required for account creation; optional for update. Note that in older versions, SKU name was called accountType.
@@ -14453,6 +15027,8 @@ func (o StorageAccountInternetEndpointsResponsePtrOutput) Web() pulumi.StringPtr
 
 // An access key for the storage account.
 type StorageAccountKeyResponse struct {
+	// Creation time of the key, in round trip date format.
+	CreationTime string `pulumi:"creationTime"`
 	// Name of the key.
 	KeyName string `pulumi:"keyName"`
 	// Permissions for the key -- read-only or full permissions.
@@ -14474,6 +15050,8 @@ type StorageAccountKeyResponseInput interface {
 
 // An access key for the storage account.
 type StorageAccountKeyResponseArgs struct {
+	// Creation time of the key, in round trip date format.
+	CreationTime pulumi.StringInput `pulumi:"creationTime"`
 	// Name of the key.
 	KeyName pulumi.StringInput `pulumi:"keyName"`
 	// Permissions for the key -- read-only or full permissions.
@@ -14532,6 +15110,11 @@ func (o StorageAccountKeyResponseOutput) ToStorageAccountKeyResponseOutput() Sto
 
 func (o StorageAccountKeyResponseOutput) ToStorageAccountKeyResponseOutputWithContext(ctx context.Context) StorageAccountKeyResponseOutput {
 	return o
+}
+
+// Creation time of the key, in round trip date format.
+func (o StorageAccountKeyResponseOutput) CreationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageAccountKeyResponse) string { return v.CreationTime }).(pulumi.StringOutput)
 }
 
 // Name of the key.
@@ -15982,6 +16565,10 @@ func init() {
 	pulumi.RegisterOutputType(IdentityResponsePtrOutput{})
 	pulumi.RegisterOutputType(ImmutabilityPolicyPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ImmutabilityPolicyPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(KeyPolicyOutput{})
+	pulumi.RegisterOutputType(KeyPolicyPtrOutput{})
+	pulumi.RegisterOutputType(KeyPolicyResponseOutput{})
+	pulumi.RegisterOutputType(KeyPolicyResponsePtrOutput{})
 	pulumi.RegisterOutputType(KeyVaultPropertiesOutput{})
 	pulumi.RegisterOutputType(KeyVaultPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(KeyVaultPropertiesResponseOutput{})
@@ -16060,6 +16647,10 @@ func init() {
 	pulumi.RegisterOutputType(RoutingPreferencePtrOutput{})
 	pulumi.RegisterOutputType(RoutingPreferenceResponseOutput{})
 	pulumi.RegisterOutputType(RoutingPreferenceResponsePtrOutput{})
+	pulumi.RegisterOutputType(SasPolicyOutput{})
+	pulumi.RegisterOutputType(SasPolicyPtrOutput{})
+	pulumi.RegisterOutputType(SasPolicyResponseOutput{})
+	pulumi.RegisterOutputType(SasPolicyResponsePtrOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
 	pulumi.RegisterOutputType(SkuPtrOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})

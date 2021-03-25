@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.NetApp.V20201201
         public Output<string> BackupId { get; private set; } = null!;
 
         /// <summary>
-        /// Type of backup adhoc or scheduled
+        /// Type of backup Manual or Scheduled
         /// </summary>
         [Output("backupType")]
         public Output<string> BackupType { get; private set; } = null!;

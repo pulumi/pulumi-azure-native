@@ -117,7 +117,7 @@ def get_mongo_db_resource_mongo_db_database(account_name: Optional[str] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMongoDBResourceMongoDBDatabaseResult:
     """
     An Azure Cosmos DB MongoDB database.
-    Latest API Version: 2021-01-15.
+    Latest API Version: 2021-03-15.
 
 
     :param str account_name: Cosmos DB database account name.

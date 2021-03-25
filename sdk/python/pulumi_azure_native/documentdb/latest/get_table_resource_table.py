@@ -117,7 +117,7 @@ def get_table_resource_table(account_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTableResourceTableResult:
     """
     An Azure Cosmos DB Table.
-    Latest API Version: 2021-01-15.
+    Latest API Version: 2021-03-15.
 
 
     :param str account_name: Cosmos DB database account name.

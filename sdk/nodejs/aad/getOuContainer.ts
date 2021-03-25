@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Resource for OuContainer.
- * API Version: 2020-01-01.
+ * API Version: 2021-03-01.
  */
 export function getOuContainer(args: GetOuContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetOuContainerResult> {
     if (!opts) {
@@ -87,6 +87,10 @@ export interface GetOuContainerResult {
      * Status of OuContainer instance
      */
     readonly serviceStatus: string;
+    /**
+     * The system meta data relating to this resource.
+     */
+    readonly systemData: outputs.aad.SystemDataResponse;
     /**
      * Resource tags
      */

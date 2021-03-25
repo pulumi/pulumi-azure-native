@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DocumentDB.Latest
     {
         /// <summary>
         /// An Azure Cosmos DB Cassandra table.
-        /// Latest API Version: 2021-01-15.
+        /// Latest API Version: 2021-03-15.
         /// </summary>
         public static Task<GetCassandraResourceCassandraTableResult> InvokeAsync(GetCassandraResourceCassandraTableArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCassandraResourceCassandraTableResult>("azure-native:documentdb/latest:getCassandraResourceCassandraTable", args ?? new GetCassandraResourceCassandraTableArgs(), options.WithVersion());

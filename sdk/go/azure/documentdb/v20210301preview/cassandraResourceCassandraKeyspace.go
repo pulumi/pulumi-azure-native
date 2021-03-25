@@ -133,6 +133,12 @@ func NewCassandraResourceCassandraKeyspace(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20210115:CassandraResourceCassandraKeyspace"),
 		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20210315:CassandraResourceCassandraKeyspace"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:documentdb/v20210315:CassandraResourceCassandraKeyspace"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource CassandraResourceCassandraKeyspace

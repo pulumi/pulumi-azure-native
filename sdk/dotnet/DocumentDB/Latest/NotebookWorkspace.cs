@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DocumentDB.Latest
 {
     /// <summary>
     /// A notebook workspace resource
-    /// Latest API Version: 2021-01-15.
+    /// Latest API Version: 2021-03-15.
     /// </summary>
     [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:documentdb:NotebookWorkspace'.")]
     [AzureNativeResourceType("azure-native:documentdb/latest:NotebookWorkspace")]
@@ -85,6 +85,8 @@ namespace Pulumi.AzureNative.DocumentDB.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20210115:NotebookWorkspace"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20210301preview:NotebookWorkspace"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20210301preview:NotebookWorkspace"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210315:NotebookWorkspace"},
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20210315:NotebookWorkspace"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

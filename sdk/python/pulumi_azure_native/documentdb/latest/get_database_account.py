@@ -22,7 +22,7 @@ class GetDatabaseAccountResult:
     """
     An Azure Cosmos DB database account.
     """
-    def __init__(__self__, api_properties=None, backup_policy=None, capabilities=None, connector_offer=None, consistency_policy=None, cors=None, database_account_offer_type=None, disable_key_based_metadata_write_access=None, document_endpoint=None, enable_analytical_storage=None, enable_automatic_failover=None, enable_cassandra_connector=None, enable_free_tier=None, enable_multiple_write_locations=None, failover_policies=None, id=None, identity=None, ip_rules=None, is_virtual_network_filter_enabled=None, key_vault_key_uri=None, kind=None, location=None, locations=None, name=None, network_acl_bypass=None, network_acl_bypass_resource_ids=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, read_locations=None, tags=None, type=None, virtual_network_rules=None, write_locations=None):
+    def __init__(__self__, api_properties=None, backup_policy=None, capabilities=None, connector_offer=None, consistency_policy=None, cors=None, database_account_offer_type=None, default_identity=None, disable_key_based_metadata_write_access=None, document_endpoint=None, enable_analytical_storage=None, enable_automatic_failover=None, enable_cassandra_connector=None, enable_free_tier=None, enable_multiple_write_locations=None, failover_policies=None, id=None, identity=None, ip_rules=None, is_virtual_network_filter_enabled=None, key_vault_key_uri=None, kind=None, location=None, locations=None, name=None, network_acl_bypass=None, network_acl_bypass_resource_ids=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, read_locations=None, tags=None, type=None, virtual_network_rules=None, write_locations=None):
         if api_properties and not isinstance(api_properties, dict):
             raise TypeError("Expected argument 'api_properties' to be a dict")
         pulumi.set(__self__, "api_properties", api_properties)
@@ -44,6 +44,9 @@ class GetDatabaseAccountResult:
         if database_account_offer_type and not isinstance(database_account_offer_type, str):
             raise TypeError("Expected argument 'database_account_offer_type' to be a str")
         pulumi.set(__self__, "database_account_offer_type", database_account_offer_type)
+        if default_identity and not isinstance(default_identity, str):
+            raise TypeError("Expected argument 'default_identity' to be a str")
+        pulumi.set(__self__, "default_identity", default_identity)
         if disable_key_based_metadata_write_access and not isinstance(disable_key_based_metadata_write_access, bool):
             raise TypeError("Expected argument 'disable_key_based_metadata_write_access' to be a bool")
         pulumi.set(__self__, "disable_key_based_metadata_write_access", disable_key_based_metadata_write_access)
@@ -181,6 +184,14 @@ class GetDatabaseAccountResult:
         The offer type for the Cosmos DB database account. Default value: Standard.
         """
         return pulumi.get(self, "database_account_offer_type")
+
+    @property
+    @pulumi.getter(name="defaultIdentity")
+    def default_identity(self) -> Optional[str]:
+        """
+        The default identity for accessing key vault used in features like customer managed keys. The default identity needs to be explicitly set by the users. It can be "FirstPartyIdentity", "SystemAssignedIdentity" and more.
+        """
+        return pulumi.get(self, "default_identity")
 
     @property
     @pulumi.getter(name="disableKeyBasedMetadataWriteAccess")
@@ -412,6 +423,7 @@ class AwaitableGetDatabaseAccountResult(GetDatabaseAccountResult):
             consistency_policy=self.consistency_policy,
             cors=self.cors,
             database_account_offer_type=self.database_account_offer_type,
+            default_identity=self.default_identity,
             disable_key_based_metadata_write_access=self.disable_key_based_metadata_write_access,
             document_endpoint=self.document_endpoint,
             enable_analytical_storage=self.enable_analytical_storage,
@@ -446,7 +458,7 @@ def get_database_account(account_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatabaseAccountResult:
     """
     An Azure Cosmos DB database account.
-    Latest API Version: 2021-01-15.
+    Latest API Version: 2021-03-15.
 
 
     :param str account_name: Cosmos DB database account name.
@@ -470,6 +482,7 @@ def get_database_account(account_name: Optional[str] = None,
         consistency_policy=__ret__.consistency_policy,
         cors=__ret__.cors,
         database_account_offer_type=__ret__.database_account_offer_type,
+        default_identity=__ret__.default_identity,
         disable_key_based_metadata_write_access=__ret__.disable_key_based_metadata_write_access,
         document_endpoint=__ret__.document_endpoint,
         enable_analytical_storage=__ret__.enable_analytical_storage,

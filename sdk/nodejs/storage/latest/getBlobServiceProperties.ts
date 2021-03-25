@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * The properties of a storage account’s Blob service.
- * Latest API Version: 2021-01-01.
+ * Latest API Version: 2021-02-01.
  */
 /** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storage:getBlobServiceProperties'. */
 export function getBlobServiceProperties(args: GetBlobServicePropertiesArgs, opts?: pulumi.InvokeOptions): Promise<GetBlobServicePropertiesResult> {

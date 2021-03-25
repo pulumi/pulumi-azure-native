@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Storage
 {
     /// <summary>
     /// The properties of a storage account’s Blob service.
-    /// API Version: 2021-01-01.
+    /// API Version: 2021-02-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:storage:BlobServiceProperties")]
     public partial class BlobServiceProperties : Pulumi.CustomResource
@@ -128,6 +128,8 @@ namespace Pulumi.AzureNative.Storage
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20200801preview:BlobServiceProperties"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20210101:BlobServiceProperties"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20210101:BlobServiceProperties"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20210201:BlobServiceProperties"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20210201:BlobServiceProperties"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

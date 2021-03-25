@@ -12,7 +12,7 @@ import (
 )
 
 // Resource for OuContainer.
-// Latest API Version: 2020-01-01.
+// Latest API Version: 2021-03-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:aad:OuContainer'.
 type OuContainer struct {
@@ -38,6 +38,8 @@ type OuContainer struct {
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// Status of OuContainer instance
 	ServiceStatus pulumi.StringOutput `pulumi:"serviceStatus"`
+	// The system meta data relating to this resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Azure Active Directory tenant id
@@ -131,6 +133,8 @@ type ouContainerState struct {
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// Status of OuContainer instance
 	ServiceStatus *string `pulumi:"serviceStatus"`
+	// The system meta data relating to this resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Azure Active Directory tenant id
@@ -160,6 +164,8 @@ type OuContainerState struct {
 	ProvisioningState pulumi.StringPtrInput
 	// Status of OuContainer instance
 	ServiceStatus pulumi.StringPtrInput
+	// The system meta data relating to this resource.
+	SystemData SystemDataResponsePtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 	// Azure Active Directory tenant id

@@ -21,6 +21,8 @@ __all__ = [
 @pulumi.input_type
 class DomainSecuritySettingsArgs:
     def __init__(__self__, *,
+                 kerberos_armoring: Optional[pulumi.Input[Union[str, 'KerberosArmoring']]] = None,
+                 kerberos_rc4_encryption: Optional[pulumi.Input[Union[str, 'KerberosRc4Encryption']]] = None,
                  ntlm_v1: Optional[pulumi.Input[Union[str, 'NtlmV1']]] = None,
                  sync_kerberos_passwords: Optional[pulumi.Input[Union[str, 'SyncKerberosPasswords']]] = None,
                  sync_ntlm_passwords: Optional[pulumi.Input[Union[str, 'SyncNtlmPasswords']]] = None,
@@ -28,12 +30,22 @@ class DomainSecuritySettingsArgs:
                  tls_v1: Optional[pulumi.Input[Union[str, 'TlsV1']]] = None):
         """
         Domain Security Settings
+        :param pulumi.Input[Union[str, 'KerberosArmoring']] kerberos_armoring: A flag to determine whether or not KerberosArmoring is enabled or disabled.
+        :param pulumi.Input[Union[str, 'KerberosRc4Encryption']] kerberos_rc4_encryption: A flag to determine whether or not KerberosRc4Encryption is enabled or disabled.
         :param pulumi.Input[Union[str, 'NtlmV1']] ntlm_v1: A flag to determine whether or not NtlmV1 is enabled or disabled.
         :param pulumi.Input[Union[str, 'SyncKerberosPasswords']] sync_kerberos_passwords: A flag to determine whether or not SyncKerberosPasswords is enabled or disabled.
         :param pulumi.Input[Union[str, 'SyncNtlmPasswords']] sync_ntlm_passwords: A flag to determine whether or not SyncNtlmPasswords is enabled or disabled.
         :param pulumi.Input[Union[str, 'SyncOnPremPasswords']] sync_on_prem_passwords: A flag to determine whether or not SyncOnPremPasswords is enabled or disabled.
         :param pulumi.Input[Union[str, 'TlsV1']] tls_v1: A flag to determine whether or not TlsV1 is enabled or disabled.
         """
+        if kerberos_armoring is None:
+            kerberos_armoring = 'Disabled'
+        if kerberos_armoring is not None:
+            pulumi.set(__self__, "kerberos_armoring", kerberos_armoring)
+        if kerberos_rc4_encryption is None:
+            kerberos_rc4_encryption = 'Enabled'
+        if kerberos_rc4_encryption is not None:
+            pulumi.set(__self__, "kerberos_rc4_encryption", kerberos_rc4_encryption)
         if ntlm_v1 is None:
             ntlm_v1 = 'Enabled'
         if ntlm_v1 is not None:
@@ -54,6 +66,30 @@ class DomainSecuritySettingsArgs:
             tls_v1 = 'Enabled'
         if tls_v1 is not None:
             pulumi.set(__self__, "tls_v1", tls_v1)
+
+    @property
+    @pulumi.getter(name="kerberosArmoring")
+    def kerberos_armoring(self) -> Optional[pulumi.Input[Union[str, 'KerberosArmoring']]]:
+        """
+        A flag to determine whether or not KerberosArmoring is enabled or disabled.
+        """
+        return pulumi.get(self, "kerberos_armoring")
+
+    @kerberos_armoring.setter
+    def kerberos_armoring(self, value: Optional[pulumi.Input[Union[str, 'KerberosArmoring']]]):
+        pulumi.set(self, "kerberos_armoring", value)
+
+    @property
+    @pulumi.getter(name="kerberosRc4Encryption")
+    def kerberos_rc4_encryption(self) -> Optional[pulumi.Input[Union[str, 'KerberosRc4Encryption']]]:
+        """
+        A flag to determine whether or not KerberosRc4Encryption is enabled or disabled.
+        """
+        return pulumi.get(self, "kerberos_rc4_encryption")
+
+    @kerberos_rc4_encryption.setter
+    def kerberos_rc4_encryption(self, value: Optional[pulumi.Input[Union[str, 'KerberosRc4Encryption']]]):
+        pulumi.set(self, "kerberos_rc4_encryption", value)
 
     @property
     @pulumi.getter(name="ntlmV1")

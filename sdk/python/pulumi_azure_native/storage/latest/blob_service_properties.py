@@ -39,7 +39,7 @@ class BlobServiceProperties(pulumi.CustomResource):
                  __opts__=None):
         """
         The properties of a storage account’s Blob service.
-        Latest API Version: 2021-01-01.
+        Latest API Version: 2021-02-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -93,7 +93,7 @@ class BlobServiceProperties(pulumi.CustomResource):
             __props__['name'] = None
             __props__['sku'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storage/latest:BlobServiceProperties"), pulumi.Alias(type_="azure-native:storage:BlobServiceProperties"), pulumi.Alias(type_="azure-nextgen:storage:BlobServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20180701:BlobServiceProperties"), pulumi.Alias(type_="azure-nextgen:storage/v20180701:BlobServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20181101:BlobServiceProperties"), pulumi.Alias(type_="azure-nextgen:storage/v20181101:BlobServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20190401:BlobServiceProperties"), pulumi.Alias(type_="azure-nextgen:storage/v20190401:BlobServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20190601:BlobServiceProperties"), pulumi.Alias(type_="azure-nextgen:storage/v20190601:BlobServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20200801preview:BlobServiceProperties"), pulumi.Alias(type_="azure-nextgen:storage/v20200801preview:BlobServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20210101:BlobServiceProperties"), pulumi.Alias(type_="azure-nextgen:storage/v20210101:BlobServiceProperties")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storage/latest:BlobServiceProperties"), pulumi.Alias(type_="azure-native:storage:BlobServiceProperties"), pulumi.Alias(type_="azure-nextgen:storage:BlobServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20180701:BlobServiceProperties"), pulumi.Alias(type_="azure-nextgen:storage/v20180701:BlobServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20181101:BlobServiceProperties"), pulumi.Alias(type_="azure-nextgen:storage/v20181101:BlobServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20190401:BlobServiceProperties"), pulumi.Alias(type_="azure-nextgen:storage/v20190401:BlobServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20190601:BlobServiceProperties"), pulumi.Alias(type_="azure-nextgen:storage/v20190601:BlobServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20200801preview:BlobServiceProperties"), pulumi.Alias(type_="azure-nextgen:storage/v20200801preview:BlobServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20210101:BlobServiceProperties"), pulumi.Alias(type_="azure-nextgen:storage/v20210101:BlobServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20210201:BlobServiceProperties"), pulumi.Alias(type_="azure-nextgen:storage/v20210201:BlobServiceProperties")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BlobServiceProperties, __self__).__init__(
             'azure-native:storage/latest:BlobServiceProperties',

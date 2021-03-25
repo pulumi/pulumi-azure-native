@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The properties of File services in storage account.
- * API Version: 2021-01-01.
+ * API Version: 2021-02-01.
  */
 export class FileServiceProperties extends pulumi.CustomResource {
     /**
@@ -98,7 +98,7 @@ export class FileServiceProperties extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:storage:FileServiceProperties" }, { type: "azure-native:storage/latest:FileServiceProperties" }, { type: "azure-nextgen:storage/latest:FileServiceProperties" }, { type: "azure-native:storage/v20190401:FileServiceProperties" }, { type: "azure-nextgen:storage/v20190401:FileServiceProperties" }, { type: "azure-native:storage/v20190601:FileServiceProperties" }, { type: "azure-nextgen:storage/v20190601:FileServiceProperties" }, { type: "azure-native:storage/v20200801preview:FileServiceProperties" }, { type: "azure-nextgen:storage/v20200801preview:FileServiceProperties" }, { type: "azure-native:storage/v20210101:FileServiceProperties" }, { type: "azure-nextgen:storage/v20210101:FileServiceProperties" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:storage:FileServiceProperties" }, { type: "azure-native:storage/latest:FileServiceProperties" }, { type: "azure-nextgen:storage/latest:FileServiceProperties" }, { type: "azure-native:storage/v20190401:FileServiceProperties" }, { type: "azure-nextgen:storage/v20190401:FileServiceProperties" }, { type: "azure-native:storage/v20190601:FileServiceProperties" }, { type: "azure-nextgen:storage/v20190601:FileServiceProperties" }, { type: "azure-native:storage/v20200801preview:FileServiceProperties" }, { type: "azure-nextgen:storage/v20200801preview:FileServiceProperties" }, { type: "azure-native:storage/v20210101:FileServiceProperties" }, { type: "azure-nextgen:storage/v20210101:FileServiceProperties" }, { type: "azure-native:storage/v20210201:FileServiceProperties" }, { type: "azure-nextgen:storage/v20210201:FileServiceProperties" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(FileServiceProperties.__pulumiType, name, inputs, opts);
     }

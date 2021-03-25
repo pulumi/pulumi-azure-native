@@ -12,7 +12,7 @@ import (
 )
 
 // Properties of the file share, including Id, resource name, resource type, Etag.
-// Latest API Version: 2021-01-01.
+// Latest API Version: 2021-02-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storage:FileShare'.
 type FileShare struct {
@@ -100,6 +100,12 @@ func NewFileShare(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storage/v20210101:FileShare"),
+		},
+		{
+			Type: pulumi.String("azure-native:storage/v20210201:FileShare"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:storage/v20210201:FileShare"),
 		},
 	})
 	opts = append(opts, aliases)

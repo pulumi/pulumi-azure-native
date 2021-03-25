@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Resource for OuContainer.
- * API Version: 2020-01-01.
+ * API Version: 2021-03-01.
  */
 export class OuContainer extends pulumi.CustomResource {
     /**
@@ -77,6 +77,10 @@ export class OuContainer extends pulumi.CustomResource {
      */
     public /*out*/ readonly serviceStatus!: pulumi.Output<string>;
     /**
+     * The system meta data relating to this resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.aad.SystemDataResponse>;
+    /**
      * Resource tags
      */
     public /*out*/ readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -122,6 +126,7 @@ export class OuContainer extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["serviceStatus"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["tenantId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -136,6 +141,7 @@ export class OuContainer extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["serviceStatus"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["tenantId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;

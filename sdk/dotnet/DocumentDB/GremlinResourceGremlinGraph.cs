@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DocumentDB
 {
     /// <summary>
     /// An Azure Cosmos DB Gremlin graph.
-    /// API Version: 2021-01-15.
+    /// API Version: 2021-03-15.
     /// </summary>
     [AzureNativeResourceType("azure-native:documentdb:GremlinResourceGremlinGraph")]
     public partial class GremlinResourceGremlinGraph : Pulumi.CustomResource
@@ -100,6 +100,8 @@ namespace Pulumi.AzureNative.DocumentDB
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20210115:GremlinResourceGremlinGraph"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20210301preview:GremlinResourceGremlinGraph"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20210301preview:GremlinResourceGremlinGraph"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210315:GremlinResourceGremlinGraph"},
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20210315:GremlinResourceGremlinGraph"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

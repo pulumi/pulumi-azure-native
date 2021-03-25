@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DocumentDB.Latest
 {
     /// <summary>
     /// An Azure Cosmos DB container.
-    /// Latest API Version: 2021-01-15.
+    /// Latest API Version: 2021-03-15.
     /// </summary>
     [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:documentdb:SqlResourceSqlContainer'.")]
     [AzureNativeResourceType("azure-native:documentdb/latest:SqlResourceSqlContainer")]
@@ -101,6 +101,8 @@ namespace Pulumi.AzureNative.DocumentDB.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20210115:SqlResourceSqlContainer"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20210301preview:SqlResourceSqlContainer"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20210301preview:SqlResourceSqlContainer"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20210315:SqlResourceSqlContainer"},
+                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20210315:SqlResourceSqlContainer"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

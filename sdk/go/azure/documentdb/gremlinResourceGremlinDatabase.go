@@ -12,7 +12,7 @@ import (
 )
 
 // An Azure Cosmos DB Gremlin database.
-// API Version: 2021-01-15.
+// API Version: 2021-03-15.
 type GremlinResourceGremlinDatabase struct {
 	pulumi.CustomResourceState
 
@@ -131,6 +131,12 @@ func NewGremlinResourceGremlinDatabase(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20210301preview:GremlinResourceGremlinDatabase"),
+		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20210315:GremlinResourceGremlinDatabase"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:documentdb/v20210315:GremlinResourceGremlinDatabase"),
 		},
 	})
 	opts = append(opts, aliases)

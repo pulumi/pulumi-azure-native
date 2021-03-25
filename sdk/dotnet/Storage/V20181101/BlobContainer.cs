@@ -137,6 +137,8 @@ namespace Pulumi.AzureNative.Storage.V20181101
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20200801preview:BlobContainer"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20210101:BlobContainer"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20210101:BlobContainer"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20210201:BlobContainer"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20210201:BlobContainer"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

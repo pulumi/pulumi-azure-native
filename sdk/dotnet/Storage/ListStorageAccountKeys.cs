@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Storage
     {
         /// <summary>
         /// The response from the ListKeys operation.
-        /// API Version: 2021-01-01.
+        /// API Version: 2021-02-01.
         /// </summary>
         public static Task<ListStorageAccountKeysResult> InvokeAsync(ListStorageAccountKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListStorageAccountKeysResult>("azure-native:storage:listStorageAccountKeys", args ?? new ListStorageAccountKeysArgs(), options.WithVersion());

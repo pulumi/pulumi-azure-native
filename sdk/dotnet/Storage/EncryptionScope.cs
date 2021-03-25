@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Storage
 {
     /// <summary>
     /// The Encryption Scope resource.
-    /// API Version: 2021-01-01.
+    /// API Version: 2021-02-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:storage:EncryptionScope")]
     public partial class EncryptionScope : Pulumi.CustomResource
@@ -98,6 +98,8 @@ namespace Pulumi.AzureNative.Storage
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20200801preview:EncryptionScope"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20210101:EncryptionScope"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20210101:EncryptionScope"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20210201:EncryptionScope"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20210201:EncryptionScope"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

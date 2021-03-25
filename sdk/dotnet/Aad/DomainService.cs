@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Aad
 {
     /// <summary>
     /// Domain service.
-    /// API Version: 2020-01-01.
+    /// API Version: 2021-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:aad:DomainService")]
     public partial class DomainService : Pulumi.CustomResource
@@ -111,6 +111,12 @@ namespace Pulumi.AzureNative.Aad
         /// </summary>
         [Output("syncOwner")]
         public Output<string> SyncOwner { get; private set; } = null!;
+
+        /// <summary>
+        /// The system meta data relating to this resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

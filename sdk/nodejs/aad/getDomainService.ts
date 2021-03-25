@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Domain service.
- * API Version: 2020-01-01.
+ * API Version: 2021-03-01.
  */
 export function getDomainService(args: GetDomainServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainServiceResult> {
     if (!opts) {
@@ -106,6 +106,10 @@ export interface GetDomainServiceResult {
      * SyncOwner ReplicaSet Id
      */
     readonly syncOwner: string;
+    /**
+     * The system meta data relating to this resource.
+     */
+    readonly systemData: outputs.aad.SystemDataResponse;
     /**
      * Resource tags
      */

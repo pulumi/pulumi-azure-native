@@ -41,7 +41,7 @@ class DomainService(pulumi.CustomResource):
                  __opts__=None):
         """
         Domain service.
-        Latest API Version: 2020-01-01.
+        Latest API Version: 2021-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -99,6 +99,7 @@ class DomainService(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['sync_owner'] = None
+            __props__['system_data'] = None
             __props__['tenant_id'] = None
             __props__['type'] = None
             __props__['version'] = None
@@ -142,6 +143,7 @@ class DomainService(pulumi.CustomResource):
         __props__["resource_forest_settings"] = None
         __props__["sku"] = None
         __props__["sync_owner"] = None
+        __props__["system_data"] = None
         __props__["tags"] = None
         __props__["tenant_id"] = None
         __props__["type"] = None
@@ -275,6 +277,14 @@ class DomainService(pulumi.CustomResource):
         SyncOwner ReplicaSet Id
         """
         return pulumi.get(self, "sync_owner")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        The system meta data relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Aad.Latest
 {
     /// <summary>
     /// Resource for OuContainer.
-    /// Latest API Version: 2020-01-01.
+    /// Latest API Version: 2021-03-01.
     /// </summary>
     [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:aad:OuContainer'.")]
     [AzureNativeResourceType("azure-native:aad/latest:OuContainer")]
@@ -76,6 +76,12 @@ namespace Pulumi.AzureNative.Aad.Latest
         /// </summary>
         [Output("serviceStatus")]
         public Output<string> ServiceStatus { get; private set; } = null!;
+
+        /// <summary>
+        /// The system meta data relating to this resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

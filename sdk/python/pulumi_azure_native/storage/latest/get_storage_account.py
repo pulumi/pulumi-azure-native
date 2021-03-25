@@ -22,7 +22,7 @@ class GetStorageAccountResult:
     """
     The storage account.
     """
-    def __init__(__self__, access_tier=None, allow_blob_public_access=None, allow_shared_key_access=None, azure_files_identity_based_authentication=None, blob_restore_status=None, creation_time=None, custom_domain=None, enable_https_traffic_only=None, enable_nfs_v3=None, encryption=None, extended_location=None, failover_in_progress=None, geo_replication_stats=None, id=None, identity=None, is_hns_enabled=None, kind=None, large_file_shares_state=None, last_geo_failover_time=None, location=None, minimum_tls_version=None, name=None, network_rule_set=None, primary_endpoints=None, primary_location=None, private_endpoint_connections=None, provisioning_state=None, routing_preference=None, secondary_endpoints=None, secondary_location=None, sku=None, status_of_primary=None, status_of_secondary=None, tags=None, type=None):
+    def __init__(__self__, access_tier=None, allow_blob_public_access=None, allow_shared_key_access=None, azure_files_identity_based_authentication=None, blob_restore_status=None, creation_time=None, custom_domain=None, enable_https_traffic_only=None, enable_nfs_v3=None, encryption=None, extended_location=None, failover_in_progress=None, geo_replication_stats=None, id=None, identity=None, is_hns_enabled=None, key_creation_time=None, key_policy=None, kind=None, large_file_shares_state=None, last_geo_failover_time=None, location=None, minimum_tls_version=None, name=None, network_rule_set=None, primary_endpoints=None, primary_location=None, private_endpoint_connections=None, provisioning_state=None, routing_preference=None, sas_policy=None, secondary_endpoints=None, secondary_location=None, sku=None, status_of_primary=None, status_of_secondary=None, tags=None, type=None):
         if access_tier and not isinstance(access_tier, str):
             raise TypeError("Expected argument 'access_tier' to be a str")
         pulumi.set(__self__, "access_tier", access_tier)
@@ -71,6 +71,12 @@ class GetStorageAccountResult:
         if is_hns_enabled and not isinstance(is_hns_enabled, bool):
             raise TypeError("Expected argument 'is_hns_enabled' to be a bool")
         pulumi.set(__self__, "is_hns_enabled", is_hns_enabled)
+        if key_creation_time and not isinstance(key_creation_time, dict):
+            raise TypeError("Expected argument 'key_creation_time' to be a dict")
+        pulumi.set(__self__, "key_creation_time", key_creation_time)
+        if key_policy and not isinstance(key_policy, dict):
+            raise TypeError("Expected argument 'key_policy' to be a dict")
+        pulumi.set(__self__, "key_policy", key_policy)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
@@ -107,6 +113,9 @@ class GetStorageAccountResult:
         if routing_preference and not isinstance(routing_preference, dict):
             raise TypeError("Expected argument 'routing_preference' to be a dict")
         pulumi.set(__self__, "routing_preference", routing_preference)
+        if sas_policy and not isinstance(sas_policy, dict):
+            raise TypeError("Expected argument 'sas_policy' to be a dict")
+        pulumi.set(__self__, "sas_policy", sas_policy)
         if secondary_endpoints and not isinstance(secondary_endpoints, dict):
             raise TypeError("Expected argument 'secondary_endpoints' to be a dict")
         pulumi.set(__self__, "secondary_endpoints", secondary_endpoints)
@@ -258,6 +267,22 @@ class GetStorageAccountResult:
         return pulumi.get(self, "is_hns_enabled")
 
     @property
+    @pulumi.getter(name="keyCreationTime")
+    def key_creation_time(self) -> Mapping[str, str]:
+        """
+        Gets the list of storage account keys creation time.
+        """
+        return pulumi.get(self, "key_creation_time")
+
+    @property
+    @pulumi.getter(name="keyPolicy")
+    def key_policy(self) -> 'outputs.KeyPolicyResponse':
+        """
+        KeyPolicy assigned to the storage account.
+        """
+        return pulumi.get(self, "key_policy")
+
+    @property
     @pulumi.getter
     def kind(self) -> str:
         """
@@ -354,6 +379,14 @@ class GetStorageAccountResult:
         return pulumi.get(self, "routing_preference")
 
     @property
+    @pulumi.getter(name="sasPolicy")
+    def sas_policy(self) -> 'outputs.SasPolicyResponse':
+        """
+        SasPolicy assigned to the storage account.
+        """
+        return pulumi.get(self, "sas_policy")
+
+    @property
     @pulumi.getter(name="secondaryEndpoints")
     def secondary_endpoints(self) -> 'outputs.EndpointsResponse':
         """
@@ -432,6 +465,8 @@ class AwaitableGetStorageAccountResult(GetStorageAccountResult):
             id=self.id,
             identity=self.identity,
             is_hns_enabled=self.is_hns_enabled,
+            key_creation_time=self.key_creation_time,
+            key_policy=self.key_policy,
             kind=self.kind,
             large_file_shares_state=self.large_file_shares_state,
             last_geo_failover_time=self.last_geo_failover_time,
@@ -444,6 +479,7 @@ class AwaitableGetStorageAccountResult(GetStorageAccountResult):
             private_endpoint_connections=self.private_endpoint_connections,
             provisioning_state=self.provisioning_state,
             routing_preference=self.routing_preference,
+            sas_policy=self.sas_policy,
             secondary_endpoints=self.secondary_endpoints,
             secondary_location=self.secondary_location,
             sku=self.sku,
@@ -459,7 +495,7 @@ def get_storage_account(account_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStorageAccountResult:
     """
     The storage account.
-    Latest API Version: 2021-01-01.
+    Latest API Version: 2021-02-01.
 
 
     :param str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
@@ -494,6 +530,8 @@ def get_storage_account(account_name: Optional[str] = None,
         id=__ret__.id,
         identity=__ret__.identity,
         is_hns_enabled=__ret__.is_hns_enabled,
+        key_creation_time=__ret__.key_creation_time,
+        key_policy=__ret__.key_policy,
         kind=__ret__.kind,
         large_file_shares_state=__ret__.large_file_shares_state,
         last_geo_failover_time=__ret__.last_geo_failover_time,
@@ -506,6 +544,7 @@ def get_storage_account(account_name: Optional[str] = None,
         private_endpoint_connections=__ret__.private_endpoint_connections,
         provisioning_state=__ret__.provisioning_state,
         routing_preference=__ret__.routing_preference,
+        sas_policy=__ret__.sas_policy,
         secondary_endpoints=__ret__.secondary_endpoints,
         secondary_location=__ret__.secondary_location,
         sku=__ret__.sku,

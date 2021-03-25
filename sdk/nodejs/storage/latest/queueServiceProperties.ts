@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * The properties of a storage account’s Queue service.
- * Latest API Version: 2021-01-01.
+ * Latest API Version: 2021-02-01.
  *
  * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storage:QueueServiceProperties'.
  */
@@ -85,7 +85,7 @@ export class QueueServiceProperties extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:storage/latest:QueueServiceProperties" }, { type: "azure-native:storage:QueueServiceProperties" }, { type: "azure-nextgen:storage:QueueServiceProperties" }, { type: "azure-native:storage/v20190601:QueueServiceProperties" }, { type: "azure-nextgen:storage/v20190601:QueueServiceProperties" }, { type: "azure-native:storage/v20200801preview:QueueServiceProperties" }, { type: "azure-nextgen:storage/v20200801preview:QueueServiceProperties" }, { type: "azure-native:storage/v20210101:QueueServiceProperties" }, { type: "azure-nextgen:storage/v20210101:QueueServiceProperties" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:storage/latest:QueueServiceProperties" }, { type: "azure-native:storage:QueueServiceProperties" }, { type: "azure-nextgen:storage:QueueServiceProperties" }, { type: "azure-native:storage/v20190601:QueueServiceProperties" }, { type: "azure-nextgen:storage/v20190601:QueueServiceProperties" }, { type: "azure-native:storage/v20200801preview:QueueServiceProperties" }, { type: "azure-nextgen:storage/v20200801preview:QueueServiceProperties" }, { type: "azure-native:storage/v20210101:QueueServiceProperties" }, { type: "azure-nextgen:storage/v20210101:QueueServiceProperties" }, { type: "azure-native:storage/v20210201:QueueServiceProperties" }, { type: "azure-nextgen:storage/v20210201:QueueServiceProperties" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(QueueServiceProperties.__pulumiType, name, inputs, opts);
     }

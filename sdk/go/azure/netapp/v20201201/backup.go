@@ -17,7 +17,7 @@ type Backup struct {
 
 	// UUID v4 used to identify the Backup
 	BackupId pulumi.StringOutput `pulumi:"backupId"`
-	// Type of backup adhoc or scheduled
+	// Type of backup Manual or Scheduled
 	BackupType pulumi.StringOutput `pulumi:"backupType"`
 	// The creation date of the backup
 	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
@@ -136,7 +136,7 @@ func GetBackup(ctx *pulumi.Context,
 type backupState struct {
 	// UUID v4 used to identify the Backup
 	BackupId *string `pulumi:"backupId"`
-	// Type of backup adhoc or scheduled
+	// Type of backup Manual or Scheduled
 	BackupType *string `pulumi:"backupType"`
 	// The creation date of the backup
 	CreationDate *string `pulumi:"creationDate"`
@@ -161,7 +161,7 @@ type backupState struct {
 type BackupState struct {
 	// UUID v4 used to identify the Backup
 	BackupId pulumi.StringPtrInput
-	// Type of backup adhoc or scheduled
+	// Type of backup Manual or Scheduled
 	BackupType pulumi.StringPtrInput
 	// The creation date of the backup
 	CreationDate pulumi.StringPtrInput

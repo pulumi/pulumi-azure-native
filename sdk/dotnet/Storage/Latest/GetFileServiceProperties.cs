@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Storage.Latest
     {
         /// <summary>
         /// The properties of File services in storage account.
-        /// Latest API Version: 2021-01-01.
+        /// Latest API Version: 2021-02-01.
         /// </summary>
         public static Task<GetFileServicePropertiesResult> InvokeAsync(GetFileServicePropertiesArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFileServicePropertiesResult>("azure-native:storage/latest:getFileServiceProperties", args ?? new GetFileServicePropertiesArgs(), options.WithVersion());

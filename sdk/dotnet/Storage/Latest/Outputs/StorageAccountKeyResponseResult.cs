@@ -14,6 +14,10 @@ namespace Pulumi.AzureNative.Storage.Latest.Outputs
     public sealed class StorageAccountKeyResponseResult
     {
         /// <summary>
+        /// Creation time of the key, in round trip date format.
+        /// </summary>
+        public readonly string CreationTime;
+        /// <summary>
         /// Name of the key.
         /// </summary>
         public readonly string KeyName;
@@ -28,12 +32,15 @@ namespace Pulumi.AzureNative.Storage.Latest.Outputs
 
         [OutputConstructor]
         private StorageAccountKeyResponseResult(
+            string creationTime,
+
             string keyName,
 
             string permissions,
 
             string value)
         {
+            CreationTime = creationTime;
             KeyName = keyName;
             Permissions = permissions;
             Value = value;

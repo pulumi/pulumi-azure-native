@@ -12,7 +12,7 @@ import (
 )
 
 // The properties of File services in storage account.
-// Latest API Version: 2021-01-01.
+// Latest API Version: 2021-02-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storage:FileServiceProperties'.
 type FileServiceProperties struct {
@@ -78,6 +78,12 @@ func NewFileServiceProperties(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storage/v20210101:FileServiceProperties"),
+		},
+		{
+			Type: pulumi.String("azure-native:storage/v20210201:FileServiceProperties"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:storage/v20210201:FileServiceProperties"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Domain service.
- * Latest API Version: 2020-01-01.
+ * Latest API Version: 2021-03-01.
  *
  * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:aad:DomainService'.
  */
@@ -104,6 +104,10 @@ export class DomainService extends pulumi.CustomResource {
      */
     public /*out*/ readonly syncOwner!: pulumi.Output<string>;
     /**
+     * The system meta data relating to this resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.aad.latest.SystemDataResponse>;
+    /**
      * Resource tags
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -155,6 +159,7 @@ export class DomainService extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["syncOwner"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["tenantId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["version"] = undefined /*out*/;
@@ -175,6 +180,7 @@ export class DomainService extends pulumi.CustomResource {
             inputs["resourceForestSettings"] = undefined /*out*/;
             inputs["sku"] = undefined /*out*/;
             inputs["syncOwner"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["tenantId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;

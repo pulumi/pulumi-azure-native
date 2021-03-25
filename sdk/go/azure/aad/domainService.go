@@ -12,7 +12,7 @@ import (
 )
 
 // Domain service.
-// API Version: 2020-01-01.
+// API Version: 2021-03-01.
 type DomainService struct {
 	pulumi.CustomResourceState
 
@@ -48,6 +48,8 @@ type DomainService struct {
 	Sku pulumi.StringPtrOutput `pulumi:"sku"`
 	// SyncOwner ReplicaSet Id
 	SyncOwner pulumi.StringOutput `pulumi:"syncOwner"`
+	// The system meta data relating to this resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Azure Active Directory Tenant Id
@@ -158,6 +160,8 @@ type domainServiceState struct {
 	Sku *string `pulumi:"sku"`
 	// SyncOwner ReplicaSet Id
 	SyncOwner *string `pulumi:"syncOwner"`
+	// The system meta data relating to this resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Azure Active Directory Tenant Id
@@ -201,6 +205,8 @@ type DomainServiceState struct {
 	Sku pulumi.StringPtrInput
 	// SyncOwner ReplicaSet Id
 	SyncOwner pulumi.StringPtrInput
+	// The system meta data relating to this resource.
+	SystemData SystemDataResponsePtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 	// Azure Active Directory Tenant Id

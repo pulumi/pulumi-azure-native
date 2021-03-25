@@ -96,6 +96,12 @@ func NewNotebookWorkspace(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20210301preview:NotebookWorkspace"),
 		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20210315:NotebookWorkspace"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:documentdb/v20210315:NotebookWorkspace"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource NotebookWorkspace

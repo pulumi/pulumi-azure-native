@@ -32,7 +32,7 @@ type LookupBackupArgs struct {
 
 // Backup of a Volume
 type LookupBackupResult struct {
-	// Type of backup adhoc or scheduled
+	// Type of backup Manual or Scheduled
 	BackupType string `pulumi:"backupType"`
 	// The creation date of the backup
 	CreationDate string `pulumi:"creationDate"`

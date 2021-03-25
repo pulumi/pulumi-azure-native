@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Storage.Latest
 {
     /// <summary>
     /// The properties of File services in storage account.
-    /// Latest API Version: 2021-01-01.
+    /// Latest API Version: 2021-02-01.
     /// </summary>
     [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storage:FileServiceProperties'.")]
     [AzureNativeResourceType("azure-native:storage/latest:FileServiceProperties")]
@@ -89,6 +89,8 @@ namespace Pulumi.AzureNative.Storage.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20200801preview:FileServiceProperties"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20210101:FileServiceProperties"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20210101:FileServiceProperties"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20210201:FileServiceProperties"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20210201:FileServiceProperties"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

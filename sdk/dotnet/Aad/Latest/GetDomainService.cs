@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Aad.Latest
     {
         /// <summary>
         /// Domain service.
-        /// Latest API Version: 2020-01-01.
+        /// Latest API Version: 2021-03-01.
         /// </summary>
         public static Task<GetDomainServiceResult> InvokeAsync(GetDomainServiceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDomainServiceResult>("azure-native:aad/latest:getDomainService", args ?? new GetDomainServiceArgs(), options.WithVersion());
@@ -113,6 +113,10 @@ namespace Pulumi.AzureNative.Aad.Latest
         /// </summary>
         public readonly string SyncOwner;
         /// <summary>
+        /// The system meta data relating to this resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Resource tags
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -165,6 +169,8 @@ namespace Pulumi.AzureNative.Aad.Latest
 
             string syncOwner,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string tenantId,
@@ -190,6 +196,7 @@ namespace Pulumi.AzureNative.Aad.Latest
             ResourceForestSettings = resourceForestSettings;
             Sku = sku;
             SyncOwner = syncOwner;
+            SystemData = systemData;
             Tags = tags;
             TenantId = tenantId;
             Type = type;

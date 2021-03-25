@@ -12,7 +12,7 @@ import (
 )
 
 // Properties of the blob container, including Id, resource name, resource type, Etag.
-// API Version: 2021-01-01.
+// API Version: 2021-02-01.
 type BlobContainer struct {
 	pulumi.CustomResourceState
 
@@ -126,6 +126,12 @@ func NewBlobContainer(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storage/v20210101:BlobContainer"),
+		},
+		{
+			Type: pulumi.String("azure-native:storage/v20210201:BlobContainer"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:storage/v20210201:BlobContainer"),
 		},
 	})
 	opts = append(opts, aliases)

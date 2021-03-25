@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// API Version: 2021-01-01.
+// API Version: 2021-02-01.
 type Queue struct {
 	pulumi.CustomResourceState
 
@@ -65,6 +65,12 @@ func NewQueue(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storage/v20210101:Queue"),
+		},
+		{
+			Type: pulumi.String("azure-native:storage/v20210201:Queue"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:storage/v20210201:Queue"),
 		},
 	})
 	opts = append(opts, aliases)

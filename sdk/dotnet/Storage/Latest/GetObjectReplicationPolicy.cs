@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Storage.Latest
     {
         /// <summary>
         /// The replication policy between two storage accounts. Multiple rules can be defined in one policy.
-        /// Latest API Version: 2021-01-01.
+        /// Latest API Version: 2021-02-01.
         /// </summary>
         public static Task<GetObjectReplicationPolicyResult> InvokeAsync(GetObjectReplicationPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetObjectReplicationPolicyResult>("azure-native:storage/latest:getObjectReplicationPolicy", args ?? new GetObjectReplicationPolicyArgs(), options.WithVersion());

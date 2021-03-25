@@ -66,6 +66,62 @@ func (e FilteredSync) ToStringPtrOutputWithContext(ctx context.Context) pulumi.S
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// A flag to determine whether or not KerberosArmoring is enabled or disabled.
+type KerberosArmoring pulumi.String
+
+const (
+	KerberosArmoringEnabled  = KerberosArmoring("Enabled")
+	KerberosArmoringDisabled = KerberosArmoring("Disabled")
+)
+
+func (KerberosArmoring) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e KerberosArmoring) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e KerberosArmoring) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e KerberosArmoring) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e KerberosArmoring) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// A flag to determine whether or not KerberosRc4Encryption is enabled or disabled.
+type KerberosRc4Encryption pulumi.String
+
+const (
+	KerberosRc4EncryptionEnabled  = KerberosRc4Encryption("Enabled")
+	KerberosRc4EncryptionDisabled = KerberosRc4Encryption("Disabled")
+)
+
+func (KerberosRc4Encryption) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e KerberosRc4Encryption) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e KerberosRc4Encryption) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e KerberosRc4Encryption) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e KerberosRc4Encryption) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // A flag to determine whether or not Secure LDAP is enabled or disabled.
 type Ldaps pulumi.String
 

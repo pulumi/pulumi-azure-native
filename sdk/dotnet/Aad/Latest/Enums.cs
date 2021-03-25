@@ -70,6 +70,68 @@ namespace Pulumi.AzureNative.Aad.Latest
     }
 
     /// <summary>
+    /// A flag to determine whether or not KerberosArmoring is enabled or disabled.
+    /// </summary>
+    [EnumType]
+    public readonly struct KerberosArmoring : IEquatable<KerberosArmoring>
+    {
+        private readonly string _value;
+
+        private KerberosArmoring(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static KerberosArmoring Enabled { get; } = new KerberosArmoring("Enabled");
+        public static KerberosArmoring Disabled { get; } = new KerberosArmoring("Disabled");
+
+        public static bool operator ==(KerberosArmoring left, KerberosArmoring right) => left.Equals(right);
+        public static bool operator !=(KerberosArmoring left, KerberosArmoring right) => !left.Equals(right);
+
+        public static explicit operator string(KerberosArmoring value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is KerberosArmoring other && Equals(other);
+        public bool Equals(KerberosArmoring other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// A flag to determine whether or not KerberosRc4Encryption is enabled or disabled.
+    /// </summary>
+    [EnumType]
+    public readonly struct KerberosRc4Encryption : IEquatable<KerberosRc4Encryption>
+    {
+        private readonly string _value;
+
+        private KerberosRc4Encryption(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static KerberosRc4Encryption Enabled { get; } = new KerberosRc4Encryption("Enabled");
+        public static KerberosRc4Encryption Disabled { get; } = new KerberosRc4Encryption("Disabled");
+
+        public static bool operator ==(KerberosRc4Encryption left, KerberosRc4Encryption right) => left.Equals(right);
+        public static bool operator !=(KerberosRc4Encryption left, KerberosRc4Encryption right) => !left.Equals(right);
+
+        public static explicit operator string(KerberosRc4Encryption value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is KerberosRc4Encryption other && Equals(other);
+        public bool Equals(KerberosRc4Encryption other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// A flag to determine whether or not Secure LDAP is enabled or disabled.
     /// </summary>
     [EnumType]

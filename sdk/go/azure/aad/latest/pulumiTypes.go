@@ -130,6 +130,10 @@ func (o ContainerAccountResponseArrayOutput) Index(i pulumi.IntInput) ContainerA
 
 // Domain Security Settings
 type DomainSecuritySettings struct {
+	// A flag to determine whether or not KerberosArmoring is enabled or disabled.
+	KerberosArmoring *string `pulumi:"kerberosArmoring"`
+	// A flag to determine whether or not KerberosRc4Encryption is enabled or disabled.
+	KerberosRc4Encryption *string `pulumi:"kerberosRc4Encryption"`
 	// A flag to determine whether or not NtlmV1 is enabled or disabled.
 	NtlmV1 *string `pulumi:"ntlmV1"`
 	// A flag to determine whether or not SyncKerberosPasswords is enabled or disabled.
@@ -155,6 +159,10 @@ type DomainSecuritySettingsInput interface {
 
 // Domain Security Settings
 type DomainSecuritySettingsArgs struct {
+	// A flag to determine whether or not KerberosArmoring is enabled or disabled.
+	KerberosArmoring pulumi.StringPtrInput `pulumi:"kerberosArmoring"`
+	// A flag to determine whether or not KerberosRc4Encryption is enabled or disabled.
+	KerberosRc4Encryption pulumi.StringPtrInput `pulumi:"kerberosRc4Encryption"`
 	// A flag to determine whether or not NtlmV1 is enabled or disabled.
 	NtlmV1 pulumi.StringPtrInput `pulumi:"ntlmV1"`
 	// A flag to determine whether or not SyncKerberosPasswords is enabled or disabled.
@@ -245,6 +253,16 @@ func (o DomainSecuritySettingsOutput) ToDomainSecuritySettingsPtrOutputWithConte
 	}).(DomainSecuritySettingsPtrOutput)
 }
 
+// A flag to determine whether or not KerberosArmoring is enabled or disabled.
+func (o DomainSecuritySettingsOutput) KerberosArmoring() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainSecuritySettings) *string { return v.KerberosArmoring }).(pulumi.StringPtrOutput)
+}
+
+// A flag to determine whether or not KerberosRc4Encryption is enabled or disabled.
+func (o DomainSecuritySettingsOutput) KerberosRc4Encryption() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainSecuritySettings) *string { return v.KerberosRc4Encryption }).(pulumi.StringPtrOutput)
+}
+
 // A flag to determine whether or not NtlmV1 is enabled or disabled.
 func (o DomainSecuritySettingsOutput) NtlmV1() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainSecuritySettings) *string { return v.NtlmV1 }).(pulumi.StringPtrOutput)
@@ -286,6 +304,26 @@ func (o DomainSecuritySettingsPtrOutput) ToDomainSecuritySettingsPtrOutputWithCo
 
 func (o DomainSecuritySettingsPtrOutput) Elem() DomainSecuritySettingsOutput {
 	return o.ApplyT(func(v *DomainSecuritySettings) DomainSecuritySettings { return *v }).(DomainSecuritySettingsOutput)
+}
+
+// A flag to determine whether or not KerberosArmoring is enabled or disabled.
+func (o DomainSecuritySettingsPtrOutput) KerberosArmoring() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainSecuritySettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KerberosArmoring
+	}).(pulumi.StringPtrOutput)
+}
+
+// A flag to determine whether or not KerberosRc4Encryption is enabled or disabled.
+func (o DomainSecuritySettingsPtrOutput) KerberosRc4Encryption() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainSecuritySettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KerberosRc4Encryption
+	}).(pulumi.StringPtrOutput)
 }
 
 // A flag to determine whether or not NtlmV1 is enabled or disabled.
@@ -340,6 +378,10 @@ func (o DomainSecuritySettingsPtrOutput) TlsV1() pulumi.StringPtrOutput {
 
 // Domain Security Settings
 type DomainSecuritySettingsResponse struct {
+	// A flag to determine whether or not KerberosArmoring is enabled or disabled.
+	KerberosArmoring *string `pulumi:"kerberosArmoring"`
+	// A flag to determine whether or not KerberosRc4Encryption is enabled or disabled.
+	KerberosRc4Encryption *string `pulumi:"kerberosRc4Encryption"`
 	// A flag to determine whether or not NtlmV1 is enabled or disabled.
 	NtlmV1 *string `pulumi:"ntlmV1"`
 	// A flag to determine whether or not SyncKerberosPasswords is enabled or disabled.
@@ -365,6 +407,10 @@ type DomainSecuritySettingsResponseInput interface {
 
 // Domain Security Settings
 type DomainSecuritySettingsResponseArgs struct {
+	// A flag to determine whether or not KerberosArmoring is enabled or disabled.
+	KerberosArmoring pulumi.StringPtrInput `pulumi:"kerberosArmoring"`
+	// A flag to determine whether or not KerberosRc4Encryption is enabled or disabled.
+	KerberosRc4Encryption pulumi.StringPtrInput `pulumi:"kerberosRc4Encryption"`
 	// A flag to determine whether or not NtlmV1 is enabled or disabled.
 	NtlmV1 pulumi.StringPtrInput `pulumi:"ntlmV1"`
 	// A flag to determine whether or not SyncKerberosPasswords is enabled or disabled.
@@ -455,6 +501,16 @@ func (o DomainSecuritySettingsResponseOutput) ToDomainSecuritySettingsResponsePt
 	}).(DomainSecuritySettingsResponsePtrOutput)
 }
 
+// A flag to determine whether or not KerberosArmoring is enabled or disabled.
+func (o DomainSecuritySettingsResponseOutput) KerberosArmoring() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainSecuritySettingsResponse) *string { return v.KerberosArmoring }).(pulumi.StringPtrOutput)
+}
+
+// A flag to determine whether or not KerberosRc4Encryption is enabled or disabled.
+func (o DomainSecuritySettingsResponseOutput) KerberosRc4Encryption() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainSecuritySettingsResponse) *string { return v.KerberosRc4Encryption }).(pulumi.StringPtrOutput)
+}
+
 // A flag to determine whether or not NtlmV1 is enabled or disabled.
 func (o DomainSecuritySettingsResponseOutput) NtlmV1() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainSecuritySettingsResponse) *string { return v.NtlmV1 }).(pulumi.StringPtrOutput)
@@ -496,6 +552,26 @@ func (o DomainSecuritySettingsResponsePtrOutput) ToDomainSecuritySettingsRespons
 
 func (o DomainSecuritySettingsResponsePtrOutput) Elem() DomainSecuritySettingsResponseOutput {
 	return o.ApplyT(func(v *DomainSecuritySettingsResponse) DomainSecuritySettingsResponse { return *v }).(DomainSecuritySettingsResponseOutput)
+}
+
+// A flag to determine whether or not KerberosArmoring is enabled or disabled.
+func (o DomainSecuritySettingsResponsePtrOutput) KerberosArmoring() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainSecuritySettingsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KerberosArmoring
+	}).(pulumi.StringPtrOutput)
+}
+
+// A flag to determine whether or not KerberosRc4Encryption is enabled or disabled.
+func (o DomainSecuritySettingsResponsePtrOutput) KerberosRc4Encryption() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainSecuritySettingsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KerberosRc4Encryption
+	}).(pulumi.StringPtrOutput)
 }
 
 // A flag to determine whether or not NtlmV1 is enabled or disabled.
@@ -2796,6 +2872,235 @@ func (o ResourceForestSettingsResponsePtrOutput) Settings() ForestTrustResponseA
 	}).(ForestTrustResponseArrayOutput)
 }
 
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataResponse struct {
+	// The timestamp of resource creation (UTC).
+	CreatedAt *string `pulumi:"createdAt"`
+	// The identity that created the resource.
+	CreatedBy *string `pulumi:"createdBy"`
+	// The type of identity that created the resource.
+	CreatedByType *string `pulumi:"createdByType"`
+	// The timestamp of resource last modification (UTC)
+	LastModifiedAt *string `pulumi:"lastModifiedAt"`
+	// The identity that last modified the resource.
+	LastModifiedBy *string `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource.
+	LastModifiedByType *string `pulumi:"lastModifiedByType"`
+}
+
+// SystemDataResponseInput is an input type that accepts SystemDataResponseArgs and SystemDataResponseOutput values.
+// You can construct a concrete instance of `SystemDataResponseInput` via:
+//
+//          SystemDataResponseArgs{...}
+type SystemDataResponseInput interface {
+	pulumi.Input
+
+	ToSystemDataResponseOutput() SystemDataResponseOutput
+	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataResponseArgs struct {
+	// The timestamp of resource creation (UTC).
+	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
+	// The identity that created the resource.
+	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
+	// The type of identity that created the resource.
+	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
+	// The timestamp of resource last modification (UTC)
+	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	// The identity that last modified the resource.
+	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource.
+	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
+}
+
+func (SystemDataResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponseOutput() SystemDataResponseOutput {
+	return i.ToSystemDataResponseOutputWithContext(context.Background())
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput)
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput).ToSystemDataResponsePtrOutputWithContext(ctx)
+}
+
+// SystemDataResponsePtrInput is an input type that accepts SystemDataResponseArgs, SystemDataResponsePtr and SystemDataResponsePtrOutput values.
+// You can construct a concrete instance of `SystemDataResponsePtrInput` via:
+//
+//          SystemDataResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type SystemDataResponsePtrInput interface {
+	pulumi.Input
+
+	ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput
+	ToSystemDataResponsePtrOutputWithContext(context.Context) SystemDataResponsePtrOutput
+}
+
+type systemDataResponsePtrType SystemDataResponseArgs
+
+func SystemDataResponsePtr(v *SystemDataResponseArgs) SystemDataResponsePtrInput {
+	return (*systemDataResponsePtrType)(v)
+}
+
+func (*systemDataResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
+}
+
+func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataResponseOutput struct{ *pulumi.OutputState }
+
+func (SystemDataResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponseOutput() SystemDataResponseOutput {
+	return o
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
+	return o
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return o.ToSystemDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
+		return &v
+	}).(SystemDataResponsePtrOutput)
+}
+
+// The timestamp of resource creation (UTC).
+func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that created the resource.
+func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that created the resource.
+func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
+}
+
+// The timestamp of resource last modification (UTC)
+func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that last modified the resource.
+func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
+}
+
+type SystemDataResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SystemDataResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
+}
+
+func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return o
+}
+
+func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return o
+}
+
+func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
+}
+
+// The timestamp of resource creation (UTC).
+func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedAt
+	}).(pulumi.StringPtrOutput)
+}
+
+// The identity that created the resource.
+func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedBy
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that created the resource.
+func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedByType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The timestamp of resource last modification (UTC)
+func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedAt
+	}).(pulumi.StringPtrOutput)
+}
+
+// The identity that last modified the resource.
+func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedBy
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedByType
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ContainerAccountResponseOutput{})
 	pulumi.RegisterOutputType(ContainerAccountResponseArrayOutput{})
@@ -2831,4 +3136,6 @@ func init() {
 	pulumi.RegisterOutputType(ResourceForestSettingsPtrOutput{})
 	pulumi.RegisterOutputType(ResourceForestSettingsResponseOutput{})
 	pulumi.RegisterOutputType(ResourceForestSettingsResponsePtrOutput{})
+	pulumi.RegisterOutputType(SystemDataResponseOutput{})
+	pulumi.RegisterOutputType(SystemDataResponsePtrOutput{})
 }

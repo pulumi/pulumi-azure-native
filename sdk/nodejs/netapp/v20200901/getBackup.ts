@@ -57,7 +57,7 @@ export interface GetBackupResult {
      */
     readonly backupId: string;
     /**
-     * Type of backup adhoc or scheduled
+     * Type of backup Manual or Scheduled
      */
     readonly backupType: string;
     /**

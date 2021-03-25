@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * A private endpoint connection
- * Latest API Version: 2021-01-15.
+ * Latest API Version: 2021-03-15.
  *
  * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:documentdb:PrivateEndpointConnection'.
  */
@@ -103,7 +103,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb/latest:PrivateEndpointConnection" }, { type: "azure-native:documentdb:PrivateEndpointConnection" }, { type: "azure-nextgen:documentdb:PrivateEndpointConnection" }, { type: "azure-native:documentdb/v20190801preview:PrivateEndpointConnection" }, { type: "azure-nextgen:documentdb/v20190801preview:PrivateEndpointConnection" }, { type: "azure-native:documentdb/v20210115:PrivateEndpointConnection" }, { type: "azure-nextgen:documentdb/v20210115:PrivateEndpointConnection" }, { type: "azure-native:documentdb/v20210301preview:PrivateEndpointConnection" }, { type: "azure-nextgen:documentdb/v20210301preview:PrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb/latest:PrivateEndpointConnection" }, { type: "azure-native:documentdb:PrivateEndpointConnection" }, { type: "azure-nextgen:documentdb:PrivateEndpointConnection" }, { type: "azure-native:documentdb/v20190801preview:PrivateEndpointConnection" }, { type: "azure-nextgen:documentdb/v20190801preview:PrivateEndpointConnection" }, { type: "azure-native:documentdb/v20210115:PrivateEndpointConnection" }, { type: "azure-nextgen:documentdb/v20210115:PrivateEndpointConnection" }, { type: "azure-native:documentdb/v20210301preview:PrivateEndpointConnection" }, { type: "azure-nextgen:documentdb/v20210301preview:PrivateEndpointConnection" }, { type: "azure-native:documentdb/v20210315:PrivateEndpointConnection" }, { type: "azure-nextgen:documentdb/v20210315:PrivateEndpointConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateEndpointConnection.__pulumiType, name, inputs, opts);
     }

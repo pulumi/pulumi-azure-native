@@ -8,7 +8,7 @@ import (
 )
 
 // An Azure Cosmos DB database account.
-// API Version: 2021-01-15.
+// API Version: 2021-03-15.
 func LookupDatabaseAccount(ctx *pulumi.Context, args *LookupDatabaseAccountArgs, opts ...pulumi.InvokeOption) (*LookupDatabaseAccountResult, error) {
 	var rv LookupDatabaseAccountResult
 	err := ctx.Invoke("azure-native:documentdb:getDatabaseAccount", args, &rv, opts...)
@@ -41,6 +41,8 @@ type LookupDatabaseAccountResult struct {
 	Cors []CorsPolicyResponse `pulumi:"cors"`
 	// The offer type for the Cosmos DB database account. Default value: Standard.
 	DatabaseAccountOfferType string `pulumi:"databaseAccountOfferType"`
+	// The default identity for accessing key vault used in features like customer managed keys. The default identity needs to be explicitly set by the users. It can be "FirstPartyIdentity", "SystemAssignedIdentity" and more.
+	DefaultIdentity *string `pulumi:"defaultIdentity"`
 	// Disable write operations on metadata resources (databases, containers, throughput) via account keys
 	DisableKeyBasedMetadataWriteAccess *bool `pulumi:"disableKeyBasedMetadataWriteAccess"`
 	// The connection endpoint for the Cosmos DB database account.

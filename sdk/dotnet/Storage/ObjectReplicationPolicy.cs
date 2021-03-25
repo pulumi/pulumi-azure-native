@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Storage
 {
     /// <summary>
     /// The replication policy between two storage accounts. Multiple rules can be defined in one policy.
-    /// API Version: 2021-01-01.
+    /// API Version: 2021-02-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:storage:ObjectReplicationPolicy")]
     public partial class ObjectReplicationPolicy : Pulumi.CustomResource
@@ -92,6 +92,8 @@ namespace Pulumi.AzureNative.Storage
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20200801preview:ObjectReplicationPolicy"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20210101:ObjectReplicationPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20210101:ObjectReplicationPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20210201:ObjectReplicationPolicy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20210201:ObjectReplicationPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

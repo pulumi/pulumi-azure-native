@@ -15,6 +15,7 @@ __all__ = [
     'EnabledProtocols',
     'EncryptionScopeSource',
     'EncryptionScopeState',
+    'ExpirationAction',
     'ExtendedLocationTypes',
     'HttpProtocol',
     'IdentityType',
@@ -121,6 +122,13 @@ class EncryptionScopeState(str, Enum):
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
+
+
+class ExpirationAction(str, Enum):
+    """
+    The SAS expiration action. Can only be Log.
+    """
+    LOG = "Log"
 
 
 class ExtendedLocationTypes(str, Enum):

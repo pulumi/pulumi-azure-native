@@ -8,7 +8,7 @@ import (
 )
 
 // The access keys for the given database account.
-// API Version: 2021-01-15.
+// API Version: 2021-03-15.
 func ListDatabaseAccountKeys(ctx *pulumi.Context, args *ListDatabaseAccountKeysArgs, opts ...pulumi.InvokeOption) (*ListDatabaseAccountKeysResult, error) {
 	var rv ListDatabaseAccountKeysResult
 	err := ctx.Invoke("azure-native:documentdb:listDatabaseAccountKeys", args, &rv, opts...)

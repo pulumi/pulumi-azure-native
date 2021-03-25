@@ -12,7 +12,7 @@ import (
 )
 
 // An Azure Cosmos DB database account.
-// API Version: 2021-01-15.
+// API Version: 2021-03-15.
 type DatabaseAccount struct {
 	pulumi.CustomResourceState
 
@@ -30,6 +30,8 @@ type DatabaseAccount struct {
 	Cors CorsPolicyResponseArrayOutput `pulumi:"cors"`
 	// The offer type for the Cosmos DB database account. Default value: Standard.
 	DatabaseAccountOfferType pulumi.StringOutput `pulumi:"databaseAccountOfferType"`
+	// The default identity for accessing key vault used in features like customer managed keys. The default identity needs to be explicitly set by the users. It can be "FirstPartyIdentity", "SystemAssignedIdentity" and more.
+	DefaultIdentity pulumi.StringPtrOutput `pulumi:"defaultIdentity"`
 	// Disable write operations on metadata resources (databases, containers, throughput) via account keys
 	DisableKeyBasedMetadataWriteAccess pulumi.BoolPtrOutput `pulumi:"disableKeyBasedMetadataWriteAccess"`
 	// The connection endpoint for the Cosmos DB database account.
@@ -188,6 +190,12 @@ func NewDatabaseAccount(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:documentdb/v20210301preview:DatabaseAccount"),
 		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20210315:DatabaseAccount"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:documentdb/v20210315:DatabaseAccount"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource DatabaseAccount
@@ -226,6 +234,8 @@ type databaseAccountState struct {
 	Cors []CorsPolicyResponse `pulumi:"cors"`
 	// The offer type for the Cosmos DB database account. Default value: Standard.
 	DatabaseAccountOfferType *string `pulumi:"databaseAccountOfferType"`
+	// The default identity for accessing key vault used in features like customer managed keys. The default identity needs to be explicitly set by the users. It can be "FirstPartyIdentity", "SystemAssignedIdentity" and more.
+	DefaultIdentity *string `pulumi:"defaultIdentity"`
 	// Disable write operations on metadata resources (databases, containers, throughput) via account keys
 	DisableKeyBasedMetadataWriteAccess *bool `pulumi:"disableKeyBasedMetadataWriteAccess"`
 	// The connection endpoint for the Cosmos DB database account.
@@ -295,6 +305,8 @@ type DatabaseAccountState struct {
 	Cors CorsPolicyResponseArrayInput
 	// The offer type for the Cosmos DB database account. Default value: Standard.
 	DatabaseAccountOfferType pulumi.StringPtrInput
+	// The default identity for accessing key vault used in features like customer managed keys. The default identity needs to be explicitly set by the users. It can be "FirstPartyIdentity", "SystemAssignedIdentity" and more.
+	DefaultIdentity pulumi.StringPtrInput
 	// Disable write operations on metadata resources (databases, containers, throughput) via account keys
 	DisableKeyBasedMetadataWriteAccess pulumi.BoolPtrInput
 	// The connection endpoint for the Cosmos DB database account.
@@ -370,6 +382,8 @@ type databaseAccountArgs struct {
 	Cors []CorsPolicy `pulumi:"cors"`
 	// The offer type for the database
 	DatabaseAccountOfferType string `pulumi:"databaseAccountOfferType"`
+	// The default identity for accessing key vault used in features like customer managed keys. The default identity needs to be explicitly set by the users. It can be "FirstPartyIdentity", "SystemAssignedIdentity" and more.
+	DefaultIdentity *string `pulumi:"defaultIdentity"`
 	// Disable write operations on metadata resources (databases, containers, throughput) via account keys
 	DisableKeyBasedMetadataWriteAccess *bool `pulumi:"disableKeyBasedMetadataWriteAccess"`
 	// Flag to indicate whether to enable storage analytics.
@@ -428,6 +442,8 @@ type DatabaseAccountArgs struct {
 	Cors CorsPolicyArrayInput
 	// The offer type for the database
 	DatabaseAccountOfferType DatabaseAccountOfferType
+	// The default identity for accessing key vault used in features like customer managed keys. The default identity needs to be explicitly set by the users. It can be "FirstPartyIdentity", "SystemAssignedIdentity" and more.
+	DefaultIdentity pulumi.StringPtrInput
 	// Disable write operations on metadata resources (databases, containers, throughput) via account keys
 	DisableKeyBasedMetadataWriteAccess pulumi.BoolPtrInput
 	// Flag to indicate whether to enable storage analytics.

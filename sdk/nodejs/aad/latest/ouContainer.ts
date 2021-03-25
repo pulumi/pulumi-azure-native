@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Resource for OuContainer.
- * Latest API Version: 2020-01-01.
+ * Latest API Version: 2021-03-01.
  *
  * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:aad:OuContainer'.
  */
@@ -80,6 +80,10 @@ export class OuContainer extends pulumi.CustomResource {
      */
     public /*out*/ readonly serviceStatus!: pulumi.Output<string>;
     /**
+     * The system meta data relating to this resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.aad.latest.SystemDataResponse>;
+    /**
      * Resource tags
      */
     public /*out*/ readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -127,6 +131,7 @@ export class OuContainer extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["serviceStatus"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["tenantId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -141,6 +146,7 @@ export class OuContainer extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["serviceStatus"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["tenantId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;

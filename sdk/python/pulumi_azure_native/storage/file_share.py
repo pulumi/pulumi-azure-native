@@ -30,7 +30,7 @@ class FileShare(pulumi.CustomResource):
                  __opts__=None):
         """
         Properties of the file share, including Id, resource name, resource type, Etag.
-        API Version: 2021-01-01.
+        API Version: 2021-02-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -86,7 +86,7 @@ class FileShare(pulumi.CustomResource):
             __props__['snapshot_time'] = None
             __props__['type'] = None
             __props__['version'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storage:FileShare"), pulumi.Alias(type_="azure-native:storage/latest:FileShare"), pulumi.Alias(type_="azure-nextgen:storage/latest:FileShare"), pulumi.Alias(type_="azure-native:storage/v20190401:FileShare"), pulumi.Alias(type_="azure-nextgen:storage/v20190401:FileShare"), pulumi.Alias(type_="azure-native:storage/v20190601:FileShare"), pulumi.Alias(type_="azure-nextgen:storage/v20190601:FileShare"), pulumi.Alias(type_="azure-native:storage/v20200801preview:FileShare"), pulumi.Alias(type_="azure-nextgen:storage/v20200801preview:FileShare"), pulumi.Alias(type_="azure-native:storage/v20210101:FileShare"), pulumi.Alias(type_="azure-nextgen:storage/v20210101:FileShare")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storage:FileShare"), pulumi.Alias(type_="azure-native:storage/latest:FileShare"), pulumi.Alias(type_="azure-nextgen:storage/latest:FileShare"), pulumi.Alias(type_="azure-native:storage/v20190401:FileShare"), pulumi.Alias(type_="azure-nextgen:storage/v20190401:FileShare"), pulumi.Alias(type_="azure-native:storage/v20190601:FileShare"), pulumi.Alias(type_="azure-nextgen:storage/v20190601:FileShare"), pulumi.Alias(type_="azure-native:storage/v20200801preview:FileShare"), pulumi.Alias(type_="azure-nextgen:storage/v20200801preview:FileShare"), pulumi.Alias(type_="azure-native:storage/v20210101:FileShare"), pulumi.Alias(type_="azure-nextgen:storage/v20210101:FileShare"), pulumi.Alias(type_="azure-native:storage/v20210201:FileShare"), pulumi.Alias(type_="azure-nextgen:storage/v20210201:FileShare")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(FileShare, __self__).__init__(
             'azure-native:storage:FileShare',

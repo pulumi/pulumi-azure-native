@@ -8,7 +8,7 @@ import (
 )
 
 // The List service SAS credentials operation response.
-// API Version: 2021-01-01.
+// API Version: 2021-02-01.
 func ListStorageAccountServiceSAS(ctx *pulumi.Context, args *ListStorageAccountServiceSASArgs, opts ...pulumi.InvokeOption) (*ListStorageAccountServiceSASResult, error) {
 	var rv ListStorageAccountServiceSASResult
 	err := ctx.Invoke("azure-native:storage:listStorageAccountServiceSAS", args, &rv, opts...)

@@ -36,6 +36,26 @@ export const FilteredSync = {
  */
 export type FilteredSync = (typeof FilteredSync)[keyof typeof FilteredSync];
 
+export const KerberosArmoring = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * A flag to determine whether or not KerberosArmoring is enabled or disabled.
+ */
+export type KerberosArmoring = (typeof KerberosArmoring)[keyof typeof KerberosArmoring];
+
+export const KerberosRc4Encryption = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * A flag to determine whether or not KerberosRc4Encryption is enabled or disabled.
+ */
+export type KerberosRc4Encryption = (typeof KerberosRc4Encryption)[keyof typeof KerberosRc4Encryption];
+
 export const Ldaps = {
     Enabled: "Enabled",
     Disabled: "Disabled",

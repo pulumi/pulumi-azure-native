@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Properties of the file share, including Id, resource name, resource type, Etag.
- * API Version: 2021-01-01.
+ * API Version: 2021-02-01.
  */
 export function getFileShare(args: GetFileShareArgs, opts?: pulumi.InvokeOptions): Promise<GetFileShareResult> {
     if (!opts) {

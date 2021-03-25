@@ -12,7 +12,7 @@ import (
 )
 
 // The Encryption Scope resource.
-// Latest API Version: 2021-01-01.
+// Latest API Version: 2021-02-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:storage:EncryptionScope'.
 type EncryptionScope struct {
@@ -76,6 +76,12 @@ func NewEncryptionScope(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:storage/v20210101:EncryptionScope"),
+		},
+		{
+			Type: pulumi.String("azure-native:storage/v20210201:EncryptionScope"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:storage/v20210201:EncryptionScope"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -65,7 +65,7 @@ namespace Pulumi.AzureNative.NetApp.V20200601
         /// </summary>
         public readonly string BackupId;
         /// <summary>
-        /// Type of backup adhoc or scheduled
+        /// Type of backup Manual or Scheduled
         /// </summary>
         public readonly string BackupType;
         /// <summary>

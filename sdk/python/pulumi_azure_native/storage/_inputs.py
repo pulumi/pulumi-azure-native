@@ -31,6 +31,7 @@ __all__ = [
     'ExtendedLocationArgs',
     'IPRuleArgs',
     'IdentityArgs',
+    'KeyPolicyArgs',
     'KeyVaultPropertiesArgs',
     'LastAccessTimeTrackingPolicyArgs',
     'ManagementPolicyActionArgs',
@@ -50,6 +51,7 @@ __all__ = [
     'ResourceAccessRuleArgs',
     'RestorePolicyPropertiesArgs',
     'RoutingPreferenceArgs',
+    'SasPolicyArgs',
     'SkuArgs',
     'SmbSettingArgs',
     'TagFilterArgs',
@@ -1067,6 +1069,29 @@ class IdentityArgs:
 
 
 @pulumi.input_type
+class KeyPolicyArgs:
+    def __init__(__self__, *,
+                 key_expiration_period_in_days: pulumi.Input[int]):
+        """
+        KeyPolicy assigned to the storage account.
+        :param pulumi.Input[int] key_expiration_period_in_days: The key expiration period in days.
+        """
+        pulumi.set(__self__, "key_expiration_period_in_days", key_expiration_period_in_days)
+
+    @property
+    @pulumi.getter(name="keyExpirationPeriodInDays")
+    def key_expiration_period_in_days(self) -> pulumi.Input[int]:
+        """
+        The key expiration period in days.
+        """
+        return pulumi.get(self, "key_expiration_period_in_days")
+
+    @key_expiration_period_in_days.setter
+    def key_expiration_period_in_days(self, value: pulumi.Input[int]):
+        pulumi.set(self, "key_expiration_period_in_days", value)
+
+
+@pulumi.input_type
 class KeyVaultPropertiesArgs:
     def __init__(__self__, *,
                  key_name: Optional[pulumi.Input[str]] = None,
@@ -2057,6 +2082,46 @@ class RoutingPreferenceArgs:
     @routing_choice.setter
     def routing_choice(self, value: Optional[pulumi.Input[Union[str, 'RoutingChoice']]]):
         pulumi.set(self, "routing_choice", value)
+
+
+@pulumi.input_type
+class SasPolicyArgs:
+    def __init__(__self__, *,
+                 expiration_action: pulumi.Input[Union[str, 'ExpirationAction']],
+                 sas_expiration_period: pulumi.Input[str]):
+        """
+        SasPolicy assigned to the storage account.
+        :param pulumi.Input[Union[str, 'ExpirationAction']] expiration_action: The SAS expiration action. Can only be Log.
+        :param pulumi.Input[str] sas_expiration_period: The SAS expiration period, DD.HH:MM:SS.
+        """
+        if expiration_action is None:
+            expiration_action = 'Log'
+        pulumi.set(__self__, "expiration_action", expiration_action)
+        pulumi.set(__self__, "sas_expiration_period", sas_expiration_period)
+
+    @property
+    @pulumi.getter(name="expirationAction")
+    def expiration_action(self) -> pulumi.Input[Union[str, 'ExpirationAction']]:
+        """
+        The SAS expiration action. Can only be Log.
+        """
+        return pulumi.get(self, "expiration_action")
+
+    @expiration_action.setter
+    def expiration_action(self, value: pulumi.Input[Union[str, 'ExpirationAction']]):
+        pulumi.set(self, "expiration_action", value)
+
+    @property
+    @pulumi.getter(name="sasExpirationPeriod")
+    def sas_expiration_period(self) -> pulumi.Input[str]:
+        """
+        The SAS expiration period, DD.HH:MM:SS.
+        """
+        return pulumi.get(self, "sas_expiration_period")
+
+    @sas_expiration_period.setter
+    def sas_expiration_period(self, value: pulumi.Input[str]):
+        pulumi.set(self, "sas_expiration_period", value)
 
 
 @pulumi.input_type

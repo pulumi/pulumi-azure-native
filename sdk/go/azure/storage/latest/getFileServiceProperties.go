@@ -8,7 +8,7 @@ import (
 )
 
 // The properties of File services in storage account.
-// Latest API Version: 2021-01-01.
+// Latest API Version: 2021-02-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storage:getFileServiceProperties'.
 func LookupFileServiceProperties(ctx *pulumi.Context, args *LookupFileServicePropertiesArgs, opts ...pulumi.InvokeOption) (*LookupFileServicePropertiesResult, error) {

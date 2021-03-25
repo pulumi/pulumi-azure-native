@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Properties of the file share, including Id, resource name, resource type, Etag.
- * API Version: 2021-01-01.
+ * API Version: 2021-02-01.
  */
 export class FileShare extends pulumi.CustomResource {
     /**
@@ -165,7 +165,7 @@ export class FileShare extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:storage:FileShare" }, { type: "azure-native:storage/latest:FileShare" }, { type: "azure-nextgen:storage/latest:FileShare" }, { type: "azure-native:storage/v20190401:FileShare" }, { type: "azure-nextgen:storage/v20190401:FileShare" }, { type: "azure-native:storage/v20190601:FileShare" }, { type: "azure-nextgen:storage/v20190601:FileShare" }, { type: "azure-native:storage/v20200801preview:FileShare" }, { type: "azure-nextgen:storage/v20200801preview:FileShare" }, { type: "azure-native:storage/v20210101:FileShare" }, { type: "azure-nextgen:storage/v20210101:FileShare" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:storage:FileShare" }, { type: "azure-native:storage/latest:FileShare" }, { type: "azure-nextgen:storage/latest:FileShare" }, { type: "azure-native:storage/v20190401:FileShare" }, { type: "azure-nextgen:storage/v20190401:FileShare" }, { type: "azure-native:storage/v20190601:FileShare" }, { type: "azure-nextgen:storage/v20190601:FileShare" }, { type: "azure-native:storage/v20200801preview:FileShare" }, { type: "azure-nextgen:storage/v20200801preview:FileShare" }, { type: "azure-native:storage/v20210101:FileShare" }, { type: "azure-nextgen:storage/v20210101:FileShare" }, { type: "azure-native:storage/v20210201:FileShare" }, { type: "azure-nextgen:storage/v20210201:FileShare" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(FileShare.__pulumiType, name, inputs, opts);
     }

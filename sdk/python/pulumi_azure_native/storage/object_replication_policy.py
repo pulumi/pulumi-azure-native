@@ -28,7 +28,7 @@ class ObjectReplicationPolicy(pulumi.CustomResource):
                  __opts__=None):
         """
         The replication policy between two storage accounts. Multiple rules can be defined in one policy.
-        API Version: 2021-01-01.
+        API Version: 2021-02-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -74,7 +74,7 @@ class ObjectReplicationPolicy(pulumi.CustomResource):
             __props__['name'] = None
             __props__['policy_id'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storage:ObjectReplicationPolicy"), pulumi.Alias(type_="azure-native:storage/latest:ObjectReplicationPolicy"), pulumi.Alias(type_="azure-nextgen:storage/latest:ObjectReplicationPolicy"), pulumi.Alias(type_="azure-native:storage/v20190601:ObjectReplicationPolicy"), pulumi.Alias(type_="azure-nextgen:storage/v20190601:ObjectReplicationPolicy"), pulumi.Alias(type_="azure-native:storage/v20200801preview:ObjectReplicationPolicy"), pulumi.Alias(type_="azure-nextgen:storage/v20200801preview:ObjectReplicationPolicy"), pulumi.Alias(type_="azure-native:storage/v20210101:ObjectReplicationPolicy"), pulumi.Alias(type_="azure-nextgen:storage/v20210101:ObjectReplicationPolicy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storage:ObjectReplicationPolicy"), pulumi.Alias(type_="azure-native:storage/latest:ObjectReplicationPolicy"), pulumi.Alias(type_="azure-nextgen:storage/latest:ObjectReplicationPolicy"), pulumi.Alias(type_="azure-native:storage/v20190601:ObjectReplicationPolicy"), pulumi.Alias(type_="azure-nextgen:storage/v20190601:ObjectReplicationPolicy"), pulumi.Alias(type_="azure-native:storage/v20200801preview:ObjectReplicationPolicy"), pulumi.Alias(type_="azure-nextgen:storage/v20200801preview:ObjectReplicationPolicy"), pulumi.Alias(type_="azure-native:storage/v20210101:ObjectReplicationPolicy"), pulumi.Alias(type_="azure-nextgen:storage/v20210101:ObjectReplicationPolicy"), pulumi.Alias(type_="azure-native:storage/v20210201:ObjectReplicationPolicy"), pulumi.Alias(type_="azure-nextgen:storage/v20210201:ObjectReplicationPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ObjectReplicationPolicy, __self__).__init__(
             'azure-native:storage:ObjectReplicationPolicy',

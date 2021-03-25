@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Domain service.
- * Latest API Version: 2020-01-01.
+ * Latest API Version: 2021-03-01.
  */
 /** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:aad:getDomainService'. */
 export function getDomainService(args: GetDomainServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainServiceResult> {
@@ -108,6 +108,10 @@ export interface GetDomainServiceResult {
      * SyncOwner ReplicaSet Id
      */
     readonly syncOwner: string;
+    /**
+     * The system meta data relating to this resource.
+     */
+    readonly systemData: outputs.aad.latest.SystemDataResponse;
     /**
      * Resource tags
      */

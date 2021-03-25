@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Properties of the blob container, including Id, resource name, resource type, Etag.
- * Latest API Version: 2021-01-01.
+ * Latest API Version: 2021-02-01.
  */
 /** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storage:getBlobContainer'. */
 export function getBlobContainer(args: GetBlobContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetBlobContainerResult> {

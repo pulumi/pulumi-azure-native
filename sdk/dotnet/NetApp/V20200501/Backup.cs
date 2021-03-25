@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.NetApp.V20200501
     public partial class Backup : Pulumi.CustomResource
     {
         /// <summary>
-        /// Type of backup adhoc or scheduled
+        /// Type of backup Manual or Scheduled
         /// </summary>
         [Output("backupType")]
         public Output<string> BackupType { get; private set; } = null!;

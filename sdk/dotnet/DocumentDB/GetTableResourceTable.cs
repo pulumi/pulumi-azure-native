@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DocumentDB
     {
         /// <summary>
         /// An Azure Cosmos DB Table.
-        /// API Version: 2021-01-15.
+        /// API Version: 2021-03-15.
         /// </summary>
         public static Task<GetTableResourceTableResult> InvokeAsync(GetTableResourceTableArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTableResourceTableResult>("azure-native:documentdb:getTableResourceTable", args ?? new GetTableResourceTableArgs(), options.WithVersion());

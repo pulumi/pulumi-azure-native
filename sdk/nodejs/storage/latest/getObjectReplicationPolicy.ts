@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * The replication policy between two storage accounts. Multiple rules can be defined in one policy.
- * Latest API Version: 2021-01-01.
+ * Latest API Version: 2021-02-01.
  */
 /** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:storage:getObjectReplicationPolicy'. */
 export function getObjectReplicationPolicy(args: GetObjectReplicationPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetObjectReplicationPolicyResult> {

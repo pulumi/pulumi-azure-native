@@ -38,6 +38,7 @@ __all__ = [
     'IPRuleResponse',
     'IdentityResponse',
     'ImmutabilityPolicyPropertiesResponse',
+    'KeyPolicyResponse',
     'KeyVaultPropertiesResponse',
     'LastAccessTimeTrackingPolicyResponse',
     'LegalHoldPropertiesResponse',
@@ -60,6 +61,7 @@ __all__ = [
     'ResourceAccessRuleResponse',
     'RestorePolicyPropertiesResponse',
     'RoutingPreferenceResponse',
+    'SasPolicyResponse',
     'SkuResponse',
     'SmbSettingResponse',
     'StorageAccountInternetEndpointsResponse',
@@ -1401,6 +1403,31 @@ class ImmutabilityPolicyPropertiesResponse(dict):
 
 
 @pulumi.output_type
+class KeyPolicyResponse(dict):
+    """
+    KeyPolicy assigned to the storage account.
+    """
+    def __init__(__self__, *,
+                 key_expiration_period_in_days: int):
+        """
+        KeyPolicy assigned to the storage account.
+        :param int key_expiration_period_in_days: The key expiration period in days.
+        """
+        pulumi.set(__self__, "key_expiration_period_in_days", key_expiration_period_in_days)
+
+    @property
+    @pulumi.getter(name="keyExpirationPeriodInDays")
+    def key_expiration_period_in_days(self) -> int:
+        """
+        The key expiration period in days.
+        """
+        return pulumi.get(self, "key_expiration_period_in_days")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class KeyVaultPropertiesResponse(dict):
     """
     Properties of key vault.
@@ -2483,6 +2510,44 @@ class RoutingPreferenceResponse(dict):
 
 
 @pulumi.output_type
+class SasPolicyResponse(dict):
+    """
+    SasPolicy assigned to the storage account.
+    """
+    def __init__(__self__, *,
+                 expiration_action: str,
+                 sas_expiration_period: str):
+        """
+        SasPolicy assigned to the storage account.
+        :param str expiration_action: The SAS expiration action. Can only be Log.
+        :param str sas_expiration_period: The SAS expiration period, DD.HH:MM:SS.
+        """
+        if expiration_action is None:
+            expiration_action = 'Log'
+        pulumi.set(__self__, "expiration_action", expiration_action)
+        pulumi.set(__self__, "sas_expiration_period", sas_expiration_period)
+
+    @property
+    @pulumi.getter(name="expirationAction")
+    def expiration_action(self) -> str:
+        """
+        The SAS expiration action. Can only be Log.
+        """
+        return pulumi.get(self, "expiration_action")
+
+    @property
+    @pulumi.getter(name="sasExpirationPeriod")
+    def sas_expiration_period(self) -> str:
+        """
+        The SAS expiration period, DD.HH:MM:SS.
+        """
+        return pulumi.get(self, "sas_expiration_period")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class SkuResponse(dict):
     """
     The SKU of the storage account.
@@ -2656,18 +2721,29 @@ class StorageAccountKeyResponseResult(dict):
     An access key for the storage account.
     """
     def __init__(__self__, *,
+                 creation_time: str,
                  key_name: str,
                  permissions: str,
                  value: str):
         """
         An access key for the storage account.
+        :param str creation_time: Creation time of the key, in round trip date format.
         :param str key_name: Name of the key.
         :param str permissions: Permissions for the key -- read-only or full permissions.
         :param str value: Base 64-encoded value of the key.
         """
+        pulumi.set(__self__, "creation_time", creation_time)
         pulumi.set(__self__, "key_name", key_name)
         pulumi.set(__self__, "permissions", permissions)
         pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="creationTime")
+    def creation_time(self) -> str:
+        """
+        Creation time of the key, in round trip date format.
+        """
+        return pulumi.get(self, "creation_time")
 
     @property
     @pulumi.getter(name="keyName")

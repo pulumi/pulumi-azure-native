@@ -35,7 +35,7 @@ type LookupBackupArgs struct {
 type LookupBackupResult struct {
 	// UUID v4 used to identify the Backup
 	BackupId string `pulumi:"backupId"`
-	// Type of backup adhoc or scheduled
+	// Type of backup Manual or Scheduled
 	BackupType string `pulumi:"backupType"`
 	// The creation date of the backup
 	CreationDate string `pulumi:"creationDate"`

@@ -8,7 +8,7 @@ import (
 )
 
 // The properties of a storage account’s Table service.
-// API Version: 2021-01-01.
+// API Version: 2021-02-01.
 func LookupTableServiceProperties(ctx *pulumi.Context, args *LookupTableServicePropertiesArgs, opts ...pulumi.InvokeOption) (*LookupTableServicePropertiesResult, error) {
 	var rv LookupTableServicePropertiesResult
 	err := ctx.Invoke("azure-native:storage:getTableServiceProperties", args, &rv, opts...)

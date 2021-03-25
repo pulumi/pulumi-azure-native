@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DocumentDB
     {
         /// <summary>
         /// An Azure Cosmos DB Cassandra keyspace.
-        /// API Version: 2021-01-15.
+        /// API Version: 2021-03-15.
         /// </summary>
         public static Task<GetCassandraResourceCassandraKeyspaceResult> InvokeAsync(GetCassandraResourceCassandraKeyspaceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCassandraResourceCassandraKeyspaceResult>("azure-native:documentdb:getCassandraResourceCassandraKeyspace", args ?? new GetCassandraResourceCassandraKeyspaceArgs(), options.WithVersion());
