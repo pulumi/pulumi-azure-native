@@ -958,8 +958,10 @@
         "locationMappings": null,
         "locations": [
           "East US",
+          "West Europe",
           "West US 2",
           "South Central US",
+          "Canada Central",
           "Central US",
           "East US 2"
         ],
@@ -2425,7 +2427,8 @@
           "Switzerland West",
           "Germany West Central",
           "Brazil Southeast",
-          "Norway East"
+          "Norway East",
+          "Korea South"
         ],
         "properties": null,
         "resourceType": "checkNameAvailability"
@@ -2477,7 +2480,8 @@
           "Switzerland West",
           "Germany West Central",
           "Brazil Southeast",
-          "Norway East"
+          "Norway East",
+          "Korea South"
         ],
         "properties": null,
         "resourceType": "operations"
@@ -2529,7 +2533,8 @@
           "Switzerland West",
           "Germany West Central",
           "Brazil Southeast",
-          "Norway East"
+          "Norway East",
+          "Korea South"
         ],
         "properties": null,
         "resourceType": "locations"
@@ -27608,7 +27613,7 @@
           "2019-12-01-preview",
           "2019-08-01"
         ],
-        "capabilities": "SystemAssignedResourceIdentity, SupportsTags, SupportsLocation",
+        "capabilities": "CrossResourceGroupResourceMove, CrossSubscriptionResourceMove, SystemAssignedResourceIdentity, SupportsTags, SupportsLocation",
         "defaultApiVersion": null,
         "locationMappings": null,
         "locations": [
@@ -61246,6 +61251,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01",
           "2020-01-01",
           "2017-06-01",
           "2017-01-01"
@@ -61291,6 +61297,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01",
           "2020-01-01",
           "2017-06-01"
         ],
@@ -61335,6 +61342,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01",
           "2020-01-01",
           "2017-06-01",
           "2017-01-01"
@@ -61380,6 +61388,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01",
           "2020-01-01",
           "2017-06-01",
           "2017-01-01"
@@ -61425,6 +61434,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01",
           "2020-01-01",
           "2017-06-01",
           "2017-01-01"
@@ -61925,6 +61935,10 @@
     "authorizations": [
       {
         "applicationId": "349e15d0-1c96-4829-95e5-7fc8fb358ff3",
+        "roleDefinitionId": "da5c10f8-3b94-4076-bb95-1421b4518aee"
+      },
+      {
+        "applicationId": "9581bc0e-c952-4fd3-8d99-e777877718b1",
         "roleDefinitionId": "da5c10f8-3b94-4076-bb95-1421b4518aee"
       }
     ],
@@ -76835,6 +76849,20 @@
         "apiProfiles": null,
         "apiVersions": [
           "2021-01-01",
+          "2020-10-01"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": "2020-10-01",
+        "locationMappings": null,
+        "locations": [],
+        "properties": null,
+        "resourceType": "cdnPeeringPrefixes"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2021-01-01",
           "2020-10-01",
           "2020-04-01",
           "2020-01-01-preview",
@@ -79840,6 +79868,10 @@
     "authorizations": [
       {
         "applicationId": "349e15d0-1c96-4829-95e5-7fc8fb358ff3",
+        "roleDefinitionId": "da5c10f8-3b94-4076-bb95-1421b4518aee"
+      },
+      {
+        "applicationId": "9581bc0e-c952-4fd3-8d99-e777877718b1",
         "roleDefinitionId": "da5c10f8-3b94-4076-bb95-1421b4518aee"
       }
     ],
