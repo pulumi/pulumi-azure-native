@@ -8,7 +8,7 @@ import (
 )
 
 // Backup Vault Resource
-// API Version: 2021-02-01-preview.
+// API Version: 2021-01-01.
 func LookupBackupVault(ctx *pulumi.Context, args *LookupBackupVaultArgs, opts ...pulumi.InvokeOption) (*LookupBackupVaultResult, error) {
 	var rv LookupBackupVaultResult
 	err := ctx.Invoke("azure-native:dataprotection:getBackupVault", args, &rv, opts...)
@@ -34,7 +34,7 @@ type LookupBackupVaultResult struct {
 	// Input Managed Identity Details
 	Identity *DppIdentityDetailsResponse `pulumi:"identity"`
 	// Resource location.
-	Location *string `pulumi:"location"`
+	Location string `pulumi:"location"`
 	// Resource name associated with the resource.
 	Name string `pulumi:"name"`
 	// Provisioning state of the BackupVault resource

@@ -78,7 +78,7 @@ class GetBackupVaultResult:
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> str:
         """
         Resource location.
         """
@@ -102,7 +102,7 @@ class GetBackupVaultResult:
 
     @property
     @pulumi.getter(name="storageSettings")
-    def storage_settings(self) -> Optional[Sequence['outputs.StorageSettingResponse']]:
+    def storage_settings(self) -> Sequence['outputs.StorageSettingResponse']:
         """
         Storage Settings
         """
@@ -156,7 +156,7 @@ def get_backup_vault(resource_group_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBackupVaultResult:
     """
     Backup Vault Resource
-    API Version: 2021-02-01-preview.
+    API Version: 2021-01-01.
 
 
     :param str resource_group_name: The name of the resource group where the backup vault is present.

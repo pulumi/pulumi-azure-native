@@ -30,6 +30,10 @@ namespace Pulumi.AzureNative.Consumption.V20191001.Outputs
         /// </summary>
         public readonly bool Enabled;
         /// <summary>
+        /// Language in which the recipient will receive the notification
+        /// </summary>
+        public readonly string? Locale;
+        /// <summary>
         /// The comparison operator.
         /// </summary>
         public readonly string Operator;
@@ -52,6 +56,8 @@ namespace Pulumi.AzureNative.Consumption.V20191001.Outputs
 
             bool enabled,
 
+            string? locale,
+
             string @operator,
 
             double threshold,
@@ -62,6 +68,7 @@ namespace Pulumi.AzureNative.Consumption.V20191001.Outputs
             ContactGroups = contactGroups;
             ContactRoles = contactRoles;
             Enabled = enabled;
+            Locale = locale;
             Operator = @operator;
             Threshold = threshold;
             ThresholdType = thresholdType;

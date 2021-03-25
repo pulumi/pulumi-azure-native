@@ -46,7 +46,7 @@ export class BackupVault extends pulumi.CustomResource {
     /**
      * Resource location.
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * Resource name associated with the resource.
      */
@@ -58,7 +58,7 @@ export class BackupVault extends pulumi.CustomResource {
     /**
      * Storage Settings
      */
-    public readonly storageSettings!: pulumi.Output<outputs.dataprotection.v20210201preview.StorageSettingResponse[] | undefined>;
+    public readonly storageSettings!: pulumi.Output<outputs.dataprotection.v20210201preview.StorageSettingResponse[]>;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
@@ -86,6 +86,9 @@ export class BackupVault extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if ((!args || args.storageSettings === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'storageSettings'");
+            }
             inputs["eTag"] = args ? args.eTag : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
@@ -111,7 +114,7 @@ export class BackupVault extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:dataprotection/v20210201preview:BackupVault" }, { type: "azure-native:dataprotection:BackupVault" }, { type: "azure-nextgen:dataprotection:BackupVault" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:dataprotection/v20210201preview:BackupVault" }, { type: "azure-native:dataprotection:BackupVault" }, { type: "azure-nextgen:dataprotection:BackupVault" }, { type: "azure-native:dataprotection/latest:BackupVault" }, { type: "azure-nextgen:dataprotection/latest:BackupVault" }, { type: "azure-native:dataprotection/v20210101:BackupVault" }, { type: "azure-nextgen:dataprotection/v20210101:BackupVault" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BackupVault.__pulumiType, name, inputs, opts);
     }
@@ -140,7 +143,7 @@ export interface BackupVaultArgs {
     /**
      * Storage Settings
      */
-    readonly storageSettings?: pulumi.Input<pulumi.Input<inputs.dataprotection.v20210201preview.StorageSetting>[]>;
+    readonly storageSettings: pulumi.Input<pulumi.Input<inputs.dataprotection.v20210201preview.StorageSetting>[]>;
     /**
      * Resource tags.
      */

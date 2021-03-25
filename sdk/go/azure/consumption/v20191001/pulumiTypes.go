@@ -1754,6 +1754,8 @@ type Notification struct {
 	ContactRoles []string `pulumi:"contactRoles"`
 	// The notification is enabled or not.
 	Enabled bool `pulumi:"enabled"`
+	// Language in which the recipient will receive the notification
+	Locale *string `pulumi:"locale"`
 	// The comparison operator.
 	Operator string `pulumi:"operator"`
 	// Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.
@@ -1783,6 +1785,8 @@ type NotificationArgs struct {
 	ContactRoles pulumi.StringArrayInput `pulumi:"contactRoles"`
 	// The notification is enabled or not.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Language in which the recipient will receive the notification
+	Locale pulumi.StringPtrInput `pulumi:"locale"`
 	// The comparison operator.
 	Operator pulumi.StringInput `pulumi:"operator"`
 	// Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.
@@ -1863,6 +1867,11 @@ func (o NotificationOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v Notification) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
+// Language in which the recipient will receive the notification
+func (o NotificationOutput) Locale() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Notification) *string { return v.Locale }).(pulumi.StringPtrOutput)
+}
+
 // The comparison operator.
 func (o NotificationOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v Notification) string { return v.Operator }).(pulumi.StringOutput)
@@ -1908,6 +1917,8 @@ type NotificationResponse struct {
 	ContactRoles []string `pulumi:"contactRoles"`
 	// The notification is enabled or not.
 	Enabled bool `pulumi:"enabled"`
+	// Language in which the recipient will receive the notification
+	Locale *string `pulumi:"locale"`
 	// The comparison operator.
 	Operator string `pulumi:"operator"`
 	// Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.
@@ -1937,6 +1948,8 @@ type NotificationResponseArgs struct {
 	ContactRoles pulumi.StringArrayInput `pulumi:"contactRoles"`
 	// The notification is enabled or not.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Language in which the recipient will receive the notification
+	Locale pulumi.StringPtrInput `pulumi:"locale"`
 	// The comparison operator.
 	Operator pulumi.StringInput `pulumi:"operator"`
 	// Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.
@@ -2015,6 +2028,11 @@ func (o NotificationResponseOutput) ContactRoles() pulumi.StringArrayOutput {
 // The notification is enabled or not.
 func (o NotificationResponseOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v NotificationResponse) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Language in which the recipient will receive the notification
+func (o NotificationResponseOutput) Locale() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NotificationResponse) *string { return v.Locale }).(pulumi.StringPtrOutput)
 }
 
 // The comparison operator.

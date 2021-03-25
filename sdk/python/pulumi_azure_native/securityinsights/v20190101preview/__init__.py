@@ -6,11 +6,13 @@
 from ._enums import *
 from .action import *
 from .alert_rule import *
+from .automation_rule import *
 from .bookmark import *
 from .bookmark_relation import *
 from .data_connector import *
 from .get_action import *
 from .get_alert_rule import *
+from .get_automation_rule import *
 from .get_bookmark import *
 from .get_bookmark_relation import *
 from .get_data_connector import *
@@ -49,6 +51,8 @@ def _register_module():
                 return Action(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:securityinsights/v20190101preview:AlertRule":
                 return AlertRule(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:securityinsights/v20190101preview:AutomationRule":
+                return AutomationRule(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:securityinsights/v20190101preview:Bookmark":
                 return Bookmark(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:securityinsights/v20190101preview:BookmarkRelation":

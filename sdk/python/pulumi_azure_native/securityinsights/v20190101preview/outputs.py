@@ -12,6 +12,13 @@ from ._enums import *
 
 __all__ = [
     'ActivityTimelineItemResponseResult',
+    'AutomationRuleModifyPropertiesActionResponse',
+    'AutomationRuleModifyPropertiesActionResponseActionConfiguration',
+    'AutomationRulePropertyValuesConditionResponse',
+    'AutomationRulePropertyValuesConditionResponseConditionProperties',
+    'AutomationRuleRunPlaybookActionResponse',
+    'AutomationRuleRunPlaybookActionResponseActionConfiguration',
+    'AutomationRuleTriggeringLogicResponse',
     'BookmarkTimelineItemResponseResult',
     'ClientInfoResponse',
     'EntityInsightItemResponseResult',
@@ -131,6 +138,399 @@ class ActivityTimelineItemResponseResult(dict):
         The activity timeline title.
         """
         return pulumi.get(self, "title")
+
+
+@pulumi.output_type
+class AutomationRuleModifyPropertiesActionResponse(dict):
+    """
+    Describes an automation rule action to modify an object's properties
+    """
+    def __init__(__self__, *,
+                 action_configuration: 'outputs.AutomationRuleModifyPropertiesActionResponseActionConfiguration',
+                 action_type: str,
+                 order: int):
+        """
+        Describes an automation rule action to modify an object's properties
+        :param 'AutomationRuleModifyPropertiesActionResponseActionConfigurationArgs' action_configuration: The configuration of the modify properties automation rule action
+        :param str action_type: The type of the automation rule action
+               Expected value is 'ModifyProperties'.
+        :param int order: The order of execution of the automation rule action
+        """
+        pulumi.set(__self__, "action_configuration", action_configuration)
+        pulumi.set(__self__, "action_type", 'ModifyProperties')
+        pulumi.set(__self__, "order", order)
+
+    @property
+    @pulumi.getter(name="actionConfiguration")
+    def action_configuration(self) -> 'outputs.AutomationRuleModifyPropertiesActionResponseActionConfiguration':
+        """
+        The configuration of the modify properties automation rule action
+        """
+        return pulumi.get(self, "action_configuration")
+
+    @property
+    @pulumi.getter(name="actionType")
+    def action_type(self) -> str:
+        """
+        The type of the automation rule action
+        Expected value is 'ModifyProperties'.
+        """
+        return pulumi.get(self, "action_type")
+
+    @property
+    @pulumi.getter
+    def order(self) -> int:
+        """
+        The order of execution of the automation rule action
+        """
+        return pulumi.get(self, "order")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class AutomationRuleModifyPropertiesActionResponseActionConfiguration(dict):
+    """
+    The configuration of the modify properties automation rule action
+    """
+    def __init__(__self__, *,
+                 classification: Optional[str] = None,
+                 classification_comment: Optional[str] = None,
+                 classification_reason: Optional[str] = None,
+                 labels: Optional[Sequence['outputs.IncidentLabelResponse']] = None,
+                 owner: Optional['outputs.IncidentOwnerInfoResponse'] = None,
+                 severity: Optional[str] = None,
+                 status: Optional[str] = None):
+        """
+        The configuration of the modify properties automation rule action
+        :param str classification: The reason the incident was closed
+        :param str classification_comment: Describes the reason the incident was closed
+        :param str classification_reason: The classification reason to close the incident with
+        :param Sequence['IncidentLabelResponseArgs'] labels: List of labels to add to the incident
+        :param 'IncidentOwnerInfoResponseArgs' owner: Describes a user that the incident is assigned to
+        :param str severity: The severity of the incident
+        :param str status: The status of the incident
+        """
+        if classification is not None:
+            pulumi.set(__self__, "classification", classification)
+        if classification_comment is not None:
+            pulumi.set(__self__, "classification_comment", classification_comment)
+        if classification_reason is not None:
+            pulumi.set(__self__, "classification_reason", classification_reason)
+        if labels is not None:
+            pulumi.set(__self__, "labels", labels)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if severity is not None:
+            pulumi.set(__self__, "severity", severity)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def classification(self) -> Optional[str]:
+        """
+        The reason the incident was closed
+        """
+        return pulumi.get(self, "classification")
+
+    @property
+    @pulumi.getter(name="classificationComment")
+    def classification_comment(self) -> Optional[str]:
+        """
+        Describes the reason the incident was closed
+        """
+        return pulumi.get(self, "classification_comment")
+
+    @property
+    @pulumi.getter(name="classificationReason")
+    def classification_reason(self) -> Optional[str]:
+        """
+        The classification reason to close the incident with
+        """
+        return pulumi.get(self, "classification_reason")
+
+    @property
+    @pulumi.getter
+    def labels(self) -> Optional[Sequence['outputs.IncidentLabelResponse']]:
+        """
+        List of labels to add to the incident
+        """
+        return pulumi.get(self, "labels")
+
+    @property
+    @pulumi.getter
+    def owner(self) -> Optional['outputs.IncidentOwnerInfoResponse']:
+        """
+        Describes a user that the incident is assigned to
+        """
+        return pulumi.get(self, "owner")
+
+    @property
+    @pulumi.getter
+    def severity(self) -> Optional[str]:
+        """
+        The severity of the incident
+        """
+        return pulumi.get(self, "severity")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        The status of the incident
+        """
+        return pulumi.get(self, "status")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class AutomationRulePropertyValuesConditionResponse(dict):
+    """
+    Describes an automation rule condition that evaluates a property's value
+    """
+    def __init__(__self__, *,
+                 condition_properties: 'outputs.AutomationRulePropertyValuesConditionResponseConditionProperties',
+                 condition_type: str):
+        """
+        Describes an automation rule condition that evaluates a property's value
+        :param 'AutomationRulePropertyValuesConditionResponseConditionPropertiesArgs' condition_properties: The configuration of the automation rule condition
+        :param str condition_type: The type of the automation rule condition
+               Expected value is 'Property'.
+        """
+        pulumi.set(__self__, "condition_properties", condition_properties)
+        pulumi.set(__self__, "condition_type", 'Property')
+
+    @property
+    @pulumi.getter(name="conditionProperties")
+    def condition_properties(self) -> 'outputs.AutomationRulePropertyValuesConditionResponseConditionProperties':
+        """
+        The configuration of the automation rule condition
+        """
+        return pulumi.get(self, "condition_properties")
+
+    @property
+    @pulumi.getter(name="conditionType")
+    def condition_type(self) -> str:
+        """
+        The type of the automation rule condition
+        Expected value is 'Property'.
+        """
+        return pulumi.get(self, "condition_type")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class AutomationRulePropertyValuesConditionResponseConditionProperties(dict):
+    """
+    The configuration of the automation rule condition
+    """
+    def __init__(__self__, *,
+                 operator: Optional[str] = None,
+                 property_name: Optional[str] = None,
+                 property_values: Optional[Sequence[str]] = None):
+        """
+        The configuration of the automation rule condition
+        :param str operator: The operator to use for evaluation the condition
+        :param str property_name: The property to evaluate
+        :param Sequence[str] property_values: The values to use for evaluating the condition
+        """
+        if operator is not None:
+            pulumi.set(__self__, "operator", operator)
+        if property_name is not None:
+            pulumi.set(__self__, "property_name", property_name)
+        if property_values is not None:
+            pulumi.set(__self__, "property_values", property_values)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> Optional[str]:
+        """
+        The operator to use for evaluation the condition
+        """
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter(name="propertyName")
+    def property_name(self) -> Optional[str]:
+        """
+        The property to evaluate
+        """
+        return pulumi.get(self, "property_name")
+
+    @property
+    @pulumi.getter(name="propertyValues")
+    def property_values(self) -> Optional[Sequence[str]]:
+        """
+        The values to use for evaluating the condition
+        """
+        return pulumi.get(self, "property_values")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class AutomationRuleRunPlaybookActionResponse(dict):
+    """
+    Describes an automation rule action to run a playbook
+    """
+    def __init__(__self__, *,
+                 action_configuration: 'outputs.AutomationRuleRunPlaybookActionResponseActionConfiguration',
+                 action_type: str,
+                 order: int):
+        """
+        Describes an automation rule action to run a playbook
+        :param 'AutomationRuleRunPlaybookActionResponseActionConfigurationArgs' action_configuration: The configuration of the run playbook automation rule action
+        :param str action_type: The type of the automation rule action
+               Expected value is 'RunPlaybook'.
+        :param int order: The order of execution of the automation rule action
+        """
+        pulumi.set(__self__, "action_configuration", action_configuration)
+        pulumi.set(__self__, "action_type", 'RunPlaybook')
+        pulumi.set(__self__, "order", order)
+
+    @property
+    @pulumi.getter(name="actionConfiguration")
+    def action_configuration(self) -> 'outputs.AutomationRuleRunPlaybookActionResponseActionConfiguration':
+        """
+        The configuration of the run playbook automation rule action
+        """
+        return pulumi.get(self, "action_configuration")
+
+    @property
+    @pulumi.getter(name="actionType")
+    def action_type(self) -> str:
+        """
+        The type of the automation rule action
+        Expected value is 'RunPlaybook'.
+        """
+        return pulumi.get(self, "action_type")
+
+    @property
+    @pulumi.getter
+    def order(self) -> int:
+        """
+        The order of execution of the automation rule action
+        """
+        return pulumi.get(self, "order")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class AutomationRuleRunPlaybookActionResponseActionConfiguration(dict):
+    """
+    The configuration of the run playbook automation rule action
+    """
+    def __init__(__self__, *,
+                 logic_app_resource_id: Optional[str] = None,
+                 tenant_id: Optional[str] = None):
+        """
+        The configuration of the run playbook automation rule action
+        :param str logic_app_resource_id: The resource id of the playbook resource
+        :param str tenant_id: The tenant id of the playbook resource
+        """
+        if logic_app_resource_id is not None:
+            pulumi.set(__self__, "logic_app_resource_id", logic_app_resource_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter(name="logicAppResourceId")
+    def logic_app_resource_id(self) -> Optional[str]:
+        """
+        The resource id of the playbook resource
+        """
+        return pulumi.get(self, "logic_app_resource_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[str]:
+        """
+        The tenant id of the playbook resource
+        """
+        return pulumi.get(self, "tenant_id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class AutomationRuleTriggeringLogicResponse(dict):
+    """
+    Describes automation rule triggering logic
+    """
+    def __init__(__self__, *,
+                 is_enabled: bool,
+                 triggers_on: str,
+                 triggers_when: str,
+                 conditions: Optional[Sequence['outputs.AutomationRulePropertyValuesConditionResponse']] = None,
+                 expiration_time_utc: Optional[str] = None):
+        """
+        Describes automation rule triggering logic
+        :param bool is_enabled: Determines whether the automation rule is enabled or disabled.
+        :param str triggers_on: The type of object the automation rule triggers on
+        :param str triggers_when: The type of event the automation rule triggers on
+        :param Sequence['AutomationRulePropertyValuesConditionResponseArgs'] conditions: The conditions to evaluate to determine if the automation rule should be triggered on a given object
+        :param str expiration_time_utc: Determines when the automation rule should automatically expire and be disabled.
+        """
+        pulumi.set(__self__, "is_enabled", is_enabled)
+        pulumi.set(__self__, "triggers_on", triggers_on)
+        pulumi.set(__self__, "triggers_when", triggers_when)
+        if conditions is not None:
+            pulumi.set(__self__, "conditions", conditions)
+        if expiration_time_utc is not None:
+            pulumi.set(__self__, "expiration_time_utc", expiration_time_utc)
+
+    @property
+    @pulumi.getter(name="isEnabled")
+    def is_enabled(self) -> bool:
+        """
+        Determines whether the automation rule is enabled or disabled.
+        """
+        return pulumi.get(self, "is_enabled")
+
+    @property
+    @pulumi.getter(name="triggersOn")
+    def triggers_on(self) -> str:
+        """
+        The type of object the automation rule triggers on
+        """
+        return pulumi.get(self, "triggers_on")
+
+    @property
+    @pulumi.getter(name="triggersWhen")
+    def triggers_when(self) -> str:
+        """
+        The type of event the automation rule triggers on
+        """
+        return pulumi.get(self, "triggers_when")
+
+    @property
+    @pulumi.getter
+    def conditions(self) -> Optional[Sequence['outputs.AutomationRulePropertyValuesConditionResponse']]:
+        """
+        The conditions to evaluate to determine if the automation rule should be triggered on a given object
+        """
+        return pulumi.get(self, "conditions")
+
+    @property
+    @pulumi.getter(name="expirationTimeUtc")
+    def expiration_time_utc(self) -> Optional[str]:
+        """
+        Determines when the automation rule should automatically expire and be disabled.
+        """
+        return pulumi.get(self, "expiration_time_utc")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type

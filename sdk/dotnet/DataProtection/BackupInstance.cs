@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DataProtection
 {
     /// <summary>
     /// BackupInstance Resource
-    /// API Version: 2021-02-01-preview.
+    /// API Version: 2021-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:dataprotection:BackupInstance")]
     public partial class BackupInstance : Pulumi.CustomResource
@@ -111,6 +111,10 @@ namespace Pulumi.AzureNative.DataProtection
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:dataprotection:BackupInstance"},
+                    new Pulumi.Alias { Type = "azure-native:dataprotection/latest:BackupInstance"},
+                    new Pulumi.Alias { Type = "azure-nextgen:dataprotection/latest:BackupInstance"},
+                    new Pulumi.Alias { Type = "azure-native:dataprotection/v20210101:BackupInstance"},
+                    new Pulumi.Alias { Type = "azure-nextgen:dataprotection/v20210101:BackupInstance"},
                     new Pulumi.Alias { Type = "azure-native:dataprotection/v20210201preview:BackupInstance"},
                     new Pulumi.Alias { Type = "azure-nextgen:dataprotection/v20210201preview:BackupInstance"},
                 },

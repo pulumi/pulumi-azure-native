@@ -7,11 +7,13 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./action";
 export * from "./alertRule";
+export * from "./automationRule";
 export * from "./bookmark";
 export * from "./bookmarkRelation";
 export * from "./dataConnector";
 export * from "./getAction";
 export * from "./getAlertRule";
+export * from "./getAutomationRule";
 export * from "./getBookmark";
 export * from "./getBookmarkRelation";
 export * from "./getDataConnector";
@@ -51,6 +53,7 @@ export {
 // Import resources to register:
 import { Action } from "./action";
 import { AlertRule } from "./alertRule";
+import { AutomationRule } from "./automationRule";
 import { Bookmark } from "./bookmark";
 import { BookmarkRelation } from "./bookmarkRelation";
 import { DataConnector } from "./dataConnector";
@@ -70,6 +73,8 @@ const _module = {
                 return new Action(name, <any>undefined, { urn })
             case "azure-native:securityinsights:AlertRule":
                 return new AlertRule(name, <any>undefined, { urn })
+            case "azure-native:securityinsights:AutomationRule":
+                return new AutomationRule(name, <any>undefined, { urn })
             case "azure-native:securityinsights:Bookmark":
                 return new Bookmark(name, <any>undefined, { urn })
             case "azure-native:securityinsights:BookmarkRelation":

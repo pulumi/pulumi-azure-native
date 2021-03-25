@@ -8,7 +8,7 @@ import (
 )
 
 // BaseBackupPolicy resource
-// API Version: 2021-02-01-preview.
+// API Version: 2021-01-01.
 func LookupBackupPolicy(ctx *pulumi.Context, args *LookupBackupPolicyArgs, opts ...pulumi.InvokeOption) (*LookupBackupPolicyResult, error) {
 	var rv LookupBackupPolicyResult
 	err := ctx.Invoke("azure-native:dataprotection:getBackupPolicy", args, &rv, opts...)

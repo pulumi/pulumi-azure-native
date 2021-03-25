@@ -17,7 +17,7 @@ type AzureOperationalStoreParameters struct {
 	// Type of the specific object - used for deserializing
 	// Expected value is 'AzureOperationalStoreParameters'.
 	ObjectType string `pulumi:"objectType"`
-	// Gets or sets the Resource Group Uri.
+	// Gets or sets the Snapshot Resource Group Uri.
 	ResourceGroupId *string `pulumi:"resourceGroupId"`
 }
 
@@ -39,7 +39,7 @@ type AzureOperationalStoreParametersArgs struct {
 	// Type of the specific object - used for deserializing
 	// Expected value is 'AzureOperationalStoreParameters'.
 	ObjectType pulumi.StringInput `pulumi:"objectType"`
-	// Gets or sets the Resource Group Uri.
+	// Gets or sets the Snapshot Resource Group Uri.
 	ResourceGroupId pulumi.StringPtrInput `pulumi:"resourceGroupId"`
 }
 
@@ -106,7 +106,7 @@ func (o AzureOperationalStoreParametersOutput) ObjectType() pulumi.StringOutput 
 	return o.ApplyT(func(v AzureOperationalStoreParameters) string { return v.ObjectType }).(pulumi.StringOutput)
 }
 
-// Gets or sets the Resource Group Uri.
+// Gets or sets the Snapshot Resource Group Uri.
 func (o AzureOperationalStoreParametersOutput) ResourceGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureOperationalStoreParameters) *string { return v.ResourceGroupId }).(pulumi.StringPtrOutput)
 }
@@ -138,7 +138,7 @@ type AzureOperationalStoreParametersResponse struct {
 	// Type of the specific object - used for deserializing
 	// Expected value is 'AzureOperationalStoreParameters'.
 	ObjectType string `pulumi:"objectType"`
-	// Gets or sets the Resource Group Uri.
+	// Gets or sets the Snapshot Resource Group Uri.
 	ResourceGroupId *string `pulumi:"resourceGroupId"`
 }
 
@@ -160,7 +160,7 @@ type AzureOperationalStoreParametersResponseArgs struct {
 	// Type of the specific object - used for deserializing
 	// Expected value is 'AzureOperationalStoreParameters'.
 	ObjectType pulumi.StringInput `pulumi:"objectType"`
-	// Gets or sets the Resource Group Uri.
+	// Gets or sets the Snapshot Resource Group Uri.
 	ResourceGroupId pulumi.StringPtrInput `pulumi:"resourceGroupId"`
 }
 
@@ -227,7 +227,7 @@ func (o AzureOperationalStoreParametersResponseOutput) ObjectType() pulumi.Strin
 	return o.ApplyT(func(v AzureOperationalStoreParametersResponse) string { return v.ObjectType }).(pulumi.StringOutput)
 }
 
-// Gets or sets the Resource Group Uri.
+// Gets or sets the Snapshot Resource Group Uri.
 func (o AzureOperationalStoreParametersResponseOutput) ResourceGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureOperationalStoreParametersResponse) *string { return v.ResourceGroupId }).(pulumi.StringPtrOutput)
 }

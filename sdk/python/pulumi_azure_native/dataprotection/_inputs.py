@@ -30,7 +30,7 @@ class AzureOperationalStoreParametersArgs:
         :param pulumi.Input[Union[str, 'DataStoreTypes']] data_store_type: type of datastore; Operational/Vault/Archive
         :param pulumi.Input[str] object_type: Type of the specific object - used for deserializing
                Expected value is 'AzureOperationalStoreParameters'.
-        :param pulumi.Input[str] resource_group_id: Gets or sets the Resource Group Uri.
+        :param pulumi.Input[str] resource_group_id: Gets or sets the Snapshot Resource Group Uri.
         """
         pulumi.set(__self__, "data_store_type", data_store_type)
         pulumi.set(__self__, "object_type", 'AzureOperationalStoreParameters')
@@ -66,7 +66,7 @@ class AzureOperationalStoreParametersArgs:
     @pulumi.getter(name="resourceGroupId")
     def resource_group_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Gets or sets the Resource Group Uri.
+        Gets or sets the Snapshot Resource Group Uri.
         """
         return pulumi.get(self, "resource_group_id")
 

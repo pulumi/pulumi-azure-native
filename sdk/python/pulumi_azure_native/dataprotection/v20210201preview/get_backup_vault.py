@@ -78,7 +78,7 @@ class GetBackupVaultResult:
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> str:
         """
         Resource location.
         """
@@ -102,7 +102,7 @@ class GetBackupVaultResult:
 
     @property
     @pulumi.getter(name="storageSettings")
-    def storage_settings(self) -> Optional[Sequence['outputs.StorageSettingResponse']]:
+    def storage_settings(self) -> Sequence['outputs.StorageSettingResponse']:
         """
         Storage Settings
         """

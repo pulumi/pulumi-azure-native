@@ -64,6 +64,53 @@ func (e CategoryType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.S
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// Language in which the recipient will receive the notification
+type CultureCode pulumi.String
+
+const (
+	CultureCode_En_us = CultureCode("en-us")
+	CultureCode_Ja_jp = CultureCode("ja-jp")
+	CultureCode_Zh_cn = CultureCode("zh-cn")
+	CultureCode_De_de = CultureCode("de-de")
+	CultureCode_Es_es = CultureCode("es-es")
+	CultureCode_Fr_fr = CultureCode("fr-fr")
+	CultureCode_It_it = CultureCode("it-it")
+	CultureCode_Ko_kr = CultureCode("ko-kr")
+	CultureCode_Pt_br = CultureCode("pt-br")
+	CultureCode_Ru_ru = CultureCode("ru-ru")
+	CultureCode_Zh_tw = CultureCode("zh-tw")
+	CultureCode_Cs_cz = CultureCode("cs-cz")
+	CultureCode_Pl_pl = CultureCode("pl-pl")
+	CultureCode_Tr_tr = CultureCode("tr-tr")
+	CultureCode_Da_dk = CultureCode("da-dk")
+	CultureCode_En_gb = CultureCode("en-gb")
+	CultureCode_Hu_hu = CultureCode("hu-hu")
+	CultureCode_Nb_no = CultureCode("nb-no")
+	CultureCode_Nl_nl = CultureCode("nl-nl")
+	CultureCode_Pt_pt = CultureCode("pt-pt")
+	CultureCode_Sv_se = CultureCode("sv-se")
+)
+
+func (CultureCode) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e CultureCode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CultureCode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CultureCode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e CultureCode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // The comparison operator.
 type OperatorType pulumi.String
 

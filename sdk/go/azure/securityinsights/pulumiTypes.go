@@ -131,6 +131,1478 @@ func (o ActivityTimelineItemResponseOutput) Title() pulumi.StringOutput {
 	return o.ApplyT(func(v ActivityTimelineItemResponse) string { return v.Title }).(pulumi.StringOutput)
 }
 
+// Describes an automation rule action to modify an object's properties
+type AutomationRuleModifyPropertiesAction struct {
+	// The configuration of the modify properties automation rule action
+	ActionConfiguration AutomationRuleModifyPropertiesActionActionConfiguration `pulumi:"actionConfiguration"`
+	// The type of the automation rule action
+	// Expected value is 'ModifyProperties'.
+	ActionType string `pulumi:"actionType"`
+	// The order of execution of the automation rule action
+	Order int `pulumi:"order"`
+}
+
+// AutomationRuleModifyPropertiesActionInput is an input type that accepts AutomationRuleModifyPropertiesActionArgs and AutomationRuleModifyPropertiesActionOutput values.
+// You can construct a concrete instance of `AutomationRuleModifyPropertiesActionInput` via:
+//
+//          AutomationRuleModifyPropertiesActionArgs{...}
+type AutomationRuleModifyPropertiesActionInput interface {
+	pulumi.Input
+
+	ToAutomationRuleModifyPropertiesActionOutput() AutomationRuleModifyPropertiesActionOutput
+	ToAutomationRuleModifyPropertiesActionOutputWithContext(context.Context) AutomationRuleModifyPropertiesActionOutput
+}
+
+// Describes an automation rule action to modify an object's properties
+type AutomationRuleModifyPropertiesActionArgs struct {
+	// The configuration of the modify properties automation rule action
+	ActionConfiguration AutomationRuleModifyPropertiesActionActionConfigurationInput `pulumi:"actionConfiguration"`
+	// The type of the automation rule action
+	// Expected value is 'ModifyProperties'.
+	ActionType pulumi.StringInput `pulumi:"actionType"`
+	// The order of execution of the automation rule action
+	Order pulumi.IntInput `pulumi:"order"`
+}
+
+func (AutomationRuleModifyPropertiesActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleModifyPropertiesAction)(nil)).Elem()
+}
+
+func (i AutomationRuleModifyPropertiesActionArgs) ToAutomationRuleModifyPropertiesActionOutput() AutomationRuleModifyPropertiesActionOutput {
+	return i.ToAutomationRuleModifyPropertiesActionOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleModifyPropertiesActionArgs) ToAutomationRuleModifyPropertiesActionOutputWithContext(ctx context.Context) AutomationRuleModifyPropertiesActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleModifyPropertiesActionOutput)
+}
+
+// Describes an automation rule action to modify an object's properties
+type AutomationRuleModifyPropertiesActionOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleModifyPropertiesActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleModifyPropertiesAction)(nil)).Elem()
+}
+
+func (o AutomationRuleModifyPropertiesActionOutput) ToAutomationRuleModifyPropertiesActionOutput() AutomationRuleModifyPropertiesActionOutput {
+	return o
+}
+
+func (o AutomationRuleModifyPropertiesActionOutput) ToAutomationRuleModifyPropertiesActionOutputWithContext(ctx context.Context) AutomationRuleModifyPropertiesActionOutput {
+	return o
+}
+
+// The configuration of the modify properties automation rule action
+func (o AutomationRuleModifyPropertiesActionOutput) ActionConfiguration() AutomationRuleModifyPropertiesActionActionConfigurationOutput {
+	return o.ApplyT(func(v AutomationRuleModifyPropertiesAction) AutomationRuleModifyPropertiesActionActionConfiguration {
+		return v.ActionConfiguration
+	}).(AutomationRuleModifyPropertiesActionActionConfigurationOutput)
+}
+
+// The type of the automation rule action
+// Expected value is 'ModifyProperties'.
+func (o AutomationRuleModifyPropertiesActionOutput) ActionType() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRuleModifyPropertiesAction) string { return v.ActionType }).(pulumi.StringOutput)
+}
+
+// The order of execution of the automation rule action
+func (o AutomationRuleModifyPropertiesActionOutput) Order() pulumi.IntOutput {
+	return o.ApplyT(func(v AutomationRuleModifyPropertiesAction) int { return v.Order }).(pulumi.IntOutput)
+}
+
+// The configuration of the modify properties automation rule action
+type AutomationRuleModifyPropertiesActionActionConfiguration struct {
+	// The reason the incident was closed
+	Classification *string `pulumi:"classification"`
+	// Describes the reason the incident was closed
+	ClassificationComment *string `pulumi:"classificationComment"`
+	// The classification reason to close the incident with
+	ClassificationReason *string `pulumi:"classificationReason"`
+	// List of labels to add to the incident
+	Labels []IncidentLabel `pulumi:"labels"`
+	// Describes a user that the incident is assigned to
+	Owner *IncidentOwnerInfo `pulumi:"owner"`
+	// The severity of the incident
+	Severity *string `pulumi:"severity"`
+	// The status of the incident
+	Status *string `pulumi:"status"`
+}
+
+// AutomationRuleModifyPropertiesActionActionConfigurationInput is an input type that accepts AutomationRuleModifyPropertiesActionActionConfigurationArgs and AutomationRuleModifyPropertiesActionActionConfigurationOutput values.
+// You can construct a concrete instance of `AutomationRuleModifyPropertiesActionActionConfigurationInput` via:
+//
+//          AutomationRuleModifyPropertiesActionActionConfigurationArgs{...}
+type AutomationRuleModifyPropertiesActionActionConfigurationInput interface {
+	pulumi.Input
+
+	ToAutomationRuleModifyPropertiesActionActionConfigurationOutput() AutomationRuleModifyPropertiesActionActionConfigurationOutput
+	ToAutomationRuleModifyPropertiesActionActionConfigurationOutputWithContext(context.Context) AutomationRuleModifyPropertiesActionActionConfigurationOutput
+}
+
+// The configuration of the modify properties automation rule action
+type AutomationRuleModifyPropertiesActionActionConfigurationArgs struct {
+	// The reason the incident was closed
+	Classification pulumi.StringPtrInput `pulumi:"classification"`
+	// Describes the reason the incident was closed
+	ClassificationComment pulumi.StringPtrInput `pulumi:"classificationComment"`
+	// The classification reason to close the incident with
+	ClassificationReason pulumi.StringPtrInput `pulumi:"classificationReason"`
+	// List of labels to add to the incident
+	Labels IncidentLabelArrayInput `pulumi:"labels"`
+	// Describes a user that the incident is assigned to
+	Owner IncidentOwnerInfoPtrInput `pulumi:"owner"`
+	// The severity of the incident
+	Severity pulumi.StringPtrInput `pulumi:"severity"`
+	// The status of the incident
+	Status pulumi.StringPtrInput `pulumi:"status"`
+}
+
+func (AutomationRuleModifyPropertiesActionActionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleModifyPropertiesActionActionConfiguration)(nil)).Elem()
+}
+
+func (i AutomationRuleModifyPropertiesActionActionConfigurationArgs) ToAutomationRuleModifyPropertiesActionActionConfigurationOutput() AutomationRuleModifyPropertiesActionActionConfigurationOutput {
+	return i.ToAutomationRuleModifyPropertiesActionActionConfigurationOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleModifyPropertiesActionActionConfigurationArgs) ToAutomationRuleModifyPropertiesActionActionConfigurationOutputWithContext(ctx context.Context) AutomationRuleModifyPropertiesActionActionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleModifyPropertiesActionActionConfigurationOutput)
+}
+
+// The configuration of the modify properties automation rule action
+type AutomationRuleModifyPropertiesActionActionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleModifyPropertiesActionActionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleModifyPropertiesActionActionConfiguration)(nil)).Elem()
+}
+
+func (o AutomationRuleModifyPropertiesActionActionConfigurationOutput) ToAutomationRuleModifyPropertiesActionActionConfigurationOutput() AutomationRuleModifyPropertiesActionActionConfigurationOutput {
+	return o
+}
+
+func (o AutomationRuleModifyPropertiesActionActionConfigurationOutput) ToAutomationRuleModifyPropertiesActionActionConfigurationOutputWithContext(ctx context.Context) AutomationRuleModifyPropertiesActionActionConfigurationOutput {
+	return o
+}
+
+// The reason the incident was closed
+func (o AutomationRuleModifyPropertiesActionActionConfigurationOutput) Classification() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutomationRuleModifyPropertiesActionActionConfiguration) *string { return v.Classification }).(pulumi.StringPtrOutput)
+}
+
+// Describes the reason the incident was closed
+func (o AutomationRuleModifyPropertiesActionActionConfigurationOutput) ClassificationComment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutomationRuleModifyPropertiesActionActionConfiguration) *string {
+		return v.ClassificationComment
+	}).(pulumi.StringPtrOutput)
+}
+
+// The classification reason to close the incident with
+func (o AutomationRuleModifyPropertiesActionActionConfigurationOutput) ClassificationReason() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutomationRuleModifyPropertiesActionActionConfiguration) *string { return v.ClassificationReason }).(pulumi.StringPtrOutput)
+}
+
+// List of labels to add to the incident
+func (o AutomationRuleModifyPropertiesActionActionConfigurationOutput) Labels() IncidentLabelArrayOutput {
+	return o.ApplyT(func(v AutomationRuleModifyPropertiesActionActionConfiguration) []IncidentLabel { return v.Labels }).(IncidentLabelArrayOutput)
+}
+
+// Describes a user that the incident is assigned to
+func (o AutomationRuleModifyPropertiesActionActionConfigurationOutput) Owner() IncidentOwnerInfoPtrOutput {
+	return o.ApplyT(func(v AutomationRuleModifyPropertiesActionActionConfiguration) *IncidentOwnerInfo { return v.Owner }).(IncidentOwnerInfoPtrOutput)
+}
+
+// The severity of the incident
+func (o AutomationRuleModifyPropertiesActionActionConfigurationOutput) Severity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutomationRuleModifyPropertiesActionActionConfiguration) *string { return v.Severity }).(pulumi.StringPtrOutput)
+}
+
+// The status of the incident
+func (o AutomationRuleModifyPropertiesActionActionConfigurationOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutomationRuleModifyPropertiesActionActionConfiguration) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// Describes an automation rule action to modify an object's properties
+type AutomationRuleModifyPropertiesActionResponse struct {
+	// The configuration of the modify properties automation rule action
+	ActionConfiguration AutomationRuleModifyPropertiesActionResponseActionConfiguration `pulumi:"actionConfiguration"`
+	// The type of the automation rule action
+	// Expected value is 'ModifyProperties'.
+	ActionType string `pulumi:"actionType"`
+	// The order of execution of the automation rule action
+	Order int `pulumi:"order"`
+}
+
+// AutomationRuleModifyPropertiesActionResponseInput is an input type that accepts AutomationRuleModifyPropertiesActionResponseArgs and AutomationRuleModifyPropertiesActionResponseOutput values.
+// You can construct a concrete instance of `AutomationRuleModifyPropertiesActionResponseInput` via:
+//
+//          AutomationRuleModifyPropertiesActionResponseArgs{...}
+type AutomationRuleModifyPropertiesActionResponseInput interface {
+	pulumi.Input
+
+	ToAutomationRuleModifyPropertiesActionResponseOutput() AutomationRuleModifyPropertiesActionResponseOutput
+	ToAutomationRuleModifyPropertiesActionResponseOutputWithContext(context.Context) AutomationRuleModifyPropertiesActionResponseOutput
+}
+
+// Describes an automation rule action to modify an object's properties
+type AutomationRuleModifyPropertiesActionResponseArgs struct {
+	// The configuration of the modify properties automation rule action
+	ActionConfiguration AutomationRuleModifyPropertiesActionResponseActionConfigurationInput `pulumi:"actionConfiguration"`
+	// The type of the automation rule action
+	// Expected value is 'ModifyProperties'.
+	ActionType pulumi.StringInput `pulumi:"actionType"`
+	// The order of execution of the automation rule action
+	Order pulumi.IntInput `pulumi:"order"`
+}
+
+func (AutomationRuleModifyPropertiesActionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleModifyPropertiesActionResponse)(nil)).Elem()
+}
+
+func (i AutomationRuleModifyPropertiesActionResponseArgs) ToAutomationRuleModifyPropertiesActionResponseOutput() AutomationRuleModifyPropertiesActionResponseOutput {
+	return i.ToAutomationRuleModifyPropertiesActionResponseOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleModifyPropertiesActionResponseArgs) ToAutomationRuleModifyPropertiesActionResponseOutputWithContext(ctx context.Context) AutomationRuleModifyPropertiesActionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleModifyPropertiesActionResponseOutput)
+}
+
+// Describes an automation rule action to modify an object's properties
+type AutomationRuleModifyPropertiesActionResponseOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleModifyPropertiesActionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleModifyPropertiesActionResponse)(nil)).Elem()
+}
+
+func (o AutomationRuleModifyPropertiesActionResponseOutput) ToAutomationRuleModifyPropertiesActionResponseOutput() AutomationRuleModifyPropertiesActionResponseOutput {
+	return o
+}
+
+func (o AutomationRuleModifyPropertiesActionResponseOutput) ToAutomationRuleModifyPropertiesActionResponseOutputWithContext(ctx context.Context) AutomationRuleModifyPropertiesActionResponseOutput {
+	return o
+}
+
+// The configuration of the modify properties automation rule action
+func (o AutomationRuleModifyPropertiesActionResponseOutput) ActionConfiguration() AutomationRuleModifyPropertiesActionResponseActionConfigurationOutput {
+	return o.ApplyT(func(v AutomationRuleModifyPropertiesActionResponse) AutomationRuleModifyPropertiesActionResponseActionConfiguration {
+		return v.ActionConfiguration
+	}).(AutomationRuleModifyPropertiesActionResponseActionConfigurationOutput)
+}
+
+// The type of the automation rule action
+// Expected value is 'ModifyProperties'.
+func (o AutomationRuleModifyPropertiesActionResponseOutput) ActionType() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRuleModifyPropertiesActionResponse) string { return v.ActionType }).(pulumi.StringOutput)
+}
+
+// The order of execution of the automation rule action
+func (o AutomationRuleModifyPropertiesActionResponseOutput) Order() pulumi.IntOutput {
+	return o.ApplyT(func(v AutomationRuleModifyPropertiesActionResponse) int { return v.Order }).(pulumi.IntOutput)
+}
+
+// The configuration of the modify properties automation rule action
+type AutomationRuleModifyPropertiesActionResponseActionConfiguration struct {
+	// The reason the incident was closed
+	Classification *string `pulumi:"classification"`
+	// Describes the reason the incident was closed
+	ClassificationComment *string `pulumi:"classificationComment"`
+	// The classification reason to close the incident with
+	ClassificationReason *string `pulumi:"classificationReason"`
+	// List of labels to add to the incident
+	Labels []IncidentLabelResponse `pulumi:"labels"`
+	// Describes a user that the incident is assigned to
+	Owner *IncidentOwnerInfoResponse `pulumi:"owner"`
+	// The severity of the incident
+	Severity *string `pulumi:"severity"`
+	// The status of the incident
+	Status *string `pulumi:"status"`
+}
+
+// AutomationRuleModifyPropertiesActionResponseActionConfigurationInput is an input type that accepts AutomationRuleModifyPropertiesActionResponseActionConfigurationArgs and AutomationRuleModifyPropertiesActionResponseActionConfigurationOutput values.
+// You can construct a concrete instance of `AutomationRuleModifyPropertiesActionResponseActionConfigurationInput` via:
+//
+//          AutomationRuleModifyPropertiesActionResponseActionConfigurationArgs{...}
+type AutomationRuleModifyPropertiesActionResponseActionConfigurationInput interface {
+	pulumi.Input
+
+	ToAutomationRuleModifyPropertiesActionResponseActionConfigurationOutput() AutomationRuleModifyPropertiesActionResponseActionConfigurationOutput
+	ToAutomationRuleModifyPropertiesActionResponseActionConfigurationOutputWithContext(context.Context) AutomationRuleModifyPropertiesActionResponseActionConfigurationOutput
+}
+
+// The configuration of the modify properties automation rule action
+type AutomationRuleModifyPropertiesActionResponseActionConfigurationArgs struct {
+	// The reason the incident was closed
+	Classification pulumi.StringPtrInput `pulumi:"classification"`
+	// Describes the reason the incident was closed
+	ClassificationComment pulumi.StringPtrInput `pulumi:"classificationComment"`
+	// The classification reason to close the incident with
+	ClassificationReason pulumi.StringPtrInput `pulumi:"classificationReason"`
+	// List of labels to add to the incident
+	Labels IncidentLabelResponseArrayInput `pulumi:"labels"`
+	// Describes a user that the incident is assigned to
+	Owner IncidentOwnerInfoResponsePtrInput `pulumi:"owner"`
+	// The severity of the incident
+	Severity pulumi.StringPtrInput `pulumi:"severity"`
+	// The status of the incident
+	Status pulumi.StringPtrInput `pulumi:"status"`
+}
+
+func (AutomationRuleModifyPropertiesActionResponseActionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleModifyPropertiesActionResponseActionConfiguration)(nil)).Elem()
+}
+
+func (i AutomationRuleModifyPropertiesActionResponseActionConfigurationArgs) ToAutomationRuleModifyPropertiesActionResponseActionConfigurationOutput() AutomationRuleModifyPropertiesActionResponseActionConfigurationOutput {
+	return i.ToAutomationRuleModifyPropertiesActionResponseActionConfigurationOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleModifyPropertiesActionResponseActionConfigurationArgs) ToAutomationRuleModifyPropertiesActionResponseActionConfigurationOutputWithContext(ctx context.Context) AutomationRuleModifyPropertiesActionResponseActionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleModifyPropertiesActionResponseActionConfigurationOutput)
+}
+
+// The configuration of the modify properties automation rule action
+type AutomationRuleModifyPropertiesActionResponseActionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleModifyPropertiesActionResponseActionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleModifyPropertiesActionResponseActionConfiguration)(nil)).Elem()
+}
+
+func (o AutomationRuleModifyPropertiesActionResponseActionConfigurationOutput) ToAutomationRuleModifyPropertiesActionResponseActionConfigurationOutput() AutomationRuleModifyPropertiesActionResponseActionConfigurationOutput {
+	return o
+}
+
+func (o AutomationRuleModifyPropertiesActionResponseActionConfigurationOutput) ToAutomationRuleModifyPropertiesActionResponseActionConfigurationOutputWithContext(ctx context.Context) AutomationRuleModifyPropertiesActionResponseActionConfigurationOutput {
+	return o
+}
+
+// The reason the incident was closed
+func (o AutomationRuleModifyPropertiesActionResponseActionConfigurationOutput) Classification() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutomationRuleModifyPropertiesActionResponseActionConfiguration) *string {
+		return v.Classification
+	}).(pulumi.StringPtrOutput)
+}
+
+// Describes the reason the incident was closed
+func (o AutomationRuleModifyPropertiesActionResponseActionConfigurationOutput) ClassificationComment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutomationRuleModifyPropertiesActionResponseActionConfiguration) *string {
+		return v.ClassificationComment
+	}).(pulumi.StringPtrOutput)
+}
+
+// The classification reason to close the incident with
+func (o AutomationRuleModifyPropertiesActionResponseActionConfigurationOutput) ClassificationReason() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutomationRuleModifyPropertiesActionResponseActionConfiguration) *string {
+		return v.ClassificationReason
+	}).(pulumi.StringPtrOutput)
+}
+
+// List of labels to add to the incident
+func (o AutomationRuleModifyPropertiesActionResponseActionConfigurationOutput) Labels() IncidentLabelResponseArrayOutput {
+	return o.ApplyT(func(v AutomationRuleModifyPropertiesActionResponseActionConfiguration) []IncidentLabelResponse {
+		return v.Labels
+	}).(IncidentLabelResponseArrayOutput)
+}
+
+// Describes a user that the incident is assigned to
+func (o AutomationRuleModifyPropertiesActionResponseActionConfigurationOutput) Owner() IncidentOwnerInfoResponsePtrOutput {
+	return o.ApplyT(func(v AutomationRuleModifyPropertiesActionResponseActionConfiguration) *IncidentOwnerInfoResponse {
+		return v.Owner
+	}).(IncidentOwnerInfoResponsePtrOutput)
+}
+
+// The severity of the incident
+func (o AutomationRuleModifyPropertiesActionResponseActionConfigurationOutput) Severity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutomationRuleModifyPropertiesActionResponseActionConfiguration) *string { return v.Severity }).(pulumi.StringPtrOutput)
+}
+
+// The status of the incident
+func (o AutomationRuleModifyPropertiesActionResponseActionConfigurationOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutomationRuleModifyPropertiesActionResponseActionConfiguration) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// Describes an automation rule condition that evaluates a property's value
+type AutomationRulePropertyValuesCondition struct {
+	// The configuration of the automation rule condition
+	ConditionProperties AutomationRulePropertyValuesConditionConditionProperties `pulumi:"conditionProperties"`
+	// The type of the automation rule condition
+	// Expected value is 'Property'.
+	ConditionType string `pulumi:"conditionType"`
+}
+
+// AutomationRulePropertyValuesConditionInput is an input type that accepts AutomationRulePropertyValuesConditionArgs and AutomationRulePropertyValuesConditionOutput values.
+// You can construct a concrete instance of `AutomationRulePropertyValuesConditionInput` via:
+//
+//          AutomationRulePropertyValuesConditionArgs{...}
+type AutomationRulePropertyValuesConditionInput interface {
+	pulumi.Input
+
+	ToAutomationRulePropertyValuesConditionOutput() AutomationRulePropertyValuesConditionOutput
+	ToAutomationRulePropertyValuesConditionOutputWithContext(context.Context) AutomationRulePropertyValuesConditionOutput
+}
+
+// Describes an automation rule condition that evaluates a property's value
+type AutomationRulePropertyValuesConditionArgs struct {
+	// The configuration of the automation rule condition
+	ConditionProperties AutomationRulePropertyValuesConditionConditionPropertiesInput `pulumi:"conditionProperties"`
+	// The type of the automation rule condition
+	// Expected value is 'Property'.
+	ConditionType pulumi.StringInput `pulumi:"conditionType"`
+}
+
+func (AutomationRulePropertyValuesConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRulePropertyValuesCondition)(nil)).Elem()
+}
+
+func (i AutomationRulePropertyValuesConditionArgs) ToAutomationRulePropertyValuesConditionOutput() AutomationRulePropertyValuesConditionOutput {
+	return i.ToAutomationRulePropertyValuesConditionOutputWithContext(context.Background())
+}
+
+func (i AutomationRulePropertyValuesConditionArgs) ToAutomationRulePropertyValuesConditionOutputWithContext(ctx context.Context) AutomationRulePropertyValuesConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRulePropertyValuesConditionOutput)
+}
+
+// AutomationRulePropertyValuesConditionArrayInput is an input type that accepts AutomationRulePropertyValuesConditionArray and AutomationRulePropertyValuesConditionArrayOutput values.
+// You can construct a concrete instance of `AutomationRulePropertyValuesConditionArrayInput` via:
+//
+//          AutomationRulePropertyValuesConditionArray{ AutomationRulePropertyValuesConditionArgs{...} }
+type AutomationRulePropertyValuesConditionArrayInput interface {
+	pulumi.Input
+
+	ToAutomationRulePropertyValuesConditionArrayOutput() AutomationRulePropertyValuesConditionArrayOutput
+	ToAutomationRulePropertyValuesConditionArrayOutputWithContext(context.Context) AutomationRulePropertyValuesConditionArrayOutput
+}
+
+type AutomationRulePropertyValuesConditionArray []AutomationRulePropertyValuesConditionInput
+
+func (AutomationRulePropertyValuesConditionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRulePropertyValuesCondition)(nil)).Elem()
+}
+
+func (i AutomationRulePropertyValuesConditionArray) ToAutomationRulePropertyValuesConditionArrayOutput() AutomationRulePropertyValuesConditionArrayOutput {
+	return i.ToAutomationRulePropertyValuesConditionArrayOutputWithContext(context.Background())
+}
+
+func (i AutomationRulePropertyValuesConditionArray) ToAutomationRulePropertyValuesConditionArrayOutputWithContext(ctx context.Context) AutomationRulePropertyValuesConditionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRulePropertyValuesConditionArrayOutput)
+}
+
+// Describes an automation rule condition that evaluates a property's value
+type AutomationRulePropertyValuesConditionOutput struct{ *pulumi.OutputState }
+
+func (AutomationRulePropertyValuesConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRulePropertyValuesCondition)(nil)).Elem()
+}
+
+func (o AutomationRulePropertyValuesConditionOutput) ToAutomationRulePropertyValuesConditionOutput() AutomationRulePropertyValuesConditionOutput {
+	return o
+}
+
+func (o AutomationRulePropertyValuesConditionOutput) ToAutomationRulePropertyValuesConditionOutputWithContext(ctx context.Context) AutomationRulePropertyValuesConditionOutput {
+	return o
+}
+
+// The configuration of the automation rule condition
+func (o AutomationRulePropertyValuesConditionOutput) ConditionProperties() AutomationRulePropertyValuesConditionConditionPropertiesOutput {
+	return o.ApplyT(func(v AutomationRulePropertyValuesCondition) AutomationRulePropertyValuesConditionConditionProperties {
+		return v.ConditionProperties
+	}).(AutomationRulePropertyValuesConditionConditionPropertiesOutput)
+}
+
+// The type of the automation rule condition
+// Expected value is 'Property'.
+func (o AutomationRulePropertyValuesConditionOutput) ConditionType() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRulePropertyValuesCondition) string { return v.ConditionType }).(pulumi.StringOutput)
+}
+
+type AutomationRulePropertyValuesConditionArrayOutput struct{ *pulumi.OutputState }
+
+func (AutomationRulePropertyValuesConditionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRulePropertyValuesCondition)(nil)).Elem()
+}
+
+func (o AutomationRulePropertyValuesConditionArrayOutput) ToAutomationRulePropertyValuesConditionArrayOutput() AutomationRulePropertyValuesConditionArrayOutput {
+	return o
+}
+
+func (o AutomationRulePropertyValuesConditionArrayOutput) ToAutomationRulePropertyValuesConditionArrayOutputWithContext(ctx context.Context) AutomationRulePropertyValuesConditionArrayOutput {
+	return o
+}
+
+func (o AutomationRulePropertyValuesConditionArrayOutput) Index(i pulumi.IntInput) AutomationRulePropertyValuesConditionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutomationRulePropertyValuesCondition {
+		return vs[0].([]AutomationRulePropertyValuesCondition)[vs[1].(int)]
+	}).(AutomationRulePropertyValuesConditionOutput)
+}
+
+// The configuration of the automation rule condition
+type AutomationRulePropertyValuesConditionConditionProperties struct {
+	// The operator to use for evaluation the condition
+	Operator *string `pulumi:"operator"`
+	// The property to evaluate
+	PropertyName *string `pulumi:"propertyName"`
+	// The values to use for evaluating the condition
+	PropertyValues []string `pulumi:"propertyValues"`
+}
+
+// AutomationRulePropertyValuesConditionConditionPropertiesInput is an input type that accepts AutomationRulePropertyValuesConditionConditionPropertiesArgs and AutomationRulePropertyValuesConditionConditionPropertiesOutput values.
+// You can construct a concrete instance of `AutomationRulePropertyValuesConditionConditionPropertiesInput` via:
+//
+//          AutomationRulePropertyValuesConditionConditionPropertiesArgs{...}
+type AutomationRulePropertyValuesConditionConditionPropertiesInput interface {
+	pulumi.Input
+
+	ToAutomationRulePropertyValuesConditionConditionPropertiesOutput() AutomationRulePropertyValuesConditionConditionPropertiesOutput
+	ToAutomationRulePropertyValuesConditionConditionPropertiesOutputWithContext(context.Context) AutomationRulePropertyValuesConditionConditionPropertiesOutput
+}
+
+// The configuration of the automation rule condition
+type AutomationRulePropertyValuesConditionConditionPropertiesArgs struct {
+	// The operator to use for evaluation the condition
+	Operator pulumi.StringPtrInput `pulumi:"operator"`
+	// The property to evaluate
+	PropertyName pulumi.StringPtrInput `pulumi:"propertyName"`
+	// The values to use for evaluating the condition
+	PropertyValues pulumi.StringArrayInput `pulumi:"propertyValues"`
+}
+
+func (AutomationRulePropertyValuesConditionConditionPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRulePropertyValuesConditionConditionProperties)(nil)).Elem()
+}
+
+func (i AutomationRulePropertyValuesConditionConditionPropertiesArgs) ToAutomationRulePropertyValuesConditionConditionPropertiesOutput() AutomationRulePropertyValuesConditionConditionPropertiesOutput {
+	return i.ToAutomationRulePropertyValuesConditionConditionPropertiesOutputWithContext(context.Background())
+}
+
+func (i AutomationRulePropertyValuesConditionConditionPropertiesArgs) ToAutomationRulePropertyValuesConditionConditionPropertiesOutputWithContext(ctx context.Context) AutomationRulePropertyValuesConditionConditionPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRulePropertyValuesConditionConditionPropertiesOutput)
+}
+
+// The configuration of the automation rule condition
+type AutomationRulePropertyValuesConditionConditionPropertiesOutput struct{ *pulumi.OutputState }
+
+func (AutomationRulePropertyValuesConditionConditionPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRulePropertyValuesConditionConditionProperties)(nil)).Elem()
+}
+
+func (o AutomationRulePropertyValuesConditionConditionPropertiesOutput) ToAutomationRulePropertyValuesConditionConditionPropertiesOutput() AutomationRulePropertyValuesConditionConditionPropertiesOutput {
+	return o
+}
+
+func (o AutomationRulePropertyValuesConditionConditionPropertiesOutput) ToAutomationRulePropertyValuesConditionConditionPropertiesOutputWithContext(ctx context.Context) AutomationRulePropertyValuesConditionConditionPropertiesOutput {
+	return o
+}
+
+// The operator to use for evaluation the condition
+func (o AutomationRulePropertyValuesConditionConditionPropertiesOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutomationRulePropertyValuesConditionConditionProperties) *string { return v.Operator }).(pulumi.StringPtrOutput)
+}
+
+// The property to evaluate
+func (o AutomationRulePropertyValuesConditionConditionPropertiesOutput) PropertyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutomationRulePropertyValuesConditionConditionProperties) *string { return v.PropertyName }).(pulumi.StringPtrOutput)
+}
+
+// The values to use for evaluating the condition
+func (o AutomationRulePropertyValuesConditionConditionPropertiesOutput) PropertyValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AutomationRulePropertyValuesConditionConditionProperties) []string { return v.PropertyValues }).(pulumi.StringArrayOutput)
+}
+
+// Describes an automation rule condition that evaluates a property's value
+type AutomationRulePropertyValuesConditionResponse struct {
+	// The configuration of the automation rule condition
+	ConditionProperties AutomationRulePropertyValuesConditionResponseConditionProperties `pulumi:"conditionProperties"`
+	// The type of the automation rule condition
+	// Expected value is 'Property'.
+	ConditionType string `pulumi:"conditionType"`
+}
+
+// AutomationRulePropertyValuesConditionResponseInput is an input type that accepts AutomationRulePropertyValuesConditionResponseArgs and AutomationRulePropertyValuesConditionResponseOutput values.
+// You can construct a concrete instance of `AutomationRulePropertyValuesConditionResponseInput` via:
+//
+//          AutomationRulePropertyValuesConditionResponseArgs{...}
+type AutomationRulePropertyValuesConditionResponseInput interface {
+	pulumi.Input
+
+	ToAutomationRulePropertyValuesConditionResponseOutput() AutomationRulePropertyValuesConditionResponseOutput
+	ToAutomationRulePropertyValuesConditionResponseOutputWithContext(context.Context) AutomationRulePropertyValuesConditionResponseOutput
+}
+
+// Describes an automation rule condition that evaluates a property's value
+type AutomationRulePropertyValuesConditionResponseArgs struct {
+	// The configuration of the automation rule condition
+	ConditionProperties AutomationRulePropertyValuesConditionResponseConditionPropertiesInput `pulumi:"conditionProperties"`
+	// The type of the automation rule condition
+	// Expected value is 'Property'.
+	ConditionType pulumi.StringInput `pulumi:"conditionType"`
+}
+
+func (AutomationRulePropertyValuesConditionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRulePropertyValuesConditionResponse)(nil)).Elem()
+}
+
+func (i AutomationRulePropertyValuesConditionResponseArgs) ToAutomationRulePropertyValuesConditionResponseOutput() AutomationRulePropertyValuesConditionResponseOutput {
+	return i.ToAutomationRulePropertyValuesConditionResponseOutputWithContext(context.Background())
+}
+
+func (i AutomationRulePropertyValuesConditionResponseArgs) ToAutomationRulePropertyValuesConditionResponseOutputWithContext(ctx context.Context) AutomationRulePropertyValuesConditionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRulePropertyValuesConditionResponseOutput)
+}
+
+// AutomationRulePropertyValuesConditionResponseArrayInput is an input type that accepts AutomationRulePropertyValuesConditionResponseArray and AutomationRulePropertyValuesConditionResponseArrayOutput values.
+// You can construct a concrete instance of `AutomationRulePropertyValuesConditionResponseArrayInput` via:
+//
+//          AutomationRulePropertyValuesConditionResponseArray{ AutomationRulePropertyValuesConditionResponseArgs{...} }
+type AutomationRulePropertyValuesConditionResponseArrayInput interface {
+	pulumi.Input
+
+	ToAutomationRulePropertyValuesConditionResponseArrayOutput() AutomationRulePropertyValuesConditionResponseArrayOutput
+	ToAutomationRulePropertyValuesConditionResponseArrayOutputWithContext(context.Context) AutomationRulePropertyValuesConditionResponseArrayOutput
+}
+
+type AutomationRulePropertyValuesConditionResponseArray []AutomationRulePropertyValuesConditionResponseInput
+
+func (AutomationRulePropertyValuesConditionResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRulePropertyValuesConditionResponse)(nil)).Elem()
+}
+
+func (i AutomationRulePropertyValuesConditionResponseArray) ToAutomationRulePropertyValuesConditionResponseArrayOutput() AutomationRulePropertyValuesConditionResponseArrayOutput {
+	return i.ToAutomationRulePropertyValuesConditionResponseArrayOutputWithContext(context.Background())
+}
+
+func (i AutomationRulePropertyValuesConditionResponseArray) ToAutomationRulePropertyValuesConditionResponseArrayOutputWithContext(ctx context.Context) AutomationRulePropertyValuesConditionResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRulePropertyValuesConditionResponseArrayOutput)
+}
+
+// Describes an automation rule condition that evaluates a property's value
+type AutomationRulePropertyValuesConditionResponseOutput struct{ *pulumi.OutputState }
+
+func (AutomationRulePropertyValuesConditionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRulePropertyValuesConditionResponse)(nil)).Elem()
+}
+
+func (o AutomationRulePropertyValuesConditionResponseOutput) ToAutomationRulePropertyValuesConditionResponseOutput() AutomationRulePropertyValuesConditionResponseOutput {
+	return o
+}
+
+func (o AutomationRulePropertyValuesConditionResponseOutput) ToAutomationRulePropertyValuesConditionResponseOutputWithContext(ctx context.Context) AutomationRulePropertyValuesConditionResponseOutput {
+	return o
+}
+
+// The configuration of the automation rule condition
+func (o AutomationRulePropertyValuesConditionResponseOutput) ConditionProperties() AutomationRulePropertyValuesConditionResponseConditionPropertiesOutput {
+	return o.ApplyT(func(v AutomationRulePropertyValuesConditionResponse) AutomationRulePropertyValuesConditionResponseConditionProperties {
+		return v.ConditionProperties
+	}).(AutomationRulePropertyValuesConditionResponseConditionPropertiesOutput)
+}
+
+// The type of the automation rule condition
+// Expected value is 'Property'.
+func (o AutomationRulePropertyValuesConditionResponseOutput) ConditionType() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRulePropertyValuesConditionResponse) string { return v.ConditionType }).(pulumi.StringOutput)
+}
+
+type AutomationRulePropertyValuesConditionResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (AutomationRulePropertyValuesConditionResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRulePropertyValuesConditionResponse)(nil)).Elem()
+}
+
+func (o AutomationRulePropertyValuesConditionResponseArrayOutput) ToAutomationRulePropertyValuesConditionResponseArrayOutput() AutomationRulePropertyValuesConditionResponseArrayOutput {
+	return o
+}
+
+func (o AutomationRulePropertyValuesConditionResponseArrayOutput) ToAutomationRulePropertyValuesConditionResponseArrayOutputWithContext(ctx context.Context) AutomationRulePropertyValuesConditionResponseArrayOutput {
+	return o
+}
+
+func (o AutomationRulePropertyValuesConditionResponseArrayOutput) Index(i pulumi.IntInput) AutomationRulePropertyValuesConditionResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutomationRulePropertyValuesConditionResponse {
+		return vs[0].([]AutomationRulePropertyValuesConditionResponse)[vs[1].(int)]
+	}).(AutomationRulePropertyValuesConditionResponseOutput)
+}
+
+// The configuration of the automation rule condition
+type AutomationRulePropertyValuesConditionResponseConditionProperties struct {
+	// The operator to use for evaluation the condition
+	Operator *string `pulumi:"operator"`
+	// The property to evaluate
+	PropertyName *string `pulumi:"propertyName"`
+	// The values to use for evaluating the condition
+	PropertyValues []string `pulumi:"propertyValues"`
+}
+
+// AutomationRulePropertyValuesConditionResponseConditionPropertiesInput is an input type that accepts AutomationRulePropertyValuesConditionResponseConditionPropertiesArgs and AutomationRulePropertyValuesConditionResponseConditionPropertiesOutput values.
+// You can construct a concrete instance of `AutomationRulePropertyValuesConditionResponseConditionPropertiesInput` via:
+//
+//          AutomationRulePropertyValuesConditionResponseConditionPropertiesArgs{...}
+type AutomationRulePropertyValuesConditionResponseConditionPropertiesInput interface {
+	pulumi.Input
+
+	ToAutomationRulePropertyValuesConditionResponseConditionPropertiesOutput() AutomationRulePropertyValuesConditionResponseConditionPropertiesOutput
+	ToAutomationRulePropertyValuesConditionResponseConditionPropertiesOutputWithContext(context.Context) AutomationRulePropertyValuesConditionResponseConditionPropertiesOutput
+}
+
+// The configuration of the automation rule condition
+type AutomationRulePropertyValuesConditionResponseConditionPropertiesArgs struct {
+	// The operator to use for evaluation the condition
+	Operator pulumi.StringPtrInput `pulumi:"operator"`
+	// The property to evaluate
+	PropertyName pulumi.StringPtrInput `pulumi:"propertyName"`
+	// The values to use for evaluating the condition
+	PropertyValues pulumi.StringArrayInput `pulumi:"propertyValues"`
+}
+
+func (AutomationRulePropertyValuesConditionResponseConditionPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRulePropertyValuesConditionResponseConditionProperties)(nil)).Elem()
+}
+
+func (i AutomationRulePropertyValuesConditionResponseConditionPropertiesArgs) ToAutomationRulePropertyValuesConditionResponseConditionPropertiesOutput() AutomationRulePropertyValuesConditionResponseConditionPropertiesOutput {
+	return i.ToAutomationRulePropertyValuesConditionResponseConditionPropertiesOutputWithContext(context.Background())
+}
+
+func (i AutomationRulePropertyValuesConditionResponseConditionPropertiesArgs) ToAutomationRulePropertyValuesConditionResponseConditionPropertiesOutputWithContext(ctx context.Context) AutomationRulePropertyValuesConditionResponseConditionPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRulePropertyValuesConditionResponseConditionPropertiesOutput)
+}
+
+// The configuration of the automation rule condition
+type AutomationRulePropertyValuesConditionResponseConditionPropertiesOutput struct{ *pulumi.OutputState }
+
+func (AutomationRulePropertyValuesConditionResponseConditionPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRulePropertyValuesConditionResponseConditionProperties)(nil)).Elem()
+}
+
+func (o AutomationRulePropertyValuesConditionResponseConditionPropertiesOutput) ToAutomationRulePropertyValuesConditionResponseConditionPropertiesOutput() AutomationRulePropertyValuesConditionResponseConditionPropertiesOutput {
+	return o
+}
+
+func (o AutomationRulePropertyValuesConditionResponseConditionPropertiesOutput) ToAutomationRulePropertyValuesConditionResponseConditionPropertiesOutputWithContext(ctx context.Context) AutomationRulePropertyValuesConditionResponseConditionPropertiesOutput {
+	return o
+}
+
+// The operator to use for evaluation the condition
+func (o AutomationRulePropertyValuesConditionResponseConditionPropertiesOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutomationRulePropertyValuesConditionResponseConditionProperties) *string { return v.Operator }).(pulumi.StringPtrOutput)
+}
+
+// The property to evaluate
+func (o AutomationRulePropertyValuesConditionResponseConditionPropertiesOutput) PropertyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutomationRulePropertyValuesConditionResponseConditionProperties) *string {
+		return v.PropertyName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The values to use for evaluating the condition
+func (o AutomationRulePropertyValuesConditionResponseConditionPropertiesOutput) PropertyValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AutomationRulePropertyValuesConditionResponseConditionProperties) []string {
+		return v.PropertyValues
+	}).(pulumi.StringArrayOutput)
+}
+
+// Describes an automation rule action to run a playbook
+type AutomationRuleRunPlaybookAction struct {
+	// The configuration of the run playbook automation rule action
+	ActionConfiguration AutomationRuleRunPlaybookActionActionConfiguration `pulumi:"actionConfiguration"`
+	// The type of the automation rule action
+	// Expected value is 'RunPlaybook'.
+	ActionType string `pulumi:"actionType"`
+	// The order of execution of the automation rule action
+	Order int `pulumi:"order"`
+}
+
+// AutomationRuleRunPlaybookActionInput is an input type that accepts AutomationRuleRunPlaybookActionArgs and AutomationRuleRunPlaybookActionOutput values.
+// You can construct a concrete instance of `AutomationRuleRunPlaybookActionInput` via:
+//
+//          AutomationRuleRunPlaybookActionArgs{...}
+type AutomationRuleRunPlaybookActionInput interface {
+	pulumi.Input
+
+	ToAutomationRuleRunPlaybookActionOutput() AutomationRuleRunPlaybookActionOutput
+	ToAutomationRuleRunPlaybookActionOutputWithContext(context.Context) AutomationRuleRunPlaybookActionOutput
+}
+
+// Describes an automation rule action to run a playbook
+type AutomationRuleRunPlaybookActionArgs struct {
+	// The configuration of the run playbook automation rule action
+	ActionConfiguration AutomationRuleRunPlaybookActionActionConfigurationInput `pulumi:"actionConfiguration"`
+	// The type of the automation rule action
+	// Expected value is 'RunPlaybook'.
+	ActionType pulumi.StringInput `pulumi:"actionType"`
+	// The order of execution of the automation rule action
+	Order pulumi.IntInput `pulumi:"order"`
+}
+
+func (AutomationRuleRunPlaybookActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleRunPlaybookAction)(nil)).Elem()
+}
+
+func (i AutomationRuleRunPlaybookActionArgs) ToAutomationRuleRunPlaybookActionOutput() AutomationRuleRunPlaybookActionOutput {
+	return i.ToAutomationRuleRunPlaybookActionOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleRunPlaybookActionArgs) ToAutomationRuleRunPlaybookActionOutputWithContext(ctx context.Context) AutomationRuleRunPlaybookActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleRunPlaybookActionOutput)
+}
+
+// Describes an automation rule action to run a playbook
+type AutomationRuleRunPlaybookActionOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleRunPlaybookActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleRunPlaybookAction)(nil)).Elem()
+}
+
+func (o AutomationRuleRunPlaybookActionOutput) ToAutomationRuleRunPlaybookActionOutput() AutomationRuleRunPlaybookActionOutput {
+	return o
+}
+
+func (o AutomationRuleRunPlaybookActionOutput) ToAutomationRuleRunPlaybookActionOutputWithContext(ctx context.Context) AutomationRuleRunPlaybookActionOutput {
+	return o
+}
+
+// The configuration of the run playbook automation rule action
+func (o AutomationRuleRunPlaybookActionOutput) ActionConfiguration() AutomationRuleRunPlaybookActionActionConfigurationOutput {
+	return o.ApplyT(func(v AutomationRuleRunPlaybookAction) AutomationRuleRunPlaybookActionActionConfiguration {
+		return v.ActionConfiguration
+	}).(AutomationRuleRunPlaybookActionActionConfigurationOutput)
+}
+
+// The type of the automation rule action
+// Expected value is 'RunPlaybook'.
+func (o AutomationRuleRunPlaybookActionOutput) ActionType() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRuleRunPlaybookAction) string { return v.ActionType }).(pulumi.StringOutput)
+}
+
+// The order of execution of the automation rule action
+func (o AutomationRuleRunPlaybookActionOutput) Order() pulumi.IntOutput {
+	return o.ApplyT(func(v AutomationRuleRunPlaybookAction) int { return v.Order }).(pulumi.IntOutput)
+}
+
+// The configuration of the run playbook automation rule action
+type AutomationRuleRunPlaybookActionActionConfiguration struct {
+	// The resource id of the playbook resource
+	LogicAppResourceId *string `pulumi:"logicAppResourceId"`
+	// The tenant id of the playbook resource
+	TenantId *string `pulumi:"tenantId"`
+}
+
+// AutomationRuleRunPlaybookActionActionConfigurationInput is an input type that accepts AutomationRuleRunPlaybookActionActionConfigurationArgs and AutomationRuleRunPlaybookActionActionConfigurationOutput values.
+// You can construct a concrete instance of `AutomationRuleRunPlaybookActionActionConfigurationInput` via:
+//
+//          AutomationRuleRunPlaybookActionActionConfigurationArgs{...}
+type AutomationRuleRunPlaybookActionActionConfigurationInput interface {
+	pulumi.Input
+
+	ToAutomationRuleRunPlaybookActionActionConfigurationOutput() AutomationRuleRunPlaybookActionActionConfigurationOutput
+	ToAutomationRuleRunPlaybookActionActionConfigurationOutputWithContext(context.Context) AutomationRuleRunPlaybookActionActionConfigurationOutput
+}
+
+// The configuration of the run playbook automation rule action
+type AutomationRuleRunPlaybookActionActionConfigurationArgs struct {
+	// The resource id of the playbook resource
+	LogicAppResourceId pulumi.StringPtrInput `pulumi:"logicAppResourceId"`
+	// The tenant id of the playbook resource
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+}
+
+func (AutomationRuleRunPlaybookActionActionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleRunPlaybookActionActionConfiguration)(nil)).Elem()
+}
+
+func (i AutomationRuleRunPlaybookActionActionConfigurationArgs) ToAutomationRuleRunPlaybookActionActionConfigurationOutput() AutomationRuleRunPlaybookActionActionConfigurationOutput {
+	return i.ToAutomationRuleRunPlaybookActionActionConfigurationOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleRunPlaybookActionActionConfigurationArgs) ToAutomationRuleRunPlaybookActionActionConfigurationOutputWithContext(ctx context.Context) AutomationRuleRunPlaybookActionActionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleRunPlaybookActionActionConfigurationOutput)
+}
+
+// The configuration of the run playbook automation rule action
+type AutomationRuleRunPlaybookActionActionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleRunPlaybookActionActionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleRunPlaybookActionActionConfiguration)(nil)).Elem()
+}
+
+func (o AutomationRuleRunPlaybookActionActionConfigurationOutput) ToAutomationRuleRunPlaybookActionActionConfigurationOutput() AutomationRuleRunPlaybookActionActionConfigurationOutput {
+	return o
+}
+
+func (o AutomationRuleRunPlaybookActionActionConfigurationOutput) ToAutomationRuleRunPlaybookActionActionConfigurationOutputWithContext(ctx context.Context) AutomationRuleRunPlaybookActionActionConfigurationOutput {
+	return o
+}
+
+// The resource id of the playbook resource
+func (o AutomationRuleRunPlaybookActionActionConfigurationOutput) LogicAppResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutomationRuleRunPlaybookActionActionConfiguration) *string { return v.LogicAppResourceId }).(pulumi.StringPtrOutput)
+}
+
+// The tenant id of the playbook resource
+func (o AutomationRuleRunPlaybookActionActionConfigurationOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutomationRuleRunPlaybookActionActionConfiguration) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// Describes an automation rule action to run a playbook
+type AutomationRuleRunPlaybookActionResponse struct {
+	// The configuration of the run playbook automation rule action
+	ActionConfiguration AutomationRuleRunPlaybookActionResponseActionConfiguration `pulumi:"actionConfiguration"`
+	// The type of the automation rule action
+	// Expected value is 'RunPlaybook'.
+	ActionType string `pulumi:"actionType"`
+	// The order of execution of the automation rule action
+	Order int `pulumi:"order"`
+}
+
+// AutomationRuleRunPlaybookActionResponseInput is an input type that accepts AutomationRuleRunPlaybookActionResponseArgs and AutomationRuleRunPlaybookActionResponseOutput values.
+// You can construct a concrete instance of `AutomationRuleRunPlaybookActionResponseInput` via:
+//
+//          AutomationRuleRunPlaybookActionResponseArgs{...}
+type AutomationRuleRunPlaybookActionResponseInput interface {
+	pulumi.Input
+
+	ToAutomationRuleRunPlaybookActionResponseOutput() AutomationRuleRunPlaybookActionResponseOutput
+	ToAutomationRuleRunPlaybookActionResponseOutputWithContext(context.Context) AutomationRuleRunPlaybookActionResponseOutput
+}
+
+// Describes an automation rule action to run a playbook
+type AutomationRuleRunPlaybookActionResponseArgs struct {
+	// The configuration of the run playbook automation rule action
+	ActionConfiguration AutomationRuleRunPlaybookActionResponseActionConfigurationInput `pulumi:"actionConfiguration"`
+	// The type of the automation rule action
+	// Expected value is 'RunPlaybook'.
+	ActionType pulumi.StringInput `pulumi:"actionType"`
+	// The order of execution of the automation rule action
+	Order pulumi.IntInput `pulumi:"order"`
+}
+
+func (AutomationRuleRunPlaybookActionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleRunPlaybookActionResponse)(nil)).Elem()
+}
+
+func (i AutomationRuleRunPlaybookActionResponseArgs) ToAutomationRuleRunPlaybookActionResponseOutput() AutomationRuleRunPlaybookActionResponseOutput {
+	return i.ToAutomationRuleRunPlaybookActionResponseOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleRunPlaybookActionResponseArgs) ToAutomationRuleRunPlaybookActionResponseOutputWithContext(ctx context.Context) AutomationRuleRunPlaybookActionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleRunPlaybookActionResponseOutput)
+}
+
+// Describes an automation rule action to run a playbook
+type AutomationRuleRunPlaybookActionResponseOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleRunPlaybookActionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleRunPlaybookActionResponse)(nil)).Elem()
+}
+
+func (o AutomationRuleRunPlaybookActionResponseOutput) ToAutomationRuleRunPlaybookActionResponseOutput() AutomationRuleRunPlaybookActionResponseOutput {
+	return o
+}
+
+func (o AutomationRuleRunPlaybookActionResponseOutput) ToAutomationRuleRunPlaybookActionResponseOutputWithContext(ctx context.Context) AutomationRuleRunPlaybookActionResponseOutput {
+	return o
+}
+
+// The configuration of the run playbook automation rule action
+func (o AutomationRuleRunPlaybookActionResponseOutput) ActionConfiguration() AutomationRuleRunPlaybookActionResponseActionConfigurationOutput {
+	return o.ApplyT(func(v AutomationRuleRunPlaybookActionResponse) AutomationRuleRunPlaybookActionResponseActionConfiguration {
+		return v.ActionConfiguration
+	}).(AutomationRuleRunPlaybookActionResponseActionConfigurationOutput)
+}
+
+// The type of the automation rule action
+// Expected value is 'RunPlaybook'.
+func (o AutomationRuleRunPlaybookActionResponseOutput) ActionType() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRuleRunPlaybookActionResponse) string { return v.ActionType }).(pulumi.StringOutput)
+}
+
+// The order of execution of the automation rule action
+func (o AutomationRuleRunPlaybookActionResponseOutput) Order() pulumi.IntOutput {
+	return o.ApplyT(func(v AutomationRuleRunPlaybookActionResponse) int { return v.Order }).(pulumi.IntOutput)
+}
+
+// The configuration of the run playbook automation rule action
+type AutomationRuleRunPlaybookActionResponseActionConfiguration struct {
+	// The resource id of the playbook resource
+	LogicAppResourceId *string `pulumi:"logicAppResourceId"`
+	// The tenant id of the playbook resource
+	TenantId *string `pulumi:"tenantId"`
+}
+
+// AutomationRuleRunPlaybookActionResponseActionConfigurationInput is an input type that accepts AutomationRuleRunPlaybookActionResponseActionConfigurationArgs and AutomationRuleRunPlaybookActionResponseActionConfigurationOutput values.
+// You can construct a concrete instance of `AutomationRuleRunPlaybookActionResponseActionConfigurationInput` via:
+//
+//          AutomationRuleRunPlaybookActionResponseActionConfigurationArgs{...}
+type AutomationRuleRunPlaybookActionResponseActionConfigurationInput interface {
+	pulumi.Input
+
+	ToAutomationRuleRunPlaybookActionResponseActionConfigurationOutput() AutomationRuleRunPlaybookActionResponseActionConfigurationOutput
+	ToAutomationRuleRunPlaybookActionResponseActionConfigurationOutputWithContext(context.Context) AutomationRuleRunPlaybookActionResponseActionConfigurationOutput
+}
+
+// The configuration of the run playbook automation rule action
+type AutomationRuleRunPlaybookActionResponseActionConfigurationArgs struct {
+	// The resource id of the playbook resource
+	LogicAppResourceId pulumi.StringPtrInput `pulumi:"logicAppResourceId"`
+	// The tenant id of the playbook resource
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+}
+
+func (AutomationRuleRunPlaybookActionResponseActionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleRunPlaybookActionResponseActionConfiguration)(nil)).Elem()
+}
+
+func (i AutomationRuleRunPlaybookActionResponseActionConfigurationArgs) ToAutomationRuleRunPlaybookActionResponseActionConfigurationOutput() AutomationRuleRunPlaybookActionResponseActionConfigurationOutput {
+	return i.ToAutomationRuleRunPlaybookActionResponseActionConfigurationOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleRunPlaybookActionResponseActionConfigurationArgs) ToAutomationRuleRunPlaybookActionResponseActionConfigurationOutputWithContext(ctx context.Context) AutomationRuleRunPlaybookActionResponseActionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleRunPlaybookActionResponseActionConfigurationOutput)
+}
+
+// The configuration of the run playbook automation rule action
+type AutomationRuleRunPlaybookActionResponseActionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleRunPlaybookActionResponseActionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleRunPlaybookActionResponseActionConfiguration)(nil)).Elem()
+}
+
+func (o AutomationRuleRunPlaybookActionResponseActionConfigurationOutput) ToAutomationRuleRunPlaybookActionResponseActionConfigurationOutput() AutomationRuleRunPlaybookActionResponseActionConfigurationOutput {
+	return o
+}
+
+func (o AutomationRuleRunPlaybookActionResponseActionConfigurationOutput) ToAutomationRuleRunPlaybookActionResponseActionConfigurationOutputWithContext(ctx context.Context) AutomationRuleRunPlaybookActionResponseActionConfigurationOutput {
+	return o
+}
+
+// The resource id of the playbook resource
+func (o AutomationRuleRunPlaybookActionResponseActionConfigurationOutput) LogicAppResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutomationRuleRunPlaybookActionResponseActionConfiguration) *string {
+		return v.LogicAppResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The tenant id of the playbook resource
+func (o AutomationRuleRunPlaybookActionResponseActionConfigurationOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutomationRuleRunPlaybookActionResponseActionConfiguration) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// Describes automation rule triggering logic
+type AutomationRuleTriggeringLogic struct {
+	// The conditions to evaluate to determine if the automation rule should be triggered on a given object
+	Conditions []AutomationRulePropertyValuesCondition `pulumi:"conditions"`
+	// Determines when the automation rule should automatically expire and be disabled.
+	ExpirationTimeUtc *string `pulumi:"expirationTimeUtc"`
+	// Determines whether the automation rule is enabled or disabled.
+	IsEnabled bool `pulumi:"isEnabled"`
+	// The type of object the automation rule triggers on
+	TriggersOn string `pulumi:"triggersOn"`
+	// The type of event the automation rule triggers on
+	TriggersWhen string `pulumi:"triggersWhen"`
+}
+
+// AutomationRuleTriggeringLogicInput is an input type that accepts AutomationRuleTriggeringLogicArgs and AutomationRuleTriggeringLogicOutput values.
+// You can construct a concrete instance of `AutomationRuleTriggeringLogicInput` via:
+//
+//          AutomationRuleTriggeringLogicArgs{...}
+type AutomationRuleTriggeringLogicInput interface {
+	pulumi.Input
+
+	ToAutomationRuleTriggeringLogicOutput() AutomationRuleTriggeringLogicOutput
+	ToAutomationRuleTriggeringLogicOutputWithContext(context.Context) AutomationRuleTriggeringLogicOutput
+}
+
+// Describes automation rule triggering logic
+type AutomationRuleTriggeringLogicArgs struct {
+	// The conditions to evaluate to determine if the automation rule should be triggered on a given object
+	Conditions AutomationRulePropertyValuesConditionArrayInput `pulumi:"conditions"`
+	// Determines when the automation rule should automatically expire and be disabled.
+	ExpirationTimeUtc pulumi.StringPtrInput `pulumi:"expirationTimeUtc"`
+	// Determines whether the automation rule is enabled or disabled.
+	IsEnabled pulumi.BoolInput `pulumi:"isEnabled"`
+	// The type of object the automation rule triggers on
+	TriggersOn pulumi.StringInput `pulumi:"triggersOn"`
+	// The type of event the automation rule triggers on
+	TriggersWhen pulumi.StringInput `pulumi:"triggersWhen"`
+}
+
+func (AutomationRuleTriggeringLogicArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleTriggeringLogic)(nil)).Elem()
+}
+
+func (i AutomationRuleTriggeringLogicArgs) ToAutomationRuleTriggeringLogicOutput() AutomationRuleTriggeringLogicOutput {
+	return i.ToAutomationRuleTriggeringLogicOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleTriggeringLogicArgs) ToAutomationRuleTriggeringLogicOutputWithContext(ctx context.Context) AutomationRuleTriggeringLogicOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleTriggeringLogicOutput)
+}
+
+func (i AutomationRuleTriggeringLogicArgs) ToAutomationRuleTriggeringLogicPtrOutput() AutomationRuleTriggeringLogicPtrOutput {
+	return i.ToAutomationRuleTriggeringLogicPtrOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleTriggeringLogicArgs) ToAutomationRuleTriggeringLogicPtrOutputWithContext(ctx context.Context) AutomationRuleTriggeringLogicPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleTriggeringLogicOutput).ToAutomationRuleTriggeringLogicPtrOutputWithContext(ctx)
+}
+
+// AutomationRuleTriggeringLogicPtrInput is an input type that accepts AutomationRuleTriggeringLogicArgs, AutomationRuleTriggeringLogicPtr and AutomationRuleTriggeringLogicPtrOutput values.
+// You can construct a concrete instance of `AutomationRuleTriggeringLogicPtrInput` via:
+//
+//          AutomationRuleTriggeringLogicArgs{...}
+//
+//  or:
+//
+//          nil
+type AutomationRuleTriggeringLogicPtrInput interface {
+	pulumi.Input
+
+	ToAutomationRuleTriggeringLogicPtrOutput() AutomationRuleTriggeringLogicPtrOutput
+	ToAutomationRuleTriggeringLogicPtrOutputWithContext(context.Context) AutomationRuleTriggeringLogicPtrOutput
+}
+
+type automationRuleTriggeringLogicPtrType AutomationRuleTriggeringLogicArgs
+
+func AutomationRuleTriggeringLogicPtr(v *AutomationRuleTriggeringLogicArgs) AutomationRuleTriggeringLogicPtrInput {
+	return (*automationRuleTriggeringLogicPtrType)(v)
+}
+
+func (*automationRuleTriggeringLogicPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutomationRuleTriggeringLogic)(nil)).Elem()
+}
+
+func (i *automationRuleTriggeringLogicPtrType) ToAutomationRuleTriggeringLogicPtrOutput() AutomationRuleTriggeringLogicPtrOutput {
+	return i.ToAutomationRuleTriggeringLogicPtrOutputWithContext(context.Background())
+}
+
+func (i *automationRuleTriggeringLogicPtrType) ToAutomationRuleTriggeringLogicPtrOutputWithContext(ctx context.Context) AutomationRuleTriggeringLogicPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleTriggeringLogicPtrOutput)
+}
+
+// Describes automation rule triggering logic
+type AutomationRuleTriggeringLogicOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleTriggeringLogicOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleTriggeringLogic)(nil)).Elem()
+}
+
+func (o AutomationRuleTriggeringLogicOutput) ToAutomationRuleTriggeringLogicOutput() AutomationRuleTriggeringLogicOutput {
+	return o
+}
+
+func (o AutomationRuleTriggeringLogicOutput) ToAutomationRuleTriggeringLogicOutputWithContext(ctx context.Context) AutomationRuleTriggeringLogicOutput {
+	return o
+}
+
+func (o AutomationRuleTriggeringLogicOutput) ToAutomationRuleTriggeringLogicPtrOutput() AutomationRuleTriggeringLogicPtrOutput {
+	return o.ToAutomationRuleTriggeringLogicPtrOutputWithContext(context.Background())
+}
+
+func (o AutomationRuleTriggeringLogicOutput) ToAutomationRuleTriggeringLogicPtrOutputWithContext(ctx context.Context) AutomationRuleTriggeringLogicPtrOutput {
+	return o.ApplyT(func(v AutomationRuleTriggeringLogic) *AutomationRuleTriggeringLogic {
+		return &v
+	}).(AutomationRuleTriggeringLogicPtrOutput)
+}
+
+// The conditions to evaluate to determine if the automation rule should be triggered on a given object
+func (o AutomationRuleTriggeringLogicOutput) Conditions() AutomationRulePropertyValuesConditionArrayOutput {
+	return o.ApplyT(func(v AutomationRuleTriggeringLogic) []AutomationRulePropertyValuesCondition { return v.Conditions }).(AutomationRulePropertyValuesConditionArrayOutput)
+}
+
+// Determines when the automation rule should automatically expire and be disabled.
+func (o AutomationRuleTriggeringLogicOutput) ExpirationTimeUtc() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutomationRuleTriggeringLogic) *string { return v.ExpirationTimeUtc }).(pulumi.StringPtrOutput)
+}
+
+// Determines whether the automation rule is enabled or disabled.
+func (o AutomationRuleTriggeringLogicOutput) IsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v AutomationRuleTriggeringLogic) bool { return v.IsEnabled }).(pulumi.BoolOutput)
+}
+
+// The type of object the automation rule triggers on
+func (o AutomationRuleTriggeringLogicOutput) TriggersOn() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRuleTriggeringLogic) string { return v.TriggersOn }).(pulumi.StringOutput)
+}
+
+// The type of event the automation rule triggers on
+func (o AutomationRuleTriggeringLogicOutput) TriggersWhen() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRuleTriggeringLogic) string { return v.TriggersWhen }).(pulumi.StringOutput)
+}
+
+type AutomationRuleTriggeringLogicPtrOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleTriggeringLogicPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutomationRuleTriggeringLogic)(nil)).Elem()
+}
+
+func (o AutomationRuleTriggeringLogicPtrOutput) ToAutomationRuleTriggeringLogicPtrOutput() AutomationRuleTriggeringLogicPtrOutput {
+	return o
+}
+
+func (o AutomationRuleTriggeringLogicPtrOutput) ToAutomationRuleTriggeringLogicPtrOutputWithContext(ctx context.Context) AutomationRuleTriggeringLogicPtrOutput {
+	return o
+}
+
+func (o AutomationRuleTriggeringLogicPtrOutput) Elem() AutomationRuleTriggeringLogicOutput {
+	return o.ApplyT(func(v *AutomationRuleTriggeringLogic) AutomationRuleTriggeringLogic { return *v }).(AutomationRuleTriggeringLogicOutput)
+}
+
+// The conditions to evaluate to determine if the automation rule should be triggered on a given object
+func (o AutomationRuleTriggeringLogicPtrOutput) Conditions() AutomationRulePropertyValuesConditionArrayOutput {
+	return o.ApplyT(func(v *AutomationRuleTriggeringLogic) []AutomationRulePropertyValuesCondition {
+		if v == nil {
+			return nil
+		}
+		return v.Conditions
+	}).(AutomationRulePropertyValuesConditionArrayOutput)
+}
+
+// Determines when the automation rule should automatically expire and be disabled.
+func (o AutomationRuleTriggeringLogicPtrOutput) ExpirationTimeUtc() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutomationRuleTriggeringLogic) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExpirationTimeUtc
+	}).(pulumi.StringPtrOutput)
+}
+
+// Determines whether the automation rule is enabled or disabled.
+func (o AutomationRuleTriggeringLogicPtrOutput) IsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AutomationRuleTriggeringLogic) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.IsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The type of object the automation rule triggers on
+func (o AutomationRuleTriggeringLogicPtrOutput) TriggersOn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutomationRuleTriggeringLogic) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TriggersOn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of event the automation rule triggers on
+func (o AutomationRuleTriggeringLogicPtrOutput) TriggersWhen() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutomationRuleTriggeringLogic) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TriggersWhen
+	}).(pulumi.StringPtrOutput)
+}
+
+// Describes automation rule triggering logic
+type AutomationRuleTriggeringLogicResponse struct {
+	// The conditions to evaluate to determine if the automation rule should be triggered on a given object
+	Conditions []AutomationRulePropertyValuesConditionResponse `pulumi:"conditions"`
+	// Determines when the automation rule should automatically expire and be disabled.
+	ExpirationTimeUtc *string `pulumi:"expirationTimeUtc"`
+	// Determines whether the automation rule is enabled or disabled.
+	IsEnabled bool `pulumi:"isEnabled"`
+	// The type of object the automation rule triggers on
+	TriggersOn string `pulumi:"triggersOn"`
+	// The type of event the automation rule triggers on
+	TriggersWhen string `pulumi:"triggersWhen"`
+}
+
+// AutomationRuleTriggeringLogicResponseInput is an input type that accepts AutomationRuleTriggeringLogicResponseArgs and AutomationRuleTriggeringLogicResponseOutput values.
+// You can construct a concrete instance of `AutomationRuleTriggeringLogicResponseInput` via:
+//
+//          AutomationRuleTriggeringLogicResponseArgs{...}
+type AutomationRuleTriggeringLogicResponseInput interface {
+	pulumi.Input
+
+	ToAutomationRuleTriggeringLogicResponseOutput() AutomationRuleTriggeringLogicResponseOutput
+	ToAutomationRuleTriggeringLogicResponseOutputWithContext(context.Context) AutomationRuleTriggeringLogicResponseOutput
+}
+
+// Describes automation rule triggering logic
+type AutomationRuleTriggeringLogicResponseArgs struct {
+	// The conditions to evaluate to determine if the automation rule should be triggered on a given object
+	Conditions AutomationRulePropertyValuesConditionResponseArrayInput `pulumi:"conditions"`
+	// Determines when the automation rule should automatically expire and be disabled.
+	ExpirationTimeUtc pulumi.StringPtrInput `pulumi:"expirationTimeUtc"`
+	// Determines whether the automation rule is enabled or disabled.
+	IsEnabled pulumi.BoolInput `pulumi:"isEnabled"`
+	// The type of object the automation rule triggers on
+	TriggersOn pulumi.StringInput `pulumi:"triggersOn"`
+	// The type of event the automation rule triggers on
+	TriggersWhen pulumi.StringInput `pulumi:"triggersWhen"`
+}
+
+func (AutomationRuleTriggeringLogicResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleTriggeringLogicResponse)(nil)).Elem()
+}
+
+func (i AutomationRuleTriggeringLogicResponseArgs) ToAutomationRuleTriggeringLogicResponseOutput() AutomationRuleTriggeringLogicResponseOutput {
+	return i.ToAutomationRuleTriggeringLogicResponseOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleTriggeringLogicResponseArgs) ToAutomationRuleTriggeringLogicResponseOutputWithContext(ctx context.Context) AutomationRuleTriggeringLogicResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleTriggeringLogicResponseOutput)
+}
+
+func (i AutomationRuleTriggeringLogicResponseArgs) ToAutomationRuleTriggeringLogicResponsePtrOutput() AutomationRuleTriggeringLogicResponsePtrOutput {
+	return i.ToAutomationRuleTriggeringLogicResponsePtrOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleTriggeringLogicResponseArgs) ToAutomationRuleTriggeringLogicResponsePtrOutputWithContext(ctx context.Context) AutomationRuleTriggeringLogicResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleTriggeringLogicResponseOutput).ToAutomationRuleTriggeringLogicResponsePtrOutputWithContext(ctx)
+}
+
+// AutomationRuleTriggeringLogicResponsePtrInput is an input type that accepts AutomationRuleTriggeringLogicResponseArgs, AutomationRuleTriggeringLogicResponsePtr and AutomationRuleTriggeringLogicResponsePtrOutput values.
+// You can construct a concrete instance of `AutomationRuleTriggeringLogicResponsePtrInput` via:
+//
+//          AutomationRuleTriggeringLogicResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type AutomationRuleTriggeringLogicResponsePtrInput interface {
+	pulumi.Input
+
+	ToAutomationRuleTriggeringLogicResponsePtrOutput() AutomationRuleTriggeringLogicResponsePtrOutput
+	ToAutomationRuleTriggeringLogicResponsePtrOutputWithContext(context.Context) AutomationRuleTriggeringLogicResponsePtrOutput
+}
+
+type automationRuleTriggeringLogicResponsePtrType AutomationRuleTriggeringLogicResponseArgs
+
+func AutomationRuleTriggeringLogicResponsePtr(v *AutomationRuleTriggeringLogicResponseArgs) AutomationRuleTriggeringLogicResponsePtrInput {
+	return (*automationRuleTriggeringLogicResponsePtrType)(v)
+}
+
+func (*automationRuleTriggeringLogicResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutomationRuleTriggeringLogicResponse)(nil)).Elem()
+}
+
+func (i *automationRuleTriggeringLogicResponsePtrType) ToAutomationRuleTriggeringLogicResponsePtrOutput() AutomationRuleTriggeringLogicResponsePtrOutput {
+	return i.ToAutomationRuleTriggeringLogicResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *automationRuleTriggeringLogicResponsePtrType) ToAutomationRuleTriggeringLogicResponsePtrOutputWithContext(ctx context.Context) AutomationRuleTriggeringLogicResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleTriggeringLogicResponsePtrOutput)
+}
+
+// Describes automation rule triggering logic
+type AutomationRuleTriggeringLogicResponseOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleTriggeringLogicResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleTriggeringLogicResponse)(nil)).Elem()
+}
+
+func (o AutomationRuleTriggeringLogicResponseOutput) ToAutomationRuleTriggeringLogicResponseOutput() AutomationRuleTriggeringLogicResponseOutput {
+	return o
+}
+
+func (o AutomationRuleTriggeringLogicResponseOutput) ToAutomationRuleTriggeringLogicResponseOutputWithContext(ctx context.Context) AutomationRuleTriggeringLogicResponseOutput {
+	return o
+}
+
+func (o AutomationRuleTriggeringLogicResponseOutput) ToAutomationRuleTriggeringLogicResponsePtrOutput() AutomationRuleTriggeringLogicResponsePtrOutput {
+	return o.ToAutomationRuleTriggeringLogicResponsePtrOutputWithContext(context.Background())
+}
+
+func (o AutomationRuleTriggeringLogicResponseOutput) ToAutomationRuleTriggeringLogicResponsePtrOutputWithContext(ctx context.Context) AutomationRuleTriggeringLogicResponsePtrOutput {
+	return o.ApplyT(func(v AutomationRuleTriggeringLogicResponse) *AutomationRuleTriggeringLogicResponse {
+		return &v
+	}).(AutomationRuleTriggeringLogicResponsePtrOutput)
+}
+
+// The conditions to evaluate to determine if the automation rule should be triggered on a given object
+func (o AutomationRuleTriggeringLogicResponseOutput) Conditions() AutomationRulePropertyValuesConditionResponseArrayOutput {
+	return o.ApplyT(func(v AutomationRuleTriggeringLogicResponse) []AutomationRulePropertyValuesConditionResponse {
+		return v.Conditions
+	}).(AutomationRulePropertyValuesConditionResponseArrayOutput)
+}
+
+// Determines when the automation rule should automatically expire and be disabled.
+func (o AutomationRuleTriggeringLogicResponseOutput) ExpirationTimeUtc() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutomationRuleTriggeringLogicResponse) *string { return v.ExpirationTimeUtc }).(pulumi.StringPtrOutput)
+}
+
+// Determines whether the automation rule is enabled or disabled.
+func (o AutomationRuleTriggeringLogicResponseOutput) IsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v AutomationRuleTriggeringLogicResponse) bool { return v.IsEnabled }).(pulumi.BoolOutput)
+}
+
+// The type of object the automation rule triggers on
+func (o AutomationRuleTriggeringLogicResponseOutput) TriggersOn() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRuleTriggeringLogicResponse) string { return v.TriggersOn }).(pulumi.StringOutput)
+}
+
+// The type of event the automation rule triggers on
+func (o AutomationRuleTriggeringLogicResponseOutput) TriggersWhen() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRuleTriggeringLogicResponse) string { return v.TriggersWhen }).(pulumi.StringOutput)
+}
+
+type AutomationRuleTriggeringLogicResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleTriggeringLogicResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutomationRuleTriggeringLogicResponse)(nil)).Elem()
+}
+
+func (o AutomationRuleTriggeringLogicResponsePtrOutput) ToAutomationRuleTriggeringLogicResponsePtrOutput() AutomationRuleTriggeringLogicResponsePtrOutput {
+	return o
+}
+
+func (o AutomationRuleTriggeringLogicResponsePtrOutput) ToAutomationRuleTriggeringLogicResponsePtrOutputWithContext(ctx context.Context) AutomationRuleTriggeringLogicResponsePtrOutput {
+	return o
+}
+
+func (o AutomationRuleTriggeringLogicResponsePtrOutput) Elem() AutomationRuleTriggeringLogicResponseOutput {
+	return o.ApplyT(func(v *AutomationRuleTriggeringLogicResponse) AutomationRuleTriggeringLogicResponse { return *v }).(AutomationRuleTriggeringLogicResponseOutput)
+}
+
+// The conditions to evaluate to determine if the automation rule should be triggered on a given object
+func (o AutomationRuleTriggeringLogicResponsePtrOutput) Conditions() AutomationRulePropertyValuesConditionResponseArrayOutput {
+	return o.ApplyT(func(v *AutomationRuleTriggeringLogicResponse) []AutomationRulePropertyValuesConditionResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Conditions
+	}).(AutomationRulePropertyValuesConditionResponseArrayOutput)
+}
+
+// Determines when the automation rule should automatically expire and be disabled.
+func (o AutomationRuleTriggeringLogicResponsePtrOutput) ExpirationTimeUtc() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutomationRuleTriggeringLogicResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExpirationTimeUtc
+	}).(pulumi.StringPtrOutput)
+}
+
+// Determines whether the automation rule is enabled or disabled.
+func (o AutomationRuleTriggeringLogicResponsePtrOutput) IsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AutomationRuleTriggeringLogicResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.IsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The type of object the automation rule triggers on
+func (o AutomationRuleTriggeringLogicResponsePtrOutput) TriggersOn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutomationRuleTriggeringLogicResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TriggersOn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of event the automation rule triggers on
+func (o AutomationRuleTriggeringLogicResponsePtrOutput) TriggersWhen() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutomationRuleTriggeringLogicResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TriggersWhen
+	}).(pulumi.StringPtrOutput)
+}
+
 // Represents bookmark timeline item.
 type BookmarkTimelineItemResponse struct {
 	// The bookmark azure resource id.
@@ -4270,6 +5742,24 @@ func (o WatchlistUserInfoResponsePtrOutput) ObjectId() pulumi.StringPtrOutput {
 
 func init() {
 	pulumi.RegisterOutputType(ActivityTimelineItemResponseOutput{})
+	pulumi.RegisterOutputType(AutomationRuleModifyPropertiesActionOutput{})
+	pulumi.RegisterOutputType(AutomationRuleModifyPropertiesActionActionConfigurationOutput{})
+	pulumi.RegisterOutputType(AutomationRuleModifyPropertiesActionResponseOutput{})
+	pulumi.RegisterOutputType(AutomationRuleModifyPropertiesActionResponseActionConfigurationOutput{})
+	pulumi.RegisterOutputType(AutomationRulePropertyValuesConditionOutput{})
+	pulumi.RegisterOutputType(AutomationRulePropertyValuesConditionArrayOutput{})
+	pulumi.RegisterOutputType(AutomationRulePropertyValuesConditionConditionPropertiesOutput{})
+	pulumi.RegisterOutputType(AutomationRulePropertyValuesConditionResponseOutput{})
+	pulumi.RegisterOutputType(AutomationRulePropertyValuesConditionResponseArrayOutput{})
+	pulumi.RegisterOutputType(AutomationRulePropertyValuesConditionResponseConditionPropertiesOutput{})
+	pulumi.RegisterOutputType(AutomationRuleRunPlaybookActionOutput{})
+	pulumi.RegisterOutputType(AutomationRuleRunPlaybookActionActionConfigurationOutput{})
+	pulumi.RegisterOutputType(AutomationRuleRunPlaybookActionResponseOutput{})
+	pulumi.RegisterOutputType(AutomationRuleRunPlaybookActionResponseActionConfigurationOutput{})
+	pulumi.RegisterOutputType(AutomationRuleTriggeringLogicOutput{})
+	pulumi.RegisterOutputType(AutomationRuleTriggeringLogicPtrOutput{})
+	pulumi.RegisterOutputType(AutomationRuleTriggeringLogicResponseOutput{})
+	pulumi.RegisterOutputType(AutomationRuleTriggeringLogicResponsePtrOutput{})
 	pulumi.RegisterOutputType(BookmarkTimelineItemResponseOutput{})
 	pulumi.RegisterOutputType(ClientInfoResponseOutput{})
 	pulumi.RegisterOutputType(ClientInfoResponsePtrOutput{})

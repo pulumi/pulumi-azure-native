@@ -29,7 +29,7 @@ namespace Pulumi.AzureNative.DataProtection.Inputs
         public Input<string> ObjectType { get; set; } = null!;
 
         /// <summary>
-        /// Gets or sets the Resource Group Uri.
+        /// Gets or sets the Snapshot Resource Group Uri.
         /// </summary>
         [Input("resourceGroupId")]
         public Input<string>? ResourceGroupId { get; set; }

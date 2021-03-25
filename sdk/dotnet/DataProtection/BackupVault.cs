@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DataProtection
 {
     /// <summary>
     /// Backup Vault Resource
-    /// API Version: 2021-02-01-preview.
+    /// API Version: 2021-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:dataprotection:BackupVault")]
     public partial class BackupVault : Pulumi.CustomResource
@@ -32,7 +32,7 @@ namespace Pulumi.AzureNative.DataProtection
         /// Resource location.
         /// </summary>
         [Output("location")]
-        public Output<string?> Location { get; private set; } = null!;
+        public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
         /// Resource name associated with the resource.
@@ -96,6 +96,10 @@ namespace Pulumi.AzureNative.DataProtection
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:dataprotection:BackupVault"},
+                    new Pulumi.Alias { Type = "azure-native:dataprotection/latest:BackupVault"},
+                    new Pulumi.Alias { Type = "azure-nextgen:dataprotection/latest:BackupVault"},
+                    new Pulumi.Alias { Type = "azure-native:dataprotection/v20210101:BackupVault"},
+                    new Pulumi.Alias { Type = "azure-nextgen:dataprotection/v20210101:BackupVault"},
                     new Pulumi.Alias { Type = "azure-native:dataprotection/v20210201preview:BackupVault"},
                     new Pulumi.Alias { Type = "azure-nextgen:dataprotection/v20210201preview:BackupVault"},
                 },
@@ -145,7 +149,7 @@ namespace Pulumi.AzureNative.DataProtection
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
-        [Input("storageSettings")]
+        [Input("storageSettings", required: true)]
         private InputList<Inputs.StorageSettingArgs>? _storageSettings;
 
         /// <summary>

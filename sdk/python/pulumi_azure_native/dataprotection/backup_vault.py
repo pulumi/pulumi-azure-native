@@ -30,7 +30,7 @@ class BackupVault(pulumi.CustomResource):
                  __opts__=None):
         """
         Backup Vault Resource
-        API Version: 2021-02-01-preview.
+        API Version: 2021-01-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -65,6 +65,8 @@ class BackupVault(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if storage_settings is None and not opts.urn:
+                raise TypeError("Missing required property 'storage_settings'")
             __props__['storage_settings'] = storage_settings
             __props__['tags'] = tags
             __props__['vault_name'] = vault_name
@@ -72,7 +74,7 @@ class BackupVault(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:dataprotection:BackupVault"), pulumi.Alias(type_="azure-native:dataprotection/v20210201preview:BackupVault"), pulumi.Alias(type_="azure-nextgen:dataprotection/v20210201preview:BackupVault")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:dataprotection:BackupVault"), pulumi.Alias(type_="azure-native:dataprotection/latest:BackupVault"), pulumi.Alias(type_="azure-nextgen:dataprotection/latest:BackupVault"), pulumi.Alias(type_="azure-native:dataprotection/v20210101:BackupVault"), pulumi.Alias(type_="azure-nextgen:dataprotection/v20210101:BackupVault"), pulumi.Alias(type_="azure-native:dataprotection/v20210201preview:BackupVault"), pulumi.Alias(type_="azure-nextgen:dataprotection/v20210201preview:BackupVault")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BackupVault, __self__).__init__(
             'azure-native:dataprotection:BackupVault',
@@ -125,7 +127,7 @@ class BackupVault(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> pulumi.Output[Optional[str]]:
+    def location(self) -> pulumi.Output[str]:
         """
         Resource location.
         """
@@ -149,7 +151,7 @@ class BackupVault(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageSettings")
-    def storage_settings(self) -> pulumi.Output[Optional[Sequence['outputs.StorageSettingResponse']]]:
+    def storage_settings(self) -> pulumi.Output[Sequence['outputs.StorageSettingResponse']]:
         """
         Storage Settings
         """

@@ -57,7 +57,7 @@ namespace Pulumi.AzureNative.DataProtection.V20210201Preview
         /// <summary>
         /// Resource location.
         /// </summary>
-        public readonly string? Location;
+        public readonly string Location;
         /// <summary>
         /// Resource name associated with the resource.
         /// </summary>
@@ -91,7 +91,7 @@ namespace Pulumi.AzureNative.DataProtection.V20210201Preview
 
             Outputs.DppIdentityDetailsResponse? identity,
 
-            string? location,
+            string location,
 
             string name,
 

@@ -52,7 +52,7 @@ export interface GetBackupVaultResult {
     /**
      * Resource location.
      */
-    readonly location?: string;
+    readonly location: string;
     /**
      * Resource name associated with the resource.
      */
@@ -64,7 +64,7 @@ export interface GetBackupVaultResult {
     /**
      * Storage Settings
      */
-    readonly storageSettings?: outputs.dataprotection.v20210201preview.StorageSettingResponse[];
+    readonly storageSettings: outputs.dataprotection.v20210201preview.StorageSettingResponse[];
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */

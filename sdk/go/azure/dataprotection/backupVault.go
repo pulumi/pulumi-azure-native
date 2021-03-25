@@ -12,7 +12,7 @@ import (
 )
 
 // Backup Vault Resource
-// API Version: 2021-02-01-preview.
+// API Version: 2021-01-01.
 type BackupVault struct {
 	pulumi.CustomResourceState
 
@@ -21,7 +21,7 @@ type BackupVault struct {
 	// Input Managed Identity Details
 	Identity DppIdentityDetailsResponsePtrOutput `pulumi:"identity"`
 	// Resource location.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
+	Location pulumi.StringOutput `pulumi:"location"`
 	// Resource name associated with the resource.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Provisioning state of the BackupVault resource
@@ -46,9 +46,24 @@ func NewBackupVault(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	if args.StorageSettings == nil {
+		return nil, errors.New("invalid value for required argument 'StorageSettings'")
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:dataprotection:BackupVault"),
+		},
+		{
+			Type: pulumi.String("azure-native:dataprotection/latest:BackupVault"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:dataprotection/latest:BackupVault"),
+		},
+		{
+			Type: pulumi.String("azure-native:dataprotection/v20210101:BackupVault"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:dataprotection/v20210101:BackupVault"),
 		},
 		{
 			Type: pulumi.String("azure-native:dataprotection/v20210201preview:BackupVault"),

@@ -23,7 +23,7 @@ namespace Pulumi.AzureNative.DataProtection.Outputs
         /// </summary>
         public readonly string ObjectType;
         /// <summary>
-        /// Gets or sets the Resource Group Uri.
+        /// Gets or sets the Snapshot Resource Group Uri.
         /// </summary>
         public readonly string? ResourceGroupId;
 

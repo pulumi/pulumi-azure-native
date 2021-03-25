@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewAction(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:securityinsights:AlertRule":
 		r, err = NewAlertRule(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-native:securityinsights:AutomationRule":
+		r, err = NewAutomationRule(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:securityinsights:Bookmark":
 		r, err = NewBookmark(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:securityinsights:BookmarkRelation":

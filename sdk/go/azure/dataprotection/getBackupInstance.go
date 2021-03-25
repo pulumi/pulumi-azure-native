@@ -8,7 +8,7 @@ import (
 )
 
 // BackupInstance Resource
-// API Version: 2021-02-01-preview.
+// API Version: 2021-01-01.
 func LookupBackupInstance(ctx *pulumi.Context, args *LookupBackupInstanceArgs, opts ...pulumi.InvokeOption) (*LookupBackupInstanceResult, error) {
 	var rv LookupBackupInstanceResult
 	err := ctx.Invoke("azure-native:dataprotection:getBackupInstance", args, &rv, opts...)

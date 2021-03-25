@@ -190,7 +190,7 @@ def get_backup_instance(backup_instance_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBackupInstanceResult:
     """
     BackupInstance Resource
-    API Version: 2021-02-01-preview.
+    API Version: 2021-01-01.
 
 
     :param str backup_instance_name: The name of the backup instance

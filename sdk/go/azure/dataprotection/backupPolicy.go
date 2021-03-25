@@ -12,7 +12,7 @@ import (
 )
 
 // BaseBackupPolicy resource
-// API Version: 2021-02-01-preview.
+// API Version: 2021-01-01.
 type BackupPolicy struct {
 	pulumi.CustomResourceState
 
@@ -49,6 +49,18 @@ func NewBackupPolicy(ctx *pulumi.Context,
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:dataprotection:BackupPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:dataprotection/latest:BackupPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:dataprotection/latest:BackupPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:dataprotection/v20210101:BackupPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:dataprotection/v20210101:BackupPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-native:dataprotection/v20210201preview:BackupPolicy"),

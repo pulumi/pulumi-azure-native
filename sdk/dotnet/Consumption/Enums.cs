@@ -68,6 +68,56 @@ namespace Pulumi.AzureNative.Consumption
     }
 
     /// <summary>
+    /// Language in which the recipient will receive the notification
+    /// </summary>
+    [EnumType]
+    public readonly struct CultureCode : IEquatable<CultureCode>
+    {
+        private readonly string _value;
+
+        private CultureCode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CultureCode En_us { get; } = new CultureCode("en-us");
+        public static CultureCode Ja_jp { get; } = new CultureCode("ja-jp");
+        public static CultureCode Zh_cn { get; } = new CultureCode("zh-cn");
+        public static CultureCode De_de { get; } = new CultureCode("de-de");
+        public static CultureCode Es_es { get; } = new CultureCode("es-es");
+        public static CultureCode Fr_fr { get; } = new CultureCode("fr-fr");
+        public static CultureCode It_it { get; } = new CultureCode("it-it");
+        public static CultureCode Ko_kr { get; } = new CultureCode("ko-kr");
+        public static CultureCode Pt_br { get; } = new CultureCode("pt-br");
+        public static CultureCode Ru_ru { get; } = new CultureCode("ru-ru");
+        public static CultureCode Zh_tw { get; } = new CultureCode("zh-tw");
+        public static CultureCode Cs_cz { get; } = new CultureCode("cs-cz");
+        public static CultureCode Pl_pl { get; } = new CultureCode("pl-pl");
+        public static CultureCode Tr_tr { get; } = new CultureCode("tr-tr");
+        public static CultureCode Da_dk { get; } = new CultureCode("da-dk");
+        public static CultureCode En_gb { get; } = new CultureCode("en-gb");
+        public static CultureCode Hu_hu { get; } = new CultureCode("hu-hu");
+        public static CultureCode Nb_no { get; } = new CultureCode("nb-no");
+        public static CultureCode Nl_nl { get; } = new CultureCode("nl-nl");
+        public static CultureCode Pt_pt { get; } = new CultureCode("pt-pt");
+        public static CultureCode Sv_se { get; } = new CultureCode("sv-se");
+
+        public static bool operator ==(CultureCode left, CultureCode right) => left.Equals(right);
+        public static bool operator !=(CultureCode left, CultureCode right) => !left.Equals(right);
+
+        public static explicit operator string(CultureCode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CultureCode other && Equals(other);
+        public bool Equals(CultureCode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The comparison operator.
     /// </summary>
     [EnumType]

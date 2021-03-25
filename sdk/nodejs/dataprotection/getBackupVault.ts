@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Backup Vault Resource
- * API Version: 2021-02-01-preview.
+ * API Version: 2021-01-01.
  */
 export function getBackupVault(args: GetBackupVaultArgs, opts?: pulumi.InvokeOptions): Promise<GetBackupVaultResult> {
     if (!opts) {
@@ -53,7 +53,7 @@ export interface GetBackupVaultResult {
     /**
      * Resource location.
      */
-    readonly location?: string;
+    readonly location: string;
     /**
      * Resource name associated with the resource.
      */
@@ -65,7 +65,7 @@ export interface GetBackupVaultResult {
     /**
      * Storage Settings
      */
-    readonly storageSettings?: outputs.dataprotection.StorageSettingResponse[];
+    readonly storageSettings: outputs.dataprotection.StorageSettingResponse[];
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */

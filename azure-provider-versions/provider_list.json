@@ -25521,7 +25521,10 @@
           "Brazil SouthEast",
           "Norway East",
           "UAE North",
-          "Japan West"
+          "Japan West",
+          "South India",
+          "France South",
+          "Norway West"
         ],
         "properties": null,
         "resourceType": "scheduledqueryrules"
@@ -32921,117 +32924,7 @@
           "West Europe"
         ],
         "properties": null,
-        "resourceType": "service",
-        "zoneMappings": [
-          {
-            "location": "East US 2",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Central US",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "West Europe",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "France Central",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Southeast Asia",
-            "zones": []
-          },
-          {
-            "location": "West US 2",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "North Europe",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "East US",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "UK South",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Japan East",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Australia East",
-            "zones": []
-          },
-          {
-            "location": "South Africa North",
-            "zones": []
-          },
-          {
-            "location": "South Central US",
-            "zones": []
-          },
-          {
-            "location": "Canada Central",
-            "zones": []
-          },
-          {
-            "location": "Germany West Central",
-            "zones": []
-          },
-          {
-            "location": "Brazil South",
-            "zones": []
-          },
-          {
-            "location": "Central India",
-            "zones": []
-          },
-          {
-            "location": "Korea Central",
-            "zones": []
-          }
-        ]
+        "resourceType": "service"
       },
       {
         "aliases": null,
@@ -33307,6 +33200,54 @@
         "locations": [],
         "properties": null,
         "resourceType": "operations"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2021-01-01-preview",
+          "2020-12-01"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": "2020-12-01",
+        "locationMappings": null,
+        "locations": [
+          "Central India",
+          "UAE North",
+          "Australia Central",
+          "Germany West Central",
+          "West Central US",
+          "Norway East",
+          "Switzerland North",
+          "Korea South",
+          "West India",
+          "Korea Central",
+          "South Africa North",
+          "UK West",
+          "Brazil South",
+          "East Asia",
+          "South India",
+          "Canada Central",
+          "Canada East",
+          "Australia Southeast",
+          "Japan East",
+          "North Central US",
+          "Southeast Asia",
+          "West US 2",
+          "Central US",
+          "UK South",
+          "Australia East",
+          "Japan West",
+          "West US",
+          "France Central",
+          "South Central US",
+          "East US 2",
+          "East US",
+          "North Europe",
+          "West Europe"
+        ],
+        "properties": null,
+        "resourceType": "getDomainOwnershipIdentifier"
       }
     ]
   },
@@ -69568,6 +69509,89 @@
         ],
         "properties": null,
         "resourceType": "CacheNodes"
+      }
+    ]
+  },
+  {
+    "authorizations": [
+      {
+        "applicationId": "070fc472-7cef-4d53-9b65-34464c4d5f4a",
+        "roleDefinitionId": "d9be9a0d-13a3-4571-9428-498be31834b1"
+      }
+    ],
+    "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.ConnectedVehicle",
+    "namespace": "Microsoft.ConnectedVehicle",
+    "registrationPolicy": "RegistrationRequired",
+    "registrationState": "NotRegistered",
+    "resourceTypes": [
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2020-12-01-preview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [],
+        "properties": null,
+        "resourceType": "locations"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2020-12-01-preview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [],
+        "properties": null,
+        "resourceType": "operations"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2020-12-01-preview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [
+          "West US 2",
+          "West Europe",
+          "East US"
+        ],
+        "properties": null,
+        "resourceType": "Locations/OperationStatuses"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2020-12-01-preview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [],
+        "properties": null,
+        "resourceType": "checkNameAvailability"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2020-12-01-preview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [],
+        "properties": null,
+        "resourceType": "registeredSubscriptions"
       }
     ]
   },

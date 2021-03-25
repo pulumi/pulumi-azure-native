@@ -31,7 +31,7 @@ class BackupInstance(pulumi.CustomResource):
                  __opts__=None):
         """
         BackupInstance Resource
-        API Version: 2021-02-01-preview.
+        API Version: 2021-01-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -87,7 +87,7 @@ class BackupInstance(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:dataprotection:BackupInstance"), pulumi.Alias(type_="azure-native:dataprotection/v20210201preview:BackupInstance"), pulumi.Alias(type_="azure-nextgen:dataprotection/v20210201preview:BackupInstance")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:dataprotection:BackupInstance"), pulumi.Alias(type_="azure-native:dataprotection/latest:BackupInstance"), pulumi.Alias(type_="azure-nextgen:dataprotection/latest:BackupInstance"), pulumi.Alias(type_="azure-native:dataprotection/v20210101:BackupInstance"), pulumi.Alias(type_="azure-nextgen:dataprotection/v20210101:BackupInstance"), pulumi.Alias(type_="azure-native:dataprotection/v20210201preview:BackupInstance"), pulumi.Alias(type_="azure-nextgen:dataprotection/v20210201preview:BackupInstance")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BackupInstance, __self__).__init__(
             'azure-native:dataprotection:BackupInstance',

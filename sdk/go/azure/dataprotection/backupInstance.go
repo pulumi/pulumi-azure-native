@@ -12,7 +12,7 @@ import (
 )
 
 // BackupInstance Resource
-// API Version: 2021-02-01-preview.
+// API Version: 2021-01-01.
 type BackupInstance struct {
 	pulumi.CustomResourceState
 
@@ -69,6 +69,18 @@ func NewBackupInstance(ctx *pulumi.Context,
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:dataprotection:BackupInstance"),
+		},
+		{
+			Type: pulumi.String("azure-native:dataprotection/latest:BackupInstance"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:dataprotection/latest:BackupInstance"),
+		},
+		{
+			Type: pulumi.String("azure-native:dataprotection/v20210101:BackupInstance"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:dataprotection/v20210101:BackupInstance"),
 		},
 		{
 			Type: pulumi.String("azure-native:dataprotection/v20210201preview:BackupInstance"),

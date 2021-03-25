@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DataProtection
 {
     /// <summary>
     /// BaseBackupPolicy resource
-    /// API Version: 2021-02-01-preview.
+    /// API Version: 2021-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:dataprotection:BackupPolicy")]
     public partial class BackupPolicy : Pulumi.CustomResource
@@ -69,6 +69,10 @@ namespace Pulumi.AzureNative.DataProtection
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:dataprotection:BackupPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:dataprotection/latest:BackupPolicy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:dataprotection/latest:BackupPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:dataprotection/v20210101:BackupPolicy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:dataprotection/v20210101:BackupPolicy"},
                     new Pulumi.Alias { Type = "azure-native:dataprotection/v20210201preview:BackupPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:dataprotection/v20210201preview:BackupPolicy"},
                 },

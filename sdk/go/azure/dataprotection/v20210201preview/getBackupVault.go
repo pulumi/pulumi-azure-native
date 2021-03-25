@@ -33,7 +33,7 @@ type LookupBackupVaultResult struct {
 	// Input Managed Identity Details
 	Identity *DppIdentityDetailsResponse `pulumi:"identity"`
 	// Resource location.
-	Location *string `pulumi:"location"`
+	Location string `pulumi:"location"`
 	// Resource name associated with the resource.
 	Name string `pulumi:"name"`
 	// Provisioning state of the BackupVault resource
