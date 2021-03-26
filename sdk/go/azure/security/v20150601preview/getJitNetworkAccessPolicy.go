@@ -4,7 +4,7 @@
 package v20150601preview
 
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 func LookupJitNetworkAccessPolicy(ctx *pulumi.Context, args *LookupJitNetworkAccessPolicyArgs, opts ...pulumi.InvokeOption) (*LookupJitNetworkAccessPolicyResult, error) {

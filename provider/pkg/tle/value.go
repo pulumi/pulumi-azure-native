@@ -3,7 +3,7 @@
 package tle
 
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/common/util/contract"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 )
 
 type Value interface {

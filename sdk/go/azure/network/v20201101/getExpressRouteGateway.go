@@ -4,7 +4,7 @@
 package v20201101
 
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // ExpressRoute gateway resource.

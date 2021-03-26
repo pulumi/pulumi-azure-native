@@ -4,7 +4,7 @@
 package v20191017preview
 
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // An Azure Monitor PrivateLinkScope definition.

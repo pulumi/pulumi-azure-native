@@ -4,7 +4,7 @@
 package v20200320
 
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Administrative credentials for accessing vCenter and NSX-T

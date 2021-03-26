@@ -4,7 +4,7 @@
 package v20150801preview
 
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 func LookupIntegrationAccountPartner(ctx *pulumi.Context, args *LookupIntegrationAccountPartnerArgs, opts ...pulumi.InvokeOption) (*LookupIntegrationAccountPartnerResult, error) {

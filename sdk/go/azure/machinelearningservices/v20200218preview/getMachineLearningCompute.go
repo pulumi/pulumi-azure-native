@@ -4,7 +4,7 @@
 package v20200218preview
 
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Machine Learning compute object wrapped into ARM resource envelope.

@@ -2,7 +2,7 @@
 
 package gen
 
-import "github.com/pulumi/pulumi/pkg/v2/codegen"
+import "github.com/pulumi/pulumi/pkg/v3/codegen"
 
 // forceNewMap is a map of Azure Resource Provider -> Resource Name -> Properties that cause replacements.
 // API Versions are currently ignored.

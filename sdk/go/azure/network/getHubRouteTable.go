@@ -4,7 +4,7 @@
 package network
 
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // RouteTable resource in a virtual hub.

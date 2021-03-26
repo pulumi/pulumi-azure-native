@@ -4,7 +4,7 @@
 package v20190801
 
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // IoT Security solution configuration and resource information.

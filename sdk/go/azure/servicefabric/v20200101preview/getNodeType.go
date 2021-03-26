@@ -4,7 +4,7 @@
 package v20200101preview
 
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Describes a node type in the cluster, each node type represents sub set of nodes in the cluster.

@@ -4,7 +4,7 @@
 package v20180701
 
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Express Route Circuit Connection in an ExpressRouteCircuitPeering resource.

@@ -4,7 +4,7 @@
 package v20191201
 
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Specifies information about the gallery Application Version that you want to create or update.

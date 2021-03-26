@@ -4,7 +4,7 @@
 package network
 
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // A rules engine configuration containing a list of rules that will run to modify the runtime behavior of the request and response.

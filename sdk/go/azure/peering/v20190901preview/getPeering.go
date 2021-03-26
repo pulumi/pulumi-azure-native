@@ -4,7 +4,7 @@
 package v20190901preview
 
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Peering is a logical representation of a set of connections to the Microsoft Cloud Edge at a location.

@@ -4,7 +4,7 @@
 package hanaonazure
 
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // HANA instance info on Azure (ARM properties and HANA properties)

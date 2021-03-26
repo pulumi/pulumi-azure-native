@@ -4,7 +4,7 @@
 package v20150801preview
 
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 func LookupIntegrationAccountCertificate(ctx *pulumi.Context, args *LookupIntegrationAccountCertificateArgs, opts ...pulumi.InvokeOption) (*LookupIntegrationAccountCertificateResult, error) {

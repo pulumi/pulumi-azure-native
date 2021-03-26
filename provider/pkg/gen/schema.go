@@ -30,10 +30,10 @@ import (
 
 	"github.com/pulumi/pulumi-azure-native/provider/pkg/openapi"
 	"github.com/pulumi/pulumi-azure-native/provider/pkg/resources"
-	"github.com/pulumi/pulumi/pkg/v2/codegen"
-	"github.com/pulumi/pulumi/pkg/v2/codegen/schema"
-	pschema "github.com/pulumi/pulumi/pkg/v2/codegen/schema"
-	"github.com/pulumi/pulumi/sdk/v2/go/common/util/contract"
+	"github.com/pulumi/pulumi/pkg/v3/codegen"
+	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
+	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 )
 
 // Note - this needs to be kept in sync with the layout in the SDK package

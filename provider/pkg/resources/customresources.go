@@ -8,8 +8,8 @@ import (
 	"github.com/Azure/azure-sdk-for-go/services/storage/mgmt/2019-04-01/storage"
 	"github.com/Azure/go-autorest/autorest"
 	"github.com/Azure/go-autorest/autorest/azure"
-	"github.com/pulumi/pulumi/pkg/v2/codegen/schema"
-	"github.com/pulumi/pulumi/sdk/v2/go/common/resource"
+	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 )
 
 // CustomResource is a manual SDK-based implementation of a (part of) resource when Azure API is missing some
