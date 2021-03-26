@@ -1,3 +1,5 @@
+// Copyright 2021, Pulumi Corporation.  All rights reserved.
+
 package gen
 
 import "github.com/pulumi/pulumi/pkg/v2/codegen"

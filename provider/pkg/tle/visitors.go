@@ -1,3 +1,5 @@
+// Copyright 2021, Pulumi Corporation.  All rights reserved.
+
 package tle
 
 // Visitor visits Value types, allowing resolution to their component types

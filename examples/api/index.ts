@@ -1,3 +1,5 @@
+// Copyright 2021, Pulumi Corporation.  All rights reserved.
+
 import * as apimanagement from "@pulumi/azure-native/apimanagement";
 import * as resources from "@pulumi/azure-native/resources";
 import * as web from "@pulumi/azure-native/web";

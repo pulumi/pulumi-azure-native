@@ -1,3 +1,5 @@
+// Copyright 2021, Pulumi Corporation.  All rights reserved.
+
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.Azure.Management.Storage;
