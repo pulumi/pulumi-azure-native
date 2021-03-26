@@ -7,7 +7,7 @@ import (
 	"fmt"
 	"github.com/pulumi/pulumi-azure-native/provider/pkg/arm2pulumi"
 	"github.com/pulumi/pulumi-azure-native/provider/pkg/resources"
-	"github.com/pulumi/pulumi/pkg/v2/codegen/schema"
+	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"io/ioutil"

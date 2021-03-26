@@ -4,7 +4,7 @@
 package v20210101preview
 
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Tenant access information contract of the API Management service.

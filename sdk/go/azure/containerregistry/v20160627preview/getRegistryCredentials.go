@@ -4,7 +4,7 @@
 package v20160627preview
 
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // The result of a request to get the administrator login credentials for a container registry.

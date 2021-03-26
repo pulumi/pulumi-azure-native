@@ -4,7 +4,7 @@
 package devops
 
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Pipeline used to configure Continuous Integration (CI) & Continuous Delivery (CD) for Azure resources.

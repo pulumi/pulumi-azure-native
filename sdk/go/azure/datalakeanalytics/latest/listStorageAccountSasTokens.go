@@ -4,7 +4,7 @@
 package latest
 
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // The SAS response that contains the storage account, container and associated SAS token for connection use.

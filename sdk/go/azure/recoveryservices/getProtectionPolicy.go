@@ -4,7 +4,7 @@
 package recoveryservices
 
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Base class for backup policy. Workload-specific backup policies are derived from this class.

@@ -4,7 +4,7 @@
 package v20180915
 
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // An environment, which is essentially an ARM template deployment.

@@ -4,7 +4,7 @@
 package authorization
 
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Use this function to access the current configuration of the native Azure provider.

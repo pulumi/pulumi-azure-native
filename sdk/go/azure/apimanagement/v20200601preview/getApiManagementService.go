@@ -4,7 +4,7 @@
 package v20200601preview
 
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // A single API Management service resource in List or Get response.

@@ -7,8 +7,8 @@ import (
 	"github.com/pulumi/pulumi-azure-native/provider/pkg/gen"
 	"github.com/pulumi/pulumi-azure-native/provider/pkg/pcl"
 	"github.com/pulumi/pulumi-azure-native/provider/pkg/resources"
-	"github.com/pulumi/pulumi/pkg/v2/codegen"
-	"github.com/pulumi/pulumi/pkg/v2/codegen/hcl2/model"
+	"github.com/pulumi/pulumi/pkg/v3/codegen"
+	"github.com/pulumi/pulumi/pkg/v3/codegen/hcl2/model"
 	"strings"
 )
 

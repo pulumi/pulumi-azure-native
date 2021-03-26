@@ -4,7 +4,7 @@
 package v20161002
 
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Customer provided domain for branding purposes, e.g. www.contoso.com.

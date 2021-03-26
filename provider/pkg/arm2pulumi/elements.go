@@ -8,16 +8,16 @@ import (
 	"fmt"
 	"github.com/pulumi/pulumi-azure-native/provider/pkg/gen"
 	"github.com/pulumi/pulumi-azure-native/provider/pkg/tle"
-	"github.com/pulumi/pulumi/pkg/v2/codegen/schema"
+	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"reflect"
 	"strings"
 
 	"github.com/gedex/inflector"
 	"github.com/pulumi/pulumi-azure-native/provider/pkg/pcl"
 	"github.com/pulumi/pulumi-azure-native/provider/pkg/resources"
-	"github.com/pulumi/pulumi/pkg/v2/codegen"
-	"github.com/pulumi/pulumi/pkg/v2/codegen/hcl2/model"
-	"github.com/pulumi/pulumi/pkg/v2/codegen/hcl2/syntax"
+	"github.com/pulumi/pulumi/pkg/v3/codegen"
+	"github.com/pulumi/pulumi/pkg/v3/codegen/hcl2/model"
+	"github.com/pulumi/pulumi/pkg/v3/codegen/hcl2/syntax"
 )
 
 // TemplateElement is a top-level item in the template, e.g. parameters, variables,

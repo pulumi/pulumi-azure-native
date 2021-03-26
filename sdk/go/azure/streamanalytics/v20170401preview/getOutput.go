@@ -4,7 +4,7 @@
 package v20170401preview
 
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // An output object, containing all information associated with the named output. All outputs are contained under a streaming job.

@@ -4,7 +4,7 @@
 package v20200501
 
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // A class represents the access keys of SignalR service.

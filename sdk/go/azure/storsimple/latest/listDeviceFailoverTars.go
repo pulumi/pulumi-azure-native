@@ -4,7 +4,7 @@
 package latest
 
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // The list of all devices in a resource and their eligibility status as a failover target device.

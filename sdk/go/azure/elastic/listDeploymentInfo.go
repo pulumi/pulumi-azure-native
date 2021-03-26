@@ -4,7 +4,7 @@
 package elastic
 
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // The properties of deployment in Elastic cloud corresponding to the Elastic monitor resource.

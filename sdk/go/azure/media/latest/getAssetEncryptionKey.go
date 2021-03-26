@@ -4,7 +4,7 @@
 package latest
 
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Data needed to decrypt asset files encrypted with legacy storage encryption.

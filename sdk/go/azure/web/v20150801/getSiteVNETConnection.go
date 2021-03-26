@@ -4,7 +4,7 @@
 package v20150801
 
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // VNETInfo contract. This contract is public and is a stripped down version of VNETInfoInternal
