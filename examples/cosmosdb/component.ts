@@ -1,3 +1,5 @@
+// Copyright 2021, Pulumi Corporation.  All rights reserved.
+
 import * as pulumi from "@pulumi/pulumi";
 import * as documentdb from "@pulumi/azure-native/documentdb";
 import * as resources from "@pulumi/azure-native/resources";

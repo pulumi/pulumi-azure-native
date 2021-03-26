@@ -1,3 +1,5 @@
+// Copyright 2021, Pulumi Corporation.  All rights reserved.
+
 using System.Linq;
 using Pulumi;
 using Pulumi.AzureNative.ContainerRegistry;
