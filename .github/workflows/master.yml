@@ -40,6 +40,9 @@ jobs:
         nodeversion: [ 14.x ]
         pythonversion: [ 3.7 ]
     steps:
+      - if: github.ref == 'refs/heads/feature-3.0'
+        run:
+          echo "VERSION_PREFIX=1.0.0" >> $GITHUB_ENV
       - name: Checkout Repo
         uses: actions/checkout@v2
       - name: Checkout Scripts Repo
@@ -110,6 +113,9 @@ jobs:
       matrix:
         goversion: [1.16.x]
     steps:
+      - if: github.ref == 'refs/heads/feature-3.0'
+        run:
+          echo "VERSION_PREFIX=1.0.0" >> $GITHUB_ENV
       - name: Checkout Repo
         uses: actions/checkout@v2
         with:
@@ -164,6 +170,9 @@ jobs:
       matrix:
         goversion: [1.16.x]
     steps:
+      - if: github.ref == 'refs/heads/feature-3.0'
+        run:
+          echo "VERSION_PREFIX=1.0.0" >> $GITHUB_ENV
       - name: Checkout Repo
         uses: actions/checkout@v2
       - name: Unshallow clone for tags
@@ -209,6 +218,9 @@ jobs:
       matrix:
         goversion: [1.16.x]
     steps:
+      - if: github.ref == 'refs/heads/feature-3.0'
+        run:
+          echo "VERSION_PREFIX=1.0.0" >> $GITHUB_ENV
       - name: Checkout Repo
         uses: actions/checkout@v2
       - name: Checkout Scripts Repo
@@ -288,6 +300,9 @@ jobs:
         nodeversion: [14.x]
         pythonversion: [3.7]
     steps:
+      - if: github.ref == 'refs/heads/feature-3.0'
+        run:
+          echo "VERSION_PREFIX=1.0.0" >> $GITHUB_ENV
       - name: Checkout Repo
         uses: actions/checkout@v2
       - name: Checkout Scripts Repo
