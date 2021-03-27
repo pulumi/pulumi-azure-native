@@ -10,110 +10,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-type AdditionalErrorInfoResponse struct {
-	Info interface{} `pulumi:"info"`
-	Type *string     `pulumi:"type"`
-}
-
-// AdditionalErrorInfoResponseInput is an input type that accepts AdditionalErrorInfoResponseArgs and AdditionalErrorInfoResponseOutput values.
-// You can construct a concrete instance of `AdditionalErrorInfoResponseInput` via:
-//
-//          AdditionalErrorInfoResponseArgs{...}
-type AdditionalErrorInfoResponseInput interface {
-	pulumi.Input
-
-	ToAdditionalErrorInfoResponseOutput() AdditionalErrorInfoResponseOutput
-	ToAdditionalErrorInfoResponseOutputWithContext(context.Context) AdditionalErrorInfoResponseOutput
-}
-
-type AdditionalErrorInfoResponseArgs struct {
-	Info pulumi.Input          `pulumi:"info"`
-	Type pulumi.StringPtrInput `pulumi:"type"`
-}
-
-func (AdditionalErrorInfoResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AdditionalErrorInfoResponse)(nil)).Elem()
-}
-
-func (i AdditionalErrorInfoResponseArgs) ToAdditionalErrorInfoResponseOutput() AdditionalErrorInfoResponseOutput {
-	return i.ToAdditionalErrorInfoResponseOutputWithContext(context.Background())
-}
-
-func (i AdditionalErrorInfoResponseArgs) ToAdditionalErrorInfoResponseOutputWithContext(ctx context.Context) AdditionalErrorInfoResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AdditionalErrorInfoResponseOutput)
-}
-
-// AdditionalErrorInfoResponseArrayInput is an input type that accepts AdditionalErrorInfoResponseArray and AdditionalErrorInfoResponseArrayOutput values.
-// You can construct a concrete instance of `AdditionalErrorInfoResponseArrayInput` via:
-//
-//          AdditionalErrorInfoResponseArray{ AdditionalErrorInfoResponseArgs{...} }
-type AdditionalErrorInfoResponseArrayInput interface {
-	pulumi.Input
-
-	ToAdditionalErrorInfoResponseArrayOutput() AdditionalErrorInfoResponseArrayOutput
-	ToAdditionalErrorInfoResponseArrayOutputWithContext(context.Context) AdditionalErrorInfoResponseArrayOutput
-}
-
-type AdditionalErrorInfoResponseArray []AdditionalErrorInfoResponseInput
-
-func (AdditionalErrorInfoResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AdditionalErrorInfoResponse)(nil)).Elem()
-}
-
-func (i AdditionalErrorInfoResponseArray) ToAdditionalErrorInfoResponseArrayOutput() AdditionalErrorInfoResponseArrayOutput {
-	return i.ToAdditionalErrorInfoResponseArrayOutputWithContext(context.Background())
-}
-
-func (i AdditionalErrorInfoResponseArray) ToAdditionalErrorInfoResponseArrayOutputWithContext(ctx context.Context) AdditionalErrorInfoResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AdditionalErrorInfoResponseArrayOutput)
-}
-
-type AdditionalErrorInfoResponseOutput struct{ *pulumi.OutputState }
-
-func (AdditionalErrorInfoResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AdditionalErrorInfoResponse)(nil)).Elem()
-}
-
-func (o AdditionalErrorInfoResponseOutput) ToAdditionalErrorInfoResponseOutput() AdditionalErrorInfoResponseOutput {
-	return o
-}
-
-func (o AdditionalErrorInfoResponseOutput) ToAdditionalErrorInfoResponseOutputWithContext(ctx context.Context) AdditionalErrorInfoResponseOutput {
-	return o
-}
-
-func (o AdditionalErrorInfoResponseOutput) Info() pulumi.AnyOutput {
-	return o.ApplyT(func(v AdditionalErrorInfoResponse) interface{} { return v.Info }).(pulumi.AnyOutput)
-}
-
-func (o AdditionalErrorInfoResponseOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AdditionalErrorInfoResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
-}
-
-type AdditionalErrorInfoResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (AdditionalErrorInfoResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AdditionalErrorInfoResponse)(nil)).Elem()
-}
-
-func (o AdditionalErrorInfoResponseArrayOutput) ToAdditionalErrorInfoResponseArrayOutput() AdditionalErrorInfoResponseArrayOutput {
-	return o
-}
-
-func (o AdditionalErrorInfoResponseArrayOutput) ToAdditionalErrorInfoResponseArrayOutputWithContext(ctx context.Context) AdditionalErrorInfoResponseArrayOutput {
-	return o
-}
-
-func (o AdditionalErrorInfoResponseArrayOutput) Index(i pulumi.IntInput) AdditionalErrorInfoResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AdditionalErrorInfoResponse {
-		return vs[0].([]AdditionalErrorInfoResponse)[vs[1].(int)]
-	}).(AdditionalErrorInfoResponseOutput)
-}
-
 // Address details for an order.
 type AddressDetails struct {
 	// Customer address and contact details. It should be address resource
-	ShippingAddress AddressProperties `pulumi:"shippingAddress"`
+	ForwardAddress AddressProperties `pulumi:"forwardAddress"`
 }
 
 // AddressDetailsInput is an input type that accepts AddressDetailsArgs and AddressDetailsOutput values.
@@ -130,7 +30,7 @@ type AddressDetailsInput interface {
 // Address details for an order.
 type AddressDetailsArgs struct {
 	// Customer address and contact details. It should be address resource
-	ShippingAddress AddressPropertiesInput `pulumi:"shippingAddress"`
+	ForwardAddress AddressPropertiesInput `pulumi:"forwardAddress"`
 }
 
 func (AddressDetailsArgs) ElementType() reflect.Type {
@@ -212,8 +112,8 @@ func (o AddressDetailsOutput) ToAddressDetailsPtrOutputWithContext(ctx context.C
 }
 
 // Customer address and contact details. It should be address resource
-func (o AddressDetailsOutput) ShippingAddress() AddressPropertiesOutput {
-	return o.ApplyT(func(v AddressDetails) AddressProperties { return v.ShippingAddress }).(AddressPropertiesOutput)
+func (o AddressDetailsOutput) ForwardAddress() AddressPropertiesOutput {
+	return o.ApplyT(func(v AddressDetails) AddressProperties { return v.ForwardAddress }).(AddressPropertiesOutput)
 }
 
 type AddressDetailsPtrOutput struct{ *pulumi.OutputState }
@@ -235,21 +135,21 @@ func (o AddressDetailsPtrOutput) Elem() AddressDetailsOutput {
 }
 
 // Customer address and contact details. It should be address resource
-func (o AddressDetailsPtrOutput) ShippingAddress() AddressPropertiesPtrOutput {
+func (o AddressDetailsPtrOutput) ForwardAddress() AddressPropertiesPtrOutput {
 	return o.ApplyT(func(v *AddressDetails) *AddressProperties {
 		if v == nil {
 			return nil
 		}
-		return &v.ShippingAddress
+		return &v.ForwardAddress
 	}).(AddressPropertiesPtrOutput)
 }
 
 // Address details for an order.
 type AddressDetailsResponse struct {
+	// Customer address and contact details. It should be address resource
+	ForwardAddress AddressPropertiesResponse `pulumi:"forwardAddress"`
 	// Return shipping address
 	ReturnAddress AddressPropertiesResponse `pulumi:"returnAddress"`
-	// Customer address and contact details. It should be address resource
-	ShippingAddress AddressPropertiesResponse `pulumi:"shippingAddress"`
 }
 
 // AddressDetailsResponseInput is an input type that accepts AddressDetailsResponseArgs and AddressDetailsResponseOutput values.
@@ -265,10 +165,10 @@ type AddressDetailsResponseInput interface {
 
 // Address details for an order.
 type AddressDetailsResponseArgs struct {
+	// Customer address and contact details. It should be address resource
+	ForwardAddress AddressPropertiesResponseInput `pulumi:"forwardAddress"`
 	// Return shipping address
 	ReturnAddress AddressPropertiesResponseInput `pulumi:"returnAddress"`
-	// Customer address and contact details. It should be address resource
-	ShippingAddress AddressPropertiesResponseInput `pulumi:"shippingAddress"`
 }
 
 func (AddressDetailsResponseArgs) ElementType() reflect.Type {
@@ -349,14 +249,14 @@ func (o AddressDetailsResponseOutput) ToAddressDetailsResponsePtrOutputWithConte
 	}).(AddressDetailsResponsePtrOutput)
 }
 
+// Customer address and contact details. It should be address resource
+func (o AddressDetailsResponseOutput) ForwardAddress() AddressPropertiesResponseOutput {
+	return o.ApplyT(func(v AddressDetailsResponse) AddressPropertiesResponse { return v.ForwardAddress }).(AddressPropertiesResponseOutput)
+}
+
 // Return shipping address
 func (o AddressDetailsResponseOutput) ReturnAddress() AddressPropertiesResponseOutput {
 	return o.ApplyT(func(v AddressDetailsResponse) AddressPropertiesResponse { return v.ReturnAddress }).(AddressPropertiesResponseOutput)
-}
-
-// Customer address and contact details. It should be address resource
-func (o AddressDetailsResponseOutput) ShippingAddress() AddressPropertiesResponseOutput {
-	return o.ApplyT(func(v AddressDetailsResponse) AddressPropertiesResponse { return v.ShippingAddress }).(AddressPropertiesResponseOutput)
 }
 
 type AddressDetailsResponsePtrOutput struct{ *pulumi.OutputState }
@@ -377,6 +277,16 @@ func (o AddressDetailsResponsePtrOutput) Elem() AddressDetailsResponseOutput {
 	return o.ApplyT(func(v *AddressDetailsResponse) AddressDetailsResponse { return *v }).(AddressDetailsResponseOutput)
 }
 
+// Customer address and contact details. It should be address resource
+func (o AddressDetailsResponsePtrOutput) ForwardAddress() AddressPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *AddressDetailsResponse) *AddressPropertiesResponse {
+		if v == nil {
+			return nil
+		}
+		return &v.ForwardAddress
+	}).(AddressPropertiesResponsePtrOutput)
+}
+
 // Return shipping address
 func (o AddressDetailsResponsePtrOutput) ReturnAddress() AddressPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v *AddressDetailsResponse) *AddressPropertiesResponse {
@@ -384,16 +294,6 @@ func (o AddressDetailsResponsePtrOutput) ReturnAddress() AddressPropertiesRespon
 			return nil
 		}
 		return &v.ReturnAddress
-	}).(AddressPropertiesResponsePtrOutput)
-}
-
-// Customer address and contact details. It should be address resource
-func (o AddressDetailsResponsePtrOutput) ShippingAddress() AddressPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v *AddressDetailsResponse) *AddressPropertiesResponse {
-		if v == nil {
-			return nil
-		}
-		return &v.ShippingAddress
 	}).(AddressPropertiesResponsePtrOutput)
 }
 
@@ -776,298 +676,139 @@ func (o AvailabilityInformationResponseOutput) DisabledReasonMessage() pulumi.St
 	return o.ApplyT(func(v AvailabilityInformationResponse) string { return v.DisabledReasonMessage }).(pulumi.StringOutput)
 }
 
-// Model to represent the billing cycle
-type BillingModelResponse struct {
-	// String to represent the billing model
-	Model string `pulumi:"model"`
+// Holds billing meter details for each type of billing
+type BillingMeterDetailsResponse struct {
+	// Frequency of recurrence
+	Frequency string `pulumi:"frequency"`
+	// Represents MeterDetails
+	MeterDetails MeterDetailsResponse `pulumi:"meterDetails"`
+	// Represents Metering type (eg one-time or recurrent)
+	MeteringType string `pulumi:"meteringType"`
+	// Represents Billing type name
+	Name string `pulumi:"name"`
 }
 
-// BillingModelResponseInput is an input type that accepts BillingModelResponseArgs and BillingModelResponseOutput values.
-// You can construct a concrete instance of `BillingModelResponseInput` via:
+// BillingMeterDetailsResponseInput is an input type that accepts BillingMeterDetailsResponseArgs and BillingMeterDetailsResponseOutput values.
+// You can construct a concrete instance of `BillingMeterDetailsResponseInput` via:
 //
-//          BillingModelResponseArgs{...}
-type BillingModelResponseInput interface {
+//          BillingMeterDetailsResponseArgs{...}
+type BillingMeterDetailsResponseInput interface {
 	pulumi.Input
 
-	ToBillingModelResponseOutput() BillingModelResponseOutput
-	ToBillingModelResponseOutputWithContext(context.Context) BillingModelResponseOutput
+	ToBillingMeterDetailsResponseOutput() BillingMeterDetailsResponseOutput
+	ToBillingMeterDetailsResponseOutputWithContext(context.Context) BillingMeterDetailsResponseOutput
 }
 
-// Model to represent the billing cycle
-type BillingModelResponseArgs struct {
-	// String to represent the billing model
-	Model pulumi.StringInput `pulumi:"model"`
+// Holds billing meter details for each type of billing
+type BillingMeterDetailsResponseArgs struct {
+	// Frequency of recurrence
+	Frequency pulumi.StringInput `pulumi:"frequency"`
+	// Represents MeterDetails
+	MeterDetails MeterDetailsResponseInput `pulumi:"meterDetails"`
+	// Represents Metering type (eg one-time or recurrent)
+	MeteringType pulumi.StringInput `pulumi:"meteringType"`
+	// Represents Billing type name
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
-func (BillingModelResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*BillingModelResponse)(nil)).Elem()
+func (BillingMeterDetailsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BillingMeterDetailsResponse)(nil)).Elem()
 }
 
-func (i BillingModelResponseArgs) ToBillingModelResponseOutput() BillingModelResponseOutput {
-	return i.ToBillingModelResponseOutputWithContext(context.Background())
+func (i BillingMeterDetailsResponseArgs) ToBillingMeterDetailsResponseOutput() BillingMeterDetailsResponseOutput {
+	return i.ToBillingMeterDetailsResponseOutputWithContext(context.Background())
 }
 
-func (i BillingModelResponseArgs) ToBillingModelResponseOutputWithContext(ctx context.Context) BillingModelResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BillingModelResponseOutput)
+func (i BillingMeterDetailsResponseArgs) ToBillingMeterDetailsResponseOutputWithContext(ctx context.Context) BillingMeterDetailsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BillingMeterDetailsResponseOutput)
 }
 
-// Model to represent the billing cycle
-type BillingModelResponseOutput struct{ *pulumi.OutputState }
-
-func (BillingModelResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BillingModelResponse)(nil)).Elem()
-}
-
-func (o BillingModelResponseOutput) ToBillingModelResponseOutput() BillingModelResponseOutput {
-	return o
-}
-
-func (o BillingModelResponseOutput) ToBillingModelResponseOutputWithContext(ctx context.Context) BillingModelResponseOutput {
-	return o
-}
-
-// String to represent the billing model
-func (o BillingModelResponseOutput) Model() pulumi.StringOutput {
-	return o.ApplyT(func(v BillingModelResponse) string { return v.Model }).(pulumi.StringOutput)
-}
-
-type CloudErrorResponse struct {
-	AdditionalInfo []AdditionalErrorInfoResponse `pulumi:"additionalInfo"`
-	Code           *string                       `pulumi:"code"`
-	Details        []CloudErrorResponse          `pulumi:"details"`
-	Message        *string                       `pulumi:"message"`
-	Target         *string                       `pulumi:"target"`
-}
-
-// CloudErrorResponseInput is an input type that accepts CloudErrorResponseArgs and CloudErrorResponseOutput values.
-// You can construct a concrete instance of `CloudErrorResponseInput` via:
+// BillingMeterDetailsResponseArrayInput is an input type that accepts BillingMeterDetailsResponseArray and BillingMeterDetailsResponseArrayOutput values.
+// You can construct a concrete instance of `BillingMeterDetailsResponseArrayInput` via:
 //
-//          CloudErrorResponseArgs{...}
-type CloudErrorResponseInput interface {
+//          BillingMeterDetailsResponseArray{ BillingMeterDetailsResponseArgs{...} }
+type BillingMeterDetailsResponseArrayInput interface {
 	pulumi.Input
 
-	ToCloudErrorResponseOutput() CloudErrorResponseOutput
-	ToCloudErrorResponseOutputWithContext(context.Context) CloudErrorResponseOutput
+	ToBillingMeterDetailsResponseArrayOutput() BillingMeterDetailsResponseArrayOutput
+	ToBillingMeterDetailsResponseArrayOutputWithContext(context.Context) BillingMeterDetailsResponseArrayOutput
 }
 
-type CloudErrorResponseArgs struct {
-	AdditionalInfo AdditionalErrorInfoResponseArrayInput `pulumi:"additionalInfo"`
-	Code           pulumi.StringPtrInput                 `pulumi:"code"`
-	Details        CloudErrorResponseArrayInput          `pulumi:"details"`
-	Message        pulumi.StringPtrInput                 `pulumi:"message"`
-	Target         pulumi.StringPtrInput                 `pulumi:"target"`
+type BillingMeterDetailsResponseArray []BillingMeterDetailsResponseInput
+
+func (BillingMeterDetailsResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BillingMeterDetailsResponse)(nil)).Elem()
 }
 
-func (CloudErrorResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CloudErrorResponse)(nil)).Elem()
+func (i BillingMeterDetailsResponseArray) ToBillingMeterDetailsResponseArrayOutput() BillingMeterDetailsResponseArrayOutput {
+	return i.ToBillingMeterDetailsResponseArrayOutputWithContext(context.Background())
 }
 
-func (i CloudErrorResponseArgs) ToCloudErrorResponseOutput() CloudErrorResponseOutput {
-	return i.ToCloudErrorResponseOutputWithContext(context.Background())
+func (i BillingMeterDetailsResponseArray) ToBillingMeterDetailsResponseArrayOutputWithContext(ctx context.Context) BillingMeterDetailsResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BillingMeterDetailsResponseArrayOutput)
 }
 
-func (i CloudErrorResponseArgs) ToCloudErrorResponseOutputWithContext(ctx context.Context) CloudErrorResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CloudErrorResponseOutput)
+// Holds billing meter details for each type of billing
+type BillingMeterDetailsResponseOutput struct{ *pulumi.OutputState }
+
+func (BillingMeterDetailsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BillingMeterDetailsResponse)(nil)).Elem()
 }
 
-func (i CloudErrorResponseArgs) ToCloudErrorResponsePtrOutput() CloudErrorResponsePtrOutput {
-	return i.ToCloudErrorResponsePtrOutputWithContext(context.Background())
-}
-
-func (i CloudErrorResponseArgs) ToCloudErrorResponsePtrOutputWithContext(ctx context.Context) CloudErrorResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CloudErrorResponseOutput).ToCloudErrorResponsePtrOutputWithContext(ctx)
-}
-
-// CloudErrorResponsePtrInput is an input type that accepts CloudErrorResponseArgs, CloudErrorResponsePtr and CloudErrorResponsePtrOutput values.
-// You can construct a concrete instance of `CloudErrorResponsePtrInput` via:
-//
-//          CloudErrorResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type CloudErrorResponsePtrInput interface {
-	pulumi.Input
-
-	ToCloudErrorResponsePtrOutput() CloudErrorResponsePtrOutput
-	ToCloudErrorResponsePtrOutputWithContext(context.Context) CloudErrorResponsePtrOutput
-}
-
-type cloudErrorResponsePtrType CloudErrorResponseArgs
-
-func CloudErrorResponsePtr(v *CloudErrorResponseArgs) CloudErrorResponsePtrInput {
-	return (*cloudErrorResponsePtrType)(v)
-}
-
-func (*cloudErrorResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CloudErrorResponse)(nil)).Elem()
-}
-
-func (i *cloudErrorResponsePtrType) ToCloudErrorResponsePtrOutput() CloudErrorResponsePtrOutput {
-	return i.ToCloudErrorResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *cloudErrorResponsePtrType) ToCloudErrorResponsePtrOutputWithContext(ctx context.Context) CloudErrorResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CloudErrorResponsePtrOutput)
-}
-
-// CloudErrorResponseArrayInput is an input type that accepts CloudErrorResponseArray and CloudErrorResponseArrayOutput values.
-// You can construct a concrete instance of `CloudErrorResponseArrayInput` via:
-//
-//          CloudErrorResponseArray{ CloudErrorResponseArgs{...} }
-type CloudErrorResponseArrayInput interface {
-	pulumi.Input
-
-	ToCloudErrorResponseArrayOutput() CloudErrorResponseArrayOutput
-	ToCloudErrorResponseArrayOutputWithContext(context.Context) CloudErrorResponseArrayOutput
-}
-
-type CloudErrorResponseArray []CloudErrorResponseInput
-
-func (CloudErrorResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CloudErrorResponse)(nil)).Elem()
-}
-
-func (i CloudErrorResponseArray) ToCloudErrorResponseArrayOutput() CloudErrorResponseArrayOutput {
-	return i.ToCloudErrorResponseArrayOutputWithContext(context.Background())
-}
-
-func (i CloudErrorResponseArray) ToCloudErrorResponseArrayOutputWithContext(ctx context.Context) CloudErrorResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CloudErrorResponseArrayOutput)
-}
-
-type CloudErrorResponseOutput struct{ *pulumi.OutputState }
-
-func (CloudErrorResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CloudErrorResponse)(nil)).Elem()
-}
-
-func (o CloudErrorResponseOutput) ToCloudErrorResponseOutput() CloudErrorResponseOutput {
+func (o BillingMeterDetailsResponseOutput) ToBillingMeterDetailsResponseOutput() BillingMeterDetailsResponseOutput {
 	return o
 }
 
-func (o CloudErrorResponseOutput) ToCloudErrorResponseOutputWithContext(ctx context.Context) CloudErrorResponseOutput {
+func (o BillingMeterDetailsResponseOutput) ToBillingMeterDetailsResponseOutputWithContext(ctx context.Context) BillingMeterDetailsResponseOutput {
 	return o
 }
 
-func (o CloudErrorResponseOutput) ToCloudErrorResponsePtrOutput() CloudErrorResponsePtrOutput {
-	return o.ToCloudErrorResponsePtrOutputWithContext(context.Background())
+// Frequency of recurrence
+func (o BillingMeterDetailsResponseOutput) Frequency() pulumi.StringOutput {
+	return o.ApplyT(func(v BillingMeterDetailsResponse) string { return v.Frequency }).(pulumi.StringOutput)
 }
 
-func (o CloudErrorResponseOutput) ToCloudErrorResponsePtrOutputWithContext(ctx context.Context) CloudErrorResponsePtrOutput {
-	return o.ApplyT(func(v CloudErrorResponse) *CloudErrorResponse {
-		return &v
-	}).(CloudErrorResponsePtrOutput)
-}
-func (o CloudErrorResponseOutput) AdditionalInfo() AdditionalErrorInfoResponseArrayOutput {
-	return o.ApplyT(func(v CloudErrorResponse) []AdditionalErrorInfoResponse { return v.AdditionalInfo }).(AdditionalErrorInfoResponseArrayOutput)
+// Represents MeterDetails
+func (o BillingMeterDetailsResponseOutput) MeterDetails() MeterDetailsResponseOutput {
+	return o.ApplyT(func(v BillingMeterDetailsResponse) MeterDetailsResponse { return v.MeterDetails }).(MeterDetailsResponseOutput)
 }
 
-func (o CloudErrorResponseOutput) Code() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CloudErrorResponse) *string { return v.Code }).(pulumi.StringPtrOutput)
+// Represents Metering type (eg one-time or recurrent)
+func (o BillingMeterDetailsResponseOutput) MeteringType() pulumi.StringOutput {
+	return o.ApplyT(func(v BillingMeterDetailsResponse) string { return v.MeteringType }).(pulumi.StringOutput)
 }
 
-func (o CloudErrorResponseOutput) Details() CloudErrorResponseArrayOutput {
-	return o.ApplyT(func(v CloudErrorResponse) []CloudErrorResponse { return v.Details }).(CloudErrorResponseArrayOutput)
+// Represents Billing type name
+func (o BillingMeterDetailsResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v BillingMeterDetailsResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-func (o CloudErrorResponseOutput) Message() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CloudErrorResponse) *string { return v.Message }).(pulumi.StringPtrOutput)
+type BillingMeterDetailsResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (BillingMeterDetailsResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BillingMeterDetailsResponse)(nil)).Elem()
 }
 
-func (o CloudErrorResponseOutput) Target() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CloudErrorResponse) *string { return v.Target }).(pulumi.StringPtrOutput)
-}
-
-type CloudErrorResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (CloudErrorResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CloudErrorResponse)(nil)).Elem()
-}
-
-func (o CloudErrorResponsePtrOutput) ToCloudErrorResponsePtrOutput() CloudErrorResponsePtrOutput {
+func (o BillingMeterDetailsResponseArrayOutput) ToBillingMeterDetailsResponseArrayOutput() BillingMeterDetailsResponseArrayOutput {
 	return o
 }
 
-func (o CloudErrorResponsePtrOutput) ToCloudErrorResponsePtrOutputWithContext(ctx context.Context) CloudErrorResponsePtrOutput {
+func (o BillingMeterDetailsResponseArrayOutput) ToBillingMeterDetailsResponseArrayOutputWithContext(ctx context.Context) BillingMeterDetailsResponseArrayOutput {
 	return o
 }
 
-func (o CloudErrorResponsePtrOutput) Elem() CloudErrorResponseOutput {
-	return o.ApplyT(func(v *CloudErrorResponse) CloudErrorResponse { return *v }).(CloudErrorResponseOutput)
-}
-
-func (o CloudErrorResponsePtrOutput) AdditionalInfo() AdditionalErrorInfoResponseArrayOutput {
-	return o.ApplyT(func(v *CloudErrorResponse) []AdditionalErrorInfoResponse {
-		if v == nil {
-			return nil
-		}
-		return v.AdditionalInfo
-	}).(AdditionalErrorInfoResponseArrayOutput)
-}
-
-func (o CloudErrorResponsePtrOutput) Code() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CloudErrorResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Code
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o CloudErrorResponsePtrOutput) Details() CloudErrorResponseArrayOutput {
-	return o.ApplyT(func(v *CloudErrorResponse) []CloudErrorResponse {
-		if v == nil {
-			return nil
-		}
-		return v.Details
-	}).(CloudErrorResponseArrayOutput)
-}
-
-func (o CloudErrorResponsePtrOutput) Message() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CloudErrorResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Message
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o CloudErrorResponsePtrOutput) Target() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CloudErrorResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Target
-	}).(pulumi.StringPtrOutput)
-}
-
-type CloudErrorResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (CloudErrorResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CloudErrorResponse)(nil)).Elem()
-}
-
-func (o CloudErrorResponseArrayOutput) ToCloudErrorResponseArrayOutput() CloudErrorResponseArrayOutput {
-	return o
-}
-
-func (o CloudErrorResponseArrayOutput) ToCloudErrorResponseArrayOutputWithContext(ctx context.Context) CloudErrorResponseArrayOutput {
-	return o
-}
-
-func (o CloudErrorResponseArrayOutput) Index(i pulumi.IntInput) CloudErrorResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CloudErrorResponse {
-		return vs[0].([]CloudErrorResponse)[vs[1].(int)]
-	}).(CloudErrorResponseOutput)
+func (o BillingMeterDetailsResponseArrayOutput) Index(i pulumi.IntInput) BillingMeterDetailsResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BillingMeterDetailsResponse {
+		return vs[0].([]BillingMeterDetailsResponse)[vs[1].(int)]
+	}).(BillingMeterDetailsResponseOutput)
 }
 
 // Configuration filters
 type ConfigurationFilters struct {
 	// Filters specific to product
-	FilterableProperty *FilterableProperty `pulumi:"filterableProperty"`
+	FilterableProperty []FilterableProperty `pulumi:"filterableProperty"`
 	// Product hierarchy information
-	HierarchyInformation *HierarchyInformation `pulumi:"hierarchyInformation"`
+	HierarchyInformation HierarchyInformation `pulumi:"hierarchyInformation"`
 }
 
 // ConfigurationFiltersInput is an input type that accepts ConfigurationFiltersArgs and ConfigurationFiltersOutput values.
@@ -1084,9 +825,9 @@ type ConfigurationFiltersInput interface {
 // Configuration filters
 type ConfigurationFiltersArgs struct {
 	// Filters specific to product
-	FilterableProperty FilterablePropertyPtrInput `pulumi:"filterableProperty"`
+	FilterableProperty FilterablePropertyArrayInput `pulumi:"filterableProperty"`
 	// Product hierarchy information
-	HierarchyInformation HierarchyInformationPtrInput `pulumi:"hierarchyInformation"`
+	HierarchyInformation HierarchyInformationInput `pulumi:"hierarchyInformation"`
 }
 
 func (ConfigurationFiltersArgs) ElementType() reflect.Type {
@@ -1142,13 +883,13 @@ func (o ConfigurationFiltersOutput) ToConfigurationFiltersOutputWithContext(ctx 
 }
 
 // Filters specific to product
-func (o ConfigurationFiltersOutput) FilterableProperty() FilterablePropertyPtrOutput {
-	return o.ApplyT(func(v ConfigurationFilters) *FilterableProperty { return v.FilterableProperty }).(FilterablePropertyPtrOutput)
+func (o ConfigurationFiltersOutput) FilterableProperty() FilterablePropertyArrayOutput {
+	return o.ApplyT(func(v ConfigurationFilters) []FilterableProperty { return v.FilterableProperty }).(FilterablePropertyArrayOutput)
 }
 
 // Product hierarchy information
-func (o ConfigurationFiltersOutput) HierarchyInformation() HierarchyInformationPtrOutput {
-	return o.ApplyT(func(v ConfigurationFilters) *HierarchyInformation { return v.HierarchyInformation }).(HierarchyInformationPtrOutput)
+func (o ConfigurationFiltersOutput) HierarchyInformation() HierarchyInformationOutput {
+	return o.ApplyT(func(v ConfigurationFilters) HierarchyInformation { return v.HierarchyInformation }).(HierarchyInformationOutput)
 }
 
 type ConfigurationFiltersArrayOutput struct{ *pulumi.OutputState }
@@ -1338,6 +1079,8 @@ func (o ConfigurationResponseArrayOutput) Index(i pulumi.IntInput) Configuration
 type ContactDetails struct {
 	// Contact name of the person.
 	ContactName string `pulumi:"contactName"`
+	// List of Email-ids to be notified about job progress.
+	EmailList []string `pulumi:"emailList"`
 	// Mobile number of the contact person.
 	Mobile *string `pulumi:"mobile"`
 	// Phone number of the contact person.
@@ -1361,6 +1104,8 @@ type ContactDetailsInput interface {
 type ContactDetailsArgs struct {
 	// Contact name of the person.
 	ContactName pulumi.StringInput `pulumi:"contactName"`
+	// List of Email-ids to be notified about job progress.
+	EmailList pulumi.StringArrayInput `pulumi:"emailList"`
 	// Mobile number of the contact person.
 	Mobile pulumi.StringPtrInput `pulumi:"mobile"`
 	// Phone number of the contact person.
@@ -1452,6 +1197,11 @@ func (o ContactDetailsOutput) ContactName() pulumi.StringOutput {
 	return o.ApplyT(func(v ContactDetails) string { return v.ContactName }).(pulumi.StringOutput)
 }
 
+// List of Email-ids to be notified about job progress.
+func (o ContactDetailsOutput) EmailList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ContactDetails) []string { return v.EmailList }).(pulumi.StringArrayOutput)
+}
+
 // Mobile number of the contact person.
 func (o ContactDetailsOutput) Mobile() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContactDetails) *string { return v.Mobile }).(pulumi.StringPtrOutput)
@@ -1495,6 +1245,16 @@ func (o ContactDetailsPtrOutput) ContactName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// List of Email-ids to be notified about job progress.
+func (o ContactDetailsPtrOutput) EmailList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ContactDetails) []string {
+		if v == nil {
+			return nil
+		}
+		return v.EmailList
+	}).(pulumi.StringArrayOutput)
+}
+
 // Mobile number of the contact person.
 func (o ContactDetailsPtrOutput) Mobile() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContactDetails) *string {
@@ -1529,6 +1289,8 @@ func (o ContactDetailsPtrOutput) PhoneExtension() pulumi.StringPtrOutput {
 type ContactDetailsResponse struct {
 	// Contact name of the person.
 	ContactName string `pulumi:"contactName"`
+	// List of Email-ids to be notified about job progress.
+	EmailList []string `pulumi:"emailList"`
 	// Mobile number of the contact person.
 	Mobile *string `pulumi:"mobile"`
 	// Phone number of the contact person.
@@ -1552,6 +1314,8 @@ type ContactDetailsResponseInput interface {
 type ContactDetailsResponseArgs struct {
 	// Contact name of the person.
 	ContactName pulumi.StringInput `pulumi:"contactName"`
+	// List of Email-ids to be notified about job progress.
+	EmailList pulumi.StringArrayInput `pulumi:"emailList"`
 	// Mobile number of the contact person.
 	Mobile pulumi.StringPtrInput `pulumi:"mobile"`
 	// Phone number of the contact person.
@@ -1643,6 +1407,11 @@ func (o ContactDetailsResponseOutput) ContactName() pulumi.StringOutput {
 	return o.ApplyT(func(v ContactDetailsResponse) string { return v.ContactName }).(pulumi.StringOutput)
 }
 
+// List of Email-ids to be notified about job progress.
+func (o ContactDetailsResponseOutput) EmailList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ContactDetailsResponse) []string { return v.EmailList }).(pulumi.StringArrayOutput)
+}
+
 // Mobile number of the contact person.
 func (o ContactDetailsResponseOutput) Mobile() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContactDetailsResponse) *string { return v.Mobile }).(pulumi.StringPtrOutput)
@@ -1686,6 +1455,16 @@ func (o ContactDetailsResponsePtrOutput) ContactName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// List of Email-ids to be notified about job progress.
+func (o ContactDetailsResponsePtrOutput) EmailList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ContactDetailsResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.EmailList
+	}).(pulumi.StringArrayOutput)
+}
+
 // Mobile number of the contact person.
 func (o ContactDetailsResponsePtrOutput) Mobile() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContactDetailsResponse) *string {
@@ -1718,10 +1497,10 @@ func (o ContactDetailsResponsePtrOutput) PhoneExtension() pulumi.StringPtrOutput
 
 // Cost information for the product system
 type CostInformationResponse struct {
+	// Default url to display billing information
+	BillingInfoUrl string `pulumi:"billingInfoUrl"`
 	// Details on the various billing aspects for the product system.
-	MeterDetails []MeterDetailsResponse `pulumi:"meterDetails"`
-	// Primary meter i.e. basic billing type for the product system.
-	PrimaryMeterType string `pulumi:"primaryMeterType"`
+	BillingMeterDetails []BillingMeterDetailsResponse `pulumi:"billingMeterDetails"`
 }
 
 // CostInformationResponseInput is an input type that accepts CostInformationResponseArgs and CostInformationResponseOutput values.
@@ -1737,10 +1516,10 @@ type CostInformationResponseInput interface {
 
 // Cost information for the product system
 type CostInformationResponseArgs struct {
+	// Default url to display billing information
+	BillingInfoUrl pulumi.StringInput `pulumi:"billingInfoUrl"`
 	// Details on the various billing aspects for the product system.
-	MeterDetails MeterDetailsResponseArrayInput `pulumi:"meterDetails"`
-	// Primary meter i.e. basic billing type for the product system.
-	PrimaryMeterType pulumi.StringInput `pulumi:"primaryMeterType"`
+	BillingMeterDetails BillingMeterDetailsResponseArrayInput `pulumi:"billingMeterDetails"`
 }
 
 func (CostInformationResponseArgs) ElementType() reflect.Type {
@@ -1770,16 +1549,17 @@ func (o CostInformationResponseOutput) ToCostInformationResponseOutputWithContex
 	return o
 }
 
+// Default url to display billing information
+func (o CostInformationResponseOutput) BillingInfoUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v CostInformationResponse) string { return v.BillingInfoUrl }).(pulumi.StringOutput)
+}
+
 // Details on the various billing aspects for the product system.
-func (o CostInformationResponseOutput) MeterDetails() MeterDetailsResponseArrayOutput {
-	return o.ApplyT(func(v CostInformationResponse) []MeterDetailsResponse { return v.MeterDetails }).(MeterDetailsResponseArrayOutput)
+func (o CostInformationResponseOutput) BillingMeterDetails() BillingMeterDetailsResponseArrayOutput {
+	return o.ApplyT(func(v CostInformationResponse) []BillingMeterDetailsResponse { return v.BillingMeterDetails }).(BillingMeterDetailsResponseArrayOutput)
 }
 
-// Primary meter i.e. basic billing type for the product system.
-func (o CostInformationResponseOutput) PrimaryMeterType() pulumi.StringOutput {
-	return o.ApplyT(func(v CostInformationResponse) string { return v.PrimaryMeterType }).(pulumi.StringOutput)
-}
-
+// Holds Customer subscription details. Clients can display available products to unregistered customers by explicitly passing subscription details
 type CustomerSubscriptionDetails struct {
 	// Location placement Id of a subscription
 	LocationPlacementId *string `pulumi:"locationPlacementId"`
@@ -1800,6 +1580,7 @@ type CustomerSubscriptionDetailsInput interface {
 	ToCustomerSubscriptionDetailsOutputWithContext(context.Context) CustomerSubscriptionDetailsOutput
 }
 
+// Holds Customer subscription details. Clients can display available products to unregistered customers by explicitly passing subscription details
 type CustomerSubscriptionDetailsArgs struct {
 	// Location placement Id of a subscription
 	LocationPlacementId pulumi.StringPtrInput `pulumi:"locationPlacementId"`
@@ -1821,6 +1602,7 @@ func (i CustomerSubscriptionDetailsArgs) ToCustomerSubscriptionDetailsOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(CustomerSubscriptionDetailsOutput)
 }
 
+// Holds Customer subscription details. Clients can display available products to unregistered customers by explicitly passing subscription details
 type CustomerSubscriptionDetailsOutput struct{ *pulumi.OutputState }
 
 func (CustomerSubscriptionDetailsOutput) ElementType() reflect.Type {
@@ -1852,6 +1634,7 @@ func (o CustomerSubscriptionDetailsOutput) RegisteredFeatures() CustomerSubscrip
 	}).(CustomerSubscriptionRegisteredFeaturesArrayOutput)
 }
 
+// Represents subscription registered features
 type CustomerSubscriptionRegisteredFeatures struct {
 	// Name of subscription registered feature
 	Name *string `pulumi:"name"`
@@ -1870,6 +1653,7 @@ type CustomerSubscriptionRegisteredFeaturesInput interface {
 	ToCustomerSubscriptionRegisteredFeaturesOutputWithContext(context.Context) CustomerSubscriptionRegisteredFeaturesOutput
 }
 
+// Represents subscription registered features
 type CustomerSubscriptionRegisteredFeaturesArgs struct {
 	// Name of subscription registered feature
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -1914,6 +1698,7 @@ func (i CustomerSubscriptionRegisteredFeaturesArray) ToCustomerSubscriptionRegis
 	return pulumi.ToOutputWithContext(ctx, i).(CustomerSubscriptionRegisteredFeaturesArrayOutput)
 }
 
+// Represents subscription registered features
 type CustomerSubscriptionRegisteredFeaturesOutput struct{ *pulumi.OutputState }
 
 func (CustomerSubscriptionRegisteredFeaturesOutput) ElementType() reflect.Type {
@@ -2060,7 +1845,7 @@ func (o DescriptionResponseOutput) ShortDescription() pulumi.StringOutput {
 
 // Device details.
 type DeviceDetailsResponse struct {
-	// Package Shipping details
+	// Device history
 	DeviceHistory []string `pulumi:"deviceHistory"`
 	// device serial number
 	SerialNumber string `pulumi:"serialNumber"`
@@ -2079,7 +1864,7 @@ type DeviceDetailsResponseInput interface {
 
 // Device details.
 type DeviceDetailsResponseArgs struct {
-	// Package Shipping details
+	// Device history
 	DeviceHistory pulumi.StringArrayInput `pulumi:"deviceHistory"`
 	// device serial number
 	SerialNumber pulumi.StringInput `pulumi:"serialNumber"`
@@ -2137,7 +1922,7 @@ func (o DeviceDetailsResponseOutput) ToDeviceDetailsResponseOutputWithContext(ct
 	return o
 }
 
-// Package Shipping details
+// Device history
 func (o DeviceDetailsResponseOutput) DeviceHistory() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DeviceDetailsResponse) []string { return v.DeviceHistory }).(pulumi.StringArrayOutput)
 }
@@ -2165,6 +1950,638 @@ func (o DeviceDetailsResponseArrayOutput) Index(i pulumi.IntInput) DeviceDetails
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeviceDetailsResponse {
 		return vs[0].([]DeviceDetailsResponse)[vs[1].(int)]
 	}).(DeviceDetailsResponseOutput)
+}
+
+// Preferences related to the double encryption
+type EncryptionPreferences struct {
+	// Defines secondary layer of software-based encryption enablement.
+	DoubleEncryptionStatus *string `pulumi:"doubleEncryptionStatus"`
+}
+
+// EncryptionPreferencesInput is an input type that accepts EncryptionPreferencesArgs and EncryptionPreferencesOutput values.
+// You can construct a concrete instance of `EncryptionPreferencesInput` via:
+//
+//          EncryptionPreferencesArgs{...}
+type EncryptionPreferencesInput interface {
+	pulumi.Input
+
+	ToEncryptionPreferencesOutput() EncryptionPreferencesOutput
+	ToEncryptionPreferencesOutputWithContext(context.Context) EncryptionPreferencesOutput
+}
+
+// Preferences related to the double encryption
+type EncryptionPreferencesArgs struct {
+	// Defines secondary layer of software-based encryption enablement.
+	DoubleEncryptionStatus pulumi.StringPtrInput `pulumi:"doubleEncryptionStatus"`
+}
+
+func (EncryptionPreferencesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionPreferences)(nil)).Elem()
+}
+
+func (i EncryptionPreferencesArgs) ToEncryptionPreferencesOutput() EncryptionPreferencesOutput {
+	return i.ToEncryptionPreferencesOutputWithContext(context.Background())
+}
+
+func (i EncryptionPreferencesArgs) ToEncryptionPreferencesOutputWithContext(ctx context.Context) EncryptionPreferencesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionPreferencesOutput)
+}
+
+func (i EncryptionPreferencesArgs) ToEncryptionPreferencesPtrOutput() EncryptionPreferencesPtrOutput {
+	return i.ToEncryptionPreferencesPtrOutputWithContext(context.Background())
+}
+
+func (i EncryptionPreferencesArgs) ToEncryptionPreferencesPtrOutputWithContext(ctx context.Context) EncryptionPreferencesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionPreferencesOutput).ToEncryptionPreferencesPtrOutputWithContext(ctx)
+}
+
+// EncryptionPreferencesPtrInput is an input type that accepts EncryptionPreferencesArgs, EncryptionPreferencesPtr and EncryptionPreferencesPtrOutput values.
+// You can construct a concrete instance of `EncryptionPreferencesPtrInput` via:
+//
+//          EncryptionPreferencesArgs{...}
+//
+//  or:
+//
+//          nil
+type EncryptionPreferencesPtrInput interface {
+	pulumi.Input
+
+	ToEncryptionPreferencesPtrOutput() EncryptionPreferencesPtrOutput
+	ToEncryptionPreferencesPtrOutputWithContext(context.Context) EncryptionPreferencesPtrOutput
+}
+
+type encryptionPreferencesPtrType EncryptionPreferencesArgs
+
+func EncryptionPreferencesPtr(v *EncryptionPreferencesArgs) EncryptionPreferencesPtrInput {
+	return (*encryptionPreferencesPtrType)(v)
+}
+
+func (*encryptionPreferencesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionPreferences)(nil)).Elem()
+}
+
+func (i *encryptionPreferencesPtrType) ToEncryptionPreferencesPtrOutput() EncryptionPreferencesPtrOutput {
+	return i.ToEncryptionPreferencesPtrOutputWithContext(context.Background())
+}
+
+func (i *encryptionPreferencesPtrType) ToEncryptionPreferencesPtrOutputWithContext(ctx context.Context) EncryptionPreferencesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionPreferencesPtrOutput)
+}
+
+// Preferences related to the double encryption
+type EncryptionPreferencesOutput struct{ *pulumi.OutputState }
+
+func (EncryptionPreferencesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionPreferences)(nil)).Elem()
+}
+
+func (o EncryptionPreferencesOutput) ToEncryptionPreferencesOutput() EncryptionPreferencesOutput {
+	return o
+}
+
+func (o EncryptionPreferencesOutput) ToEncryptionPreferencesOutputWithContext(ctx context.Context) EncryptionPreferencesOutput {
+	return o
+}
+
+func (o EncryptionPreferencesOutput) ToEncryptionPreferencesPtrOutput() EncryptionPreferencesPtrOutput {
+	return o.ToEncryptionPreferencesPtrOutputWithContext(context.Background())
+}
+
+func (o EncryptionPreferencesOutput) ToEncryptionPreferencesPtrOutputWithContext(ctx context.Context) EncryptionPreferencesPtrOutput {
+	return o.ApplyT(func(v EncryptionPreferences) *EncryptionPreferences {
+		return &v
+	}).(EncryptionPreferencesPtrOutput)
+}
+
+// Defines secondary layer of software-based encryption enablement.
+func (o EncryptionPreferencesOutput) DoubleEncryptionStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EncryptionPreferences) *string { return v.DoubleEncryptionStatus }).(pulumi.StringPtrOutput)
+}
+
+type EncryptionPreferencesPtrOutput struct{ *pulumi.OutputState }
+
+func (EncryptionPreferencesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionPreferences)(nil)).Elem()
+}
+
+func (o EncryptionPreferencesPtrOutput) ToEncryptionPreferencesPtrOutput() EncryptionPreferencesPtrOutput {
+	return o
+}
+
+func (o EncryptionPreferencesPtrOutput) ToEncryptionPreferencesPtrOutputWithContext(ctx context.Context) EncryptionPreferencesPtrOutput {
+	return o
+}
+
+func (o EncryptionPreferencesPtrOutput) Elem() EncryptionPreferencesOutput {
+	return o.ApplyT(func(v *EncryptionPreferences) EncryptionPreferences { return *v }).(EncryptionPreferencesOutput)
+}
+
+// Defines secondary layer of software-based encryption enablement.
+func (o EncryptionPreferencesPtrOutput) DoubleEncryptionStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EncryptionPreferences) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DoubleEncryptionStatus
+	}).(pulumi.StringPtrOutput)
+}
+
+// Preferences related to the double encryption
+type EncryptionPreferencesResponse struct {
+	// Defines secondary layer of software-based encryption enablement.
+	DoubleEncryptionStatus *string `pulumi:"doubleEncryptionStatus"`
+}
+
+// EncryptionPreferencesResponseInput is an input type that accepts EncryptionPreferencesResponseArgs and EncryptionPreferencesResponseOutput values.
+// You can construct a concrete instance of `EncryptionPreferencesResponseInput` via:
+//
+//          EncryptionPreferencesResponseArgs{...}
+type EncryptionPreferencesResponseInput interface {
+	pulumi.Input
+
+	ToEncryptionPreferencesResponseOutput() EncryptionPreferencesResponseOutput
+	ToEncryptionPreferencesResponseOutputWithContext(context.Context) EncryptionPreferencesResponseOutput
+}
+
+// Preferences related to the double encryption
+type EncryptionPreferencesResponseArgs struct {
+	// Defines secondary layer of software-based encryption enablement.
+	DoubleEncryptionStatus pulumi.StringPtrInput `pulumi:"doubleEncryptionStatus"`
+}
+
+func (EncryptionPreferencesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionPreferencesResponse)(nil)).Elem()
+}
+
+func (i EncryptionPreferencesResponseArgs) ToEncryptionPreferencesResponseOutput() EncryptionPreferencesResponseOutput {
+	return i.ToEncryptionPreferencesResponseOutputWithContext(context.Background())
+}
+
+func (i EncryptionPreferencesResponseArgs) ToEncryptionPreferencesResponseOutputWithContext(ctx context.Context) EncryptionPreferencesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionPreferencesResponseOutput)
+}
+
+func (i EncryptionPreferencesResponseArgs) ToEncryptionPreferencesResponsePtrOutput() EncryptionPreferencesResponsePtrOutput {
+	return i.ToEncryptionPreferencesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i EncryptionPreferencesResponseArgs) ToEncryptionPreferencesResponsePtrOutputWithContext(ctx context.Context) EncryptionPreferencesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionPreferencesResponseOutput).ToEncryptionPreferencesResponsePtrOutputWithContext(ctx)
+}
+
+// EncryptionPreferencesResponsePtrInput is an input type that accepts EncryptionPreferencesResponseArgs, EncryptionPreferencesResponsePtr and EncryptionPreferencesResponsePtrOutput values.
+// You can construct a concrete instance of `EncryptionPreferencesResponsePtrInput` via:
+//
+//          EncryptionPreferencesResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type EncryptionPreferencesResponsePtrInput interface {
+	pulumi.Input
+
+	ToEncryptionPreferencesResponsePtrOutput() EncryptionPreferencesResponsePtrOutput
+	ToEncryptionPreferencesResponsePtrOutputWithContext(context.Context) EncryptionPreferencesResponsePtrOutput
+}
+
+type encryptionPreferencesResponsePtrType EncryptionPreferencesResponseArgs
+
+func EncryptionPreferencesResponsePtr(v *EncryptionPreferencesResponseArgs) EncryptionPreferencesResponsePtrInput {
+	return (*encryptionPreferencesResponsePtrType)(v)
+}
+
+func (*encryptionPreferencesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionPreferencesResponse)(nil)).Elem()
+}
+
+func (i *encryptionPreferencesResponsePtrType) ToEncryptionPreferencesResponsePtrOutput() EncryptionPreferencesResponsePtrOutput {
+	return i.ToEncryptionPreferencesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *encryptionPreferencesResponsePtrType) ToEncryptionPreferencesResponsePtrOutputWithContext(ctx context.Context) EncryptionPreferencesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionPreferencesResponsePtrOutput)
+}
+
+// Preferences related to the double encryption
+type EncryptionPreferencesResponseOutput struct{ *pulumi.OutputState }
+
+func (EncryptionPreferencesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionPreferencesResponse)(nil)).Elem()
+}
+
+func (o EncryptionPreferencesResponseOutput) ToEncryptionPreferencesResponseOutput() EncryptionPreferencesResponseOutput {
+	return o
+}
+
+func (o EncryptionPreferencesResponseOutput) ToEncryptionPreferencesResponseOutputWithContext(ctx context.Context) EncryptionPreferencesResponseOutput {
+	return o
+}
+
+func (o EncryptionPreferencesResponseOutput) ToEncryptionPreferencesResponsePtrOutput() EncryptionPreferencesResponsePtrOutput {
+	return o.ToEncryptionPreferencesResponsePtrOutputWithContext(context.Background())
+}
+
+func (o EncryptionPreferencesResponseOutput) ToEncryptionPreferencesResponsePtrOutputWithContext(ctx context.Context) EncryptionPreferencesResponsePtrOutput {
+	return o.ApplyT(func(v EncryptionPreferencesResponse) *EncryptionPreferencesResponse {
+		return &v
+	}).(EncryptionPreferencesResponsePtrOutput)
+}
+
+// Defines secondary layer of software-based encryption enablement.
+func (o EncryptionPreferencesResponseOutput) DoubleEncryptionStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EncryptionPreferencesResponse) *string { return v.DoubleEncryptionStatus }).(pulumi.StringPtrOutput)
+}
+
+type EncryptionPreferencesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (EncryptionPreferencesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionPreferencesResponse)(nil)).Elem()
+}
+
+func (o EncryptionPreferencesResponsePtrOutput) ToEncryptionPreferencesResponsePtrOutput() EncryptionPreferencesResponsePtrOutput {
+	return o
+}
+
+func (o EncryptionPreferencesResponsePtrOutput) ToEncryptionPreferencesResponsePtrOutputWithContext(ctx context.Context) EncryptionPreferencesResponsePtrOutput {
+	return o
+}
+
+func (o EncryptionPreferencesResponsePtrOutput) Elem() EncryptionPreferencesResponseOutput {
+	return o.ApplyT(func(v *EncryptionPreferencesResponse) EncryptionPreferencesResponse { return *v }).(EncryptionPreferencesResponseOutput)
+}
+
+// Defines secondary layer of software-based encryption enablement.
+func (o EncryptionPreferencesResponsePtrOutput) DoubleEncryptionStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EncryptionPreferencesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DoubleEncryptionStatus
+	}).(pulumi.StringPtrOutput)
+}
+
+// The resource management error additional info.
+type ErrorAdditionalInfoResponse struct {
+	// The additional info.
+	Info interface{} `pulumi:"info"`
+	// The additional info type.
+	Type string `pulumi:"type"`
+}
+
+// ErrorAdditionalInfoResponseInput is an input type that accepts ErrorAdditionalInfoResponseArgs and ErrorAdditionalInfoResponseOutput values.
+// You can construct a concrete instance of `ErrorAdditionalInfoResponseInput` via:
+//
+//          ErrorAdditionalInfoResponseArgs{...}
+type ErrorAdditionalInfoResponseInput interface {
+	pulumi.Input
+
+	ToErrorAdditionalInfoResponseOutput() ErrorAdditionalInfoResponseOutput
+	ToErrorAdditionalInfoResponseOutputWithContext(context.Context) ErrorAdditionalInfoResponseOutput
+}
+
+// The resource management error additional info.
+type ErrorAdditionalInfoResponseArgs struct {
+	// The additional info.
+	Info pulumi.Input `pulumi:"info"`
+	// The additional info type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ErrorAdditionalInfoResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ErrorAdditionalInfoResponse)(nil)).Elem()
+}
+
+func (i ErrorAdditionalInfoResponseArgs) ToErrorAdditionalInfoResponseOutput() ErrorAdditionalInfoResponseOutput {
+	return i.ToErrorAdditionalInfoResponseOutputWithContext(context.Background())
+}
+
+func (i ErrorAdditionalInfoResponseArgs) ToErrorAdditionalInfoResponseOutputWithContext(ctx context.Context) ErrorAdditionalInfoResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ErrorAdditionalInfoResponseOutput)
+}
+
+// ErrorAdditionalInfoResponseArrayInput is an input type that accepts ErrorAdditionalInfoResponseArray and ErrorAdditionalInfoResponseArrayOutput values.
+// You can construct a concrete instance of `ErrorAdditionalInfoResponseArrayInput` via:
+//
+//          ErrorAdditionalInfoResponseArray{ ErrorAdditionalInfoResponseArgs{...} }
+type ErrorAdditionalInfoResponseArrayInput interface {
+	pulumi.Input
+
+	ToErrorAdditionalInfoResponseArrayOutput() ErrorAdditionalInfoResponseArrayOutput
+	ToErrorAdditionalInfoResponseArrayOutputWithContext(context.Context) ErrorAdditionalInfoResponseArrayOutput
+}
+
+type ErrorAdditionalInfoResponseArray []ErrorAdditionalInfoResponseInput
+
+func (ErrorAdditionalInfoResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ErrorAdditionalInfoResponse)(nil)).Elem()
+}
+
+func (i ErrorAdditionalInfoResponseArray) ToErrorAdditionalInfoResponseArrayOutput() ErrorAdditionalInfoResponseArrayOutput {
+	return i.ToErrorAdditionalInfoResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ErrorAdditionalInfoResponseArray) ToErrorAdditionalInfoResponseArrayOutputWithContext(ctx context.Context) ErrorAdditionalInfoResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ErrorAdditionalInfoResponseArrayOutput)
+}
+
+// The resource management error additional info.
+type ErrorAdditionalInfoResponseOutput struct{ *pulumi.OutputState }
+
+func (ErrorAdditionalInfoResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ErrorAdditionalInfoResponse)(nil)).Elem()
+}
+
+func (o ErrorAdditionalInfoResponseOutput) ToErrorAdditionalInfoResponseOutput() ErrorAdditionalInfoResponseOutput {
+	return o
+}
+
+func (o ErrorAdditionalInfoResponseOutput) ToErrorAdditionalInfoResponseOutputWithContext(ctx context.Context) ErrorAdditionalInfoResponseOutput {
+	return o
+}
+
+// The additional info.
+func (o ErrorAdditionalInfoResponseOutput) Info() pulumi.AnyOutput {
+	return o.ApplyT(func(v ErrorAdditionalInfoResponse) interface{} { return v.Info }).(pulumi.AnyOutput)
+}
+
+// The additional info type.
+func (o ErrorAdditionalInfoResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ErrorAdditionalInfoResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ErrorAdditionalInfoResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ErrorAdditionalInfoResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ErrorAdditionalInfoResponse)(nil)).Elem()
+}
+
+func (o ErrorAdditionalInfoResponseArrayOutput) ToErrorAdditionalInfoResponseArrayOutput() ErrorAdditionalInfoResponseArrayOutput {
+	return o
+}
+
+func (o ErrorAdditionalInfoResponseArrayOutput) ToErrorAdditionalInfoResponseArrayOutputWithContext(ctx context.Context) ErrorAdditionalInfoResponseArrayOutput {
+	return o
+}
+
+func (o ErrorAdditionalInfoResponseArrayOutput) Index(i pulumi.IntInput) ErrorAdditionalInfoResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ErrorAdditionalInfoResponse {
+		return vs[0].([]ErrorAdditionalInfoResponse)[vs[1].(int)]
+	}).(ErrorAdditionalInfoResponseOutput)
+}
+
+// The error detail.
+type ErrorDetailResponse struct {
+	// The error additional info.
+	AdditionalInfo []ErrorAdditionalInfoResponse `pulumi:"additionalInfo"`
+	// The error code.
+	Code string `pulumi:"code"`
+	// The error details.
+	Details []ErrorDetailResponse `pulumi:"details"`
+	// The error message.
+	Message string `pulumi:"message"`
+	// The error target.
+	Target string `pulumi:"target"`
+}
+
+// ErrorDetailResponseInput is an input type that accepts ErrorDetailResponseArgs and ErrorDetailResponseOutput values.
+// You can construct a concrete instance of `ErrorDetailResponseInput` via:
+//
+//          ErrorDetailResponseArgs{...}
+type ErrorDetailResponseInput interface {
+	pulumi.Input
+
+	ToErrorDetailResponseOutput() ErrorDetailResponseOutput
+	ToErrorDetailResponseOutputWithContext(context.Context) ErrorDetailResponseOutput
+}
+
+// The error detail.
+type ErrorDetailResponseArgs struct {
+	// The error additional info.
+	AdditionalInfo ErrorAdditionalInfoResponseArrayInput `pulumi:"additionalInfo"`
+	// The error code.
+	Code pulumi.StringInput `pulumi:"code"`
+	// The error details.
+	Details ErrorDetailResponseArrayInput `pulumi:"details"`
+	// The error message.
+	Message pulumi.StringInput `pulumi:"message"`
+	// The error target.
+	Target pulumi.StringInput `pulumi:"target"`
+}
+
+func (ErrorDetailResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ErrorDetailResponse)(nil)).Elem()
+}
+
+func (i ErrorDetailResponseArgs) ToErrorDetailResponseOutput() ErrorDetailResponseOutput {
+	return i.ToErrorDetailResponseOutputWithContext(context.Background())
+}
+
+func (i ErrorDetailResponseArgs) ToErrorDetailResponseOutputWithContext(ctx context.Context) ErrorDetailResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ErrorDetailResponseOutput)
+}
+
+func (i ErrorDetailResponseArgs) ToErrorDetailResponsePtrOutput() ErrorDetailResponsePtrOutput {
+	return i.ToErrorDetailResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ErrorDetailResponseArgs) ToErrorDetailResponsePtrOutputWithContext(ctx context.Context) ErrorDetailResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ErrorDetailResponseOutput).ToErrorDetailResponsePtrOutputWithContext(ctx)
+}
+
+// ErrorDetailResponsePtrInput is an input type that accepts ErrorDetailResponseArgs, ErrorDetailResponsePtr and ErrorDetailResponsePtrOutput values.
+// You can construct a concrete instance of `ErrorDetailResponsePtrInput` via:
+//
+//          ErrorDetailResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ErrorDetailResponsePtrInput interface {
+	pulumi.Input
+
+	ToErrorDetailResponsePtrOutput() ErrorDetailResponsePtrOutput
+	ToErrorDetailResponsePtrOutputWithContext(context.Context) ErrorDetailResponsePtrOutput
+}
+
+type errorDetailResponsePtrType ErrorDetailResponseArgs
+
+func ErrorDetailResponsePtr(v *ErrorDetailResponseArgs) ErrorDetailResponsePtrInput {
+	return (*errorDetailResponsePtrType)(v)
+}
+
+func (*errorDetailResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ErrorDetailResponse)(nil)).Elem()
+}
+
+func (i *errorDetailResponsePtrType) ToErrorDetailResponsePtrOutput() ErrorDetailResponsePtrOutput {
+	return i.ToErrorDetailResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *errorDetailResponsePtrType) ToErrorDetailResponsePtrOutputWithContext(ctx context.Context) ErrorDetailResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ErrorDetailResponsePtrOutput)
+}
+
+// ErrorDetailResponseArrayInput is an input type that accepts ErrorDetailResponseArray and ErrorDetailResponseArrayOutput values.
+// You can construct a concrete instance of `ErrorDetailResponseArrayInput` via:
+//
+//          ErrorDetailResponseArray{ ErrorDetailResponseArgs{...} }
+type ErrorDetailResponseArrayInput interface {
+	pulumi.Input
+
+	ToErrorDetailResponseArrayOutput() ErrorDetailResponseArrayOutput
+	ToErrorDetailResponseArrayOutputWithContext(context.Context) ErrorDetailResponseArrayOutput
+}
+
+type ErrorDetailResponseArray []ErrorDetailResponseInput
+
+func (ErrorDetailResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ErrorDetailResponse)(nil)).Elem()
+}
+
+func (i ErrorDetailResponseArray) ToErrorDetailResponseArrayOutput() ErrorDetailResponseArrayOutput {
+	return i.ToErrorDetailResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ErrorDetailResponseArray) ToErrorDetailResponseArrayOutputWithContext(ctx context.Context) ErrorDetailResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ErrorDetailResponseArrayOutput)
+}
+
+// The error detail.
+type ErrorDetailResponseOutput struct{ *pulumi.OutputState }
+
+func (ErrorDetailResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ErrorDetailResponse)(nil)).Elem()
+}
+
+func (o ErrorDetailResponseOutput) ToErrorDetailResponseOutput() ErrorDetailResponseOutput {
+	return o
+}
+
+func (o ErrorDetailResponseOutput) ToErrorDetailResponseOutputWithContext(ctx context.Context) ErrorDetailResponseOutput {
+	return o
+}
+
+func (o ErrorDetailResponseOutput) ToErrorDetailResponsePtrOutput() ErrorDetailResponsePtrOutput {
+	return o.ToErrorDetailResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ErrorDetailResponseOutput) ToErrorDetailResponsePtrOutputWithContext(ctx context.Context) ErrorDetailResponsePtrOutput {
+	return o.ApplyT(func(v ErrorDetailResponse) *ErrorDetailResponse {
+		return &v
+	}).(ErrorDetailResponsePtrOutput)
+}
+
+// The error additional info.
+func (o ErrorDetailResponseOutput) AdditionalInfo() ErrorAdditionalInfoResponseArrayOutput {
+	return o.ApplyT(func(v ErrorDetailResponse) []ErrorAdditionalInfoResponse { return v.AdditionalInfo }).(ErrorAdditionalInfoResponseArrayOutput)
+}
+
+// The error code.
+func (o ErrorDetailResponseOutput) Code() pulumi.StringOutput {
+	return o.ApplyT(func(v ErrorDetailResponse) string { return v.Code }).(pulumi.StringOutput)
+}
+
+// The error details.
+func (o ErrorDetailResponseOutput) Details() ErrorDetailResponseArrayOutput {
+	return o.ApplyT(func(v ErrorDetailResponse) []ErrorDetailResponse { return v.Details }).(ErrorDetailResponseArrayOutput)
+}
+
+// The error message.
+func (o ErrorDetailResponseOutput) Message() pulumi.StringOutput {
+	return o.ApplyT(func(v ErrorDetailResponse) string { return v.Message }).(pulumi.StringOutput)
+}
+
+// The error target.
+func (o ErrorDetailResponseOutput) Target() pulumi.StringOutput {
+	return o.ApplyT(func(v ErrorDetailResponse) string { return v.Target }).(pulumi.StringOutput)
+}
+
+type ErrorDetailResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ErrorDetailResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ErrorDetailResponse)(nil)).Elem()
+}
+
+func (o ErrorDetailResponsePtrOutput) ToErrorDetailResponsePtrOutput() ErrorDetailResponsePtrOutput {
+	return o
+}
+
+func (o ErrorDetailResponsePtrOutput) ToErrorDetailResponsePtrOutputWithContext(ctx context.Context) ErrorDetailResponsePtrOutput {
+	return o
+}
+
+func (o ErrorDetailResponsePtrOutput) Elem() ErrorDetailResponseOutput {
+	return o.ApplyT(func(v *ErrorDetailResponse) ErrorDetailResponse { return *v }).(ErrorDetailResponseOutput)
+}
+
+// The error additional info.
+func (o ErrorDetailResponsePtrOutput) AdditionalInfo() ErrorAdditionalInfoResponseArrayOutput {
+	return o.ApplyT(func(v *ErrorDetailResponse) []ErrorAdditionalInfoResponse {
+		if v == nil {
+			return nil
+		}
+		return v.AdditionalInfo
+	}).(ErrorAdditionalInfoResponseArrayOutput)
+}
+
+// The error code.
+func (o ErrorDetailResponsePtrOutput) Code() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ErrorDetailResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Code
+	}).(pulumi.StringPtrOutput)
+}
+
+// The error details.
+func (o ErrorDetailResponsePtrOutput) Details() ErrorDetailResponseArrayOutput {
+	return o.ApplyT(func(v *ErrorDetailResponse) []ErrorDetailResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Details
+	}).(ErrorDetailResponseArrayOutput)
+}
+
+// The error message.
+func (o ErrorDetailResponsePtrOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ErrorDetailResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Message
+	}).(pulumi.StringPtrOutput)
+}
+
+// The error target.
+func (o ErrorDetailResponsePtrOutput) Target() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ErrorDetailResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Target
+	}).(pulumi.StringPtrOutput)
+}
+
+type ErrorDetailResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ErrorDetailResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ErrorDetailResponse)(nil)).Elem()
+}
+
+func (o ErrorDetailResponseArrayOutput) ToErrorDetailResponseArrayOutput() ErrorDetailResponseArrayOutput {
+	return o
+}
+
+func (o ErrorDetailResponseArrayOutput) ToErrorDetailResponseArrayOutputWithContext(ctx context.Context) ErrorDetailResponseArrayOutput {
+	return o
+}
+
+func (o ErrorDetailResponseArrayOutput) Index(i pulumi.IntInput) ErrorDetailResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ErrorDetailResponse {
+		return vs[0].([]ErrorDetailResponse)[vs[1].(int)]
+	}).(ErrorDetailResponseOutput)
 }
 
 // Class defining the list of filter values on a filter type as part of configuration request.
@@ -2206,70 +2623,29 @@ func (i FilterablePropertyArgs) ToFilterablePropertyOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(FilterablePropertyOutput)
 }
 
-func (i FilterablePropertyArgs) ToFilterablePropertyPtrOutput() FilterablePropertyPtrOutput {
-	return i.ToFilterablePropertyPtrOutputWithContext(context.Background())
-}
-
-func (i FilterablePropertyArgs) ToFilterablePropertyPtrOutputWithContext(ctx context.Context) FilterablePropertyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FilterablePropertyOutput).ToFilterablePropertyPtrOutputWithContext(ctx)
-}
-
-// FilterablePropertyPtrInput is an input type that accepts FilterablePropertyArgs, FilterablePropertyPtr and FilterablePropertyPtrOutput values.
-// You can construct a concrete instance of `FilterablePropertyPtrInput` via:
+// FilterablePropertyArrayInput is an input type that accepts FilterablePropertyArray and FilterablePropertyArrayOutput values.
+// You can construct a concrete instance of `FilterablePropertyArrayInput` via:
 //
-//          FilterablePropertyArgs{...}
-//
-//  or:
-//
-//          nil
-type FilterablePropertyPtrInput interface {
+//          FilterablePropertyArray{ FilterablePropertyArgs{...} }
+type FilterablePropertyArrayInput interface {
 	pulumi.Input
 
-	ToFilterablePropertyPtrOutput() FilterablePropertyPtrOutput
-	ToFilterablePropertyPtrOutputWithContext(context.Context) FilterablePropertyPtrOutput
+	ToFilterablePropertyArrayOutput() FilterablePropertyArrayOutput
+	ToFilterablePropertyArrayOutputWithContext(context.Context) FilterablePropertyArrayOutput
 }
 
-type filterablePropertyPtrType FilterablePropertyArgs
+type FilterablePropertyArray []FilterablePropertyInput
 
-func FilterablePropertyPtr(v *FilterablePropertyArgs) FilterablePropertyPtrInput {
-	return (*filterablePropertyPtrType)(v)
+func (FilterablePropertyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FilterableProperty)(nil)).Elem()
 }
 
-func (*filterablePropertyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FilterableProperty)(nil)).Elem()
+func (i FilterablePropertyArray) ToFilterablePropertyArrayOutput() FilterablePropertyArrayOutput {
+	return i.ToFilterablePropertyArrayOutputWithContext(context.Background())
 }
 
-func (i *filterablePropertyPtrType) ToFilterablePropertyPtrOutput() FilterablePropertyPtrOutput {
-	return i.ToFilterablePropertyPtrOutputWithContext(context.Background())
-}
-
-func (i *filterablePropertyPtrType) ToFilterablePropertyPtrOutputWithContext(ctx context.Context) FilterablePropertyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FilterablePropertyPtrOutput)
-}
-
-// FilterablePropertyMapInput is an input type that accepts FilterablePropertyMap and FilterablePropertyMapOutput values.
-// You can construct a concrete instance of `FilterablePropertyMapInput` via:
-//
-//          FilterablePropertyMap{ "key": FilterablePropertyArgs{...} }
-type FilterablePropertyMapInput interface {
-	pulumi.Input
-
-	ToFilterablePropertyMapOutput() FilterablePropertyMapOutput
-	ToFilterablePropertyMapOutputWithContext(context.Context) FilterablePropertyMapOutput
-}
-
-type FilterablePropertyMap map[string]FilterablePropertyInput
-
-func (FilterablePropertyMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]FilterableProperty)(nil)).Elem()
-}
-
-func (i FilterablePropertyMap) ToFilterablePropertyMapOutput() FilterablePropertyMapOutput {
-	return i.ToFilterablePropertyMapOutputWithContext(context.Background())
-}
-
-func (i FilterablePropertyMap) ToFilterablePropertyMapOutputWithContext(ctx context.Context) FilterablePropertyMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FilterablePropertyMapOutput)
+func (i FilterablePropertyArray) ToFilterablePropertyArrayOutputWithContext(ctx context.Context) FilterablePropertyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FilterablePropertyArrayOutput)
 }
 
 // Class defining the list of filter values on a filter type as part of configuration request.
@@ -2287,16 +2663,6 @@ func (o FilterablePropertyOutput) ToFilterablePropertyOutputWithContext(ctx cont
 	return o
 }
 
-func (o FilterablePropertyOutput) ToFilterablePropertyPtrOutput() FilterablePropertyPtrOutput {
-	return o.ToFilterablePropertyPtrOutputWithContext(context.Background())
-}
-
-func (o FilterablePropertyOutput) ToFilterablePropertyPtrOutputWithContext(ctx context.Context) FilterablePropertyPtrOutput {
-	return o.ApplyT(func(v FilterableProperty) *FilterableProperty {
-		return &v
-	}).(FilterablePropertyPtrOutput)
-}
-
 // Values to be filtered.
 func (o FilterablePropertyOutput) SupportedValues() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FilterableProperty) []string { return v.SupportedValues }).(pulumi.StringArrayOutput)
@@ -2307,61 +2673,23 @@ func (o FilterablePropertyOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterableProperty) string { return v.Type }).(pulumi.StringOutput)
 }
 
-type FilterablePropertyPtrOutput struct{ *pulumi.OutputState }
+type FilterablePropertyArrayOutput struct{ *pulumi.OutputState }
 
-func (FilterablePropertyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FilterableProperty)(nil)).Elem()
+func (FilterablePropertyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FilterableProperty)(nil)).Elem()
 }
 
-func (o FilterablePropertyPtrOutput) ToFilterablePropertyPtrOutput() FilterablePropertyPtrOutput {
+func (o FilterablePropertyArrayOutput) ToFilterablePropertyArrayOutput() FilterablePropertyArrayOutput {
 	return o
 }
 
-func (o FilterablePropertyPtrOutput) ToFilterablePropertyPtrOutputWithContext(ctx context.Context) FilterablePropertyPtrOutput {
+func (o FilterablePropertyArrayOutput) ToFilterablePropertyArrayOutputWithContext(ctx context.Context) FilterablePropertyArrayOutput {
 	return o
 }
 
-func (o FilterablePropertyPtrOutput) Elem() FilterablePropertyOutput {
-	return o.ApplyT(func(v *FilterableProperty) FilterableProperty { return *v }).(FilterablePropertyOutput)
-}
-
-// Values to be filtered.
-func (o FilterablePropertyPtrOutput) SupportedValues() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *FilterableProperty) []string {
-		if v == nil {
-			return nil
-		}
-		return v.SupportedValues
-	}).(pulumi.StringArrayOutput)
-}
-
-// Type of product filter.
-func (o FilterablePropertyPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FilterableProperty) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
-	}).(pulumi.StringPtrOutput)
-}
-
-type FilterablePropertyMapOutput struct{ *pulumi.OutputState }
-
-func (FilterablePropertyMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]FilterableProperty)(nil)).Elem()
-}
-
-func (o FilterablePropertyMapOutput) ToFilterablePropertyMapOutput() FilterablePropertyMapOutput {
-	return o
-}
-
-func (o FilterablePropertyMapOutput) ToFilterablePropertyMapOutputWithContext(ctx context.Context) FilterablePropertyMapOutput {
-	return o
-}
-
-func (o FilterablePropertyMapOutput) MapIndex(k pulumi.StringInput) FilterablePropertyOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) FilterableProperty {
-		return vs[0].(map[string]FilterableProperty)[vs[1].(string)]
+func (o FilterablePropertyArrayOutput) Index(i pulumi.IntInput) FilterablePropertyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FilterableProperty {
+		return vs[0].([]FilterableProperty)[vs[1].(int)]
 	}).(FilterablePropertyOutput)
 }
 
@@ -3074,14 +3402,282 @@ func (o LinkResponseArrayOutput) Index(i pulumi.IntInput) LinkResponseOutput {
 	}).(LinkResponseOutput)
 }
 
-// Billing details for each meter.
+// Management resource details to link device
+type ManagementResourceDetails struct {
+	// Management resource ARM ID
+	ManagementResourceArmId string `pulumi:"managementResourceArmId"`
+}
+
+// ManagementResourceDetailsInput is an input type that accepts ManagementResourceDetailsArgs and ManagementResourceDetailsOutput values.
+// You can construct a concrete instance of `ManagementResourceDetailsInput` via:
+//
+//          ManagementResourceDetailsArgs{...}
+type ManagementResourceDetailsInput interface {
+	pulumi.Input
+
+	ToManagementResourceDetailsOutput() ManagementResourceDetailsOutput
+	ToManagementResourceDetailsOutputWithContext(context.Context) ManagementResourceDetailsOutput
+}
+
+// Management resource details to link device
+type ManagementResourceDetailsArgs struct {
+	// Management resource ARM ID
+	ManagementResourceArmId pulumi.StringInput `pulumi:"managementResourceArmId"`
+}
+
+func (ManagementResourceDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagementResourceDetails)(nil)).Elem()
+}
+
+func (i ManagementResourceDetailsArgs) ToManagementResourceDetailsOutput() ManagementResourceDetailsOutput {
+	return i.ToManagementResourceDetailsOutputWithContext(context.Background())
+}
+
+func (i ManagementResourceDetailsArgs) ToManagementResourceDetailsOutputWithContext(ctx context.Context) ManagementResourceDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagementResourceDetailsOutput)
+}
+
+func (i ManagementResourceDetailsArgs) ToManagementResourceDetailsPtrOutput() ManagementResourceDetailsPtrOutput {
+	return i.ToManagementResourceDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i ManagementResourceDetailsArgs) ToManagementResourceDetailsPtrOutputWithContext(ctx context.Context) ManagementResourceDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagementResourceDetailsOutput).ToManagementResourceDetailsPtrOutputWithContext(ctx)
+}
+
+// ManagementResourceDetailsPtrInput is an input type that accepts ManagementResourceDetailsArgs, ManagementResourceDetailsPtr and ManagementResourceDetailsPtrOutput values.
+// You can construct a concrete instance of `ManagementResourceDetailsPtrInput` via:
+//
+//          ManagementResourceDetailsArgs{...}
+//
+//  or:
+//
+//          nil
+type ManagementResourceDetailsPtrInput interface {
+	pulumi.Input
+
+	ToManagementResourceDetailsPtrOutput() ManagementResourceDetailsPtrOutput
+	ToManagementResourceDetailsPtrOutputWithContext(context.Context) ManagementResourceDetailsPtrOutput
+}
+
+type managementResourceDetailsPtrType ManagementResourceDetailsArgs
+
+func ManagementResourceDetailsPtr(v *ManagementResourceDetailsArgs) ManagementResourceDetailsPtrInput {
+	return (*managementResourceDetailsPtrType)(v)
+}
+
+func (*managementResourceDetailsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagementResourceDetails)(nil)).Elem()
+}
+
+func (i *managementResourceDetailsPtrType) ToManagementResourceDetailsPtrOutput() ManagementResourceDetailsPtrOutput {
+	return i.ToManagementResourceDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i *managementResourceDetailsPtrType) ToManagementResourceDetailsPtrOutputWithContext(ctx context.Context) ManagementResourceDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagementResourceDetailsPtrOutput)
+}
+
+// Management resource details to link device
+type ManagementResourceDetailsOutput struct{ *pulumi.OutputState }
+
+func (ManagementResourceDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagementResourceDetails)(nil)).Elem()
+}
+
+func (o ManagementResourceDetailsOutput) ToManagementResourceDetailsOutput() ManagementResourceDetailsOutput {
+	return o
+}
+
+func (o ManagementResourceDetailsOutput) ToManagementResourceDetailsOutputWithContext(ctx context.Context) ManagementResourceDetailsOutput {
+	return o
+}
+
+func (o ManagementResourceDetailsOutput) ToManagementResourceDetailsPtrOutput() ManagementResourceDetailsPtrOutput {
+	return o.ToManagementResourceDetailsPtrOutputWithContext(context.Background())
+}
+
+func (o ManagementResourceDetailsOutput) ToManagementResourceDetailsPtrOutputWithContext(ctx context.Context) ManagementResourceDetailsPtrOutput {
+	return o.ApplyT(func(v ManagementResourceDetails) *ManagementResourceDetails {
+		return &v
+	}).(ManagementResourceDetailsPtrOutput)
+}
+
+// Management resource ARM ID
+func (o ManagementResourceDetailsOutput) ManagementResourceArmId() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagementResourceDetails) string { return v.ManagementResourceArmId }).(pulumi.StringOutput)
+}
+
+type ManagementResourceDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (ManagementResourceDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagementResourceDetails)(nil)).Elem()
+}
+
+func (o ManagementResourceDetailsPtrOutput) ToManagementResourceDetailsPtrOutput() ManagementResourceDetailsPtrOutput {
+	return o
+}
+
+func (o ManagementResourceDetailsPtrOutput) ToManagementResourceDetailsPtrOutputWithContext(ctx context.Context) ManagementResourceDetailsPtrOutput {
+	return o
+}
+
+func (o ManagementResourceDetailsPtrOutput) Elem() ManagementResourceDetailsOutput {
+	return o.ApplyT(func(v *ManagementResourceDetails) ManagementResourceDetails { return *v }).(ManagementResourceDetailsOutput)
+}
+
+// Management resource ARM ID
+func (o ManagementResourceDetailsPtrOutput) ManagementResourceArmId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagementResourceDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ManagementResourceArmId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Management resource details to link device
+type ManagementResourceDetailsResponse struct {
+	// Management resource ARM ID
+	ManagementResourceArmId string `pulumi:"managementResourceArmId"`
+}
+
+// ManagementResourceDetailsResponseInput is an input type that accepts ManagementResourceDetailsResponseArgs and ManagementResourceDetailsResponseOutput values.
+// You can construct a concrete instance of `ManagementResourceDetailsResponseInput` via:
+//
+//          ManagementResourceDetailsResponseArgs{...}
+type ManagementResourceDetailsResponseInput interface {
+	pulumi.Input
+
+	ToManagementResourceDetailsResponseOutput() ManagementResourceDetailsResponseOutput
+	ToManagementResourceDetailsResponseOutputWithContext(context.Context) ManagementResourceDetailsResponseOutput
+}
+
+// Management resource details to link device
+type ManagementResourceDetailsResponseArgs struct {
+	// Management resource ARM ID
+	ManagementResourceArmId pulumi.StringInput `pulumi:"managementResourceArmId"`
+}
+
+func (ManagementResourceDetailsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagementResourceDetailsResponse)(nil)).Elem()
+}
+
+func (i ManagementResourceDetailsResponseArgs) ToManagementResourceDetailsResponseOutput() ManagementResourceDetailsResponseOutput {
+	return i.ToManagementResourceDetailsResponseOutputWithContext(context.Background())
+}
+
+func (i ManagementResourceDetailsResponseArgs) ToManagementResourceDetailsResponseOutputWithContext(ctx context.Context) ManagementResourceDetailsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagementResourceDetailsResponseOutput)
+}
+
+func (i ManagementResourceDetailsResponseArgs) ToManagementResourceDetailsResponsePtrOutput() ManagementResourceDetailsResponsePtrOutput {
+	return i.ToManagementResourceDetailsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ManagementResourceDetailsResponseArgs) ToManagementResourceDetailsResponsePtrOutputWithContext(ctx context.Context) ManagementResourceDetailsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagementResourceDetailsResponseOutput).ToManagementResourceDetailsResponsePtrOutputWithContext(ctx)
+}
+
+// ManagementResourceDetailsResponsePtrInput is an input type that accepts ManagementResourceDetailsResponseArgs, ManagementResourceDetailsResponsePtr and ManagementResourceDetailsResponsePtrOutput values.
+// You can construct a concrete instance of `ManagementResourceDetailsResponsePtrInput` via:
+//
+//          ManagementResourceDetailsResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ManagementResourceDetailsResponsePtrInput interface {
+	pulumi.Input
+
+	ToManagementResourceDetailsResponsePtrOutput() ManagementResourceDetailsResponsePtrOutput
+	ToManagementResourceDetailsResponsePtrOutputWithContext(context.Context) ManagementResourceDetailsResponsePtrOutput
+}
+
+type managementResourceDetailsResponsePtrType ManagementResourceDetailsResponseArgs
+
+func ManagementResourceDetailsResponsePtr(v *ManagementResourceDetailsResponseArgs) ManagementResourceDetailsResponsePtrInput {
+	return (*managementResourceDetailsResponsePtrType)(v)
+}
+
+func (*managementResourceDetailsResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagementResourceDetailsResponse)(nil)).Elem()
+}
+
+func (i *managementResourceDetailsResponsePtrType) ToManagementResourceDetailsResponsePtrOutput() ManagementResourceDetailsResponsePtrOutput {
+	return i.ToManagementResourceDetailsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *managementResourceDetailsResponsePtrType) ToManagementResourceDetailsResponsePtrOutputWithContext(ctx context.Context) ManagementResourceDetailsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagementResourceDetailsResponsePtrOutput)
+}
+
+// Management resource details to link device
+type ManagementResourceDetailsResponseOutput struct{ *pulumi.OutputState }
+
+func (ManagementResourceDetailsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagementResourceDetailsResponse)(nil)).Elem()
+}
+
+func (o ManagementResourceDetailsResponseOutput) ToManagementResourceDetailsResponseOutput() ManagementResourceDetailsResponseOutput {
+	return o
+}
+
+func (o ManagementResourceDetailsResponseOutput) ToManagementResourceDetailsResponseOutputWithContext(ctx context.Context) ManagementResourceDetailsResponseOutput {
+	return o
+}
+
+func (o ManagementResourceDetailsResponseOutput) ToManagementResourceDetailsResponsePtrOutput() ManagementResourceDetailsResponsePtrOutput {
+	return o.ToManagementResourceDetailsResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ManagementResourceDetailsResponseOutput) ToManagementResourceDetailsResponsePtrOutputWithContext(ctx context.Context) ManagementResourceDetailsResponsePtrOutput {
+	return o.ApplyT(func(v ManagementResourceDetailsResponse) *ManagementResourceDetailsResponse {
+		return &v
+	}).(ManagementResourceDetailsResponsePtrOutput)
+}
+
+// Management resource ARM ID
+func (o ManagementResourceDetailsResponseOutput) ManagementResourceArmId() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagementResourceDetailsResponse) string { return v.ManagementResourceArmId }).(pulumi.StringOutput)
+}
+
+type ManagementResourceDetailsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ManagementResourceDetailsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagementResourceDetailsResponse)(nil)).Elem()
+}
+
+func (o ManagementResourceDetailsResponsePtrOutput) ToManagementResourceDetailsResponsePtrOutput() ManagementResourceDetailsResponsePtrOutput {
+	return o
+}
+
+func (o ManagementResourceDetailsResponsePtrOutput) ToManagementResourceDetailsResponsePtrOutputWithContext(ctx context.Context) ManagementResourceDetailsResponsePtrOutput {
+	return o
+}
+
+func (o ManagementResourceDetailsResponsePtrOutput) Elem() ManagementResourceDetailsResponseOutput {
+	return o.ApplyT(func(v *ManagementResourceDetailsResponse) ManagementResourceDetailsResponse { return *v }).(ManagementResourceDetailsResponseOutput)
+}
+
+// Management resource ARM ID
+func (o ManagementResourceDetailsResponsePtrOutput) ManagementResourceArmId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagementResourceDetailsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ManagementResourceArmId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Holds details about billing type and its meter guids
 type MeterDetailsResponse struct {
-	// Billing model to represent billing cycle, i.e. Monthly, biweekly, daily, hourly etc.
-	BillingModel BillingModelResponse `pulumi:"billingModel"`
-	// MeterId/ Billing Guid against which the product system will be charged
-	MeterId string `pulumi:"meterId"`
-	// Category of the billing meter.
-	MeterType string `pulumi:"meterType"`
+	// Represents billing type.
+	BillingType string `pulumi:"billingType"`
+	// Charging type.
+	ChargingType string `pulumi:"chargingType"`
+	// Billing unit applicable for Pav2 billing
+	Multiplier float64 `pulumi:"multiplier"`
 }
 
 // MeterDetailsResponseInput is an input type that accepts MeterDetailsResponseArgs and MeterDetailsResponseOutput values.
@@ -3095,14 +3691,14 @@ type MeterDetailsResponseInput interface {
 	ToMeterDetailsResponseOutputWithContext(context.Context) MeterDetailsResponseOutput
 }
 
-// Billing details for each meter.
+// Holds details about billing type and its meter guids
 type MeterDetailsResponseArgs struct {
-	// Billing model to represent billing cycle, i.e. Monthly, biweekly, daily, hourly etc.
-	BillingModel BillingModelResponseInput `pulumi:"billingModel"`
-	// MeterId/ Billing Guid against which the product system will be charged
-	MeterId pulumi.StringInput `pulumi:"meterId"`
-	// Category of the billing meter.
-	MeterType pulumi.StringInput `pulumi:"meterType"`
+	// Represents billing type.
+	BillingType pulumi.StringInput `pulumi:"billingType"`
+	// Charging type.
+	ChargingType pulumi.StringInput `pulumi:"chargingType"`
+	// Billing unit applicable for Pav2 billing
+	Multiplier pulumi.Float64Input `pulumi:"multiplier"`
 }
 
 func (MeterDetailsResponseArgs) ElementType() reflect.Type {
@@ -3117,32 +3713,7 @@ func (i MeterDetailsResponseArgs) ToMeterDetailsResponseOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(MeterDetailsResponseOutput)
 }
 
-// MeterDetailsResponseArrayInput is an input type that accepts MeterDetailsResponseArray and MeterDetailsResponseArrayOutput values.
-// You can construct a concrete instance of `MeterDetailsResponseArrayInput` via:
-//
-//          MeterDetailsResponseArray{ MeterDetailsResponseArgs{...} }
-type MeterDetailsResponseArrayInput interface {
-	pulumi.Input
-
-	ToMeterDetailsResponseArrayOutput() MeterDetailsResponseArrayOutput
-	ToMeterDetailsResponseArrayOutputWithContext(context.Context) MeterDetailsResponseArrayOutput
-}
-
-type MeterDetailsResponseArray []MeterDetailsResponseInput
-
-func (MeterDetailsResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MeterDetailsResponse)(nil)).Elem()
-}
-
-func (i MeterDetailsResponseArray) ToMeterDetailsResponseArrayOutput() MeterDetailsResponseArrayOutput {
-	return i.ToMeterDetailsResponseArrayOutputWithContext(context.Background())
-}
-
-func (i MeterDetailsResponseArray) ToMeterDetailsResponseArrayOutputWithContext(ctx context.Context) MeterDetailsResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MeterDetailsResponseArrayOutput)
-}
-
-// Billing details for each meter.
+// Holds details about billing type and its meter guids
 type MeterDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (MeterDetailsResponseOutput) ElementType() reflect.Type {
@@ -3157,39 +3728,19 @@ func (o MeterDetailsResponseOutput) ToMeterDetailsResponseOutputWithContext(ctx 
 	return o
 }
 
-// Billing model to represent billing cycle, i.e. Monthly, biweekly, daily, hourly etc.
-func (o MeterDetailsResponseOutput) BillingModel() BillingModelResponseOutput {
-	return o.ApplyT(func(v MeterDetailsResponse) BillingModelResponse { return v.BillingModel }).(BillingModelResponseOutput)
+// Represents billing type.
+func (o MeterDetailsResponseOutput) BillingType() pulumi.StringOutput {
+	return o.ApplyT(func(v MeterDetailsResponse) string { return v.BillingType }).(pulumi.StringOutput)
 }
 
-// MeterId/ Billing Guid against which the product system will be charged
-func (o MeterDetailsResponseOutput) MeterId() pulumi.StringOutput {
-	return o.ApplyT(func(v MeterDetailsResponse) string { return v.MeterId }).(pulumi.StringOutput)
+// Charging type.
+func (o MeterDetailsResponseOutput) ChargingType() pulumi.StringOutput {
+	return o.ApplyT(func(v MeterDetailsResponse) string { return v.ChargingType }).(pulumi.StringOutput)
 }
 
-// Category of the billing meter.
-func (o MeterDetailsResponseOutput) MeterType() pulumi.StringOutput {
-	return o.ApplyT(func(v MeterDetailsResponse) string { return v.MeterType }).(pulumi.StringOutput)
-}
-
-type MeterDetailsResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (MeterDetailsResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MeterDetailsResponse)(nil)).Elem()
-}
-
-func (o MeterDetailsResponseArrayOutput) ToMeterDetailsResponseArrayOutput() MeterDetailsResponseArrayOutput {
-	return o
-}
-
-func (o MeterDetailsResponseArrayOutput) ToMeterDetailsResponseArrayOutputWithContext(ctx context.Context) MeterDetailsResponseArrayOutput {
-	return o
-}
-
-func (o MeterDetailsResponseArrayOutput) Index(i pulumi.IntInput) MeterDetailsResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MeterDetailsResponse {
-		return vs[0].([]MeterDetailsResponse)[vs[1].(int)]
-	}).(MeterDetailsResponseOutput)
+// Billing unit applicable for Pav2 billing
+func (o MeterDetailsResponseOutput) Multiplier() pulumi.Float64Output {
+	return o.ApplyT(func(v MeterDetailsResponse) float64 { return v.Multiplier }).(pulumi.Float64Output)
 }
 
 // Notification preference for a job stage.
@@ -3410,160 +3961,179 @@ func (o NotificationPreferenceResponseArrayOutput) Index(i pulumi.IntInput) Noti
 	}).(NotificationPreferenceResponseOutput)
 }
 
-// Order details
-type OrderDetails struct {
-	// Package Shipping details
+// Order item details
+type OrderItemDetails struct {
+	// Management resource details
+	ManagementResourceDetails *ManagementResourceDetails `pulumi:"managementResourceDetails"`
+	// Additional notification email list
 	NotificationEmailList []string `pulumi:"notificationEmailList"`
-	// Order type.
-	OrderType string `pulumi:"orderType"`
+	// Order item type.
+	OrderItemType string `pulumi:"orderItemType"`
 	// Customer notification Preferences
 	Preferences *Preferences `pulumi:"preferences"`
 	// Unique identifier for configuration.
 	ProductDetails ProductDetails `pulumi:"productDetails"`
 }
 
-// OrderDetailsInput is an input type that accepts OrderDetailsArgs and OrderDetailsOutput values.
-// You can construct a concrete instance of `OrderDetailsInput` via:
+// OrderItemDetailsInput is an input type that accepts OrderItemDetailsArgs and OrderItemDetailsOutput values.
+// You can construct a concrete instance of `OrderItemDetailsInput` via:
 //
-//          OrderDetailsArgs{...}
-type OrderDetailsInput interface {
+//          OrderItemDetailsArgs{...}
+type OrderItemDetailsInput interface {
 	pulumi.Input
 
-	ToOrderDetailsOutput() OrderDetailsOutput
-	ToOrderDetailsOutputWithContext(context.Context) OrderDetailsOutput
+	ToOrderItemDetailsOutput() OrderItemDetailsOutput
+	ToOrderItemDetailsOutputWithContext(context.Context) OrderItemDetailsOutput
 }
 
-// Order details
-type OrderDetailsArgs struct {
-	// Package Shipping details
+// Order item details
+type OrderItemDetailsArgs struct {
+	// Management resource details
+	ManagementResourceDetails ManagementResourceDetailsPtrInput `pulumi:"managementResourceDetails"`
+	// Additional notification email list
 	NotificationEmailList pulumi.StringArrayInput `pulumi:"notificationEmailList"`
-	// Order type.
-	OrderType pulumi.StringInput `pulumi:"orderType"`
+	// Order item type.
+	OrderItemType pulumi.StringInput `pulumi:"orderItemType"`
 	// Customer notification Preferences
 	Preferences PreferencesPtrInput `pulumi:"preferences"`
 	// Unique identifier for configuration.
 	ProductDetails ProductDetailsInput `pulumi:"productDetails"`
 }
 
-func (OrderDetailsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*OrderDetails)(nil)).Elem()
+func (OrderItemDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrderItemDetails)(nil)).Elem()
 }
 
-func (i OrderDetailsArgs) ToOrderDetailsOutput() OrderDetailsOutput {
-	return i.ToOrderDetailsOutputWithContext(context.Background())
+func (i OrderItemDetailsArgs) ToOrderItemDetailsOutput() OrderItemDetailsOutput {
+	return i.ToOrderItemDetailsOutputWithContext(context.Background())
 }
 
-func (i OrderDetailsArgs) ToOrderDetailsOutputWithContext(ctx context.Context) OrderDetailsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OrderDetailsOutput)
+func (i OrderItemDetailsArgs) ToOrderItemDetailsOutputWithContext(ctx context.Context) OrderItemDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrderItemDetailsOutput)
 }
 
-func (i OrderDetailsArgs) ToOrderDetailsPtrOutput() OrderDetailsPtrOutput {
-	return i.ToOrderDetailsPtrOutputWithContext(context.Background())
+func (i OrderItemDetailsArgs) ToOrderItemDetailsPtrOutput() OrderItemDetailsPtrOutput {
+	return i.ToOrderItemDetailsPtrOutputWithContext(context.Background())
 }
 
-func (i OrderDetailsArgs) ToOrderDetailsPtrOutputWithContext(ctx context.Context) OrderDetailsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OrderDetailsOutput).ToOrderDetailsPtrOutputWithContext(ctx)
+func (i OrderItemDetailsArgs) ToOrderItemDetailsPtrOutputWithContext(ctx context.Context) OrderItemDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrderItemDetailsOutput).ToOrderItemDetailsPtrOutputWithContext(ctx)
 }
 
-// OrderDetailsPtrInput is an input type that accepts OrderDetailsArgs, OrderDetailsPtr and OrderDetailsPtrOutput values.
-// You can construct a concrete instance of `OrderDetailsPtrInput` via:
+// OrderItemDetailsPtrInput is an input type that accepts OrderItemDetailsArgs, OrderItemDetailsPtr and OrderItemDetailsPtrOutput values.
+// You can construct a concrete instance of `OrderItemDetailsPtrInput` via:
 //
-//          OrderDetailsArgs{...}
+//          OrderItemDetailsArgs{...}
 //
 //  or:
 //
 //          nil
-type OrderDetailsPtrInput interface {
+type OrderItemDetailsPtrInput interface {
 	pulumi.Input
 
-	ToOrderDetailsPtrOutput() OrderDetailsPtrOutput
-	ToOrderDetailsPtrOutputWithContext(context.Context) OrderDetailsPtrOutput
+	ToOrderItemDetailsPtrOutput() OrderItemDetailsPtrOutput
+	ToOrderItemDetailsPtrOutputWithContext(context.Context) OrderItemDetailsPtrOutput
 }
 
-type orderDetailsPtrType OrderDetailsArgs
+type orderItemDetailsPtrType OrderItemDetailsArgs
 
-func OrderDetailsPtr(v *OrderDetailsArgs) OrderDetailsPtrInput {
-	return (*orderDetailsPtrType)(v)
+func OrderItemDetailsPtr(v *OrderItemDetailsArgs) OrderItemDetailsPtrInput {
+	return (*orderItemDetailsPtrType)(v)
 }
 
-func (*orderDetailsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**OrderDetails)(nil)).Elem()
+func (*orderItemDetailsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrderItemDetails)(nil)).Elem()
 }
 
-func (i *orderDetailsPtrType) ToOrderDetailsPtrOutput() OrderDetailsPtrOutput {
-	return i.ToOrderDetailsPtrOutputWithContext(context.Background())
+func (i *orderItemDetailsPtrType) ToOrderItemDetailsPtrOutput() OrderItemDetailsPtrOutput {
+	return i.ToOrderItemDetailsPtrOutputWithContext(context.Background())
 }
 
-func (i *orderDetailsPtrType) ToOrderDetailsPtrOutputWithContext(ctx context.Context) OrderDetailsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OrderDetailsPtrOutput)
+func (i *orderItemDetailsPtrType) ToOrderItemDetailsPtrOutputWithContext(ctx context.Context) OrderItemDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrderItemDetailsPtrOutput)
 }
 
-// Order details
-type OrderDetailsOutput struct{ *pulumi.OutputState }
+// Order item details
+type OrderItemDetailsOutput struct{ *pulumi.OutputState }
 
-func (OrderDetailsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OrderDetails)(nil)).Elem()
+func (OrderItemDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrderItemDetails)(nil)).Elem()
 }
 
-func (o OrderDetailsOutput) ToOrderDetailsOutput() OrderDetailsOutput {
+func (o OrderItemDetailsOutput) ToOrderItemDetailsOutput() OrderItemDetailsOutput {
 	return o
 }
 
-func (o OrderDetailsOutput) ToOrderDetailsOutputWithContext(ctx context.Context) OrderDetailsOutput {
+func (o OrderItemDetailsOutput) ToOrderItemDetailsOutputWithContext(ctx context.Context) OrderItemDetailsOutput {
 	return o
 }
 
-func (o OrderDetailsOutput) ToOrderDetailsPtrOutput() OrderDetailsPtrOutput {
-	return o.ToOrderDetailsPtrOutputWithContext(context.Background())
+func (o OrderItemDetailsOutput) ToOrderItemDetailsPtrOutput() OrderItemDetailsPtrOutput {
+	return o.ToOrderItemDetailsPtrOutputWithContext(context.Background())
 }
 
-func (o OrderDetailsOutput) ToOrderDetailsPtrOutputWithContext(ctx context.Context) OrderDetailsPtrOutput {
-	return o.ApplyT(func(v OrderDetails) *OrderDetails {
+func (o OrderItemDetailsOutput) ToOrderItemDetailsPtrOutputWithContext(ctx context.Context) OrderItemDetailsPtrOutput {
+	return o.ApplyT(func(v OrderItemDetails) *OrderItemDetails {
 		return &v
-	}).(OrderDetailsPtrOutput)
+	}).(OrderItemDetailsPtrOutput)
 }
 
-// Package Shipping details
-func (o OrderDetailsOutput) NotificationEmailList() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v OrderDetails) []string { return v.NotificationEmailList }).(pulumi.StringArrayOutput)
+// Management resource details
+func (o OrderItemDetailsOutput) ManagementResourceDetails() ManagementResourceDetailsPtrOutput {
+	return o.ApplyT(func(v OrderItemDetails) *ManagementResourceDetails { return v.ManagementResourceDetails }).(ManagementResourceDetailsPtrOutput)
 }
 
-// Order type.
-func (o OrderDetailsOutput) OrderType() pulumi.StringOutput {
-	return o.ApplyT(func(v OrderDetails) string { return v.OrderType }).(pulumi.StringOutput)
+// Additional notification email list
+func (o OrderItemDetailsOutput) NotificationEmailList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v OrderItemDetails) []string { return v.NotificationEmailList }).(pulumi.StringArrayOutput)
+}
+
+// Order item type.
+func (o OrderItemDetailsOutput) OrderItemType() pulumi.StringOutput {
+	return o.ApplyT(func(v OrderItemDetails) string { return v.OrderItemType }).(pulumi.StringOutput)
 }
 
 // Customer notification Preferences
-func (o OrderDetailsOutput) Preferences() PreferencesPtrOutput {
-	return o.ApplyT(func(v OrderDetails) *Preferences { return v.Preferences }).(PreferencesPtrOutput)
+func (o OrderItemDetailsOutput) Preferences() PreferencesPtrOutput {
+	return o.ApplyT(func(v OrderItemDetails) *Preferences { return v.Preferences }).(PreferencesPtrOutput)
 }
 
 // Unique identifier for configuration.
-func (o OrderDetailsOutput) ProductDetails() ProductDetailsOutput {
-	return o.ApplyT(func(v OrderDetails) ProductDetails { return v.ProductDetails }).(ProductDetailsOutput)
+func (o OrderItemDetailsOutput) ProductDetails() ProductDetailsOutput {
+	return o.ApplyT(func(v OrderItemDetails) ProductDetails { return v.ProductDetails }).(ProductDetailsOutput)
 }
 
-type OrderDetailsPtrOutput struct{ *pulumi.OutputState }
+type OrderItemDetailsPtrOutput struct{ *pulumi.OutputState }
 
-func (OrderDetailsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**OrderDetails)(nil)).Elem()
+func (OrderItemDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrderItemDetails)(nil)).Elem()
 }
 
-func (o OrderDetailsPtrOutput) ToOrderDetailsPtrOutput() OrderDetailsPtrOutput {
+func (o OrderItemDetailsPtrOutput) ToOrderItemDetailsPtrOutput() OrderItemDetailsPtrOutput {
 	return o
 }
 
-func (o OrderDetailsPtrOutput) ToOrderDetailsPtrOutputWithContext(ctx context.Context) OrderDetailsPtrOutput {
+func (o OrderItemDetailsPtrOutput) ToOrderItemDetailsPtrOutputWithContext(ctx context.Context) OrderItemDetailsPtrOutput {
 	return o
 }
 
-func (o OrderDetailsPtrOutput) Elem() OrderDetailsOutput {
-	return o.ApplyT(func(v *OrderDetails) OrderDetails { return *v }).(OrderDetailsOutput)
+func (o OrderItemDetailsPtrOutput) Elem() OrderItemDetailsOutput {
+	return o.ApplyT(func(v *OrderItemDetails) OrderItemDetails { return *v }).(OrderItemDetailsOutput)
 }
 
-// Package Shipping details
-func (o OrderDetailsPtrOutput) NotificationEmailList() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *OrderDetails) []string {
+// Management resource details
+func (o OrderItemDetailsPtrOutput) ManagementResourceDetails() ManagementResourceDetailsPtrOutput {
+	return o.ApplyT(func(v *OrderItemDetails) *ManagementResourceDetails {
+		if v == nil {
+			return nil
+		}
+		return v.ManagementResourceDetails
+	}).(ManagementResourceDetailsPtrOutput)
+}
+
+// Additional notification email list
+func (o OrderItemDetailsPtrOutput) NotificationEmailList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *OrderItemDetails) []string {
 		if v == nil {
 			return nil
 		}
@@ -3571,19 +4141,19 @@ func (o OrderDetailsPtrOutput) NotificationEmailList() pulumi.StringArrayOutput 
 	}).(pulumi.StringArrayOutput)
 }
 
-// Order type.
-func (o OrderDetailsPtrOutput) OrderType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OrderDetails) *string {
+// Order item type.
+func (o OrderItemDetailsPtrOutput) OrderItemType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrderItemDetails) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.OrderType
+		return &v.OrderItemType
 	}).(pulumi.StringPtrOutput)
 }
 
 // Customer notification Preferences
-func (o OrderDetailsPtrOutput) Preferences() PreferencesPtrOutput {
-	return o.ApplyT(func(v *OrderDetails) *Preferences {
+func (o OrderItemDetailsPtrOutput) Preferences() PreferencesPtrOutput {
+	return o.ApplyT(func(v *OrderItemDetails) *Preferences {
 		if v == nil {
 			return nil
 		}
@@ -3592,8 +4162,8 @@ func (o OrderDetailsPtrOutput) Preferences() PreferencesPtrOutput {
 }
 
 // Unique identifier for configuration.
-func (o OrderDetailsPtrOutput) ProductDetails() ProductDetailsPtrOutput {
-	return o.ApplyT(func(v *OrderDetails) *ProductDetails {
+func (o OrderItemDetailsPtrOutput) ProductDetails() ProductDetailsPtrOutput {
+	return o.ApplyT(func(v *OrderItemDetails) *ProductDetails {
 		if v == nil {
 			return nil
 		}
@@ -3601,259 +4171,270 @@ func (o OrderDetailsPtrOutput) ProductDetails() ProductDetailsPtrOutput {
 	}).(ProductDetailsPtrOutput)
 }
 
-// Order details
-type OrderDetailsResponse struct {
+// Order item details
+type OrderItemDetailsResponse struct {
 	// Cancellation reason.
 	CancellationReason string `pulumi:"cancellationReason"`
 	// Describes whether the order is cancellable or not.
 	CancellationStatus string `pulumi:"cancellationStatus"`
-	// Current Order Status
-	CurrentStatus OrderStatusDetailsResponse `pulumi:"currentStatus"`
-	// Describes whether the order is deletable or not.
+	// Current Order item Status
+	CurrentStage StageDetailsResponse `pulumi:"currentStage"`
+	// Describes whether the order item is deletable or not.
 	DeletionStatus string `pulumi:"deletionStatus"`
 	// Top level error for the job.
-	Error CloudErrorResponse `pulumi:"error"`
+	Error ErrorDetailResponse `pulumi:"error"`
 	// Forward Package Shipping details
 	ForwardShippingDetails ShippingDetailsResponse `pulumi:"forwardShippingDetails"`
+	// Management resource details
+	ManagementResourceDetails *ManagementResourceDetailsResponse `pulumi:"managementResourceDetails"`
 	// parent RP details
 	ManagementRpDetails interface{} `pulumi:"managementRpDetails"`
-	// Package Shipping details
+	// Additional notification email list
 	NotificationEmailList []string `pulumi:"notificationEmailList"`
-	// Order history
-	OrderStatusHistory []OrderStatusDetailsResponse `pulumi:"orderStatusHistory"`
-	// Order type.
-	OrderType string `pulumi:"orderType"`
+	// Order item status history
+	OrderItemStageHistory []StageDetailsResponse `pulumi:"orderItemStageHistory"`
+	// Order item type.
+	OrderItemType string `pulumi:"orderItemType"`
 	// Customer notification Preferences
 	Preferences *PreferencesResponse `pulumi:"preferences"`
 	// Unique identifier for configuration.
 	ProductDetails ProductDetailsResponse `pulumi:"productDetails"`
 	// Return reason.
 	ReturnReason string `pulumi:"returnReason"`
-	// Describes whether the order is returnable or not.
+	// Describes whether the order item is returnable or not.
 	ReturnStatus string `pulumi:"returnStatus"`
 	// Reverse Package Shipping details
 	ReverseShippingDetails ShippingDetailsResponse `pulumi:"reverseShippingDetails"`
 }
 
-// OrderDetailsResponseInput is an input type that accepts OrderDetailsResponseArgs and OrderDetailsResponseOutput values.
-// You can construct a concrete instance of `OrderDetailsResponseInput` via:
+// OrderItemDetailsResponseInput is an input type that accepts OrderItemDetailsResponseArgs and OrderItemDetailsResponseOutput values.
+// You can construct a concrete instance of `OrderItemDetailsResponseInput` via:
 //
-//          OrderDetailsResponseArgs{...}
-type OrderDetailsResponseInput interface {
+//          OrderItemDetailsResponseArgs{...}
+type OrderItemDetailsResponseInput interface {
 	pulumi.Input
 
-	ToOrderDetailsResponseOutput() OrderDetailsResponseOutput
-	ToOrderDetailsResponseOutputWithContext(context.Context) OrderDetailsResponseOutput
+	ToOrderItemDetailsResponseOutput() OrderItemDetailsResponseOutput
+	ToOrderItemDetailsResponseOutputWithContext(context.Context) OrderItemDetailsResponseOutput
 }
 
-// Order details
-type OrderDetailsResponseArgs struct {
+// Order item details
+type OrderItemDetailsResponseArgs struct {
 	// Cancellation reason.
 	CancellationReason pulumi.StringInput `pulumi:"cancellationReason"`
 	// Describes whether the order is cancellable or not.
 	CancellationStatus pulumi.StringInput `pulumi:"cancellationStatus"`
-	// Current Order Status
-	CurrentStatus OrderStatusDetailsResponseInput `pulumi:"currentStatus"`
-	// Describes whether the order is deletable or not.
+	// Current Order item Status
+	CurrentStage StageDetailsResponseInput `pulumi:"currentStage"`
+	// Describes whether the order item is deletable or not.
 	DeletionStatus pulumi.StringInput `pulumi:"deletionStatus"`
 	// Top level error for the job.
-	Error CloudErrorResponseInput `pulumi:"error"`
+	Error ErrorDetailResponseInput `pulumi:"error"`
 	// Forward Package Shipping details
 	ForwardShippingDetails ShippingDetailsResponseInput `pulumi:"forwardShippingDetails"`
+	// Management resource details
+	ManagementResourceDetails ManagementResourceDetailsResponsePtrInput `pulumi:"managementResourceDetails"`
 	// parent RP details
 	ManagementRpDetails pulumi.Input `pulumi:"managementRpDetails"`
-	// Package Shipping details
+	// Additional notification email list
 	NotificationEmailList pulumi.StringArrayInput `pulumi:"notificationEmailList"`
-	// Order history
-	OrderStatusHistory OrderStatusDetailsResponseArrayInput `pulumi:"orderStatusHistory"`
-	// Order type.
-	OrderType pulumi.StringInput `pulumi:"orderType"`
+	// Order item status history
+	OrderItemStageHistory StageDetailsResponseArrayInput `pulumi:"orderItemStageHistory"`
+	// Order item type.
+	OrderItemType pulumi.StringInput `pulumi:"orderItemType"`
 	// Customer notification Preferences
 	Preferences PreferencesResponsePtrInput `pulumi:"preferences"`
 	// Unique identifier for configuration.
 	ProductDetails ProductDetailsResponseInput `pulumi:"productDetails"`
 	// Return reason.
 	ReturnReason pulumi.StringInput `pulumi:"returnReason"`
-	// Describes whether the order is returnable or not.
+	// Describes whether the order item is returnable or not.
 	ReturnStatus pulumi.StringInput `pulumi:"returnStatus"`
 	// Reverse Package Shipping details
 	ReverseShippingDetails ShippingDetailsResponseInput `pulumi:"reverseShippingDetails"`
 }
 
-func (OrderDetailsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*OrderDetailsResponse)(nil)).Elem()
+func (OrderItemDetailsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrderItemDetailsResponse)(nil)).Elem()
 }
 
-func (i OrderDetailsResponseArgs) ToOrderDetailsResponseOutput() OrderDetailsResponseOutput {
-	return i.ToOrderDetailsResponseOutputWithContext(context.Background())
+func (i OrderItemDetailsResponseArgs) ToOrderItemDetailsResponseOutput() OrderItemDetailsResponseOutput {
+	return i.ToOrderItemDetailsResponseOutputWithContext(context.Background())
 }
 
-func (i OrderDetailsResponseArgs) ToOrderDetailsResponseOutputWithContext(ctx context.Context) OrderDetailsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OrderDetailsResponseOutput)
+func (i OrderItemDetailsResponseArgs) ToOrderItemDetailsResponseOutputWithContext(ctx context.Context) OrderItemDetailsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrderItemDetailsResponseOutput)
 }
 
-func (i OrderDetailsResponseArgs) ToOrderDetailsResponsePtrOutput() OrderDetailsResponsePtrOutput {
-	return i.ToOrderDetailsResponsePtrOutputWithContext(context.Background())
+func (i OrderItemDetailsResponseArgs) ToOrderItemDetailsResponsePtrOutput() OrderItemDetailsResponsePtrOutput {
+	return i.ToOrderItemDetailsResponsePtrOutputWithContext(context.Background())
 }
 
-func (i OrderDetailsResponseArgs) ToOrderDetailsResponsePtrOutputWithContext(ctx context.Context) OrderDetailsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OrderDetailsResponseOutput).ToOrderDetailsResponsePtrOutputWithContext(ctx)
+func (i OrderItemDetailsResponseArgs) ToOrderItemDetailsResponsePtrOutputWithContext(ctx context.Context) OrderItemDetailsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrderItemDetailsResponseOutput).ToOrderItemDetailsResponsePtrOutputWithContext(ctx)
 }
 
-// OrderDetailsResponsePtrInput is an input type that accepts OrderDetailsResponseArgs, OrderDetailsResponsePtr and OrderDetailsResponsePtrOutput values.
-// You can construct a concrete instance of `OrderDetailsResponsePtrInput` via:
+// OrderItemDetailsResponsePtrInput is an input type that accepts OrderItemDetailsResponseArgs, OrderItemDetailsResponsePtr and OrderItemDetailsResponsePtrOutput values.
+// You can construct a concrete instance of `OrderItemDetailsResponsePtrInput` via:
 //
-//          OrderDetailsResponseArgs{...}
+//          OrderItemDetailsResponseArgs{...}
 //
 //  or:
 //
 //          nil
-type OrderDetailsResponsePtrInput interface {
+type OrderItemDetailsResponsePtrInput interface {
 	pulumi.Input
 
-	ToOrderDetailsResponsePtrOutput() OrderDetailsResponsePtrOutput
-	ToOrderDetailsResponsePtrOutputWithContext(context.Context) OrderDetailsResponsePtrOutput
+	ToOrderItemDetailsResponsePtrOutput() OrderItemDetailsResponsePtrOutput
+	ToOrderItemDetailsResponsePtrOutputWithContext(context.Context) OrderItemDetailsResponsePtrOutput
 }
 
-type orderDetailsResponsePtrType OrderDetailsResponseArgs
+type orderItemDetailsResponsePtrType OrderItemDetailsResponseArgs
 
-func OrderDetailsResponsePtr(v *OrderDetailsResponseArgs) OrderDetailsResponsePtrInput {
-	return (*orderDetailsResponsePtrType)(v)
+func OrderItemDetailsResponsePtr(v *OrderItemDetailsResponseArgs) OrderItemDetailsResponsePtrInput {
+	return (*orderItemDetailsResponsePtrType)(v)
 }
 
-func (*orderDetailsResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**OrderDetailsResponse)(nil)).Elem()
+func (*orderItemDetailsResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrderItemDetailsResponse)(nil)).Elem()
 }
 
-func (i *orderDetailsResponsePtrType) ToOrderDetailsResponsePtrOutput() OrderDetailsResponsePtrOutput {
-	return i.ToOrderDetailsResponsePtrOutputWithContext(context.Background())
+func (i *orderItemDetailsResponsePtrType) ToOrderItemDetailsResponsePtrOutput() OrderItemDetailsResponsePtrOutput {
+	return i.ToOrderItemDetailsResponsePtrOutputWithContext(context.Background())
 }
 
-func (i *orderDetailsResponsePtrType) ToOrderDetailsResponsePtrOutputWithContext(ctx context.Context) OrderDetailsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OrderDetailsResponsePtrOutput)
+func (i *orderItemDetailsResponsePtrType) ToOrderItemDetailsResponsePtrOutputWithContext(ctx context.Context) OrderItemDetailsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrderItemDetailsResponsePtrOutput)
 }
 
-// Order details
-type OrderDetailsResponseOutput struct{ *pulumi.OutputState }
+// Order item details
+type OrderItemDetailsResponseOutput struct{ *pulumi.OutputState }
 
-func (OrderDetailsResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OrderDetailsResponse)(nil)).Elem()
+func (OrderItemDetailsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrderItemDetailsResponse)(nil)).Elem()
 }
 
-func (o OrderDetailsResponseOutput) ToOrderDetailsResponseOutput() OrderDetailsResponseOutput {
+func (o OrderItemDetailsResponseOutput) ToOrderItemDetailsResponseOutput() OrderItemDetailsResponseOutput {
 	return o
 }
 
-func (o OrderDetailsResponseOutput) ToOrderDetailsResponseOutputWithContext(ctx context.Context) OrderDetailsResponseOutput {
+func (o OrderItemDetailsResponseOutput) ToOrderItemDetailsResponseOutputWithContext(ctx context.Context) OrderItemDetailsResponseOutput {
 	return o
 }
 
-func (o OrderDetailsResponseOutput) ToOrderDetailsResponsePtrOutput() OrderDetailsResponsePtrOutput {
-	return o.ToOrderDetailsResponsePtrOutputWithContext(context.Background())
+func (o OrderItemDetailsResponseOutput) ToOrderItemDetailsResponsePtrOutput() OrderItemDetailsResponsePtrOutput {
+	return o.ToOrderItemDetailsResponsePtrOutputWithContext(context.Background())
 }
 
-func (o OrderDetailsResponseOutput) ToOrderDetailsResponsePtrOutputWithContext(ctx context.Context) OrderDetailsResponsePtrOutput {
-	return o.ApplyT(func(v OrderDetailsResponse) *OrderDetailsResponse {
+func (o OrderItemDetailsResponseOutput) ToOrderItemDetailsResponsePtrOutputWithContext(ctx context.Context) OrderItemDetailsResponsePtrOutput {
+	return o.ApplyT(func(v OrderItemDetailsResponse) *OrderItemDetailsResponse {
 		return &v
-	}).(OrderDetailsResponsePtrOutput)
+	}).(OrderItemDetailsResponsePtrOutput)
 }
 
 // Cancellation reason.
-func (o OrderDetailsResponseOutput) CancellationReason() pulumi.StringOutput {
-	return o.ApplyT(func(v OrderDetailsResponse) string { return v.CancellationReason }).(pulumi.StringOutput)
+func (o OrderItemDetailsResponseOutput) CancellationReason() pulumi.StringOutput {
+	return o.ApplyT(func(v OrderItemDetailsResponse) string { return v.CancellationReason }).(pulumi.StringOutput)
 }
 
 // Describes whether the order is cancellable or not.
-func (o OrderDetailsResponseOutput) CancellationStatus() pulumi.StringOutput {
-	return o.ApplyT(func(v OrderDetailsResponse) string { return v.CancellationStatus }).(pulumi.StringOutput)
+func (o OrderItemDetailsResponseOutput) CancellationStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v OrderItemDetailsResponse) string { return v.CancellationStatus }).(pulumi.StringOutput)
 }
 
-// Current Order Status
-func (o OrderDetailsResponseOutput) CurrentStatus() OrderStatusDetailsResponseOutput {
-	return o.ApplyT(func(v OrderDetailsResponse) OrderStatusDetailsResponse { return v.CurrentStatus }).(OrderStatusDetailsResponseOutput)
+// Current Order item Status
+func (o OrderItemDetailsResponseOutput) CurrentStage() StageDetailsResponseOutput {
+	return o.ApplyT(func(v OrderItemDetailsResponse) StageDetailsResponse { return v.CurrentStage }).(StageDetailsResponseOutput)
 }
 
-// Describes whether the order is deletable or not.
-func (o OrderDetailsResponseOutput) DeletionStatus() pulumi.StringOutput {
-	return o.ApplyT(func(v OrderDetailsResponse) string { return v.DeletionStatus }).(pulumi.StringOutput)
+// Describes whether the order item is deletable or not.
+func (o OrderItemDetailsResponseOutput) DeletionStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v OrderItemDetailsResponse) string { return v.DeletionStatus }).(pulumi.StringOutput)
 }
 
 // Top level error for the job.
-func (o OrderDetailsResponseOutput) Error() CloudErrorResponseOutput {
-	return o.ApplyT(func(v OrderDetailsResponse) CloudErrorResponse { return v.Error }).(CloudErrorResponseOutput)
+func (o OrderItemDetailsResponseOutput) Error() ErrorDetailResponseOutput {
+	return o.ApplyT(func(v OrderItemDetailsResponse) ErrorDetailResponse { return v.Error }).(ErrorDetailResponseOutput)
 }
 
 // Forward Package Shipping details
-func (o OrderDetailsResponseOutput) ForwardShippingDetails() ShippingDetailsResponseOutput {
-	return o.ApplyT(func(v OrderDetailsResponse) ShippingDetailsResponse { return v.ForwardShippingDetails }).(ShippingDetailsResponseOutput)
+func (o OrderItemDetailsResponseOutput) ForwardShippingDetails() ShippingDetailsResponseOutput {
+	return o.ApplyT(func(v OrderItemDetailsResponse) ShippingDetailsResponse { return v.ForwardShippingDetails }).(ShippingDetailsResponseOutput)
+}
+
+// Management resource details
+func (o OrderItemDetailsResponseOutput) ManagementResourceDetails() ManagementResourceDetailsResponsePtrOutput {
+	return o.ApplyT(func(v OrderItemDetailsResponse) *ManagementResourceDetailsResponse {
+		return v.ManagementResourceDetails
+	}).(ManagementResourceDetailsResponsePtrOutput)
 }
 
 // parent RP details
-func (o OrderDetailsResponseOutput) ManagementRpDetails() pulumi.AnyOutput {
-	return o.ApplyT(func(v OrderDetailsResponse) interface{} { return v.ManagementRpDetails }).(pulumi.AnyOutput)
+func (o OrderItemDetailsResponseOutput) ManagementRpDetails() pulumi.AnyOutput {
+	return o.ApplyT(func(v OrderItemDetailsResponse) interface{} { return v.ManagementRpDetails }).(pulumi.AnyOutput)
 }
 
-// Package Shipping details
-func (o OrderDetailsResponseOutput) NotificationEmailList() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v OrderDetailsResponse) []string { return v.NotificationEmailList }).(pulumi.StringArrayOutput)
+// Additional notification email list
+func (o OrderItemDetailsResponseOutput) NotificationEmailList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v OrderItemDetailsResponse) []string { return v.NotificationEmailList }).(pulumi.StringArrayOutput)
 }
 
-// Order history
-func (o OrderDetailsResponseOutput) OrderStatusHistory() OrderStatusDetailsResponseArrayOutput {
-	return o.ApplyT(func(v OrderDetailsResponse) []OrderStatusDetailsResponse { return v.OrderStatusHistory }).(OrderStatusDetailsResponseArrayOutput)
+// Order item status history
+func (o OrderItemDetailsResponseOutput) OrderItemStageHistory() StageDetailsResponseArrayOutput {
+	return o.ApplyT(func(v OrderItemDetailsResponse) []StageDetailsResponse { return v.OrderItemStageHistory }).(StageDetailsResponseArrayOutput)
 }
 
-// Order type.
-func (o OrderDetailsResponseOutput) OrderType() pulumi.StringOutput {
-	return o.ApplyT(func(v OrderDetailsResponse) string { return v.OrderType }).(pulumi.StringOutput)
+// Order item type.
+func (o OrderItemDetailsResponseOutput) OrderItemType() pulumi.StringOutput {
+	return o.ApplyT(func(v OrderItemDetailsResponse) string { return v.OrderItemType }).(pulumi.StringOutput)
 }
 
 // Customer notification Preferences
-func (o OrderDetailsResponseOutput) Preferences() PreferencesResponsePtrOutput {
-	return o.ApplyT(func(v OrderDetailsResponse) *PreferencesResponse { return v.Preferences }).(PreferencesResponsePtrOutput)
+func (o OrderItemDetailsResponseOutput) Preferences() PreferencesResponsePtrOutput {
+	return o.ApplyT(func(v OrderItemDetailsResponse) *PreferencesResponse { return v.Preferences }).(PreferencesResponsePtrOutput)
 }
 
 // Unique identifier for configuration.
-func (o OrderDetailsResponseOutput) ProductDetails() ProductDetailsResponseOutput {
-	return o.ApplyT(func(v OrderDetailsResponse) ProductDetailsResponse { return v.ProductDetails }).(ProductDetailsResponseOutput)
+func (o OrderItemDetailsResponseOutput) ProductDetails() ProductDetailsResponseOutput {
+	return o.ApplyT(func(v OrderItemDetailsResponse) ProductDetailsResponse { return v.ProductDetails }).(ProductDetailsResponseOutput)
 }
 
 // Return reason.
-func (o OrderDetailsResponseOutput) ReturnReason() pulumi.StringOutput {
-	return o.ApplyT(func(v OrderDetailsResponse) string { return v.ReturnReason }).(pulumi.StringOutput)
+func (o OrderItemDetailsResponseOutput) ReturnReason() pulumi.StringOutput {
+	return o.ApplyT(func(v OrderItemDetailsResponse) string { return v.ReturnReason }).(pulumi.StringOutput)
 }
 
-// Describes whether the order is returnable or not.
-func (o OrderDetailsResponseOutput) ReturnStatus() pulumi.StringOutput {
-	return o.ApplyT(func(v OrderDetailsResponse) string { return v.ReturnStatus }).(pulumi.StringOutput)
+// Describes whether the order item is returnable or not.
+func (o OrderItemDetailsResponseOutput) ReturnStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v OrderItemDetailsResponse) string { return v.ReturnStatus }).(pulumi.StringOutput)
 }
 
 // Reverse Package Shipping details
-func (o OrderDetailsResponseOutput) ReverseShippingDetails() ShippingDetailsResponseOutput {
-	return o.ApplyT(func(v OrderDetailsResponse) ShippingDetailsResponse { return v.ReverseShippingDetails }).(ShippingDetailsResponseOutput)
+func (o OrderItemDetailsResponseOutput) ReverseShippingDetails() ShippingDetailsResponseOutput {
+	return o.ApplyT(func(v OrderItemDetailsResponse) ShippingDetailsResponse { return v.ReverseShippingDetails }).(ShippingDetailsResponseOutput)
 }
 
-type OrderDetailsResponsePtrOutput struct{ *pulumi.OutputState }
+type OrderItemDetailsResponsePtrOutput struct{ *pulumi.OutputState }
 
-func (OrderDetailsResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**OrderDetailsResponse)(nil)).Elem()
+func (OrderItemDetailsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrderItemDetailsResponse)(nil)).Elem()
 }
 
-func (o OrderDetailsResponsePtrOutput) ToOrderDetailsResponsePtrOutput() OrderDetailsResponsePtrOutput {
+func (o OrderItemDetailsResponsePtrOutput) ToOrderItemDetailsResponsePtrOutput() OrderItemDetailsResponsePtrOutput {
 	return o
 }
 
-func (o OrderDetailsResponsePtrOutput) ToOrderDetailsResponsePtrOutputWithContext(ctx context.Context) OrderDetailsResponsePtrOutput {
+func (o OrderItemDetailsResponsePtrOutput) ToOrderItemDetailsResponsePtrOutputWithContext(ctx context.Context) OrderItemDetailsResponsePtrOutput {
 	return o
 }
 
-func (o OrderDetailsResponsePtrOutput) Elem() OrderDetailsResponseOutput {
-	return o.ApplyT(func(v *OrderDetailsResponse) OrderDetailsResponse { return *v }).(OrderDetailsResponseOutput)
+func (o OrderItemDetailsResponsePtrOutput) Elem() OrderItemDetailsResponseOutput {
+	return o.ApplyT(func(v *OrderItemDetailsResponse) OrderItemDetailsResponse { return *v }).(OrderItemDetailsResponseOutput)
 }
 
 // Cancellation reason.
-func (o OrderDetailsResponsePtrOutput) CancellationReason() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OrderDetailsResponse) *string {
+func (o OrderItemDetailsResponsePtrOutput) CancellationReason() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrderItemDetailsResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -3862,8 +4443,8 @@ func (o OrderDetailsResponsePtrOutput) CancellationReason() pulumi.StringPtrOutp
 }
 
 // Describes whether the order is cancellable or not.
-func (o OrderDetailsResponsePtrOutput) CancellationStatus() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OrderDetailsResponse) *string {
+func (o OrderItemDetailsResponsePtrOutput) CancellationStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrderItemDetailsResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -3871,19 +4452,19 @@ func (o OrderDetailsResponsePtrOutput) CancellationStatus() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Current Order Status
-func (o OrderDetailsResponsePtrOutput) CurrentStatus() OrderStatusDetailsResponsePtrOutput {
-	return o.ApplyT(func(v *OrderDetailsResponse) *OrderStatusDetailsResponse {
+// Current Order item Status
+func (o OrderItemDetailsResponsePtrOutput) CurrentStage() StageDetailsResponsePtrOutput {
+	return o.ApplyT(func(v *OrderItemDetailsResponse) *StageDetailsResponse {
 		if v == nil {
 			return nil
 		}
-		return &v.CurrentStatus
-	}).(OrderStatusDetailsResponsePtrOutput)
+		return &v.CurrentStage
+	}).(StageDetailsResponsePtrOutput)
 }
 
-// Describes whether the order is deletable or not.
-func (o OrderDetailsResponsePtrOutput) DeletionStatus() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OrderDetailsResponse) *string {
+// Describes whether the order item is deletable or not.
+func (o OrderItemDetailsResponsePtrOutput) DeletionStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrderItemDetailsResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -3892,18 +4473,18 @@ func (o OrderDetailsResponsePtrOutput) DeletionStatus() pulumi.StringPtrOutput {
 }
 
 // Top level error for the job.
-func (o OrderDetailsResponsePtrOutput) Error() CloudErrorResponsePtrOutput {
-	return o.ApplyT(func(v *OrderDetailsResponse) *CloudErrorResponse {
+func (o OrderItemDetailsResponsePtrOutput) Error() ErrorDetailResponsePtrOutput {
+	return o.ApplyT(func(v *OrderItemDetailsResponse) *ErrorDetailResponse {
 		if v == nil {
 			return nil
 		}
 		return &v.Error
-	}).(CloudErrorResponsePtrOutput)
+	}).(ErrorDetailResponsePtrOutput)
 }
 
 // Forward Package Shipping details
-func (o OrderDetailsResponsePtrOutput) ForwardShippingDetails() ShippingDetailsResponsePtrOutput {
-	return o.ApplyT(func(v *OrderDetailsResponse) *ShippingDetailsResponse {
+func (o OrderItemDetailsResponsePtrOutput) ForwardShippingDetails() ShippingDetailsResponsePtrOutput {
+	return o.ApplyT(func(v *OrderItemDetailsResponse) *ShippingDetailsResponse {
 		if v == nil {
 			return nil
 		}
@@ -3911,9 +4492,19 @@ func (o OrderDetailsResponsePtrOutput) ForwardShippingDetails() ShippingDetailsR
 	}).(ShippingDetailsResponsePtrOutput)
 }
 
+// Management resource details
+func (o OrderItemDetailsResponsePtrOutput) ManagementResourceDetails() ManagementResourceDetailsResponsePtrOutput {
+	return o.ApplyT(func(v *OrderItemDetailsResponse) *ManagementResourceDetailsResponse {
+		if v == nil {
+			return nil
+		}
+		return v.ManagementResourceDetails
+	}).(ManagementResourceDetailsResponsePtrOutput)
+}
+
 // parent RP details
-func (o OrderDetailsResponsePtrOutput) ManagementRpDetails() pulumi.AnyOutput {
-	return o.ApplyT(func(v *OrderDetailsResponse) interface{} {
+func (o OrderItemDetailsResponsePtrOutput) ManagementRpDetails() pulumi.AnyOutput {
+	return o.ApplyT(func(v *OrderItemDetailsResponse) interface{} {
 		if v == nil {
 			return nil
 		}
@@ -3921,9 +4512,9 @@ func (o OrderDetailsResponsePtrOutput) ManagementRpDetails() pulumi.AnyOutput {
 	}).(pulumi.AnyOutput)
 }
 
-// Package Shipping details
-func (o OrderDetailsResponsePtrOutput) NotificationEmailList() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *OrderDetailsResponse) []string {
+// Additional notification email list
+func (o OrderItemDetailsResponsePtrOutput) NotificationEmailList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *OrderItemDetailsResponse) []string {
 		if v == nil {
 			return nil
 		}
@@ -3931,29 +4522,29 @@ func (o OrderDetailsResponsePtrOutput) NotificationEmailList() pulumi.StringArra
 	}).(pulumi.StringArrayOutput)
 }
 
-// Order history
-func (o OrderDetailsResponsePtrOutput) OrderStatusHistory() OrderStatusDetailsResponseArrayOutput {
-	return o.ApplyT(func(v *OrderDetailsResponse) []OrderStatusDetailsResponse {
+// Order item status history
+func (o OrderItemDetailsResponsePtrOutput) OrderItemStageHistory() StageDetailsResponseArrayOutput {
+	return o.ApplyT(func(v *OrderItemDetailsResponse) []StageDetailsResponse {
 		if v == nil {
 			return nil
 		}
-		return v.OrderStatusHistory
-	}).(OrderStatusDetailsResponseArrayOutput)
+		return v.OrderItemStageHistory
+	}).(StageDetailsResponseArrayOutput)
 }
 
-// Order type.
-func (o OrderDetailsResponsePtrOutput) OrderType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OrderDetailsResponse) *string {
+// Order item type.
+func (o OrderItemDetailsResponsePtrOutput) OrderItemType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrderItemDetailsResponse) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.OrderType
+		return &v.OrderItemType
 	}).(pulumi.StringPtrOutput)
 }
 
 // Customer notification Preferences
-func (o OrderDetailsResponsePtrOutput) Preferences() PreferencesResponsePtrOutput {
-	return o.ApplyT(func(v *OrderDetailsResponse) *PreferencesResponse {
+func (o OrderItemDetailsResponsePtrOutput) Preferences() PreferencesResponsePtrOutput {
+	return o.ApplyT(func(v *OrderItemDetailsResponse) *PreferencesResponse {
 		if v == nil {
 			return nil
 		}
@@ -3962,8 +4553,8 @@ func (o OrderDetailsResponsePtrOutput) Preferences() PreferencesResponsePtrOutpu
 }
 
 // Unique identifier for configuration.
-func (o OrderDetailsResponsePtrOutput) ProductDetails() ProductDetailsResponsePtrOutput {
-	return o.ApplyT(func(v *OrderDetailsResponse) *ProductDetailsResponse {
+func (o OrderItemDetailsResponsePtrOutput) ProductDetails() ProductDetailsResponsePtrOutput {
+	return o.ApplyT(func(v *OrderItemDetailsResponse) *ProductDetailsResponse {
 		if v == nil {
 			return nil
 		}
@@ -3972,8 +4563,8 @@ func (o OrderDetailsResponsePtrOutput) ProductDetails() ProductDetailsResponsePt
 }
 
 // Return reason.
-func (o OrderDetailsResponsePtrOutput) ReturnReason() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OrderDetailsResponse) *string {
+func (o OrderItemDetailsResponsePtrOutput) ReturnReason() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrderItemDetailsResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -3981,9 +4572,9 @@ func (o OrderDetailsResponsePtrOutput) ReturnReason() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes whether the order is returnable or not.
-func (o OrderDetailsResponsePtrOutput) ReturnStatus() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OrderDetailsResponse) *string {
+// Describes whether the order item is returnable or not.
+func (o OrderItemDetailsResponsePtrOutput) ReturnStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrderItemDetailsResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -3992,8 +4583,8 @@ func (o OrderDetailsResponsePtrOutput) ReturnStatus() pulumi.StringPtrOutput {
 }
 
 // Reverse Package Shipping details
-func (o OrderDetailsResponsePtrOutput) ReverseShippingDetails() ShippingDetailsResponsePtrOutput {
-	return o.ApplyT(func(v *OrderDetailsResponse) *ShippingDetailsResponse {
+func (o OrderItemDetailsResponsePtrOutput) ReverseShippingDetails() ShippingDetailsResponsePtrOutput {
+	return o.ApplyT(func(v *OrderItemDetailsResponse) *ShippingDetailsResponse {
 		if v == nil {
 			return nil
 		}
@@ -4001,206 +4592,10 @@ func (o OrderDetailsResponsePtrOutput) ReverseShippingDetails() ShippingDetailsR
 	}).(ShippingDetailsResponsePtrOutput)
 }
 
-// Order status CurrentStatus
-type OrderStatusDetailsResponse struct {
-	// last time order was updated
-	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
-	// Order status
-	OrderStatus string `pulumi:"orderStatus"`
-}
-
-// OrderStatusDetailsResponseInput is an input type that accepts OrderStatusDetailsResponseArgs and OrderStatusDetailsResponseOutput values.
-// You can construct a concrete instance of `OrderStatusDetailsResponseInput` via:
-//
-//          OrderStatusDetailsResponseArgs{...}
-type OrderStatusDetailsResponseInput interface {
-	pulumi.Input
-
-	ToOrderStatusDetailsResponseOutput() OrderStatusDetailsResponseOutput
-	ToOrderStatusDetailsResponseOutputWithContext(context.Context) OrderStatusDetailsResponseOutput
-}
-
-// Order status CurrentStatus
-type OrderStatusDetailsResponseArgs struct {
-	// last time order was updated
-	LastUpdatedTime pulumi.StringPtrInput `pulumi:"lastUpdatedTime"`
-	// Order status
-	OrderStatus pulumi.StringInput `pulumi:"orderStatus"`
-}
-
-func (OrderStatusDetailsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*OrderStatusDetailsResponse)(nil)).Elem()
-}
-
-func (i OrderStatusDetailsResponseArgs) ToOrderStatusDetailsResponseOutput() OrderStatusDetailsResponseOutput {
-	return i.ToOrderStatusDetailsResponseOutputWithContext(context.Background())
-}
-
-func (i OrderStatusDetailsResponseArgs) ToOrderStatusDetailsResponseOutputWithContext(ctx context.Context) OrderStatusDetailsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OrderStatusDetailsResponseOutput)
-}
-
-func (i OrderStatusDetailsResponseArgs) ToOrderStatusDetailsResponsePtrOutput() OrderStatusDetailsResponsePtrOutput {
-	return i.ToOrderStatusDetailsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i OrderStatusDetailsResponseArgs) ToOrderStatusDetailsResponsePtrOutputWithContext(ctx context.Context) OrderStatusDetailsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OrderStatusDetailsResponseOutput).ToOrderStatusDetailsResponsePtrOutputWithContext(ctx)
-}
-
-// OrderStatusDetailsResponsePtrInput is an input type that accepts OrderStatusDetailsResponseArgs, OrderStatusDetailsResponsePtr and OrderStatusDetailsResponsePtrOutput values.
-// You can construct a concrete instance of `OrderStatusDetailsResponsePtrInput` via:
-//
-//          OrderStatusDetailsResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type OrderStatusDetailsResponsePtrInput interface {
-	pulumi.Input
-
-	ToOrderStatusDetailsResponsePtrOutput() OrderStatusDetailsResponsePtrOutput
-	ToOrderStatusDetailsResponsePtrOutputWithContext(context.Context) OrderStatusDetailsResponsePtrOutput
-}
-
-type orderStatusDetailsResponsePtrType OrderStatusDetailsResponseArgs
-
-func OrderStatusDetailsResponsePtr(v *OrderStatusDetailsResponseArgs) OrderStatusDetailsResponsePtrInput {
-	return (*orderStatusDetailsResponsePtrType)(v)
-}
-
-func (*orderStatusDetailsResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**OrderStatusDetailsResponse)(nil)).Elem()
-}
-
-func (i *orderStatusDetailsResponsePtrType) ToOrderStatusDetailsResponsePtrOutput() OrderStatusDetailsResponsePtrOutput {
-	return i.ToOrderStatusDetailsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *orderStatusDetailsResponsePtrType) ToOrderStatusDetailsResponsePtrOutputWithContext(ctx context.Context) OrderStatusDetailsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OrderStatusDetailsResponsePtrOutput)
-}
-
-// OrderStatusDetailsResponseArrayInput is an input type that accepts OrderStatusDetailsResponseArray and OrderStatusDetailsResponseArrayOutput values.
-// You can construct a concrete instance of `OrderStatusDetailsResponseArrayInput` via:
-//
-//          OrderStatusDetailsResponseArray{ OrderStatusDetailsResponseArgs{...} }
-type OrderStatusDetailsResponseArrayInput interface {
-	pulumi.Input
-
-	ToOrderStatusDetailsResponseArrayOutput() OrderStatusDetailsResponseArrayOutput
-	ToOrderStatusDetailsResponseArrayOutputWithContext(context.Context) OrderStatusDetailsResponseArrayOutput
-}
-
-type OrderStatusDetailsResponseArray []OrderStatusDetailsResponseInput
-
-func (OrderStatusDetailsResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]OrderStatusDetailsResponse)(nil)).Elem()
-}
-
-func (i OrderStatusDetailsResponseArray) ToOrderStatusDetailsResponseArrayOutput() OrderStatusDetailsResponseArrayOutput {
-	return i.ToOrderStatusDetailsResponseArrayOutputWithContext(context.Background())
-}
-
-func (i OrderStatusDetailsResponseArray) ToOrderStatusDetailsResponseArrayOutputWithContext(ctx context.Context) OrderStatusDetailsResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OrderStatusDetailsResponseArrayOutput)
-}
-
-// Order status CurrentStatus
-type OrderStatusDetailsResponseOutput struct{ *pulumi.OutputState }
-
-func (OrderStatusDetailsResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OrderStatusDetailsResponse)(nil)).Elem()
-}
-
-func (o OrderStatusDetailsResponseOutput) ToOrderStatusDetailsResponseOutput() OrderStatusDetailsResponseOutput {
-	return o
-}
-
-func (o OrderStatusDetailsResponseOutput) ToOrderStatusDetailsResponseOutputWithContext(ctx context.Context) OrderStatusDetailsResponseOutput {
-	return o
-}
-
-func (o OrderStatusDetailsResponseOutput) ToOrderStatusDetailsResponsePtrOutput() OrderStatusDetailsResponsePtrOutput {
-	return o.ToOrderStatusDetailsResponsePtrOutputWithContext(context.Background())
-}
-
-func (o OrderStatusDetailsResponseOutput) ToOrderStatusDetailsResponsePtrOutputWithContext(ctx context.Context) OrderStatusDetailsResponsePtrOutput {
-	return o.ApplyT(func(v OrderStatusDetailsResponse) *OrderStatusDetailsResponse {
-		return &v
-	}).(OrderStatusDetailsResponsePtrOutput)
-}
-
-// last time order was updated
-func (o OrderStatusDetailsResponseOutput) LastUpdatedTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OrderStatusDetailsResponse) *string { return v.LastUpdatedTime }).(pulumi.StringPtrOutput)
-}
-
-// Order status
-func (o OrderStatusDetailsResponseOutput) OrderStatus() pulumi.StringOutput {
-	return o.ApplyT(func(v OrderStatusDetailsResponse) string { return v.OrderStatus }).(pulumi.StringOutput)
-}
-
-type OrderStatusDetailsResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (OrderStatusDetailsResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**OrderStatusDetailsResponse)(nil)).Elem()
-}
-
-func (o OrderStatusDetailsResponsePtrOutput) ToOrderStatusDetailsResponsePtrOutput() OrderStatusDetailsResponsePtrOutput {
-	return o
-}
-
-func (o OrderStatusDetailsResponsePtrOutput) ToOrderStatusDetailsResponsePtrOutputWithContext(ctx context.Context) OrderStatusDetailsResponsePtrOutput {
-	return o
-}
-
-func (o OrderStatusDetailsResponsePtrOutput) Elem() OrderStatusDetailsResponseOutput {
-	return o.ApplyT(func(v *OrderStatusDetailsResponse) OrderStatusDetailsResponse { return *v }).(OrderStatusDetailsResponseOutput)
-}
-
-// last time order was updated
-func (o OrderStatusDetailsResponsePtrOutput) LastUpdatedTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OrderStatusDetailsResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LastUpdatedTime
-	}).(pulumi.StringPtrOutput)
-}
-
-// Order status
-func (o OrderStatusDetailsResponsePtrOutput) OrderStatus() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OrderStatusDetailsResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.OrderStatus
-	}).(pulumi.StringPtrOutput)
-}
-
-type OrderStatusDetailsResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (OrderStatusDetailsResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]OrderStatusDetailsResponse)(nil)).Elem()
-}
-
-func (o OrderStatusDetailsResponseArrayOutput) ToOrderStatusDetailsResponseArrayOutput() OrderStatusDetailsResponseArrayOutput {
-	return o
-}
-
-func (o OrderStatusDetailsResponseArrayOutput) ToOrderStatusDetailsResponseArrayOutputWithContext(ctx context.Context) OrderStatusDetailsResponseArrayOutput {
-	return o
-}
-
-func (o OrderStatusDetailsResponseArrayOutput) Index(i pulumi.IntInput) OrderStatusDetailsResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OrderStatusDetailsResponse {
-		return vs[0].([]OrderStatusDetailsResponse)[vs[1].(int)]
-	}).(OrderStatusDetailsResponseOutput)
-}
-
 // Preferences related to the order
 type Preferences struct {
+	// Preferences related to the Encryption.
+	EncryptionPreferences *EncryptionPreferences `pulumi:"encryptionPreferences"`
 	// Notification preferences.
 	NotificationPreferences []NotificationPreference `pulumi:"notificationPreferences"`
 	// Preferences related to the shipment logistics of the order.
@@ -4220,6 +4615,8 @@ type PreferencesInput interface {
 
 // Preferences related to the order
 type PreferencesArgs struct {
+	// Preferences related to the Encryption.
+	EncryptionPreferences EncryptionPreferencesPtrInput `pulumi:"encryptionPreferences"`
 	// Notification preferences.
 	NotificationPreferences NotificationPreferenceArrayInput `pulumi:"notificationPreferences"`
 	// Preferences related to the shipment logistics of the order.
@@ -4304,6 +4701,11 @@ func (o PreferencesOutput) ToPreferencesPtrOutputWithContext(ctx context.Context
 	}).(PreferencesPtrOutput)
 }
 
+// Preferences related to the Encryption.
+func (o PreferencesOutput) EncryptionPreferences() EncryptionPreferencesPtrOutput {
+	return o.ApplyT(func(v Preferences) *EncryptionPreferences { return v.EncryptionPreferences }).(EncryptionPreferencesPtrOutput)
+}
+
 // Notification preferences.
 func (o PreferencesOutput) NotificationPreferences() NotificationPreferenceArrayOutput {
 	return o.ApplyT(func(v Preferences) []NotificationPreference { return v.NotificationPreferences }).(NotificationPreferenceArrayOutput)
@@ -4332,6 +4734,16 @@ func (o PreferencesPtrOutput) Elem() PreferencesOutput {
 	return o.ApplyT(func(v *Preferences) Preferences { return *v }).(PreferencesOutput)
 }
 
+// Preferences related to the Encryption.
+func (o PreferencesPtrOutput) EncryptionPreferences() EncryptionPreferencesPtrOutput {
+	return o.ApplyT(func(v *Preferences) *EncryptionPreferences {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptionPreferences
+	}).(EncryptionPreferencesPtrOutput)
+}
+
 // Notification preferences.
 func (o PreferencesPtrOutput) NotificationPreferences() NotificationPreferenceArrayOutput {
 	return o.ApplyT(func(v *Preferences) []NotificationPreference {
@@ -4354,6 +4766,8 @@ func (o PreferencesPtrOutput) TransportPreferences() TransportPreferencesPtrOutp
 
 // Preferences related to the order
 type PreferencesResponse struct {
+	// Preferences related to the Encryption.
+	EncryptionPreferences *EncryptionPreferencesResponse `pulumi:"encryptionPreferences"`
 	// Notification preferences.
 	NotificationPreferences []NotificationPreferenceResponse `pulumi:"notificationPreferences"`
 	// Preferences related to the shipment logistics of the order.
@@ -4373,6 +4787,8 @@ type PreferencesResponseInput interface {
 
 // Preferences related to the order
 type PreferencesResponseArgs struct {
+	// Preferences related to the Encryption.
+	EncryptionPreferences EncryptionPreferencesResponsePtrInput `pulumi:"encryptionPreferences"`
 	// Notification preferences.
 	NotificationPreferences NotificationPreferenceResponseArrayInput `pulumi:"notificationPreferences"`
 	// Preferences related to the shipment logistics of the order.
@@ -4457,6 +4873,11 @@ func (o PreferencesResponseOutput) ToPreferencesResponsePtrOutputWithContext(ctx
 	}).(PreferencesResponsePtrOutput)
 }
 
+// Preferences related to the Encryption.
+func (o PreferencesResponseOutput) EncryptionPreferences() EncryptionPreferencesResponsePtrOutput {
+	return o.ApplyT(func(v PreferencesResponse) *EncryptionPreferencesResponse { return v.EncryptionPreferences }).(EncryptionPreferencesResponsePtrOutput)
+}
+
 // Notification preferences.
 func (o PreferencesResponseOutput) NotificationPreferences() NotificationPreferenceResponseArrayOutput {
 	return o.ApplyT(func(v PreferencesResponse) []NotificationPreferenceResponse { return v.NotificationPreferences }).(NotificationPreferenceResponseArrayOutput)
@@ -4483,6 +4904,16 @@ func (o PreferencesResponsePtrOutput) ToPreferencesResponsePtrOutputWithContext(
 
 func (o PreferencesResponsePtrOutput) Elem() PreferencesResponseOutput {
 	return o.ApplyT(func(v *PreferencesResponse) PreferencesResponse { return *v }).(PreferencesResponseOutput)
+}
+
+// Preferences related to the Encryption.
+func (o PreferencesResponsePtrOutput) EncryptionPreferences() EncryptionPreferencesResponsePtrOutput {
+	return o.ApplyT(func(v *PreferencesResponse) *EncryptionPreferencesResponse {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptionPreferences
+	}).(EncryptionPreferencesResponsePtrOutput)
 }
 
 // Notification preferences.
@@ -6229,6 +6660,242 @@ func (o SpecificationResponseArrayOutput) Index(i pulumi.IntInput) Specification
 	}).(SpecificationResponseOutput)
 }
 
+// Resource stage details
+type StageDetailsResponse struct {
+	// Display name of the resource stage.
+	DisplayName string `pulumi:"displayName"`
+	// Stage name
+	StageName string `pulumi:"stageName"`
+	// Stage status
+	StageStatus string `pulumi:"stageStatus"`
+	// Stage start time
+	StartTime string `pulumi:"startTime"`
+}
+
+// StageDetailsResponseInput is an input type that accepts StageDetailsResponseArgs and StageDetailsResponseOutput values.
+// You can construct a concrete instance of `StageDetailsResponseInput` via:
+//
+//          StageDetailsResponseArgs{...}
+type StageDetailsResponseInput interface {
+	pulumi.Input
+
+	ToStageDetailsResponseOutput() StageDetailsResponseOutput
+	ToStageDetailsResponseOutputWithContext(context.Context) StageDetailsResponseOutput
+}
+
+// Resource stage details
+type StageDetailsResponseArgs struct {
+	// Display name of the resource stage.
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
+	// Stage name
+	StageName pulumi.StringInput `pulumi:"stageName"`
+	// Stage status
+	StageStatus pulumi.StringInput `pulumi:"stageStatus"`
+	// Stage start time
+	StartTime pulumi.StringInput `pulumi:"startTime"`
+}
+
+func (StageDetailsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StageDetailsResponse)(nil)).Elem()
+}
+
+func (i StageDetailsResponseArgs) ToStageDetailsResponseOutput() StageDetailsResponseOutput {
+	return i.ToStageDetailsResponseOutputWithContext(context.Background())
+}
+
+func (i StageDetailsResponseArgs) ToStageDetailsResponseOutputWithContext(ctx context.Context) StageDetailsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StageDetailsResponseOutput)
+}
+
+func (i StageDetailsResponseArgs) ToStageDetailsResponsePtrOutput() StageDetailsResponsePtrOutput {
+	return i.ToStageDetailsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i StageDetailsResponseArgs) ToStageDetailsResponsePtrOutputWithContext(ctx context.Context) StageDetailsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StageDetailsResponseOutput).ToStageDetailsResponsePtrOutputWithContext(ctx)
+}
+
+// StageDetailsResponsePtrInput is an input type that accepts StageDetailsResponseArgs, StageDetailsResponsePtr and StageDetailsResponsePtrOutput values.
+// You can construct a concrete instance of `StageDetailsResponsePtrInput` via:
+//
+//          StageDetailsResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type StageDetailsResponsePtrInput interface {
+	pulumi.Input
+
+	ToStageDetailsResponsePtrOutput() StageDetailsResponsePtrOutput
+	ToStageDetailsResponsePtrOutputWithContext(context.Context) StageDetailsResponsePtrOutput
+}
+
+type stageDetailsResponsePtrType StageDetailsResponseArgs
+
+func StageDetailsResponsePtr(v *StageDetailsResponseArgs) StageDetailsResponsePtrInput {
+	return (*stageDetailsResponsePtrType)(v)
+}
+
+func (*stageDetailsResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StageDetailsResponse)(nil)).Elem()
+}
+
+func (i *stageDetailsResponsePtrType) ToStageDetailsResponsePtrOutput() StageDetailsResponsePtrOutput {
+	return i.ToStageDetailsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *stageDetailsResponsePtrType) ToStageDetailsResponsePtrOutputWithContext(ctx context.Context) StageDetailsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StageDetailsResponsePtrOutput)
+}
+
+// StageDetailsResponseArrayInput is an input type that accepts StageDetailsResponseArray and StageDetailsResponseArrayOutput values.
+// You can construct a concrete instance of `StageDetailsResponseArrayInput` via:
+//
+//          StageDetailsResponseArray{ StageDetailsResponseArgs{...} }
+type StageDetailsResponseArrayInput interface {
+	pulumi.Input
+
+	ToStageDetailsResponseArrayOutput() StageDetailsResponseArrayOutput
+	ToStageDetailsResponseArrayOutputWithContext(context.Context) StageDetailsResponseArrayOutput
+}
+
+type StageDetailsResponseArray []StageDetailsResponseInput
+
+func (StageDetailsResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StageDetailsResponse)(nil)).Elem()
+}
+
+func (i StageDetailsResponseArray) ToStageDetailsResponseArrayOutput() StageDetailsResponseArrayOutput {
+	return i.ToStageDetailsResponseArrayOutputWithContext(context.Background())
+}
+
+func (i StageDetailsResponseArray) ToStageDetailsResponseArrayOutputWithContext(ctx context.Context) StageDetailsResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StageDetailsResponseArrayOutput)
+}
+
+// Resource stage details
+type StageDetailsResponseOutput struct{ *pulumi.OutputState }
+
+func (StageDetailsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StageDetailsResponse)(nil)).Elem()
+}
+
+func (o StageDetailsResponseOutput) ToStageDetailsResponseOutput() StageDetailsResponseOutput {
+	return o
+}
+
+func (o StageDetailsResponseOutput) ToStageDetailsResponseOutputWithContext(ctx context.Context) StageDetailsResponseOutput {
+	return o
+}
+
+func (o StageDetailsResponseOutput) ToStageDetailsResponsePtrOutput() StageDetailsResponsePtrOutput {
+	return o.ToStageDetailsResponsePtrOutputWithContext(context.Background())
+}
+
+func (o StageDetailsResponseOutput) ToStageDetailsResponsePtrOutputWithContext(ctx context.Context) StageDetailsResponsePtrOutput {
+	return o.ApplyT(func(v StageDetailsResponse) *StageDetailsResponse {
+		return &v
+	}).(StageDetailsResponsePtrOutput)
+}
+
+// Display name of the resource stage.
+func (o StageDetailsResponseOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v StageDetailsResponse) string { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// Stage name
+func (o StageDetailsResponseOutput) StageName() pulumi.StringOutput {
+	return o.ApplyT(func(v StageDetailsResponse) string { return v.StageName }).(pulumi.StringOutput)
+}
+
+// Stage status
+func (o StageDetailsResponseOutput) StageStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v StageDetailsResponse) string { return v.StageStatus }).(pulumi.StringOutput)
+}
+
+// Stage start time
+func (o StageDetailsResponseOutput) StartTime() pulumi.StringOutput {
+	return o.ApplyT(func(v StageDetailsResponse) string { return v.StartTime }).(pulumi.StringOutput)
+}
+
+type StageDetailsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (StageDetailsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StageDetailsResponse)(nil)).Elem()
+}
+
+func (o StageDetailsResponsePtrOutput) ToStageDetailsResponsePtrOutput() StageDetailsResponsePtrOutput {
+	return o
+}
+
+func (o StageDetailsResponsePtrOutput) ToStageDetailsResponsePtrOutputWithContext(ctx context.Context) StageDetailsResponsePtrOutput {
+	return o
+}
+
+func (o StageDetailsResponsePtrOutput) Elem() StageDetailsResponseOutput {
+	return o.ApplyT(func(v *StageDetailsResponse) StageDetailsResponse { return *v }).(StageDetailsResponseOutput)
+}
+
+// Display name of the resource stage.
+func (o StageDetailsResponsePtrOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StageDetailsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DisplayName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Stage name
+func (o StageDetailsResponsePtrOutput) StageName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StageDetailsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StageName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Stage status
+func (o StageDetailsResponsePtrOutput) StageStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StageDetailsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StageStatus
+	}).(pulumi.StringPtrOutput)
+}
+
+// Stage start time
+func (o StageDetailsResponsePtrOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StageDetailsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StartTime
+	}).(pulumi.StringPtrOutput)
+}
+
+type StageDetailsResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (StageDetailsResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StageDetailsResponse)(nil)).Elem()
+}
+
+func (o StageDetailsResponseArrayOutput) ToStageDetailsResponseArrayOutput() StageDetailsResponseArrayOutput {
+	return o
+}
+
+func (o StageDetailsResponseArrayOutput) ToStageDetailsResponseArrayOutputWithContext(ctx context.Context) StageDetailsResponseArrayOutput {
+	return o
+}
+
+func (o StageDetailsResponseArrayOutput) Index(i pulumi.IntInput) StageDetailsResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StageDetailsResponse {
+		return vs[0].([]StageDetailsResponse)[vs[1].(int)]
+	}).(StageDetailsResponseOutput)
+}
+
 // Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
 	// The timestamp of resource creation (UTC).
@@ -6727,8 +7394,6 @@ func (o TransportPreferencesResponsePtrOutput) PreferredShipmentType() pulumi.St
 }
 
 func init() {
-	pulumi.RegisterOutputType(AdditionalErrorInfoResponseOutput{})
-	pulumi.RegisterOutputType(AdditionalErrorInfoResponseArrayOutput{})
 	pulumi.RegisterOutputType(AddressDetailsOutput{})
 	pulumi.RegisterOutputType(AddressDetailsPtrOutput{})
 	pulumi.RegisterOutputType(AddressDetailsResponseOutput{})
@@ -6738,10 +7403,8 @@ func init() {
 	pulumi.RegisterOutputType(AddressPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(AddressPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(AvailabilityInformationResponseOutput{})
-	pulumi.RegisterOutputType(BillingModelResponseOutput{})
-	pulumi.RegisterOutputType(CloudErrorResponseOutput{})
-	pulumi.RegisterOutputType(CloudErrorResponsePtrOutput{})
-	pulumi.RegisterOutputType(CloudErrorResponseArrayOutput{})
+	pulumi.RegisterOutputType(BillingMeterDetailsResponseOutput{})
+	pulumi.RegisterOutputType(BillingMeterDetailsResponseArrayOutput{})
 	pulumi.RegisterOutputType(ConfigurationFiltersOutput{})
 	pulumi.RegisterOutputType(ConfigurationFiltersArrayOutput{})
 	pulumi.RegisterOutputType(ConfigurationResponseOutput{})
@@ -6757,9 +7420,17 @@ func init() {
 	pulumi.RegisterOutputType(DescriptionResponseOutput{})
 	pulumi.RegisterOutputType(DeviceDetailsResponseOutput{})
 	pulumi.RegisterOutputType(DeviceDetailsResponseArrayOutput{})
+	pulumi.RegisterOutputType(EncryptionPreferencesOutput{})
+	pulumi.RegisterOutputType(EncryptionPreferencesPtrOutput{})
+	pulumi.RegisterOutputType(EncryptionPreferencesResponseOutput{})
+	pulumi.RegisterOutputType(EncryptionPreferencesResponsePtrOutput{})
+	pulumi.RegisterOutputType(ErrorAdditionalInfoResponseOutput{})
+	pulumi.RegisterOutputType(ErrorAdditionalInfoResponseArrayOutput{})
+	pulumi.RegisterOutputType(ErrorDetailResponseOutput{})
+	pulumi.RegisterOutputType(ErrorDetailResponsePtrOutput{})
+	pulumi.RegisterOutputType(ErrorDetailResponseArrayOutput{})
 	pulumi.RegisterOutputType(FilterablePropertyOutput{})
-	pulumi.RegisterOutputType(FilterablePropertyPtrOutput{})
-	pulumi.RegisterOutputType(FilterablePropertyMapOutput{})
+	pulumi.RegisterOutputType(FilterablePropertyArrayOutput{})
 	pulumi.RegisterOutputType(FilterablePropertyResponseOutput{})
 	pulumi.RegisterOutputType(FilterablePropertyResponseArrayOutput{})
 	pulumi.RegisterOutputType(HierarchyInformationOutput{})
@@ -6770,19 +7441,19 @@ func init() {
 	pulumi.RegisterOutputType(ImageInformationResponseArrayOutput{})
 	pulumi.RegisterOutputType(LinkResponseOutput{})
 	pulumi.RegisterOutputType(LinkResponseArrayOutput{})
+	pulumi.RegisterOutputType(ManagementResourceDetailsOutput{})
+	pulumi.RegisterOutputType(ManagementResourceDetailsPtrOutput{})
+	pulumi.RegisterOutputType(ManagementResourceDetailsResponseOutput{})
+	pulumi.RegisterOutputType(ManagementResourceDetailsResponsePtrOutput{})
 	pulumi.RegisterOutputType(MeterDetailsResponseOutput{})
-	pulumi.RegisterOutputType(MeterDetailsResponseArrayOutput{})
 	pulumi.RegisterOutputType(NotificationPreferenceOutput{})
 	pulumi.RegisterOutputType(NotificationPreferenceArrayOutput{})
 	pulumi.RegisterOutputType(NotificationPreferenceResponseOutput{})
 	pulumi.RegisterOutputType(NotificationPreferenceResponseArrayOutput{})
-	pulumi.RegisterOutputType(OrderDetailsOutput{})
-	pulumi.RegisterOutputType(OrderDetailsPtrOutput{})
-	pulumi.RegisterOutputType(OrderDetailsResponseOutput{})
-	pulumi.RegisterOutputType(OrderDetailsResponsePtrOutput{})
-	pulumi.RegisterOutputType(OrderStatusDetailsResponseOutput{})
-	pulumi.RegisterOutputType(OrderStatusDetailsResponsePtrOutput{})
-	pulumi.RegisterOutputType(OrderStatusDetailsResponseArrayOutput{})
+	pulumi.RegisterOutputType(OrderItemDetailsOutput{})
+	pulumi.RegisterOutputType(OrderItemDetailsPtrOutput{})
+	pulumi.RegisterOutputType(OrderItemDetailsResponseOutput{})
+	pulumi.RegisterOutputType(OrderItemDetailsResponsePtrOutput{})
 	pulumi.RegisterOutputType(PreferencesOutput{})
 	pulumi.RegisterOutputType(PreferencesPtrOutput{})
 	pulumi.RegisterOutputType(PreferencesResponseOutput{})
@@ -6805,6 +7476,9 @@ func init() {
 	pulumi.RegisterOutputType(ShippingDetailsResponsePtrOutput{})
 	pulumi.RegisterOutputType(SpecificationResponseOutput{})
 	pulumi.RegisterOutputType(SpecificationResponseArrayOutput{})
+	pulumi.RegisterOutputType(StageDetailsResponseOutput{})
+	pulumi.RegisterOutputType(StageDetailsResponsePtrOutput{})
+	pulumi.RegisterOutputType(StageDetailsResponseArrayOutput{})
 	pulumi.RegisterOutputType(SystemDataResponseOutput{})
 	pulumi.RegisterOutputType(SystemDataResponsePtrOutput{})
 	pulumi.RegisterOutputType(TransportPreferencesOutput{})

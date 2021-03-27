@@ -64,6 +64,7 @@ class Vault(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['vault_name'] = vault_name
             __props__['name'] = None
+            __props__['system_data'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:keyvault/v20200401preview:Vault"), pulumi.Alias(type_="azure-native:keyvault:Vault"), pulumi.Alias(type_="azure-nextgen:keyvault:Vault"), pulumi.Alias(type_="azure-native:keyvault/latest:Vault"), pulumi.Alias(type_="azure-nextgen:keyvault/latest:Vault"), pulumi.Alias(type_="azure-native:keyvault/v20150601:Vault"), pulumi.Alias(type_="azure-nextgen:keyvault/v20150601:Vault"), pulumi.Alias(type_="azure-native:keyvault/v20161001:Vault"), pulumi.Alias(type_="azure-nextgen:keyvault/v20161001:Vault"), pulumi.Alias(type_="azure-native:keyvault/v20180214:Vault"), pulumi.Alias(type_="azure-nextgen:keyvault/v20180214:Vault"), pulumi.Alias(type_="azure-native:keyvault/v20180214preview:Vault"), pulumi.Alias(type_="azure-nextgen:keyvault/v20180214preview:Vault"), pulumi.Alias(type_="azure-native:keyvault/v20190901:Vault"), pulumi.Alias(type_="azure-nextgen:keyvault/v20190901:Vault")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -92,6 +93,7 @@ class Vault(pulumi.CustomResource):
         __props__["location"] = None
         __props__["name"] = None
         __props__["properties"] = None
+        __props__["system_data"] = None
         __props__["tags"] = None
         __props__["type"] = None
         return Vault(resource_name, opts=opts, __props__=__props__)
@@ -119,6 +121,14 @@ class Vault(pulumi.CustomResource):
         Properties of the vault
         """
         return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        System metadata for the key vault.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

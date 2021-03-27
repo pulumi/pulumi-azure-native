@@ -49,6 +49,43 @@ namespace Pulumi.AzureNative.EdgeOrder
     }
 
     /// <summary>
+    /// Defines secondary layer of software-based encryption enablement.
+    /// </summary>
+    [EnumType]
+    public readonly struct DoubleEncryptionStatus : IEquatable<DoubleEncryptionStatus>
+    {
+        private readonly string _value;
+
+        private DoubleEncryptionStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Double encryption is disabled
+        /// </summary>
+        public static DoubleEncryptionStatus Disabled { get; } = new DoubleEncryptionStatus("Disabled");
+        /// <summary>
+        /// Double encryption is enabled
+        /// </summary>
+        public static DoubleEncryptionStatus Enabled { get; } = new DoubleEncryptionStatus("Enabled");
+
+        public static bool operator ==(DoubleEncryptionStatus left, DoubleEncryptionStatus right) => left.Equals(right);
+        public static bool operator !=(DoubleEncryptionStatus left, DoubleEncryptionStatus right) => !left.Equals(right);
+
+        public static explicit operator string(DoubleEncryptionStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DoubleEncryptionStatus other && Equals(other);
+        public bool Equals(DoubleEncryptionStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Name of the stage.
     /// </summary>
     [EnumType]
@@ -68,7 +105,7 @@ namespace Pulumi.AzureNative.EdgeOrder
         /// <summary>
         /// Notification at device dispatched stage.
         /// </summary>
-        public static NotificationStageName Dispatched { get; } = new NotificationStageName("Dispatched");
+        public static NotificationStageName Shipped { get; } = new NotificationStageName("Shipped");
         /// <summary>
         /// Notification at device delivered stage.
         /// </summary>
@@ -102,35 +139,35 @@ namespace Pulumi.AzureNative.EdgeOrder
     }
 
     /// <summary>
-    /// Order type.
+    /// Order item type.
     /// </summary>
     [EnumType]
-    public readonly struct OrderType : IEquatable<OrderType>
+    public readonly struct OrderItemType : IEquatable<OrderItemType>
     {
         private readonly string _value;
 
-        private OrderType(string value)
+        private OrderItemType(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
         /// <summary>
-        /// Purchase Order.
+        /// Purchase OrderItem.
         /// </summary>
-        public static OrderType Purchase { get; } = new OrderType("Purchase");
+        public static OrderItemType Purchase { get; } = new OrderItemType("Purchase");
         /// <summary>
-        /// Rental Order.
+        /// Rental OrderItem.
         /// </summary>
-        public static OrderType Rental { get; } = new OrderType("Rental");
+        public static OrderItemType Rental { get; } = new OrderItemType("Rental");
 
-        public static bool operator ==(OrderType left, OrderType right) => left.Equals(right);
-        public static bool operator !=(OrderType left, OrderType right) => !left.Equals(right);
+        public static bool operator ==(OrderItemType left, OrderItemType right) => left.Equals(right);
+        public static bool operator !=(OrderItemType left, OrderItemType right) => !left.Equals(right);
 
-        public static explicit operator string(OrderType value) => value._value;
+        public static explicit operator string(OrderItemType value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is OrderType other && Equals(other);
-        public bool Equals(OrderType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is OrderItemType other && Equals(other);
+        public bool Equals(OrderItemType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -155,6 +192,10 @@ namespace Pulumi.AzureNative.EdgeOrder
         /// Ship to country
         /// </summary>
         public static SupportedFilterTypes ShipToCountries { get; } = new SupportedFilterTypes("ShipToCountries");
+        /// <summary>
+        /// Double encryption status
+        /// </summary>
+        public static SupportedFilterTypes DoubleEncryptionStatus { get; } = new SupportedFilterTypes("DoubleEncryptionStatus");
 
         public static bool operator ==(SupportedFilterTypes left, SupportedFilterTypes right) => left.Equals(right);
         public static bool operator !=(SupportedFilterTypes left, SupportedFilterTypes right) => !left.Equals(right);

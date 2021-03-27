@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Properties of the PrivateEndpointConnection.
- * API Version: 2018-01-01-preview.
+ * API Version: 2021-01-01-preview.
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**
@@ -53,6 +53,10 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
      */
     public readonly provisioningState!: pulumi.Output<string | undefined>;
     /**
+     * The system meta data relating to this resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.eventhub.SystemDataResponse>;
+    /**
      * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -81,12 +85,14 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
             inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["name"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["name"] = undefined /*out*/;
             inputs["privateEndpoint"] = undefined /*out*/;
             inputs["privateLinkServiceConnectionState"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {

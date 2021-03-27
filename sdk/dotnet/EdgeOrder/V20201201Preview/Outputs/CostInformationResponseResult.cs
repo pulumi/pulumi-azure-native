@@ -14,22 +14,22 @@ namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview.Outputs
     public sealed class CostInformationResponseResult
     {
         /// <summary>
+        /// Default url to display billing information
+        /// </summary>
+        public readonly string BillingInfoUrl;
+        /// <summary>
         /// Details on the various billing aspects for the product system.
         /// </summary>
-        public readonly ImmutableArray<Outputs.MeterDetailsResponseResult> MeterDetails;
-        /// <summary>
-        /// Primary meter i.e. basic billing type for the product system.
-        /// </summary>
-        public readonly string PrimaryMeterType;
+        public readonly ImmutableArray<Outputs.BillingMeterDetailsResponseResult> BillingMeterDetails;
 
         [OutputConstructor]
         private CostInformationResponseResult(
-            ImmutableArray<Outputs.MeterDetailsResponseResult> meterDetails,
+            string billingInfoUrl,
 
-            string primaryMeterType)
+            ImmutableArray<Outputs.BillingMeterDetailsResponseResult> billingMeterDetails)
         {
-            MeterDetails = meterDetails;
-            PrimaryMeterType = primaryMeterType;
+            BillingInfoUrl = billingInfoUrl;
+            BillingMeterDetails = billingMeterDetails;
         }
     }
 }

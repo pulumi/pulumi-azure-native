@@ -29,7 +29,7 @@ export interface GetApiManagementServiceDomainOwnershipIdentifierArgs {
  */
 export interface GetApiManagementServiceDomainOwnershipIdentifierResult {
     /**
-     * The domain ownership identifer value.
+     * The domain ownership identifier value.
      */
     readonly domainOwnershipIdentifier: string;
 }

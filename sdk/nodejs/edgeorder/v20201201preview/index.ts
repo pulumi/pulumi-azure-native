@@ -7,20 +7,17 @@ import * as utilities from "../../utilities";
 // Export members:
 export * from "./addressByName";
 export * from "./getAddressByName";
-export * from "./getOrderByName";
-export * from "./getOrderCollectionByName";
+export * from "./getOrderItemByName";
 export * from "./listConfigurations";
 export * from "./listProductFamilies";
-export * from "./orderByName";
-export * from "./orderCollectionByName";
+export * from "./orderItemByName";
 
 // Export enums:
 export * from "../../types/enums/edgeorder/v20201201preview";
 
 // Import resources to register:
 import { AddressByName } from "./addressByName";
-import { OrderByName } from "./orderByName";
-import { OrderCollectionByName } from "./orderCollectionByName";
+import { OrderItemByName } from "./orderItemByName";
 
 const _module = {
     version: utilities.getVersion(),
@@ -28,10 +25,8 @@ const _module = {
         switch (type) {
             case "azure-native:edgeorder/v20201201preview:AddressByName":
                 return new AddressByName(name, <any>undefined, { urn })
-            case "azure-native:edgeorder/v20201201preview:OrderByName":
-                return new OrderByName(name, <any>undefined, { urn })
-            case "azure-native:edgeorder/v20201201preview:OrderCollectionByName":
-                return new OrderCollectionByName(name, <any>undefined, { urn })
+            case "azure-native:edgeorder/v20201201preview:OrderItemByName":
+                return new OrderItemByName(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.EdgeOrder.Outputs
     public sealed class DeviceDetailsResponse
     {
         /// <summary>
-        /// Package Shipping details
+        /// Device history
         /// </summary>
         public readonly ImmutableArray<string> DeviceHistory;
         /// <summary>

@@ -22,6 +22,22 @@ export const AddressType = {
  */
 export type AddressType = (typeof AddressType)[keyof typeof AddressType];
 
+export const DoubleEncryptionStatus = {
+    /**
+     * Double encryption is disabled
+     */
+    Disabled: "Disabled",
+    /**
+     * Double encryption is enabled
+     */
+    Enabled: "Enabled",
+} as const;
+
+/**
+ * Defines secondary layer of software-based encryption enablement.
+ */
+export type DoubleEncryptionStatus = (typeof DoubleEncryptionStatus)[keyof typeof DoubleEncryptionStatus];
+
 export const NotificationStageName = {
     /**
      * Notification at device prepared stage.
@@ -30,7 +46,7 @@ export const NotificationStageName = {
     /**
      * Notification at device dispatched stage.
      */
-    Dispatched: "Dispatched",
+    Shipped: "Shipped",
     /**
      * Notification at device delivered stage.
      */
@@ -54,27 +70,31 @@ export const NotificationStageName = {
  */
 export type NotificationStageName = (typeof NotificationStageName)[keyof typeof NotificationStageName];
 
-export const OrderType = {
+export const OrderItemType = {
     /**
-     * Purchase Order.
+     * Purchase OrderItem.
      */
     Purchase: "Purchase",
     /**
-     * Rental Order.
+     * Rental OrderItem.
      */
     Rental: "Rental",
 } as const;
 
 /**
- * Order type.
+ * Order item type.
  */
-export type OrderType = (typeof OrderType)[keyof typeof OrderType];
+export type OrderItemType = (typeof OrderItemType)[keyof typeof OrderItemType];
 
 export const SupportedFilterTypes = {
     /**
      * Ship to country
      */
     ShipToCountries: "ShipToCountries",
+    /**
+     * Double encryption status
+     */
+    DoubleEncryptionStatus: "DoubleEncryptionStatus",
 } as const;
 
 /**

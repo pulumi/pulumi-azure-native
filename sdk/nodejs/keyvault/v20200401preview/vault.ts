@@ -48,6 +48,10 @@ export class Vault extends pulumi.CustomResource {
      */
     public readonly properties!: pulumi.Output<outputs.keyvault.v20200401preview.VaultPropertiesResponse>;
     /**
+     * System metadata for the key vault.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.keyvault.v20200401preview.SystemDataResponse>;
+    /**
      * Tags assigned to the key vault resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -79,11 +83,13 @@ export class Vault extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["vaultName"] = args ? args.vaultName : undefined;
             inputs["name"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["properties"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }

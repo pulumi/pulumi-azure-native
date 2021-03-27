@@ -36,7 +36,7 @@ export interface ListProductFamiliesArgs {
     /**
      * Dictionary of filterable properties on product family.
      */
-    readonly filterableProperties: {[key: string]: inputs.edgeorder.v20201201preview.FilterableProperty};
+    readonly filterableProperties: {[key: string]: inputs.edgeorder.v20201201preview.FilterableProperty[]};
     /**
      * $skipToken is supported on list of product families, which provides the next page in the list of product families.
      */

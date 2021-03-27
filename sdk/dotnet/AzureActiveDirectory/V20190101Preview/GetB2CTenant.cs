@@ -48,7 +48,7 @@ namespace Pulumi.AzureNative.AzureActiveDirectory.V20190101Preview
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The location in which the resource is hosted and data resides. Refer to [this documentation](https://aka.ms/B2CDataResidency) to see valid data residency locations. Please choose one of 'United States', 'Europe', and 'Asia Pacific'.
+        /// The location in which the resource is hosted and data resides. Can be one of 'United States', 'Europe', 'Asia Pacific', or 'Australia' (preview). Refer to [this documentation](https://aka.ms/B2CDataResidency) for more information.
         /// </summary>
         public readonly string Location;
         /// <summary>

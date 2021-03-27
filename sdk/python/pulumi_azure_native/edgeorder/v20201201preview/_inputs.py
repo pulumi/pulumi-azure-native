@@ -16,10 +16,12 @@ __all__ = [
     'ContactDetailsArgs',
     'CustomerSubscriptionDetailsArgs',
     'CustomerSubscriptionRegisteredFeaturesArgs',
+    'EncryptionPreferencesArgs',
     'FilterablePropertyArgs',
     'HierarchyInformationArgs',
+    'ManagementResourceDetailsArgs',
     'NotificationPreferenceArgs',
-    'OrderDetailsArgs',
+    'OrderItemDetailsArgs',
     'PreferencesArgs',
     'ProductDetailsArgs',
     'ShippingAddressArgs',
@@ -29,24 +31,24 @@ __all__ = [
 @pulumi.input_type
 class AddressDetailsArgs:
     def __init__(__self__, *,
-                 shipping_address: pulumi.Input['AddressPropertiesArgs']):
+                 forward_address: pulumi.Input['AddressPropertiesArgs']):
         """
         Address details for an order.
-        :param pulumi.Input['AddressPropertiesArgs'] shipping_address: Customer address and contact details. It should be address resource
+        :param pulumi.Input['AddressPropertiesArgs'] forward_address: Customer address and contact details. It should be address resource
         """
-        pulumi.set(__self__, "shipping_address", shipping_address)
+        pulumi.set(__self__, "forward_address", forward_address)
 
     @property
-    @pulumi.getter(name="shippingAddress")
-    def shipping_address(self) -> pulumi.Input['AddressPropertiesArgs']:
+    @pulumi.getter(name="forwardAddress")
+    def forward_address(self) -> pulumi.Input['AddressPropertiesArgs']:
         """
         Customer address and contact details. It should be address resource
         """
-        return pulumi.get(self, "shipping_address")
+        return pulumi.get(self, "forward_address")
 
-    @shipping_address.setter
-    def shipping_address(self, value: pulumi.Input['AddressPropertiesArgs']):
-        pulumi.set(self, "shipping_address", value)
+    @forward_address.setter
+    def forward_address(self, value: pulumi.Input['AddressPropertiesArgs']):
+        pulumi.set(self, "forward_address", value)
 
 
 @pulumi.input_type
@@ -91,58 +93,60 @@ class AddressPropertiesArgs:
 @pulumi.input_type
 class ConfigurationFiltersArgs:
     def __init__(__self__, *,
-                 filterable_property: Optional['FilterablePropertyArgs'] = None,
-                 hierarchy_information: Optional['HierarchyInformationArgs'] = None):
+                 hierarchy_information: 'HierarchyInformationArgs',
+                 filterable_property: Optional[Sequence['FilterablePropertyArgs']] = None):
         """
         Configuration filters
-        :param 'FilterablePropertyArgs' filterable_property: Filters specific to product
         :param 'HierarchyInformationArgs' hierarchy_information: Product hierarchy information
+        :param Sequence['FilterablePropertyArgs'] filterable_property: Filters specific to product
         """
+        pulumi.set(__self__, "hierarchy_information", hierarchy_information)
         if filterable_property is not None:
             pulumi.set(__self__, "filterable_property", filterable_property)
-        if hierarchy_information is not None:
-            pulumi.set(__self__, "hierarchy_information", hierarchy_information)
-
-    @property
-    @pulumi.getter(name="filterableProperty")
-    def filterable_property(self) -> Optional['FilterablePropertyArgs']:
-        """
-        Filters specific to product
-        """
-        return pulumi.get(self, "filterable_property")
-
-    @filterable_property.setter
-    def filterable_property(self, value: Optional['FilterablePropertyArgs']):
-        pulumi.set(self, "filterable_property", value)
 
     @property
     @pulumi.getter(name="hierarchyInformation")
-    def hierarchy_information(self) -> Optional['HierarchyInformationArgs']:
+    def hierarchy_information(self) -> 'HierarchyInformationArgs':
         """
         Product hierarchy information
         """
         return pulumi.get(self, "hierarchy_information")
 
     @hierarchy_information.setter
-    def hierarchy_information(self, value: Optional['HierarchyInformationArgs']):
+    def hierarchy_information(self, value: 'HierarchyInformationArgs'):
         pulumi.set(self, "hierarchy_information", value)
+
+    @property
+    @pulumi.getter(name="filterableProperty")
+    def filterable_property(self) -> Optional[Sequence['FilterablePropertyArgs']]:
+        """
+        Filters specific to product
+        """
+        return pulumi.get(self, "filterable_property")
+
+    @filterable_property.setter
+    def filterable_property(self, value: Optional[Sequence['FilterablePropertyArgs']]):
+        pulumi.set(self, "filterable_property", value)
 
 
 @pulumi.input_type
 class ContactDetailsArgs:
     def __init__(__self__, *,
                  contact_name: pulumi.Input[str],
+                 email_list: pulumi.Input[Sequence[pulumi.Input[str]]],
                  phone: pulumi.Input[str],
                  mobile: Optional[pulumi.Input[str]] = None,
                  phone_extension: Optional[pulumi.Input[str]] = None):
         """
         Contact Details.
         :param pulumi.Input[str] contact_name: Contact name of the person.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] email_list: List of Email-ids to be notified about job progress.
         :param pulumi.Input[str] phone: Phone number of the contact person.
         :param pulumi.Input[str] mobile: Mobile number of the contact person.
         :param pulumi.Input[str] phone_extension: Phone extension number of the contact person.
         """
         pulumi.set(__self__, "contact_name", contact_name)
+        pulumi.set(__self__, "email_list", email_list)
         pulumi.set(__self__, "phone", phone)
         if mobile is not None:
             pulumi.set(__self__, "mobile", mobile)
@@ -160,6 +164,18 @@ class ContactDetailsArgs:
     @contact_name.setter
     def contact_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "contact_name", value)
+
+    @property
+    @pulumi.getter(name="emailList")
+    def email_list(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        List of Email-ids to be notified about job progress.
+        """
+        return pulumi.get(self, "email_list")
+
+    @email_list.setter
+    def email_list(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "email_list", value)
 
     @property
     @pulumi.getter
@@ -205,6 +221,7 @@ class CustomerSubscriptionDetailsArgs:
                  location_placement_id: Optional[str] = None,
                  registered_features: Optional[Sequence['CustomerSubscriptionRegisteredFeaturesArgs']] = None):
         """
+        Holds Customer subscription details. Clients can display available products to unregistered customers by explicitly passing subscription details
         :param str quota_id: Quota ID of a subscription
         :param str location_placement_id: Location placement Id of a subscription
         :param Sequence['CustomerSubscriptionRegisteredFeaturesArgs'] registered_features: List of registered feature flags for subscription
@@ -258,6 +275,7 @@ class CustomerSubscriptionRegisteredFeaturesArgs:
                  name: Optional[str] = None,
                  state: Optional[str] = None):
         """
+        Represents subscription registered features
         :param str name: Name of subscription registered feature
         :param str state: State of subscription registered feature
         """
@@ -292,18 +310,53 @@ class CustomerSubscriptionRegisteredFeaturesArgs:
 
 
 @pulumi.input_type
+class EncryptionPreferencesArgs:
+    def __init__(__self__, *,
+                 double_encryption_status: Optional[pulumi.Input[Union[str, 'DoubleEncryptionStatus']]] = None):
+        """
+        Preferences related to the double encryption
+        :param pulumi.Input[Union[str, 'DoubleEncryptionStatus']] double_encryption_status: Defines secondary layer of software-based encryption enablement.
+        """
+        if double_encryption_status is not None:
+            pulumi.set(__self__, "double_encryption_status", double_encryption_status)
+
+    @property
+    @pulumi.getter(name="doubleEncryptionStatus")
+    def double_encryption_status(self) -> Optional[pulumi.Input[Union[str, 'DoubleEncryptionStatus']]]:
+        """
+        Defines secondary layer of software-based encryption enablement.
+        """
+        return pulumi.get(self, "double_encryption_status")
+
+    @double_encryption_status.setter
+    def double_encryption_status(self, value: Optional[pulumi.Input[Union[str, 'DoubleEncryptionStatus']]]):
+        pulumi.set(self, "double_encryption_status", value)
+
+
+@pulumi.input_type
 class FilterablePropertyArgs:
     def __init__(__self__, *,
-                 type: Union[str, 'SupportedFilterTypes'],
-                 supported_values: Optional[Sequence[str]] = None):
+                 supported_values: Sequence[str],
+                 type: Union[str, 'SupportedFilterTypes']):
         """
         Class defining the list of filter values on a filter type as part of configuration request.
-        :param Union[str, 'SupportedFilterTypes'] type: Type of product filter.
         :param Sequence[str] supported_values: Values to be filtered.
+        :param Union[str, 'SupportedFilterTypes'] type: Type of product filter.
         """
+        pulumi.set(__self__, "supported_values", supported_values)
         pulumi.set(__self__, "type", type)
-        if supported_values is not None:
-            pulumi.set(__self__, "supported_values", supported_values)
+
+    @property
+    @pulumi.getter(name="supportedValues")
+    def supported_values(self) -> Sequence[str]:
+        """
+        Values to be filtered.
+        """
+        return pulumi.get(self, "supported_values")
+
+    @supported_values.setter
+    def supported_values(self, value: Sequence[str]):
+        pulumi.set(self, "supported_values", value)
 
     @property
     @pulumi.getter
@@ -316,18 +369,6 @@ class FilterablePropertyArgs:
     @type.setter
     def type(self, value: Union[str, 'SupportedFilterTypes']):
         pulumi.set(self, "type", value)
-
-    @property
-    @pulumi.getter(name="supportedValues")
-    def supported_values(self) -> Optional[Sequence[str]]:
-        """
-        Values to be filtered.
-        """
-        return pulumi.get(self, "supported_values")
-
-    @supported_values.setter
-    def supported_values(self, value: Optional[Sequence[str]]):
-        pulumi.set(self, "supported_values", value)
 
 
 @pulumi.input_type
@@ -403,6 +444,29 @@ class HierarchyInformationArgs:
 
 
 @pulumi.input_type
+class ManagementResourceDetailsArgs:
+    def __init__(__self__, *,
+                 management_resource_arm_id: pulumi.Input[str]):
+        """
+        Management resource details to link device
+        :param pulumi.Input[str] management_resource_arm_id: Management resource ARM ID
+        """
+        pulumi.set(__self__, "management_resource_arm_id", management_resource_arm_id)
+
+    @property
+    @pulumi.getter(name="managementResourceArmId")
+    def management_resource_arm_id(self) -> pulumi.Input[str]:
+        """
+        Management resource ARM ID
+        """
+        return pulumi.get(self, "management_resource_arm_id")
+
+    @management_resource_arm_id.setter
+    def management_resource_arm_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "management_resource_arm_id", value)
+
+
+@pulumi.input_type
 class NotificationPreferenceArgs:
     def __init__(__self__, *,
                  send_notification: pulumi.Input[bool],
@@ -441,37 +505,41 @@ class NotificationPreferenceArgs:
 
 
 @pulumi.input_type
-class OrderDetailsArgs:
+class OrderItemDetailsArgs:
     def __init__(__self__, *,
-                 order_type: pulumi.Input[Union[str, 'OrderType']],
+                 order_item_type: pulumi.Input[Union[str, 'OrderItemType']],
                  product_details: pulumi.Input['ProductDetailsArgs'],
+                 management_resource_details: Optional[pulumi.Input['ManagementResourceDetailsArgs']] = None,
                  notification_email_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  preferences: Optional[pulumi.Input['PreferencesArgs']] = None):
         """
-        Order details
-        :param pulumi.Input[Union[str, 'OrderType']] order_type: Order type.
+        Order item details
+        :param pulumi.Input[Union[str, 'OrderItemType']] order_item_type: Order item type.
         :param pulumi.Input['ProductDetailsArgs'] product_details: Unique identifier for configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] notification_email_list: Package Shipping details
+        :param pulumi.Input['ManagementResourceDetailsArgs'] management_resource_details: Management resource details
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] notification_email_list: Additional notification email list
         :param pulumi.Input['PreferencesArgs'] preferences: Customer notification Preferences
         """
-        pulumi.set(__self__, "order_type", order_type)
+        pulumi.set(__self__, "order_item_type", order_item_type)
         pulumi.set(__self__, "product_details", product_details)
+        if management_resource_details is not None:
+            pulumi.set(__self__, "management_resource_details", management_resource_details)
         if notification_email_list is not None:
             pulumi.set(__self__, "notification_email_list", notification_email_list)
         if preferences is not None:
             pulumi.set(__self__, "preferences", preferences)
 
     @property
-    @pulumi.getter(name="orderType")
-    def order_type(self) -> pulumi.Input[Union[str, 'OrderType']]:
+    @pulumi.getter(name="orderItemType")
+    def order_item_type(self) -> pulumi.Input[Union[str, 'OrderItemType']]:
         """
-        Order type.
+        Order item type.
         """
-        return pulumi.get(self, "order_type")
+        return pulumi.get(self, "order_item_type")
 
-    @order_type.setter
-    def order_type(self, value: pulumi.Input[Union[str, 'OrderType']]):
-        pulumi.set(self, "order_type", value)
+    @order_item_type.setter
+    def order_item_type(self, value: pulumi.Input[Union[str, 'OrderItemType']]):
+        pulumi.set(self, "order_item_type", value)
 
     @property
     @pulumi.getter(name="productDetails")
@@ -486,10 +554,22 @@ class OrderDetailsArgs:
         pulumi.set(self, "product_details", value)
 
     @property
+    @pulumi.getter(name="managementResourceDetails")
+    def management_resource_details(self) -> Optional[pulumi.Input['ManagementResourceDetailsArgs']]:
+        """
+        Management resource details
+        """
+        return pulumi.get(self, "management_resource_details")
+
+    @management_resource_details.setter
+    def management_resource_details(self, value: Optional[pulumi.Input['ManagementResourceDetailsArgs']]):
+        pulumi.set(self, "management_resource_details", value)
+
+    @property
     @pulumi.getter(name="notificationEmailList")
     def notification_email_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Package Shipping details
+        Additional notification email list
         """
         return pulumi.get(self, "notification_email_list")
 
@@ -513,17 +593,33 @@ class OrderDetailsArgs:
 @pulumi.input_type
 class PreferencesArgs:
     def __init__(__self__, *,
+                 encryption_preferences: Optional[pulumi.Input['EncryptionPreferencesArgs']] = None,
                  notification_preferences: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationPreferenceArgs']]]] = None,
                  transport_preferences: Optional[pulumi.Input['TransportPreferencesArgs']] = None):
         """
         Preferences related to the order
+        :param pulumi.Input['EncryptionPreferencesArgs'] encryption_preferences: Preferences related to the Encryption.
         :param pulumi.Input[Sequence[pulumi.Input['NotificationPreferenceArgs']]] notification_preferences: Notification preferences.
         :param pulumi.Input['TransportPreferencesArgs'] transport_preferences: Preferences related to the shipment logistics of the order.
         """
+        if encryption_preferences is not None:
+            pulumi.set(__self__, "encryption_preferences", encryption_preferences)
         if notification_preferences is not None:
             pulumi.set(__self__, "notification_preferences", notification_preferences)
         if transport_preferences is not None:
             pulumi.set(__self__, "transport_preferences", transport_preferences)
+
+    @property
+    @pulumi.getter(name="encryptionPreferences")
+    def encryption_preferences(self) -> Optional[pulumi.Input['EncryptionPreferencesArgs']]:
+        """
+        Preferences related to the Encryption.
+        """
+        return pulumi.get(self, "encryption_preferences")
+
+    @encryption_preferences.setter
+    def encryption_preferences(self, value: Optional[pulumi.Input['EncryptionPreferencesArgs']]):
+        pulumi.set(self, "encryption_preferences", value)
 
     @property
     @pulumi.getter(name="notificationPreferences")

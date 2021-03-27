@@ -42,6 +42,36 @@ func (e AddressType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.St
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// Defines secondary layer of software-based encryption enablement.
+type DoubleEncryptionStatus pulumi.String
+
+const (
+	// Double encryption is disabled
+	DoubleEncryptionStatusDisabled = DoubleEncryptionStatus("Disabled")
+	// Double encryption is enabled
+	DoubleEncryptionStatusEnabled = DoubleEncryptionStatus("Enabled")
+)
+
+func (DoubleEncryptionStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e DoubleEncryptionStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DoubleEncryptionStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DoubleEncryptionStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DoubleEncryptionStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // Name of the stage.
 type NotificationStageName pulumi.String
 
@@ -49,7 +79,7 @@ const (
 	// Notification at device prepared stage.
 	NotificationStageNameDevicePrepared = NotificationStageName("DevicePrepared")
 	// Notification at device dispatched stage.
-	NotificationStageNameDispatched = NotificationStageName("Dispatched")
+	NotificationStageNameShipped = NotificationStageName("Shipped")
 	// Notification at device delivered stage.
 	NotificationStageNameDelivered = NotificationStageName("Delivered")
 	// Notification at device picked up from user stage.
@@ -80,33 +110,33 @@ func (e NotificationStageName) ToStringPtrOutputWithContext(ctx context.Context)
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// Order type.
-type OrderType pulumi.String
+// Order item type.
+type OrderItemType pulumi.String
 
 const (
-	// Purchase Order.
-	OrderTypePurchase = OrderType("Purchase")
-	// Rental Order.
-	OrderTypeRental = OrderType("Rental")
+	// Purchase OrderItem.
+	OrderItemTypePurchase = OrderItemType("Purchase")
+	// Rental OrderItem.
+	OrderItemTypeRental = OrderItemType("Rental")
 )
 
-func (OrderType) ElementType() reflect.Type {
+func (OrderItemType) ElementType() reflect.Type {
 	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
-func (e OrderType) ToStringOutput() pulumi.StringOutput {
+func (e OrderItemType) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e OrderType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e OrderItemType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e OrderType) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e OrderItemType) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e OrderType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e OrderItemType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
@@ -116,6 +146,8 @@ type SupportedFilterTypes pulumi.String
 const (
 	// Ship to country
 	SupportedFilterTypesShipToCountries = SupportedFilterTypes("ShipToCountries")
+	// Double encryption status
+	SupportedFilterTypesDoubleEncryptionStatus = SupportedFilterTypes("DoubleEncryptionStatus")
 )
 
 func (SupportedFilterTypes) ElementType() reflect.Type {

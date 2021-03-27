@@ -6,12 +6,10 @@
 from ._enums import *
 from .address_by_name import *
 from .get_address_by_name import *
-from .get_order_by_name import *
-from .get_order_collection_by_name import *
+from .get_order_item_by_name import *
 from .list_configurations import *
 from .list_product_families import *
-from .order_by_name import *
-from .order_collection_by_name import *
+from .order_item_by_name import *
 from ._inputs import *
 from . import outputs
 
@@ -29,10 +27,8 @@ def _register_module():
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
             if typ == "azure-native:edgeorder/v20201201preview:AddressByName":
                 return AddressByName(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "azure-native:edgeorder/v20201201preview:OrderByName":
-                return OrderByName(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "azure-native:edgeorder/v20201201preview:OrderCollectionByName":
-                return OrderCollectionByName(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:edgeorder/v20201201preview:OrderItemByName":
+                return OrderItemByName(name, pulumi.ResourceOptions(urn=urn))
             else:
                 raise Exception(f"unknown resource type {typ}")
 

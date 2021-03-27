@@ -14,22 +14,22 @@ namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview.Outputs
     public sealed class AddressDetailsResponse
     {
         /// <summary>
+        /// Customer address and contact details. It should be address resource
+        /// </summary>
+        public readonly Outputs.AddressPropertiesResponse ForwardAddress;
+        /// <summary>
         /// Return shipping address
         /// </summary>
         public readonly Outputs.AddressPropertiesResponse ReturnAddress;
-        /// <summary>
-        /// Customer address and contact details. It should be address resource
-        /// </summary>
-        public readonly Outputs.AddressPropertiesResponse ShippingAddress;
 
         [OutputConstructor]
         private AddressDetailsResponse(
-            Outputs.AddressPropertiesResponse returnAddress,
+            Outputs.AddressPropertiesResponse forwardAddress,
 
-            Outputs.AddressPropertiesResponse shippingAddress)
+            Outputs.AddressPropertiesResponse returnAddress)
         {
+            ForwardAddress = forwardAddress;
             ReturnAddress = returnAddress;
-            ShippingAddress = shippingAddress;
         }
     }
 }

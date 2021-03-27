@@ -59,6 +59,10 @@ namespace Pulumi.AzureNative.KeyVault.V20200401Preview
         /// </summary>
         public readonly Outputs.VaultPropertiesResponse Properties;
         /// <summary>
+        /// System metadata for the key vault.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Tags assigned to the key vault resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -77,6 +81,8 @@ namespace Pulumi.AzureNative.KeyVault.V20200401Preview
 
             Outputs.VaultPropertiesResponse properties,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string type)
@@ -85,6 +91,7 @@ namespace Pulumi.AzureNative.KeyVault.V20200401Preview
             Location = location;
             Name = name;
             Properties = properties;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
         }

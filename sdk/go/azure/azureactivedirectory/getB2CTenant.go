@@ -29,7 +29,7 @@ type LookupB2CTenantResult struct {
 	BillingConfig *B2CTenantResourcePropertiesResponseBillingConfig `pulumi:"billingConfig"`
 	// An identifier that represents the B2C tenant resource.
 	Id string `pulumi:"id"`
-	// The location in which the resource is hosted and data resides. Refer to [this documentation](https://aka.ms/B2CDataResidency) to see valid data residency locations. Please choose one of 'United States', 'Europe', and 'Asia Pacific'.
+	// The location in which the resource is hosted and data resides. Can be one of 'United States', 'Europe', 'Asia Pacific', or 'Australia' (preview). Refer to [this documentation](https://aka.ms/B2CDataResidency) for more information.
 	Location string `pulumi:"location"`
 	// The name of the B2C tenant resource.
 	Name string `pulumi:"name"`

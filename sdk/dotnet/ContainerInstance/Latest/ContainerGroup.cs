@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ContainerInstance.Latest
 {
     /// <summary>
     /// A container group.
-    /// Latest API Version: 2020-11-01.
+    /// Latest API Version: 2021-03-01.
     /// </summary>
     [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:containerinstance:ContainerGroup'.")]
     [AzureNativeResourceType("azure-native:containerinstance/latest:ContainerGroup")]

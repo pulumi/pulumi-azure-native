@@ -14,6 +14,10 @@ namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview.Outputs
     public sealed class PreferencesResponse
     {
         /// <summary>
+        /// Preferences related to the Encryption.
+        /// </summary>
+        public readonly Outputs.EncryptionPreferencesResponse? EncryptionPreferences;
+        /// <summary>
         /// Notification preferences.
         /// </summary>
         public readonly ImmutableArray<Outputs.NotificationPreferenceResponse> NotificationPreferences;
@@ -24,10 +28,13 @@ namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview.Outputs
 
         [OutputConstructor]
         private PreferencesResponse(
+            Outputs.EncryptionPreferencesResponse? encryptionPreferences,
+
             ImmutableArray<Outputs.NotificationPreferenceResponse> notificationPreferences,
 
             Outputs.TransportPreferencesResponse? transportPreferences)
         {
+            EncryptionPreferences = encryptionPreferences;
             NotificationPreferences = notificationPreferences;
             TransportPreferences = transportPreferences;
         }

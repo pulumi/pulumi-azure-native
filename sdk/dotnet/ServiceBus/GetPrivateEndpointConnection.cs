@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceBus
     {
         /// <summary>
         /// Properties of the PrivateEndpointConnection.
-        /// API Version: 2018-01-01-preview.
+        /// API Version: 2021-01-01-preview.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionResult> InvokeAsync(GetPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionResult>("azure-native:servicebus:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionArgs(), options.WithVersion());
@@ -70,6 +70,10 @@ namespace Pulumi.AzureNative.ServiceBus
         /// </summary>
         public readonly string? ProvisioningState;
         /// <summary>
+        /// The system meta data relating to this resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Resource type
         /// </summary>
         public readonly string Type;
@@ -86,6 +90,8 @@ namespace Pulumi.AzureNative.ServiceBus
 
             string? provisioningState,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             Id = id;
@@ -93,6 +99,7 @@ namespace Pulumi.AzureNative.ServiceBus
             PrivateEndpoint = privateEndpoint;
             PrivateLinkServiceConnectionState = privateLinkServiceConnectionState;
             ProvisioningState = provisioningState;
+            SystemData = systemData;
             Type = type;
         }
     }

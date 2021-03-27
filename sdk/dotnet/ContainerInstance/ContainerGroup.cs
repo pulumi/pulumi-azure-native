@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ContainerInstance
 {
     /// <summary>
     /// A container group.
-    /// API Version: 2020-11-01.
+    /// API Version: 2021-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerinstance:ContainerGroup")]
     public partial class ContainerGroup : Pulumi.CustomResource

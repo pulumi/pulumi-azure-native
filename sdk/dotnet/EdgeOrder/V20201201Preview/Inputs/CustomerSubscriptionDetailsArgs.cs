@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview.Inputs
 {
 
+    /// <summary>
+    /// Holds Customer subscription details. Clients can display available products to unregistered customers by explicitly passing subscription details
+    /// </summary>
     public sealed class CustomerSubscriptionDetailsArgs : Pulumi.InvokeArgs
     {
         /// <summary>

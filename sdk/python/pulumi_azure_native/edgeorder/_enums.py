@@ -6,8 +6,9 @@ from enum import Enum
 
 __all__ = [
     'AddressType',
+    'DoubleEncryptionStatus',
     'NotificationStageName',
-    'OrderType',
+    'OrderItemType',
     'SupportedFilterTypes',
     'TransportShipmentTypes',
 ]
@@ -22,21 +23,29 @@ class AddressType(str, Enum):
     COMMERCIAL = "Commercial"
 
 
+class DoubleEncryptionStatus(str, Enum):
+    """
+    Defines secondary layer of software-based encryption enablement.
+    """
+    DISABLED = "Disabled"
+    ENABLED = "Enabled"
+
+
 class NotificationStageName(str, Enum):
     """
     Name of the stage.
     """
     DEVICE_PREPARED = "DevicePrepared"
-    DISPATCHED = "Dispatched"
+    SHIPPED = "Shipped"
     DELIVERED = "Delivered"
     PICKED_UP = "PickedUp"
     AT_AZURE_DC = "AtAzureDC"
     DATA_COPY = "DataCopy"
 
 
-class OrderType(str, Enum):
+class OrderItemType(str, Enum):
     """
-    Order type.
+    Order item type.
     """
     PURCHASE = "Purchase"
     RENTAL = "Rental"
@@ -47,6 +56,7 @@ class SupportedFilterTypes(str, Enum):
     Type of product filter.
     """
     SHIP_TO_COUNTRIES = "ShipToCountries"
+    DOUBLE_ENCRYPTION_STATUS = "DoubleEncryptionStatus"
 
 
 class TransportShipmentTypes(str, Enum):

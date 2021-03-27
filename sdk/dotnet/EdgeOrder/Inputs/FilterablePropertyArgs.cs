@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.EdgeOrder.Inputs
     /// </summary>
     public sealed class FilterablePropertyArgs : Pulumi.InvokeArgs
     {
-        [Input("supportedValues")]
+        [Input("supportedValues", required: true)]
         private List<string>? _supportedValues;
 
         /// <summary>

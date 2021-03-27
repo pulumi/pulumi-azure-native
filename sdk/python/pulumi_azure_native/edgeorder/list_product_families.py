@@ -59,7 +59,7 @@ class AwaitableListProductFamiliesResult(ListProductFamiliesResult):
 
 def list_product_families(customer_subscription_details: Optional[pulumi.InputType['CustomerSubscriptionDetailsArgs']] = None,
                           expand: Optional[str] = None,
-                          filterable_properties: Optional[Mapping[str, pulumi.InputType['FilterablePropertyArgs']]] = None,
+                          filterable_properties: Optional[Mapping[str, Sequence[pulumi.InputType['FilterablePropertyArgs']]]] = None,
                           skip_token: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListProductFamiliesResult:
     """
@@ -69,7 +69,7 @@ def list_product_families(customer_subscription_details: Optional[pulumi.InputTy
 
     :param pulumi.InputType['CustomerSubscriptionDetailsArgs'] customer_subscription_details: Customer subscription properties. Clients can display available products to unregistered customers by explicitly passing subscription details
     :param str expand: $expand is supported on configurations parameter for product, which provides details on the configurations for the product.
-    :param Mapping[str, pulumi.InputType['FilterablePropertyArgs']] filterable_properties: Dictionary of filterable properties on product family.
+    :param Mapping[str, Sequence[pulumi.InputType['FilterablePropertyArgs']]] filterable_properties: Dictionary of filterable properties on product family.
     :param str skip_token: $skipToken is supported on list of product families, which provides the next page in the list of product families.
     """
     __args__ = dict()

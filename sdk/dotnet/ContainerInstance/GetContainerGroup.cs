@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerInstance
     {
         /// <summary>
         /// A container group.
-        /// API Version: 2020-11-01.
+        /// API Version: 2021-03-01.
         /// </summary>
         public static Task<GetContainerGroupResult> InvokeAsync(GetContainerGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetContainerGroupResult>("azure-native:containerinstance:getContainerGroup", args ?? new GetContainerGroupArgs(), options.WithVersion());

@@ -279,7 +279,7 @@ def get_container_group(container_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetContainerGroupResult:
     """
     A container group.
-    API Version: 2020-11-01.
+    API Version: 2021-03-01.
 
 
     :param str container_group_name: The name of the container group.

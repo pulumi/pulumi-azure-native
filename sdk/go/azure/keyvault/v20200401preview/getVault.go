@@ -34,6 +34,8 @@ type LookupVaultResult struct {
 	Name string `pulumi:"name"`
 	// Properties of the vault
 	Properties VaultPropertiesResponse `pulumi:"properties"`
+	// System metadata for the key vault.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Tags assigned to the key vault resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type of the key vault resource.

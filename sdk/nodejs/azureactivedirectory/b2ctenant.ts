@@ -40,7 +40,7 @@ export class B2CTenant extends pulumi.CustomResource {
      */
     public /*out*/ readonly billingConfig!: pulumi.Output<outputs.azureactivedirectory.B2CTenantResourcePropertiesResponseBillingConfig | undefined>;
     /**
-     * The location in which the resource is hosted and data resides. Refer to [this documentation](https://aka.ms/B2CDataResidency) to see valid data residency locations. Please choose one of 'United States', 'Europe', and 'Asia Pacific'.
+     * The location in which the resource is hosted and data resides. Can be one of 'United States', 'Europe', 'Asia Pacific', or 'Australia' (preview). Refer to [this documentation](https://aka.ms/B2CDataResidency) for more information.
      */
     public readonly location!: pulumi.Output<string>;
     /**
@@ -117,7 +117,7 @@ export class B2CTenant extends pulumi.CustomResource {
  */
 export interface B2CTenantArgs {
     /**
-     * The location in which the resource is hosted and data resides. Refer to [this documentation](https://aka.ms/B2CDataResidency) to see valid data residency locations. Please choose one of 'United States', 'Europe', and 'Asia Pacific'.
+     * The location in which the resource is hosted and data resides. Can be one of 'United States', 'Europe', 'Asia Pacific', or 'Australia' (preview). Refer to [this documentation](https://aka.ms/B2CDataResidency) for more information.
      */
     readonly location?: pulumi.Input<string>;
     readonly properties: pulumi.Input<inputs.azureactivedirectory.CreateTenantRequestBodyProperties>;

@@ -15,17 +15,23 @@ namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview.Inputs
     /// </summary>
     public sealed class ConfigurationFiltersArgs : Pulumi.InvokeArgs
     {
+        [Input("filterableProperty")]
+        private List<Inputs.FilterablePropertyArgs>? _filterableProperty;
+
         /// <summary>
         /// Filters specific to product
         /// </summary>
-        [Input("filterableProperty")]
-        public Inputs.FilterablePropertyArgs? FilterableProperty { get; set; }
+        public List<Inputs.FilterablePropertyArgs> FilterableProperty
+        {
+            get => _filterableProperty ?? (_filterableProperty = new List<Inputs.FilterablePropertyArgs>());
+            set => _filterableProperty = value;
+        }
 
         /// <summary>
         /// Product hierarchy information
         /// </summary>
-        [Input("hierarchyInformation")]
-        public Inputs.HierarchyInformationArgs? HierarchyInformation { get; set; }
+        [Input("hierarchyInformation", required: true)]
+        public Inputs.HierarchyInformationArgs HierarchyInformation { get; set; } = null!;
 
         public ConfigurationFiltersArgs()
         {

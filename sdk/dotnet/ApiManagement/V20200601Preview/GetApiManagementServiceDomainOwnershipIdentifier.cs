@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20200601Preview
     public sealed class GetApiManagementServiceDomainOwnershipIdentifierResult
     {
         /// <summary>
-        /// The domain ownership identifer value.
+        /// The domain ownership identifier value.
         /// </summary>
         public readonly string DomainOwnershipIdentifier;
 

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Properties of the PrivateEndpointConnection.
- * API Version: 2018-01-01-preview.
+ * API Version: 2021-01-01-preview.
  */
 export function getPrivateEndpointConnection(args: GetPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionResult> {
     if (!opts) {
@@ -63,6 +63,10 @@ export interface GetPrivateEndpointConnectionResult {
      * Provisioning state of the Private Endpoint Connection.
      */
     readonly provisioningState?: string;
+    /**
+     * The system meta data relating to this resource.
+     */
+    readonly systemData: outputs.eventhub.SystemDataResponse;
     /**
      * Resource type.
      */

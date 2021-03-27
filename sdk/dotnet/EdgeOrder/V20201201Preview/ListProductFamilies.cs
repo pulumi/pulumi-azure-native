@@ -34,14 +34,14 @@ namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview
         public string? Expand { get; set; }
 
         [Input("filterableProperties", required: true)]
-        private Dictionary<string, Inputs.FilterablePropertyArgs>? _filterableProperties;
+        private Dictionary<string, ImmutableArray<Inputs.FilterablePropertyArgs>>? _filterableProperties;
 
         /// <summary>
         /// Dictionary of filterable properties on product family.
         /// </summary>
-        public Dictionary<string, Inputs.FilterablePropertyArgs> FilterableProperties
+        public Dictionary<string, ImmutableArray<Inputs.FilterablePropertyArgs>> FilterableProperties
         {
-            get => _filterableProperties ?? (_filterableProperties = new Dictionary<string, Inputs.FilterablePropertyArgs>());
+            get => _filterableProperties ?? (_filterableProperties = new Dictionary<string, ImmutableArray<Inputs.FilterablePropertyArgs>>());
             set => _filterableProperties = value;
         }
 

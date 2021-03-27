@@ -21,6 +21,18 @@ namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview.Inputs
         [Input("contactName", required: true)]
         public Input<string> ContactName { get; set; } = null!;
 
+        [Input("emailList", required: true)]
+        private InputList<string>? _emailList;
+
+        /// <summary>
+        /// List of Email-ids to be notified about job progress.
+        /// </summary>
+        public InputList<string> EmailList
+        {
+            get => _emailList ?? (_emailList = new InputList<string>());
+            set => _emailList = value;
+        }
+
         /// <summary>
         /// Mobile number of the contact person.
         /// </summary>

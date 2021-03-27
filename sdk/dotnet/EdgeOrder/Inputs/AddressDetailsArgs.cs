@@ -18,8 +18,8 @@ namespace Pulumi.AzureNative.EdgeOrder.Inputs
         /// <summary>
         /// Customer address and contact details. It should be address resource
         /// </summary>
-        [Input("shippingAddress", required: true)]
-        public Input<Inputs.AddressPropertiesArgs> ShippingAddress { get; set; } = null!;
+        [Input("forwardAddress", required: true)]
+        public Input<Inputs.AddressPropertiesArgs> ForwardAddress { get; set; } = null!;
 
         public AddressDetailsArgs()
         {

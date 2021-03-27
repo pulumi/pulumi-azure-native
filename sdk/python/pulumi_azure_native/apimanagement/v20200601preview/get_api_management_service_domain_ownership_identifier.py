@@ -28,7 +28,7 @@ class GetApiManagementServiceDomainOwnershipIdentifierResult:
     @pulumi.getter(name="domainOwnershipIdentifier")
     def domain_ownership_identifier(self) -> str:
         """
-        The domain ownership identifer value.
+        The domain ownership identifier value.
         """
         return pulumi.get(self, "domain_ownership_identifier")
 

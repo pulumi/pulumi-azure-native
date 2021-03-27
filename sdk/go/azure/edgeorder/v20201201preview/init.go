@@ -23,10 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "azure-native:edgeorder/v20201201preview:AddressByName":
 		r, err = NewAddressByName(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-native:edgeorder/v20201201preview:OrderByName":
-		r, err = NewOrderByName(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-native:edgeorder/v20201201preview:OrderCollectionByName":
-		r, err = NewOrderCollectionByName(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-native:edgeorder/v20201201preview:OrderItemByName":
+		r, err = NewOrderItemByName(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

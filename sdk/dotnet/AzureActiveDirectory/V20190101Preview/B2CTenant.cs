@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.AzureActiveDirectory.V20190101Preview
         public Output<Outputs.B2CTenantResourcePropertiesResponseBillingConfig?> BillingConfig { get; private set; } = null!;
 
         /// <summary>
-        /// The location in which the resource is hosted and data resides. Refer to [this documentation](https://aka.ms/B2CDataResidency) to see valid data residency locations. Please choose one of 'United States', 'Europe', and 'Asia Pacific'.
+        /// The location in which the resource is hosted and data resides. Can be one of 'United States', 'Europe', 'Asia Pacific', or 'Australia' (preview). Refer to [this documentation](https://aka.ms/B2CDataResidency) for more information.
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
@@ -106,7 +106,7 @@ namespace Pulumi.AzureNative.AzureActiveDirectory.V20190101Preview
     public sealed class B2CTenantArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The location in which the resource is hosted and data resides. Refer to [this documentation](https://aka.ms/B2CDataResidency) to see valid data residency locations. Please choose one of 'United States', 'Europe', and 'Asia Pacific'.
+        /// The location in which the resource is hosted and data resides. Can be one of 'United States', 'Europe', 'Asia Pacific', or 'Australia' (preview). Refer to [this documentation](https://aka.ms/B2CDataResidency) for more information.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }

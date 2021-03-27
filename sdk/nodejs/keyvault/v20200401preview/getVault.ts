@@ -54,6 +54,10 @@ export interface GetVaultResult {
      */
     readonly properties: outputs.keyvault.v20200401preview.VaultPropertiesResponse;
     /**
+     * System metadata for the key vault.
+     */
+    readonly systemData: outputs.keyvault.v20200401preview.SystemDataResponse;
+    /**
      * Tags assigned to the key vault resource.
      */
     readonly tags?: {[key: string]: string};

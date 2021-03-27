@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ServiceBus
 {
     /// <summary>
     /// Properties of the PrivateEndpointConnection.
-    /// API Version: 2018-01-01-preview.
+    /// API Version: 2021-01-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:servicebus:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
@@ -39,6 +39,12 @@ namespace Pulumi.AzureNative.ServiceBus
         /// </summary>
         [Output("provisioningState")]
         public Output<string?> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The system meta data relating to this resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource type

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A container group.
- * API Version: 2020-11-01.
+ * API Version: 2021-03-01.
  */
 export class ContainerGroup extends pulumi.CustomResource {
     /**

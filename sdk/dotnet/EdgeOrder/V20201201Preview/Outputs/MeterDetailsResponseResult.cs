@@ -14,29 +14,29 @@ namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview.Outputs
     public sealed class MeterDetailsResponseResult
     {
         /// <summary>
-        /// Billing model to represent billing cycle, i.e. Monthly, biweekly, daily, hourly etc.
+        /// Represents billing type.
         /// </summary>
-        public readonly Outputs.BillingModelResponseResult BillingModel;
+        public readonly string BillingType;
         /// <summary>
-        /// MeterId/ Billing Guid against which the product system will be charged
+        /// Charging type.
         /// </summary>
-        public readonly string MeterId;
+        public readonly string ChargingType;
         /// <summary>
-        /// Category of the billing meter.
+        /// Billing unit applicable for Pav2 billing
         /// </summary>
-        public readonly string MeterType;
+        public readonly double Multiplier;
 
         [OutputConstructor]
         private MeterDetailsResponseResult(
-            Outputs.BillingModelResponseResult billingModel,
+            string billingType,
 
-            string meterId,
+            string chargingType,
 
-            string meterType)
+            double multiplier)
         {
-            BillingModel = billingModel;
-            MeterId = meterId;
-            MeterType = meterType;
+            BillingType = billingType;
+            ChargingType = chargingType;
+            Multiplier = multiplier;
         }
     }
 }

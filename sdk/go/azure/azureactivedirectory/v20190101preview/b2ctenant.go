@@ -16,7 +16,7 @@ type B2CTenant struct {
 
 	// The billing configuration for the tenant.
 	BillingConfig B2CTenantResourcePropertiesResponseBillingConfigPtrOutput `pulumi:"billingConfig"`
-	// The location in which the resource is hosted and data resides. Refer to [this documentation](https://aka.ms/B2CDataResidency) to see valid data residency locations. Please choose one of 'United States', 'Europe', and 'Asia Pacific'.
+	// The location in which the resource is hosted and data resides. Can be one of 'United States', 'Europe', 'Asia Pacific', or 'Australia' (preview). Refer to [this documentation](https://aka.ms/B2CDataResidency) for more information.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the B2C tenant resource.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -82,7 +82,7 @@ func GetB2CTenant(ctx *pulumi.Context,
 type b2ctenantState struct {
 	// The billing configuration for the tenant.
 	BillingConfig *B2CTenantResourcePropertiesResponseBillingConfig `pulumi:"billingConfig"`
-	// The location in which the resource is hosted and data resides. Refer to [this documentation](https://aka.ms/B2CDataResidency) to see valid data residency locations. Please choose one of 'United States', 'Europe', and 'Asia Pacific'.
+	// The location in which the resource is hosted and data resides. Can be one of 'United States', 'Europe', 'Asia Pacific', or 'Australia' (preview). Refer to [this documentation](https://aka.ms/B2CDataResidency) for more information.
 	Location *string `pulumi:"location"`
 	// The name of the B2C tenant resource.
 	Name *string `pulumi:"name"`
@@ -99,7 +99,7 @@ type b2ctenantState struct {
 type B2CTenantState struct {
 	// The billing configuration for the tenant.
 	BillingConfig B2CTenantResourcePropertiesResponseBillingConfigPtrInput
-	// The location in which the resource is hosted and data resides. Refer to [this documentation](https://aka.ms/B2CDataResidency) to see valid data residency locations. Please choose one of 'United States', 'Europe', and 'Asia Pacific'.
+	// The location in which the resource is hosted and data resides. Can be one of 'United States', 'Europe', 'Asia Pacific', or 'Australia' (preview). Refer to [this documentation](https://aka.ms/B2CDataResidency) for more information.
 	Location pulumi.StringPtrInput
 	// The name of the B2C tenant resource.
 	Name pulumi.StringPtrInput
@@ -118,7 +118,7 @@ func (B2CTenantState) ElementType() reflect.Type {
 }
 
 type b2ctenantArgs struct {
-	// The location in which the resource is hosted and data resides. Refer to [this documentation](https://aka.ms/B2CDataResidency) to see valid data residency locations. Please choose one of 'United States', 'Europe', and 'Asia Pacific'.
+	// The location in which the resource is hosted and data resides. Can be one of 'United States', 'Europe', 'Asia Pacific', or 'Australia' (preview). Refer to [this documentation](https://aka.ms/B2CDataResidency) for more information.
 	Location   *string                           `pulumi:"location"`
 	Properties CreateTenantRequestBodyProperties `pulumi:"properties"`
 	// The name of the resource group.
@@ -133,7 +133,7 @@ type b2ctenantArgs struct {
 
 // The set of arguments for constructing a B2CTenant resource.
 type B2CTenantArgs struct {
-	// The location in which the resource is hosted and data resides. Refer to [this documentation](https://aka.ms/B2CDataResidency) to see valid data residency locations. Please choose one of 'United States', 'Europe', and 'Asia Pacific'.
+	// The location in which the resource is hosted and data resides. Can be one of 'United States', 'Europe', 'Asia Pacific', or 'Australia' (preview). Refer to [this documentation](https://aka.ms/B2CDataResidency) for more information.
 	Location   pulumi.StringPtrInput
 	Properties CreateTenantRequestBodyPropertiesInput
 	// The name of the resource group.

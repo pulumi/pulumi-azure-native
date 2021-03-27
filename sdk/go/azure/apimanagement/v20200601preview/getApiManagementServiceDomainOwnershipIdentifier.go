@@ -22,6 +22,6 @@ type GetApiManagementServiceDomainOwnershipIdentifierArgs struct {
 
 // Response of the GetDomainOwnershipIdentifier operation.
 type GetApiManagementServiceDomainOwnershipIdentifierResult struct {
-	// The domain ownership identifer value.
+	// The domain ownership identifier value.
 	DomainOwnershipIdentifier string `pulumi:"domainOwnershipIdentifier"`
 }

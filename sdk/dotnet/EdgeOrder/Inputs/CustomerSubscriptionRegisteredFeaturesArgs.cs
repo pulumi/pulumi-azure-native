@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.EdgeOrder.Inputs
 {
 
+    /// <summary>
+    /// Represents subscription registered features
+    /// </summary>
     public sealed class CustomerSubscriptionRegisteredFeaturesArgs : Pulumi.InvokeArgs
     {
         /// <summary>

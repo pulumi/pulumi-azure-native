@@ -23,7 +23,7 @@ type ListProductFamiliesArgs struct {
 	// $expand is supported on configurations parameter for product, which provides details on the configurations for the product.
 	Expand *string `pulumi:"expand"`
 	// Dictionary of filterable properties on product family.
-	FilterableProperties map[string]FilterableProperty `pulumi:"filterableProperties"`
+	FilterableProperties map[string][]FilterableProperty `pulumi:"filterableProperties"`
 	// $skipToken is supported on list of product families, which provides the next page in the list of product families.
 	SkipToken *string `pulumi:"skipToken"`
 }
