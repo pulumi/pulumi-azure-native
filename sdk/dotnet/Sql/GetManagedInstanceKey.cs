@@ -50,6 +50,10 @@ namespace Pulumi.AzureNative.Sql
     public sealed class GetManagedInstanceKeyResult
     {
         /// <summary>
+        /// Key auto rotation opt-in flag. Either true or false.
+        /// </summary>
+        public readonly bool AutoRotationEnabled;
+        /// <summary>
         /// The key creation date.
         /// </summary>
         public readonly string CreationDate;
@@ -76,6 +80,8 @@ namespace Pulumi.AzureNative.Sql
 
         [OutputConstructor]
         private GetManagedInstanceKeyResult(
+            bool autoRotationEnabled,
+
             string creationDate,
 
             string id,
@@ -88,6 +94,7 @@ namespace Pulumi.AzureNative.Sql
 
             string type)
         {
+            AutoRotationEnabled = autoRotationEnabled;
             CreationDate = creationDate;
             Id = id;
             Kind = kind;

@@ -43,6 +43,10 @@ export interface GetServerKeyArgs {
  */
 export interface GetServerKeyResult {
     /**
+     * Key auto rotation opt-in flag. Either true or false.
+     */
+    readonly autoRotationEnabled: boolean;
+    /**
      * The server key creation date.
      */
     readonly creationDate: string;

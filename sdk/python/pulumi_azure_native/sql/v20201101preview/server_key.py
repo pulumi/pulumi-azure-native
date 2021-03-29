@@ -63,6 +63,7 @@ class ServerKey(pulumi.CustomResource):
                 raise TypeError("Missing required property 'server_name'")
             __props__['server_name'] = server_name
             __props__['uri'] = uri
+            __props__['auto_rotation_enabled'] = None
             __props__['creation_date'] = None
             __props__['kind'] = None
             __props__['location'] = None
@@ -94,6 +95,7 @@ class ServerKey(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["auto_rotation_enabled"] = None
         __props__["creation_date"] = None
         __props__["kind"] = None
         __props__["location"] = None
@@ -102,6 +104,14 @@ class ServerKey(pulumi.CustomResource):
         __props__["thumbprint"] = None
         __props__["type"] = None
         return ServerKey(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="autoRotationEnabled")
+    def auto_rotation_enabled(self) -> pulumi.Output[bool]:
+        """
+        Key auto rotation opt-in flag. Either true or false.
+        """
+        return pulumi.get(self, "auto_rotation_enabled")
 
     @property
     @pulumi.getter(name="creationDate")

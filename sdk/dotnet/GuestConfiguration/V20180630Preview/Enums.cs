@@ -8,29 +8,61 @@ using Pulumi;
 namespace Pulumi.AzureNative.GuestConfiguration.V20180630Preview
 {
     /// <summary>
-    /// If true - new configurations downloaded from the pull service are allowed to overwrite the old ones on the target node. Otherwise, false
+    /// Specifies what happens after a reboot during the application of a configuration. The possible values are ContinueConfiguration and StopConfiguration
     /// </summary>
     [EnumType]
-    public readonly struct AllowModuleOverwrite : IEquatable<AllowModuleOverwrite>
+    public readonly struct ActionAfterReboot : IEquatable<ActionAfterReboot>
     {
         private readonly string _value;
 
-        private AllowModuleOverwrite(string value)
+        private ActionAfterReboot(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static AllowModuleOverwrite True { get; } = new AllowModuleOverwrite("True");
-        public static AllowModuleOverwrite False { get; } = new AllowModuleOverwrite("False");
+        public static ActionAfterReboot ContinueConfiguration { get; } = new ActionAfterReboot("ContinueConfiguration");
+        public static ActionAfterReboot StopConfiguration { get; } = new ActionAfterReboot("StopConfiguration");
 
-        public static bool operator ==(AllowModuleOverwrite left, AllowModuleOverwrite right) => left.Equals(right);
-        public static bool operator !=(AllowModuleOverwrite left, AllowModuleOverwrite right) => !left.Equals(right);
+        public static bool operator ==(ActionAfterReboot left, ActionAfterReboot right) => left.Equals(right);
+        public static bool operator !=(ActionAfterReboot left, ActionAfterReboot right) => !left.Equals(right);
 
-        public static explicit operator string(AllowModuleOverwrite value) => value._value;
+        public static explicit operator string(ActionAfterReboot value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is AllowModuleOverwrite other && Equals(other);
-        public bool Equals(AllowModuleOverwrite other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is ActionAfterReboot other && Equals(other);
+        public bool Equals(ActionAfterReboot other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies how the LCM(Local Configuration Manager) actually applies the configuration to the target nodes. Possible values are ApplyOnly, ApplyAndMonitor, and ApplyAndAutoCorrect.
+    /// </summary>
+    [EnumType]
+    public readonly struct ConfigurationMode : IEquatable<ConfigurationMode>
+    {
+        private readonly string _value;
+
+        private ConfigurationMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ConfigurationMode ApplyOnly { get; } = new ConfigurationMode("ApplyOnly");
+        public static ConfigurationMode ApplyAndMonitor { get; } = new ConfigurationMode("ApplyAndMonitor");
+        public static ConfigurationMode ApplyAndAutoCorrect { get; } = new ConfigurationMode("ApplyAndAutoCorrect");
+
+        public static bool operator ==(ConfigurationMode left, ConfigurationMode right) => left.Equals(right);
+        public static bool operator !=(ConfigurationMode left, ConfigurationMode right) => !left.Equals(right);
+
+        public static explicit operator string(ConfigurationMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ConfigurationMode other && Equals(other);
+        public bool Equals(ConfigurationMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

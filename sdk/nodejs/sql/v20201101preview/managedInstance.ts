@@ -40,6 +40,10 @@ export class ManagedInstance extends pulumi.CustomResource {
      */
     public readonly administratorLogin!: pulumi.Output<string | undefined>;
     /**
+     * The Azure Active Directory administrator of the server.
+     */
+    public readonly administrators!: pulumi.Output<outputs.sql.v20201101preview.ManagedInstanceExternalAdministratorResponse | undefined>;
+    /**
      * Collation of the managed instance.
      */
     public readonly collation!: pulumi.Output<string | undefined>;
@@ -54,11 +58,15 @@ export class ManagedInstance extends pulumi.CustomResource {
     /**
      * The Azure Active Directory identity of the managed instance.
      */
-    public readonly identity!: pulumi.Output<outputs.sql.v20201101preview.ResourceIdentityResponse | undefined>;
+    public readonly identity!: pulumi.Output<outputs.sql.v20201101preview.ResourceIdentityWithUserAssignedIdentitiesResponse | undefined>;
     /**
      * The Id of the instance pool this managed server belongs to.
      */
     public readonly instancePoolId!: pulumi.Output<string | undefined>;
+    /**
+     * A CMK URI of the key to use for encryption.
+     */
+    public readonly keyId!: pulumi.Output<string | undefined>;
     /**
      * The license type. Possible values are 'LicenseIncluded' (regular price inclusive of a new SQL license) and 'BasePrice' (discounted AHB price for bringing your own SQL licenses).
      */
@@ -79,6 +87,10 @@ export class ManagedInstance extends pulumi.CustomResource {
      * Resource name.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
+    /**
+     * The resource id of a user assigned identity to be used by default.
+     */
+    public readonly primaryUserAssignedIdentityId!: pulumi.Output<string | undefined>;
     /**
      * List of private endpoint connections on a managed instance.
      */
@@ -154,16 +166,19 @@ export class ManagedInstance extends pulumi.CustomResource {
             }
             inputs["administratorLogin"] = args ? args.administratorLogin : undefined;
             inputs["administratorLoginPassword"] = args ? args.administratorLoginPassword : undefined;
+            inputs["administrators"] = args ? args.administrators : undefined;
             inputs["collation"] = args ? args.collation : undefined;
             inputs["dnsZonePartner"] = args ? args.dnsZonePartner : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["instancePoolId"] = args ? args.instancePoolId : undefined;
+            inputs["keyId"] = args ? args.keyId : undefined;
             inputs["licenseType"] = args ? args.licenseType : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["maintenanceConfigurationId"] = args ? args.maintenanceConfigurationId : undefined;
             inputs["managedInstanceCreateMode"] = args ? args.managedInstanceCreateMode : undefined;
             inputs["managedInstanceName"] = args ? args.managedInstanceName : undefined;
             inputs["minimalTlsVersion"] = args ? args.minimalTlsVersion : undefined;
+            inputs["primaryUserAssignedIdentityId"] = args ? args.primaryUserAssignedIdentityId : undefined;
             inputs["proxyOverride"] = args ? args.proxyOverride : undefined;
             inputs["publicDataEndpointEnabled"] = args ? args.publicDataEndpointEnabled : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -186,16 +201,19 @@ export class ManagedInstance extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["administratorLogin"] = undefined /*out*/;
+            inputs["administrators"] = undefined /*out*/;
             inputs["collation"] = undefined /*out*/;
             inputs["dnsZone"] = undefined /*out*/;
             inputs["fullyQualifiedDomainName"] = undefined /*out*/;
             inputs["identity"] = undefined /*out*/;
             inputs["instancePoolId"] = undefined /*out*/;
+            inputs["keyId"] = undefined /*out*/;
             inputs["licenseType"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["maintenanceConfigurationId"] = undefined /*out*/;
             inputs["minimalTlsVersion"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["primaryUserAssignedIdentityId"] = undefined /*out*/;
             inputs["privateEndpointConnections"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["proxyOverride"] = undefined /*out*/;
@@ -233,6 +251,10 @@ export interface ManagedInstanceArgs {
      */
     readonly administratorLoginPassword?: pulumi.Input<string>;
     /**
+     * The Azure Active Directory administrator of the server.
+     */
+    readonly administrators?: pulumi.Input<inputs.sql.v20201101preview.ManagedInstanceExternalAdministrator>;
+    /**
      * Collation of the managed instance.
      */
     readonly collation?: pulumi.Input<string>;
@@ -243,11 +265,15 @@ export interface ManagedInstanceArgs {
     /**
      * The Azure Active Directory identity of the managed instance.
      */
-    readonly identity?: pulumi.Input<inputs.sql.v20201101preview.ResourceIdentity>;
+    readonly identity?: pulumi.Input<inputs.sql.v20201101preview.ResourceIdentityWithUserAssignedIdentities>;
     /**
      * The Id of the instance pool this managed server belongs to.
      */
     readonly instancePoolId?: pulumi.Input<string>;
+    /**
+     * A CMK URI of the key to use for encryption.
+     */
+    readonly keyId?: pulumi.Input<string>;
     /**
      * The license type. Possible values are 'LicenseIncluded' (regular price inclusive of a new SQL license) and 'BasePrice' (discounted AHB price for bringing your own SQL licenses).
      */
@@ -276,6 +302,10 @@ export interface ManagedInstanceArgs {
      * Minimal TLS version. Allowed values: 'None', '1.0', '1.1', '1.2'
      */
     readonly minimalTlsVersion?: pulumi.Input<string>;
+    /**
+     * The resource id of a user assigned identity to be used by default.
+     */
+    readonly primaryUserAssignedIdentityId?: pulumi.Input<string>;
     /**
      * Connection type used for connecting to the instance.
      */

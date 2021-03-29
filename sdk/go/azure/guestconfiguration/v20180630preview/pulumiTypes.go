@@ -121,8 +121,18 @@ func (o ConfigurationParameterResponseArrayOutput) Index(i pulumi.IntInput) Conf
 
 // Configuration setting of LCM (Local Configuration Manager).
 type ConfigurationSetting struct {
+	// Specifies what happens after a reboot during the application of a configuration. The possible values are ContinueConfiguration and StopConfiguration
+	ActionAfterReboot *string `pulumi:"actionAfterReboot"`
 	// If true - new configurations downloaded from the pull service are allowed to overwrite the old ones on the target node. Otherwise, false
-	AllowModuleOverwrite *string `pulumi:"allowModuleOverwrite"`
+	AllowModuleOverwrite *bool `pulumi:"allowModuleOverwrite"`
+	// Specifies how the LCM(Local Configuration Manager) actually applies the configuration to the target nodes. Possible values are ApplyOnly, ApplyAndMonitor, and ApplyAndAutoCorrect.
+	ConfigurationMode *string `pulumi:"configurationMode"`
+	// How often, in minutes, the current configuration is checked and applied. This property is ignored if the ConfigurationMode property is set to ApplyOnly. The default value is 15.
+	ConfigurationModeFrequencyMins *float64 `pulumi:"configurationModeFrequencyMins"`
+	// Set this to true to automatically reboot the node after a configuration that requires reboot is applied. Otherwise, you will have to manually reboot the node for any configuration that requires it. The default value is false. To use this setting when a reboot condition is enacted by something other than DSC (such as Windows Installer), combine this setting with the xPendingReboot module.
+	RebootIfNeeded *bool `pulumi:"rebootIfNeeded"`
+	// The time interval, in minutes, at which the LCM checks a pull service to get updated configurations. This value is ignored if the LCM is not configured in pull mode. The default value is 30.
+	RefreshFrequencyMins *float64 `pulumi:"refreshFrequencyMins"`
 }
 
 // ConfigurationSettingInput is an input type that accepts ConfigurationSettingArgs and ConfigurationSettingOutput values.
@@ -138,8 +148,18 @@ type ConfigurationSettingInput interface {
 
 // Configuration setting of LCM (Local Configuration Manager).
 type ConfigurationSettingArgs struct {
+	// Specifies what happens after a reboot during the application of a configuration. The possible values are ContinueConfiguration and StopConfiguration
+	ActionAfterReboot pulumi.StringPtrInput `pulumi:"actionAfterReboot"`
 	// If true - new configurations downloaded from the pull service are allowed to overwrite the old ones on the target node. Otherwise, false
-	AllowModuleOverwrite pulumi.StringPtrInput `pulumi:"allowModuleOverwrite"`
+	AllowModuleOverwrite pulumi.BoolPtrInput `pulumi:"allowModuleOverwrite"`
+	// Specifies how the LCM(Local Configuration Manager) actually applies the configuration to the target nodes. Possible values are ApplyOnly, ApplyAndMonitor, and ApplyAndAutoCorrect.
+	ConfigurationMode pulumi.StringPtrInput `pulumi:"configurationMode"`
+	// How often, in minutes, the current configuration is checked and applied. This property is ignored if the ConfigurationMode property is set to ApplyOnly. The default value is 15.
+	ConfigurationModeFrequencyMins pulumi.Float64PtrInput `pulumi:"configurationModeFrequencyMins"`
+	// Set this to true to automatically reboot the node after a configuration that requires reboot is applied. Otherwise, you will have to manually reboot the node for any configuration that requires it. The default value is false. To use this setting when a reboot condition is enacted by something other than DSC (such as Windows Installer), combine this setting with the xPendingReboot module.
+	RebootIfNeeded pulumi.BoolPtrInput `pulumi:"rebootIfNeeded"`
+	// The time interval, in minutes, at which the LCM checks a pull service to get updated configurations. This value is ignored if the LCM is not configured in pull mode. The default value is 30.
+	RefreshFrequencyMins pulumi.Float64PtrInput `pulumi:"refreshFrequencyMins"`
 }
 
 func (ConfigurationSettingArgs) ElementType() reflect.Type {
@@ -220,9 +240,34 @@ func (o ConfigurationSettingOutput) ToConfigurationSettingPtrOutputWithContext(c
 	}).(ConfigurationSettingPtrOutput)
 }
 
+// Specifies what happens after a reboot during the application of a configuration. The possible values are ContinueConfiguration and StopConfiguration
+func (o ConfigurationSettingOutput) ActionAfterReboot() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfigurationSetting) *string { return v.ActionAfterReboot }).(pulumi.StringPtrOutput)
+}
+
 // If true - new configurations downloaded from the pull service are allowed to overwrite the old ones on the target node. Otherwise, false
-func (o ConfigurationSettingOutput) AllowModuleOverwrite() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConfigurationSetting) *string { return v.AllowModuleOverwrite }).(pulumi.StringPtrOutput)
+func (o ConfigurationSettingOutput) AllowModuleOverwrite() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ConfigurationSetting) *bool { return v.AllowModuleOverwrite }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies how the LCM(Local Configuration Manager) actually applies the configuration to the target nodes. Possible values are ApplyOnly, ApplyAndMonitor, and ApplyAndAutoCorrect.
+func (o ConfigurationSettingOutput) ConfigurationMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfigurationSetting) *string { return v.ConfigurationMode }).(pulumi.StringPtrOutput)
+}
+
+// How often, in minutes, the current configuration is checked and applied. This property is ignored if the ConfigurationMode property is set to ApplyOnly. The default value is 15.
+func (o ConfigurationSettingOutput) ConfigurationModeFrequencyMins() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ConfigurationSetting) *float64 { return v.ConfigurationModeFrequencyMins }).(pulumi.Float64PtrOutput)
+}
+
+// Set this to true to automatically reboot the node after a configuration that requires reboot is applied. Otherwise, you will have to manually reboot the node for any configuration that requires it. The default value is false. To use this setting when a reboot condition is enacted by something other than DSC (such as Windows Installer), combine this setting with the xPendingReboot module.
+func (o ConfigurationSettingOutput) RebootIfNeeded() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ConfigurationSetting) *bool { return v.RebootIfNeeded }).(pulumi.BoolPtrOutput)
+}
+
+// The time interval, in minutes, at which the LCM checks a pull service to get updated configurations. This value is ignored if the LCM is not configured in pull mode. The default value is 30.
+func (o ConfigurationSettingOutput) RefreshFrequencyMins() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ConfigurationSetting) *float64 { return v.RefreshFrequencyMins }).(pulumi.Float64PtrOutput)
 }
 
 type ConfigurationSettingPtrOutput struct{ *pulumi.OutputState }
@@ -243,30 +288,80 @@ func (o ConfigurationSettingPtrOutput) Elem() ConfigurationSettingOutput {
 	return o.ApplyT(func(v *ConfigurationSetting) ConfigurationSetting { return *v }).(ConfigurationSettingOutput)
 }
 
-// If true - new configurations downloaded from the pull service are allowed to overwrite the old ones on the target node. Otherwise, false
-func (o ConfigurationSettingPtrOutput) AllowModuleOverwrite() pulumi.StringPtrOutput {
+// Specifies what happens after a reboot during the application of a configuration. The possible values are ContinueConfiguration and StopConfiguration
+func (o ConfigurationSettingPtrOutput) ActionAfterReboot() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationSetting) *string {
 		if v == nil {
 			return nil
 		}
-		return v.AllowModuleOverwrite
+		return v.ActionAfterReboot
 	}).(pulumi.StringPtrOutput)
+}
+
+// If true - new configurations downloaded from the pull service are allowed to overwrite the old ones on the target node. Otherwise, false
+func (o ConfigurationSettingPtrOutput) AllowModuleOverwrite() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ConfigurationSetting) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllowModuleOverwrite
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies how the LCM(Local Configuration Manager) actually applies the configuration to the target nodes. Possible values are ApplyOnly, ApplyAndMonitor, and ApplyAndAutoCorrect.
+func (o ConfigurationSettingPtrOutput) ConfigurationMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationSetting) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConfigurationMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// How often, in minutes, the current configuration is checked and applied. This property is ignored if the ConfigurationMode property is set to ApplyOnly. The default value is 15.
+func (o ConfigurationSettingPtrOutput) ConfigurationModeFrequencyMins() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ConfigurationSetting) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.ConfigurationModeFrequencyMins
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Set this to true to automatically reboot the node after a configuration that requires reboot is applied. Otherwise, you will have to manually reboot the node for any configuration that requires it. The default value is false. To use this setting when a reboot condition is enacted by something other than DSC (such as Windows Installer), combine this setting with the xPendingReboot module.
+func (o ConfigurationSettingPtrOutput) RebootIfNeeded() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ConfigurationSetting) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RebootIfNeeded
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The time interval, in minutes, at which the LCM checks a pull service to get updated configurations. This value is ignored if the LCM is not configured in pull mode. The default value is 30.
+func (o ConfigurationSettingPtrOutput) RefreshFrequencyMins() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ConfigurationSetting) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.RefreshFrequencyMins
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Configuration setting of LCM (Local Configuration Manager).
 type ConfigurationSettingResponse struct {
 	// Specifies what happens after a reboot during the application of a configuration. The possible values are ContinueConfiguration and StopConfiguration
-	ActionAfterReboot string `pulumi:"actionAfterReboot"`
+	ActionAfterReboot *string `pulumi:"actionAfterReboot"`
 	// If true - new configurations downloaded from the pull service are allowed to overwrite the old ones on the target node. Otherwise, false
-	AllowModuleOverwrite *string `pulumi:"allowModuleOverwrite"`
+	AllowModuleOverwrite *bool `pulumi:"allowModuleOverwrite"`
 	// Specifies how the LCM(Local Configuration Manager) actually applies the configuration to the target nodes. Possible values are ApplyOnly, ApplyAndMonitor, and ApplyAndAutoCorrect.
-	ConfigurationMode string `pulumi:"configurationMode"`
+	ConfigurationMode *string `pulumi:"configurationMode"`
 	// How often, in minutes, the current configuration is checked and applied. This property is ignored if the ConfigurationMode property is set to ApplyOnly. The default value is 15.
-	ConfigurationModeFrequencyMins float64 `pulumi:"configurationModeFrequencyMins"`
+	ConfigurationModeFrequencyMins *float64 `pulumi:"configurationModeFrequencyMins"`
 	// Set this to true to automatically reboot the node after a configuration that requires reboot is applied. Otherwise, you will have to manually reboot the node for any configuration that requires it. The default value is false. To use this setting when a reboot condition is enacted by something other than DSC (such as Windows Installer), combine this setting with the xPendingReboot module.
-	RebootIfNeeded string `pulumi:"rebootIfNeeded"`
+	RebootIfNeeded *bool `pulumi:"rebootIfNeeded"`
 	// The time interval, in minutes, at which the LCM checks a pull service to get updated configurations. This value is ignored if the LCM is not configured in pull mode. The default value is 30.
-	RefreshFrequencyMins float64 `pulumi:"refreshFrequencyMins"`
+	RefreshFrequencyMins *float64 `pulumi:"refreshFrequencyMins"`
 }
 
 // ConfigurationSettingResponseInput is an input type that accepts ConfigurationSettingResponseArgs and ConfigurationSettingResponseOutput values.
@@ -283,17 +378,17 @@ type ConfigurationSettingResponseInput interface {
 // Configuration setting of LCM (Local Configuration Manager).
 type ConfigurationSettingResponseArgs struct {
 	// Specifies what happens after a reboot during the application of a configuration. The possible values are ContinueConfiguration and StopConfiguration
-	ActionAfterReboot pulumi.StringInput `pulumi:"actionAfterReboot"`
+	ActionAfterReboot pulumi.StringPtrInput `pulumi:"actionAfterReboot"`
 	// If true - new configurations downloaded from the pull service are allowed to overwrite the old ones on the target node. Otherwise, false
-	AllowModuleOverwrite pulumi.StringPtrInput `pulumi:"allowModuleOverwrite"`
+	AllowModuleOverwrite pulumi.BoolPtrInput `pulumi:"allowModuleOverwrite"`
 	// Specifies how the LCM(Local Configuration Manager) actually applies the configuration to the target nodes. Possible values are ApplyOnly, ApplyAndMonitor, and ApplyAndAutoCorrect.
-	ConfigurationMode pulumi.StringInput `pulumi:"configurationMode"`
+	ConfigurationMode pulumi.StringPtrInput `pulumi:"configurationMode"`
 	// How often, in minutes, the current configuration is checked and applied. This property is ignored if the ConfigurationMode property is set to ApplyOnly. The default value is 15.
-	ConfigurationModeFrequencyMins pulumi.Float64Input `pulumi:"configurationModeFrequencyMins"`
+	ConfigurationModeFrequencyMins pulumi.Float64PtrInput `pulumi:"configurationModeFrequencyMins"`
 	// Set this to true to automatically reboot the node after a configuration that requires reboot is applied. Otherwise, you will have to manually reboot the node for any configuration that requires it. The default value is false. To use this setting when a reboot condition is enacted by something other than DSC (such as Windows Installer), combine this setting with the xPendingReboot module.
-	RebootIfNeeded pulumi.StringInput `pulumi:"rebootIfNeeded"`
+	RebootIfNeeded pulumi.BoolPtrInput `pulumi:"rebootIfNeeded"`
 	// The time interval, in minutes, at which the LCM checks a pull service to get updated configurations. This value is ignored if the LCM is not configured in pull mode. The default value is 30.
-	RefreshFrequencyMins pulumi.Float64Input `pulumi:"refreshFrequencyMins"`
+	RefreshFrequencyMins pulumi.Float64PtrInput `pulumi:"refreshFrequencyMins"`
 }
 
 func (ConfigurationSettingResponseArgs) ElementType() reflect.Type {
@@ -375,33 +470,33 @@ func (o ConfigurationSettingResponseOutput) ToConfigurationSettingResponsePtrOut
 }
 
 // Specifies what happens after a reboot during the application of a configuration. The possible values are ContinueConfiguration and StopConfiguration
-func (o ConfigurationSettingResponseOutput) ActionAfterReboot() pulumi.StringOutput {
-	return o.ApplyT(func(v ConfigurationSettingResponse) string { return v.ActionAfterReboot }).(pulumi.StringOutput)
+func (o ConfigurationSettingResponseOutput) ActionAfterReboot() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfigurationSettingResponse) *string { return v.ActionAfterReboot }).(pulumi.StringPtrOutput)
 }
 
 // If true - new configurations downloaded from the pull service are allowed to overwrite the old ones on the target node. Otherwise, false
-func (o ConfigurationSettingResponseOutput) AllowModuleOverwrite() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConfigurationSettingResponse) *string { return v.AllowModuleOverwrite }).(pulumi.StringPtrOutput)
+func (o ConfigurationSettingResponseOutput) AllowModuleOverwrite() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ConfigurationSettingResponse) *bool { return v.AllowModuleOverwrite }).(pulumi.BoolPtrOutput)
 }
 
 // Specifies how the LCM(Local Configuration Manager) actually applies the configuration to the target nodes. Possible values are ApplyOnly, ApplyAndMonitor, and ApplyAndAutoCorrect.
-func (o ConfigurationSettingResponseOutput) ConfigurationMode() pulumi.StringOutput {
-	return o.ApplyT(func(v ConfigurationSettingResponse) string { return v.ConfigurationMode }).(pulumi.StringOutput)
+func (o ConfigurationSettingResponseOutput) ConfigurationMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfigurationSettingResponse) *string { return v.ConfigurationMode }).(pulumi.StringPtrOutput)
 }
 
 // How often, in minutes, the current configuration is checked and applied. This property is ignored if the ConfigurationMode property is set to ApplyOnly. The default value is 15.
-func (o ConfigurationSettingResponseOutput) ConfigurationModeFrequencyMins() pulumi.Float64Output {
-	return o.ApplyT(func(v ConfigurationSettingResponse) float64 { return v.ConfigurationModeFrequencyMins }).(pulumi.Float64Output)
+func (o ConfigurationSettingResponseOutput) ConfigurationModeFrequencyMins() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ConfigurationSettingResponse) *float64 { return v.ConfigurationModeFrequencyMins }).(pulumi.Float64PtrOutput)
 }
 
 // Set this to true to automatically reboot the node after a configuration that requires reboot is applied. Otherwise, you will have to manually reboot the node for any configuration that requires it. The default value is false. To use this setting when a reboot condition is enacted by something other than DSC (such as Windows Installer), combine this setting with the xPendingReboot module.
-func (o ConfigurationSettingResponseOutput) RebootIfNeeded() pulumi.StringOutput {
-	return o.ApplyT(func(v ConfigurationSettingResponse) string { return v.RebootIfNeeded }).(pulumi.StringOutput)
+func (o ConfigurationSettingResponseOutput) RebootIfNeeded() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ConfigurationSettingResponse) *bool { return v.RebootIfNeeded }).(pulumi.BoolPtrOutput)
 }
 
 // The time interval, in minutes, at which the LCM checks a pull service to get updated configurations. This value is ignored if the LCM is not configured in pull mode. The default value is 30.
-func (o ConfigurationSettingResponseOutput) RefreshFrequencyMins() pulumi.Float64Output {
-	return o.ApplyT(func(v ConfigurationSettingResponse) float64 { return v.RefreshFrequencyMins }).(pulumi.Float64Output)
+func (o ConfigurationSettingResponseOutput) RefreshFrequencyMins() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ConfigurationSettingResponse) *float64 { return v.RefreshFrequencyMins }).(pulumi.Float64PtrOutput)
 }
 
 type ConfigurationSettingResponsePtrOutput struct{ *pulumi.OutputState }
@@ -428,18 +523,18 @@ func (o ConfigurationSettingResponsePtrOutput) ActionAfterReboot() pulumi.String
 		if v == nil {
 			return nil
 		}
-		return &v.ActionAfterReboot
+		return v.ActionAfterReboot
 	}).(pulumi.StringPtrOutput)
 }
 
 // If true - new configurations downloaded from the pull service are allowed to overwrite the old ones on the target node. Otherwise, false
-func (o ConfigurationSettingResponsePtrOutput) AllowModuleOverwrite() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConfigurationSettingResponse) *string {
+func (o ConfigurationSettingResponsePtrOutput) AllowModuleOverwrite() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ConfigurationSettingResponse) *bool {
 		if v == nil {
 			return nil
 		}
 		return v.AllowModuleOverwrite
-	}).(pulumi.StringPtrOutput)
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Specifies how the LCM(Local Configuration Manager) actually applies the configuration to the target nodes. Possible values are ApplyOnly, ApplyAndMonitor, and ApplyAndAutoCorrect.
@@ -448,7 +543,7 @@ func (o ConfigurationSettingResponsePtrOutput) ConfigurationMode() pulumi.String
 		if v == nil {
 			return nil
 		}
-		return &v.ConfigurationMode
+		return v.ConfigurationMode
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -458,18 +553,18 @@ func (o ConfigurationSettingResponsePtrOutput) ConfigurationModeFrequencyMins() 
 		if v == nil {
 			return nil
 		}
-		return &v.ConfigurationModeFrequencyMins
+		return v.ConfigurationModeFrequencyMins
 	}).(pulumi.Float64PtrOutput)
 }
 
 // Set this to true to automatically reboot the node after a configuration that requires reboot is applied. Otherwise, you will have to manually reboot the node for any configuration that requires it. The default value is false. To use this setting when a reboot condition is enacted by something other than DSC (such as Windows Installer), combine this setting with the xPendingReboot module.
-func (o ConfigurationSettingResponsePtrOutput) RebootIfNeeded() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConfigurationSettingResponse) *string {
+func (o ConfigurationSettingResponsePtrOutput) RebootIfNeeded() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ConfigurationSettingResponse) *bool {
 		if v == nil {
 			return nil
 		}
-		return &v.RebootIfNeeded
-	}).(pulumi.StringPtrOutput)
+		return v.RebootIfNeeded
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The time interval, in minutes, at which the LCM checks a pull service to get updated configurations. This value is ignored if the LCM is not configured in pull mode. The default value is 30.
@@ -478,7 +573,7 @@ func (o ConfigurationSettingResponsePtrOutput) RefreshFrequencyMins() pulumi.Flo
 		if v == nil {
 			return nil
 		}
-		return &v.RefreshFrequencyMins
+		return v.RefreshFrequencyMins
 	}).(pulumi.Float64PtrOutput)
 }
 

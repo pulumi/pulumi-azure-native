@@ -50,6 +50,10 @@ namespace Pulumi.AzureNative.Sql
     public sealed class GetServerKeyResult
     {
         /// <summary>
+        /// Key auto rotation opt-in flag. Either true or false.
+        /// </summary>
+        public readonly bool AutoRotationEnabled;
+        /// <summary>
         /// The server key creation date.
         /// </summary>
         public readonly string CreationDate;
@@ -84,6 +88,8 @@ namespace Pulumi.AzureNative.Sql
 
         [OutputConstructor]
         private GetServerKeyResult(
+            bool autoRotationEnabled,
+
             string creationDate,
 
             string id,
@@ -100,6 +106,7 @@ namespace Pulumi.AzureNative.Sql
 
             string type)
         {
+            AutoRotationEnabled = autoRotationEnabled;
             CreationDate = creationDate;
             Id = id;
             Kind = kind;

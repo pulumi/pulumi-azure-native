@@ -19,12 +19,10 @@ type Server struct {
 	AdministratorLogin pulumi.StringPtrOutput `pulumi:"administratorLogin"`
 	// The Azure Active Directory identity of the server.
 	Administrators ServerExternalAdministratorResponsePtrOutput `pulumi:"administrators"`
-	// The resource id of a user assigned identity to be used to access the customer managed keyvault.
-	EncryptionIdentityId pulumi.StringPtrOutput `pulumi:"encryptionIdentityId"`
 	// The fully qualified domain name of the server.
 	FullyQualifiedDomainName pulumi.StringOutput `pulumi:"fullyQualifiedDomainName"`
 	// The Azure Active Directory identity of the server.
-	Identity ResourceIdentityResponsePtrOutput `pulumi:"identity"`
+	Identity ResourceIdentityWithUserAssignedIdentitiesResponsePtrOutput `pulumi:"identity"`
 	// A CMK URI of the key to use for encryption.
 	KeyId pulumi.StringPtrOutput `pulumi:"keyId"`
 	// Kind of sql server. This is metadata used for the Azure portal experience.
@@ -35,6 +33,8 @@ type Server struct {
 	MinimalTlsVersion pulumi.StringPtrOutput `pulumi:"minimalTlsVersion"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The resource id of a user assigned identity to be used by default.
+	PrimaryUserAssignedIdentityId pulumi.StringPtrOutput `pulumi:"primaryUserAssignedIdentityId"`
 	// List of private endpoint connections on a server
 	PrivateEndpointConnections ServerPrivateEndpointConnectionResponseArrayOutput `pulumi:"privateEndpointConnections"`
 	// Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
@@ -135,12 +135,10 @@ type serverState struct {
 	AdministratorLogin *string `pulumi:"administratorLogin"`
 	// The Azure Active Directory identity of the server.
 	Administrators *ServerExternalAdministratorResponse `pulumi:"administrators"`
-	// The resource id of a user assigned identity to be used to access the customer managed keyvault.
-	EncryptionIdentityId *string `pulumi:"encryptionIdentityId"`
 	// The fully qualified domain name of the server.
 	FullyQualifiedDomainName *string `pulumi:"fullyQualifiedDomainName"`
 	// The Azure Active Directory identity of the server.
-	Identity *ResourceIdentityResponse `pulumi:"identity"`
+	Identity *ResourceIdentityWithUserAssignedIdentitiesResponse `pulumi:"identity"`
 	// A CMK URI of the key to use for encryption.
 	KeyId *string `pulumi:"keyId"`
 	// Kind of sql server. This is metadata used for the Azure portal experience.
@@ -151,6 +149,8 @@ type serverState struct {
 	MinimalTlsVersion *string `pulumi:"minimalTlsVersion"`
 	// Resource name.
 	Name *string `pulumi:"name"`
+	// The resource id of a user assigned identity to be used by default.
+	PrimaryUserAssignedIdentityId *string `pulumi:"primaryUserAssignedIdentityId"`
 	// List of private endpoint connections on a server
 	PrivateEndpointConnections []ServerPrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
 	// Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
@@ -172,12 +172,10 @@ type ServerState struct {
 	AdministratorLogin pulumi.StringPtrInput
 	// The Azure Active Directory identity of the server.
 	Administrators ServerExternalAdministratorResponsePtrInput
-	// The resource id of a user assigned identity to be used to access the customer managed keyvault.
-	EncryptionIdentityId pulumi.StringPtrInput
 	// The fully qualified domain name of the server.
 	FullyQualifiedDomainName pulumi.StringPtrInput
 	// The Azure Active Directory identity of the server.
-	Identity ResourceIdentityResponsePtrInput
+	Identity ResourceIdentityWithUserAssignedIdentitiesResponsePtrInput
 	// A CMK URI of the key to use for encryption.
 	KeyId pulumi.StringPtrInput
 	// Kind of sql server. This is metadata used for the Azure portal experience.
@@ -188,6 +186,8 @@ type ServerState struct {
 	MinimalTlsVersion pulumi.StringPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
+	// The resource id of a user assigned identity to be used by default.
+	PrimaryUserAssignedIdentityId pulumi.StringPtrInput
 	// List of private endpoint connections on a server
 	PrivateEndpointConnections ServerPrivateEndpointConnectionResponseArrayInput
 	// Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
@@ -215,16 +215,16 @@ type serverArgs struct {
 	AdministratorLoginPassword *string `pulumi:"administratorLoginPassword"`
 	// The Azure Active Directory identity of the server.
 	Administrators *ServerExternalAdministrator `pulumi:"administrators"`
-	// The resource id of a user assigned identity to be used to access the customer managed keyvault.
-	EncryptionIdentityId *string `pulumi:"encryptionIdentityId"`
 	// The Azure Active Directory identity of the server.
-	Identity *ResourceIdentity `pulumi:"identity"`
+	Identity *ResourceIdentityWithUserAssignedIdentities `pulumi:"identity"`
 	// A CMK URI of the key to use for encryption.
 	KeyId *string `pulumi:"keyId"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Minimal TLS version. Allowed values: '1.0', '1.1', '1.2'
 	MinimalTlsVersion *string `pulumi:"minimalTlsVersion"`
+	// The resource id of a user assigned identity to be used by default.
+	PrimaryUserAssignedIdentityId *string `pulumi:"primaryUserAssignedIdentityId"`
 	// Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
 	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -245,16 +245,16 @@ type ServerArgs struct {
 	AdministratorLoginPassword pulumi.StringPtrInput
 	// The Azure Active Directory identity of the server.
 	Administrators ServerExternalAdministratorPtrInput
-	// The resource id of a user assigned identity to be used to access the customer managed keyvault.
-	EncryptionIdentityId pulumi.StringPtrInput
 	// The Azure Active Directory identity of the server.
-	Identity ResourceIdentityPtrInput
+	Identity ResourceIdentityWithUserAssignedIdentitiesPtrInput
 	// A CMK URI of the key to use for encryption.
 	KeyId pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// Minimal TLS version. Allowed values: '1.0', '1.1', '1.2'
 	MinimalTlsVersion pulumi.StringPtrInput
+	// The resource id of a user assigned identity to be used by default.
+	PrimaryUserAssignedIdentityId pulumi.StringPtrInput
 	// Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
 	PublicNetworkAccess pulumi.StringPtrInput
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

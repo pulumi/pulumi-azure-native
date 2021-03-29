@@ -15,6 +15,8 @@ import (
 type ManagedInstanceKey struct {
 	pulumi.CustomResourceState
 
+	// Key auto rotation opt-in flag. Either true or false.
+	AutoRotationEnabled pulumi.BoolOutput `pulumi:"autoRotationEnabled"`
 	// The key creation date.
 	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
 	// Kind of encryption protector. This is metadata used for the Azure portal experience.
@@ -95,6 +97,8 @@ func GetManagedInstanceKey(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ManagedInstanceKey resources.
 type managedInstanceKeyState struct {
+	// Key auto rotation opt-in flag. Either true or false.
+	AutoRotationEnabled *bool `pulumi:"autoRotationEnabled"`
 	// The key creation date.
 	CreationDate *string `pulumi:"creationDate"`
 	// Kind of encryption protector. This is metadata used for the Azure portal experience.
@@ -108,6 +112,8 @@ type managedInstanceKeyState struct {
 }
 
 type ManagedInstanceKeyState struct {
+	// Key auto rotation opt-in flag. Either true or false.
+	AutoRotationEnabled pulumi.BoolPtrInput
 	// The key creation date.
 	CreationDate pulumi.StringPtrInput
 	// Kind of encryption protector. This is metadata used for the Azure portal experience.

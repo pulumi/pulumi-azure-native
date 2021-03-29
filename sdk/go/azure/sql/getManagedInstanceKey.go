@@ -29,6 +29,8 @@ type LookupManagedInstanceKeyArgs struct {
 
 // A managed instance key.
 type LookupManagedInstanceKeyResult struct {
+	// Key auto rotation opt-in flag. Either true or false.
+	AutoRotationEnabled bool `pulumi:"autoRotationEnabled"`
 	// The key creation date.
 	CreationDate string `pulumi:"creationDate"`
 	// Resource ID.

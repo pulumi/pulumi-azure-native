@@ -53,7 +53,7 @@ export interface GetDatabaseSecurityAlertPolicyResult {
      */
     readonly creationTime: string;
     /**
-     * Specifies an array of alerts that are disabled. Allowed values are: Sql_Injection, Sql_Injection_Vulnerability, Access_Anomaly, Data_Exfiltration, Unsafe_Action
+     * Specifies an array of alerts that are disabled. Allowed values are: Sql_Injection, Sql_Injection_Vulnerability, Access_Anomaly, Data_Exfiltration, Unsafe_Action, Brute_Force
      */
     readonly disabledAlerts?: string[];
     /**
@@ -89,7 +89,7 @@ export interface GetDatabaseSecurityAlertPolicyResult {
      */
     readonly storageEndpoint?: string;
     /**
-     * Metadata pertaining to creation and last modification of the resource.
+     * SystemData of SecurityAlertPolicyResource.
      */
     readonly systemData: outputs.sql.SystemDataResponse;
     /**

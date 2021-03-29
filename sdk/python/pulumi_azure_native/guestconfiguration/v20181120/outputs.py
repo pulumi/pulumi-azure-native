@@ -62,18 +62,18 @@ class ConfigurationSettingResponse(dict):
     """
     def __init__(__self__, *,
                  action_after_reboot: Optional[str] = None,
-                 allow_module_overwrite: Optional[str] = None,
+                 allow_module_overwrite: Optional[bool] = None,
                  configuration_mode: Optional[str] = None,
                  configuration_mode_frequency_mins: Optional[float] = None,
-                 reboot_if_needed: Optional[str] = None,
+                 reboot_if_needed: Optional[bool] = None,
                  refresh_frequency_mins: Optional[float] = None):
         """
         Configuration setting of LCM (Local Configuration Manager).
         :param str action_after_reboot: Specifies what happens after a reboot during the application of a configuration. The possible values are ContinueConfiguration and StopConfiguration
-        :param str allow_module_overwrite: If true - new configurations downloaded from the pull service are allowed to overwrite the old ones on the target node. Otherwise, false
+        :param bool allow_module_overwrite: If true - new configurations downloaded from the pull service are allowed to overwrite the old ones on the target node. Otherwise, false
         :param str configuration_mode: Specifies how the LCM(Local Configuration Manager) actually applies the configuration to the target nodes. Possible values are ApplyOnly, ApplyAndMonitor, and ApplyAndAutoCorrect.
         :param float configuration_mode_frequency_mins: How often, in minutes, the current configuration is checked and applied. This property is ignored if the ConfigurationMode property is set to ApplyOnly. The default value is 15.
-        :param str reboot_if_needed: Set this to true to automatically reboot the node after a configuration that requires reboot is applied. Otherwise, you will have to manually reboot the node for any configuration that requires it. The default value is false. To use this setting when a reboot condition is enacted by something other than DSC (such as Windows Installer), combine this setting with the xPendingReboot module.
+        :param bool reboot_if_needed: Set this to true to automatically reboot the node after a configuration that requires reboot is applied. Otherwise, you will have to manually reboot the node for any configuration that requires it. The default value is false. To use this setting when a reboot condition is enacted by something other than DSC (such as Windows Installer), combine this setting with the xPendingReboot module.
         :param float refresh_frequency_mins: The time interval, in minutes, at which the LCM checks a pull service to get updated configurations. This value is ignored if the LCM is not configured in pull mode. The default value is 30.
         """
         if action_after_reboot is not None:
@@ -86,8 +86,6 @@ class ConfigurationSettingResponse(dict):
             configuration_mode_frequency_mins = 15
         if configuration_mode_frequency_mins is not None:
             pulumi.set(__self__, "configuration_mode_frequency_mins", configuration_mode_frequency_mins)
-        if reboot_if_needed is None:
-            reboot_if_needed = 'False'
         if reboot_if_needed is not None:
             pulumi.set(__self__, "reboot_if_needed", reboot_if_needed)
         if refresh_frequency_mins is None:
@@ -105,7 +103,7 @@ class ConfigurationSettingResponse(dict):
 
     @property
     @pulumi.getter(name="allowModuleOverwrite")
-    def allow_module_overwrite(self) -> Optional[str]:
+    def allow_module_overwrite(self) -> Optional[bool]:
         """
         If true - new configurations downloaded from the pull service are allowed to overwrite the old ones on the target node. Otherwise, false
         """
@@ -129,7 +127,7 @@ class ConfigurationSettingResponse(dict):
 
     @property
     @pulumi.getter(name="rebootIfNeeded")
-    def reboot_if_needed(self) -> Optional[str]:
+    def reboot_if_needed(self) -> Optional[bool]:
         """
         Set this to true to automatically reboot the node after a configuration that requires reboot is applied. Otherwise, you will have to manually reboot the node for any configuration that requires it. The default value is false. To use this setting when a reboot condition is enacted by something other than DSC (such as Windows Installer), combine this setting with the xPendingReboot module.
         """

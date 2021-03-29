@@ -58,10 +58,6 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         public readonly Outputs.ServerExternalAdministratorResponse? Administrators;
         /// <summary>
-        /// The resource id of a user assigned identity to be used to access the customer managed keyvault.
-        /// </summary>
-        public readonly string? EncryptionIdentityId;
-        /// <summary>
         /// The fully qualified domain name of the server.
         /// </summary>
         public readonly string FullyQualifiedDomainName;
@@ -72,7 +68,7 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// The Azure Active Directory identity of the server.
         /// </summary>
-        public readonly Outputs.ResourceIdentityResponse? Identity;
+        public readonly Outputs.ResourceIdentityWithUserAssignedIdentitiesResponse? Identity;
         /// <summary>
         /// A CMK URI of the key to use for encryption.
         /// </summary>
@@ -93,6 +89,10 @@ namespace Pulumi.AzureNative.Sql
         /// Resource name.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The resource id of a user assigned identity to be used by default.
+        /// </summary>
+        public readonly string? PrimaryUserAssignedIdentityId;
         /// <summary>
         /// List of private endpoint connections on a server
         /// </summary>
@@ -128,13 +128,11 @@ namespace Pulumi.AzureNative.Sql
 
             Outputs.ServerExternalAdministratorResponse? administrators,
 
-            string? encryptionIdentityId,
-
             string fullyQualifiedDomainName,
 
             string id,
 
-            Outputs.ResourceIdentityResponse? identity,
+            Outputs.ResourceIdentityWithUserAssignedIdentitiesResponse? identity,
 
             string? keyId,
 
@@ -145,6 +143,8 @@ namespace Pulumi.AzureNative.Sql
             string? minimalTlsVersion,
 
             string name,
+
+            string? primaryUserAssignedIdentityId,
 
             ImmutableArray<Outputs.ServerPrivateEndpointConnectionResponse> privateEndpointConnections,
 
@@ -162,7 +162,6 @@ namespace Pulumi.AzureNative.Sql
         {
             AdministratorLogin = administratorLogin;
             Administrators = administrators;
-            EncryptionIdentityId = encryptionIdentityId;
             FullyQualifiedDomainName = fullyQualifiedDomainName;
             Id = id;
             Identity = identity;
@@ -171,6 +170,7 @@ namespace Pulumi.AzureNative.Sql
             Location = location;
             MinimalTlsVersion = minimalTlsVersion;
             Name = name;
+            PrimaryUserAssignedIdentityId = primaryUserAssignedIdentityId;
             PrivateEndpointConnections = privateEndpointConnections;
             PublicNetworkAccess = publicNetworkAccess;
             State = state;

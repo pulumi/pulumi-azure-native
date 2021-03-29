@@ -63,6 +63,7 @@ class ManagedInstanceKey(pulumi.CustomResource):
                 raise TypeError("Missing required property 'server_key_type'")
             __props__['server_key_type'] = server_key_type
             __props__['uri'] = uri
+            __props__['auto_rotation_enabled'] = None
             __props__['creation_date'] = None
             __props__['kind'] = None
             __props__['name'] = None
@@ -92,12 +93,21 @@ class ManagedInstanceKey(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["auto_rotation_enabled"] = None
         __props__["creation_date"] = None
         __props__["kind"] = None
         __props__["name"] = None
         __props__["thumbprint"] = None
         __props__["type"] = None
         return ManagedInstanceKey(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="autoRotationEnabled")
+    def auto_rotation_enabled(self) -> pulumi.Output[bool]:
+        """
+        Key auto rotation opt-in flag. Either true or false.
+        """
+        return pulumi.get(self, "auto_rotation_enabled")
 
     @property
     @pulumi.getter(name="creationDate")

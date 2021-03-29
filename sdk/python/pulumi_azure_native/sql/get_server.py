@@ -20,16 +20,13 @@ class GetServerResult:
     """
     An Azure SQL Database server.
     """
-    def __init__(__self__, administrator_login=None, administrators=None, encryption_identity_id=None, fully_qualified_domain_name=None, id=None, identity=None, key_id=None, kind=None, location=None, minimal_tls_version=None, name=None, private_endpoint_connections=None, public_network_access=None, state=None, tags=None, type=None, version=None, workspace_feature=None):
+    def __init__(__self__, administrator_login=None, administrators=None, fully_qualified_domain_name=None, id=None, identity=None, key_id=None, kind=None, location=None, minimal_tls_version=None, name=None, primary_user_assigned_identity_id=None, private_endpoint_connections=None, public_network_access=None, state=None, tags=None, type=None, version=None, workspace_feature=None):
         if administrator_login and not isinstance(administrator_login, str):
             raise TypeError("Expected argument 'administrator_login' to be a str")
         pulumi.set(__self__, "administrator_login", administrator_login)
         if administrators and not isinstance(administrators, dict):
             raise TypeError("Expected argument 'administrators' to be a dict")
         pulumi.set(__self__, "administrators", administrators)
-        if encryption_identity_id and not isinstance(encryption_identity_id, str):
-            raise TypeError("Expected argument 'encryption_identity_id' to be a str")
-        pulumi.set(__self__, "encryption_identity_id", encryption_identity_id)
         if fully_qualified_domain_name and not isinstance(fully_qualified_domain_name, str):
             raise TypeError("Expected argument 'fully_qualified_domain_name' to be a str")
         pulumi.set(__self__, "fully_qualified_domain_name", fully_qualified_domain_name)
@@ -54,6 +51,9 @@ class GetServerResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if primary_user_assigned_identity_id and not isinstance(primary_user_assigned_identity_id, str):
+            raise TypeError("Expected argument 'primary_user_assigned_identity_id' to be a str")
+        pulumi.set(__self__, "primary_user_assigned_identity_id", primary_user_assigned_identity_id)
         if private_endpoint_connections and not isinstance(private_endpoint_connections, list):
             raise TypeError("Expected argument 'private_endpoint_connections' to be a list")
         pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
@@ -93,14 +93,6 @@ class GetServerResult:
         return pulumi.get(self, "administrators")
 
     @property
-    @pulumi.getter(name="encryptionIdentityId")
-    def encryption_identity_id(self) -> Optional[str]:
-        """
-        The resource id of a user assigned identity to be used to access the customer managed keyvault.
-        """
-        return pulumi.get(self, "encryption_identity_id")
-
-    @property
     @pulumi.getter(name="fullyQualifiedDomainName")
     def fully_qualified_domain_name(self) -> str:
         """
@@ -118,7 +110,7 @@ class GetServerResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.ResourceIdentityResponse']:
+    def identity(self) -> Optional['outputs.ResourceIdentityWithUserAssignedIdentitiesResponse']:
         """
         The Azure Active Directory identity of the server.
         """
@@ -163,6 +155,14 @@ class GetServerResult:
         Resource name.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="primaryUserAssignedIdentityId")
+    def primary_user_assigned_identity_id(self) -> Optional[str]:
+        """
+        The resource id of a user assigned identity to be used by default.
+        """
+        return pulumi.get(self, "primary_user_assigned_identity_id")
 
     @property
     @pulumi.getter(name="privateEndpointConnections")
@@ -229,7 +229,6 @@ class AwaitableGetServerResult(GetServerResult):
         return GetServerResult(
             administrator_login=self.administrator_login,
             administrators=self.administrators,
-            encryption_identity_id=self.encryption_identity_id,
             fully_qualified_domain_name=self.fully_qualified_domain_name,
             id=self.id,
             identity=self.identity,
@@ -238,6 +237,7 @@ class AwaitableGetServerResult(GetServerResult):
             location=self.location,
             minimal_tls_version=self.minimal_tls_version,
             name=self.name,
+            primary_user_assigned_identity_id=self.primary_user_assigned_identity_id,
             private_endpoint_connections=self.private_endpoint_connections,
             public_network_access=self.public_network_access,
             state=self.state,
@@ -273,7 +273,6 @@ def get_server(expand: Optional[str] = None,
     return AwaitableGetServerResult(
         administrator_login=__ret__.administrator_login,
         administrators=__ret__.administrators,
-        encryption_identity_id=__ret__.encryption_identity_id,
         fully_qualified_domain_name=__ret__.fully_qualified_domain_name,
         id=__ret__.id,
         identity=__ret__.identity,
@@ -282,6 +281,7 @@ def get_server(expand: Optional[str] = None,
         location=__ret__.location,
         minimal_tls_version=__ret__.minimal_tls_version,
         name=__ret__.name,
+        primary_user_assigned_identity_id=__ret__.primary_user_assigned_identity_id,
         private_endpoint_connections=__ret__.private_endpoint_connections,
         public_network_access=__ret__.public_network_access,
         state=__ret__.state,

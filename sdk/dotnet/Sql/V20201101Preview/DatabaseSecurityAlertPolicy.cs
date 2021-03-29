@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.Sql.V20201101Preview
         public Output<string> CreationTime { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies an array of alerts that are disabled. Allowed values are: Sql_Injection, Sql_Injection_Vulnerability, Access_Anomaly, Data_Exfiltration, Unsafe_Action
+        /// Specifies an array of alerts that are disabled. Allowed values are: Sql_Injection, Sql_Injection_Vulnerability, Access_Anomaly, Data_Exfiltration, Unsafe_Action, Brute_Force
         /// </summary>
         [Output("disabledAlerts")]
         public Output<ImmutableArray<string>> DisabledAlerts { get; private set; } = null!;
@@ -70,7 +70,7 @@ namespace Pulumi.AzureNative.Sql.V20201101Preview
         public Output<string?> StorageEndpoint { get; private set; } = null!;
 
         /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
+        /// SystemData of SecurityAlertPolicyResource.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
@@ -152,7 +152,7 @@ namespace Pulumi.AzureNative.Sql.V20201101Preview
         private InputList<string>? _disabledAlerts;
 
         /// <summary>
-        /// Specifies an array of alerts that are disabled. Allowed values are: Sql_Injection, Sql_Injection_Vulnerability, Access_Anomaly, Data_Exfiltration, Unsafe_Action
+        /// Specifies an array of alerts that are disabled. Allowed values are: Sql_Injection, Sql_Injection_Vulnerability, Access_Anomaly, Data_Exfiltration, Unsafe_Action, Brute_Force
         /// </summary>
         public InputList<string> DisabledAlerts
         {

@@ -19,6 +19,8 @@ func LookupManagedInstance(ctx *pulumi.Context, args *LookupManagedInstanceArgs,
 }
 
 type LookupManagedInstanceArgs struct {
+	// The child resources to include in the response.
+	Expand *string `pulumi:"expand"`
 	// The name of the managed instance.
 	ManagedInstanceName string `pulumi:"managedInstanceName"`
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -29,6 +31,8 @@ type LookupManagedInstanceArgs struct {
 type LookupManagedInstanceResult struct {
 	// Administrator username for the managed instance. Can only be specified when the managed instance is being created (and is required for creation).
 	AdministratorLogin *string `pulumi:"administratorLogin"`
+	// The Azure Active Directory administrator of the server.
+	Administrators *ManagedInstanceExternalAdministratorResponse `pulumi:"administrators"`
 	// Collation of the managed instance.
 	Collation *string `pulumi:"collation"`
 	// The Dns Zone that the managed instance is in.
@@ -38,9 +42,11 @@ type LookupManagedInstanceResult struct {
 	// Resource ID.
 	Id string `pulumi:"id"`
 	// The Azure Active Directory identity of the managed instance.
-	Identity *ResourceIdentityResponse `pulumi:"identity"`
+	Identity *ResourceIdentityWithUserAssignedIdentitiesResponse `pulumi:"identity"`
 	// The Id of the instance pool this managed server belongs to.
 	InstancePoolId *string `pulumi:"instancePoolId"`
+	// A CMK URI of the key to use for encryption.
+	KeyId *string `pulumi:"keyId"`
 	// The license type. Possible values are 'LicenseIncluded' (regular price inclusive of a new SQL license) and 'BasePrice' (discounted AHB price for bringing your own SQL licenses).
 	LicenseType *string `pulumi:"licenseType"`
 	// Resource location.
@@ -51,6 +57,8 @@ type LookupManagedInstanceResult struct {
 	MinimalTlsVersion *string `pulumi:"minimalTlsVersion"`
 	// Resource name.
 	Name string `pulumi:"name"`
+	// The resource id of a user assigned identity to be used by default.
+	PrimaryUserAssignedIdentityId *string `pulumi:"primaryUserAssignedIdentityId"`
 	// List of private endpoint connections on a managed instance.
 	PrivateEndpointConnections []ManagedInstancePecPropertyResponse `pulumi:"privateEndpointConnections"`
 	ProvisioningState          string                               `pulumi:"provisioningState"`

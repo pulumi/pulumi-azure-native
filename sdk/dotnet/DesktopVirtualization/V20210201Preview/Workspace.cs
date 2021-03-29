@@ -140,6 +140,8 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210201Preview
                     new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20201110preview:Workspace"},
                     new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210114preview:Workspace"},
                     new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20210114preview:Workspace"},
+                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210309preview:Workspace"},
+                    new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20210309preview:Workspace"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

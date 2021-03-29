@@ -17,6 +17,12 @@ namespace Pulumi.AzureNative.Sql
     public partial class ServerKey : Pulumi.CustomResource
     {
         /// <summary>
+        /// Key auto rotation opt-in flag. Either true or false.
+        /// </summary>
+        [Output("autoRotationEnabled")]
+        public Output<bool> AutoRotationEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// The server key creation date.
         /// </summary>
         [Output("creationDate")]

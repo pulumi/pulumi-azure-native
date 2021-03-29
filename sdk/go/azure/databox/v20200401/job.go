@@ -108,6 +108,12 @@ func NewJob(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:databox/v20201101:Job"),
 		},
+		{
+			Type: pulumi.String("azure-native:databox/v20210301:Job"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:databox/v20210301:Job"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Job

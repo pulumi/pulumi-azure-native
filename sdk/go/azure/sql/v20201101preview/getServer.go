@@ -32,14 +32,12 @@ type LookupServerResult struct {
 	AdministratorLogin *string `pulumi:"administratorLogin"`
 	// The Azure Active Directory identity of the server.
 	Administrators *ServerExternalAdministratorResponse `pulumi:"administrators"`
-	// The resource id of a user assigned identity to be used to access the customer managed keyvault.
-	EncryptionIdentityId *string `pulumi:"encryptionIdentityId"`
 	// The fully qualified domain name of the server.
 	FullyQualifiedDomainName string `pulumi:"fullyQualifiedDomainName"`
 	// Resource ID.
 	Id string `pulumi:"id"`
 	// The Azure Active Directory identity of the server.
-	Identity *ResourceIdentityResponse `pulumi:"identity"`
+	Identity *ResourceIdentityWithUserAssignedIdentitiesResponse `pulumi:"identity"`
 	// A CMK URI of the key to use for encryption.
 	KeyId *string `pulumi:"keyId"`
 	// Kind of sql server. This is metadata used for the Azure portal experience.
@@ -50,6 +48,8 @@ type LookupServerResult struct {
 	MinimalTlsVersion *string `pulumi:"minimalTlsVersion"`
 	// Resource name.
 	Name string `pulumi:"name"`
+	// The resource id of a user assigned identity to be used by default.
+	PrimaryUserAssignedIdentityId *string `pulumi:"primaryUserAssignedIdentityId"`
 	// List of private endpoint connections on a server
 	PrivateEndpointConnections []ServerPrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
 	// Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'

@@ -18,12 +18,17 @@ export function getManagedInstance(args: GetManagedInstanceArgs, opts?: pulumi.I
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azure-native:sql:getManagedInstance", {
+        "expand": args.expand,
         "managedInstanceName": args.managedInstanceName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
 export interface GetManagedInstanceArgs {
+    /**
+     * The child resources to include in the response.
+     */
+    readonly expand?: string;
     /**
      * The name of the managed instance.
      */
@@ -43,6 +48,10 @@ export interface GetManagedInstanceResult {
      */
     readonly administratorLogin?: string;
     /**
+     * The Azure Active Directory administrator of the server.
+     */
+    readonly administrators?: outputs.sql.ManagedInstanceExternalAdministratorResponse;
+    /**
      * Collation of the managed instance.
      */
     readonly collation?: string;
@@ -61,11 +70,15 @@ export interface GetManagedInstanceResult {
     /**
      * The Azure Active Directory identity of the managed instance.
      */
-    readonly identity?: outputs.sql.ResourceIdentityResponse;
+    readonly identity?: outputs.sql.ResourceIdentityWithUserAssignedIdentitiesResponse;
     /**
      * The Id of the instance pool this managed server belongs to.
      */
     readonly instancePoolId?: string;
+    /**
+     * A CMK URI of the key to use for encryption.
+     */
+    readonly keyId?: string;
     /**
      * The license type. Possible values are 'LicenseIncluded' (regular price inclusive of a new SQL license) and 'BasePrice' (discounted AHB price for bringing your own SQL licenses).
      */
@@ -86,6 +99,10 @@ export interface GetManagedInstanceResult {
      * Resource name.
      */
     readonly name: string;
+    /**
+     * The resource id of a user assigned identity to be used by default.
+     */
+    readonly primaryUserAssignedIdentityId?: string;
     /**
      * List of private endpoint connections on a managed instance.
      */

@@ -59,7 +59,7 @@ namespace Pulumi.AzureNative.Sql.V20201101Preview
         /// </summary>
         public readonly string CreationTime;
         /// <summary>
-        /// Specifies an array of alerts that are disabled. Allowed values are: Sql_Injection, Sql_Injection_Vulnerability, Access_Anomaly, Data_Exfiltration, Unsafe_Action
+        /// Specifies an array of alerts that are disabled. Allowed values are: Sql_Injection, Sql_Injection_Vulnerability, Access_Anomaly, Data_Exfiltration, Unsafe_Action, Brute_Force
         /// </summary>
         public readonly ImmutableArray<string> DisabledAlerts;
         /// <summary>
@@ -95,7 +95,7 @@ namespace Pulumi.AzureNative.Sql.V20201101Preview
         /// </summary>
         public readonly string? StorageEndpoint;
         /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
+        /// SystemData of SecurityAlertPolicyResource.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>

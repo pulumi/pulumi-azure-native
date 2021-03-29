@@ -20,10 +20,13 @@ class GetManagedInstanceResult:
     """
     An Azure SQL managed instance.
     """
-    def __init__(__self__, administrator_login=None, collation=None, dns_zone=None, fully_qualified_domain_name=None, id=None, identity=None, instance_pool_id=None, license_type=None, location=None, maintenance_configuration_id=None, minimal_tls_version=None, name=None, private_endpoint_connections=None, provisioning_state=None, proxy_override=None, public_data_endpoint_enabled=None, sku=None, state=None, storage_account_type=None, storage_size_in_gb=None, subnet_id=None, tags=None, timezone_id=None, type=None, v_cores=None, zone_redundant=None):
+    def __init__(__self__, administrator_login=None, administrators=None, collation=None, dns_zone=None, fully_qualified_domain_name=None, id=None, identity=None, instance_pool_id=None, key_id=None, license_type=None, location=None, maintenance_configuration_id=None, minimal_tls_version=None, name=None, primary_user_assigned_identity_id=None, private_endpoint_connections=None, provisioning_state=None, proxy_override=None, public_data_endpoint_enabled=None, sku=None, state=None, storage_account_type=None, storage_size_in_gb=None, subnet_id=None, tags=None, timezone_id=None, type=None, v_cores=None, zone_redundant=None):
         if administrator_login and not isinstance(administrator_login, str):
             raise TypeError("Expected argument 'administrator_login' to be a str")
         pulumi.set(__self__, "administrator_login", administrator_login)
+        if administrators and not isinstance(administrators, dict):
+            raise TypeError("Expected argument 'administrators' to be a dict")
+        pulumi.set(__self__, "administrators", administrators)
         if collation and not isinstance(collation, str):
             raise TypeError("Expected argument 'collation' to be a str")
         pulumi.set(__self__, "collation", collation)
@@ -42,6 +45,9 @@ class GetManagedInstanceResult:
         if instance_pool_id and not isinstance(instance_pool_id, str):
             raise TypeError("Expected argument 'instance_pool_id' to be a str")
         pulumi.set(__self__, "instance_pool_id", instance_pool_id)
+        if key_id and not isinstance(key_id, str):
+            raise TypeError("Expected argument 'key_id' to be a str")
+        pulumi.set(__self__, "key_id", key_id)
         if license_type and not isinstance(license_type, str):
             raise TypeError("Expected argument 'license_type' to be a str")
         pulumi.set(__self__, "license_type", license_type)
@@ -57,6 +63,9 @@ class GetManagedInstanceResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if primary_user_assigned_identity_id and not isinstance(primary_user_assigned_identity_id, str):
+            raise TypeError("Expected argument 'primary_user_assigned_identity_id' to be a str")
+        pulumi.set(__self__, "primary_user_assigned_identity_id", primary_user_assigned_identity_id)
         if private_endpoint_connections and not isinstance(private_endpoint_connections, list):
             raise TypeError("Expected argument 'private_endpoint_connections' to be a list")
         pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
@@ -110,6 +119,14 @@ class GetManagedInstanceResult:
 
     @property
     @pulumi.getter
+    def administrators(self) -> Optional['outputs.ManagedInstanceExternalAdministratorResponse']:
+        """
+        The Azure Active Directory administrator of the server.
+        """
+        return pulumi.get(self, "administrators")
+
+    @property
+    @pulumi.getter
     def collation(self) -> Optional[str]:
         """
         Collation of the managed instance.
@@ -142,7 +159,7 @@ class GetManagedInstanceResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.ResourceIdentityResponse']:
+    def identity(self) -> Optional['outputs.ResourceIdentityWithUserAssignedIdentitiesResponse']:
         """
         The Azure Active Directory identity of the managed instance.
         """
@@ -155,6 +172,14 @@ class GetManagedInstanceResult:
         The Id of the instance pool this managed server belongs to.
         """
         return pulumi.get(self, "instance_pool_id")
+
+    @property
+    @pulumi.getter(name="keyId")
+    def key_id(self) -> Optional[str]:
+        """
+        A CMK URI of the key to use for encryption.
+        """
+        return pulumi.get(self, "key_id")
 
     @property
     @pulumi.getter(name="licenseType")
@@ -195,6 +220,14 @@ class GetManagedInstanceResult:
         Resource name.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="primaryUserAssignedIdentityId")
+    def primary_user_assigned_identity_id(self) -> Optional[str]:
+        """
+        The resource id of a user assigned identity to be used by default.
+        """
+        return pulumi.get(self, "primary_user_assigned_identity_id")
 
     @property
     @pulumi.getter(name="privateEndpointConnections")
@@ -318,17 +351,20 @@ class AwaitableGetManagedInstanceResult(GetManagedInstanceResult):
             yield self
         return GetManagedInstanceResult(
             administrator_login=self.administrator_login,
+            administrators=self.administrators,
             collation=self.collation,
             dns_zone=self.dns_zone,
             fully_qualified_domain_name=self.fully_qualified_domain_name,
             id=self.id,
             identity=self.identity,
             instance_pool_id=self.instance_pool_id,
+            key_id=self.key_id,
             license_type=self.license_type,
             location=self.location,
             maintenance_configuration_id=self.maintenance_configuration_id,
             minimal_tls_version=self.minimal_tls_version,
             name=self.name,
+            primary_user_assigned_identity_id=self.primary_user_assigned_identity_id,
             private_endpoint_connections=self.private_endpoint_connections,
             provisioning_state=self.provisioning_state,
             proxy_override=self.proxy_override,
@@ -345,17 +381,20 @@ class AwaitableGetManagedInstanceResult(GetManagedInstanceResult):
             zone_redundant=self.zone_redundant)
 
 
-def get_managed_instance(managed_instance_name: Optional[str] = None,
+def get_managed_instance(expand: Optional[str] = None,
+                         managed_instance_name: Optional[str] = None,
                          resource_group_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagedInstanceResult:
     """
     An Azure SQL managed instance.
 
 
+    :param str expand: The child resources to include in the response.
     :param str managed_instance_name: The name of the managed instance.
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     """
     __args__ = dict()
+    __args__['expand'] = expand
     __args__['managedInstanceName'] = managed_instance_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
@@ -366,17 +405,20 @@ def get_managed_instance(managed_instance_name: Optional[str] = None,
 
     return AwaitableGetManagedInstanceResult(
         administrator_login=__ret__.administrator_login,
+        administrators=__ret__.administrators,
         collation=__ret__.collation,
         dns_zone=__ret__.dns_zone,
         fully_qualified_domain_name=__ret__.fully_qualified_domain_name,
         id=__ret__.id,
         identity=__ret__.identity,
         instance_pool_id=__ret__.instance_pool_id,
+        key_id=__ret__.key_id,
         license_type=__ret__.license_type,
         location=__ret__.location,
         maintenance_configuration_id=__ret__.maintenance_configuration_id,
         minimal_tls_version=__ret__.minimal_tls_version,
         name=__ret__.name,
+        primary_user_assigned_identity_id=__ret__.primary_user_assigned_identity_id,
         private_endpoint_connections=__ret__.private_endpoint_connections,
         provisioning_state=__ret__.provisioning_state,
         proxy_override=__ret__.proxy_override,

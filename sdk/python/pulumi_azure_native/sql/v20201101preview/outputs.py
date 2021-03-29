@@ -22,6 +22,7 @@ __all__ = [
     'JobStepExecutionOptionsResponse',
     'JobStepOutputResponse',
     'JobTargetResponse',
+    'ManagedInstanceExternalAdministratorResponse',
     'ManagedInstancePairInfoResponse',
     'ManagedInstancePecPropertyResponse',
     'ManagedInstancePrivateEndpointConnectionPropertiesResponse',
@@ -32,7 +33,7 @@ __all__ = [
     'PrivateEndpointConnectionPropertiesResponse',
     'PrivateEndpointPropertyResponse',
     'PrivateLinkServiceConnectionStatePropertyResponse',
-    'ResourceIdentityResponse',
+    'ResourceIdentityWithUserAssignedIdentitiesResponse',
     'ServerExternalAdministratorResponse',
     'ServerInfoResponse',
     'ServerPrivateEndpointConnectionResponse',
@@ -41,6 +42,7 @@ __all__ = [
     'SyncGroupSchemaTableColumnResponse',
     'SyncGroupSchemaTableResponse',
     'SystemDataResponse',
+    'UserIdentityResponse',
     'VulnerabilityAssessmentRecurringScansPropertiesResponse',
 ]
 
@@ -660,6 +662,92 @@ class JobTargetResponse(dict):
 
 
 @pulumi.output_type
+class ManagedInstanceExternalAdministratorResponse(dict):
+    """
+    Properties of a active directory administrator.
+    """
+    def __init__(__self__, *,
+                 administrator_type: Optional[str] = None,
+                 azure_ad_only_authentication: Optional[bool] = None,
+                 login: Optional[str] = None,
+                 principal_type: Optional[str] = None,
+                 sid: Optional[str] = None,
+                 tenant_id: Optional[str] = None):
+        """
+        Properties of a active directory administrator.
+        :param str administrator_type: Type of the sever administrator.
+        :param bool azure_ad_only_authentication: Azure Active Directory only Authentication enabled.
+        :param str login: Login name of the server administrator.
+        :param str principal_type: Principal Type of the sever administrator.
+        :param str sid: SID (object ID) of the server administrator.
+        :param str tenant_id: Tenant ID of the administrator.
+        """
+        if administrator_type is not None:
+            pulumi.set(__self__, "administrator_type", administrator_type)
+        if azure_ad_only_authentication is not None:
+            pulumi.set(__self__, "azure_ad_only_authentication", azure_ad_only_authentication)
+        if login is not None:
+            pulumi.set(__self__, "login", login)
+        if principal_type is not None:
+            pulumi.set(__self__, "principal_type", principal_type)
+        if sid is not None:
+            pulumi.set(__self__, "sid", sid)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter(name="administratorType")
+    def administrator_type(self) -> Optional[str]:
+        """
+        Type of the sever administrator.
+        """
+        return pulumi.get(self, "administrator_type")
+
+    @property
+    @pulumi.getter(name="azureADOnlyAuthentication")
+    def azure_ad_only_authentication(self) -> Optional[bool]:
+        """
+        Azure Active Directory only Authentication enabled.
+        """
+        return pulumi.get(self, "azure_ad_only_authentication")
+
+    @property
+    @pulumi.getter
+    def login(self) -> Optional[str]:
+        """
+        Login name of the server administrator.
+        """
+        return pulumi.get(self, "login")
+
+    @property
+    @pulumi.getter(name="principalType")
+    def principal_type(self) -> Optional[str]:
+        """
+        Principal Type of the sever administrator.
+        """
+        return pulumi.get(self, "principal_type")
+
+    @property
+    @pulumi.getter
+    def sid(self) -> Optional[str]:
+        """
+        SID (object ID) of the server administrator.
+        """
+        return pulumi.get(self, "sid")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[str]:
+        """
+        Tenant ID of the administrator.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class ManagedInstancePairInfoResponse(dict):
     """
     Pairs of Managed Instances in the failover group.
@@ -1046,24 +1134,28 @@ class PrivateLinkServiceConnectionStatePropertyResponse(dict):
 
 
 @pulumi.output_type
-class ResourceIdentityResponse(dict):
+class ResourceIdentityWithUserAssignedIdentitiesResponse(dict):
     """
     Azure Active Directory identity configuration for a resource.
     """
     def __init__(__self__, *,
                  principal_id: str,
                  tenant_id: str,
-                 type: Optional[str] = None):
+                 type: Optional[str] = None,
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserIdentityResponse']] = None):
         """
         Azure Active Directory identity configuration for a resource.
         :param str principal_id: The Azure Active Directory principal id.
         :param str tenant_id: The Azure Active Directory tenant id.
         :param str type: The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
+        :param Mapping[str, 'UserIdentityResponseArgs'] user_assigned_identities: The resource ids of the user assigned identities to use
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
         if type is not None:
             pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter(name="principalId")
@@ -1088,6 +1180,14 @@ class ResourceIdentityResponse(dict):
         The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserIdentityResponse']]:
+        """
+        The resource ids of the user assigned identities to use
+        """
+        return pulumi.get(self, "user_assigned_identities")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -1520,6 +1620,42 @@ class SystemDataResponse(dict):
         The type of identity that last modified the resource.
         """
         return pulumi.get(self, "last_modified_by_type")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class UserIdentityResponse(dict):
+    """
+    Azure Active Directory identity configuration for a resource.
+    """
+    def __init__(__self__, *,
+                 client_id: str,
+                 principal_id: str):
+        """
+        Azure Active Directory identity configuration for a resource.
+        :param str client_id: The Azure Active Directory client id.
+        :param str principal_id: The Azure Active Directory principal id.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "principal_id", principal_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> str:
+        """
+        The Azure Active Directory client id.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The Azure Active Directory principal id.
+        """
+        return pulumi.get(self, "principal_id")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

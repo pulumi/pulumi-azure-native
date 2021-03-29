@@ -12,16 +12,6 @@ export const ActionAfterReboot = {
  */
 export type ActionAfterReboot = (typeof ActionAfterReboot)[keyof typeof ActionAfterReboot];
 
-export const AllowModuleOverwrite = {
-    True: "True",
-    False: "False",
-} as const;
-
-/**
- * If true - new configurations downloaded from the pull service are allowed to overwrite the old ones on the target node. Otherwise, false
- */
-export type AllowModuleOverwrite = (typeof AllowModuleOverwrite)[keyof typeof AllowModuleOverwrite];
-
 export const ConfigurationMode = {
     ApplyOnly: "ApplyOnly",
     ApplyAndMonitor: "ApplyAndMonitor",
@@ -41,13 +31,3 @@ export const Kind = {
  * Kind of the guest configuration. For example:DSC
  */
 export type Kind = (typeof Kind)[keyof typeof Kind];
-
-export const RebootIfNeeded = {
-    True: "True",
-    False: "False",
-} as const;
-
-/**
- * Set this to true to automatically reboot the node after a configuration that requires reboot is applied. Otherwise, you will have to manually reboot the node for any configuration that requires it. The default value is false. To use this setting when a reboot condition is enacted by something other than DSC (such as Windows Installer), combine this setting with the xPendingReboot module.
- */
-export type RebootIfNeeded = (typeof RebootIfNeeded)[keyof typeof RebootIfNeeded];

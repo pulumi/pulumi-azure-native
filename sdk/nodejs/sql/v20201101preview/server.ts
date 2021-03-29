@@ -44,17 +44,13 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly administrators!: pulumi.Output<outputs.sql.v20201101preview.ServerExternalAdministratorResponse | undefined>;
     /**
-     * The resource id of a user assigned identity to be used to access the customer managed keyvault.
-     */
-    public readonly encryptionIdentityId!: pulumi.Output<string | undefined>;
-    /**
      * The fully qualified domain name of the server.
      */
     public /*out*/ readonly fullyQualifiedDomainName!: pulumi.Output<string>;
     /**
      * The Azure Active Directory identity of the server.
      */
-    public readonly identity!: pulumi.Output<outputs.sql.v20201101preview.ResourceIdentityResponse | undefined>;
+    public readonly identity!: pulumi.Output<outputs.sql.v20201101preview.ResourceIdentityWithUserAssignedIdentitiesResponse | undefined>;
     /**
      * A CMK URI of the key to use for encryption.
      */
@@ -75,6 +71,10 @@ export class Server extends pulumi.CustomResource {
      * Resource name.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
+    /**
+     * The resource id of a user assigned identity to be used by default.
+     */
+    public readonly primaryUserAssignedIdentityId!: pulumi.Output<string | undefined>;
     /**
      * List of private endpoint connections on a server
      */
@@ -121,11 +121,11 @@ export class Server extends pulumi.CustomResource {
             inputs["administratorLogin"] = args ? args.administratorLogin : undefined;
             inputs["administratorLoginPassword"] = args ? args.administratorLoginPassword : undefined;
             inputs["administrators"] = args ? args.administrators : undefined;
-            inputs["encryptionIdentityId"] = args ? args.encryptionIdentityId : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["keyId"] = args ? args.keyId : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["minimalTlsVersion"] = args ? args.minimalTlsVersion : undefined;
+            inputs["primaryUserAssignedIdentityId"] = args ? args.primaryUserAssignedIdentityId : undefined;
             inputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serverName"] = args ? args.serverName : undefined;
@@ -141,7 +141,6 @@ export class Server extends pulumi.CustomResource {
         } else {
             inputs["administratorLogin"] = undefined /*out*/;
             inputs["administrators"] = undefined /*out*/;
-            inputs["encryptionIdentityId"] = undefined /*out*/;
             inputs["fullyQualifiedDomainName"] = undefined /*out*/;
             inputs["identity"] = undefined /*out*/;
             inputs["keyId"] = undefined /*out*/;
@@ -149,6 +148,7 @@ export class Server extends pulumi.CustomResource {
             inputs["location"] = undefined /*out*/;
             inputs["minimalTlsVersion"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["primaryUserAssignedIdentityId"] = undefined /*out*/;
             inputs["privateEndpointConnections"] = undefined /*out*/;
             inputs["publicNetworkAccess"] = undefined /*out*/;
             inputs["state"] = undefined /*out*/;
@@ -183,13 +183,9 @@ export interface ServerArgs {
      */
     readonly administrators?: pulumi.Input<inputs.sql.v20201101preview.ServerExternalAdministrator>;
     /**
-     * The resource id of a user assigned identity to be used to access the customer managed keyvault.
-     */
-    readonly encryptionIdentityId?: pulumi.Input<string>;
-    /**
      * The Azure Active Directory identity of the server.
      */
-    readonly identity?: pulumi.Input<inputs.sql.v20201101preview.ResourceIdentity>;
+    readonly identity?: pulumi.Input<inputs.sql.v20201101preview.ResourceIdentityWithUserAssignedIdentities>;
     /**
      * A CMK URI of the key to use for encryption.
      */
@@ -202,6 +198,10 @@ export interface ServerArgs {
      * Minimal TLS version. Allowed values: '1.0', '1.1', '1.2'
      */
     readonly minimalTlsVersion?: pulumi.Input<string>;
+    /**
+     * The resource id of a user assigned identity to be used by default.
+     */
+    readonly primaryUserAssignedIdentityId?: pulumi.Input<string>;
     /**
      * Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
      */

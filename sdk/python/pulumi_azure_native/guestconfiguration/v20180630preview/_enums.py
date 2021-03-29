@@ -5,17 +5,27 @@
 from enum import Enum
 
 __all__ = [
-    'AllowModuleOverwrite',
+    'ActionAfterReboot',
+    'ConfigurationMode',
     'Kind',
 ]
 
 
-class AllowModuleOverwrite(str, Enum):
+class ActionAfterReboot(str, Enum):
     """
-    If true - new configurations downloaded from the pull service are allowed to overwrite the old ones on the target node. Otherwise, false
+    Specifies what happens after a reboot during the application of a configuration. The possible values are ContinueConfiguration and StopConfiguration
     """
-    TRUE = "True"
-    FALSE = "False"
+    CONTINUE_CONFIGURATION = "ContinueConfiguration"
+    STOP_CONFIGURATION = "StopConfiguration"
+
+
+class ConfigurationMode(str, Enum):
+    """
+    Specifies how the LCM(Local Configuration Manager) actually applies the configuration to the target nodes. Possible values are ApplyOnly, ApplyAndMonitor, and ApplyAndAutoCorrect.
+    """
+    APPLY_ONLY = "ApplyOnly"
+    APPLY_AND_MONITOR = "ApplyAndMonitor"
+    APPLY_AND_AUTO_CORRECT = "ApplyAndAutoCorrect"
 
 
 class Kind(str, Enum):

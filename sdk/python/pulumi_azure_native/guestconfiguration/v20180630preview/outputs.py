@@ -59,46 +59,57 @@ class ConfigurationSettingResponse(dict):
     Configuration setting of LCM (Local Configuration Manager).
     """
     def __init__(__self__, *,
-                 action_after_reboot: str,
-                 configuration_mode: str,
-                 configuration_mode_frequency_mins: float,
-                 reboot_if_needed: str,
-                 refresh_frequency_mins: float,
-                 allow_module_overwrite: Optional[str] = None):
+                 action_after_reboot: Optional[str] = None,
+                 allow_module_overwrite: Optional[bool] = None,
+                 configuration_mode: Optional[str] = None,
+                 configuration_mode_frequency_mins: Optional[float] = None,
+                 reboot_if_needed: Optional[bool] = None,
+                 refresh_frequency_mins: Optional[float] = None):
         """
         Configuration setting of LCM (Local Configuration Manager).
         :param str action_after_reboot: Specifies what happens after a reboot during the application of a configuration. The possible values are ContinueConfiguration and StopConfiguration
+        :param bool allow_module_overwrite: If true - new configurations downloaded from the pull service are allowed to overwrite the old ones on the target node. Otherwise, false
         :param str configuration_mode: Specifies how the LCM(Local Configuration Manager) actually applies the configuration to the target nodes. Possible values are ApplyOnly, ApplyAndMonitor, and ApplyAndAutoCorrect.
         :param float configuration_mode_frequency_mins: How often, in minutes, the current configuration is checked and applied. This property is ignored if the ConfigurationMode property is set to ApplyOnly. The default value is 15.
-        :param str reboot_if_needed: Set this to true to automatically reboot the node after a configuration that requires reboot is applied. Otherwise, you will have to manually reboot the node for any configuration that requires it. The default value is false. To use this setting when a reboot condition is enacted by something other than DSC (such as Windows Installer), combine this setting with the xPendingReboot module.
+        :param bool reboot_if_needed: Set this to true to automatically reboot the node after a configuration that requires reboot is applied. Otherwise, you will have to manually reboot the node for any configuration that requires it. The default value is false. To use this setting when a reboot condition is enacted by something other than DSC (such as Windows Installer), combine this setting with the xPendingReboot module.
         :param float refresh_frequency_mins: The time interval, in minutes, at which the LCM checks a pull service to get updated configurations. This value is ignored if the LCM is not configured in pull mode. The default value is 30.
-        :param str allow_module_overwrite: If true - new configurations downloaded from the pull service are allowed to overwrite the old ones on the target node. Otherwise, false
         """
-        pulumi.set(__self__, "action_after_reboot", action_after_reboot)
-        pulumi.set(__self__, "configuration_mode", configuration_mode)
-        if configuration_mode_frequency_mins is None:
-            configuration_mode_frequency_mins = 15
-        pulumi.set(__self__, "configuration_mode_frequency_mins", configuration_mode_frequency_mins)
-        if reboot_if_needed is None:
-            reboot_if_needed = 'False'
-        pulumi.set(__self__, "reboot_if_needed", reboot_if_needed)
-        if refresh_frequency_mins is None:
-            refresh_frequency_mins = 30
-        pulumi.set(__self__, "refresh_frequency_mins", refresh_frequency_mins)
+        if action_after_reboot is not None:
+            pulumi.set(__self__, "action_after_reboot", action_after_reboot)
         if allow_module_overwrite is not None:
             pulumi.set(__self__, "allow_module_overwrite", allow_module_overwrite)
+        if configuration_mode is not None:
+            pulumi.set(__self__, "configuration_mode", configuration_mode)
+        if configuration_mode_frequency_mins is None:
+            configuration_mode_frequency_mins = 15
+        if configuration_mode_frequency_mins is not None:
+            pulumi.set(__self__, "configuration_mode_frequency_mins", configuration_mode_frequency_mins)
+        if reboot_if_needed is not None:
+            pulumi.set(__self__, "reboot_if_needed", reboot_if_needed)
+        if refresh_frequency_mins is None:
+            refresh_frequency_mins = 30
+        if refresh_frequency_mins is not None:
+            pulumi.set(__self__, "refresh_frequency_mins", refresh_frequency_mins)
 
     @property
     @pulumi.getter(name="actionAfterReboot")
-    def action_after_reboot(self) -> str:
+    def action_after_reboot(self) -> Optional[str]:
         """
         Specifies what happens after a reboot during the application of a configuration. The possible values are ContinueConfiguration and StopConfiguration
         """
         return pulumi.get(self, "action_after_reboot")
 
     @property
+    @pulumi.getter(name="allowModuleOverwrite")
+    def allow_module_overwrite(self) -> Optional[bool]:
+        """
+        If true - new configurations downloaded from the pull service are allowed to overwrite the old ones on the target node. Otherwise, false
+        """
+        return pulumi.get(self, "allow_module_overwrite")
+
+    @property
     @pulumi.getter(name="configurationMode")
-    def configuration_mode(self) -> str:
+    def configuration_mode(self) -> Optional[str]:
         """
         Specifies how the LCM(Local Configuration Manager) actually applies the configuration to the target nodes. Possible values are ApplyOnly, ApplyAndMonitor, and ApplyAndAutoCorrect.
         """
@@ -106,7 +117,7 @@ class ConfigurationSettingResponse(dict):
 
     @property
     @pulumi.getter(name="configurationModeFrequencyMins")
-    def configuration_mode_frequency_mins(self) -> float:
+    def configuration_mode_frequency_mins(self) -> Optional[float]:
         """
         How often, in minutes, the current configuration is checked and applied. This property is ignored if the ConfigurationMode property is set to ApplyOnly. The default value is 15.
         """
@@ -114,7 +125,7 @@ class ConfigurationSettingResponse(dict):
 
     @property
     @pulumi.getter(name="rebootIfNeeded")
-    def reboot_if_needed(self) -> str:
+    def reboot_if_needed(self) -> Optional[bool]:
         """
         Set this to true to automatically reboot the node after a configuration that requires reboot is applied. Otherwise, you will have to manually reboot the node for any configuration that requires it. The default value is false. To use this setting when a reboot condition is enacted by something other than DSC (such as Windows Installer), combine this setting with the xPendingReboot module.
         """
@@ -122,19 +133,11 @@ class ConfigurationSettingResponse(dict):
 
     @property
     @pulumi.getter(name="refreshFrequencyMins")
-    def refresh_frequency_mins(self) -> float:
+    def refresh_frequency_mins(self) -> Optional[float]:
         """
         The time interval, in minutes, at which the LCM checks a pull service to get updated configurations. This value is ignored if the LCM is not configured in pull mode. The default value is 30.
         """
         return pulumi.get(self, "refresh_frequency_mins")
-
-    @property
-    @pulumi.getter(name="allowModuleOverwrite")
-    def allow_module_overwrite(self) -> Optional[str]:
-        """
-        If true - new configurations downloaded from the pull service are allowed to overwrite the old ones on the target node. Otherwise, false
-        """
-        return pulumi.get(self, "allow_module_overwrite")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

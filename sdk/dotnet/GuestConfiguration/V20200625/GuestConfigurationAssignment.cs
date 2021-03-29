@@ -73,6 +73,8 @@ namespace Pulumi.AzureNative.GuestConfiguration.V20200625
                     new Pulumi.Alias { Type = "azure-nextgen:guestconfiguration/v20180630preview:GuestConfigurationAssignment"},
                     new Pulumi.Alias { Type = "azure-native:guestconfiguration/v20181120:GuestConfigurationAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:guestconfiguration/v20181120:GuestConfigurationAssignment"},
+                    new Pulumi.Alias { Type = "azure-native:guestconfiguration/v20210125:GuestConfigurationAssignment"},
+                    new Pulumi.Alias { Type = "azure-nextgen:guestconfiguration/v20210125:GuestConfigurationAssignment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -29,12 +29,6 @@ namespace Pulumi.AzureNative.Sql
         public Output<Outputs.ServerExternalAdministratorResponse?> Administrators { get; private set; } = null!;
 
         /// <summary>
-        /// The resource id of a user assigned identity to be used to access the customer managed keyvault.
-        /// </summary>
-        [Output("encryptionIdentityId")]
-        public Output<string?> EncryptionIdentityId { get; private set; } = null!;
-
-        /// <summary>
         /// The fully qualified domain name of the server.
         /// </summary>
         [Output("fullyQualifiedDomainName")]
@@ -44,7 +38,7 @@ namespace Pulumi.AzureNative.Sql
         /// The Azure Active Directory identity of the server.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.ResourceIdentityResponse?> Identity { get; private set; } = null!;
+        public Output<Outputs.ResourceIdentityWithUserAssignedIdentitiesResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// A CMK URI of the key to use for encryption.
@@ -75,6 +69,12 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// The resource id of a user assigned identity to be used by default.
+        /// </summary>
+        [Output("primaryUserAssignedIdentityId")]
+        public Output<string?> PrimaryUserAssignedIdentityId { get; private set; } = null!;
 
         /// <summary>
         /// List of private endpoint connections on a server
@@ -200,16 +200,10 @@ namespace Pulumi.AzureNative.Sql
         public Input<Inputs.ServerExternalAdministratorArgs>? Administrators { get; set; }
 
         /// <summary>
-        /// The resource id of a user assigned identity to be used to access the customer managed keyvault.
-        /// </summary>
-        [Input("encryptionIdentityId")]
-        public Input<string>? EncryptionIdentityId { get; set; }
-
-        /// <summary>
         /// The Azure Active Directory identity of the server.
         /// </summary>
         [Input("identity")]
-        public Input<Inputs.ResourceIdentityArgs>? Identity { get; set; }
+        public Input<Inputs.ResourceIdentityWithUserAssignedIdentitiesArgs>? Identity { get; set; }
 
         /// <summary>
         /// A CMK URI of the key to use for encryption.
@@ -228,6 +222,12 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         [Input("minimalTlsVersion")]
         public Input<string>? MinimalTlsVersion { get; set; }
+
+        /// <summary>
+        /// The resource id of a user assigned identity to be used by default.
+        /// </summary>
+        [Input("primaryUserAssignedIdentityId")]
+        public Input<string>? PrimaryUserAssignedIdentityId { get; set; }
 
         /// <summary>
         /// Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'

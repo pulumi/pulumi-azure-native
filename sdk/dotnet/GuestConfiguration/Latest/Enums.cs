@@ -39,37 +39,6 @@ namespace Pulumi.AzureNative.GuestConfiguration.Latest
     }
 
     /// <summary>
-    /// If true - new configurations downloaded from the pull service are allowed to overwrite the old ones on the target node. Otherwise, false
-    /// </summary>
-    [EnumType]
-    public readonly struct AllowModuleOverwrite : IEquatable<AllowModuleOverwrite>
-    {
-        private readonly string _value;
-
-        private AllowModuleOverwrite(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static AllowModuleOverwrite True { get; } = new AllowModuleOverwrite("True");
-        public static AllowModuleOverwrite False { get; } = new AllowModuleOverwrite("False");
-
-        public static bool operator ==(AllowModuleOverwrite left, AllowModuleOverwrite right) => left.Equals(right);
-        public static bool operator !=(AllowModuleOverwrite left, AllowModuleOverwrite right) => !left.Equals(right);
-
-        public static explicit operator string(AllowModuleOverwrite value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is AllowModuleOverwrite other && Equals(other);
-        public bool Equals(AllowModuleOverwrite other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// Specifies how the LCM(Local Configuration Manager) actually applies the configuration to the target nodes. Possible values are ApplyOnly, ApplyAndMonitor, and ApplyAndAutoCorrect.
     /// </summary>
     [EnumType]
@@ -124,37 +93,6 @@ namespace Pulumi.AzureNative.GuestConfiguration.Latest
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is Kind other && Equals(other);
         public bool Equals(Kind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Set this to true to automatically reboot the node after a configuration that requires reboot is applied. Otherwise, you will have to manually reboot the node for any configuration that requires it. The default value is false. To use this setting when a reboot condition is enacted by something other than DSC (such as Windows Installer), combine this setting with the xPendingReboot module.
-    /// </summary>
-    [EnumType]
-    public readonly struct RebootIfNeeded : IEquatable<RebootIfNeeded>
-    {
-        private readonly string _value;
-
-        private RebootIfNeeded(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static RebootIfNeeded True { get; } = new RebootIfNeeded("True");
-        public static RebootIfNeeded False { get; } = new RebootIfNeeded("False");
-
-        public static bool operator ==(RebootIfNeeded left, RebootIfNeeded right) => left.Equals(right);
-        public static bool operator !=(RebootIfNeeded left, RebootIfNeeded right) => !left.Equals(right);
-
-        public static explicit operator string(RebootIfNeeded value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is RebootIfNeeded other && Equals(other);
-        public bool Equals(RebootIfNeeded other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

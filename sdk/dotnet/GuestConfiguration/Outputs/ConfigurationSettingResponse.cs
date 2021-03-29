@@ -20,7 +20,7 @@ namespace Pulumi.AzureNative.GuestConfiguration.Outputs
         /// <summary>
         /// If true - new configurations downloaded from the pull service are allowed to overwrite the old ones on the target node. Otherwise, false
         /// </summary>
-        public readonly string? AllowModuleOverwrite;
+        public readonly bool? AllowModuleOverwrite;
         /// <summary>
         /// Specifies how the LCM(Local Configuration Manager) actually applies the configuration to the target nodes. Possible values are ApplyOnly, ApplyAndMonitor, and ApplyAndAutoCorrect.
         /// </summary>
@@ -32,7 +32,7 @@ namespace Pulumi.AzureNative.GuestConfiguration.Outputs
         /// <summary>
         /// Set this to true to automatically reboot the node after a configuration that requires reboot is applied. Otherwise, you will have to manually reboot the node for any configuration that requires it. The default value is false. To use this setting when a reboot condition is enacted by something other than DSC (such as Windows Installer), combine this setting with the xPendingReboot module.
         /// </summary>
-        public readonly string? RebootIfNeeded;
+        public readonly bool? RebootIfNeeded;
         /// <summary>
         /// The time interval, in minutes, at which the LCM checks a pull service to get updated configurations. This value is ignored if the LCM is not configured in pull mode. The default value is 30.
         /// </summary>
@@ -42,13 +42,13 @@ namespace Pulumi.AzureNative.GuestConfiguration.Outputs
         private ConfigurationSettingResponse(
             string? actionAfterReboot,
 
-            string? allowModuleOverwrite,
+            bool? allowModuleOverwrite,
 
             string? configurationMode,
 
             double? configurationModeFrequencyMins,
 
-            string? rebootIfNeeded,
+            bool? rebootIfNeeded,
 
             double? refreshFrequencyMins)
         {

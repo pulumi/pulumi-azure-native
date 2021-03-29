@@ -2,15 +2,26 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
-export const AllowModuleOverwrite = {
-    True: "True",
-    False: "False",
+export const ActionAfterReboot = {
+    ContinueConfiguration: "ContinueConfiguration",
+    StopConfiguration: "StopConfiguration",
 } as const;
 
 /**
- * If true - new configurations downloaded from the pull service are allowed to overwrite the old ones on the target node. Otherwise, false
+ * Specifies what happens after a reboot during the application of a configuration. The possible values are ContinueConfiguration and StopConfiguration
  */
-export type AllowModuleOverwrite = (typeof AllowModuleOverwrite)[keyof typeof AllowModuleOverwrite];
+export type ActionAfterReboot = (typeof ActionAfterReboot)[keyof typeof ActionAfterReboot];
+
+export const ConfigurationMode = {
+    ApplyOnly: "ApplyOnly",
+    ApplyAndMonitor: "ApplyAndMonitor",
+    ApplyAndAutoCorrect: "ApplyAndAutoCorrect",
+} as const;
+
+/**
+ * Specifies how the LCM(Local Configuration Manager) actually applies the configuration to the target nodes. Possible values are ApplyOnly, ApplyAndMonitor, and ApplyAndAutoCorrect.
+ */
+export type ConfigurationMode = (typeof ConfigurationMode)[keyof typeof ConfigurationMode];
 
 export const Kind = {
     DSC: "DSC",

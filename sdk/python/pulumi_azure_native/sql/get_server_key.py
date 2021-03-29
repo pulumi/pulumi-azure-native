@@ -19,7 +19,10 @@ class GetServerKeyResult:
     """
     A server key.
     """
-    def __init__(__self__, creation_date=None, id=None, kind=None, location=None, name=None, subregion=None, thumbprint=None, type=None):
+    def __init__(__self__, auto_rotation_enabled=None, creation_date=None, id=None, kind=None, location=None, name=None, subregion=None, thumbprint=None, type=None):
+        if auto_rotation_enabled and not isinstance(auto_rotation_enabled, bool):
+            raise TypeError("Expected argument 'auto_rotation_enabled' to be a bool")
+        pulumi.set(__self__, "auto_rotation_enabled", auto_rotation_enabled)
         if creation_date and not isinstance(creation_date, str):
             raise TypeError("Expected argument 'creation_date' to be a str")
         pulumi.set(__self__, "creation_date", creation_date)
@@ -44,6 +47,14 @@ class GetServerKeyResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="autoRotationEnabled")
+    def auto_rotation_enabled(self) -> bool:
+        """
+        Key auto rotation opt-in flag. Either true or false.
+        """
+        return pulumi.get(self, "auto_rotation_enabled")
 
     @property
     @pulumi.getter(name="creationDate")
@@ -116,6 +127,7 @@ class AwaitableGetServerKeyResult(GetServerKeyResult):
         if False:
             yield self
         return GetServerKeyResult(
+            auto_rotation_enabled=self.auto_rotation_enabled,
             creation_date=self.creation_date,
             id=self.id,
             kind=self.kind,
@@ -150,6 +162,7 @@ def get_server_key(key_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:sql:getServerKey', __args__, opts=opts, typ=GetServerKeyResult).value
 
     return AwaitableGetServerKeyResult(
+        auto_rotation_enabled=__ret__.auto_rotation_enabled,
         creation_date=__ret__.creation_date,
         id=__ret__.id,
         kind=__ret__.kind,

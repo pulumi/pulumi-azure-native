@@ -33,7 +33,7 @@ type LookupDatabaseSecurityAlertPolicyArgs struct {
 type LookupDatabaseSecurityAlertPolicyResult struct {
 	// Specifies the UTC creation time of the policy.
 	CreationTime string `pulumi:"creationTime"`
-	// Specifies an array of alerts that are disabled. Allowed values are: Sql_Injection, Sql_Injection_Vulnerability, Access_Anomaly, Data_Exfiltration, Unsafe_Action
+	// Specifies an array of alerts that are disabled. Allowed values are: Sql_Injection, Sql_Injection_Vulnerability, Access_Anomaly, Data_Exfiltration, Unsafe_Action, Brute_Force
 	DisabledAlerts []string `pulumi:"disabledAlerts"`
 	// Specifies that the alert is sent to the account administrators.
 	EmailAccountAdmins *bool `pulumi:"emailAccountAdmins"`
@@ -51,7 +51,7 @@ type LookupDatabaseSecurityAlertPolicyResult struct {
 	StorageAccountAccessKey *string `pulumi:"storageAccountAccessKey"`
 	// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
 	StorageEndpoint *string `pulumi:"storageEndpoint"`
-	// Metadata pertaining to creation and last modification of the resource.
+	// SystemData of SecurityAlertPolicyResource.
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type string `pulumi:"type"`

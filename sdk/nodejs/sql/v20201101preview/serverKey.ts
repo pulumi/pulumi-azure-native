@@ -36,6 +36,10 @@ export class ServerKey extends pulumi.CustomResource {
     }
 
     /**
+     * Key auto rotation opt-in flag. Either true or false.
+     */
+    public /*out*/ readonly autoRotationEnabled!: pulumi.Output<boolean>;
+    /**
      * The server key creation date.
      */
     public /*out*/ readonly creationDate!: pulumi.Output<string>;
@@ -89,6 +93,7 @@ export class ServerKey extends pulumi.CustomResource {
             inputs["serverKeyType"] = args ? args.serverKeyType : undefined;
             inputs["serverName"] = args ? args.serverName : undefined;
             inputs["uri"] = args ? args.uri : undefined;
+            inputs["autoRotationEnabled"] = undefined /*out*/;
             inputs["creationDate"] = undefined /*out*/;
             inputs["kind"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
@@ -97,6 +102,7 @@ export class ServerKey extends pulumi.CustomResource {
             inputs["thumbprint"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
+            inputs["autoRotationEnabled"] = undefined /*out*/;
             inputs["creationDate"] = undefined /*out*/;
             inputs["kind"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;

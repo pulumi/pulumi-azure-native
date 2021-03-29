@@ -28,6 +28,8 @@ type LookupServerKeyArgs struct {
 
 // A server key.
 type LookupServerKeyResult struct {
+	// Key auto rotation opt-in flag. Either true or false.
+	AutoRotationEnabled bool `pulumi:"autoRotationEnabled"`
 	// The server key creation date.
 	CreationDate string `pulumi:"creationDate"`
 	// Resource ID.

@@ -17,7 +17,7 @@ type DatabaseSecurityAlertPolicy struct {
 
 	// Specifies the UTC creation time of the policy.
 	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
-	// Specifies an array of alerts that are disabled. Allowed values are: Sql_Injection, Sql_Injection_Vulnerability, Access_Anomaly, Data_Exfiltration, Unsafe_Action
+	// Specifies an array of alerts that are disabled. Allowed values are: Sql_Injection, Sql_Injection_Vulnerability, Access_Anomaly, Data_Exfiltration, Unsafe_Action, Brute_Force
 	DisabledAlerts pulumi.StringArrayOutput `pulumi:"disabledAlerts"`
 	// Specifies that the alert is sent to the account administrators.
 	EmailAccountAdmins pulumi.BoolPtrOutput `pulumi:"emailAccountAdmins"`
@@ -33,7 +33,7 @@ type DatabaseSecurityAlertPolicy struct {
 	StorageAccountAccessKey pulumi.StringPtrOutput `pulumi:"storageAccountAccessKey"`
 	// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
 	StorageEndpoint pulumi.StringPtrOutput `pulumi:"storageEndpoint"`
-	// Metadata pertaining to creation and last modification of the resource.
+	// SystemData of SecurityAlertPolicyResource.
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
@@ -121,7 +121,7 @@ func GetDatabaseSecurityAlertPolicy(ctx *pulumi.Context,
 type databaseSecurityAlertPolicyState struct {
 	// Specifies the UTC creation time of the policy.
 	CreationTime *string `pulumi:"creationTime"`
-	// Specifies an array of alerts that are disabled. Allowed values are: Sql_Injection, Sql_Injection_Vulnerability, Access_Anomaly, Data_Exfiltration, Unsafe_Action
+	// Specifies an array of alerts that are disabled. Allowed values are: Sql_Injection, Sql_Injection_Vulnerability, Access_Anomaly, Data_Exfiltration, Unsafe_Action, Brute_Force
 	DisabledAlerts []string `pulumi:"disabledAlerts"`
 	// Specifies that the alert is sent to the account administrators.
 	EmailAccountAdmins *bool `pulumi:"emailAccountAdmins"`
@@ -137,7 +137,7 @@ type databaseSecurityAlertPolicyState struct {
 	StorageAccountAccessKey *string `pulumi:"storageAccountAccessKey"`
 	// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
 	StorageEndpoint *string `pulumi:"storageEndpoint"`
-	// Metadata pertaining to creation and last modification of the resource.
+	// SystemData of SecurityAlertPolicyResource.
 	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type *string `pulumi:"type"`
@@ -146,7 +146,7 @@ type databaseSecurityAlertPolicyState struct {
 type DatabaseSecurityAlertPolicyState struct {
 	// Specifies the UTC creation time of the policy.
 	CreationTime pulumi.StringPtrInput
-	// Specifies an array of alerts that are disabled. Allowed values are: Sql_Injection, Sql_Injection_Vulnerability, Access_Anomaly, Data_Exfiltration, Unsafe_Action
+	// Specifies an array of alerts that are disabled. Allowed values are: Sql_Injection, Sql_Injection_Vulnerability, Access_Anomaly, Data_Exfiltration, Unsafe_Action, Brute_Force
 	DisabledAlerts pulumi.StringArrayInput
 	// Specifies that the alert is sent to the account administrators.
 	EmailAccountAdmins pulumi.BoolPtrInput
@@ -162,7 +162,7 @@ type DatabaseSecurityAlertPolicyState struct {
 	StorageAccountAccessKey pulumi.StringPtrInput
 	// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
 	StorageEndpoint pulumi.StringPtrInput
-	// Metadata pertaining to creation and last modification of the resource.
+	// SystemData of SecurityAlertPolicyResource.
 	SystemData SystemDataResponsePtrInput
 	// Resource type.
 	Type pulumi.StringPtrInput
@@ -175,7 +175,7 @@ func (DatabaseSecurityAlertPolicyState) ElementType() reflect.Type {
 type databaseSecurityAlertPolicyArgs struct {
 	// The name of the  database for which the security alert policy is defined.
 	DatabaseName string `pulumi:"databaseName"`
-	// Specifies an array of alerts that are disabled. Allowed values are: Sql_Injection, Sql_Injection_Vulnerability, Access_Anomaly, Data_Exfiltration, Unsafe_Action
+	// Specifies an array of alerts that are disabled. Allowed values are: Sql_Injection, Sql_Injection_Vulnerability, Access_Anomaly, Data_Exfiltration, Unsafe_Action, Brute_Force
 	DisabledAlerts []string `pulumi:"disabledAlerts"`
 	// Specifies that the alert is sent to the account administrators.
 	EmailAccountAdmins *bool `pulumi:"emailAccountAdmins"`
@@ -201,7 +201,7 @@ type databaseSecurityAlertPolicyArgs struct {
 type DatabaseSecurityAlertPolicyArgs struct {
 	// The name of the  database for which the security alert policy is defined.
 	DatabaseName pulumi.StringInput
-	// Specifies an array of alerts that are disabled. Allowed values are: Sql_Injection, Sql_Injection_Vulnerability, Access_Anomaly, Data_Exfiltration, Unsafe_Action
+	// Specifies an array of alerts that are disabled. Allowed values are: Sql_Injection, Sql_Injection_Vulnerability, Access_Anomaly, Data_Exfiltration, Unsafe_Action, Brute_Force
 	DisabledAlerts pulumi.StringArrayInput
 	// Specifies that the alert is sent to the account administrators.
 	EmailAccountAdmins pulumi.BoolPtrInput

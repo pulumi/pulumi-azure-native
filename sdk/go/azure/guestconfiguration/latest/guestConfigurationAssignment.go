@@ -69,6 +69,12 @@ func NewGuestConfigurationAssignment(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:guestconfiguration/v20200625:GuestConfigurationAssignment"),
 		},
+		{
+			Type: pulumi.String("azure-native:guestconfiguration/v20210125:GuestConfigurationAssignment"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:guestconfiguration/v20210125:GuestConfigurationAssignment"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource GuestConfigurationAssignment

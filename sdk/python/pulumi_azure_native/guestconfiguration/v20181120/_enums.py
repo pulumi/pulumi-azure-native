@@ -6,10 +6,8 @@ from enum import Enum
 
 __all__ = [
     'ActionAfterReboot',
-    'AllowModuleOverwrite',
     'ConfigurationMode',
     'Kind',
-    'RebootIfNeeded',
 ]
 
 
@@ -19,14 +17,6 @@ class ActionAfterReboot(str, Enum):
     """
     CONTINUE_CONFIGURATION = "ContinueConfiguration"
     STOP_CONFIGURATION = "StopConfiguration"
-
-
-class AllowModuleOverwrite(str, Enum):
-    """
-    If true - new configurations downloaded from the pull service are allowed to overwrite the old ones on the target node. Otherwise, false
-    """
-    TRUE = "True"
-    FALSE = "False"
 
 
 class ConfigurationMode(str, Enum):
@@ -43,11 +33,3 @@ class Kind(str, Enum):
     Kind of the guest configuration. For example:DSC
     """
     DSC = "DSC"
-
-
-class RebootIfNeeded(str, Enum):
-    """
-    Set this to true to automatically reboot the node after a configuration that requires reboot is applied. Otherwise, you will have to manually reboot the node for any configuration that requires it. The default value is false. To use this setting when a reboot condition is enacted by something other than DSC (such as Windows Installer), combine this setting with the xPendingReboot module.
-    """
-    TRUE = "True"
-    FALSE = "False"

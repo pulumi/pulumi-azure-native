@@ -52,10 +52,6 @@ export interface GetServerResult {
      */
     readonly administrators?: outputs.sql.ServerExternalAdministratorResponse;
     /**
-     * The resource id of a user assigned identity to be used to access the customer managed keyvault.
-     */
-    readonly encryptionIdentityId?: string;
-    /**
      * The fully qualified domain name of the server.
      */
     readonly fullyQualifiedDomainName: string;
@@ -66,7 +62,7 @@ export interface GetServerResult {
     /**
      * The Azure Active Directory identity of the server.
      */
-    readonly identity?: outputs.sql.ResourceIdentityResponse;
+    readonly identity?: outputs.sql.ResourceIdentityWithUserAssignedIdentitiesResponse;
     /**
      * A CMK URI of the key to use for encryption.
      */
@@ -87,6 +83,10 @@ export interface GetServerResult {
      * Resource name.
      */
     readonly name: string;
+    /**
+     * The resource id of a user assigned identity to be used by default.
+     */
+    readonly primaryUserAssignedIdentityId?: string;
     /**
      * List of private endpoint connections on a server
      */

@@ -10,31 +10,60 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// If true - new configurations downloaded from the pull service are allowed to overwrite the old ones on the target node. Otherwise, false
-type AllowModuleOverwrite pulumi.String
+// Specifies what happens after a reboot during the application of a configuration. The possible values are ContinueConfiguration and StopConfiguration
+type ActionAfterReboot pulumi.String
 
 const (
-	AllowModuleOverwriteTrue  = AllowModuleOverwrite("True")
-	AllowModuleOverwriteFalse = AllowModuleOverwrite("False")
+	ActionAfterRebootContinueConfiguration = ActionAfterReboot("ContinueConfiguration")
+	ActionAfterRebootStopConfiguration     = ActionAfterReboot("StopConfiguration")
 )
 
-func (AllowModuleOverwrite) ElementType() reflect.Type {
+func (ActionAfterReboot) ElementType() reflect.Type {
 	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
-func (e AllowModuleOverwrite) ToStringOutput() pulumi.StringOutput {
+func (e ActionAfterReboot) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e AllowModuleOverwrite) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e ActionAfterReboot) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e AllowModuleOverwrite) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e ActionAfterReboot) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e AllowModuleOverwrite) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e ActionAfterReboot) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// Specifies how the LCM(Local Configuration Manager) actually applies the configuration to the target nodes. Possible values are ApplyOnly, ApplyAndMonitor, and ApplyAndAutoCorrect.
+type ConfigurationMode pulumi.String
+
+const (
+	ConfigurationModeApplyOnly           = ConfigurationMode("ApplyOnly")
+	ConfigurationModeApplyAndMonitor     = ConfigurationMode("ApplyAndMonitor")
+	ConfigurationModeApplyAndAutoCorrect = ConfigurationMode("ApplyAndAutoCorrect")
+)
+
+func (ConfigurationMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e ConfigurationMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConfigurationMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConfigurationMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ConfigurationMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 

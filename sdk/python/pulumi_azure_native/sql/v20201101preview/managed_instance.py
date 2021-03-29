@@ -20,16 +20,19 @@ class ManagedInstance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  administrator_login: Optional[pulumi.Input[str]] = None,
                  administrator_login_password: Optional[pulumi.Input[str]] = None,
+                 administrators: Optional[pulumi.Input[pulumi.InputType['ManagedInstanceExternalAdministratorArgs']]] = None,
                  collation: Optional[pulumi.Input[str]] = None,
                  dns_zone_partner: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ResourceIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['ResourceIdentityWithUserAssignedIdentitiesArgs']]] = None,
                  instance_pool_id: Optional[pulumi.Input[str]] = None,
+                 key_id: Optional[pulumi.Input[str]] = None,
                  license_type: Optional[pulumi.Input[Union[str, 'ManagedInstanceLicenseType']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  maintenance_configuration_id: Optional[pulumi.Input[str]] = None,
                  managed_instance_create_mode: Optional[pulumi.Input[Union[str, 'ManagedServerCreateMode']]] = None,
                  managed_instance_name: Optional[pulumi.Input[str]] = None,
                  minimal_tls_version: Optional[pulumi.Input[str]] = None,
+                 primary_user_assigned_identity_id: Optional[pulumi.Input[str]] = None,
                  proxy_override: Optional[pulumi.Input[Union[str, 'ManagedInstanceProxyOverride']]] = None,
                  public_data_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -53,10 +56,12 @@ class ManagedInstance(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] administrator_login: Administrator username for the managed instance. Can only be specified when the managed instance is being created (and is required for creation).
         :param pulumi.Input[str] administrator_login_password: The administrator login password (required for managed instance creation).
+        :param pulumi.Input[pulumi.InputType['ManagedInstanceExternalAdministratorArgs']] administrators: The Azure Active Directory administrator of the server.
         :param pulumi.Input[str] collation: Collation of the managed instance.
         :param pulumi.Input[str] dns_zone_partner: The resource id of another managed instance whose DNS zone this managed instance will share after creation.
-        :param pulumi.Input[pulumi.InputType['ResourceIdentityArgs']] identity: The Azure Active Directory identity of the managed instance.
+        :param pulumi.Input[pulumi.InputType['ResourceIdentityWithUserAssignedIdentitiesArgs']] identity: The Azure Active Directory identity of the managed instance.
         :param pulumi.Input[str] instance_pool_id: The Id of the instance pool this managed server belongs to.
+        :param pulumi.Input[str] key_id: A CMK URI of the key to use for encryption.
         :param pulumi.Input[Union[str, 'ManagedInstanceLicenseType']] license_type: The license type. Possible values are 'LicenseIncluded' (regular price inclusive of a new SQL license) and 'BasePrice' (discounted AHB price for bringing your own SQL licenses).
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] maintenance_configuration_id: Specifies maintenance configuration id to apply to this managed instance.
@@ -67,6 +72,7 @@ class ManagedInstance(pulumi.CustomResource):
                Restore: Creates an instance by restoring a set of backups to specific point in time. RestorePointInTime and SourceManagedInstanceId must be specified.
         :param pulumi.Input[str] managed_instance_name: The name of the managed instance.
         :param pulumi.Input[str] minimal_tls_version: Minimal TLS version. Allowed values: 'None', '1.0', '1.1', '1.2'
+        :param pulumi.Input[str] primary_user_assigned_identity_id: The resource id of a user assigned identity to be used by default.
         :param pulumi.Input[Union[str, 'ManagedInstanceProxyOverride']] proxy_override: Connection type used for connecting to the instance.
         :param pulumi.Input[bool] public_data_endpoint_enabled: Whether or not the public data endpoint is enabled.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -105,16 +111,19 @@ class ManagedInstance(pulumi.CustomResource):
 
             __props__['administrator_login'] = administrator_login
             __props__['administrator_login_password'] = administrator_login_password
+            __props__['administrators'] = administrators
             __props__['collation'] = collation
             __props__['dns_zone_partner'] = dns_zone_partner
             __props__['identity'] = identity
             __props__['instance_pool_id'] = instance_pool_id
+            __props__['key_id'] = key_id
             __props__['license_type'] = license_type
             __props__['location'] = location
             __props__['maintenance_configuration_id'] = maintenance_configuration_id
             __props__['managed_instance_create_mode'] = managed_instance_create_mode
             __props__['managed_instance_name'] = managed_instance_name
             __props__['minimal_tls_version'] = minimal_tls_version
+            __props__['primary_user_assigned_identity_id'] = primary_user_assigned_identity_id
             __props__['proxy_override'] = proxy_override
             __props__['public_data_endpoint_enabled'] = public_data_endpoint_enabled
             if resource_group_name is None and not opts.urn:
@@ -162,16 +171,19 @@ class ManagedInstance(pulumi.CustomResource):
         __props__ = dict()
 
         __props__["administrator_login"] = None
+        __props__["administrators"] = None
         __props__["collation"] = None
         __props__["dns_zone"] = None
         __props__["fully_qualified_domain_name"] = None
         __props__["identity"] = None
         __props__["instance_pool_id"] = None
+        __props__["key_id"] = None
         __props__["license_type"] = None
         __props__["location"] = None
         __props__["maintenance_configuration_id"] = None
         __props__["minimal_tls_version"] = None
         __props__["name"] = None
+        __props__["primary_user_assigned_identity_id"] = None
         __props__["private_endpoint_connections"] = None
         __props__["provisioning_state"] = None
         __props__["proxy_override"] = None
@@ -195,6 +207,14 @@ class ManagedInstance(pulumi.CustomResource):
         Administrator username for the managed instance. Can only be specified when the managed instance is being created (and is required for creation).
         """
         return pulumi.get(self, "administrator_login")
+
+    @property
+    @pulumi.getter
+    def administrators(self) -> pulumi.Output[Optional['outputs.ManagedInstanceExternalAdministratorResponse']]:
+        """
+        The Azure Active Directory administrator of the server.
+        """
+        return pulumi.get(self, "administrators")
 
     @property
     @pulumi.getter
@@ -222,7 +242,7 @@ class ManagedInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identity(self) -> pulumi.Output[Optional['outputs.ResourceIdentityResponse']]:
+    def identity(self) -> pulumi.Output[Optional['outputs.ResourceIdentityWithUserAssignedIdentitiesResponse']]:
         """
         The Azure Active Directory identity of the managed instance.
         """
@@ -235,6 +255,14 @@ class ManagedInstance(pulumi.CustomResource):
         The Id of the instance pool this managed server belongs to.
         """
         return pulumi.get(self, "instance_pool_id")
+
+    @property
+    @pulumi.getter(name="keyId")
+    def key_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        A CMK URI of the key to use for encryption.
+        """
+        return pulumi.get(self, "key_id")
 
     @property
     @pulumi.getter(name="licenseType")
@@ -275,6 +303,14 @@ class ManagedInstance(pulumi.CustomResource):
         Resource name.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="primaryUserAssignedIdentityId")
+    def primary_user_assigned_identity_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The resource id of a user assigned identity to be used by default.
+        """
+        return pulumi.get(self, "primary_user_assigned_identity_id")
 
     @property
     @pulumi.getter(name="privateEndpointConnections")

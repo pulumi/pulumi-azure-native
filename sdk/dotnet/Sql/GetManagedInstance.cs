@@ -23,6 +23,12 @@ namespace Pulumi.AzureNative.Sql
     public sealed class GetManagedInstanceArgs : Pulumi.InvokeArgs
     {
         /// <summary>
+        /// The child resources to include in the response.
+        /// </summary>
+        [Input("expand")]
+        public string? Expand { get; set; }
+
+        /// <summary>
         /// The name of the managed instance.
         /// </summary>
         [Input("managedInstanceName", required: true)]
@@ -48,6 +54,10 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         public readonly string? AdministratorLogin;
         /// <summary>
+        /// The Azure Active Directory administrator of the server.
+        /// </summary>
+        public readonly Outputs.ManagedInstanceExternalAdministratorResponse? Administrators;
+        /// <summary>
         /// Collation of the managed instance.
         /// </summary>
         public readonly string? Collation;
@@ -66,11 +76,15 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// The Azure Active Directory identity of the managed instance.
         /// </summary>
-        public readonly Outputs.ResourceIdentityResponse? Identity;
+        public readonly Outputs.ResourceIdentityWithUserAssignedIdentitiesResponse? Identity;
         /// <summary>
         /// The Id of the instance pool this managed server belongs to.
         /// </summary>
         public readonly string? InstancePoolId;
+        /// <summary>
+        /// A CMK URI of the key to use for encryption.
+        /// </summary>
+        public readonly string? KeyId;
         /// <summary>
         /// The license type. Possible values are 'LicenseIncluded' (regular price inclusive of a new SQL license) and 'BasePrice' (discounted AHB price for bringing your own SQL licenses).
         /// </summary>
@@ -91,6 +105,10 @@ namespace Pulumi.AzureNative.Sql
         /// Resource name.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The resource id of a user assigned identity to be used by default.
+        /// </summary>
+        public readonly string? PrimaryUserAssignedIdentityId;
         /// <summary>
         /// List of private endpoint connections on a managed instance.
         /// </summary>
@@ -154,6 +172,8 @@ namespace Pulumi.AzureNative.Sql
         private GetManagedInstanceResult(
             string? administratorLogin,
 
+            Outputs.ManagedInstanceExternalAdministratorResponse? administrators,
+
             string? collation,
 
             string dnsZone,
@@ -162,9 +182,11 @@ namespace Pulumi.AzureNative.Sql
 
             string id,
 
-            Outputs.ResourceIdentityResponse? identity,
+            Outputs.ResourceIdentityWithUserAssignedIdentitiesResponse? identity,
 
             string? instancePoolId,
+
+            string? keyId,
 
             string? licenseType,
 
@@ -175,6 +197,8 @@ namespace Pulumi.AzureNative.Sql
             string? minimalTlsVersion,
 
             string name,
+
+            string? primaryUserAssignedIdentityId,
 
             ImmutableArray<Outputs.ManagedInstancePecPropertyResponse> privateEndpointConnections,
 
@@ -205,17 +229,20 @@ namespace Pulumi.AzureNative.Sql
             bool? zoneRedundant)
         {
             AdministratorLogin = administratorLogin;
+            Administrators = administrators;
             Collation = collation;
             DnsZone = dnsZone;
             FullyQualifiedDomainName = fullyQualifiedDomainName;
             Id = id;
             Identity = identity;
             InstancePoolId = instancePoolId;
+            KeyId = keyId;
             LicenseType = licenseType;
             Location = location;
             MaintenanceConfigurationId = maintenanceConfigurationId;
             MinimalTlsVersion = minimalTlsVersion;
             Name = name;
+            PrimaryUserAssignedIdentityId = primaryUserAssignedIdentityId;
             PrivateEndpointConnections = privateEndpointConnections;
             ProvisioningState = provisioningState;
             ProxyOverride = proxyOverride;

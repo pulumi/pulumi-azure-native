@@ -43,6 +43,10 @@ export interface GetManagedInstanceKeyArgs {
  */
 export interface GetManagedInstanceKeyResult {
     /**
+     * Key auto rotation opt-in flag. Either true or false.
+     */
+    readonly autoRotationEnabled: boolean;
+    /**
      * The key creation date.
      */
     readonly creationDate: string;

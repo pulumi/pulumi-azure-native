@@ -21,11 +21,11 @@ class Server(pulumi.CustomResource):
                  administrator_login: Optional[pulumi.Input[str]] = None,
                  administrator_login_password: Optional[pulumi.Input[str]] = None,
                  administrators: Optional[pulumi.Input[pulumi.InputType['ServerExternalAdministratorArgs']]] = None,
-                 encryption_identity_id: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ResourceIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['ResourceIdentityWithUserAssignedIdentitiesArgs']]] = None,
                  key_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  minimal_tls_version: Optional[pulumi.Input[str]] = None,
+                 primary_user_assigned_identity_id: Optional[pulumi.Input[str]] = None,
                  public_network_access: Optional[pulumi.Input[Union[str, 'ServerPublicNetworkAccess']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
@@ -43,11 +43,11 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[str] administrator_login: Administrator username for the server. Once created it cannot be changed.
         :param pulumi.Input[str] administrator_login_password: The administrator login password (required for server creation).
         :param pulumi.Input[pulumi.InputType['ServerExternalAdministratorArgs']] administrators: The Azure Active Directory identity of the server.
-        :param pulumi.Input[str] encryption_identity_id: The resource id of a user assigned identity to be used to access the customer managed keyvault.
-        :param pulumi.Input[pulumi.InputType['ResourceIdentityArgs']] identity: The Azure Active Directory identity of the server.
+        :param pulumi.Input[pulumi.InputType['ResourceIdentityWithUserAssignedIdentitiesArgs']] identity: The Azure Active Directory identity of the server.
         :param pulumi.Input[str] key_id: A CMK URI of the key to use for encryption.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] minimal_tls_version: Minimal TLS version. Allowed values: '1.0', '1.1', '1.2'
+        :param pulumi.Input[str] primary_user_assigned_identity_id: The resource id of a user assigned identity to be used by default.
         :param pulumi.Input[Union[str, 'ServerPublicNetworkAccess']] public_network_access: Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] server_name: The name of the server.
@@ -74,11 +74,11 @@ class Server(pulumi.CustomResource):
             __props__['administrator_login'] = administrator_login
             __props__['administrator_login_password'] = administrator_login_password
             __props__['administrators'] = administrators
-            __props__['encryption_identity_id'] = encryption_identity_id
             __props__['identity'] = identity
             __props__['key_id'] = key_id
             __props__['location'] = location
             __props__['minimal_tls_version'] = minimal_tls_version
+            __props__['primary_user_assigned_identity_id'] = primary_user_assigned_identity_id
             __props__['public_network_access'] = public_network_access
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -119,7 +119,6 @@ class Server(pulumi.CustomResource):
 
         __props__["administrator_login"] = None
         __props__["administrators"] = None
-        __props__["encryption_identity_id"] = None
         __props__["fully_qualified_domain_name"] = None
         __props__["identity"] = None
         __props__["key_id"] = None
@@ -127,6 +126,7 @@ class Server(pulumi.CustomResource):
         __props__["location"] = None
         __props__["minimal_tls_version"] = None
         __props__["name"] = None
+        __props__["primary_user_assigned_identity_id"] = None
         __props__["private_endpoint_connections"] = None
         __props__["public_network_access"] = None
         __props__["state"] = None
@@ -153,14 +153,6 @@ class Server(pulumi.CustomResource):
         return pulumi.get(self, "administrators")
 
     @property
-    @pulumi.getter(name="encryptionIdentityId")
-    def encryption_identity_id(self) -> pulumi.Output[Optional[str]]:
-        """
-        The resource id of a user assigned identity to be used to access the customer managed keyvault.
-        """
-        return pulumi.get(self, "encryption_identity_id")
-
-    @property
     @pulumi.getter(name="fullyQualifiedDomainName")
     def fully_qualified_domain_name(self) -> pulumi.Output[str]:
         """
@@ -170,7 +162,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identity(self) -> pulumi.Output[Optional['outputs.ResourceIdentityResponse']]:
+    def identity(self) -> pulumi.Output[Optional['outputs.ResourceIdentityWithUserAssignedIdentitiesResponse']]:
         """
         The Azure Active Directory identity of the server.
         """
@@ -215,6 +207,14 @@ class Server(pulumi.CustomResource):
         Resource name.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="primaryUserAssignedIdentityId")
+    def primary_user_assigned_identity_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The resource id of a user assigned identity to be used by default.
+        """
+        return pulumi.get(self, "primary_user_assigned_identity_id")
 
     @property
     @pulumi.getter(name="privateEndpointConnections")

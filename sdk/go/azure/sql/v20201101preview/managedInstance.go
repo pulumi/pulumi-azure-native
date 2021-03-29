@@ -17,6 +17,8 @@ type ManagedInstance struct {
 
 	// Administrator username for the managed instance. Can only be specified when the managed instance is being created (and is required for creation).
 	AdministratorLogin pulumi.StringPtrOutput `pulumi:"administratorLogin"`
+	// The Azure Active Directory administrator of the server.
+	Administrators ManagedInstanceExternalAdministratorResponsePtrOutput `pulumi:"administrators"`
 	// Collation of the managed instance.
 	Collation pulumi.StringPtrOutput `pulumi:"collation"`
 	// The Dns Zone that the managed instance is in.
@@ -24,9 +26,11 @@ type ManagedInstance struct {
 	// The fully qualified domain name of the managed instance.
 	FullyQualifiedDomainName pulumi.StringOutput `pulumi:"fullyQualifiedDomainName"`
 	// The Azure Active Directory identity of the managed instance.
-	Identity ResourceIdentityResponsePtrOutput `pulumi:"identity"`
+	Identity ResourceIdentityWithUserAssignedIdentitiesResponsePtrOutput `pulumi:"identity"`
 	// The Id of the instance pool this managed server belongs to.
 	InstancePoolId pulumi.StringPtrOutput `pulumi:"instancePoolId"`
+	// A CMK URI of the key to use for encryption.
+	KeyId pulumi.StringPtrOutput `pulumi:"keyId"`
 	// The license type. Possible values are 'LicenseIncluded' (regular price inclusive of a new SQL license) and 'BasePrice' (discounted AHB price for bringing your own SQL licenses).
 	LicenseType pulumi.StringPtrOutput `pulumi:"licenseType"`
 	// Resource location.
@@ -37,6 +41,8 @@ type ManagedInstance struct {
 	MinimalTlsVersion pulumi.StringPtrOutput `pulumi:"minimalTlsVersion"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The resource id of a user assigned identity to be used by default.
+	PrimaryUserAssignedIdentityId pulumi.StringPtrOutput `pulumi:"primaryUserAssignedIdentityId"`
 	// List of private endpoint connections on a managed instance.
 	PrivateEndpointConnections ManagedInstancePecPropertyResponseArrayOutput `pulumi:"privateEndpointConnections"`
 	ProvisioningState          pulumi.StringOutput                           `pulumi:"provisioningState"`
@@ -141,6 +147,8 @@ func GetManagedInstance(ctx *pulumi.Context,
 type managedInstanceState struct {
 	// Administrator username for the managed instance. Can only be specified when the managed instance is being created (and is required for creation).
 	AdministratorLogin *string `pulumi:"administratorLogin"`
+	// The Azure Active Directory administrator of the server.
+	Administrators *ManagedInstanceExternalAdministratorResponse `pulumi:"administrators"`
 	// Collation of the managed instance.
 	Collation *string `pulumi:"collation"`
 	// The Dns Zone that the managed instance is in.
@@ -148,9 +156,11 @@ type managedInstanceState struct {
 	// The fully qualified domain name of the managed instance.
 	FullyQualifiedDomainName *string `pulumi:"fullyQualifiedDomainName"`
 	// The Azure Active Directory identity of the managed instance.
-	Identity *ResourceIdentityResponse `pulumi:"identity"`
+	Identity *ResourceIdentityWithUserAssignedIdentitiesResponse `pulumi:"identity"`
 	// The Id of the instance pool this managed server belongs to.
 	InstancePoolId *string `pulumi:"instancePoolId"`
+	// A CMK URI of the key to use for encryption.
+	KeyId *string `pulumi:"keyId"`
 	// The license type. Possible values are 'LicenseIncluded' (regular price inclusive of a new SQL license) and 'BasePrice' (discounted AHB price for bringing your own SQL licenses).
 	LicenseType *string `pulumi:"licenseType"`
 	// Resource location.
@@ -161,6 +171,8 @@ type managedInstanceState struct {
 	MinimalTlsVersion *string `pulumi:"minimalTlsVersion"`
 	// Resource name.
 	Name *string `pulumi:"name"`
+	// The resource id of a user assigned identity to be used by default.
+	PrimaryUserAssignedIdentityId *string `pulumi:"primaryUserAssignedIdentityId"`
 	// List of private endpoint connections on a managed instance.
 	PrivateEndpointConnections []ManagedInstancePecPropertyResponse `pulumi:"privateEndpointConnections"`
 	ProvisioningState          *string                              `pulumi:"provisioningState"`
@@ -198,6 +210,8 @@ type managedInstanceState struct {
 type ManagedInstanceState struct {
 	// Administrator username for the managed instance. Can only be specified when the managed instance is being created (and is required for creation).
 	AdministratorLogin pulumi.StringPtrInput
+	// The Azure Active Directory administrator of the server.
+	Administrators ManagedInstanceExternalAdministratorResponsePtrInput
 	// Collation of the managed instance.
 	Collation pulumi.StringPtrInput
 	// The Dns Zone that the managed instance is in.
@@ -205,9 +219,11 @@ type ManagedInstanceState struct {
 	// The fully qualified domain name of the managed instance.
 	FullyQualifiedDomainName pulumi.StringPtrInput
 	// The Azure Active Directory identity of the managed instance.
-	Identity ResourceIdentityResponsePtrInput
+	Identity ResourceIdentityWithUserAssignedIdentitiesResponsePtrInput
 	// The Id of the instance pool this managed server belongs to.
 	InstancePoolId pulumi.StringPtrInput
+	// A CMK URI of the key to use for encryption.
+	KeyId pulumi.StringPtrInput
 	// The license type. Possible values are 'LicenseIncluded' (regular price inclusive of a new SQL license) and 'BasePrice' (discounted AHB price for bringing your own SQL licenses).
 	LicenseType pulumi.StringPtrInput
 	// Resource location.
@@ -218,6 +234,8 @@ type ManagedInstanceState struct {
 	MinimalTlsVersion pulumi.StringPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
+	// The resource id of a user assigned identity to be used by default.
+	PrimaryUserAssignedIdentityId pulumi.StringPtrInput
 	// List of private endpoint connections on a managed instance.
 	PrivateEndpointConnections ManagedInstancePecPropertyResponseArrayInput
 	ProvisioningState          pulumi.StringPtrInput
@@ -261,14 +279,18 @@ type managedInstanceArgs struct {
 	AdministratorLogin *string `pulumi:"administratorLogin"`
 	// The administrator login password (required for managed instance creation).
 	AdministratorLoginPassword *string `pulumi:"administratorLoginPassword"`
+	// The Azure Active Directory administrator of the server.
+	Administrators *ManagedInstanceExternalAdministrator `pulumi:"administrators"`
 	// Collation of the managed instance.
 	Collation *string `pulumi:"collation"`
 	// The resource id of another managed instance whose DNS zone this managed instance will share after creation.
 	DnsZonePartner *string `pulumi:"dnsZonePartner"`
 	// The Azure Active Directory identity of the managed instance.
-	Identity *ResourceIdentity `pulumi:"identity"`
+	Identity *ResourceIdentityWithUserAssignedIdentities `pulumi:"identity"`
 	// The Id of the instance pool this managed server belongs to.
 	InstancePoolId *string `pulumi:"instancePoolId"`
+	// A CMK URI of the key to use for encryption.
+	KeyId *string `pulumi:"keyId"`
 	// The license type. Possible values are 'LicenseIncluded' (regular price inclusive of a new SQL license) and 'BasePrice' (discounted AHB price for bringing your own SQL licenses).
 	LicenseType *string `pulumi:"licenseType"`
 	// Resource location.
@@ -285,6 +307,8 @@ type managedInstanceArgs struct {
 	ManagedInstanceName *string `pulumi:"managedInstanceName"`
 	// Minimal TLS version. Allowed values: 'None', '1.0', '1.1', '1.2'
 	MinimalTlsVersion *string `pulumi:"minimalTlsVersion"`
+	// The resource id of a user assigned identity to be used by default.
+	PrimaryUserAssignedIdentityId *string `pulumi:"primaryUserAssignedIdentityId"`
 	// Connection type used for connecting to the instance.
 	ProxyOverride *string `pulumi:"proxyOverride"`
 	// Whether or not the public data endpoint is enabled.
@@ -324,14 +348,18 @@ type ManagedInstanceArgs struct {
 	AdministratorLogin pulumi.StringPtrInput
 	// The administrator login password (required for managed instance creation).
 	AdministratorLoginPassword pulumi.StringPtrInput
+	// The Azure Active Directory administrator of the server.
+	Administrators ManagedInstanceExternalAdministratorPtrInput
 	// Collation of the managed instance.
 	Collation pulumi.StringPtrInput
 	// The resource id of another managed instance whose DNS zone this managed instance will share after creation.
 	DnsZonePartner pulumi.StringPtrInput
 	// The Azure Active Directory identity of the managed instance.
-	Identity ResourceIdentityPtrInput
+	Identity ResourceIdentityWithUserAssignedIdentitiesPtrInput
 	// The Id of the instance pool this managed server belongs to.
 	InstancePoolId pulumi.StringPtrInput
+	// A CMK URI of the key to use for encryption.
+	KeyId pulumi.StringPtrInput
 	// The license type. Possible values are 'LicenseIncluded' (regular price inclusive of a new SQL license) and 'BasePrice' (discounted AHB price for bringing your own SQL licenses).
 	LicenseType pulumi.StringPtrInput
 	// Resource location.
@@ -348,6 +376,8 @@ type ManagedInstanceArgs struct {
 	ManagedInstanceName pulumi.StringPtrInput
 	// Minimal TLS version. Allowed values: 'None', '1.0', '1.1', '1.2'
 	MinimalTlsVersion pulumi.StringPtrInput
+	// The resource id of a user assigned identity to be used by default.
+	PrimaryUserAssignedIdentityId pulumi.StringPtrInput
 	// Connection type used for connecting to the instance.
 	ProxyOverride pulumi.StringPtrInput
 	// Whether or not the public data endpoint is enabled.

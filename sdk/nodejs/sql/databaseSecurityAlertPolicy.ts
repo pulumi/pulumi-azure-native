@@ -41,7 +41,7 @@ export class DatabaseSecurityAlertPolicy extends pulumi.CustomResource {
      */
     public /*out*/ readonly creationTime!: pulumi.Output<string>;
     /**
-     * Specifies an array of alerts that are disabled. Allowed values are: Sql_Injection, Sql_Injection_Vulnerability, Access_Anomaly, Data_Exfiltration, Unsafe_Action
+     * Specifies an array of alerts that are disabled. Allowed values are: Sql_Injection, Sql_Injection_Vulnerability, Access_Anomaly, Data_Exfiltration, Unsafe_Action, Brute_Force
      */
     public readonly disabledAlerts!: pulumi.Output<string[] | undefined>;
     /**
@@ -73,7 +73,7 @@ export class DatabaseSecurityAlertPolicy extends pulumi.CustomResource {
      */
     public readonly storageEndpoint!: pulumi.Output<string | undefined>;
     /**
-     * Metadata pertaining to creation and last modification of the resource.
+     * SystemData of SecurityAlertPolicyResource.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.sql.SystemDataResponse>;
     /**
@@ -150,7 +150,7 @@ export interface DatabaseSecurityAlertPolicyArgs {
      */
     readonly databaseName: pulumi.Input<string>;
     /**
-     * Specifies an array of alerts that are disabled. Allowed values are: Sql_Injection, Sql_Injection_Vulnerability, Access_Anomaly, Data_Exfiltration, Unsafe_Action
+     * Specifies an array of alerts that are disabled. Allowed values are: Sql_Injection, Sql_Injection_Vulnerability, Access_Anomaly, Data_Exfiltration, Unsafe_Action, Brute_Force
      */
     readonly disabledAlerts?: pulumi.Input<pulumi.Input<string>[]>;
     /**

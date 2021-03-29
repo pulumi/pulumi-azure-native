@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Sql.V20201101Preview
         public Output<string?> AdministratorLogin { get; private set; } = null!;
 
         /// <summary>
+        /// The Azure Active Directory administrator of the server.
+        /// </summary>
+        [Output("administrators")]
+        public Output<Outputs.ManagedInstanceExternalAdministratorResponse?> Administrators { get; private set; } = null!;
+
+        /// <summary>
         /// Collation of the managed instance.
         /// </summary>
         [Output("collation")]
@@ -43,13 +49,19 @@ namespace Pulumi.AzureNative.Sql.V20201101Preview
         /// The Azure Active Directory identity of the managed instance.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.ResourceIdentityResponse?> Identity { get; private set; } = null!;
+        public Output<Outputs.ResourceIdentityWithUserAssignedIdentitiesResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The Id of the instance pool this managed server belongs to.
         /// </summary>
         [Output("instancePoolId")]
         public Output<string?> InstancePoolId { get; private set; } = null!;
+
+        /// <summary>
+        /// A CMK URI of the key to use for encryption.
+        /// </summary>
+        [Output("keyId")]
+        public Output<string?> KeyId { get; private set; } = null!;
 
         /// <summary>
         /// The license type. Possible values are 'LicenseIncluded' (regular price inclusive of a new SQL license) and 'BasePrice' (discounted AHB price for bringing your own SQL licenses).
@@ -80,6 +92,12 @@ namespace Pulumi.AzureNative.Sql.V20201101Preview
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// The resource id of a user assigned identity to be used by default.
+        /// </summary>
+        [Output("primaryUserAssignedIdentityId")]
+        public Output<string?> PrimaryUserAssignedIdentityId { get; private set; } = null!;
 
         /// <summary>
         /// List of private endpoint connections on a managed instance.
@@ -239,6 +257,12 @@ namespace Pulumi.AzureNative.Sql.V20201101Preview
         public Input<string>? AdministratorLoginPassword { get; set; }
 
         /// <summary>
+        /// The Azure Active Directory administrator of the server.
+        /// </summary>
+        [Input("administrators")]
+        public Input<Inputs.ManagedInstanceExternalAdministratorArgs>? Administrators { get; set; }
+
+        /// <summary>
         /// Collation of the managed instance.
         /// </summary>
         [Input("collation")]
@@ -254,13 +278,19 @@ namespace Pulumi.AzureNative.Sql.V20201101Preview
         /// The Azure Active Directory identity of the managed instance.
         /// </summary>
         [Input("identity")]
-        public Input<Inputs.ResourceIdentityArgs>? Identity { get; set; }
+        public Input<Inputs.ResourceIdentityWithUserAssignedIdentitiesArgs>? Identity { get; set; }
 
         /// <summary>
         /// The Id of the instance pool this managed server belongs to.
         /// </summary>
         [Input("instancePoolId")]
         public Input<string>? InstancePoolId { get; set; }
+
+        /// <summary>
+        /// A CMK URI of the key to use for encryption.
+        /// </summary>
+        [Input("keyId")]
+        public Input<string>? KeyId { get; set; }
 
         /// <summary>
         /// The license type. Possible values are 'LicenseIncluded' (regular price inclusive of a new SQL license) and 'BasePrice' (discounted AHB price for bringing your own SQL licenses).
@@ -301,6 +331,12 @@ namespace Pulumi.AzureNative.Sql.V20201101Preview
         /// </summary>
         [Input("minimalTlsVersion")]
         public Input<string>? MinimalTlsVersion { get; set; }
+
+        /// <summary>
+        /// The resource id of a user assigned identity to be used by default.
+        /// </summary>
+        [Input("primaryUserAssignedIdentityId")]
+        public Input<string>? PrimaryUserAssignedIdentityId { get; set; }
 
         /// <summary>
         /// Connection type used for connecting to the instance.

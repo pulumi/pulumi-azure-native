@@ -70,7 +70,7 @@ class GetDatabaseSecurityAlertPolicyResult:
     @pulumi.getter(name="disabledAlerts")
     def disabled_alerts(self) -> Optional[Sequence[str]]:
         """
-        Specifies an array of alerts that are disabled. Allowed values are: Sql_Injection, Sql_Injection_Vulnerability, Access_Anomaly, Data_Exfiltration, Unsafe_Action
+        Specifies an array of alerts that are disabled. Allowed values are: Sql_Injection, Sql_Injection_Vulnerability, Access_Anomaly, Data_Exfiltration, Unsafe_Action, Brute_Force
         """
         return pulumi.get(self, "disabled_alerts")
 
@@ -142,7 +142,7 @@ class GetDatabaseSecurityAlertPolicyResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        Metadata pertaining to creation and last modification of the resource.
+        SystemData of SecurityAlertPolicyResource.
         """
         return pulumi.get(self, "system_data")
 

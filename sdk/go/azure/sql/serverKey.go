@@ -16,6 +16,8 @@ import (
 type ServerKey struct {
 	pulumi.CustomResourceState
 
+	// Key auto rotation opt-in flag. Either true or false.
+	AutoRotationEnabled pulumi.BoolOutput `pulumi:"autoRotationEnabled"`
 	// The server key creation date.
 	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
 	// Kind of encryption protector. This is metadata used for the Azure portal experience.
@@ -100,6 +102,8 @@ func GetServerKey(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ServerKey resources.
 type serverKeyState struct {
+	// Key auto rotation opt-in flag. Either true or false.
+	AutoRotationEnabled *bool `pulumi:"autoRotationEnabled"`
 	// The server key creation date.
 	CreationDate *string `pulumi:"creationDate"`
 	// Kind of encryption protector. This is metadata used for the Azure portal experience.
@@ -117,6 +121,8 @@ type serverKeyState struct {
 }
 
 type ServerKeyState struct {
+	// Key auto rotation opt-in flag. Either true or false.
+	AutoRotationEnabled pulumi.BoolPtrInput
 	// The server key creation date.
 	CreationDate pulumi.StringPtrInput
 	// Kind of encryption protector. This is metadata used for the Azure portal experience.
