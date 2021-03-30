@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * String dictionary resource.
- * Latest API Version: 2020-10-01.
+ * Latest API Version: 2020-12-01.
  */
 /** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listWebAppApplicationSettings'. */
 export function listWebAppApplicationSettings(args: ListWebAppApplicationSettingsArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppApplicationSettingsResult> {
@@ -56,10 +56,6 @@ export interface ListWebAppApplicationSettingsResult {
      * Settings.
      */
     readonly properties: {[key: string]: string};
-    /**
-     * The system metadata relating to this resource.
-     */
-    readonly systemData: outputs.web.latest.SystemDataResponse;
     /**
      * Resource type.
      */

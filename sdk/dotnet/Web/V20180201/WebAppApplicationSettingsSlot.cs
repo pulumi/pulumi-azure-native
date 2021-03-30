@@ -83,6 +83,8 @@ namespace Pulumi.AzureNative.Web.V20180201
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:WebAppApplicationSettingsSlot"},
                     new Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppApplicationSettingsSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:WebAppApplicationSettingsSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppApplicationSettingsSlot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20201201:WebAppApplicationSettingsSlot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

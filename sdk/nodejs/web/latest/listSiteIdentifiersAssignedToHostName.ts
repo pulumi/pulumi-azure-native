@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Collection of identifiers.
- * Latest API Version: 2020-10-01.
+ * Latest API Version: 2020-12-01.
  */
 /** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listSiteIdentifiersAssignedToHostName'. */
 export function listSiteIdentifiersAssignedToHostName(args?: ListSiteIdentifiersAssignedToHostNameArgs, opts?: pulumi.InvokeOptions): Promise<ListSiteIdentifiersAssignedToHostNameResult> {

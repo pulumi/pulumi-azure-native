@@ -2,12 +2,11 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
  * Function information.
- * Latest API Version: 2020-10-01.
+ * Latest API Version: 2020-12-01.
  *
  * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppInstanceFunctionSlot'.
  */
@@ -92,10 +91,6 @@ export class WebAppInstanceFunctionSlot extends pulumi.CustomResource {
      */
     public readonly secretsFileHref!: pulumi.Output<string | undefined>;
     /**
-     * The system metadata relating to this resource.
-     */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.web.latest.SystemDataResponse>;
-    /**
      * Test data used when testing via the Azure Portal.
      */
     public readonly testData!: pulumi.Output<string | undefined>;
@@ -148,7 +143,6 @@ export class WebAppInstanceFunctionSlot extends pulumi.CustomResource {
             inputs["slot"] = args ? args.slot : undefined;
             inputs["testData"] = args ? args.testData : undefined;
             inputs["testDataHref"] = args ? args.testDataHref : undefined;
-            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["config"] = undefined /*out*/;
@@ -164,7 +158,6 @@ export class WebAppInstanceFunctionSlot extends pulumi.CustomResource {
             inputs["scriptHref"] = undefined /*out*/;
             inputs["scriptRootPathHref"] = undefined /*out*/;
             inputs["secretsFileHref"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
             inputs["testData"] = undefined /*out*/;
             inputs["testDataHref"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -172,7 +165,7 @@ export class WebAppInstanceFunctionSlot extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:WebAppInstanceFunctionSlot" }, { type: "azure-native:web:WebAppInstanceFunctionSlot" }, { type: "azure-nextgen:web:WebAppInstanceFunctionSlot" }, { type: "azure-native:web/v20160801:WebAppInstanceFunctionSlot" }, { type: "azure-nextgen:web/v20160801:WebAppInstanceFunctionSlot" }, { type: "azure-native:web/v20180201:WebAppInstanceFunctionSlot" }, { type: "azure-nextgen:web/v20180201:WebAppInstanceFunctionSlot" }, { type: "azure-native:web/v20181101:WebAppInstanceFunctionSlot" }, { type: "azure-nextgen:web/v20181101:WebAppInstanceFunctionSlot" }, { type: "azure-native:web/v20190801:WebAppInstanceFunctionSlot" }, { type: "azure-nextgen:web/v20190801:WebAppInstanceFunctionSlot" }, { type: "azure-native:web/v20200601:WebAppInstanceFunctionSlot" }, { type: "azure-nextgen:web/v20200601:WebAppInstanceFunctionSlot" }, { type: "azure-native:web/v20200901:WebAppInstanceFunctionSlot" }, { type: "azure-nextgen:web/v20200901:WebAppInstanceFunctionSlot" }, { type: "azure-native:web/v20201001:WebAppInstanceFunctionSlot" }, { type: "azure-nextgen:web/v20201001:WebAppInstanceFunctionSlot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:WebAppInstanceFunctionSlot" }, { type: "azure-native:web:WebAppInstanceFunctionSlot" }, { type: "azure-nextgen:web:WebAppInstanceFunctionSlot" }, { type: "azure-native:web/v20160801:WebAppInstanceFunctionSlot" }, { type: "azure-nextgen:web/v20160801:WebAppInstanceFunctionSlot" }, { type: "azure-native:web/v20180201:WebAppInstanceFunctionSlot" }, { type: "azure-nextgen:web/v20180201:WebAppInstanceFunctionSlot" }, { type: "azure-native:web/v20181101:WebAppInstanceFunctionSlot" }, { type: "azure-nextgen:web/v20181101:WebAppInstanceFunctionSlot" }, { type: "azure-native:web/v20190801:WebAppInstanceFunctionSlot" }, { type: "azure-nextgen:web/v20190801:WebAppInstanceFunctionSlot" }, { type: "azure-native:web/v20200601:WebAppInstanceFunctionSlot" }, { type: "azure-nextgen:web/v20200601:WebAppInstanceFunctionSlot" }, { type: "azure-native:web/v20200901:WebAppInstanceFunctionSlot" }, { type: "azure-nextgen:web/v20200901:WebAppInstanceFunctionSlot" }, { type: "azure-native:web/v20201001:WebAppInstanceFunctionSlot" }, { type: "azure-nextgen:web/v20201001:WebAppInstanceFunctionSlot" }, { type: "azure-native:web/v20201201:WebAppInstanceFunctionSlot" }, { type: "azure-nextgen:web/v20201201:WebAppInstanceFunctionSlot" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebAppInstanceFunctionSlot.__pulumiType, name, inputs, opts);
     }

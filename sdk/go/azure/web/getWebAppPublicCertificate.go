@@ -8,7 +8,7 @@ import (
 )
 
 // Public certificate object
-// API Version: 2020-10-01.
+// API Version: 2020-12-01.
 func LookupWebAppPublicCertificate(ctx *pulumi.Context, args *LookupWebAppPublicCertificateArgs, opts ...pulumi.InvokeOption) (*LookupWebAppPublicCertificateResult, error) {
 	var rv LookupWebAppPublicCertificateResult
 	err := ctx.Invoke("azure-native:web:getWebAppPublicCertificate", args, &rv, opts...)
@@ -39,8 +39,6 @@ type LookupWebAppPublicCertificateResult struct {
 	Name string `pulumi:"name"`
 	// Public Certificate Location
 	PublicCertificateLocation *string `pulumi:"publicCertificateLocation"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Certificate Thumbprint
 	Thumbprint string `pulumi:"thumbprint"`
 	// Resource type.

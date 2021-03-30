@@ -14,6 +14,7 @@ import * as v20190801 from "./v20190801";
 import * as v20200601 from "./v20200601";
 import * as v20200901 from "./v20200901";
 import * as v20201001 from "./v20201001";
+import * as v20201201 from "./v20201201";
 
 export {
     latest,
@@ -28,17 +29,8 @@ export {
     v20200601,
     v20200901,
     v20201001,
+    v20201201,
 };
-
-export const AccessControlEntryAction = {
-    Permit: "Permit",
-    Deny: "Deny",
-} as const;
-
-/**
- * Action object.
- */
-export type AccessControlEntryAction = (typeof AccessControlEntryAction)[keyof typeof AccessControlEntryAction];
 
 export const ApiType = {
     NotSpecified: "NotSpecified",
@@ -101,6 +93,7 @@ export type BuiltInAuthenticationProvider = (typeof BuiltInAuthenticationProvide
 export const ClientCertMode = {
     Required: "Required",
     Optional: "Optional",
+    OptionalInteractiveUser: "OptionalInteractiveUser",
 } as const;
 
 /**
@@ -116,17 +109,6 @@ export const ClientCredentialMethod = {
 } as const;
 
 export type ClientCredentialMethod = (typeof ClientCredentialMethod)[keyof typeof ClientCredentialMethod];
-
-export const ComputeModeOptions = {
-    Shared: "Shared",
-    Dedicated: "Dedicated",
-    Dynamic: "Dynamic",
-} as const;
-
-/**
- * Shared or dedicated app hosting.
- */
-export type ComputeModeOptions = (typeof ComputeModeOptions)[keyof typeof ComputeModeOptions];
 
 export const ConnectionParameterType = {
     String: "string",
@@ -257,7 +239,7 @@ export const LoadBalancingMode = {
     None: "None",
     Web: "Web",
     Publishing: "Publishing",
-    Web_Publishing: "Web,Publishing",
+    Web_Publishing: "Web, Publishing",
 } as const;
 
 /**
@@ -368,6 +350,7 @@ export const SiteLoadBalancing = {
     LeastResponseTime: "LeastResponseTime",
     WeightedTotalTraffic: "WeightedTotalTraffic",
     RequestHash: "RequestHash",
+    PerSiteRoundRobin: "PerSiteRoundRobin",
 } as const;
 
 /**

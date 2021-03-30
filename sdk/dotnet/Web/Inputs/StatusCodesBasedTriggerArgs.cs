@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Web.Inputs
         public Input<int>? Count { get; set; }
 
         /// <summary>
+        /// Request Path
+        /// </summary>
+        [Input("path")]
+        public Input<string>? Path { get; set; }
+
+        /// <summary>
         /// HTTP status code.
         /// </summary>
         [Input("status")]

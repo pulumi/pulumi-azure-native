@@ -89,10 +89,6 @@ export interface GetWorkspaceResult {
      */
     readonly name: string;
     /**
-     * Network Settings
-     */
-    readonly networkSettings?: outputs.synapse.latest.NetworkSettingsResponse;
-    /**
      * Private endpoint connections to the workspace
      */
     readonly privateEndpointConnections?: outputs.synapse.latest.PrivateEndpointConnectionResponse[];
@@ -100,6 +96,10 @@ export interface GetWorkspaceResult {
      * Resource provisioning state
      */
     readonly provisioningState: string;
+    /**
+     * Enable or Disable pubic network access to workspace
+     */
+    readonly publicNetworkAccess?: string;
     /**
      * Purview Configuration
      */

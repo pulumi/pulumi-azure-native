@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "azure-native:web:AppServiceEnvironment":
 		r, err = NewAppServiceEnvironment(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-native:web:AppServiceEnvironmentPrivateEndpointConnection":
+		r, err = NewAppServiceEnvironmentPrivateEndpointConnection(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:web:AppServicePlan":
 		r, err = NewAppServicePlan(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:web:AppServicePlanRouteForVnet":
@@ -37,6 +39,14 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewCustomApi(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:web:StaticSite":
 		r, err = NewStaticSite(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-native:web:StaticSiteCustomDomain":
+		r, err = NewStaticSiteCustomDomain(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-native:web:StaticSitePrivateEndpointConnection":
+		r, err = NewStaticSitePrivateEndpointConnection(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-native:web:StaticSiteUserProvidedFunctionAppForStaticSite":
+		r, err = NewStaticSiteUserProvidedFunctionAppForStaticSite(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-native:web:StaticSiteUserProvidedFunctionAppForStaticSiteBuild":
+		r, err = NewStaticSiteUserProvidedFunctionAppForStaticSiteBuild(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:web:WebApp":
 		r, err = NewWebApp(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:web:WebAppApplicationSettings":
@@ -95,6 +105,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewWebAppPremierAddOnSlot(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:web:WebAppPrivateEndpointConnection":
 		r, err = NewWebAppPrivateEndpointConnection(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-native:web:WebAppPrivateEndpointConnectionSlot":
+		r, err = NewWebAppPrivateEndpointConnectionSlot(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:web:WebAppPublicCertificate":
 		r, err = NewWebAppPublicCertificate(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:web:WebAppPublicCertificateSlot":

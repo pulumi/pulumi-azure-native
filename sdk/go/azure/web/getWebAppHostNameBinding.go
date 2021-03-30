@@ -8,7 +8,7 @@ import (
 )
 
 // A hostname binding object.
-// API Version: 2020-10-01.
+// API Version: 2020-12-01.
 func LookupWebAppHostNameBinding(ctx *pulumi.Context, args *LookupWebAppHostNameBindingArgs, opts ...pulumi.InvokeOption) (*LookupWebAppHostNameBindingResult, error) {
 	var rv LookupWebAppHostNameBindingResult
 	err := ctx.Invoke("azure-native:web:getWebAppHostNameBinding", args, &rv, opts...)
@@ -49,8 +49,6 @@ type LookupWebAppHostNameBindingResult struct {
 	SiteName *string `pulumi:"siteName"`
 	// SSL type
 	SslState *string `pulumi:"sslState"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
 	// SSL certificate thumbprint
 	Thumbprint *string `pulumi:"thumbprint"`
 	// Resource type.

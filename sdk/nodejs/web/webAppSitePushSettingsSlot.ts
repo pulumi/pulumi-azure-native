@@ -2,12 +2,11 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
  * Push settings for the App.
- * API Version: 2020-10-01.
+ * API Version: 2020-12-01.
  */
 export class WebAppSitePushSettingsSlot extends pulumi.CustomResource {
     /**
@@ -52,10 +51,6 @@ export class WebAppSitePushSettingsSlot extends pulumi.CustomResource {
      * Resource Name.
      */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * The system metadata relating to this resource.
-     */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.web.SystemDataResponse>;
     /**
      * Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
      */
@@ -103,14 +98,12 @@ export class WebAppSitePushSettingsSlot extends pulumi.CustomResource {
             inputs["slot"] = args ? args.slot : undefined;
             inputs["tagWhitelistJson"] = args ? args.tagWhitelistJson : undefined;
             inputs["tagsRequiringAuth"] = args ? args.tagsRequiringAuth : undefined;
-            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["dynamicTagsJson"] = undefined /*out*/;
             inputs["isPushEnabled"] = undefined /*out*/;
             inputs["kind"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
             inputs["tagWhitelistJson"] = undefined /*out*/;
             inputs["tagsRequiringAuth"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -118,7 +111,7 @@ export class WebAppSitePushSettingsSlot extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:WebAppSitePushSettingsSlot" }, { type: "azure-native:web/latest:WebAppSitePushSettingsSlot" }, { type: "azure-nextgen:web/latest:WebAppSitePushSettingsSlot" }, { type: "azure-native:web/v20160801:WebAppSitePushSettingsSlot" }, { type: "azure-nextgen:web/v20160801:WebAppSitePushSettingsSlot" }, { type: "azure-native:web/v20180201:WebAppSitePushSettingsSlot" }, { type: "azure-nextgen:web/v20180201:WebAppSitePushSettingsSlot" }, { type: "azure-native:web/v20181101:WebAppSitePushSettingsSlot" }, { type: "azure-nextgen:web/v20181101:WebAppSitePushSettingsSlot" }, { type: "azure-native:web/v20190801:WebAppSitePushSettingsSlot" }, { type: "azure-nextgen:web/v20190801:WebAppSitePushSettingsSlot" }, { type: "azure-native:web/v20200601:WebAppSitePushSettingsSlot" }, { type: "azure-nextgen:web/v20200601:WebAppSitePushSettingsSlot" }, { type: "azure-native:web/v20200901:WebAppSitePushSettingsSlot" }, { type: "azure-nextgen:web/v20200901:WebAppSitePushSettingsSlot" }, { type: "azure-native:web/v20201001:WebAppSitePushSettingsSlot" }, { type: "azure-nextgen:web/v20201001:WebAppSitePushSettingsSlot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:WebAppSitePushSettingsSlot" }, { type: "azure-native:web/latest:WebAppSitePushSettingsSlot" }, { type: "azure-nextgen:web/latest:WebAppSitePushSettingsSlot" }, { type: "azure-native:web/v20160801:WebAppSitePushSettingsSlot" }, { type: "azure-nextgen:web/v20160801:WebAppSitePushSettingsSlot" }, { type: "azure-native:web/v20180201:WebAppSitePushSettingsSlot" }, { type: "azure-nextgen:web/v20180201:WebAppSitePushSettingsSlot" }, { type: "azure-native:web/v20181101:WebAppSitePushSettingsSlot" }, { type: "azure-nextgen:web/v20181101:WebAppSitePushSettingsSlot" }, { type: "azure-native:web/v20190801:WebAppSitePushSettingsSlot" }, { type: "azure-nextgen:web/v20190801:WebAppSitePushSettingsSlot" }, { type: "azure-native:web/v20200601:WebAppSitePushSettingsSlot" }, { type: "azure-nextgen:web/v20200601:WebAppSitePushSettingsSlot" }, { type: "azure-native:web/v20200901:WebAppSitePushSettingsSlot" }, { type: "azure-nextgen:web/v20200901:WebAppSitePushSettingsSlot" }, { type: "azure-native:web/v20201001:WebAppSitePushSettingsSlot" }, { type: "azure-nextgen:web/v20201001:WebAppSitePushSettingsSlot" }, { type: "azure-native:web/v20201201:WebAppSitePushSettingsSlot" }, { type: "azure-nextgen:web/v20201201:WebAppSitePushSettingsSlot" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebAppSitePushSettingsSlot.__pulumiType, name, inputs, opts);
     }

@@ -18,12 +18,15 @@ __all__ = [
 @pulumi.output_type
 class GetWebAppPrivateEndpointConnectionResult:
     """
-    Private Endpoint Connection ARM resource.
+    Remote Private Endpoint Connection ARM resource.
     """
-    def __init__(__self__, id=None, kind=None, name=None, private_endpoint=None, private_link_service_connection_state=None, provisioning_state=None, system_data=None, type=None):
+    def __init__(__self__, id=None, ip_addresses=None, kind=None, name=None, private_endpoint=None, private_link_service_connection_state=None, provisioning_state=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if ip_addresses and not isinstance(ip_addresses, list):
+            raise TypeError("Expected argument 'ip_addresses' to be a list")
+        pulumi.set(__self__, "ip_addresses", ip_addresses)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
@@ -39,9 +42,6 @@ class GetWebAppPrivateEndpointConnectionResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if system_data and not isinstance(system_data, dict):
-            raise TypeError("Expected argument 'system_data' to be a dict")
-        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -53,6 +53,14 @@ class GetWebAppPrivateEndpointConnectionResult:
         Resource Id.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="ipAddresses")
+    def ip_addresses(self) -> Optional[Sequence[str]]:
+        """
+        Private IPAddresses mapped to the remote private endpoint
+        """
+        return pulumi.get(self, "ip_addresses")
 
     @property
     @pulumi.getter
@@ -92,14 +100,6 @@ class GetWebAppPrivateEndpointConnectionResult:
         return pulumi.get(self, "provisioning_state")
 
     @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
-        """
-        The system metadata relating to this resource.
-        """
-        return pulumi.get(self, "system_data")
-
-    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -115,12 +115,12 @@ class AwaitableGetWebAppPrivateEndpointConnectionResult(GetWebAppPrivateEndpoint
             yield self
         return GetWebAppPrivateEndpointConnectionResult(
             id=self.id,
+            ip_addresses=self.ip_addresses,
             kind=self.kind,
             name=self.name,
             private_endpoint=self.private_endpoint,
             private_link_service_connection_state=self.private_link_service_connection_state,
             provisioning_state=self.provisioning_state,
-            system_data=self.system_data,
             type=self.type)
 
 
@@ -129,11 +129,12 @@ def get_web_app_private_endpoint_connection(name: Optional[str] = None,
                                             resource_group_name: Optional[str] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppPrivateEndpointConnectionResult:
     """
-    Private Endpoint Connection ARM resource.
-    API Version: 2020-10-01.
+    Remote Private Endpoint Connection ARM resource.
+    API Version: 2020-12-01.
 
 
     :param str name: Name of the site.
+    :param str private_endpoint_connection_name: Name of the private endpoint connection.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
     __args__ = dict()
@@ -148,10 +149,10 @@ def get_web_app_private_endpoint_connection(name: Optional[str] = None,
 
     return AwaitableGetWebAppPrivateEndpointConnectionResult(
         id=__ret__.id,
+        ip_addresses=__ret__.ip_addresses,
         kind=__ret__.kind,
         name=__ret__.name,
         private_endpoint=__ret__.private_endpoint,
         private_link_service_connection_state=__ret__.private_link_service_connection_state,
         provisioning_state=__ret__.provisioning_state,
-        system_data=__ret__.system_data,
         type=__ret__.type)

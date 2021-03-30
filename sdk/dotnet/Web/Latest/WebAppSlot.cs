@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Web.Latest
 {
     /// <summary>
     /// A web app, a mobile app backend, or an API app.
-    /// Latest API Version: 2020-10-01.
+    /// Latest API Version: 2020-12-01.
     /// </summary>
     [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppSlot'.")]
     [AzureNativeResourceType("azure-native:web/latest:WebAppSlot")]
@@ -150,6 +150,12 @@ namespace Pulumi.AzureNative.Web.Latest
         public Output<bool?> IsXenon { get; private set; } = null!;
 
         /// <summary>
+        /// Identity to use for Key Vault Reference authentication.
+        /// </summary>
+        [Output("keyVaultReferenceIdentity")]
+        public Output<string?> KeyVaultReferenceIdentity { get; private set; } = null!;
+
+        /// <summary>
         /// Kind of resource.
         /// </summary>
         [Output("kind")]
@@ -259,12 +265,6 @@ namespace Pulumi.AzureNative.Web.Latest
         public Output<string> SuspendedTill { get; private set; } = null!;
 
         /// <summary>
-        /// The system metadata relating to this resource.
-        /// </summary>
-        [Output("systemData")]
-        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
-
-        /// <summary>
         /// Resource tags.
         /// </summary>
         [Output("tags")]
@@ -338,6 +338,8 @@ namespace Pulumi.AzureNative.Web.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:WebAppSlot"},
                     new Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:WebAppSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppSlot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20201201:WebAppSlot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -467,6 +469,12 @@ namespace Pulumi.AzureNative.Web.Latest
         /// </summary>
         [Input("isXenon")]
         public Input<bool>? IsXenon { get; set; }
+
+        /// <summary>
+        /// Identity to use for Key Vault Reference authentication.
+        /// </summary>
+        [Input("keyVaultReferenceIdentity")]
+        public Input<string>? KeyVaultReferenceIdentity { get; set; }
 
         /// <summary>
         /// Kind of resource.

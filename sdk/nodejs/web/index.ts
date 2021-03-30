@@ -6,6 +6,7 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./appServiceEnvironment";
+export * from "./appServiceEnvironmentPrivateEndpointConnection";
 export * from "./appServicePlan";
 export * from "./appServicePlanRouteForVnet";
 export * from "./certificate";
@@ -13,12 +14,17 @@ export * from "./connection";
 export * from "./connectionGateway";
 export * from "./customApi";
 export * from "./getAppServiceEnvironment";
+export * from "./getAppServiceEnvironmentPrivateEndpointConnection";
 export * from "./getAppServicePlan";
 export * from "./getCertificate";
 export * from "./getConnection";
 export * from "./getConnectionGateway";
 export * from "./getCustomApi";
 export * from "./getStaticSite";
+export * from "./getStaticSiteCustomDomain";
+export * from "./getStaticSitePrivateEndpointConnection";
+export * from "./getStaticSiteUserProvidedFunctionAppForStaticSite";
+export * from "./getStaticSiteUserProvidedFunctionAppForStaticSiteBuild";
 export * from "./getWebApp";
 export * from "./getWebAppDeployment";
 export * from "./getWebAppDeploymentSlot";
@@ -34,6 +40,7 @@ export * from "./getWebAppInstanceFunctionSlot";
 export * from "./getWebAppPremierAddOn";
 export * from "./getWebAppPremierAddOnSlot";
 export * from "./getWebAppPrivateEndpointConnection";
+export * from "./getWebAppPrivateEndpointConnectionSlot";
 export * from "./getWebAppPublicCertificate";
 export * from "./getWebAppPublicCertificateSlot";
 export * from "./getWebAppRelayServiceConnection";
@@ -53,7 +60,10 @@ export * from "./listConnectionConsentLinks";
 export * from "./listConnectionKeys";
 export * from "./listCustomApiWsdlInterfaces";
 export * from "./listSiteIdentifiersAssignedToHostName";
+export * from "./listStaticSiteAppSettings";
+export * from "./listStaticSiteBuildAppSettings";
 export * from "./listStaticSiteBuildFunctionAppSettings";
+export * from "./listStaticSiteConfiguredRoles";
 export * from "./listStaticSiteFunctionAppSettings";
 export * from "./listStaticSiteSecrets";
 export * from "./listStaticSiteUsers";
@@ -88,6 +98,10 @@ export * from "./listWebAppSitePushSettingsSlot";
 export * from "./listWebAppSyncFunctionTriggers";
 export * from "./listWebAppSyncFunctionTriggersSlot";
 export * from "./staticSite";
+export * from "./staticSiteCustomDomain";
+export * from "./staticSitePrivateEndpointConnection";
+export * from "./staticSiteUserProvidedFunctionAppForStaticSite";
+export * from "./staticSiteUserProvidedFunctionAppForStaticSiteBuild";
 export * from "./webApp";
 export * from "./webAppApplicationSettings";
 export * from "./webAppApplicationSettingsSlot";
@@ -117,6 +131,7 @@ export * from "./webAppMetadataSlot";
 export * from "./webAppPremierAddOn";
 export * from "./webAppPremierAddOnSlot";
 export * from "./webAppPrivateEndpointConnection";
+export * from "./webAppPrivateEndpointConnectionSlot";
 export * from "./webAppPublicCertificate";
 export * from "./webAppPublicCertificateSlot";
 export * from "./webAppRelayServiceConnection";
@@ -151,6 +166,7 @@ import * as v20190801 from "./v20190801";
 import * as v20200601 from "./v20200601";
 import * as v20200901 from "./v20200901";
 import * as v20201001 from "./v20201001";
+import * as v20201201 from "./v20201201";
 
 export {
     latest,
@@ -166,10 +182,12 @@ export {
     v20200601,
     v20200901,
     v20201001,
+    v20201201,
 };
 
 // Import resources to register:
 import { AppServiceEnvironment } from "./appServiceEnvironment";
+import { AppServiceEnvironmentPrivateEndpointConnection } from "./appServiceEnvironmentPrivateEndpointConnection";
 import { AppServicePlan } from "./appServicePlan";
 import { AppServicePlanRouteForVnet } from "./appServicePlanRouteForVnet";
 import { Certificate } from "./certificate";
@@ -177,6 +195,10 @@ import { Connection } from "./connection";
 import { ConnectionGateway } from "./connectionGateway";
 import { CustomApi } from "./customApi";
 import { StaticSite } from "./staticSite";
+import { StaticSiteCustomDomain } from "./staticSiteCustomDomain";
+import { StaticSitePrivateEndpointConnection } from "./staticSitePrivateEndpointConnection";
+import { StaticSiteUserProvidedFunctionAppForStaticSite } from "./staticSiteUserProvidedFunctionAppForStaticSite";
+import { StaticSiteUserProvidedFunctionAppForStaticSiteBuild } from "./staticSiteUserProvidedFunctionAppForStaticSiteBuild";
 import { WebApp } from "./webApp";
 import { WebAppApplicationSettings } from "./webAppApplicationSettings";
 import { WebAppApplicationSettingsSlot } from "./webAppApplicationSettingsSlot";
@@ -206,6 +228,7 @@ import { WebAppMetadataSlot } from "./webAppMetadataSlot";
 import { WebAppPremierAddOn } from "./webAppPremierAddOn";
 import { WebAppPremierAddOnSlot } from "./webAppPremierAddOnSlot";
 import { WebAppPrivateEndpointConnection } from "./webAppPrivateEndpointConnection";
+import { WebAppPrivateEndpointConnectionSlot } from "./webAppPrivateEndpointConnectionSlot";
 import { WebAppPublicCertificate } from "./webAppPublicCertificate";
 import { WebAppPublicCertificateSlot } from "./webAppPublicCertificateSlot";
 import { WebAppRelayServiceConnection } from "./webAppRelayServiceConnection";
@@ -229,6 +252,8 @@ const _module = {
         switch (type) {
             case "azure-native:web:AppServiceEnvironment":
                 return new AppServiceEnvironment(name, <any>undefined, { urn })
+            case "azure-native:web:AppServiceEnvironmentPrivateEndpointConnection":
+                return new AppServiceEnvironmentPrivateEndpointConnection(name, <any>undefined, { urn })
             case "azure-native:web:AppServicePlan":
                 return new AppServicePlan(name, <any>undefined, { urn })
             case "azure-native:web:AppServicePlanRouteForVnet":
@@ -243,6 +268,14 @@ const _module = {
                 return new CustomApi(name, <any>undefined, { urn })
             case "azure-native:web:StaticSite":
                 return new StaticSite(name, <any>undefined, { urn })
+            case "azure-native:web:StaticSiteCustomDomain":
+                return new StaticSiteCustomDomain(name, <any>undefined, { urn })
+            case "azure-native:web:StaticSitePrivateEndpointConnection":
+                return new StaticSitePrivateEndpointConnection(name, <any>undefined, { urn })
+            case "azure-native:web:StaticSiteUserProvidedFunctionAppForStaticSite":
+                return new StaticSiteUserProvidedFunctionAppForStaticSite(name, <any>undefined, { urn })
+            case "azure-native:web:StaticSiteUserProvidedFunctionAppForStaticSiteBuild":
+                return new StaticSiteUserProvidedFunctionAppForStaticSiteBuild(name, <any>undefined, { urn })
             case "azure-native:web:WebApp":
                 return new WebApp(name, <any>undefined, { urn })
             case "azure-native:web:WebAppApplicationSettings":
@@ -301,6 +334,8 @@ const _module = {
                 return new WebAppPremierAddOnSlot(name, <any>undefined, { urn })
             case "azure-native:web:WebAppPrivateEndpointConnection":
                 return new WebAppPrivateEndpointConnection(name, <any>undefined, { urn })
+            case "azure-native:web:WebAppPrivateEndpointConnectionSlot":
+                return new WebAppPrivateEndpointConnectionSlot(name, <any>undefined, { urn })
             case "azure-native:web:WebAppPublicCertificate":
                 return new WebAppPublicCertificate(name, <any>undefined, { urn })
             case "azure-native:web:WebAppPublicCertificateSlot":

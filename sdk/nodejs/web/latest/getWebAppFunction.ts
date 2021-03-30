@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Function information.
- * Latest API Version: 2020-10-01.
+ * Latest API Version: 2020-12-01.
  */
 /** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getWebAppFunction'. */
 export function getWebAppFunction(args: GetWebAppFunctionArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppFunctionResult> {
@@ -101,10 +101,6 @@ export interface GetWebAppFunctionResult {
      * Secrets file URI.
      */
     readonly secretsFileHref?: string;
-    /**
-     * The system metadata relating to this resource.
-     */
-    readonly systemData: outputs.web.latest.SystemDataResponse;
     /**
      * Test data used when testing via the Azure Portal.
      */

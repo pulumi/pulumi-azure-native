@@ -77,6 +77,9 @@ func NewRegistry(ctx *pulumi.Context,
 	if args.AdminUserEnabled == nil {
 		args.AdminUserEnabled = pulumi.BoolPtr(false)
 	}
+	if args.AnonymousPullEnabled == nil {
+		args.AnonymousPullEnabled = pulumi.BoolPtr(false)
+	}
 	if args.NetworkRuleBypassOptions == nil {
 		args.NetworkRuleBypassOptions = pulumi.StringPtr("AzureServices")
 	}

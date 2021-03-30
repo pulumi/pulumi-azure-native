@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Public certificate object
- * Latest API Version: 2020-10-01.
+ * Latest API Version: 2020-12-01.
  *
  * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppPublicCertificate'.
  */
@@ -56,10 +56,6 @@ export class WebAppPublicCertificate extends pulumi.CustomResource {
      */
     public readonly publicCertificateLocation!: pulumi.Output<string | undefined>;
     /**
-     * The system metadata relating to this resource.
-     */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.web.latest.SystemDataResponse>;
-    /**
      * Certificate Thumbprint
      */
     public /*out*/ readonly thumbprint!: pulumi.Output<string>;
@@ -93,7 +89,6 @@ export class WebAppPublicCertificate extends pulumi.CustomResource {
             inputs["publicCertificateLocation"] = args ? args.publicCertificateLocation : undefined;
             inputs["publicCertificateName"] = args ? args.publicCertificateName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["systemData"] = undefined /*out*/;
             inputs["thumbprint"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
@@ -101,14 +96,13 @@ export class WebAppPublicCertificate extends pulumi.CustomResource {
             inputs["kind"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["publicCertificateLocation"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
             inputs["thumbprint"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:WebAppPublicCertificate" }, { type: "azure-native:web:WebAppPublicCertificate" }, { type: "azure-nextgen:web:WebAppPublicCertificate" }, { type: "azure-native:web/v20160801:WebAppPublicCertificate" }, { type: "azure-nextgen:web/v20160801:WebAppPublicCertificate" }, { type: "azure-native:web/v20180201:WebAppPublicCertificate" }, { type: "azure-nextgen:web/v20180201:WebAppPublicCertificate" }, { type: "azure-native:web/v20181101:WebAppPublicCertificate" }, { type: "azure-nextgen:web/v20181101:WebAppPublicCertificate" }, { type: "azure-native:web/v20190801:WebAppPublicCertificate" }, { type: "azure-nextgen:web/v20190801:WebAppPublicCertificate" }, { type: "azure-native:web/v20200601:WebAppPublicCertificate" }, { type: "azure-nextgen:web/v20200601:WebAppPublicCertificate" }, { type: "azure-native:web/v20200901:WebAppPublicCertificate" }, { type: "azure-nextgen:web/v20200901:WebAppPublicCertificate" }, { type: "azure-native:web/v20201001:WebAppPublicCertificate" }, { type: "azure-nextgen:web/v20201001:WebAppPublicCertificate" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:WebAppPublicCertificate" }, { type: "azure-native:web:WebAppPublicCertificate" }, { type: "azure-nextgen:web:WebAppPublicCertificate" }, { type: "azure-native:web/v20160801:WebAppPublicCertificate" }, { type: "azure-nextgen:web/v20160801:WebAppPublicCertificate" }, { type: "azure-native:web/v20180201:WebAppPublicCertificate" }, { type: "azure-nextgen:web/v20180201:WebAppPublicCertificate" }, { type: "azure-native:web/v20181101:WebAppPublicCertificate" }, { type: "azure-nextgen:web/v20181101:WebAppPublicCertificate" }, { type: "azure-native:web/v20190801:WebAppPublicCertificate" }, { type: "azure-nextgen:web/v20190801:WebAppPublicCertificate" }, { type: "azure-native:web/v20200601:WebAppPublicCertificate" }, { type: "azure-nextgen:web/v20200601:WebAppPublicCertificate" }, { type: "azure-native:web/v20200901:WebAppPublicCertificate" }, { type: "azure-nextgen:web/v20200901:WebAppPublicCertificate" }, { type: "azure-native:web/v20201001:WebAppPublicCertificate" }, { type: "azure-nextgen:web/v20201001:WebAppPublicCertificate" }, { type: "azure-native:web/v20201201:WebAppPublicCertificate" }, { type: "azure-nextgen:web/v20201201:WebAppPublicCertificate" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebAppPublicCertificate.__pulumiType, name, inputs, opts);
     }

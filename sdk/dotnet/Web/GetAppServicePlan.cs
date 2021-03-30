@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web
     {
         /// <summary>
         /// App Service plan.
-        /// API Version: 2020-10-01.
+        /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetAppServicePlanResult> InvokeAsync(GetAppServicePlanArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAppServicePlanResult>("azure-native:web:getAppServicePlan", args ?? new GetAppServicePlanArgs(), options.WithVersion());
@@ -76,6 +76,10 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         public readonly string? Kind;
         /// <summary>
+        /// Specification for the Kubernetes Environment to use for the App Service plan.
+        /// </summary>
+        public readonly Outputs.KubeEnvironmentProfileResponse? KubeEnvironmentProfile;
+        /// <summary>
         /// Resource Location.
         /// </summary>
         public readonly string Location;
@@ -101,7 +105,7 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         public readonly bool? PerSiteScaling;
         /// <summary>
-        /// Provisioning state of the App Service Environment.
+        /// Provisioning state of the App Service Plan.
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
@@ -128,10 +132,6 @@ namespace Pulumi.AzureNative.Web
         /// App Service plan subscription.
         /// </summary>
         public readonly string Subscription;
-        /// <summary>
-        /// The system metadata relating to this resource.
-        /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -171,6 +171,8 @@ namespace Pulumi.AzureNative.Web
 
             string? kind,
 
+            Outputs.KubeEnvironmentProfileResponse? kubeEnvironmentProfile,
+
             string location,
 
             int? maximumElasticWorkerCount,
@@ -197,8 +199,6 @@ namespace Pulumi.AzureNative.Web
 
             string subscription,
 
-            Outputs.SystemDataResponse systemData,
-
             ImmutableDictionary<string, string>? tags,
 
             int? targetWorkerCount,
@@ -217,6 +217,7 @@ namespace Pulumi.AzureNative.Web
             IsSpot = isSpot;
             IsXenon = isXenon;
             Kind = kind;
+            KubeEnvironmentProfile = kubeEnvironmentProfile;
             Location = location;
             MaximumElasticWorkerCount = maximumElasticWorkerCount;
             MaximumNumberOfWorkers = maximumNumberOfWorkers;
@@ -230,7 +231,6 @@ namespace Pulumi.AzureNative.Web
             SpotExpirationTime = spotExpirationTime;
             Status = status;
             Subscription = subscription;
-            SystemData = systemData;
             Tags = tags;
             TargetWorkerCount = targetWorkerCount;
             TargetWorkerSizeId = targetWorkerSizeId;

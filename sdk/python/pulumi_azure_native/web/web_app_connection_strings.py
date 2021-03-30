@@ -27,7 +27,7 @@ class WebAppConnectionStrings(pulumi.CustomResource):
                  __opts__=None):
         """
         String dictionary resource.
-        API Version: 2020-10-01.
+        API Version: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -61,9 +61,8 @@ class WebAppConnectionStrings(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web:WebAppConnectionStrings"), pulumi.Alias(type_="azure-native:web/latest:WebAppConnectionStrings"), pulumi.Alias(type_="azure-nextgen:web/latest:WebAppConnectionStrings"), pulumi.Alias(type_="azure-native:web/v20150801:WebAppConnectionStrings"), pulumi.Alias(type_="azure-nextgen:web/v20150801:WebAppConnectionStrings"), pulumi.Alias(type_="azure-native:web/v20160801:WebAppConnectionStrings"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppConnectionStrings"), pulumi.Alias(type_="azure-native:web/v20180201:WebAppConnectionStrings"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppConnectionStrings"), pulumi.Alias(type_="azure-native:web/v20181101:WebAppConnectionStrings"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppConnectionStrings"), pulumi.Alias(type_="azure-native:web/v20190801:WebAppConnectionStrings"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppConnectionStrings"), pulumi.Alias(type_="azure-native:web/v20200601:WebAppConnectionStrings"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppConnectionStrings"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppConnectionStrings"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppConnectionStrings"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppConnectionStrings"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppConnectionStrings")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web:WebAppConnectionStrings"), pulumi.Alias(type_="azure-native:web/latest:WebAppConnectionStrings"), pulumi.Alias(type_="azure-nextgen:web/latest:WebAppConnectionStrings"), pulumi.Alias(type_="azure-native:web/v20150801:WebAppConnectionStrings"), pulumi.Alias(type_="azure-nextgen:web/v20150801:WebAppConnectionStrings"), pulumi.Alias(type_="azure-native:web/v20160801:WebAppConnectionStrings"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppConnectionStrings"), pulumi.Alias(type_="azure-native:web/v20180201:WebAppConnectionStrings"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppConnectionStrings"), pulumi.Alias(type_="azure-native:web/v20181101:WebAppConnectionStrings"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppConnectionStrings"), pulumi.Alias(type_="azure-native:web/v20190801:WebAppConnectionStrings"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppConnectionStrings"), pulumi.Alias(type_="azure-native:web/v20200601:WebAppConnectionStrings"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppConnectionStrings"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppConnectionStrings"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppConnectionStrings"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppConnectionStrings"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppConnectionStrings"), pulumi.Alias(type_="azure-native:web/v20201201:WebAppConnectionStrings"), pulumi.Alias(type_="azure-nextgen:web/v20201201:WebAppConnectionStrings")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppConnectionStrings, __self__).__init__(
             'azure-native:web:WebAppConnectionStrings',
@@ -90,7 +89,6 @@ class WebAppConnectionStrings(pulumi.CustomResource):
         __props__["kind"] = None
         __props__["name"] = None
         __props__["properties"] = None
-        __props__["system_data"] = None
         __props__["type"] = None
         return WebAppConnectionStrings(resource_name, opts=opts, __props__=__props__)
 
@@ -117,14 +115,6 @@ class WebAppConnectionStrings(pulumi.CustomResource):
         Connection strings.
         """
         return pulumi.get(self, "properties")
-
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
-        """
-        The system metadata relating to this resource.
-        """
-        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

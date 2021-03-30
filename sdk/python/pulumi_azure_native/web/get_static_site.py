@@ -20,13 +20,16 @@ class GetStaticSiteResult:
     """
     Static Site ARM resource.
     """
-    def __init__(__self__, branch=None, build_properties=None, custom_domains=None, default_hostname=None, id=None, kind=None, location=None, name=None, repository_token=None, repository_url=None, sku=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, branch=None, build_properties=None, content_distribution_endpoint=None, custom_domains=None, default_hostname=None, id=None, identity=None, key_vault_reference_identity=None, kind=None, location=None, name=None, provider=None, repository_token=None, repository_url=None, sku=None, tags=None, template_properties=None, type=None, user_provided_function_apps=None):
         if branch and not isinstance(branch, str):
             raise TypeError("Expected argument 'branch' to be a str")
         pulumi.set(__self__, "branch", branch)
         if build_properties and not isinstance(build_properties, dict):
             raise TypeError("Expected argument 'build_properties' to be a dict")
         pulumi.set(__self__, "build_properties", build_properties)
+        if content_distribution_endpoint and not isinstance(content_distribution_endpoint, str):
+            raise TypeError("Expected argument 'content_distribution_endpoint' to be a str")
+        pulumi.set(__self__, "content_distribution_endpoint", content_distribution_endpoint)
         if custom_domains and not isinstance(custom_domains, list):
             raise TypeError("Expected argument 'custom_domains' to be a list")
         pulumi.set(__self__, "custom_domains", custom_domains)
@@ -36,6 +39,12 @@ class GetStaticSiteResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if identity and not isinstance(identity, dict):
+            raise TypeError("Expected argument 'identity' to be a dict")
+        pulumi.set(__self__, "identity", identity)
+        if key_vault_reference_identity and not isinstance(key_vault_reference_identity, str):
+            raise TypeError("Expected argument 'key_vault_reference_identity' to be a str")
+        pulumi.set(__self__, "key_vault_reference_identity", key_vault_reference_identity)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
@@ -45,6 +54,9 @@ class GetStaticSiteResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if provider and not isinstance(provider, str):
+            raise TypeError("Expected argument 'provider' to be a str")
+        pulumi.set(__self__, "provider", provider)
         if repository_token and not isinstance(repository_token, str):
             raise TypeError("Expected argument 'repository_token' to be a str")
         pulumi.set(__self__, "repository_token", repository_token)
@@ -54,15 +66,18 @@ class GetStaticSiteResult:
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
-        if system_data and not isinstance(system_data, dict):
-            raise TypeError("Expected argument 'system_data' to be a dict")
-        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+        if template_properties and not isinstance(template_properties, dict):
+            raise TypeError("Expected argument 'template_properties' to be a dict")
+        pulumi.set(__self__, "template_properties", template_properties)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+        if user_provided_function_apps and not isinstance(user_provided_function_apps, list):
+            raise TypeError("Expected argument 'user_provided_function_apps' to be a list")
+        pulumi.set(__self__, "user_provided_function_apps", user_provided_function_apps)
 
     @property
     @pulumi.getter
@@ -79,6 +94,14 @@ class GetStaticSiteResult:
         Build properties to configure on the repository.
         """
         return pulumi.get(self, "build_properties")
+
+    @property
+    @pulumi.getter(name="contentDistributionEndpoint")
+    def content_distribution_endpoint(self) -> str:
+        """
+        The content distribution endpoint for the static site.
+        """
+        return pulumi.get(self, "content_distribution_endpoint")
 
     @property
     @pulumi.getter(name="customDomains")
@@ -106,6 +129,22 @@ class GetStaticSiteResult:
 
     @property
     @pulumi.getter
+    def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
+        """
+        Managed service identity.
+        """
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter(name="keyVaultReferenceIdentity")
+    def key_vault_reference_identity(self) -> str:
+        """
+        Identity to use for Key Vault Reference authentication.
+        """
+        return pulumi.get(self, "key_vault_reference_identity")
+
+    @property
+    @pulumi.getter
     def kind(self) -> Optional[str]:
         """
         Kind of resource.
@@ -127,6 +166,14 @@ class GetStaticSiteResult:
         Resource Name.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def provider(self) -> str:
+        """
+        The provider that submitted the last deployment to the primary environment of the static site.
+        """
+        return pulumi.get(self, "provider")
 
     @property
     @pulumi.getter(name="repositoryToken")
@@ -153,14 +200,6 @@ class GetStaticSiteResult:
         return pulumi.get(self, "sku")
 
     @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
-        """
-        The system metadata relating to this resource.
-        """
-        return pulumi.get(self, "system_data")
-
-    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
@@ -169,12 +208,28 @@ class GetStaticSiteResult:
         return pulumi.get(self, "tags")
 
     @property
+    @pulumi.getter(name="templateProperties")
+    def template_properties(self) -> Optional['outputs.StaticSiteTemplateOptionsResponse']:
+        """
+        Template options for generating a new repository.
+        """
+        return pulumi.get(self, "template_properties")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
         Resource type.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userProvidedFunctionApps")
+    def user_provided_function_apps(self) -> Sequence['outputs.StaticSiteUserProvidedFunctionAppResponse']:
+        """
+        User provided function apps registered with the static site
+        """
+        return pulumi.get(self, "user_provided_function_apps")
 
 
 class AwaitableGetStaticSiteResult(GetStaticSiteResult):
@@ -185,18 +240,23 @@ class AwaitableGetStaticSiteResult(GetStaticSiteResult):
         return GetStaticSiteResult(
             branch=self.branch,
             build_properties=self.build_properties,
+            content_distribution_endpoint=self.content_distribution_endpoint,
             custom_domains=self.custom_domains,
             default_hostname=self.default_hostname,
             id=self.id,
+            identity=self.identity,
+            key_vault_reference_identity=self.key_vault_reference_identity,
             kind=self.kind,
             location=self.location,
             name=self.name,
+            provider=self.provider,
             repository_token=self.repository_token,
             repository_url=self.repository_url,
             sku=self.sku,
-            system_data=self.system_data,
             tags=self.tags,
-            type=self.type)
+            template_properties=self.template_properties,
+            type=self.type,
+            user_provided_function_apps=self.user_provided_function_apps)
 
 
 def get_static_site(name: Optional[str] = None,
@@ -204,7 +264,7 @@ def get_static_site(name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStaticSiteResult:
     """
     Static Site ARM resource.
-    API Version: 2020-10-01.
+    API Version: 2020-12-01.
 
 
     :param str name: Name of the static site.
@@ -222,15 +282,20 @@ def get_static_site(name: Optional[str] = None,
     return AwaitableGetStaticSiteResult(
         branch=__ret__.branch,
         build_properties=__ret__.build_properties,
+        content_distribution_endpoint=__ret__.content_distribution_endpoint,
         custom_domains=__ret__.custom_domains,
         default_hostname=__ret__.default_hostname,
         id=__ret__.id,
+        identity=__ret__.identity,
+        key_vault_reference_identity=__ret__.key_vault_reference_identity,
         kind=__ret__.kind,
         location=__ret__.location,
         name=__ret__.name,
+        provider=__ret__.provider,
         repository_token=__ret__.repository_token,
         repository_url=__ret__.repository_url,
         sku=__ret__.sku,
-        system_data=__ret__.system_data,
         tags=__ret__.tags,
-        type=__ret__.type)
+        template_properties=__ret__.template_properties,
+        type=__ret__.type,
+        user_provided_function_apps=__ret__.user_provided_function_apps)

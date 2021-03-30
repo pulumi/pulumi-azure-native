@@ -28,10 +28,6 @@ namespace Pulumi.AzureNative.Web.Latest.Outputs
         public readonly string? NameClaimType;
         public readonly ImmutableArray<string> Scopes;
         /// <summary>
-        /// The system metadata relating to this resource.
-        /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
-        /// <summary>
         /// Resource type.
         /// </summary>
         public readonly string Type;
@@ -48,8 +44,6 @@ namespace Pulumi.AzureNative.Web.Latest.Outputs
 
             ImmutableArray<string> scopes,
 
-            Outputs.SystemDataResponse systemData,
-
             string type)
         {
             Id = id;
@@ -57,7 +51,6 @@ namespace Pulumi.AzureNative.Web.Latest.Outputs
             Name = name;
             NameClaimType = nameClaimType;
             Scopes = scopes;
-            SystemData = systemData;
             Type = type;
         }
     }

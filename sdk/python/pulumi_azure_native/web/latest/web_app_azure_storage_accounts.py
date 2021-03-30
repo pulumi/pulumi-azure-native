@@ -31,7 +31,7 @@ class WebAppAzureStorageAccounts(pulumi.CustomResource):
                  __opts__=None):
         """
         AzureStorageInfo dictionary resource.
-        Latest API Version: 2020-10-01.
+        Latest API Version: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -66,9 +66,8 @@ class WebAppAzureStorageAccounts(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/latest:WebAppAzureStorageAccounts"), pulumi.Alias(type_="azure-native:web:WebAppAzureStorageAccounts"), pulumi.Alias(type_="azure-nextgen:web:WebAppAzureStorageAccounts"), pulumi.Alias(type_="azure-native:web/v20180201:WebAppAzureStorageAccounts"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppAzureStorageAccounts"), pulumi.Alias(type_="azure-native:web/v20181101:WebAppAzureStorageAccounts"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppAzureStorageAccounts"), pulumi.Alias(type_="azure-native:web/v20190801:WebAppAzureStorageAccounts"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppAzureStorageAccounts"), pulumi.Alias(type_="azure-native:web/v20200601:WebAppAzureStorageAccounts"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppAzureStorageAccounts"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppAzureStorageAccounts"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppAzureStorageAccounts"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppAzureStorageAccounts"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppAzureStorageAccounts")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/latest:WebAppAzureStorageAccounts"), pulumi.Alias(type_="azure-native:web:WebAppAzureStorageAccounts"), pulumi.Alias(type_="azure-nextgen:web:WebAppAzureStorageAccounts"), pulumi.Alias(type_="azure-native:web/v20180201:WebAppAzureStorageAccounts"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppAzureStorageAccounts"), pulumi.Alias(type_="azure-native:web/v20181101:WebAppAzureStorageAccounts"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppAzureStorageAccounts"), pulumi.Alias(type_="azure-native:web/v20190801:WebAppAzureStorageAccounts"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppAzureStorageAccounts"), pulumi.Alias(type_="azure-native:web/v20200601:WebAppAzureStorageAccounts"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppAzureStorageAccounts"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppAzureStorageAccounts"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppAzureStorageAccounts"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppAzureStorageAccounts"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppAzureStorageAccounts"), pulumi.Alias(type_="azure-native:web/v20201201:WebAppAzureStorageAccounts"), pulumi.Alias(type_="azure-nextgen:web/v20201201:WebAppAzureStorageAccounts")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppAzureStorageAccounts, __self__).__init__(
             'azure-native:web/latest:WebAppAzureStorageAccounts',
@@ -95,7 +94,6 @@ class WebAppAzureStorageAccounts(pulumi.CustomResource):
         __props__["kind"] = None
         __props__["name"] = None
         __props__["properties"] = None
-        __props__["system_data"] = None
         __props__["type"] = None
         return WebAppAzureStorageAccounts(resource_name, opts=opts, __props__=__props__)
 
@@ -122,14 +120,6 @@ class WebAppAzureStorageAccounts(pulumi.CustomResource):
         Azure storage accounts.
         """
         return pulumi.get(self, "properties")
-
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
-        """
-        The system metadata relating to this resource.
-        """
-        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

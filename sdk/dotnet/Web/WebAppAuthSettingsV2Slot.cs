@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web
 {
     /// <summary>
-    /// API Version: 2020-10-01.
+    /// API Version: 2020-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:WebAppAuthSettingsV2Slot")]
     public partial class WebAppAuthSettingsV2Slot : Pulumi.CustomResource
@@ -41,12 +41,6 @@ namespace Pulumi.AzureNative.Web
 
         [Output("platform")]
         public Output<Outputs.AuthPlatformResponse?> Platform { get; private set; } = null!;
-
-        /// <summary>
-        /// The system metadata relating to this resource.
-        /// </summary>
-        [Output("systemData")]
-        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.
@@ -88,6 +82,8 @@ namespace Pulumi.AzureNative.Web
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:WebAppAuthSettingsV2Slot"},
                     new Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppAuthSettingsV2Slot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:WebAppAuthSettingsV2Slot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppAuthSettingsV2Slot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20201201:WebAppAuthSettingsV2Slot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

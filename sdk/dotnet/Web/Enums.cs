@@ -8,37 +8,6 @@ using Pulumi;
 namespace Pulumi.AzureNative.Web
 {
     /// <summary>
-    /// Action object.
-    /// </summary>
-    [EnumType]
-    public readonly struct AccessControlEntryAction : IEquatable<AccessControlEntryAction>
-    {
-        private readonly string _value;
-
-        private AccessControlEntryAction(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static AccessControlEntryAction Permit { get; } = new AccessControlEntryAction("Permit");
-        public static AccessControlEntryAction Deny { get; } = new AccessControlEntryAction("Deny");
-
-        public static bool operator ==(AccessControlEntryAction left, AccessControlEntryAction right) => left.Equals(right);
-        public static bool operator !=(AccessControlEntryAction left, AccessControlEntryAction right) => !left.Equals(right);
-
-        public static explicit operator string(AccessControlEntryAction value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is AccessControlEntryAction other && Equals(other);
-        public bool Equals(AccessControlEntryAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// The API type
     /// </summary>
     [EnumType]
@@ -219,6 +188,7 @@ namespace Pulumi.AzureNative.Web
 
         public static ClientCertMode Required { get; } = new ClientCertMode("Required");
         public static ClientCertMode Optional { get; } = new ClientCertMode("Optional");
+        public static ClientCertMode OptionalInteractiveUser { get; } = new ClientCertMode("OptionalInteractiveUser");
 
         public static bool operator ==(ClientCertMode left, ClientCertMode right) => left.Equals(right);
         public static bool operator !=(ClientCertMode left, ClientCertMode right) => !left.Equals(right);
@@ -255,38 +225,6 @@ namespace Pulumi.AzureNative.Web
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ClientCredentialMethod other && Equals(other);
         public bool Equals(ClientCredentialMethod other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Shared or dedicated app hosting.
-    /// </summary>
-    [EnumType]
-    public readonly struct ComputeModeOptions : IEquatable<ComputeModeOptions>
-    {
-        private readonly string _value;
-
-        private ComputeModeOptions(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ComputeModeOptions Shared { get; } = new ComputeModeOptions("Shared");
-        public static ComputeModeOptions Dedicated { get; } = new ComputeModeOptions("Dedicated");
-        public static ComputeModeOptions Dynamic { get; } = new ComputeModeOptions("Dynamic");
-
-        public static bool operator ==(ComputeModeOptions left, ComputeModeOptions right) => left.Equals(right);
-        public static bool operator !=(ComputeModeOptions left, ComputeModeOptions right) => !left.Equals(right);
-
-        public static explicit operator string(ComputeModeOptions value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ComputeModeOptions other && Equals(other);
-        public bool Equals(ComputeModeOptions other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -666,7 +604,7 @@ namespace Pulumi.AzureNative.Web
         public static LoadBalancingMode None { get; } = new LoadBalancingMode("None");
         public static LoadBalancingMode Web { get; } = new LoadBalancingMode("Web");
         public static LoadBalancingMode Publishing { get; } = new LoadBalancingMode("Publishing");
-        public static LoadBalancingMode Web_Publishing { get; } = new LoadBalancingMode("Web,Publishing");
+        public static LoadBalancingMode Web_Publishing { get; } = new LoadBalancingMode("Web, Publishing");
 
         public static bool operator ==(LoadBalancingMode left, LoadBalancingMode right) => left.Equals(right);
         public static bool operator !=(LoadBalancingMode left, LoadBalancingMode right) => !left.Equals(right);
@@ -945,6 +883,7 @@ namespace Pulumi.AzureNative.Web
         public static SiteLoadBalancing LeastResponseTime { get; } = new SiteLoadBalancing("LeastResponseTime");
         public static SiteLoadBalancing WeightedTotalTraffic { get; } = new SiteLoadBalancing("WeightedTotalTraffic");
         public static SiteLoadBalancing RequestHash { get; } = new SiteLoadBalancing("RequestHash");
+        public static SiteLoadBalancing PerSiteRoundRobin { get; } = new SiteLoadBalancing("PerSiteRoundRobin");
 
         public static bool operator ==(SiteLoadBalancing left, SiteLoadBalancing right) => left.Equals(right);
         public static bool operator !=(SiteLoadBalancing left, SiteLoadBalancing right) => !left.Equals(right);

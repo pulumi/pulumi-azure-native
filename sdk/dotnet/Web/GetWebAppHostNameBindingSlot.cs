@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web
     {
         /// <summary>
         /// A hostname binding object.
-        /// API Version: 2020-10-01.
+        /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetWebAppHostNameBindingSlotResult> InvokeAsync(GetWebAppHostNameBindingSlotArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppHostNameBindingSlotResult>("azure-native:web:getWebAppHostNameBindingSlot", args ?? new GetWebAppHostNameBindingSlotArgs(), options.WithVersion());
@@ -96,10 +96,6 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         public readonly string? SslState;
         /// <summary>
-        /// The system metadata relating to this resource.
-        /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
-        /// <summary>
         /// SSL certificate thumbprint
         /// </summary>
         public readonly string? Thumbprint;
@@ -134,8 +130,6 @@ namespace Pulumi.AzureNative.Web
 
             string? sslState,
 
-            Outputs.SystemDataResponse systemData,
-
             string? thumbprint,
 
             string type,
@@ -152,7 +146,6 @@ namespace Pulumi.AzureNative.Web
             Name = name;
             SiteName = siteName;
             SslState = sslState;
-            SystemData = systemData;
             Thumbprint = thumbprint;
             Type = type;
             VirtualIP = virtualIP;

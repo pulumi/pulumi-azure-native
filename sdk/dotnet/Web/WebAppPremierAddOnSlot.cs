@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Web
 {
     /// <summary>
     /// Premier add-on.
-    /// API Version: 2020-10-01.
+    /// API Version: 2020-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:WebAppPremierAddOnSlot")]
     public partial class WebAppPremierAddOnSlot : Pulumi.CustomResource
@@ -57,12 +57,6 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         [Output("sku")]
         public Output<string?> Sku { get; private set; } = null!;
-
-        /// <summary>
-        /// The system metadata relating to this resource.
-        /// </summary>
-        [Output("systemData")]
-        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -126,6 +120,8 @@ namespace Pulumi.AzureNative.Web
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:WebAppPremierAddOnSlot"},
                     new Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppPremierAddOnSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:WebAppPremierAddOnSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppPremierAddOnSlot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20201201:WebAppPremierAddOnSlot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

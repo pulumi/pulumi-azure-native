@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Hybrid Connection contract. This is used to configure a Hybrid Connection.
- * API Version: 2020-10-01.
+ * API Version: 2020-12-01.
  */
 export function getWebAppHybridConnectionSlot(args: GetWebAppHybridConnectionSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppHybridConnectionSlotResult> {
     if (!opts) {
@@ -98,10 +98,6 @@ export interface GetWebAppHybridConnectionSlotResult {
      * The suffix for the service bus endpoint. By default this is .servicebus.windows.net
      */
     readonly serviceBusSuffix?: string;
-    /**
-     * The system metadata relating to this resource.
-     */
-    readonly systemData: outputs.web.SystemDataResponse;
     /**
      * Resource type.
      */

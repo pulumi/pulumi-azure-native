@@ -126,6 +126,8 @@ namespace Pulumi.AzureNative.Web.V20150801
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:SiteVNETConnection"},
                     new Pulumi.Alias { Type = "azure-native:web/v20201001:SiteVNETConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:SiteVNETConnection"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201201:SiteVNETConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20201201:SiteVNETConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

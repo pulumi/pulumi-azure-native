@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Virtual Network information contract.
- * API Version: 2020-10-01.
+ * API Version: 2020-12-01.
  */
 export class WebAppVnetConnectionSlot extends pulumi.CustomResource {
     /**
@@ -70,10 +70,6 @@ export class WebAppVnetConnectionSlot extends pulumi.CustomResource {
      */
     public /*out*/ readonly routes!: pulumi.Output<outputs.web.VnetRouteResponse[]>;
     /**
-     * The system metadata relating to this resource.
-     */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.web.SystemDataResponse>;
-    /**
      * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -114,7 +110,6 @@ export class WebAppVnetConnectionSlot extends pulumi.CustomResource {
             inputs["certThumbprint"] = undefined /*out*/;
             inputs["resyncRequired"] = undefined /*out*/;
             inputs["routes"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["certBlob"] = undefined /*out*/;
@@ -125,14 +120,13 @@ export class WebAppVnetConnectionSlot extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["resyncRequired"] = undefined /*out*/;
             inputs["routes"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["vnetResourceId"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:WebAppVnetConnectionSlot" }, { type: "azure-native:web/latest:WebAppVnetConnectionSlot" }, { type: "azure-nextgen:web/latest:WebAppVnetConnectionSlot" }, { type: "azure-native:web/v20150801:WebAppVnetConnectionSlot" }, { type: "azure-nextgen:web/v20150801:WebAppVnetConnectionSlot" }, { type: "azure-native:web/v20160801:WebAppVnetConnectionSlot" }, { type: "azure-nextgen:web/v20160801:WebAppVnetConnectionSlot" }, { type: "azure-native:web/v20180201:WebAppVnetConnectionSlot" }, { type: "azure-nextgen:web/v20180201:WebAppVnetConnectionSlot" }, { type: "azure-native:web/v20181101:WebAppVnetConnectionSlot" }, { type: "azure-nextgen:web/v20181101:WebAppVnetConnectionSlot" }, { type: "azure-native:web/v20190801:WebAppVnetConnectionSlot" }, { type: "azure-nextgen:web/v20190801:WebAppVnetConnectionSlot" }, { type: "azure-native:web/v20200601:WebAppVnetConnectionSlot" }, { type: "azure-nextgen:web/v20200601:WebAppVnetConnectionSlot" }, { type: "azure-native:web/v20200901:WebAppVnetConnectionSlot" }, { type: "azure-nextgen:web/v20200901:WebAppVnetConnectionSlot" }, { type: "azure-native:web/v20201001:WebAppVnetConnectionSlot" }, { type: "azure-nextgen:web/v20201001:WebAppVnetConnectionSlot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:WebAppVnetConnectionSlot" }, { type: "azure-native:web/latest:WebAppVnetConnectionSlot" }, { type: "azure-nextgen:web/latest:WebAppVnetConnectionSlot" }, { type: "azure-native:web/v20150801:WebAppVnetConnectionSlot" }, { type: "azure-nextgen:web/v20150801:WebAppVnetConnectionSlot" }, { type: "azure-native:web/v20160801:WebAppVnetConnectionSlot" }, { type: "azure-nextgen:web/v20160801:WebAppVnetConnectionSlot" }, { type: "azure-native:web/v20180201:WebAppVnetConnectionSlot" }, { type: "azure-nextgen:web/v20180201:WebAppVnetConnectionSlot" }, { type: "azure-native:web/v20181101:WebAppVnetConnectionSlot" }, { type: "azure-nextgen:web/v20181101:WebAppVnetConnectionSlot" }, { type: "azure-native:web/v20190801:WebAppVnetConnectionSlot" }, { type: "azure-nextgen:web/v20190801:WebAppVnetConnectionSlot" }, { type: "azure-native:web/v20200601:WebAppVnetConnectionSlot" }, { type: "azure-nextgen:web/v20200601:WebAppVnetConnectionSlot" }, { type: "azure-native:web/v20200901:WebAppVnetConnectionSlot" }, { type: "azure-nextgen:web/v20200901:WebAppVnetConnectionSlot" }, { type: "azure-native:web/v20201001:WebAppVnetConnectionSlot" }, { type: "azure-nextgen:web/v20201001:WebAppVnetConnectionSlot" }, { type: "azure-native:web/v20201201:WebAppVnetConnectionSlot" }, { type: "azure-nextgen:web/v20201201:WebAppVnetConnectionSlot" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebAppVnetConnectionSlot.__pulumiType, name, inputs, opts);
     }

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Web
 {
     /// <summary>
     /// App Service plan.
-    /// API Version: 2020-10-01.
+    /// API Version: 2020-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:AppServicePlan")]
     public partial class AppServicePlan : Pulumi.CustomResource
@@ -59,6 +59,12 @@ namespace Pulumi.AzureNative.Web
         public Output<string?> Kind { get; private set; } = null!;
 
         /// <summary>
+        /// Specification for the Kubernetes Environment to use for the App Service plan.
+        /// </summary>
+        [Output("kubeEnvironmentProfile")]
+        public Output<Outputs.KubeEnvironmentProfileResponse?> KubeEnvironmentProfile { get; private set; } = null!;
+
+        /// <summary>
         /// Resource Location.
         /// </summary>
         [Output("location")]
@@ -96,7 +102,7 @@ namespace Pulumi.AzureNative.Web
         public Output<bool?> PerSiteScaling { get; private set; } = null!;
 
         /// <summary>
-        /// Provisioning state of the App Service Environment.
+        /// Provisioning state of the App Service Plan.
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
@@ -136,12 +142,6 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         [Output("subscription")]
         public Output<string> Subscription { get; private set; } = null!;
-
-        /// <summary>
-        /// The system metadata relating to this resource.
-        /// </summary>
-        [Output("systemData")]
-        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -215,6 +215,8 @@ namespace Pulumi.AzureNative.Web
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:AppServicePlan"},
                     new Pulumi.Alias { Type = "azure-native:web/v20201001:AppServicePlan"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:AppServicePlan"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201201:AppServicePlan"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20201201:AppServicePlan"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -273,6 +275,12 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         [Input("kind")]
         public Input<string>? Kind { get; set; }
+
+        /// <summary>
+        /// Specification for the Kubernetes Environment to use for the App Service plan.
+        /// </summary>
+        [Input("kubeEnvironmentProfile")]
+        public Input<Inputs.KubeEnvironmentProfileArgs>? KubeEnvironmentProfile { get; set; }
 
         /// <summary>
         /// Resource Location.

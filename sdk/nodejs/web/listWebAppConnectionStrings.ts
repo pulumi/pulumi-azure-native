@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * String dictionary resource.
- * API Version: 2020-10-01.
+ * API Version: 2020-12-01.
  */
 export function listWebAppConnectionStrings(args: ListWebAppConnectionStringsArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppConnectionStringsResult> {
     if (!opts) {
@@ -54,10 +54,6 @@ export interface ListWebAppConnectionStringsResult {
      * Connection strings.
      */
     readonly properties: {[key: string]: outputs.web.ConnStringValueTypePairResponse};
-    /**
-     * The system metadata relating to this resource.
-     */
-    readonly systemData: outputs.web.SystemDataResponse;
     /**
      * Resource type.
      */

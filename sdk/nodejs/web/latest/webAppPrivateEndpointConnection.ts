@@ -6,8 +6,8 @@ import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
- * Private Endpoint Connection ARM resource.
- * Latest API Version: 2020-10-01.
+ * Remote Private Endpoint Connection ARM resource.
+ * Latest API Version: 2020-12-01.
  *
  * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppPrivateEndpointConnection'.
  */
@@ -40,6 +40,10 @@ export class WebAppPrivateEndpointConnection extends pulumi.CustomResource {
     }
 
     /**
+     * Private IPAddresses mapped to the remote private endpoint
+     */
+    public /*out*/ readonly ipAddresses!: pulumi.Output<string[] | undefined>;
+    /**
      * Kind of resource.
      */
     public readonly kind!: pulumi.Output<string | undefined>;
@@ -56,10 +60,6 @@ export class WebAppPrivateEndpointConnection extends pulumi.CustomResource {
      */
     public readonly privateLinkServiceConnectionState!: pulumi.Output<outputs.web.latest.PrivateLinkConnectionStateResponse | undefined>;
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
-    /**
-     * The system metadata relating to this resource.
-     */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.web.latest.SystemDataResponse>;
     /**
      * Resource type.
      */
@@ -89,23 +89,23 @@ export class WebAppPrivateEndpointConnection extends pulumi.CustomResource {
             inputs["privateEndpointConnectionName"] = args ? args.privateEndpointConnectionName : undefined;
             inputs["privateLinkServiceConnectionState"] = args ? args.privateLinkServiceConnectionState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["ipAddresses"] = undefined /*out*/;
             inputs["privateEndpoint"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
+            inputs["ipAddresses"] = undefined /*out*/;
             inputs["kind"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["privateEndpoint"] = undefined /*out*/;
             inputs["privateLinkServiceConnectionState"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:WebAppPrivateEndpointConnection" }, { type: "azure-native:web:WebAppPrivateEndpointConnection" }, { type: "azure-nextgen:web:WebAppPrivateEndpointConnection" }, { type: "azure-native:web/v20190801:WebAppPrivateEndpointConnection" }, { type: "azure-nextgen:web/v20190801:WebAppPrivateEndpointConnection" }, { type: "azure-native:web/v20200601:WebAppPrivateEndpointConnection" }, { type: "azure-nextgen:web/v20200601:WebAppPrivateEndpointConnection" }, { type: "azure-native:web/v20200901:WebAppPrivateEndpointConnection" }, { type: "azure-nextgen:web/v20200901:WebAppPrivateEndpointConnection" }, { type: "azure-native:web/v20201001:WebAppPrivateEndpointConnection" }, { type: "azure-nextgen:web/v20201001:WebAppPrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:WebAppPrivateEndpointConnection" }, { type: "azure-native:web:WebAppPrivateEndpointConnection" }, { type: "azure-nextgen:web:WebAppPrivateEndpointConnection" }, { type: "azure-native:web/v20190801:WebAppPrivateEndpointConnection" }, { type: "azure-nextgen:web/v20190801:WebAppPrivateEndpointConnection" }, { type: "azure-native:web/v20200601:WebAppPrivateEndpointConnection" }, { type: "azure-nextgen:web/v20200601:WebAppPrivateEndpointConnection" }, { type: "azure-native:web/v20200901:WebAppPrivateEndpointConnection" }, { type: "azure-nextgen:web/v20200901:WebAppPrivateEndpointConnection" }, { type: "azure-native:web/v20201001:WebAppPrivateEndpointConnection" }, { type: "azure-nextgen:web/v20201001:WebAppPrivateEndpointConnection" }, { type: "azure-native:web/v20201201:WebAppPrivateEndpointConnection" }, { type: "azure-nextgen:web/v20201201:WebAppPrivateEndpointConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebAppPrivateEndpointConnection.__pulumiType, name, inputs, opts);
     }

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Web.Latest
 {
     /// <summary>
     /// Virtual Network route contract used to pass routing information for a Virtual Network.
-    /// Latest API Version: 2020-10-01.
+    /// Latest API Version: 2020-12-01.
     /// </summary>
     [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:AppServicePlanRouteForVnet'.")]
     [AzureNativeResourceType("azure-native:web/latest:AppServicePlanRouteForVnet")]
@@ -51,12 +51,6 @@ namespace Pulumi.AzureNative.Web.Latest
         /// </summary>
         [Output("startAddress")]
         public Output<string?> StartAddress { get; private set; } = null!;
-
-        /// <summary>
-        /// The system metadata relating to this resource.
-        /// </summary>
-        [Output("systemData")]
-        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.
@@ -106,6 +100,8 @@ namespace Pulumi.AzureNative.Web.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:AppServicePlanRouteForVnet"},
                     new Pulumi.Alias { Type = "azure-native:web/v20201001:AppServicePlanRouteForVnet"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:AppServicePlanRouteForVnet"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201201:AppServicePlanRouteForVnet"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20201201:AppServicePlanRouteForVnet"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

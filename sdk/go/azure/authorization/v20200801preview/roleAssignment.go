@@ -36,7 +36,7 @@ type RoleAssignment struct {
 	// The role definition ID.
 	RoleDefinitionId pulumi.StringOutput `pulumi:"roleDefinitionId"`
 	// The role assignment scope.
-	Scope pulumi.StringPtrOutput `pulumi:"scope"`
+	Scope pulumi.StringOutput `pulumi:"scope"`
 	// The role assignment type.
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Id of the user who updated the assignment
@@ -222,7 +222,7 @@ type roleAssignmentArgs struct {
 	RoleAssignmentName *string `pulumi:"roleAssignmentName"`
 	// The role definition ID.
 	RoleDefinitionId string `pulumi:"roleDefinitionId"`
-	// The role assignment scope.
+	// The scope of the operation or resource. Valid scopes are: subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
 	Scope string `pulumi:"scope"`
 }
 
@@ -244,7 +244,7 @@ type RoleAssignmentArgs struct {
 	RoleAssignmentName pulumi.StringPtrInput
 	// The role definition ID.
 	RoleDefinitionId pulumi.StringInput
-	// The role assignment scope.
+	// The scope of the operation or resource. Valid scopes are: subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
 	Scope pulumi.StringInput
 }
 

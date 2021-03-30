@@ -10,13 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.Latest
 {
     /// <summary>
-    /// Private Endpoint Connection ARM resource.
-    /// Latest API Version: 2020-10-01.
+    /// Remote Private Endpoint Connection ARM resource.
+    /// Latest API Version: 2020-12-01.
     /// </summary>
     [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppPrivateEndpointConnection'.")]
     [AzureNativeResourceType("azure-native:web/latest:WebAppPrivateEndpointConnection")]
     public partial class WebAppPrivateEndpointConnection : Pulumi.CustomResource
     {
+        /// <summary>
+        /// Private IPAddresses mapped to the remote private endpoint
+        /// </summary>
+        [Output("ipAddresses")]
+        public Output<ImmutableArray<string>> IpAddresses { get; private set; } = null!;
+
         /// <summary>
         /// Kind of resource.
         /// </summary>
@@ -43,12 +49,6 @@ namespace Pulumi.AzureNative.Web.Latest
 
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// The system metadata relating to this resource.
-        /// </summary>
-        [Output("systemData")]
-        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.
@@ -92,6 +92,8 @@ namespace Pulumi.AzureNative.Web.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:WebAppPrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppPrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:WebAppPrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppPrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20201201:WebAppPrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

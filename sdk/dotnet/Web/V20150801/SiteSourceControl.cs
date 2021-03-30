@@ -119,6 +119,8 @@ namespace Pulumi.AzureNative.Web.V20150801
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:SiteSourceControl"},
                     new Pulumi.Alias { Type = "azure-native:web/v20201001:SiteSourceControl"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:SiteSourceControl"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201201:SiteSourceControl"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20201201:SiteSourceControl"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

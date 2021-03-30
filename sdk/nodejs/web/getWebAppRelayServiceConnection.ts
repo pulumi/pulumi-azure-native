@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Hybrid Connection for an App Service app.
- * API Version: 2020-10-01.
+ * API Version: 2020-12-01.
  */
 export function getWebAppRelayServiceConnection(args: GetWebAppRelayServiceConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppRelayServiceConnectionResult> {
     if (!opts) {
@@ -62,10 +62,6 @@ export interface GetWebAppRelayServiceConnectionResult {
     readonly port?: number;
     readonly resourceConnectionString?: string;
     readonly resourceType?: string;
-    /**
-     * The system metadata relating to this resource.
-     */
-    readonly systemData: outputs.web.SystemDataResponse;
     /**
      * Resource type.
      */

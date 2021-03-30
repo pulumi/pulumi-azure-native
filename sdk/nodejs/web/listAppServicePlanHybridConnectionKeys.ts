@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Hybrid Connection key contract. This has the send key name and value for a Hybrid Connection.
- * API Version: 2020-10-01.
+ * API Version: 2020-12-01.
  */
 export function listAppServicePlanHybridConnectionKeys(args: ListAppServicePlanHybridConnectionKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListAppServicePlanHybridConnectionKeysResult> {
     if (!opts) {
@@ -68,10 +68,6 @@ export interface ListAppServicePlanHybridConnectionKeysResult {
      * The value of the send key.
      */
     readonly sendKeyValue: string;
-    /**
-     * The system metadata relating to this resource.
-     */
-    readonly systemData: outputs.web.SystemDataResponse;
     /**
      * Resource type.
      */

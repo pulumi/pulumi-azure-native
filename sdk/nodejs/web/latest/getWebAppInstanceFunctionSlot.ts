@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Function information.
- * Latest API Version: 2020-10-01.
+ * Latest API Version: 2020-12-01.
  */
 /** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getWebAppInstanceFunctionSlot'. */
 export function getWebAppInstanceFunctionSlot(args: GetWebAppInstanceFunctionSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppInstanceFunctionSlotResult> {
@@ -106,10 +106,6 @@ export interface GetWebAppInstanceFunctionSlotResult {
      * Secrets file URI.
      */
     readonly secretsFileHref?: string;
-    /**
-     * The system metadata relating to this resource.
-     */
-    readonly systemData: outputs.web.latest.SystemDataResponse;
     /**
      * Test data used when testing via the Azure Portal.
      */

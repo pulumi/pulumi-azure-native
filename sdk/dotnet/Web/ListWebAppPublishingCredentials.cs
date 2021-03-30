@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web
     {
         /// <summary>
         /// User credentials used for publishing activity.
-        /// API Version: 2020-10-01.
+        /// API Version: 2020-12-01.
         /// </summary>
         public static Task<ListWebAppPublishingCredentialsResult> InvokeAsync(ListWebAppPublishingCredentialsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppPublishingCredentialsResult>("azure-native:web:listWebAppPublishingCredentials", args ?? new ListWebAppPublishingCredentialsArgs(), options.WithVersion());
@@ -76,10 +76,6 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         public readonly string? ScmUri;
         /// <summary>
-        /// The system metadata relating to this resource.
-        /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
-        /// <summary>
         /// Resource type.
         /// </summary>
         public readonly string Type;
@@ -102,8 +98,6 @@ namespace Pulumi.AzureNative.Web
 
             string? scmUri,
 
-            Outputs.SystemDataResponse systemData,
-
             string type)
         {
             Id = id;
@@ -114,7 +108,6 @@ namespace Pulumi.AzureNative.Web
             PublishingPasswordHashSalt = publishingPasswordHashSalt;
             PublishingUserName = publishingUserName;
             ScmUri = scmUri;
-            SystemData = systemData;
             Type = type;
         }
     }

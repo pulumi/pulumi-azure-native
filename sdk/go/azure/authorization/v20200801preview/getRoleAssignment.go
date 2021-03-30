@@ -49,7 +49,7 @@ type LookupRoleAssignmentResult struct {
 	// The role definition ID.
 	RoleDefinitionId string `pulumi:"roleDefinitionId"`
 	// The role assignment scope.
-	Scope *string `pulumi:"scope"`
+	Scope string `pulumi:"scope"`
 	// The role assignment type.
 	Type string `pulumi:"type"`
 	// Id of the user who updated the assignment

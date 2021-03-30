@@ -78,7 +78,7 @@ export class RoleAssignment extends pulumi.CustomResource {
     /**
      * The role assignment scope.
      */
-    public readonly scope!: pulumi.Output<string | undefined>;
+    public readonly scope!: pulumi.Output<string>;
     /**
      * The role assignment type.
      */
@@ -189,7 +189,7 @@ export interface RoleAssignmentArgs {
      */
     readonly roleDefinitionId: pulumi.Input<string>;
     /**
-     * The role assignment scope.
+     * The scope of the operation or resource. Valid scopes are: subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
      */
     readonly scope: pulumi.Input<string>;
 }

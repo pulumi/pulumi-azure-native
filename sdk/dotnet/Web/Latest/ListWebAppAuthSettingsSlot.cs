@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Web.Latest
     {
         /// <summary>
         /// Configuration settings for the Azure App Service Authentication / Authorization feature.
-        /// Latest API Version: 2020-10-01.
+        /// Latest API Version: 2020-12-01.
         /// </summary>
         public static Task<ListWebAppAuthSettingsSlotResult> InvokeAsync(ListWebAppAuthSettingsSlotArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppAuthSettingsSlotResult>("azure-native:web/latest:listWebAppAuthSettingsSlot", args ?? new ListWebAppAuthSettingsSlotArgs(), options.WithVersion());
@@ -99,6 +99,11 @@ namespace Pulumi.AzureNative.Web.Latest
         /// The app setting name that contains the client secret of the relying party application.
         /// </summary>
         public readonly string? ClientSecretSettingName;
+        /// <summary>
+        /// The ConfigVersion of the Authentication / Authorization feature in use for the current app.
+        /// The setting in this value can control the behavior of the control plane for Authentication / Authorization.
+        /// </summary>
+        public readonly string? ConfigVersion;
         /// <summary>
         /// The default authentication provider to use when multiple providers are configured.
         /// This setting is only needed if multiple providers are configured and the unauthenticated client
@@ -227,10 +232,6 @@ namespace Pulumi.AzureNative.Web.Latest
         /// </summary>
         public readonly string? RuntimeVersion;
         /// <summary>
-        /// The system metadata relating to this resource.
-        /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
-        /// <summary>
         /// The number of hours after session token expiration that a session token can be used to
         /// call the token refresh API. The default is 72 hours.
         /// </summary>
@@ -290,6 +291,8 @@ namespace Pulumi.AzureNative.Web.Latest
 
             string? clientSecretSettingName,
 
+            string? configVersion,
+
             string? defaultProvider,
 
             bool? enabled,
@@ -338,8 +341,6 @@ namespace Pulumi.AzureNative.Web.Latest
 
             string? runtimeVersion,
 
-            Outputs.SystemDataResponse systemData,
-
             double? tokenRefreshExtensionHours,
 
             bool? tokenStoreEnabled,
@@ -365,6 +366,7 @@ namespace Pulumi.AzureNative.Web.Latest
             ClientSecret = clientSecret;
             ClientSecretCertificateThumbprint = clientSecretCertificateThumbprint;
             ClientSecretSettingName = clientSecretSettingName;
+            ConfigVersion = configVersion;
             DefaultProvider = defaultProvider;
             Enabled = enabled;
             FacebookAppId = facebookAppId;
@@ -389,7 +391,6 @@ namespace Pulumi.AzureNative.Web.Latest
             MicrosoftAccountOAuthScopes = microsoftAccountOAuthScopes;
             Name = name;
             RuntimeVersion = runtimeVersion;
-            SystemData = systemData;
             TokenRefreshExtensionHours = tokenRefreshExtensionHours;
             TokenStoreEnabled = tokenStoreEnabled;
             TwitterConsumerKey = twitterConsumerKey;

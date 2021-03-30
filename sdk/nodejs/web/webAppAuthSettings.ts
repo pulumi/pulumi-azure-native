@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Configuration settings for the Azure App Service Authentication / Authorization feature.
- * API Version: 2020-10-01.
+ * API Version: 2020-12-01.
  */
 export class WebAppAuthSettings extends pulumi.CustomResource {
     /**
@@ -85,6 +85,11 @@ export class WebAppAuthSettings extends pulumi.CustomResource {
      * The app setting name that contains the client secret of the relying party application.
      */
     public readonly clientSecretSettingName!: pulumi.Output<string | undefined>;
+    /**
+     * The ConfigVersion of the Authentication / Authorization feature in use for the current app.
+     * The setting in this value can control the behavior of the control plane for Authentication / Authorization.
+     */
+    public readonly configVersion!: pulumi.Output<string | undefined>;
     /**
      * The default authentication provider to use when multiple providers are configured.
      * This setting is only needed if multiple providers are configured and the unauthenticated client
@@ -209,10 +214,6 @@ export class WebAppAuthSettings extends pulumi.CustomResource {
      */
     public readonly runtimeVersion!: pulumi.Output<string | undefined>;
     /**
-     * The system metadata relating to this resource.
-     */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.web.SystemDataResponse>;
-    /**
      * The number of hours after session token expiration that a session token can be used to
      * call the token refresh API. The default is 72 hours.
      */
@@ -278,6 +279,7 @@ export class WebAppAuthSettings extends pulumi.CustomResource {
             inputs["clientSecret"] = args ? args.clientSecret : undefined;
             inputs["clientSecretCertificateThumbprint"] = args ? args.clientSecretCertificateThumbprint : undefined;
             inputs["clientSecretSettingName"] = args ? args.clientSecretSettingName : undefined;
+            inputs["configVersion"] = args ? args.configVersion : undefined;
             inputs["defaultProvider"] = args ? args.defaultProvider : undefined;
             inputs["enabled"] = args ? args.enabled : undefined;
             inputs["facebookAppId"] = args ? args.facebookAppId : undefined;
@@ -309,7 +311,6 @@ export class WebAppAuthSettings extends pulumi.CustomResource {
             inputs["twitterConsumerSecretSettingName"] = args ? args.twitterConsumerSecretSettingName : undefined;
             inputs["unauthenticatedClientAction"] = args ? args.unauthenticatedClientAction : undefined;
             inputs["validateIssuer"] = args ? args.validateIssuer : undefined;
-            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["aadClaimsAuthorization"] = undefined /*out*/;
@@ -321,6 +322,7 @@ export class WebAppAuthSettings extends pulumi.CustomResource {
             inputs["clientSecret"] = undefined /*out*/;
             inputs["clientSecretCertificateThumbprint"] = undefined /*out*/;
             inputs["clientSecretSettingName"] = undefined /*out*/;
+            inputs["configVersion"] = undefined /*out*/;
             inputs["defaultProvider"] = undefined /*out*/;
             inputs["enabled"] = undefined /*out*/;
             inputs["facebookAppId"] = undefined /*out*/;
@@ -344,7 +346,6 @@ export class WebAppAuthSettings extends pulumi.CustomResource {
             inputs["microsoftAccountOAuthScopes"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["runtimeVersion"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
             inputs["tokenRefreshExtensionHours"] = undefined /*out*/;
             inputs["tokenStoreEnabled"] = undefined /*out*/;
             inputs["twitterConsumerKey"] = undefined /*out*/;
@@ -357,7 +358,7 @@ export class WebAppAuthSettings extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:WebAppAuthSettings" }, { type: "azure-native:web/latest:WebAppAuthSettings" }, { type: "azure-nextgen:web/latest:WebAppAuthSettings" }, { type: "azure-native:web/v20150801:WebAppAuthSettings" }, { type: "azure-nextgen:web/v20150801:WebAppAuthSettings" }, { type: "azure-native:web/v20160801:WebAppAuthSettings" }, { type: "azure-nextgen:web/v20160801:WebAppAuthSettings" }, { type: "azure-native:web/v20180201:WebAppAuthSettings" }, { type: "azure-nextgen:web/v20180201:WebAppAuthSettings" }, { type: "azure-native:web/v20181101:WebAppAuthSettings" }, { type: "azure-nextgen:web/v20181101:WebAppAuthSettings" }, { type: "azure-native:web/v20190801:WebAppAuthSettings" }, { type: "azure-nextgen:web/v20190801:WebAppAuthSettings" }, { type: "azure-native:web/v20200601:WebAppAuthSettings" }, { type: "azure-nextgen:web/v20200601:WebAppAuthSettings" }, { type: "azure-native:web/v20200901:WebAppAuthSettings" }, { type: "azure-nextgen:web/v20200901:WebAppAuthSettings" }, { type: "azure-native:web/v20201001:WebAppAuthSettings" }, { type: "azure-nextgen:web/v20201001:WebAppAuthSettings" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:WebAppAuthSettings" }, { type: "azure-native:web/latest:WebAppAuthSettings" }, { type: "azure-nextgen:web/latest:WebAppAuthSettings" }, { type: "azure-native:web/v20150801:WebAppAuthSettings" }, { type: "azure-nextgen:web/v20150801:WebAppAuthSettings" }, { type: "azure-native:web/v20160801:WebAppAuthSettings" }, { type: "azure-nextgen:web/v20160801:WebAppAuthSettings" }, { type: "azure-native:web/v20180201:WebAppAuthSettings" }, { type: "azure-nextgen:web/v20180201:WebAppAuthSettings" }, { type: "azure-native:web/v20181101:WebAppAuthSettings" }, { type: "azure-nextgen:web/v20181101:WebAppAuthSettings" }, { type: "azure-native:web/v20190801:WebAppAuthSettings" }, { type: "azure-nextgen:web/v20190801:WebAppAuthSettings" }, { type: "azure-native:web/v20200601:WebAppAuthSettings" }, { type: "azure-nextgen:web/v20200601:WebAppAuthSettings" }, { type: "azure-native:web/v20200901:WebAppAuthSettings" }, { type: "azure-nextgen:web/v20200901:WebAppAuthSettings" }, { type: "azure-native:web/v20201001:WebAppAuthSettings" }, { type: "azure-nextgen:web/v20201001:WebAppAuthSettings" }, { type: "azure-native:web/v20201201:WebAppAuthSettings" }, { type: "azure-nextgen:web/v20201201:WebAppAuthSettings" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebAppAuthSettings.__pulumiType, name, inputs, opts);
     }
@@ -416,6 +417,11 @@ export interface WebAppAuthSettingsArgs {
      * The app setting name that contains the client secret of the relying party application.
      */
     readonly clientSecretSettingName?: pulumi.Input<string>;
+    /**
+     * The ConfigVersion of the Authentication / Authorization feature in use for the current app.
+     * The setting in this value can control the behavior of the control plane for Authentication / Authorization.
+     */
+    readonly configVersion?: pulumi.Input<string>;
     /**
      * The default authentication provider to use when multiple providers are configured.
      * This setting is only needed if multiple providers are configured and the unauthenticated client

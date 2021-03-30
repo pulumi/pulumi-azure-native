@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Function information.
- * API Version: 2020-10-01.
+ * API Version: 2020-12-01.
  */
 export function getWebAppInstanceFunctionSlot(args: GetWebAppInstanceFunctionSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppInstanceFunctionSlotResult> {
     if (!opts) {
@@ -104,10 +104,6 @@ export interface GetWebAppInstanceFunctionSlotResult {
      * Secrets file URI.
      */
     readonly secretsFileHref?: string;
-    /**
-     * The system metadata relating to this resource.
-     */
-    readonly systemData: outputs.web.SystemDataResponse;
     /**
      * Test data used when testing via the Azure Portal.
      */

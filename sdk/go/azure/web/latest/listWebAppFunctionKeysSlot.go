@@ -8,7 +8,7 @@ import (
 )
 
 // String dictionary resource.
-// Latest API Version: 2020-10-01.
+// Latest API Version: 2020-12-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listWebAppFunctionKeysSlot'.
 func ListWebAppFunctionKeysSlot(ctx *pulumi.Context, args *ListWebAppFunctionKeysSlotArgs, opts ...pulumi.InvokeOption) (*ListWebAppFunctionKeysSlotResult, error) {
@@ -41,8 +41,6 @@ type ListWebAppFunctionKeysSlotResult struct {
 	Name string `pulumi:"name"`
 	// Settings.
 	Properties map[string]string `pulumi:"properties"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }

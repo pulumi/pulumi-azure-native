@@ -119,6 +119,12 @@ func NewSiteDeploymentSlot(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:web/v20201001:SiteDeploymentSlot"),
 		},
+		{
+			Type: pulumi.String("azure-native:web/v20201201:SiteDeploymentSlot"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20201201:SiteDeploymentSlot"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource SiteDeploymentSlot

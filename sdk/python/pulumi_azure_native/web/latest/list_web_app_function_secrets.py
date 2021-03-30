@@ -62,7 +62,7 @@ def list_web_app_function_secrets(function_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppFunctionSecretsResult:
     """
     Function secrets.
-    Latest API Version: 2020-10-01.
+    Latest API Version: 2020-12-01.
 
 
     :param str function_name: Function name.

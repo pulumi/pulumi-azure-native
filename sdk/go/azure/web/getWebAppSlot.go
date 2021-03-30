@@ -8,7 +8,7 @@ import (
 )
 
 // A web app, a mobile app backend, or an API app.
-// API Version: 2020-10-01.
+// API Version: 2020-12-01.
 func LookupWebAppSlot(ctx *pulumi.Context, args *LookupWebAppSlotArgs, opts ...pulumi.InvokeOption) (*LookupWebAppSlotResult, error) {
 	var rv LookupWebAppSlotResult
 	err := ctx.Invoke("azure-native:web:getWebAppSlot", args, &rv, opts...)
@@ -79,6 +79,8 @@ type LookupWebAppSlotResult struct {
 	IsDefaultContainer bool `pulumi:"isDefaultContainer"`
 	// Obsolete: Hyper-V sandbox.
 	IsXenon *bool `pulumi:"isXenon"`
+	// Identity to use for Key Vault Reference authentication.
+	KeyVaultReferenceIdentity *string `pulumi:"keyVaultReferenceIdentity"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// Last time the app was modified, in UTC. Read-only.
@@ -116,8 +118,6 @@ type LookupWebAppSlotResult struct {
 	StorageAccountRequired *bool `pulumi:"storageAccountRequired"`
 	// App suspended till in case memory-time quota is exceeded.
 	SuspendedTill string `pulumi:"suspendedTill"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies which deployment slot this app will swap into. Read-only.

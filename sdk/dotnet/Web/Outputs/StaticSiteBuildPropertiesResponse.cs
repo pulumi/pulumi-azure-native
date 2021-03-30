@@ -14,29 +14,64 @@ namespace Pulumi.AzureNative.Web.Outputs
     public sealed class StaticSiteBuildPropertiesResponse
     {
         /// <summary>
+        /// A custom command to run during deployment of the Azure Functions API application.
+        /// </summary>
+        public readonly string? ApiBuildCommand;
+        /// <summary>
         /// The path to the api code within the repository.
         /// </summary>
         public readonly string? ApiLocation;
         /// <summary>
-        /// The path of the app artifacts after building.
+        /// Deprecated: The path of the app artifacts after building (deprecated in favor of OutputLocation)
         /// </summary>
         public readonly string? AppArtifactLocation;
+        /// <summary>
+        /// A custom command to run during deployment of the static content application.
+        /// </summary>
+        public readonly string? AppBuildCommand;
         /// <summary>
         /// The path to the app code within the repository.
         /// </summary>
         public readonly string? AppLocation;
+        /// <summary>
+        /// Github Action secret name override.
+        /// </summary>
+        public readonly string? GithubActionSecretNameOverride;
+        /// <summary>
+        /// The output path of the app after building.
+        /// </summary>
+        public readonly string? OutputLocation;
+        /// <summary>
+        /// Skip Github Action workflow generation.
+        /// </summary>
+        public readonly bool? SkipGithubActionWorkflowGeneration;
 
         [OutputConstructor]
         private StaticSiteBuildPropertiesResponse(
+            string? apiBuildCommand,
+
             string? apiLocation,
 
             string? appArtifactLocation,
 
-            string? appLocation)
+            string? appBuildCommand,
+
+            string? appLocation,
+
+            string? githubActionSecretNameOverride,
+
+            string? outputLocation,
+
+            bool? skipGithubActionWorkflowGeneration)
         {
+            ApiBuildCommand = apiBuildCommand;
             ApiLocation = apiLocation;
             AppArtifactLocation = appArtifactLocation;
+            AppBuildCommand = appBuildCommand;
             AppLocation = appLocation;
+            GithubActionSecretNameOverride = githubActionSecretNameOverride;
+            OutputLocation = outputLocation;
+            SkipGithubActionWorkflowGeneration = skipGithubActionWorkflowGeneration;
         }
     }
 }

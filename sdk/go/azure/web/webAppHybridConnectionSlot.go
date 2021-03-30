@@ -12,7 +12,7 @@ import (
 )
 
 // Hybrid Connection contract. This is used to configure a Hybrid Connection.
-// API Version: 2020-10-01.
+// API Version: 2020-12-01.
 type WebAppHybridConnectionSlot struct {
 	pulumi.CustomResourceState
 
@@ -37,8 +37,6 @@ type WebAppHybridConnectionSlot struct {
 	ServiceBusNamespace pulumi.StringPtrOutput `pulumi:"serviceBusNamespace"`
 	// The suffix for the service bus endpoint. By default this is .servicebus.windows.net
 	ServiceBusSuffix pulumi.StringPtrOutput `pulumi:"serviceBusSuffix"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -114,6 +112,12 @@ func NewWebAppHybridConnectionSlot(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppHybridConnectionSlot"),
 		},
+		{
+			Type: pulumi.String("azure-native:web/v20201201:WebAppHybridConnectionSlot"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20201201:WebAppHybridConnectionSlot"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource WebAppHybridConnectionSlot
@@ -159,8 +163,6 @@ type webAppHybridConnectionSlotState struct {
 	ServiceBusNamespace *string `pulumi:"serviceBusNamespace"`
 	// The suffix for the service bus endpoint. By default this is .servicebus.windows.net
 	ServiceBusSuffix *string `pulumi:"serviceBusSuffix"`
-	// The system metadata relating to this resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type *string `pulumi:"type"`
 }
@@ -187,8 +189,6 @@ type WebAppHybridConnectionSlotState struct {
 	ServiceBusNamespace pulumi.StringPtrInput
 	// The suffix for the service bus endpoint. By default this is .servicebus.windows.net
 	ServiceBusSuffix pulumi.StringPtrInput
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponsePtrInput
 	// Resource type.
 	Type pulumi.StringPtrInput
 }

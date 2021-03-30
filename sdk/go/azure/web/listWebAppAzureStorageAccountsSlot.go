@@ -8,7 +8,7 @@ import (
 )
 
 // AzureStorageInfo dictionary resource.
-// API Version: 2020-10-01.
+// API Version: 2020-12-01.
 func ListWebAppAzureStorageAccountsSlot(ctx *pulumi.Context, args *ListWebAppAzureStorageAccountsSlotArgs, opts ...pulumi.InvokeOption) (*ListWebAppAzureStorageAccountsSlotResult, error) {
 	var rv ListWebAppAzureStorageAccountsSlotResult
 	err := ctx.Invoke("azure-native:web:listWebAppAzureStorageAccountsSlot", args, &rv, opts...)
@@ -37,8 +37,6 @@ type ListWebAppAzureStorageAccountsSlotResult struct {
 	Name string `pulumi:"name"`
 	// Azure storage accounts.
 	Properties map[string]AzureStorageInfoValueResponse `pulumi:"properties"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }

@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Slot Config names azure resource.
- * Latest API Version: 2020-10-01.
+ * Latest API Version: 2020-12-01.
  */
 /** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getWebAppSlotConfigurationNames'. */
 export function getWebAppSlotConfigurationNames(args: GetWebAppSlotConfigurationNamesArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppSlotConfigurationNamesResult> {
@@ -64,10 +64,6 @@ export interface GetWebAppSlotConfigurationNamesResult {
      * Resource Name.
      */
     readonly name: string;
-    /**
-     * The system metadata relating to this resource.
-     */
-    readonly systemData: outputs.web.latest.SystemDataResponse;
     /**
      * Resource type.
      */

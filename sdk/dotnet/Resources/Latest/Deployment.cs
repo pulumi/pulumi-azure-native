@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Resources.Latest
 {
     /// <summary>
     /// Deployment information.
-    /// Latest API Version: 2020-10-01.
+    /// Latest API Version: 2021-01-01.
     /// </summary>
     [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:resources:Deployment'.")]
     [AzureNativeResourceType("azure-native:resources/latest:Deployment")]
@@ -107,6 +107,8 @@ namespace Pulumi.AzureNative.Resources.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20200801:Deployment"},
                     new Pulumi.Alias { Type = "azure-native:resources/v20201001:Deployment"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20201001:Deployment"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20210101:Deployment"},
+                    new Pulumi.Alias { Type = "azure-nextgen:resources/v20210101:Deployment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web
     {
         /// <summary>
         /// Slot Config names azure resource.
-        /// API Version: 2020-10-01.
+        /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetWebAppSlotConfigurationNamesResult> InvokeAsync(GetWebAppSlotConfigurationNamesArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppSlotConfigurationNamesResult>("azure-native:web:getWebAppSlotConfigurationNames", args ?? new GetWebAppSlotConfigurationNamesArgs(), options.WithVersion());
@@ -68,10 +68,6 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The system metadata relating to this resource.
-        /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
-        /// <summary>
         /// Resource type.
         /// </summary>
         public readonly string Type;
@@ -90,8 +86,6 @@ namespace Pulumi.AzureNative.Web
 
             string name,
 
-            Outputs.SystemDataResponse systemData,
-
             string type)
         {
             AppSettingNames = appSettingNames;
@@ -100,7 +94,6 @@ namespace Pulumi.AzureNative.Web
             Id = id;
             Kind = kind;
             Name = name;
-            SystemData = systemData;
             Type = type;
         }
     }

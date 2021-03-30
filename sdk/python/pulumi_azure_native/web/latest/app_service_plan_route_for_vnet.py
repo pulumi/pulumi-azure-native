@@ -7,7 +7,6 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
-from . import outputs
 from ._enums import *
 
 __all__ = ['AppServicePlanRouteForVnet']
@@ -34,7 +33,7 @@ class AppServicePlanRouteForVnet(pulumi.CustomResource):
                  __opts__=None):
         """
         Virtual Network route contract used to pass routing information for a Virtual Network.
-        Latest API Version: 2020-10-01.
+        Latest API Version: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -84,9 +83,8 @@ class AppServicePlanRouteForVnet(pulumi.CustomResource):
             if vnet_name is None and not opts.urn:
                 raise TypeError("Missing required property 'vnet_name'")
             __props__['vnet_name'] = vnet_name
-            __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/latest:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-native:web:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-nextgen:web:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-native:web/v20150801:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-nextgen:web/v20150801:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-native:web/v20160901:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-nextgen:web/v20160901:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-native:web/v20180201:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-nextgen:web/v20180201:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-native:web/v20190801:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-nextgen:web/v20190801:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-native:web/v20200601:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-nextgen:web/v20200601:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-native:web/v20200901:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-nextgen:web/v20200901:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-native:web/v20201001:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-nextgen:web/v20201001:AppServicePlanRouteForVnet")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/latest:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-native:web:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-nextgen:web:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-native:web/v20150801:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-nextgen:web/v20150801:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-native:web/v20160901:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-nextgen:web/v20160901:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-native:web/v20180201:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-nextgen:web/v20180201:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-native:web/v20190801:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-nextgen:web/v20190801:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-native:web/v20200601:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-nextgen:web/v20200601:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-native:web/v20200901:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-nextgen:web/v20200901:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-native:web/v20201001:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-nextgen:web/v20201001:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-native:web/v20201201:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-nextgen:web/v20201201:AppServicePlanRouteForVnet")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AppServicePlanRouteForVnet, __self__).__init__(
             'azure-native:web/latest:AppServicePlanRouteForVnet',
@@ -115,7 +113,6 @@ class AppServicePlanRouteForVnet(pulumi.CustomResource):
         __props__["name"] = None
         __props__["route_type"] = None
         __props__["start_address"] = None
-        __props__["system_data"] = None
         __props__["type"] = None
         return AppServicePlanRouteForVnet(resource_name, opts=opts, __props__=__props__)
 
@@ -163,14 +160,6 @@ class AppServicePlanRouteForVnet(pulumi.CustomResource):
         The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.
         """
         return pulumi.get(self, "start_address")
-
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
-        """
-        The system metadata relating to this resource.
-        """
-        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

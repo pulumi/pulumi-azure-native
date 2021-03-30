@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Web.Latest
     {
         /// <summary>
         /// Functions host level keys.
-        /// Latest API Version: 2020-10-01.
+        /// Latest API Version: 2020-12-01.
         /// </summary>
         public static Task<ListWebAppHostKeysResult> InvokeAsync(ListWebAppHostKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppHostKeysResult>("azure-native:web/latest:listWebAppHostKeys", args ?? new ListWebAppHostKeysArgs(), options.WithVersion());

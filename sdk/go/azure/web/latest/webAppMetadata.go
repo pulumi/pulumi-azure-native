@@ -12,7 +12,7 @@ import (
 )
 
 // String dictionary resource.
-// Latest API Version: 2020-10-01.
+// Latest API Version: 2020-12-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppMetadata'.
 type WebAppMetadata struct {
@@ -24,8 +24,6 @@ type WebAppMetadata struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Settings.
 	Properties pulumi.StringMapOutput `pulumi:"properties"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -101,6 +99,12 @@ func NewWebAppMetadata(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppMetadata"),
 		},
+		{
+			Type: pulumi.String("azure-native:web/v20201201:WebAppMetadata"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20201201:WebAppMetadata"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource WebAppMetadata
@@ -131,8 +135,6 @@ type webAppMetadataState struct {
 	Name *string `pulumi:"name"`
 	// Settings.
 	Properties map[string]string `pulumi:"properties"`
-	// The system metadata relating to this resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type *string `pulumi:"type"`
 }
@@ -144,8 +146,6 @@ type WebAppMetadataState struct {
 	Name pulumi.StringPtrInput
 	// Settings.
 	Properties pulumi.StringMapInput
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponsePtrInput
 	// Resource type.
 	Type pulumi.StringPtrInput
 }

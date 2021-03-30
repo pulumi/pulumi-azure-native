@@ -28,10 +28,6 @@ namespace Pulumi.AzureNative.Web.Latest.Outputs
         /// Resource Name.
         /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// The system metadata relating to this resource.
-        /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
         public readonly string? TokenEndpoint;
         /// <summary>
         /// Resource type.
@@ -53,8 +49,6 @@ namespace Pulumi.AzureNative.Web.Latest.Outputs
 
             string name,
 
-            Outputs.SystemDataResponse systemData,
-
             string? tokenEndpoint,
 
             string type,
@@ -67,7 +61,6 @@ namespace Pulumi.AzureNative.Web.Latest.Outputs
             Issuer = issuer;
             Kind = kind;
             Name = name;
-            SystemData = systemData;
             TokenEndpoint = tokenEndpoint;
             Type = type;
             WellKnownOpenIdConfiguration = wellKnownOpenIdConfiguration;

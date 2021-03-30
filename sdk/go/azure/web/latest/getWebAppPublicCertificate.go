@@ -8,7 +8,7 @@ import (
 )
 
 // Public certificate object
-// Latest API Version: 2020-10-01.
+// Latest API Version: 2020-12-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getWebAppPublicCertificate'.
 func LookupWebAppPublicCertificate(ctx *pulumi.Context, args *LookupWebAppPublicCertificateArgs, opts ...pulumi.InvokeOption) (*LookupWebAppPublicCertificateResult, error) {
@@ -41,8 +41,6 @@ type LookupWebAppPublicCertificateResult struct {
 	Name string `pulumi:"name"`
 	// Public Certificate Location
 	PublicCertificateLocation *string `pulumi:"publicCertificateLocation"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Certificate Thumbprint
 	Thumbprint string `pulumi:"thumbprint"`
 	// Resource type.

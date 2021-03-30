@@ -7,7 +7,6 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
-from . import outputs
 
 __all__ = [
     'ListWebAppAuthSettingsResult',
@@ -20,7 +19,7 @@ class ListWebAppAuthSettingsResult:
     """
     Configuration settings for the Azure App Service Authentication / Authorization feature.
     """
-    def __init__(__self__, aad_claims_authorization=None, additional_login_params=None, allowed_audiences=None, allowed_external_redirect_urls=None, auth_file_path=None, client_id=None, client_secret=None, client_secret_certificate_thumbprint=None, client_secret_setting_name=None, default_provider=None, enabled=None, facebook_app_id=None, facebook_app_secret=None, facebook_app_secret_setting_name=None, facebook_o_auth_scopes=None, git_hub_client_id=None, git_hub_client_secret=None, git_hub_client_secret_setting_name=None, git_hub_o_auth_scopes=None, google_client_id=None, google_client_secret=None, google_client_secret_setting_name=None, google_o_auth_scopes=None, id=None, is_auth_from_file=None, issuer=None, kind=None, microsoft_account_client_id=None, microsoft_account_client_secret=None, microsoft_account_client_secret_setting_name=None, microsoft_account_o_auth_scopes=None, name=None, runtime_version=None, system_data=None, token_refresh_extension_hours=None, token_store_enabled=None, twitter_consumer_key=None, twitter_consumer_secret=None, twitter_consumer_secret_setting_name=None, type=None, unauthenticated_client_action=None, validate_issuer=None):
+    def __init__(__self__, aad_claims_authorization=None, additional_login_params=None, allowed_audiences=None, allowed_external_redirect_urls=None, auth_file_path=None, client_id=None, client_secret=None, client_secret_certificate_thumbprint=None, client_secret_setting_name=None, config_version=None, default_provider=None, enabled=None, facebook_app_id=None, facebook_app_secret=None, facebook_app_secret_setting_name=None, facebook_o_auth_scopes=None, git_hub_client_id=None, git_hub_client_secret=None, git_hub_client_secret_setting_name=None, git_hub_o_auth_scopes=None, google_client_id=None, google_client_secret=None, google_client_secret_setting_name=None, google_o_auth_scopes=None, id=None, is_auth_from_file=None, issuer=None, kind=None, microsoft_account_client_id=None, microsoft_account_client_secret=None, microsoft_account_client_secret_setting_name=None, microsoft_account_o_auth_scopes=None, name=None, runtime_version=None, token_refresh_extension_hours=None, token_store_enabled=None, twitter_consumer_key=None, twitter_consumer_secret=None, twitter_consumer_secret_setting_name=None, type=None, unauthenticated_client_action=None, validate_issuer=None):
         if aad_claims_authorization and not isinstance(aad_claims_authorization, str):
             raise TypeError("Expected argument 'aad_claims_authorization' to be a str")
         pulumi.set(__self__, "aad_claims_authorization", aad_claims_authorization)
@@ -48,6 +47,9 @@ class ListWebAppAuthSettingsResult:
         if client_secret_setting_name and not isinstance(client_secret_setting_name, str):
             raise TypeError("Expected argument 'client_secret_setting_name' to be a str")
         pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
+        if config_version and not isinstance(config_version, str):
+            raise TypeError("Expected argument 'config_version' to be a str")
+        pulumi.set(__self__, "config_version", config_version)
         if default_provider and not isinstance(default_provider, str):
             raise TypeError("Expected argument 'default_provider' to be a str")
         pulumi.set(__self__, "default_provider", default_provider)
@@ -120,9 +122,6 @@ class ListWebAppAuthSettingsResult:
         if runtime_version and not isinstance(runtime_version, str):
             raise TypeError("Expected argument 'runtime_version' to be a str")
         pulumi.set(__self__, "runtime_version", runtime_version)
-        if system_data and not isinstance(system_data, dict):
-            raise TypeError("Expected argument 'system_data' to be a dict")
-        pulumi.set(__self__, "system_data", system_data)
         if token_refresh_extension_hours and not isinstance(token_refresh_extension_hours, float):
             raise TypeError("Expected argument 'token_refresh_extension_hours' to be a float")
         pulumi.set(__self__, "token_refresh_extension_hours", token_refresh_extension_hours)
@@ -232,6 +231,15 @@ class ListWebAppAuthSettingsResult:
         The app setting name that contains the client secret of the relying party application.
         """
         return pulumi.get(self, "client_secret_setting_name")
+
+    @property
+    @pulumi.getter(name="configVersion")
+    def config_version(self) -> Optional[str]:
+        """
+        The ConfigVersion of the Authentication / Authorization feature in use for the current app.
+        The setting in this value can control the behavior of the control plane for Authentication / Authorization.
+        """
+        return pulumi.get(self, "config_version")
 
     @property
     @pulumi.getter(name="defaultProvider")
@@ -457,14 +465,6 @@ class ListWebAppAuthSettingsResult:
         return pulumi.get(self, "runtime_version")
 
     @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
-        """
-        The system metadata relating to this resource.
-        """
-        return pulumi.get(self, "system_data")
-
-    @property
     @pulumi.getter(name="tokenRefreshExtensionHours")
     def token_refresh_extension_hours(self) -> Optional[float]:
         """
@@ -551,6 +551,7 @@ class AwaitableListWebAppAuthSettingsResult(ListWebAppAuthSettingsResult):
             client_secret=self.client_secret,
             client_secret_certificate_thumbprint=self.client_secret_certificate_thumbprint,
             client_secret_setting_name=self.client_secret_setting_name,
+            config_version=self.config_version,
             default_provider=self.default_provider,
             enabled=self.enabled,
             facebook_app_id=self.facebook_app_id,
@@ -575,7 +576,6 @@ class AwaitableListWebAppAuthSettingsResult(ListWebAppAuthSettingsResult):
             microsoft_account_o_auth_scopes=self.microsoft_account_o_auth_scopes,
             name=self.name,
             runtime_version=self.runtime_version,
-            system_data=self.system_data,
             token_refresh_extension_hours=self.token_refresh_extension_hours,
             token_store_enabled=self.token_store_enabled,
             twitter_consumer_key=self.twitter_consumer_key,
@@ -591,7 +591,7 @@ def list_web_app_auth_settings(name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppAuthSettingsResult:
     """
     Configuration settings for the Azure App Service Authentication / Authorization feature.
-    API Version: 2020-10-01.
+    API Version: 2020-12-01.
 
 
     :param str name: Name of the app.
@@ -616,6 +616,7 @@ def list_web_app_auth_settings(name: Optional[str] = None,
         client_secret=__ret__.client_secret,
         client_secret_certificate_thumbprint=__ret__.client_secret_certificate_thumbprint,
         client_secret_setting_name=__ret__.client_secret_setting_name,
+        config_version=__ret__.config_version,
         default_provider=__ret__.default_provider,
         enabled=__ret__.enabled,
         facebook_app_id=__ret__.facebook_app_id,
@@ -640,7 +641,6 @@ def list_web_app_auth_settings(name: Optional[str] = None,
         microsoft_account_o_auth_scopes=__ret__.microsoft_account_o_auth_scopes,
         name=__ret__.name,
         runtime_version=__ret__.runtime_version,
-        system_data=__ret__.system_data,
         token_refresh_extension_hours=__ret__.token_refresh_extension_hours,
         token_store_enabled=__ret__.token_store_enabled,
         twitter_consumer_key=__ret__.twitter_consumer_key,

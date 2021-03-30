@@ -18,6 +18,10 @@ namespace Pulumi.AzureNative.Web.Outputs
         /// </summary>
         public readonly int? Count;
         /// <summary>
+        /// Request Path
+        /// </summary>
+        public readonly string? Path;
+        /// <summary>
         /// HTTP status code.
         /// </summary>
         public readonly int? Status;
@@ -38,6 +42,8 @@ namespace Pulumi.AzureNative.Web.Outputs
         private StatusCodesBasedTriggerResponse(
             int? count,
 
+            string? path,
+
             int? status,
 
             int? subStatus,
@@ -47,6 +53,7 @@ namespace Pulumi.AzureNative.Web.Outputs
             int? win32Status)
         {
             Count = count;
+            Path = path;
             Status = status;
             SubStatus = subStatus;
             TimeInterval = timeInterval;

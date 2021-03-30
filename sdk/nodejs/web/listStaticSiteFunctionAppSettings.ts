@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * String dictionary resource.
- * API Version: 2020-10-01.
+ * API Version: 2020-12-01.
  */
 export function listStaticSiteFunctionAppSettings(args: ListStaticSiteFunctionAppSettingsArgs, opts?: pulumi.InvokeOptions): Promise<ListStaticSiteFunctionAppSettingsResult> {
     if (!opts) {
@@ -54,10 +54,6 @@ export interface ListStaticSiteFunctionAppSettingsResult {
      * Settings.
      */
     readonly properties: {[key: string]: string};
-    /**
-     * The system metadata relating to this resource.
-     */
-    readonly systemData: outputs.web.SystemDataResponse;
     /**
      * Resource type.
      */

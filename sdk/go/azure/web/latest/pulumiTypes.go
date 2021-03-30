@@ -163,8 +163,6 @@ type AllowedAudiencesValidationResponse struct {
 	Kind *string `pulumi:"kind"`
 	// Resource Name.
 	Name string `pulumi:"name"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }
@@ -188,8 +186,6 @@ type AllowedAudiencesValidationResponseArgs struct {
 	Kind pulumi.StringPtrInput `pulumi:"kind"`
 	// Resource Name.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponseInput `pulumi:"systemData"`
 	// Resource type.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -289,11 +285,6 @@ func (o AllowedAudiencesValidationResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AllowedAudiencesValidationResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The system metadata relating to this resource.
-func (o AllowedAudiencesValidationResponseOutput) SystemData() SystemDataResponseOutput {
-	return o.ApplyT(func(v AllowedAudiencesValidationResponse) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
-}
-
 // Resource type.
 func (o AllowedAudiencesValidationResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AllowedAudiencesValidationResponse) string { return v.Type }).(pulumi.StringOutput)
@@ -354,16 +345,6 @@ func (o AllowedAudiencesValidationResponsePtrOutput) Name() pulumi.StringPtrOutp
 		}
 		return &v.Name
 	}).(pulumi.StringPtrOutput)
-}
-
-// The system metadata relating to this resource.
-func (o AllowedAudiencesValidationResponsePtrOutput) SystemData() SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v *AllowedAudiencesValidationResponse) *SystemDataResponse {
-		if v == nil {
-			return nil
-		}
-		return &v.SystemData
-	}).(SystemDataResponsePtrOutput)
 }
 
 // Resource type.
@@ -3695,8 +3676,6 @@ type AppRegistrationResponse struct {
 	Kind *string `pulumi:"kind"`
 	// Resource Name.
 	Name string `pulumi:"name"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }
@@ -3721,8 +3700,6 @@ type AppRegistrationResponseArgs struct {
 	Kind pulumi.StringPtrInput `pulumi:"kind"`
 	// Resource Name.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponseInput `pulumi:"systemData"`
 	// Resource type.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -3826,11 +3803,6 @@ func (o AppRegistrationResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AppRegistrationResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The system metadata relating to this resource.
-func (o AppRegistrationResponseOutput) SystemData() SystemDataResponseOutput {
-	return o.ApplyT(func(v AppRegistrationResponse) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
-}
-
 // Resource type.
 func (o AppRegistrationResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AppRegistrationResponse) string { return v.Type }).(pulumi.StringOutput)
@@ -3902,19 +3874,793 @@ func (o AppRegistrationResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The system metadata relating to this resource.
-func (o AppRegistrationResponsePtrOutput) SystemData() SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v *AppRegistrationResponse) *SystemDataResponse {
-		if v == nil {
-			return nil
-		}
-		return &v.SystemData
-	}).(SystemDataResponsePtrOutput)
-}
-
 // Resource type.
 func (o AppRegistrationResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppRegistrationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type Apple struct {
+	Enabled *bool `pulumi:"enabled"`
+	// Kind of resource.
+	Kind         *string            `pulumi:"kind"`
+	Login        *LoginScopes       `pulumi:"login"`
+	Registration *AppleRegistration `pulumi:"registration"`
+}
+
+// AppleInput is an input type that accepts AppleArgs and AppleOutput values.
+// You can construct a concrete instance of `AppleInput` via:
+//
+//          AppleArgs{...}
+type AppleInput interface {
+	pulumi.Input
+
+	ToAppleOutput() AppleOutput
+	ToAppleOutputWithContext(context.Context) AppleOutput
+}
+
+type AppleArgs struct {
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// Kind of resource.
+	Kind         pulumi.StringPtrInput     `pulumi:"kind"`
+	Login        LoginScopesPtrInput       `pulumi:"login"`
+	Registration AppleRegistrationPtrInput `pulumi:"registration"`
+}
+
+func (AppleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Apple)(nil)).Elem()
+}
+
+func (i AppleArgs) ToAppleOutput() AppleOutput {
+	return i.ToAppleOutputWithContext(context.Background())
+}
+
+func (i AppleArgs) ToAppleOutputWithContext(ctx context.Context) AppleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppleOutput)
+}
+
+func (i AppleArgs) ToApplePtrOutput() ApplePtrOutput {
+	return i.ToApplePtrOutputWithContext(context.Background())
+}
+
+func (i AppleArgs) ToApplePtrOutputWithContext(ctx context.Context) ApplePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppleOutput).ToApplePtrOutputWithContext(ctx)
+}
+
+// ApplePtrInput is an input type that accepts AppleArgs, ApplePtr and ApplePtrOutput values.
+// You can construct a concrete instance of `ApplePtrInput` via:
+//
+//          AppleArgs{...}
+//
+//  or:
+//
+//          nil
+type ApplePtrInput interface {
+	pulumi.Input
+
+	ToApplePtrOutput() ApplePtrOutput
+	ToApplePtrOutputWithContext(context.Context) ApplePtrOutput
+}
+
+type applePtrType AppleArgs
+
+func ApplePtr(v *AppleArgs) ApplePtrInput {
+	return (*applePtrType)(v)
+}
+
+func (*applePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Apple)(nil)).Elem()
+}
+
+func (i *applePtrType) ToApplePtrOutput() ApplePtrOutput {
+	return i.ToApplePtrOutputWithContext(context.Background())
+}
+
+func (i *applePtrType) ToApplePtrOutputWithContext(ctx context.Context) ApplePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplePtrOutput)
+}
+
+type AppleOutput struct{ *pulumi.OutputState }
+
+func (AppleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Apple)(nil)).Elem()
+}
+
+func (o AppleOutput) ToAppleOutput() AppleOutput {
+	return o
+}
+
+func (o AppleOutput) ToAppleOutputWithContext(ctx context.Context) AppleOutput {
+	return o
+}
+
+func (o AppleOutput) ToApplePtrOutput() ApplePtrOutput {
+	return o.ToApplePtrOutputWithContext(context.Background())
+}
+
+func (o AppleOutput) ToApplePtrOutputWithContext(ctx context.Context) ApplePtrOutput {
+	return o.ApplyT(func(v Apple) *Apple {
+		return &v
+	}).(ApplePtrOutput)
+}
+func (o AppleOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v Apple) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// Kind of resource.
+func (o AppleOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Apple) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+func (o AppleOutput) Login() LoginScopesPtrOutput {
+	return o.ApplyT(func(v Apple) *LoginScopes { return v.Login }).(LoginScopesPtrOutput)
+}
+
+func (o AppleOutput) Registration() AppleRegistrationPtrOutput {
+	return o.ApplyT(func(v Apple) *AppleRegistration { return v.Registration }).(AppleRegistrationPtrOutput)
+}
+
+type ApplePtrOutput struct{ *pulumi.OutputState }
+
+func (ApplePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Apple)(nil)).Elem()
+}
+
+func (o ApplePtrOutput) ToApplePtrOutput() ApplePtrOutput {
+	return o
+}
+
+func (o ApplePtrOutput) ToApplePtrOutputWithContext(ctx context.Context) ApplePtrOutput {
+	return o
+}
+
+func (o ApplePtrOutput) Elem() AppleOutput {
+	return o.ApplyT(func(v *Apple) Apple { return *v }).(AppleOutput)
+}
+
+func (o ApplePtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Apple) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Kind of resource.
+func (o ApplePtrOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Apple) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Kind
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ApplePtrOutput) Login() LoginScopesPtrOutput {
+	return o.ApplyT(func(v *Apple) *LoginScopes {
+		if v == nil {
+			return nil
+		}
+		return v.Login
+	}).(LoginScopesPtrOutput)
+}
+
+func (o ApplePtrOutput) Registration() AppleRegistrationPtrOutput {
+	return o.ApplyT(func(v *Apple) *AppleRegistration {
+		if v == nil {
+			return nil
+		}
+		return v.Registration
+	}).(AppleRegistrationPtrOutput)
+}
+
+type AppleRegistration struct {
+	ClientId                *string `pulumi:"clientId"`
+	ClientSecretSettingName *string `pulumi:"clientSecretSettingName"`
+	// Kind of resource.
+	Kind *string `pulumi:"kind"`
+}
+
+// AppleRegistrationInput is an input type that accepts AppleRegistrationArgs and AppleRegistrationOutput values.
+// You can construct a concrete instance of `AppleRegistrationInput` via:
+//
+//          AppleRegistrationArgs{...}
+type AppleRegistrationInput interface {
+	pulumi.Input
+
+	ToAppleRegistrationOutput() AppleRegistrationOutput
+	ToAppleRegistrationOutputWithContext(context.Context) AppleRegistrationOutput
+}
+
+type AppleRegistrationArgs struct {
+	ClientId                pulumi.StringPtrInput `pulumi:"clientId"`
+	ClientSecretSettingName pulumi.StringPtrInput `pulumi:"clientSecretSettingName"`
+	// Kind of resource.
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+}
+
+func (AppleRegistrationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppleRegistration)(nil)).Elem()
+}
+
+func (i AppleRegistrationArgs) ToAppleRegistrationOutput() AppleRegistrationOutput {
+	return i.ToAppleRegistrationOutputWithContext(context.Background())
+}
+
+func (i AppleRegistrationArgs) ToAppleRegistrationOutputWithContext(ctx context.Context) AppleRegistrationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppleRegistrationOutput)
+}
+
+func (i AppleRegistrationArgs) ToAppleRegistrationPtrOutput() AppleRegistrationPtrOutput {
+	return i.ToAppleRegistrationPtrOutputWithContext(context.Background())
+}
+
+func (i AppleRegistrationArgs) ToAppleRegistrationPtrOutputWithContext(ctx context.Context) AppleRegistrationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppleRegistrationOutput).ToAppleRegistrationPtrOutputWithContext(ctx)
+}
+
+// AppleRegistrationPtrInput is an input type that accepts AppleRegistrationArgs, AppleRegistrationPtr and AppleRegistrationPtrOutput values.
+// You can construct a concrete instance of `AppleRegistrationPtrInput` via:
+//
+//          AppleRegistrationArgs{...}
+//
+//  or:
+//
+//          nil
+type AppleRegistrationPtrInput interface {
+	pulumi.Input
+
+	ToAppleRegistrationPtrOutput() AppleRegistrationPtrOutput
+	ToAppleRegistrationPtrOutputWithContext(context.Context) AppleRegistrationPtrOutput
+}
+
+type appleRegistrationPtrType AppleRegistrationArgs
+
+func AppleRegistrationPtr(v *AppleRegistrationArgs) AppleRegistrationPtrInput {
+	return (*appleRegistrationPtrType)(v)
+}
+
+func (*appleRegistrationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppleRegistration)(nil)).Elem()
+}
+
+func (i *appleRegistrationPtrType) ToAppleRegistrationPtrOutput() AppleRegistrationPtrOutput {
+	return i.ToAppleRegistrationPtrOutputWithContext(context.Background())
+}
+
+func (i *appleRegistrationPtrType) ToAppleRegistrationPtrOutputWithContext(ctx context.Context) AppleRegistrationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppleRegistrationPtrOutput)
+}
+
+type AppleRegistrationOutput struct{ *pulumi.OutputState }
+
+func (AppleRegistrationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppleRegistration)(nil)).Elem()
+}
+
+func (o AppleRegistrationOutput) ToAppleRegistrationOutput() AppleRegistrationOutput {
+	return o
+}
+
+func (o AppleRegistrationOutput) ToAppleRegistrationOutputWithContext(ctx context.Context) AppleRegistrationOutput {
+	return o
+}
+
+func (o AppleRegistrationOutput) ToAppleRegistrationPtrOutput() AppleRegistrationPtrOutput {
+	return o.ToAppleRegistrationPtrOutputWithContext(context.Background())
+}
+
+func (o AppleRegistrationOutput) ToAppleRegistrationPtrOutputWithContext(ctx context.Context) AppleRegistrationPtrOutput {
+	return o.ApplyT(func(v AppleRegistration) *AppleRegistration {
+		return &v
+	}).(AppleRegistrationPtrOutput)
+}
+func (o AppleRegistrationOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppleRegistration) *string { return v.ClientId }).(pulumi.StringPtrOutput)
+}
+
+func (o AppleRegistrationOutput) ClientSecretSettingName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppleRegistration) *string { return v.ClientSecretSettingName }).(pulumi.StringPtrOutput)
+}
+
+// Kind of resource.
+func (o AppleRegistrationOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppleRegistration) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+type AppleRegistrationPtrOutput struct{ *pulumi.OutputState }
+
+func (AppleRegistrationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppleRegistration)(nil)).Elem()
+}
+
+func (o AppleRegistrationPtrOutput) ToAppleRegistrationPtrOutput() AppleRegistrationPtrOutput {
+	return o
+}
+
+func (o AppleRegistrationPtrOutput) ToAppleRegistrationPtrOutputWithContext(ctx context.Context) AppleRegistrationPtrOutput {
+	return o
+}
+
+func (o AppleRegistrationPtrOutput) Elem() AppleRegistrationOutput {
+	return o.ApplyT(func(v *AppleRegistration) AppleRegistration { return *v }).(AppleRegistrationOutput)
+}
+
+func (o AppleRegistrationPtrOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppleRegistration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AppleRegistrationPtrOutput) ClientSecretSettingName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppleRegistration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientSecretSettingName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Kind of resource.
+func (o AppleRegistrationPtrOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppleRegistration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Kind
+	}).(pulumi.StringPtrOutput)
+}
+
+type AppleRegistrationResponse struct {
+	ClientId                *string `pulumi:"clientId"`
+	ClientSecretSettingName *string `pulumi:"clientSecretSettingName"`
+	// Resource Id.
+	Id string `pulumi:"id"`
+	// Kind of resource.
+	Kind *string `pulumi:"kind"`
+	// Resource Name.
+	Name string `pulumi:"name"`
+	// Resource type.
+	Type string `pulumi:"type"`
+}
+
+// AppleRegistrationResponseInput is an input type that accepts AppleRegistrationResponseArgs and AppleRegistrationResponseOutput values.
+// You can construct a concrete instance of `AppleRegistrationResponseInput` via:
+//
+//          AppleRegistrationResponseArgs{...}
+type AppleRegistrationResponseInput interface {
+	pulumi.Input
+
+	ToAppleRegistrationResponseOutput() AppleRegistrationResponseOutput
+	ToAppleRegistrationResponseOutputWithContext(context.Context) AppleRegistrationResponseOutput
+}
+
+type AppleRegistrationResponseArgs struct {
+	ClientId                pulumi.StringPtrInput `pulumi:"clientId"`
+	ClientSecretSettingName pulumi.StringPtrInput `pulumi:"clientSecretSettingName"`
+	// Resource Id.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Kind of resource.
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// Resource Name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AppleRegistrationResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppleRegistrationResponse)(nil)).Elem()
+}
+
+func (i AppleRegistrationResponseArgs) ToAppleRegistrationResponseOutput() AppleRegistrationResponseOutput {
+	return i.ToAppleRegistrationResponseOutputWithContext(context.Background())
+}
+
+func (i AppleRegistrationResponseArgs) ToAppleRegistrationResponseOutputWithContext(ctx context.Context) AppleRegistrationResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppleRegistrationResponseOutput)
+}
+
+func (i AppleRegistrationResponseArgs) ToAppleRegistrationResponsePtrOutput() AppleRegistrationResponsePtrOutput {
+	return i.ToAppleRegistrationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i AppleRegistrationResponseArgs) ToAppleRegistrationResponsePtrOutputWithContext(ctx context.Context) AppleRegistrationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppleRegistrationResponseOutput).ToAppleRegistrationResponsePtrOutputWithContext(ctx)
+}
+
+// AppleRegistrationResponsePtrInput is an input type that accepts AppleRegistrationResponseArgs, AppleRegistrationResponsePtr and AppleRegistrationResponsePtrOutput values.
+// You can construct a concrete instance of `AppleRegistrationResponsePtrInput` via:
+//
+//          AppleRegistrationResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type AppleRegistrationResponsePtrInput interface {
+	pulumi.Input
+
+	ToAppleRegistrationResponsePtrOutput() AppleRegistrationResponsePtrOutput
+	ToAppleRegistrationResponsePtrOutputWithContext(context.Context) AppleRegistrationResponsePtrOutput
+}
+
+type appleRegistrationResponsePtrType AppleRegistrationResponseArgs
+
+func AppleRegistrationResponsePtr(v *AppleRegistrationResponseArgs) AppleRegistrationResponsePtrInput {
+	return (*appleRegistrationResponsePtrType)(v)
+}
+
+func (*appleRegistrationResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppleRegistrationResponse)(nil)).Elem()
+}
+
+func (i *appleRegistrationResponsePtrType) ToAppleRegistrationResponsePtrOutput() AppleRegistrationResponsePtrOutput {
+	return i.ToAppleRegistrationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *appleRegistrationResponsePtrType) ToAppleRegistrationResponsePtrOutputWithContext(ctx context.Context) AppleRegistrationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppleRegistrationResponsePtrOutput)
+}
+
+type AppleRegistrationResponseOutput struct{ *pulumi.OutputState }
+
+func (AppleRegistrationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppleRegistrationResponse)(nil)).Elem()
+}
+
+func (o AppleRegistrationResponseOutput) ToAppleRegistrationResponseOutput() AppleRegistrationResponseOutput {
+	return o
+}
+
+func (o AppleRegistrationResponseOutput) ToAppleRegistrationResponseOutputWithContext(ctx context.Context) AppleRegistrationResponseOutput {
+	return o
+}
+
+func (o AppleRegistrationResponseOutput) ToAppleRegistrationResponsePtrOutput() AppleRegistrationResponsePtrOutput {
+	return o.ToAppleRegistrationResponsePtrOutputWithContext(context.Background())
+}
+
+func (o AppleRegistrationResponseOutput) ToAppleRegistrationResponsePtrOutputWithContext(ctx context.Context) AppleRegistrationResponsePtrOutput {
+	return o.ApplyT(func(v AppleRegistrationResponse) *AppleRegistrationResponse {
+		return &v
+	}).(AppleRegistrationResponsePtrOutput)
+}
+func (o AppleRegistrationResponseOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppleRegistrationResponse) *string { return v.ClientId }).(pulumi.StringPtrOutput)
+}
+
+func (o AppleRegistrationResponseOutput) ClientSecretSettingName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppleRegistrationResponse) *string { return v.ClientSecretSettingName }).(pulumi.StringPtrOutput)
+}
+
+// Resource Id.
+func (o AppleRegistrationResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v AppleRegistrationResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Kind of resource.
+func (o AppleRegistrationResponseOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppleRegistrationResponse) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name.
+func (o AppleRegistrationResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AppleRegistrationResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o AppleRegistrationResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AppleRegistrationResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type AppleRegistrationResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (AppleRegistrationResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppleRegistrationResponse)(nil)).Elem()
+}
+
+func (o AppleRegistrationResponsePtrOutput) ToAppleRegistrationResponsePtrOutput() AppleRegistrationResponsePtrOutput {
+	return o
+}
+
+func (o AppleRegistrationResponsePtrOutput) ToAppleRegistrationResponsePtrOutputWithContext(ctx context.Context) AppleRegistrationResponsePtrOutput {
+	return o
+}
+
+func (o AppleRegistrationResponsePtrOutput) Elem() AppleRegistrationResponseOutput {
+	return o.ApplyT(func(v *AppleRegistrationResponse) AppleRegistrationResponse { return *v }).(AppleRegistrationResponseOutput)
+}
+
+func (o AppleRegistrationResponsePtrOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppleRegistrationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AppleRegistrationResponsePtrOutput) ClientSecretSettingName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppleRegistrationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientSecretSettingName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Resource Id.
+func (o AppleRegistrationResponsePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppleRegistrationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// Kind of resource.
+func (o AppleRegistrationResponsePtrOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppleRegistrationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Kind
+	}).(pulumi.StringPtrOutput)
+}
+
+// Resource Name.
+func (o AppleRegistrationResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppleRegistrationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Resource type.
+func (o AppleRegistrationResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppleRegistrationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type AppleResponse struct {
+	Enabled *bool `pulumi:"enabled"`
+	// Resource Id.
+	Id string `pulumi:"id"`
+	// Kind of resource.
+	Kind  *string              `pulumi:"kind"`
+	Login *LoginScopesResponse `pulumi:"login"`
+	// Resource Name.
+	Name         string                     `pulumi:"name"`
+	Registration *AppleRegistrationResponse `pulumi:"registration"`
+	// Resource type.
+	Type string `pulumi:"type"`
+}
+
+// AppleResponseInput is an input type that accepts AppleResponseArgs and AppleResponseOutput values.
+// You can construct a concrete instance of `AppleResponseInput` via:
+//
+//          AppleResponseArgs{...}
+type AppleResponseInput interface {
+	pulumi.Input
+
+	ToAppleResponseOutput() AppleResponseOutput
+	ToAppleResponseOutputWithContext(context.Context) AppleResponseOutput
+}
+
+type AppleResponseArgs struct {
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// Resource Id.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Kind of resource.
+	Kind  pulumi.StringPtrInput       `pulumi:"kind"`
+	Login LoginScopesResponsePtrInput `pulumi:"login"`
+	// Resource Name.
+	Name         pulumi.StringInput                `pulumi:"name"`
+	Registration AppleRegistrationResponsePtrInput `pulumi:"registration"`
+	// Resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AppleResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppleResponse)(nil)).Elem()
+}
+
+func (i AppleResponseArgs) ToAppleResponseOutput() AppleResponseOutput {
+	return i.ToAppleResponseOutputWithContext(context.Background())
+}
+
+func (i AppleResponseArgs) ToAppleResponseOutputWithContext(ctx context.Context) AppleResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppleResponseOutput)
+}
+
+func (i AppleResponseArgs) ToAppleResponsePtrOutput() AppleResponsePtrOutput {
+	return i.ToAppleResponsePtrOutputWithContext(context.Background())
+}
+
+func (i AppleResponseArgs) ToAppleResponsePtrOutputWithContext(ctx context.Context) AppleResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppleResponseOutput).ToAppleResponsePtrOutputWithContext(ctx)
+}
+
+// AppleResponsePtrInput is an input type that accepts AppleResponseArgs, AppleResponsePtr and AppleResponsePtrOutput values.
+// You can construct a concrete instance of `AppleResponsePtrInput` via:
+//
+//          AppleResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type AppleResponsePtrInput interface {
+	pulumi.Input
+
+	ToAppleResponsePtrOutput() AppleResponsePtrOutput
+	ToAppleResponsePtrOutputWithContext(context.Context) AppleResponsePtrOutput
+}
+
+type appleResponsePtrType AppleResponseArgs
+
+func AppleResponsePtr(v *AppleResponseArgs) AppleResponsePtrInput {
+	return (*appleResponsePtrType)(v)
+}
+
+func (*appleResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppleResponse)(nil)).Elem()
+}
+
+func (i *appleResponsePtrType) ToAppleResponsePtrOutput() AppleResponsePtrOutput {
+	return i.ToAppleResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *appleResponsePtrType) ToAppleResponsePtrOutputWithContext(ctx context.Context) AppleResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppleResponsePtrOutput)
+}
+
+type AppleResponseOutput struct{ *pulumi.OutputState }
+
+func (AppleResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppleResponse)(nil)).Elem()
+}
+
+func (o AppleResponseOutput) ToAppleResponseOutput() AppleResponseOutput {
+	return o
+}
+
+func (o AppleResponseOutput) ToAppleResponseOutputWithContext(ctx context.Context) AppleResponseOutput {
+	return o
+}
+
+func (o AppleResponseOutput) ToAppleResponsePtrOutput() AppleResponsePtrOutput {
+	return o.ToAppleResponsePtrOutputWithContext(context.Background())
+}
+
+func (o AppleResponseOutput) ToAppleResponsePtrOutputWithContext(ctx context.Context) AppleResponsePtrOutput {
+	return o.ApplyT(func(v AppleResponse) *AppleResponse {
+		return &v
+	}).(AppleResponsePtrOutput)
+}
+func (o AppleResponseOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AppleResponse) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// Resource Id.
+func (o AppleResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v AppleResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Kind of resource.
+func (o AppleResponseOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppleResponse) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+func (o AppleResponseOutput) Login() LoginScopesResponsePtrOutput {
+	return o.ApplyT(func(v AppleResponse) *LoginScopesResponse { return v.Login }).(LoginScopesResponsePtrOutput)
+}
+
+// Resource Name.
+func (o AppleResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AppleResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o AppleResponseOutput) Registration() AppleRegistrationResponsePtrOutput {
+	return o.ApplyT(func(v AppleResponse) *AppleRegistrationResponse { return v.Registration }).(AppleRegistrationResponsePtrOutput)
+}
+
+// Resource type.
+func (o AppleResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AppleResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type AppleResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (AppleResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppleResponse)(nil)).Elem()
+}
+
+func (o AppleResponsePtrOutput) ToAppleResponsePtrOutput() AppleResponsePtrOutput {
+	return o
+}
+
+func (o AppleResponsePtrOutput) ToAppleResponsePtrOutputWithContext(ctx context.Context) AppleResponsePtrOutput {
+	return o
+}
+
+func (o AppleResponsePtrOutput) Elem() AppleResponseOutput {
+	return o.ApplyT(func(v *AppleResponse) AppleResponse { return *v }).(AppleResponseOutput)
+}
+
+func (o AppleResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AppleResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Resource Id.
+func (o AppleResponsePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppleResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// Kind of resource.
+func (o AppleResponsePtrOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppleResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Kind
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AppleResponsePtrOutput) Login() LoginScopesResponsePtrOutput {
+	return o.ApplyT(func(v *AppleResponse) *LoginScopesResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Login
+	}).(LoginScopesResponsePtrOutput)
+}
+
+// Resource Name.
+func (o AppleResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppleResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AppleResponsePtrOutput) Registration() AppleRegistrationResponsePtrOutput {
+	return o.ApplyT(func(v *AppleResponse) *AppleRegistrationResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Registration
+	}).(AppleRegistrationResponsePtrOutput)
+}
+
+// Resource type.
+func (o AppleResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppleResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -4584,8 +5330,6 @@ type AuthPlatformResponse struct {
 	// Resource Name.
 	Name           string  `pulumi:"name"`
 	RuntimeVersion *string `pulumi:"runtimeVersion"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }
@@ -4611,8 +5355,6 @@ type AuthPlatformResponseArgs struct {
 	// Resource Name.
 	Name           pulumi.StringInput    `pulumi:"name"`
 	RuntimeVersion pulumi.StringPtrInput `pulumi:"runtimeVersion"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponseInput `pulumi:"systemData"`
 	// Resource type.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -4720,11 +5462,6 @@ func (o AuthPlatformResponseOutput) RuntimeVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AuthPlatformResponse) *string { return v.RuntimeVersion }).(pulumi.StringPtrOutput)
 }
 
-// The system metadata relating to this resource.
-func (o AuthPlatformResponseOutput) SystemData() SystemDataResponseOutput {
-	return o.ApplyT(func(v AuthPlatformResponse) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
-}
-
 // Resource type.
 func (o AuthPlatformResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AuthPlatformResponse) string { return v.Type }).(pulumi.StringOutput)
@@ -4803,16 +5540,6 @@ func (o AuthPlatformResponsePtrOutput) RuntimeVersion() pulumi.StringPtrOutput {
 		}
 		return v.RuntimeVersion
 	}).(pulumi.StringPtrOutput)
-}
-
-// The system metadata relating to this resource.
-func (o AuthPlatformResponsePtrOutput) SystemData() SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v *AuthPlatformResponse) *SystemDataResponse {
-		if v == nil {
-			return nil
-		}
-		return &v.SystemData
-	}).(SystemDataResponsePtrOutput)
 }
 
 // Resource type.
@@ -5803,8 +6530,12 @@ type AutoHealTriggers struct {
 	Requests *RequestsBasedTrigger `pulumi:"requests"`
 	// A rule based on request execution time.
 	SlowRequests *SlowRequestsBasedTrigger `pulumi:"slowRequests"`
+	// A rule based on multiple Slow Requests Rule with path
+	SlowRequestsWithPath []SlowRequestsBasedTrigger `pulumi:"slowRequestsWithPath"`
 	// A rule based on status codes.
 	StatusCodes []StatusCodesBasedTrigger `pulumi:"statusCodes"`
+	// A rule based on status codes ranges.
+	StatusCodesRange []StatusCodesRangeBasedTrigger `pulumi:"statusCodesRange"`
 }
 
 // AutoHealTriggersInput is an input type that accepts AutoHealTriggersArgs and AutoHealTriggersOutput values.
@@ -5826,8 +6557,12 @@ type AutoHealTriggersArgs struct {
 	Requests RequestsBasedTriggerPtrInput `pulumi:"requests"`
 	// A rule based on request execution time.
 	SlowRequests SlowRequestsBasedTriggerPtrInput `pulumi:"slowRequests"`
+	// A rule based on multiple Slow Requests Rule with path
+	SlowRequestsWithPath SlowRequestsBasedTriggerArrayInput `pulumi:"slowRequestsWithPath"`
 	// A rule based on status codes.
 	StatusCodes StatusCodesBasedTriggerArrayInput `pulumi:"statusCodes"`
+	// A rule based on status codes ranges.
+	StatusCodesRange StatusCodesRangeBasedTriggerArrayInput `pulumi:"statusCodesRange"`
 }
 
 func (AutoHealTriggersArgs) ElementType() reflect.Type {
@@ -5923,9 +6658,19 @@ func (o AutoHealTriggersOutput) SlowRequests() SlowRequestsBasedTriggerPtrOutput
 	return o.ApplyT(func(v AutoHealTriggers) *SlowRequestsBasedTrigger { return v.SlowRequests }).(SlowRequestsBasedTriggerPtrOutput)
 }
 
+// A rule based on multiple Slow Requests Rule with path
+func (o AutoHealTriggersOutput) SlowRequestsWithPath() SlowRequestsBasedTriggerArrayOutput {
+	return o.ApplyT(func(v AutoHealTriggers) []SlowRequestsBasedTrigger { return v.SlowRequestsWithPath }).(SlowRequestsBasedTriggerArrayOutput)
+}
+
 // A rule based on status codes.
 func (o AutoHealTriggersOutput) StatusCodes() StatusCodesBasedTriggerArrayOutput {
 	return o.ApplyT(func(v AutoHealTriggers) []StatusCodesBasedTrigger { return v.StatusCodes }).(StatusCodesBasedTriggerArrayOutput)
+}
+
+// A rule based on status codes ranges.
+func (o AutoHealTriggersOutput) StatusCodesRange() StatusCodesRangeBasedTriggerArrayOutput {
+	return o.ApplyT(func(v AutoHealTriggers) []StatusCodesRangeBasedTrigger { return v.StatusCodesRange }).(StatusCodesRangeBasedTriggerArrayOutput)
 }
 
 type AutoHealTriggersPtrOutput struct{ *pulumi.OutputState }
@@ -5976,6 +6721,16 @@ func (o AutoHealTriggersPtrOutput) SlowRequests() SlowRequestsBasedTriggerPtrOut
 	}).(SlowRequestsBasedTriggerPtrOutput)
 }
 
+// A rule based on multiple Slow Requests Rule with path
+func (o AutoHealTriggersPtrOutput) SlowRequestsWithPath() SlowRequestsBasedTriggerArrayOutput {
+	return o.ApplyT(func(v *AutoHealTriggers) []SlowRequestsBasedTrigger {
+		if v == nil {
+			return nil
+		}
+		return v.SlowRequestsWithPath
+	}).(SlowRequestsBasedTriggerArrayOutput)
+}
+
 // A rule based on status codes.
 func (o AutoHealTriggersPtrOutput) StatusCodes() StatusCodesBasedTriggerArrayOutput {
 	return o.ApplyT(func(v *AutoHealTriggers) []StatusCodesBasedTrigger {
@@ -5986,6 +6741,16 @@ func (o AutoHealTriggersPtrOutput) StatusCodes() StatusCodesBasedTriggerArrayOut
 	}).(StatusCodesBasedTriggerArrayOutput)
 }
 
+// A rule based on status codes ranges.
+func (o AutoHealTriggersPtrOutput) StatusCodesRange() StatusCodesRangeBasedTriggerArrayOutput {
+	return o.ApplyT(func(v *AutoHealTriggers) []StatusCodesRangeBasedTrigger {
+		if v == nil {
+			return nil
+		}
+		return v.StatusCodesRange
+	}).(StatusCodesRangeBasedTriggerArrayOutput)
+}
+
 // Triggers for auto-heal.
 type AutoHealTriggersResponse struct {
 	// A rule based on private bytes.
@@ -5994,8 +6759,12 @@ type AutoHealTriggersResponse struct {
 	Requests *RequestsBasedTriggerResponse `pulumi:"requests"`
 	// A rule based on request execution time.
 	SlowRequests *SlowRequestsBasedTriggerResponse `pulumi:"slowRequests"`
+	// A rule based on multiple Slow Requests Rule with path
+	SlowRequestsWithPath []SlowRequestsBasedTriggerResponse `pulumi:"slowRequestsWithPath"`
 	// A rule based on status codes.
 	StatusCodes []StatusCodesBasedTriggerResponse `pulumi:"statusCodes"`
+	// A rule based on status codes ranges.
+	StatusCodesRange []StatusCodesRangeBasedTriggerResponse `pulumi:"statusCodesRange"`
 }
 
 // AutoHealTriggersResponseInput is an input type that accepts AutoHealTriggersResponseArgs and AutoHealTriggersResponseOutput values.
@@ -6017,8 +6786,12 @@ type AutoHealTriggersResponseArgs struct {
 	Requests RequestsBasedTriggerResponsePtrInput `pulumi:"requests"`
 	// A rule based on request execution time.
 	SlowRequests SlowRequestsBasedTriggerResponsePtrInput `pulumi:"slowRequests"`
+	// A rule based on multiple Slow Requests Rule with path
+	SlowRequestsWithPath SlowRequestsBasedTriggerResponseArrayInput `pulumi:"slowRequestsWithPath"`
 	// A rule based on status codes.
 	StatusCodes StatusCodesBasedTriggerResponseArrayInput `pulumi:"statusCodes"`
+	// A rule based on status codes ranges.
+	StatusCodesRange StatusCodesRangeBasedTriggerResponseArrayInput `pulumi:"statusCodesRange"`
 }
 
 func (AutoHealTriggersResponseArgs) ElementType() reflect.Type {
@@ -6114,9 +6887,19 @@ func (o AutoHealTriggersResponseOutput) SlowRequests() SlowRequestsBasedTriggerR
 	return o.ApplyT(func(v AutoHealTriggersResponse) *SlowRequestsBasedTriggerResponse { return v.SlowRequests }).(SlowRequestsBasedTriggerResponsePtrOutput)
 }
 
+// A rule based on multiple Slow Requests Rule with path
+func (o AutoHealTriggersResponseOutput) SlowRequestsWithPath() SlowRequestsBasedTriggerResponseArrayOutput {
+	return o.ApplyT(func(v AutoHealTriggersResponse) []SlowRequestsBasedTriggerResponse { return v.SlowRequestsWithPath }).(SlowRequestsBasedTriggerResponseArrayOutput)
+}
+
 // A rule based on status codes.
 func (o AutoHealTriggersResponseOutput) StatusCodes() StatusCodesBasedTriggerResponseArrayOutput {
 	return o.ApplyT(func(v AutoHealTriggersResponse) []StatusCodesBasedTriggerResponse { return v.StatusCodes }).(StatusCodesBasedTriggerResponseArrayOutput)
+}
+
+// A rule based on status codes ranges.
+func (o AutoHealTriggersResponseOutput) StatusCodesRange() StatusCodesRangeBasedTriggerResponseArrayOutput {
+	return o.ApplyT(func(v AutoHealTriggersResponse) []StatusCodesRangeBasedTriggerResponse { return v.StatusCodesRange }).(StatusCodesRangeBasedTriggerResponseArrayOutput)
 }
 
 type AutoHealTriggersResponsePtrOutput struct{ *pulumi.OutputState }
@@ -6167,6 +6950,16 @@ func (o AutoHealTriggersResponsePtrOutput) SlowRequests() SlowRequestsBasedTrigg
 	}).(SlowRequestsBasedTriggerResponsePtrOutput)
 }
 
+// A rule based on multiple Slow Requests Rule with path
+func (o AutoHealTriggersResponsePtrOutput) SlowRequestsWithPath() SlowRequestsBasedTriggerResponseArrayOutput {
+	return o.ApplyT(func(v *AutoHealTriggersResponse) []SlowRequestsBasedTriggerResponse {
+		if v == nil {
+			return nil
+		}
+		return v.SlowRequestsWithPath
+	}).(SlowRequestsBasedTriggerResponseArrayOutput)
+}
+
 // A rule based on status codes.
 func (o AutoHealTriggersResponsePtrOutput) StatusCodes() StatusCodesBasedTriggerResponseArrayOutput {
 	return o.ApplyT(func(v *AutoHealTriggersResponse) []StatusCodesBasedTriggerResponse {
@@ -6175,6 +6968,16 @@ func (o AutoHealTriggersResponsePtrOutput) StatusCodes() StatusCodesBasedTrigger
 		}
 		return v.StatusCodes
 	}).(StatusCodesBasedTriggerResponseArrayOutput)
+}
+
+// A rule based on status codes ranges.
+func (o AutoHealTriggersResponsePtrOutput) StatusCodesRange() StatusCodesRangeBasedTriggerResponseArrayOutput {
+	return o.ApplyT(func(v *AutoHealTriggersResponse) []StatusCodesRangeBasedTriggerResponse {
+		if v == nil {
+			return nil
+		}
+		return v.StatusCodesRange
+	}).(StatusCodesRangeBasedTriggerResponseArrayOutput)
 }
 
 type AzureActiveDirectory struct {
@@ -6551,8 +7354,6 @@ type AzureActiveDirectoryLoginResponse struct {
 	LoginParameters []string `pulumi:"loginParameters"`
 	// Resource Name.
 	Name string `pulumi:"name"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }
@@ -6577,8 +7378,6 @@ type AzureActiveDirectoryLoginResponseArgs struct {
 	LoginParameters pulumi.StringArrayInput `pulumi:"loginParameters"`
 	// Resource Name.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponseInput `pulumi:"systemData"`
 	// Resource type.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -6682,11 +7481,6 @@ func (o AzureActiveDirectoryLoginResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureActiveDirectoryLoginResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The system metadata relating to this resource.
-func (o AzureActiveDirectoryLoginResponseOutput) SystemData() SystemDataResponseOutput {
-	return o.ApplyT(func(v AzureActiveDirectoryLoginResponse) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
-}
-
 // Resource type.
 func (o AzureActiveDirectoryLoginResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureActiveDirectoryLoginResponse) string { return v.Type }).(pulumi.StringOutput)
@@ -6756,16 +7550,6 @@ func (o AzureActiveDirectoryLoginResponsePtrOutput) Name() pulumi.StringPtrOutpu
 		}
 		return &v.Name
 	}).(pulumi.StringPtrOutput)
-}
-
-// The system metadata relating to this resource.
-func (o AzureActiveDirectoryLoginResponsePtrOutput) SystemData() SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v *AzureActiveDirectoryLoginResponse) *SystemDataResponse {
-		if v == nil {
-			return nil
-		}
-		return &v.SystemData
-	}).(SystemDataResponsePtrOutput)
 }
 
 // Resource type.
@@ -6979,8 +7763,6 @@ type AzureActiveDirectoryRegistrationResponse struct {
 	// Resource Name.
 	Name         string  `pulumi:"name"`
 	OpenIdIssuer *string `pulumi:"openIdIssuer"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }
@@ -7007,8 +7789,6 @@ type AzureActiveDirectoryRegistrationResponseArgs struct {
 	// Resource Name.
 	Name         pulumi.StringInput    `pulumi:"name"`
 	OpenIdIssuer pulumi.StringPtrInput `pulumi:"openIdIssuer"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponseInput `pulumi:"systemData"`
 	// Resource type.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -7120,11 +7900,6 @@ func (o AzureActiveDirectoryRegistrationResponseOutput) OpenIdIssuer() pulumi.St
 	return o.ApplyT(func(v AzureActiveDirectoryRegistrationResponse) *string { return v.OpenIdIssuer }).(pulumi.StringPtrOutput)
 }
 
-// The system metadata relating to this resource.
-func (o AzureActiveDirectoryRegistrationResponseOutput) SystemData() SystemDataResponseOutput {
-	return o.ApplyT(func(v AzureActiveDirectoryRegistrationResponse) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
-}
-
 // Resource type.
 func (o AzureActiveDirectoryRegistrationResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureActiveDirectoryRegistrationResponse) string { return v.Type }).(pulumi.StringOutput)
@@ -7214,16 +7989,6 @@ func (o AzureActiveDirectoryRegistrationResponsePtrOutput) OpenIdIssuer() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The system metadata relating to this resource.
-func (o AzureActiveDirectoryRegistrationResponsePtrOutput) SystemData() SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v *AzureActiveDirectoryRegistrationResponse) *SystemDataResponse {
-		if v == nil {
-			return nil
-		}
-		return &v.SystemData
-	}).(SystemDataResponsePtrOutput)
-}
-
 // Resource type.
 func (o AzureActiveDirectoryRegistrationResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureActiveDirectoryRegistrationResponse) *string {
@@ -7245,8 +8010,6 @@ type AzureActiveDirectoryResponse struct {
 	// Resource Name.
 	Name         string                                    `pulumi:"name"`
 	Registration *AzureActiveDirectoryRegistrationResponse `pulumi:"registration"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type       string                                  `pulumi:"type"`
 	Validation *AzureActiveDirectoryValidationResponse `pulumi:"validation"`
@@ -7274,8 +8037,6 @@ type AzureActiveDirectoryResponseArgs struct {
 	// Resource Name.
 	Name         pulumi.StringInput                               `pulumi:"name"`
 	Registration AzureActiveDirectoryRegistrationResponsePtrInput `pulumi:"registration"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponseInput `pulumi:"systemData"`
 	// Resource type.
 	Type       pulumi.StringInput                             `pulumi:"type"`
 	Validation AzureActiveDirectoryValidationResponsePtrInput `pulumi:"validation"`
@@ -7388,11 +8149,6 @@ func (o AzureActiveDirectoryResponseOutput) Registration() AzureActiveDirectoryR
 	return o.ApplyT(func(v AzureActiveDirectoryResponse) *AzureActiveDirectoryRegistrationResponse { return v.Registration }).(AzureActiveDirectoryRegistrationResponsePtrOutput)
 }
 
-// The system metadata relating to this resource.
-func (o AzureActiveDirectoryResponseOutput) SystemData() SystemDataResponseOutput {
-	return o.ApplyT(func(v AzureActiveDirectoryResponse) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
-}
-
 // Resource type.
 func (o AzureActiveDirectoryResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureActiveDirectoryResponse) string { return v.Type }).(pulumi.StringOutput)
@@ -7484,16 +8240,6 @@ func (o AzureActiveDirectoryResponsePtrOutput) Registration() AzureActiveDirecto
 		}
 		return v.Registration
 	}).(AzureActiveDirectoryRegistrationResponsePtrOutput)
-}
-
-// The system metadata relating to this resource.
-func (o AzureActiveDirectoryResponsePtrOutput) SystemData() SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v *AzureActiveDirectoryResponse) *SystemDataResponse {
-		if v == nil {
-			return nil
-		}
-		return &v.SystemData
-	}).(SystemDataResponsePtrOutput)
 }
 
 // Resource type.
@@ -7684,8 +8430,6 @@ type AzureActiveDirectoryValidationResponse struct {
 	Kind *string `pulumi:"kind"`
 	// Resource Name.
 	Name string `pulumi:"name"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }
@@ -7710,8 +8454,6 @@ type AzureActiveDirectoryValidationResponseArgs struct {
 	Kind pulumi.StringPtrInput `pulumi:"kind"`
 	// Resource Name.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponseInput `pulumi:"systemData"`
 	// Resource type.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -7815,11 +8557,6 @@ func (o AzureActiveDirectoryValidationResponseOutput) Name() pulumi.StringOutput
 	return o.ApplyT(func(v AzureActiveDirectoryValidationResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The system metadata relating to this resource.
-func (o AzureActiveDirectoryValidationResponseOutput) SystemData() SystemDataResponseOutput {
-	return o.ApplyT(func(v AzureActiveDirectoryValidationResponse) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
-}
-
 // Resource type.
 func (o AzureActiveDirectoryValidationResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureActiveDirectoryValidationResponse) string { return v.Type }).(pulumi.StringOutput)
@@ -7889,16 +8626,6 @@ func (o AzureActiveDirectoryValidationResponsePtrOutput) Name() pulumi.StringPtr
 		}
 		return &v.Name
 	}).(pulumi.StringPtrOutput)
-}
-
-// The system metadata relating to this resource.
-func (o AzureActiveDirectoryValidationResponsePtrOutput) SystemData() SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v *AzureActiveDirectoryValidationResponse) *SystemDataResponse {
-		if v == nil {
-			return nil
-		}
-		return &v.SystemData
-	}).(SystemDataResponsePtrOutput)
 }
 
 // Resource type.
@@ -8633,6 +9360,730 @@ func (o AzureBlobStorageHttpLogsConfigResponsePtrOutput) SasUrl() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
+type AzureStaticWebApps struct {
+	Enabled *bool `pulumi:"enabled"`
+	// Kind of resource.
+	Kind         *string                         `pulumi:"kind"`
+	Registration *AzureStaticWebAppsRegistration `pulumi:"registration"`
+}
+
+// AzureStaticWebAppsInput is an input type that accepts AzureStaticWebAppsArgs and AzureStaticWebAppsOutput values.
+// You can construct a concrete instance of `AzureStaticWebAppsInput` via:
+//
+//          AzureStaticWebAppsArgs{...}
+type AzureStaticWebAppsInput interface {
+	pulumi.Input
+
+	ToAzureStaticWebAppsOutput() AzureStaticWebAppsOutput
+	ToAzureStaticWebAppsOutputWithContext(context.Context) AzureStaticWebAppsOutput
+}
+
+type AzureStaticWebAppsArgs struct {
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// Kind of resource.
+	Kind         pulumi.StringPtrInput                  `pulumi:"kind"`
+	Registration AzureStaticWebAppsRegistrationPtrInput `pulumi:"registration"`
+}
+
+func (AzureStaticWebAppsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureStaticWebApps)(nil)).Elem()
+}
+
+func (i AzureStaticWebAppsArgs) ToAzureStaticWebAppsOutput() AzureStaticWebAppsOutput {
+	return i.ToAzureStaticWebAppsOutputWithContext(context.Background())
+}
+
+func (i AzureStaticWebAppsArgs) ToAzureStaticWebAppsOutputWithContext(ctx context.Context) AzureStaticWebAppsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureStaticWebAppsOutput)
+}
+
+func (i AzureStaticWebAppsArgs) ToAzureStaticWebAppsPtrOutput() AzureStaticWebAppsPtrOutput {
+	return i.ToAzureStaticWebAppsPtrOutputWithContext(context.Background())
+}
+
+func (i AzureStaticWebAppsArgs) ToAzureStaticWebAppsPtrOutputWithContext(ctx context.Context) AzureStaticWebAppsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureStaticWebAppsOutput).ToAzureStaticWebAppsPtrOutputWithContext(ctx)
+}
+
+// AzureStaticWebAppsPtrInput is an input type that accepts AzureStaticWebAppsArgs, AzureStaticWebAppsPtr and AzureStaticWebAppsPtrOutput values.
+// You can construct a concrete instance of `AzureStaticWebAppsPtrInput` via:
+//
+//          AzureStaticWebAppsArgs{...}
+//
+//  or:
+//
+//          nil
+type AzureStaticWebAppsPtrInput interface {
+	pulumi.Input
+
+	ToAzureStaticWebAppsPtrOutput() AzureStaticWebAppsPtrOutput
+	ToAzureStaticWebAppsPtrOutputWithContext(context.Context) AzureStaticWebAppsPtrOutput
+}
+
+type azureStaticWebAppsPtrType AzureStaticWebAppsArgs
+
+func AzureStaticWebAppsPtr(v *AzureStaticWebAppsArgs) AzureStaticWebAppsPtrInput {
+	return (*azureStaticWebAppsPtrType)(v)
+}
+
+func (*azureStaticWebAppsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzureStaticWebApps)(nil)).Elem()
+}
+
+func (i *azureStaticWebAppsPtrType) ToAzureStaticWebAppsPtrOutput() AzureStaticWebAppsPtrOutput {
+	return i.ToAzureStaticWebAppsPtrOutputWithContext(context.Background())
+}
+
+func (i *azureStaticWebAppsPtrType) ToAzureStaticWebAppsPtrOutputWithContext(ctx context.Context) AzureStaticWebAppsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureStaticWebAppsPtrOutput)
+}
+
+type AzureStaticWebAppsOutput struct{ *pulumi.OutputState }
+
+func (AzureStaticWebAppsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureStaticWebApps)(nil)).Elem()
+}
+
+func (o AzureStaticWebAppsOutput) ToAzureStaticWebAppsOutput() AzureStaticWebAppsOutput {
+	return o
+}
+
+func (o AzureStaticWebAppsOutput) ToAzureStaticWebAppsOutputWithContext(ctx context.Context) AzureStaticWebAppsOutput {
+	return o
+}
+
+func (o AzureStaticWebAppsOutput) ToAzureStaticWebAppsPtrOutput() AzureStaticWebAppsPtrOutput {
+	return o.ToAzureStaticWebAppsPtrOutputWithContext(context.Background())
+}
+
+func (o AzureStaticWebAppsOutput) ToAzureStaticWebAppsPtrOutputWithContext(ctx context.Context) AzureStaticWebAppsPtrOutput {
+	return o.ApplyT(func(v AzureStaticWebApps) *AzureStaticWebApps {
+		return &v
+	}).(AzureStaticWebAppsPtrOutput)
+}
+func (o AzureStaticWebAppsOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AzureStaticWebApps) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// Kind of resource.
+func (o AzureStaticWebAppsOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureStaticWebApps) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+func (o AzureStaticWebAppsOutput) Registration() AzureStaticWebAppsRegistrationPtrOutput {
+	return o.ApplyT(func(v AzureStaticWebApps) *AzureStaticWebAppsRegistration { return v.Registration }).(AzureStaticWebAppsRegistrationPtrOutput)
+}
+
+type AzureStaticWebAppsPtrOutput struct{ *pulumi.OutputState }
+
+func (AzureStaticWebAppsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzureStaticWebApps)(nil)).Elem()
+}
+
+func (o AzureStaticWebAppsPtrOutput) ToAzureStaticWebAppsPtrOutput() AzureStaticWebAppsPtrOutput {
+	return o
+}
+
+func (o AzureStaticWebAppsPtrOutput) ToAzureStaticWebAppsPtrOutputWithContext(ctx context.Context) AzureStaticWebAppsPtrOutput {
+	return o
+}
+
+func (o AzureStaticWebAppsPtrOutput) Elem() AzureStaticWebAppsOutput {
+	return o.ApplyT(func(v *AzureStaticWebApps) AzureStaticWebApps { return *v }).(AzureStaticWebAppsOutput)
+}
+
+func (o AzureStaticWebAppsPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AzureStaticWebApps) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Kind of resource.
+func (o AzureStaticWebAppsPtrOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureStaticWebApps) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Kind
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AzureStaticWebAppsPtrOutput) Registration() AzureStaticWebAppsRegistrationPtrOutput {
+	return o.ApplyT(func(v *AzureStaticWebApps) *AzureStaticWebAppsRegistration {
+		if v == nil {
+			return nil
+		}
+		return v.Registration
+	}).(AzureStaticWebAppsRegistrationPtrOutput)
+}
+
+type AzureStaticWebAppsRegistration struct {
+	ClientId *string `pulumi:"clientId"`
+	// Kind of resource.
+	Kind *string `pulumi:"kind"`
+}
+
+// AzureStaticWebAppsRegistrationInput is an input type that accepts AzureStaticWebAppsRegistrationArgs and AzureStaticWebAppsRegistrationOutput values.
+// You can construct a concrete instance of `AzureStaticWebAppsRegistrationInput` via:
+//
+//          AzureStaticWebAppsRegistrationArgs{...}
+type AzureStaticWebAppsRegistrationInput interface {
+	pulumi.Input
+
+	ToAzureStaticWebAppsRegistrationOutput() AzureStaticWebAppsRegistrationOutput
+	ToAzureStaticWebAppsRegistrationOutputWithContext(context.Context) AzureStaticWebAppsRegistrationOutput
+}
+
+type AzureStaticWebAppsRegistrationArgs struct {
+	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
+	// Kind of resource.
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+}
+
+func (AzureStaticWebAppsRegistrationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureStaticWebAppsRegistration)(nil)).Elem()
+}
+
+func (i AzureStaticWebAppsRegistrationArgs) ToAzureStaticWebAppsRegistrationOutput() AzureStaticWebAppsRegistrationOutput {
+	return i.ToAzureStaticWebAppsRegistrationOutputWithContext(context.Background())
+}
+
+func (i AzureStaticWebAppsRegistrationArgs) ToAzureStaticWebAppsRegistrationOutputWithContext(ctx context.Context) AzureStaticWebAppsRegistrationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureStaticWebAppsRegistrationOutput)
+}
+
+func (i AzureStaticWebAppsRegistrationArgs) ToAzureStaticWebAppsRegistrationPtrOutput() AzureStaticWebAppsRegistrationPtrOutput {
+	return i.ToAzureStaticWebAppsRegistrationPtrOutputWithContext(context.Background())
+}
+
+func (i AzureStaticWebAppsRegistrationArgs) ToAzureStaticWebAppsRegistrationPtrOutputWithContext(ctx context.Context) AzureStaticWebAppsRegistrationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureStaticWebAppsRegistrationOutput).ToAzureStaticWebAppsRegistrationPtrOutputWithContext(ctx)
+}
+
+// AzureStaticWebAppsRegistrationPtrInput is an input type that accepts AzureStaticWebAppsRegistrationArgs, AzureStaticWebAppsRegistrationPtr and AzureStaticWebAppsRegistrationPtrOutput values.
+// You can construct a concrete instance of `AzureStaticWebAppsRegistrationPtrInput` via:
+//
+//          AzureStaticWebAppsRegistrationArgs{...}
+//
+//  or:
+//
+//          nil
+type AzureStaticWebAppsRegistrationPtrInput interface {
+	pulumi.Input
+
+	ToAzureStaticWebAppsRegistrationPtrOutput() AzureStaticWebAppsRegistrationPtrOutput
+	ToAzureStaticWebAppsRegistrationPtrOutputWithContext(context.Context) AzureStaticWebAppsRegistrationPtrOutput
+}
+
+type azureStaticWebAppsRegistrationPtrType AzureStaticWebAppsRegistrationArgs
+
+func AzureStaticWebAppsRegistrationPtr(v *AzureStaticWebAppsRegistrationArgs) AzureStaticWebAppsRegistrationPtrInput {
+	return (*azureStaticWebAppsRegistrationPtrType)(v)
+}
+
+func (*azureStaticWebAppsRegistrationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzureStaticWebAppsRegistration)(nil)).Elem()
+}
+
+func (i *azureStaticWebAppsRegistrationPtrType) ToAzureStaticWebAppsRegistrationPtrOutput() AzureStaticWebAppsRegistrationPtrOutput {
+	return i.ToAzureStaticWebAppsRegistrationPtrOutputWithContext(context.Background())
+}
+
+func (i *azureStaticWebAppsRegistrationPtrType) ToAzureStaticWebAppsRegistrationPtrOutputWithContext(ctx context.Context) AzureStaticWebAppsRegistrationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureStaticWebAppsRegistrationPtrOutput)
+}
+
+type AzureStaticWebAppsRegistrationOutput struct{ *pulumi.OutputState }
+
+func (AzureStaticWebAppsRegistrationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureStaticWebAppsRegistration)(nil)).Elem()
+}
+
+func (o AzureStaticWebAppsRegistrationOutput) ToAzureStaticWebAppsRegistrationOutput() AzureStaticWebAppsRegistrationOutput {
+	return o
+}
+
+func (o AzureStaticWebAppsRegistrationOutput) ToAzureStaticWebAppsRegistrationOutputWithContext(ctx context.Context) AzureStaticWebAppsRegistrationOutput {
+	return o
+}
+
+func (o AzureStaticWebAppsRegistrationOutput) ToAzureStaticWebAppsRegistrationPtrOutput() AzureStaticWebAppsRegistrationPtrOutput {
+	return o.ToAzureStaticWebAppsRegistrationPtrOutputWithContext(context.Background())
+}
+
+func (o AzureStaticWebAppsRegistrationOutput) ToAzureStaticWebAppsRegistrationPtrOutputWithContext(ctx context.Context) AzureStaticWebAppsRegistrationPtrOutput {
+	return o.ApplyT(func(v AzureStaticWebAppsRegistration) *AzureStaticWebAppsRegistration {
+		return &v
+	}).(AzureStaticWebAppsRegistrationPtrOutput)
+}
+func (o AzureStaticWebAppsRegistrationOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureStaticWebAppsRegistration) *string { return v.ClientId }).(pulumi.StringPtrOutput)
+}
+
+// Kind of resource.
+func (o AzureStaticWebAppsRegistrationOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureStaticWebAppsRegistration) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+type AzureStaticWebAppsRegistrationPtrOutput struct{ *pulumi.OutputState }
+
+func (AzureStaticWebAppsRegistrationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzureStaticWebAppsRegistration)(nil)).Elem()
+}
+
+func (o AzureStaticWebAppsRegistrationPtrOutput) ToAzureStaticWebAppsRegistrationPtrOutput() AzureStaticWebAppsRegistrationPtrOutput {
+	return o
+}
+
+func (o AzureStaticWebAppsRegistrationPtrOutput) ToAzureStaticWebAppsRegistrationPtrOutputWithContext(ctx context.Context) AzureStaticWebAppsRegistrationPtrOutput {
+	return o
+}
+
+func (o AzureStaticWebAppsRegistrationPtrOutput) Elem() AzureStaticWebAppsRegistrationOutput {
+	return o.ApplyT(func(v *AzureStaticWebAppsRegistration) AzureStaticWebAppsRegistration { return *v }).(AzureStaticWebAppsRegistrationOutput)
+}
+
+func (o AzureStaticWebAppsRegistrationPtrOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureStaticWebAppsRegistration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Kind of resource.
+func (o AzureStaticWebAppsRegistrationPtrOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureStaticWebAppsRegistration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Kind
+	}).(pulumi.StringPtrOutput)
+}
+
+type AzureStaticWebAppsRegistrationResponse struct {
+	ClientId *string `pulumi:"clientId"`
+	// Resource Id.
+	Id string `pulumi:"id"`
+	// Kind of resource.
+	Kind *string `pulumi:"kind"`
+	// Resource Name.
+	Name string `pulumi:"name"`
+	// Resource type.
+	Type string `pulumi:"type"`
+}
+
+// AzureStaticWebAppsRegistrationResponseInput is an input type that accepts AzureStaticWebAppsRegistrationResponseArgs and AzureStaticWebAppsRegistrationResponseOutput values.
+// You can construct a concrete instance of `AzureStaticWebAppsRegistrationResponseInput` via:
+//
+//          AzureStaticWebAppsRegistrationResponseArgs{...}
+type AzureStaticWebAppsRegistrationResponseInput interface {
+	pulumi.Input
+
+	ToAzureStaticWebAppsRegistrationResponseOutput() AzureStaticWebAppsRegistrationResponseOutput
+	ToAzureStaticWebAppsRegistrationResponseOutputWithContext(context.Context) AzureStaticWebAppsRegistrationResponseOutput
+}
+
+type AzureStaticWebAppsRegistrationResponseArgs struct {
+	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
+	// Resource Id.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Kind of resource.
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// Resource Name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AzureStaticWebAppsRegistrationResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureStaticWebAppsRegistrationResponse)(nil)).Elem()
+}
+
+func (i AzureStaticWebAppsRegistrationResponseArgs) ToAzureStaticWebAppsRegistrationResponseOutput() AzureStaticWebAppsRegistrationResponseOutput {
+	return i.ToAzureStaticWebAppsRegistrationResponseOutputWithContext(context.Background())
+}
+
+func (i AzureStaticWebAppsRegistrationResponseArgs) ToAzureStaticWebAppsRegistrationResponseOutputWithContext(ctx context.Context) AzureStaticWebAppsRegistrationResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureStaticWebAppsRegistrationResponseOutput)
+}
+
+func (i AzureStaticWebAppsRegistrationResponseArgs) ToAzureStaticWebAppsRegistrationResponsePtrOutput() AzureStaticWebAppsRegistrationResponsePtrOutput {
+	return i.ToAzureStaticWebAppsRegistrationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i AzureStaticWebAppsRegistrationResponseArgs) ToAzureStaticWebAppsRegistrationResponsePtrOutputWithContext(ctx context.Context) AzureStaticWebAppsRegistrationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureStaticWebAppsRegistrationResponseOutput).ToAzureStaticWebAppsRegistrationResponsePtrOutputWithContext(ctx)
+}
+
+// AzureStaticWebAppsRegistrationResponsePtrInput is an input type that accepts AzureStaticWebAppsRegistrationResponseArgs, AzureStaticWebAppsRegistrationResponsePtr and AzureStaticWebAppsRegistrationResponsePtrOutput values.
+// You can construct a concrete instance of `AzureStaticWebAppsRegistrationResponsePtrInput` via:
+//
+//          AzureStaticWebAppsRegistrationResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type AzureStaticWebAppsRegistrationResponsePtrInput interface {
+	pulumi.Input
+
+	ToAzureStaticWebAppsRegistrationResponsePtrOutput() AzureStaticWebAppsRegistrationResponsePtrOutput
+	ToAzureStaticWebAppsRegistrationResponsePtrOutputWithContext(context.Context) AzureStaticWebAppsRegistrationResponsePtrOutput
+}
+
+type azureStaticWebAppsRegistrationResponsePtrType AzureStaticWebAppsRegistrationResponseArgs
+
+func AzureStaticWebAppsRegistrationResponsePtr(v *AzureStaticWebAppsRegistrationResponseArgs) AzureStaticWebAppsRegistrationResponsePtrInput {
+	return (*azureStaticWebAppsRegistrationResponsePtrType)(v)
+}
+
+func (*azureStaticWebAppsRegistrationResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzureStaticWebAppsRegistrationResponse)(nil)).Elem()
+}
+
+func (i *azureStaticWebAppsRegistrationResponsePtrType) ToAzureStaticWebAppsRegistrationResponsePtrOutput() AzureStaticWebAppsRegistrationResponsePtrOutput {
+	return i.ToAzureStaticWebAppsRegistrationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *azureStaticWebAppsRegistrationResponsePtrType) ToAzureStaticWebAppsRegistrationResponsePtrOutputWithContext(ctx context.Context) AzureStaticWebAppsRegistrationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureStaticWebAppsRegistrationResponsePtrOutput)
+}
+
+type AzureStaticWebAppsRegistrationResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureStaticWebAppsRegistrationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureStaticWebAppsRegistrationResponse)(nil)).Elem()
+}
+
+func (o AzureStaticWebAppsRegistrationResponseOutput) ToAzureStaticWebAppsRegistrationResponseOutput() AzureStaticWebAppsRegistrationResponseOutput {
+	return o
+}
+
+func (o AzureStaticWebAppsRegistrationResponseOutput) ToAzureStaticWebAppsRegistrationResponseOutputWithContext(ctx context.Context) AzureStaticWebAppsRegistrationResponseOutput {
+	return o
+}
+
+func (o AzureStaticWebAppsRegistrationResponseOutput) ToAzureStaticWebAppsRegistrationResponsePtrOutput() AzureStaticWebAppsRegistrationResponsePtrOutput {
+	return o.ToAzureStaticWebAppsRegistrationResponsePtrOutputWithContext(context.Background())
+}
+
+func (o AzureStaticWebAppsRegistrationResponseOutput) ToAzureStaticWebAppsRegistrationResponsePtrOutputWithContext(ctx context.Context) AzureStaticWebAppsRegistrationResponsePtrOutput {
+	return o.ApplyT(func(v AzureStaticWebAppsRegistrationResponse) *AzureStaticWebAppsRegistrationResponse {
+		return &v
+	}).(AzureStaticWebAppsRegistrationResponsePtrOutput)
+}
+func (o AzureStaticWebAppsRegistrationResponseOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureStaticWebAppsRegistrationResponse) *string { return v.ClientId }).(pulumi.StringPtrOutput)
+}
+
+// Resource Id.
+func (o AzureStaticWebAppsRegistrationResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureStaticWebAppsRegistrationResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Kind of resource.
+func (o AzureStaticWebAppsRegistrationResponseOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureStaticWebAppsRegistrationResponse) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name.
+func (o AzureStaticWebAppsRegistrationResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureStaticWebAppsRegistrationResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o AzureStaticWebAppsRegistrationResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureStaticWebAppsRegistrationResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type AzureStaticWebAppsRegistrationResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (AzureStaticWebAppsRegistrationResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzureStaticWebAppsRegistrationResponse)(nil)).Elem()
+}
+
+func (o AzureStaticWebAppsRegistrationResponsePtrOutput) ToAzureStaticWebAppsRegistrationResponsePtrOutput() AzureStaticWebAppsRegistrationResponsePtrOutput {
+	return o
+}
+
+func (o AzureStaticWebAppsRegistrationResponsePtrOutput) ToAzureStaticWebAppsRegistrationResponsePtrOutputWithContext(ctx context.Context) AzureStaticWebAppsRegistrationResponsePtrOutput {
+	return o
+}
+
+func (o AzureStaticWebAppsRegistrationResponsePtrOutput) Elem() AzureStaticWebAppsRegistrationResponseOutput {
+	return o.ApplyT(func(v *AzureStaticWebAppsRegistrationResponse) AzureStaticWebAppsRegistrationResponse { return *v }).(AzureStaticWebAppsRegistrationResponseOutput)
+}
+
+func (o AzureStaticWebAppsRegistrationResponsePtrOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureStaticWebAppsRegistrationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Resource Id.
+func (o AzureStaticWebAppsRegistrationResponsePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureStaticWebAppsRegistrationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// Kind of resource.
+func (o AzureStaticWebAppsRegistrationResponsePtrOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureStaticWebAppsRegistrationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Kind
+	}).(pulumi.StringPtrOutput)
+}
+
+// Resource Name.
+func (o AzureStaticWebAppsRegistrationResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureStaticWebAppsRegistrationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Resource type.
+func (o AzureStaticWebAppsRegistrationResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureStaticWebAppsRegistrationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type AzureStaticWebAppsResponse struct {
+	Enabled *bool `pulumi:"enabled"`
+	// Resource Id.
+	Id string `pulumi:"id"`
+	// Kind of resource.
+	Kind *string `pulumi:"kind"`
+	// Resource Name.
+	Name         string                                  `pulumi:"name"`
+	Registration *AzureStaticWebAppsRegistrationResponse `pulumi:"registration"`
+	// Resource type.
+	Type string `pulumi:"type"`
+}
+
+// AzureStaticWebAppsResponseInput is an input type that accepts AzureStaticWebAppsResponseArgs and AzureStaticWebAppsResponseOutput values.
+// You can construct a concrete instance of `AzureStaticWebAppsResponseInput` via:
+//
+//          AzureStaticWebAppsResponseArgs{...}
+type AzureStaticWebAppsResponseInput interface {
+	pulumi.Input
+
+	ToAzureStaticWebAppsResponseOutput() AzureStaticWebAppsResponseOutput
+	ToAzureStaticWebAppsResponseOutputWithContext(context.Context) AzureStaticWebAppsResponseOutput
+}
+
+type AzureStaticWebAppsResponseArgs struct {
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// Resource Id.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Kind of resource.
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// Resource Name.
+	Name         pulumi.StringInput                             `pulumi:"name"`
+	Registration AzureStaticWebAppsRegistrationResponsePtrInput `pulumi:"registration"`
+	// Resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AzureStaticWebAppsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureStaticWebAppsResponse)(nil)).Elem()
+}
+
+func (i AzureStaticWebAppsResponseArgs) ToAzureStaticWebAppsResponseOutput() AzureStaticWebAppsResponseOutput {
+	return i.ToAzureStaticWebAppsResponseOutputWithContext(context.Background())
+}
+
+func (i AzureStaticWebAppsResponseArgs) ToAzureStaticWebAppsResponseOutputWithContext(ctx context.Context) AzureStaticWebAppsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureStaticWebAppsResponseOutput)
+}
+
+func (i AzureStaticWebAppsResponseArgs) ToAzureStaticWebAppsResponsePtrOutput() AzureStaticWebAppsResponsePtrOutput {
+	return i.ToAzureStaticWebAppsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i AzureStaticWebAppsResponseArgs) ToAzureStaticWebAppsResponsePtrOutputWithContext(ctx context.Context) AzureStaticWebAppsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureStaticWebAppsResponseOutput).ToAzureStaticWebAppsResponsePtrOutputWithContext(ctx)
+}
+
+// AzureStaticWebAppsResponsePtrInput is an input type that accepts AzureStaticWebAppsResponseArgs, AzureStaticWebAppsResponsePtr and AzureStaticWebAppsResponsePtrOutput values.
+// You can construct a concrete instance of `AzureStaticWebAppsResponsePtrInput` via:
+//
+//          AzureStaticWebAppsResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type AzureStaticWebAppsResponsePtrInput interface {
+	pulumi.Input
+
+	ToAzureStaticWebAppsResponsePtrOutput() AzureStaticWebAppsResponsePtrOutput
+	ToAzureStaticWebAppsResponsePtrOutputWithContext(context.Context) AzureStaticWebAppsResponsePtrOutput
+}
+
+type azureStaticWebAppsResponsePtrType AzureStaticWebAppsResponseArgs
+
+func AzureStaticWebAppsResponsePtr(v *AzureStaticWebAppsResponseArgs) AzureStaticWebAppsResponsePtrInput {
+	return (*azureStaticWebAppsResponsePtrType)(v)
+}
+
+func (*azureStaticWebAppsResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzureStaticWebAppsResponse)(nil)).Elem()
+}
+
+func (i *azureStaticWebAppsResponsePtrType) ToAzureStaticWebAppsResponsePtrOutput() AzureStaticWebAppsResponsePtrOutput {
+	return i.ToAzureStaticWebAppsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *azureStaticWebAppsResponsePtrType) ToAzureStaticWebAppsResponsePtrOutputWithContext(ctx context.Context) AzureStaticWebAppsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureStaticWebAppsResponsePtrOutput)
+}
+
+type AzureStaticWebAppsResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureStaticWebAppsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureStaticWebAppsResponse)(nil)).Elem()
+}
+
+func (o AzureStaticWebAppsResponseOutput) ToAzureStaticWebAppsResponseOutput() AzureStaticWebAppsResponseOutput {
+	return o
+}
+
+func (o AzureStaticWebAppsResponseOutput) ToAzureStaticWebAppsResponseOutputWithContext(ctx context.Context) AzureStaticWebAppsResponseOutput {
+	return o
+}
+
+func (o AzureStaticWebAppsResponseOutput) ToAzureStaticWebAppsResponsePtrOutput() AzureStaticWebAppsResponsePtrOutput {
+	return o.ToAzureStaticWebAppsResponsePtrOutputWithContext(context.Background())
+}
+
+func (o AzureStaticWebAppsResponseOutput) ToAzureStaticWebAppsResponsePtrOutputWithContext(ctx context.Context) AzureStaticWebAppsResponsePtrOutput {
+	return o.ApplyT(func(v AzureStaticWebAppsResponse) *AzureStaticWebAppsResponse {
+		return &v
+	}).(AzureStaticWebAppsResponsePtrOutput)
+}
+func (o AzureStaticWebAppsResponseOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AzureStaticWebAppsResponse) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// Resource Id.
+func (o AzureStaticWebAppsResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureStaticWebAppsResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Kind of resource.
+func (o AzureStaticWebAppsResponseOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureStaticWebAppsResponse) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name.
+func (o AzureStaticWebAppsResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureStaticWebAppsResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o AzureStaticWebAppsResponseOutput) Registration() AzureStaticWebAppsRegistrationResponsePtrOutput {
+	return o.ApplyT(func(v AzureStaticWebAppsResponse) *AzureStaticWebAppsRegistrationResponse { return v.Registration }).(AzureStaticWebAppsRegistrationResponsePtrOutput)
+}
+
+// Resource type.
+func (o AzureStaticWebAppsResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureStaticWebAppsResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type AzureStaticWebAppsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (AzureStaticWebAppsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzureStaticWebAppsResponse)(nil)).Elem()
+}
+
+func (o AzureStaticWebAppsResponsePtrOutput) ToAzureStaticWebAppsResponsePtrOutput() AzureStaticWebAppsResponsePtrOutput {
+	return o
+}
+
+func (o AzureStaticWebAppsResponsePtrOutput) ToAzureStaticWebAppsResponsePtrOutputWithContext(ctx context.Context) AzureStaticWebAppsResponsePtrOutput {
+	return o
+}
+
+func (o AzureStaticWebAppsResponsePtrOutput) Elem() AzureStaticWebAppsResponseOutput {
+	return o.ApplyT(func(v *AzureStaticWebAppsResponse) AzureStaticWebAppsResponse { return *v }).(AzureStaticWebAppsResponseOutput)
+}
+
+func (o AzureStaticWebAppsResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AzureStaticWebAppsResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Resource Id.
+func (o AzureStaticWebAppsResponsePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureStaticWebAppsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// Kind of resource.
+func (o AzureStaticWebAppsResponsePtrOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureStaticWebAppsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Kind
+	}).(pulumi.StringPtrOutput)
+}
+
+// Resource Name.
+func (o AzureStaticWebAppsResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureStaticWebAppsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AzureStaticWebAppsResponsePtrOutput) Registration() AzureStaticWebAppsRegistrationResponsePtrOutput {
+	return o.ApplyT(func(v *AzureStaticWebAppsResponse) *AzureStaticWebAppsRegistrationResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Registration
+	}).(AzureStaticWebAppsRegistrationResponsePtrOutput)
+}
+
+// Resource type.
+func (o AzureStaticWebAppsResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureStaticWebAppsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 // Azure Files or Blob Storage access information value for dictionary storage.
 type AzureStorageInfoValue struct {
 	// Access key for the storage account.
@@ -9254,8 +10705,6 @@ type BackupItemResponse struct {
 	Status string `pulumi:"status"`
 	// SAS URL for the storage account container which contains this backup.
 	StorageAccountUrl string `pulumi:"storageAccountUrl"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type string `pulumi:"type"`
 	// Size of the original web app which has been backed up.
@@ -9305,8 +10754,6 @@ type BackupItemResponseArgs struct {
 	Status pulumi.StringInput `pulumi:"status"`
 	// SAS URL for the storage account container which contains this backup.
 	StorageAccountUrl pulumi.StringInput `pulumi:"storageAccountUrl"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponseInput `pulumi:"systemData"`
 	// Resource type.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Size of the original web app which has been backed up.
@@ -9438,11 +10885,6 @@ func (o BackupItemResponseOutput) Status() pulumi.StringOutput {
 // SAS URL for the storage account container which contains this backup.
 func (o BackupItemResponseOutput) StorageAccountUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v BackupItemResponse) string { return v.StorageAccountUrl }).(pulumi.StringOutput)
-}
-
-// The system metadata relating to this resource.
-func (o BackupItemResponseOutput) SystemData() SystemDataResponseOutput {
-	return o.ApplyT(func(v BackupItemResponse) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // Resource type.
@@ -10068,8 +11510,6 @@ type BlobStorageTokenStoreResponse struct {
 	// Resource Name.
 	Name              string  `pulumi:"name"`
 	SasUrlSettingName *string `pulumi:"sasUrlSettingName"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }
@@ -10093,8 +11533,6 @@ type BlobStorageTokenStoreResponseArgs struct {
 	// Resource Name.
 	Name              pulumi.StringInput    `pulumi:"name"`
 	SasUrlSettingName pulumi.StringPtrInput `pulumi:"sasUrlSettingName"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponseInput `pulumi:"systemData"`
 	// Resource type.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -10195,11 +11633,6 @@ func (o BlobStorageTokenStoreResponseOutput) SasUrlSettingName() pulumi.StringPt
 	return o.ApplyT(func(v BlobStorageTokenStoreResponse) *string { return v.SasUrlSettingName }).(pulumi.StringPtrOutput)
 }
 
-// The system metadata relating to this resource.
-func (o BlobStorageTokenStoreResponseOutput) SystemData() SystemDataResponseOutput {
-	return o.ApplyT(func(v BlobStorageTokenStoreResponse) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
-}
-
 // Resource type.
 func (o BlobStorageTokenStoreResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v BlobStorageTokenStoreResponse) string { return v.Type }).(pulumi.StringOutput)
@@ -10260,16 +11693,6 @@ func (o BlobStorageTokenStoreResponsePtrOutput) SasUrlSettingName() pulumi.Strin
 		}
 		return v.SasUrlSettingName
 	}).(pulumi.StringPtrOutput)
-}
-
-// The system metadata relating to this resource.
-func (o BlobStorageTokenStoreResponsePtrOutput) SystemData() SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v *BlobStorageTokenStoreResponse) *SystemDataResponse {
-		if v == nil {
-			return nil
-		}
-		return &v.SystemData
-	}).(SystemDataResponsePtrOutput)
 }
 
 // Resource type.
@@ -10687,8 +12110,6 @@ type ClientRegistrationResponse struct {
 	Kind *string `pulumi:"kind"`
 	// Resource Name.
 	Name string `pulumi:"name"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }
@@ -10713,8 +12134,6 @@ type ClientRegistrationResponseArgs struct {
 	Kind pulumi.StringPtrInput `pulumi:"kind"`
 	// Resource Name.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponseInput `pulumi:"systemData"`
 	// Resource type.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -10818,11 +12237,6 @@ func (o ClientRegistrationResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ClientRegistrationResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The system metadata relating to this resource.
-func (o ClientRegistrationResponseOutput) SystemData() SystemDataResponseOutput {
-	return o.ApplyT(func(v ClientRegistrationResponse) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
-}
-
 // Resource type.
 func (o ClientRegistrationResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ClientRegistrationResponse) string { return v.Type }).(pulumi.StringOutput)
@@ -10892,16 +12306,6 @@ func (o ClientRegistrationResponsePtrOutput) Name() pulumi.StringPtrOutput {
 		}
 		return &v.Name
 	}).(pulumi.StringPtrOutput)
-}
-
-// The system metadata relating to this resource.
-func (o ClientRegistrationResponsePtrOutput) SystemData() SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v *ClientRegistrationResponse) *SystemDataResponse {
-		if v == nil {
-			return nil
-		}
-		return &v.SystemData
-	}).(SystemDataResponsePtrOutput)
 }
 
 // Resource type.
@@ -14102,10 +15506,8 @@ type CookieExpirationResponse struct {
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// Resource Name.
-	Name string `pulumi:"name"`
-	// The system metadata relating to this resource.
-	SystemData       SystemDataResponse `pulumi:"systemData"`
-	TimeToExpiration *string            `pulumi:"timeToExpiration"`
+	Name             string  `pulumi:"name"`
+	TimeToExpiration *string `pulumi:"timeToExpiration"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }
@@ -14128,10 +15530,8 @@ type CookieExpirationResponseArgs struct {
 	// Kind of resource.
 	Kind pulumi.StringPtrInput `pulumi:"kind"`
 	// Resource Name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The system metadata relating to this resource.
-	SystemData       SystemDataResponseInput `pulumi:"systemData"`
-	TimeToExpiration pulumi.StringPtrInput   `pulumi:"timeToExpiration"`
+	Name             pulumi.StringInput    `pulumi:"name"`
+	TimeToExpiration pulumi.StringPtrInput `pulumi:"timeToExpiration"`
 	// Resource type.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -14231,11 +15631,6 @@ func (o CookieExpirationResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v CookieExpirationResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The system metadata relating to this resource.
-func (o CookieExpirationResponseOutput) SystemData() SystemDataResponseOutput {
-	return o.ApplyT(func(v CookieExpirationResponse) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
-}
-
 func (o CookieExpirationResponseOutput) TimeToExpiration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CookieExpirationResponse) *string { return v.TimeToExpiration }).(pulumi.StringPtrOutput)
 }
@@ -14300,16 +15695,6 @@ func (o CookieExpirationResponsePtrOutput) Name() pulumi.StringPtrOutput {
 		}
 		return &v.Name
 	}).(pulumi.StringPtrOutput)
-}
-
-// The system metadata relating to this resource.
-func (o CookieExpirationResponsePtrOutput) SystemData() SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v *CookieExpirationResponse) *SystemDataResponse {
-		if v == nil {
-			return nil
-		}
-		return &v.SystemData
-	}).(SystemDataResponsePtrOutput)
 }
 
 func (o CookieExpirationResponsePtrOutput) TimeToExpiration() pulumi.StringPtrOutput {
@@ -15476,8 +16861,6 @@ type CustomOpenIdConnectProviderResponse struct {
 	// Resource Name.
 	Name         string                             `pulumi:"name"`
 	Registration *OpenIdConnectRegistrationResponse `pulumi:"registration"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }
@@ -15503,8 +16886,6 @@ type CustomOpenIdConnectProviderResponseArgs struct {
 	// Resource Name.
 	Name         pulumi.StringInput                        `pulumi:"name"`
 	Registration OpenIdConnectRegistrationResponsePtrInput `pulumi:"registration"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponseInput `pulumi:"systemData"`
 	// Resource type.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -15585,11 +16966,6 @@ func (o CustomOpenIdConnectProviderResponseOutput) Name() pulumi.StringOutput {
 
 func (o CustomOpenIdConnectProviderResponseOutput) Registration() OpenIdConnectRegistrationResponsePtrOutput {
 	return o.ApplyT(func(v CustomOpenIdConnectProviderResponse) *OpenIdConnectRegistrationResponse { return v.Registration }).(OpenIdConnectRegistrationResponsePtrOutput)
-}
-
-// The system metadata relating to this resource.
-func (o CustomOpenIdConnectProviderResponseOutput) SystemData() SystemDataResponseOutput {
-	return o.ApplyT(func(v CustomOpenIdConnectProviderResponse) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // Resource type.
@@ -16608,8 +17984,6 @@ type FacebookResponse struct {
 	// Resource Name.
 	Name         string                   `pulumi:"name"`
 	Registration *AppRegistrationResponse `pulumi:"registration"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }
@@ -16636,8 +18010,6 @@ type FacebookResponseArgs struct {
 	// Resource Name.
 	Name         pulumi.StringInput              `pulumi:"name"`
 	Registration AppRegistrationResponsePtrInput `pulumi:"registration"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponseInput `pulumi:"systemData"`
 	// Resource type.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -16749,11 +18121,6 @@ func (o FacebookResponseOutput) Registration() AppRegistrationResponsePtrOutput 
 	return o.ApplyT(func(v FacebookResponse) *AppRegistrationResponse { return v.Registration }).(AppRegistrationResponsePtrOutput)
 }
 
-// The system metadata relating to this resource.
-func (o FacebookResponseOutput) SystemData() SystemDataResponseOutput {
-	return o.ApplyT(func(v FacebookResponse) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
-}
-
 // Resource type.
 func (o FacebookResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v FacebookResponse) string { return v.Type }).(pulumi.StringOutput)
@@ -16841,16 +18208,6 @@ func (o FacebookResponsePtrOutput) Registration() AppRegistrationResponsePtrOutp
 		}
 		return v.Registration
 	}).(AppRegistrationResponsePtrOutput)
-}
-
-// The system metadata relating to this resource.
-func (o FacebookResponsePtrOutput) SystemData() SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v *FacebookResponse) *SystemDataResponse {
-		if v == nil {
-			return nil
-		}
-		return &v.SystemData
-	}).(SystemDataResponsePtrOutput)
 }
 
 // Resource type.
@@ -17660,8 +19017,6 @@ type FileSystemTokenStoreResponse struct {
 	Kind *string `pulumi:"kind"`
 	// Resource Name.
 	Name string `pulumi:"name"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }
@@ -17685,8 +19040,6 @@ type FileSystemTokenStoreResponseArgs struct {
 	Kind pulumi.StringPtrInput `pulumi:"kind"`
 	// Resource Name.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponseInput `pulumi:"systemData"`
 	// Resource type.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -17786,11 +19139,6 @@ func (o FileSystemTokenStoreResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v FileSystemTokenStoreResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The system metadata relating to this resource.
-func (o FileSystemTokenStoreResponseOutput) SystemData() SystemDataResponseOutput {
-	return o.ApplyT(func(v FileSystemTokenStoreResponse) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
-}
-
 // Resource type.
 func (o FileSystemTokenStoreResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v FileSystemTokenStoreResponse) string { return v.Type }).(pulumi.StringOutput)
@@ -17851,16 +19199,6 @@ func (o FileSystemTokenStoreResponsePtrOutput) Name() pulumi.StringPtrOutput {
 		}
 		return &v.Name
 	}).(pulumi.StringPtrOutput)
-}
-
-// The system metadata relating to this resource.
-func (o FileSystemTokenStoreResponsePtrOutput) SystemData() SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v *FileSystemTokenStoreResponse) *SystemDataResponse {
-		if v == nil {
-			return nil
-		}
-		return &v.SystemData
-	}).(SystemDataResponsePtrOutput)
 }
 
 // Resource type.
@@ -18058,8 +19396,6 @@ type ForwardProxyResponse struct {
 	Kind *string `pulumi:"kind"`
 	// Resource Name.
 	Name string `pulumi:"name"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }
@@ -18085,8 +19421,6 @@ type ForwardProxyResponseArgs struct {
 	Kind pulumi.StringPtrInput `pulumi:"kind"`
 	// Resource Name.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponseInput `pulumi:"systemData"`
 	// Resource type.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -18194,11 +19528,6 @@ func (o ForwardProxyResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ForwardProxyResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The system metadata relating to this resource.
-func (o ForwardProxyResponseOutput) SystemData() SystemDataResponseOutput {
-	return o.ApplyT(func(v ForwardProxyResponse) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
-}
-
 // Resource type.
 func (o ForwardProxyResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ForwardProxyResponse) string { return v.Type }).(pulumi.StringOutput)
@@ -18277,16 +19606,6 @@ func (o ForwardProxyResponsePtrOutput) Name() pulumi.StringPtrOutput {
 		}
 		return &v.Name
 	}).(pulumi.StringPtrOutput)
-}
-
-// The system metadata relating to this resource.
-func (o ForwardProxyResponsePtrOutput) SystemData() SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v *ForwardProxyResponse) *SystemDataResponse {
-		if v == nil {
-			return nil
-		}
-		return &v.SystemData
-	}).(SystemDataResponsePtrOutput)
 }
 
 // Resource type.
@@ -18474,6 +19793,1082 @@ func (o GitHubPtrOutput) Registration() ClientRegistrationPtrOutput {
 	}).(ClientRegistrationPtrOutput)
 }
 
+// The GitHub action code configuration.
+type GitHubActionCodeConfiguration struct {
+	// Runtime stack is used to determine the workflow file content for code base apps.
+	RuntimeStack *string `pulumi:"runtimeStack"`
+	// Runtime version is used to determine what build version to set in the workflow file.
+	RuntimeVersion *string `pulumi:"runtimeVersion"`
+}
+
+// GitHubActionCodeConfigurationInput is an input type that accepts GitHubActionCodeConfigurationArgs and GitHubActionCodeConfigurationOutput values.
+// You can construct a concrete instance of `GitHubActionCodeConfigurationInput` via:
+//
+//          GitHubActionCodeConfigurationArgs{...}
+type GitHubActionCodeConfigurationInput interface {
+	pulumi.Input
+
+	ToGitHubActionCodeConfigurationOutput() GitHubActionCodeConfigurationOutput
+	ToGitHubActionCodeConfigurationOutputWithContext(context.Context) GitHubActionCodeConfigurationOutput
+}
+
+// The GitHub action code configuration.
+type GitHubActionCodeConfigurationArgs struct {
+	// Runtime stack is used to determine the workflow file content for code base apps.
+	RuntimeStack pulumi.StringPtrInput `pulumi:"runtimeStack"`
+	// Runtime version is used to determine what build version to set in the workflow file.
+	RuntimeVersion pulumi.StringPtrInput `pulumi:"runtimeVersion"`
+}
+
+func (GitHubActionCodeConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GitHubActionCodeConfiguration)(nil)).Elem()
+}
+
+func (i GitHubActionCodeConfigurationArgs) ToGitHubActionCodeConfigurationOutput() GitHubActionCodeConfigurationOutput {
+	return i.ToGitHubActionCodeConfigurationOutputWithContext(context.Background())
+}
+
+func (i GitHubActionCodeConfigurationArgs) ToGitHubActionCodeConfigurationOutputWithContext(ctx context.Context) GitHubActionCodeConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GitHubActionCodeConfigurationOutput)
+}
+
+func (i GitHubActionCodeConfigurationArgs) ToGitHubActionCodeConfigurationPtrOutput() GitHubActionCodeConfigurationPtrOutput {
+	return i.ToGitHubActionCodeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i GitHubActionCodeConfigurationArgs) ToGitHubActionCodeConfigurationPtrOutputWithContext(ctx context.Context) GitHubActionCodeConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GitHubActionCodeConfigurationOutput).ToGitHubActionCodeConfigurationPtrOutputWithContext(ctx)
+}
+
+// GitHubActionCodeConfigurationPtrInput is an input type that accepts GitHubActionCodeConfigurationArgs, GitHubActionCodeConfigurationPtr and GitHubActionCodeConfigurationPtrOutput values.
+// You can construct a concrete instance of `GitHubActionCodeConfigurationPtrInput` via:
+//
+//          GitHubActionCodeConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type GitHubActionCodeConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToGitHubActionCodeConfigurationPtrOutput() GitHubActionCodeConfigurationPtrOutput
+	ToGitHubActionCodeConfigurationPtrOutputWithContext(context.Context) GitHubActionCodeConfigurationPtrOutput
+}
+
+type gitHubActionCodeConfigurationPtrType GitHubActionCodeConfigurationArgs
+
+func GitHubActionCodeConfigurationPtr(v *GitHubActionCodeConfigurationArgs) GitHubActionCodeConfigurationPtrInput {
+	return (*gitHubActionCodeConfigurationPtrType)(v)
+}
+
+func (*gitHubActionCodeConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GitHubActionCodeConfiguration)(nil)).Elem()
+}
+
+func (i *gitHubActionCodeConfigurationPtrType) ToGitHubActionCodeConfigurationPtrOutput() GitHubActionCodeConfigurationPtrOutput {
+	return i.ToGitHubActionCodeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *gitHubActionCodeConfigurationPtrType) ToGitHubActionCodeConfigurationPtrOutputWithContext(ctx context.Context) GitHubActionCodeConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GitHubActionCodeConfigurationPtrOutput)
+}
+
+// The GitHub action code configuration.
+type GitHubActionCodeConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GitHubActionCodeConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GitHubActionCodeConfiguration)(nil)).Elem()
+}
+
+func (o GitHubActionCodeConfigurationOutput) ToGitHubActionCodeConfigurationOutput() GitHubActionCodeConfigurationOutput {
+	return o
+}
+
+func (o GitHubActionCodeConfigurationOutput) ToGitHubActionCodeConfigurationOutputWithContext(ctx context.Context) GitHubActionCodeConfigurationOutput {
+	return o
+}
+
+func (o GitHubActionCodeConfigurationOutput) ToGitHubActionCodeConfigurationPtrOutput() GitHubActionCodeConfigurationPtrOutput {
+	return o.ToGitHubActionCodeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o GitHubActionCodeConfigurationOutput) ToGitHubActionCodeConfigurationPtrOutputWithContext(ctx context.Context) GitHubActionCodeConfigurationPtrOutput {
+	return o.ApplyT(func(v GitHubActionCodeConfiguration) *GitHubActionCodeConfiguration {
+		return &v
+	}).(GitHubActionCodeConfigurationPtrOutput)
+}
+
+// Runtime stack is used to determine the workflow file content for code base apps.
+func (o GitHubActionCodeConfigurationOutput) RuntimeStack() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GitHubActionCodeConfiguration) *string { return v.RuntimeStack }).(pulumi.StringPtrOutput)
+}
+
+// Runtime version is used to determine what build version to set in the workflow file.
+func (o GitHubActionCodeConfigurationOutput) RuntimeVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GitHubActionCodeConfiguration) *string { return v.RuntimeVersion }).(pulumi.StringPtrOutput)
+}
+
+type GitHubActionCodeConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (GitHubActionCodeConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GitHubActionCodeConfiguration)(nil)).Elem()
+}
+
+func (o GitHubActionCodeConfigurationPtrOutput) ToGitHubActionCodeConfigurationPtrOutput() GitHubActionCodeConfigurationPtrOutput {
+	return o
+}
+
+func (o GitHubActionCodeConfigurationPtrOutput) ToGitHubActionCodeConfigurationPtrOutputWithContext(ctx context.Context) GitHubActionCodeConfigurationPtrOutput {
+	return o
+}
+
+func (o GitHubActionCodeConfigurationPtrOutput) Elem() GitHubActionCodeConfigurationOutput {
+	return o.ApplyT(func(v *GitHubActionCodeConfiguration) GitHubActionCodeConfiguration { return *v }).(GitHubActionCodeConfigurationOutput)
+}
+
+// Runtime stack is used to determine the workflow file content for code base apps.
+func (o GitHubActionCodeConfigurationPtrOutput) RuntimeStack() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GitHubActionCodeConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RuntimeStack
+	}).(pulumi.StringPtrOutput)
+}
+
+// Runtime version is used to determine what build version to set in the workflow file.
+func (o GitHubActionCodeConfigurationPtrOutput) RuntimeVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GitHubActionCodeConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RuntimeVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// The GitHub action code configuration.
+type GitHubActionCodeConfigurationResponse struct {
+	// Runtime stack is used to determine the workflow file content for code base apps.
+	RuntimeStack *string `pulumi:"runtimeStack"`
+	// Runtime version is used to determine what build version to set in the workflow file.
+	RuntimeVersion *string `pulumi:"runtimeVersion"`
+}
+
+// GitHubActionCodeConfigurationResponseInput is an input type that accepts GitHubActionCodeConfigurationResponseArgs and GitHubActionCodeConfigurationResponseOutput values.
+// You can construct a concrete instance of `GitHubActionCodeConfigurationResponseInput` via:
+//
+//          GitHubActionCodeConfigurationResponseArgs{...}
+type GitHubActionCodeConfigurationResponseInput interface {
+	pulumi.Input
+
+	ToGitHubActionCodeConfigurationResponseOutput() GitHubActionCodeConfigurationResponseOutput
+	ToGitHubActionCodeConfigurationResponseOutputWithContext(context.Context) GitHubActionCodeConfigurationResponseOutput
+}
+
+// The GitHub action code configuration.
+type GitHubActionCodeConfigurationResponseArgs struct {
+	// Runtime stack is used to determine the workflow file content for code base apps.
+	RuntimeStack pulumi.StringPtrInput `pulumi:"runtimeStack"`
+	// Runtime version is used to determine what build version to set in the workflow file.
+	RuntimeVersion pulumi.StringPtrInput `pulumi:"runtimeVersion"`
+}
+
+func (GitHubActionCodeConfigurationResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GitHubActionCodeConfigurationResponse)(nil)).Elem()
+}
+
+func (i GitHubActionCodeConfigurationResponseArgs) ToGitHubActionCodeConfigurationResponseOutput() GitHubActionCodeConfigurationResponseOutput {
+	return i.ToGitHubActionCodeConfigurationResponseOutputWithContext(context.Background())
+}
+
+func (i GitHubActionCodeConfigurationResponseArgs) ToGitHubActionCodeConfigurationResponseOutputWithContext(ctx context.Context) GitHubActionCodeConfigurationResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GitHubActionCodeConfigurationResponseOutput)
+}
+
+func (i GitHubActionCodeConfigurationResponseArgs) ToGitHubActionCodeConfigurationResponsePtrOutput() GitHubActionCodeConfigurationResponsePtrOutput {
+	return i.ToGitHubActionCodeConfigurationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i GitHubActionCodeConfigurationResponseArgs) ToGitHubActionCodeConfigurationResponsePtrOutputWithContext(ctx context.Context) GitHubActionCodeConfigurationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GitHubActionCodeConfigurationResponseOutput).ToGitHubActionCodeConfigurationResponsePtrOutputWithContext(ctx)
+}
+
+// GitHubActionCodeConfigurationResponsePtrInput is an input type that accepts GitHubActionCodeConfigurationResponseArgs, GitHubActionCodeConfigurationResponsePtr and GitHubActionCodeConfigurationResponsePtrOutput values.
+// You can construct a concrete instance of `GitHubActionCodeConfigurationResponsePtrInput` via:
+//
+//          GitHubActionCodeConfigurationResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type GitHubActionCodeConfigurationResponsePtrInput interface {
+	pulumi.Input
+
+	ToGitHubActionCodeConfigurationResponsePtrOutput() GitHubActionCodeConfigurationResponsePtrOutput
+	ToGitHubActionCodeConfigurationResponsePtrOutputWithContext(context.Context) GitHubActionCodeConfigurationResponsePtrOutput
+}
+
+type gitHubActionCodeConfigurationResponsePtrType GitHubActionCodeConfigurationResponseArgs
+
+func GitHubActionCodeConfigurationResponsePtr(v *GitHubActionCodeConfigurationResponseArgs) GitHubActionCodeConfigurationResponsePtrInput {
+	return (*gitHubActionCodeConfigurationResponsePtrType)(v)
+}
+
+func (*gitHubActionCodeConfigurationResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GitHubActionCodeConfigurationResponse)(nil)).Elem()
+}
+
+func (i *gitHubActionCodeConfigurationResponsePtrType) ToGitHubActionCodeConfigurationResponsePtrOutput() GitHubActionCodeConfigurationResponsePtrOutput {
+	return i.ToGitHubActionCodeConfigurationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *gitHubActionCodeConfigurationResponsePtrType) ToGitHubActionCodeConfigurationResponsePtrOutputWithContext(ctx context.Context) GitHubActionCodeConfigurationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GitHubActionCodeConfigurationResponsePtrOutput)
+}
+
+// The GitHub action code configuration.
+type GitHubActionCodeConfigurationResponseOutput struct{ *pulumi.OutputState }
+
+func (GitHubActionCodeConfigurationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GitHubActionCodeConfigurationResponse)(nil)).Elem()
+}
+
+func (o GitHubActionCodeConfigurationResponseOutput) ToGitHubActionCodeConfigurationResponseOutput() GitHubActionCodeConfigurationResponseOutput {
+	return o
+}
+
+func (o GitHubActionCodeConfigurationResponseOutput) ToGitHubActionCodeConfigurationResponseOutputWithContext(ctx context.Context) GitHubActionCodeConfigurationResponseOutput {
+	return o
+}
+
+func (o GitHubActionCodeConfigurationResponseOutput) ToGitHubActionCodeConfigurationResponsePtrOutput() GitHubActionCodeConfigurationResponsePtrOutput {
+	return o.ToGitHubActionCodeConfigurationResponsePtrOutputWithContext(context.Background())
+}
+
+func (o GitHubActionCodeConfigurationResponseOutput) ToGitHubActionCodeConfigurationResponsePtrOutputWithContext(ctx context.Context) GitHubActionCodeConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v GitHubActionCodeConfigurationResponse) *GitHubActionCodeConfigurationResponse {
+		return &v
+	}).(GitHubActionCodeConfigurationResponsePtrOutput)
+}
+
+// Runtime stack is used to determine the workflow file content for code base apps.
+func (o GitHubActionCodeConfigurationResponseOutput) RuntimeStack() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GitHubActionCodeConfigurationResponse) *string { return v.RuntimeStack }).(pulumi.StringPtrOutput)
+}
+
+// Runtime version is used to determine what build version to set in the workflow file.
+func (o GitHubActionCodeConfigurationResponseOutput) RuntimeVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GitHubActionCodeConfigurationResponse) *string { return v.RuntimeVersion }).(pulumi.StringPtrOutput)
+}
+
+type GitHubActionCodeConfigurationResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (GitHubActionCodeConfigurationResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GitHubActionCodeConfigurationResponse)(nil)).Elem()
+}
+
+func (o GitHubActionCodeConfigurationResponsePtrOutput) ToGitHubActionCodeConfigurationResponsePtrOutput() GitHubActionCodeConfigurationResponsePtrOutput {
+	return o
+}
+
+func (o GitHubActionCodeConfigurationResponsePtrOutput) ToGitHubActionCodeConfigurationResponsePtrOutputWithContext(ctx context.Context) GitHubActionCodeConfigurationResponsePtrOutput {
+	return o
+}
+
+func (o GitHubActionCodeConfigurationResponsePtrOutput) Elem() GitHubActionCodeConfigurationResponseOutput {
+	return o.ApplyT(func(v *GitHubActionCodeConfigurationResponse) GitHubActionCodeConfigurationResponse { return *v }).(GitHubActionCodeConfigurationResponseOutput)
+}
+
+// Runtime stack is used to determine the workflow file content for code base apps.
+func (o GitHubActionCodeConfigurationResponsePtrOutput) RuntimeStack() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GitHubActionCodeConfigurationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RuntimeStack
+	}).(pulumi.StringPtrOutput)
+}
+
+// Runtime version is used to determine what build version to set in the workflow file.
+func (o GitHubActionCodeConfigurationResponsePtrOutput) RuntimeVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GitHubActionCodeConfigurationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RuntimeVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// The GitHub action configuration.
+type GitHubActionConfiguration struct {
+	// GitHub Action code configuration.
+	CodeConfiguration *GitHubActionCodeConfiguration `pulumi:"codeConfiguration"`
+	// GitHub Action container configuration.
+	ContainerConfiguration *GitHubActionContainerConfiguration `pulumi:"containerConfiguration"`
+	// Workflow option to determine whether the workflow file should be generated and written to the repository.
+	GenerateWorkflowFile *bool `pulumi:"generateWorkflowFile"`
+	// This will help determine the workflow configuration to select.
+	IsLinux *bool `pulumi:"isLinux"`
+}
+
+// GitHubActionConfigurationInput is an input type that accepts GitHubActionConfigurationArgs and GitHubActionConfigurationOutput values.
+// You can construct a concrete instance of `GitHubActionConfigurationInput` via:
+//
+//          GitHubActionConfigurationArgs{...}
+type GitHubActionConfigurationInput interface {
+	pulumi.Input
+
+	ToGitHubActionConfigurationOutput() GitHubActionConfigurationOutput
+	ToGitHubActionConfigurationOutputWithContext(context.Context) GitHubActionConfigurationOutput
+}
+
+// The GitHub action configuration.
+type GitHubActionConfigurationArgs struct {
+	// GitHub Action code configuration.
+	CodeConfiguration GitHubActionCodeConfigurationPtrInput `pulumi:"codeConfiguration"`
+	// GitHub Action container configuration.
+	ContainerConfiguration GitHubActionContainerConfigurationPtrInput `pulumi:"containerConfiguration"`
+	// Workflow option to determine whether the workflow file should be generated and written to the repository.
+	GenerateWorkflowFile pulumi.BoolPtrInput `pulumi:"generateWorkflowFile"`
+	// This will help determine the workflow configuration to select.
+	IsLinux pulumi.BoolPtrInput `pulumi:"isLinux"`
+}
+
+func (GitHubActionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GitHubActionConfiguration)(nil)).Elem()
+}
+
+func (i GitHubActionConfigurationArgs) ToGitHubActionConfigurationOutput() GitHubActionConfigurationOutput {
+	return i.ToGitHubActionConfigurationOutputWithContext(context.Background())
+}
+
+func (i GitHubActionConfigurationArgs) ToGitHubActionConfigurationOutputWithContext(ctx context.Context) GitHubActionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GitHubActionConfigurationOutput)
+}
+
+func (i GitHubActionConfigurationArgs) ToGitHubActionConfigurationPtrOutput() GitHubActionConfigurationPtrOutput {
+	return i.ToGitHubActionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i GitHubActionConfigurationArgs) ToGitHubActionConfigurationPtrOutputWithContext(ctx context.Context) GitHubActionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GitHubActionConfigurationOutput).ToGitHubActionConfigurationPtrOutputWithContext(ctx)
+}
+
+// GitHubActionConfigurationPtrInput is an input type that accepts GitHubActionConfigurationArgs, GitHubActionConfigurationPtr and GitHubActionConfigurationPtrOutput values.
+// You can construct a concrete instance of `GitHubActionConfigurationPtrInput` via:
+//
+//          GitHubActionConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type GitHubActionConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToGitHubActionConfigurationPtrOutput() GitHubActionConfigurationPtrOutput
+	ToGitHubActionConfigurationPtrOutputWithContext(context.Context) GitHubActionConfigurationPtrOutput
+}
+
+type gitHubActionConfigurationPtrType GitHubActionConfigurationArgs
+
+func GitHubActionConfigurationPtr(v *GitHubActionConfigurationArgs) GitHubActionConfigurationPtrInput {
+	return (*gitHubActionConfigurationPtrType)(v)
+}
+
+func (*gitHubActionConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GitHubActionConfiguration)(nil)).Elem()
+}
+
+func (i *gitHubActionConfigurationPtrType) ToGitHubActionConfigurationPtrOutput() GitHubActionConfigurationPtrOutput {
+	return i.ToGitHubActionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *gitHubActionConfigurationPtrType) ToGitHubActionConfigurationPtrOutputWithContext(ctx context.Context) GitHubActionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GitHubActionConfigurationPtrOutput)
+}
+
+// The GitHub action configuration.
+type GitHubActionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GitHubActionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GitHubActionConfiguration)(nil)).Elem()
+}
+
+func (o GitHubActionConfigurationOutput) ToGitHubActionConfigurationOutput() GitHubActionConfigurationOutput {
+	return o
+}
+
+func (o GitHubActionConfigurationOutput) ToGitHubActionConfigurationOutputWithContext(ctx context.Context) GitHubActionConfigurationOutput {
+	return o
+}
+
+func (o GitHubActionConfigurationOutput) ToGitHubActionConfigurationPtrOutput() GitHubActionConfigurationPtrOutput {
+	return o.ToGitHubActionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o GitHubActionConfigurationOutput) ToGitHubActionConfigurationPtrOutputWithContext(ctx context.Context) GitHubActionConfigurationPtrOutput {
+	return o.ApplyT(func(v GitHubActionConfiguration) *GitHubActionConfiguration {
+		return &v
+	}).(GitHubActionConfigurationPtrOutput)
+}
+
+// GitHub Action code configuration.
+func (o GitHubActionConfigurationOutput) CodeConfiguration() GitHubActionCodeConfigurationPtrOutput {
+	return o.ApplyT(func(v GitHubActionConfiguration) *GitHubActionCodeConfiguration { return v.CodeConfiguration }).(GitHubActionCodeConfigurationPtrOutput)
+}
+
+// GitHub Action container configuration.
+func (o GitHubActionConfigurationOutput) ContainerConfiguration() GitHubActionContainerConfigurationPtrOutput {
+	return o.ApplyT(func(v GitHubActionConfiguration) *GitHubActionContainerConfiguration { return v.ContainerConfiguration }).(GitHubActionContainerConfigurationPtrOutput)
+}
+
+// Workflow option to determine whether the workflow file should be generated and written to the repository.
+func (o GitHubActionConfigurationOutput) GenerateWorkflowFile() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GitHubActionConfiguration) *bool { return v.GenerateWorkflowFile }).(pulumi.BoolPtrOutput)
+}
+
+// This will help determine the workflow configuration to select.
+func (o GitHubActionConfigurationOutput) IsLinux() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GitHubActionConfiguration) *bool { return v.IsLinux }).(pulumi.BoolPtrOutput)
+}
+
+type GitHubActionConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (GitHubActionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GitHubActionConfiguration)(nil)).Elem()
+}
+
+func (o GitHubActionConfigurationPtrOutput) ToGitHubActionConfigurationPtrOutput() GitHubActionConfigurationPtrOutput {
+	return o
+}
+
+func (o GitHubActionConfigurationPtrOutput) ToGitHubActionConfigurationPtrOutputWithContext(ctx context.Context) GitHubActionConfigurationPtrOutput {
+	return o
+}
+
+func (o GitHubActionConfigurationPtrOutput) Elem() GitHubActionConfigurationOutput {
+	return o.ApplyT(func(v *GitHubActionConfiguration) GitHubActionConfiguration { return *v }).(GitHubActionConfigurationOutput)
+}
+
+// GitHub Action code configuration.
+func (o GitHubActionConfigurationPtrOutput) CodeConfiguration() GitHubActionCodeConfigurationPtrOutput {
+	return o.ApplyT(func(v *GitHubActionConfiguration) *GitHubActionCodeConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.CodeConfiguration
+	}).(GitHubActionCodeConfigurationPtrOutput)
+}
+
+// GitHub Action container configuration.
+func (o GitHubActionConfigurationPtrOutput) ContainerConfiguration() GitHubActionContainerConfigurationPtrOutput {
+	return o.ApplyT(func(v *GitHubActionConfiguration) *GitHubActionContainerConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ContainerConfiguration
+	}).(GitHubActionContainerConfigurationPtrOutput)
+}
+
+// Workflow option to determine whether the workflow file should be generated and written to the repository.
+func (o GitHubActionConfigurationPtrOutput) GenerateWorkflowFile() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GitHubActionConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.GenerateWorkflowFile
+	}).(pulumi.BoolPtrOutput)
+}
+
+// This will help determine the workflow configuration to select.
+func (o GitHubActionConfigurationPtrOutput) IsLinux() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GitHubActionConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsLinux
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The GitHub action configuration.
+type GitHubActionConfigurationResponse struct {
+	// GitHub Action code configuration.
+	CodeConfiguration *GitHubActionCodeConfigurationResponse `pulumi:"codeConfiguration"`
+	// GitHub Action container configuration.
+	ContainerConfiguration *GitHubActionContainerConfigurationResponse `pulumi:"containerConfiguration"`
+	// Workflow option to determine whether the workflow file should be generated and written to the repository.
+	GenerateWorkflowFile *bool `pulumi:"generateWorkflowFile"`
+	// This will help determine the workflow configuration to select.
+	IsLinux *bool `pulumi:"isLinux"`
+}
+
+// GitHubActionConfigurationResponseInput is an input type that accepts GitHubActionConfigurationResponseArgs and GitHubActionConfigurationResponseOutput values.
+// You can construct a concrete instance of `GitHubActionConfigurationResponseInput` via:
+//
+//          GitHubActionConfigurationResponseArgs{...}
+type GitHubActionConfigurationResponseInput interface {
+	pulumi.Input
+
+	ToGitHubActionConfigurationResponseOutput() GitHubActionConfigurationResponseOutput
+	ToGitHubActionConfigurationResponseOutputWithContext(context.Context) GitHubActionConfigurationResponseOutput
+}
+
+// The GitHub action configuration.
+type GitHubActionConfigurationResponseArgs struct {
+	// GitHub Action code configuration.
+	CodeConfiguration GitHubActionCodeConfigurationResponsePtrInput `pulumi:"codeConfiguration"`
+	// GitHub Action container configuration.
+	ContainerConfiguration GitHubActionContainerConfigurationResponsePtrInput `pulumi:"containerConfiguration"`
+	// Workflow option to determine whether the workflow file should be generated and written to the repository.
+	GenerateWorkflowFile pulumi.BoolPtrInput `pulumi:"generateWorkflowFile"`
+	// This will help determine the workflow configuration to select.
+	IsLinux pulumi.BoolPtrInput `pulumi:"isLinux"`
+}
+
+func (GitHubActionConfigurationResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GitHubActionConfigurationResponse)(nil)).Elem()
+}
+
+func (i GitHubActionConfigurationResponseArgs) ToGitHubActionConfigurationResponseOutput() GitHubActionConfigurationResponseOutput {
+	return i.ToGitHubActionConfigurationResponseOutputWithContext(context.Background())
+}
+
+func (i GitHubActionConfigurationResponseArgs) ToGitHubActionConfigurationResponseOutputWithContext(ctx context.Context) GitHubActionConfigurationResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GitHubActionConfigurationResponseOutput)
+}
+
+func (i GitHubActionConfigurationResponseArgs) ToGitHubActionConfigurationResponsePtrOutput() GitHubActionConfigurationResponsePtrOutput {
+	return i.ToGitHubActionConfigurationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i GitHubActionConfigurationResponseArgs) ToGitHubActionConfigurationResponsePtrOutputWithContext(ctx context.Context) GitHubActionConfigurationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GitHubActionConfigurationResponseOutput).ToGitHubActionConfigurationResponsePtrOutputWithContext(ctx)
+}
+
+// GitHubActionConfigurationResponsePtrInput is an input type that accepts GitHubActionConfigurationResponseArgs, GitHubActionConfigurationResponsePtr and GitHubActionConfigurationResponsePtrOutput values.
+// You can construct a concrete instance of `GitHubActionConfigurationResponsePtrInput` via:
+//
+//          GitHubActionConfigurationResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type GitHubActionConfigurationResponsePtrInput interface {
+	pulumi.Input
+
+	ToGitHubActionConfigurationResponsePtrOutput() GitHubActionConfigurationResponsePtrOutput
+	ToGitHubActionConfigurationResponsePtrOutputWithContext(context.Context) GitHubActionConfigurationResponsePtrOutput
+}
+
+type gitHubActionConfigurationResponsePtrType GitHubActionConfigurationResponseArgs
+
+func GitHubActionConfigurationResponsePtr(v *GitHubActionConfigurationResponseArgs) GitHubActionConfigurationResponsePtrInput {
+	return (*gitHubActionConfigurationResponsePtrType)(v)
+}
+
+func (*gitHubActionConfigurationResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GitHubActionConfigurationResponse)(nil)).Elem()
+}
+
+func (i *gitHubActionConfigurationResponsePtrType) ToGitHubActionConfigurationResponsePtrOutput() GitHubActionConfigurationResponsePtrOutput {
+	return i.ToGitHubActionConfigurationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *gitHubActionConfigurationResponsePtrType) ToGitHubActionConfigurationResponsePtrOutputWithContext(ctx context.Context) GitHubActionConfigurationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GitHubActionConfigurationResponsePtrOutput)
+}
+
+// The GitHub action configuration.
+type GitHubActionConfigurationResponseOutput struct{ *pulumi.OutputState }
+
+func (GitHubActionConfigurationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GitHubActionConfigurationResponse)(nil)).Elem()
+}
+
+func (o GitHubActionConfigurationResponseOutput) ToGitHubActionConfigurationResponseOutput() GitHubActionConfigurationResponseOutput {
+	return o
+}
+
+func (o GitHubActionConfigurationResponseOutput) ToGitHubActionConfigurationResponseOutputWithContext(ctx context.Context) GitHubActionConfigurationResponseOutput {
+	return o
+}
+
+func (o GitHubActionConfigurationResponseOutput) ToGitHubActionConfigurationResponsePtrOutput() GitHubActionConfigurationResponsePtrOutput {
+	return o.ToGitHubActionConfigurationResponsePtrOutputWithContext(context.Background())
+}
+
+func (o GitHubActionConfigurationResponseOutput) ToGitHubActionConfigurationResponsePtrOutputWithContext(ctx context.Context) GitHubActionConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v GitHubActionConfigurationResponse) *GitHubActionConfigurationResponse {
+		return &v
+	}).(GitHubActionConfigurationResponsePtrOutput)
+}
+
+// GitHub Action code configuration.
+func (o GitHubActionConfigurationResponseOutput) CodeConfiguration() GitHubActionCodeConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v GitHubActionConfigurationResponse) *GitHubActionCodeConfigurationResponse {
+		return v.CodeConfiguration
+	}).(GitHubActionCodeConfigurationResponsePtrOutput)
+}
+
+// GitHub Action container configuration.
+func (o GitHubActionConfigurationResponseOutput) ContainerConfiguration() GitHubActionContainerConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v GitHubActionConfigurationResponse) *GitHubActionContainerConfigurationResponse {
+		return v.ContainerConfiguration
+	}).(GitHubActionContainerConfigurationResponsePtrOutput)
+}
+
+// Workflow option to determine whether the workflow file should be generated and written to the repository.
+func (o GitHubActionConfigurationResponseOutput) GenerateWorkflowFile() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GitHubActionConfigurationResponse) *bool { return v.GenerateWorkflowFile }).(pulumi.BoolPtrOutput)
+}
+
+// This will help determine the workflow configuration to select.
+func (o GitHubActionConfigurationResponseOutput) IsLinux() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GitHubActionConfigurationResponse) *bool { return v.IsLinux }).(pulumi.BoolPtrOutput)
+}
+
+type GitHubActionConfigurationResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (GitHubActionConfigurationResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GitHubActionConfigurationResponse)(nil)).Elem()
+}
+
+func (o GitHubActionConfigurationResponsePtrOutput) ToGitHubActionConfigurationResponsePtrOutput() GitHubActionConfigurationResponsePtrOutput {
+	return o
+}
+
+func (o GitHubActionConfigurationResponsePtrOutput) ToGitHubActionConfigurationResponsePtrOutputWithContext(ctx context.Context) GitHubActionConfigurationResponsePtrOutput {
+	return o
+}
+
+func (o GitHubActionConfigurationResponsePtrOutput) Elem() GitHubActionConfigurationResponseOutput {
+	return o.ApplyT(func(v *GitHubActionConfigurationResponse) GitHubActionConfigurationResponse { return *v }).(GitHubActionConfigurationResponseOutput)
+}
+
+// GitHub Action code configuration.
+func (o GitHubActionConfigurationResponsePtrOutput) CodeConfiguration() GitHubActionCodeConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v *GitHubActionConfigurationResponse) *GitHubActionCodeConfigurationResponse {
+		if v == nil {
+			return nil
+		}
+		return v.CodeConfiguration
+	}).(GitHubActionCodeConfigurationResponsePtrOutput)
+}
+
+// GitHub Action container configuration.
+func (o GitHubActionConfigurationResponsePtrOutput) ContainerConfiguration() GitHubActionContainerConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v *GitHubActionConfigurationResponse) *GitHubActionContainerConfigurationResponse {
+		if v == nil {
+			return nil
+		}
+		return v.ContainerConfiguration
+	}).(GitHubActionContainerConfigurationResponsePtrOutput)
+}
+
+// Workflow option to determine whether the workflow file should be generated and written to the repository.
+func (o GitHubActionConfigurationResponsePtrOutput) GenerateWorkflowFile() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GitHubActionConfigurationResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.GenerateWorkflowFile
+	}).(pulumi.BoolPtrOutput)
+}
+
+// This will help determine the workflow configuration to select.
+func (o GitHubActionConfigurationResponsePtrOutput) IsLinux() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GitHubActionConfigurationResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsLinux
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The GitHub action container configuration.
+type GitHubActionContainerConfiguration struct {
+	// The image name for the build.
+	ImageName *string `pulumi:"imageName"`
+	// The password used to upload the image to the container registry.
+	Password *string `pulumi:"password"`
+	// The server URL for the container registry where the build will be hosted.
+	ServerUrl *string `pulumi:"serverUrl"`
+	// The username used to upload the image to the container registry.
+	Username *string `pulumi:"username"`
+}
+
+// GitHubActionContainerConfigurationInput is an input type that accepts GitHubActionContainerConfigurationArgs and GitHubActionContainerConfigurationOutput values.
+// You can construct a concrete instance of `GitHubActionContainerConfigurationInput` via:
+//
+//          GitHubActionContainerConfigurationArgs{...}
+type GitHubActionContainerConfigurationInput interface {
+	pulumi.Input
+
+	ToGitHubActionContainerConfigurationOutput() GitHubActionContainerConfigurationOutput
+	ToGitHubActionContainerConfigurationOutputWithContext(context.Context) GitHubActionContainerConfigurationOutput
+}
+
+// The GitHub action container configuration.
+type GitHubActionContainerConfigurationArgs struct {
+	// The image name for the build.
+	ImageName pulumi.StringPtrInput `pulumi:"imageName"`
+	// The password used to upload the image to the container registry.
+	Password pulumi.StringPtrInput `pulumi:"password"`
+	// The server URL for the container registry where the build will be hosted.
+	ServerUrl pulumi.StringPtrInput `pulumi:"serverUrl"`
+	// The username used to upload the image to the container registry.
+	Username pulumi.StringPtrInput `pulumi:"username"`
+}
+
+func (GitHubActionContainerConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GitHubActionContainerConfiguration)(nil)).Elem()
+}
+
+func (i GitHubActionContainerConfigurationArgs) ToGitHubActionContainerConfigurationOutput() GitHubActionContainerConfigurationOutput {
+	return i.ToGitHubActionContainerConfigurationOutputWithContext(context.Background())
+}
+
+func (i GitHubActionContainerConfigurationArgs) ToGitHubActionContainerConfigurationOutputWithContext(ctx context.Context) GitHubActionContainerConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GitHubActionContainerConfigurationOutput)
+}
+
+func (i GitHubActionContainerConfigurationArgs) ToGitHubActionContainerConfigurationPtrOutput() GitHubActionContainerConfigurationPtrOutput {
+	return i.ToGitHubActionContainerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i GitHubActionContainerConfigurationArgs) ToGitHubActionContainerConfigurationPtrOutputWithContext(ctx context.Context) GitHubActionContainerConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GitHubActionContainerConfigurationOutput).ToGitHubActionContainerConfigurationPtrOutputWithContext(ctx)
+}
+
+// GitHubActionContainerConfigurationPtrInput is an input type that accepts GitHubActionContainerConfigurationArgs, GitHubActionContainerConfigurationPtr and GitHubActionContainerConfigurationPtrOutput values.
+// You can construct a concrete instance of `GitHubActionContainerConfigurationPtrInput` via:
+//
+//          GitHubActionContainerConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type GitHubActionContainerConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToGitHubActionContainerConfigurationPtrOutput() GitHubActionContainerConfigurationPtrOutput
+	ToGitHubActionContainerConfigurationPtrOutputWithContext(context.Context) GitHubActionContainerConfigurationPtrOutput
+}
+
+type gitHubActionContainerConfigurationPtrType GitHubActionContainerConfigurationArgs
+
+func GitHubActionContainerConfigurationPtr(v *GitHubActionContainerConfigurationArgs) GitHubActionContainerConfigurationPtrInput {
+	return (*gitHubActionContainerConfigurationPtrType)(v)
+}
+
+func (*gitHubActionContainerConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GitHubActionContainerConfiguration)(nil)).Elem()
+}
+
+func (i *gitHubActionContainerConfigurationPtrType) ToGitHubActionContainerConfigurationPtrOutput() GitHubActionContainerConfigurationPtrOutput {
+	return i.ToGitHubActionContainerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *gitHubActionContainerConfigurationPtrType) ToGitHubActionContainerConfigurationPtrOutputWithContext(ctx context.Context) GitHubActionContainerConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GitHubActionContainerConfigurationPtrOutput)
+}
+
+// The GitHub action container configuration.
+type GitHubActionContainerConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GitHubActionContainerConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GitHubActionContainerConfiguration)(nil)).Elem()
+}
+
+func (o GitHubActionContainerConfigurationOutput) ToGitHubActionContainerConfigurationOutput() GitHubActionContainerConfigurationOutput {
+	return o
+}
+
+func (o GitHubActionContainerConfigurationOutput) ToGitHubActionContainerConfigurationOutputWithContext(ctx context.Context) GitHubActionContainerConfigurationOutput {
+	return o
+}
+
+func (o GitHubActionContainerConfigurationOutput) ToGitHubActionContainerConfigurationPtrOutput() GitHubActionContainerConfigurationPtrOutput {
+	return o.ToGitHubActionContainerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o GitHubActionContainerConfigurationOutput) ToGitHubActionContainerConfigurationPtrOutputWithContext(ctx context.Context) GitHubActionContainerConfigurationPtrOutput {
+	return o.ApplyT(func(v GitHubActionContainerConfiguration) *GitHubActionContainerConfiguration {
+		return &v
+	}).(GitHubActionContainerConfigurationPtrOutput)
+}
+
+// The image name for the build.
+func (o GitHubActionContainerConfigurationOutput) ImageName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GitHubActionContainerConfiguration) *string { return v.ImageName }).(pulumi.StringPtrOutput)
+}
+
+// The password used to upload the image to the container registry.
+func (o GitHubActionContainerConfigurationOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GitHubActionContainerConfiguration) *string { return v.Password }).(pulumi.StringPtrOutput)
+}
+
+// The server URL for the container registry where the build will be hosted.
+func (o GitHubActionContainerConfigurationOutput) ServerUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GitHubActionContainerConfiguration) *string { return v.ServerUrl }).(pulumi.StringPtrOutput)
+}
+
+// The username used to upload the image to the container registry.
+func (o GitHubActionContainerConfigurationOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GitHubActionContainerConfiguration) *string { return v.Username }).(pulumi.StringPtrOutput)
+}
+
+type GitHubActionContainerConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (GitHubActionContainerConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GitHubActionContainerConfiguration)(nil)).Elem()
+}
+
+func (o GitHubActionContainerConfigurationPtrOutput) ToGitHubActionContainerConfigurationPtrOutput() GitHubActionContainerConfigurationPtrOutput {
+	return o
+}
+
+func (o GitHubActionContainerConfigurationPtrOutput) ToGitHubActionContainerConfigurationPtrOutputWithContext(ctx context.Context) GitHubActionContainerConfigurationPtrOutput {
+	return o
+}
+
+func (o GitHubActionContainerConfigurationPtrOutput) Elem() GitHubActionContainerConfigurationOutput {
+	return o.ApplyT(func(v *GitHubActionContainerConfiguration) GitHubActionContainerConfiguration { return *v }).(GitHubActionContainerConfigurationOutput)
+}
+
+// The image name for the build.
+func (o GitHubActionContainerConfigurationPtrOutput) ImageName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GitHubActionContainerConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ImageName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The password used to upload the image to the container registry.
+func (o GitHubActionContainerConfigurationPtrOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GitHubActionContainerConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Password
+	}).(pulumi.StringPtrOutput)
+}
+
+// The server URL for the container registry where the build will be hosted.
+func (o GitHubActionContainerConfigurationPtrOutput) ServerUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GitHubActionContainerConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ServerUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// The username used to upload the image to the container registry.
+func (o GitHubActionContainerConfigurationPtrOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GitHubActionContainerConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Username
+	}).(pulumi.StringPtrOutput)
+}
+
+// The GitHub action container configuration.
+type GitHubActionContainerConfigurationResponse struct {
+	// The image name for the build.
+	ImageName *string `pulumi:"imageName"`
+	// The password used to upload the image to the container registry.
+	Password *string `pulumi:"password"`
+	// The server URL for the container registry where the build will be hosted.
+	ServerUrl *string `pulumi:"serverUrl"`
+	// The username used to upload the image to the container registry.
+	Username *string `pulumi:"username"`
+}
+
+// GitHubActionContainerConfigurationResponseInput is an input type that accepts GitHubActionContainerConfigurationResponseArgs and GitHubActionContainerConfigurationResponseOutput values.
+// You can construct a concrete instance of `GitHubActionContainerConfigurationResponseInput` via:
+//
+//          GitHubActionContainerConfigurationResponseArgs{...}
+type GitHubActionContainerConfigurationResponseInput interface {
+	pulumi.Input
+
+	ToGitHubActionContainerConfigurationResponseOutput() GitHubActionContainerConfigurationResponseOutput
+	ToGitHubActionContainerConfigurationResponseOutputWithContext(context.Context) GitHubActionContainerConfigurationResponseOutput
+}
+
+// The GitHub action container configuration.
+type GitHubActionContainerConfigurationResponseArgs struct {
+	// The image name for the build.
+	ImageName pulumi.StringPtrInput `pulumi:"imageName"`
+	// The password used to upload the image to the container registry.
+	Password pulumi.StringPtrInput `pulumi:"password"`
+	// The server URL for the container registry where the build will be hosted.
+	ServerUrl pulumi.StringPtrInput `pulumi:"serverUrl"`
+	// The username used to upload the image to the container registry.
+	Username pulumi.StringPtrInput `pulumi:"username"`
+}
+
+func (GitHubActionContainerConfigurationResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GitHubActionContainerConfigurationResponse)(nil)).Elem()
+}
+
+func (i GitHubActionContainerConfigurationResponseArgs) ToGitHubActionContainerConfigurationResponseOutput() GitHubActionContainerConfigurationResponseOutput {
+	return i.ToGitHubActionContainerConfigurationResponseOutputWithContext(context.Background())
+}
+
+func (i GitHubActionContainerConfigurationResponseArgs) ToGitHubActionContainerConfigurationResponseOutputWithContext(ctx context.Context) GitHubActionContainerConfigurationResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GitHubActionContainerConfigurationResponseOutput)
+}
+
+func (i GitHubActionContainerConfigurationResponseArgs) ToGitHubActionContainerConfigurationResponsePtrOutput() GitHubActionContainerConfigurationResponsePtrOutput {
+	return i.ToGitHubActionContainerConfigurationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i GitHubActionContainerConfigurationResponseArgs) ToGitHubActionContainerConfigurationResponsePtrOutputWithContext(ctx context.Context) GitHubActionContainerConfigurationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GitHubActionContainerConfigurationResponseOutput).ToGitHubActionContainerConfigurationResponsePtrOutputWithContext(ctx)
+}
+
+// GitHubActionContainerConfigurationResponsePtrInput is an input type that accepts GitHubActionContainerConfigurationResponseArgs, GitHubActionContainerConfigurationResponsePtr and GitHubActionContainerConfigurationResponsePtrOutput values.
+// You can construct a concrete instance of `GitHubActionContainerConfigurationResponsePtrInput` via:
+//
+//          GitHubActionContainerConfigurationResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type GitHubActionContainerConfigurationResponsePtrInput interface {
+	pulumi.Input
+
+	ToGitHubActionContainerConfigurationResponsePtrOutput() GitHubActionContainerConfigurationResponsePtrOutput
+	ToGitHubActionContainerConfigurationResponsePtrOutputWithContext(context.Context) GitHubActionContainerConfigurationResponsePtrOutput
+}
+
+type gitHubActionContainerConfigurationResponsePtrType GitHubActionContainerConfigurationResponseArgs
+
+func GitHubActionContainerConfigurationResponsePtr(v *GitHubActionContainerConfigurationResponseArgs) GitHubActionContainerConfigurationResponsePtrInput {
+	return (*gitHubActionContainerConfigurationResponsePtrType)(v)
+}
+
+func (*gitHubActionContainerConfigurationResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GitHubActionContainerConfigurationResponse)(nil)).Elem()
+}
+
+func (i *gitHubActionContainerConfigurationResponsePtrType) ToGitHubActionContainerConfigurationResponsePtrOutput() GitHubActionContainerConfigurationResponsePtrOutput {
+	return i.ToGitHubActionContainerConfigurationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *gitHubActionContainerConfigurationResponsePtrType) ToGitHubActionContainerConfigurationResponsePtrOutputWithContext(ctx context.Context) GitHubActionContainerConfigurationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GitHubActionContainerConfigurationResponsePtrOutput)
+}
+
+// The GitHub action container configuration.
+type GitHubActionContainerConfigurationResponseOutput struct{ *pulumi.OutputState }
+
+func (GitHubActionContainerConfigurationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GitHubActionContainerConfigurationResponse)(nil)).Elem()
+}
+
+func (o GitHubActionContainerConfigurationResponseOutput) ToGitHubActionContainerConfigurationResponseOutput() GitHubActionContainerConfigurationResponseOutput {
+	return o
+}
+
+func (o GitHubActionContainerConfigurationResponseOutput) ToGitHubActionContainerConfigurationResponseOutputWithContext(ctx context.Context) GitHubActionContainerConfigurationResponseOutput {
+	return o
+}
+
+func (o GitHubActionContainerConfigurationResponseOutput) ToGitHubActionContainerConfigurationResponsePtrOutput() GitHubActionContainerConfigurationResponsePtrOutput {
+	return o.ToGitHubActionContainerConfigurationResponsePtrOutputWithContext(context.Background())
+}
+
+func (o GitHubActionContainerConfigurationResponseOutput) ToGitHubActionContainerConfigurationResponsePtrOutputWithContext(ctx context.Context) GitHubActionContainerConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v GitHubActionContainerConfigurationResponse) *GitHubActionContainerConfigurationResponse {
+		return &v
+	}).(GitHubActionContainerConfigurationResponsePtrOutput)
+}
+
+// The image name for the build.
+func (o GitHubActionContainerConfigurationResponseOutput) ImageName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GitHubActionContainerConfigurationResponse) *string { return v.ImageName }).(pulumi.StringPtrOutput)
+}
+
+// The password used to upload the image to the container registry.
+func (o GitHubActionContainerConfigurationResponseOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GitHubActionContainerConfigurationResponse) *string { return v.Password }).(pulumi.StringPtrOutput)
+}
+
+// The server URL for the container registry where the build will be hosted.
+func (o GitHubActionContainerConfigurationResponseOutput) ServerUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GitHubActionContainerConfigurationResponse) *string { return v.ServerUrl }).(pulumi.StringPtrOutput)
+}
+
+// The username used to upload the image to the container registry.
+func (o GitHubActionContainerConfigurationResponseOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GitHubActionContainerConfigurationResponse) *string { return v.Username }).(pulumi.StringPtrOutput)
+}
+
+type GitHubActionContainerConfigurationResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (GitHubActionContainerConfigurationResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GitHubActionContainerConfigurationResponse)(nil)).Elem()
+}
+
+func (o GitHubActionContainerConfigurationResponsePtrOutput) ToGitHubActionContainerConfigurationResponsePtrOutput() GitHubActionContainerConfigurationResponsePtrOutput {
+	return o
+}
+
+func (o GitHubActionContainerConfigurationResponsePtrOutput) ToGitHubActionContainerConfigurationResponsePtrOutputWithContext(ctx context.Context) GitHubActionContainerConfigurationResponsePtrOutput {
+	return o
+}
+
+func (o GitHubActionContainerConfigurationResponsePtrOutput) Elem() GitHubActionContainerConfigurationResponseOutput {
+	return o.ApplyT(func(v *GitHubActionContainerConfigurationResponse) GitHubActionContainerConfigurationResponse {
+		return *v
+	}).(GitHubActionContainerConfigurationResponseOutput)
+}
+
+// The image name for the build.
+func (o GitHubActionContainerConfigurationResponsePtrOutput) ImageName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GitHubActionContainerConfigurationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ImageName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The password used to upload the image to the container registry.
+func (o GitHubActionContainerConfigurationResponsePtrOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GitHubActionContainerConfigurationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Password
+	}).(pulumi.StringPtrOutput)
+}
+
+// The server URL for the container registry where the build will be hosted.
+func (o GitHubActionContainerConfigurationResponsePtrOutput) ServerUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GitHubActionContainerConfigurationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ServerUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// The username used to upload the image to the container registry.
+func (o GitHubActionContainerConfigurationResponsePtrOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GitHubActionContainerConfigurationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Username
+	}).(pulumi.StringPtrOutput)
+}
+
 type GitHubResponse struct {
 	Enabled *bool `pulumi:"enabled"`
 	// Resource Id.
@@ -18484,8 +20879,6 @@ type GitHubResponse struct {
 	// Resource Name.
 	Name         string                      `pulumi:"name"`
 	Registration *ClientRegistrationResponse `pulumi:"registration"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }
@@ -18511,8 +20904,6 @@ type GitHubResponseArgs struct {
 	// Resource Name.
 	Name         pulumi.StringInput                 `pulumi:"name"`
 	Registration ClientRegistrationResponsePtrInput `pulumi:"registration"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponseInput `pulumi:"systemData"`
 	// Resource type.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -18620,11 +21011,6 @@ func (o GitHubResponseOutput) Registration() ClientRegistrationResponsePtrOutput
 	return o.ApplyT(func(v GitHubResponse) *ClientRegistrationResponse { return v.Registration }).(ClientRegistrationResponsePtrOutput)
 }
 
-// The system metadata relating to this resource.
-func (o GitHubResponseOutput) SystemData() SystemDataResponseOutput {
-	return o.ApplyT(func(v GitHubResponse) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
-}
-
 // Resource type.
 func (o GitHubResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GitHubResponse) string { return v.Type }).(pulumi.StringOutput)
@@ -18703,16 +21089,6 @@ func (o GitHubResponsePtrOutput) Registration() ClientRegistrationResponsePtrOut
 		}
 		return v.Registration
 	}).(ClientRegistrationResponsePtrOutput)
-}
-
-// The system metadata relating to this resource.
-func (o GitHubResponsePtrOutput) SystemData() SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v *GitHubResponse) *SystemDataResponse {
-		if v == nil {
-			return nil
-		}
-		return &v.SystemData
-	}).(SystemDataResponsePtrOutput)
 }
 
 // Resource type.
@@ -18925,8 +21301,6 @@ type GlobalValidationResponse struct {
 	Name                  string  `pulumi:"name"`
 	RedirectToProvider    *string `pulumi:"redirectToProvider"`
 	RequireAuthentication *bool   `pulumi:"requireAuthentication"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type                        string  `pulumi:"type"`
 	UnauthenticatedClientAction *string `pulumi:"unauthenticatedClientAction"`
@@ -18953,8 +21327,6 @@ type GlobalValidationResponseArgs struct {
 	Name                  pulumi.StringInput    `pulumi:"name"`
 	RedirectToProvider    pulumi.StringPtrInput `pulumi:"redirectToProvider"`
 	RequireAuthentication pulumi.BoolPtrInput   `pulumi:"requireAuthentication"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponseInput `pulumi:"systemData"`
 	// Resource type.
 	Type                        pulumi.StringInput    `pulumi:"type"`
 	UnauthenticatedClientAction pulumi.StringPtrInput `pulumi:"unauthenticatedClientAction"`
@@ -19063,11 +21435,6 @@ func (o GlobalValidationResponseOutput) RequireAuthentication() pulumi.BoolPtrOu
 	return o.ApplyT(func(v GlobalValidationResponse) *bool { return v.RequireAuthentication }).(pulumi.BoolPtrOutput)
 }
 
-// The system metadata relating to this resource.
-func (o GlobalValidationResponseOutput) SystemData() SystemDataResponseOutput {
-	return o.ApplyT(func(v GlobalValidationResponse) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
-}
-
 // Resource type.
 func (o GlobalValidationResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GlobalValidationResponse) string { return v.Type }).(pulumi.StringOutput)
@@ -19150,16 +21517,6 @@ func (o GlobalValidationResponsePtrOutput) RequireAuthentication() pulumi.BoolPt
 		}
 		return v.RequireAuthentication
 	}).(pulumi.BoolPtrOutput)
-}
-
-// The system metadata relating to this resource.
-func (o GlobalValidationResponsePtrOutput) SystemData() SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v *GlobalValidationResponse) *SystemDataResponse {
-		if v == nil {
-			return nil
-		}
-		return &v.SystemData
-	}).(SystemDataResponsePtrOutput)
 }
 
 // Resource type.
@@ -19381,8 +21738,6 @@ type GoogleResponse struct {
 	// Resource Name.
 	Name         string                      `pulumi:"name"`
 	Registration *ClientRegistrationResponse `pulumi:"registration"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type       string                              `pulumi:"type"`
 	Validation *AllowedAudiencesValidationResponse `pulumi:"validation"`
@@ -19409,8 +21764,6 @@ type GoogleResponseArgs struct {
 	// Resource Name.
 	Name         pulumi.StringInput                 `pulumi:"name"`
 	Registration ClientRegistrationResponsePtrInput `pulumi:"registration"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponseInput `pulumi:"systemData"`
 	// Resource type.
 	Type       pulumi.StringInput                         `pulumi:"type"`
 	Validation AllowedAudiencesValidationResponsePtrInput `pulumi:"validation"`
@@ -19519,11 +21872,6 @@ func (o GoogleResponseOutput) Registration() ClientRegistrationResponsePtrOutput
 	return o.ApplyT(func(v GoogleResponse) *ClientRegistrationResponse { return v.Registration }).(ClientRegistrationResponsePtrOutput)
 }
 
-// The system metadata relating to this resource.
-func (o GoogleResponseOutput) SystemData() SystemDataResponseOutput {
-	return o.ApplyT(func(v GoogleResponse) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
-}
-
 // Resource type.
 func (o GoogleResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GoogleResponse) string { return v.Type }).(pulumi.StringOutput)
@@ -19606,16 +21954,6 @@ func (o GoogleResponsePtrOutput) Registration() ClientRegistrationResponsePtrOut
 		}
 		return v.Registration
 	}).(ClientRegistrationResponsePtrOutput)
-}
-
-// The system metadata relating to this resource.
-func (o GoogleResponsePtrOutput) SystemData() SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v *GoogleResponse) *SystemDataResponse {
-		if v == nil {
-			return nil
-		}
-		return &v.SystemData
-	}).(SystemDataResponsePtrOutput)
 }
 
 // Resource type.
@@ -20966,8 +23304,6 @@ type HttpSettingsResponse struct {
 	Name         string                      `pulumi:"name"`
 	RequireHttps *bool                       `pulumi:"requireHttps"`
 	Routes       *HttpSettingsRoutesResponse `pulumi:"routes"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }
@@ -20993,8 +23329,6 @@ type HttpSettingsResponseArgs struct {
 	Name         pulumi.StringInput                 `pulumi:"name"`
 	RequireHttps pulumi.BoolPtrInput                `pulumi:"requireHttps"`
 	Routes       HttpSettingsRoutesResponsePtrInput `pulumi:"routes"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponseInput `pulumi:"systemData"`
 	// Resource type.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -21102,11 +23436,6 @@ func (o HttpSettingsResponseOutput) Routes() HttpSettingsRoutesResponsePtrOutput
 	return o.ApplyT(func(v HttpSettingsResponse) *HttpSettingsRoutesResponse { return v.Routes }).(HttpSettingsRoutesResponsePtrOutput)
 }
 
-// The system metadata relating to this resource.
-func (o HttpSettingsResponseOutput) SystemData() SystemDataResponseOutput {
-	return o.ApplyT(func(v HttpSettingsResponse) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
-}
-
 // Resource type.
 func (o HttpSettingsResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v HttpSettingsResponse) string { return v.Type }).(pulumi.StringOutput)
@@ -21185,16 +23514,6 @@ func (o HttpSettingsResponsePtrOutput) Routes() HttpSettingsRoutesResponsePtrOut
 		}
 		return v.Routes
 	}).(HttpSettingsRoutesResponsePtrOutput)
-}
-
-// The system metadata relating to this resource.
-func (o HttpSettingsResponsePtrOutput) SystemData() SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v *HttpSettingsResponse) *SystemDataResponse {
-		if v == nil {
-			return nil
-		}
-		return &v.SystemData
-	}).(SystemDataResponsePtrOutput)
 }
 
 // Resource type.
@@ -21360,8 +23679,6 @@ type HttpSettingsRoutesResponse struct {
 	Kind *string `pulumi:"kind"`
 	// Resource Name.
 	Name string `pulumi:"name"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }
@@ -21385,8 +23702,6 @@ type HttpSettingsRoutesResponseArgs struct {
 	Kind pulumi.StringPtrInput `pulumi:"kind"`
 	// Resource Name.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponseInput `pulumi:"systemData"`
 	// Resource type.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -21486,11 +23801,6 @@ func (o HttpSettingsRoutesResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v HttpSettingsRoutesResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The system metadata relating to this resource.
-func (o HttpSettingsRoutesResponseOutput) SystemData() SystemDataResponseOutput {
-	return o.ApplyT(func(v HttpSettingsRoutesResponse) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
-}
-
 // Resource type.
 func (o HttpSettingsRoutesResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v HttpSettingsRoutesResponse) string { return v.Type }).(pulumi.StringOutput)
@@ -21553,16 +23863,6 @@ func (o HttpSettingsRoutesResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The system metadata relating to this resource.
-func (o HttpSettingsRoutesResponsePtrOutput) SystemData() SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v *HttpSettingsRoutesResponse) *SystemDataResponse {
-		if v == nil {
-			return nil
-		}
-		return &v.SystemData
-	}).(SystemDataResponsePtrOutput)
-}
-
 // Resource type.
 func (o HttpSettingsRoutesResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HttpSettingsRoutesResponse) *string {
@@ -21581,8 +23881,6 @@ type IdentifierResponse struct {
 	Kind *string `pulumi:"kind"`
 	// Resource Name.
 	Name string `pulumi:"name"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type string `pulumi:"type"`
 	// String representation of the identity.
@@ -21608,8 +23906,6 @@ type IdentifierResponseArgs struct {
 	Kind pulumi.StringPtrInput `pulumi:"kind"`
 	// Resource Name.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponseInput `pulumi:"systemData"`
 	// Resource type.
 	Type pulumi.StringInput `pulumi:"type"`
 	// String representation of the identity.
@@ -21683,11 +23979,6 @@ func (o IdentifierResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentifierResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The system metadata relating to this resource.
-func (o IdentifierResponseOutput) SystemData() SystemDataResponseOutput {
-	return o.ApplyT(func(v IdentifierResponse) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
-}
-
 // Resource type.
 func (o IdentifierResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentifierResponse) string { return v.Type }).(pulumi.StringOutput)
@@ -21719,14 +24010,17 @@ func (o IdentifierResponseArrayOutput) Index(i pulumi.IntInput) IdentifierRespon
 }
 
 type IdentityProviders struct {
+	Apple                        *Apple                                 `pulumi:"apple"`
 	AzureActiveDirectory         *AzureActiveDirectory                  `pulumi:"azureActiveDirectory"`
+	AzureStaticWebApps           *AzureStaticWebApps                    `pulumi:"azureStaticWebApps"`
 	CustomOpenIdConnectProviders map[string]CustomOpenIdConnectProvider `pulumi:"customOpenIdConnectProviders"`
 	Facebook                     *Facebook                              `pulumi:"facebook"`
 	GitHub                       *GitHub                                `pulumi:"gitHub"`
 	Google                       *Google                                `pulumi:"google"`
 	// Kind of resource.
-	Kind    *string  `pulumi:"kind"`
-	Twitter *Twitter `pulumi:"twitter"`
+	Kind                   *string                 `pulumi:"kind"`
+	LegacyMicrosoftAccount *LegacyMicrosoftAccount `pulumi:"legacyMicrosoftAccount"`
+	Twitter                *Twitter                `pulumi:"twitter"`
 }
 
 // IdentityProvidersInput is an input type that accepts IdentityProvidersArgs and IdentityProvidersOutput values.
@@ -21741,14 +24035,17 @@ type IdentityProvidersInput interface {
 }
 
 type IdentityProvidersArgs struct {
+	Apple                        ApplePtrInput                       `pulumi:"apple"`
 	AzureActiveDirectory         AzureActiveDirectoryPtrInput        `pulumi:"azureActiveDirectory"`
+	AzureStaticWebApps           AzureStaticWebAppsPtrInput          `pulumi:"azureStaticWebApps"`
 	CustomOpenIdConnectProviders CustomOpenIdConnectProviderMapInput `pulumi:"customOpenIdConnectProviders"`
 	Facebook                     FacebookPtrInput                    `pulumi:"facebook"`
 	GitHub                       GitHubPtrInput                      `pulumi:"gitHub"`
 	Google                       GooglePtrInput                      `pulumi:"google"`
 	// Kind of resource.
-	Kind    pulumi.StringPtrInput `pulumi:"kind"`
-	Twitter TwitterPtrInput       `pulumi:"twitter"`
+	Kind                   pulumi.StringPtrInput          `pulumi:"kind"`
+	LegacyMicrosoftAccount LegacyMicrosoftAccountPtrInput `pulumi:"legacyMicrosoftAccount"`
+	Twitter                TwitterPtrInput                `pulumi:"twitter"`
 }
 
 func (IdentityProvidersArgs) ElementType() reflect.Type {
@@ -21827,8 +24124,16 @@ func (o IdentityProvidersOutput) ToIdentityProvidersPtrOutputWithContext(ctx con
 		return &v
 	}).(IdentityProvidersPtrOutput)
 }
+func (o IdentityProvidersOutput) Apple() ApplePtrOutput {
+	return o.ApplyT(func(v IdentityProviders) *Apple { return v.Apple }).(ApplePtrOutput)
+}
+
 func (o IdentityProvidersOutput) AzureActiveDirectory() AzureActiveDirectoryPtrOutput {
 	return o.ApplyT(func(v IdentityProviders) *AzureActiveDirectory { return v.AzureActiveDirectory }).(AzureActiveDirectoryPtrOutput)
+}
+
+func (o IdentityProvidersOutput) AzureStaticWebApps() AzureStaticWebAppsPtrOutput {
+	return o.ApplyT(func(v IdentityProviders) *AzureStaticWebApps { return v.AzureStaticWebApps }).(AzureStaticWebAppsPtrOutput)
 }
 
 func (o IdentityProvidersOutput) CustomOpenIdConnectProviders() CustomOpenIdConnectProviderMapOutput {
@@ -21854,6 +24159,10 @@ func (o IdentityProvidersOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentityProviders) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
+func (o IdentityProvidersOutput) LegacyMicrosoftAccount() LegacyMicrosoftAccountPtrOutput {
+	return o.ApplyT(func(v IdentityProviders) *LegacyMicrosoftAccount { return v.LegacyMicrosoftAccount }).(LegacyMicrosoftAccountPtrOutput)
+}
+
 func (o IdentityProvidersOutput) Twitter() TwitterPtrOutput {
 	return o.ApplyT(func(v IdentityProviders) *Twitter { return v.Twitter }).(TwitterPtrOutput)
 }
@@ -21876,6 +24185,15 @@ func (o IdentityProvidersPtrOutput) Elem() IdentityProvidersOutput {
 	return o.ApplyT(func(v *IdentityProviders) IdentityProviders { return *v }).(IdentityProvidersOutput)
 }
 
+func (o IdentityProvidersPtrOutput) Apple() ApplePtrOutput {
+	return o.ApplyT(func(v *IdentityProviders) *Apple {
+		if v == nil {
+			return nil
+		}
+		return v.Apple
+	}).(ApplePtrOutput)
+}
+
 func (o IdentityProvidersPtrOutput) AzureActiveDirectory() AzureActiveDirectoryPtrOutput {
 	return o.ApplyT(func(v *IdentityProviders) *AzureActiveDirectory {
 		if v == nil {
@@ -21883,6 +24201,15 @@ func (o IdentityProvidersPtrOutput) AzureActiveDirectory() AzureActiveDirectoryP
 		}
 		return v.AzureActiveDirectory
 	}).(AzureActiveDirectoryPtrOutput)
+}
+
+func (o IdentityProvidersPtrOutput) AzureStaticWebApps() AzureStaticWebAppsPtrOutput {
+	return o.ApplyT(func(v *IdentityProviders) *AzureStaticWebApps {
+		if v == nil {
+			return nil
+		}
+		return v.AzureStaticWebApps
+	}).(AzureStaticWebAppsPtrOutput)
 }
 
 func (o IdentityProvidersPtrOutput) CustomOpenIdConnectProviders() CustomOpenIdConnectProviderMapOutput {
@@ -21931,6 +24258,15 @@ func (o IdentityProvidersPtrOutput) Kind() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+func (o IdentityProvidersPtrOutput) LegacyMicrosoftAccount() LegacyMicrosoftAccountPtrOutput {
+	return o.ApplyT(func(v *IdentityProviders) *LegacyMicrosoftAccount {
+		if v == nil {
+			return nil
+		}
+		return v.LegacyMicrosoftAccount
+	}).(LegacyMicrosoftAccountPtrOutput)
+}
+
 func (o IdentityProvidersPtrOutput) Twitter() TwitterPtrOutput {
 	return o.ApplyT(func(v *IdentityProviders) *Twitter {
 		if v == nil {
@@ -21941,7 +24277,9 @@ func (o IdentityProvidersPtrOutput) Twitter() TwitterPtrOutput {
 }
 
 type IdentityProvidersResponse struct {
+	Apple                        *AppleResponse                                 `pulumi:"apple"`
 	AzureActiveDirectory         *AzureActiveDirectoryResponse                  `pulumi:"azureActiveDirectory"`
+	AzureStaticWebApps           *AzureStaticWebAppsResponse                    `pulumi:"azureStaticWebApps"`
 	CustomOpenIdConnectProviders map[string]CustomOpenIdConnectProviderResponse `pulumi:"customOpenIdConnectProviders"`
 	Facebook                     *FacebookResponse                              `pulumi:"facebook"`
 	GitHub                       *GitHubResponse                                `pulumi:"gitHub"`
@@ -21949,12 +24287,11 @@ type IdentityProvidersResponse struct {
 	// Resource Id.
 	Id string `pulumi:"id"`
 	// Kind of resource.
-	Kind *string `pulumi:"kind"`
+	Kind                   *string                         `pulumi:"kind"`
+	LegacyMicrosoftAccount *LegacyMicrosoftAccountResponse `pulumi:"legacyMicrosoftAccount"`
 	// Resource Name.
-	Name string `pulumi:"name"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	Twitter    *TwitterResponse   `pulumi:"twitter"`
+	Name    string           `pulumi:"name"`
+	Twitter *TwitterResponse `pulumi:"twitter"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }
@@ -21971,7 +24308,9 @@ type IdentityProvidersResponseInput interface {
 }
 
 type IdentityProvidersResponseArgs struct {
+	Apple                        AppleResponsePtrInput                       `pulumi:"apple"`
 	AzureActiveDirectory         AzureActiveDirectoryResponsePtrInput        `pulumi:"azureActiveDirectory"`
+	AzureStaticWebApps           AzureStaticWebAppsResponsePtrInput          `pulumi:"azureStaticWebApps"`
 	CustomOpenIdConnectProviders CustomOpenIdConnectProviderResponseMapInput `pulumi:"customOpenIdConnectProviders"`
 	Facebook                     FacebookResponsePtrInput                    `pulumi:"facebook"`
 	GitHub                       GitHubResponsePtrInput                      `pulumi:"gitHub"`
@@ -21979,12 +24318,11 @@ type IdentityProvidersResponseArgs struct {
 	// Resource Id.
 	Id pulumi.StringInput `pulumi:"id"`
 	// Kind of resource.
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	Kind                   pulumi.StringPtrInput                  `pulumi:"kind"`
+	LegacyMicrosoftAccount LegacyMicrosoftAccountResponsePtrInput `pulumi:"legacyMicrosoftAccount"`
 	// Resource Name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponseInput `pulumi:"systemData"`
-	Twitter    TwitterResponsePtrInput `pulumi:"twitter"`
+	Name    pulumi.StringInput      `pulumi:"name"`
+	Twitter TwitterResponsePtrInput `pulumi:"twitter"`
 	// Resource type.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -22065,8 +24403,16 @@ func (o IdentityProvidersResponseOutput) ToIdentityProvidersResponsePtrOutputWit
 		return &v
 	}).(IdentityProvidersResponsePtrOutput)
 }
+func (o IdentityProvidersResponseOutput) Apple() AppleResponsePtrOutput {
+	return o.ApplyT(func(v IdentityProvidersResponse) *AppleResponse { return v.Apple }).(AppleResponsePtrOutput)
+}
+
 func (o IdentityProvidersResponseOutput) AzureActiveDirectory() AzureActiveDirectoryResponsePtrOutput {
 	return o.ApplyT(func(v IdentityProvidersResponse) *AzureActiveDirectoryResponse { return v.AzureActiveDirectory }).(AzureActiveDirectoryResponsePtrOutput)
+}
+
+func (o IdentityProvidersResponseOutput) AzureStaticWebApps() AzureStaticWebAppsResponsePtrOutput {
+	return o.ApplyT(func(v IdentityProvidersResponse) *AzureStaticWebAppsResponse { return v.AzureStaticWebApps }).(AzureStaticWebAppsResponsePtrOutput)
 }
 
 func (o IdentityProvidersResponseOutput) CustomOpenIdConnectProviders() CustomOpenIdConnectProviderResponseMapOutput {
@@ -22097,14 +24443,13 @@ func (o IdentityProvidersResponseOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentityProvidersResponse) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
+func (o IdentityProvidersResponseOutput) LegacyMicrosoftAccount() LegacyMicrosoftAccountResponsePtrOutput {
+	return o.ApplyT(func(v IdentityProvidersResponse) *LegacyMicrosoftAccountResponse { return v.LegacyMicrosoftAccount }).(LegacyMicrosoftAccountResponsePtrOutput)
+}
+
 // Resource Name.
 func (o IdentityProvidersResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentityProvidersResponse) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The system metadata relating to this resource.
-func (o IdentityProvidersResponseOutput) SystemData() SystemDataResponseOutput {
-	return o.ApplyT(func(v IdentityProvidersResponse) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 func (o IdentityProvidersResponseOutput) Twitter() TwitterResponsePtrOutput {
@@ -22134,6 +24479,15 @@ func (o IdentityProvidersResponsePtrOutput) Elem() IdentityProvidersResponseOutp
 	return o.ApplyT(func(v *IdentityProvidersResponse) IdentityProvidersResponse { return *v }).(IdentityProvidersResponseOutput)
 }
 
+func (o IdentityProvidersResponsePtrOutput) Apple() AppleResponsePtrOutput {
+	return o.ApplyT(func(v *IdentityProvidersResponse) *AppleResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Apple
+	}).(AppleResponsePtrOutput)
+}
+
 func (o IdentityProvidersResponsePtrOutput) AzureActiveDirectory() AzureActiveDirectoryResponsePtrOutput {
 	return o.ApplyT(func(v *IdentityProvidersResponse) *AzureActiveDirectoryResponse {
 		if v == nil {
@@ -22141,6 +24495,15 @@ func (o IdentityProvidersResponsePtrOutput) AzureActiveDirectory() AzureActiveDi
 		}
 		return v.AzureActiveDirectory
 	}).(AzureActiveDirectoryResponsePtrOutput)
+}
+
+func (o IdentityProvidersResponsePtrOutput) AzureStaticWebApps() AzureStaticWebAppsResponsePtrOutput {
+	return o.ApplyT(func(v *IdentityProvidersResponse) *AzureStaticWebAppsResponse {
+		if v == nil {
+			return nil
+		}
+		return v.AzureStaticWebApps
+	}).(AzureStaticWebAppsResponsePtrOutput)
 }
 
 func (o IdentityProvidersResponsePtrOutput) CustomOpenIdConnectProviders() CustomOpenIdConnectProviderResponseMapOutput {
@@ -22199,6 +24562,15 @@ func (o IdentityProvidersResponsePtrOutput) Kind() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+func (o IdentityProvidersResponsePtrOutput) LegacyMicrosoftAccount() LegacyMicrosoftAccountResponsePtrOutput {
+	return o.ApplyT(func(v *IdentityProvidersResponse) *LegacyMicrosoftAccountResponse {
+		if v == nil {
+			return nil
+		}
+		return v.LegacyMicrosoftAccount
+	}).(LegacyMicrosoftAccountResponsePtrOutput)
+}
+
 // Resource Name.
 func (o IdentityProvidersResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityProvidersResponse) *string {
@@ -22207,16 +24579,6 @@ func (o IdentityProvidersResponsePtrOutput) Name() pulumi.StringPtrOutput {
 		}
 		return &v.Name
 	}).(pulumi.StringPtrOutput)
-}
-
-// The system metadata relating to this resource.
-func (o IdentityProvidersResponsePtrOutput) SystemData() SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v *IdentityProvidersResponse) *SystemDataResponse {
-		if v == nil {
-			return nil
-		}
-		return &v.SystemData
-	}).(SystemDataResponsePtrOutput)
 }
 
 func (o IdentityProvidersResponsePtrOutput) Twitter() TwitterResponsePtrOutput {
@@ -22895,8 +25257,6 @@ type JwtClaimChecksResponse struct {
 	Kind *string `pulumi:"kind"`
 	// Resource Name.
 	Name string `pulumi:"name"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }
@@ -22921,8 +25281,6 @@ type JwtClaimChecksResponseArgs struct {
 	Kind pulumi.StringPtrInput `pulumi:"kind"`
 	// Resource Name.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponseInput `pulumi:"systemData"`
 	// Resource type.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -23026,11 +25384,6 @@ func (o JwtClaimChecksResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v JwtClaimChecksResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The system metadata relating to this resource.
-func (o JwtClaimChecksResponseOutput) SystemData() SystemDataResponseOutput {
-	return o.ApplyT(func(v JwtClaimChecksResponse) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
-}
-
 // Resource type.
 func (o JwtClaimChecksResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v JwtClaimChecksResponse) string { return v.Type }).(pulumi.StringOutput)
@@ -23102,16 +25455,6 @@ func (o JwtClaimChecksResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The system metadata relating to this resource.
-func (o JwtClaimChecksResponsePtrOutput) SystemData() SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v *JwtClaimChecksResponse) *SystemDataResponse {
-		if v == nil {
-			return nil
-		}
-		return &v.SystemData
-	}).(SystemDataResponsePtrOutput)
-}
-
 // Resource type.
 func (o JwtClaimChecksResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JwtClaimChecksResponse) *string {
@@ -23120,6 +25463,749 @@ func (o JwtClaimChecksResponsePtrOutput) Type() pulumi.StringPtrOutput {
 		}
 		return &v.Type
 	}).(pulumi.StringPtrOutput)
+}
+
+// Specification for a Kubernetes Environment to use for this resource.
+type KubeEnvironmentProfile struct {
+	// Resource ID of the Kubernetes Environment.
+	Id *string `pulumi:"id"`
+}
+
+// KubeEnvironmentProfileInput is an input type that accepts KubeEnvironmentProfileArgs and KubeEnvironmentProfileOutput values.
+// You can construct a concrete instance of `KubeEnvironmentProfileInput` via:
+//
+//          KubeEnvironmentProfileArgs{...}
+type KubeEnvironmentProfileInput interface {
+	pulumi.Input
+
+	ToKubeEnvironmentProfileOutput() KubeEnvironmentProfileOutput
+	ToKubeEnvironmentProfileOutputWithContext(context.Context) KubeEnvironmentProfileOutput
+}
+
+// Specification for a Kubernetes Environment to use for this resource.
+type KubeEnvironmentProfileArgs struct {
+	// Resource ID of the Kubernetes Environment.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+}
+
+func (KubeEnvironmentProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubeEnvironmentProfile)(nil)).Elem()
+}
+
+func (i KubeEnvironmentProfileArgs) ToKubeEnvironmentProfileOutput() KubeEnvironmentProfileOutput {
+	return i.ToKubeEnvironmentProfileOutputWithContext(context.Background())
+}
+
+func (i KubeEnvironmentProfileArgs) ToKubeEnvironmentProfileOutputWithContext(ctx context.Context) KubeEnvironmentProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubeEnvironmentProfileOutput)
+}
+
+func (i KubeEnvironmentProfileArgs) ToKubeEnvironmentProfilePtrOutput() KubeEnvironmentProfilePtrOutput {
+	return i.ToKubeEnvironmentProfilePtrOutputWithContext(context.Background())
+}
+
+func (i KubeEnvironmentProfileArgs) ToKubeEnvironmentProfilePtrOutputWithContext(ctx context.Context) KubeEnvironmentProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubeEnvironmentProfileOutput).ToKubeEnvironmentProfilePtrOutputWithContext(ctx)
+}
+
+// KubeEnvironmentProfilePtrInput is an input type that accepts KubeEnvironmentProfileArgs, KubeEnvironmentProfilePtr and KubeEnvironmentProfilePtrOutput values.
+// You can construct a concrete instance of `KubeEnvironmentProfilePtrInput` via:
+//
+//          KubeEnvironmentProfileArgs{...}
+//
+//  or:
+//
+//          nil
+type KubeEnvironmentProfilePtrInput interface {
+	pulumi.Input
+
+	ToKubeEnvironmentProfilePtrOutput() KubeEnvironmentProfilePtrOutput
+	ToKubeEnvironmentProfilePtrOutputWithContext(context.Context) KubeEnvironmentProfilePtrOutput
+}
+
+type kubeEnvironmentProfilePtrType KubeEnvironmentProfileArgs
+
+func KubeEnvironmentProfilePtr(v *KubeEnvironmentProfileArgs) KubeEnvironmentProfilePtrInput {
+	return (*kubeEnvironmentProfilePtrType)(v)
+}
+
+func (*kubeEnvironmentProfilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubeEnvironmentProfile)(nil)).Elem()
+}
+
+func (i *kubeEnvironmentProfilePtrType) ToKubeEnvironmentProfilePtrOutput() KubeEnvironmentProfilePtrOutput {
+	return i.ToKubeEnvironmentProfilePtrOutputWithContext(context.Background())
+}
+
+func (i *kubeEnvironmentProfilePtrType) ToKubeEnvironmentProfilePtrOutputWithContext(ctx context.Context) KubeEnvironmentProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubeEnvironmentProfilePtrOutput)
+}
+
+// Specification for a Kubernetes Environment to use for this resource.
+type KubeEnvironmentProfileOutput struct{ *pulumi.OutputState }
+
+func (KubeEnvironmentProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubeEnvironmentProfile)(nil)).Elem()
+}
+
+func (o KubeEnvironmentProfileOutput) ToKubeEnvironmentProfileOutput() KubeEnvironmentProfileOutput {
+	return o
+}
+
+func (o KubeEnvironmentProfileOutput) ToKubeEnvironmentProfileOutputWithContext(ctx context.Context) KubeEnvironmentProfileOutput {
+	return o
+}
+
+func (o KubeEnvironmentProfileOutput) ToKubeEnvironmentProfilePtrOutput() KubeEnvironmentProfilePtrOutput {
+	return o.ToKubeEnvironmentProfilePtrOutputWithContext(context.Background())
+}
+
+func (o KubeEnvironmentProfileOutput) ToKubeEnvironmentProfilePtrOutputWithContext(ctx context.Context) KubeEnvironmentProfilePtrOutput {
+	return o.ApplyT(func(v KubeEnvironmentProfile) *KubeEnvironmentProfile {
+		return &v
+	}).(KubeEnvironmentProfilePtrOutput)
+}
+
+// Resource ID of the Kubernetes Environment.
+func (o KubeEnvironmentProfileOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubeEnvironmentProfile) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+type KubeEnvironmentProfilePtrOutput struct{ *pulumi.OutputState }
+
+func (KubeEnvironmentProfilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubeEnvironmentProfile)(nil)).Elem()
+}
+
+func (o KubeEnvironmentProfilePtrOutput) ToKubeEnvironmentProfilePtrOutput() KubeEnvironmentProfilePtrOutput {
+	return o
+}
+
+func (o KubeEnvironmentProfilePtrOutput) ToKubeEnvironmentProfilePtrOutputWithContext(ctx context.Context) KubeEnvironmentProfilePtrOutput {
+	return o
+}
+
+func (o KubeEnvironmentProfilePtrOutput) Elem() KubeEnvironmentProfileOutput {
+	return o.ApplyT(func(v *KubeEnvironmentProfile) KubeEnvironmentProfile { return *v }).(KubeEnvironmentProfileOutput)
+}
+
+// Resource ID of the Kubernetes Environment.
+func (o KubeEnvironmentProfilePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubeEnvironmentProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specification for a Kubernetes Environment to use for this resource.
+type KubeEnvironmentProfileResponse struct {
+	// Resource ID of the Kubernetes Environment.
+	Id *string `pulumi:"id"`
+	// Name of the Kubernetes Environment.
+	Name string `pulumi:"name"`
+	// Resource type of the Kubernetes Environment.
+	Type string `pulumi:"type"`
+}
+
+// KubeEnvironmentProfileResponseInput is an input type that accepts KubeEnvironmentProfileResponseArgs and KubeEnvironmentProfileResponseOutput values.
+// You can construct a concrete instance of `KubeEnvironmentProfileResponseInput` via:
+//
+//          KubeEnvironmentProfileResponseArgs{...}
+type KubeEnvironmentProfileResponseInput interface {
+	pulumi.Input
+
+	ToKubeEnvironmentProfileResponseOutput() KubeEnvironmentProfileResponseOutput
+	ToKubeEnvironmentProfileResponseOutputWithContext(context.Context) KubeEnvironmentProfileResponseOutput
+}
+
+// Specification for a Kubernetes Environment to use for this resource.
+type KubeEnvironmentProfileResponseArgs struct {
+	// Resource ID of the Kubernetes Environment.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Name of the Kubernetes Environment.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Resource type of the Kubernetes Environment.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (KubeEnvironmentProfileResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubeEnvironmentProfileResponse)(nil)).Elem()
+}
+
+func (i KubeEnvironmentProfileResponseArgs) ToKubeEnvironmentProfileResponseOutput() KubeEnvironmentProfileResponseOutput {
+	return i.ToKubeEnvironmentProfileResponseOutputWithContext(context.Background())
+}
+
+func (i KubeEnvironmentProfileResponseArgs) ToKubeEnvironmentProfileResponseOutputWithContext(ctx context.Context) KubeEnvironmentProfileResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubeEnvironmentProfileResponseOutput)
+}
+
+func (i KubeEnvironmentProfileResponseArgs) ToKubeEnvironmentProfileResponsePtrOutput() KubeEnvironmentProfileResponsePtrOutput {
+	return i.ToKubeEnvironmentProfileResponsePtrOutputWithContext(context.Background())
+}
+
+func (i KubeEnvironmentProfileResponseArgs) ToKubeEnvironmentProfileResponsePtrOutputWithContext(ctx context.Context) KubeEnvironmentProfileResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubeEnvironmentProfileResponseOutput).ToKubeEnvironmentProfileResponsePtrOutputWithContext(ctx)
+}
+
+// KubeEnvironmentProfileResponsePtrInput is an input type that accepts KubeEnvironmentProfileResponseArgs, KubeEnvironmentProfileResponsePtr and KubeEnvironmentProfileResponsePtrOutput values.
+// You can construct a concrete instance of `KubeEnvironmentProfileResponsePtrInput` via:
+//
+//          KubeEnvironmentProfileResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type KubeEnvironmentProfileResponsePtrInput interface {
+	pulumi.Input
+
+	ToKubeEnvironmentProfileResponsePtrOutput() KubeEnvironmentProfileResponsePtrOutput
+	ToKubeEnvironmentProfileResponsePtrOutputWithContext(context.Context) KubeEnvironmentProfileResponsePtrOutput
+}
+
+type kubeEnvironmentProfileResponsePtrType KubeEnvironmentProfileResponseArgs
+
+func KubeEnvironmentProfileResponsePtr(v *KubeEnvironmentProfileResponseArgs) KubeEnvironmentProfileResponsePtrInput {
+	return (*kubeEnvironmentProfileResponsePtrType)(v)
+}
+
+func (*kubeEnvironmentProfileResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubeEnvironmentProfileResponse)(nil)).Elem()
+}
+
+func (i *kubeEnvironmentProfileResponsePtrType) ToKubeEnvironmentProfileResponsePtrOutput() KubeEnvironmentProfileResponsePtrOutput {
+	return i.ToKubeEnvironmentProfileResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *kubeEnvironmentProfileResponsePtrType) ToKubeEnvironmentProfileResponsePtrOutputWithContext(ctx context.Context) KubeEnvironmentProfileResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubeEnvironmentProfileResponsePtrOutput)
+}
+
+// Specification for a Kubernetes Environment to use for this resource.
+type KubeEnvironmentProfileResponseOutput struct{ *pulumi.OutputState }
+
+func (KubeEnvironmentProfileResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubeEnvironmentProfileResponse)(nil)).Elem()
+}
+
+func (o KubeEnvironmentProfileResponseOutput) ToKubeEnvironmentProfileResponseOutput() KubeEnvironmentProfileResponseOutput {
+	return o
+}
+
+func (o KubeEnvironmentProfileResponseOutput) ToKubeEnvironmentProfileResponseOutputWithContext(ctx context.Context) KubeEnvironmentProfileResponseOutput {
+	return o
+}
+
+func (o KubeEnvironmentProfileResponseOutput) ToKubeEnvironmentProfileResponsePtrOutput() KubeEnvironmentProfileResponsePtrOutput {
+	return o.ToKubeEnvironmentProfileResponsePtrOutputWithContext(context.Background())
+}
+
+func (o KubeEnvironmentProfileResponseOutput) ToKubeEnvironmentProfileResponsePtrOutputWithContext(ctx context.Context) KubeEnvironmentProfileResponsePtrOutput {
+	return o.ApplyT(func(v KubeEnvironmentProfileResponse) *KubeEnvironmentProfileResponse {
+		return &v
+	}).(KubeEnvironmentProfileResponsePtrOutput)
+}
+
+// Resource ID of the Kubernetes Environment.
+func (o KubeEnvironmentProfileResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubeEnvironmentProfileResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Name of the Kubernetes Environment.
+func (o KubeEnvironmentProfileResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v KubeEnvironmentProfileResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource type of the Kubernetes Environment.
+func (o KubeEnvironmentProfileResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v KubeEnvironmentProfileResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type KubeEnvironmentProfileResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (KubeEnvironmentProfileResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubeEnvironmentProfileResponse)(nil)).Elem()
+}
+
+func (o KubeEnvironmentProfileResponsePtrOutput) ToKubeEnvironmentProfileResponsePtrOutput() KubeEnvironmentProfileResponsePtrOutput {
+	return o
+}
+
+func (o KubeEnvironmentProfileResponsePtrOutput) ToKubeEnvironmentProfileResponsePtrOutputWithContext(ctx context.Context) KubeEnvironmentProfileResponsePtrOutput {
+	return o
+}
+
+func (o KubeEnvironmentProfileResponsePtrOutput) Elem() KubeEnvironmentProfileResponseOutput {
+	return o.ApplyT(func(v *KubeEnvironmentProfileResponse) KubeEnvironmentProfileResponse { return *v }).(KubeEnvironmentProfileResponseOutput)
+}
+
+// Resource ID of the Kubernetes Environment.
+func (o KubeEnvironmentProfileResponsePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubeEnvironmentProfileResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the Kubernetes Environment.
+func (o KubeEnvironmentProfileResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubeEnvironmentProfileResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Resource type of the Kubernetes Environment.
+func (o KubeEnvironmentProfileResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubeEnvironmentProfileResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type LegacyMicrosoftAccount struct {
+	Enabled *bool `pulumi:"enabled"`
+	// Kind of resource.
+	Kind         *string                     `pulumi:"kind"`
+	Login        *LoginScopes                `pulumi:"login"`
+	Registration *ClientRegistration         `pulumi:"registration"`
+	Validation   *AllowedAudiencesValidation `pulumi:"validation"`
+}
+
+// LegacyMicrosoftAccountInput is an input type that accepts LegacyMicrosoftAccountArgs and LegacyMicrosoftAccountOutput values.
+// You can construct a concrete instance of `LegacyMicrosoftAccountInput` via:
+//
+//          LegacyMicrosoftAccountArgs{...}
+type LegacyMicrosoftAccountInput interface {
+	pulumi.Input
+
+	ToLegacyMicrosoftAccountOutput() LegacyMicrosoftAccountOutput
+	ToLegacyMicrosoftAccountOutputWithContext(context.Context) LegacyMicrosoftAccountOutput
+}
+
+type LegacyMicrosoftAccountArgs struct {
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// Kind of resource.
+	Kind         pulumi.StringPtrInput              `pulumi:"kind"`
+	Login        LoginScopesPtrInput                `pulumi:"login"`
+	Registration ClientRegistrationPtrInput         `pulumi:"registration"`
+	Validation   AllowedAudiencesValidationPtrInput `pulumi:"validation"`
+}
+
+func (LegacyMicrosoftAccountArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LegacyMicrosoftAccount)(nil)).Elem()
+}
+
+func (i LegacyMicrosoftAccountArgs) ToLegacyMicrosoftAccountOutput() LegacyMicrosoftAccountOutput {
+	return i.ToLegacyMicrosoftAccountOutputWithContext(context.Background())
+}
+
+func (i LegacyMicrosoftAccountArgs) ToLegacyMicrosoftAccountOutputWithContext(ctx context.Context) LegacyMicrosoftAccountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LegacyMicrosoftAccountOutput)
+}
+
+func (i LegacyMicrosoftAccountArgs) ToLegacyMicrosoftAccountPtrOutput() LegacyMicrosoftAccountPtrOutput {
+	return i.ToLegacyMicrosoftAccountPtrOutputWithContext(context.Background())
+}
+
+func (i LegacyMicrosoftAccountArgs) ToLegacyMicrosoftAccountPtrOutputWithContext(ctx context.Context) LegacyMicrosoftAccountPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LegacyMicrosoftAccountOutput).ToLegacyMicrosoftAccountPtrOutputWithContext(ctx)
+}
+
+// LegacyMicrosoftAccountPtrInput is an input type that accepts LegacyMicrosoftAccountArgs, LegacyMicrosoftAccountPtr and LegacyMicrosoftAccountPtrOutput values.
+// You can construct a concrete instance of `LegacyMicrosoftAccountPtrInput` via:
+//
+//          LegacyMicrosoftAccountArgs{...}
+//
+//  or:
+//
+//          nil
+type LegacyMicrosoftAccountPtrInput interface {
+	pulumi.Input
+
+	ToLegacyMicrosoftAccountPtrOutput() LegacyMicrosoftAccountPtrOutput
+	ToLegacyMicrosoftAccountPtrOutputWithContext(context.Context) LegacyMicrosoftAccountPtrOutput
+}
+
+type legacyMicrosoftAccountPtrType LegacyMicrosoftAccountArgs
+
+func LegacyMicrosoftAccountPtr(v *LegacyMicrosoftAccountArgs) LegacyMicrosoftAccountPtrInput {
+	return (*legacyMicrosoftAccountPtrType)(v)
+}
+
+func (*legacyMicrosoftAccountPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LegacyMicrosoftAccount)(nil)).Elem()
+}
+
+func (i *legacyMicrosoftAccountPtrType) ToLegacyMicrosoftAccountPtrOutput() LegacyMicrosoftAccountPtrOutput {
+	return i.ToLegacyMicrosoftAccountPtrOutputWithContext(context.Background())
+}
+
+func (i *legacyMicrosoftAccountPtrType) ToLegacyMicrosoftAccountPtrOutputWithContext(ctx context.Context) LegacyMicrosoftAccountPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LegacyMicrosoftAccountPtrOutput)
+}
+
+type LegacyMicrosoftAccountOutput struct{ *pulumi.OutputState }
+
+func (LegacyMicrosoftAccountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LegacyMicrosoftAccount)(nil)).Elem()
+}
+
+func (o LegacyMicrosoftAccountOutput) ToLegacyMicrosoftAccountOutput() LegacyMicrosoftAccountOutput {
+	return o
+}
+
+func (o LegacyMicrosoftAccountOutput) ToLegacyMicrosoftAccountOutputWithContext(ctx context.Context) LegacyMicrosoftAccountOutput {
+	return o
+}
+
+func (o LegacyMicrosoftAccountOutput) ToLegacyMicrosoftAccountPtrOutput() LegacyMicrosoftAccountPtrOutput {
+	return o.ToLegacyMicrosoftAccountPtrOutputWithContext(context.Background())
+}
+
+func (o LegacyMicrosoftAccountOutput) ToLegacyMicrosoftAccountPtrOutputWithContext(ctx context.Context) LegacyMicrosoftAccountPtrOutput {
+	return o.ApplyT(func(v LegacyMicrosoftAccount) *LegacyMicrosoftAccount {
+		return &v
+	}).(LegacyMicrosoftAccountPtrOutput)
+}
+func (o LegacyMicrosoftAccountOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LegacyMicrosoftAccount) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// Kind of resource.
+func (o LegacyMicrosoftAccountOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LegacyMicrosoftAccount) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+func (o LegacyMicrosoftAccountOutput) Login() LoginScopesPtrOutput {
+	return o.ApplyT(func(v LegacyMicrosoftAccount) *LoginScopes { return v.Login }).(LoginScopesPtrOutput)
+}
+
+func (o LegacyMicrosoftAccountOutput) Registration() ClientRegistrationPtrOutput {
+	return o.ApplyT(func(v LegacyMicrosoftAccount) *ClientRegistration { return v.Registration }).(ClientRegistrationPtrOutput)
+}
+
+func (o LegacyMicrosoftAccountOutput) Validation() AllowedAudiencesValidationPtrOutput {
+	return o.ApplyT(func(v LegacyMicrosoftAccount) *AllowedAudiencesValidation { return v.Validation }).(AllowedAudiencesValidationPtrOutput)
+}
+
+type LegacyMicrosoftAccountPtrOutput struct{ *pulumi.OutputState }
+
+func (LegacyMicrosoftAccountPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LegacyMicrosoftAccount)(nil)).Elem()
+}
+
+func (o LegacyMicrosoftAccountPtrOutput) ToLegacyMicrosoftAccountPtrOutput() LegacyMicrosoftAccountPtrOutput {
+	return o
+}
+
+func (o LegacyMicrosoftAccountPtrOutput) ToLegacyMicrosoftAccountPtrOutputWithContext(ctx context.Context) LegacyMicrosoftAccountPtrOutput {
+	return o
+}
+
+func (o LegacyMicrosoftAccountPtrOutput) Elem() LegacyMicrosoftAccountOutput {
+	return o.ApplyT(func(v *LegacyMicrosoftAccount) LegacyMicrosoftAccount { return *v }).(LegacyMicrosoftAccountOutput)
+}
+
+func (o LegacyMicrosoftAccountPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LegacyMicrosoftAccount) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Kind of resource.
+func (o LegacyMicrosoftAccountPtrOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LegacyMicrosoftAccount) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Kind
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o LegacyMicrosoftAccountPtrOutput) Login() LoginScopesPtrOutput {
+	return o.ApplyT(func(v *LegacyMicrosoftAccount) *LoginScopes {
+		if v == nil {
+			return nil
+		}
+		return v.Login
+	}).(LoginScopesPtrOutput)
+}
+
+func (o LegacyMicrosoftAccountPtrOutput) Registration() ClientRegistrationPtrOutput {
+	return o.ApplyT(func(v *LegacyMicrosoftAccount) *ClientRegistration {
+		if v == nil {
+			return nil
+		}
+		return v.Registration
+	}).(ClientRegistrationPtrOutput)
+}
+
+func (o LegacyMicrosoftAccountPtrOutput) Validation() AllowedAudiencesValidationPtrOutput {
+	return o.ApplyT(func(v *LegacyMicrosoftAccount) *AllowedAudiencesValidation {
+		if v == nil {
+			return nil
+		}
+		return v.Validation
+	}).(AllowedAudiencesValidationPtrOutput)
+}
+
+type LegacyMicrosoftAccountResponse struct {
+	Enabled *bool `pulumi:"enabled"`
+	// Resource Id.
+	Id string `pulumi:"id"`
+	// Kind of resource.
+	Kind  *string              `pulumi:"kind"`
+	Login *LoginScopesResponse `pulumi:"login"`
+	// Resource Name.
+	Name         string                      `pulumi:"name"`
+	Registration *ClientRegistrationResponse `pulumi:"registration"`
+	// Resource type.
+	Type       string                              `pulumi:"type"`
+	Validation *AllowedAudiencesValidationResponse `pulumi:"validation"`
+}
+
+// LegacyMicrosoftAccountResponseInput is an input type that accepts LegacyMicrosoftAccountResponseArgs and LegacyMicrosoftAccountResponseOutput values.
+// You can construct a concrete instance of `LegacyMicrosoftAccountResponseInput` via:
+//
+//          LegacyMicrosoftAccountResponseArgs{...}
+type LegacyMicrosoftAccountResponseInput interface {
+	pulumi.Input
+
+	ToLegacyMicrosoftAccountResponseOutput() LegacyMicrosoftAccountResponseOutput
+	ToLegacyMicrosoftAccountResponseOutputWithContext(context.Context) LegacyMicrosoftAccountResponseOutput
+}
+
+type LegacyMicrosoftAccountResponseArgs struct {
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// Resource Id.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Kind of resource.
+	Kind  pulumi.StringPtrInput       `pulumi:"kind"`
+	Login LoginScopesResponsePtrInput `pulumi:"login"`
+	// Resource Name.
+	Name         pulumi.StringInput                 `pulumi:"name"`
+	Registration ClientRegistrationResponsePtrInput `pulumi:"registration"`
+	// Resource type.
+	Type       pulumi.StringInput                         `pulumi:"type"`
+	Validation AllowedAudiencesValidationResponsePtrInput `pulumi:"validation"`
+}
+
+func (LegacyMicrosoftAccountResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LegacyMicrosoftAccountResponse)(nil)).Elem()
+}
+
+func (i LegacyMicrosoftAccountResponseArgs) ToLegacyMicrosoftAccountResponseOutput() LegacyMicrosoftAccountResponseOutput {
+	return i.ToLegacyMicrosoftAccountResponseOutputWithContext(context.Background())
+}
+
+func (i LegacyMicrosoftAccountResponseArgs) ToLegacyMicrosoftAccountResponseOutputWithContext(ctx context.Context) LegacyMicrosoftAccountResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LegacyMicrosoftAccountResponseOutput)
+}
+
+func (i LegacyMicrosoftAccountResponseArgs) ToLegacyMicrosoftAccountResponsePtrOutput() LegacyMicrosoftAccountResponsePtrOutput {
+	return i.ToLegacyMicrosoftAccountResponsePtrOutputWithContext(context.Background())
+}
+
+func (i LegacyMicrosoftAccountResponseArgs) ToLegacyMicrosoftAccountResponsePtrOutputWithContext(ctx context.Context) LegacyMicrosoftAccountResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LegacyMicrosoftAccountResponseOutput).ToLegacyMicrosoftAccountResponsePtrOutputWithContext(ctx)
+}
+
+// LegacyMicrosoftAccountResponsePtrInput is an input type that accepts LegacyMicrosoftAccountResponseArgs, LegacyMicrosoftAccountResponsePtr and LegacyMicrosoftAccountResponsePtrOutput values.
+// You can construct a concrete instance of `LegacyMicrosoftAccountResponsePtrInput` via:
+//
+//          LegacyMicrosoftAccountResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type LegacyMicrosoftAccountResponsePtrInput interface {
+	pulumi.Input
+
+	ToLegacyMicrosoftAccountResponsePtrOutput() LegacyMicrosoftAccountResponsePtrOutput
+	ToLegacyMicrosoftAccountResponsePtrOutputWithContext(context.Context) LegacyMicrosoftAccountResponsePtrOutput
+}
+
+type legacyMicrosoftAccountResponsePtrType LegacyMicrosoftAccountResponseArgs
+
+func LegacyMicrosoftAccountResponsePtr(v *LegacyMicrosoftAccountResponseArgs) LegacyMicrosoftAccountResponsePtrInput {
+	return (*legacyMicrosoftAccountResponsePtrType)(v)
+}
+
+func (*legacyMicrosoftAccountResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LegacyMicrosoftAccountResponse)(nil)).Elem()
+}
+
+func (i *legacyMicrosoftAccountResponsePtrType) ToLegacyMicrosoftAccountResponsePtrOutput() LegacyMicrosoftAccountResponsePtrOutput {
+	return i.ToLegacyMicrosoftAccountResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *legacyMicrosoftAccountResponsePtrType) ToLegacyMicrosoftAccountResponsePtrOutputWithContext(ctx context.Context) LegacyMicrosoftAccountResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LegacyMicrosoftAccountResponsePtrOutput)
+}
+
+type LegacyMicrosoftAccountResponseOutput struct{ *pulumi.OutputState }
+
+func (LegacyMicrosoftAccountResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LegacyMicrosoftAccountResponse)(nil)).Elem()
+}
+
+func (o LegacyMicrosoftAccountResponseOutput) ToLegacyMicrosoftAccountResponseOutput() LegacyMicrosoftAccountResponseOutput {
+	return o
+}
+
+func (o LegacyMicrosoftAccountResponseOutput) ToLegacyMicrosoftAccountResponseOutputWithContext(ctx context.Context) LegacyMicrosoftAccountResponseOutput {
+	return o
+}
+
+func (o LegacyMicrosoftAccountResponseOutput) ToLegacyMicrosoftAccountResponsePtrOutput() LegacyMicrosoftAccountResponsePtrOutput {
+	return o.ToLegacyMicrosoftAccountResponsePtrOutputWithContext(context.Background())
+}
+
+func (o LegacyMicrosoftAccountResponseOutput) ToLegacyMicrosoftAccountResponsePtrOutputWithContext(ctx context.Context) LegacyMicrosoftAccountResponsePtrOutput {
+	return o.ApplyT(func(v LegacyMicrosoftAccountResponse) *LegacyMicrosoftAccountResponse {
+		return &v
+	}).(LegacyMicrosoftAccountResponsePtrOutput)
+}
+func (o LegacyMicrosoftAccountResponseOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LegacyMicrosoftAccountResponse) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// Resource Id.
+func (o LegacyMicrosoftAccountResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LegacyMicrosoftAccountResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Kind of resource.
+func (o LegacyMicrosoftAccountResponseOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LegacyMicrosoftAccountResponse) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+func (o LegacyMicrosoftAccountResponseOutput) Login() LoginScopesResponsePtrOutput {
+	return o.ApplyT(func(v LegacyMicrosoftAccountResponse) *LoginScopesResponse { return v.Login }).(LoginScopesResponsePtrOutput)
+}
+
+// Resource Name.
+func (o LegacyMicrosoftAccountResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LegacyMicrosoftAccountResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LegacyMicrosoftAccountResponseOutput) Registration() ClientRegistrationResponsePtrOutput {
+	return o.ApplyT(func(v LegacyMicrosoftAccountResponse) *ClientRegistrationResponse { return v.Registration }).(ClientRegistrationResponsePtrOutput)
+}
+
+// Resource type.
+func (o LegacyMicrosoftAccountResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LegacyMicrosoftAccountResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func (o LegacyMicrosoftAccountResponseOutput) Validation() AllowedAudiencesValidationResponsePtrOutput {
+	return o.ApplyT(func(v LegacyMicrosoftAccountResponse) *AllowedAudiencesValidationResponse { return v.Validation }).(AllowedAudiencesValidationResponsePtrOutput)
+}
+
+type LegacyMicrosoftAccountResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (LegacyMicrosoftAccountResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LegacyMicrosoftAccountResponse)(nil)).Elem()
+}
+
+func (o LegacyMicrosoftAccountResponsePtrOutput) ToLegacyMicrosoftAccountResponsePtrOutput() LegacyMicrosoftAccountResponsePtrOutput {
+	return o
+}
+
+func (o LegacyMicrosoftAccountResponsePtrOutput) ToLegacyMicrosoftAccountResponsePtrOutputWithContext(ctx context.Context) LegacyMicrosoftAccountResponsePtrOutput {
+	return o
+}
+
+func (o LegacyMicrosoftAccountResponsePtrOutput) Elem() LegacyMicrosoftAccountResponseOutput {
+	return o.ApplyT(func(v *LegacyMicrosoftAccountResponse) LegacyMicrosoftAccountResponse { return *v }).(LegacyMicrosoftAccountResponseOutput)
+}
+
+func (o LegacyMicrosoftAccountResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LegacyMicrosoftAccountResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Resource Id.
+func (o LegacyMicrosoftAccountResponsePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LegacyMicrosoftAccountResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// Kind of resource.
+func (o LegacyMicrosoftAccountResponsePtrOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LegacyMicrosoftAccountResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Kind
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o LegacyMicrosoftAccountResponsePtrOutput) Login() LoginScopesResponsePtrOutput {
+	return o.ApplyT(func(v *LegacyMicrosoftAccountResponse) *LoginScopesResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Login
+	}).(LoginScopesResponsePtrOutput)
+}
+
+// Resource Name.
+func (o LegacyMicrosoftAccountResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LegacyMicrosoftAccountResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o LegacyMicrosoftAccountResponsePtrOutput) Registration() ClientRegistrationResponsePtrOutput {
+	return o.ApplyT(func(v *LegacyMicrosoftAccountResponse) *ClientRegistrationResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Registration
+	}).(ClientRegistrationResponsePtrOutput)
+}
+
+// Resource type.
+func (o LegacyMicrosoftAccountResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LegacyMicrosoftAccountResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o LegacyMicrosoftAccountResponsePtrOutput) Validation() AllowedAudiencesValidationResponsePtrOutput {
+	return o.ApplyT(func(v *LegacyMicrosoftAccountResponse) *AllowedAudiencesValidationResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Validation
+	}).(AllowedAudiencesValidationResponsePtrOutput)
 }
 
 type Login struct {
@@ -23354,9 +26440,7 @@ type LoginResponse struct {
 	Nonce                         *NonceResponse       `pulumi:"nonce"`
 	PreserveUrlFragmentsForLogins *bool                `pulumi:"preserveUrlFragmentsForLogins"`
 	Routes                        *LoginRoutesResponse `pulumi:"routes"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponse  `pulumi:"systemData"`
-	TokenStore *TokenStoreResponse `pulumi:"tokenStore"`
+	TokenStore                    *TokenStoreResponse  `pulumi:"tokenStore"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }
@@ -23384,9 +26468,7 @@ type LoginResponseArgs struct {
 	Nonce                         NonceResponsePtrInput       `pulumi:"nonce"`
 	PreserveUrlFragmentsForLogins pulumi.BoolPtrInput         `pulumi:"preserveUrlFragmentsForLogins"`
 	Routes                        LoginRoutesResponsePtrInput `pulumi:"routes"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponseInput    `pulumi:"systemData"`
-	TokenStore TokenStoreResponsePtrInput `pulumi:"tokenStore"`
+	TokenStore                    TokenStoreResponsePtrInput  `pulumi:"tokenStore"`
 	// Resource type.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -23502,11 +26584,6 @@ func (o LoginResponseOutput) Routes() LoginRoutesResponsePtrOutput {
 	return o.ApplyT(func(v LoginResponse) *LoginRoutesResponse { return v.Routes }).(LoginRoutesResponsePtrOutput)
 }
 
-// The system metadata relating to this resource.
-func (o LoginResponseOutput) SystemData() SystemDataResponseOutput {
-	return o.ApplyT(func(v LoginResponse) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
-}
-
 func (o LoginResponseOutput) TokenStore() TokenStoreResponsePtrOutput {
 	return o.ApplyT(func(v LoginResponse) *TokenStoreResponse { return v.TokenStore }).(TokenStoreResponsePtrOutput)
 }
@@ -23607,16 +26684,6 @@ func (o LoginResponsePtrOutput) Routes() LoginRoutesResponsePtrOutput {
 		}
 		return v.Routes
 	}).(LoginRoutesResponsePtrOutput)
-}
-
-// The system metadata relating to this resource.
-func (o LoginResponsePtrOutput) SystemData() SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v *LoginResponse) *SystemDataResponse {
-		if v == nil {
-			return nil
-		}
-		return &v.SystemData
-	}).(SystemDataResponsePtrOutput)
 }
 
 func (o LoginResponsePtrOutput) TokenStore() TokenStoreResponsePtrOutput {
@@ -23792,8 +26859,6 @@ type LoginRoutesResponse struct {
 	LogoutEndpoint *string `pulumi:"logoutEndpoint"`
 	// Resource Name.
 	Name string `pulumi:"name"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }
@@ -23817,8 +26882,6 @@ type LoginRoutesResponseArgs struct {
 	LogoutEndpoint pulumi.StringPtrInput `pulumi:"logoutEndpoint"`
 	// Resource Name.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponseInput `pulumi:"systemData"`
 	// Resource type.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -23919,11 +26982,6 @@ func (o LoginRoutesResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LoginRoutesResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The system metadata relating to this resource.
-func (o LoginRoutesResponseOutput) SystemData() SystemDataResponseOutput {
-	return o.ApplyT(func(v LoginRoutesResponse) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
-}
-
 // Resource type.
 func (o LoginRoutesResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LoginRoutesResponse) string { return v.Type }).(pulumi.StringOutput)
@@ -23984,16 +27042,6 @@ func (o LoginRoutesResponsePtrOutput) Name() pulumi.StringPtrOutput {
 		}
 		return &v.Name
 	}).(pulumi.StringPtrOutput)
-}
-
-// The system metadata relating to this resource.
-func (o LoginRoutesResponsePtrOutput) SystemData() SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v *LoginRoutesResponse) *SystemDataResponse {
-		if v == nil {
-			return nil
-		}
-		return &v.SystemData
-	}).(SystemDataResponsePtrOutput)
 }
 
 // Resource type.
@@ -24160,8 +27208,6 @@ type LoginScopesResponse struct {
 	// Resource Name.
 	Name   string   `pulumi:"name"`
 	Scopes []string `pulumi:"scopes"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }
@@ -24185,8 +27231,6 @@ type LoginScopesResponseArgs struct {
 	// Resource Name.
 	Name   pulumi.StringInput      `pulumi:"name"`
 	Scopes pulumi.StringArrayInput `pulumi:"scopes"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponseInput `pulumi:"systemData"`
 	// Resource type.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -24287,11 +27331,6 @@ func (o LoginScopesResponseOutput) Scopes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LoginScopesResponse) []string { return v.Scopes }).(pulumi.StringArrayOutput)
 }
 
-// The system metadata relating to this resource.
-func (o LoginScopesResponseOutput) SystemData() SystemDataResponseOutput {
-	return o.ApplyT(func(v LoginScopesResponse) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
-}
-
 // Resource type.
 func (o LoginScopesResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LoginScopesResponse) string { return v.Type }).(pulumi.StringOutput)
@@ -24352,16 +27391,6 @@ func (o LoginScopesResponsePtrOutput) Scopes() pulumi.StringArrayOutput {
 		}
 		return v.Scopes
 	}).(pulumi.StringArrayOutput)
-}
-
-// The system metadata relating to this resource.
-func (o LoginScopesResponsePtrOutput) SystemData() SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v *LoginScopesResponse) *SystemDataResponse {
-		if v == nil {
-			return nil
-		}
-		return &v.SystemData
-	}).(SystemDataResponsePtrOutput)
 }
 
 // Resource type.
@@ -25044,260 +28073,6 @@ func (o NameValuePairResponseArrayOutput) Index(i pulumi.IntInput) NameValuePair
 	}).(NameValuePairResponseOutput)
 }
 
-// Network access control entry.
-type NetworkAccessControlEntry struct {
-	// Action object.
-	Action *string `pulumi:"action"`
-	// Description of network access control entry.
-	Description *string `pulumi:"description"`
-	// Order of precedence.
-	Order *int `pulumi:"order"`
-	// Remote subnet.
-	RemoteSubnet *string `pulumi:"remoteSubnet"`
-}
-
-// NetworkAccessControlEntryInput is an input type that accepts NetworkAccessControlEntryArgs and NetworkAccessControlEntryOutput values.
-// You can construct a concrete instance of `NetworkAccessControlEntryInput` via:
-//
-//          NetworkAccessControlEntryArgs{...}
-type NetworkAccessControlEntryInput interface {
-	pulumi.Input
-
-	ToNetworkAccessControlEntryOutput() NetworkAccessControlEntryOutput
-	ToNetworkAccessControlEntryOutputWithContext(context.Context) NetworkAccessControlEntryOutput
-}
-
-// Network access control entry.
-type NetworkAccessControlEntryArgs struct {
-	// Action object.
-	Action *AccessControlEntryAction `pulumi:"action"`
-	// Description of network access control entry.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Order of precedence.
-	Order pulumi.IntPtrInput `pulumi:"order"`
-	// Remote subnet.
-	RemoteSubnet pulumi.StringPtrInput `pulumi:"remoteSubnet"`
-}
-
-func (NetworkAccessControlEntryArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkAccessControlEntry)(nil)).Elem()
-}
-
-func (i NetworkAccessControlEntryArgs) ToNetworkAccessControlEntryOutput() NetworkAccessControlEntryOutput {
-	return i.ToNetworkAccessControlEntryOutputWithContext(context.Background())
-}
-
-func (i NetworkAccessControlEntryArgs) ToNetworkAccessControlEntryOutputWithContext(ctx context.Context) NetworkAccessControlEntryOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetworkAccessControlEntryOutput)
-}
-
-// NetworkAccessControlEntryArrayInput is an input type that accepts NetworkAccessControlEntryArray and NetworkAccessControlEntryArrayOutput values.
-// You can construct a concrete instance of `NetworkAccessControlEntryArrayInput` via:
-//
-//          NetworkAccessControlEntryArray{ NetworkAccessControlEntryArgs{...} }
-type NetworkAccessControlEntryArrayInput interface {
-	pulumi.Input
-
-	ToNetworkAccessControlEntryArrayOutput() NetworkAccessControlEntryArrayOutput
-	ToNetworkAccessControlEntryArrayOutputWithContext(context.Context) NetworkAccessControlEntryArrayOutput
-}
-
-type NetworkAccessControlEntryArray []NetworkAccessControlEntryInput
-
-func (NetworkAccessControlEntryArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]NetworkAccessControlEntry)(nil)).Elem()
-}
-
-func (i NetworkAccessControlEntryArray) ToNetworkAccessControlEntryArrayOutput() NetworkAccessControlEntryArrayOutput {
-	return i.ToNetworkAccessControlEntryArrayOutputWithContext(context.Background())
-}
-
-func (i NetworkAccessControlEntryArray) ToNetworkAccessControlEntryArrayOutputWithContext(ctx context.Context) NetworkAccessControlEntryArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetworkAccessControlEntryArrayOutput)
-}
-
-// Network access control entry.
-type NetworkAccessControlEntryOutput struct{ *pulumi.OutputState }
-
-func (NetworkAccessControlEntryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkAccessControlEntry)(nil)).Elem()
-}
-
-func (o NetworkAccessControlEntryOutput) ToNetworkAccessControlEntryOutput() NetworkAccessControlEntryOutput {
-	return o
-}
-
-func (o NetworkAccessControlEntryOutput) ToNetworkAccessControlEntryOutputWithContext(ctx context.Context) NetworkAccessControlEntryOutput {
-	return o
-}
-
-// Action object.
-func (o NetworkAccessControlEntryOutput) Action() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v NetworkAccessControlEntry) *string { return v.Action }).(pulumi.StringPtrOutput)
-}
-
-// Description of network access control entry.
-func (o NetworkAccessControlEntryOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v NetworkAccessControlEntry) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// Order of precedence.
-func (o NetworkAccessControlEntryOutput) Order() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v NetworkAccessControlEntry) *int { return v.Order }).(pulumi.IntPtrOutput)
-}
-
-// Remote subnet.
-func (o NetworkAccessControlEntryOutput) RemoteSubnet() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v NetworkAccessControlEntry) *string { return v.RemoteSubnet }).(pulumi.StringPtrOutput)
-}
-
-type NetworkAccessControlEntryArrayOutput struct{ *pulumi.OutputState }
-
-func (NetworkAccessControlEntryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]NetworkAccessControlEntry)(nil)).Elem()
-}
-
-func (o NetworkAccessControlEntryArrayOutput) ToNetworkAccessControlEntryArrayOutput() NetworkAccessControlEntryArrayOutput {
-	return o
-}
-
-func (o NetworkAccessControlEntryArrayOutput) ToNetworkAccessControlEntryArrayOutputWithContext(ctx context.Context) NetworkAccessControlEntryArrayOutput {
-	return o
-}
-
-func (o NetworkAccessControlEntryArrayOutput) Index(i pulumi.IntInput) NetworkAccessControlEntryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NetworkAccessControlEntry {
-		return vs[0].([]NetworkAccessControlEntry)[vs[1].(int)]
-	}).(NetworkAccessControlEntryOutput)
-}
-
-// Network access control entry.
-type NetworkAccessControlEntryResponse struct {
-	// Action object.
-	Action *string `pulumi:"action"`
-	// Description of network access control entry.
-	Description *string `pulumi:"description"`
-	// Order of precedence.
-	Order *int `pulumi:"order"`
-	// Remote subnet.
-	RemoteSubnet *string `pulumi:"remoteSubnet"`
-}
-
-// NetworkAccessControlEntryResponseInput is an input type that accepts NetworkAccessControlEntryResponseArgs and NetworkAccessControlEntryResponseOutput values.
-// You can construct a concrete instance of `NetworkAccessControlEntryResponseInput` via:
-//
-//          NetworkAccessControlEntryResponseArgs{...}
-type NetworkAccessControlEntryResponseInput interface {
-	pulumi.Input
-
-	ToNetworkAccessControlEntryResponseOutput() NetworkAccessControlEntryResponseOutput
-	ToNetworkAccessControlEntryResponseOutputWithContext(context.Context) NetworkAccessControlEntryResponseOutput
-}
-
-// Network access control entry.
-type NetworkAccessControlEntryResponseArgs struct {
-	// Action object.
-	Action pulumi.StringPtrInput `pulumi:"action"`
-	// Description of network access control entry.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Order of precedence.
-	Order pulumi.IntPtrInput `pulumi:"order"`
-	// Remote subnet.
-	RemoteSubnet pulumi.StringPtrInput `pulumi:"remoteSubnet"`
-}
-
-func (NetworkAccessControlEntryResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkAccessControlEntryResponse)(nil)).Elem()
-}
-
-func (i NetworkAccessControlEntryResponseArgs) ToNetworkAccessControlEntryResponseOutput() NetworkAccessControlEntryResponseOutput {
-	return i.ToNetworkAccessControlEntryResponseOutputWithContext(context.Background())
-}
-
-func (i NetworkAccessControlEntryResponseArgs) ToNetworkAccessControlEntryResponseOutputWithContext(ctx context.Context) NetworkAccessControlEntryResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetworkAccessControlEntryResponseOutput)
-}
-
-// NetworkAccessControlEntryResponseArrayInput is an input type that accepts NetworkAccessControlEntryResponseArray and NetworkAccessControlEntryResponseArrayOutput values.
-// You can construct a concrete instance of `NetworkAccessControlEntryResponseArrayInput` via:
-//
-//          NetworkAccessControlEntryResponseArray{ NetworkAccessControlEntryResponseArgs{...} }
-type NetworkAccessControlEntryResponseArrayInput interface {
-	pulumi.Input
-
-	ToNetworkAccessControlEntryResponseArrayOutput() NetworkAccessControlEntryResponseArrayOutput
-	ToNetworkAccessControlEntryResponseArrayOutputWithContext(context.Context) NetworkAccessControlEntryResponseArrayOutput
-}
-
-type NetworkAccessControlEntryResponseArray []NetworkAccessControlEntryResponseInput
-
-func (NetworkAccessControlEntryResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]NetworkAccessControlEntryResponse)(nil)).Elem()
-}
-
-func (i NetworkAccessControlEntryResponseArray) ToNetworkAccessControlEntryResponseArrayOutput() NetworkAccessControlEntryResponseArrayOutput {
-	return i.ToNetworkAccessControlEntryResponseArrayOutputWithContext(context.Background())
-}
-
-func (i NetworkAccessControlEntryResponseArray) ToNetworkAccessControlEntryResponseArrayOutputWithContext(ctx context.Context) NetworkAccessControlEntryResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetworkAccessControlEntryResponseArrayOutput)
-}
-
-// Network access control entry.
-type NetworkAccessControlEntryResponseOutput struct{ *pulumi.OutputState }
-
-func (NetworkAccessControlEntryResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkAccessControlEntryResponse)(nil)).Elem()
-}
-
-func (o NetworkAccessControlEntryResponseOutput) ToNetworkAccessControlEntryResponseOutput() NetworkAccessControlEntryResponseOutput {
-	return o
-}
-
-func (o NetworkAccessControlEntryResponseOutput) ToNetworkAccessControlEntryResponseOutputWithContext(ctx context.Context) NetworkAccessControlEntryResponseOutput {
-	return o
-}
-
-// Action object.
-func (o NetworkAccessControlEntryResponseOutput) Action() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v NetworkAccessControlEntryResponse) *string { return v.Action }).(pulumi.StringPtrOutput)
-}
-
-// Description of network access control entry.
-func (o NetworkAccessControlEntryResponseOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v NetworkAccessControlEntryResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// Order of precedence.
-func (o NetworkAccessControlEntryResponseOutput) Order() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v NetworkAccessControlEntryResponse) *int { return v.Order }).(pulumi.IntPtrOutput)
-}
-
-// Remote subnet.
-func (o NetworkAccessControlEntryResponseOutput) RemoteSubnet() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v NetworkAccessControlEntryResponse) *string { return v.RemoteSubnet }).(pulumi.StringPtrOutput)
-}
-
-type NetworkAccessControlEntryResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (NetworkAccessControlEntryResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]NetworkAccessControlEntryResponse)(nil)).Elem()
-}
-
-func (o NetworkAccessControlEntryResponseArrayOutput) ToNetworkAccessControlEntryResponseArrayOutput() NetworkAccessControlEntryResponseArrayOutput {
-	return o
-}
-
-func (o NetworkAccessControlEntryResponseArrayOutput) ToNetworkAccessControlEntryResponseArrayOutputWithContext(ctx context.Context) NetworkAccessControlEntryResponseArrayOutput {
-	return o
-}
-
-func (o NetworkAccessControlEntryResponseArrayOutput) Index(i pulumi.IntInput) NetworkAccessControlEntryResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NetworkAccessControlEntryResponse {
-		return vs[0].([]NetworkAccessControlEntryResponse)[vs[1].(int)]
-	}).(NetworkAccessControlEntryResponseOutput)
-}
-
 type Nonce struct {
 	// Kind of resource.
 	Kind                    *string `pulumi:"kind"`
@@ -25467,8 +28242,6 @@ type NonceResponse struct {
 	// Resource Name.
 	Name                    string  `pulumi:"name"`
 	NonceExpirationInterval *string `pulumi:"nonceExpirationInterval"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type          string `pulumi:"type"`
 	ValidateNonce *bool  `pulumi:"validateNonce"`
@@ -25493,8 +28266,6 @@ type NonceResponseArgs struct {
 	// Resource Name.
 	Name                    pulumi.StringInput    `pulumi:"name"`
 	NonceExpirationInterval pulumi.StringPtrInput `pulumi:"nonceExpirationInterval"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponseInput `pulumi:"systemData"`
 	// Resource type.
 	Type          pulumi.StringInput  `pulumi:"type"`
 	ValidateNonce pulumi.BoolPtrInput `pulumi:"validateNonce"`
@@ -25596,11 +28367,6 @@ func (o NonceResponseOutput) NonceExpirationInterval() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NonceResponse) *string { return v.NonceExpirationInterval }).(pulumi.StringPtrOutput)
 }
 
-// The system metadata relating to this resource.
-func (o NonceResponseOutput) SystemData() SystemDataResponseOutput {
-	return o.ApplyT(func(v NonceResponse) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
-}
-
 // Resource type.
 func (o NonceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v NonceResponse) string { return v.Type }).(pulumi.StringOutput)
@@ -25665,16 +28431,6 @@ func (o NonceResponsePtrOutput) NonceExpirationInterval() pulumi.StringPtrOutput
 		}
 		return v.NonceExpirationInterval
 	}).(pulumi.StringPtrOutput)
-}
-
-// The system metadata relating to this resource.
-func (o NonceResponsePtrOutput) SystemData() SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v *NonceResponse) *SystemDataResponse {
-		if v == nil {
-			return nil
-		}
-		return &v.SystemData
-	}).(SystemDataResponsePtrOutput)
 }
 
 // Resource type.
@@ -25865,8 +28621,6 @@ type OpenIdConnectClientCredentialResponse struct {
 	Method *string `pulumi:"method"`
 	// Resource Name.
 	Name string `pulumi:"name"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }
@@ -25891,8 +28645,6 @@ type OpenIdConnectClientCredentialResponseArgs struct {
 	Method pulumi.StringPtrInput `pulumi:"method"`
 	// Resource Name.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponseInput `pulumi:"systemData"`
 	// Resource type.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -25996,11 +28748,6 @@ func (o OpenIdConnectClientCredentialResponseOutput) Name() pulumi.StringOutput 
 	return o.ApplyT(func(v OpenIdConnectClientCredentialResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The system metadata relating to this resource.
-func (o OpenIdConnectClientCredentialResponseOutput) SystemData() SystemDataResponseOutput {
-	return o.ApplyT(func(v OpenIdConnectClientCredentialResponse) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
-}
-
 // Resource type.
 func (o OpenIdConnectClientCredentialResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v OpenIdConnectClientCredentialResponse) string { return v.Type }).(pulumi.StringOutput)
@@ -26070,16 +28817,6 @@ func (o OpenIdConnectClientCredentialResponsePtrOutput) Name() pulumi.StringPtrO
 		}
 		return &v.Name
 	}).(pulumi.StringPtrOutput)
-}
-
-// The system metadata relating to this resource.
-func (o OpenIdConnectClientCredentialResponsePtrOutput) SystemData() SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v *OpenIdConnectClientCredentialResponse) *SystemDataResponse {
-		if v == nil {
-			return nil
-		}
-		return &v.SystemData
-	}).(SystemDataResponsePtrOutput)
 }
 
 // Resource type.
@@ -26306,10 +29043,8 @@ type OpenIdConnectConfigResponse struct {
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// Resource Name.
-	Name string `pulumi:"name"`
-	// The system metadata relating to this resource.
-	SystemData    SystemDataResponse `pulumi:"systemData"`
-	TokenEndpoint *string            `pulumi:"tokenEndpoint"`
+	Name          string  `pulumi:"name"`
+	TokenEndpoint *string `pulumi:"tokenEndpoint"`
 	// Resource type.
 	Type                         string  `pulumi:"type"`
 	WellKnownOpenIdConfiguration *string `pulumi:"wellKnownOpenIdConfiguration"`
@@ -26335,10 +29070,8 @@ type OpenIdConnectConfigResponseArgs struct {
 	// Kind of resource.
 	Kind pulumi.StringPtrInput `pulumi:"kind"`
 	// Resource Name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The system metadata relating to this resource.
-	SystemData    SystemDataResponseInput `pulumi:"systemData"`
-	TokenEndpoint pulumi.StringPtrInput   `pulumi:"tokenEndpoint"`
+	Name          pulumi.StringInput    `pulumi:"name"`
+	TokenEndpoint pulumi.StringPtrInput `pulumi:"tokenEndpoint"`
 	// Resource type.
 	Type                         pulumi.StringInput    `pulumi:"type"`
 	WellKnownOpenIdConfiguration pulumi.StringPtrInput `pulumi:"wellKnownOpenIdConfiguration"`
@@ -26447,11 +29180,6 @@ func (o OpenIdConnectConfigResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v OpenIdConnectConfigResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The system metadata relating to this resource.
-func (o OpenIdConnectConfigResponseOutput) SystemData() SystemDataResponseOutput {
-	return o.ApplyT(func(v OpenIdConnectConfigResponse) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
-}
-
 func (o OpenIdConnectConfigResponseOutput) TokenEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OpenIdConnectConfigResponse) *string { return v.TokenEndpoint }).(pulumi.StringPtrOutput)
 }
@@ -26538,16 +29266,6 @@ func (o OpenIdConnectConfigResponsePtrOutput) Name() pulumi.StringPtrOutput {
 		}
 		return &v.Name
 	}).(pulumi.StringPtrOutput)
-}
-
-// The system metadata relating to this resource.
-func (o OpenIdConnectConfigResponsePtrOutput) SystemData() SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v *OpenIdConnectConfigResponse) *SystemDataResponse {
-		if v == nil {
-			return nil
-		}
-		return &v.SystemData
-	}).(SystemDataResponsePtrOutput)
 }
 
 func (o OpenIdConnectConfigResponsePtrOutput) TokenEndpoint() pulumi.StringPtrOutput {
@@ -26748,8 +29466,6 @@ type OpenIdConnectLoginResponse struct {
 	Name          string   `pulumi:"name"`
 	NameClaimType *string  `pulumi:"nameClaimType"`
 	Scopes        []string `pulumi:"scopes"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }
@@ -26774,8 +29490,6 @@ type OpenIdConnectLoginResponseArgs struct {
 	Name          pulumi.StringInput      `pulumi:"name"`
 	NameClaimType pulumi.StringPtrInput   `pulumi:"nameClaimType"`
 	Scopes        pulumi.StringArrayInput `pulumi:"scopes"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponseInput `pulumi:"systemData"`
 	// Resource type.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -26880,11 +29594,6 @@ func (o OpenIdConnectLoginResponseOutput) Scopes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v OpenIdConnectLoginResponse) []string { return v.Scopes }).(pulumi.StringArrayOutput)
 }
 
-// The system metadata relating to this resource.
-func (o OpenIdConnectLoginResponseOutput) SystemData() SystemDataResponseOutput {
-	return o.ApplyT(func(v OpenIdConnectLoginResponse) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
-}
-
 // Resource type.
 func (o OpenIdConnectLoginResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v OpenIdConnectLoginResponse) string { return v.Type }).(pulumi.StringOutput)
@@ -26954,16 +29663,6 @@ func (o OpenIdConnectLoginResponsePtrOutput) Scopes() pulumi.StringArrayOutput {
 		}
 		return v.Scopes
 	}).(pulumi.StringArrayOutput)
-}
-
-// The system metadata relating to this resource.
-func (o OpenIdConnectLoginResponsePtrOutput) SystemData() SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v *OpenIdConnectLoginResponse) *SystemDataResponse {
-		if v == nil {
-			return nil
-		}
-		return &v.SystemData
-	}).(SystemDataResponsePtrOutput)
 }
 
 // Resource type.
@@ -27161,8 +29860,6 @@ type OpenIdConnectRegistrationResponse struct {
 	// Resource Name.
 	Name                       string                       `pulumi:"name"`
 	OpenIdConnectConfiguration *OpenIdConnectConfigResponse `pulumi:"openIdConnectConfiguration"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }
@@ -27188,8 +29885,6 @@ type OpenIdConnectRegistrationResponseArgs struct {
 	// Resource Name.
 	Name                       pulumi.StringInput                  `pulumi:"name"`
 	OpenIdConnectConfiguration OpenIdConnectConfigResponsePtrInput `pulumi:"openIdConnectConfiguration"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponseInput `pulumi:"systemData"`
 	// Resource type.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -27301,11 +29996,6 @@ func (o OpenIdConnectRegistrationResponseOutput) OpenIdConnectConfiguration() Op
 	}).(OpenIdConnectConfigResponsePtrOutput)
 }
 
-// The system metadata relating to this resource.
-func (o OpenIdConnectRegistrationResponseOutput) SystemData() SystemDataResponseOutput {
-	return o.ApplyT(func(v OpenIdConnectRegistrationResponse) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
-}
-
 // Resource type.
 func (o OpenIdConnectRegistrationResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v OpenIdConnectRegistrationResponse) string { return v.Type }).(pulumi.StringOutput)
@@ -27384,16 +30074,6 @@ func (o OpenIdConnectRegistrationResponsePtrOutput) OpenIdConnectConfiguration()
 		}
 		return v.OpenIdConnectConfiguration
 	}).(OpenIdConnectConfigResponsePtrOutput)
-}
-
-// The system metadata relating to this resource.
-func (o OpenIdConnectRegistrationResponsePtrOutput) SystemData() SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v *OpenIdConnectRegistrationResponse) *SystemDataResponse {
-		if v == nil {
-			return nil
-		}
-		return &v.SystemData
-	}).(SystemDataResponsePtrOutput)
 }
 
 // Resource type.
@@ -27984,8 +30664,6 @@ type PushSettingsResponse struct {
 	Kind *string `pulumi:"kind"`
 	// Resource Name.
 	Name string `pulumi:"name"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
 	TagWhitelistJson *string `pulumi:"tagWhitelistJson"`
 	// Gets or sets a JSON string containing a list of tags that require user authentication to be used in the push registration endpoint.
@@ -28020,8 +30698,6 @@ type PushSettingsResponseArgs struct {
 	Kind pulumi.StringPtrInput `pulumi:"kind"`
 	// Resource Name.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponseInput `pulumi:"systemData"`
 	// Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
 	TagWhitelistJson pulumi.StringPtrInput `pulumi:"tagWhitelistJson"`
 	// Gets or sets a JSON string containing a list of tags that require user authentication to be used in the push registration endpoint.
@@ -28136,11 +30812,6 @@ func (o PushSettingsResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PushSettingsResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The system metadata relating to this resource.
-func (o PushSettingsResponseOutput) SystemData() SystemDataResponseOutput {
-	return o.ApplyT(func(v PushSettingsResponse) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
-}
-
 // Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
 func (o PushSettingsResponseOutput) TagWhitelistJson() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PushSettingsResponse) *string { return v.TagWhitelistJson }).(pulumi.StringPtrOutput)
@@ -28225,16 +30896,6 @@ func (o PushSettingsResponsePtrOutput) Name() pulumi.StringPtrOutput {
 		}
 		return &v.Name
 	}).(pulumi.StringPtrOutput)
-}
-
-// The system metadata relating to this resource.
-func (o PushSettingsResponsePtrOutput) SystemData() SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v *PushSettingsResponse) *SystemDataResponse {
-		if v == nil {
-			return nil
-		}
-		return &v.SystemData
-	}).(SystemDataResponsePtrOutput)
 }
 
 // Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
@@ -28938,6 +31599,8 @@ type SiteConfig struct {
 	AutoHealRules *AutoHealRules `pulumi:"autoHealRules"`
 	// Auto-swap slot name.
 	AutoSwapSlotName *string `pulumi:"autoSwapSlotName"`
+	// List of Azure Storage Accounts.
+	AzureStorageAccounts map[string]AzureStorageInfoValue `pulumi:"azureStorageAccounts"`
 	// Connection strings.
 	ConnectionStrings []ConnStringInfo `pulumi:"connectionStrings"`
 	// Cross-Origin Resource Sharing (CORS) settings.
@@ -28952,6 +31615,13 @@ type SiteConfig struct {
 	Experiments *Experiments `pulumi:"experiments"`
 	// State of FTP / FTPS service
 	FtpsState *string `pulumi:"ftpsState"`
+	// Maximum number of workers that a site can scale out to.
+	// This setting only applies to the Consumption and Elastic Premium Plans
+	FunctionAppScaleLimit *int `pulumi:"functionAppScaleLimit"`
+	// Gets or sets a value indicating whether functions runtime scale monitoring is enabled. When enabled,
+	// the ScaleController will not monitor event sources directly, but will instead call to the
+	// runtime to get scale status.
+	FunctionsRuntimeScaleMonitoringEnabled *bool `pulumi:"functionsRuntimeScaleMonitoringEnabled"`
 	// Handler mappings.
 	HandlerMappings []HandlerMapping `pulumi:"handlerMappings"`
 	// Health check path
@@ -28968,6 +31638,8 @@ type SiteConfig struct {
 	JavaContainerVersion *string `pulumi:"javaContainerVersion"`
 	// Java version.
 	JavaVersion *string `pulumi:"javaVersion"`
+	// Identity to use for Key Vault Reference authentication.
+	KeyVaultReferenceIdentity *string `pulumi:"keyVaultReferenceIdentity"`
 	// Site limits.
 	Limits *SiteLimits `pulumi:"limits"`
 	// Linux App Framework and version
@@ -28984,6 +31656,9 @@ type SiteConfig struct {
 	ManagedServiceIdentityId *int `pulumi:"managedServiceIdentityId"`
 	// MinTlsVersion: configures the minimum version of TLS required for SSL requests
 	MinTlsVersion *string `pulumi:"minTlsVersion"`
+	// Number of minimum instance count for a site
+	// This setting only applies to the Elastic Plans
+	MinimumElasticInstanceCount *int `pulumi:"minimumElasticInstanceCount"`
 	// .NET Framework version.
 	NetFrameworkVersion *string `pulumi:"netFrameworkVersion"`
 	// Version of Node.js.
@@ -29033,6 +31708,8 @@ type SiteConfig struct {
 	VnetRouteAllEnabled *bool `pulumi:"vnetRouteAllEnabled"`
 	// <code>true</code> if WebSocket is enabled; otherwise, <code>false</code>.
 	WebSocketsEnabled *bool `pulumi:"webSocketsEnabled"`
+	// Sets the time zone a site uses for generating timestamps. Compatible with Linux and Windows App Service. Setting the WEBSITE_TIME_ZONE app setting takes precedence over this config. For Linux, expects tz database values https://www.iana.org/time-zones (for a quick reference see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). For Windows, expects one of the time zones listed under HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Time Zones
+	WebsiteTimeZone *string `pulumi:"websiteTimeZone"`
 	// Xenon App Framework and version
 	WindowsFxVersion *string `pulumi:"windowsFxVersion"`
 	// Explicit Managed Service Identity Id
@@ -29068,6 +31745,8 @@ type SiteConfigArgs struct {
 	AutoHealRules AutoHealRulesPtrInput `pulumi:"autoHealRules"`
 	// Auto-swap slot name.
 	AutoSwapSlotName pulumi.StringPtrInput `pulumi:"autoSwapSlotName"`
+	// List of Azure Storage Accounts.
+	AzureStorageAccounts AzureStorageInfoValueMapInput `pulumi:"azureStorageAccounts"`
 	// Connection strings.
 	ConnectionStrings ConnStringInfoArrayInput `pulumi:"connectionStrings"`
 	// Cross-Origin Resource Sharing (CORS) settings.
@@ -29082,6 +31761,13 @@ type SiteConfigArgs struct {
 	Experiments ExperimentsPtrInput `pulumi:"experiments"`
 	// State of FTP / FTPS service
 	FtpsState pulumi.StringPtrInput `pulumi:"ftpsState"`
+	// Maximum number of workers that a site can scale out to.
+	// This setting only applies to the Consumption and Elastic Premium Plans
+	FunctionAppScaleLimit pulumi.IntPtrInput `pulumi:"functionAppScaleLimit"`
+	// Gets or sets a value indicating whether functions runtime scale monitoring is enabled. When enabled,
+	// the ScaleController will not monitor event sources directly, but will instead call to the
+	// runtime to get scale status.
+	FunctionsRuntimeScaleMonitoringEnabled pulumi.BoolPtrInput `pulumi:"functionsRuntimeScaleMonitoringEnabled"`
 	// Handler mappings.
 	HandlerMappings HandlerMappingArrayInput `pulumi:"handlerMappings"`
 	// Health check path
@@ -29098,6 +31784,8 @@ type SiteConfigArgs struct {
 	JavaContainerVersion pulumi.StringPtrInput `pulumi:"javaContainerVersion"`
 	// Java version.
 	JavaVersion pulumi.StringPtrInput `pulumi:"javaVersion"`
+	// Identity to use for Key Vault Reference authentication.
+	KeyVaultReferenceIdentity pulumi.StringPtrInput `pulumi:"keyVaultReferenceIdentity"`
 	// Site limits.
 	Limits SiteLimitsPtrInput `pulumi:"limits"`
 	// Linux App Framework and version
@@ -29114,6 +31802,9 @@ type SiteConfigArgs struct {
 	ManagedServiceIdentityId pulumi.IntPtrInput `pulumi:"managedServiceIdentityId"`
 	// MinTlsVersion: configures the minimum version of TLS required for SSL requests
 	MinTlsVersion pulumi.StringPtrInput `pulumi:"minTlsVersion"`
+	// Number of minimum instance count for a site
+	// This setting only applies to the Elastic Plans
+	MinimumElasticInstanceCount pulumi.IntPtrInput `pulumi:"minimumElasticInstanceCount"`
 	// .NET Framework version.
 	NetFrameworkVersion pulumi.StringPtrInput `pulumi:"netFrameworkVersion"`
 	// Version of Node.js.
@@ -29163,6 +31854,8 @@ type SiteConfigArgs struct {
 	VnetRouteAllEnabled pulumi.BoolPtrInput `pulumi:"vnetRouteAllEnabled"`
 	// <code>true</code> if WebSocket is enabled; otherwise, <code>false</code>.
 	WebSocketsEnabled pulumi.BoolPtrInput `pulumi:"webSocketsEnabled"`
+	// Sets the time zone a site uses for generating timestamps. Compatible with Linux and Windows App Service. Setting the WEBSITE_TIME_ZONE app setting takes precedence over this config. For Linux, expects tz database values https://www.iana.org/time-zones (for a quick reference see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). For Windows, expects one of the time zones listed under HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Time Zones
+	WebsiteTimeZone pulumi.StringPtrInput `pulumi:"websiteTimeZone"`
 	// Xenon App Framework and version
 	WindowsFxVersion pulumi.StringPtrInput `pulumi:"windowsFxVersion"`
 	// Explicit Managed Service Identity Id
@@ -29287,6 +31980,11 @@ func (o SiteConfigOutput) AutoSwapSlotName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteConfig) *string { return v.AutoSwapSlotName }).(pulumi.StringPtrOutput)
 }
 
+// List of Azure Storage Accounts.
+func (o SiteConfigOutput) AzureStorageAccounts() AzureStorageInfoValueMapOutput {
+	return o.ApplyT(func(v SiteConfig) map[string]AzureStorageInfoValue { return v.AzureStorageAccounts }).(AzureStorageInfoValueMapOutput)
+}
+
 // Connection strings.
 func (o SiteConfigOutput) ConnectionStrings() ConnStringInfoArrayOutput {
 	return o.ApplyT(func(v SiteConfig) []ConnStringInfo { return v.ConnectionStrings }).(ConnStringInfoArrayOutput)
@@ -29320,6 +32018,19 @@ func (o SiteConfigOutput) Experiments() ExperimentsPtrOutput {
 // State of FTP / FTPS service
 func (o SiteConfigOutput) FtpsState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteConfig) *string { return v.FtpsState }).(pulumi.StringPtrOutput)
+}
+
+// Maximum number of workers that a site can scale out to.
+// This setting only applies to the Consumption and Elastic Premium Plans
+func (o SiteConfigOutput) FunctionAppScaleLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SiteConfig) *int { return v.FunctionAppScaleLimit }).(pulumi.IntPtrOutput)
+}
+
+// Gets or sets a value indicating whether functions runtime scale monitoring is enabled. When enabled,
+// the ScaleController will not monitor event sources directly, but will instead call to the
+// runtime to get scale status.
+func (o SiteConfigOutput) FunctionsRuntimeScaleMonitoringEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SiteConfig) *bool { return v.FunctionsRuntimeScaleMonitoringEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Handler mappings.
@@ -29362,6 +32073,11 @@ func (o SiteConfigOutput) JavaVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteConfig) *string { return v.JavaVersion }).(pulumi.StringPtrOutput)
 }
 
+// Identity to use for Key Vault Reference authentication.
+func (o SiteConfigOutput) KeyVaultReferenceIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SiteConfig) *string { return v.KeyVaultReferenceIdentity }).(pulumi.StringPtrOutput)
+}
+
 // Site limits.
 func (o SiteConfigOutput) Limits() SiteLimitsPtrOutput {
 	return o.ApplyT(func(v SiteConfig) *SiteLimits { return v.Limits }).(SiteLimitsPtrOutput)
@@ -29400,6 +32116,12 @@ func (o SiteConfigOutput) ManagedServiceIdentityId() pulumi.IntPtrOutput {
 // MinTlsVersion: configures the minimum version of TLS required for SSL requests
 func (o SiteConfigOutput) MinTlsVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteConfig) *string { return v.MinTlsVersion }).(pulumi.StringPtrOutput)
+}
+
+// Number of minimum instance count for a site
+// This setting only applies to the Elastic Plans
+func (o SiteConfigOutput) MinimumElasticInstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SiteConfig) *int { return v.MinimumElasticInstanceCount }).(pulumi.IntPtrOutput)
 }
 
 // .NET Framework version.
@@ -29523,6 +32245,11 @@ func (o SiteConfigOutput) WebSocketsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SiteConfig) *bool { return v.WebSocketsEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// Sets the time zone a site uses for generating timestamps. Compatible with Linux and Windows App Service. Setting the WEBSITE_TIME_ZONE app setting takes precedence over this config. For Linux, expects tz database values https://www.iana.org/time-zones (for a quick reference see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). For Windows, expects one of the time zones listed under HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Time Zones
+func (o SiteConfigOutput) WebsiteTimeZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SiteConfig) *string { return v.WebsiteTimeZone }).(pulumi.StringPtrOutput)
+}
+
 // Xenon App Framework and version
 func (o SiteConfigOutput) WindowsFxVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteConfig) *string { return v.WindowsFxVersion }).(pulumi.StringPtrOutput)
@@ -29631,6 +32358,16 @@ func (o SiteConfigPtrOutput) AutoSwapSlotName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// List of Azure Storage Accounts.
+func (o SiteConfigPtrOutput) AzureStorageAccounts() AzureStorageInfoValueMapOutput {
+	return o.ApplyT(func(v *SiteConfig) map[string]AzureStorageInfoValue {
+		if v == nil {
+			return nil
+		}
+		return v.AzureStorageAccounts
+	}).(AzureStorageInfoValueMapOutput)
+}
+
 // Connection strings.
 func (o SiteConfigPtrOutput) ConnectionStrings() ConnStringInfoArrayOutput {
 	return o.ApplyT(func(v *SiteConfig) []ConnStringInfo {
@@ -29699,6 +32436,29 @@ func (o SiteConfigPtrOutput) FtpsState() pulumi.StringPtrOutput {
 		}
 		return v.FtpsState
 	}).(pulumi.StringPtrOutput)
+}
+
+// Maximum number of workers that a site can scale out to.
+// This setting only applies to the Consumption and Elastic Premium Plans
+func (o SiteConfigPtrOutput) FunctionAppScaleLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SiteConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.FunctionAppScaleLimit
+	}).(pulumi.IntPtrOutput)
+}
+
+// Gets or sets a value indicating whether functions runtime scale monitoring is enabled. When enabled,
+// the ScaleController will not monitor event sources directly, but will instead call to the
+// runtime to get scale status.
+func (o SiteConfigPtrOutput) FunctionsRuntimeScaleMonitoringEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SiteConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.FunctionsRuntimeScaleMonitoringEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Handler mappings.
@@ -29781,6 +32541,16 @@ func (o SiteConfigPtrOutput) JavaVersion() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Identity to use for Key Vault Reference authentication.
+func (o SiteConfigPtrOutput) KeyVaultReferenceIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyVaultReferenceIdentity
+	}).(pulumi.StringPtrOutput)
+}
+
 // Site limits.
 func (o SiteConfigPtrOutput) Limits() SiteLimitsPtrOutput {
 	return o.ApplyT(func(v *SiteConfig) *SiteLimits {
@@ -29859,6 +32629,17 @@ func (o SiteConfigPtrOutput) MinTlsVersion() pulumi.StringPtrOutput {
 		}
 		return v.MinTlsVersion
 	}).(pulumi.StringPtrOutput)
+}
+
+// Number of minimum instance count for a site
+// This setting only applies to the Elastic Plans
+func (o SiteConfigPtrOutput) MinimumElasticInstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SiteConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MinimumElasticInstanceCount
+	}).(pulumi.IntPtrOutput)
 }
 
 // .NET Framework version.
@@ -30102,6 +32883,16 @@ func (o SiteConfigPtrOutput) WebSocketsEnabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Sets the time zone a site uses for generating timestamps. Compatible with Linux and Windows App Service. Setting the WEBSITE_TIME_ZONE app setting takes precedence over this config. For Linux, expects tz database values https://www.iana.org/time-zones (for a quick reference see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). For Windows, expects one of the time zones listed under HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Time Zones
+func (o SiteConfigPtrOutput) WebsiteTimeZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.WebsiteTimeZone
+	}).(pulumi.StringPtrOutput)
+}
+
 // Xenon App Framework and version
 func (o SiteConfigPtrOutput) WindowsFxVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SiteConfig) *string {
@@ -30140,6 +32931,8 @@ type SiteConfigResponse struct {
 	AutoHealRules *AutoHealRulesResponse `pulumi:"autoHealRules"`
 	// Auto-swap slot name.
 	AutoSwapSlotName *string `pulumi:"autoSwapSlotName"`
+	// List of Azure Storage Accounts.
+	AzureStorageAccounts map[string]AzureStorageInfoValueResponse `pulumi:"azureStorageAccounts"`
 	// Connection strings.
 	ConnectionStrings []ConnStringInfoResponse `pulumi:"connectionStrings"`
 	// Cross-Origin Resource Sharing (CORS) settings.
@@ -30154,6 +32947,13 @@ type SiteConfigResponse struct {
 	Experiments *ExperimentsResponse `pulumi:"experiments"`
 	// State of FTP / FTPS service
 	FtpsState *string `pulumi:"ftpsState"`
+	// Maximum number of workers that a site can scale out to.
+	// This setting only applies to the Consumption and Elastic Premium Plans
+	FunctionAppScaleLimit *int `pulumi:"functionAppScaleLimit"`
+	// Gets or sets a value indicating whether functions runtime scale monitoring is enabled. When enabled,
+	// the ScaleController will not monitor event sources directly, but will instead call to the
+	// runtime to get scale status.
+	FunctionsRuntimeScaleMonitoringEnabled *bool `pulumi:"functionsRuntimeScaleMonitoringEnabled"`
 	// Handler mappings.
 	HandlerMappings []HandlerMappingResponse `pulumi:"handlerMappings"`
 	// Health check path
@@ -30170,6 +32970,8 @@ type SiteConfigResponse struct {
 	JavaContainerVersion *string `pulumi:"javaContainerVersion"`
 	// Java version.
 	JavaVersion *string `pulumi:"javaVersion"`
+	// Identity to use for Key Vault Reference authentication.
+	KeyVaultReferenceIdentity *string `pulumi:"keyVaultReferenceIdentity"`
 	// Site limits.
 	Limits *SiteLimitsResponse `pulumi:"limits"`
 	// Linux App Framework and version
@@ -30188,6 +32990,9 @@ type SiteConfigResponse struct {
 	ManagedServiceIdentityId *int `pulumi:"managedServiceIdentityId"`
 	// MinTlsVersion: configures the minimum version of TLS required for SSL requests
 	MinTlsVersion *string `pulumi:"minTlsVersion"`
+	// Number of minimum instance count for a site
+	// This setting only applies to the Elastic Plans
+	MinimumElasticInstanceCount *int `pulumi:"minimumElasticInstanceCount"`
 	// .NET Framework version.
 	NetFrameworkVersion *string `pulumi:"netFrameworkVersion"`
 	// Version of Node.js.
@@ -30237,6 +33042,8 @@ type SiteConfigResponse struct {
 	VnetRouteAllEnabled *bool `pulumi:"vnetRouteAllEnabled"`
 	// <code>true</code> if WebSocket is enabled; otherwise, <code>false</code>.
 	WebSocketsEnabled *bool `pulumi:"webSocketsEnabled"`
+	// Sets the time zone a site uses for generating timestamps. Compatible with Linux and Windows App Service. Setting the WEBSITE_TIME_ZONE app setting takes precedence over this config. For Linux, expects tz database values https://www.iana.org/time-zones (for a quick reference see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). For Windows, expects one of the time zones listed under HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Time Zones
+	WebsiteTimeZone *string `pulumi:"websiteTimeZone"`
 	// Xenon App Framework and version
 	WindowsFxVersion *string `pulumi:"windowsFxVersion"`
 	// Explicit Managed Service Identity Id
@@ -30272,6 +33079,8 @@ type SiteConfigResponseArgs struct {
 	AutoHealRules AutoHealRulesResponsePtrInput `pulumi:"autoHealRules"`
 	// Auto-swap slot name.
 	AutoSwapSlotName pulumi.StringPtrInput `pulumi:"autoSwapSlotName"`
+	// List of Azure Storage Accounts.
+	AzureStorageAccounts AzureStorageInfoValueResponseMapInput `pulumi:"azureStorageAccounts"`
 	// Connection strings.
 	ConnectionStrings ConnStringInfoResponseArrayInput `pulumi:"connectionStrings"`
 	// Cross-Origin Resource Sharing (CORS) settings.
@@ -30286,6 +33095,13 @@ type SiteConfigResponseArgs struct {
 	Experiments ExperimentsResponsePtrInput `pulumi:"experiments"`
 	// State of FTP / FTPS service
 	FtpsState pulumi.StringPtrInput `pulumi:"ftpsState"`
+	// Maximum number of workers that a site can scale out to.
+	// This setting only applies to the Consumption and Elastic Premium Plans
+	FunctionAppScaleLimit pulumi.IntPtrInput `pulumi:"functionAppScaleLimit"`
+	// Gets or sets a value indicating whether functions runtime scale monitoring is enabled. When enabled,
+	// the ScaleController will not monitor event sources directly, but will instead call to the
+	// runtime to get scale status.
+	FunctionsRuntimeScaleMonitoringEnabled pulumi.BoolPtrInput `pulumi:"functionsRuntimeScaleMonitoringEnabled"`
 	// Handler mappings.
 	HandlerMappings HandlerMappingResponseArrayInput `pulumi:"handlerMappings"`
 	// Health check path
@@ -30302,6 +33118,8 @@ type SiteConfigResponseArgs struct {
 	JavaContainerVersion pulumi.StringPtrInput `pulumi:"javaContainerVersion"`
 	// Java version.
 	JavaVersion pulumi.StringPtrInput `pulumi:"javaVersion"`
+	// Identity to use for Key Vault Reference authentication.
+	KeyVaultReferenceIdentity pulumi.StringPtrInput `pulumi:"keyVaultReferenceIdentity"`
 	// Site limits.
 	Limits SiteLimitsResponsePtrInput `pulumi:"limits"`
 	// Linux App Framework and version
@@ -30320,6 +33138,9 @@ type SiteConfigResponseArgs struct {
 	ManagedServiceIdentityId pulumi.IntPtrInput `pulumi:"managedServiceIdentityId"`
 	// MinTlsVersion: configures the minimum version of TLS required for SSL requests
 	MinTlsVersion pulumi.StringPtrInput `pulumi:"minTlsVersion"`
+	// Number of minimum instance count for a site
+	// This setting only applies to the Elastic Plans
+	MinimumElasticInstanceCount pulumi.IntPtrInput `pulumi:"minimumElasticInstanceCount"`
 	// .NET Framework version.
 	NetFrameworkVersion pulumi.StringPtrInput `pulumi:"netFrameworkVersion"`
 	// Version of Node.js.
@@ -30369,6 +33190,8 @@ type SiteConfigResponseArgs struct {
 	VnetRouteAllEnabled pulumi.BoolPtrInput `pulumi:"vnetRouteAllEnabled"`
 	// <code>true</code> if WebSocket is enabled; otherwise, <code>false</code>.
 	WebSocketsEnabled pulumi.BoolPtrInput `pulumi:"webSocketsEnabled"`
+	// Sets the time zone a site uses for generating timestamps. Compatible with Linux and Windows App Service. Setting the WEBSITE_TIME_ZONE app setting takes precedence over this config. For Linux, expects tz database values https://www.iana.org/time-zones (for a quick reference see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). For Windows, expects one of the time zones listed under HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Time Zones
+	WebsiteTimeZone pulumi.StringPtrInput `pulumi:"websiteTimeZone"`
 	// Xenon App Framework and version
 	WindowsFxVersion pulumi.StringPtrInput `pulumi:"windowsFxVersion"`
 	// Explicit Managed Service Identity Id
@@ -30493,6 +33316,11 @@ func (o SiteConfigResponseOutput) AutoSwapSlotName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteConfigResponse) *string { return v.AutoSwapSlotName }).(pulumi.StringPtrOutput)
 }
 
+// List of Azure Storage Accounts.
+func (o SiteConfigResponseOutput) AzureStorageAccounts() AzureStorageInfoValueResponseMapOutput {
+	return o.ApplyT(func(v SiteConfigResponse) map[string]AzureStorageInfoValueResponse { return v.AzureStorageAccounts }).(AzureStorageInfoValueResponseMapOutput)
+}
+
 // Connection strings.
 func (o SiteConfigResponseOutput) ConnectionStrings() ConnStringInfoResponseArrayOutput {
 	return o.ApplyT(func(v SiteConfigResponse) []ConnStringInfoResponse { return v.ConnectionStrings }).(ConnStringInfoResponseArrayOutput)
@@ -30526,6 +33354,19 @@ func (o SiteConfigResponseOutput) Experiments() ExperimentsResponsePtrOutput {
 // State of FTP / FTPS service
 func (o SiteConfigResponseOutput) FtpsState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteConfigResponse) *string { return v.FtpsState }).(pulumi.StringPtrOutput)
+}
+
+// Maximum number of workers that a site can scale out to.
+// This setting only applies to the Consumption and Elastic Premium Plans
+func (o SiteConfigResponseOutput) FunctionAppScaleLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SiteConfigResponse) *int { return v.FunctionAppScaleLimit }).(pulumi.IntPtrOutput)
+}
+
+// Gets or sets a value indicating whether functions runtime scale monitoring is enabled. When enabled,
+// the ScaleController will not monitor event sources directly, but will instead call to the
+// runtime to get scale status.
+func (o SiteConfigResponseOutput) FunctionsRuntimeScaleMonitoringEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SiteConfigResponse) *bool { return v.FunctionsRuntimeScaleMonitoringEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Handler mappings.
@@ -30566,6 +33407,11 @@ func (o SiteConfigResponseOutput) JavaContainerVersion() pulumi.StringPtrOutput 
 // Java version.
 func (o SiteConfigResponseOutput) JavaVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteConfigResponse) *string { return v.JavaVersion }).(pulumi.StringPtrOutput)
+}
+
+// Identity to use for Key Vault Reference authentication.
+func (o SiteConfigResponseOutput) KeyVaultReferenceIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SiteConfigResponse) *string { return v.KeyVaultReferenceIdentity }).(pulumi.StringPtrOutput)
 }
 
 // Site limits.
@@ -30611,6 +33457,12 @@ func (o SiteConfigResponseOutput) ManagedServiceIdentityId() pulumi.IntPtrOutput
 // MinTlsVersion: configures the minimum version of TLS required for SSL requests
 func (o SiteConfigResponseOutput) MinTlsVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteConfigResponse) *string { return v.MinTlsVersion }).(pulumi.StringPtrOutput)
+}
+
+// Number of minimum instance count for a site
+// This setting only applies to the Elastic Plans
+func (o SiteConfigResponseOutput) MinimumElasticInstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SiteConfigResponse) *int { return v.MinimumElasticInstanceCount }).(pulumi.IntPtrOutput)
 }
 
 // .NET Framework version.
@@ -30734,6 +33586,11 @@ func (o SiteConfigResponseOutput) WebSocketsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SiteConfigResponse) *bool { return v.WebSocketsEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// Sets the time zone a site uses for generating timestamps. Compatible with Linux and Windows App Service. Setting the WEBSITE_TIME_ZONE app setting takes precedence over this config. For Linux, expects tz database values https://www.iana.org/time-zones (for a quick reference see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). For Windows, expects one of the time zones listed under HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Time Zones
+func (o SiteConfigResponseOutput) WebsiteTimeZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SiteConfigResponse) *string { return v.WebsiteTimeZone }).(pulumi.StringPtrOutput)
+}
+
 // Xenon App Framework and version
 func (o SiteConfigResponseOutput) WindowsFxVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteConfigResponse) *string { return v.WindowsFxVersion }).(pulumi.StringPtrOutput)
@@ -30842,6 +33699,16 @@ func (o SiteConfigResponsePtrOutput) AutoSwapSlotName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// List of Azure Storage Accounts.
+func (o SiteConfigResponsePtrOutput) AzureStorageAccounts() AzureStorageInfoValueResponseMapOutput {
+	return o.ApplyT(func(v *SiteConfigResponse) map[string]AzureStorageInfoValueResponse {
+		if v == nil {
+			return nil
+		}
+		return v.AzureStorageAccounts
+	}).(AzureStorageInfoValueResponseMapOutput)
+}
+
 // Connection strings.
 func (o SiteConfigResponsePtrOutput) ConnectionStrings() ConnStringInfoResponseArrayOutput {
 	return o.ApplyT(func(v *SiteConfigResponse) []ConnStringInfoResponse {
@@ -30910,6 +33777,29 @@ func (o SiteConfigResponsePtrOutput) FtpsState() pulumi.StringPtrOutput {
 		}
 		return v.FtpsState
 	}).(pulumi.StringPtrOutput)
+}
+
+// Maximum number of workers that a site can scale out to.
+// This setting only applies to the Consumption and Elastic Premium Plans
+func (o SiteConfigResponsePtrOutput) FunctionAppScaleLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SiteConfigResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.FunctionAppScaleLimit
+	}).(pulumi.IntPtrOutput)
+}
+
+// Gets or sets a value indicating whether functions runtime scale monitoring is enabled. When enabled,
+// the ScaleController will not monitor event sources directly, but will instead call to the
+// runtime to get scale status.
+func (o SiteConfigResponsePtrOutput) FunctionsRuntimeScaleMonitoringEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SiteConfigResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.FunctionsRuntimeScaleMonitoringEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Handler mappings.
@@ -30989,6 +33879,16 @@ func (o SiteConfigResponsePtrOutput) JavaVersion() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.JavaVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// Identity to use for Key Vault Reference authentication.
+func (o SiteConfigResponsePtrOutput) KeyVaultReferenceIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteConfigResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyVaultReferenceIdentity
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -31080,6 +33980,17 @@ func (o SiteConfigResponsePtrOutput) MinTlsVersion() pulumi.StringPtrOutput {
 		}
 		return v.MinTlsVersion
 	}).(pulumi.StringPtrOutput)
+}
+
+// Number of minimum instance count for a site
+// This setting only applies to the Elastic Plans
+func (o SiteConfigResponsePtrOutput) MinimumElasticInstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SiteConfigResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MinimumElasticInstanceCount
+	}).(pulumi.IntPtrOutput)
 }
 
 // .NET Framework version.
@@ -31321,6 +34232,16 @@ func (o SiteConfigResponsePtrOutput) WebSocketsEnabled() pulumi.BoolPtrOutput {
 		}
 		return v.WebSocketsEnabled
 	}).(pulumi.BoolPtrOutput)
+}
+
+// Sets the time zone a site uses for generating timestamps. Compatible with Linux and Windows App Service. Setting the WEBSITE_TIME_ZONE app setting takes precedence over this config. For Linux, expects tz database values https://www.iana.org/time-zones (for a quick reference see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). For Windows, expects one of the time zones listed under HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Time Zones
+func (o SiteConfigResponsePtrOutput) WebsiteTimeZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteConfigResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.WebsiteTimeZone
+	}).(pulumi.StringPtrOutput)
 }
 
 // Xenon App Framework and version
@@ -31882,6 +34803,8 @@ func (o SiteMachineKeyResponsePtrOutput) ValidationKey() pulumi.StringPtrOutput 
 type SkuCapacity struct {
 	// Default number of workers for this App Service plan SKU.
 	Default *int `pulumi:"default"`
+	// Maximum number of Elastic workers for this App Service plan SKU.
+	ElasticMaximum *int `pulumi:"elasticMaximum"`
 	// Maximum number of workers for this App Service plan SKU.
 	Maximum *int `pulumi:"maximum"`
 	// Minimum number of workers for this App Service plan SKU.
@@ -31905,6 +34828,8 @@ type SkuCapacityInput interface {
 type SkuCapacityArgs struct {
 	// Default number of workers for this App Service plan SKU.
 	Default pulumi.IntPtrInput `pulumi:"default"`
+	// Maximum number of Elastic workers for this App Service plan SKU.
+	ElasticMaximum pulumi.IntPtrInput `pulumi:"elasticMaximum"`
 	// Maximum number of workers for this App Service plan SKU.
 	Maximum pulumi.IntPtrInput `pulumi:"maximum"`
 	// Minimum number of workers for this App Service plan SKU.
@@ -31996,6 +34921,11 @@ func (o SkuCapacityOutput) Default() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SkuCapacity) *int { return v.Default }).(pulumi.IntPtrOutput)
 }
 
+// Maximum number of Elastic workers for this App Service plan SKU.
+func (o SkuCapacityOutput) ElasticMaximum() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SkuCapacity) *int { return v.ElasticMaximum }).(pulumi.IntPtrOutput)
+}
+
 // Maximum number of workers for this App Service plan SKU.
 func (o SkuCapacityOutput) Maximum() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SkuCapacity) *int { return v.Maximum }).(pulumi.IntPtrOutput)
@@ -32039,6 +34969,16 @@ func (o SkuCapacityPtrOutput) Default() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// Maximum number of Elastic workers for this App Service plan SKU.
+func (o SkuCapacityPtrOutput) ElasticMaximum() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SkuCapacity) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ElasticMaximum
+	}).(pulumi.IntPtrOutput)
+}
+
 // Maximum number of workers for this App Service plan SKU.
 func (o SkuCapacityPtrOutput) Maximum() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SkuCapacity) *int {
@@ -32073,6 +35013,8 @@ func (o SkuCapacityPtrOutput) ScaleType() pulumi.StringPtrOutput {
 type SkuCapacityResponse struct {
 	// Default number of workers for this App Service plan SKU.
 	Default *int `pulumi:"default"`
+	// Maximum number of Elastic workers for this App Service plan SKU.
+	ElasticMaximum *int `pulumi:"elasticMaximum"`
 	// Maximum number of workers for this App Service plan SKU.
 	Maximum *int `pulumi:"maximum"`
 	// Minimum number of workers for this App Service plan SKU.
@@ -32096,6 +35038,8 @@ type SkuCapacityResponseInput interface {
 type SkuCapacityResponseArgs struct {
 	// Default number of workers for this App Service plan SKU.
 	Default pulumi.IntPtrInput `pulumi:"default"`
+	// Maximum number of Elastic workers for this App Service plan SKU.
+	ElasticMaximum pulumi.IntPtrInput `pulumi:"elasticMaximum"`
 	// Maximum number of workers for this App Service plan SKU.
 	Maximum pulumi.IntPtrInput `pulumi:"maximum"`
 	// Minimum number of workers for this App Service plan SKU.
@@ -32187,6 +35131,11 @@ func (o SkuCapacityResponseOutput) Default() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SkuCapacityResponse) *int { return v.Default }).(pulumi.IntPtrOutput)
 }
 
+// Maximum number of Elastic workers for this App Service plan SKU.
+func (o SkuCapacityResponseOutput) ElasticMaximum() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SkuCapacityResponse) *int { return v.ElasticMaximum }).(pulumi.IntPtrOutput)
+}
+
 // Maximum number of workers for this App Service plan SKU.
 func (o SkuCapacityResponseOutput) Maximum() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SkuCapacityResponse) *int { return v.Maximum }).(pulumi.IntPtrOutput)
@@ -32227,6 +35176,16 @@ func (o SkuCapacityResponsePtrOutput) Default() pulumi.IntPtrOutput {
 			return nil
 		}
 		return v.Default
+	}).(pulumi.IntPtrOutput)
+}
+
+// Maximum number of Elastic workers for this App Service plan SKU.
+func (o SkuCapacityResponsePtrOutput) ElasticMaximum() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SkuCapacityResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ElasticMaximum
 	}).(pulumi.IntPtrOutput)
 }
 
@@ -32970,6 +35929,8 @@ func (o SlotSwapStatusResponsePtrOutput) TimestampUtc() pulumi.StringPtrOutput {
 type SlowRequestsBasedTrigger struct {
 	// Request Count.
 	Count *int `pulumi:"count"`
+	// Request Path.
+	Path *string `pulumi:"path"`
 	// Time interval.
 	TimeInterval *string `pulumi:"timeInterval"`
 	// Time taken.
@@ -32991,6 +35952,8 @@ type SlowRequestsBasedTriggerInput interface {
 type SlowRequestsBasedTriggerArgs struct {
 	// Request Count.
 	Count pulumi.IntPtrInput `pulumi:"count"`
+	// Request Path.
+	Path pulumi.StringPtrInput `pulumi:"path"`
 	// Time interval.
 	TimeInterval pulumi.StringPtrInput `pulumi:"timeInterval"`
 	// Time taken.
@@ -33050,6 +36013,31 @@ func (i *slowRequestsBasedTriggerPtrType) ToSlowRequestsBasedTriggerPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(SlowRequestsBasedTriggerPtrOutput)
 }
 
+// SlowRequestsBasedTriggerArrayInput is an input type that accepts SlowRequestsBasedTriggerArray and SlowRequestsBasedTriggerArrayOutput values.
+// You can construct a concrete instance of `SlowRequestsBasedTriggerArrayInput` via:
+//
+//          SlowRequestsBasedTriggerArray{ SlowRequestsBasedTriggerArgs{...} }
+type SlowRequestsBasedTriggerArrayInput interface {
+	pulumi.Input
+
+	ToSlowRequestsBasedTriggerArrayOutput() SlowRequestsBasedTriggerArrayOutput
+	ToSlowRequestsBasedTriggerArrayOutputWithContext(context.Context) SlowRequestsBasedTriggerArrayOutput
+}
+
+type SlowRequestsBasedTriggerArray []SlowRequestsBasedTriggerInput
+
+func (SlowRequestsBasedTriggerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SlowRequestsBasedTrigger)(nil)).Elem()
+}
+
+func (i SlowRequestsBasedTriggerArray) ToSlowRequestsBasedTriggerArrayOutput() SlowRequestsBasedTriggerArrayOutput {
+	return i.ToSlowRequestsBasedTriggerArrayOutputWithContext(context.Background())
+}
+
+func (i SlowRequestsBasedTriggerArray) ToSlowRequestsBasedTriggerArrayOutputWithContext(ctx context.Context) SlowRequestsBasedTriggerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SlowRequestsBasedTriggerArrayOutput)
+}
+
 // Trigger based on request execution time.
 type SlowRequestsBasedTriggerOutput struct{ *pulumi.OutputState }
 
@@ -33078,6 +36066,11 @@ func (o SlowRequestsBasedTriggerOutput) ToSlowRequestsBasedTriggerPtrOutputWithC
 // Request Count.
 func (o SlowRequestsBasedTriggerOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SlowRequestsBasedTrigger) *int { return v.Count }).(pulumi.IntPtrOutput)
+}
+
+// Request Path.
+func (o SlowRequestsBasedTriggerOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SlowRequestsBasedTrigger) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
 // Time interval.
@@ -33118,6 +36111,16 @@ func (o SlowRequestsBasedTriggerPtrOutput) Count() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// Request Path.
+func (o SlowRequestsBasedTriggerPtrOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SlowRequestsBasedTrigger) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Path
+	}).(pulumi.StringPtrOutput)
+}
+
 // Time interval.
 func (o SlowRequestsBasedTriggerPtrOutput) TimeInterval() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SlowRequestsBasedTrigger) *string {
@@ -33138,10 +36141,32 @@ func (o SlowRequestsBasedTriggerPtrOutput) TimeTaken() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type SlowRequestsBasedTriggerArrayOutput struct{ *pulumi.OutputState }
+
+func (SlowRequestsBasedTriggerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SlowRequestsBasedTrigger)(nil)).Elem()
+}
+
+func (o SlowRequestsBasedTriggerArrayOutput) ToSlowRequestsBasedTriggerArrayOutput() SlowRequestsBasedTriggerArrayOutput {
+	return o
+}
+
+func (o SlowRequestsBasedTriggerArrayOutput) ToSlowRequestsBasedTriggerArrayOutputWithContext(ctx context.Context) SlowRequestsBasedTriggerArrayOutput {
+	return o
+}
+
+func (o SlowRequestsBasedTriggerArrayOutput) Index(i pulumi.IntInput) SlowRequestsBasedTriggerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SlowRequestsBasedTrigger {
+		return vs[0].([]SlowRequestsBasedTrigger)[vs[1].(int)]
+	}).(SlowRequestsBasedTriggerOutput)
+}
+
 // Trigger based on request execution time.
 type SlowRequestsBasedTriggerResponse struct {
 	// Request Count.
 	Count *int `pulumi:"count"`
+	// Request Path.
+	Path *string `pulumi:"path"`
 	// Time interval.
 	TimeInterval *string `pulumi:"timeInterval"`
 	// Time taken.
@@ -33163,6 +36188,8 @@ type SlowRequestsBasedTriggerResponseInput interface {
 type SlowRequestsBasedTriggerResponseArgs struct {
 	// Request Count.
 	Count pulumi.IntPtrInput `pulumi:"count"`
+	// Request Path.
+	Path pulumi.StringPtrInput `pulumi:"path"`
 	// Time interval.
 	TimeInterval pulumi.StringPtrInput `pulumi:"timeInterval"`
 	// Time taken.
@@ -33222,6 +36249,31 @@ func (i *slowRequestsBasedTriggerResponsePtrType) ToSlowRequestsBasedTriggerResp
 	return pulumi.ToOutputWithContext(ctx, i).(SlowRequestsBasedTriggerResponsePtrOutput)
 }
 
+// SlowRequestsBasedTriggerResponseArrayInput is an input type that accepts SlowRequestsBasedTriggerResponseArray and SlowRequestsBasedTriggerResponseArrayOutput values.
+// You can construct a concrete instance of `SlowRequestsBasedTriggerResponseArrayInput` via:
+//
+//          SlowRequestsBasedTriggerResponseArray{ SlowRequestsBasedTriggerResponseArgs{...} }
+type SlowRequestsBasedTriggerResponseArrayInput interface {
+	pulumi.Input
+
+	ToSlowRequestsBasedTriggerResponseArrayOutput() SlowRequestsBasedTriggerResponseArrayOutput
+	ToSlowRequestsBasedTriggerResponseArrayOutputWithContext(context.Context) SlowRequestsBasedTriggerResponseArrayOutput
+}
+
+type SlowRequestsBasedTriggerResponseArray []SlowRequestsBasedTriggerResponseInput
+
+func (SlowRequestsBasedTriggerResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SlowRequestsBasedTriggerResponse)(nil)).Elem()
+}
+
+func (i SlowRequestsBasedTriggerResponseArray) ToSlowRequestsBasedTriggerResponseArrayOutput() SlowRequestsBasedTriggerResponseArrayOutput {
+	return i.ToSlowRequestsBasedTriggerResponseArrayOutputWithContext(context.Background())
+}
+
+func (i SlowRequestsBasedTriggerResponseArray) ToSlowRequestsBasedTriggerResponseArrayOutputWithContext(ctx context.Context) SlowRequestsBasedTriggerResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SlowRequestsBasedTriggerResponseArrayOutput)
+}
+
 // Trigger based on request execution time.
 type SlowRequestsBasedTriggerResponseOutput struct{ *pulumi.OutputState }
 
@@ -33250,6 +36302,11 @@ func (o SlowRequestsBasedTriggerResponseOutput) ToSlowRequestsBasedTriggerRespon
 // Request Count.
 func (o SlowRequestsBasedTriggerResponseOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SlowRequestsBasedTriggerResponse) *int { return v.Count }).(pulumi.IntPtrOutput)
+}
+
+// Request Path.
+func (o SlowRequestsBasedTriggerResponseOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SlowRequestsBasedTriggerResponse) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
 // Time interval.
@@ -33290,6 +36347,16 @@ func (o SlowRequestsBasedTriggerResponsePtrOutput) Count() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// Request Path.
+func (o SlowRequestsBasedTriggerResponsePtrOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SlowRequestsBasedTriggerResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Path
+	}).(pulumi.StringPtrOutput)
+}
+
 // Time interval.
 func (o SlowRequestsBasedTriggerResponsePtrOutput) TimeInterval() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SlowRequestsBasedTriggerResponse) *string {
@@ -33310,216 +36377,44 @@ func (o SlowRequestsBasedTriggerResponsePtrOutput) TimeTaken() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Stamp capacity information.
-type StampCapacityResponse struct {
-	// Available capacity (# of machines, bytes of storage etc...).
-	AvailableCapacity *float64 `pulumi:"availableCapacity"`
-	// Shared/dedicated workers.
-	ComputeMode *string `pulumi:"computeMode"`
-	// If <code>true</code>, it includes basic apps.
-	// Basic apps are not used for capacity allocation.
-	ExcludeFromCapacityAllocation *bool `pulumi:"excludeFromCapacityAllocation"`
-	// <code>true</code> if capacity is applicable for all apps; otherwise, <code>false</code>.
-	IsApplicableForAllComputeModes *bool `pulumi:"isApplicableForAllComputeModes"`
-	// Is this a linux stamp capacity
-	IsLinux *bool `pulumi:"isLinux"`
-	// Name of the stamp.
-	Name *string `pulumi:"name"`
-	// Shared or Dedicated.
-	SiteMode *string `pulumi:"siteMode"`
-	// Total capacity (# of machines, bytes of storage etc...).
-	TotalCapacity *float64 `pulumi:"totalCapacity"`
-	// Name of the unit.
-	Unit *string `pulumi:"unit"`
-	// Size of the machines.
-	WorkerSize *string `pulumi:"workerSize"`
-	// Size ID of machines:
-	// 0 - Small
-	// 1 - Medium
-	// 2 - Large
-	WorkerSizeId *int `pulumi:"workerSizeId"`
+type SlowRequestsBasedTriggerResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (SlowRequestsBasedTriggerResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SlowRequestsBasedTriggerResponse)(nil)).Elem()
 }
 
-// StampCapacityResponseInput is an input type that accepts StampCapacityResponseArgs and StampCapacityResponseOutput values.
-// You can construct a concrete instance of `StampCapacityResponseInput` via:
-//
-//          StampCapacityResponseArgs{...}
-type StampCapacityResponseInput interface {
-	pulumi.Input
-
-	ToStampCapacityResponseOutput() StampCapacityResponseOutput
-	ToStampCapacityResponseOutputWithContext(context.Context) StampCapacityResponseOutput
-}
-
-// Stamp capacity information.
-type StampCapacityResponseArgs struct {
-	// Available capacity (# of machines, bytes of storage etc...).
-	AvailableCapacity pulumi.Float64PtrInput `pulumi:"availableCapacity"`
-	// Shared/dedicated workers.
-	ComputeMode pulumi.StringPtrInput `pulumi:"computeMode"`
-	// If <code>true</code>, it includes basic apps.
-	// Basic apps are not used for capacity allocation.
-	ExcludeFromCapacityAllocation pulumi.BoolPtrInput `pulumi:"excludeFromCapacityAllocation"`
-	// <code>true</code> if capacity is applicable for all apps; otherwise, <code>false</code>.
-	IsApplicableForAllComputeModes pulumi.BoolPtrInput `pulumi:"isApplicableForAllComputeModes"`
-	// Is this a linux stamp capacity
-	IsLinux pulumi.BoolPtrInput `pulumi:"isLinux"`
-	// Name of the stamp.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Shared or Dedicated.
-	SiteMode pulumi.StringPtrInput `pulumi:"siteMode"`
-	// Total capacity (# of machines, bytes of storage etc...).
-	TotalCapacity pulumi.Float64PtrInput `pulumi:"totalCapacity"`
-	// Name of the unit.
-	Unit pulumi.StringPtrInput `pulumi:"unit"`
-	// Size of the machines.
-	WorkerSize pulumi.StringPtrInput `pulumi:"workerSize"`
-	// Size ID of machines:
-	// 0 - Small
-	// 1 - Medium
-	// 2 - Large
-	WorkerSizeId pulumi.IntPtrInput `pulumi:"workerSizeId"`
-}
-
-func (StampCapacityResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StampCapacityResponse)(nil)).Elem()
-}
-
-func (i StampCapacityResponseArgs) ToStampCapacityResponseOutput() StampCapacityResponseOutput {
-	return i.ToStampCapacityResponseOutputWithContext(context.Background())
-}
-
-func (i StampCapacityResponseArgs) ToStampCapacityResponseOutputWithContext(ctx context.Context) StampCapacityResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StampCapacityResponseOutput)
-}
-
-// StampCapacityResponseArrayInput is an input type that accepts StampCapacityResponseArray and StampCapacityResponseArrayOutput values.
-// You can construct a concrete instance of `StampCapacityResponseArrayInput` via:
-//
-//          StampCapacityResponseArray{ StampCapacityResponseArgs{...} }
-type StampCapacityResponseArrayInput interface {
-	pulumi.Input
-
-	ToStampCapacityResponseArrayOutput() StampCapacityResponseArrayOutput
-	ToStampCapacityResponseArrayOutputWithContext(context.Context) StampCapacityResponseArrayOutput
-}
-
-type StampCapacityResponseArray []StampCapacityResponseInput
-
-func (StampCapacityResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StampCapacityResponse)(nil)).Elem()
-}
-
-func (i StampCapacityResponseArray) ToStampCapacityResponseArrayOutput() StampCapacityResponseArrayOutput {
-	return i.ToStampCapacityResponseArrayOutputWithContext(context.Background())
-}
-
-func (i StampCapacityResponseArray) ToStampCapacityResponseArrayOutputWithContext(ctx context.Context) StampCapacityResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StampCapacityResponseArrayOutput)
-}
-
-// Stamp capacity information.
-type StampCapacityResponseOutput struct{ *pulumi.OutputState }
-
-func (StampCapacityResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StampCapacityResponse)(nil)).Elem()
-}
-
-func (o StampCapacityResponseOutput) ToStampCapacityResponseOutput() StampCapacityResponseOutput {
+func (o SlowRequestsBasedTriggerResponseArrayOutput) ToSlowRequestsBasedTriggerResponseArrayOutput() SlowRequestsBasedTriggerResponseArrayOutput {
 	return o
 }
 
-func (o StampCapacityResponseOutput) ToStampCapacityResponseOutputWithContext(ctx context.Context) StampCapacityResponseOutput {
+func (o SlowRequestsBasedTriggerResponseArrayOutput) ToSlowRequestsBasedTriggerResponseArrayOutputWithContext(ctx context.Context) SlowRequestsBasedTriggerResponseArrayOutput {
 	return o
 }
 
-// Available capacity (# of machines, bytes of storage etc...).
-func (o StampCapacityResponseOutput) AvailableCapacity() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v StampCapacityResponse) *float64 { return v.AvailableCapacity }).(pulumi.Float64PtrOutput)
-}
-
-// Shared/dedicated workers.
-func (o StampCapacityResponseOutput) ComputeMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StampCapacityResponse) *string { return v.ComputeMode }).(pulumi.StringPtrOutput)
-}
-
-// If <code>true</code>, it includes basic apps.
-// Basic apps are not used for capacity allocation.
-func (o StampCapacityResponseOutput) ExcludeFromCapacityAllocation() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v StampCapacityResponse) *bool { return v.ExcludeFromCapacityAllocation }).(pulumi.BoolPtrOutput)
-}
-
-// <code>true</code> if capacity is applicable for all apps; otherwise, <code>false</code>.
-func (o StampCapacityResponseOutput) IsApplicableForAllComputeModes() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v StampCapacityResponse) *bool { return v.IsApplicableForAllComputeModes }).(pulumi.BoolPtrOutput)
-}
-
-// Is this a linux stamp capacity
-func (o StampCapacityResponseOutput) IsLinux() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v StampCapacityResponse) *bool { return v.IsLinux }).(pulumi.BoolPtrOutput)
-}
-
-// Name of the stamp.
-func (o StampCapacityResponseOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StampCapacityResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-// Shared or Dedicated.
-func (o StampCapacityResponseOutput) SiteMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StampCapacityResponse) *string { return v.SiteMode }).(pulumi.StringPtrOutput)
-}
-
-// Total capacity (# of machines, bytes of storage etc...).
-func (o StampCapacityResponseOutput) TotalCapacity() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v StampCapacityResponse) *float64 { return v.TotalCapacity }).(pulumi.Float64PtrOutput)
-}
-
-// Name of the unit.
-func (o StampCapacityResponseOutput) Unit() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StampCapacityResponse) *string { return v.Unit }).(pulumi.StringPtrOutput)
-}
-
-// Size of the machines.
-func (o StampCapacityResponseOutput) WorkerSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StampCapacityResponse) *string { return v.WorkerSize }).(pulumi.StringPtrOutput)
-}
-
-// Size ID of machines:
-// 0 - Small
-// 1 - Medium
-// 2 - Large
-func (o StampCapacityResponseOutput) WorkerSizeId() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v StampCapacityResponse) *int { return v.WorkerSizeId }).(pulumi.IntPtrOutput)
-}
-
-type StampCapacityResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (StampCapacityResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StampCapacityResponse)(nil)).Elem()
-}
-
-func (o StampCapacityResponseArrayOutput) ToStampCapacityResponseArrayOutput() StampCapacityResponseArrayOutput {
-	return o
-}
-
-func (o StampCapacityResponseArrayOutput) ToStampCapacityResponseArrayOutputWithContext(ctx context.Context) StampCapacityResponseArrayOutput {
-	return o
-}
-
-func (o StampCapacityResponseArrayOutput) Index(i pulumi.IntInput) StampCapacityResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StampCapacityResponse {
-		return vs[0].([]StampCapacityResponse)[vs[1].(int)]
-	}).(StampCapacityResponseOutput)
+func (o SlowRequestsBasedTriggerResponseArrayOutput) Index(i pulumi.IntInput) SlowRequestsBasedTriggerResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SlowRequestsBasedTriggerResponse {
+		return vs[0].([]SlowRequestsBasedTriggerResponse)[vs[1].(int)]
+	}).(SlowRequestsBasedTriggerResponseOutput)
 }
 
 // Build properties for the static site.
 type StaticSiteBuildProperties struct {
+	// A custom command to run during deployment of the Azure Functions API application.
+	ApiBuildCommand *string `pulumi:"apiBuildCommand"`
 	// The path to the api code within the repository.
 	ApiLocation *string `pulumi:"apiLocation"`
-	// The path of the app artifacts after building.
+	// Deprecated: The path of the app artifacts after building (deprecated in favor of OutputLocation)
 	AppArtifactLocation *string `pulumi:"appArtifactLocation"`
+	// A custom command to run during deployment of the static content application.
+	AppBuildCommand *string `pulumi:"appBuildCommand"`
 	// The path to the app code within the repository.
 	AppLocation *string `pulumi:"appLocation"`
+	// Github Action secret name override.
+	GithubActionSecretNameOverride *string `pulumi:"githubActionSecretNameOverride"`
+	// The output path of the app after building.
+	OutputLocation *string `pulumi:"outputLocation"`
+	// Skip Github Action workflow generation.
+	SkipGithubActionWorkflowGeneration *bool `pulumi:"skipGithubActionWorkflowGeneration"`
 }
 
 // StaticSiteBuildPropertiesInput is an input type that accepts StaticSiteBuildPropertiesArgs and StaticSiteBuildPropertiesOutput values.
@@ -33535,12 +36430,22 @@ type StaticSiteBuildPropertiesInput interface {
 
 // Build properties for the static site.
 type StaticSiteBuildPropertiesArgs struct {
+	// A custom command to run during deployment of the Azure Functions API application.
+	ApiBuildCommand pulumi.StringPtrInput `pulumi:"apiBuildCommand"`
 	// The path to the api code within the repository.
 	ApiLocation pulumi.StringPtrInput `pulumi:"apiLocation"`
-	// The path of the app artifacts after building.
+	// Deprecated: The path of the app artifacts after building (deprecated in favor of OutputLocation)
 	AppArtifactLocation pulumi.StringPtrInput `pulumi:"appArtifactLocation"`
+	// A custom command to run during deployment of the static content application.
+	AppBuildCommand pulumi.StringPtrInput `pulumi:"appBuildCommand"`
 	// The path to the app code within the repository.
 	AppLocation pulumi.StringPtrInput `pulumi:"appLocation"`
+	// Github Action secret name override.
+	GithubActionSecretNameOverride pulumi.StringPtrInput `pulumi:"githubActionSecretNameOverride"`
+	// The output path of the app after building.
+	OutputLocation pulumi.StringPtrInput `pulumi:"outputLocation"`
+	// Skip Github Action workflow generation.
+	SkipGithubActionWorkflowGeneration pulumi.BoolPtrInput `pulumi:"skipGithubActionWorkflowGeneration"`
 }
 
 func (StaticSiteBuildPropertiesArgs) ElementType() reflect.Type {
@@ -33621,19 +36526,44 @@ func (o StaticSiteBuildPropertiesOutput) ToStaticSiteBuildPropertiesPtrOutputWit
 	}).(StaticSiteBuildPropertiesPtrOutput)
 }
 
+// A custom command to run during deployment of the Azure Functions API application.
+func (o StaticSiteBuildPropertiesOutput) ApiBuildCommand() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StaticSiteBuildProperties) *string { return v.ApiBuildCommand }).(pulumi.StringPtrOutput)
+}
+
 // The path to the api code within the repository.
 func (o StaticSiteBuildPropertiesOutput) ApiLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StaticSiteBuildProperties) *string { return v.ApiLocation }).(pulumi.StringPtrOutput)
 }
 
-// The path of the app artifacts after building.
+// Deprecated: The path of the app artifacts after building (deprecated in favor of OutputLocation)
 func (o StaticSiteBuildPropertiesOutput) AppArtifactLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StaticSiteBuildProperties) *string { return v.AppArtifactLocation }).(pulumi.StringPtrOutput)
+}
+
+// A custom command to run during deployment of the static content application.
+func (o StaticSiteBuildPropertiesOutput) AppBuildCommand() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StaticSiteBuildProperties) *string { return v.AppBuildCommand }).(pulumi.StringPtrOutput)
 }
 
 // The path to the app code within the repository.
 func (o StaticSiteBuildPropertiesOutput) AppLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StaticSiteBuildProperties) *string { return v.AppLocation }).(pulumi.StringPtrOutput)
+}
+
+// Github Action secret name override.
+func (o StaticSiteBuildPropertiesOutput) GithubActionSecretNameOverride() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StaticSiteBuildProperties) *string { return v.GithubActionSecretNameOverride }).(pulumi.StringPtrOutput)
+}
+
+// The output path of the app after building.
+func (o StaticSiteBuildPropertiesOutput) OutputLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StaticSiteBuildProperties) *string { return v.OutputLocation }).(pulumi.StringPtrOutput)
+}
+
+// Skip Github Action workflow generation.
+func (o StaticSiteBuildPropertiesOutput) SkipGithubActionWorkflowGeneration() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v StaticSiteBuildProperties) *bool { return v.SkipGithubActionWorkflowGeneration }).(pulumi.BoolPtrOutput)
 }
 
 type StaticSiteBuildPropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -33654,6 +36584,16 @@ func (o StaticSiteBuildPropertiesPtrOutput) Elem() StaticSiteBuildPropertiesOutp
 	return o.ApplyT(func(v *StaticSiteBuildProperties) StaticSiteBuildProperties { return *v }).(StaticSiteBuildPropertiesOutput)
 }
 
+// A custom command to run during deployment of the Azure Functions API application.
+func (o StaticSiteBuildPropertiesPtrOutput) ApiBuildCommand() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StaticSiteBuildProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ApiBuildCommand
+	}).(pulumi.StringPtrOutput)
+}
+
 // The path to the api code within the repository.
 func (o StaticSiteBuildPropertiesPtrOutput) ApiLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StaticSiteBuildProperties) *string {
@@ -33664,13 +36604,23 @@ func (o StaticSiteBuildPropertiesPtrOutput) ApiLocation() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The path of the app artifacts after building.
+// Deprecated: The path of the app artifacts after building (deprecated in favor of OutputLocation)
 func (o StaticSiteBuildPropertiesPtrOutput) AppArtifactLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StaticSiteBuildProperties) *string {
 		if v == nil {
 			return nil
 		}
 		return v.AppArtifactLocation
+	}).(pulumi.StringPtrOutput)
+}
+
+// A custom command to run during deployment of the static content application.
+func (o StaticSiteBuildPropertiesPtrOutput) AppBuildCommand() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StaticSiteBuildProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AppBuildCommand
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -33684,14 +36634,54 @@ func (o StaticSiteBuildPropertiesPtrOutput) AppLocation() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// Github Action secret name override.
+func (o StaticSiteBuildPropertiesPtrOutput) GithubActionSecretNameOverride() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StaticSiteBuildProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GithubActionSecretNameOverride
+	}).(pulumi.StringPtrOutput)
+}
+
+// The output path of the app after building.
+func (o StaticSiteBuildPropertiesPtrOutput) OutputLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StaticSiteBuildProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OutputLocation
+	}).(pulumi.StringPtrOutput)
+}
+
+// Skip Github Action workflow generation.
+func (o StaticSiteBuildPropertiesPtrOutput) SkipGithubActionWorkflowGeneration() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StaticSiteBuildProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SkipGithubActionWorkflowGeneration
+	}).(pulumi.BoolPtrOutput)
+}
+
 // Build properties for the static site.
 type StaticSiteBuildPropertiesResponse struct {
+	// A custom command to run during deployment of the Azure Functions API application.
+	ApiBuildCommand *string `pulumi:"apiBuildCommand"`
 	// The path to the api code within the repository.
 	ApiLocation *string `pulumi:"apiLocation"`
-	// The path of the app artifacts after building.
+	// Deprecated: The path of the app artifacts after building (deprecated in favor of OutputLocation)
 	AppArtifactLocation *string `pulumi:"appArtifactLocation"`
+	// A custom command to run during deployment of the static content application.
+	AppBuildCommand *string `pulumi:"appBuildCommand"`
 	// The path to the app code within the repository.
 	AppLocation *string `pulumi:"appLocation"`
+	// Github Action secret name override.
+	GithubActionSecretNameOverride *string `pulumi:"githubActionSecretNameOverride"`
+	// The output path of the app after building.
+	OutputLocation *string `pulumi:"outputLocation"`
+	// Skip Github Action workflow generation.
+	SkipGithubActionWorkflowGeneration *bool `pulumi:"skipGithubActionWorkflowGeneration"`
 }
 
 // StaticSiteBuildPropertiesResponseInput is an input type that accepts StaticSiteBuildPropertiesResponseArgs and StaticSiteBuildPropertiesResponseOutput values.
@@ -33707,12 +36697,22 @@ type StaticSiteBuildPropertiesResponseInput interface {
 
 // Build properties for the static site.
 type StaticSiteBuildPropertiesResponseArgs struct {
+	// A custom command to run during deployment of the Azure Functions API application.
+	ApiBuildCommand pulumi.StringPtrInput `pulumi:"apiBuildCommand"`
 	// The path to the api code within the repository.
 	ApiLocation pulumi.StringPtrInput `pulumi:"apiLocation"`
-	// The path of the app artifacts after building.
+	// Deprecated: The path of the app artifacts after building (deprecated in favor of OutputLocation)
 	AppArtifactLocation pulumi.StringPtrInput `pulumi:"appArtifactLocation"`
+	// A custom command to run during deployment of the static content application.
+	AppBuildCommand pulumi.StringPtrInput `pulumi:"appBuildCommand"`
 	// The path to the app code within the repository.
 	AppLocation pulumi.StringPtrInput `pulumi:"appLocation"`
+	// Github Action secret name override.
+	GithubActionSecretNameOverride pulumi.StringPtrInput `pulumi:"githubActionSecretNameOverride"`
+	// The output path of the app after building.
+	OutputLocation pulumi.StringPtrInput `pulumi:"outputLocation"`
+	// Skip Github Action workflow generation.
+	SkipGithubActionWorkflowGeneration pulumi.BoolPtrInput `pulumi:"skipGithubActionWorkflowGeneration"`
 }
 
 func (StaticSiteBuildPropertiesResponseArgs) ElementType() reflect.Type {
@@ -33793,19 +36793,44 @@ func (o StaticSiteBuildPropertiesResponseOutput) ToStaticSiteBuildPropertiesResp
 	}).(StaticSiteBuildPropertiesResponsePtrOutput)
 }
 
+// A custom command to run during deployment of the Azure Functions API application.
+func (o StaticSiteBuildPropertiesResponseOutput) ApiBuildCommand() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StaticSiteBuildPropertiesResponse) *string { return v.ApiBuildCommand }).(pulumi.StringPtrOutput)
+}
+
 // The path to the api code within the repository.
 func (o StaticSiteBuildPropertiesResponseOutput) ApiLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StaticSiteBuildPropertiesResponse) *string { return v.ApiLocation }).(pulumi.StringPtrOutput)
 }
 
-// The path of the app artifacts after building.
+// Deprecated: The path of the app artifacts after building (deprecated in favor of OutputLocation)
 func (o StaticSiteBuildPropertiesResponseOutput) AppArtifactLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StaticSiteBuildPropertiesResponse) *string { return v.AppArtifactLocation }).(pulumi.StringPtrOutput)
+}
+
+// A custom command to run during deployment of the static content application.
+func (o StaticSiteBuildPropertiesResponseOutput) AppBuildCommand() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StaticSiteBuildPropertiesResponse) *string { return v.AppBuildCommand }).(pulumi.StringPtrOutput)
 }
 
 // The path to the app code within the repository.
 func (o StaticSiteBuildPropertiesResponseOutput) AppLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StaticSiteBuildPropertiesResponse) *string { return v.AppLocation }).(pulumi.StringPtrOutput)
+}
+
+// Github Action secret name override.
+func (o StaticSiteBuildPropertiesResponseOutput) GithubActionSecretNameOverride() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StaticSiteBuildPropertiesResponse) *string { return v.GithubActionSecretNameOverride }).(pulumi.StringPtrOutput)
+}
+
+// The output path of the app after building.
+func (o StaticSiteBuildPropertiesResponseOutput) OutputLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StaticSiteBuildPropertiesResponse) *string { return v.OutputLocation }).(pulumi.StringPtrOutput)
+}
+
+// Skip Github Action workflow generation.
+func (o StaticSiteBuildPropertiesResponseOutput) SkipGithubActionWorkflowGeneration() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v StaticSiteBuildPropertiesResponse) *bool { return v.SkipGithubActionWorkflowGeneration }).(pulumi.BoolPtrOutput)
 }
 
 type StaticSiteBuildPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
@@ -33826,6 +36851,16 @@ func (o StaticSiteBuildPropertiesResponsePtrOutput) Elem() StaticSiteBuildProper
 	return o.ApplyT(func(v *StaticSiteBuildPropertiesResponse) StaticSiteBuildPropertiesResponse { return *v }).(StaticSiteBuildPropertiesResponseOutput)
 }
 
+// A custom command to run during deployment of the Azure Functions API application.
+func (o StaticSiteBuildPropertiesResponsePtrOutput) ApiBuildCommand() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StaticSiteBuildPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ApiBuildCommand
+	}).(pulumi.StringPtrOutput)
+}
+
 // The path to the api code within the repository.
 func (o StaticSiteBuildPropertiesResponsePtrOutput) ApiLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StaticSiteBuildPropertiesResponse) *string {
@@ -33836,13 +36871,23 @@ func (o StaticSiteBuildPropertiesResponsePtrOutput) ApiLocation() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The path of the app artifacts after building.
+// Deprecated: The path of the app artifacts after building (deprecated in favor of OutputLocation)
 func (o StaticSiteBuildPropertiesResponsePtrOutput) AppArtifactLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StaticSiteBuildPropertiesResponse) *string {
 		if v == nil {
 			return nil
 		}
 		return v.AppArtifactLocation
+	}).(pulumi.StringPtrOutput)
+}
+
+// A custom command to run during deployment of the static content application.
+func (o StaticSiteBuildPropertiesResponsePtrOutput) AppBuildCommand() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StaticSiteBuildPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AppBuildCommand
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -33853,6 +36898,456 @@ func (o StaticSiteBuildPropertiesResponsePtrOutput) AppLocation() pulumi.StringP
 			return nil
 		}
 		return v.AppLocation
+	}).(pulumi.StringPtrOutput)
+}
+
+// Github Action secret name override.
+func (o StaticSiteBuildPropertiesResponsePtrOutput) GithubActionSecretNameOverride() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StaticSiteBuildPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GithubActionSecretNameOverride
+	}).(pulumi.StringPtrOutput)
+}
+
+// The output path of the app after building.
+func (o StaticSiteBuildPropertiesResponsePtrOutput) OutputLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StaticSiteBuildPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OutputLocation
+	}).(pulumi.StringPtrOutput)
+}
+
+// Skip Github Action workflow generation.
+func (o StaticSiteBuildPropertiesResponsePtrOutput) SkipGithubActionWorkflowGeneration() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StaticSiteBuildPropertiesResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SkipGithubActionWorkflowGeneration
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Template Options for the static site.
+type StaticSiteTemplateOptions struct {
+	// Description of the newly generated repository.
+	Description *string `pulumi:"description"`
+	// Whether or not the newly generated repository is a private repository. Defaults to false (i.e. public).
+	IsPrivate *bool `pulumi:"isPrivate"`
+	// Owner of the newly generated repository.
+	Owner *string `pulumi:"owner"`
+	// Name of the newly generated repository.
+	RepositoryName *string `pulumi:"repositoryName"`
+	// URL of the template repository. The newly generated repository will be based on this one.
+	TemplateRepositoryUrl *string `pulumi:"templateRepositoryUrl"`
+}
+
+// StaticSiteTemplateOptionsInput is an input type that accepts StaticSiteTemplateOptionsArgs and StaticSiteTemplateOptionsOutput values.
+// You can construct a concrete instance of `StaticSiteTemplateOptionsInput` via:
+//
+//          StaticSiteTemplateOptionsArgs{...}
+type StaticSiteTemplateOptionsInput interface {
+	pulumi.Input
+
+	ToStaticSiteTemplateOptionsOutput() StaticSiteTemplateOptionsOutput
+	ToStaticSiteTemplateOptionsOutputWithContext(context.Context) StaticSiteTemplateOptionsOutput
+}
+
+// Template Options for the static site.
+type StaticSiteTemplateOptionsArgs struct {
+	// Description of the newly generated repository.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Whether or not the newly generated repository is a private repository. Defaults to false (i.e. public).
+	IsPrivate pulumi.BoolPtrInput `pulumi:"isPrivate"`
+	// Owner of the newly generated repository.
+	Owner pulumi.StringPtrInput `pulumi:"owner"`
+	// Name of the newly generated repository.
+	RepositoryName pulumi.StringPtrInput `pulumi:"repositoryName"`
+	// URL of the template repository. The newly generated repository will be based on this one.
+	TemplateRepositoryUrl pulumi.StringPtrInput `pulumi:"templateRepositoryUrl"`
+}
+
+func (StaticSiteTemplateOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StaticSiteTemplateOptions)(nil)).Elem()
+}
+
+func (i StaticSiteTemplateOptionsArgs) ToStaticSiteTemplateOptionsOutput() StaticSiteTemplateOptionsOutput {
+	return i.ToStaticSiteTemplateOptionsOutputWithContext(context.Background())
+}
+
+func (i StaticSiteTemplateOptionsArgs) ToStaticSiteTemplateOptionsOutputWithContext(ctx context.Context) StaticSiteTemplateOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StaticSiteTemplateOptionsOutput)
+}
+
+func (i StaticSiteTemplateOptionsArgs) ToStaticSiteTemplateOptionsPtrOutput() StaticSiteTemplateOptionsPtrOutput {
+	return i.ToStaticSiteTemplateOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i StaticSiteTemplateOptionsArgs) ToStaticSiteTemplateOptionsPtrOutputWithContext(ctx context.Context) StaticSiteTemplateOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StaticSiteTemplateOptionsOutput).ToStaticSiteTemplateOptionsPtrOutputWithContext(ctx)
+}
+
+// StaticSiteTemplateOptionsPtrInput is an input type that accepts StaticSiteTemplateOptionsArgs, StaticSiteTemplateOptionsPtr and StaticSiteTemplateOptionsPtrOutput values.
+// You can construct a concrete instance of `StaticSiteTemplateOptionsPtrInput` via:
+//
+//          StaticSiteTemplateOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type StaticSiteTemplateOptionsPtrInput interface {
+	pulumi.Input
+
+	ToStaticSiteTemplateOptionsPtrOutput() StaticSiteTemplateOptionsPtrOutput
+	ToStaticSiteTemplateOptionsPtrOutputWithContext(context.Context) StaticSiteTemplateOptionsPtrOutput
+}
+
+type staticSiteTemplateOptionsPtrType StaticSiteTemplateOptionsArgs
+
+func StaticSiteTemplateOptionsPtr(v *StaticSiteTemplateOptionsArgs) StaticSiteTemplateOptionsPtrInput {
+	return (*staticSiteTemplateOptionsPtrType)(v)
+}
+
+func (*staticSiteTemplateOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StaticSiteTemplateOptions)(nil)).Elem()
+}
+
+func (i *staticSiteTemplateOptionsPtrType) ToStaticSiteTemplateOptionsPtrOutput() StaticSiteTemplateOptionsPtrOutput {
+	return i.ToStaticSiteTemplateOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *staticSiteTemplateOptionsPtrType) ToStaticSiteTemplateOptionsPtrOutputWithContext(ctx context.Context) StaticSiteTemplateOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StaticSiteTemplateOptionsPtrOutput)
+}
+
+// Template Options for the static site.
+type StaticSiteTemplateOptionsOutput struct{ *pulumi.OutputState }
+
+func (StaticSiteTemplateOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StaticSiteTemplateOptions)(nil)).Elem()
+}
+
+func (o StaticSiteTemplateOptionsOutput) ToStaticSiteTemplateOptionsOutput() StaticSiteTemplateOptionsOutput {
+	return o
+}
+
+func (o StaticSiteTemplateOptionsOutput) ToStaticSiteTemplateOptionsOutputWithContext(ctx context.Context) StaticSiteTemplateOptionsOutput {
+	return o
+}
+
+func (o StaticSiteTemplateOptionsOutput) ToStaticSiteTemplateOptionsPtrOutput() StaticSiteTemplateOptionsPtrOutput {
+	return o.ToStaticSiteTemplateOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o StaticSiteTemplateOptionsOutput) ToStaticSiteTemplateOptionsPtrOutputWithContext(ctx context.Context) StaticSiteTemplateOptionsPtrOutput {
+	return o.ApplyT(func(v StaticSiteTemplateOptions) *StaticSiteTemplateOptions {
+		return &v
+	}).(StaticSiteTemplateOptionsPtrOutput)
+}
+
+// Description of the newly generated repository.
+func (o StaticSiteTemplateOptionsOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StaticSiteTemplateOptions) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Whether or not the newly generated repository is a private repository. Defaults to false (i.e. public).
+func (o StaticSiteTemplateOptionsOutput) IsPrivate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v StaticSiteTemplateOptions) *bool { return v.IsPrivate }).(pulumi.BoolPtrOutput)
+}
+
+// Owner of the newly generated repository.
+func (o StaticSiteTemplateOptionsOutput) Owner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StaticSiteTemplateOptions) *string { return v.Owner }).(pulumi.StringPtrOutput)
+}
+
+// Name of the newly generated repository.
+func (o StaticSiteTemplateOptionsOutput) RepositoryName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StaticSiteTemplateOptions) *string { return v.RepositoryName }).(pulumi.StringPtrOutput)
+}
+
+// URL of the template repository. The newly generated repository will be based on this one.
+func (o StaticSiteTemplateOptionsOutput) TemplateRepositoryUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StaticSiteTemplateOptions) *string { return v.TemplateRepositoryUrl }).(pulumi.StringPtrOutput)
+}
+
+type StaticSiteTemplateOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (StaticSiteTemplateOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StaticSiteTemplateOptions)(nil)).Elem()
+}
+
+func (o StaticSiteTemplateOptionsPtrOutput) ToStaticSiteTemplateOptionsPtrOutput() StaticSiteTemplateOptionsPtrOutput {
+	return o
+}
+
+func (o StaticSiteTemplateOptionsPtrOutput) ToStaticSiteTemplateOptionsPtrOutputWithContext(ctx context.Context) StaticSiteTemplateOptionsPtrOutput {
+	return o
+}
+
+func (o StaticSiteTemplateOptionsPtrOutput) Elem() StaticSiteTemplateOptionsOutput {
+	return o.ApplyT(func(v *StaticSiteTemplateOptions) StaticSiteTemplateOptions { return *v }).(StaticSiteTemplateOptionsOutput)
+}
+
+// Description of the newly generated repository.
+func (o StaticSiteTemplateOptionsPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StaticSiteTemplateOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether or not the newly generated repository is a private repository. Defaults to false (i.e. public).
+func (o StaticSiteTemplateOptionsPtrOutput) IsPrivate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StaticSiteTemplateOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsPrivate
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Owner of the newly generated repository.
+func (o StaticSiteTemplateOptionsPtrOutput) Owner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StaticSiteTemplateOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Owner
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the newly generated repository.
+func (o StaticSiteTemplateOptionsPtrOutput) RepositoryName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StaticSiteTemplateOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RepositoryName
+	}).(pulumi.StringPtrOutput)
+}
+
+// URL of the template repository. The newly generated repository will be based on this one.
+func (o StaticSiteTemplateOptionsPtrOutput) TemplateRepositoryUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StaticSiteTemplateOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TemplateRepositoryUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// Template Options for the static site.
+type StaticSiteTemplateOptionsResponse struct {
+	// Description of the newly generated repository.
+	Description *string `pulumi:"description"`
+	// Whether or not the newly generated repository is a private repository. Defaults to false (i.e. public).
+	IsPrivate *bool `pulumi:"isPrivate"`
+	// Owner of the newly generated repository.
+	Owner *string `pulumi:"owner"`
+	// Name of the newly generated repository.
+	RepositoryName *string `pulumi:"repositoryName"`
+	// URL of the template repository. The newly generated repository will be based on this one.
+	TemplateRepositoryUrl *string `pulumi:"templateRepositoryUrl"`
+}
+
+// StaticSiteTemplateOptionsResponseInput is an input type that accepts StaticSiteTemplateOptionsResponseArgs and StaticSiteTemplateOptionsResponseOutput values.
+// You can construct a concrete instance of `StaticSiteTemplateOptionsResponseInput` via:
+//
+//          StaticSiteTemplateOptionsResponseArgs{...}
+type StaticSiteTemplateOptionsResponseInput interface {
+	pulumi.Input
+
+	ToStaticSiteTemplateOptionsResponseOutput() StaticSiteTemplateOptionsResponseOutput
+	ToStaticSiteTemplateOptionsResponseOutputWithContext(context.Context) StaticSiteTemplateOptionsResponseOutput
+}
+
+// Template Options for the static site.
+type StaticSiteTemplateOptionsResponseArgs struct {
+	// Description of the newly generated repository.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Whether or not the newly generated repository is a private repository. Defaults to false (i.e. public).
+	IsPrivate pulumi.BoolPtrInput `pulumi:"isPrivate"`
+	// Owner of the newly generated repository.
+	Owner pulumi.StringPtrInput `pulumi:"owner"`
+	// Name of the newly generated repository.
+	RepositoryName pulumi.StringPtrInput `pulumi:"repositoryName"`
+	// URL of the template repository. The newly generated repository will be based on this one.
+	TemplateRepositoryUrl pulumi.StringPtrInput `pulumi:"templateRepositoryUrl"`
+}
+
+func (StaticSiteTemplateOptionsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StaticSiteTemplateOptionsResponse)(nil)).Elem()
+}
+
+func (i StaticSiteTemplateOptionsResponseArgs) ToStaticSiteTemplateOptionsResponseOutput() StaticSiteTemplateOptionsResponseOutput {
+	return i.ToStaticSiteTemplateOptionsResponseOutputWithContext(context.Background())
+}
+
+func (i StaticSiteTemplateOptionsResponseArgs) ToStaticSiteTemplateOptionsResponseOutputWithContext(ctx context.Context) StaticSiteTemplateOptionsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StaticSiteTemplateOptionsResponseOutput)
+}
+
+func (i StaticSiteTemplateOptionsResponseArgs) ToStaticSiteTemplateOptionsResponsePtrOutput() StaticSiteTemplateOptionsResponsePtrOutput {
+	return i.ToStaticSiteTemplateOptionsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i StaticSiteTemplateOptionsResponseArgs) ToStaticSiteTemplateOptionsResponsePtrOutputWithContext(ctx context.Context) StaticSiteTemplateOptionsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StaticSiteTemplateOptionsResponseOutput).ToStaticSiteTemplateOptionsResponsePtrOutputWithContext(ctx)
+}
+
+// StaticSiteTemplateOptionsResponsePtrInput is an input type that accepts StaticSiteTemplateOptionsResponseArgs, StaticSiteTemplateOptionsResponsePtr and StaticSiteTemplateOptionsResponsePtrOutput values.
+// You can construct a concrete instance of `StaticSiteTemplateOptionsResponsePtrInput` via:
+//
+//          StaticSiteTemplateOptionsResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type StaticSiteTemplateOptionsResponsePtrInput interface {
+	pulumi.Input
+
+	ToStaticSiteTemplateOptionsResponsePtrOutput() StaticSiteTemplateOptionsResponsePtrOutput
+	ToStaticSiteTemplateOptionsResponsePtrOutputWithContext(context.Context) StaticSiteTemplateOptionsResponsePtrOutput
+}
+
+type staticSiteTemplateOptionsResponsePtrType StaticSiteTemplateOptionsResponseArgs
+
+func StaticSiteTemplateOptionsResponsePtr(v *StaticSiteTemplateOptionsResponseArgs) StaticSiteTemplateOptionsResponsePtrInput {
+	return (*staticSiteTemplateOptionsResponsePtrType)(v)
+}
+
+func (*staticSiteTemplateOptionsResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StaticSiteTemplateOptionsResponse)(nil)).Elem()
+}
+
+func (i *staticSiteTemplateOptionsResponsePtrType) ToStaticSiteTemplateOptionsResponsePtrOutput() StaticSiteTemplateOptionsResponsePtrOutput {
+	return i.ToStaticSiteTemplateOptionsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *staticSiteTemplateOptionsResponsePtrType) ToStaticSiteTemplateOptionsResponsePtrOutputWithContext(ctx context.Context) StaticSiteTemplateOptionsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StaticSiteTemplateOptionsResponsePtrOutput)
+}
+
+// Template Options for the static site.
+type StaticSiteTemplateOptionsResponseOutput struct{ *pulumi.OutputState }
+
+func (StaticSiteTemplateOptionsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StaticSiteTemplateOptionsResponse)(nil)).Elem()
+}
+
+func (o StaticSiteTemplateOptionsResponseOutput) ToStaticSiteTemplateOptionsResponseOutput() StaticSiteTemplateOptionsResponseOutput {
+	return o
+}
+
+func (o StaticSiteTemplateOptionsResponseOutput) ToStaticSiteTemplateOptionsResponseOutputWithContext(ctx context.Context) StaticSiteTemplateOptionsResponseOutput {
+	return o
+}
+
+func (o StaticSiteTemplateOptionsResponseOutput) ToStaticSiteTemplateOptionsResponsePtrOutput() StaticSiteTemplateOptionsResponsePtrOutput {
+	return o.ToStaticSiteTemplateOptionsResponsePtrOutputWithContext(context.Background())
+}
+
+func (o StaticSiteTemplateOptionsResponseOutput) ToStaticSiteTemplateOptionsResponsePtrOutputWithContext(ctx context.Context) StaticSiteTemplateOptionsResponsePtrOutput {
+	return o.ApplyT(func(v StaticSiteTemplateOptionsResponse) *StaticSiteTemplateOptionsResponse {
+		return &v
+	}).(StaticSiteTemplateOptionsResponsePtrOutput)
+}
+
+// Description of the newly generated repository.
+func (o StaticSiteTemplateOptionsResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StaticSiteTemplateOptionsResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Whether or not the newly generated repository is a private repository. Defaults to false (i.e. public).
+func (o StaticSiteTemplateOptionsResponseOutput) IsPrivate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v StaticSiteTemplateOptionsResponse) *bool { return v.IsPrivate }).(pulumi.BoolPtrOutput)
+}
+
+// Owner of the newly generated repository.
+func (o StaticSiteTemplateOptionsResponseOutput) Owner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StaticSiteTemplateOptionsResponse) *string { return v.Owner }).(pulumi.StringPtrOutput)
+}
+
+// Name of the newly generated repository.
+func (o StaticSiteTemplateOptionsResponseOutput) RepositoryName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StaticSiteTemplateOptionsResponse) *string { return v.RepositoryName }).(pulumi.StringPtrOutput)
+}
+
+// URL of the template repository. The newly generated repository will be based on this one.
+func (o StaticSiteTemplateOptionsResponseOutput) TemplateRepositoryUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StaticSiteTemplateOptionsResponse) *string { return v.TemplateRepositoryUrl }).(pulumi.StringPtrOutput)
+}
+
+type StaticSiteTemplateOptionsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (StaticSiteTemplateOptionsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StaticSiteTemplateOptionsResponse)(nil)).Elem()
+}
+
+func (o StaticSiteTemplateOptionsResponsePtrOutput) ToStaticSiteTemplateOptionsResponsePtrOutput() StaticSiteTemplateOptionsResponsePtrOutput {
+	return o
+}
+
+func (o StaticSiteTemplateOptionsResponsePtrOutput) ToStaticSiteTemplateOptionsResponsePtrOutputWithContext(ctx context.Context) StaticSiteTemplateOptionsResponsePtrOutput {
+	return o
+}
+
+func (o StaticSiteTemplateOptionsResponsePtrOutput) Elem() StaticSiteTemplateOptionsResponseOutput {
+	return o.ApplyT(func(v *StaticSiteTemplateOptionsResponse) StaticSiteTemplateOptionsResponse { return *v }).(StaticSiteTemplateOptionsResponseOutput)
+}
+
+// Description of the newly generated repository.
+func (o StaticSiteTemplateOptionsResponsePtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StaticSiteTemplateOptionsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether or not the newly generated repository is a private repository. Defaults to false (i.e. public).
+func (o StaticSiteTemplateOptionsResponsePtrOutput) IsPrivate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StaticSiteTemplateOptionsResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsPrivate
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Owner of the newly generated repository.
+func (o StaticSiteTemplateOptionsResponsePtrOutput) Owner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StaticSiteTemplateOptionsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Owner
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the newly generated repository.
+func (o StaticSiteTemplateOptionsResponsePtrOutput) RepositoryName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StaticSiteTemplateOptionsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RepositoryName
+	}).(pulumi.StringPtrOutput)
+}
+
+// URL of the template repository. The newly generated repository will be based on this one.
+func (o StaticSiteTemplateOptionsResponsePtrOutput) TemplateRepositoryUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StaticSiteTemplateOptionsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TemplateRepositoryUrl
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -33870,8 +37365,6 @@ type StaticSiteUserARMResourceResponse struct {
 	Provider string `pulumi:"provider"`
 	// The roles for the static site user, in free-form string format
 	Roles *string `pulumi:"roles"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type string `pulumi:"type"`
 	// The user id for the static site user.
@@ -33903,8 +37396,6 @@ type StaticSiteUserARMResourceResponseArgs struct {
 	Provider pulumi.StringInput `pulumi:"provider"`
 	// The roles for the static site user, in free-form string format
 	Roles pulumi.StringPtrInput `pulumi:"roles"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponseInput `pulumi:"systemData"`
 	// Resource type.
 	Type pulumi.StringInput `pulumi:"type"`
 	// The user id for the static site user.
@@ -33993,11 +37484,6 @@ func (o StaticSiteUserARMResourceResponseOutput) Roles() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v StaticSiteUserARMResourceResponse) *string { return v.Roles }).(pulumi.StringPtrOutput)
 }
 
-// The system metadata relating to this resource.
-func (o StaticSiteUserARMResourceResponseOutput) SystemData() SystemDataResponseOutput {
-	return o.ApplyT(func(v StaticSiteUserARMResourceResponse) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
-}
-
 // Resource type.
 func (o StaticSiteUserARMResourceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v StaticSiteUserARMResourceResponse) string { return v.Type }).(pulumi.StringOutput)
@@ -34028,10 +37514,166 @@ func (o StaticSiteUserARMResourceResponseArrayOutput) Index(i pulumi.IntInput) S
 	}).(StaticSiteUserARMResourceResponseOutput)
 }
 
+// A static site user provided function.
+type StaticSiteUserProvidedFunctionAppResponse struct {
+	// The date and time on which the function app was registered with the static site.
+	CreatedOn string `pulumi:"createdOn"`
+	// The region of the function app registered with the static site
+	FunctionAppRegion *string `pulumi:"functionAppRegion"`
+	// The resource id of the function app registered with the static site
+	FunctionAppResourceId *string `pulumi:"functionAppResourceId"`
+	// Resource Id.
+	Id string `pulumi:"id"`
+	// Kind of resource.
+	Kind *string `pulumi:"kind"`
+	// Resource Name.
+	Name string `pulumi:"name"`
+	// Resource type.
+	Type string `pulumi:"type"`
+}
+
+// StaticSiteUserProvidedFunctionAppResponseInput is an input type that accepts StaticSiteUserProvidedFunctionAppResponseArgs and StaticSiteUserProvidedFunctionAppResponseOutput values.
+// You can construct a concrete instance of `StaticSiteUserProvidedFunctionAppResponseInput` via:
+//
+//          StaticSiteUserProvidedFunctionAppResponseArgs{...}
+type StaticSiteUserProvidedFunctionAppResponseInput interface {
+	pulumi.Input
+
+	ToStaticSiteUserProvidedFunctionAppResponseOutput() StaticSiteUserProvidedFunctionAppResponseOutput
+	ToStaticSiteUserProvidedFunctionAppResponseOutputWithContext(context.Context) StaticSiteUserProvidedFunctionAppResponseOutput
+}
+
+// A static site user provided function.
+type StaticSiteUserProvidedFunctionAppResponseArgs struct {
+	// The date and time on which the function app was registered with the static site.
+	CreatedOn pulumi.StringInput `pulumi:"createdOn"`
+	// The region of the function app registered with the static site
+	FunctionAppRegion pulumi.StringPtrInput `pulumi:"functionAppRegion"`
+	// The resource id of the function app registered with the static site
+	FunctionAppResourceId pulumi.StringPtrInput `pulumi:"functionAppResourceId"`
+	// Resource Id.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Kind of resource.
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// Resource Name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (StaticSiteUserProvidedFunctionAppResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StaticSiteUserProvidedFunctionAppResponse)(nil)).Elem()
+}
+
+func (i StaticSiteUserProvidedFunctionAppResponseArgs) ToStaticSiteUserProvidedFunctionAppResponseOutput() StaticSiteUserProvidedFunctionAppResponseOutput {
+	return i.ToStaticSiteUserProvidedFunctionAppResponseOutputWithContext(context.Background())
+}
+
+func (i StaticSiteUserProvidedFunctionAppResponseArgs) ToStaticSiteUserProvidedFunctionAppResponseOutputWithContext(ctx context.Context) StaticSiteUserProvidedFunctionAppResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StaticSiteUserProvidedFunctionAppResponseOutput)
+}
+
+// StaticSiteUserProvidedFunctionAppResponseArrayInput is an input type that accepts StaticSiteUserProvidedFunctionAppResponseArray and StaticSiteUserProvidedFunctionAppResponseArrayOutput values.
+// You can construct a concrete instance of `StaticSiteUserProvidedFunctionAppResponseArrayInput` via:
+//
+//          StaticSiteUserProvidedFunctionAppResponseArray{ StaticSiteUserProvidedFunctionAppResponseArgs{...} }
+type StaticSiteUserProvidedFunctionAppResponseArrayInput interface {
+	pulumi.Input
+
+	ToStaticSiteUserProvidedFunctionAppResponseArrayOutput() StaticSiteUserProvidedFunctionAppResponseArrayOutput
+	ToStaticSiteUserProvidedFunctionAppResponseArrayOutputWithContext(context.Context) StaticSiteUserProvidedFunctionAppResponseArrayOutput
+}
+
+type StaticSiteUserProvidedFunctionAppResponseArray []StaticSiteUserProvidedFunctionAppResponseInput
+
+func (StaticSiteUserProvidedFunctionAppResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StaticSiteUserProvidedFunctionAppResponse)(nil)).Elem()
+}
+
+func (i StaticSiteUserProvidedFunctionAppResponseArray) ToStaticSiteUserProvidedFunctionAppResponseArrayOutput() StaticSiteUserProvidedFunctionAppResponseArrayOutput {
+	return i.ToStaticSiteUserProvidedFunctionAppResponseArrayOutputWithContext(context.Background())
+}
+
+func (i StaticSiteUserProvidedFunctionAppResponseArray) ToStaticSiteUserProvidedFunctionAppResponseArrayOutputWithContext(ctx context.Context) StaticSiteUserProvidedFunctionAppResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StaticSiteUserProvidedFunctionAppResponseArrayOutput)
+}
+
+// A static site user provided function.
+type StaticSiteUserProvidedFunctionAppResponseOutput struct{ *pulumi.OutputState }
+
+func (StaticSiteUserProvidedFunctionAppResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StaticSiteUserProvidedFunctionAppResponse)(nil)).Elem()
+}
+
+func (o StaticSiteUserProvidedFunctionAppResponseOutput) ToStaticSiteUserProvidedFunctionAppResponseOutput() StaticSiteUserProvidedFunctionAppResponseOutput {
+	return o
+}
+
+func (o StaticSiteUserProvidedFunctionAppResponseOutput) ToStaticSiteUserProvidedFunctionAppResponseOutputWithContext(ctx context.Context) StaticSiteUserProvidedFunctionAppResponseOutput {
+	return o
+}
+
+// The date and time on which the function app was registered with the static site.
+func (o StaticSiteUserProvidedFunctionAppResponseOutput) CreatedOn() pulumi.StringOutput {
+	return o.ApplyT(func(v StaticSiteUserProvidedFunctionAppResponse) string { return v.CreatedOn }).(pulumi.StringOutput)
+}
+
+// The region of the function app registered with the static site
+func (o StaticSiteUserProvidedFunctionAppResponseOutput) FunctionAppRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StaticSiteUserProvidedFunctionAppResponse) *string { return v.FunctionAppRegion }).(pulumi.StringPtrOutput)
+}
+
+// The resource id of the function app registered with the static site
+func (o StaticSiteUserProvidedFunctionAppResponseOutput) FunctionAppResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StaticSiteUserProvidedFunctionAppResponse) *string { return v.FunctionAppResourceId }).(pulumi.StringPtrOutput)
+}
+
+// Resource Id.
+func (o StaticSiteUserProvidedFunctionAppResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v StaticSiteUserProvidedFunctionAppResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Kind of resource.
+func (o StaticSiteUserProvidedFunctionAppResponseOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StaticSiteUserProvidedFunctionAppResponse) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name.
+func (o StaticSiteUserProvidedFunctionAppResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v StaticSiteUserProvidedFunctionAppResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o StaticSiteUserProvidedFunctionAppResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v StaticSiteUserProvidedFunctionAppResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type StaticSiteUserProvidedFunctionAppResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (StaticSiteUserProvidedFunctionAppResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StaticSiteUserProvidedFunctionAppResponse)(nil)).Elem()
+}
+
+func (o StaticSiteUserProvidedFunctionAppResponseArrayOutput) ToStaticSiteUserProvidedFunctionAppResponseArrayOutput() StaticSiteUserProvidedFunctionAppResponseArrayOutput {
+	return o
+}
+
+func (o StaticSiteUserProvidedFunctionAppResponseArrayOutput) ToStaticSiteUserProvidedFunctionAppResponseArrayOutputWithContext(ctx context.Context) StaticSiteUserProvidedFunctionAppResponseArrayOutput {
+	return o
+}
+
+func (o StaticSiteUserProvidedFunctionAppResponseArrayOutput) Index(i pulumi.IntInput) StaticSiteUserProvidedFunctionAppResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StaticSiteUserProvidedFunctionAppResponse {
+		return vs[0].([]StaticSiteUserProvidedFunctionAppResponse)[vs[1].(int)]
+	}).(StaticSiteUserProvidedFunctionAppResponseOutput)
+}
+
 // Trigger based on status code.
 type StatusCodesBasedTrigger struct {
 	// Request Count.
 	Count *int `pulumi:"count"`
+	// Request Path
+	Path *string `pulumi:"path"`
 	// HTTP status code.
 	Status *int `pulumi:"status"`
 	// Request Sub Status.
@@ -34057,6 +37699,8 @@ type StatusCodesBasedTriggerInput interface {
 type StatusCodesBasedTriggerArgs struct {
 	// Request Count.
 	Count pulumi.IntPtrInput `pulumi:"count"`
+	// Request Path
+	Path pulumi.StringPtrInput `pulumi:"path"`
 	// HTTP status code.
 	Status pulumi.IntPtrInput `pulumi:"status"`
 	// Request Sub Status.
@@ -34124,6 +37768,11 @@ func (o StatusCodesBasedTriggerOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v StatusCodesBasedTrigger) *int { return v.Count }).(pulumi.IntPtrOutput)
 }
 
+// Request Path
+func (o StatusCodesBasedTriggerOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StatusCodesBasedTrigger) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
 // HTTP status code.
 func (o StatusCodesBasedTriggerOutput) Status() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v StatusCodesBasedTrigger) *int { return v.Status }).(pulumi.IntPtrOutput)
@@ -34168,6 +37817,8 @@ func (o StatusCodesBasedTriggerArrayOutput) Index(i pulumi.IntInput) StatusCodes
 type StatusCodesBasedTriggerResponse struct {
 	// Request Count.
 	Count *int `pulumi:"count"`
+	// Request Path
+	Path *string `pulumi:"path"`
 	// HTTP status code.
 	Status *int `pulumi:"status"`
 	// Request Sub Status.
@@ -34193,6 +37844,8 @@ type StatusCodesBasedTriggerResponseInput interface {
 type StatusCodesBasedTriggerResponseArgs struct {
 	// Request Count.
 	Count pulumi.IntPtrInput `pulumi:"count"`
+	// Request Path
+	Path pulumi.StringPtrInput `pulumi:"path"`
 	// HTTP status code.
 	Status pulumi.IntPtrInput `pulumi:"status"`
 	// Request Sub Status.
@@ -34260,6 +37913,11 @@ func (o StatusCodesBasedTriggerResponseOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v StatusCodesBasedTriggerResponse) *int { return v.Count }).(pulumi.IntPtrOutput)
 }
 
+// Request Path
+func (o StatusCodesBasedTriggerResponseOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StatusCodesBasedTriggerResponse) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
 // HTTP status code.
 func (o StatusCodesBasedTriggerResponseOutput) Status() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v StatusCodesBasedTriggerResponse) *int { return v.Status }).(pulumi.IntPtrOutput)
@@ -34298,6 +37956,254 @@ func (o StatusCodesBasedTriggerResponseArrayOutput) Index(i pulumi.IntInput) Sta
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StatusCodesBasedTriggerResponse {
 		return vs[0].([]StatusCodesBasedTriggerResponse)[vs[1].(int)]
 	}).(StatusCodesBasedTriggerResponseOutput)
+}
+
+// Trigger based on range of status codes.
+type StatusCodesRangeBasedTrigger struct {
+	// Request Count.
+	Count *int    `pulumi:"count"`
+	Path  *string `pulumi:"path"`
+	// HTTP status code.
+	StatusCodes *string `pulumi:"statusCodes"`
+	// Time interval.
+	TimeInterval *string `pulumi:"timeInterval"`
+}
+
+// StatusCodesRangeBasedTriggerInput is an input type that accepts StatusCodesRangeBasedTriggerArgs and StatusCodesRangeBasedTriggerOutput values.
+// You can construct a concrete instance of `StatusCodesRangeBasedTriggerInput` via:
+//
+//          StatusCodesRangeBasedTriggerArgs{...}
+type StatusCodesRangeBasedTriggerInput interface {
+	pulumi.Input
+
+	ToStatusCodesRangeBasedTriggerOutput() StatusCodesRangeBasedTriggerOutput
+	ToStatusCodesRangeBasedTriggerOutputWithContext(context.Context) StatusCodesRangeBasedTriggerOutput
+}
+
+// Trigger based on range of status codes.
+type StatusCodesRangeBasedTriggerArgs struct {
+	// Request Count.
+	Count pulumi.IntPtrInput    `pulumi:"count"`
+	Path  pulumi.StringPtrInput `pulumi:"path"`
+	// HTTP status code.
+	StatusCodes pulumi.StringPtrInput `pulumi:"statusCodes"`
+	// Time interval.
+	TimeInterval pulumi.StringPtrInput `pulumi:"timeInterval"`
+}
+
+func (StatusCodesRangeBasedTriggerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StatusCodesRangeBasedTrigger)(nil)).Elem()
+}
+
+func (i StatusCodesRangeBasedTriggerArgs) ToStatusCodesRangeBasedTriggerOutput() StatusCodesRangeBasedTriggerOutput {
+	return i.ToStatusCodesRangeBasedTriggerOutputWithContext(context.Background())
+}
+
+func (i StatusCodesRangeBasedTriggerArgs) ToStatusCodesRangeBasedTriggerOutputWithContext(ctx context.Context) StatusCodesRangeBasedTriggerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StatusCodesRangeBasedTriggerOutput)
+}
+
+// StatusCodesRangeBasedTriggerArrayInput is an input type that accepts StatusCodesRangeBasedTriggerArray and StatusCodesRangeBasedTriggerArrayOutput values.
+// You can construct a concrete instance of `StatusCodesRangeBasedTriggerArrayInput` via:
+//
+//          StatusCodesRangeBasedTriggerArray{ StatusCodesRangeBasedTriggerArgs{...} }
+type StatusCodesRangeBasedTriggerArrayInput interface {
+	pulumi.Input
+
+	ToStatusCodesRangeBasedTriggerArrayOutput() StatusCodesRangeBasedTriggerArrayOutput
+	ToStatusCodesRangeBasedTriggerArrayOutputWithContext(context.Context) StatusCodesRangeBasedTriggerArrayOutput
+}
+
+type StatusCodesRangeBasedTriggerArray []StatusCodesRangeBasedTriggerInput
+
+func (StatusCodesRangeBasedTriggerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StatusCodesRangeBasedTrigger)(nil)).Elem()
+}
+
+func (i StatusCodesRangeBasedTriggerArray) ToStatusCodesRangeBasedTriggerArrayOutput() StatusCodesRangeBasedTriggerArrayOutput {
+	return i.ToStatusCodesRangeBasedTriggerArrayOutputWithContext(context.Background())
+}
+
+func (i StatusCodesRangeBasedTriggerArray) ToStatusCodesRangeBasedTriggerArrayOutputWithContext(ctx context.Context) StatusCodesRangeBasedTriggerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StatusCodesRangeBasedTriggerArrayOutput)
+}
+
+// Trigger based on range of status codes.
+type StatusCodesRangeBasedTriggerOutput struct{ *pulumi.OutputState }
+
+func (StatusCodesRangeBasedTriggerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StatusCodesRangeBasedTrigger)(nil)).Elem()
+}
+
+func (o StatusCodesRangeBasedTriggerOutput) ToStatusCodesRangeBasedTriggerOutput() StatusCodesRangeBasedTriggerOutput {
+	return o
+}
+
+func (o StatusCodesRangeBasedTriggerOutput) ToStatusCodesRangeBasedTriggerOutputWithContext(ctx context.Context) StatusCodesRangeBasedTriggerOutput {
+	return o
+}
+
+// Request Count.
+func (o StatusCodesRangeBasedTriggerOutput) Count() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v StatusCodesRangeBasedTrigger) *int { return v.Count }).(pulumi.IntPtrOutput)
+}
+
+func (o StatusCodesRangeBasedTriggerOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StatusCodesRangeBasedTrigger) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+// HTTP status code.
+func (o StatusCodesRangeBasedTriggerOutput) StatusCodes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StatusCodesRangeBasedTrigger) *string { return v.StatusCodes }).(pulumi.StringPtrOutput)
+}
+
+// Time interval.
+func (o StatusCodesRangeBasedTriggerOutput) TimeInterval() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StatusCodesRangeBasedTrigger) *string { return v.TimeInterval }).(pulumi.StringPtrOutput)
+}
+
+type StatusCodesRangeBasedTriggerArrayOutput struct{ *pulumi.OutputState }
+
+func (StatusCodesRangeBasedTriggerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StatusCodesRangeBasedTrigger)(nil)).Elem()
+}
+
+func (o StatusCodesRangeBasedTriggerArrayOutput) ToStatusCodesRangeBasedTriggerArrayOutput() StatusCodesRangeBasedTriggerArrayOutput {
+	return o
+}
+
+func (o StatusCodesRangeBasedTriggerArrayOutput) ToStatusCodesRangeBasedTriggerArrayOutputWithContext(ctx context.Context) StatusCodesRangeBasedTriggerArrayOutput {
+	return o
+}
+
+func (o StatusCodesRangeBasedTriggerArrayOutput) Index(i pulumi.IntInput) StatusCodesRangeBasedTriggerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StatusCodesRangeBasedTrigger {
+		return vs[0].([]StatusCodesRangeBasedTrigger)[vs[1].(int)]
+	}).(StatusCodesRangeBasedTriggerOutput)
+}
+
+// Trigger based on range of status codes.
+type StatusCodesRangeBasedTriggerResponse struct {
+	// Request Count.
+	Count *int    `pulumi:"count"`
+	Path  *string `pulumi:"path"`
+	// HTTP status code.
+	StatusCodes *string `pulumi:"statusCodes"`
+	// Time interval.
+	TimeInterval *string `pulumi:"timeInterval"`
+}
+
+// StatusCodesRangeBasedTriggerResponseInput is an input type that accepts StatusCodesRangeBasedTriggerResponseArgs and StatusCodesRangeBasedTriggerResponseOutput values.
+// You can construct a concrete instance of `StatusCodesRangeBasedTriggerResponseInput` via:
+//
+//          StatusCodesRangeBasedTriggerResponseArgs{...}
+type StatusCodesRangeBasedTriggerResponseInput interface {
+	pulumi.Input
+
+	ToStatusCodesRangeBasedTriggerResponseOutput() StatusCodesRangeBasedTriggerResponseOutput
+	ToStatusCodesRangeBasedTriggerResponseOutputWithContext(context.Context) StatusCodesRangeBasedTriggerResponseOutput
+}
+
+// Trigger based on range of status codes.
+type StatusCodesRangeBasedTriggerResponseArgs struct {
+	// Request Count.
+	Count pulumi.IntPtrInput    `pulumi:"count"`
+	Path  pulumi.StringPtrInput `pulumi:"path"`
+	// HTTP status code.
+	StatusCodes pulumi.StringPtrInput `pulumi:"statusCodes"`
+	// Time interval.
+	TimeInterval pulumi.StringPtrInput `pulumi:"timeInterval"`
+}
+
+func (StatusCodesRangeBasedTriggerResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StatusCodesRangeBasedTriggerResponse)(nil)).Elem()
+}
+
+func (i StatusCodesRangeBasedTriggerResponseArgs) ToStatusCodesRangeBasedTriggerResponseOutput() StatusCodesRangeBasedTriggerResponseOutput {
+	return i.ToStatusCodesRangeBasedTriggerResponseOutputWithContext(context.Background())
+}
+
+func (i StatusCodesRangeBasedTriggerResponseArgs) ToStatusCodesRangeBasedTriggerResponseOutputWithContext(ctx context.Context) StatusCodesRangeBasedTriggerResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StatusCodesRangeBasedTriggerResponseOutput)
+}
+
+// StatusCodesRangeBasedTriggerResponseArrayInput is an input type that accepts StatusCodesRangeBasedTriggerResponseArray and StatusCodesRangeBasedTriggerResponseArrayOutput values.
+// You can construct a concrete instance of `StatusCodesRangeBasedTriggerResponseArrayInput` via:
+//
+//          StatusCodesRangeBasedTriggerResponseArray{ StatusCodesRangeBasedTriggerResponseArgs{...} }
+type StatusCodesRangeBasedTriggerResponseArrayInput interface {
+	pulumi.Input
+
+	ToStatusCodesRangeBasedTriggerResponseArrayOutput() StatusCodesRangeBasedTriggerResponseArrayOutput
+	ToStatusCodesRangeBasedTriggerResponseArrayOutputWithContext(context.Context) StatusCodesRangeBasedTriggerResponseArrayOutput
+}
+
+type StatusCodesRangeBasedTriggerResponseArray []StatusCodesRangeBasedTriggerResponseInput
+
+func (StatusCodesRangeBasedTriggerResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StatusCodesRangeBasedTriggerResponse)(nil)).Elem()
+}
+
+func (i StatusCodesRangeBasedTriggerResponseArray) ToStatusCodesRangeBasedTriggerResponseArrayOutput() StatusCodesRangeBasedTriggerResponseArrayOutput {
+	return i.ToStatusCodesRangeBasedTriggerResponseArrayOutputWithContext(context.Background())
+}
+
+func (i StatusCodesRangeBasedTriggerResponseArray) ToStatusCodesRangeBasedTriggerResponseArrayOutputWithContext(ctx context.Context) StatusCodesRangeBasedTriggerResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StatusCodesRangeBasedTriggerResponseArrayOutput)
+}
+
+// Trigger based on range of status codes.
+type StatusCodesRangeBasedTriggerResponseOutput struct{ *pulumi.OutputState }
+
+func (StatusCodesRangeBasedTriggerResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StatusCodesRangeBasedTriggerResponse)(nil)).Elem()
+}
+
+func (o StatusCodesRangeBasedTriggerResponseOutput) ToStatusCodesRangeBasedTriggerResponseOutput() StatusCodesRangeBasedTriggerResponseOutput {
+	return o
+}
+
+func (o StatusCodesRangeBasedTriggerResponseOutput) ToStatusCodesRangeBasedTriggerResponseOutputWithContext(ctx context.Context) StatusCodesRangeBasedTriggerResponseOutput {
+	return o
+}
+
+// Request Count.
+func (o StatusCodesRangeBasedTriggerResponseOutput) Count() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v StatusCodesRangeBasedTriggerResponse) *int { return v.Count }).(pulumi.IntPtrOutput)
+}
+
+func (o StatusCodesRangeBasedTriggerResponseOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StatusCodesRangeBasedTriggerResponse) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+// HTTP status code.
+func (o StatusCodesRangeBasedTriggerResponseOutput) StatusCodes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StatusCodesRangeBasedTriggerResponse) *string { return v.StatusCodes }).(pulumi.StringPtrOutput)
+}
+
+// Time interval.
+func (o StatusCodesRangeBasedTriggerResponseOutput) TimeInterval() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StatusCodesRangeBasedTriggerResponse) *string { return v.TimeInterval }).(pulumi.StringPtrOutput)
+}
+
+type StatusCodesRangeBasedTriggerResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (StatusCodesRangeBasedTriggerResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StatusCodesRangeBasedTriggerResponse)(nil)).Elem()
+}
+
+func (o StatusCodesRangeBasedTriggerResponseArrayOutput) ToStatusCodesRangeBasedTriggerResponseArrayOutput() StatusCodesRangeBasedTriggerResponseArrayOutput {
+	return o
+}
+
+func (o StatusCodesRangeBasedTriggerResponseArrayOutput) ToStatusCodesRangeBasedTriggerResponseArrayOutputWithContext(ctx context.Context) StatusCodesRangeBasedTriggerResponseArrayOutput {
+	return o
+}
+
+func (o StatusCodesRangeBasedTriggerResponseArrayOutput) Index(i pulumi.IntInput) StatusCodesRangeBasedTriggerResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StatusCodesRangeBasedTriggerResponse {
+		return vs[0].([]StatusCodesRangeBasedTriggerResponse)[vs[1].(int)]
+	}).(StatusCodesRangeBasedTriggerResponseOutput)
 }
 
 // Metadata pertaining to creation and last modification of the resource.
@@ -34728,10 +38634,8 @@ type TokenStoreResponse struct {
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// Resource Name.
-	Name string `pulumi:"name"`
-	// The system metadata relating to this resource.
-	SystemData                 SystemDataResponse `pulumi:"systemData"`
-	TokenRefreshExtensionHours *float64           `pulumi:"tokenRefreshExtensionHours"`
+	Name                       string   `pulumi:"name"`
+	TokenRefreshExtensionHours *float64 `pulumi:"tokenRefreshExtensionHours"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }
@@ -34756,10 +38660,8 @@ type TokenStoreResponseArgs struct {
 	// Kind of resource.
 	Kind pulumi.StringPtrInput `pulumi:"kind"`
 	// Resource Name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The system metadata relating to this resource.
-	SystemData                 SystemDataResponseInput `pulumi:"systemData"`
-	TokenRefreshExtensionHours pulumi.Float64PtrInput  `pulumi:"tokenRefreshExtensionHours"`
+	Name                       pulumi.StringInput     `pulumi:"name"`
+	TokenRefreshExtensionHours pulumi.Float64PtrInput `pulumi:"tokenRefreshExtensionHours"`
 	// Resource type.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -34867,11 +38769,6 @@ func (o TokenStoreResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v TokenStoreResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The system metadata relating to this resource.
-func (o TokenStoreResponseOutput) SystemData() SystemDataResponseOutput {
-	return o.ApplyT(func(v TokenStoreResponse) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
-}
-
 func (o TokenStoreResponseOutput) TokenRefreshExtensionHours() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v TokenStoreResponse) *float64 { return v.TokenRefreshExtensionHours }).(pulumi.Float64PtrOutput)
 }
@@ -34954,16 +38851,6 @@ func (o TokenStoreResponsePtrOutput) Name() pulumi.StringPtrOutput {
 		}
 		return &v.Name
 	}).(pulumi.StringPtrOutput)
-}
-
-// The system metadata relating to this resource.
-func (o TokenStoreResponsePtrOutput) SystemData() SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v *TokenStoreResponse) *SystemDataResponse {
-		if v == nil {
-			return nil
-		}
-		return &v.SystemData
-	}).(SystemDataResponsePtrOutput)
 }
 
 func (o TokenStoreResponsePtrOutput) TokenRefreshExtensionHours() pulumi.Float64PtrOutput {
@@ -35314,8 +39201,6 @@ type TwitterRegistrationResponse struct {
 	Kind *string `pulumi:"kind"`
 	// Resource Name.
 	Name string `pulumi:"name"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }
@@ -35340,8 +39225,6 @@ type TwitterRegistrationResponseArgs struct {
 	Kind pulumi.StringPtrInput `pulumi:"kind"`
 	// Resource Name.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponseInput `pulumi:"systemData"`
 	// Resource type.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -35445,11 +39328,6 @@ func (o TwitterRegistrationResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v TwitterRegistrationResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The system metadata relating to this resource.
-func (o TwitterRegistrationResponseOutput) SystemData() SystemDataResponseOutput {
-	return o.ApplyT(func(v TwitterRegistrationResponse) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
-}
-
 // Resource type.
 func (o TwitterRegistrationResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v TwitterRegistrationResponse) string { return v.Type }).(pulumi.StringOutput)
@@ -35521,16 +39399,6 @@ func (o TwitterRegistrationResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The system metadata relating to this resource.
-func (o TwitterRegistrationResponsePtrOutput) SystemData() SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v *TwitterRegistrationResponse) *SystemDataResponse {
-		if v == nil {
-			return nil
-		}
-		return &v.SystemData
-	}).(SystemDataResponsePtrOutput)
-}
-
 // Resource type.
 func (o TwitterRegistrationResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TwitterRegistrationResponse) *string {
@@ -35550,8 +39418,6 @@ type TwitterResponse struct {
 	// Resource Name.
 	Name         string                       `pulumi:"name"`
 	Registration *TwitterRegistrationResponse `pulumi:"registration"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }
@@ -35576,8 +39442,6 @@ type TwitterResponseArgs struct {
 	// Resource Name.
 	Name         pulumi.StringInput                  `pulumi:"name"`
 	Registration TwitterRegistrationResponsePtrInput `pulumi:"registration"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponseInput `pulumi:"systemData"`
 	// Resource type.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -35681,11 +39545,6 @@ func (o TwitterResponseOutput) Registration() TwitterRegistrationResponsePtrOutp
 	return o.ApplyT(func(v TwitterResponse) *TwitterRegistrationResponse { return v.Registration }).(TwitterRegistrationResponsePtrOutput)
 }
 
-// The system metadata relating to this resource.
-func (o TwitterResponseOutput) SystemData() SystemDataResponseOutput {
-	return o.ApplyT(func(v TwitterResponse) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
-}
-
 // Resource type.
 func (o TwitterResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v TwitterResponse) string { return v.Type }).(pulumi.StringOutput)
@@ -35755,16 +39614,6 @@ func (o TwitterResponsePtrOutput) Registration() TwitterRegistrationResponsePtrO
 		}
 		return v.Registration
 	}).(TwitterRegistrationResponsePtrOutput)
-}
-
-// The system metadata relating to this resource.
-func (o TwitterResponsePtrOutput) SystemData() SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v *TwitterResponse) *SystemDataResponse {
-		if v == nil {
-			return nil
-		}
-		return &v.SystemData
-	}).(SystemDataResponsePtrOutput)
 }
 
 // Resource type.
@@ -36249,146 +40098,10 @@ func (o VirtualDirectoryResponseArrayOutput) Index(i pulumi.IntInput) VirtualDir
 	}).(VirtualDirectoryResponseOutput)
 }
 
-// Virtual IP mapping.
-type VirtualIPMappingResponse struct {
-	// Is virtual IP mapping in use.
-	InUse *bool `pulumi:"inUse"`
-	// Internal HTTP port.
-	InternalHttpPort *int `pulumi:"internalHttpPort"`
-	// Internal HTTPS port.
-	InternalHttpsPort *int `pulumi:"internalHttpsPort"`
-	// name of the service that virtual IP is assigned to
-	ServiceName *string `pulumi:"serviceName"`
-	// Virtual IP address.
-	VirtualIP *string `pulumi:"virtualIP"`
-}
-
-// VirtualIPMappingResponseInput is an input type that accepts VirtualIPMappingResponseArgs and VirtualIPMappingResponseOutput values.
-// You can construct a concrete instance of `VirtualIPMappingResponseInput` via:
-//
-//          VirtualIPMappingResponseArgs{...}
-type VirtualIPMappingResponseInput interface {
-	pulumi.Input
-
-	ToVirtualIPMappingResponseOutput() VirtualIPMappingResponseOutput
-	ToVirtualIPMappingResponseOutputWithContext(context.Context) VirtualIPMappingResponseOutput
-}
-
-// Virtual IP mapping.
-type VirtualIPMappingResponseArgs struct {
-	// Is virtual IP mapping in use.
-	InUse pulumi.BoolPtrInput `pulumi:"inUse"`
-	// Internal HTTP port.
-	InternalHttpPort pulumi.IntPtrInput `pulumi:"internalHttpPort"`
-	// Internal HTTPS port.
-	InternalHttpsPort pulumi.IntPtrInput `pulumi:"internalHttpsPort"`
-	// name of the service that virtual IP is assigned to
-	ServiceName pulumi.StringPtrInput `pulumi:"serviceName"`
-	// Virtual IP address.
-	VirtualIP pulumi.StringPtrInput `pulumi:"virtualIP"`
-}
-
-func (VirtualIPMappingResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualIPMappingResponse)(nil)).Elem()
-}
-
-func (i VirtualIPMappingResponseArgs) ToVirtualIPMappingResponseOutput() VirtualIPMappingResponseOutput {
-	return i.ToVirtualIPMappingResponseOutputWithContext(context.Background())
-}
-
-func (i VirtualIPMappingResponseArgs) ToVirtualIPMappingResponseOutputWithContext(ctx context.Context) VirtualIPMappingResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualIPMappingResponseOutput)
-}
-
-// VirtualIPMappingResponseArrayInput is an input type that accepts VirtualIPMappingResponseArray and VirtualIPMappingResponseArrayOutput values.
-// You can construct a concrete instance of `VirtualIPMappingResponseArrayInput` via:
-//
-//          VirtualIPMappingResponseArray{ VirtualIPMappingResponseArgs{...} }
-type VirtualIPMappingResponseArrayInput interface {
-	pulumi.Input
-
-	ToVirtualIPMappingResponseArrayOutput() VirtualIPMappingResponseArrayOutput
-	ToVirtualIPMappingResponseArrayOutputWithContext(context.Context) VirtualIPMappingResponseArrayOutput
-}
-
-type VirtualIPMappingResponseArray []VirtualIPMappingResponseInput
-
-func (VirtualIPMappingResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VirtualIPMappingResponse)(nil)).Elem()
-}
-
-func (i VirtualIPMappingResponseArray) ToVirtualIPMappingResponseArrayOutput() VirtualIPMappingResponseArrayOutput {
-	return i.ToVirtualIPMappingResponseArrayOutputWithContext(context.Background())
-}
-
-func (i VirtualIPMappingResponseArray) ToVirtualIPMappingResponseArrayOutputWithContext(ctx context.Context) VirtualIPMappingResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualIPMappingResponseArrayOutput)
-}
-
-// Virtual IP mapping.
-type VirtualIPMappingResponseOutput struct{ *pulumi.OutputState }
-
-func (VirtualIPMappingResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualIPMappingResponse)(nil)).Elem()
-}
-
-func (o VirtualIPMappingResponseOutput) ToVirtualIPMappingResponseOutput() VirtualIPMappingResponseOutput {
-	return o
-}
-
-func (o VirtualIPMappingResponseOutput) ToVirtualIPMappingResponseOutputWithContext(ctx context.Context) VirtualIPMappingResponseOutput {
-	return o
-}
-
-// Is virtual IP mapping in use.
-func (o VirtualIPMappingResponseOutput) InUse() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v VirtualIPMappingResponse) *bool { return v.InUse }).(pulumi.BoolPtrOutput)
-}
-
-// Internal HTTP port.
-func (o VirtualIPMappingResponseOutput) InternalHttpPort() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v VirtualIPMappingResponse) *int { return v.InternalHttpPort }).(pulumi.IntPtrOutput)
-}
-
-// Internal HTTPS port.
-func (o VirtualIPMappingResponseOutput) InternalHttpsPort() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v VirtualIPMappingResponse) *int { return v.InternalHttpsPort }).(pulumi.IntPtrOutput)
-}
-
-// name of the service that virtual IP is assigned to
-func (o VirtualIPMappingResponseOutput) ServiceName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VirtualIPMappingResponse) *string { return v.ServiceName }).(pulumi.StringPtrOutput)
-}
-
-// Virtual IP address.
-func (o VirtualIPMappingResponseOutput) VirtualIP() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VirtualIPMappingResponse) *string { return v.VirtualIP }).(pulumi.StringPtrOutput)
-}
-
-type VirtualIPMappingResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (VirtualIPMappingResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VirtualIPMappingResponse)(nil)).Elem()
-}
-
-func (o VirtualIPMappingResponseArrayOutput) ToVirtualIPMappingResponseArrayOutput() VirtualIPMappingResponseArrayOutput {
-	return o
-}
-
-func (o VirtualIPMappingResponseArrayOutput) ToVirtualIPMappingResponseArrayOutputWithContext(ctx context.Context) VirtualIPMappingResponseArrayOutput {
-	return o
-}
-
-func (o VirtualIPMappingResponseArrayOutput) Index(i pulumi.IntInput) VirtualIPMappingResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualIPMappingResponse {
-		return vs[0].([]VirtualIPMappingResponse)[vs[1].(int)]
-	}).(VirtualIPMappingResponseOutput)
-}
-
 // Specification for using a Virtual Network.
 type VirtualNetworkProfile struct {
 	// Resource id of the Virtual Network.
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 	// Subnet within the Virtual Network.
 	Subnet *string `pulumi:"subnet"`
 }
@@ -36407,7 +40120,7 @@ type VirtualNetworkProfileInput interface {
 // Specification for using a Virtual Network.
 type VirtualNetworkProfileArgs struct {
 	// Resource id of the Virtual Network.
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 	// Subnet within the Virtual Network.
 	Subnet pulumi.StringPtrInput `pulumi:"subnet"`
 }
@@ -36491,8 +40204,8 @@ func (o VirtualNetworkProfileOutput) ToVirtualNetworkProfilePtrOutputWithContext
 }
 
 // Resource id of the Virtual Network.
-func (o VirtualNetworkProfileOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VirtualNetworkProfile) *string { return v.Id }).(pulumi.StringPtrOutput)
+func (o VirtualNetworkProfileOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualNetworkProfile) string { return v.Id }).(pulumi.StringOutput)
 }
 
 // Subnet within the Virtual Network.
@@ -36524,7 +40237,7 @@ func (o VirtualNetworkProfilePtrOutput) Id() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.Id
+		return &v.Id
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -36541,7 +40254,7 @@ func (o VirtualNetworkProfilePtrOutput) Subnet() pulumi.StringPtrOutput {
 // Specification for using a Virtual Network.
 type VirtualNetworkProfileResponse struct {
 	// Resource id of the Virtual Network.
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 	// Name of the Virtual Network (read-only).
 	Name string `pulumi:"name"`
 	// Subnet within the Virtual Network.
@@ -36564,7 +40277,7 @@ type VirtualNetworkProfileResponseInput interface {
 // Specification for using a Virtual Network.
 type VirtualNetworkProfileResponseArgs struct {
 	// Resource id of the Virtual Network.
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
 	// Name of the Virtual Network (read-only).
 	Name pulumi.StringInput `pulumi:"name"`
 	// Subnet within the Virtual Network.
@@ -36652,8 +40365,8 @@ func (o VirtualNetworkProfileResponseOutput) ToVirtualNetworkProfileResponsePtrO
 }
 
 // Resource id of the Virtual Network.
-func (o VirtualNetworkProfileResponseOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VirtualNetworkProfileResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+func (o VirtualNetworkProfileResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualNetworkProfileResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
 // Name of the Virtual Network (read-only).
@@ -36695,7 +40408,7 @@ func (o VirtualNetworkProfileResponsePtrOutput) Id() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.Id
+		return &v.Id
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -36748,8 +40461,6 @@ type VnetRouteResponse struct {
 	RouteType *string `pulumi:"routeType"`
 	// The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.
 	StartAddress *string `pulumi:"startAddress"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }
@@ -36784,8 +40495,6 @@ type VnetRouteResponseArgs struct {
 	RouteType pulumi.StringPtrInput `pulumi:"routeType"`
 	// The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.
 	StartAddress pulumi.StringPtrInput `pulumi:"startAddress"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponseInput `pulumi:"systemData"`
 	// Resource type.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -36877,11 +40586,6 @@ func (o VnetRouteResponseOutput) StartAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VnetRouteResponse) *string { return v.StartAddress }).(pulumi.StringPtrOutput)
 }
 
-// The system metadata relating to this resource.
-func (o VnetRouteResponseOutput) SystemData() SystemDataResponseOutput {
-	return o.ApplyT(func(v VnetRouteResponse) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
-}
-
 // Resource type.
 func (o VnetRouteResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v VnetRouteResponse) string { return v.Type }).(pulumi.StringOutput)
@@ -36905,269 +40609,6 @@ func (o VnetRouteResponseArrayOutput) Index(i pulumi.IntInput) VnetRouteResponse
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VnetRouteResponse {
 		return vs[0].([]VnetRouteResponse)[vs[1].(int)]
 	}).(VnetRouteResponseOutput)
-}
-
-// Worker pool of an App Service Environment.
-type WorkerPool struct {
-	// Shared or dedicated app hosting.
-	ComputeMode *string `pulumi:"computeMode"`
-	// Number of instances in the worker pool.
-	WorkerCount *int `pulumi:"workerCount"`
-	// VM size of the worker pool instances.
-	WorkerSize *string `pulumi:"workerSize"`
-	// Worker size ID for referencing this worker pool.
-	WorkerSizeId *int `pulumi:"workerSizeId"`
-}
-
-// WorkerPoolInput is an input type that accepts WorkerPoolArgs and WorkerPoolOutput values.
-// You can construct a concrete instance of `WorkerPoolInput` via:
-//
-//          WorkerPoolArgs{...}
-type WorkerPoolInput interface {
-	pulumi.Input
-
-	ToWorkerPoolOutput() WorkerPoolOutput
-	ToWorkerPoolOutputWithContext(context.Context) WorkerPoolOutput
-}
-
-// Worker pool of an App Service Environment.
-type WorkerPoolArgs struct {
-	// Shared or dedicated app hosting.
-	ComputeMode *ComputeModeOptions `pulumi:"computeMode"`
-	// Number of instances in the worker pool.
-	WorkerCount pulumi.IntPtrInput `pulumi:"workerCount"`
-	// VM size of the worker pool instances.
-	WorkerSize pulumi.StringPtrInput `pulumi:"workerSize"`
-	// Worker size ID for referencing this worker pool.
-	WorkerSizeId pulumi.IntPtrInput `pulumi:"workerSizeId"`
-}
-
-func (WorkerPoolArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkerPool)(nil)).Elem()
-}
-
-func (i WorkerPoolArgs) ToWorkerPoolOutput() WorkerPoolOutput {
-	return i.ToWorkerPoolOutputWithContext(context.Background())
-}
-
-func (i WorkerPoolArgs) ToWorkerPoolOutputWithContext(ctx context.Context) WorkerPoolOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkerPoolOutput)
-}
-
-// WorkerPoolArrayInput is an input type that accepts WorkerPoolArray and WorkerPoolArrayOutput values.
-// You can construct a concrete instance of `WorkerPoolArrayInput` via:
-//
-//          WorkerPoolArray{ WorkerPoolArgs{...} }
-type WorkerPoolArrayInput interface {
-	pulumi.Input
-
-	ToWorkerPoolArrayOutput() WorkerPoolArrayOutput
-	ToWorkerPoolArrayOutputWithContext(context.Context) WorkerPoolArrayOutput
-}
-
-type WorkerPoolArray []WorkerPoolInput
-
-func (WorkerPoolArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]WorkerPool)(nil)).Elem()
-}
-
-func (i WorkerPoolArray) ToWorkerPoolArrayOutput() WorkerPoolArrayOutput {
-	return i.ToWorkerPoolArrayOutputWithContext(context.Background())
-}
-
-func (i WorkerPoolArray) ToWorkerPoolArrayOutputWithContext(ctx context.Context) WorkerPoolArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkerPoolArrayOutput)
-}
-
-// Worker pool of an App Service Environment.
-type WorkerPoolOutput struct{ *pulumi.OutputState }
-
-func (WorkerPoolOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkerPool)(nil)).Elem()
-}
-
-func (o WorkerPoolOutput) ToWorkerPoolOutput() WorkerPoolOutput {
-	return o
-}
-
-func (o WorkerPoolOutput) ToWorkerPoolOutputWithContext(ctx context.Context) WorkerPoolOutput {
-	return o
-}
-
-// Shared or dedicated app hosting.
-func (o WorkerPoolOutput) ComputeMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WorkerPool) *string { return v.ComputeMode }).(pulumi.StringPtrOutput)
-}
-
-// Number of instances in the worker pool.
-func (o WorkerPoolOutput) WorkerCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v WorkerPool) *int { return v.WorkerCount }).(pulumi.IntPtrOutput)
-}
-
-// VM size of the worker pool instances.
-func (o WorkerPoolOutput) WorkerSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WorkerPool) *string { return v.WorkerSize }).(pulumi.StringPtrOutput)
-}
-
-// Worker size ID for referencing this worker pool.
-func (o WorkerPoolOutput) WorkerSizeId() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v WorkerPool) *int { return v.WorkerSizeId }).(pulumi.IntPtrOutput)
-}
-
-type WorkerPoolArrayOutput struct{ *pulumi.OutputState }
-
-func (WorkerPoolArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]WorkerPool)(nil)).Elem()
-}
-
-func (o WorkerPoolArrayOutput) ToWorkerPoolArrayOutput() WorkerPoolArrayOutput {
-	return o
-}
-
-func (o WorkerPoolArrayOutput) ToWorkerPoolArrayOutputWithContext(ctx context.Context) WorkerPoolArrayOutput {
-	return o
-}
-
-func (o WorkerPoolArrayOutput) Index(i pulumi.IntInput) WorkerPoolOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkerPool {
-		return vs[0].([]WorkerPool)[vs[1].(int)]
-	}).(WorkerPoolOutput)
-}
-
-// Worker pool of an App Service Environment.
-type WorkerPoolResponse struct {
-	// Shared or dedicated app hosting.
-	ComputeMode *string `pulumi:"computeMode"`
-	// Names of all instances in the worker pool (read only).
-	InstanceNames []string `pulumi:"instanceNames"`
-	// Number of instances in the worker pool.
-	WorkerCount *int `pulumi:"workerCount"`
-	// VM size of the worker pool instances.
-	WorkerSize *string `pulumi:"workerSize"`
-	// Worker size ID for referencing this worker pool.
-	WorkerSizeId *int `pulumi:"workerSizeId"`
-}
-
-// WorkerPoolResponseInput is an input type that accepts WorkerPoolResponseArgs and WorkerPoolResponseOutput values.
-// You can construct a concrete instance of `WorkerPoolResponseInput` via:
-//
-//          WorkerPoolResponseArgs{...}
-type WorkerPoolResponseInput interface {
-	pulumi.Input
-
-	ToWorkerPoolResponseOutput() WorkerPoolResponseOutput
-	ToWorkerPoolResponseOutputWithContext(context.Context) WorkerPoolResponseOutput
-}
-
-// Worker pool of an App Service Environment.
-type WorkerPoolResponseArgs struct {
-	// Shared or dedicated app hosting.
-	ComputeMode pulumi.StringPtrInput `pulumi:"computeMode"`
-	// Names of all instances in the worker pool (read only).
-	InstanceNames pulumi.StringArrayInput `pulumi:"instanceNames"`
-	// Number of instances in the worker pool.
-	WorkerCount pulumi.IntPtrInput `pulumi:"workerCount"`
-	// VM size of the worker pool instances.
-	WorkerSize pulumi.StringPtrInput `pulumi:"workerSize"`
-	// Worker size ID for referencing this worker pool.
-	WorkerSizeId pulumi.IntPtrInput `pulumi:"workerSizeId"`
-}
-
-func (WorkerPoolResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkerPoolResponse)(nil)).Elem()
-}
-
-func (i WorkerPoolResponseArgs) ToWorkerPoolResponseOutput() WorkerPoolResponseOutput {
-	return i.ToWorkerPoolResponseOutputWithContext(context.Background())
-}
-
-func (i WorkerPoolResponseArgs) ToWorkerPoolResponseOutputWithContext(ctx context.Context) WorkerPoolResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkerPoolResponseOutput)
-}
-
-// WorkerPoolResponseArrayInput is an input type that accepts WorkerPoolResponseArray and WorkerPoolResponseArrayOutput values.
-// You can construct a concrete instance of `WorkerPoolResponseArrayInput` via:
-//
-//          WorkerPoolResponseArray{ WorkerPoolResponseArgs{...} }
-type WorkerPoolResponseArrayInput interface {
-	pulumi.Input
-
-	ToWorkerPoolResponseArrayOutput() WorkerPoolResponseArrayOutput
-	ToWorkerPoolResponseArrayOutputWithContext(context.Context) WorkerPoolResponseArrayOutput
-}
-
-type WorkerPoolResponseArray []WorkerPoolResponseInput
-
-func (WorkerPoolResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]WorkerPoolResponse)(nil)).Elem()
-}
-
-func (i WorkerPoolResponseArray) ToWorkerPoolResponseArrayOutput() WorkerPoolResponseArrayOutput {
-	return i.ToWorkerPoolResponseArrayOutputWithContext(context.Background())
-}
-
-func (i WorkerPoolResponseArray) ToWorkerPoolResponseArrayOutputWithContext(ctx context.Context) WorkerPoolResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkerPoolResponseArrayOutput)
-}
-
-// Worker pool of an App Service Environment.
-type WorkerPoolResponseOutput struct{ *pulumi.OutputState }
-
-func (WorkerPoolResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkerPoolResponse)(nil)).Elem()
-}
-
-func (o WorkerPoolResponseOutput) ToWorkerPoolResponseOutput() WorkerPoolResponseOutput {
-	return o
-}
-
-func (o WorkerPoolResponseOutput) ToWorkerPoolResponseOutputWithContext(ctx context.Context) WorkerPoolResponseOutput {
-	return o
-}
-
-// Shared or dedicated app hosting.
-func (o WorkerPoolResponseOutput) ComputeMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WorkerPoolResponse) *string { return v.ComputeMode }).(pulumi.StringPtrOutput)
-}
-
-// Names of all instances in the worker pool (read only).
-func (o WorkerPoolResponseOutput) InstanceNames() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v WorkerPoolResponse) []string { return v.InstanceNames }).(pulumi.StringArrayOutput)
-}
-
-// Number of instances in the worker pool.
-func (o WorkerPoolResponseOutput) WorkerCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v WorkerPoolResponse) *int { return v.WorkerCount }).(pulumi.IntPtrOutput)
-}
-
-// VM size of the worker pool instances.
-func (o WorkerPoolResponseOutput) WorkerSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WorkerPoolResponse) *string { return v.WorkerSize }).(pulumi.StringPtrOutput)
-}
-
-// Worker size ID for referencing this worker pool.
-func (o WorkerPoolResponseOutput) WorkerSizeId() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v WorkerPoolResponse) *int { return v.WorkerSizeId }).(pulumi.IntPtrOutput)
-}
-
-type WorkerPoolResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (WorkerPoolResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]WorkerPoolResponse)(nil)).Elem()
-}
-
-func (o WorkerPoolResponseArrayOutput) ToWorkerPoolResponseArrayOutput() WorkerPoolResponseArrayOutput {
-	return o
-}
-
-func (o WorkerPoolResponseArrayOutput) ToWorkerPoolResponseArrayOutputWithContext(ctx context.Context) WorkerPoolResponseArrayOutput {
-	return o
-}
-
-func (o WorkerPoolResponseArrayOutput) Index(i pulumi.IntInput) WorkerPoolResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkerPoolResponse {
-		return vs[0].([]WorkerPoolResponse)[vs[1].(int)]
-	}).(WorkerPoolResponseOutput)
 }
 
 // The WSDL definition
@@ -37948,6 +41389,14 @@ func init() {
 	pulumi.RegisterOutputType(AppRegistrationPtrOutput{})
 	pulumi.RegisterOutputType(AppRegistrationResponseOutput{})
 	pulumi.RegisterOutputType(AppRegistrationResponsePtrOutput{})
+	pulumi.RegisterOutputType(AppleOutput{})
+	pulumi.RegisterOutputType(ApplePtrOutput{})
+	pulumi.RegisterOutputType(AppleRegistrationOutput{})
+	pulumi.RegisterOutputType(AppleRegistrationPtrOutput{})
+	pulumi.RegisterOutputType(AppleRegistrationResponseOutput{})
+	pulumi.RegisterOutputType(AppleRegistrationResponsePtrOutput{})
+	pulumi.RegisterOutputType(AppleResponseOutput{})
+	pulumi.RegisterOutputType(AppleResponsePtrOutput{})
 	pulumi.RegisterOutputType(ApplicationLogsConfigOutput{})
 	pulumi.RegisterOutputType(ApplicationLogsConfigPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationLogsConfigResponseOutput{})
@@ -37998,6 +41447,14 @@ func init() {
 	pulumi.RegisterOutputType(AzureBlobStorageHttpLogsConfigPtrOutput{})
 	pulumi.RegisterOutputType(AzureBlobStorageHttpLogsConfigResponseOutput{})
 	pulumi.RegisterOutputType(AzureBlobStorageHttpLogsConfigResponsePtrOutput{})
+	pulumi.RegisterOutputType(AzureStaticWebAppsOutput{})
+	pulumi.RegisterOutputType(AzureStaticWebAppsPtrOutput{})
+	pulumi.RegisterOutputType(AzureStaticWebAppsRegistrationOutput{})
+	pulumi.RegisterOutputType(AzureStaticWebAppsRegistrationPtrOutput{})
+	pulumi.RegisterOutputType(AzureStaticWebAppsRegistrationResponseOutput{})
+	pulumi.RegisterOutputType(AzureStaticWebAppsRegistrationResponsePtrOutput{})
+	pulumi.RegisterOutputType(AzureStaticWebAppsResponseOutput{})
+	pulumi.RegisterOutputType(AzureStaticWebAppsResponsePtrOutput{})
 	pulumi.RegisterOutputType(AzureStorageInfoValueOutput{})
 	pulumi.RegisterOutputType(AzureStorageInfoValueMapOutput{})
 	pulumi.RegisterOutputType(AzureStorageInfoValueResponseOutput{})
@@ -38109,6 +41566,18 @@ func init() {
 	pulumi.RegisterOutputType(ForwardProxyResponsePtrOutput{})
 	pulumi.RegisterOutputType(GitHubOutput{})
 	pulumi.RegisterOutputType(GitHubPtrOutput{})
+	pulumi.RegisterOutputType(GitHubActionCodeConfigurationOutput{})
+	pulumi.RegisterOutputType(GitHubActionCodeConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(GitHubActionCodeConfigurationResponseOutput{})
+	pulumi.RegisterOutputType(GitHubActionCodeConfigurationResponsePtrOutput{})
+	pulumi.RegisterOutputType(GitHubActionConfigurationOutput{})
+	pulumi.RegisterOutputType(GitHubActionConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(GitHubActionConfigurationResponseOutput{})
+	pulumi.RegisterOutputType(GitHubActionConfigurationResponsePtrOutput{})
+	pulumi.RegisterOutputType(GitHubActionContainerConfigurationOutput{})
+	pulumi.RegisterOutputType(GitHubActionContainerConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(GitHubActionContainerConfigurationResponseOutput{})
+	pulumi.RegisterOutputType(GitHubActionContainerConfigurationResponsePtrOutput{})
 	pulumi.RegisterOutputType(GitHubResponseOutput{})
 	pulumi.RegisterOutputType(GitHubResponsePtrOutput{})
 	pulumi.RegisterOutputType(GlobalValidationOutput{})
@@ -38157,6 +41626,14 @@ func init() {
 	pulumi.RegisterOutputType(JwtClaimChecksPtrOutput{})
 	pulumi.RegisterOutputType(JwtClaimChecksResponseOutput{})
 	pulumi.RegisterOutputType(JwtClaimChecksResponsePtrOutput{})
+	pulumi.RegisterOutputType(KubeEnvironmentProfileOutput{})
+	pulumi.RegisterOutputType(KubeEnvironmentProfilePtrOutput{})
+	pulumi.RegisterOutputType(KubeEnvironmentProfileResponseOutput{})
+	pulumi.RegisterOutputType(KubeEnvironmentProfileResponsePtrOutput{})
+	pulumi.RegisterOutputType(LegacyMicrosoftAccountOutput{})
+	pulumi.RegisterOutputType(LegacyMicrosoftAccountPtrOutput{})
+	pulumi.RegisterOutputType(LegacyMicrosoftAccountResponseOutput{})
+	pulumi.RegisterOutputType(LegacyMicrosoftAccountResponsePtrOutput{})
 	pulumi.RegisterOutputType(LoginOutput{})
 	pulumi.RegisterOutputType(LoginPtrOutput{})
 	pulumi.RegisterOutputType(LoginResponseOutput{})
@@ -38179,10 +41656,6 @@ func init() {
 	pulumi.RegisterOutputType(NameValuePairArrayOutput{})
 	pulumi.RegisterOutputType(NameValuePairResponseOutput{})
 	pulumi.RegisterOutputType(NameValuePairResponseArrayOutput{})
-	pulumi.RegisterOutputType(NetworkAccessControlEntryOutput{})
-	pulumi.RegisterOutputType(NetworkAccessControlEntryArrayOutput{})
-	pulumi.RegisterOutputType(NetworkAccessControlEntryResponseOutput{})
-	pulumi.RegisterOutputType(NetworkAccessControlEntryResponseArrayOutput{})
 	pulumi.RegisterOutputType(NonceOutput{})
 	pulumi.RegisterOutputType(NoncePtrOutput{})
 	pulumi.RegisterOutputType(NonceResponseOutput{})
@@ -38241,20 +41714,30 @@ func init() {
 	pulumi.RegisterOutputType(SlotSwapStatusResponsePtrOutput{})
 	pulumi.RegisterOutputType(SlowRequestsBasedTriggerOutput{})
 	pulumi.RegisterOutputType(SlowRequestsBasedTriggerPtrOutput{})
+	pulumi.RegisterOutputType(SlowRequestsBasedTriggerArrayOutput{})
 	pulumi.RegisterOutputType(SlowRequestsBasedTriggerResponseOutput{})
 	pulumi.RegisterOutputType(SlowRequestsBasedTriggerResponsePtrOutput{})
-	pulumi.RegisterOutputType(StampCapacityResponseOutput{})
-	pulumi.RegisterOutputType(StampCapacityResponseArrayOutput{})
+	pulumi.RegisterOutputType(SlowRequestsBasedTriggerResponseArrayOutput{})
 	pulumi.RegisterOutputType(StaticSiteBuildPropertiesOutput{})
 	pulumi.RegisterOutputType(StaticSiteBuildPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(StaticSiteBuildPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(StaticSiteBuildPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(StaticSiteTemplateOptionsOutput{})
+	pulumi.RegisterOutputType(StaticSiteTemplateOptionsPtrOutput{})
+	pulumi.RegisterOutputType(StaticSiteTemplateOptionsResponseOutput{})
+	pulumi.RegisterOutputType(StaticSiteTemplateOptionsResponsePtrOutput{})
 	pulumi.RegisterOutputType(StaticSiteUserARMResourceResponseOutput{})
 	pulumi.RegisterOutputType(StaticSiteUserARMResourceResponseArrayOutput{})
+	pulumi.RegisterOutputType(StaticSiteUserProvidedFunctionAppResponseOutput{})
+	pulumi.RegisterOutputType(StaticSiteUserProvidedFunctionAppResponseArrayOutput{})
 	pulumi.RegisterOutputType(StatusCodesBasedTriggerOutput{})
 	pulumi.RegisterOutputType(StatusCodesBasedTriggerArrayOutput{})
 	pulumi.RegisterOutputType(StatusCodesBasedTriggerResponseOutput{})
 	pulumi.RegisterOutputType(StatusCodesBasedTriggerResponseArrayOutput{})
+	pulumi.RegisterOutputType(StatusCodesRangeBasedTriggerOutput{})
+	pulumi.RegisterOutputType(StatusCodesRangeBasedTriggerArrayOutput{})
+	pulumi.RegisterOutputType(StatusCodesRangeBasedTriggerResponseOutput{})
+	pulumi.RegisterOutputType(StatusCodesRangeBasedTriggerResponseArrayOutput{})
 	pulumi.RegisterOutputType(SystemDataResponseOutput{})
 	pulumi.RegisterOutputType(SystemDataResponsePtrOutput{})
 	pulumi.RegisterOutputType(TokenStoreOutput{})
@@ -38277,18 +41760,12 @@ func init() {
 	pulumi.RegisterOutputType(VirtualDirectoryArrayOutput{})
 	pulumi.RegisterOutputType(VirtualDirectoryResponseOutput{})
 	pulumi.RegisterOutputType(VirtualDirectoryResponseArrayOutput{})
-	pulumi.RegisterOutputType(VirtualIPMappingResponseOutput{})
-	pulumi.RegisterOutputType(VirtualIPMappingResponseArrayOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkProfileOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkProfilePtrOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkProfileResponseOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkProfileResponsePtrOutput{})
 	pulumi.RegisterOutputType(VnetRouteResponseOutput{})
 	pulumi.RegisterOutputType(VnetRouteResponseArrayOutput{})
-	pulumi.RegisterOutputType(WorkerPoolOutput{})
-	pulumi.RegisterOutputType(WorkerPoolArrayOutput{})
-	pulumi.RegisterOutputType(WorkerPoolResponseOutput{})
-	pulumi.RegisterOutputType(WorkerPoolResponseArrayOutput{})
 	pulumi.RegisterOutputType(WsdlDefinitionOutput{})
 	pulumi.RegisterOutputType(WsdlDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(WsdlDefinitionResponseOutput{})

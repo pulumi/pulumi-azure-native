@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web
     {
         /// <summary>
         /// Configuration of App Service site logs.
-        /// API Version: 2020-10-01.
+        /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetWebAppDiagnosticLogsConfigurationResult> InvokeAsync(GetWebAppDiagnosticLogsConfigurationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppDiagnosticLogsConfigurationResult>("azure-native:web:getWebAppDiagnosticLogsConfiguration", args ?? new GetWebAppDiagnosticLogsConfigurationArgs(), options.WithVersion());
@@ -72,10 +72,6 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The system metadata relating to this resource.
-        /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
-        /// <summary>
         /// Resource type.
         /// </summary>
         public readonly string Type;
@@ -96,8 +92,6 @@ namespace Pulumi.AzureNative.Web
 
             string name,
 
-            Outputs.SystemDataResponse systemData,
-
             string type)
         {
             ApplicationLogs = applicationLogs;
@@ -107,7 +101,6 @@ namespace Pulumi.AzureNative.Web
             Id = id;
             Kind = kind;
             Name = name;
-            SystemData = systemData;
             Type = type;
         }
     }

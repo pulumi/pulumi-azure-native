@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Web
 {
     /// <summary>
     /// A web app, a mobile app backend, or an API app.
-    /// API Version: 2020-10-01.
+    /// API Version: 2020-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:WebAppSlot")]
     public partial class WebAppSlot : Pulumi.CustomResource
@@ -149,6 +149,12 @@ namespace Pulumi.AzureNative.Web
         public Output<bool?> IsXenon { get; private set; } = null!;
 
         /// <summary>
+        /// Identity to use for Key Vault Reference authentication.
+        /// </summary>
+        [Output("keyVaultReferenceIdentity")]
+        public Output<string?> KeyVaultReferenceIdentity { get; private set; } = null!;
+
+        /// <summary>
         /// Kind of resource.
         /// </summary>
         [Output("kind")]
@@ -258,12 +264,6 @@ namespace Pulumi.AzureNative.Web
         public Output<string> SuspendedTill { get; private set; } = null!;
 
         /// <summary>
-        /// The system metadata relating to this resource.
-        /// </summary>
-        [Output("systemData")]
-        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
-
-        /// <summary>
         /// Resource tags.
         /// </summary>
         [Output("tags")]
@@ -337,6 +337,8 @@ namespace Pulumi.AzureNative.Web
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:WebAppSlot"},
                     new Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:WebAppSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppSlot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20201201:WebAppSlot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -466,6 +468,12 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         [Input("isXenon")]
         public Input<bool>? IsXenon { get; set; }
+
+        /// <summary>
+        /// Identity to use for Key Vault Reference authentication.
+        /// </summary>
+        [Input("keyVaultReferenceIdentity")]
+        public Input<string>? KeyVaultReferenceIdentity { get; set; }
 
         /// <summary>
         /// Kind of resource.

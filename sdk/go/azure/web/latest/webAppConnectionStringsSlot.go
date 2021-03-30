@@ -12,7 +12,7 @@ import (
 )
 
 // String dictionary resource.
-// Latest API Version: 2020-10-01.
+// Latest API Version: 2020-12-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppConnectionStringsSlot'.
 type WebAppConnectionStringsSlot struct {
@@ -24,8 +24,6 @@ type WebAppConnectionStringsSlot struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Connection strings.
 	Properties ConnStringValueTypePairResponseMapOutput `pulumi:"properties"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -104,6 +102,12 @@ func NewWebAppConnectionStringsSlot(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppConnectionStringsSlot"),
 		},
+		{
+			Type: pulumi.String("azure-native:web/v20201201:WebAppConnectionStringsSlot"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20201201:WebAppConnectionStringsSlot"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource WebAppConnectionStringsSlot
@@ -134,8 +138,6 @@ type webAppConnectionStringsSlotState struct {
 	Name *string `pulumi:"name"`
 	// Connection strings.
 	Properties map[string]ConnStringValueTypePairResponse `pulumi:"properties"`
-	// The system metadata relating to this resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type *string `pulumi:"type"`
 }
@@ -147,8 +149,6 @@ type WebAppConnectionStringsSlotState struct {
 	Name pulumi.StringPtrInput
 	// Connection strings.
 	Properties ConnStringValueTypePairResponseMapInput
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponsePtrInput
 	// Resource type.
 	Type pulumi.StringPtrInput
 }

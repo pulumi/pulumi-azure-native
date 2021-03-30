@@ -7,7 +7,6 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
-from . import outputs
 
 __all__ = [
     'GetWebAppHybridConnectionSlotResult',
@@ -22,7 +21,7 @@ class GetWebAppHybridConnectionSlotResult:
     """
     Hybrid Connection contract. This is used to configure a Hybrid Connection.
     """
-    def __init__(__self__, hostname=None, id=None, kind=None, name=None, port=None, relay_arm_uri=None, relay_name=None, send_key_name=None, send_key_value=None, service_bus_namespace=None, service_bus_suffix=None, system_data=None, type=None):
+    def __init__(__self__, hostname=None, id=None, kind=None, name=None, port=None, relay_arm_uri=None, relay_name=None, send_key_name=None, send_key_value=None, service_bus_namespace=None, service_bus_suffix=None, type=None):
         if hostname and not isinstance(hostname, str):
             raise TypeError("Expected argument 'hostname' to be a str")
         pulumi.set(__self__, "hostname", hostname)
@@ -56,9 +55,6 @@ class GetWebAppHybridConnectionSlotResult:
         if service_bus_suffix and not isinstance(service_bus_suffix, str):
             raise TypeError("Expected argument 'service_bus_suffix' to be a str")
         pulumi.set(__self__, "service_bus_suffix", service_bus_suffix)
-        if system_data and not isinstance(system_data, dict):
-            raise TypeError("Expected argument 'system_data' to be a dict")
-        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -153,14 +149,6 @@ class GetWebAppHybridConnectionSlotResult:
         return pulumi.get(self, "service_bus_suffix")
 
     @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
-        """
-        The system metadata relating to this resource.
-        """
-        return pulumi.get(self, "system_data")
-
-    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -186,7 +174,6 @@ class AwaitableGetWebAppHybridConnectionSlotResult(GetWebAppHybridConnectionSlot
             send_key_value=self.send_key_value,
             service_bus_namespace=self.service_bus_namespace,
             service_bus_suffix=self.service_bus_suffix,
-            system_data=self.system_data,
             type=self.type)
 
 
@@ -198,7 +185,7 @@ def get_web_app_hybrid_connection_slot(name: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppHybridConnectionSlotResult:
     """
     Hybrid Connection contract. This is used to configure a Hybrid Connection.
-    Latest API Version: 2020-10-01.
+    Latest API Version: 2020-12-01.
 
 
     :param str name: The name of the web app.
@@ -232,5 +219,4 @@ def get_web_app_hybrid_connection_slot(name: Optional[str] = None,
         send_key_value=__ret__.send_key_value,
         service_bus_namespace=__ret__.service_bus_namespace,
         service_bus_suffix=__ret__.service_bus_suffix,
-        system_data=__ret__.system_data,
         type=__ret__.type)

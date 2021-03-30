@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Virtual Network route contract used to pass routing information for a Virtual Network.
- * Latest API Version: 2020-10-01.
+ * Latest API Version: 2020-12-01.
  *
  * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:AppServicePlanRouteForVnet'.
  */
@@ -65,10 +65,6 @@ export class AppServicePlanRouteForVnet extends pulumi.CustomResource {
      */
     public readonly startAddress!: pulumi.Output<string | undefined>;
     /**
-     * The system metadata relating to this resource.
-     */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.web.latest.SystemDataResponse>;
-    /**
      * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -103,7 +99,6 @@ export class AppServicePlanRouteForVnet extends pulumi.CustomResource {
             inputs["routeType"] = args ? args.routeType : undefined;
             inputs["startAddress"] = args ? args.startAddress : undefined;
             inputs["vnetName"] = args ? args.vnetName : undefined;
-            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["endAddress"] = undefined /*out*/;
@@ -111,13 +106,12 @@ export class AppServicePlanRouteForVnet extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["routeType"] = undefined /*out*/;
             inputs["startAddress"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:AppServicePlanRouteForVnet" }, { type: "azure-native:web:AppServicePlanRouteForVnet" }, { type: "azure-nextgen:web:AppServicePlanRouteForVnet" }, { type: "azure-native:web/v20150801:AppServicePlanRouteForVnet" }, { type: "azure-nextgen:web/v20150801:AppServicePlanRouteForVnet" }, { type: "azure-native:web/v20160901:AppServicePlanRouteForVnet" }, { type: "azure-nextgen:web/v20160901:AppServicePlanRouteForVnet" }, { type: "azure-native:web/v20180201:AppServicePlanRouteForVnet" }, { type: "azure-nextgen:web/v20180201:AppServicePlanRouteForVnet" }, { type: "azure-native:web/v20190801:AppServicePlanRouteForVnet" }, { type: "azure-nextgen:web/v20190801:AppServicePlanRouteForVnet" }, { type: "azure-native:web/v20200601:AppServicePlanRouteForVnet" }, { type: "azure-nextgen:web/v20200601:AppServicePlanRouteForVnet" }, { type: "azure-native:web/v20200901:AppServicePlanRouteForVnet" }, { type: "azure-nextgen:web/v20200901:AppServicePlanRouteForVnet" }, { type: "azure-native:web/v20201001:AppServicePlanRouteForVnet" }, { type: "azure-nextgen:web/v20201001:AppServicePlanRouteForVnet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:AppServicePlanRouteForVnet" }, { type: "azure-native:web:AppServicePlanRouteForVnet" }, { type: "azure-nextgen:web:AppServicePlanRouteForVnet" }, { type: "azure-native:web/v20150801:AppServicePlanRouteForVnet" }, { type: "azure-nextgen:web/v20150801:AppServicePlanRouteForVnet" }, { type: "azure-native:web/v20160901:AppServicePlanRouteForVnet" }, { type: "azure-nextgen:web/v20160901:AppServicePlanRouteForVnet" }, { type: "azure-native:web/v20180201:AppServicePlanRouteForVnet" }, { type: "azure-nextgen:web/v20180201:AppServicePlanRouteForVnet" }, { type: "azure-native:web/v20190801:AppServicePlanRouteForVnet" }, { type: "azure-nextgen:web/v20190801:AppServicePlanRouteForVnet" }, { type: "azure-native:web/v20200601:AppServicePlanRouteForVnet" }, { type: "azure-nextgen:web/v20200601:AppServicePlanRouteForVnet" }, { type: "azure-native:web/v20200901:AppServicePlanRouteForVnet" }, { type: "azure-nextgen:web/v20200901:AppServicePlanRouteForVnet" }, { type: "azure-native:web/v20201001:AppServicePlanRouteForVnet" }, { type: "azure-nextgen:web/v20201001:AppServicePlanRouteForVnet" }, { type: "azure-native:web/v20201201:AppServicePlanRouteForVnet" }, { type: "azure-nextgen:web/v20201201:AppServicePlanRouteForVnet" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AppServicePlanRouteForVnet.__pulumiType, name, inputs, opts);
     }

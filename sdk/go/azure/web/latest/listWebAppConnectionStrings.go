@@ -8,7 +8,7 @@ import (
 )
 
 // String dictionary resource.
-// Latest API Version: 2020-10-01.
+// Latest API Version: 2020-12-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listWebAppConnectionStrings'.
 func ListWebAppConnectionStrings(ctx *pulumi.Context, args *ListWebAppConnectionStringsArgs, opts ...pulumi.InvokeOption) (*ListWebAppConnectionStringsResult, error) {
@@ -37,8 +37,6 @@ type ListWebAppConnectionStringsResult struct {
 	Name string `pulumi:"name"`
 	// Connection strings.
 	Properties map[string]ConnStringValueTypePairResponse `pulumi:"properties"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }

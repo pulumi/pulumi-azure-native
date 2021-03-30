@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web
     {
         /// <summary>
         /// Public certificate object
-        /// API Version: 2020-10-01.
+        /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetWebAppPublicCertificateSlotResult> InvokeAsync(GetWebAppPublicCertificateSlotArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppPublicCertificateSlotResult>("azure-native:web:getWebAppPublicCertificateSlot", args ?? new GetWebAppPublicCertificateSlotArgs(), options.WithVersion());
@@ -76,10 +76,6 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         public readonly string? PublicCertificateLocation;
         /// <summary>
-        /// The system metadata relating to this resource.
-        /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
-        /// <summary>
         /// Certificate Thumbprint
         /// </summary>
         public readonly string Thumbprint;
@@ -100,8 +96,6 @@ namespace Pulumi.AzureNative.Web
 
             string? publicCertificateLocation,
 
-            Outputs.SystemDataResponse systemData,
-
             string thumbprint,
 
             string type)
@@ -111,7 +105,6 @@ namespace Pulumi.AzureNative.Web
             Kind = kind;
             Name = name;
             PublicCertificateLocation = publicCertificateLocation;
-            SystemData = systemData;
             Thumbprint = thumbprint;
             Type = type;
         }

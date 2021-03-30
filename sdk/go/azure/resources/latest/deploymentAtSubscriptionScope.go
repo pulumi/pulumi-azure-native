@@ -12,7 +12,7 @@ import (
 )
 
 // Deployment information.
-// Latest API Version: 2020-10-01.
+// Latest API Version: 2021-01-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:resources:DeploymentAtSubscriptionScope'.
 type DeploymentAtSubscriptionScope struct {
@@ -109,6 +109,12 @@ func NewDeploymentAtSubscriptionScope(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:resources/v20201001:DeploymentAtSubscriptionScope"),
+		},
+		{
+			Type: pulumi.String("azure-native:resources/v20210101:DeploymentAtSubscriptionScope"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:resources/v20210101:DeploymentAtSubscriptionScope"),
 		},
 	})
 	opts = append(opts, aliases)

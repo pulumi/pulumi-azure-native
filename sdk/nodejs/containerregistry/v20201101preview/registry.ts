@@ -142,7 +142,7 @@ export class Registry extends pulumi.CustomResource {
                 throw new Error("Missing required property 'sku'");
             }
             inputs["adminUserEnabled"] = (args ? args.adminUserEnabled : undefined) || false;
-            inputs["anonymousPullEnabled"] = args ? args.anonymousPullEnabled : undefined;
+            inputs["anonymousPullEnabled"] = (args ? args.anonymousPullEnabled : undefined) || false;
             inputs["dataEndpointEnabled"] = args ? args.dataEndpointEnabled : undefined;
             inputs["encryption"] = args ? args.encryption : undefined;
             inputs["identity"] = args ? args.identity : undefined;

@@ -2,12 +2,11 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
  * Hybrid Connection for an App Service app.
- * Latest API Version: 2020-10-01.
+ * Latest API Version: 2020-12-01.
  *
  * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppRelayServiceConnection'.
  */
@@ -55,10 +54,6 @@ export class WebAppRelayServiceConnection extends pulumi.CustomResource {
     public readonly resourceConnectionString!: pulumi.Output<string | undefined>;
     public readonly resourceType!: pulumi.Output<string | undefined>;
     /**
-     * The system metadata relating to this resource.
-     */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.web.latest.SystemDataResponse>;
-    /**
      * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -92,7 +87,6 @@ export class WebAppRelayServiceConnection extends pulumi.CustomResource {
             inputs["resourceConnectionString"] = args ? args.resourceConnectionString : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["resourceType"] = args ? args.resourceType : undefined;
-            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["biztalkUri"] = undefined /*out*/;
@@ -104,13 +98,12 @@ export class WebAppRelayServiceConnection extends pulumi.CustomResource {
             inputs["port"] = undefined /*out*/;
             inputs["resourceConnectionString"] = undefined /*out*/;
             inputs["resourceType"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:WebAppRelayServiceConnection" }, { type: "azure-native:web:WebAppRelayServiceConnection" }, { type: "azure-nextgen:web:WebAppRelayServiceConnection" }, { type: "azure-native:web/v20150801:WebAppRelayServiceConnection" }, { type: "azure-nextgen:web/v20150801:WebAppRelayServiceConnection" }, { type: "azure-native:web/v20160801:WebAppRelayServiceConnection" }, { type: "azure-nextgen:web/v20160801:WebAppRelayServiceConnection" }, { type: "azure-native:web/v20180201:WebAppRelayServiceConnection" }, { type: "azure-nextgen:web/v20180201:WebAppRelayServiceConnection" }, { type: "azure-native:web/v20181101:WebAppRelayServiceConnection" }, { type: "azure-nextgen:web/v20181101:WebAppRelayServiceConnection" }, { type: "azure-native:web/v20190801:WebAppRelayServiceConnection" }, { type: "azure-nextgen:web/v20190801:WebAppRelayServiceConnection" }, { type: "azure-native:web/v20200601:WebAppRelayServiceConnection" }, { type: "azure-nextgen:web/v20200601:WebAppRelayServiceConnection" }, { type: "azure-native:web/v20200901:WebAppRelayServiceConnection" }, { type: "azure-nextgen:web/v20200901:WebAppRelayServiceConnection" }, { type: "azure-native:web/v20201001:WebAppRelayServiceConnection" }, { type: "azure-nextgen:web/v20201001:WebAppRelayServiceConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:WebAppRelayServiceConnection" }, { type: "azure-native:web:WebAppRelayServiceConnection" }, { type: "azure-nextgen:web:WebAppRelayServiceConnection" }, { type: "azure-native:web/v20150801:WebAppRelayServiceConnection" }, { type: "azure-nextgen:web/v20150801:WebAppRelayServiceConnection" }, { type: "azure-native:web/v20160801:WebAppRelayServiceConnection" }, { type: "azure-nextgen:web/v20160801:WebAppRelayServiceConnection" }, { type: "azure-native:web/v20180201:WebAppRelayServiceConnection" }, { type: "azure-nextgen:web/v20180201:WebAppRelayServiceConnection" }, { type: "azure-native:web/v20181101:WebAppRelayServiceConnection" }, { type: "azure-nextgen:web/v20181101:WebAppRelayServiceConnection" }, { type: "azure-native:web/v20190801:WebAppRelayServiceConnection" }, { type: "azure-nextgen:web/v20190801:WebAppRelayServiceConnection" }, { type: "azure-native:web/v20200601:WebAppRelayServiceConnection" }, { type: "azure-nextgen:web/v20200601:WebAppRelayServiceConnection" }, { type: "azure-native:web/v20200901:WebAppRelayServiceConnection" }, { type: "azure-nextgen:web/v20200901:WebAppRelayServiceConnection" }, { type: "azure-native:web/v20201001:WebAppRelayServiceConnection" }, { type: "azure-nextgen:web/v20201001:WebAppRelayServiceConnection" }, { type: "azure-native:web/v20201201:WebAppRelayServiceConnection" }, { type: "azure-nextgen:web/v20201201:WebAppRelayServiceConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebAppRelayServiceConnection.__pulumiType, name, inputs, opts);
     }

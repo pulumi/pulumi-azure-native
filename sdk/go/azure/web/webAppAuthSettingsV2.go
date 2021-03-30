@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// API Version: 2020-10-01.
+// API Version: 2020-12-01.
 type WebAppAuthSettingsV2 struct {
 	pulumi.CustomResourceState
 
@@ -24,8 +24,6 @@ type WebAppAuthSettingsV2 struct {
 	// Resource Name.
 	Name     pulumi.StringOutput           `pulumi:"name"`
 	Platform AuthPlatformResponsePtrOutput `pulumi:"platform"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -71,6 +69,12 @@ func NewWebAppAuthSettingsV2(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppAuthSettingsV2"),
 		},
+		{
+			Type: pulumi.String("azure-native:web/v20201201:WebAppAuthSettingsV2"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20201201:WebAppAuthSettingsV2"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource WebAppAuthSettingsV2
@@ -104,8 +108,6 @@ type webAppAuthSettingsV2State struct {
 	// Resource Name.
 	Name     *string               `pulumi:"name"`
 	Platform *AuthPlatformResponse `pulumi:"platform"`
-	// The system metadata relating to this resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type *string `pulumi:"type"`
 }
@@ -120,8 +122,6 @@ type WebAppAuthSettingsV2State struct {
 	// Resource Name.
 	Name     pulumi.StringPtrInput
 	Platform AuthPlatformResponsePtrInput
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponsePtrInput
 	// Resource type.
 	Type pulumi.StringPtrInput
 }

@@ -18,6 +18,10 @@ namespace Pulumi.AzureNative.Web.Outputs
         /// </summary>
         public readonly int? Count;
         /// <summary>
+        /// Request Path.
+        /// </summary>
+        public readonly string? Path;
+        /// <summary>
         /// Time interval.
         /// </summary>
         public readonly string? TimeInterval;
@@ -30,11 +34,14 @@ namespace Pulumi.AzureNative.Web.Outputs
         private SlowRequestsBasedTriggerResponse(
             int? count,
 
+            string? path,
+
             string? timeInterval,
 
             string? timeTaken)
         {
             Count = count;
+            Path = path;
             TimeInterval = timeInterval;
             TimeTaken = timeTaken;
         }

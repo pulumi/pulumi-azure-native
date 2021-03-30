@@ -156,7 +156,7 @@ class GetRoleAssignmentResult:
 
     @property
     @pulumi.getter
-    def scope(self) -> Optional[str]:
+    def scope(self) -> str:
         """
         The role assignment scope.
         """

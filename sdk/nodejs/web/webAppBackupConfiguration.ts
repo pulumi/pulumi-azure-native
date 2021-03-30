@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Description of a backup which will be performed.
- * API Version: 2020-10-01.
+ * API Version: 2020-12-01.
  */
 export class WebAppBackupConfiguration extends pulumi.CustomResource {
     /**
@@ -65,10 +65,6 @@ export class WebAppBackupConfiguration extends pulumi.CustomResource {
      */
     public readonly storageAccountUrl!: pulumi.Output<string>;
     /**
-     * The system metadata relating to this resource.
-     */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.web.SystemDataResponse>;
-    /**
      * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -101,7 +97,6 @@ export class WebAppBackupConfiguration extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["storageAccountUrl"] = args ? args.storageAccountUrl : undefined;
-            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["backupName"] = undefined /*out*/;
@@ -111,13 +106,12 @@ export class WebAppBackupConfiguration extends pulumi.CustomResource {
             inputs["kind"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["storageAccountUrl"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:WebAppBackupConfiguration" }, { type: "azure-native:web/latest:WebAppBackupConfiguration" }, { type: "azure-nextgen:web/latest:WebAppBackupConfiguration" }, { type: "azure-native:web/v20150801:WebAppBackupConfiguration" }, { type: "azure-nextgen:web/v20150801:WebAppBackupConfiguration" }, { type: "azure-native:web/v20160801:WebAppBackupConfiguration" }, { type: "azure-nextgen:web/v20160801:WebAppBackupConfiguration" }, { type: "azure-native:web/v20180201:WebAppBackupConfiguration" }, { type: "azure-nextgen:web/v20180201:WebAppBackupConfiguration" }, { type: "azure-native:web/v20181101:WebAppBackupConfiguration" }, { type: "azure-nextgen:web/v20181101:WebAppBackupConfiguration" }, { type: "azure-native:web/v20190801:WebAppBackupConfiguration" }, { type: "azure-nextgen:web/v20190801:WebAppBackupConfiguration" }, { type: "azure-native:web/v20200601:WebAppBackupConfiguration" }, { type: "azure-nextgen:web/v20200601:WebAppBackupConfiguration" }, { type: "azure-native:web/v20200901:WebAppBackupConfiguration" }, { type: "azure-nextgen:web/v20200901:WebAppBackupConfiguration" }, { type: "azure-native:web/v20201001:WebAppBackupConfiguration" }, { type: "azure-nextgen:web/v20201001:WebAppBackupConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:WebAppBackupConfiguration" }, { type: "azure-native:web/latest:WebAppBackupConfiguration" }, { type: "azure-nextgen:web/latest:WebAppBackupConfiguration" }, { type: "azure-native:web/v20150801:WebAppBackupConfiguration" }, { type: "azure-nextgen:web/v20150801:WebAppBackupConfiguration" }, { type: "azure-native:web/v20160801:WebAppBackupConfiguration" }, { type: "azure-nextgen:web/v20160801:WebAppBackupConfiguration" }, { type: "azure-native:web/v20180201:WebAppBackupConfiguration" }, { type: "azure-nextgen:web/v20180201:WebAppBackupConfiguration" }, { type: "azure-native:web/v20181101:WebAppBackupConfiguration" }, { type: "azure-nextgen:web/v20181101:WebAppBackupConfiguration" }, { type: "azure-native:web/v20190801:WebAppBackupConfiguration" }, { type: "azure-nextgen:web/v20190801:WebAppBackupConfiguration" }, { type: "azure-native:web/v20200601:WebAppBackupConfiguration" }, { type: "azure-nextgen:web/v20200601:WebAppBackupConfiguration" }, { type: "azure-native:web/v20200901:WebAppBackupConfiguration" }, { type: "azure-nextgen:web/v20200901:WebAppBackupConfiguration" }, { type: "azure-native:web/v20201001:WebAppBackupConfiguration" }, { type: "azure-nextgen:web/v20201001:WebAppBackupConfiguration" }, { type: "azure-native:web/v20201201:WebAppBackupConfiguration" }, { type: "azure-nextgen:web/v20201201:WebAppBackupConfiguration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebAppBackupConfiguration.__pulumiType, name, inputs, opts);
     }

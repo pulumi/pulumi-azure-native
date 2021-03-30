@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Web.Latest
     {
         /// <summary>
         /// Function secrets.
-        /// Latest API Version: 2020-10-01.
+        /// Latest API Version: 2020-12-01.
         /// </summary>
         public static Task<ListWebAppFunctionSecretsSlotResult> InvokeAsync(ListWebAppFunctionSecretsSlotArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppFunctionSecretsSlotResult>("azure-native:web/latest:listWebAppFunctionSecretsSlot", args ?? new ListWebAppFunctionSecretsSlotArgs(), options.WithVersion());

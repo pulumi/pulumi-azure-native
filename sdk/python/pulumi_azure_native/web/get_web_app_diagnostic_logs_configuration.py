@@ -20,7 +20,7 @@ class GetWebAppDiagnosticLogsConfigurationResult:
     """
     Configuration of App Service site logs.
     """
-    def __init__(__self__, application_logs=None, detailed_error_messages=None, failed_requests_tracing=None, http_logs=None, id=None, kind=None, name=None, system_data=None, type=None):
+    def __init__(__self__, application_logs=None, detailed_error_messages=None, failed_requests_tracing=None, http_logs=None, id=None, kind=None, name=None, type=None):
         if application_logs and not isinstance(application_logs, dict):
             raise TypeError("Expected argument 'application_logs' to be a dict")
         pulumi.set(__self__, "application_logs", application_logs)
@@ -42,9 +42,6 @@ class GetWebAppDiagnosticLogsConfigurationResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if system_data and not isinstance(system_data, dict):
-            raise TypeError("Expected argument 'system_data' to be a dict")
-        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -106,14 +103,6 @@ class GetWebAppDiagnosticLogsConfigurationResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
-        """
-        The system metadata relating to this resource.
-        """
-        return pulumi.get(self, "system_data")
-
-    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -135,7 +124,6 @@ class AwaitableGetWebAppDiagnosticLogsConfigurationResult(GetWebAppDiagnosticLog
             id=self.id,
             kind=self.kind,
             name=self.name,
-            system_data=self.system_data,
             type=self.type)
 
 
@@ -144,7 +132,7 @@ def get_web_app_diagnostic_logs_configuration(name: Optional[str] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppDiagnosticLogsConfigurationResult:
     """
     Configuration of App Service site logs.
-    API Version: 2020-10-01.
+    API Version: 2020-12-01.
 
 
     :param str name: Name of the app.
@@ -167,5 +155,4 @@ def get_web_app_diagnostic_logs_configuration(name: Optional[str] = None,
         id=__ret__.id,
         kind=__ret__.kind,
         name=__ret__.name,
-        system_data=__ret__.system_data,
         type=__ret__.type)

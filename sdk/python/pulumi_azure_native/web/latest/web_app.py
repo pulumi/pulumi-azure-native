@@ -38,6 +38,7 @@ class WebApp(pulumi.CustomResource):
                  hyper_v: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
                  is_xenon: Optional[pulumi.Input[bool]] = None,
+                 key_vault_reference_identity: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -54,7 +55,7 @@ class WebApp(pulumi.CustomResource):
                  __opts__=None):
         """
         A web app, a mobile app backend, or an API app.
-        Latest API Version: 2020-10-01.
+        Latest API Version: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -79,6 +80,7 @@ class WebApp(pulumi.CustomResource):
         :param pulumi.Input[bool] hyper_v: Hyper-V sandbox.
         :param pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']] identity: Managed service identity.
         :param pulumi.Input[bool] is_xenon: Obsolete: Hyper-V sandbox.
+        :param pulumi.Input[str] key_vault_reference_identity: Identity to use for Key Vault Reference authentication.
         :param pulumi.Input[str] kind: Kind of resource.
         :param pulumi.Input[str] location: Resource Location.
         :param pulumi.Input[str] name: Unique name of the app to create or update. To create or update a deployment slot, use the {slot} parameter.
@@ -129,6 +131,7 @@ class WebApp(pulumi.CustomResource):
             if is_xenon is None:
                 is_xenon = False
             __props__['is_xenon'] = is_xenon
+            __props__['key_vault_reference_identity'] = key_vault_reference_identity
             __props__['kind'] = kind
             __props__['location'] = location
             __props__['name'] = name
@@ -161,12 +164,11 @@ class WebApp(pulumi.CustomResource):
             __props__['slot_swap_status'] = None
             __props__['state'] = None
             __props__['suspended_till'] = None
-            __props__['system_data'] = None
             __props__['target_swap_slot'] = None
             __props__['traffic_manager_host_names'] = None
             __props__['type'] = None
             __props__['usage_state'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/latest:WebApp"), pulumi.Alias(type_="azure-native:web:WebApp"), pulumi.Alias(type_="azure-nextgen:web:WebApp"), pulumi.Alias(type_="azure-native:web/v20150801:WebApp"), pulumi.Alias(type_="azure-nextgen:web/v20150801:WebApp"), pulumi.Alias(type_="azure-native:web/v20160801:WebApp"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebApp"), pulumi.Alias(type_="azure-native:web/v20180201:WebApp"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebApp"), pulumi.Alias(type_="azure-native:web/v20181101:WebApp"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebApp"), pulumi.Alias(type_="azure-native:web/v20190801:WebApp"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebApp"), pulumi.Alias(type_="azure-native:web/v20200601:WebApp"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebApp"), pulumi.Alias(type_="azure-native:web/v20200901:WebApp"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebApp"), pulumi.Alias(type_="azure-native:web/v20201001:WebApp"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebApp")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/latest:WebApp"), pulumi.Alias(type_="azure-native:web:WebApp"), pulumi.Alias(type_="azure-nextgen:web:WebApp"), pulumi.Alias(type_="azure-native:web/v20150801:WebApp"), pulumi.Alias(type_="azure-nextgen:web/v20150801:WebApp"), pulumi.Alias(type_="azure-native:web/v20160801:WebApp"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebApp"), pulumi.Alias(type_="azure-native:web/v20180201:WebApp"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebApp"), pulumi.Alias(type_="azure-native:web/v20181101:WebApp"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebApp"), pulumi.Alias(type_="azure-native:web/v20190801:WebApp"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebApp"), pulumi.Alias(type_="azure-native:web/v20200601:WebApp"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebApp"), pulumi.Alias(type_="azure-native:web/v20200901:WebApp"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebApp"), pulumi.Alias(type_="azure-native:web/v20201001:WebApp"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebApp"), pulumi.Alias(type_="azure-native:web/v20201201:WebApp"), pulumi.Alias(type_="azure-nextgen:web/v20201201:WebApp")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebApp, __self__).__init__(
             'azure-native:web/latest:WebApp',
@@ -211,6 +213,7 @@ class WebApp(pulumi.CustomResource):
         __props__["in_progress_operation_id"] = None
         __props__["is_default_container"] = None
         __props__["is_xenon"] = None
+        __props__["key_vault_reference_identity"] = None
         __props__["kind"] = None
         __props__["last_modified_time_utc"] = None
         __props__["location"] = None
@@ -229,7 +232,6 @@ class WebApp(pulumi.CustomResource):
         __props__["state"] = None
         __props__["storage_account_required"] = None
         __props__["suspended_till"] = None
-        __props__["system_data"] = None
         __props__["tags"] = None
         __props__["target_swap_slot"] = None
         __props__["traffic_manager_host_names"] = None
@@ -412,6 +414,14 @@ class WebApp(pulumi.CustomResource):
         return pulumi.get(self, "is_xenon")
 
     @property
+    @pulumi.getter(name="keyVaultReferenceIdentity")
+    def key_vault_reference_identity(self) -> pulumi.Output[Optional[str]]:
+        """
+        Identity to use for Key Vault Reference authentication.
+        """
+        return pulumi.get(self, "key_vault_reference_identity")
+
+    @property
     @pulumi.getter
     def kind(self) -> pulumi.Output[Optional[str]]:
         """
@@ -555,14 +565,6 @@ class WebApp(pulumi.CustomResource):
         App suspended till in case memory-time quota is exceeded.
         """
         return pulumi.get(self, "suspended_till")
-
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
-        """
-        The system metadata relating to this resource.
-        """
-        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A hostname binding object.
- * API Version: 2020-10-01.
+ * API Version: 2020-12-01.
  */
 export function getWebAppHostNameBindingSlot(args: GetWebAppHostNameBindingSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppHostNameBindingSlotResult> {
     if (!opts) {
@@ -88,10 +88,6 @@ export interface GetWebAppHostNameBindingSlotResult {
      * SSL type
      */
     readonly sslState?: string;
-    /**
-     * The system metadata relating to this resource.
-     */
-    readonly systemData: outputs.web.SystemDataResponse;
     /**
      * SSL certificate thumbprint
      */

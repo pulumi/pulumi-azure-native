@@ -7,7 +7,6 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
-from . import outputs
 
 __all__ = [
     'GetWebAppDeploymentSlotResult',
@@ -20,7 +19,7 @@ class GetWebAppDeploymentSlotResult:
     """
     User credentials used for publishing activity.
     """
-    def __init__(__self__, active=None, author=None, author_email=None, deployer=None, details=None, end_time=None, id=None, kind=None, message=None, name=None, start_time=None, status=None, system_data=None, type=None):
+    def __init__(__self__, active=None, author=None, author_email=None, deployer=None, details=None, end_time=None, id=None, kind=None, message=None, name=None, start_time=None, status=None, type=None):
         if active and not isinstance(active, bool):
             raise TypeError("Expected argument 'active' to be a bool")
         pulumi.set(__self__, "active", active)
@@ -57,9 +56,6 @@ class GetWebAppDeploymentSlotResult:
         if status and not isinstance(status, int):
             raise TypeError("Expected argument 'status' to be a int")
         pulumi.set(__self__, "status", status)
-        if system_data and not isinstance(system_data, dict):
-            raise TypeError("Expected argument 'system_data' to be a dict")
-        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -161,14 +157,6 @@ class GetWebAppDeploymentSlotResult:
         return pulumi.get(self, "status")
 
     @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
-        """
-        The system metadata relating to this resource.
-        """
-        return pulumi.get(self, "system_data")
-
-    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -195,7 +183,6 @@ class AwaitableGetWebAppDeploymentSlotResult(GetWebAppDeploymentSlotResult):
             name=self.name,
             start_time=self.start_time,
             status=self.status,
-            system_data=self.system_data,
             type=self.type)
 
 
@@ -206,7 +193,7 @@ def get_web_app_deployment_slot(id: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppDeploymentSlotResult:
     """
     User credentials used for publishing activity.
-    API Version: 2020-10-01.
+    API Version: 2020-12-01.
 
 
     :param str id: Deployment ID.
@@ -238,5 +225,4 @@ def get_web_app_deployment_slot(id: Optional[str] = None,
         name=__ret__.name,
         start_time=__ret__.start_time,
         status=__ret__.status,
-        system_data=__ret__.system_data,
         type=__ret__.type)

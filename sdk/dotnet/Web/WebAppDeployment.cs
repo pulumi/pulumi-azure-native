@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Web
 {
     /// <summary>
     /// User credentials used for publishing activity.
-    /// API Version: 2020-10-01.
+    /// API Version: 2020-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:WebAppDeployment")]
     public partial class WebAppDeployment : Pulumi.CustomResource
@@ -83,12 +83,6 @@ namespace Pulumi.AzureNative.Web
         public Output<int?> Status { get; private set; } = null!;
 
         /// <summary>
-        /// The system metadata relating to this resource.
-        /// </summary>
-        [Output("systemData")]
-        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
-
-        /// <summary>
         /// Resource type.
         /// </summary>
         [Output("type")]
@@ -138,6 +132,8 @@ namespace Pulumi.AzureNative.Web
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:WebAppDeployment"},
                     new Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppDeployment"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:WebAppDeployment"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppDeployment"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20201201:WebAppDeployment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

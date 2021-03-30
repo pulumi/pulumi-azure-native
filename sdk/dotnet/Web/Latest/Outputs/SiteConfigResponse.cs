@@ -46,6 +46,10 @@ namespace Pulumi.AzureNative.Web.Latest.Outputs
         /// </summary>
         public readonly string? AutoSwapSlotName;
         /// <summary>
+        /// List of Azure Storage Accounts.
+        /// </summary>
+        public readonly ImmutableDictionary<string, Outputs.AzureStorageInfoValueResponse>? AzureStorageAccounts;
+        /// <summary>
         /// Connection strings.
         /// </summary>
         public readonly ImmutableArray<Outputs.ConnStringInfoResponse> ConnectionStrings;
@@ -73,6 +77,17 @@ namespace Pulumi.AzureNative.Web.Latest.Outputs
         /// State of FTP / FTPS service
         /// </summary>
         public readonly string? FtpsState;
+        /// <summary>
+        /// Maximum number of workers that a site can scale out to.
+        /// This setting only applies to the Consumption and Elastic Premium Plans
+        /// </summary>
+        public readonly int? FunctionAppScaleLimit;
+        /// <summary>
+        /// Gets or sets a value indicating whether functions runtime scale monitoring is enabled. When enabled,
+        /// the ScaleController will not monitor event sources directly, but will instead call to the
+        /// runtime to get scale status.
+        /// </summary>
+        public readonly bool? FunctionsRuntimeScaleMonitoringEnabled;
         /// <summary>
         /// Handler mappings.
         /// </summary>
@@ -105,6 +120,10 @@ namespace Pulumi.AzureNative.Web.Latest.Outputs
         /// Java version.
         /// </summary>
         public readonly string? JavaVersion;
+        /// <summary>
+        /// Identity to use for Key Vault Reference authentication.
+        /// </summary>
+        public readonly string? KeyVaultReferenceIdentity;
         /// <summary>
         /// Site limits.
         /// </summary>
@@ -141,6 +160,11 @@ namespace Pulumi.AzureNative.Web.Latest.Outputs
         /// MinTlsVersion: configures the minimum version of TLS required for SSL requests
         /// </summary>
         public readonly string? MinTlsVersion;
+        /// <summary>
+        /// Number of minimum instance count for a site
+        /// This setting only applies to the Elastic Plans
+        /// </summary>
+        public readonly int? MinimumElasticInstanceCount;
         /// <summary>
         /// .NET Framework version.
         /// </summary>
@@ -239,6 +263,10 @@ namespace Pulumi.AzureNative.Web.Latest.Outputs
         /// </summary>
         public readonly bool? WebSocketsEnabled;
         /// <summary>
+        /// Sets the time zone a site uses for generating timestamps. Compatible with Linux and Windows App Service. Setting the WEBSITE_TIME_ZONE app setting takes precedence over this config. For Linux, expects tz database values https://www.iana.org/time-zones (for a quick reference see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). For Windows, expects one of the time zones listed under HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Time Zones
+        /// </summary>
+        public readonly string? WebsiteTimeZone;
+        /// <summary>
         /// Xenon App Framework and version
         /// </summary>
         public readonly string? WindowsFxVersion;
@@ -265,6 +293,8 @@ namespace Pulumi.AzureNative.Web.Latest.Outputs
 
             string? autoSwapSlotName,
 
+            ImmutableDictionary<string, Outputs.AzureStorageInfoValueResponse>? azureStorageAccounts,
+
             ImmutableArray<Outputs.ConnStringInfoResponse> connectionStrings,
 
             Outputs.CorsSettingsResponse? cors,
@@ -278,6 +308,10 @@ namespace Pulumi.AzureNative.Web.Latest.Outputs
             Outputs.ExperimentsResponse? experiments,
 
             string? ftpsState,
+
+            int? functionAppScaleLimit,
+
+            bool? functionsRuntimeScaleMonitoringEnabled,
 
             ImmutableArray<Outputs.HandlerMappingResponse> handlerMappings,
 
@@ -294,6 +328,8 @@ namespace Pulumi.AzureNative.Web.Latest.Outputs
             string? javaContainerVersion,
 
             string? javaVersion,
+
+            string? keyVaultReferenceIdentity,
 
             Outputs.SiteLimitsResponse? limits,
 
@@ -312,6 +348,8 @@ namespace Pulumi.AzureNative.Web.Latest.Outputs
             int? managedServiceIdentityId,
 
             string? minTlsVersion,
+
+            int? minimumElasticInstanceCount,
 
             string? netFrameworkVersion,
 
@@ -361,6 +399,8 @@ namespace Pulumi.AzureNative.Web.Latest.Outputs
 
             bool? webSocketsEnabled,
 
+            string? websiteTimeZone,
+
             string? windowsFxVersion,
 
             int? xManagedServiceIdentityId)
@@ -373,6 +413,7 @@ namespace Pulumi.AzureNative.Web.Latest.Outputs
             AutoHealEnabled = autoHealEnabled;
             AutoHealRules = autoHealRules;
             AutoSwapSlotName = autoSwapSlotName;
+            AzureStorageAccounts = azureStorageAccounts;
             ConnectionStrings = connectionStrings;
             Cors = cors;
             DefaultDocuments = defaultDocuments;
@@ -380,6 +421,8 @@ namespace Pulumi.AzureNative.Web.Latest.Outputs
             DocumentRoot = documentRoot;
             Experiments = experiments;
             FtpsState = ftpsState;
+            FunctionAppScaleLimit = functionAppScaleLimit;
+            FunctionsRuntimeScaleMonitoringEnabled = functionsRuntimeScaleMonitoringEnabled;
             HandlerMappings = handlerMappings;
             HealthCheckPath = healthCheckPath;
             Http20Enabled = http20Enabled;
@@ -388,6 +431,7 @@ namespace Pulumi.AzureNative.Web.Latest.Outputs
             JavaContainer = javaContainer;
             JavaContainerVersion = javaContainerVersion;
             JavaVersion = javaVersion;
+            KeyVaultReferenceIdentity = keyVaultReferenceIdentity;
             Limits = limits;
             LinuxFxVersion = linuxFxVersion;
             LoadBalancing = loadBalancing;
@@ -397,6 +441,7 @@ namespace Pulumi.AzureNative.Web.Latest.Outputs
             ManagedPipelineMode = managedPipelineMode;
             ManagedServiceIdentityId = managedServiceIdentityId;
             MinTlsVersion = minTlsVersion;
+            MinimumElasticInstanceCount = minimumElasticInstanceCount;
             NetFrameworkVersion = netFrameworkVersion;
             NodeVersion = nodeVersion;
             NumberOfWorkers = numberOfWorkers;
@@ -421,6 +466,7 @@ namespace Pulumi.AzureNative.Web.Latest.Outputs
             VnetPrivatePortsCount = vnetPrivatePortsCount;
             VnetRouteAllEnabled = vnetRouteAllEnabled;
             WebSocketsEnabled = webSocketsEnabled;
+            WebsiteTimeZone = websiteTimeZone;
             WindowsFxVersion = windowsFxVersion;
             XManagedServiceIdentityId = xManagedServiceIdentityId;
         }

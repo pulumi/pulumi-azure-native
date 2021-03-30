@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A web app, a mobile app backend, or an API app.
- * API Version: 2020-10-01.
+ * API Version: 2020-12-01.
  */
 export class WebAppSlot extends pulumi.CustomResource {
     /**
@@ -127,6 +127,10 @@ export class WebAppSlot extends pulumi.CustomResource {
      */
     public readonly isXenon!: pulumi.Output<boolean | undefined>;
     /**
+     * Identity to use for Key Vault Reference authentication.
+     */
+    public readonly keyVaultReferenceIdentity!: pulumi.Output<string | undefined>;
+    /**
      * Kind of resource.
      */
     public readonly kind!: pulumi.Output<string | undefined>;
@@ -200,10 +204,6 @@ export class WebAppSlot extends pulumi.CustomResource {
      */
     public /*out*/ readonly suspendedTill!: pulumi.Output<string>;
     /**
-     * The system metadata relating to this resource.
-     */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.web.SystemDataResponse>;
-    /**
      * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -257,6 +257,7 @@ export class WebAppSlot extends pulumi.CustomResource {
             inputs["hyperV"] = (args ? args.hyperV : undefined) || false;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["isXenon"] = (args ? args.isXenon : undefined) || false;
+            inputs["keyVaultReferenceIdentity"] = args ? args.keyVaultReferenceIdentity : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -284,7 +285,6 @@ export class WebAppSlot extends pulumi.CustomResource {
             inputs["slotSwapStatus"] = undefined /*out*/;
             inputs["state"] = undefined /*out*/;
             inputs["suspendedTill"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
             inputs["targetSwapSlot"] = undefined /*out*/;
             inputs["trafficManagerHostNames"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -311,6 +311,7 @@ export class WebAppSlot extends pulumi.CustomResource {
             inputs["inProgressOperationId"] = undefined /*out*/;
             inputs["isDefaultContainer"] = undefined /*out*/;
             inputs["isXenon"] = undefined /*out*/;
+            inputs["keyVaultReferenceIdentity"] = undefined /*out*/;
             inputs["kind"] = undefined /*out*/;
             inputs["lastModifiedTimeUtc"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
@@ -329,7 +330,6 @@ export class WebAppSlot extends pulumi.CustomResource {
             inputs["state"] = undefined /*out*/;
             inputs["storageAccountRequired"] = undefined /*out*/;
             inputs["suspendedTill"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["targetSwapSlot"] = undefined /*out*/;
             inputs["trafficManagerHostNames"] = undefined /*out*/;
@@ -339,7 +339,7 @@ export class WebAppSlot extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:WebAppSlot" }, { type: "azure-native:web/latest:WebAppSlot" }, { type: "azure-nextgen:web/latest:WebAppSlot" }, { type: "azure-native:web/v20150801:WebAppSlot" }, { type: "azure-nextgen:web/v20150801:WebAppSlot" }, { type: "azure-native:web/v20160801:WebAppSlot" }, { type: "azure-nextgen:web/v20160801:WebAppSlot" }, { type: "azure-native:web/v20180201:WebAppSlot" }, { type: "azure-nextgen:web/v20180201:WebAppSlot" }, { type: "azure-native:web/v20181101:WebAppSlot" }, { type: "azure-nextgen:web/v20181101:WebAppSlot" }, { type: "azure-native:web/v20190801:WebAppSlot" }, { type: "azure-nextgen:web/v20190801:WebAppSlot" }, { type: "azure-native:web/v20200601:WebAppSlot" }, { type: "azure-nextgen:web/v20200601:WebAppSlot" }, { type: "azure-native:web/v20200901:WebAppSlot" }, { type: "azure-nextgen:web/v20200901:WebAppSlot" }, { type: "azure-native:web/v20201001:WebAppSlot" }, { type: "azure-nextgen:web/v20201001:WebAppSlot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:WebAppSlot" }, { type: "azure-native:web/latest:WebAppSlot" }, { type: "azure-nextgen:web/latest:WebAppSlot" }, { type: "azure-native:web/v20150801:WebAppSlot" }, { type: "azure-nextgen:web/v20150801:WebAppSlot" }, { type: "azure-native:web/v20160801:WebAppSlot" }, { type: "azure-nextgen:web/v20160801:WebAppSlot" }, { type: "azure-native:web/v20180201:WebAppSlot" }, { type: "azure-nextgen:web/v20180201:WebAppSlot" }, { type: "azure-native:web/v20181101:WebAppSlot" }, { type: "azure-nextgen:web/v20181101:WebAppSlot" }, { type: "azure-native:web/v20190801:WebAppSlot" }, { type: "azure-nextgen:web/v20190801:WebAppSlot" }, { type: "azure-native:web/v20200601:WebAppSlot" }, { type: "azure-nextgen:web/v20200601:WebAppSlot" }, { type: "azure-native:web/v20200901:WebAppSlot" }, { type: "azure-nextgen:web/v20200901:WebAppSlot" }, { type: "azure-native:web/v20201001:WebAppSlot" }, { type: "azure-nextgen:web/v20201001:WebAppSlot" }, { type: "azure-native:web/v20201201:WebAppSlot" }, { type: "azure-nextgen:web/v20201201:WebAppSlot" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebAppSlot.__pulumiType, name, inputs, opts);
     }
@@ -418,6 +418,10 @@ export interface WebAppSlotArgs {
      * Obsolete: Hyper-V sandbox.
      */
     readonly isXenon?: pulumi.Input<boolean>;
+    /**
+     * Identity to use for Key Vault Reference authentication.
+     */
+    readonly keyVaultReferenceIdentity?: pulumi.Input<string>;
     /**
      * Kind of resource.
      */

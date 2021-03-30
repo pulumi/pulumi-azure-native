@@ -9,6 +9,7 @@ import * as v20190801 from "./v20190801";
 import * as v20200601 from "./v20200601";
 import * as v20200901 from "./v20200901";
 import * as v20201001 from "./v20201001";
+import * as v20201201 from "./v20201201";
 
 export {
     latest,
@@ -18,6 +19,7 @@ export {
     v20200601,
     v20200901,
     v20201001,
+    v20201201,
 };
 
 export const DnsType = {

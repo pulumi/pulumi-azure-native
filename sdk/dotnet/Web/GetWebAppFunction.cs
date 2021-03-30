@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web
     {
         /// <summary>
         /// Function information.
-        /// API Version: 2020-10-01.
+        /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetWebAppFunctionResult> InvokeAsync(GetWebAppFunctionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppFunctionResult>("azure-native:web:getWebAppFunction", args ?? new GetWebAppFunctionArgs(), options.WithVersion());
@@ -106,10 +106,6 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         public readonly string? SecretsFileHref;
         /// <summary>
-        /// The system metadata relating to this resource.
-        /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
-        /// <summary>
         /// Test data used when testing via the Azure Portal.
         /// </summary>
         public readonly string? TestData;
@@ -152,8 +148,6 @@ namespace Pulumi.AzureNative.Web
 
             string? secretsFileHref,
 
-            Outputs.SystemDataResponse systemData,
-
             string? testData,
 
             string? testDataHref,
@@ -174,7 +168,6 @@ namespace Pulumi.AzureNative.Web
             ScriptHref = scriptHref;
             ScriptRootPathHref = scriptRootPathHref;
             SecretsFileHref = secretsFileHref;
-            SystemData = systemData;
             TestData = testData;
             TestDataHref = testDataHref;
             Type = type;

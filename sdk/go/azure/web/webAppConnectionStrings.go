@@ -12,7 +12,7 @@ import (
 )
 
 // String dictionary resource.
-// API Version: 2020-10-01.
+// API Version: 2020-12-01.
 type WebAppConnectionStrings struct {
 	pulumi.CustomResourceState
 
@@ -22,8 +22,6 @@ type WebAppConnectionStrings struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Connection strings.
 	Properties ConnStringValueTypePairResponseMapOutput `pulumi:"properties"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -99,6 +97,12 @@ func NewWebAppConnectionStrings(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppConnectionStrings"),
 		},
+		{
+			Type: pulumi.String("azure-native:web/v20201201:WebAppConnectionStrings"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20201201:WebAppConnectionStrings"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource WebAppConnectionStrings
@@ -129,8 +133,6 @@ type webAppConnectionStringsState struct {
 	Name *string `pulumi:"name"`
 	// Connection strings.
 	Properties map[string]ConnStringValueTypePairResponse `pulumi:"properties"`
-	// The system metadata relating to this resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type *string `pulumi:"type"`
 }
@@ -142,8 +144,6 @@ type WebAppConnectionStringsState struct {
 	Name pulumi.StringPtrInput
 	// Connection strings.
 	Properties ConnStringValueTypePairResponseMapInput
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponsePtrInput
 	// Resource type.
 	Type pulumi.StringPtrInput
 }

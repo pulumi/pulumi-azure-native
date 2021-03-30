@@ -12,7 +12,7 @@ import (
 )
 
 // Configuration settings for the Azure App Service Authentication / Authorization feature.
-// API Version: 2020-10-01.
+// API Version: 2020-12-01.
 type WebAppAuthSettings struct {
 	pulumi.CustomResourceState
 
@@ -47,6 +47,9 @@ type WebAppAuthSettings struct {
 	ClientSecretCertificateThumbprint pulumi.StringPtrOutput `pulumi:"clientSecretCertificateThumbprint"`
 	// The app setting name that contains the client secret of the relying party application.
 	ClientSecretSettingName pulumi.StringPtrOutput `pulumi:"clientSecretSettingName"`
+	// The ConfigVersion of the Authentication / Authorization feature in use for the current app.
+	// The setting in this value can control the behavior of the control plane for Authentication / Authorization.
+	ConfigVersion pulumi.StringPtrOutput `pulumi:"configVersion"`
 	// The default authentication provider to use when multiple providers are configured.
 	// This setting is only needed if multiple providers are configured and the unauthenticated client
 	// action is set to "RedirectToLoginPage".
@@ -124,8 +127,6 @@ type WebAppAuthSettings struct {
 	// The RuntimeVersion of the Authentication / Authorization feature in use for the current app.
 	// The setting in this value can control the behavior of certain features in the Authentication / Authorization module.
 	RuntimeVersion pulumi.StringPtrOutput `pulumi:"runtimeVersion"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The number of hours after session token expiration that a session token can be used to
 	// call the token refresh API. The default is 72 hours.
 	TokenRefreshExtensionHours pulumi.Float64PtrOutput `pulumi:"tokenRefreshExtensionHours"`
@@ -222,6 +223,12 @@ func NewWebAppAuthSettings(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppAuthSettings"),
 		},
+		{
+			Type: pulumi.String("azure-native:web/v20201201:WebAppAuthSettings"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20201201:WebAppAuthSettings"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource WebAppAuthSettings
@@ -277,6 +284,9 @@ type webAppAuthSettingsState struct {
 	ClientSecretCertificateThumbprint *string `pulumi:"clientSecretCertificateThumbprint"`
 	// The app setting name that contains the client secret of the relying party application.
 	ClientSecretSettingName *string `pulumi:"clientSecretSettingName"`
+	// The ConfigVersion of the Authentication / Authorization feature in use for the current app.
+	// The setting in this value can control the behavior of the control plane for Authentication / Authorization.
+	ConfigVersion *string `pulumi:"configVersion"`
 	// The default authentication provider to use when multiple providers are configured.
 	// This setting is only needed if multiple providers are configured and the unauthenticated client
 	// action is set to "RedirectToLoginPage".
@@ -354,8 +364,6 @@ type webAppAuthSettingsState struct {
 	// The RuntimeVersion of the Authentication / Authorization feature in use for the current app.
 	// The setting in this value can control the behavior of certain features in the Authentication / Authorization module.
 	RuntimeVersion *string `pulumi:"runtimeVersion"`
-	// The system metadata relating to this resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// The number of hours after session token expiration that a session token can be used to
 	// call the token refresh API. The default is 72 hours.
 	TokenRefreshExtensionHours *float64 `pulumi:"tokenRefreshExtensionHours"`
@@ -413,6 +421,9 @@ type WebAppAuthSettingsState struct {
 	ClientSecretCertificateThumbprint pulumi.StringPtrInput
 	// The app setting name that contains the client secret of the relying party application.
 	ClientSecretSettingName pulumi.StringPtrInput
+	// The ConfigVersion of the Authentication / Authorization feature in use for the current app.
+	// The setting in this value can control the behavior of the control plane for Authentication / Authorization.
+	ConfigVersion pulumi.StringPtrInput
 	// The default authentication provider to use when multiple providers are configured.
 	// This setting is only needed if multiple providers are configured and the unauthenticated client
 	// action is set to "RedirectToLoginPage".
@@ -490,8 +501,6 @@ type WebAppAuthSettingsState struct {
 	// The RuntimeVersion of the Authentication / Authorization feature in use for the current app.
 	// The setting in this value can control the behavior of certain features in the Authentication / Authorization module.
 	RuntimeVersion pulumi.StringPtrInput
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponsePtrInput
 	// The number of hours after session token expiration that a session token can be used to
 	// call the token refresh API. The default is 72 hours.
 	TokenRefreshExtensionHours pulumi.Float64PtrInput
@@ -553,6 +562,9 @@ type webAppAuthSettingsArgs struct {
 	ClientSecretCertificateThumbprint *string `pulumi:"clientSecretCertificateThumbprint"`
 	// The app setting name that contains the client secret of the relying party application.
 	ClientSecretSettingName *string `pulumi:"clientSecretSettingName"`
+	// The ConfigVersion of the Authentication / Authorization feature in use for the current app.
+	// The setting in this value can control the behavior of the control plane for Authentication / Authorization.
+	ConfigVersion *string `pulumi:"configVersion"`
 	// The default authentication provider to use when multiple providers are configured.
 	// This setting is only needed if multiple providers are configured and the unauthenticated client
 	// action is set to "RedirectToLoginPage".
@@ -688,6 +700,9 @@ type WebAppAuthSettingsArgs struct {
 	ClientSecretCertificateThumbprint pulumi.StringPtrInput
 	// The app setting name that contains the client secret of the relying party application.
 	ClientSecretSettingName pulumi.StringPtrInput
+	// The ConfigVersion of the Authentication / Authorization feature in use for the current app.
+	// The setting in this value can control the behavior of the control plane for Authentication / Authorization.
+	ConfigVersion pulumi.StringPtrInput
 	// The default authentication provider to use when multiple providers are configured.
 	// This setting is only needed if multiple providers are configured and the unauthenticated client
 	// action is set to "RedirectToLoginPage".

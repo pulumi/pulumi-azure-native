@@ -7,7 +7,6 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
-from . import outputs
 
 __all__ = [
     'GetWebAppSlotConfigurationNamesResult',
@@ -22,7 +21,7 @@ class GetWebAppSlotConfigurationNamesResult:
     """
     Slot Config names azure resource.
     """
-    def __init__(__self__, app_setting_names=None, azure_storage_config_names=None, connection_string_names=None, id=None, kind=None, name=None, system_data=None, type=None):
+    def __init__(__self__, app_setting_names=None, azure_storage_config_names=None, connection_string_names=None, id=None, kind=None, name=None, type=None):
         if app_setting_names and not isinstance(app_setting_names, list):
             raise TypeError("Expected argument 'app_setting_names' to be a list")
         pulumi.set(__self__, "app_setting_names", app_setting_names)
@@ -41,9 +40,6 @@ class GetWebAppSlotConfigurationNamesResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if system_data and not isinstance(system_data, dict):
-            raise TypeError("Expected argument 'system_data' to be a dict")
-        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -97,14 +93,6 @@ class GetWebAppSlotConfigurationNamesResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
-        """
-        The system metadata relating to this resource.
-        """
-        return pulumi.get(self, "system_data")
-
-    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -125,7 +113,6 @@ class AwaitableGetWebAppSlotConfigurationNamesResult(GetWebAppSlotConfigurationN
             id=self.id,
             kind=self.kind,
             name=self.name,
-            system_data=self.system_data,
             type=self.type)
 
 
@@ -134,7 +121,7 @@ def get_web_app_slot_configuration_names(name: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppSlotConfigurationNamesResult:
     """
     Slot Config names azure resource.
-    Latest API Version: 2020-10-01.
+    Latest API Version: 2020-12-01.
 
 
     :param str name: Name of the app.
@@ -157,5 +144,4 @@ def get_web_app_slot_configuration_names(name: Optional[str] = None,
         id=__ret__.id,
         kind=__ret__.kind,
         name=__ret__.name,
-        system_data=__ret__.system_data,
         type=__ret__.type)

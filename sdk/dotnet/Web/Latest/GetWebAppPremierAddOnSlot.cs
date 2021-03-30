@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Web.Latest
     {
         /// <summary>
         /// Premier add-on.
-        /// Latest API Version: 2020-10-01.
+        /// Latest API Version: 2020-12-01.
         /// </summary>
         public static Task<GetWebAppPremierAddOnSlotResult> InvokeAsync(GetWebAppPremierAddOnSlotArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppPremierAddOnSlotResult>("azure-native:web/latest:getWebAppPremierAddOnSlot", args ?? new GetWebAppPremierAddOnSlotArgs(), options.WithVersion());
@@ -89,10 +89,6 @@ namespace Pulumi.AzureNative.Web.Latest
         /// </summary>
         public readonly string? Sku;
         /// <summary>
-        /// The system metadata relating to this resource.
-        /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
-        /// <summary>
         /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -123,8 +119,6 @@ namespace Pulumi.AzureNative.Web.Latest
 
             string? sku,
 
-            Outputs.SystemDataResponse systemData,
-
             ImmutableDictionary<string, string>? tags,
 
             string type,
@@ -139,7 +133,6 @@ namespace Pulumi.AzureNative.Web.Latest
             Name = name;
             Product = product;
             Sku = sku;
-            SystemData = systemData;
             Tags = tags;
             Type = type;
             Vendor = vendor;

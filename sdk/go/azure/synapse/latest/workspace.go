@@ -40,12 +40,12 @@ type Workspace struct {
 	ManagedVirtualNetworkSettings ManagedVirtualNetworkSettingsResponsePtrOutput `pulumi:"managedVirtualNetworkSettings"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Network Settings
-	NetworkSettings NetworkSettingsResponsePtrOutput `pulumi:"networkSettings"`
 	// Private endpoint connections to the workspace
 	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayOutput `pulumi:"privateEndpointConnections"`
 	// Resource provisioning state
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// Enable or Disable pubic network access to workspace
+	PublicNetworkAccess pulumi.StringPtrOutput `pulumi:"publicNetworkAccess"`
 	// Purview Configuration
 	PurviewConfiguration PurviewConfigurationResponsePtrOutput `pulumi:"purviewConfiguration"`
 	// Login for workspace SQL active directory administrator
@@ -148,12 +148,12 @@ type workspaceState struct {
 	ManagedVirtualNetworkSettings *ManagedVirtualNetworkSettingsResponse `pulumi:"managedVirtualNetworkSettings"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
-	// Network Settings
-	NetworkSettings *NetworkSettingsResponse `pulumi:"networkSettings"`
 	// Private endpoint connections to the workspace
 	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
 	// Resource provisioning state
 	ProvisioningState *string `pulumi:"provisioningState"`
+	// Enable or Disable pubic network access to workspace
+	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// Purview Configuration
 	PurviewConfiguration *PurviewConfigurationResponse `pulumi:"purviewConfiguration"`
 	// Login for workspace SQL active directory administrator
@@ -195,12 +195,12 @@ type WorkspaceState struct {
 	ManagedVirtualNetworkSettings ManagedVirtualNetworkSettingsResponsePtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
-	// Network Settings
-	NetworkSettings NetworkSettingsResponsePtrInput
 	// Private endpoint connections to the workspace
 	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayInput
 	// Resource provisioning state
 	ProvisioningState pulumi.StringPtrInput
+	// Enable or Disable pubic network access to workspace
+	PublicNetworkAccess pulumi.StringPtrInput
 	// Purview Configuration
 	PurviewConfiguration PurviewConfigurationResponsePtrInput
 	// Login for workspace SQL active directory administrator
@@ -240,10 +240,10 @@ type workspaceArgs struct {
 	ManagedVirtualNetwork *string `pulumi:"managedVirtualNetwork"`
 	// Managed Virtual Network Settings
 	ManagedVirtualNetworkSettings *ManagedVirtualNetworkSettings `pulumi:"managedVirtualNetworkSettings"`
-	// Network Settings
-	NetworkSettings *NetworkSettings `pulumi:"networkSettings"`
 	// Private endpoint connections to the workspace
 	PrivateEndpointConnections []PrivateEndpointConnectionType `pulumi:"privateEndpointConnections"`
+	// Enable or Disable pubic network access to workspace
+	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// Purview Configuration
 	PurviewConfiguration *PurviewConfiguration `pulumi:"purviewConfiguration"`
 	// The name of the resource group. The name is case insensitive.
@@ -280,10 +280,10 @@ type WorkspaceArgs struct {
 	ManagedVirtualNetwork pulumi.StringPtrInput
 	// Managed Virtual Network Settings
 	ManagedVirtualNetworkSettings ManagedVirtualNetworkSettingsPtrInput
-	// Network Settings
-	NetworkSettings NetworkSettingsPtrInput
 	// Private endpoint connections to the workspace
 	PrivateEndpointConnections PrivateEndpointConnectionTypeArrayInput
+	// Enable or Disable pubic network access to workspace
+	PublicNetworkAccess pulumi.StringPtrInput
 	// Purview Configuration
 	PurviewConfiguration PurviewConfigurationPtrInput
 	// The name of the resource group. The name is case insensitive.

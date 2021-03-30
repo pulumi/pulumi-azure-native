@@ -89,7 +89,7 @@ namespace Pulumi.AzureNative.Authorization.V20200801Preview
         /// <summary>
         /// The role assignment scope.
         /// </summary>
-        public readonly string? Scope;
+        public readonly string Scope;
         /// <summary>
         /// The role assignment type.
         /// </summary>
@@ -127,7 +127,7 @@ namespace Pulumi.AzureNative.Authorization.V20200801Preview
 
             string roleDefinitionId,
 
-            string? scope,
+            string scope,
 
             string type,
 

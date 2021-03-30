@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Push settings for the App.
- * Latest API Version: 2020-10-01.
+ * Latest API Version: 2020-12-01.
  */
 /** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listWebAppSitePushSettingsSlot'. */
 export function listWebAppSitePushSettingsSlot(args: ListWebAppSitePushSettingsSlotArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppSitePushSettingsSlotResult> {
@@ -65,10 +65,6 @@ export interface ListWebAppSitePushSettingsSlotResult {
      * Resource Name.
      */
     readonly name: string;
-    /**
-     * The system metadata relating to this resource.
-     */
-    readonly systemData: outputs.web.latest.SystemDataResponse;
     /**
      * Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
      */

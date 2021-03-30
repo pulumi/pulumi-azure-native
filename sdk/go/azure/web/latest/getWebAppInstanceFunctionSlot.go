@@ -8,7 +8,7 @@ import (
 )
 
 // Function information.
-// Latest API Version: 2020-10-01.
+// Latest API Version: 2020-12-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getWebAppInstanceFunctionSlot'.
 func LookupWebAppInstanceFunctionSlot(ctx *pulumi.Context, args *LookupWebAppInstanceFunctionSlotArgs, opts ...pulumi.InvokeOption) (*LookupWebAppInstanceFunctionSlotResult, error) {
@@ -61,8 +61,6 @@ type LookupWebAppInstanceFunctionSlotResult struct {
 	ScriptRootPathHref *string `pulumi:"scriptRootPathHref"`
 	// Secrets file URI.
 	SecretsFileHref *string `pulumi:"secretsFileHref"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Test data used when testing via the Azure Portal.
 	TestData *string `pulumi:"testData"`
 	// Test data URI.

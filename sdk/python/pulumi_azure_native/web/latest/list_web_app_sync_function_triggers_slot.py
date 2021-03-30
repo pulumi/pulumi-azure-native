@@ -62,7 +62,7 @@ def list_web_app_sync_function_triggers_slot(name: Optional[str] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppSyncFunctionTriggersSlotResult:
     """
     Function secrets.
-    Latest API Version: 2020-10-01.
+    Latest API Version: 2020-12-01.
 
 
     :param str name: Name of the app.

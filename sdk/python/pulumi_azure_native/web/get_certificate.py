@@ -20,13 +20,16 @@ class GetCertificateResult:
     """
     SSL certificate for an app.
     """
-    def __init__(__self__, canonical_name=None, cer_blob=None, expiration_date=None, friendly_name=None, host_names=None, hosting_environment_profile=None, id=None, issue_date=None, issuer=None, key_vault_id=None, key_vault_secret_name=None, key_vault_secret_status=None, kind=None, location=None, name=None, pfx_blob=None, public_key_hash=None, self_link=None, server_farm_id=None, site_name=None, subject_name=None, system_data=None, tags=None, thumbprint=None, type=None, valid=None):
+    def __init__(__self__, canonical_name=None, cer_blob=None, domain_validation_method=None, expiration_date=None, friendly_name=None, host_names=None, hosting_environment_profile=None, id=None, issue_date=None, issuer=None, key_vault_id=None, key_vault_secret_name=None, key_vault_secret_status=None, kind=None, location=None, name=None, pfx_blob=None, public_key_hash=None, self_link=None, server_farm_id=None, site_name=None, subject_name=None, tags=None, thumbprint=None, type=None, valid=None):
         if canonical_name and not isinstance(canonical_name, str):
             raise TypeError("Expected argument 'canonical_name' to be a str")
         pulumi.set(__self__, "canonical_name", canonical_name)
         if cer_blob and not isinstance(cer_blob, str):
             raise TypeError("Expected argument 'cer_blob' to be a str")
         pulumi.set(__self__, "cer_blob", cer_blob)
+        if domain_validation_method and not isinstance(domain_validation_method, str):
+            raise TypeError("Expected argument 'domain_validation_method' to be a str")
+        pulumi.set(__self__, "domain_validation_method", domain_validation_method)
         if expiration_date and not isinstance(expiration_date, str):
             raise TypeError("Expected argument 'expiration_date' to be a str")
         pulumi.set(__self__, "expiration_date", expiration_date)
@@ -84,9 +87,6 @@ class GetCertificateResult:
         if subject_name and not isinstance(subject_name, str):
             raise TypeError("Expected argument 'subject_name' to be a str")
         pulumi.set(__self__, "subject_name", subject_name)
-        if system_data and not isinstance(system_data, dict):
-            raise TypeError("Expected argument 'system_data' to be a dict")
-        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -115,6 +115,14 @@ class GetCertificateResult:
         Raw bytes of .cer file
         """
         return pulumi.get(self, "cer_blob")
+
+    @property
+    @pulumi.getter(name="domainValidationMethod")
+    def domain_validation_method(self) -> Optional[str]:
+        """
+        Method of domain validation for free cert
+        """
+        return pulumi.get(self, "domain_validation_method")
 
     @property
     @pulumi.getter(name="expirationDate")
@@ -269,14 +277,6 @@ class GetCertificateResult:
         return pulumi.get(self, "subject_name")
 
     @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
-        """
-        The system metadata relating to this resource.
-        """
-        return pulumi.get(self, "system_data")
-
-    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
@@ -317,6 +317,7 @@ class AwaitableGetCertificateResult(GetCertificateResult):
         return GetCertificateResult(
             canonical_name=self.canonical_name,
             cer_blob=self.cer_blob,
+            domain_validation_method=self.domain_validation_method,
             expiration_date=self.expiration_date,
             friendly_name=self.friendly_name,
             host_names=self.host_names,
@@ -336,7 +337,6 @@ class AwaitableGetCertificateResult(GetCertificateResult):
             server_farm_id=self.server_farm_id,
             site_name=self.site_name,
             subject_name=self.subject_name,
-            system_data=self.system_data,
             tags=self.tags,
             thumbprint=self.thumbprint,
             type=self.type,
@@ -348,7 +348,7 @@ def get_certificate(name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCertificateResult:
     """
     SSL certificate for an app.
-    API Version: 2020-10-01.
+    API Version: 2020-12-01.
 
 
     :param str name: Name of the certificate.
@@ -366,6 +366,7 @@ def get_certificate(name: Optional[str] = None,
     return AwaitableGetCertificateResult(
         canonical_name=__ret__.canonical_name,
         cer_blob=__ret__.cer_blob,
+        domain_validation_method=__ret__.domain_validation_method,
         expiration_date=__ret__.expiration_date,
         friendly_name=__ret__.friendly_name,
         host_names=__ret__.host_names,
@@ -385,7 +386,6 @@ def get_certificate(name: Optional[str] = None,
         server_farm_id=__ret__.server_farm_id,
         site_name=__ret__.site_name,
         subject_name=__ret__.subject_name,
-        system_data=__ret__.system_data,
         tags=__ret__.tags,
         thumbprint=__ret__.thumbprint,
         type=__ret__.type,

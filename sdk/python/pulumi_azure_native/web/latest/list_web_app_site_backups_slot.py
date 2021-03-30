@@ -63,7 +63,7 @@ def list_web_app_site_backups_slot(name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppSiteBackupsSlotResult:
     """
     Collection of backup items.
-    Latest API Version: 2020-10-01.
+    Latest API Version: 2020-12-01.
 
 
     :param str name: Name of the app.

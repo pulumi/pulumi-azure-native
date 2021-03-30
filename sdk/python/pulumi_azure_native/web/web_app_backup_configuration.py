@@ -31,7 +31,7 @@ class WebAppBackupConfiguration(pulumi.CustomResource):
                  __opts__=None):
         """
         Description of a backup which will be performed.
-        API Version: 2020-10-01.
+        API Version: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -75,9 +75,8 @@ class WebAppBackupConfiguration(pulumi.CustomResource):
             if storage_account_url is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_account_url'")
             __props__['storage_account_url'] = storage_account_url
-            __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web:WebAppBackupConfiguration"), pulumi.Alias(type_="azure-native:web/latest:WebAppBackupConfiguration"), pulumi.Alias(type_="azure-nextgen:web/latest:WebAppBackupConfiguration"), pulumi.Alias(type_="azure-native:web/v20150801:WebAppBackupConfiguration"), pulumi.Alias(type_="azure-nextgen:web/v20150801:WebAppBackupConfiguration"), pulumi.Alias(type_="azure-native:web/v20160801:WebAppBackupConfiguration"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppBackupConfiguration"), pulumi.Alias(type_="azure-native:web/v20180201:WebAppBackupConfiguration"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppBackupConfiguration"), pulumi.Alias(type_="azure-native:web/v20181101:WebAppBackupConfiguration"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppBackupConfiguration"), pulumi.Alias(type_="azure-native:web/v20190801:WebAppBackupConfiguration"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppBackupConfiguration"), pulumi.Alias(type_="azure-native:web/v20200601:WebAppBackupConfiguration"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppBackupConfiguration"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppBackupConfiguration"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppBackupConfiguration"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppBackupConfiguration"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppBackupConfiguration")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web:WebAppBackupConfiguration"), pulumi.Alias(type_="azure-native:web/latest:WebAppBackupConfiguration"), pulumi.Alias(type_="azure-nextgen:web/latest:WebAppBackupConfiguration"), pulumi.Alias(type_="azure-native:web/v20150801:WebAppBackupConfiguration"), pulumi.Alias(type_="azure-nextgen:web/v20150801:WebAppBackupConfiguration"), pulumi.Alias(type_="azure-native:web/v20160801:WebAppBackupConfiguration"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppBackupConfiguration"), pulumi.Alias(type_="azure-native:web/v20180201:WebAppBackupConfiguration"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppBackupConfiguration"), pulumi.Alias(type_="azure-native:web/v20181101:WebAppBackupConfiguration"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppBackupConfiguration"), pulumi.Alias(type_="azure-native:web/v20190801:WebAppBackupConfiguration"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppBackupConfiguration"), pulumi.Alias(type_="azure-native:web/v20200601:WebAppBackupConfiguration"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppBackupConfiguration"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppBackupConfiguration"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppBackupConfiguration"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppBackupConfiguration"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppBackupConfiguration"), pulumi.Alias(type_="azure-native:web/v20201201:WebAppBackupConfiguration"), pulumi.Alias(type_="azure-nextgen:web/v20201201:WebAppBackupConfiguration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppBackupConfiguration, __self__).__init__(
             'azure-native:web:WebAppBackupConfiguration',
@@ -108,7 +107,6 @@ class WebAppBackupConfiguration(pulumi.CustomResource):
         __props__["kind"] = None
         __props__["name"] = None
         __props__["storage_account_url"] = None
-        __props__["system_data"] = None
         __props__["type"] = None
         return WebAppBackupConfiguration(resource_name, opts=opts, __props__=__props__)
 
@@ -167,14 +165,6 @@ class WebAppBackupConfiguration(pulumi.CustomResource):
         SAS URL to the container.
         """
         return pulumi.get(self, "storage_account_url")
-
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
-        """
-        The system metadata relating to this resource.
-        """
-        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

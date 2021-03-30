@@ -8,7 +8,7 @@ import (
 )
 
 // String dictionary resource.
-// API Version: 2020-10-01.
+// API Version: 2020-12-01.
 func ListWebAppFunctionKeysSlot(ctx *pulumi.Context, args *ListWebAppFunctionKeysSlotArgs, opts ...pulumi.InvokeOption) (*ListWebAppFunctionKeysSlotResult, error) {
 	var rv ListWebAppFunctionKeysSlotResult
 	err := ctx.Invoke("azure-native:web:listWebAppFunctionKeysSlot", args, &rv, opts...)
@@ -39,8 +39,6 @@ type ListWebAppFunctionKeysSlotResult struct {
 	Name string `pulumi:"name"`
 	// Settings.
 	Properties map[string]string `pulumi:"properties"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }

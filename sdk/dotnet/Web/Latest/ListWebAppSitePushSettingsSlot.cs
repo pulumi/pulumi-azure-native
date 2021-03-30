@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Web.Latest
     {
         /// <summary>
         /// Push settings for the App.
-        /// Latest API Version: 2020-10-01.
+        /// Latest API Version: 2020-12-01.
         /// </summary>
         public static Task<ListWebAppSitePushSettingsSlotResult> InvokeAsync(ListWebAppSitePushSettingsSlotArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppSitePushSettingsSlotResult>("azure-native:web/latest:listWebAppSitePushSettingsSlot", args ?? new ListWebAppSitePushSettingsSlotArgs(), options.WithVersion());
@@ -71,10 +71,6 @@ namespace Pulumi.AzureNative.Web.Latest
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The system metadata relating to this resource.
-        /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
-        /// <summary>
         /// Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
         /// </summary>
         public readonly string? TagWhitelistJson;
@@ -102,8 +98,6 @@ namespace Pulumi.AzureNative.Web.Latest
 
             string name,
 
-            Outputs.SystemDataResponse systemData,
-
             string? tagWhitelistJson,
 
             string? tagsRequiringAuth,
@@ -115,7 +109,6 @@ namespace Pulumi.AzureNative.Web.Latest
             IsPushEnabled = isPushEnabled;
             Kind = kind;
             Name = name;
-            SystemData = systemData;
             TagWhitelistJson = tagWhitelistJson;
             TagsRequiringAuth = tagsRequiringAuth;
             Type = type;

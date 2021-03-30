@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Web.Latest
 {
     /// <summary>
     /// Source control configuration for an app.
-    /// Latest API Version: 2020-10-01.
+    /// Latest API Version: 2020-12-01.
     /// </summary>
     [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppSourceControl'.")]
     [AzureNativeResourceType("azure-native:web/latest:WebAppSourceControl")]
@@ -28,6 +28,12 @@ namespace Pulumi.AzureNative.Web.Latest
         /// </summary>
         [Output("deploymentRollbackEnabled")]
         public Output<bool?> DeploymentRollbackEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// If GitHub Action is selected, than the associated configuration.
+        /// </summary>
+        [Output("gitHubActionConfiguration")]
+        public Output<Outputs.GitHubActionConfigurationResponse?> GitHubActionConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// &lt;code&gt;true&lt;/code&gt; if this is deployed via GitHub action.
@@ -64,12 +70,6 @@ namespace Pulumi.AzureNative.Web.Latest
         /// </summary>
         [Output("repoUrl")]
         public Output<string?> RepoUrl { get; private set; } = null!;
-
-        /// <summary>
-        /// The system metadata relating to this resource.
-        /// </summary>
-        [Output("systemData")]
-        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.
@@ -121,6 +121,8 @@ namespace Pulumi.AzureNative.Web.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:WebAppSourceControl"},
                     new Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppSourceControl"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:WebAppSourceControl"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppSourceControl"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20201201:WebAppSourceControl"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -155,6 +157,12 @@ namespace Pulumi.AzureNative.Web.Latest
         /// </summary>
         [Input("deploymentRollbackEnabled")]
         public Input<bool>? DeploymentRollbackEnabled { get; set; }
+
+        /// <summary>
+        /// If GitHub Action is selected, than the associated configuration.
+        /// </summary>
+        [Input("gitHubActionConfiguration")]
+        public Input<Inputs.GitHubActionConfigurationArgs>? GitHubActionConfiguration { get; set; }
 
         /// <summary>
         /// &lt;code&gt;true&lt;/code&gt; if this is deployed via GitHub action.

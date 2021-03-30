@@ -8,7 +8,7 @@ import (
 )
 
 // Virtual Network information contract.
-// API Version: 2020-10-01.
+// API Version: 2020-12-01.
 func LookupWebAppVnetConnection(ctx *pulumi.Context, args *LookupWebAppVnetConnectionArgs, opts ...pulumi.InvokeOption) (*LookupWebAppVnetConnectionResult, error) {
 	var rv LookupWebAppVnetConnectionResult
 	err := ctx.Invoke("azure-native:web:getWebAppVnetConnection", args, &rv, opts...)
@@ -48,8 +48,6 @@ type LookupWebAppVnetConnectionResult struct {
 	ResyncRequired bool `pulumi:"resyncRequired"`
 	// The routes that this Virtual Network connection uses.
 	Routes []VnetRouteResponse `pulumi:"routes"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type string `pulumi:"type"`
 	// The Virtual Network's resource ID.

@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * User credentials used for publishing activity.
- * Latest API Version: 2020-10-01.
+ * Latest API Version: 2020-12-01.
  */
 /** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getWebAppDeploymentSlot'. */
 export function getWebAppDeploymentSlot(args: GetWebAppDeploymentSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppDeploymentSlotResult> {
@@ -98,10 +98,6 @@ export interface GetWebAppDeploymentSlotResult {
      * Deployment status.
      */
     readonly status?: number;
-    /**
-     * The system metadata relating to this resource.
-     */
-    readonly systemData: outputs.web.latest.SystemDataResponse;
     /**
      * Resource type.
      */

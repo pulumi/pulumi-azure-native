@@ -7,7 +7,6 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
-from . import outputs
 
 __all__ = ['WebAppRelayServiceConnectionSlot']
 
@@ -36,7 +35,7 @@ class WebAppRelayServiceConnectionSlot(pulumi.CustomResource):
                  __opts__=None):
         """
         Hybrid Connection for an App Service app.
-        Latest API Version: 2020-10-01.
+        Latest API Version: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -80,9 +79,8 @@ class WebAppRelayServiceConnectionSlot(pulumi.CustomResource):
             if slot is None and not opts.urn:
                 raise TypeError("Missing required property 'slot'")
             __props__['slot'] = slot
-            __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/latest:WebAppRelayServiceConnectionSlot"), pulumi.Alias(type_="azure-native:web:WebAppRelayServiceConnectionSlot"), pulumi.Alias(type_="azure-nextgen:web:WebAppRelayServiceConnectionSlot"), pulumi.Alias(type_="azure-native:web/v20150801:WebAppRelayServiceConnectionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20150801:WebAppRelayServiceConnectionSlot"), pulumi.Alias(type_="azure-native:web/v20160801:WebAppRelayServiceConnectionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppRelayServiceConnectionSlot"), pulumi.Alias(type_="azure-native:web/v20180201:WebAppRelayServiceConnectionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppRelayServiceConnectionSlot"), pulumi.Alias(type_="azure-native:web/v20181101:WebAppRelayServiceConnectionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppRelayServiceConnectionSlot"), pulumi.Alias(type_="azure-native:web/v20190801:WebAppRelayServiceConnectionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppRelayServiceConnectionSlot"), pulumi.Alias(type_="azure-native:web/v20200601:WebAppRelayServiceConnectionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppRelayServiceConnectionSlot"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppRelayServiceConnectionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppRelayServiceConnectionSlot"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppRelayServiceConnectionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppRelayServiceConnectionSlot")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/latest:WebAppRelayServiceConnectionSlot"), pulumi.Alias(type_="azure-native:web:WebAppRelayServiceConnectionSlot"), pulumi.Alias(type_="azure-nextgen:web:WebAppRelayServiceConnectionSlot"), pulumi.Alias(type_="azure-native:web/v20150801:WebAppRelayServiceConnectionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20150801:WebAppRelayServiceConnectionSlot"), pulumi.Alias(type_="azure-native:web/v20160801:WebAppRelayServiceConnectionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppRelayServiceConnectionSlot"), pulumi.Alias(type_="azure-native:web/v20180201:WebAppRelayServiceConnectionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppRelayServiceConnectionSlot"), pulumi.Alias(type_="azure-native:web/v20181101:WebAppRelayServiceConnectionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppRelayServiceConnectionSlot"), pulumi.Alias(type_="azure-native:web/v20190801:WebAppRelayServiceConnectionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppRelayServiceConnectionSlot"), pulumi.Alias(type_="azure-native:web/v20200601:WebAppRelayServiceConnectionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppRelayServiceConnectionSlot"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppRelayServiceConnectionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppRelayServiceConnectionSlot"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppRelayServiceConnectionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppRelayServiceConnectionSlot"), pulumi.Alias(type_="azure-native:web/v20201201:WebAppRelayServiceConnectionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20201201:WebAppRelayServiceConnectionSlot")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppRelayServiceConnectionSlot, __self__).__init__(
             'azure-native:web/latest:WebAppRelayServiceConnectionSlot',
@@ -115,7 +113,6 @@ class WebAppRelayServiceConnectionSlot(pulumi.CustomResource):
         __props__["port"] = None
         __props__["resource_connection_string"] = None
         __props__["resource_type"] = None
-        __props__["system_data"] = None
         __props__["type"] = None
         return WebAppRelayServiceConnectionSlot(resource_name, opts=opts, __props__=__props__)
 
@@ -169,14 +166,6 @@ class WebAppRelayServiceConnectionSlot(pulumi.CustomResource):
     @pulumi.getter(name="resourceType")
     def resource_type(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "resource_type")
-
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
-        """
-        The system metadata relating to this resource.
-        """
-        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

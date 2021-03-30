@@ -13,7 +13,9 @@ namespace Pulumi.AzureNative.Web.Outputs
     [OutputType]
     public sealed class IdentityProvidersResponse
     {
+        public readonly Outputs.AppleResponse? Apple;
         public readonly Outputs.AzureActiveDirectoryResponse? AzureActiveDirectory;
+        public readonly Outputs.AzureStaticWebAppsResponse? AzureStaticWebApps;
         public readonly ImmutableDictionary<string, Outputs.CustomOpenIdConnectProviderResponse>? CustomOpenIdConnectProviders;
         public readonly Outputs.FacebookResponse? Facebook;
         public readonly Outputs.GitHubResponse? GitHub;
@@ -26,14 +28,11 @@ namespace Pulumi.AzureNative.Web.Outputs
         /// Kind of resource.
         /// </summary>
         public readonly string? Kind;
+        public readonly Outputs.LegacyMicrosoftAccountResponse? LegacyMicrosoftAccount;
         /// <summary>
         /// Resource Name.
         /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// The system metadata relating to this resource.
-        /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
         public readonly Outputs.TwitterResponse? Twitter;
         /// <summary>
         /// Resource type.
@@ -42,7 +41,11 @@ namespace Pulumi.AzureNative.Web.Outputs
 
         [OutputConstructor]
         private IdentityProvidersResponse(
+            Outputs.AppleResponse? apple,
+
             Outputs.AzureActiveDirectoryResponse? azureActiveDirectory,
+
+            Outputs.AzureStaticWebAppsResponse? azureStaticWebApps,
 
             ImmutableDictionary<string, Outputs.CustomOpenIdConnectProviderResponse>? customOpenIdConnectProviders,
 
@@ -56,23 +59,25 @@ namespace Pulumi.AzureNative.Web.Outputs
 
             string? kind,
 
-            string name,
+            Outputs.LegacyMicrosoftAccountResponse? legacyMicrosoftAccount,
 
-            Outputs.SystemDataResponse systemData,
+            string name,
 
             Outputs.TwitterResponse? twitter,
 
             string type)
         {
+            Apple = apple;
             AzureActiveDirectory = azureActiveDirectory;
+            AzureStaticWebApps = azureStaticWebApps;
             CustomOpenIdConnectProviders = customOpenIdConnectProviders;
             Facebook = facebook;
             GitHub = gitHub;
             Google = google;
             Id = id;
             Kind = kind;
+            LegacyMicrosoftAccount = legacyMicrosoftAccount;
             Name = name;
-            SystemData = systemData;
             Twitter = twitter;
             Type = type;
         }

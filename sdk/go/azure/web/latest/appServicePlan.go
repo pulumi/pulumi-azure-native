@@ -12,7 +12,7 @@ import (
 )
 
 // App Service plan.
-// Latest API Version: 2020-10-01.
+// Latest API Version: 2020-12-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:AppServicePlan'.
 type AppServicePlan struct {
@@ -32,6 +32,8 @@ type AppServicePlan struct {
 	IsXenon pulumi.BoolPtrOutput `pulumi:"isXenon"`
 	// Kind of resource.
 	Kind pulumi.StringPtrOutput `pulumi:"kind"`
+	// Specification for the Kubernetes Environment to use for the App Service plan.
+	KubeEnvironmentProfile KubeEnvironmentProfileResponsePtrOutput `pulumi:"kubeEnvironmentProfile"`
 	// Resource Location.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan
@@ -45,7 +47,7 @@ type AppServicePlan struct {
 	// If <code>true</code>, apps assigned to this App Service plan can be scaled independently.
 	// If <code>false</code>, apps assigned to this App Service plan will scale to all instances of the plan.
 	PerSiteScaling pulumi.BoolPtrOutput `pulumi:"perSiteScaling"`
-	// Provisioning state of the App Service Environment.
+	// Provisioning state of the App Service Plan.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// If Linux app service plan <code>true</code>, <code>false</code> otherwise.
 	Reserved pulumi.BoolPtrOutput `pulumi:"reserved"`
@@ -59,8 +61,6 @@ type AppServicePlan struct {
 	Status pulumi.StringOutput `pulumi:"status"`
 	// App Service plan subscription.
 	Subscription pulumi.StringOutput `pulumi:"subscription"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Scaling worker count.
@@ -147,6 +147,12 @@ func NewAppServicePlan(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:web/v20201001:AppServicePlan"),
 		},
+		{
+			Type: pulumi.String("azure-native:web/v20201201:AppServicePlan"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20201201:AppServicePlan"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource AppServicePlan
@@ -185,6 +191,8 @@ type appServicePlanState struct {
 	IsXenon *bool `pulumi:"isXenon"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
+	// Specification for the Kubernetes Environment to use for the App Service plan.
+	KubeEnvironmentProfile *KubeEnvironmentProfileResponse `pulumi:"kubeEnvironmentProfile"`
 	// Resource Location.
 	Location *string `pulumi:"location"`
 	// Maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan
@@ -198,7 +206,7 @@ type appServicePlanState struct {
 	// If <code>true</code>, apps assigned to this App Service plan can be scaled independently.
 	// If <code>false</code>, apps assigned to this App Service plan will scale to all instances of the plan.
 	PerSiteScaling *bool `pulumi:"perSiteScaling"`
-	// Provisioning state of the App Service Environment.
+	// Provisioning state of the App Service Plan.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// If Linux app service plan <code>true</code>, <code>false</code> otherwise.
 	Reserved *bool `pulumi:"reserved"`
@@ -212,8 +220,6 @@ type appServicePlanState struct {
 	Status *string `pulumi:"status"`
 	// App Service plan subscription.
 	Subscription *string `pulumi:"subscription"`
-	// The system metadata relating to this resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Scaling worker count.
@@ -241,6 +247,8 @@ type AppServicePlanState struct {
 	IsXenon pulumi.BoolPtrInput
 	// Kind of resource.
 	Kind pulumi.StringPtrInput
+	// Specification for the Kubernetes Environment to use for the App Service plan.
+	KubeEnvironmentProfile KubeEnvironmentProfileResponsePtrInput
 	// Resource Location.
 	Location pulumi.StringPtrInput
 	// Maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan
@@ -254,7 +262,7 @@ type AppServicePlanState struct {
 	// If <code>true</code>, apps assigned to this App Service plan can be scaled independently.
 	// If <code>false</code>, apps assigned to this App Service plan will scale to all instances of the plan.
 	PerSiteScaling pulumi.BoolPtrInput
-	// Provisioning state of the App Service Environment.
+	// Provisioning state of the App Service Plan.
 	ProvisioningState pulumi.StringPtrInput
 	// If Linux app service plan <code>true</code>, <code>false</code> otherwise.
 	Reserved pulumi.BoolPtrInput
@@ -268,8 +276,6 @@ type AppServicePlanState struct {
 	Status pulumi.StringPtrInput
 	// App Service plan subscription.
 	Subscription pulumi.StringPtrInput
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponsePtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// Scaling worker count.
@@ -299,6 +305,8 @@ type appServicePlanArgs struct {
 	IsXenon *bool `pulumi:"isXenon"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
+	// Specification for the Kubernetes Environment to use for the App Service plan.
+	KubeEnvironmentProfile *KubeEnvironmentProfile `pulumi:"kubeEnvironmentProfile"`
 	// Resource Location.
 	Location *string `pulumi:"location"`
 	// Maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan
@@ -340,6 +348,8 @@ type AppServicePlanArgs struct {
 	IsXenon pulumi.BoolPtrInput
 	// Kind of resource.
 	Kind pulumi.StringPtrInput
+	// Specification for the Kubernetes Environment to use for the App Service plan.
+	KubeEnvironmentProfile KubeEnvironmentProfilePtrInput
 	// Resource Location.
 	Location pulumi.StringPtrInput
 	// Maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Web
 {
     /// <summary>
     /// Slot Config names azure resource.
-    /// API Version: 2020-10-01.
+    /// API Version: 2020-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:WebAppSlotConfigurationNames")]
     public partial class WebAppSlotConfigurationNames : Pulumi.CustomResource
@@ -45,12 +45,6 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
-
-        /// <summary>
-        /// The system metadata relating to this resource.
-        /// </summary>
-        [Output("systemData")]
-        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.
@@ -102,6 +96,8 @@ namespace Pulumi.AzureNative.Web
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:WebAppSlotConfigurationNames"},
                     new Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppSlotConfigurationNames"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:WebAppSlotConfigurationNames"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppSlotConfigurationNames"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20201201:WebAppSlotConfigurationNames"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -12,7 +12,7 @@ import (
 )
 
 // Hybrid Connection for an App Service app.
-// Latest API Version: 2020-10-01.
+// Latest API Version: 2020-12-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppRelayServiceConnectionSlot'.
 type WebAppRelayServiceConnectionSlot struct {
@@ -29,8 +29,6 @@ type WebAppRelayServiceConnectionSlot struct {
 	Port                     pulumi.IntPtrOutput    `pulumi:"port"`
 	ResourceConnectionString pulumi.StringPtrOutput `pulumi:"resourceConnectionString"`
 	ResourceType             pulumi.StringPtrOutput `pulumi:"resourceType"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -109,6 +107,12 @@ func NewWebAppRelayServiceConnectionSlot(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppRelayServiceConnectionSlot"),
 		},
+		{
+			Type: pulumi.String("azure-native:web/v20201201:WebAppRelayServiceConnectionSlot"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20201201:WebAppRelayServiceConnectionSlot"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource WebAppRelayServiceConnectionSlot
@@ -144,8 +148,6 @@ type webAppRelayServiceConnectionSlotState struct {
 	Port                     *int    `pulumi:"port"`
 	ResourceConnectionString *string `pulumi:"resourceConnectionString"`
 	ResourceType             *string `pulumi:"resourceType"`
-	// The system metadata relating to this resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type *string `pulumi:"type"`
 }
@@ -162,8 +164,6 @@ type WebAppRelayServiceConnectionSlotState struct {
 	Port                     pulumi.IntPtrInput
 	ResourceConnectionString pulumi.StringPtrInput
 	ResourceType             pulumi.StringPtrInput
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponsePtrInput
 	// Resource type.
 	Type pulumi.StringPtrInput
 }

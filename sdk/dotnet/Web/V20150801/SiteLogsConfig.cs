@@ -113,6 +113,8 @@ namespace Pulumi.AzureNative.Web.V20150801
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:SiteLogsConfig"},
                     new Pulumi.Alias { Type = "azure-native:web/v20201001:SiteLogsConfig"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:SiteLogsConfig"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201201:SiteLogsConfig"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20201201:SiteLogsConfig"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

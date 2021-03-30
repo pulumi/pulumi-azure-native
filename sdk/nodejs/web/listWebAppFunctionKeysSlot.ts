@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * String dictionary resource.
- * API Version: 2020-10-01.
+ * API Version: 2020-12-01.
  */
 export function listWebAppFunctionKeysSlot(args: ListWebAppFunctionKeysSlotArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppFunctionKeysSlotResult> {
     if (!opts) {
@@ -64,10 +64,6 @@ export interface ListWebAppFunctionKeysSlotResult {
      * Settings.
      */
     readonly properties: {[key: string]: string};
-    /**
-     * The system metadata relating to this resource.
-     */
-    readonly systemData: outputs.web.SystemDataResponse;
     /**
      * Resource type.
      */

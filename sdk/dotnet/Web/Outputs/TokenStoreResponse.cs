@@ -28,10 +28,6 @@ namespace Pulumi.AzureNative.Web.Outputs
         /// Resource Name.
         /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// The system metadata relating to this resource.
-        /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
         public readonly double? TokenRefreshExtensionHours;
         /// <summary>
         /// Resource type.
@@ -52,8 +48,6 @@ namespace Pulumi.AzureNative.Web.Outputs
 
             string name,
 
-            Outputs.SystemDataResponse systemData,
-
             double? tokenRefreshExtensionHours,
 
             string type)
@@ -64,7 +58,6 @@ namespace Pulumi.AzureNative.Web.Outputs
             Id = id;
             Kind = kind;
             Name = name;
-            SystemData = systemData;
             TokenRefreshExtensionHours = tokenRefreshExtensionHours;
             Type = type;
         }

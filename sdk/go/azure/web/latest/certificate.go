@@ -12,7 +12,7 @@ import (
 )
 
 // SSL certificate for an app.
-// Latest API Version: 2020-10-01.
+// Latest API Version: 2020-12-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:Certificate'.
 type Certificate struct {
@@ -22,6 +22,8 @@ type Certificate struct {
 	CanonicalName pulumi.StringPtrOutput `pulumi:"canonicalName"`
 	// Raw bytes of .cer file
 	CerBlob pulumi.StringOutput `pulumi:"cerBlob"`
+	// Method of domain validation for free cert
+	DomainValidationMethod pulumi.StringPtrOutput `pulumi:"domainValidationMethod"`
 	// Certificate expiration date.
 	ExpirationDate pulumi.StringOutput `pulumi:"expirationDate"`
 	// Friendly name of the certificate.
@@ -58,8 +60,6 @@ type Certificate struct {
 	SiteName pulumi.StringOutput `pulumi:"siteName"`
 	// Subject name of the certificate.
 	SubjectName pulumi.StringOutput `pulumi:"subjectName"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Certificate thumbprint.
@@ -77,9 +77,6 @@ func NewCertificate(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Password == nil {
-		return nil, errors.New("invalid value for required argument 'Password'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -141,6 +138,12 @@ func NewCertificate(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:web/v20201001:Certificate"),
 		},
+		{
+			Type: pulumi.String("azure-native:web/v20201201:Certificate"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20201201:Certificate"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Certificate
@@ -169,6 +172,8 @@ type certificateState struct {
 	CanonicalName *string `pulumi:"canonicalName"`
 	// Raw bytes of .cer file
 	CerBlob *string `pulumi:"cerBlob"`
+	// Method of domain validation for free cert
+	DomainValidationMethod *string `pulumi:"domainValidationMethod"`
 	// Certificate expiration date.
 	ExpirationDate *string `pulumi:"expirationDate"`
 	// Friendly name of the certificate.
@@ -205,8 +210,6 @@ type certificateState struct {
 	SiteName *string `pulumi:"siteName"`
 	// Subject name of the certificate.
 	SubjectName *string `pulumi:"subjectName"`
-	// The system metadata relating to this resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Certificate thumbprint.
@@ -222,6 +225,8 @@ type CertificateState struct {
 	CanonicalName pulumi.StringPtrInput
 	// Raw bytes of .cer file
 	CerBlob pulumi.StringPtrInput
+	// Method of domain validation for free cert
+	DomainValidationMethod pulumi.StringPtrInput
 	// Certificate expiration date.
 	ExpirationDate pulumi.StringPtrInput
 	// Friendly name of the certificate.
@@ -258,8 +263,6 @@ type CertificateState struct {
 	SiteName pulumi.StringPtrInput
 	// Subject name of the certificate.
 	SubjectName pulumi.StringPtrInput
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponsePtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// Certificate thumbprint.
@@ -277,6 +280,8 @@ func (CertificateState) ElementType() reflect.Type {
 type certificateArgs struct {
 	// CNAME of the certificate to be issued via free certificate
 	CanonicalName *string `pulumi:"canonicalName"`
+	// Method of domain validation for free cert
+	DomainValidationMethod *string `pulumi:"domainValidationMethod"`
 	// Host names the certificate applies to.
 	HostNames []string `pulumi:"hostNames"`
 	// Key Vault Csm resource Id.
@@ -290,7 +295,7 @@ type certificateArgs struct {
 	// Name of the certificate.
 	Name *string `pulumi:"name"`
 	// Certificate password.
-	Password string `pulumi:"password"`
+	Password *string `pulumi:"password"`
 	// Pfx blob.
 	PfxBlob *string `pulumi:"pfxBlob"`
 	// Name of the resource group to which the resource belongs.
@@ -305,6 +310,8 @@ type certificateArgs struct {
 type CertificateArgs struct {
 	// CNAME of the certificate to be issued via free certificate
 	CanonicalName pulumi.StringPtrInput
+	// Method of domain validation for free cert
+	DomainValidationMethod pulumi.StringPtrInput
 	// Host names the certificate applies to.
 	HostNames pulumi.StringArrayInput
 	// Key Vault Csm resource Id.
@@ -318,7 +325,7 @@ type CertificateArgs struct {
 	// Name of the certificate.
 	Name pulumi.StringPtrInput
 	// Certificate password.
-	Password pulumi.StringInput
+	Password pulumi.StringPtrInput
 	// Pfx blob.
 	PfxBlob pulumi.StringPtrInput
 	// Name of the resource group to which the resource belongs.

@@ -8,7 +8,7 @@ import (
 )
 
 // Deployment information.
-// API Version: 2020-10-01.
+// API Version: 2021-01-01.
 func LookupDeploymentAtSubscriptionScope(ctx *pulumi.Context, args *LookupDeploymentAtSubscriptionScopeArgs, opts ...pulumi.InvokeOption) (*LookupDeploymentAtSubscriptionScopeResult, error) {
 	var rv LookupDeploymentAtSubscriptionScopeResult
 	err := ctx.Invoke("azure-native:resources:getDeploymentAtSubscriptionScope", args, &rv, opts...)

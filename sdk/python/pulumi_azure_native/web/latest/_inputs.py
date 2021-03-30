@@ -21,6 +21,8 @@ __all__ = [
     'ApiResourceBackendServiceArgs',
     'ApiResourceDefinitionsArgs',
     'AppRegistrationArgs',
+    'AppleArgs',
+    'AppleRegistrationArgs',
     'ApplicationLogsConfigArgs',
     'AuthPlatformArgs',
     'AutoHealActionsArgs',
@@ -33,6 +35,8 @@ __all__ = [
     'AzureActiveDirectoryValidationArgs',
     'AzureBlobStorageApplicationLogsConfigArgs',
     'AzureBlobStorageHttpLogsConfigArgs',
+    'AzureStaticWebAppsArgs',
+    'AzureStaticWebAppsRegistrationArgs',
     'AzureStorageInfoValueArgs',
     'AzureTableStorageApplicationLogsConfigArgs',
     'BackupScheduleArgs',
@@ -61,6 +65,9 @@ __all__ = [
     'FileSystemTokenStoreArgs',
     'ForwardProxyArgs',
     'GitHubArgs',
+    'GitHubActionCodeConfigurationArgs',
+    'GitHubActionConfigurationArgs',
+    'GitHubActionContainerConfigurationArgs',
     'GlobalValidationArgs',
     'GoogleArgs',
     'HandlerMappingArgs',
@@ -72,12 +79,13 @@ __all__ = [
     'IdentityProvidersArgs',
     'IpSecurityRestrictionArgs',
     'JwtClaimChecksArgs',
+    'KubeEnvironmentProfileArgs',
+    'LegacyMicrosoftAccountArgs',
     'LoginArgs',
     'LoginRoutesArgs',
     'LoginScopesArgs',
     'ManagedServiceIdentityArgs',
     'NameValuePairArgs',
-    'NetworkAccessControlEntryArgs',
     'NonceArgs',
     'OpenIdConnectClientCredentialArgs',
     'OpenIdConnectConfigArgs',
@@ -93,14 +101,15 @@ __all__ = [
     'SkuDescriptionArgs',
     'SlowRequestsBasedTriggerArgs',
     'StaticSiteBuildPropertiesArgs',
+    'StaticSiteTemplateOptionsArgs',
     'StatusCodesBasedTriggerArgs',
+    'StatusCodesRangeBasedTriggerArgs',
     'TokenStoreArgs',
     'TwitterArgs',
     'TwitterRegistrationArgs',
     'VirtualApplicationArgs',
     'VirtualDirectoryArgs',
     'VirtualNetworkProfileArgs',
-    'WorkerPoolArgs',
     'WsdlDefinitionArgs',
     'WsdlServiceArgs',
 ]
@@ -798,6 +807,112 @@ class AppRegistrationArgs:
 
 
 @pulumi.input_type
+class AppleArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 login: Optional[pulumi.Input['LoginScopesArgs']] = None,
+                 registration: Optional[pulumi.Input['AppleRegistrationArgs']] = None):
+        """
+        :param pulumi.Input[str] kind: Kind of resource.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if login is not None:
+            pulumi.set(__self__, "login", login)
+        if registration is not None:
+            pulumi.set(__self__, "registration", registration)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input[str]]:
+        """
+        Kind of resource.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter
+    def login(self) -> Optional[pulumi.Input['LoginScopesArgs']]:
+        return pulumi.get(self, "login")
+
+    @login.setter
+    def login(self, value: Optional[pulumi.Input['LoginScopesArgs']]):
+        pulumi.set(self, "login", value)
+
+    @property
+    @pulumi.getter
+    def registration(self) -> Optional[pulumi.Input['AppleRegistrationArgs']]:
+        return pulumi.get(self, "registration")
+
+    @registration.setter
+    def registration(self, value: Optional[pulumi.Input['AppleRegistrationArgs']]):
+        pulumi.set(self, "registration", value)
+
+
+@pulumi.input_type
+class AppleRegistrationArgs:
+    def __init__(__self__, *,
+                 client_id: Optional[pulumi.Input[str]] = None,
+                 client_secret_setting_name: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] kind: Kind of resource.
+        """
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if client_secret_setting_name is not None:
+            pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="clientSecretSettingName")
+    def client_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "client_secret_setting_name")
+
+    @client_secret_setting_name.setter
+    def client_secret_setting_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret_setting_name", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input[str]]:
+        """
+        Kind of resource.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kind", value)
+
+
+@pulumi.input_type
 class ApplicationLogsConfigArgs:
     def __init__(__self__, *,
                  azure_blob_storage: Optional[pulumi.Input['AzureBlobStorageApplicationLogsConfigArgs']] = None,
@@ -1057,13 +1172,17 @@ class AutoHealTriggersArgs:
                  private_bytes_in_kb: Optional[pulumi.Input[int]] = None,
                  requests: Optional[pulumi.Input['RequestsBasedTriggerArgs']] = None,
                  slow_requests: Optional[pulumi.Input['SlowRequestsBasedTriggerArgs']] = None,
-                 status_codes: Optional[pulumi.Input[Sequence[pulumi.Input['StatusCodesBasedTriggerArgs']]]] = None):
+                 slow_requests_with_path: Optional[pulumi.Input[Sequence[pulumi.Input['SlowRequestsBasedTriggerArgs']]]] = None,
+                 status_codes: Optional[pulumi.Input[Sequence[pulumi.Input['StatusCodesBasedTriggerArgs']]]] = None,
+                 status_codes_range: Optional[pulumi.Input[Sequence[pulumi.Input['StatusCodesRangeBasedTriggerArgs']]]] = None):
         """
         Triggers for auto-heal.
         :param pulumi.Input[int] private_bytes_in_kb: A rule based on private bytes.
         :param pulumi.Input['RequestsBasedTriggerArgs'] requests: A rule based on total requests.
         :param pulumi.Input['SlowRequestsBasedTriggerArgs'] slow_requests: A rule based on request execution time.
+        :param pulumi.Input[Sequence[pulumi.Input['SlowRequestsBasedTriggerArgs']]] slow_requests_with_path: A rule based on multiple Slow Requests Rule with path
         :param pulumi.Input[Sequence[pulumi.Input['StatusCodesBasedTriggerArgs']]] status_codes: A rule based on status codes.
+        :param pulumi.Input[Sequence[pulumi.Input['StatusCodesRangeBasedTriggerArgs']]] status_codes_range: A rule based on status codes ranges.
         """
         if private_bytes_in_kb is not None:
             pulumi.set(__self__, "private_bytes_in_kb", private_bytes_in_kb)
@@ -1071,8 +1190,12 @@ class AutoHealTriggersArgs:
             pulumi.set(__self__, "requests", requests)
         if slow_requests is not None:
             pulumi.set(__self__, "slow_requests", slow_requests)
+        if slow_requests_with_path is not None:
+            pulumi.set(__self__, "slow_requests_with_path", slow_requests_with_path)
         if status_codes is not None:
             pulumi.set(__self__, "status_codes", status_codes)
+        if status_codes_range is not None:
+            pulumi.set(__self__, "status_codes_range", status_codes_range)
 
     @property
     @pulumi.getter(name="privateBytesInKB")
@@ -1111,6 +1234,18 @@ class AutoHealTriggersArgs:
         pulumi.set(self, "slow_requests", value)
 
     @property
+    @pulumi.getter(name="slowRequestsWithPath")
+    def slow_requests_with_path(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SlowRequestsBasedTriggerArgs']]]]:
+        """
+        A rule based on multiple Slow Requests Rule with path
+        """
+        return pulumi.get(self, "slow_requests_with_path")
+
+    @slow_requests_with_path.setter
+    def slow_requests_with_path(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SlowRequestsBasedTriggerArgs']]]]):
+        pulumi.set(self, "slow_requests_with_path", value)
+
+    @property
     @pulumi.getter(name="statusCodes")
     def status_codes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StatusCodesBasedTriggerArgs']]]]:
         """
@@ -1121,6 +1256,18 @@ class AutoHealTriggersArgs:
     @status_codes.setter
     def status_codes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StatusCodesBasedTriggerArgs']]]]):
         pulumi.set(self, "status_codes", value)
+
+    @property
+    @pulumi.getter(name="statusCodesRange")
+    def status_codes_range(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StatusCodesRangeBasedTriggerArgs']]]]:
+        """
+        A rule based on status codes ranges.
+        """
+        return pulumi.get(self, "status_codes_range")
+
+    @status_codes_range.setter
+    def status_codes_range(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StatusCodesRangeBasedTriggerArgs']]]]):
+        pulumi.set(self, "status_codes_range", value)
 
 
 @pulumi.input_type
@@ -1489,6 +1636,88 @@ class AzureBlobStorageHttpLogsConfigArgs:
     @sas_url.setter
     def sas_url(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "sas_url", value)
+
+
+@pulumi.input_type
+class AzureStaticWebAppsArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 registration: Optional[pulumi.Input['AzureStaticWebAppsRegistrationArgs']] = None):
+        """
+        :param pulumi.Input[str] kind: Kind of resource.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if registration is not None:
+            pulumi.set(__self__, "registration", registration)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input[str]]:
+        """
+        Kind of resource.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter
+    def registration(self) -> Optional[pulumi.Input['AzureStaticWebAppsRegistrationArgs']]:
+        return pulumi.get(self, "registration")
+
+    @registration.setter
+    def registration(self, value: Optional[pulumi.Input['AzureStaticWebAppsRegistrationArgs']]):
+        pulumi.set(self, "registration", value)
+
+
+@pulumi.input_type
+class AzureStaticWebAppsRegistrationArgs:
+    def __init__(__self__, *,
+                 client_id: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] kind: Kind of resource.
+        """
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input[str]]:
+        """
+        Kind of resource.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kind", value)
 
 
 @pulumi.input_type
@@ -3366,6 +3595,190 @@ class GitHubArgs:
 
 
 @pulumi.input_type
+class GitHubActionCodeConfigurationArgs:
+    def __init__(__self__, *,
+                 runtime_stack: Optional[pulumi.Input[str]] = None,
+                 runtime_version: Optional[pulumi.Input[str]] = None):
+        """
+        The GitHub action code configuration.
+        :param pulumi.Input[str] runtime_stack: Runtime stack is used to determine the workflow file content for code base apps.
+        :param pulumi.Input[str] runtime_version: Runtime version is used to determine what build version to set in the workflow file.
+        """
+        if runtime_stack is not None:
+            pulumi.set(__self__, "runtime_stack", runtime_stack)
+        if runtime_version is not None:
+            pulumi.set(__self__, "runtime_version", runtime_version)
+
+    @property
+    @pulumi.getter(name="runtimeStack")
+    def runtime_stack(self) -> Optional[pulumi.Input[str]]:
+        """
+        Runtime stack is used to determine the workflow file content for code base apps.
+        """
+        return pulumi.get(self, "runtime_stack")
+
+    @runtime_stack.setter
+    def runtime_stack(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "runtime_stack", value)
+
+    @property
+    @pulumi.getter(name="runtimeVersion")
+    def runtime_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Runtime version is used to determine what build version to set in the workflow file.
+        """
+        return pulumi.get(self, "runtime_version")
+
+    @runtime_version.setter
+    def runtime_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "runtime_version", value)
+
+
+@pulumi.input_type
+class GitHubActionConfigurationArgs:
+    def __init__(__self__, *,
+                 code_configuration: Optional[pulumi.Input['GitHubActionCodeConfigurationArgs']] = None,
+                 container_configuration: Optional[pulumi.Input['GitHubActionContainerConfigurationArgs']] = None,
+                 generate_workflow_file: Optional[pulumi.Input[bool]] = None,
+                 is_linux: Optional[pulumi.Input[bool]] = None):
+        """
+        The GitHub action configuration.
+        :param pulumi.Input['GitHubActionCodeConfigurationArgs'] code_configuration: GitHub Action code configuration.
+        :param pulumi.Input['GitHubActionContainerConfigurationArgs'] container_configuration: GitHub Action container configuration.
+        :param pulumi.Input[bool] generate_workflow_file: Workflow option to determine whether the workflow file should be generated and written to the repository.
+        :param pulumi.Input[bool] is_linux: This will help determine the workflow configuration to select.
+        """
+        if code_configuration is not None:
+            pulumi.set(__self__, "code_configuration", code_configuration)
+        if container_configuration is not None:
+            pulumi.set(__self__, "container_configuration", container_configuration)
+        if generate_workflow_file is not None:
+            pulumi.set(__self__, "generate_workflow_file", generate_workflow_file)
+        if is_linux is not None:
+            pulumi.set(__self__, "is_linux", is_linux)
+
+    @property
+    @pulumi.getter(name="codeConfiguration")
+    def code_configuration(self) -> Optional[pulumi.Input['GitHubActionCodeConfigurationArgs']]:
+        """
+        GitHub Action code configuration.
+        """
+        return pulumi.get(self, "code_configuration")
+
+    @code_configuration.setter
+    def code_configuration(self, value: Optional[pulumi.Input['GitHubActionCodeConfigurationArgs']]):
+        pulumi.set(self, "code_configuration", value)
+
+    @property
+    @pulumi.getter(name="containerConfiguration")
+    def container_configuration(self) -> Optional[pulumi.Input['GitHubActionContainerConfigurationArgs']]:
+        """
+        GitHub Action container configuration.
+        """
+        return pulumi.get(self, "container_configuration")
+
+    @container_configuration.setter
+    def container_configuration(self, value: Optional[pulumi.Input['GitHubActionContainerConfigurationArgs']]):
+        pulumi.set(self, "container_configuration", value)
+
+    @property
+    @pulumi.getter(name="generateWorkflowFile")
+    def generate_workflow_file(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Workflow option to determine whether the workflow file should be generated and written to the repository.
+        """
+        return pulumi.get(self, "generate_workflow_file")
+
+    @generate_workflow_file.setter
+    def generate_workflow_file(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "generate_workflow_file", value)
+
+    @property
+    @pulumi.getter(name="isLinux")
+    def is_linux(self) -> Optional[pulumi.Input[bool]]:
+        """
+        This will help determine the workflow configuration to select.
+        """
+        return pulumi.get(self, "is_linux")
+
+    @is_linux.setter
+    def is_linux(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_linux", value)
+
+
+@pulumi.input_type
+class GitHubActionContainerConfigurationArgs:
+    def __init__(__self__, *,
+                 image_name: Optional[pulumi.Input[str]] = None,
+                 password: Optional[pulumi.Input[str]] = None,
+                 server_url: Optional[pulumi.Input[str]] = None,
+                 username: Optional[pulumi.Input[str]] = None):
+        """
+        The GitHub action container configuration.
+        :param pulumi.Input[str] image_name: The image name for the build.
+        :param pulumi.Input[str] password: The password used to upload the image to the container registry.
+        :param pulumi.Input[str] server_url: The server URL for the container registry where the build will be hosted.
+        :param pulumi.Input[str] username: The username used to upload the image to the container registry.
+        """
+        if image_name is not None:
+            pulumi.set(__self__, "image_name", image_name)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if server_url is not None:
+            pulumi.set(__self__, "server_url", server_url)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter(name="imageName")
+    def image_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The image name for the build.
+        """
+        return pulumi.get(self, "image_name")
+
+    @image_name.setter
+    def image_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "image_name", value)
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[pulumi.Input[str]]:
+        """
+        The password used to upload the image to the container registry.
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter(name="serverUrl")
+    def server_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The server URL for the container registry where the build will be hosted.
+        """
+        return pulumi.get(self, "server_url")
+
+    @server_url.setter
+    def server_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "server_url", value)
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[pulumi.Input[str]]:
+        """
+        The username used to upload the image to the container registry.
+        """
+        return pulumi.get(self, "username")
+
+    @username.setter
+    def username(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "username", value)
+
+
+@pulumi.input_type
 class GlobalValidationArgs:
     def __init__(__self__, *,
                  excluded_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -3829,18 +4242,25 @@ class HttpSettingsRoutesArgs:
 @pulumi.input_type
 class IdentityProvidersArgs:
     def __init__(__self__, *,
+                 apple: Optional[pulumi.Input['AppleArgs']] = None,
                  azure_active_directory: Optional[pulumi.Input['AzureActiveDirectoryArgs']] = None,
+                 azure_static_web_apps: Optional[pulumi.Input['AzureStaticWebAppsArgs']] = None,
                  custom_open_id_connect_providers: Optional[pulumi.Input[Mapping[str, pulumi.Input['CustomOpenIdConnectProviderArgs']]]] = None,
                  facebook: Optional[pulumi.Input['FacebookArgs']] = None,
                  git_hub: Optional[pulumi.Input['GitHubArgs']] = None,
                  google: Optional[pulumi.Input['GoogleArgs']] = None,
                  kind: Optional[pulumi.Input[str]] = None,
+                 legacy_microsoft_account: Optional[pulumi.Input['LegacyMicrosoftAccountArgs']] = None,
                  twitter: Optional[pulumi.Input['TwitterArgs']] = None):
         """
         :param pulumi.Input[str] kind: Kind of resource.
         """
+        if apple is not None:
+            pulumi.set(__self__, "apple", apple)
         if azure_active_directory is not None:
             pulumi.set(__self__, "azure_active_directory", azure_active_directory)
+        if azure_static_web_apps is not None:
+            pulumi.set(__self__, "azure_static_web_apps", azure_static_web_apps)
         if custom_open_id_connect_providers is not None:
             pulumi.set(__self__, "custom_open_id_connect_providers", custom_open_id_connect_providers)
         if facebook is not None:
@@ -3851,8 +4271,19 @@ class IdentityProvidersArgs:
             pulumi.set(__self__, "google", google)
         if kind is not None:
             pulumi.set(__self__, "kind", kind)
+        if legacy_microsoft_account is not None:
+            pulumi.set(__self__, "legacy_microsoft_account", legacy_microsoft_account)
         if twitter is not None:
             pulumi.set(__self__, "twitter", twitter)
+
+    @property
+    @pulumi.getter
+    def apple(self) -> Optional[pulumi.Input['AppleArgs']]:
+        return pulumi.get(self, "apple")
+
+    @apple.setter
+    def apple(self, value: Optional[pulumi.Input['AppleArgs']]):
+        pulumi.set(self, "apple", value)
 
     @property
     @pulumi.getter(name="azureActiveDirectory")
@@ -3862,6 +4293,15 @@ class IdentityProvidersArgs:
     @azure_active_directory.setter
     def azure_active_directory(self, value: Optional[pulumi.Input['AzureActiveDirectoryArgs']]):
         pulumi.set(self, "azure_active_directory", value)
+
+    @property
+    @pulumi.getter(name="azureStaticWebApps")
+    def azure_static_web_apps(self) -> Optional[pulumi.Input['AzureStaticWebAppsArgs']]:
+        return pulumi.get(self, "azure_static_web_apps")
+
+    @azure_static_web_apps.setter
+    def azure_static_web_apps(self, value: Optional[pulumi.Input['AzureStaticWebAppsArgs']]):
+        pulumi.set(self, "azure_static_web_apps", value)
 
     @property
     @pulumi.getter(name="customOpenIdConnectProviders")
@@ -3910,6 +4350,15 @@ class IdentityProvidersArgs:
     @kind.setter
     def kind(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter(name="legacyMicrosoftAccount")
+    def legacy_microsoft_account(self) -> Optional[pulumi.Input['LegacyMicrosoftAccountArgs']]:
+        return pulumi.get(self, "legacy_microsoft_account")
+
+    @legacy_microsoft_account.setter
+    def legacy_microsoft_account(self, value: Optional[pulumi.Input['LegacyMicrosoftAccountArgs']]):
+        pulumi.set(self, "legacy_microsoft_account", value)
 
     @property
     @pulumi.getter
@@ -4189,6 +4638,101 @@ class JwtClaimChecksArgs:
 
 
 @pulumi.input_type
+class KubeEnvironmentProfileArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[str]] = None):
+        """
+        Specification for a Kubernetes Environment to use for this resource.
+        :param pulumi.Input[str] id: Resource ID of the Kubernetes Environment.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource ID of the Kubernetes Environment.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class LegacyMicrosoftAccountArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 login: Optional[pulumi.Input['LoginScopesArgs']] = None,
+                 registration: Optional[pulumi.Input['ClientRegistrationArgs']] = None,
+                 validation: Optional[pulumi.Input['AllowedAudiencesValidationArgs']] = None):
+        """
+        :param pulumi.Input[str] kind: Kind of resource.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if login is not None:
+            pulumi.set(__self__, "login", login)
+        if registration is not None:
+            pulumi.set(__self__, "registration", registration)
+        if validation is not None:
+            pulumi.set(__self__, "validation", validation)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input[str]]:
+        """
+        Kind of resource.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter
+    def login(self) -> Optional[pulumi.Input['LoginScopesArgs']]:
+        return pulumi.get(self, "login")
+
+    @login.setter
+    def login(self, value: Optional[pulumi.Input['LoginScopesArgs']]):
+        pulumi.set(self, "login", value)
+
+    @property
+    @pulumi.getter
+    def registration(self) -> Optional[pulumi.Input['ClientRegistrationArgs']]:
+        return pulumi.get(self, "registration")
+
+    @registration.setter
+    def registration(self, value: Optional[pulumi.Input['ClientRegistrationArgs']]):
+        pulumi.set(self, "registration", value)
+
+    @property
+    @pulumi.getter
+    def validation(self) -> Optional[pulumi.Input['AllowedAudiencesValidationArgs']]:
+        return pulumi.get(self, "validation")
+
+    @validation.setter
+    def validation(self, value: Optional[pulumi.Input['AllowedAudiencesValidationArgs']]):
+        pulumi.set(self, "validation", value)
+
+
+@pulumi.input_type
 class LoginArgs:
     def __init__(__self__, *,
                  allowed_external_redirect_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -4431,78 +4975,6 @@ class NameValuePairArgs:
     @value.setter
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
-class NetworkAccessControlEntryArgs:
-    def __init__(__self__, *,
-                 action: Optional[pulumi.Input['AccessControlEntryAction']] = None,
-                 description: Optional[pulumi.Input[str]] = None,
-                 order: Optional[pulumi.Input[int]] = None,
-                 remote_subnet: Optional[pulumi.Input[str]] = None):
-        """
-        Network access control entry.
-        :param pulumi.Input['AccessControlEntryAction'] action: Action object.
-        :param pulumi.Input[str] description: Description of network access control entry.
-        :param pulumi.Input[int] order: Order of precedence.
-        :param pulumi.Input[str] remote_subnet: Remote subnet.
-        """
-        if action is not None:
-            pulumi.set(__self__, "action", action)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if order is not None:
-            pulumi.set(__self__, "order", order)
-        if remote_subnet is not None:
-            pulumi.set(__self__, "remote_subnet", remote_subnet)
-
-    @property
-    @pulumi.getter
-    def action(self) -> Optional[pulumi.Input['AccessControlEntryAction']]:
-        """
-        Action object.
-        """
-        return pulumi.get(self, "action")
-
-    @action.setter
-    def action(self, value: Optional[pulumi.Input['AccessControlEntryAction']]):
-        pulumi.set(self, "action", value)
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        Description of network access control entry.
-        """
-        return pulumi.get(self, "description")
-
-    @description.setter
-    def description(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "description", value)
-
-    @property
-    @pulumi.getter
-    def order(self) -> Optional[pulumi.Input[int]]:
-        """
-        Order of precedence.
-        """
-        return pulumi.get(self, "order")
-
-    @order.setter
-    def order(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "order", value)
-
-    @property
-    @pulumi.getter(name="remoteSubnet")
-    def remote_subnet(self) -> Optional[pulumi.Input[str]]:
-        """
-        Remote subnet.
-        """
-        return pulumi.get(self, "remote_subnet")
-
-    @remote_subnet.setter
-    def remote_subnet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "remote_subnet", value)
 
 
 @pulumi.input_type
@@ -5130,6 +5602,7 @@ class SiteConfigArgs:
                  auto_heal_enabled: Optional[pulumi.Input[bool]] = None,
                  auto_heal_rules: Optional[pulumi.Input['AutoHealRulesArgs']] = None,
                  auto_swap_slot_name: Optional[pulumi.Input[str]] = None,
+                 azure_storage_accounts: Optional[pulumi.Input[Mapping[str, pulumi.Input['AzureStorageInfoValueArgs']]]] = None,
                  connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input['ConnStringInfoArgs']]]] = None,
                  cors: Optional[pulumi.Input['CorsSettingsArgs']] = None,
                  default_documents: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -5137,6 +5610,8 @@ class SiteConfigArgs:
                  document_root: Optional[pulumi.Input[str]] = None,
                  experiments: Optional[pulumi.Input['ExperimentsArgs']] = None,
                  ftps_state: Optional[pulumi.Input[Union[str, 'FtpsState']]] = None,
+                 function_app_scale_limit: Optional[pulumi.Input[int]] = None,
+                 functions_runtime_scale_monitoring_enabled: Optional[pulumi.Input[bool]] = None,
                  handler_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['HandlerMappingArgs']]]] = None,
                  health_check_path: Optional[pulumi.Input[str]] = None,
                  http20_enabled: Optional[pulumi.Input[bool]] = None,
@@ -5145,6 +5620,7 @@ class SiteConfigArgs:
                  java_container: Optional[pulumi.Input[str]] = None,
                  java_container_version: Optional[pulumi.Input[str]] = None,
                  java_version: Optional[pulumi.Input[str]] = None,
+                 key_vault_reference_identity: Optional[pulumi.Input[str]] = None,
                  limits: Optional[pulumi.Input['SiteLimitsArgs']] = None,
                  linux_fx_version: Optional[pulumi.Input[str]] = None,
                  load_balancing: Optional[pulumi.Input['SiteLoadBalancing']] = None,
@@ -5153,6 +5629,7 @@ class SiteConfigArgs:
                  managed_pipeline_mode: Optional[pulumi.Input['ManagedPipelineMode']] = None,
                  managed_service_identity_id: Optional[pulumi.Input[int]] = None,
                  min_tls_version: Optional[pulumi.Input[Union[str, 'SupportedTlsVersions']]] = None,
+                 minimum_elastic_instance_count: Optional[pulumi.Input[int]] = None,
                  net_framework_version: Optional[pulumi.Input[str]] = None,
                  node_version: Optional[pulumi.Input[str]] = None,
                  number_of_workers: Optional[pulumi.Input[int]] = None,
@@ -5177,6 +5654,7 @@ class SiteConfigArgs:
                  vnet_private_ports_count: Optional[pulumi.Input[int]] = None,
                  vnet_route_all_enabled: Optional[pulumi.Input[bool]] = None,
                  web_sockets_enabled: Optional[pulumi.Input[bool]] = None,
+                 website_time_zone: Optional[pulumi.Input[str]] = None,
                  windows_fx_version: Optional[pulumi.Input[str]] = None,
                  x_managed_service_identity_id: Optional[pulumi.Input[int]] = None):
         """
@@ -5189,6 +5667,7 @@ class SiteConfigArgs:
         :param pulumi.Input[bool] auto_heal_enabled: <code>true</code> if Auto Heal is enabled; otherwise, <code>false</code>.
         :param pulumi.Input['AutoHealRulesArgs'] auto_heal_rules: Auto Heal rules.
         :param pulumi.Input[str] auto_swap_slot_name: Auto-swap slot name.
+        :param pulumi.Input[Mapping[str, pulumi.Input['AzureStorageInfoValueArgs']]] azure_storage_accounts: List of Azure Storage Accounts.
         :param pulumi.Input[Sequence[pulumi.Input['ConnStringInfoArgs']]] connection_strings: Connection strings.
         :param pulumi.Input['CorsSettingsArgs'] cors: Cross-Origin Resource Sharing (CORS) settings.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] default_documents: Default documents.
@@ -5196,6 +5675,11 @@ class SiteConfigArgs:
         :param pulumi.Input[str] document_root: Document root.
         :param pulumi.Input['ExperimentsArgs'] experiments: This is work around for polymorphic types.
         :param pulumi.Input[Union[str, 'FtpsState']] ftps_state: State of FTP / FTPS service
+        :param pulumi.Input[int] function_app_scale_limit: Maximum number of workers that a site can scale out to.
+               This setting only applies to the Consumption and Elastic Premium Plans
+        :param pulumi.Input[bool] functions_runtime_scale_monitoring_enabled: Gets or sets a value indicating whether functions runtime scale monitoring is enabled. When enabled,
+               the ScaleController will not monitor event sources directly, but will instead call to the
+               runtime to get scale status.
         :param pulumi.Input[Sequence[pulumi.Input['HandlerMappingArgs']]] handler_mappings: Handler mappings.
         :param pulumi.Input[str] health_check_path: Health check path
         :param pulumi.Input[bool] http20_enabled: Http20Enabled: configures a web site to allow clients to connect over http2.0
@@ -5204,6 +5688,7 @@ class SiteConfigArgs:
         :param pulumi.Input[str] java_container: Java container.
         :param pulumi.Input[str] java_container_version: Java container version.
         :param pulumi.Input[str] java_version: Java version.
+        :param pulumi.Input[str] key_vault_reference_identity: Identity to use for Key Vault Reference authentication.
         :param pulumi.Input['SiteLimitsArgs'] limits: Site limits.
         :param pulumi.Input[str] linux_fx_version: Linux App Framework and version
         :param pulumi.Input['SiteLoadBalancing'] load_balancing: Site load balancing.
@@ -5212,6 +5697,8 @@ class SiteConfigArgs:
         :param pulumi.Input['ManagedPipelineMode'] managed_pipeline_mode: Managed pipeline mode.
         :param pulumi.Input[int] managed_service_identity_id: Managed Service Identity Id
         :param pulumi.Input[Union[str, 'SupportedTlsVersions']] min_tls_version: MinTlsVersion: configures the minimum version of TLS required for SSL requests
+        :param pulumi.Input[int] minimum_elastic_instance_count: Number of minimum instance count for a site
+               This setting only applies to the Elastic Plans
         :param pulumi.Input[str] net_framework_version: .NET Framework version.
         :param pulumi.Input[str] node_version: Version of Node.js.
         :param pulumi.Input[int] number_of_workers: Number of workers.
@@ -5237,6 +5724,7 @@ class SiteConfigArgs:
         :param pulumi.Input[int] vnet_private_ports_count: The number of private ports assigned to this app. These will be assigned dynamically on runtime.
         :param pulumi.Input[bool] vnet_route_all_enabled: Virtual Network Route All enabled. This causes all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
         :param pulumi.Input[bool] web_sockets_enabled: <code>true</code> if WebSocket is enabled; otherwise, <code>false</code>.
+        :param pulumi.Input[str] website_time_zone: Sets the time zone a site uses for generating timestamps. Compatible with Linux and Windows App Service. Setting the WEBSITE_TIME_ZONE app setting takes precedence over this config. For Linux, expects tz database values https://www.iana.org/time-zones (for a quick reference see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). For Windows, expects one of the time zones listed under HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Time Zones
         :param pulumi.Input[str] windows_fx_version: Xenon App Framework and version
         :param pulumi.Input[int] x_managed_service_identity_id: Explicit Managed Service Identity Id
         """
@@ -5256,6 +5744,8 @@ class SiteConfigArgs:
             pulumi.set(__self__, "auto_heal_rules", auto_heal_rules)
         if auto_swap_slot_name is not None:
             pulumi.set(__self__, "auto_swap_slot_name", auto_swap_slot_name)
+        if azure_storage_accounts is not None:
+            pulumi.set(__self__, "azure_storage_accounts", azure_storage_accounts)
         if connection_strings is not None:
             pulumi.set(__self__, "connection_strings", connection_strings)
         if cors is not None:
@@ -5270,6 +5760,10 @@ class SiteConfigArgs:
             pulumi.set(__self__, "experiments", experiments)
         if ftps_state is not None:
             pulumi.set(__self__, "ftps_state", ftps_state)
+        if function_app_scale_limit is not None:
+            pulumi.set(__self__, "function_app_scale_limit", function_app_scale_limit)
+        if functions_runtime_scale_monitoring_enabled is not None:
+            pulumi.set(__self__, "functions_runtime_scale_monitoring_enabled", functions_runtime_scale_monitoring_enabled)
         if handler_mappings is not None:
             pulumi.set(__self__, "handler_mappings", handler_mappings)
         if health_check_path is not None:
@@ -5288,6 +5782,8 @@ class SiteConfigArgs:
             pulumi.set(__self__, "java_container_version", java_container_version)
         if java_version is not None:
             pulumi.set(__self__, "java_version", java_version)
+        if key_vault_reference_identity is not None:
+            pulumi.set(__self__, "key_vault_reference_identity", key_vault_reference_identity)
         if limits is not None:
             pulumi.set(__self__, "limits", limits)
         if linux_fx_version is not None:
@@ -5306,6 +5802,8 @@ class SiteConfigArgs:
             pulumi.set(__self__, "managed_service_identity_id", managed_service_identity_id)
         if min_tls_version is not None:
             pulumi.set(__self__, "min_tls_version", min_tls_version)
+        if minimum_elastic_instance_count is not None:
+            pulumi.set(__self__, "minimum_elastic_instance_count", minimum_elastic_instance_count)
         if net_framework_version is None:
             net_framework_version = 'v4.6'
         if net_framework_version is not None:
@@ -5356,6 +5854,8 @@ class SiteConfigArgs:
             pulumi.set(__self__, "vnet_route_all_enabled", vnet_route_all_enabled)
         if web_sockets_enabled is not None:
             pulumi.set(__self__, "web_sockets_enabled", web_sockets_enabled)
+        if website_time_zone is not None:
+            pulumi.set(__self__, "website_time_zone", website_time_zone)
         if windows_fx_version is not None:
             pulumi.set(__self__, "windows_fx_version", windows_fx_version)
         if x_managed_service_identity_id is not None:
@@ -5458,6 +5958,18 @@ class SiteConfigArgs:
         pulumi.set(self, "auto_swap_slot_name", value)
 
     @property
+    @pulumi.getter(name="azureStorageAccounts")
+    def azure_storage_accounts(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['AzureStorageInfoValueArgs']]]]:
+        """
+        List of Azure Storage Accounts.
+        """
+        return pulumi.get(self, "azure_storage_accounts")
+
+    @azure_storage_accounts.setter
+    def azure_storage_accounts(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['AzureStorageInfoValueArgs']]]]):
+        pulumi.set(self, "azure_storage_accounts", value)
+
+    @property
     @pulumi.getter(name="connectionStrings")
     def connection_strings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConnStringInfoArgs']]]]:
         """
@@ -5540,6 +6052,33 @@ class SiteConfigArgs:
     @ftps_state.setter
     def ftps_state(self, value: Optional[pulumi.Input[Union[str, 'FtpsState']]]):
         pulumi.set(self, "ftps_state", value)
+
+    @property
+    @pulumi.getter(name="functionAppScaleLimit")
+    def function_app_scale_limit(self) -> Optional[pulumi.Input[int]]:
+        """
+        Maximum number of workers that a site can scale out to.
+        This setting only applies to the Consumption and Elastic Premium Plans
+        """
+        return pulumi.get(self, "function_app_scale_limit")
+
+    @function_app_scale_limit.setter
+    def function_app_scale_limit(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "function_app_scale_limit", value)
+
+    @property
+    @pulumi.getter(name="functionsRuntimeScaleMonitoringEnabled")
+    def functions_runtime_scale_monitoring_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Gets or sets a value indicating whether functions runtime scale monitoring is enabled. When enabled,
+        the ScaleController will not monitor event sources directly, but will instead call to the
+        runtime to get scale status.
+        """
+        return pulumi.get(self, "functions_runtime_scale_monitoring_enabled")
+
+    @functions_runtime_scale_monitoring_enabled.setter
+    def functions_runtime_scale_monitoring_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "functions_runtime_scale_monitoring_enabled", value)
 
     @property
     @pulumi.getter(name="handlerMappings")
@@ -5638,6 +6177,18 @@ class SiteConfigArgs:
         pulumi.set(self, "java_version", value)
 
     @property
+    @pulumi.getter(name="keyVaultReferenceIdentity")
+    def key_vault_reference_identity(self) -> Optional[pulumi.Input[str]]:
+        """
+        Identity to use for Key Vault Reference authentication.
+        """
+        return pulumi.get(self, "key_vault_reference_identity")
+
+    @key_vault_reference_identity.setter
+    def key_vault_reference_identity(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_vault_reference_identity", value)
+
+    @property
     @pulumi.getter
     def limits(self) -> Optional[pulumi.Input['SiteLimitsArgs']]:
         """
@@ -5732,6 +6283,19 @@ class SiteConfigArgs:
     @min_tls_version.setter
     def min_tls_version(self, value: Optional[pulumi.Input[Union[str, 'SupportedTlsVersions']]]):
         pulumi.set(self, "min_tls_version", value)
+
+    @property
+    @pulumi.getter(name="minimumElasticInstanceCount")
+    def minimum_elastic_instance_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        Number of minimum instance count for a site
+        This setting only applies to the Elastic Plans
+        """
+        return pulumi.get(self, "minimum_elastic_instance_count")
+
+    @minimum_elastic_instance_count.setter
+    def minimum_elastic_instance_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "minimum_elastic_instance_count", value)
 
     @property
     @pulumi.getter(name="netFrameworkVersion")
@@ -6023,6 +6587,18 @@ class SiteConfigArgs:
         pulumi.set(self, "web_sockets_enabled", value)
 
     @property
+    @pulumi.getter(name="websiteTimeZone")
+    def website_time_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        Sets the time zone a site uses for generating timestamps. Compatible with Linux and Windows App Service. Setting the WEBSITE_TIME_ZONE app setting takes precedence over this config. For Linux, expects tz database values https://www.iana.org/time-zones (for a quick reference see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). For Windows, expects one of the time zones listed under HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Time Zones
+        """
+        return pulumi.get(self, "website_time_zone")
+
+    @website_time_zone.setter
+    def website_time_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "website_time_zone", value)
+
+    @property
     @pulumi.getter(name="windowsFxVersion")
     def windows_fx_version(self) -> Optional[pulumi.Input[str]]:
         """
@@ -6107,18 +6683,22 @@ class SiteLimitsArgs:
 class SkuCapacityArgs:
     def __init__(__self__, *,
                  default: Optional[pulumi.Input[int]] = None,
+                 elastic_maximum: Optional[pulumi.Input[int]] = None,
                  maximum: Optional[pulumi.Input[int]] = None,
                  minimum: Optional[pulumi.Input[int]] = None,
                  scale_type: Optional[pulumi.Input[str]] = None):
         """
         Description of the App Service plan scale options.
         :param pulumi.Input[int] default: Default number of workers for this App Service plan SKU.
+        :param pulumi.Input[int] elastic_maximum: Maximum number of Elastic workers for this App Service plan SKU.
         :param pulumi.Input[int] maximum: Maximum number of workers for this App Service plan SKU.
         :param pulumi.Input[int] minimum: Minimum number of workers for this App Service plan SKU.
         :param pulumi.Input[str] scale_type: Available scale configurations for an App Service plan.
         """
         if default is not None:
             pulumi.set(__self__, "default", default)
+        if elastic_maximum is not None:
+            pulumi.set(__self__, "elastic_maximum", elastic_maximum)
         if maximum is not None:
             pulumi.set(__self__, "maximum", maximum)
         if minimum is not None:
@@ -6137,6 +6717,18 @@ class SkuCapacityArgs:
     @default.setter
     def default(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "default", value)
+
+    @property
+    @pulumi.getter(name="elasticMaximum")
+    def elastic_maximum(self) -> Optional[pulumi.Input[int]]:
+        """
+        Maximum number of Elastic workers for this App Service plan SKU.
+        """
+        return pulumi.get(self, "elastic_maximum")
+
+    @elastic_maximum.setter
+    def elastic_maximum(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "elastic_maximum", value)
 
     @property
     @pulumi.getter
@@ -6315,16 +6907,20 @@ class SkuDescriptionArgs:
 class SlowRequestsBasedTriggerArgs:
     def __init__(__self__, *,
                  count: Optional[pulumi.Input[int]] = None,
+                 path: Optional[pulumi.Input[str]] = None,
                  time_interval: Optional[pulumi.Input[str]] = None,
                  time_taken: Optional[pulumi.Input[str]] = None):
         """
         Trigger based on request execution time.
         :param pulumi.Input[int] count: Request Count.
+        :param pulumi.Input[str] path: Request Path.
         :param pulumi.Input[str] time_interval: Time interval.
         :param pulumi.Input[str] time_taken: Time taken.
         """
         if count is not None:
             pulumi.set(__self__, "count", count)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
         if time_interval is not None:
             pulumi.set(__self__, "time_interval", time_interval)
         if time_taken is not None:
@@ -6341,6 +6937,18 @@ class SlowRequestsBasedTriggerArgs:
     @count.setter
     def count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "count", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[pulumi.Input[str]]:
+        """
+        Request Path.
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "path", value)
 
     @property
     @pulumi.getter(name="timeInterval")
@@ -6370,21 +6978,53 @@ class SlowRequestsBasedTriggerArgs:
 @pulumi.input_type
 class StaticSiteBuildPropertiesArgs:
     def __init__(__self__, *,
+                 api_build_command: Optional[pulumi.Input[str]] = None,
                  api_location: Optional[pulumi.Input[str]] = None,
                  app_artifact_location: Optional[pulumi.Input[str]] = None,
-                 app_location: Optional[pulumi.Input[str]] = None):
+                 app_build_command: Optional[pulumi.Input[str]] = None,
+                 app_location: Optional[pulumi.Input[str]] = None,
+                 github_action_secret_name_override: Optional[pulumi.Input[str]] = None,
+                 output_location: Optional[pulumi.Input[str]] = None,
+                 skip_github_action_workflow_generation: Optional[pulumi.Input[bool]] = None):
         """
         Build properties for the static site.
+        :param pulumi.Input[str] api_build_command: A custom command to run during deployment of the Azure Functions API application.
         :param pulumi.Input[str] api_location: The path to the api code within the repository.
-        :param pulumi.Input[str] app_artifact_location: The path of the app artifacts after building.
+        :param pulumi.Input[str] app_artifact_location: Deprecated: The path of the app artifacts after building (deprecated in favor of OutputLocation)
+        :param pulumi.Input[str] app_build_command: A custom command to run during deployment of the static content application.
         :param pulumi.Input[str] app_location: The path to the app code within the repository.
+        :param pulumi.Input[str] github_action_secret_name_override: Github Action secret name override.
+        :param pulumi.Input[str] output_location: The output path of the app after building.
+        :param pulumi.Input[bool] skip_github_action_workflow_generation: Skip Github Action workflow generation.
         """
+        if api_build_command is not None:
+            pulumi.set(__self__, "api_build_command", api_build_command)
         if api_location is not None:
             pulumi.set(__self__, "api_location", api_location)
         if app_artifact_location is not None:
             pulumi.set(__self__, "app_artifact_location", app_artifact_location)
+        if app_build_command is not None:
+            pulumi.set(__self__, "app_build_command", app_build_command)
         if app_location is not None:
             pulumi.set(__self__, "app_location", app_location)
+        if github_action_secret_name_override is not None:
+            pulumi.set(__self__, "github_action_secret_name_override", github_action_secret_name_override)
+        if output_location is not None:
+            pulumi.set(__self__, "output_location", output_location)
+        if skip_github_action_workflow_generation is not None:
+            pulumi.set(__self__, "skip_github_action_workflow_generation", skip_github_action_workflow_generation)
+
+    @property
+    @pulumi.getter(name="apiBuildCommand")
+    def api_build_command(self) -> Optional[pulumi.Input[str]]:
+        """
+        A custom command to run during deployment of the Azure Functions API application.
+        """
+        return pulumi.get(self, "api_build_command")
+
+    @api_build_command.setter
+    def api_build_command(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "api_build_command", value)
 
     @property
     @pulumi.getter(name="apiLocation")
@@ -6402,13 +7042,25 @@ class StaticSiteBuildPropertiesArgs:
     @pulumi.getter(name="appArtifactLocation")
     def app_artifact_location(self) -> Optional[pulumi.Input[str]]:
         """
-        The path of the app artifacts after building.
+        Deprecated: The path of the app artifacts after building (deprecated in favor of OutputLocation)
         """
         return pulumi.get(self, "app_artifact_location")
 
     @app_artifact_location.setter
     def app_artifact_location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "app_artifact_location", value)
+
+    @property
+    @pulumi.getter(name="appBuildCommand")
+    def app_build_command(self) -> Optional[pulumi.Input[str]]:
+        """
+        A custom command to run during deployment of the static content application.
+        """
+        return pulumi.get(self, "app_build_command")
+
+    @app_build_command.setter
+    def app_build_command(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_build_command", value)
 
     @property
     @pulumi.getter(name="appLocation")
@@ -6422,11 +7074,136 @@ class StaticSiteBuildPropertiesArgs:
     def app_location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "app_location", value)
 
+    @property
+    @pulumi.getter(name="githubActionSecretNameOverride")
+    def github_action_secret_name_override(self) -> Optional[pulumi.Input[str]]:
+        """
+        Github Action secret name override.
+        """
+        return pulumi.get(self, "github_action_secret_name_override")
+
+    @github_action_secret_name_override.setter
+    def github_action_secret_name_override(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "github_action_secret_name_override", value)
+
+    @property
+    @pulumi.getter(name="outputLocation")
+    def output_location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The output path of the app after building.
+        """
+        return pulumi.get(self, "output_location")
+
+    @output_location.setter
+    def output_location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "output_location", value)
+
+    @property
+    @pulumi.getter(name="skipGithubActionWorkflowGeneration")
+    def skip_github_action_workflow_generation(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Skip Github Action workflow generation.
+        """
+        return pulumi.get(self, "skip_github_action_workflow_generation")
+
+    @skip_github_action_workflow_generation.setter
+    def skip_github_action_workflow_generation(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "skip_github_action_workflow_generation", value)
+
+
+@pulumi.input_type
+class StaticSiteTemplateOptionsArgs:
+    def __init__(__self__, *,
+                 description: Optional[pulumi.Input[str]] = None,
+                 is_private: Optional[pulumi.Input[bool]] = None,
+                 owner: Optional[pulumi.Input[str]] = None,
+                 repository_name: Optional[pulumi.Input[str]] = None,
+                 template_repository_url: Optional[pulumi.Input[str]] = None):
+        """
+        Template Options for the static site.
+        :param pulumi.Input[str] description: Description of the newly generated repository.
+        :param pulumi.Input[bool] is_private: Whether or not the newly generated repository is a private repository. Defaults to false (i.e. public).
+        :param pulumi.Input[str] owner: Owner of the newly generated repository.
+        :param pulumi.Input[str] repository_name: Name of the newly generated repository.
+        :param pulumi.Input[str] template_repository_url: URL of the template repository. The newly generated repository will be based on this one.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if is_private is not None:
+            pulumi.set(__self__, "is_private", is_private)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if repository_name is not None:
+            pulumi.set(__self__, "repository_name", repository_name)
+        if template_repository_url is not None:
+            pulumi.set(__self__, "template_repository_url", template_repository_url)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the newly generated repository.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="isPrivate")
+    def is_private(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether or not the newly generated repository is a private repository. Defaults to false (i.e. public).
+        """
+        return pulumi.get(self, "is_private")
+
+    @is_private.setter
+    def is_private(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_private", value)
+
+    @property
+    @pulumi.getter
+    def owner(self) -> Optional[pulumi.Input[str]]:
+        """
+        Owner of the newly generated repository.
+        """
+        return pulumi.get(self, "owner")
+
+    @owner.setter
+    def owner(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "owner", value)
+
+    @property
+    @pulumi.getter(name="repositoryName")
+    def repository_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the newly generated repository.
+        """
+        return pulumi.get(self, "repository_name")
+
+    @repository_name.setter
+    def repository_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "repository_name", value)
+
+    @property
+    @pulumi.getter(name="templateRepositoryUrl")
+    def template_repository_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        URL of the template repository. The newly generated repository will be based on this one.
+        """
+        return pulumi.get(self, "template_repository_url")
+
+    @template_repository_url.setter
+    def template_repository_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "template_repository_url", value)
+
 
 @pulumi.input_type
 class StatusCodesBasedTriggerArgs:
     def __init__(__self__, *,
                  count: Optional[pulumi.Input[int]] = None,
+                 path: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[int]] = None,
                  sub_status: Optional[pulumi.Input[int]] = None,
                  time_interval: Optional[pulumi.Input[str]] = None,
@@ -6434,6 +7211,7 @@ class StatusCodesBasedTriggerArgs:
         """
         Trigger based on status code.
         :param pulumi.Input[int] count: Request Count.
+        :param pulumi.Input[str] path: Request Path
         :param pulumi.Input[int] status: HTTP status code.
         :param pulumi.Input[int] sub_status: Request Sub Status.
         :param pulumi.Input[str] time_interval: Time interval.
@@ -6441,6 +7219,8 @@ class StatusCodesBasedTriggerArgs:
         """
         if count is not None:
             pulumi.set(__self__, "count", count)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if sub_status is not None:
@@ -6461,6 +7241,18 @@ class StatusCodesBasedTriggerArgs:
     @count.setter
     def count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "count", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[pulumi.Input[str]]:
+        """
+        Request Path
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "path", value)
 
     @property
     @pulumi.getter
@@ -6509,6 +7301,74 @@ class StatusCodesBasedTriggerArgs:
     @win32_status.setter
     def win32_status(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "win32_status", value)
+
+
+@pulumi.input_type
+class StatusCodesRangeBasedTriggerArgs:
+    def __init__(__self__, *,
+                 count: Optional[pulumi.Input[int]] = None,
+                 path: Optional[pulumi.Input[str]] = None,
+                 status_codes: Optional[pulumi.Input[str]] = None,
+                 time_interval: Optional[pulumi.Input[str]] = None):
+        """
+        Trigger based on range of status codes.
+        :param pulumi.Input[int] count: Request Count.
+        :param pulumi.Input[str] status_codes: HTTP status code.
+        :param pulumi.Input[str] time_interval: Time interval.
+        """
+        if count is not None:
+            pulumi.set(__self__, "count", count)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if status_codes is not None:
+            pulumi.set(__self__, "status_codes", status_codes)
+        if time_interval is not None:
+            pulumi.set(__self__, "time_interval", time_interval)
+
+    @property
+    @pulumi.getter
+    def count(self) -> Optional[pulumi.Input[int]]:
+        """
+        Request Count.
+        """
+        return pulumi.get(self, "count")
+
+    @count.setter
+    def count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "count", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter(name="statusCodes")
+    def status_codes(self) -> Optional[pulumi.Input[str]]:
+        """
+        HTTP status code.
+        """
+        return pulumi.get(self, "status_codes")
+
+    @status_codes.setter
+    def status_codes(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status_codes", value)
+
+    @property
+    @pulumi.getter(name="timeInterval")
+    def time_interval(self) -> Optional[pulumi.Input[str]]:
+        """
+        Time interval.
+        """
+        return pulumi.get(self, "time_interval")
+
+    @time_interval.setter
+    def time_interval(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "time_interval", value)
 
 
 @pulumi.input_type
@@ -6791,28 +7651,27 @@ class VirtualDirectoryArgs:
 @pulumi.input_type
 class VirtualNetworkProfileArgs:
     def __init__(__self__, *,
-                 id: Optional[pulumi.Input[str]] = None,
+                 id: pulumi.Input[str],
                  subnet: Optional[pulumi.Input[str]] = None):
         """
         Specification for using a Virtual Network.
         :param pulumi.Input[str] id: Resource id of the Virtual Network.
         :param pulumi.Input[str] subnet: Subnet within the Virtual Network.
         """
-        if id is not None:
-            pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "id", id)
         if subnet is not None:
             pulumi.set(__self__, "subnet", subnet)
 
     @property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[str]]:
+    def id(self) -> pulumi.Input[str]:
         """
         Resource id of the Virtual Network.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[str]]):
+    def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
 
     @property
@@ -6826,78 +7685,6 @@ class VirtualNetworkProfileArgs:
     @subnet.setter
     def subnet(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "subnet", value)
-
-
-@pulumi.input_type
-class WorkerPoolArgs:
-    def __init__(__self__, *,
-                 compute_mode: Optional[pulumi.Input['ComputeModeOptions']] = None,
-                 worker_count: Optional[pulumi.Input[int]] = None,
-                 worker_size: Optional[pulumi.Input[str]] = None,
-                 worker_size_id: Optional[pulumi.Input[int]] = None):
-        """
-        Worker pool of an App Service Environment.
-        :param pulumi.Input['ComputeModeOptions'] compute_mode: Shared or dedicated app hosting.
-        :param pulumi.Input[int] worker_count: Number of instances in the worker pool.
-        :param pulumi.Input[str] worker_size: VM size of the worker pool instances.
-        :param pulumi.Input[int] worker_size_id: Worker size ID for referencing this worker pool.
-        """
-        if compute_mode is not None:
-            pulumi.set(__self__, "compute_mode", compute_mode)
-        if worker_count is not None:
-            pulumi.set(__self__, "worker_count", worker_count)
-        if worker_size is not None:
-            pulumi.set(__self__, "worker_size", worker_size)
-        if worker_size_id is not None:
-            pulumi.set(__self__, "worker_size_id", worker_size_id)
-
-    @property
-    @pulumi.getter(name="computeMode")
-    def compute_mode(self) -> Optional[pulumi.Input['ComputeModeOptions']]:
-        """
-        Shared or dedicated app hosting.
-        """
-        return pulumi.get(self, "compute_mode")
-
-    @compute_mode.setter
-    def compute_mode(self, value: Optional[pulumi.Input['ComputeModeOptions']]):
-        pulumi.set(self, "compute_mode", value)
-
-    @property
-    @pulumi.getter(name="workerCount")
-    def worker_count(self) -> Optional[pulumi.Input[int]]:
-        """
-        Number of instances in the worker pool.
-        """
-        return pulumi.get(self, "worker_count")
-
-    @worker_count.setter
-    def worker_count(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "worker_count", value)
-
-    @property
-    @pulumi.getter(name="workerSize")
-    def worker_size(self) -> Optional[pulumi.Input[str]]:
-        """
-        VM size of the worker pool instances.
-        """
-        return pulumi.get(self, "worker_size")
-
-    @worker_size.setter
-    def worker_size(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "worker_size", value)
-
-    @property
-    @pulumi.getter(name="workerSizeId")
-    def worker_size_id(self) -> Optional[pulumi.Input[int]]:
-        """
-        Worker size ID for referencing this worker pool.
-        """
-        return pulumi.get(self, "worker_size_id")
-
-    @worker_size_id.setter
-    def worker_size_id(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "worker_size_id", value)
 
 
 @pulumi.input_type

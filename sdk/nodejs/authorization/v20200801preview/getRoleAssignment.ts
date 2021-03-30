@@ -84,7 +84,7 @@ export interface GetRoleAssignmentResult {
     /**
      * The role assignment scope.
      */
-    readonly scope?: string;
+    readonly scope: string;
     /**
      * The role assignment type.
      */

@@ -7,7 +7,6 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
-from . import outputs
 
 __all__ = [
     'GetWebAppSiteExtensionSlotResult',
@@ -22,7 +21,7 @@ class GetWebAppSiteExtensionSlotResult:
     """
     Site Extension Information.
     """
-    def __init__(__self__, authors=None, comment=None, description=None, download_count=None, extension_id=None, extension_type=None, extension_url=None, feed_url=None, icon_url=None, id=None, installed_date_time=None, installer_command_line_params=None, kind=None, license_url=None, local_is_latest_version=None, local_path=None, name=None, project_url=None, provisioning_state=None, published_date_time=None, summary=None, system_data=None, title=None, type=None, version=None):
+    def __init__(__self__, authors=None, comment=None, description=None, download_count=None, extension_id=None, extension_type=None, extension_url=None, feed_url=None, icon_url=None, id=None, installed_date_time=None, installer_command_line_params=None, kind=None, license_url=None, local_is_latest_version=None, local_path=None, name=None, project_url=None, provisioning_state=None, published_date_time=None, summary=None, title=None, type=None, version=None):
         if authors and not isinstance(authors, list):
             raise TypeError("Expected argument 'authors' to be a list")
         pulumi.set(__self__, "authors", authors)
@@ -86,9 +85,6 @@ class GetWebAppSiteExtensionSlotResult:
         if summary and not isinstance(summary, str):
             raise TypeError("Expected argument 'summary' to be a str")
         pulumi.set(__self__, "summary", summary)
-        if system_data and not isinstance(system_data, dict):
-            raise TypeError("Expected argument 'system_data' to be a dict")
-        pulumi.set(__self__, "system_data", system_data)
         if title and not isinstance(title, str):
             raise TypeError("Expected argument 'title' to be a str")
         pulumi.set(__self__, "title", title)
@@ -268,14 +264,6 @@ class GetWebAppSiteExtensionSlotResult:
         return pulumi.get(self, "summary")
 
     @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
-        """
-        The system metadata relating to this resource.
-        """
-        return pulumi.get(self, "system_data")
-
-    @property
     @pulumi.getter
     def title(self) -> Optional[str]:
         return pulumi.get(self, "title")
@@ -324,7 +312,6 @@ class AwaitableGetWebAppSiteExtensionSlotResult(GetWebAppSiteExtensionSlotResult
             provisioning_state=self.provisioning_state,
             published_date_time=self.published_date_time,
             summary=self.summary,
-            system_data=self.system_data,
             title=self.title,
             type=self.type,
             version=self.version)
@@ -337,7 +324,7 @@ def get_web_app_site_extension_slot(name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppSiteExtensionSlotResult:
     """
     Site Extension Information.
-    Latest API Version: 2020-10-01.
+    Latest API Version: 2020-12-01.
 
 
     :param str name: Site name.
@@ -379,7 +366,6 @@ def get_web_app_site_extension_slot(name: Optional[str] = None,
         provisioning_state=__ret__.provisioning_state,
         published_date_time=__ret__.published_date_time,
         summary=__ret__.summary,
-        system_data=__ret__.system_data,
         title=__ret__.title,
         type=__ret__.type,
         version=__ret__.version)

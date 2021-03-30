@@ -105,6 +105,8 @@ namespace Pulumi.AzureNative.Resources.V20200801
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20200601:Deployment"},
                     new Pulumi.Alias { Type = "azure-native:resources/v20201001:Deployment"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20201001:Deployment"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20210101:Deployment"},
+                    new Pulumi.Alias { Type = "azure-nextgen:resources/v20210101:Deployment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

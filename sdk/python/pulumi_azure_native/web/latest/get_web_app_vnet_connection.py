@@ -22,7 +22,7 @@ class GetWebAppVnetConnectionResult:
     """
     Virtual Network information contract.
     """
-    def __init__(__self__, cert_blob=None, cert_thumbprint=None, dns_servers=None, id=None, is_swift=None, kind=None, name=None, resync_required=None, routes=None, system_data=None, type=None, vnet_resource_id=None):
+    def __init__(__self__, cert_blob=None, cert_thumbprint=None, dns_servers=None, id=None, is_swift=None, kind=None, name=None, resync_required=None, routes=None, type=None, vnet_resource_id=None):
         if cert_blob and not isinstance(cert_blob, str):
             raise TypeError("Expected argument 'cert_blob' to be a str")
         pulumi.set(__self__, "cert_blob", cert_blob)
@@ -50,9 +50,6 @@ class GetWebAppVnetConnectionResult:
         if routes and not isinstance(routes, list):
             raise TypeError("Expected argument 'routes' to be a list")
         pulumi.set(__self__, "routes", routes)
-        if system_data and not isinstance(system_data, dict):
-            raise TypeError("Expected argument 'system_data' to be a dict")
-        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -134,14 +131,6 @@ class GetWebAppVnetConnectionResult:
         return pulumi.get(self, "routes")
 
     @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
-        """
-        The system metadata relating to this resource.
-        """
-        return pulumi.get(self, "system_data")
-
-    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -173,7 +162,6 @@ class AwaitableGetWebAppVnetConnectionResult(GetWebAppVnetConnectionResult):
             name=self.name,
             resync_required=self.resync_required,
             routes=self.routes,
-            system_data=self.system_data,
             type=self.type,
             vnet_resource_id=self.vnet_resource_id)
 
@@ -184,7 +172,7 @@ def get_web_app_vnet_connection(name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppVnetConnectionResult:
     """
     Virtual Network information contract.
-    Latest API Version: 2020-10-01.
+    Latest API Version: 2020-12-01.
 
 
     :param str name: Name of the app.
@@ -212,6 +200,5 @@ def get_web_app_vnet_connection(name: Optional[str] = None,
         name=__ret__.name,
         resync_required=__ret__.resync_required,
         routes=__ret__.routes,
-        system_data=__ret__.system_data,
         type=__ret__.type,
         vnet_resource_id=__ret__.vnet_resource_id)

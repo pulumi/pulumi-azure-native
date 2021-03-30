@@ -8,7 +8,7 @@ import (
 )
 
 // String dictionary resource.
-// API Version: 2020-10-01.
+// API Version: 2020-12-01.
 func ListWebAppConnectionStringsSlot(ctx *pulumi.Context, args *ListWebAppConnectionStringsSlotArgs, opts ...pulumi.InvokeOption) (*ListWebAppConnectionStringsSlotResult, error) {
 	var rv ListWebAppConnectionStringsSlotResult
 	err := ctx.Invoke("azure-native:web:listWebAppConnectionStringsSlot", args, &rv, opts...)
@@ -37,8 +37,6 @@ type ListWebAppConnectionStringsSlotResult struct {
 	Name string `pulumi:"name"`
 	// Connection strings.
 	Properties map[string]ConnStringValueTypePairResponse `pulumi:"properties"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }

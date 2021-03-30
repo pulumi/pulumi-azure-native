@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Backup description.
- * API Version: 2020-10-01.
+ * API Version: 2020-12-01.
  */
 export function listWebAppBackupStatusSecrets(args: ListWebAppBackupStatusSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppBackupStatusSecretsResult> {
     if (!opts) {
@@ -133,10 +133,6 @@ export interface ListWebAppBackupStatusSecretsResult {
      * SAS URL for the storage account container which contains this backup.
      */
     readonly storageAccountUrl: string;
-    /**
-     * The system metadata relating to this resource.
-     */
-    readonly systemData: outputs.web.SystemDataResponse;
     /**
      * Resource type.
      */

@@ -20,7 +20,7 @@ class GetWebAppSlotResult:
     """
     A web app, a mobile app backend, or an API app.
     """
-    def __init__(__self__, availability_state=None, client_affinity_enabled=None, client_cert_enabled=None, client_cert_exclusion_paths=None, client_cert_mode=None, container_size=None, custom_domain_verification_id=None, daily_memory_time_quota=None, default_host_name=None, enabled=None, enabled_host_names=None, host_name_ssl_states=None, host_names=None, host_names_disabled=None, hosting_environment_profile=None, https_only=None, hyper_v=None, id=None, identity=None, in_progress_operation_id=None, is_default_container=None, is_xenon=None, kind=None, last_modified_time_utc=None, location=None, max_number_of_workers=None, name=None, outbound_ip_addresses=None, possible_outbound_ip_addresses=None, redundancy_mode=None, repository_site_name=None, reserved=None, resource_group=None, scm_site_also_stopped=None, server_farm_id=None, site_config=None, slot_swap_status=None, state=None, storage_account_required=None, suspended_till=None, system_data=None, tags=None, target_swap_slot=None, traffic_manager_host_names=None, type=None, usage_state=None):
+    def __init__(__self__, availability_state=None, client_affinity_enabled=None, client_cert_enabled=None, client_cert_exclusion_paths=None, client_cert_mode=None, container_size=None, custom_domain_verification_id=None, daily_memory_time_quota=None, default_host_name=None, enabled=None, enabled_host_names=None, host_name_ssl_states=None, host_names=None, host_names_disabled=None, hosting_environment_profile=None, https_only=None, hyper_v=None, id=None, identity=None, in_progress_operation_id=None, is_default_container=None, is_xenon=None, key_vault_reference_identity=None, kind=None, last_modified_time_utc=None, location=None, max_number_of_workers=None, name=None, outbound_ip_addresses=None, possible_outbound_ip_addresses=None, redundancy_mode=None, repository_site_name=None, reserved=None, resource_group=None, scm_site_also_stopped=None, server_farm_id=None, site_config=None, slot_swap_status=None, state=None, storage_account_required=None, suspended_till=None, tags=None, target_swap_slot=None, traffic_manager_host_names=None, type=None, usage_state=None):
         if availability_state and not isinstance(availability_state, str):
             raise TypeError("Expected argument 'availability_state' to be a str")
         pulumi.set(__self__, "availability_state", availability_state)
@@ -87,6 +87,9 @@ class GetWebAppSlotResult:
         if is_xenon and not isinstance(is_xenon, bool):
             raise TypeError("Expected argument 'is_xenon' to be a bool")
         pulumi.set(__self__, "is_xenon", is_xenon)
+        if key_vault_reference_identity and not isinstance(key_vault_reference_identity, str):
+            raise TypeError("Expected argument 'key_vault_reference_identity' to be a str")
+        pulumi.set(__self__, "key_vault_reference_identity", key_vault_reference_identity)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
@@ -141,9 +144,6 @@ class GetWebAppSlotResult:
         if suspended_till and not isinstance(suspended_till, str):
             raise TypeError("Expected argument 'suspended_till' to be a str")
         pulumi.set(__self__, "suspended_till", suspended_till)
-        if system_data and not isinstance(system_data, dict):
-            raise TypeError("Expected argument 'system_data' to be a dict")
-        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -343,6 +343,14 @@ class GetWebAppSlotResult:
         return pulumi.get(self, "is_xenon")
 
     @property
+    @pulumi.getter(name="keyVaultReferenceIdentity")
+    def key_vault_reference_identity(self) -> Optional[str]:
+        """
+        Identity to use for Key Vault Reference authentication.
+        """
+        return pulumi.get(self, "key_vault_reference_identity")
+
+    @property
     @pulumi.getter
     def kind(self) -> Optional[str]:
         """
@@ -488,14 +496,6 @@ class GetWebAppSlotResult:
         return pulumi.get(self, "suspended_till")
 
     @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
-        """
-        The system metadata relating to this resource.
-        """
-        return pulumi.get(self, "system_data")
-
-    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
@@ -564,6 +564,7 @@ class AwaitableGetWebAppSlotResult(GetWebAppSlotResult):
             in_progress_operation_id=self.in_progress_operation_id,
             is_default_container=self.is_default_container,
             is_xenon=self.is_xenon,
+            key_vault_reference_identity=self.key_vault_reference_identity,
             kind=self.kind,
             last_modified_time_utc=self.last_modified_time_utc,
             location=self.location,
@@ -582,7 +583,6 @@ class AwaitableGetWebAppSlotResult(GetWebAppSlotResult):
             state=self.state,
             storage_account_required=self.storage_account_required,
             suspended_till=self.suspended_till,
-            system_data=self.system_data,
             tags=self.tags,
             target_swap_slot=self.target_swap_slot,
             traffic_manager_host_names=self.traffic_manager_host_names,
@@ -596,7 +596,7 @@ def get_web_app_slot(name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppSlotResult:
     """
     A web app, a mobile app backend, or an API app.
-    API Version: 2020-10-01.
+    API Version: 2020-12-01.
 
 
     :param str name: Name of the app.
@@ -636,6 +636,7 @@ def get_web_app_slot(name: Optional[str] = None,
         in_progress_operation_id=__ret__.in_progress_operation_id,
         is_default_container=__ret__.is_default_container,
         is_xenon=__ret__.is_xenon,
+        key_vault_reference_identity=__ret__.key_vault_reference_identity,
         kind=__ret__.kind,
         last_modified_time_utc=__ret__.last_modified_time_utc,
         location=__ret__.location,
@@ -654,7 +655,6 @@ def get_web_app_slot(name: Optional[str] = None,
         state=__ret__.state,
         storage_account_required=__ret__.storage_account_required,
         suspended_till=__ret__.suspended_till,
-        system_data=__ret__.system_data,
         tags=__ret__.tags,
         target_swap_slot=__ret__.target_swap_slot,
         traffic_manager_host_names=__ret__.traffic_manager_host_names,

@@ -27,6 +27,7 @@ class AppServicePlan(pulumi.CustomResource):
                  is_spot: Optional[pulumi.Input[bool]] = None,
                  is_xenon: Optional[pulumi.Input[bool]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
+                 kube_environment_profile: Optional[pulumi.Input[pulumi.InputType['KubeEnvironmentProfileArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  maximum_elastic_worker_count: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -44,7 +45,7 @@ class AppServicePlan(pulumi.CustomResource):
                  __opts__=None):
         """
         App Service plan.
-        Latest API Version: 2020-10-01.
+        Latest API Version: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -54,6 +55,7 @@ class AppServicePlan(pulumi.CustomResource):
         :param pulumi.Input[bool] is_spot: If <code>true</code>, this App Service Plan owns spot instances.
         :param pulumi.Input[bool] is_xenon: Obsolete: If Hyper-V container app service plan <code>true</code>, <code>false</code> otherwise.
         :param pulumi.Input[str] kind: Kind of resource.
+        :param pulumi.Input[pulumi.InputType['KubeEnvironmentProfileArgs']] kube_environment_profile: Specification for the Kubernetes Environment to use for the App Service plan.
         :param pulumi.Input[str] location: Resource Location.
         :param pulumi.Input[int] maximum_elastic_worker_count: Maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan
         :param pulumi.Input[str] name: Name of the App Service plan.
@@ -96,6 +98,7 @@ class AppServicePlan(pulumi.CustomResource):
                 is_xenon = False
             __props__['is_xenon'] = is_xenon
             __props__['kind'] = kind
+            __props__['kube_environment_profile'] = kube_environment_profile
             __props__['location'] = location
             __props__['maximum_elastic_worker_count'] = maximum_elastic_worker_count
             __props__['name'] = name
@@ -121,9 +124,8 @@ class AppServicePlan(pulumi.CustomResource):
             __props__['resource_group'] = None
             __props__['status'] = None
             __props__['subscription'] = None
-            __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/latest:AppServicePlan"), pulumi.Alias(type_="azure-native:web:AppServicePlan"), pulumi.Alias(type_="azure-nextgen:web:AppServicePlan"), pulumi.Alias(type_="azure-native:web/v20150801:AppServicePlan"), pulumi.Alias(type_="azure-nextgen:web/v20150801:AppServicePlan"), pulumi.Alias(type_="azure-native:web/v20160901:AppServicePlan"), pulumi.Alias(type_="azure-nextgen:web/v20160901:AppServicePlan"), pulumi.Alias(type_="azure-native:web/v20180201:AppServicePlan"), pulumi.Alias(type_="azure-nextgen:web/v20180201:AppServicePlan"), pulumi.Alias(type_="azure-native:web/v20190801:AppServicePlan"), pulumi.Alias(type_="azure-nextgen:web/v20190801:AppServicePlan"), pulumi.Alias(type_="azure-native:web/v20200601:AppServicePlan"), pulumi.Alias(type_="azure-nextgen:web/v20200601:AppServicePlan"), pulumi.Alias(type_="azure-native:web/v20200901:AppServicePlan"), pulumi.Alias(type_="azure-nextgen:web/v20200901:AppServicePlan"), pulumi.Alias(type_="azure-native:web/v20201001:AppServicePlan"), pulumi.Alias(type_="azure-nextgen:web/v20201001:AppServicePlan")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/latest:AppServicePlan"), pulumi.Alias(type_="azure-native:web:AppServicePlan"), pulumi.Alias(type_="azure-nextgen:web:AppServicePlan"), pulumi.Alias(type_="azure-native:web/v20150801:AppServicePlan"), pulumi.Alias(type_="azure-nextgen:web/v20150801:AppServicePlan"), pulumi.Alias(type_="azure-native:web/v20160901:AppServicePlan"), pulumi.Alias(type_="azure-nextgen:web/v20160901:AppServicePlan"), pulumi.Alias(type_="azure-native:web/v20180201:AppServicePlan"), pulumi.Alias(type_="azure-nextgen:web/v20180201:AppServicePlan"), pulumi.Alias(type_="azure-native:web/v20190801:AppServicePlan"), pulumi.Alias(type_="azure-nextgen:web/v20190801:AppServicePlan"), pulumi.Alias(type_="azure-native:web/v20200601:AppServicePlan"), pulumi.Alias(type_="azure-nextgen:web/v20200601:AppServicePlan"), pulumi.Alias(type_="azure-native:web/v20200901:AppServicePlan"), pulumi.Alias(type_="azure-nextgen:web/v20200901:AppServicePlan"), pulumi.Alias(type_="azure-native:web/v20201001:AppServicePlan"), pulumi.Alias(type_="azure-nextgen:web/v20201001:AppServicePlan"), pulumi.Alias(type_="azure-native:web/v20201201:AppServicePlan"), pulumi.Alias(type_="azure-nextgen:web/v20201201:AppServicePlan")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AppServicePlan, __self__).__init__(
             'azure-native:web/latest:AppServicePlan',
@@ -154,6 +156,7 @@ class AppServicePlan(pulumi.CustomResource):
         __props__["is_spot"] = None
         __props__["is_xenon"] = None
         __props__["kind"] = None
+        __props__["kube_environment_profile"] = None
         __props__["location"] = None
         __props__["maximum_elastic_worker_count"] = None
         __props__["maximum_number_of_workers"] = None
@@ -167,7 +170,6 @@ class AppServicePlan(pulumi.CustomResource):
         __props__["spot_expiration_time"] = None
         __props__["status"] = None
         __props__["subscription"] = None
-        __props__["system_data"] = None
         __props__["tags"] = None
         __props__["target_worker_count"] = None
         __props__["target_worker_size_id"] = None
@@ -232,6 +234,14 @@ class AppServicePlan(pulumi.CustomResource):
         return pulumi.get(self, "kind")
 
     @property
+    @pulumi.getter(name="kubeEnvironmentProfile")
+    def kube_environment_profile(self) -> pulumi.Output[Optional['outputs.KubeEnvironmentProfileResponse']]:
+        """
+        Specification for the Kubernetes Environment to use for the App Service plan.
+        """
+        return pulumi.get(self, "kube_environment_profile")
+
+    @property
     @pulumi.getter
     def location(self) -> pulumi.Output[str]:
         """
@@ -284,7 +294,7 @@ class AppServicePlan(pulumi.CustomResource):
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> pulumi.Output[str]:
         """
-        Provisioning state of the App Service Environment.
+        Provisioning state of the App Service Plan.
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -335,14 +345,6 @@ class AppServicePlan(pulumi.CustomResource):
         App Service plan subscription.
         """
         return pulumi.get(self, "subscription")
-
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
-        """
-        The system metadata relating to this resource.
-        """
-        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

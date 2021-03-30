@@ -95,6 +95,8 @@ namespace Pulumi.AzureNative.Web.V20150801
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:SiteConnectionStringsSlot"},
                     new Pulumi.Alias { Type = "azure-native:web/v20201001:SiteConnectionStringsSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:SiteConnectionStringsSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201201:SiteConnectionStringsSlot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20201201:SiteConnectionStringsSlot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

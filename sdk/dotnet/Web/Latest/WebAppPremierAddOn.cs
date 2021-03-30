@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Web.Latest
 {
     /// <summary>
     /// Premier add-on.
-    /// Latest API Version: 2020-10-01.
+    /// Latest API Version: 2020-12-01.
     /// </summary>
     [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppPremierAddOn'.")]
     [AzureNativeResourceType("azure-native:web/latest:WebAppPremierAddOn")]
@@ -58,12 +58,6 @@ namespace Pulumi.AzureNative.Web.Latest
         /// </summary>
         [Output("sku")]
         public Output<string?> Sku { get; private set; } = null!;
-
-        /// <summary>
-        /// The system metadata relating to this resource.
-        /// </summary>
-        [Output("systemData")]
-        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -127,6 +121,8 @@ namespace Pulumi.AzureNative.Web.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:WebAppPremierAddOn"},
                     new Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppPremierAddOn"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:WebAppPremierAddOn"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppPremierAddOn"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20201201:WebAppPremierAddOn"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

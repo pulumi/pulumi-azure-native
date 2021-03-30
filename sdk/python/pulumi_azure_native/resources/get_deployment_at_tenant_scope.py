@@ -107,7 +107,7 @@ def get_deployment_at_tenant_scope(deployment_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDeploymentAtTenantScopeResult:
     """
     Deployment information.
-    API Version: 2020-10-01.
+    API Version: 2021-01-01.
 
 
     :param str deployment_name: The name of the deployment.

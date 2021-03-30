@@ -92,10 +92,6 @@ namespace Pulumi.AzureNative.Synapse
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Network Settings
-        /// </summary>
-        public readonly Outputs.NetworkSettingsResponse? NetworkSettings;
-        /// <summary>
         /// Private endpoint connections to the workspace
         /// </summary>
         public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
@@ -103,6 +99,10 @@ namespace Pulumi.AzureNative.Synapse
         /// Resource provisioning state
         /// </summary>
         public readonly string ProvisioningState;
+        /// <summary>
+        /// Enable or Disable pubic network access to workspace
+        /// </summary>
+        public readonly string? PublicNetworkAccess;
         /// <summary>
         /// Purview Configuration
         /// </summary>
@@ -162,11 +162,11 @@ namespace Pulumi.AzureNative.Synapse
 
             string name,
 
-            Outputs.NetworkSettingsResponse? networkSettings,
-
             ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
 
             string provisioningState,
+
+            string? publicNetworkAccess,
 
             Outputs.PurviewConfigurationResponse? purviewConfiguration,
 
@@ -196,9 +196,9 @@ namespace Pulumi.AzureNative.Synapse
             ManagedVirtualNetwork = managedVirtualNetwork;
             ManagedVirtualNetworkSettings = managedVirtualNetworkSettings;
             Name = name;
-            NetworkSettings = networkSettings;
             PrivateEndpointConnections = privateEndpointConnections;
             ProvisioningState = provisioningState;
+            PublicNetworkAccess = publicNetworkAccess;
             PurviewConfiguration = purviewConfiguration;
             SqlAdministratorLogin = sqlAdministratorLogin;
             SqlAdministratorLoginPassword = sqlAdministratorLoginPassword;

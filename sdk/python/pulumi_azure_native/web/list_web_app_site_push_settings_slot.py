@@ -7,7 +7,6 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
-from . import outputs
 
 __all__ = [
     'ListWebAppSitePushSettingsSlotResult',
@@ -20,7 +19,7 @@ class ListWebAppSitePushSettingsSlotResult:
     """
     Push settings for the App.
     """
-    def __init__(__self__, dynamic_tags_json=None, id=None, is_push_enabled=None, kind=None, name=None, system_data=None, tag_whitelist_json=None, tags_requiring_auth=None, type=None):
+    def __init__(__self__, dynamic_tags_json=None, id=None, is_push_enabled=None, kind=None, name=None, tag_whitelist_json=None, tags_requiring_auth=None, type=None):
         if dynamic_tags_json and not isinstance(dynamic_tags_json, str):
             raise TypeError("Expected argument 'dynamic_tags_json' to be a str")
         pulumi.set(__self__, "dynamic_tags_json", dynamic_tags_json)
@@ -36,9 +35,6 @@ class ListWebAppSitePushSettingsSlotResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if system_data and not isinstance(system_data, dict):
-            raise TypeError("Expected argument 'system_data' to be a dict")
-        pulumi.set(__self__, "system_data", system_data)
         if tag_whitelist_json and not isinstance(tag_whitelist_json, str):
             raise TypeError("Expected argument 'tag_whitelist_json' to be a str")
         pulumi.set(__self__, "tag_whitelist_json", tag_whitelist_json)
@@ -90,14 +86,6 @@ class ListWebAppSitePushSettingsSlotResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
-        """
-        The system metadata relating to this resource.
-        """
-        return pulumi.get(self, "system_data")
-
-    @property
     @pulumi.getter(name="tagWhitelistJson")
     def tag_whitelist_json(self) -> Optional[str]:
         """
@@ -136,7 +124,6 @@ class AwaitableListWebAppSitePushSettingsSlotResult(ListWebAppSitePushSettingsSl
             is_push_enabled=self.is_push_enabled,
             kind=self.kind,
             name=self.name,
-            system_data=self.system_data,
             tag_whitelist_json=self.tag_whitelist_json,
             tags_requiring_auth=self.tags_requiring_auth,
             type=self.type)
@@ -148,7 +135,7 @@ def list_web_app_site_push_settings_slot(name: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppSitePushSettingsSlotResult:
     """
     Push settings for the App.
-    API Version: 2020-10-01.
+    API Version: 2020-12-01.
 
 
     :param str name: Name of web app.
@@ -171,7 +158,6 @@ def list_web_app_site_push_settings_slot(name: Optional[str] = None,
         is_push_enabled=__ret__.is_push_enabled,
         kind=__ret__.kind,
         name=__ret__.name,
-        system_data=__ret__.system_data,
         tag_whitelist_json=__ret__.tag_whitelist_json,
         tags_requiring_auth=__ret__.tags_requiring_auth,
         type=__ret__.type)

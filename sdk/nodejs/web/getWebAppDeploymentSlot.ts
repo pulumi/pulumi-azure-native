@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * User credentials used for publishing activity.
- * API Version: 2020-10-01.
+ * API Version: 2020-12-01.
  */
 export function getWebAppDeploymentSlot(args: GetWebAppDeploymentSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppDeploymentSlotResult> {
     if (!opts) {
@@ -96,10 +96,6 @@ export interface GetWebAppDeploymentSlotResult {
      * Deployment status.
      */
     readonly status?: number;
-    /**
-     * The system metadata relating to this resource.
-     */
-    readonly systemData: outputs.web.SystemDataResponse;
     /**
      * Resource type.
      */

@@ -12,7 +12,7 @@ import (
 )
 
 // Deployment information.
-// Latest API Version: 2020-10-01.
+// Latest API Version: 2021-01-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:resources:DeploymentAtManagementGroupScope'.
 type DeploymentAtManagementGroupScope struct {
@@ -100,6 +100,12 @@ func NewDeploymentAtManagementGroupScope(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:resources/v20201001:DeploymentAtManagementGroupScope"),
+		},
+		{
+			Type: pulumi.String("azure-native:resources/v20210101:DeploymentAtManagementGroupScope"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:resources/v20210101:DeploymentAtManagementGroupScope"),
 		},
 	})
 	opts = append(opts, aliases)

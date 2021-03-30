@@ -5,6 +5,7 @@
 # Export this package's modules as members:
 from ._enums import *
 from .app_service_environment import *
+from .app_service_environment_private_endpoint_connection import *
 from .app_service_plan import *
 from .app_service_plan_route_for_vnet import *
 from .certificate import *
@@ -12,12 +13,17 @@ from .connection import *
 from .connection_gateway import *
 from .custom_api import *
 from .get_app_service_environment import *
+from .get_app_service_environment_private_endpoint_connection import *
 from .get_app_service_plan import *
 from .get_certificate import *
 from .get_connection import *
 from .get_connection_gateway import *
 from .get_custom_api import *
 from .get_static_site import *
+from .get_static_site_custom_domain import *
+from .get_static_site_private_endpoint_connection import *
+from .get_static_site_user_provided_function_app_for_static_site import *
+from .get_static_site_user_provided_function_app_for_static_site_build import *
 from .get_web_app import *
 from .get_web_app_deployment import *
 from .get_web_app_deployment_slot import *
@@ -33,6 +39,7 @@ from .get_web_app_instance_function_slot import *
 from .get_web_app_premier_add_on import *
 from .get_web_app_premier_add_on_slot import *
 from .get_web_app_private_endpoint_connection import *
+from .get_web_app_private_endpoint_connection_slot import *
 from .get_web_app_public_certificate import *
 from .get_web_app_public_certificate_slot import *
 from .get_web_app_relay_service_connection import *
@@ -51,7 +58,10 @@ from .list_app_service_plan_hybrid_connection_keys import *
 from .list_connection_consent_links import *
 from .list_custom_api_wsdl_interfaces import *
 from .list_site_identifiers_assigned_to_host_name import *
+from .list_static_site_app_settings import *
+from .list_static_site_build_app_settings import *
 from .list_static_site_build_function_app_settings import *
+from .list_static_site_configured_roles import *
 from .list_static_site_function_app_settings import *
 from .list_static_site_secrets import *
 from .list_static_site_users import *
@@ -86,6 +96,10 @@ from .list_web_app_site_push_settings_slot import *
 from .list_web_app_sync_function_triggers import *
 from .list_web_app_sync_function_triggers_slot import *
 from .static_site import *
+from .static_site_custom_domain import *
+from .static_site_private_endpoint_connection import *
+from .static_site_user_provided_function_app_for_static_site import *
+from .static_site_user_provided_function_app_for_static_site_build import *
 from .web_app import *
 from .web_app_application_settings import *
 from .web_app_application_settings_slot import *
@@ -115,6 +129,7 @@ from .web_app_metadata_slot import *
 from .web_app_premier_add_on import *
 from .web_app_premier_add_on_slot import *
 from .web_app_private_endpoint_connection import *
+from .web_app_private_endpoint_connection_slot import *
 from .web_app_public_certificate import *
 from .web_app_public_certificate_slot import *
 from .web_app_relay_service_connection import *
@@ -148,6 +163,8 @@ def _register_module():
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
             if typ == "azure-native:web/latest:AppServiceEnvironment":
                 return AppServiceEnvironment(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:web/latest:AppServiceEnvironmentPrivateEndpointConnection":
+                return AppServiceEnvironmentPrivateEndpointConnection(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:web/latest:AppServicePlan":
                 return AppServicePlan(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:web/latest:AppServicePlanRouteForVnet":
@@ -162,6 +179,14 @@ def _register_module():
                 return CustomApi(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:web/latest:StaticSite":
                 return StaticSite(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:web/latest:StaticSiteCustomDomain":
+                return StaticSiteCustomDomain(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:web/latest:StaticSitePrivateEndpointConnection":
+                return StaticSitePrivateEndpointConnection(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:web/latest:StaticSiteUserProvidedFunctionAppForStaticSite":
+                return StaticSiteUserProvidedFunctionAppForStaticSite(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:web/latest:StaticSiteUserProvidedFunctionAppForStaticSiteBuild":
+                return StaticSiteUserProvidedFunctionAppForStaticSiteBuild(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:web/latest:WebApp":
                 return WebApp(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:web/latest:WebAppApplicationSettings":
@@ -220,6 +245,8 @@ def _register_module():
                 return WebAppPremierAddOnSlot(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:web/latest:WebAppPrivateEndpointConnection":
                 return WebAppPrivateEndpointConnection(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:web/latest:WebAppPrivateEndpointConnectionSlot":
+                return WebAppPrivateEndpointConnectionSlot(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:web/latest:WebAppPublicCertificate":
                 return WebAppPublicCertificate(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:web/latest:WebAppPublicCertificateSlot":

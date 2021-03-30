@@ -8,7 +8,7 @@ import (
 )
 
 // Slot Config names azure resource.
-// API Version: 2020-10-01.
+// API Version: 2020-12-01.
 func LookupWebAppSlotConfigurationNames(ctx *pulumi.Context, args *LookupWebAppSlotConfigurationNamesArgs, opts ...pulumi.InvokeOption) (*LookupWebAppSlotConfigurationNamesResult, error) {
 	var rv LookupWebAppSlotConfigurationNamesResult
 	err := ctx.Invoke("azure-native:web:getWebAppSlotConfigurationNames", args, &rv, opts...)
@@ -39,8 +39,6 @@ type LookupWebAppSlotConfigurationNamesResult struct {
 	Kind *string `pulumi:"kind"`
 	// Resource Name.
 	Name string `pulumi:"name"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }

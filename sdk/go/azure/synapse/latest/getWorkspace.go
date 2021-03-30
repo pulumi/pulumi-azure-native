@@ -53,12 +53,12 @@ type LookupWorkspaceResult struct {
 	ManagedVirtualNetworkSettings *ManagedVirtualNetworkSettingsResponse `pulumi:"managedVirtualNetworkSettings"`
 	// The name of the resource
 	Name string `pulumi:"name"`
-	// Network Settings
-	NetworkSettings *NetworkSettingsResponse `pulumi:"networkSettings"`
 	// Private endpoint connections to the workspace
 	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
 	// Resource provisioning state
 	ProvisioningState string `pulumi:"provisioningState"`
+	// Enable or Disable pubic network access to workspace
+	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// Purview Configuration
 	PurviewConfiguration *PurviewConfigurationResponse `pulumi:"purviewConfiguration"`
 	// Login for workspace SQL active directory administrator

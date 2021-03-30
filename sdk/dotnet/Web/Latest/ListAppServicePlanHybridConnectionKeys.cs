@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Web.Latest
     {
         /// <summary>
         /// Hybrid Connection key contract. This has the send key name and value for a Hybrid Connection.
-        /// Latest API Version: 2020-10-01.
+        /// Latest API Version: 2020-12-01.
         /// </summary>
         public static Task<ListAppServicePlanHybridConnectionKeysResult> InvokeAsync(ListAppServicePlanHybridConnectionKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListAppServicePlanHybridConnectionKeysResult>("azure-native:web/latest:listAppServicePlanHybridConnectionKeys", args ?? new ListAppServicePlanHybridConnectionKeysArgs(), options.WithVersion());
@@ -77,10 +77,6 @@ namespace Pulumi.AzureNative.Web.Latest
         /// </summary>
         public readonly string SendKeyValue;
         /// <summary>
-        /// The system metadata relating to this resource.
-        /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
-        /// <summary>
         /// Resource type.
         /// </summary>
         public readonly string Type;
@@ -97,8 +93,6 @@ namespace Pulumi.AzureNative.Web.Latest
 
             string sendKeyValue,
 
-            Outputs.SystemDataResponse systemData,
-
             string type)
         {
             Id = id;
@@ -106,7 +100,6 @@ namespace Pulumi.AzureNative.Web.Latest
             Name = name;
             SendKeyName = sendKeyName;
             SendKeyValue = sendKeyValue;
-            SystemData = systemData;
             Type = type;
         }
     }

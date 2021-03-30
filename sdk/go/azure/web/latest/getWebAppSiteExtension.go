@@ -8,7 +8,7 @@ import (
 )
 
 // Site Extension Information.
-// Latest API Version: 2020-10-01.
+// Latest API Version: 2020-12-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getWebAppSiteExtension'.
 func LookupWebAppSiteExtension(ctx *pulumi.Context, args *LookupWebAppSiteExtensionArgs, opts ...pulumi.InvokeOption) (*LookupWebAppSiteExtensionResult, error) {
@@ -73,9 +73,7 @@ type LookupWebAppSiteExtensionResult struct {
 	PublishedDateTime *string `pulumi:"publishedDateTime"`
 	// Summary description.
 	Summary *string `pulumi:"summary"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	Title      *string            `pulumi:"title"`
+	Title   *string `pulumi:"title"`
 	// Resource type.
 	Type string `pulumi:"type"`
 	// Version information.

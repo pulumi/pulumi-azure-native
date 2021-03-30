@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Configuration settings for the Azure App Service Authentication / Authorization feature.
- * Latest API Version: 2020-10-01.
+ * Latest API Version: 2020-12-01.
  */
 /** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listWebAppAuthSettings'. */
 export function listWebAppAuthSettings(args: ListWebAppAuthSettingsArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppAuthSettingsResult> {
@@ -89,6 +89,11 @@ export interface ListWebAppAuthSettingsResult {
      * The app setting name that contains the client secret of the relying party application.
      */
     readonly clientSecretSettingName?: string;
+    /**
+     * The ConfigVersion of the Authentication / Authorization feature in use for the current app.
+     * The setting in this value can control the behavior of the control plane for Authentication / Authorization.
+     */
+    readonly configVersion?: string;
     /**
      * The default authentication provider to use when multiple providers are configured.
      * This setting is only needed if multiple providers are configured and the unauthenticated client
@@ -216,10 +221,6 @@ export interface ListWebAppAuthSettingsResult {
      * The setting in this value can control the behavior of certain features in the Authentication / Authorization module.
      */
     readonly runtimeVersion?: string;
-    /**
-     * The system metadata relating to this resource.
-     */
-    readonly systemData: outputs.web.latest.SystemDataResponse;
     /**
      * The number of hours after session token expiration that a session token can be used to
      * call the token refresh API. The default is 72 hours.

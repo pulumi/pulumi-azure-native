@@ -7,7 +7,6 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
-from . import outputs
 
 __all__ = ['WebAppPremierAddOn']
 
@@ -32,7 +31,7 @@ class WebAppPremierAddOn(pulumi.CustomResource):
                  __opts__=None):
         """
         Premier add-on.
-        API Version: 2020-10-01.
+        API Version: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -80,9 +79,8 @@ class WebAppPremierAddOn(pulumi.CustomResource):
             __props__['sku'] = sku
             __props__['tags'] = tags
             __props__['vendor'] = vendor
-            __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web:WebAppPremierAddOn"), pulumi.Alias(type_="azure-native:web/latest:WebAppPremierAddOn"), pulumi.Alias(type_="azure-nextgen:web/latest:WebAppPremierAddOn"), pulumi.Alias(type_="azure-native:web/v20150801:WebAppPremierAddOn"), pulumi.Alias(type_="azure-nextgen:web/v20150801:WebAppPremierAddOn"), pulumi.Alias(type_="azure-native:web/v20160801:WebAppPremierAddOn"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppPremierAddOn"), pulumi.Alias(type_="azure-native:web/v20180201:WebAppPremierAddOn"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppPremierAddOn"), pulumi.Alias(type_="azure-native:web/v20181101:WebAppPremierAddOn"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppPremierAddOn"), pulumi.Alias(type_="azure-native:web/v20190801:WebAppPremierAddOn"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppPremierAddOn"), pulumi.Alias(type_="azure-native:web/v20200601:WebAppPremierAddOn"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppPremierAddOn"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppPremierAddOn"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppPremierAddOn"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppPremierAddOn"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppPremierAddOn")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web:WebAppPremierAddOn"), pulumi.Alias(type_="azure-native:web/latest:WebAppPremierAddOn"), pulumi.Alias(type_="azure-nextgen:web/latest:WebAppPremierAddOn"), pulumi.Alias(type_="azure-native:web/v20150801:WebAppPremierAddOn"), pulumi.Alias(type_="azure-nextgen:web/v20150801:WebAppPremierAddOn"), pulumi.Alias(type_="azure-native:web/v20160801:WebAppPremierAddOn"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppPremierAddOn"), pulumi.Alias(type_="azure-native:web/v20180201:WebAppPremierAddOn"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppPremierAddOn"), pulumi.Alias(type_="azure-native:web/v20181101:WebAppPremierAddOn"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppPremierAddOn"), pulumi.Alias(type_="azure-native:web/v20190801:WebAppPremierAddOn"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppPremierAddOn"), pulumi.Alias(type_="azure-native:web/v20200601:WebAppPremierAddOn"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppPremierAddOn"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppPremierAddOn"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppPremierAddOn"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppPremierAddOn"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppPremierAddOn"), pulumi.Alias(type_="azure-native:web/v20201201:WebAppPremierAddOn"), pulumi.Alias(type_="azure-nextgen:web/v20201201:WebAppPremierAddOn")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppPremierAddOn, __self__).__init__(
             'azure-native:web:WebAppPremierAddOn',
@@ -113,7 +111,6 @@ class WebAppPremierAddOn(pulumi.CustomResource):
         __props__["name"] = None
         __props__["product"] = None
         __props__["sku"] = None
-        __props__["system_data"] = None
         __props__["tags"] = None
         __props__["type"] = None
         __props__["vendor"] = None
@@ -174,14 +171,6 @@ class WebAppPremierAddOn(pulumi.CustomResource):
         Premier add on SKU.
         """
         return pulumi.get(self, "sku")
-
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
-        """
-        The system metadata relating to this resource.
-        """
-        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

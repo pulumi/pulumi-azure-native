@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['StaticSite']
@@ -19,6 +20,7 @@ class StaticSite(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  branch: Optional[pulumi.Input[str]] = None,
                  build_properties: Optional[pulumi.Input[pulumi.InputType['StaticSiteBuildPropertiesArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -27,17 +29,19 @@ class StaticSite(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuDescriptionArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 template_properties: Optional[pulumi.Input[pulumi.InputType['StaticSiteTemplateOptionsArgs']]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
         """
         Static Site ARM resource.
-        API Version: 2020-10-01.
+        API Version: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] branch: The target branch in the repository.
         :param pulumi.Input[pulumi.InputType['StaticSiteBuildPropertiesArgs']] build_properties: Build properties to configure on the repository.
+        :param pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']] identity: Managed service identity.
         :param pulumi.Input[str] kind: Kind of resource.
         :param pulumi.Input[str] location: Resource Location.
         :param pulumi.Input[str] name: Name of the static site to create or update.
@@ -46,6 +50,7 @@ class StaticSite(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
         :param pulumi.Input[pulumi.InputType['SkuDescriptionArgs']] sku: Description of a SKU for a scalable resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input[pulumi.InputType['StaticSiteTemplateOptionsArgs']] template_properties: Template options for generating a new repository.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -66,6 +71,7 @@ class StaticSite(pulumi.CustomResource):
 
             __props__['branch'] = branch
             __props__['build_properties'] = build_properties
+            __props__['identity'] = identity
             __props__['kind'] = kind
             __props__['location'] = location
             __props__['name'] = name
@@ -76,11 +82,15 @@ class StaticSite(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['sku'] = sku
             __props__['tags'] = tags
+            __props__['template_properties'] = template_properties
+            __props__['content_distribution_endpoint'] = None
             __props__['custom_domains'] = None
             __props__['default_hostname'] = None
-            __props__['system_data'] = None
+            __props__['key_vault_reference_identity'] = None
+            __props__['provider'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web:StaticSite"), pulumi.Alias(type_="azure-native:web/latest:StaticSite"), pulumi.Alias(type_="azure-nextgen:web/latest:StaticSite"), pulumi.Alias(type_="azure-native:web/v20190801:StaticSite"), pulumi.Alias(type_="azure-nextgen:web/v20190801:StaticSite"), pulumi.Alias(type_="azure-native:web/v20200601:StaticSite"), pulumi.Alias(type_="azure-nextgen:web/v20200601:StaticSite"), pulumi.Alias(type_="azure-native:web/v20200901:StaticSite"), pulumi.Alias(type_="azure-nextgen:web/v20200901:StaticSite"), pulumi.Alias(type_="azure-native:web/v20201001:StaticSite"), pulumi.Alias(type_="azure-nextgen:web/v20201001:StaticSite")])
+            __props__['user_provided_function_apps'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web:StaticSite"), pulumi.Alias(type_="azure-native:web/latest:StaticSite"), pulumi.Alias(type_="azure-nextgen:web/latest:StaticSite"), pulumi.Alias(type_="azure-native:web/v20190801:StaticSite"), pulumi.Alias(type_="azure-nextgen:web/v20190801:StaticSite"), pulumi.Alias(type_="azure-native:web/v20200601:StaticSite"), pulumi.Alias(type_="azure-nextgen:web/v20200601:StaticSite"), pulumi.Alias(type_="azure-native:web/v20200901:StaticSite"), pulumi.Alias(type_="azure-nextgen:web/v20200901:StaticSite"), pulumi.Alias(type_="azure-native:web/v20201001:StaticSite"), pulumi.Alias(type_="azure-nextgen:web/v20201001:StaticSite"), pulumi.Alias(type_="azure-native:web/v20201201:StaticSite"), pulumi.Alias(type_="azure-nextgen:web/v20201201:StaticSite")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(StaticSite, __self__).__init__(
             'azure-native:web:StaticSite',
@@ -106,17 +116,22 @@ class StaticSite(pulumi.CustomResource):
 
         __props__["branch"] = None
         __props__["build_properties"] = None
+        __props__["content_distribution_endpoint"] = None
         __props__["custom_domains"] = None
         __props__["default_hostname"] = None
+        __props__["identity"] = None
+        __props__["key_vault_reference_identity"] = None
         __props__["kind"] = None
         __props__["location"] = None
         __props__["name"] = None
+        __props__["provider"] = None
         __props__["repository_token"] = None
         __props__["repository_url"] = None
         __props__["sku"] = None
-        __props__["system_data"] = None
         __props__["tags"] = None
+        __props__["template_properties"] = None
         __props__["type"] = None
+        __props__["user_provided_function_apps"] = None
         return StaticSite(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -136,6 +151,14 @@ class StaticSite(pulumi.CustomResource):
         return pulumi.get(self, "build_properties")
 
     @property
+    @pulumi.getter(name="contentDistributionEndpoint")
+    def content_distribution_endpoint(self) -> pulumi.Output[str]:
+        """
+        The content distribution endpoint for the static site.
+        """
+        return pulumi.get(self, "content_distribution_endpoint")
+
+    @property
     @pulumi.getter(name="customDomains")
     def custom_domains(self) -> pulumi.Output[Sequence[str]]:
         """
@@ -150,6 +173,22 @@ class StaticSite(pulumi.CustomResource):
         The default autogenerated hostname for the static site.
         """
         return pulumi.get(self, "default_hostname")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.ManagedServiceIdentityResponse']]:
+        """
+        Managed service identity.
+        """
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter(name="keyVaultReferenceIdentity")
+    def key_vault_reference_identity(self) -> pulumi.Output[str]:
+        """
+        Identity to use for Key Vault Reference authentication.
+        """
+        return pulumi.get(self, "key_vault_reference_identity")
 
     @property
     @pulumi.getter
@@ -176,6 +215,14 @@ class StaticSite(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter
+    def provider(self) -> pulumi.Output[str]:
+        """
+        The provider that submitted the last deployment to the primary environment of the static site.
+        """
+        return pulumi.get(self, "provider")
+
+    @property
     @pulumi.getter(name="repositoryToken")
     def repository_token(self) -> pulumi.Output[Optional[str]]:
         """
@@ -200,14 +247,6 @@ class StaticSite(pulumi.CustomResource):
         return pulumi.get(self, "sku")
 
     @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
-        """
-        The system metadata relating to this resource.
-        """
-        return pulumi.get(self, "system_data")
-
-    @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
@@ -216,12 +255,28 @@ class StaticSite(pulumi.CustomResource):
         return pulumi.get(self, "tags")
 
     @property
+    @pulumi.getter(name="templateProperties")
+    def template_properties(self) -> pulumi.Output[Optional['outputs.StaticSiteTemplateOptionsResponse']]:
+        """
+        Template options for generating a new repository.
+        """
+        return pulumi.get(self, "template_properties")
+
+    @property
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
         Resource type.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userProvidedFunctionApps")
+    def user_provided_function_apps(self) -> pulumi.Output[Sequence['outputs.StaticSiteUserProvidedFunctionAppResponse']]:
+        """
+        User provided function apps registered with the static site
+        """
+        return pulumi.get(self, "user_provided_function_apps")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

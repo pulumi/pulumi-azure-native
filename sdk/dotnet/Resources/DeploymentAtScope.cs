@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Resources
 {
     /// <summary>
     /// Deployment information.
-    /// API Version: 2020-10-01.
+    /// API Version: 2021-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:resources:DeploymentAtScope")]
     public partial class DeploymentAtScope : Pulumi.CustomResource
@@ -86,6 +86,8 @@ namespace Pulumi.AzureNative.Resources
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20200801:DeploymentAtScope"},
                     new Pulumi.Alias { Type = "azure-native:resources/v20201001:DeploymentAtScope"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20201001:DeploymentAtScope"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20210101:DeploymentAtScope"},
+                    new Pulumi.Alias { Type = "azure-nextgen:resources/v20210101:DeploymentAtScope"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

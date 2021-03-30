@@ -8,7 +8,7 @@ import (
 )
 
 // String dictionary resource.
-// API Version: 2020-10-01.
+// API Version: 2020-12-01.
 func ListWebAppMetadataSlot(ctx *pulumi.Context, args *ListWebAppMetadataSlotArgs, opts ...pulumi.InvokeOption) (*ListWebAppMetadataSlotResult, error) {
 	var rv ListWebAppMetadataSlotResult
 	err := ctx.Invoke("azure-native:web:listWebAppMetadataSlot", args, &rv, opts...)
@@ -37,8 +37,6 @@ type ListWebAppMetadataSlotResult struct {
 	Name string `pulumi:"name"`
 	// Settings.
 	Properties map[string]string `pulumi:"properties"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }

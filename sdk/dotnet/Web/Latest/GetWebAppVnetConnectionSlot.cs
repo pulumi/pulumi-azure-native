@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Web.Latest
     {
         /// <summary>
         /// Virtual Network information contract.
-        /// Latest API Version: 2020-10-01.
+        /// Latest API Version: 2020-12-01.
         /// </summary>
         public static Task<GetWebAppVnetConnectionSlotResult> InvokeAsync(GetWebAppVnetConnectionSlotArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppVnetConnectionSlotResult>("azure-native:web/latest:getWebAppVnetConnectionSlot", args ?? new GetWebAppVnetConnectionSlotArgs(), options.WithVersion());
@@ -94,10 +94,6 @@ namespace Pulumi.AzureNative.Web.Latest
         /// </summary>
         public readonly ImmutableArray<Outputs.VnetRouteResponse> Routes;
         /// <summary>
-        /// The system metadata relating to this resource.
-        /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
-        /// <summary>
         /// Resource type.
         /// </summary>
         public readonly string Type;
@@ -126,8 +122,6 @@ namespace Pulumi.AzureNative.Web.Latest
 
             ImmutableArray<Outputs.VnetRouteResponse> routes,
 
-            Outputs.SystemDataResponse systemData,
-
             string type,
 
             string? vnetResourceId)
@@ -141,7 +135,6 @@ namespace Pulumi.AzureNative.Web.Latest
             Name = name;
             ResyncRequired = resyncRequired;
             Routes = routes;
-            SystemData = systemData;
             Type = type;
             VnetResourceId = vnetResourceId;
         }

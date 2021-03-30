@@ -29,10 +29,6 @@ namespace Pulumi.AzureNative.Web.Latest.Outputs
         public readonly string Name;
         public readonly Outputs.OpenIdConnectConfigResponse? OpenIdConnectConfiguration;
         /// <summary>
-        /// The system metadata relating to this resource.
-        /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
-        /// <summary>
         /// Resource type.
         /// </summary>
         public readonly string Type;
@@ -51,8 +47,6 @@ namespace Pulumi.AzureNative.Web.Latest.Outputs
 
             Outputs.OpenIdConnectConfigResponse? openIdConnectConfiguration,
 
-            Outputs.SystemDataResponse systemData,
-
             string type)
         {
             ClientCredential = clientCredential;
@@ -61,7 +55,6 @@ namespace Pulumi.AzureNative.Web.Latest.Outputs
             Kind = kind;
             Name = name;
             OpenIdConnectConfiguration = openIdConnectConfiguration;
-            SystemData = systemData;
             Type = type;
         }
     }

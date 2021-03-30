@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Static Site ARM resource.
- * Latest API Version: 2020-10-01.
+ * Latest API Version: 2020-12-01.
  */
 /** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getStaticSite'. */
 export function getStaticSite(args: GetStaticSiteArgs, opts?: pulumi.InvokeOptions): Promise<GetStaticSiteResult> {
@@ -49,6 +49,10 @@ export interface GetStaticSiteResult {
      */
     readonly buildProperties?: outputs.web.latest.StaticSiteBuildPropertiesResponse;
     /**
+     * The content distribution endpoint for the static site.
+     */
+    readonly contentDistributionEndpoint: string;
+    /**
      * The custom domains associated with this static site.
      */
     readonly customDomains: string[];
@@ -60,6 +64,14 @@ export interface GetStaticSiteResult {
      * Resource Id.
      */
     readonly id: string;
+    /**
+     * Managed service identity.
+     */
+    readonly identity?: outputs.web.latest.ManagedServiceIdentityResponse;
+    /**
+     * Identity to use for Key Vault Reference authentication.
+     */
+    readonly keyVaultReferenceIdentity: string;
     /**
      * Kind of resource.
      */
@@ -73,6 +85,10 @@ export interface GetStaticSiteResult {
      */
     readonly name: string;
     /**
+     * The provider that submitted the last deployment to the primary environment of the static site.
+     */
+    readonly provider: string;
+    /**
      * A user's github repository token. This is used to setup the Github Actions workflow file and API secrets.
      */
     readonly repositoryToken?: string;
@@ -85,15 +101,19 @@ export interface GetStaticSiteResult {
      */
     readonly sku?: outputs.web.latest.SkuDescriptionResponse;
     /**
-     * The system metadata relating to this resource.
-     */
-    readonly systemData: outputs.web.latest.SystemDataResponse;
-    /**
      * Resource tags.
      */
     readonly tags?: {[key: string]: string};
     /**
+     * Template options for generating a new repository.
+     */
+    readonly templateProperties?: outputs.web.latest.StaticSiteTemplateOptionsResponse;
+    /**
      * Resource type.
      */
     readonly type: string;
+    /**
+     * User provided function apps registered with the static site
+     */
+    readonly userProvidedFunctionApps: outputs.web.latest.StaticSiteUserProvidedFunctionAppResponse[];
 }

@@ -12,7 +12,7 @@ import (
 )
 
 // Virtual Network information contract.
-// Latest API Version: 2020-10-01.
+// Latest API Version: 2020-12-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppVnetConnection'.
 type WebAppVnetConnection struct {
@@ -35,8 +35,6 @@ type WebAppVnetConnection struct {
 	ResyncRequired pulumi.BoolOutput `pulumi:"resyncRequired"`
 	// The routes that this Virtual Network connection uses.
 	Routes VnetRouteResponseArrayOutput `pulumi:"routes"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 	// The Virtual Network's resource ID.
@@ -114,6 +112,12 @@ func NewWebAppVnetConnection(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppVnetConnection"),
 		},
+		{
+			Type: pulumi.String("azure-native:web/v20201201:WebAppVnetConnection"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20201201:WebAppVnetConnection"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource WebAppVnetConnection
@@ -155,8 +159,6 @@ type webAppVnetConnectionState struct {
 	ResyncRequired *bool `pulumi:"resyncRequired"`
 	// The routes that this Virtual Network connection uses.
 	Routes []VnetRouteResponse `pulumi:"routes"`
-	// The system metadata relating to this resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type *string `pulumi:"type"`
 	// The Virtual Network's resource ID.
@@ -181,8 +183,6 @@ type WebAppVnetConnectionState struct {
 	ResyncRequired pulumi.BoolPtrInput
 	// The routes that this Virtual Network connection uses.
 	Routes VnetRouteResponseArrayInput
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponsePtrInput
 	// Resource type.
 	Type pulumi.StringPtrInput
 	// The Virtual Network's resource ID.

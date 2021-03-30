@@ -8,7 +8,7 @@ import (
 )
 
 // Configuration settings for the Azure App Service Authentication / Authorization feature.
-// API Version: 2020-10-01.
+// API Version: 2020-12-01.
 func ListWebAppAuthSettingsSlot(ctx *pulumi.Context, args *ListWebAppAuthSettingsSlotArgs, opts ...pulumi.InvokeOption) (*ListWebAppAuthSettingsSlotResult, error) {
 	var rv ListWebAppAuthSettingsSlotResult
 	err := ctx.Invoke("azure-native:web:listWebAppAuthSettingsSlot", args, &rv, opts...)
@@ -60,6 +60,9 @@ type ListWebAppAuthSettingsSlotResult struct {
 	ClientSecretCertificateThumbprint *string `pulumi:"clientSecretCertificateThumbprint"`
 	// The app setting name that contains the client secret of the relying party application.
 	ClientSecretSettingName *string `pulumi:"clientSecretSettingName"`
+	// The ConfigVersion of the Authentication / Authorization feature in use for the current app.
+	// The setting in this value can control the behavior of the control plane for Authentication / Authorization.
+	ConfigVersion *string `pulumi:"configVersion"`
 	// The default authentication provider to use when multiple providers are configured.
 	// This setting is only needed if multiple providers are configured and the unauthenticated client
 	// action is set to "RedirectToLoginPage".
@@ -139,8 +142,6 @@ type ListWebAppAuthSettingsSlotResult struct {
 	// The RuntimeVersion of the Authentication / Authorization feature in use for the current app.
 	// The setting in this value can control the behavior of certain features in the Authentication / Authorization module.
 	RuntimeVersion *string `pulumi:"runtimeVersion"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The number of hours after session token expiration that a session token can be used to
 	// call the token refresh API. The default is 72 hours.
 	TokenRefreshExtensionHours *float64 `pulumi:"tokenRefreshExtensionHours"`

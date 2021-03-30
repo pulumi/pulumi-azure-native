@@ -71,7 +71,7 @@ def list_web_app_host_keys(name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppHostKeysResult:
     """
     Functions host level keys.
-    API Version: 2020-10-01.
+    API Version: 2020-12-01.
 
 
     :param str name: Site name.

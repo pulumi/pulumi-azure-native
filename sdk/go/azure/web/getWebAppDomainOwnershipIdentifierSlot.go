@@ -8,7 +8,7 @@ import (
 )
 
 // A domain specific resource identifier.
-// API Version: 2020-10-01.
+// API Version: 2020-12-01.
 func LookupWebAppDomainOwnershipIdentifierSlot(ctx *pulumi.Context, args *LookupWebAppDomainOwnershipIdentifierSlotArgs, opts ...pulumi.InvokeOption) (*LookupWebAppDomainOwnershipIdentifierSlotResult, error) {
 	var rv LookupWebAppDomainOwnershipIdentifierSlotResult
 	err := ctx.Invoke("azure-native:web:getWebAppDomainOwnershipIdentifierSlot", args, &rv, opts...)
@@ -37,8 +37,6 @@ type LookupWebAppDomainOwnershipIdentifierSlotResult struct {
 	Kind *string `pulumi:"kind"`
 	// Resource Name.
 	Name string `pulumi:"name"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type string `pulumi:"type"`
 	// String representation of the identity.

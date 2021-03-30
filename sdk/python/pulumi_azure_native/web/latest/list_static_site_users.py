@@ -63,7 +63,7 @@ def list_static_site_users(authprovider: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListStaticSiteUsersResult:
     """
     Collection of static site custom users.
-    Latest API Version: 2020-10-01.
+    Latest API Version: 2020-12-01.
 
 
     :param str authprovider: The auth provider for the users.

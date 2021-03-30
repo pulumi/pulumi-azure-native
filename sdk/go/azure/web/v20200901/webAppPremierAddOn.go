@@ -110,6 +110,12 @@ func NewWebAppPremierAddOn(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppPremierAddOn"),
 		},
+		{
+			Type: pulumi.String("azure-native:web/v20201201:WebAppPremierAddOn"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20201201:WebAppPremierAddOn"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource WebAppPremierAddOn

@@ -110,7 +110,7 @@ def get_deployment(deployment_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDeploymentResult:
     """
     Deployment information.
-    Latest API Version: 2020-10-01.
+    Latest API Version: 2021-01-01.
 
 
     :param str deployment_name: The name of the deployment.

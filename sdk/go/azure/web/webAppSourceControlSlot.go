@@ -12,7 +12,7 @@ import (
 )
 
 // Source control configuration for an app.
-// API Version: 2020-10-01.
+// API Version: 2020-12-01.
 type WebAppSourceControlSlot struct {
 	pulumi.CustomResourceState
 
@@ -20,6 +20,8 @@ type WebAppSourceControlSlot struct {
 	Branch pulumi.StringPtrOutput `pulumi:"branch"`
 	// <code>true</code> to enable deployment rollback; otherwise, <code>false</code>.
 	DeploymentRollbackEnabled pulumi.BoolPtrOutput `pulumi:"deploymentRollbackEnabled"`
+	// If GitHub Action is selected, than the associated configuration.
+	GitHubActionConfiguration GitHubActionConfigurationResponsePtrOutput `pulumi:"gitHubActionConfiguration"`
 	// <code>true</code> if this is deployed via GitHub action.
 	IsGitHubAction pulumi.BoolPtrOutput `pulumi:"isGitHubAction"`
 	// <code>true</code> to limit to manual integration; <code>false</code> to enable continuous integration (which configures webhooks into online repos like GitHub).
@@ -32,8 +34,6 @@ type WebAppSourceControlSlot struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Repository or source control URL.
 	RepoUrl pulumi.StringPtrOutput `pulumi:"repoUrl"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -112,6 +112,12 @@ func NewWebAppSourceControlSlot(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppSourceControlSlot"),
 		},
+		{
+			Type: pulumi.String("azure-native:web/v20201201:WebAppSourceControlSlot"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20201201:WebAppSourceControlSlot"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource WebAppSourceControlSlot
@@ -140,6 +146,8 @@ type webAppSourceControlSlotState struct {
 	Branch *string `pulumi:"branch"`
 	// <code>true</code> to enable deployment rollback; otherwise, <code>false</code>.
 	DeploymentRollbackEnabled *bool `pulumi:"deploymentRollbackEnabled"`
+	// If GitHub Action is selected, than the associated configuration.
+	GitHubActionConfiguration *GitHubActionConfigurationResponse `pulumi:"gitHubActionConfiguration"`
 	// <code>true</code> if this is deployed via GitHub action.
 	IsGitHubAction *bool `pulumi:"isGitHubAction"`
 	// <code>true</code> to limit to manual integration; <code>false</code> to enable continuous integration (which configures webhooks into online repos like GitHub).
@@ -152,8 +160,6 @@ type webAppSourceControlSlotState struct {
 	Name *string `pulumi:"name"`
 	// Repository or source control URL.
 	RepoUrl *string `pulumi:"repoUrl"`
-	// The system metadata relating to this resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type *string `pulumi:"type"`
 }
@@ -163,6 +169,8 @@ type WebAppSourceControlSlotState struct {
 	Branch pulumi.StringPtrInput
 	// <code>true</code> to enable deployment rollback; otherwise, <code>false</code>.
 	DeploymentRollbackEnabled pulumi.BoolPtrInput
+	// If GitHub Action is selected, than the associated configuration.
+	GitHubActionConfiguration GitHubActionConfigurationResponsePtrInput
 	// <code>true</code> if this is deployed via GitHub action.
 	IsGitHubAction pulumi.BoolPtrInput
 	// <code>true</code> to limit to manual integration; <code>false</code> to enable continuous integration (which configures webhooks into online repos like GitHub).
@@ -175,8 +183,6 @@ type WebAppSourceControlSlotState struct {
 	Name pulumi.StringPtrInput
 	// Repository or source control URL.
 	RepoUrl pulumi.StringPtrInput
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponsePtrInput
 	// Resource type.
 	Type pulumi.StringPtrInput
 }
@@ -190,6 +196,8 @@ type webAppSourceControlSlotArgs struct {
 	Branch *string `pulumi:"branch"`
 	// <code>true</code> to enable deployment rollback; otherwise, <code>false</code>.
 	DeploymentRollbackEnabled *bool `pulumi:"deploymentRollbackEnabled"`
+	// If GitHub Action is selected, than the associated configuration.
+	GitHubActionConfiguration *GitHubActionConfiguration `pulumi:"gitHubActionConfiguration"`
 	// <code>true</code> if this is deployed via GitHub action.
 	IsGitHubAction *bool `pulumi:"isGitHubAction"`
 	// <code>true</code> to limit to manual integration; <code>false</code> to enable continuous integration (which configures webhooks into online repos like GitHub).
@@ -214,6 +222,8 @@ type WebAppSourceControlSlotArgs struct {
 	Branch pulumi.StringPtrInput
 	// <code>true</code> to enable deployment rollback; otherwise, <code>false</code>.
 	DeploymentRollbackEnabled pulumi.BoolPtrInput
+	// If GitHub Action is selected, than the associated configuration.
+	GitHubActionConfiguration GitHubActionConfigurationPtrInput
 	// <code>true</code> if this is deployed via GitHub action.
 	IsGitHubAction pulumi.BoolPtrInput
 	// <code>true</code> to limit to manual integration; <code>false</code> to enable continuous integration (which configures webhooks into online repos like GitHub).

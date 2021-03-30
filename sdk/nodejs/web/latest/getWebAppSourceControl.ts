@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Source control configuration for an app.
- * Latest API Version: 2020-10-01.
+ * Latest API Version: 2020-12-01.
  */
 /** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getWebAppSourceControl'. */
 export function getWebAppSourceControl(args: GetWebAppSourceControlArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppSourceControlResult> {
@@ -49,6 +49,10 @@ export interface GetWebAppSourceControlResult {
      */
     readonly deploymentRollbackEnabled?: boolean;
     /**
+     * If GitHub Action is selected, than the associated configuration.
+     */
+    readonly gitHubActionConfiguration?: outputs.web.latest.GitHubActionConfigurationResponse;
+    /**
      * Resource Id.
      */
     readonly id: string;
@@ -76,10 +80,6 @@ export interface GetWebAppSourceControlResult {
      * Repository or source control URL.
      */
     readonly repoUrl?: string;
-    /**
-     * The system metadata relating to this resource.
-     */
-    readonly systemData: outputs.web.latest.SystemDataResponse;
     /**
      * Resource type.
      */

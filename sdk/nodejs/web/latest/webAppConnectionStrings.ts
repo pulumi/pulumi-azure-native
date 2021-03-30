@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * String dictionary resource.
- * Latest API Version: 2020-10-01.
+ * Latest API Version: 2020-12-01.
  *
  * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppConnectionStrings'.
  */
@@ -52,10 +52,6 @@ export class WebAppConnectionStrings extends pulumi.CustomResource {
      */
     public readonly properties!: pulumi.Output<{[key: string]: outputs.web.latest.ConnStringValueTypePairResponse}>;
     /**
-     * The system metadata relating to this resource.
-     */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.web.latest.SystemDataResponse>;
-    /**
      * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -83,19 +79,17 @@ export class WebAppConnectionStrings extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["kind"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["properties"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:WebAppConnectionStrings" }, { type: "azure-native:web:WebAppConnectionStrings" }, { type: "azure-nextgen:web:WebAppConnectionStrings" }, { type: "azure-native:web/v20150801:WebAppConnectionStrings" }, { type: "azure-nextgen:web/v20150801:WebAppConnectionStrings" }, { type: "azure-native:web/v20160801:WebAppConnectionStrings" }, { type: "azure-nextgen:web/v20160801:WebAppConnectionStrings" }, { type: "azure-native:web/v20180201:WebAppConnectionStrings" }, { type: "azure-nextgen:web/v20180201:WebAppConnectionStrings" }, { type: "azure-native:web/v20181101:WebAppConnectionStrings" }, { type: "azure-nextgen:web/v20181101:WebAppConnectionStrings" }, { type: "azure-native:web/v20190801:WebAppConnectionStrings" }, { type: "azure-nextgen:web/v20190801:WebAppConnectionStrings" }, { type: "azure-native:web/v20200601:WebAppConnectionStrings" }, { type: "azure-nextgen:web/v20200601:WebAppConnectionStrings" }, { type: "azure-native:web/v20200901:WebAppConnectionStrings" }, { type: "azure-nextgen:web/v20200901:WebAppConnectionStrings" }, { type: "azure-native:web/v20201001:WebAppConnectionStrings" }, { type: "azure-nextgen:web/v20201001:WebAppConnectionStrings" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:WebAppConnectionStrings" }, { type: "azure-native:web:WebAppConnectionStrings" }, { type: "azure-nextgen:web:WebAppConnectionStrings" }, { type: "azure-native:web/v20150801:WebAppConnectionStrings" }, { type: "azure-nextgen:web/v20150801:WebAppConnectionStrings" }, { type: "azure-native:web/v20160801:WebAppConnectionStrings" }, { type: "azure-nextgen:web/v20160801:WebAppConnectionStrings" }, { type: "azure-native:web/v20180201:WebAppConnectionStrings" }, { type: "azure-nextgen:web/v20180201:WebAppConnectionStrings" }, { type: "azure-native:web/v20181101:WebAppConnectionStrings" }, { type: "azure-nextgen:web/v20181101:WebAppConnectionStrings" }, { type: "azure-native:web/v20190801:WebAppConnectionStrings" }, { type: "azure-nextgen:web/v20190801:WebAppConnectionStrings" }, { type: "azure-native:web/v20200601:WebAppConnectionStrings" }, { type: "azure-nextgen:web/v20200601:WebAppConnectionStrings" }, { type: "azure-native:web/v20200901:WebAppConnectionStrings" }, { type: "azure-nextgen:web/v20200901:WebAppConnectionStrings" }, { type: "azure-native:web/v20201001:WebAppConnectionStrings" }, { type: "azure-nextgen:web/v20201001:WebAppConnectionStrings" }, { type: "azure-native:web/v20201201:WebAppConnectionStrings" }, { type: "azure-nextgen:web/v20201201:WebAppConnectionStrings" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebAppConnectionStrings.__pulumiType, name, inputs, opts);
     }

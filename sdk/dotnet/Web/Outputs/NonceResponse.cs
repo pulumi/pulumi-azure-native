@@ -27,10 +27,6 @@ namespace Pulumi.AzureNative.Web.Outputs
         public readonly string Name;
         public readonly string? NonceExpirationInterval;
         /// <summary>
-        /// The system metadata relating to this resource.
-        /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
-        /// <summary>
         /// Resource type.
         /// </summary>
         public readonly string Type;
@@ -46,8 +42,6 @@ namespace Pulumi.AzureNative.Web.Outputs
 
             string? nonceExpirationInterval,
 
-            Outputs.SystemDataResponse systemData,
-
             string type,
 
             bool? validateNonce)
@@ -56,7 +50,6 @@ namespace Pulumi.AzureNative.Web.Outputs
             Kind = kind;
             Name = name;
             NonceExpirationInterval = nonceExpirationInterval;
-            SystemData = systemData;
             Type = type;
             ValidateNonce = validateNonce;
         }

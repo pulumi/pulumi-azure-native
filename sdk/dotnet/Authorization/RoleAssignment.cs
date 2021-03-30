@@ -80,7 +80,7 @@ namespace Pulumi.AzureNative.Authorization
         /// The role assignment scope.
         /// </summary>
         [Output("scope")]
-        public Output<string?> Scope { get; private set; } = null!;
+        public Output<string> Scope { get; private set; } = null!;
 
         /// <summary>
         /// The role assignment type.
@@ -214,7 +214,7 @@ namespace Pulumi.AzureNative.Authorization
         public Input<string> RoleDefinitionId { get; set; } = null!;
 
         /// <summary>
-        /// The role assignment scope.
+        /// The scope of the operation or resource. Valid scopes are: subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
         /// </summary>
         [Input("scope", required: true)]
         public Input<string> Scope { get; set; } = null!;

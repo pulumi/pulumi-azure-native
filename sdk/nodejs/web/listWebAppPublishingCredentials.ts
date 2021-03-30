@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * User credentials used for publishing activity.
- * API Version: 2020-10-01.
+ * API Version: 2020-12-01.
  */
 export function listWebAppPublishingCredentials(args: ListWebAppPublishingCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppPublishingCredentialsResult> {
     if (!opts) {
@@ -70,10 +70,6 @@ export interface ListWebAppPublishingCredentialsResult {
      * Url of SCM site.
      */
     readonly scmUri?: string;
-    /**
-     * The system metadata relating to this resource.
-     */
-    readonly systemData: outputs.web.SystemDataResponse;
     /**
      * Resource type.
      */

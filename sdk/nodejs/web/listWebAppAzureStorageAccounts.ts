@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * AzureStorageInfo dictionary resource.
- * API Version: 2020-10-01.
+ * API Version: 2020-12-01.
  */
 export function listWebAppAzureStorageAccounts(args: ListWebAppAzureStorageAccountsArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppAzureStorageAccountsResult> {
     if (!opts) {
@@ -54,10 +54,6 @@ export interface ListWebAppAzureStorageAccountsResult {
      * Azure storage accounts.
      */
     readonly properties: {[key: string]: outputs.web.AzureStorageInfoValueResponse};
-    /**
-     * The system metadata relating to this resource.
-     */
-    readonly systemData: outputs.web.SystemDataResponse;
     /**
      * Resource type.
      */

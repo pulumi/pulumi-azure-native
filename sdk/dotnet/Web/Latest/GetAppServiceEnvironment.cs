@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Web.Latest
     {
         /// <summary>
         /// App Service Environment ARM resource.
-        /// Latest API Version: 2020-10-01.
+        /// Latest API Version: 2020-12-01.
         /// </summary>
         public static Task<GetAppServiceEnvironmentResult> InvokeAsync(GetAppServiceEnvironmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAppServiceEnvironmentResult>("azure-native:web/latest:getAppServiceEnvironment", args ?? new GetAppServiceEnvironmentArgs(), options.WithVersion());
@@ -45,54 +45,17 @@ namespace Pulumi.AzureNative.Web.Latest
     public sealed class GetAppServiceEnvironmentResult
     {
         /// <summary>
-        /// List of comma separated strings describing which VM sizes are allowed for front-ends.
-        /// </summary>
-        public readonly string AllowedMultiSizes;
-        /// <summary>
-        /// List of comma separated strings describing which VM sizes are allowed for workers.
-        /// </summary>
-        public readonly string AllowedWorkerSizes;
-        /// <summary>
-        /// API Management Account associated with the App Service Environment.
-        /// </summary>
-        public readonly string? ApiManagementAccountId;
-        /// <summary>
         /// Custom settings for changing the behavior of the App Service Environment.
         /// </summary>
         public readonly ImmutableArray<Outputs.NameValuePairResponse> ClusterSettings;
         /// <summary>
-        /// Edition of the metadata database for the App Service Environment, e.g. "Standard".
+        /// Dedicated Host Count
         /// </summary>
-        public readonly string DatabaseEdition;
-        /// <summary>
-        /// Service objective of the metadata database for the App Service Environment, e.g. "S0".
-        /// </summary>
-        public readonly string DatabaseServiceObjective;
-        /// <summary>
-        /// Default Scale Factor for FrontEnds.
-        /// </summary>
-        public readonly int DefaultFrontEndScaleFactor;
+        public readonly int DedicatedHostCount;
         /// <summary>
         /// DNS suffix of the App Service Environment.
         /// </summary>
         public readonly string? DnsSuffix;
-        /// <summary>
-        /// True/false indicating whether the App Service Environment is suspended. The environment can be suspended e.g. when the management endpoint is no longer available
-        /// (most likely because NSG blocked the incoming traffic).
-        /// </summary>
-        public readonly bool? DynamicCacheEnabled;
-        /// <summary>
-        /// Current total, used, and available worker capacities.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.StampCapacityResponse> EnvironmentCapacities;
-        /// <summary>
-        /// True/false indicating whether the App Service Environment is healthy.
-        /// </summary>
-        public readonly bool EnvironmentIsHealthy;
-        /// <summary>
-        /// Detailed message about with results of the last check of the App Service Environment.
-        /// </summary>
-        public readonly string EnvironmentStatus;
         /// <summary>
         /// Scale factor for front-ends.
         /// </summary>
@@ -100,7 +63,7 @@ namespace Pulumi.AzureNative.Web.Latest
         /// <summary>
         /// Flag that displays whether an ASE has linux workers or not
         /// </summary>
-        public readonly bool? HasLinuxWorkers;
+        public readonly bool HasLinuxWorkers;
         /// <summary>
         /// Resource Id.
         /// </summary>
@@ -118,14 +81,6 @@ namespace Pulumi.AzureNative.Web.Latest
         /// </summary>
         public readonly string? Kind;
         /// <summary>
-        /// Last deployment action on the App Service Environment.
-        /// </summary>
-        public readonly string LastAction;
-        /// <summary>
-        /// Result of the last deployment action on the App Service Environment.
-        /// </summary>
-        public readonly string LastActionResult;
-        /// <summary>
         /// Resource Location.
         /// </summary>
         public readonly string Location;
@@ -136,7 +91,7 @@ namespace Pulumi.AzureNative.Web.Latest
         /// <summary>
         /// Number of front-end instances.
         /// </summary>
-        public readonly int? MultiRoleCount;
+        public readonly int MultiRoleCount;
         /// <summary>
         /// Front-end VM size, e.g. "Medium", "Large".
         /// </summary>
@@ -146,42 +101,18 @@ namespace Pulumi.AzureNative.Web.Latest
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Access control list for controlling traffic to the App Service Environment.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.NetworkAccessControlEntryResponse> NetworkAccessControlList;
-        /// <summary>
         /// Provisioning state of the App Service Environment.
         /// </summary>
         public readonly string ProvisioningState;
-        /// <summary>
-        /// Resource group of the App Service Environment.
-        /// </summary>
-        public readonly string ResourceGroup;
-        /// <summary>
-        /// Key Vault ID for ILB App Service Environment default SSL certificate
-        /// </summary>
-        public readonly string? SslCertKeyVaultId;
-        /// <summary>
-        /// Key Vault Secret Name for ILB App Service Environment default SSL certificate
-        /// </summary>
-        public readonly string? SslCertKeyVaultSecretName;
         /// <summary>
         /// Current status of the App Service Environment.
         /// </summary>
         public readonly string Status;
         /// <summary>
-        /// Subscription of the App Service Environment.
-        /// </summary>
-        public readonly string SubscriptionId;
-        /// <summary>
         /// &lt;code&gt;true&lt;/code&gt; if the App Service Environment is suspended; otherwise, &lt;code&gt;false&lt;/code&gt;. The environment can be suspended, e.g. when the management endpoint is no longer available
         ///  (most likely because NSG blocked the incoming traffic).
         /// </summary>
-        public readonly bool? Suspended;
-        /// <summary>
-        /// The system metadata relating to this resource.
-        /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly bool Suspended;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -191,67 +122,25 @@ namespace Pulumi.AzureNative.Web.Latest
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// Number of upgrade domains of the App Service Environment.
-        /// </summary>
-        public readonly int UpgradeDomains;
-        /// <summary>
         /// User added ip ranges to whitelist on ASE db
         /// </summary>
         public readonly ImmutableArray<string> UserWhitelistedIpRanges;
         /// <summary>
-        /// Description of IP SSL mapping for the App Service Environment.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.VirtualIPMappingResponse> VipMappings;
-        /// <summary>
         /// Description of the Virtual Network.
         /// </summary>
         public readonly Outputs.VirtualNetworkProfileResponse VirtualNetwork;
-        /// <summary>
-        /// Name of the Virtual Network for the App Service Environment.
-        /// </summary>
-        public readonly string? VnetName;
-        /// <summary>
-        /// Resource group of the Virtual Network.
-        /// </summary>
-        public readonly string? VnetResourceGroupName;
-        /// <summary>
-        /// Subnet of the Virtual Network.
-        /// </summary>
-        public readonly string? VnetSubnetName;
-        /// <summary>
-        /// Description of worker pools with worker size IDs, VM sizes, and number of workers in each pool.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.WorkerPoolResponse> WorkerPools;
 
         [OutputConstructor]
         private GetAppServiceEnvironmentResult(
-            string allowedMultiSizes,
-
-            string allowedWorkerSizes,
-
-            string? apiManagementAccountId,
-
             ImmutableArray<Outputs.NameValuePairResponse> clusterSettings,
 
-            string databaseEdition,
-
-            string databaseServiceObjective,
-
-            int defaultFrontEndScaleFactor,
+            int dedicatedHostCount,
 
             string? dnsSuffix,
 
-            bool? dynamicCacheEnabled,
-
-            ImmutableArray<Outputs.StampCapacityResponse> environmentCapacities,
-
-            bool environmentIsHealthy,
-
-            string environmentStatus,
-
             int? frontEndScaleFactor,
 
-            bool? hasLinuxWorkers,
+            bool hasLinuxWorkers,
 
             string id,
 
@@ -261,102 +150,51 @@ namespace Pulumi.AzureNative.Web.Latest
 
             string? kind,
 
-            string lastAction,
-
-            string lastActionResult,
-
             string location,
 
             int maximumNumberOfMachines,
 
-            int? multiRoleCount,
+            int multiRoleCount,
 
             string? multiSize,
 
             string name,
 
-            ImmutableArray<Outputs.NetworkAccessControlEntryResponse> networkAccessControlList,
-
             string provisioningState,
-
-            string resourceGroup,
-
-            string? sslCertKeyVaultId,
-
-            string? sslCertKeyVaultSecretName,
 
             string status,
 
-            string subscriptionId,
-
-            bool? suspended,
-
-            Outputs.SystemDataResponse systemData,
+            bool suspended,
 
             ImmutableDictionary<string, string>? tags,
 
             string type,
 
-            int upgradeDomains,
-
             ImmutableArray<string> userWhitelistedIpRanges,
 
-            ImmutableArray<Outputs.VirtualIPMappingResponse> vipMappings,
-
-            Outputs.VirtualNetworkProfileResponse virtualNetwork,
-
-            string? vnetName,
-
-            string? vnetResourceGroupName,
-
-            string? vnetSubnetName,
-
-            ImmutableArray<Outputs.WorkerPoolResponse> workerPools)
+            Outputs.VirtualNetworkProfileResponse virtualNetwork)
         {
-            AllowedMultiSizes = allowedMultiSizes;
-            AllowedWorkerSizes = allowedWorkerSizes;
-            ApiManagementAccountId = apiManagementAccountId;
             ClusterSettings = clusterSettings;
-            DatabaseEdition = databaseEdition;
-            DatabaseServiceObjective = databaseServiceObjective;
-            DefaultFrontEndScaleFactor = defaultFrontEndScaleFactor;
+            DedicatedHostCount = dedicatedHostCount;
             DnsSuffix = dnsSuffix;
-            DynamicCacheEnabled = dynamicCacheEnabled;
-            EnvironmentCapacities = environmentCapacities;
-            EnvironmentIsHealthy = environmentIsHealthy;
-            EnvironmentStatus = environmentStatus;
             FrontEndScaleFactor = frontEndScaleFactor;
             HasLinuxWorkers = hasLinuxWorkers;
             Id = id;
             InternalLoadBalancingMode = internalLoadBalancingMode;
             IpsslAddressCount = ipsslAddressCount;
             Kind = kind;
-            LastAction = lastAction;
-            LastActionResult = lastActionResult;
             Location = location;
             MaximumNumberOfMachines = maximumNumberOfMachines;
             MultiRoleCount = multiRoleCount;
             MultiSize = multiSize;
             Name = name;
-            NetworkAccessControlList = networkAccessControlList;
             ProvisioningState = provisioningState;
-            ResourceGroup = resourceGroup;
-            SslCertKeyVaultId = sslCertKeyVaultId;
-            SslCertKeyVaultSecretName = sslCertKeyVaultSecretName;
             Status = status;
-            SubscriptionId = subscriptionId;
             Suspended = suspended;
-            SystemData = systemData;
             Tags = tags;
             Type = type;
-            UpgradeDomains = upgradeDomains;
             UserWhitelistedIpRanges = userWhitelistedIpRanges;
-            VipMappings = vipMappings;
             VirtualNetwork = virtualNetwork;
-            VnetName = vnetName;
-            VnetResourceGroupName = vnetResourceGroupName;
-            VnetSubnetName = vnetSubnetName;
-            WorkerPools = workerPools;
         }
     }
 }

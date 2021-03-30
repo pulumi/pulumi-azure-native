@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web
     {
         /// <summary>
         /// Static Site ARM resource.
-        /// API Version: 2020-10-01.
+        /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetStaticSiteResult> InvokeAsync(GetStaticSiteArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetStaticSiteResult>("azure-native:web:getStaticSite", args ?? new GetStaticSiteArgs(), options.WithVersion());
@@ -52,6 +52,10 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         public readonly Outputs.StaticSiteBuildPropertiesResponse? BuildProperties;
         /// <summary>
+        /// The content distribution endpoint for the static site.
+        /// </summary>
+        public readonly string ContentDistributionEndpoint;
+        /// <summary>
         /// The custom domains associated with this static site.
         /// </summary>
         public readonly ImmutableArray<string> CustomDomains;
@@ -63,6 +67,14 @@ namespace Pulumi.AzureNative.Web
         /// Resource Id.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Managed service identity.
+        /// </summary>
+        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
+        /// <summary>
+        /// Identity to use for Key Vault Reference authentication.
+        /// </summary>
+        public readonly string KeyVaultReferenceIdentity;
         /// <summary>
         /// Kind of resource.
         /// </summary>
@@ -76,6 +88,10 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// The provider that submitted the last deployment to the primary environment of the static site.
+        /// </summary>
+        public readonly string Provider;
+        /// <summary>
         /// A user's github repository token. This is used to setup the Github Actions workflow file and API secrets.
         /// </summary>
         public readonly string? RepositoryToken;
@@ -88,17 +104,21 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         public readonly Outputs.SkuDescriptionResponse? Sku;
         /// <summary>
-        /// The system metadata relating to this resource.
-        /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
-        /// <summary>
         /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
+        /// Template options for generating a new repository.
+        /// </summary>
+        public readonly Outputs.StaticSiteTemplateOptionsResponse? TemplateProperties;
+        /// <summary>
         /// Resource type.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// User provided function apps registered with the static site
+        /// </summary>
+        public readonly ImmutableArray<Outputs.StaticSiteUserProvidedFunctionAppResponse> UserProvidedFunctionApps;
 
         [OutputConstructor]
         private GetStaticSiteResult(
@@ -106,11 +126,17 @@ namespace Pulumi.AzureNative.Web
 
             Outputs.StaticSiteBuildPropertiesResponse? buildProperties,
 
+            string contentDistributionEndpoint,
+
             ImmutableArray<string> customDomains,
 
             string defaultHostname,
 
             string id,
+
+            Outputs.ManagedServiceIdentityResponse? identity,
+
+            string keyVaultReferenceIdentity,
 
             string? kind,
 
@@ -118,32 +144,41 @@ namespace Pulumi.AzureNative.Web
 
             string name,
 
+            string provider,
+
             string? repositoryToken,
 
             string? repositoryUrl,
 
             Outputs.SkuDescriptionResponse? sku,
 
-            Outputs.SystemDataResponse systemData,
-
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            Outputs.StaticSiteTemplateOptionsResponse? templateProperties,
+
+            string type,
+
+            ImmutableArray<Outputs.StaticSiteUserProvidedFunctionAppResponse> userProvidedFunctionApps)
         {
             Branch = branch;
             BuildProperties = buildProperties;
+            ContentDistributionEndpoint = contentDistributionEndpoint;
             CustomDomains = customDomains;
             DefaultHostname = defaultHostname;
             Id = id;
+            Identity = identity;
+            KeyVaultReferenceIdentity = keyVaultReferenceIdentity;
             Kind = kind;
             Location = location;
             Name = name;
+            Provider = provider;
             RepositoryToken = repositoryToken;
             RepositoryUrl = repositoryUrl;
             Sku = sku;
-            SystemData = systemData;
             Tags = tags;
+            TemplateProperties = templateProperties;
             Type = type;
+            UserProvidedFunctionApps = userProvidedFunctionApps;
         }
     }
 }

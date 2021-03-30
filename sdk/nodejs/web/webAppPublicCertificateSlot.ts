@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Public certificate object
- * API Version: 2020-10-01.
+ * API Version: 2020-12-01.
  */
 export class WebAppPublicCertificateSlot extends pulumi.CustomResource {
     /**
@@ -53,10 +53,6 @@ export class WebAppPublicCertificateSlot extends pulumi.CustomResource {
      */
     public readonly publicCertificateLocation!: pulumi.Output<string | undefined>;
     /**
-     * The system metadata relating to this resource.
-     */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.web.SystemDataResponse>;
-    /**
      * Certificate Thumbprint
      */
     public /*out*/ readonly thumbprint!: pulumi.Output<string>;
@@ -92,7 +88,6 @@ export class WebAppPublicCertificateSlot extends pulumi.CustomResource {
             inputs["publicCertificateName"] = args ? args.publicCertificateName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["slot"] = args ? args.slot : undefined;
-            inputs["systemData"] = undefined /*out*/;
             inputs["thumbprint"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
@@ -100,14 +95,13 @@ export class WebAppPublicCertificateSlot extends pulumi.CustomResource {
             inputs["kind"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["publicCertificateLocation"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
             inputs["thumbprint"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:WebAppPublicCertificateSlot" }, { type: "azure-native:web/latest:WebAppPublicCertificateSlot" }, { type: "azure-nextgen:web/latest:WebAppPublicCertificateSlot" }, { type: "azure-native:web/v20160801:WebAppPublicCertificateSlot" }, { type: "azure-nextgen:web/v20160801:WebAppPublicCertificateSlot" }, { type: "azure-native:web/v20180201:WebAppPublicCertificateSlot" }, { type: "azure-nextgen:web/v20180201:WebAppPublicCertificateSlot" }, { type: "azure-native:web/v20181101:WebAppPublicCertificateSlot" }, { type: "azure-nextgen:web/v20181101:WebAppPublicCertificateSlot" }, { type: "azure-native:web/v20190801:WebAppPublicCertificateSlot" }, { type: "azure-nextgen:web/v20190801:WebAppPublicCertificateSlot" }, { type: "azure-native:web/v20200601:WebAppPublicCertificateSlot" }, { type: "azure-nextgen:web/v20200601:WebAppPublicCertificateSlot" }, { type: "azure-native:web/v20200901:WebAppPublicCertificateSlot" }, { type: "azure-nextgen:web/v20200901:WebAppPublicCertificateSlot" }, { type: "azure-native:web/v20201001:WebAppPublicCertificateSlot" }, { type: "azure-nextgen:web/v20201001:WebAppPublicCertificateSlot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:WebAppPublicCertificateSlot" }, { type: "azure-native:web/latest:WebAppPublicCertificateSlot" }, { type: "azure-nextgen:web/latest:WebAppPublicCertificateSlot" }, { type: "azure-native:web/v20160801:WebAppPublicCertificateSlot" }, { type: "azure-nextgen:web/v20160801:WebAppPublicCertificateSlot" }, { type: "azure-native:web/v20180201:WebAppPublicCertificateSlot" }, { type: "azure-nextgen:web/v20180201:WebAppPublicCertificateSlot" }, { type: "azure-native:web/v20181101:WebAppPublicCertificateSlot" }, { type: "azure-nextgen:web/v20181101:WebAppPublicCertificateSlot" }, { type: "azure-native:web/v20190801:WebAppPublicCertificateSlot" }, { type: "azure-nextgen:web/v20190801:WebAppPublicCertificateSlot" }, { type: "azure-native:web/v20200601:WebAppPublicCertificateSlot" }, { type: "azure-nextgen:web/v20200601:WebAppPublicCertificateSlot" }, { type: "azure-native:web/v20200901:WebAppPublicCertificateSlot" }, { type: "azure-nextgen:web/v20200901:WebAppPublicCertificateSlot" }, { type: "azure-native:web/v20201001:WebAppPublicCertificateSlot" }, { type: "azure-nextgen:web/v20201001:WebAppPublicCertificateSlot" }, { type: "azure-native:web/v20201201:WebAppPublicCertificateSlot" }, { type: "azure-nextgen:web/v20201201:WebAppPublicCertificateSlot" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebAppPublicCertificateSlot.__pulumiType, name, inputs, opts);
     }

@@ -69,6 +69,18 @@ namespace Pulumi.AzureNative.Web.Inputs
         [Input("autoSwapSlotName")]
         public Input<string>? AutoSwapSlotName { get; set; }
 
+        [Input("azureStorageAccounts")]
+        private InputMap<Inputs.AzureStorageInfoValueArgs>? _azureStorageAccounts;
+
+        /// <summary>
+        /// List of Azure Storage Accounts.
+        /// </summary>
+        public InputMap<Inputs.AzureStorageInfoValueArgs> AzureStorageAccounts
+        {
+            get => _azureStorageAccounts ?? (_azureStorageAccounts = new InputMap<Inputs.AzureStorageInfoValueArgs>());
+            set => _azureStorageAccounts = value;
+        }
+
         [Input("connectionStrings")]
         private InputList<Inputs.ConnStringInfoArgs>? _connectionStrings;
 
@@ -122,6 +134,21 @@ namespace Pulumi.AzureNative.Web.Inputs
         /// </summary>
         [Input("ftpsState")]
         public InputUnion<string, Pulumi.AzureNative.Web.FtpsState>? FtpsState { get; set; }
+
+        /// <summary>
+        /// Maximum number of workers that a site can scale out to.
+        /// This setting only applies to the Consumption and Elastic Premium Plans
+        /// </summary>
+        [Input("functionAppScaleLimit")]
+        public Input<int>? FunctionAppScaleLimit { get; set; }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether functions runtime scale monitoring is enabled. When enabled,
+        /// the ScaleController will not monitor event sources directly, but will instead call to the
+        /// runtime to get scale status.
+        /// </summary>
+        [Input("functionsRuntimeScaleMonitoringEnabled")]
+        public Input<bool>? FunctionsRuntimeScaleMonitoringEnabled { get; set; }
 
         [Input("handlerMappings")]
         private InputList<Inputs.HandlerMappingArgs>? _handlerMappings;
@@ -184,6 +211,12 @@ namespace Pulumi.AzureNative.Web.Inputs
         public Input<string>? JavaVersion { get; set; }
 
         /// <summary>
+        /// Identity to use for Key Vault Reference authentication.
+        /// </summary>
+        [Input("keyVaultReferenceIdentity")]
+        public Input<string>? KeyVaultReferenceIdentity { get; set; }
+
+        /// <summary>
         /// Site limits.
         /// </summary>
         [Input("limits")]
@@ -230,6 +263,13 @@ namespace Pulumi.AzureNative.Web.Inputs
         /// </summary>
         [Input("minTlsVersion")]
         public InputUnion<string, Pulumi.AzureNative.Web.SupportedTlsVersions>? MinTlsVersion { get; set; }
+
+        /// <summary>
+        /// Number of minimum instance count for a site
+        /// This setting only applies to the Elastic Plans
+        /// </summary>
+        [Input("minimumElasticInstanceCount")]
+        public Input<int>? MinimumElasticInstanceCount { get; set; }
 
         /// <summary>
         /// .NET Framework version.
@@ -387,6 +427,12 @@ namespace Pulumi.AzureNative.Web.Inputs
         /// </summary>
         [Input("webSocketsEnabled")]
         public Input<bool>? WebSocketsEnabled { get; set; }
+
+        /// <summary>
+        /// Sets the time zone a site uses for generating timestamps. Compatible with Linux and Windows App Service. Setting the WEBSITE_TIME_ZONE app setting takes precedence over this config. For Linux, expects tz database values https://www.iana.org/time-zones (for a quick reference see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). For Windows, expects one of the time zones listed under HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Time Zones
+        /// </summary>
+        [Input("websiteTimeZone")]
+        public Input<string>? WebsiteTimeZone { get; set; }
 
         /// <summary>
         /// Xenon App Framework and version

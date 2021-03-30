@@ -8,7 +8,7 @@ import (
 )
 
 // String dictionary resource.
-// API Version: 2020-10-01.
+// API Version: 2020-12-01.
 func ListStaticSiteSecrets(ctx *pulumi.Context, args *ListStaticSiteSecretsArgs, opts ...pulumi.InvokeOption) (*ListStaticSiteSecretsResult, error) {
 	var rv ListStaticSiteSecretsResult
 	err := ctx.Invoke("azure-native:web:listStaticSiteSecrets", args, &rv, opts...)
@@ -35,8 +35,6 @@ type ListStaticSiteSecretsResult struct {
 	Name string `pulumi:"name"`
 	// Settings.
 	Properties map[string]string `pulumi:"properties"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }

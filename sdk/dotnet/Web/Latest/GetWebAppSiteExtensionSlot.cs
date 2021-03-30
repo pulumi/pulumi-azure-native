@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Web.Latest
     {
         /// <summary>
         /// Site Extension Information.
-        /// Latest API Version: 2020-10-01.
+        /// Latest API Version: 2020-12-01.
         /// </summary>
         public static Task<GetWebAppSiteExtensionSlotResult> InvokeAsync(GetWebAppSiteExtensionSlotArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppSiteExtensionSlotResult>("azure-native:web/latest:getWebAppSiteExtensionSlot", args ?? new GetWebAppSiteExtensionSlotArgs(), options.WithVersion());
@@ -140,10 +140,6 @@ namespace Pulumi.AzureNative.Web.Latest
         /// Summary description.
         /// </summary>
         public readonly string? Summary;
-        /// <summary>
-        /// The system metadata relating to this resource.
-        /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
         public readonly string? Title;
         /// <summary>
         /// Resource type.
@@ -198,8 +194,6 @@ namespace Pulumi.AzureNative.Web.Latest
 
             string? summary,
 
-            Outputs.SystemDataResponse systemData,
-
             string? title,
 
             string type,
@@ -227,7 +221,6 @@ namespace Pulumi.AzureNative.Web.Latest
             ProvisioningState = provisioningState;
             PublishedDateTime = publishedDateTime;
             Summary = summary;
-            SystemData = systemData;
             Title = title;
             Type = type;
             Version = version;

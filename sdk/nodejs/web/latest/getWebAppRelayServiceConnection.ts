@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Hybrid Connection for an App Service app.
- * Latest API Version: 2020-10-01.
+ * Latest API Version: 2020-12-01.
  */
 /** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getWebAppRelayServiceConnection'. */
 export function getWebAppRelayServiceConnection(args: GetWebAppRelayServiceConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppRelayServiceConnectionResult> {
@@ -64,10 +64,6 @@ export interface GetWebAppRelayServiceConnectionResult {
     readonly port?: number;
     readonly resourceConnectionString?: string;
     readonly resourceType?: string;
-    /**
-     * The system metadata relating to this resource.
-     */
-    readonly systemData: outputs.web.latest.SystemDataResponse;
     /**
      * Resource type.
      */

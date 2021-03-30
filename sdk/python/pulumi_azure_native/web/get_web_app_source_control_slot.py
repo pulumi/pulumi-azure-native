@@ -20,13 +20,16 @@ class GetWebAppSourceControlSlotResult:
     """
     Source control configuration for an app.
     """
-    def __init__(__self__, branch=None, deployment_rollback_enabled=None, id=None, is_git_hub_action=None, is_manual_integration=None, is_mercurial=None, kind=None, name=None, repo_url=None, system_data=None, type=None):
+    def __init__(__self__, branch=None, deployment_rollback_enabled=None, git_hub_action_configuration=None, id=None, is_git_hub_action=None, is_manual_integration=None, is_mercurial=None, kind=None, name=None, repo_url=None, type=None):
         if branch and not isinstance(branch, str):
             raise TypeError("Expected argument 'branch' to be a str")
         pulumi.set(__self__, "branch", branch)
         if deployment_rollback_enabled and not isinstance(deployment_rollback_enabled, bool):
             raise TypeError("Expected argument 'deployment_rollback_enabled' to be a bool")
         pulumi.set(__self__, "deployment_rollback_enabled", deployment_rollback_enabled)
+        if git_hub_action_configuration and not isinstance(git_hub_action_configuration, dict):
+            raise TypeError("Expected argument 'git_hub_action_configuration' to be a dict")
+        pulumi.set(__self__, "git_hub_action_configuration", git_hub_action_configuration)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -48,9 +51,6 @@ class GetWebAppSourceControlSlotResult:
         if repo_url and not isinstance(repo_url, str):
             raise TypeError("Expected argument 'repo_url' to be a str")
         pulumi.set(__self__, "repo_url", repo_url)
-        if system_data and not isinstance(system_data, dict):
-            raise TypeError("Expected argument 'system_data' to be a dict")
-        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -70,6 +70,14 @@ class GetWebAppSourceControlSlotResult:
         <code>true</code> to enable deployment rollback; otherwise, <code>false</code>.
         """
         return pulumi.get(self, "deployment_rollback_enabled")
+
+    @property
+    @pulumi.getter(name="gitHubActionConfiguration")
+    def git_hub_action_configuration(self) -> Optional['outputs.GitHubActionConfigurationResponse']:
+        """
+        If GitHub Action is selected, than the associated configuration.
+        """
+        return pulumi.get(self, "git_hub_action_configuration")
 
     @property
     @pulumi.getter
@@ -128,14 +136,6 @@ class GetWebAppSourceControlSlotResult:
         return pulumi.get(self, "repo_url")
 
     @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
-        """
-        The system metadata relating to this resource.
-        """
-        return pulumi.get(self, "system_data")
-
-    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -152,6 +152,7 @@ class AwaitableGetWebAppSourceControlSlotResult(GetWebAppSourceControlSlotResult
         return GetWebAppSourceControlSlotResult(
             branch=self.branch,
             deployment_rollback_enabled=self.deployment_rollback_enabled,
+            git_hub_action_configuration=self.git_hub_action_configuration,
             id=self.id,
             is_git_hub_action=self.is_git_hub_action,
             is_manual_integration=self.is_manual_integration,
@@ -159,7 +160,6 @@ class AwaitableGetWebAppSourceControlSlotResult(GetWebAppSourceControlSlotResult
             kind=self.kind,
             name=self.name,
             repo_url=self.repo_url,
-            system_data=self.system_data,
             type=self.type)
 
 
@@ -169,7 +169,7 @@ def get_web_app_source_control_slot(name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppSourceControlSlotResult:
     """
     Source control configuration for an app.
-    API Version: 2020-10-01.
+    API Version: 2020-12-01.
 
 
     :param str name: Name of the app.
@@ -189,6 +189,7 @@ def get_web_app_source_control_slot(name: Optional[str] = None,
     return AwaitableGetWebAppSourceControlSlotResult(
         branch=__ret__.branch,
         deployment_rollback_enabled=__ret__.deployment_rollback_enabled,
+        git_hub_action_configuration=__ret__.git_hub_action_configuration,
         id=__ret__.id,
         is_git_hub_action=__ret__.is_git_hub_action,
         is_manual_integration=__ret__.is_manual_integration,
@@ -196,5 +197,4 @@ def get_web_app_source_control_slot(name: Optional[str] = None,
         kind=__ret__.kind,
         name=__ret__.name,
         repo_url=__ret__.repo_url,
-        system_data=__ret__.system_data,
         type=__ret__.type)

@@ -8,7 +8,7 @@ import (
 )
 
 // A web app, a mobile app backend, or an API app.
-// Latest API Version: 2020-10-01.
+// Latest API Version: 2020-12-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getWebApp'.
 func LookupWebApp(ctx *pulumi.Context, args *LookupWebAppArgs, opts ...pulumi.InvokeOption) (*LookupWebAppResult, error) {
@@ -79,6 +79,8 @@ type LookupWebAppResult struct {
 	IsDefaultContainer bool `pulumi:"isDefaultContainer"`
 	// Obsolete: Hyper-V sandbox.
 	IsXenon *bool `pulumi:"isXenon"`
+	// Identity to use for Key Vault Reference authentication.
+	KeyVaultReferenceIdentity *string `pulumi:"keyVaultReferenceIdentity"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// Last time the app was modified, in UTC. Read-only.
@@ -116,8 +118,6 @@ type LookupWebAppResult struct {
 	StorageAccountRequired *bool `pulumi:"storageAccountRequired"`
 	// App suspended till in case memory-time quota is exceeded.
 	SuspendedTill string `pulumi:"suspendedTill"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies which deployment slot this app will swap into. Read-only.

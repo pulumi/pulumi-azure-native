@@ -12,7 +12,7 @@ import (
 )
 
 // Function information.
-// Latest API Version: 2020-10-01.
+// Latest API Version: 2020-12-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppFunction'.
 type WebAppFunction struct {
@@ -44,8 +44,6 @@ type WebAppFunction struct {
 	ScriptRootPathHref pulumi.StringPtrOutput `pulumi:"scriptRootPathHref"`
 	// Secrets file URI.
 	SecretsFileHref pulumi.StringPtrOutput `pulumi:"secretsFileHref"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Test data used when testing via the Azure Portal.
 	TestData pulumi.StringPtrOutput `pulumi:"testData"`
 	// Test data URI.
@@ -119,6 +117,12 @@ func NewWebAppFunction(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppFunction"),
 		},
+		{
+			Type: pulumi.String("azure-native:web/v20201201:WebAppFunction"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20201201:WebAppFunction"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource WebAppFunction
@@ -169,8 +173,6 @@ type webAppFunctionState struct {
 	ScriptRootPathHref *string `pulumi:"scriptRootPathHref"`
 	// Secrets file URI.
 	SecretsFileHref *string `pulumi:"secretsFileHref"`
-	// The system metadata relating to this resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Test data used when testing via the Azure Portal.
 	TestData *string `pulumi:"testData"`
 	// Test data URI.
@@ -206,8 +208,6 @@ type WebAppFunctionState struct {
 	ScriptRootPathHref pulumi.StringPtrInput
 	// Secrets file URI.
 	SecretsFileHref pulumi.StringPtrInput
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponsePtrInput
 	// Test data used when testing via the Azure Portal.
 	TestData pulumi.StringPtrInput
 	// Test data URI.

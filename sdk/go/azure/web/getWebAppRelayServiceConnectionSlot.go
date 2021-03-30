@@ -8,7 +8,7 @@ import (
 )
 
 // Hybrid Connection for an App Service app.
-// API Version: 2020-10-01.
+// API Version: 2020-12-01.
 func LookupWebAppRelayServiceConnectionSlot(ctx *pulumi.Context, args *LookupWebAppRelayServiceConnectionSlotArgs, opts ...pulumi.InvokeOption) (*LookupWebAppRelayServiceConnectionSlotResult, error) {
 	var rv LookupWebAppRelayServiceConnectionSlotResult
 	err := ctx.Invoke("azure-native:web:getWebAppRelayServiceConnectionSlot", args, &rv, opts...)
@@ -44,8 +44,6 @@ type LookupWebAppRelayServiceConnectionSlotResult struct {
 	Port                     *int    `pulumi:"port"`
 	ResourceConnectionString *string `pulumi:"resourceConnectionString"`
 	ResourceType             *string `pulumi:"resourceType"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }

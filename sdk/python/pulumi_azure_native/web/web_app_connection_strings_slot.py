@@ -28,7 +28,7 @@ class WebAppConnectionStringsSlot(pulumi.CustomResource):
                  __opts__=None):
         """
         String dictionary resource.
-        API Version: 2020-10-01.
+        API Version: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -66,9 +66,8 @@ class WebAppConnectionStringsSlot(pulumi.CustomResource):
             if slot is None and not opts.urn:
                 raise TypeError("Missing required property 'slot'")
             __props__['slot'] = slot
-            __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web:WebAppConnectionStringsSlot"), pulumi.Alias(type_="azure-native:web/latest:WebAppConnectionStringsSlot"), pulumi.Alias(type_="azure-nextgen:web/latest:WebAppConnectionStringsSlot"), pulumi.Alias(type_="azure-native:web/v20150801:WebAppConnectionStringsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20150801:WebAppConnectionStringsSlot"), pulumi.Alias(type_="azure-native:web/v20160801:WebAppConnectionStringsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppConnectionStringsSlot"), pulumi.Alias(type_="azure-native:web/v20180201:WebAppConnectionStringsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppConnectionStringsSlot"), pulumi.Alias(type_="azure-native:web/v20181101:WebAppConnectionStringsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppConnectionStringsSlot"), pulumi.Alias(type_="azure-native:web/v20190801:WebAppConnectionStringsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppConnectionStringsSlot"), pulumi.Alias(type_="azure-native:web/v20200601:WebAppConnectionStringsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppConnectionStringsSlot"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppConnectionStringsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppConnectionStringsSlot"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppConnectionStringsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppConnectionStringsSlot")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web:WebAppConnectionStringsSlot"), pulumi.Alias(type_="azure-native:web/latest:WebAppConnectionStringsSlot"), pulumi.Alias(type_="azure-nextgen:web/latest:WebAppConnectionStringsSlot"), pulumi.Alias(type_="azure-native:web/v20150801:WebAppConnectionStringsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20150801:WebAppConnectionStringsSlot"), pulumi.Alias(type_="azure-native:web/v20160801:WebAppConnectionStringsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppConnectionStringsSlot"), pulumi.Alias(type_="azure-native:web/v20180201:WebAppConnectionStringsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppConnectionStringsSlot"), pulumi.Alias(type_="azure-native:web/v20181101:WebAppConnectionStringsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppConnectionStringsSlot"), pulumi.Alias(type_="azure-native:web/v20190801:WebAppConnectionStringsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppConnectionStringsSlot"), pulumi.Alias(type_="azure-native:web/v20200601:WebAppConnectionStringsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppConnectionStringsSlot"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppConnectionStringsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppConnectionStringsSlot"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppConnectionStringsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppConnectionStringsSlot"), pulumi.Alias(type_="azure-native:web/v20201201:WebAppConnectionStringsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20201201:WebAppConnectionStringsSlot")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppConnectionStringsSlot, __self__).__init__(
             'azure-native:web:WebAppConnectionStringsSlot',
@@ -95,7 +94,6 @@ class WebAppConnectionStringsSlot(pulumi.CustomResource):
         __props__["kind"] = None
         __props__["name"] = None
         __props__["properties"] = None
-        __props__["system_data"] = None
         __props__["type"] = None
         return WebAppConnectionStringsSlot(resource_name, opts=opts, __props__=__props__)
 
@@ -122,14 +120,6 @@ class WebAppConnectionStringsSlot(pulumi.CustomResource):
         Connection strings.
         """
         return pulumi.get(self, "properties")
-
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
-        """
-        The system metadata relating to this resource.
-        """
-        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

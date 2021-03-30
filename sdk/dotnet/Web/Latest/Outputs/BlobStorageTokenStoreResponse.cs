@@ -27,10 +27,6 @@ namespace Pulumi.AzureNative.Web.Latest.Outputs
         public readonly string Name;
         public readonly string? SasUrlSettingName;
         /// <summary>
-        /// The system metadata relating to this resource.
-        /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
-        /// <summary>
         /// Resource type.
         /// </summary>
         public readonly string Type;
@@ -45,15 +41,12 @@ namespace Pulumi.AzureNative.Web.Latest.Outputs
 
             string? sasUrlSettingName,
 
-            Outputs.SystemDataResponse systemData,
-
             string type)
         {
             Id = id;
             Kind = kind;
             Name = name;
             SasUrlSettingName = sasUrlSettingName;
-            SystemData = systemData;
             Type = type;
         }
     }

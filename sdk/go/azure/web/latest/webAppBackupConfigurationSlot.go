@@ -12,7 +12,7 @@ import (
 )
 
 // Description of a backup which will be performed.
-// Latest API Version: 2020-10-01.
+// Latest API Version: 2020-12-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppBackupConfigurationSlot'.
 type WebAppBackupConfigurationSlot struct {
@@ -32,8 +32,6 @@ type WebAppBackupConfigurationSlot struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// SAS URL to the container.
 	StorageAccountUrl pulumi.StringOutput `pulumi:"storageAccountUrl"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -115,6 +113,12 @@ func NewWebAppBackupConfigurationSlot(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppBackupConfigurationSlot"),
 		},
+		{
+			Type: pulumi.String("azure-native:web/v20201201:WebAppBackupConfigurationSlot"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20201201:WebAppBackupConfigurationSlot"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource WebAppBackupConfigurationSlot
@@ -153,8 +157,6 @@ type webAppBackupConfigurationSlotState struct {
 	Name *string `pulumi:"name"`
 	// SAS URL to the container.
 	StorageAccountUrl *string `pulumi:"storageAccountUrl"`
-	// The system metadata relating to this resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type *string `pulumi:"type"`
 }
@@ -174,8 +176,6 @@ type WebAppBackupConfigurationSlotState struct {
 	Name pulumi.StringPtrInput
 	// SAS URL to the container.
 	StorageAccountUrl pulumi.StringPtrInput
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponsePtrInput
 	// Resource type.
 	Type pulumi.StringPtrInput
 }

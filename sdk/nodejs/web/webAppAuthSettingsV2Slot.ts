@@ -6,7 +6,7 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * API Version: 2020-10-01.
+ * API Version: 2020-12-01.
  */
 export class WebAppAuthSettingsV2Slot extends pulumi.CustomResource {
     /**
@@ -49,10 +49,6 @@ export class WebAppAuthSettingsV2Slot extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string>;
     public readonly platform!: pulumi.Output<outputs.web.AuthPlatformResponse | undefined>;
     /**
-     * The system metadata relating to this resource.
-     */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.web.SystemDataResponse>;
-    /**
      * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -86,7 +82,6 @@ export class WebAppAuthSettingsV2Slot extends pulumi.CustomResource {
             inputs["platform"] = args ? args.platform : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["slot"] = args ? args.slot : undefined;
-            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["globalValidation"] = undefined /*out*/;
@@ -96,13 +91,12 @@ export class WebAppAuthSettingsV2Slot extends pulumi.CustomResource {
             inputs["login"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["platform"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:WebAppAuthSettingsV2Slot" }, { type: "azure-native:web/latest:WebAppAuthSettingsV2Slot" }, { type: "azure-nextgen:web/latest:WebAppAuthSettingsV2Slot" }, { type: "azure-native:web/v20200601:WebAppAuthSettingsV2Slot" }, { type: "azure-nextgen:web/v20200601:WebAppAuthSettingsV2Slot" }, { type: "azure-native:web/v20200901:WebAppAuthSettingsV2Slot" }, { type: "azure-nextgen:web/v20200901:WebAppAuthSettingsV2Slot" }, { type: "azure-native:web/v20201001:WebAppAuthSettingsV2Slot" }, { type: "azure-nextgen:web/v20201001:WebAppAuthSettingsV2Slot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:WebAppAuthSettingsV2Slot" }, { type: "azure-native:web/latest:WebAppAuthSettingsV2Slot" }, { type: "azure-nextgen:web/latest:WebAppAuthSettingsV2Slot" }, { type: "azure-native:web/v20200601:WebAppAuthSettingsV2Slot" }, { type: "azure-nextgen:web/v20200601:WebAppAuthSettingsV2Slot" }, { type: "azure-native:web/v20200901:WebAppAuthSettingsV2Slot" }, { type: "azure-nextgen:web/v20200901:WebAppAuthSettingsV2Slot" }, { type: "azure-native:web/v20201001:WebAppAuthSettingsV2Slot" }, { type: "azure-nextgen:web/v20201001:WebAppAuthSettingsV2Slot" }, { type: "azure-native:web/v20201201:WebAppAuthSettingsV2Slot" }, { type: "azure-nextgen:web/v20201201:WebAppAuthSettingsV2Slot" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebAppAuthSettingsV2Slot.__pulumiType, name, inputs, opts);
     }

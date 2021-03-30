@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * SSL certificate for an app.
- * Latest API Version: 2020-10-01.
+ * Latest API Version: 2020-12-01.
  */
 /** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getCertificate'. */
 export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateResult> {
@@ -48,6 +48,10 @@ export interface GetCertificateResult {
      * Raw bytes of .cer file
      */
     readonly cerBlob: string;
+    /**
+     * Method of domain validation for free cert
+     */
+    readonly domainValidationMethod?: string;
     /**
      * Certificate expiration date.
      */
@@ -124,10 +128,6 @@ export interface GetCertificateResult {
      * Subject name of the certificate.
      */
     readonly subjectName: string;
-    /**
-     * The system metadata relating to this resource.
-     */
-    readonly systemData: outputs.web.latest.SystemDataResponse;
     /**
      * Resource tags.
      */

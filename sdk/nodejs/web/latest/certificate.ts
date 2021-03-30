@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * SSL certificate for an app.
- * Latest API Version: 2020-10-01.
+ * Latest API Version: 2020-12-01.
  *
  * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:Certificate'.
  */
@@ -47,6 +47,10 @@ export class Certificate extends pulumi.CustomResource {
      * Raw bytes of .cer file
      */
     public /*out*/ readonly cerBlob!: pulumi.Output<string>;
+    /**
+     * Method of domain validation for free cert
+     */
+    public readonly domainValidationMethod!: pulumi.Output<string | undefined>;
     /**
      * Certificate expiration date.
      */
@@ -120,10 +124,6 @@ export class Certificate extends pulumi.CustomResource {
      */
     public /*out*/ readonly subjectName!: pulumi.Output<string>;
     /**
-     * The system metadata relating to this resource.
-     */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.web.latest.SystemDataResponse>;
-    /**
      * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -153,13 +153,11 @@ export class Certificate extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.password === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'password'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["canonicalName"] = args ? args.canonicalName : undefined;
+            inputs["domainValidationMethod"] = args ? args.domainValidationMethod : undefined;
             inputs["hostNames"] = args ? args.hostNames : undefined;
             inputs["keyVaultId"] = args ? args.keyVaultId : undefined;
             inputs["keyVaultSecretName"] = args ? args.keyVaultSecretName : undefined;
@@ -182,13 +180,13 @@ export class Certificate extends pulumi.CustomResource {
             inputs["selfLink"] = undefined /*out*/;
             inputs["siteName"] = undefined /*out*/;
             inputs["subjectName"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
             inputs["thumbprint"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["valid"] = undefined /*out*/;
         } else {
             inputs["canonicalName"] = undefined /*out*/;
             inputs["cerBlob"] = undefined /*out*/;
+            inputs["domainValidationMethod"] = undefined /*out*/;
             inputs["expirationDate"] = undefined /*out*/;
             inputs["friendlyName"] = undefined /*out*/;
             inputs["hostNames"] = undefined /*out*/;
@@ -207,7 +205,6 @@ export class Certificate extends pulumi.CustomResource {
             inputs["serverFarmId"] = undefined /*out*/;
             inputs["siteName"] = undefined /*out*/;
             inputs["subjectName"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["thumbprint"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -216,7 +213,7 @@ export class Certificate extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:Certificate" }, { type: "azure-native:web:Certificate" }, { type: "azure-nextgen:web:Certificate" }, { type: "azure-native:web/v20150801:Certificate" }, { type: "azure-nextgen:web/v20150801:Certificate" }, { type: "azure-native:web/v20160301:Certificate" }, { type: "azure-nextgen:web/v20160301:Certificate" }, { type: "azure-native:web/v20180201:Certificate" }, { type: "azure-nextgen:web/v20180201:Certificate" }, { type: "azure-native:web/v20181101:Certificate" }, { type: "azure-nextgen:web/v20181101:Certificate" }, { type: "azure-native:web/v20190801:Certificate" }, { type: "azure-nextgen:web/v20190801:Certificate" }, { type: "azure-native:web/v20200601:Certificate" }, { type: "azure-nextgen:web/v20200601:Certificate" }, { type: "azure-native:web/v20200901:Certificate" }, { type: "azure-nextgen:web/v20200901:Certificate" }, { type: "azure-native:web/v20201001:Certificate" }, { type: "azure-nextgen:web/v20201001:Certificate" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:Certificate" }, { type: "azure-native:web:Certificate" }, { type: "azure-nextgen:web:Certificate" }, { type: "azure-native:web/v20150801:Certificate" }, { type: "azure-nextgen:web/v20150801:Certificate" }, { type: "azure-native:web/v20160301:Certificate" }, { type: "azure-nextgen:web/v20160301:Certificate" }, { type: "azure-native:web/v20180201:Certificate" }, { type: "azure-nextgen:web/v20180201:Certificate" }, { type: "azure-native:web/v20181101:Certificate" }, { type: "azure-nextgen:web/v20181101:Certificate" }, { type: "azure-native:web/v20190801:Certificate" }, { type: "azure-nextgen:web/v20190801:Certificate" }, { type: "azure-native:web/v20200601:Certificate" }, { type: "azure-nextgen:web/v20200601:Certificate" }, { type: "azure-native:web/v20200901:Certificate" }, { type: "azure-nextgen:web/v20200901:Certificate" }, { type: "azure-native:web/v20201001:Certificate" }, { type: "azure-nextgen:web/v20201001:Certificate" }, { type: "azure-native:web/v20201201:Certificate" }, { type: "azure-nextgen:web/v20201201:Certificate" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Certificate.__pulumiType, name, inputs, opts);
     }
@@ -230,6 +227,10 @@ export interface CertificateArgs {
      * CNAME of the certificate to be issued via free certificate
      */
     readonly canonicalName?: pulumi.Input<string>;
+    /**
+     * Method of domain validation for free cert
+     */
+    readonly domainValidationMethod?: pulumi.Input<string>;
     /**
      * Host names the certificate applies to.
      */
@@ -257,7 +258,7 @@ export interface CertificateArgs {
     /**
      * Certificate password.
      */
-    readonly password: pulumi.Input<string>;
+    readonly password?: pulumi.Input<string>;
     /**
      * Pfx blob.
      */

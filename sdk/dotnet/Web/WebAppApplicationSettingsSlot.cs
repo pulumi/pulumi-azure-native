@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Web
 {
     /// <summary>
     /// String dictionary resource.
-    /// API Version: 2020-10-01.
+    /// API Version: 2020-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:WebAppApplicationSettingsSlot")]
     public partial class WebAppApplicationSettingsSlot : Pulumi.CustomResource
@@ -33,12 +33,6 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         [Output("properties")]
         public Output<ImmutableDictionary<string, string>> Properties { get; private set; } = null!;
-
-        /// <summary>
-        /// The system metadata relating to this resource.
-        /// </summary>
-        [Output("systemData")]
-        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.
@@ -90,6 +84,8 @@ namespace Pulumi.AzureNative.Web
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:WebAppApplicationSettingsSlot"},
                     new Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppApplicationSettingsSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:WebAppApplicationSettingsSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppApplicationSettingsSlot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20201201:WebAppApplicationSettingsSlot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

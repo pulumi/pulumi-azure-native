@@ -7,7 +7,6 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
-from . import outputs
 
 __all__ = [
     'GetWebAppPublicCertificateResult',
@@ -22,7 +21,7 @@ class GetWebAppPublicCertificateResult:
     """
     Public certificate object
     """
-    def __init__(__self__, blob=None, id=None, kind=None, name=None, public_certificate_location=None, system_data=None, thumbprint=None, type=None):
+    def __init__(__self__, blob=None, id=None, kind=None, name=None, public_certificate_location=None, thumbprint=None, type=None):
         if blob and not isinstance(blob, str):
             raise TypeError("Expected argument 'blob' to be a str")
         pulumi.set(__self__, "blob", blob)
@@ -38,9 +37,6 @@ class GetWebAppPublicCertificateResult:
         if public_certificate_location and not isinstance(public_certificate_location, str):
             raise TypeError("Expected argument 'public_certificate_location' to be a str")
         pulumi.set(__self__, "public_certificate_location", public_certificate_location)
-        if system_data and not isinstance(system_data, dict):
-            raise TypeError("Expected argument 'system_data' to be a dict")
-        pulumi.set(__self__, "system_data", system_data)
         if thumbprint and not isinstance(thumbprint, str):
             raise TypeError("Expected argument 'thumbprint' to be a str")
         pulumi.set(__self__, "thumbprint", thumbprint)
@@ -89,14 +85,6 @@ class GetWebAppPublicCertificateResult:
         return pulumi.get(self, "public_certificate_location")
 
     @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
-        """
-        The system metadata relating to this resource.
-        """
-        return pulumi.get(self, "system_data")
-
-    @property
     @pulumi.getter
     def thumbprint(self) -> str:
         """
@@ -124,7 +112,6 @@ class AwaitableGetWebAppPublicCertificateResult(GetWebAppPublicCertificateResult
             kind=self.kind,
             name=self.name,
             public_certificate_location=self.public_certificate_location,
-            system_data=self.system_data,
             thumbprint=self.thumbprint,
             type=self.type)
 
@@ -135,7 +122,7 @@ def get_web_app_public_certificate(name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppPublicCertificateResult:
     """
     Public certificate object
-    Latest API Version: 2020-10-01.
+    Latest API Version: 2020-12-01.
 
 
     :param str name: Name of the app.
@@ -159,6 +146,5 @@ def get_web_app_public_certificate(name: Optional[str] = None,
         kind=__ret__.kind,
         name=__ret__.name,
         public_certificate_location=__ret__.public_certificate_location,
-        system_data=__ret__.system_data,
         thumbprint=__ret__.thumbprint,
         type=__ret__.type)

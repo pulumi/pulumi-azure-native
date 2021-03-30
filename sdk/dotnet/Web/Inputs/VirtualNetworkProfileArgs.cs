@@ -18,8 +18,8 @@ namespace Pulumi.AzureNative.Web.Inputs
         /// <summary>
         /// Resource id of the Virtual Network.
         /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         /// <summary>
         /// Subnet within the Virtual Network.

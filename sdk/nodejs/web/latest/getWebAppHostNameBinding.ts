@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * A hostname binding object.
- * Latest API Version: 2020-10-01.
+ * Latest API Version: 2020-12-01.
  */
 /** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getWebAppHostNameBinding'. */
 export function getWebAppHostNameBinding(args: GetWebAppHostNameBindingArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppHostNameBindingResult> {
@@ -85,10 +85,6 @@ export interface GetWebAppHostNameBindingResult {
      * SSL type
      */
     readonly sslState?: string;
-    /**
-     * The system metadata relating to this resource.
-     */
-    readonly systemData: outputs.web.latest.SystemDataResponse;
     /**
      * SSL certificate thumbprint
      */

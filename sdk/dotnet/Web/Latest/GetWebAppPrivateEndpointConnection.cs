@@ -13,8 +13,8 @@ namespace Pulumi.AzureNative.Web.Latest
     public static class GetWebAppPrivateEndpointConnection
     {
         /// <summary>
-        /// Private Endpoint Connection ARM resource.
-        /// Latest API Version: 2020-10-01.
+        /// Remote Private Endpoint Connection ARM resource.
+        /// Latest API Version: 2020-12-01.
         /// </summary>
         public static Task<GetWebAppPrivateEndpointConnectionResult> InvokeAsync(GetWebAppPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppPrivateEndpointConnectionResult>("azure-native:web/latest:getWebAppPrivateEndpointConnection", args ?? new GetWebAppPrivateEndpointConnectionArgs(), options.WithVersion());
@@ -29,6 +29,9 @@ namespace Pulumi.AzureNative.Web.Latest
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        /// <summary>
+        /// Name of the private endpoint connection.
+        /// </summary>
         [Input("privateEndpointConnectionName", required: true)]
         public string PrivateEndpointConnectionName { get; set; } = null!;
 
@@ -52,6 +55,10 @@ namespace Pulumi.AzureNative.Web.Latest
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// Private IPAddresses mapped to the remote private endpoint
+        /// </summary>
+        public readonly ImmutableArray<string> IpAddresses;
+        /// <summary>
         /// Kind of resource.
         /// </summary>
         public readonly string? Kind;
@@ -69,10 +76,6 @@ namespace Pulumi.AzureNative.Web.Latest
         public readonly Outputs.PrivateLinkConnectionStateResponse? PrivateLinkServiceConnectionState;
         public readonly string ProvisioningState;
         /// <summary>
-        /// The system metadata relating to this resource.
-        /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
-        /// <summary>
         /// Resource type.
         /// </summary>
         public readonly string Type;
@@ -80,6 +83,8 @@ namespace Pulumi.AzureNative.Web.Latest
         [OutputConstructor]
         private GetWebAppPrivateEndpointConnectionResult(
             string id,
+
+            ImmutableArray<string> ipAddresses,
 
             string? kind,
 
@@ -91,17 +96,15 @@ namespace Pulumi.AzureNative.Web.Latest
 
             string provisioningState,
 
-            Outputs.SystemDataResponse systemData,
-
             string type)
         {
             Id = id;
+            IpAddresses = ipAddresses;
             Kind = kind;
             Name = name;
             PrivateEndpoint = privateEndpoint;
             PrivateLinkServiceConnectionState = privateLinkServiceConnectionState;
             ProvisioningState = provisioningState;
-            SystemData = systemData;
             Type = type;
         }
     }

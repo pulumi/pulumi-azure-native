@@ -29,7 +29,7 @@ class WebAppVnetConnection(pulumi.CustomResource):
                  __opts__=None):
         """
         Virtual Network information contract.
-        API Version: 2020-10-01.
+        API Version: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -75,9 +75,8 @@ class WebAppVnetConnection(pulumi.CustomResource):
             __props__['cert_thumbprint'] = None
             __props__['resync_required'] = None
             __props__['routes'] = None
-            __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web:WebAppVnetConnection"), pulumi.Alias(type_="azure-native:web/latest:WebAppVnetConnection"), pulumi.Alias(type_="azure-nextgen:web/latest:WebAppVnetConnection"), pulumi.Alias(type_="azure-native:web/v20150801:WebAppVnetConnection"), pulumi.Alias(type_="azure-nextgen:web/v20150801:WebAppVnetConnection"), pulumi.Alias(type_="azure-native:web/v20160801:WebAppVnetConnection"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppVnetConnection"), pulumi.Alias(type_="azure-native:web/v20180201:WebAppVnetConnection"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppVnetConnection"), pulumi.Alias(type_="azure-native:web/v20181101:WebAppVnetConnection"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppVnetConnection"), pulumi.Alias(type_="azure-native:web/v20190801:WebAppVnetConnection"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppVnetConnection"), pulumi.Alias(type_="azure-native:web/v20200601:WebAppVnetConnection"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppVnetConnection"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppVnetConnection"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppVnetConnection"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppVnetConnection"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppVnetConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web:WebAppVnetConnection"), pulumi.Alias(type_="azure-native:web/latest:WebAppVnetConnection"), pulumi.Alias(type_="azure-nextgen:web/latest:WebAppVnetConnection"), pulumi.Alias(type_="azure-native:web/v20150801:WebAppVnetConnection"), pulumi.Alias(type_="azure-nextgen:web/v20150801:WebAppVnetConnection"), pulumi.Alias(type_="azure-native:web/v20160801:WebAppVnetConnection"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppVnetConnection"), pulumi.Alias(type_="azure-native:web/v20180201:WebAppVnetConnection"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppVnetConnection"), pulumi.Alias(type_="azure-native:web/v20181101:WebAppVnetConnection"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppVnetConnection"), pulumi.Alias(type_="azure-native:web/v20190801:WebAppVnetConnection"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppVnetConnection"), pulumi.Alias(type_="azure-native:web/v20200601:WebAppVnetConnection"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppVnetConnection"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppVnetConnection"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppVnetConnection"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppVnetConnection"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppVnetConnection"), pulumi.Alias(type_="azure-native:web/v20201201:WebAppVnetConnection"), pulumi.Alias(type_="azure-nextgen:web/v20201201:WebAppVnetConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppVnetConnection, __self__).__init__(
             'azure-native:web:WebAppVnetConnection',
@@ -109,7 +108,6 @@ class WebAppVnetConnection(pulumi.CustomResource):
         __props__["name"] = None
         __props__["resync_required"] = None
         __props__["routes"] = None
-        __props__["system_data"] = None
         __props__["type"] = None
         __props__["vnet_resource_id"] = None
         return WebAppVnetConnection(resource_name, opts=opts, __props__=__props__)
@@ -178,14 +176,6 @@ class WebAppVnetConnection(pulumi.CustomResource):
         The routes that this Virtual Network connection uses.
         """
         return pulumi.get(self, "routes")
-
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
-        """
-        The system metadata relating to this resource.
-        """
-        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

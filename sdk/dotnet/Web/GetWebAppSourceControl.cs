@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web
     {
         /// <summary>
         /// Source control configuration for an app.
-        /// API Version: 2020-10-01.
+        /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetWebAppSourceControlResult> InvokeAsync(GetWebAppSourceControlArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppSourceControlResult>("azure-native:web:getWebAppSourceControl", args ?? new GetWebAppSourceControlArgs(), options.WithVersion());
@@ -52,6 +52,10 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         public readonly bool? DeploymentRollbackEnabled;
         /// <summary>
+        /// If GitHub Action is selected, than the associated configuration.
+        /// </summary>
+        public readonly Outputs.GitHubActionConfigurationResponse? GitHubActionConfiguration;
+        /// <summary>
         /// Resource Id.
         /// </summary>
         public readonly string Id;
@@ -80,10 +84,6 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         public readonly string? RepoUrl;
         /// <summary>
-        /// The system metadata relating to this resource.
-        /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
-        /// <summary>
         /// Resource type.
         /// </summary>
         public readonly string Type;
@@ -93,6 +93,8 @@ namespace Pulumi.AzureNative.Web
             string? branch,
 
             bool? deploymentRollbackEnabled,
+
+            Outputs.GitHubActionConfigurationResponse? gitHubActionConfiguration,
 
             string id,
 
@@ -108,12 +110,11 @@ namespace Pulumi.AzureNative.Web
 
             string? repoUrl,
 
-            Outputs.SystemDataResponse systemData,
-
             string type)
         {
             Branch = branch;
             DeploymentRollbackEnabled = deploymentRollbackEnabled;
+            GitHubActionConfiguration = gitHubActionConfiguration;
             Id = id;
             IsGitHubAction = isGitHubAction;
             IsManualIntegration = isManualIntegration;
@@ -121,7 +122,6 @@ namespace Pulumi.AzureNative.Web
             Kind = kind;
             Name = name;
             RepoUrl = repoUrl;
-            SystemData = systemData;
             Type = type;
         }
     }

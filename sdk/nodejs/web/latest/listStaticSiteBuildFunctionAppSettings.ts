@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * String dictionary resource.
- * Latest API Version: 2020-10-01.
+ * Latest API Version: 2020-12-01.
  */
 /** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listStaticSiteBuildFunctionAppSettings'. */
 export function listStaticSiteBuildFunctionAppSettings(args: ListStaticSiteBuildFunctionAppSettingsArgs, opts?: pulumi.InvokeOptions): Promise<ListStaticSiteBuildFunctionAppSettingsResult> {
@@ -20,21 +20,21 @@ export function listStaticSiteBuildFunctionAppSettings(args: ListStaticSiteBuild
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azure-native:web/latest:listStaticSiteBuildFunctionAppSettings", {
+        "environmentName": args.environmentName,
         "name": args.name,
-        "prId": args.prId,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
 export interface ListStaticSiteBuildFunctionAppSettingsArgs {
     /**
+     * The stage site identifier.
+     */
+    readonly environmentName: string;
+    /**
      * Name of the static site.
      */
     readonly name: string;
-    /**
-     * The stage site identifier.
-     */
-    readonly prId: string;
     /**
      * Name of the resource group to which the resource belongs.
      */
@@ -61,10 +61,6 @@ export interface ListStaticSiteBuildFunctionAppSettingsResult {
      * Settings.
      */
     readonly properties: {[key: string]: string};
-    /**
-     * The system metadata relating to this resource.
-     */
-    readonly systemData: outputs.web.latest.SystemDataResponse;
     /**
      * Resource type.
      */

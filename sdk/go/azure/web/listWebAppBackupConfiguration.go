@@ -8,7 +8,7 @@ import (
 )
 
 // Description of a backup which will be performed.
-// API Version: 2020-10-01.
+// API Version: 2020-12-01.
 func ListWebAppBackupConfiguration(ctx *pulumi.Context, args *ListWebAppBackupConfigurationArgs, opts ...pulumi.InvokeOption) (*ListWebAppBackupConfigurationResult, error) {
 	var rv ListWebAppBackupConfigurationResult
 	err := ctx.Invoke("azure-native:web:listWebAppBackupConfiguration", args, &rv, opts...)
@@ -43,8 +43,6 @@ type ListWebAppBackupConfigurationResult struct {
 	Name string `pulumi:"name"`
 	// SAS URL to the container.
 	StorageAccountUrl string `pulumi:"storageAccountUrl"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }

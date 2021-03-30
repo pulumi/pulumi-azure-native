@@ -7,7 +7,6 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
-from . import outputs
 
 __all__ = ['WebAppHybridConnection']
 
@@ -37,7 +36,7 @@ class WebAppHybridConnection(pulumi.CustomResource):
                  __opts__=None):
         """
         Hybrid Connection contract. This is used to configure a Hybrid Connection.
-        Latest API Version: 2020-10-01.
+        Latest API Version: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -91,9 +90,8 @@ class WebAppHybridConnection(pulumi.CustomResource):
             __props__['send_key_value'] = send_key_value
             __props__['service_bus_namespace'] = service_bus_namespace
             __props__['service_bus_suffix'] = service_bus_suffix
-            __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/latest:WebAppHybridConnection"), pulumi.Alias(type_="azure-native:web:WebAppHybridConnection"), pulumi.Alias(type_="azure-nextgen:web:WebAppHybridConnection"), pulumi.Alias(type_="azure-native:web/v20160801:WebAppHybridConnection"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppHybridConnection"), pulumi.Alias(type_="azure-native:web/v20180201:WebAppHybridConnection"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppHybridConnection"), pulumi.Alias(type_="azure-native:web/v20181101:WebAppHybridConnection"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppHybridConnection"), pulumi.Alias(type_="azure-native:web/v20190801:WebAppHybridConnection"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppHybridConnection"), pulumi.Alias(type_="azure-native:web/v20200601:WebAppHybridConnection"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppHybridConnection"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppHybridConnection"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppHybridConnection"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppHybridConnection"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppHybridConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/latest:WebAppHybridConnection"), pulumi.Alias(type_="azure-native:web:WebAppHybridConnection"), pulumi.Alias(type_="azure-nextgen:web:WebAppHybridConnection"), pulumi.Alias(type_="azure-native:web/v20160801:WebAppHybridConnection"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppHybridConnection"), pulumi.Alias(type_="azure-native:web/v20180201:WebAppHybridConnection"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppHybridConnection"), pulumi.Alias(type_="azure-native:web/v20181101:WebAppHybridConnection"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppHybridConnection"), pulumi.Alias(type_="azure-native:web/v20190801:WebAppHybridConnection"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppHybridConnection"), pulumi.Alias(type_="azure-native:web/v20200601:WebAppHybridConnection"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppHybridConnection"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppHybridConnection"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppHybridConnection"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppHybridConnection"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppHybridConnection"), pulumi.Alias(type_="azure-native:web/v20201201:WebAppHybridConnection"), pulumi.Alias(type_="azure-nextgen:web/v20201201:WebAppHybridConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppHybridConnection, __self__).__init__(
             'azure-native:web/latest:WebAppHybridConnection',
@@ -127,7 +125,6 @@ class WebAppHybridConnection(pulumi.CustomResource):
         __props__["send_key_value"] = None
         __props__["service_bus_namespace"] = None
         __props__["service_bus_suffix"] = None
-        __props__["system_data"] = None
         __props__["type"] = None
         return WebAppHybridConnection(resource_name, opts=opts, __props__=__props__)
 
@@ -211,14 +208,6 @@ class WebAppHybridConnection(pulumi.CustomResource):
         The suffix for the service bus endpoint. By default this is .servicebus.windows.net
         """
         return pulumi.get(self, "service_bus_suffix")
-
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
-        """
-        The system metadata relating to this resource.
-        """
-        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

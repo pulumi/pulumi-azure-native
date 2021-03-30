@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.Web.Latest.Outputs
         /// <summary>
         /// Resource id of the Virtual Network.
         /// </summary>
-        public readonly string? Id;
+        public readonly string Id;
         /// <summary>
         /// Name of the Virtual Network (read-only).
         /// </summary>
@@ -32,7 +32,7 @@ namespace Pulumi.AzureNative.Web.Latest.Outputs
 
         [OutputConstructor]
         private VirtualNetworkProfileResponse(
-            string? id,
+            string id,
 
             string name,
 

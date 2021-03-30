@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Web
 {
     /// <summary>
     /// Hybrid Connection contract. This is used to configure a Hybrid Connection.
-    /// API Version: 2020-10-01.
+    /// API Version: 2020-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:WebAppHybridConnectionSlot")]
     public partial class WebAppHybridConnectionSlot : Pulumi.CustomResource
@@ -78,12 +78,6 @@ namespace Pulumi.AzureNative.Web
         public Output<string?> ServiceBusSuffix { get; private set; } = null!;
 
         /// <summary>
-        /// The system metadata relating to this resource.
-        /// </summary>
-        [Output("systemData")]
-        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
-
-        /// <summary>
         /// Resource type.
         /// </summary>
         [Output("type")]
@@ -131,6 +125,8 @@ namespace Pulumi.AzureNative.Web
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:WebAppHybridConnectionSlot"},
                     new Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppHybridConnectionSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:WebAppHybridConnectionSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppHybridConnectionSlot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20201201:WebAppHybridConnectionSlot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

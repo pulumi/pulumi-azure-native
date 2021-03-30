@@ -12,7 +12,7 @@ import (
 )
 
 // Virtual Network route contract used to pass routing information for a Virtual Network.
-// Latest API Version: 2020-10-01.
+// Latest API Version: 2020-12-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:AppServicePlanRouteForVnet'.
 type AppServicePlanRouteForVnet struct {
@@ -33,8 +33,6 @@ type AppServicePlanRouteForVnet struct {
 	RouteType pulumi.StringPtrOutput `pulumi:"routeType"`
 	// The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.
 	StartAddress pulumi.StringPtrOutput `pulumi:"startAddress"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -107,6 +105,12 @@ func NewAppServicePlanRouteForVnet(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:web/v20201001:AppServicePlanRouteForVnet"),
 		},
+		{
+			Type: pulumi.String("azure-native:web/v20201201:AppServicePlanRouteForVnet"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20201201:AppServicePlanRouteForVnet"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource AppServicePlanRouteForVnet
@@ -146,8 +150,6 @@ type appServicePlanRouteForVnetState struct {
 	RouteType *string `pulumi:"routeType"`
 	// The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.
 	StartAddress *string `pulumi:"startAddress"`
-	// The system metadata relating to this resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type *string `pulumi:"type"`
 }
@@ -168,8 +170,6 @@ type AppServicePlanRouteForVnetState struct {
 	RouteType pulumi.StringPtrInput
 	// The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.
 	StartAddress pulumi.StringPtrInput
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponsePtrInput
 	// Resource type.
 	Type pulumi.StringPtrInput
 }

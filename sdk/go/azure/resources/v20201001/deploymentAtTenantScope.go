@@ -83,6 +83,12 @@ func NewDeploymentAtTenantScope(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:resources/v20200801:DeploymentAtTenantScope"),
 		},
+		{
+			Type: pulumi.String("azure-native:resources/v20210101:DeploymentAtTenantScope"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:resources/v20210101:DeploymentAtTenantScope"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource DeploymentAtTenantScope

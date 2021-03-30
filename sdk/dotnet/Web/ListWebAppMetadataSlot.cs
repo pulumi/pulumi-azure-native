@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web
     {
         /// <summary>
         /// String dictionary resource.
-        /// API Version: 2020-10-01.
+        /// API Version: 2020-12-01.
         /// </summary>
         public static Task<ListWebAppMetadataSlotResult> InvokeAsync(ListWebAppMetadataSlotArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppMetadataSlotResult>("azure-native:web:listWebAppMetadataSlot", args ?? new ListWebAppMetadataSlotArgs(), options.WithVersion());
@@ -66,10 +66,6 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         public readonly ImmutableDictionary<string, string> Properties;
         /// <summary>
-        /// The system metadata relating to this resource.
-        /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
-        /// <summary>
         /// Resource type.
         /// </summary>
         public readonly string Type;
@@ -84,15 +80,12 @@ namespace Pulumi.AzureNative.Web
 
             ImmutableDictionary<string, string> properties,
 
-            Outputs.SystemDataResponse systemData,
-
             string type)
         {
             Id = id;
             Kind = kind;
             Name = name;
             Properties = properties;
-            SystemData = systemData;
             Type = type;
         }
     }

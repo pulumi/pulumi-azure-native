@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Web
 {
     /// <summary>
     /// Static Site ARM resource.
-    /// API Version: 2020-10-01.
+    /// API Version: 2020-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:StaticSite")]
     public partial class StaticSite : Pulumi.CustomResource
@@ -29,6 +29,12 @@ namespace Pulumi.AzureNative.Web
         public Output<Outputs.StaticSiteBuildPropertiesResponse?> BuildProperties { get; private set; } = null!;
 
         /// <summary>
+        /// The content distribution endpoint for the static site.
+        /// </summary>
+        [Output("contentDistributionEndpoint")]
+        public Output<string> ContentDistributionEndpoint { get; private set; } = null!;
+
+        /// <summary>
         /// The custom domains associated with this static site.
         /// </summary>
         [Output("customDomains")]
@@ -39,6 +45,18 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         [Output("defaultHostname")]
         public Output<string> DefaultHostname { get; private set; } = null!;
+
+        /// <summary>
+        /// Managed service identity.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
+
+        /// <summary>
+        /// Identity to use for Key Vault Reference authentication.
+        /// </summary>
+        [Output("keyVaultReferenceIdentity")]
+        public Output<string> KeyVaultReferenceIdentity { get; private set; } = null!;
 
         /// <summary>
         /// Kind of resource.
@@ -59,6 +77,12 @@ namespace Pulumi.AzureNative.Web
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The provider that submitted the last deployment to the primary environment of the static site.
+        /// </summary>
+        [Output("provider")]
+        public Output<string> Provider { get; private set; } = null!;
+
+        /// <summary>
         /// A user's github repository token. This is used to setup the Github Actions workflow file and API secrets.
         /// </summary>
         [Output("repositoryToken")]
@@ -77,22 +101,28 @@ namespace Pulumi.AzureNative.Web
         public Output<Outputs.SkuDescriptionResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
-        /// The system metadata relating to this resource.
-        /// </summary>
-        [Output("systemData")]
-        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
-
-        /// <summary>
         /// Resource tags.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
+        /// Template options for generating a new repository.
+        /// </summary>
+        [Output("templateProperties")]
+        public Output<Outputs.StaticSiteTemplateOptionsResponse?> TemplateProperties { get; private set; } = null!;
+
+        /// <summary>
         /// Resource type.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// User provided function apps registered with the static site
+        /// </summary>
+        [Output("userProvidedFunctionApps")]
+        public Output<ImmutableArray<Outputs.StaticSiteUserProvidedFunctionAppResponse>> UserProvidedFunctionApps { get; private set; } = null!;
 
 
         /// <summary>
@@ -130,6 +160,8 @@ namespace Pulumi.AzureNative.Web
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:StaticSite"},
                     new Pulumi.Alias { Type = "azure-native:web/v20201001:StaticSite"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:StaticSite"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201201:StaticSite"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20201201:StaticSite"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -164,6 +196,12 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         [Input("buildProperties")]
         public Input<Inputs.StaticSiteBuildPropertiesArgs>? BuildProperties { get; set; }
+
+        /// <summary>
+        /// Managed service identity.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// Kind of resource.
@@ -218,6 +256,12 @@ namespace Pulumi.AzureNative.Web
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Template options for generating a new repository.
+        /// </summary>
+        [Input("templateProperties")]
+        public Input<Inputs.StaticSiteTemplateOptionsArgs>? TemplateProperties { get; set; }
 
         public StaticSiteArgs()
         {

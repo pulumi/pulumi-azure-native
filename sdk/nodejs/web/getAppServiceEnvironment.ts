@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * App Service Environment ARM resource.
- * API Version: 2020-10-01.
+ * API Version: 2020-12-01.
  */
 export function getAppServiceEnvironment(args: GetAppServiceEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetAppServiceEnvironmentResult> {
     if (!opts) {
@@ -39,54 +39,17 @@ export interface GetAppServiceEnvironmentArgs {
  */
 export interface GetAppServiceEnvironmentResult {
     /**
-     * List of comma separated strings describing which VM sizes are allowed for front-ends.
-     */
-    readonly allowedMultiSizes: string;
-    /**
-     * List of comma separated strings describing which VM sizes are allowed for workers.
-     */
-    readonly allowedWorkerSizes: string;
-    /**
-     * API Management Account associated with the App Service Environment.
-     */
-    readonly apiManagementAccountId?: string;
-    /**
      * Custom settings for changing the behavior of the App Service Environment.
      */
     readonly clusterSettings?: outputs.web.NameValuePairResponse[];
     /**
-     * Edition of the metadata database for the App Service Environment, e.g. "Standard".
+     * Dedicated Host Count
      */
-    readonly databaseEdition: string;
-    /**
-     * Service objective of the metadata database for the App Service Environment, e.g. "S0".
-     */
-    readonly databaseServiceObjective: string;
-    /**
-     * Default Scale Factor for FrontEnds.
-     */
-    readonly defaultFrontEndScaleFactor: number;
+    readonly dedicatedHostCount: number;
     /**
      * DNS suffix of the App Service Environment.
      */
     readonly dnsSuffix?: string;
-    /**
-     * True/false indicating whether the App Service Environment is suspended. The environment can be suspended e.g. when the management endpoint is no longer available
-     * (most likely because NSG blocked the incoming traffic).
-     */
-    readonly dynamicCacheEnabled?: boolean;
-    /**
-     * Current total, used, and available worker capacities.
-     */
-    readonly environmentCapacities: outputs.web.StampCapacityResponse[];
-    /**
-     * True/false indicating whether the App Service Environment is healthy.
-     */
-    readonly environmentIsHealthy: boolean;
-    /**
-     * Detailed message about with results of the last check of the App Service Environment.
-     */
-    readonly environmentStatus: string;
     /**
      * Scale factor for front-ends.
      */
@@ -94,7 +57,7 @@ export interface GetAppServiceEnvironmentResult {
     /**
      * Flag that displays whether an ASE has linux workers or not
      */
-    readonly hasLinuxWorkers?: boolean;
+    readonly hasLinuxWorkers: boolean;
     /**
      * Resource Id.
      */
@@ -112,14 +75,6 @@ export interface GetAppServiceEnvironmentResult {
      */
     readonly kind?: string;
     /**
-     * Last deployment action on the App Service Environment.
-     */
-    readonly lastAction: string;
-    /**
-     * Result of the last deployment action on the App Service Environment.
-     */
-    readonly lastActionResult: string;
-    /**
      * Resource Location.
      */
     readonly location: string;
@@ -130,7 +85,7 @@ export interface GetAppServiceEnvironmentResult {
     /**
      * Number of front-end instances.
      */
-    readonly multiRoleCount?: number;
+    readonly multiRoleCount: number;
     /**
      * Front-end VM size, e.g. "Medium", "Large".
      */
@@ -140,42 +95,18 @@ export interface GetAppServiceEnvironmentResult {
      */
     readonly name: string;
     /**
-     * Access control list for controlling traffic to the App Service Environment.
-     */
-    readonly networkAccessControlList?: outputs.web.NetworkAccessControlEntryResponse[];
-    /**
      * Provisioning state of the App Service Environment.
      */
     readonly provisioningState: string;
-    /**
-     * Resource group of the App Service Environment.
-     */
-    readonly resourceGroup: string;
-    /**
-     * Key Vault ID for ILB App Service Environment default SSL certificate
-     */
-    readonly sslCertKeyVaultId?: string;
-    /**
-     * Key Vault Secret Name for ILB App Service Environment default SSL certificate
-     */
-    readonly sslCertKeyVaultSecretName?: string;
     /**
      * Current status of the App Service Environment.
      */
     readonly status: string;
     /**
-     * Subscription of the App Service Environment.
-     */
-    readonly subscriptionId: string;
-    /**
      * <code>true</code> if the App Service Environment is suspended; otherwise, <code>false</code>. The environment can be suspended, e.g. when the management endpoint is no longer available
      *  (most likely because NSG blocked the incoming traffic).
      */
-    readonly suspended?: boolean;
-    /**
-     * The system metadata relating to this resource.
-     */
-    readonly systemData: outputs.web.SystemDataResponse;
+    readonly suspended: boolean;
     /**
      * Resource tags.
      */
@@ -185,35 +116,11 @@ export interface GetAppServiceEnvironmentResult {
      */
     readonly type: string;
     /**
-     * Number of upgrade domains of the App Service Environment.
-     */
-    readonly upgradeDomains: number;
-    /**
      * User added ip ranges to whitelist on ASE db
      */
     readonly userWhitelistedIpRanges?: string[];
     /**
-     * Description of IP SSL mapping for the App Service Environment.
-     */
-    readonly vipMappings: outputs.web.VirtualIPMappingResponse[];
-    /**
      * Description of the Virtual Network.
      */
     readonly virtualNetwork: outputs.web.VirtualNetworkProfileResponse;
-    /**
-     * Name of the Virtual Network for the App Service Environment.
-     */
-    readonly vnetName?: string;
-    /**
-     * Resource group of the Virtual Network.
-     */
-    readonly vnetResourceGroupName?: string;
-    /**
-     * Subnet of the Virtual Network.
-     */
-    readonly vnetSubnetName?: string;
-    /**
-     * Description of worker pools with worker size IDs, VM sizes, and number of workers in each pool.
-     */
-    readonly workerPools: outputs.web.WorkerPoolResponse[];
 }

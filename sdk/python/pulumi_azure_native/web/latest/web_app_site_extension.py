@@ -7,7 +7,6 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
-from . import outputs
 
 __all__ = ['WebAppSiteExtension']
 
@@ -28,7 +27,7 @@ class WebAppSiteExtension(pulumi.CustomResource):
                  __opts__=None):
         """
         Site Extension Information.
-        Latest API Version: 2020-10-01.
+        Latest API Version: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -80,11 +79,10 @@ class WebAppSiteExtension(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['published_date_time'] = None
             __props__['summary'] = None
-            __props__['system_data'] = None
             __props__['title'] = None
             __props__['type'] = None
             __props__['version'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/latest:WebAppSiteExtension"), pulumi.Alias(type_="azure-native:web:WebAppSiteExtension"), pulumi.Alias(type_="azure-nextgen:web:WebAppSiteExtension"), pulumi.Alias(type_="azure-native:web/v20160801:WebAppSiteExtension"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppSiteExtension"), pulumi.Alias(type_="azure-native:web/v20180201:WebAppSiteExtension"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppSiteExtension"), pulumi.Alias(type_="azure-native:web/v20181101:WebAppSiteExtension"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppSiteExtension"), pulumi.Alias(type_="azure-native:web/v20190801:WebAppSiteExtension"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppSiteExtension"), pulumi.Alias(type_="azure-native:web/v20200601:WebAppSiteExtension"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppSiteExtension"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppSiteExtension"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppSiteExtension"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppSiteExtension"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppSiteExtension")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/latest:WebAppSiteExtension"), pulumi.Alias(type_="azure-native:web:WebAppSiteExtension"), pulumi.Alias(type_="azure-nextgen:web:WebAppSiteExtension"), pulumi.Alias(type_="azure-native:web/v20160801:WebAppSiteExtension"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppSiteExtension"), pulumi.Alias(type_="azure-native:web/v20180201:WebAppSiteExtension"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppSiteExtension"), pulumi.Alias(type_="azure-native:web/v20181101:WebAppSiteExtension"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppSiteExtension"), pulumi.Alias(type_="azure-native:web/v20190801:WebAppSiteExtension"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppSiteExtension"), pulumi.Alias(type_="azure-native:web/v20200601:WebAppSiteExtension"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppSiteExtension"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppSiteExtension"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppSiteExtension"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppSiteExtension"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppSiteExtension"), pulumi.Alias(type_="azure-native:web/v20201201:WebAppSiteExtension"), pulumi.Alias(type_="azure-nextgen:web/v20201201:WebAppSiteExtension")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppSiteExtension, __self__).__init__(
             'azure-native:web/latest:WebAppSiteExtension',
@@ -128,7 +126,6 @@ class WebAppSiteExtension(pulumi.CustomResource):
         __props__["provisioning_state"] = None
         __props__["published_date_time"] = None
         __props__["summary"] = None
-        __props__["system_data"] = None
         __props__["title"] = None
         __props__["type"] = None
         __props__["version"] = None
@@ -293,14 +290,6 @@ class WebAppSiteExtension(pulumi.CustomResource):
         Summary description.
         """
         return pulumi.get(self, "summary")
-
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
-        """
-        The system metadata relating to this resource.
-        """
-        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

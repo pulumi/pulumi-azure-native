@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * A domain specific resource identifier.
- * Latest API Version: 2020-10-01.
+ * Latest API Version: 2020-12-01.
  */
 /** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getWebAppDomainOwnershipIdentifier'. */
 export function getWebAppDomainOwnershipIdentifier(args: GetWebAppDomainOwnershipIdentifierArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppDomainOwnershipIdentifierResult> {
@@ -57,10 +57,6 @@ export interface GetWebAppDomainOwnershipIdentifierResult {
      * Resource Name.
      */
     readonly name: string;
-    /**
-     * The system metadata relating to this resource.
-     */
-    readonly systemData: outputs.web.latest.SystemDataResponse;
     /**
      * Resource type.
      */

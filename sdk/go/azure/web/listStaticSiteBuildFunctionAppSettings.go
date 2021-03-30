@@ -8,7 +8,7 @@ import (
 )
 
 // String dictionary resource.
-// API Version: 2020-10-01.
+// API Version: 2020-12-01.
 func ListStaticSiteBuildFunctionAppSettings(ctx *pulumi.Context, args *ListStaticSiteBuildFunctionAppSettingsArgs, opts ...pulumi.InvokeOption) (*ListStaticSiteBuildFunctionAppSettingsResult, error) {
 	var rv ListStaticSiteBuildFunctionAppSettingsResult
 	err := ctx.Invoke("azure-native:web:listStaticSiteBuildFunctionAppSettings", args, &rv, opts...)
@@ -19,10 +19,10 @@ func ListStaticSiteBuildFunctionAppSettings(ctx *pulumi.Context, args *ListStati
 }
 
 type ListStaticSiteBuildFunctionAppSettingsArgs struct {
+	// The stage site identifier.
+	EnvironmentName string `pulumi:"environmentName"`
 	// Name of the static site.
 	Name string `pulumi:"name"`
-	// The stage site identifier.
-	PrId string `pulumi:"prId"`
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
@@ -37,8 +37,6 @@ type ListStaticSiteBuildFunctionAppSettingsResult struct {
 	Name string `pulumi:"name"`
 	// Settings.
 	Properties map[string]string `pulumi:"properties"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }

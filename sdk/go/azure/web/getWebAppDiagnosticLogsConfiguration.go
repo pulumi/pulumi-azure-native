@@ -8,7 +8,7 @@ import (
 )
 
 // Configuration of App Service site logs.
-// API Version: 2020-10-01.
+// API Version: 2020-12-01.
 func LookupWebAppDiagnosticLogsConfiguration(ctx *pulumi.Context, args *LookupWebAppDiagnosticLogsConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupWebAppDiagnosticLogsConfigurationResult, error) {
 	var rv LookupWebAppDiagnosticLogsConfigurationResult
 	err := ctx.Invoke("azure-native:web:getWebAppDiagnosticLogsConfiguration", args, &rv, opts...)
@@ -41,8 +41,6 @@ type LookupWebAppDiagnosticLogsConfigurationResult struct {
 	Kind *string `pulumi:"kind"`
 	// Resource Name.
 	Name string `pulumi:"name"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }

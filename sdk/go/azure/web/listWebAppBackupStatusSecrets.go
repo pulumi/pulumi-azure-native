@@ -8,7 +8,7 @@ import (
 )
 
 // Backup description.
-// API Version: 2020-10-01.
+// API Version: 2020-12-01.
 func ListWebAppBackupStatusSecrets(ctx *pulumi.Context, args *ListWebAppBackupStatusSecretsArgs, opts ...pulumi.InvokeOption) (*ListWebAppBackupStatusSecretsResult, error) {
 	var rv ListWebAppBackupStatusSecretsResult
 	err := ctx.Invoke("azure-native:web:listWebAppBackupStatusSecrets", args, &rv, opts...)
@@ -71,8 +71,6 @@ type ListWebAppBackupStatusSecretsResult struct {
 	Status string `pulumi:"status"`
 	// SAS URL for the storage account container which contains this backup.
 	StorageAccountUrl string `pulumi:"storageAccountUrl"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type string `pulumi:"type"`
 	// Size of the original web app which has been backed up.

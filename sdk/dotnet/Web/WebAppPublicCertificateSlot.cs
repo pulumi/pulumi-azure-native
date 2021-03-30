@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Web
 {
     /// <summary>
     /// Public certificate object
-    /// API Version: 2020-10-01.
+    /// API Version: 2020-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:WebAppPublicCertificateSlot")]
     public partial class WebAppPublicCertificateSlot : Pulumi.CustomResource
@@ -39,12 +39,6 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         [Output("publicCertificateLocation")]
         public Output<string?> PublicCertificateLocation { get; private set; } = null!;
-
-        /// <summary>
-        /// The system metadata relating to this resource.
-        /// </summary>
-        [Output("systemData")]
-        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Certificate Thumbprint
@@ -100,6 +94,8 @@ namespace Pulumi.AzureNative.Web
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:WebAppPublicCertificateSlot"},
                     new Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppPublicCertificateSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:WebAppPublicCertificateSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppPublicCertificateSlot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20201201:WebAppPublicCertificateSlot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

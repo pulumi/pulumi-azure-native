@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Web.Latest
     {
         /// <summary>
         /// Hybrid Connection contract. This is used to configure a Hybrid Connection.
-        /// Latest API Version: 2020-10-01.
+        /// Latest API Version: 2020-12-01.
         /// </summary>
         public static Task<GetWebAppHybridConnectionResult> InvokeAsync(GetWebAppHybridConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppHybridConnectionResult>("azure-native:web/latest:getWebAppHybridConnection", args ?? new GetWebAppHybridConnectionArgs(), options.WithVersion());
@@ -102,10 +102,6 @@ namespace Pulumi.AzureNative.Web.Latest
         /// </summary>
         public readonly string? ServiceBusSuffix;
         /// <summary>
-        /// The system metadata relating to this resource.
-        /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
-        /// <summary>
         /// Resource type.
         /// </summary>
         public readonly string Type;
@@ -134,8 +130,6 @@ namespace Pulumi.AzureNative.Web.Latest
 
             string? serviceBusSuffix,
 
-            Outputs.SystemDataResponse systemData,
-
             string type)
         {
             Hostname = hostname;
@@ -149,7 +143,6 @@ namespace Pulumi.AzureNative.Web.Latest
             SendKeyValue = sendKeyValue;
             ServiceBusNamespace = serviceBusNamespace;
             ServiceBusSuffix = serviceBusSuffix;
-            SystemData = systemData;
             Type = type;
         }
     }

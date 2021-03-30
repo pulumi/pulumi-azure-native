@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web
     {
         /// <summary>
         /// User credentials used for publishing activity.
-        /// API Version: 2020-10-01.
+        /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetWebAppDeploymentResult> InvokeAsync(GetWebAppDeploymentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppDeploymentResult>("azure-native:web:getWebAppDeployment", args ?? new GetWebAppDeploymentArgs(), options.WithVersion());
@@ -98,10 +98,6 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         public readonly int? Status;
         /// <summary>
-        /// The system metadata relating to this resource.
-        /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
-        /// <summary>
         /// Resource type.
         /// </summary>
         public readonly string Type;
@@ -132,8 +128,6 @@ namespace Pulumi.AzureNative.Web
 
             int? status,
 
-            Outputs.SystemDataResponse systemData,
-
             string type)
         {
             Active = active;
@@ -148,7 +142,6 @@ namespace Pulumi.AzureNative.Web
             Name = name;
             StartTime = startTime;
             Status = status;
-            SystemData = systemData;
             Type = type;
         }
     }

@@ -8,7 +8,7 @@ import (
 )
 
 // User credentials used for publishing activity.
-// API Version: 2020-10-01.
+// API Version: 2020-12-01.
 func ListWebAppPublishingCredentials(ctx *pulumi.Context, args *ListWebAppPublishingCredentialsArgs, opts ...pulumi.InvokeOption) (*ListWebAppPublishingCredentialsResult, error) {
 	var rv ListWebAppPublishingCredentialsResult
 	err := ctx.Invoke("azure-native:web:listWebAppPublishingCredentials", args, &rv, opts...)
@@ -43,8 +43,6 @@ type ListWebAppPublishingCredentialsResult struct {
 	PublishingUserName string `pulumi:"publishingUserName"`
 	// Url of SCM site.
 	ScmUri *string `pulumi:"scmUri"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }

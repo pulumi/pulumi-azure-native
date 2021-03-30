@@ -12,7 +12,7 @@ import (
 )
 
 // Public certificate object
-// Latest API Version: 2020-10-01.
+// Latest API Version: 2020-12-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppPublicCertificate'.
 type WebAppPublicCertificate struct {
@@ -26,8 +26,6 @@ type WebAppPublicCertificate struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Public Certificate Location
 	PublicCertificateLocation pulumi.StringPtrOutput `pulumi:"publicCertificateLocation"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Certificate Thumbprint
 	Thumbprint pulumi.StringOutput `pulumi:"thumbprint"`
 	// Resource type.
@@ -99,6 +97,12 @@ func NewWebAppPublicCertificate(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppPublicCertificate"),
 		},
+		{
+			Type: pulumi.String("azure-native:web/v20201201:WebAppPublicCertificate"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20201201:WebAppPublicCertificate"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource WebAppPublicCertificate
@@ -131,8 +135,6 @@ type webAppPublicCertificateState struct {
 	Name *string `pulumi:"name"`
 	// Public Certificate Location
 	PublicCertificateLocation *string `pulumi:"publicCertificateLocation"`
-	// The system metadata relating to this resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Certificate Thumbprint
 	Thumbprint *string `pulumi:"thumbprint"`
 	// Resource type.
@@ -148,8 +150,6 @@ type WebAppPublicCertificateState struct {
 	Name pulumi.StringPtrInput
 	// Public Certificate Location
 	PublicCertificateLocation pulumi.StringPtrInput
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponsePtrInput
 	// Certificate Thumbprint
 	Thumbprint pulumi.StringPtrInput
 	// Resource type.

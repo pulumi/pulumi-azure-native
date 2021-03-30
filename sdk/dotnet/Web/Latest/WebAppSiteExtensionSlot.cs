@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Web.Latest
 {
     /// <summary>
     /// Site Extension Information.
-    /// Latest API Version: 2020-10-01.
+    /// Latest API Version: 2020-12-01.
     /// </summary>
     [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppSiteExtensionSlot'.")]
     [AzureNativeResourceType("azure-native:web/latest:WebAppSiteExtensionSlot")]
@@ -137,12 +137,6 @@ namespace Pulumi.AzureNative.Web.Latest
         [Output("summary")]
         public Output<string?> Summary { get; private set; } = null!;
 
-        /// <summary>
-        /// The system metadata relating to this resource.
-        /// </summary>
-        [Output("systemData")]
-        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
-
         [Output("title")]
         public Output<string?> Title { get; private set; } = null!;
 
@@ -200,6 +194,8 @@ namespace Pulumi.AzureNative.Web.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:WebAppSiteExtensionSlot"},
                     new Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppSiteExtensionSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:WebAppSiteExtensionSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppSiteExtensionSlot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20201201:WebAppSiteExtensionSlot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

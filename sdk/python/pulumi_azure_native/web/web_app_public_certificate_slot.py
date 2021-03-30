@@ -7,7 +7,6 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
-from . import outputs
 from ._enums import *
 
 __all__ = ['WebAppPublicCertificateSlot']
@@ -29,7 +28,7 @@ class WebAppPublicCertificateSlot(pulumi.CustomResource):
                  __opts__=None):
         """
         Public certificate object
-        API Version: 2020-10-01.
+        API Version: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -71,10 +70,9 @@ class WebAppPublicCertificateSlot(pulumi.CustomResource):
             if slot is None and not opts.urn:
                 raise TypeError("Missing required property 'slot'")
             __props__['slot'] = slot
-            __props__['system_data'] = None
             __props__['thumbprint'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web:WebAppPublicCertificateSlot"), pulumi.Alias(type_="azure-native:web/latest:WebAppPublicCertificateSlot"), pulumi.Alias(type_="azure-nextgen:web/latest:WebAppPublicCertificateSlot"), pulumi.Alias(type_="azure-native:web/v20160801:WebAppPublicCertificateSlot"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppPublicCertificateSlot"), pulumi.Alias(type_="azure-native:web/v20180201:WebAppPublicCertificateSlot"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppPublicCertificateSlot"), pulumi.Alias(type_="azure-native:web/v20181101:WebAppPublicCertificateSlot"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppPublicCertificateSlot"), pulumi.Alias(type_="azure-native:web/v20190801:WebAppPublicCertificateSlot"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppPublicCertificateSlot"), pulumi.Alias(type_="azure-native:web/v20200601:WebAppPublicCertificateSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppPublicCertificateSlot"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppPublicCertificateSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppPublicCertificateSlot"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppPublicCertificateSlot"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppPublicCertificateSlot")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web:WebAppPublicCertificateSlot"), pulumi.Alias(type_="azure-native:web/latest:WebAppPublicCertificateSlot"), pulumi.Alias(type_="azure-nextgen:web/latest:WebAppPublicCertificateSlot"), pulumi.Alias(type_="azure-native:web/v20160801:WebAppPublicCertificateSlot"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppPublicCertificateSlot"), pulumi.Alias(type_="azure-native:web/v20180201:WebAppPublicCertificateSlot"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppPublicCertificateSlot"), pulumi.Alias(type_="azure-native:web/v20181101:WebAppPublicCertificateSlot"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppPublicCertificateSlot"), pulumi.Alias(type_="azure-native:web/v20190801:WebAppPublicCertificateSlot"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppPublicCertificateSlot"), pulumi.Alias(type_="azure-native:web/v20200601:WebAppPublicCertificateSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppPublicCertificateSlot"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppPublicCertificateSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppPublicCertificateSlot"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppPublicCertificateSlot"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppPublicCertificateSlot"), pulumi.Alias(type_="azure-native:web/v20201201:WebAppPublicCertificateSlot"), pulumi.Alias(type_="azure-nextgen:web/v20201201:WebAppPublicCertificateSlot")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppPublicCertificateSlot, __self__).__init__(
             'azure-native:web:WebAppPublicCertificateSlot',
@@ -102,7 +100,6 @@ class WebAppPublicCertificateSlot(pulumi.CustomResource):
         __props__["kind"] = None
         __props__["name"] = None
         __props__["public_certificate_location"] = None
-        __props__["system_data"] = None
         __props__["thumbprint"] = None
         __props__["type"] = None
         return WebAppPublicCertificateSlot(resource_name, opts=opts, __props__=__props__)
@@ -138,14 +135,6 @@ class WebAppPublicCertificateSlot(pulumi.CustomResource):
         Public Certificate Location
         """
         return pulumi.get(self, "public_certificate_location")
-
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
-        """
-        The system metadata relating to this resource.
-        """
-        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

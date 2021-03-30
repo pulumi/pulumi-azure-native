@@ -165,6 +165,12 @@ func NewResource(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:resources/v20201001:Resource"),
 		},
+		{
+			Type: pulumi.String("azure-native:resources/v20210101:Resource"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:resources/v20210101:Resource"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Resource

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Web.Latest
 {
     /// <summary>
     /// Push settings for the App.
-    /// Latest API Version: 2020-10-01.
+    /// Latest API Version: 2020-12-01.
     /// </summary>
     [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppSitePushSettingsSlot'.")]
     [AzureNativeResourceType("azure-native:web/latest:WebAppSitePushSettingsSlot")]
@@ -40,12 +40,6 @@ namespace Pulumi.AzureNative.Web.Latest
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
-
-        /// <summary>
-        /// The system metadata relating to this resource.
-        /// </summary>
-        [Output("systemData")]
-        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
@@ -110,6 +104,8 @@ namespace Pulumi.AzureNative.Web.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:WebAppSitePushSettingsSlot"},
                     new Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppSitePushSettingsSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:WebAppSitePushSettingsSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppSitePushSettingsSlot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20201201:WebAppSitePushSettingsSlot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

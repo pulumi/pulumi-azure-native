@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Web.Latest
     {
         /// <summary>
         /// Backup description.
-        /// Latest API Version: 2020-10-01.
+        /// Latest API Version: 2020-12-01.
         /// </summary>
         public static Task<ListWebAppBackupStatusSecretsSlotResult> InvokeAsync(ListWebAppBackupStatusSecretsSlotArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppBackupStatusSecretsSlotResult>("azure-native:web/latest:listWebAppBackupStatusSecretsSlot", args ?? new ListWebAppBackupStatusSecretsSlotArgs(), options.WithVersion());
@@ -159,10 +159,6 @@ namespace Pulumi.AzureNative.Web.Latest
         /// </summary>
         public readonly string StorageAccountUrl;
         /// <summary>
-        /// The system metadata relating to this resource.
-        /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
-        /// <summary>
         /// Resource type.
         /// </summary>
         public readonly string Type;
@@ -203,8 +199,6 @@ namespace Pulumi.AzureNative.Web.Latest
 
             string storageAccountUrl,
 
-            Outputs.SystemDataResponse systemData,
-
             string type,
 
             double websiteSizeInBytes)
@@ -224,7 +218,6 @@ namespace Pulumi.AzureNative.Web.Latest
             SizeInBytes = sizeInBytes;
             Status = status;
             StorageAccountUrl = storageAccountUrl;
-            SystemData = systemData;
             Type = type;
             WebsiteSizeInBytes = websiteSizeInBytes;
         }

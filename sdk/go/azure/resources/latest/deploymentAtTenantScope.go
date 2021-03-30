@@ -12,7 +12,7 @@ import (
 )
 
 // Deployment information.
-// Latest API Version: 2020-10-01.
+// Latest API Version: 2021-01-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:resources:DeploymentAtTenantScope'.
 type DeploymentAtTenantScope struct {
@@ -85,6 +85,12 @@ func NewDeploymentAtTenantScope(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:resources/v20201001:DeploymentAtTenantScope"),
+		},
+		{
+			Type: pulumi.String("azure-native:resources/v20210101:DeploymentAtTenantScope"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:resources/v20210101:DeploymentAtTenantScope"),
 		},
 	})
 	opts = append(opts, aliases)

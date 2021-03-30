@@ -8,7 +8,7 @@ import (
 )
 
 // SSL certificate for an app.
-// API Version: 2020-10-01.
+// API Version: 2020-12-01.
 func LookupCertificate(ctx *pulumi.Context, args *LookupCertificateArgs, opts ...pulumi.InvokeOption) (*LookupCertificateResult, error) {
 	var rv LookupCertificateResult
 	err := ctx.Invoke("azure-native:web:getCertificate", args, &rv, opts...)
@@ -31,6 +31,8 @@ type LookupCertificateResult struct {
 	CanonicalName *string `pulumi:"canonicalName"`
 	// Raw bytes of .cer file
 	CerBlob string `pulumi:"cerBlob"`
+	// Method of domain validation for free cert
+	DomainValidationMethod *string `pulumi:"domainValidationMethod"`
 	// Certificate expiration date.
 	ExpirationDate string `pulumi:"expirationDate"`
 	// Friendly name of the certificate.
@@ -69,8 +71,6 @@ type LookupCertificateResult struct {
 	SiteName string `pulumi:"siteName"`
 	// Subject name of the certificate.
 	SubjectName string `pulumi:"subjectName"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Certificate thumbprint.

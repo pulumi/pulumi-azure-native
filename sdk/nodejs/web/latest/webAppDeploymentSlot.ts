@@ -2,12 +2,11 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
  * User credentials used for publishing activity.
- * Latest API Version: 2020-10-01.
+ * Latest API Version: 2020-12-01.
  *
  * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppDeploymentSlot'.
  */
@@ -84,10 +83,6 @@ export class WebAppDeploymentSlot extends pulumi.CustomResource {
      */
     public readonly status!: pulumi.Output<number | undefined>;
     /**
-     * The system metadata relating to this resource.
-     */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.web.latest.SystemDataResponse>;
-    /**
      * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -128,7 +123,6 @@ export class WebAppDeploymentSlot extends pulumi.CustomResource {
             inputs["slot"] = args ? args.slot : undefined;
             inputs["startTime"] = args ? args.startTime : undefined;
             inputs["status"] = args ? args.status : undefined;
-            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["active"] = undefined /*out*/;
@@ -142,13 +136,12 @@ export class WebAppDeploymentSlot extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["startTime"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:WebAppDeploymentSlot" }, { type: "azure-native:web:WebAppDeploymentSlot" }, { type: "azure-nextgen:web:WebAppDeploymentSlot" }, { type: "azure-native:web/v20150801:WebAppDeploymentSlot" }, { type: "azure-nextgen:web/v20150801:WebAppDeploymentSlot" }, { type: "azure-native:web/v20160801:WebAppDeploymentSlot" }, { type: "azure-nextgen:web/v20160801:WebAppDeploymentSlot" }, { type: "azure-native:web/v20180201:WebAppDeploymentSlot" }, { type: "azure-nextgen:web/v20180201:WebAppDeploymentSlot" }, { type: "azure-native:web/v20181101:WebAppDeploymentSlot" }, { type: "azure-nextgen:web/v20181101:WebAppDeploymentSlot" }, { type: "azure-native:web/v20190801:WebAppDeploymentSlot" }, { type: "azure-nextgen:web/v20190801:WebAppDeploymentSlot" }, { type: "azure-native:web/v20200601:WebAppDeploymentSlot" }, { type: "azure-nextgen:web/v20200601:WebAppDeploymentSlot" }, { type: "azure-native:web/v20200901:WebAppDeploymentSlot" }, { type: "azure-nextgen:web/v20200901:WebAppDeploymentSlot" }, { type: "azure-native:web/v20201001:WebAppDeploymentSlot" }, { type: "azure-nextgen:web/v20201001:WebAppDeploymentSlot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:WebAppDeploymentSlot" }, { type: "azure-native:web:WebAppDeploymentSlot" }, { type: "azure-nextgen:web:WebAppDeploymentSlot" }, { type: "azure-native:web/v20150801:WebAppDeploymentSlot" }, { type: "azure-nextgen:web/v20150801:WebAppDeploymentSlot" }, { type: "azure-native:web/v20160801:WebAppDeploymentSlot" }, { type: "azure-nextgen:web/v20160801:WebAppDeploymentSlot" }, { type: "azure-native:web/v20180201:WebAppDeploymentSlot" }, { type: "azure-nextgen:web/v20180201:WebAppDeploymentSlot" }, { type: "azure-native:web/v20181101:WebAppDeploymentSlot" }, { type: "azure-nextgen:web/v20181101:WebAppDeploymentSlot" }, { type: "azure-native:web/v20190801:WebAppDeploymentSlot" }, { type: "azure-nextgen:web/v20190801:WebAppDeploymentSlot" }, { type: "azure-native:web/v20200601:WebAppDeploymentSlot" }, { type: "azure-nextgen:web/v20200601:WebAppDeploymentSlot" }, { type: "azure-native:web/v20200901:WebAppDeploymentSlot" }, { type: "azure-nextgen:web/v20200901:WebAppDeploymentSlot" }, { type: "azure-native:web/v20201001:WebAppDeploymentSlot" }, { type: "azure-nextgen:web/v20201001:WebAppDeploymentSlot" }, { type: "azure-native:web/v20201201:WebAppDeploymentSlot" }, { type: "azure-nextgen:web/v20201201:WebAppDeploymentSlot" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebAppDeploymentSlot.__pulumiType, name, inputs, opts);
     }

@@ -80,10 +80,6 @@ export class Workspace extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Network Settings
-     */
-    public readonly networkSettings!: pulumi.Output<outputs.synapse.v20210301.NetworkSettingsResponse | undefined>;
-    /**
      * Private endpoint connections to the workspace
      */
     public readonly privateEndpointConnections!: pulumi.Output<outputs.synapse.v20210301.PrivateEndpointConnectionResponse[] | undefined>;
@@ -91,6 +87,10 @@ export class Workspace extends pulumi.CustomResource {
      * Resource provisioning state
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Enable or Disable pubic network access to workspace
+     */
+    public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
     /**
      * Purview Configuration
      */
@@ -146,8 +146,8 @@ export class Workspace extends pulumi.CustomResource {
             inputs["managedResourceGroupName"] = args ? args.managedResourceGroupName : undefined;
             inputs["managedVirtualNetwork"] = args ? args.managedVirtualNetwork : undefined;
             inputs["managedVirtualNetworkSettings"] = args ? args.managedVirtualNetworkSettings : undefined;
-            inputs["networkSettings"] = args ? args.networkSettings : undefined;
             inputs["privateEndpointConnections"] = args ? args.privateEndpointConnections : undefined;
+            inputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
             inputs["purviewConfiguration"] = args ? args.purviewConfiguration : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sqlAdministratorLogin"] = args ? args.sqlAdministratorLogin : undefined;
@@ -174,9 +174,9 @@ export class Workspace extends pulumi.CustomResource {
             inputs["managedVirtualNetwork"] = undefined /*out*/;
             inputs["managedVirtualNetworkSettings"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
-            inputs["networkSettings"] = undefined /*out*/;
             inputs["privateEndpointConnections"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["publicNetworkAccess"] = undefined /*out*/;
             inputs["purviewConfiguration"] = undefined /*out*/;
             inputs["sqlAdministratorLogin"] = undefined /*out*/;
             inputs["sqlAdministratorLoginPassword"] = undefined /*out*/;
@@ -232,13 +232,13 @@ export interface WorkspaceArgs {
      */
     readonly managedVirtualNetworkSettings?: pulumi.Input<inputs.synapse.v20210301.ManagedVirtualNetworkSettings>;
     /**
-     * Network Settings
-     */
-    readonly networkSettings?: pulumi.Input<inputs.synapse.v20210301.NetworkSettings>;
-    /**
      * Private endpoint connections to the workspace
      */
     readonly privateEndpointConnections?: pulumi.Input<pulumi.Input<inputs.synapse.v20210301.PrivateEndpointConnection>[]>;
+    /**
+     * Enable or Disable pubic network access to workspace
+     */
+    readonly publicNetworkAccess?: pulumi.Input<string | enums.synapse.v20210301.WorkspacePublicNetworkAccess>;
     /**
      * Purview Configuration
      */

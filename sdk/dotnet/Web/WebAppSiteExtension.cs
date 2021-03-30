@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Web
 {
     /// <summary>
     /// Site Extension Information.
-    /// API Version: 2020-10-01.
+    /// API Version: 2020-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:WebAppSiteExtension")]
     public partial class WebAppSiteExtension : Pulumi.CustomResource
@@ -136,12 +136,6 @@ namespace Pulumi.AzureNative.Web
         [Output("summary")]
         public Output<string?> Summary { get; private set; } = null!;
 
-        /// <summary>
-        /// The system metadata relating to this resource.
-        /// </summary>
-        [Output("systemData")]
-        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
-
         [Output("title")]
         public Output<string?> Title { get; private set; } = null!;
 
@@ -199,6 +193,8 @@ namespace Pulumi.AzureNative.Web
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:WebAppSiteExtension"},
                     new Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppSiteExtension"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:WebAppSiteExtension"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppSiteExtension"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20201201:WebAppSiteExtension"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

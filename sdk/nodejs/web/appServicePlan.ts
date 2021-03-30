@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * App Service plan.
- * API Version: 2020-10-01.
+ * API Version: 2020-12-01.
  */
 export class AppServicePlan extends pulumi.CustomResource {
     /**
@@ -65,6 +65,10 @@ export class AppServicePlan extends pulumi.CustomResource {
      */
     public readonly kind!: pulumi.Output<string | undefined>;
     /**
+     * Specification for the Kubernetes Environment to use for the App Service plan.
+     */
+    public readonly kubeEnvironmentProfile!: pulumi.Output<outputs.web.KubeEnvironmentProfileResponse | undefined>;
+    /**
      * Resource Location.
      */
     public readonly location!: pulumi.Output<string>;
@@ -90,7 +94,7 @@ export class AppServicePlan extends pulumi.CustomResource {
      */
     public readonly perSiteScaling!: pulumi.Output<boolean | undefined>;
     /**
-     * Provisioning state of the App Service Environment.
+     * Provisioning state of the App Service Plan.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
@@ -117,10 +121,6 @@ export class AppServicePlan extends pulumi.CustomResource {
      * App Service plan subscription.
      */
     public /*out*/ readonly subscription!: pulumi.Output<string>;
-    /**
-     * The system metadata relating to this resource.
-     */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.web.SystemDataResponse>;
     /**
      * Resource tags.
      */
@@ -162,6 +162,7 @@ export class AppServicePlan extends pulumi.CustomResource {
             inputs["isSpot"] = args ? args.isSpot : undefined;
             inputs["isXenon"] = (args ? args.isXenon : undefined) || false;
             inputs["kind"] = args ? args.kind : undefined;
+            inputs["kubeEnvironmentProfile"] = args ? args.kubeEnvironmentProfile : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["maximumElasticWorkerCount"] = args ? args.maximumElasticWorkerCount : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -181,7 +182,6 @@ export class AppServicePlan extends pulumi.CustomResource {
             inputs["resourceGroup"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
             inputs["subscription"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["freeOfferExpirationTime"] = undefined /*out*/;
@@ -191,6 +191,7 @@ export class AppServicePlan extends pulumi.CustomResource {
             inputs["isSpot"] = undefined /*out*/;
             inputs["isXenon"] = undefined /*out*/;
             inputs["kind"] = undefined /*out*/;
+            inputs["kubeEnvironmentProfile"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["maximumElasticWorkerCount"] = undefined /*out*/;
             inputs["maximumNumberOfWorkers"] = undefined /*out*/;
@@ -204,7 +205,6 @@ export class AppServicePlan extends pulumi.CustomResource {
             inputs["spotExpirationTime"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
             inputs["subscription"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["targetWorkerCount"] = undefined /*out*/;
             inputs["targetWorkerSizeId"] = undefined /*out*/;
@@ -214,7 +214,7 @@ export class AppServicePlan extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:AppServicePlan" }, { type: "azure-native:web/latest:AppServicePlan" }, { type: "azure-nextgen:web/latest:AppServicePlan" }, { type: "azure-native:web/v20150801:AppServicePlan" }, { type: "azure-nextgen:web/v20150801:AppServicePlan" }, { type: "azure-native:web/v20160901:AppServicePlan" }, { type: "azure-nextgen:web/v20160901:AppServicePlan" }, { type: "azure-native:web/v20180201:AppServicePlan" }, { type: "azure-nextgen:web/v20180201:AppServicePlan" }, { type: "azure-native:web/v20190801:AppServicePlan" }, { type: "azure-nextgen:web/v20190801:AppServicePlan" }, { type: "azure-native:web/v20200601:AppServicePlan" }, { type: "azure-nextgen:web/v20200601:AppServicePlan" }, { type: "azure-native:web/v20200901:AppServicePlan" }, { type: "azure-nextgen:web/v20200901:AppServicePlan" }, { type: "azure-native:web/v20201001:AppServicePlan" }, { type: "azure-nextgen:web/v20201001:AppServicePlan" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:AppServicePlan" }, { type: "azure-native:web/latest:AppServicePlan" }, { type: "azure-nextgen:web/latest:AppServicePlan" }, { type: "azure-native:web/v20150801:AppServicePlan" }, { type: "azure-nextgen:web/v20150801:AppServicePlan" }, { type: "azure-native:web/v20160901:AppServicePlan" }, { type: "azure-nextgen:web/v20160901:AppServicePlan" }, { type: "azure-native:web/v20180201:AppServicePlan" }, { type: "azure-nextgen:web/v20180201:AppServicePlan" }, { type: "azure-native:web/v20190801:AppServicePlan" }, { type: "azure-nextgen:web/v20190801:AppServicePlan" }, { type: "azure-native:web/v20200601:AppServicePlan" }, { type: "azure-nextgen:web/v20200601:AppServicePlan" }, { type: "azure-native:web/v20200901:AppServicePlan" }, { type: "azure-nextgen:web/v20200901:AppServicePlan" }, { type: "azure-native:web/v20201001:AppServicePlan" }, { type: "azure-nextgen:web/v20201001:AppServicePlan" }, { type: "azure-native:web/v20201201:AppServicePlan" }, { type: "azure-nextgen:web/v20201201:AppServicePlan" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AppServicePlan.__pulumiType, name, inputs, opts);
     }
@@ -248,6 +248,10 @@ export interface AppServicePlanArgs {
      * Kind of resource.
      */
     readonly kind?: pulumi.Input<string>;
+    /**
+     * Specification for the Kubernetes Environment to use for the App Service plan.
+     */
+    readonly kubeEnvironmentProfile?: pulumi.Input<inputs.web.KubeEnvironmentProfile>;
     /**
      * Resource Location.
      */

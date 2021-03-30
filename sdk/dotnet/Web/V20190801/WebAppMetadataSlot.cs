@@ -83,6 +83,8 @@ namespace Pulumi.AzureNative.Web.V20190801
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:WebAppMetadataSlot"},
                     new Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppMetadataSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:WebAppMetadataSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppMetadataSlot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20201201:WebAppMetadataSlot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

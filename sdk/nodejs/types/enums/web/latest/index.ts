@@ -2,16 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
-export const AccessControlEntryAction = {
-    Permit: "Permit",
-    Deny: "Deny",
-} as const;
-
-/**
- * Action object.
- */
-export type AccessControlEntryAction = (typeof AccessControlEntryAction)[keyof typeof AccessControlEntryAction];
-
 export const ApiType = {
     NotSpecified: "NotSpecified",
     Rest: "Rest",
@@ -73,6 +63,7 @@ export type BuiltInAuthenticationProvider = (typeof BuiltInAuthenticationProvide
 export const ClientCertMode = {
     Required: "Required",
     Optional: "Optional",
+    OptionalInteractiveUser: "OptionalInteractiveUser",
 } as const;
 
 /**
@@ -88,17 +79,6 @@ export const ClientCredentialMethod = {
 } as const;
 
 export type ClientCredentialMethod = (typeof ClientCredentialMethod)[keyof typeof ClientCredentialMethod];
-
-export const ComputeModeOptions = {
-    Shared: "Shared",
-    Dedicated: "Dedicated",
-    Dynamic: "Dynamic",
-} as const;
-
-/**
- * Shared or dedicated app hosting.
- */
-export type ComputeModeOptions = (typeof ComputeModeOptions)[keyof typeof ComputeModeOptions];
 
 export const ConnectionParameterType = {
     String: "string",
@@ -229,7 +209,7 @@ export const LoadBalancingMode = {
     None: "None",
     Web: "Web",
     Publishing: "Publishing",
-    Web_Publishing: "Web,Publishing",
+    Web_Publishing: "Web, Publishing",
 } as const;
 
 /**
@@ -340,6 +320,7 @@ export const SiteLoadBalancing = {
     LeastResponseTime: "LeastResponseTime",
     WeightedTotalTraffic: "WeightedTotalTraffic",
     RequestHash: "RequestHash",
+    PerSiteRoundRobin: "PerSiteRoundRobin",
 } as const;
 
 /**

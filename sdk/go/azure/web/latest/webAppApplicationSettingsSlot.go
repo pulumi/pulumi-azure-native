@@ -12,7 +12,7 @@ import (
 )
 
 // String dictionary resource.
-// Latest API Version: 2020-10-01.
+// Latest API Version: 2020-12-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppApplicationSettingsSlot'.
 type WebAppApplicationSettingsSlot struct {
@@ -24,8 +24,6 @@ type WebAppApplicationSettingsSlot struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Settings.
 	Properties pulumi.StringMapOutput `pulumi:"properties"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -104,6 +102,12 @@ func NewWebAppApplicationSettingsSlot(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppApplicationSettingsSlot"),
 		},
+		{
+			Type: pulumi.String("azure-native:web/v20201201:WebAppApplicationSettingsSlot"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20201201:WebAppApplicationSettingsSlot"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource WebAppApplicationSettingsSlot
@@ -134,8 +138,6 @@ type webAppApplicationSettingsSlotState struct {
 	Name *string `pulumi:"name"`
 	// Settings.
 	Properties map[string]string `pulumi:"properties"`
-	// The system metadata relating to this resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type *string `pulumi:"type"`
 }
@@ -147,8 +149,6 @@ type WebAppApplicationSettingsSlotState struct {
 	Name pulumi.StringPtrInput
 	// Settings.
 	Properties pulumi.StringMapInput
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponsePtrInput
 	// Resource type.
 	Type pulumi.StringPtrInput
 }

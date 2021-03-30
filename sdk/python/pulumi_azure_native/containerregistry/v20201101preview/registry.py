@@ -77,6 +77,8 @@ class Registry(pulumi.CustomResource):
             if admin_user_enabled is None:
                 admin_user_enabled = False
             __props__['admin_user_enabled'] = admin_user_enabled
+            if anonymous_pull_enabled is None:
+                anonymous_pull_enabled = False
             __props__['anonymous_pull_enabled'] = anonymous_pull_enabled
             __props__['data_endpoint_enabled'] = data_endpoint_enabled
             __props__['encryption'] = encryption

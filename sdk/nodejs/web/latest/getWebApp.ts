@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * A web app, a mobile app backend, or an API app.
- * Latest API Version: 2020-10-01.
+ * Latest API Version: 2020-12-01.
  */
 /** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getWebApp'. */
 export function getWebApp(args: GetWebAppArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppResult> {
@@ -135,6 +135,10 @@ export interface GetWebAppResult {
      */
     readonly isXenon?: boolean;
     /**
+     * Identity to use for Key Vault Reference authentication.
+     */
+    readonly keyVaultReferenceIdentity?: string;
+    /**
      * Kind of resource.
      */
     readonly kind?: string;
@@ -207,10 +211,6 @@ export interface GetWebAppResult {
      * App suspended till in case memory-time quota is exceeded.
      */
     readonly suspendedTill: string;
-    /**
-     * The system metadata relating to this resource.
-     */
-    readonly systemData: outputs.web.latest.SystemDataResponse;
     /**
      * Resource tags.
      */

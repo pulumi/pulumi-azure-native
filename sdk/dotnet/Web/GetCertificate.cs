@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web
     {
         /// <summary>
         /// SSL certificate for an app.
-        /// API Version: 2020-10-01.
+        /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetCertificateResult> InvokeAsync(GetCertificateArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCertificateResult>("azure-native:web:getCertificate", args ?? new GetCertificateArgs(), options.WithVersion());
@@ -51,6 +51,10 @@ namespace Pulumi.AzureNative.Web
         /// Raw bytes of .cer file
         /// </summary>
         public readonly string CerBlob;
+        /// <summary>
+        /// Method of domain validation for free cert
+        /// </summary>
+        public readonly string? DomainValidationMethod;
         /// <summary>
         /// Certificate expiration date.
         /// </summary>
@@ -128,10 +132,6 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         public readonly string SubjectName;
         /// <summary>
-        /// The system metadata relating to this resource.
-        /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
-        /// <summary>
         /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -153,6 +153,8 @@ namespace Pulumi.AzureNative.Web
             string? canonicalName,
 
             string cerBlob,
+
+            string? domainValidationMethod,
 
             string expirationDate,
 
@@ -192,8 +194,6 @@ namespace Pulumi.AzureNative.Web
 
             string subjectName,
 
-            Outputs.SystemDataResponse systemData,
-
             ImmutableDictionary<string, string>? tags,
 
             string thumbprint,
@@ -204,6 +204,7 @@ namespace Pulumi.AzureNative.Web
         {
             CanonicalName = canonicalName;
             CerBlob = cerBlob;
+            DomainValidationMethod = domainValidationMethod;
             ExpirationDate = expirationDate;
             FriendlyName = friendlyName;
             HostNames = hostNames;
@@ -223,7 +224,6 @@ namespace Pulumi.AzureNative.Web
             ServerFarmId = serverFarmId;
             SiteName = siteName;
             SubjectName = subjectName;
-            SystemData = systemData;
             Tags = tags;
             Thumbprint = thumbprint;
             Type = type;

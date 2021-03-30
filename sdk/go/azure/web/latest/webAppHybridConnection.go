@@ -12,7 +12,7 @@ import (
 )
 
 // Hybrid Connection contract. This is used to configure a Hybrid Connection.
-// Latest API Version: 2020-10-01.
+// Latest API Version: 2020-12-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppHybridConnection'.
 type WebAppHybridConnection struct {
@@ -39,8 +39,6 @@ type WebAppHybridConnection struct {
 	ServiceBusNamespace pulumi.StringPtrOutput `pulumi:"serviceBusNamespace"`
 	// The suffix for the service bus endpoint. By default this is .servicebus.windows.net
 	ServiceBusSuffix pulumi.StringPtrOutput `pulumi:"serviceBusSuffix"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -113,6 +111,12 @@ func NewWebAppHybridConnection(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppHybridConnection"),
 		},
+		{
+			Type: pulumi.String("azure-native:web/v20201201:WebAppHybridConnection"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20201201:WebAppHybridConnection"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource WebAppHybridConnection
@@ -158,8 +162,6 @@ type webAppHybridConnectionState struct {
 	ServiceBusNamespace *string `pulumi:"serviceBusNamespace"`
 	// The suffix for the service bus endpoint. By default this is .servicebus.windows.net
 	ServiceBusSuffix *string `pulumi:"serviceBusSuffix"`
-	// The system metadata relating to this resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type *string `pulumi:"type"`
 }
@@ -186,8 +188,6 @@ type WebAppHybridConnectionState struct {
 	ServiceBusNamespace pulumi.StringPtrInput
 	// The suffix for the service bus endpoint. By default this is .servicebus.windows.net
 	ServiceBusSuffix pulumi.StringPtrInput
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponsePtrInput
 	// Resource type.
 	Type pulumi.StringPtrInput
 }

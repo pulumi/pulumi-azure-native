@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Source control configuration for an app.
- * API Version: 2020-10-01.
+ * API Version: 2020-12-01.
  */
 export function getWebAppSourceControl(args: GetWebAppSourceControlArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppSourceControlResult> {
     if (!opts) {
@@ -47,6 +47,10 @@ export interface GetWebAppSourceControlResult {
      */
     readonly deploymentRollbackEnabled?: boolean;
     /**
+     * If GitHub Action is selected, than the associated configuration.
+     */
+    readonly gitHubActionConfiguration?: outputs.web.GitHubActionConfigurationResponse;
+    /**
      * Resource Id.
      */
     readonly id: string;
@@ -74,10 +78,6 @@ export interface GetWebAppSourceControlResult {
      * Repository or source control URL.
      */
     readonly repoUrl?: string;
-    /**
-     * The system metadata relating to this resource.
-     */
-    readonly systemData: outputs.web.SystemDataResponse;
     /**
      * Resource type.
      */

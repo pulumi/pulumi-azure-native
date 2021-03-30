@@ -7,8 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Private Endpoint Connection ARM resource.
-// API Version: 2020-10-01.
+// Remote Private Endpoint Connection ARM resource.
+// API Version: 2020-12-01.
 func LookupWebAppPrivateEndpointConnection(ctx *pulumi.Context, args *LookupWebAppPrivateEndpointConnectionArgs, opts ...pulumi.InvokeOption) (*LookupWebAppPrivateEndpointConnectionResult, error) {
 	var rv LookupWebAppPrivateEndpointConnectionResult
 	err := ctx.Invoke("azure-native:web:getWebAppPrivateEndpointConnection", args, &rv, opts...)
@@ -20,16 +20,19 @@ func LookupWebAppPrivateEndpointConnection(ctx *pulumi.Context, args *LookupWebA
 
 type LookupWebAppPrivateEndpointConnectionArgs struct {
 	// Name of the site.
-	Name                          string `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// Name of the private endpoint connection.
 	PrivateEndpointConnectionName string `pulumi:"privateEndpointConnectionName"`
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-// Private Endpoint Connection ARM resource.
+// Remote Private Endpoint Connection ARM resource.
 type LookupWebAppPrivateEndpointConnectionResult struct {
 	// Resource Id.
 	Id string `pulumi:"id"`
+	// Private IPAddresses mapped to the remote private endpoint
+	IpAddresses []string `pulumi:"ipAddresses"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// Resource Name.
@@ -39,8 +42,6 @@ type LookupWebAppPrivateEndpointConnectionResult struct {
 	// The state of a private link connection
 	PrivateLinkServiceConnectionState *PrivateLinkConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
 	ProvisioningState                 string                              `pulumi:"provisioningState"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }

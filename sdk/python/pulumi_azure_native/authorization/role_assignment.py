@@ -42,7 +42,7 @@ class RoleAssignment(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'PrincipalType']] principal_type: The principal type of the assigned principal ID.
         :param pulumi.Input[str] role_assignment_name: The name of the role assignment. It can be any valid GUID.
         :param pulumi.Input[str] role_definition_id: The role definition ID.
-        :param pulumi.Input[str] scope: The role assignment scope.
+        :param pulumi.Input[str] scope: The scope of the operation or resource. Valid scopes are: subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -206,7 +206,7 @@ class RoleAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def scope(self) -> pulumi.Output[Optional[str]]:
+    def scope(self) -> pulumi.Output[str]:
         """
         The role assignment scope.
         """

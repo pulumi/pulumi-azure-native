@@ -29,10 +29,6 @@ namespace Pulumi.AzureNative.Web.Outputs
         public readonly string Name;
         public readonly string? RuntimeVersion;
         /// <summary>
-        /// The system metadata relating to this resource.
-        /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
-        /// <summary>
         /// Resource type.
         /// </summary>
         public readonly string Type;
@@ -51,8 +47,6 @@ namespace Pulumi.AzureNative.Web.Outputs
 
             string? runtimeVersion,
 
-            Outputs.SystemDataResponse systemData,
-
             string type)
         {
             ConfigFilePath = configFilePath;
@@ -61,7 +55,6 @@ namespace Pulumi.AzureNative.Web.Outputs
             Kind = kind;
             Name = name;
             RuntimeVersion = runtimeVersion;
-            SystemData = systemData;
             Type = type;
         }
     }

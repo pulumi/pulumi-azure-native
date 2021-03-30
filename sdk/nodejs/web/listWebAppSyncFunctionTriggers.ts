@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Function secrets.
- * API Version: 2020-10-01.
+ * API Version: 2020-12-01.
  */
 export function listWebAppSyncFunctionTriggers(args: ListWebAppSyncFunctionTriggersArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppSyncFunctionTriggersResult> {
     if (!opts) {

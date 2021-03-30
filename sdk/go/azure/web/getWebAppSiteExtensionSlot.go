@@ -8,7 +8,7 @@ import (
 )
 
 // Site Extension Information.
-// API Version: 2020-10-01.
+// API Version: 2020-12-01.
 func LookupWebAppSiteExtensionSlot(ctx *pulumi.Context, args *LookupWebAppSiteExtensionSlotArgs, opts ...pulumi.InvokeOption) (*LookupWebAppSiteExtensionSlotResult, error) {
 	var rv LookupWebAppSiteExtensionSlotResult
 	err := ctx.Invoke("azure-native:web:getWebAppSiteExtensionSlot", args, &rv, opts...)
@@ -73,9 +73,7 @@ type LookupWebAppSiteExtensionSlotResult struct {
 	PublishedDateTime *string `pulumi:"publishedDateTime"`
 	// Summary description.
 	Summary *string `pulumi:"summary"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	Title      *string            `pulumi:"title"`
+	Title   *string `pulumi:"title"`
 	// Resource type.
 	Type string `pulumi:"type"`
 	// Version information.

@@ -96,6 +96,12 @@ func NewWebAppMetadata(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppMetadata"),
 		},
+		{
+			Type: pulumi.String("azure-native:web/v20201201:WebAppMetadata"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20201201:WebAppMetadata"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource WebAppMetadata

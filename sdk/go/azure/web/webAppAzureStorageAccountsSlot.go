@@ -12,7 +12,7 @@ import (
 )
 
 // AzureStorageInfo dictionary resource.
-// API Version: 2020-10-01.
+// API Version: 2020-12-01.
 type WebAppAzureStorageAccountsSlot struct {
 	pulumi.CustomResourceState
 
@@ -22,8 +22,6 @@ type WebAppAzureStorageAccountsSlot struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Azure storage accounts.
 	Properties AzureStorageInfoValueResponseMapOutput `pulumi:"properties"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -90,6 +88,12 @@ func NewWebAppAzureStorageAccountsSlot(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppAzureStorageAccountsSlot"),
 		},
+		{
+			Type: pulumi.String("azure-native:web/v20201201:WebAppAzureStorageAccountsSlot"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20201201:WebAppAzureStorageAccountsSlot"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource WebAppAzureStorageAccountsSlot
@@ -120,8 +124,6 @@ type webAppAzureStorageAccountsSlotState struct {
 	Name *string `pulumi:"name"`
 	// Azure storage accounts.
 	Properties map[string]AzureStorageInfoValueResponse `pulumi:"properties"`
-	// The system metadata relating to this resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type *string `pulumi:"type"`
 }
@@ -133,8 +135,6 @@ type WebAppAzureStorageAccountsSlotState struct {
 	Name pulumi.StringPtrInput
 	// Azure storage accounts.
 	Properties AzureStorageInfoValueResponseMapInput
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponsePtrInput
 	// Resource type.
 	Type pulumi.StringPtrInput
 }

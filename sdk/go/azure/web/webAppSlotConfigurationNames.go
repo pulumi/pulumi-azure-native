@@ -12,7 +12,7 @@ import (
 )
 
 // Slot Config names azure resource.
-// API Version: 2020-10-01.
+// API Version: 2020-12-01.
 type WebAppSlotConfigurationNames struct {
 	pulumi.CustomResourceState
 
@@ -26,8 +26,6 @@ type WebAppSlotConfigurationNames struct {
 	Kind pulumi.StringPtrOutput `pulumi:"kind"`
 	// Resource Name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -103,6 +101,12 @@ func NewWebAppSlotConfigurationNames(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppSlotConfigurationNames"),
 		},
+		{
+			Type: pulumi.String("azure-native:web/v20201201:WebAppSlotConfigurationNames"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20201201:WebAppSlotConfigurationNames"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource WebAppSlotConfigurationNames
@@ -137,8 +141,6 @@ type webAppSlotConfigurationNamesState struct {
 	Kind *string `pulumi:"kind"`
 	// Resource Name.
 	Name *string `pulumi:"name"`
-	// The system metadata relating to this resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type *string `pulumi:"type"`
 }
@@ -154,8 +156,6 @@ type WebAppSlotConfigurationNamesState struct {
 	Kind pulumi.StringPtrInput
 	// Resource Name.
 	Name pulumi.StringPtrInput
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponsePtrInput
 	// Resource type.
 	Type pulumi.StringPtrInput
 }

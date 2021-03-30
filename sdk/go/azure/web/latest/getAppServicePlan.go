@@ -8,7 +8,7 @@ import (
 )
 
 // App Service plan.
-// Latest API Version: 2020-10-01.
+// Latest API Version: 2020-12-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getAppServicePlan'.
 func LookupAppServicePlan(ctx *pulumi.Context, args *LookupAppServicePlanArgs, opts ...pulumi.InvokeOption) (*LookupAppServicePlanResult, error) {
@@ -45,6 +45,8 @@ type LookupAppServicePlanResult struct {
 	IsXenon *bool `pulumi:"isXenon"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
+	// Specification for the Kubernetes Environment to use for the App Service plan.
+	KubeEnvironmentProfile *KubeEnvironmentProfileResponse `pulumi:"kubeEnvironmentProfile"`
 	// Resource Location.
 	Location string `pulumi:"location"`
 	// Maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan
@@ -58,7 +60,7 @@ type LookupAppServicePlanResult struct {
 	// If <code>true</code>, apps assigned to this App Service plan can be scaled independently.
 	// If <code>false</code>, apps assigned to this App Service plan will scale to all instances of the plan.
 	PerSiteScaling *bool `pulumi:"perSiteScaling"`
-	// Provisioning state of the App Service Environment.
+	// Provisioning state of the App Service Plan.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// If Linux app service plan <code>true</code>, <code>false</code> otherwise.
 	Reserved *bool `pulumi:"reserved"`
@@ -72,8 +74,6 @@ type LookupAppServicePlanResult struct {
 	Status string `pulumi:"status"`
 	// App Service plan subscription.
 	Subscription string `pulumi:"subscription"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Scaling worker count.

@@ -28,10 +28,6 @@ namespace Pulumi.AzureNative.Web.Outputs
         public readonly string Name;
         public readonly Outputs.TwitterRegistrationResponse? Registration;
         /// <summary>
-        /// The system metadata relating to this resource.
-        /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
-        /// <summary>
         /// Resource type.
         /// </summary>
         public readonly string Type;
@@ -48,8 +44,6 @@ namespace Pulumi.AzureNative.Web.Outputs
 
             Outputs.TwitterRegistrationResponse? registration,
 
-            Outputs.SystemDataResponse systemData,
-
             string type)
         {
             Enabled = enabled;
@@ -57,7 +51,6 @@ namespace Pulumi.AzureNative.Web.Outputs
             Kind = kind;
             Name = name;
             Registration = registration;
-            SystemData = systemData;
             Type = type;
         }
     }

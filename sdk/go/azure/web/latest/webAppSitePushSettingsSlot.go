@@ -12,7 +12,7 @@ import (
 )
 
 // Push settings for the App.
-// Latest API Version: 2020-10-01.
+// Latest API Version: 2020-12-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppSitePushSettingsSlot'.
 type WebAppSitePushSettingsSlot struct {
@@ -26,8 +26,6 @@ type WebAppSitePushSettingsSlot struct {
 	Kind pulumi.StringPtrOutput `pulumi:"kind"`
 	// Resource Name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
 	TagWhitelistJson pulumi.StringPtrOutput `pulumi:"tagWhitelistJson"`
 	// Gets or sets a JSON string containing a list of tags that require user authentication to be used in the push registration endpoint.
@@ -110,6 +108,12 @@ func NewWebAppSitePushSettingsSlot(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppSitePushSettingsSlot"),
 		},
+		{
+			Type: pulumi.String("azure-native:web/v20201201:WebAppSitePushSettingsSlot"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20201201:WebAppSitePushSettingsSlot"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource WebAppSitePushSettingsSlot
@@ -142,8 +146,6 @@ type webAppSitePushSettingsSlotState struct {
 	Kind *string `pulumi:"kind"`
 	// Resource Name.
 	Name *string `pulumi:"name"`
-	// The system metadata relating to this resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
 	TagWhitelistJson *string `pulumi:"tagWhitelistJson"`
 	// Gets or sets a JSON string containing a list of tags that require user authentication to be used in the push registration endpoint.
@@ -164,8 +166,6 @@ type WebAppSitePushSettingsSlotState struct {
 	Kind pulumi.StringPtrInput
 	// Resource Name.
 	Name pulumi.StringPtrInput
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponsePtrInput
 	// Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
 	TagWhitelistJson pulumi.StringPtrInput
 	// Gets or sets a JSON string containing a list of tags that require user authentication to be used in the push registration endpoint.

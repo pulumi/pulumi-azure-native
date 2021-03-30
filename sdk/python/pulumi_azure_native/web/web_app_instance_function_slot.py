@@ -7,7 +7,6 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
-from . import outputs
 
 __all__ = ['WebAppInstanceFunctionSlot']
 
@@ -39,7 +38,7 @@ class WebAppInstanceFunctionSlot(pulumi.CustomResource):
                  __opts__=None):
         """
         Function information.
-        API Version: 2020-10-01.
+        API Version: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -103,9 +102,8 @@ class WebAppInstanceFunctionSlot(pulumi.CustomResource):
             __props__['slot'] = slot
             __props__['test_data'] = test_data
             __props__['test_data_href'] = test_data_href
-            __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web:WebAppInstanceFunctionSlot"), pulumi.Alias(type_="azure-native:web/latest:WebAppInstanceFunctionSlot"), pulumi.Alias(type_="azure-nextgen:web/latest:WebAppInstanceFunctionSlot"), pulumi.Alias(type_="azure-native:web/v20160801:WebAppInstanceFunctionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppInstanceFunctionSlot"), pulumi.Alias(type_="azure-native:web/v20180201:WebAppInstanceFunctionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppInstanceFunctionSlot"), pulumi.Alias(type_="azure-native:web/v20181101:WebAppInstanceFunctionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppInstanceFunctionSlot"), pulumi.Alias(type_="azure-native:web/v20190801:WebAppInstanceFunctionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppInstanceFunctionSlot"), pulumi.Alias(type_="azure-native:web/v20200601:WebAppInstanceFunctionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppInstanceFunctionSlot"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppInstanceFunctionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppInstanceFunctionSlot"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppInstanceFunctionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppInstanceFunctionSlot")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web:WebAppInstanceFunctionSlot"), pulumi.Alias(type_="azure-native:web/latest:WebAppInstanceFunctionSlot"), pulumi.Alias(type_="azure-nextgen:web/latest:WebAppInstanceFunctionSlot"), pulumi.Alias(type_="azure-native:web/v20160801:WebAppInstanceFunctionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppInstanceFunctionSlot"), pulumi.Alias(type_="azure-native:web/v20180201:WebAppInstanceFunctionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppInstanceFunctionSlot"), pulumi.Alias(type_="azure-native:web/v20181101:WebAppInstanceFunctionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppInstanceFunctionSlot"), pulumi.Alias(type_="azure-native:web/v20190801:WebAppInstanceFunctionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppInstanceFunctionSlot"), pulumi.Alias(type_="azure-native:web/v20200601:WebAppInstanceFunctionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppInstanceFunctionSlot"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppInstanceFunctionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppInstanceFunctionSlot"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppInstanceFunctionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppInstanceFunctionSlot"), pulumi.Alias(type_="azure-native:web/v20201201:WebAppInstanceFunctionSlot"), pulumi.Alias(type_="azure-nextgen:web/v20201201:WebAppInstanceFunctionSlot")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppInstanceFunctionSlot, __self__).__init__(
             'azure-native:web:WebAppInstanceFunctionSlot',
@@ -142,7 +140,6 @@ class WebAppInstanceFunctionSlot(pulumi.CustomResource):
         __props__["script_href"] = None
         __props__["script_root_path_href"] = None
         __props__["secrets_file_href"] = None
-        __props__["system_data"] = None
         __props__["test_data"] = None
         __props__["test_data_href"] = None
         __props__["type"] = None
@@ -251,14 +248,6 @@ class WebAppInstanceFunctionSlot(pulumi.CustomResource):
         Secrets file URI.
         """
         return pulumi.get(self, "secrets_file_href")
-
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
-        """
-        The system metadata relating to this resource.
-        """
-        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter(name="testData")

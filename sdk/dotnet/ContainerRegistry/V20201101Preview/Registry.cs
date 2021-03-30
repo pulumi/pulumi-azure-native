@@ -311,6 +311,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20201101Preview
         public RegistryArgs()
         {
             AdminUserEnabled = false;
+            AnonymousPullEnabled = false;
             NetworkRuleBypassOptions = "AzureServices";
             PublicNetworkAccess = "Enabled";
             ZoneRedundancy = "Disabled";

@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * AzureStorageInfo dictionary resource.
- * Latest API Version: 2020-10-01.
+ * Latest API Version: 2020-12-01.
  */
 /** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listWebAppAzureStorageAccountsSlot'. */
 export function listWebAppAzureStorageAccountsSlot(args: ListWebAppAzureStorageAccountsSlotArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppAzureStorageAccountsSlotResult> {
@@ -61,10 +61,6 @@ export interface ListWebAppAzureStorageAccountsSlotResult {
      * Azure storage accounts.
      */
     readonly properties: {[key: string]: outputs.web.latest.AzureStorageInfoValueResponse};
-    /**
-     * The system metadata relating to this resource.
-     */
-    readonly systemData: outputs.web.latest.SystemDataResponse;
     /**
      * Resource type.
      */

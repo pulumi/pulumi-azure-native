@@ -30,10 +30,6 @@ namespace Pulumi.AzureNative.Web.Latest.Outputs
         public readonly string Name;
         public readonly Outputs.AzureActiveDirectoryRegistrationResponse? Registration;
         /// <summary>
-        /// The system metadata relating to this resource.
-        /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
-        /// <summary>
         /// Resource type.
         /// </summary>
         public readonly string Type;
@@ -55,8 +51,6 @@ namespace Pulumi.AzureNative.Web.Latest.Outputs
 
             Outputs.AzureActiveDirectoryRegistrationResponse? registration,
 
-            Outputs.SystemDataResponse systemData,
-
             string type,
 
             Outputs.AzureActiveDirectoryValidationResponse? validation)
@@ -68,7 +62,6 @@ namespace Pulumi.AzureNative.Web.Latest.Outputs
             Login = login;
             Name = name;
             Registration = registration;
-            SystemData = systemData;
             Type = type;
             Validation = validation;
         }

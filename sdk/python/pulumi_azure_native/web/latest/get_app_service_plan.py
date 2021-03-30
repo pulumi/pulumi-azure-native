@@ -22,7 +22,7 @@ class GetAppServicePlanResult:
     """
     App Service plan.
     """
-    def __init__(__self__, free_offer_expiration_time=None, geo_region=None, hosting_environment_profile=None, hyper_v=None, id=None, is_spot=None, is_xenon=None, kind=None, location=None, maximum_elastic_worker_count=None, maximum_number_of_workers=None, name=None, number_of_sites=None, per_site_scaling=None, provisioning_state=None, reserved=None, resource_group=None, sku=None, spot_expiration_time=None, status=None, subscription=None, system_data=None, tags=None, target_worker_count=None, target_worker_size_id=None, type=None, worker_tier_name=None):
+    def __init__(__self__, free_offer_expiration_time=None, geo_region=None, hosting_environment_profile=None, hyper_v=None, id=None, is_spot=None, is_xenon=None, kind=None, kube_environment_profile=None, location=None, maximum_elastic_worker_count=None, maximum_number_of_workers=None, name=None, number_of_sites=None, per_site_scaling=None, provisioning_state=None, reserved=None, resource_group=None, sku=None, spot_expiration_time=None, status=None, subscription=None, tags=None, target_worker_count=None, target_worker_size_id=None, type=None, worker_tier_name=None):
         if free_offer_expiration_time and not isinstance(free_offer_expiration_time, str):
             raise TypeError("Expected argument 'free_offer_expiration_time' to be a str")
         pulumi.set(__self__, "free_offer_expiration_time", free_offer_expiration_time)
@@ -47,6 +47,9 @@ class GetAppServicePlanResult:
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
+        if kube_environment_profile and not isinstance(kube_environment_profile, dict):
+            raise TypeError("Expected argument 'kube_environment_profile' to be a dict")
+        pulumi.set(__self__, "kube_environment_profile", kube_environment_profile)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -86,9 +89,6 @@ class GetAppServicePlanResult:
         if subscription and not isinstance(subscription, str):
             raise TypeError("Expected argument 'subscription' to be a str")
         pulumi.set(__self__, "subscription", subscription)
-        if system_data and not isinstance(system_data, dict):
-            raise TypeError("Expected argument 'system_data' to be a dict")
-        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -170,6 +170,14 @@ class GetAppServicePlanResult:
         return pulumi.get(self, "kind")
 
     @property
+    @pulumi.getter(name="kubeEnvironmentProfile")
+    def kube_environment_profile(self) -> Optional['outputs.KubeEnvironmentProfileResponse']:
+        """
+        Specification for the Kubernetes Environment to use for the App Service plan.
+        """
+        return pulumi.get(self, "kube_environment_profile")
+
+    @property
     @pulumi.getter
     def location(self) -> str:
         """
@@ -222,7 +230,7 @@ class GetAppServicePlanResult:
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
-        Provisioning state of the App Service Environment.
+        Provisioning state of the App Service Plan.
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -273,14 +281,6 @@ class GetAppServicePlanResult:
         App Service plan subscription.
         """
         return pulumi.get(self, "subscription")
-
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
-        """
-        The system metadata relating to this resource.
-        """
-        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -337,6 +337,7 @@ class AwaitableGetAppServicePlanResult(GetAppServicePlanResult):
             is_spot=self.is_spot,
             is_xenon=self.is_xenon,
             kind=self.kind,
+            kube_environment_profile=self.kube_environment_profile,
             location=self.location,
             maximum_elastic_worker_count=self.maximum_elastic_worker_count,
             maximum_number_of_workers=self.maximum_number_of_workers,
@@ -350,7 +351,6 @@ class AwaitableGetAppServicePlanResult(GetAppServicePlanResult):
             spot_expiration_time=self.spot_expiration_time,
             status=self.status,
             subscription=self.subscription,
-            system_data=self.system_data,
             tags=self.tags,
             target_worker_count=self.target_worker_count,
             target_worker_size_id=self.target_worker_size_id,
@@ -363,7 +363,7 @@ def get_app_service_plan(name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAppServicePlanResult:
     """
     App Service plan.
-    Latest API Version: 2020-10-01.
+    Latest API Version: 2020-12-01.
 
 
     :param str name: Name of the App Service plan.
@@ -388,6 +388,7 @@ def get_app_service_plan(name: Optional[str] = None,
         is_spot=__ret__.is_spot,
         is_xenon=__ret__.is_xenon,
         kind=__ret__.kind,
+        kube_environment_profile=__ret__.kube_environment_profile,
         location=__ret__.location,
         maximum_elastic_worker_count=__ret__.maximum_elastic_worker_count,
         maximum_number_of_workers=__ret__.maximum_number_of_workers,
@@ -401,7 +402,6 @@ def get_app_service_plan(name: Optional[str] = None,
         spot_expiration_time=__ret__.spot_expiration_time,
         status=__ret__.status,
         subscription=__ret__.subscription,
-        system_data=__ret__.system_data,
         tags=__ret__.tags,
         target_worker_count=__ret__.target_worker_count,
         target_worker_size_id=__ret__.target_worker_size_id,

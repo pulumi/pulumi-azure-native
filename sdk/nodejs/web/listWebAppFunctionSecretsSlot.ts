@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Function secrets.
- * API Version: 2020-10-01.
+ * API Version: 2020-12-01.
  */
 export function listWebAppFunctionSecretsSlot(args: ListWebAppFunctionSecretsSlotArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppFunctionSecretsSlotResult> {
     if (!opts) {

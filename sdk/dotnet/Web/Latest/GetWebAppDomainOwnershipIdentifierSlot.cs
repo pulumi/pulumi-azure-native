@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Web.Latest
     {
         /// <summary>
         /// A domain specific resource identifier.
-        /// Latest API Version: 2020-10-01.
+        /// Latest API Version: 2020-12-01.
         /// </summary>
         public static Task<GetWebAppDomainOwnershipIdentifierSlotResult> InvokeAsync(GetWebAppDomainOwnershipIdentifierSlotArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppDomainOwnershipIdentifierSlotResult>("azure-native:web/latest:getWebAppDomainOwnershipIdentifierSlot", args ?? new GetWebAppDomainOwnershipIdentifierSlotArgs(), options.WithVersion());
@@ -69,10 +69,6 @@ namespace Pulumi.AzureNative.Web.Latest
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The system metadata relating to this resource.
-        /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
-        /// <summary>
         /// Resource type.
         /// </summary>
         public readonly string Type;
@@ -89,8 +85,6 @@ namespace Pulumi.AzureNative.Web.Latest
 
             string name,
 
-            Outputs.SystemDataResponse systemData,
-
             string type,
 
             string? value)
@@ -98,7 +92,6 @@ namespace Pulumi.AzureNative.Web.Latest
             Id = id;
             Kind = kind;
             Name = name;
-            SystemData = systemData;
             Type = type;
             Value = value;
         }

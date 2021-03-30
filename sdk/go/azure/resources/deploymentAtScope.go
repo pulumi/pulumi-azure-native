@@ -12,7 +12,7 @@ import (
 )
 
 // Deployment information.
-// API Version: 2020-10-01.
+// API Version: 2021-01-01.
 type DeploymentAtScope struct {
 	pulumi.CustomResourceState
 
@@ -86,6 +86,12 @@ func NewDeploymentAtScope(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:resources/v20201001:DeploymentAtScope"),
+		},
+		{
+			Type: pulumi.String("azure-native:resources/v20210101:DeploymentAtScope"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:resources/v20210101:DeploymentAtScope"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -30,10 +30,6 @@ namespace Pulumi.AzureNative.Web.Outputs
         public readonly Outputs.NonceResponse? Nonce;
         public readonly bool? PreserveUrlFragmentsForLogins;
         public readonly Outputs.LoginRoutesResponse? Routes;
-        /// <summary>
-        /// The system metadata relating to this resource.
-        /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
         public readonly Outputs.TokenStoreResponse? TokenStore;
         /// <summary>
         /// Resource type.
@@ -58,8 +54,6 @@ namespace Pulumi.AzureNative.Web.Outputs
 
             Outputs.LoginRoutesResponse? routes,
 
-            Outputs.SystemDataResponse systemData,
-
             Outputs.TokenStoreResponse? tokenStore,
 
             string type)
@@ -72,7 +66,6 @@ namespace Pulumi.AzureNative.Web.Outputs
             Nonce = nonce;
             PreserveUrlFragmentsForLogins = preserveUrlFragmentsForLogins;
             Routes = routes;
-            SystemData = systemData;
             TokenStore = tokenStore;
             Type = type;
         }

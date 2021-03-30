@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Web.Inputs
         public Input<int>? Default { get; set; }
 
         /// <summary>
+        /// Maximum number of Elastic workers for this App Service plan SKU.
+        /// </summary>
+        [Input("elasticMaximum")]
+        public Input<int>? ElasticMaximum { get; set; }
+
+        /// <summary>
         /// Maximum number of workers for this App Service plan SKU.
         /// </summary>
         [Input("maximum")]

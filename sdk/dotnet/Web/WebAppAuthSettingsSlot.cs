@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Web
 {
     /// <summary>
     /// Configuration settings for the Azure App Service Authentication / Authorization feature.
-    /// API Version: 2020-10-01.
+    /// API Version: 2020-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:WebAppAuthSettingsSlot")]
     public partial class WebAppAuthSettingsSlot : Pulumi.CustomResource
@@ -82,6 +82,13 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         [Output("clientSecretSettingName")]
         public Output<string?> ClientSecretSettingName { get; private set; } = null!;
+
+        /// <summary>
+        /// The ConfigVersion of the Authentication / Authorization feature in use for the current app.
+        /// The setting in this value can control the behavior of the control plane for Authentication / Authorization.
+        /// </summary>
+        [Output("configVersion")]
+        public Output<string?> ConfigVersion { get; private set; } = null!;
 
         /// <summary>
         /// The default authentication provider to use when multiple providers are configured.
@@ -253,12 +260,6 @@ namespace Pulumi.AzureNative.Web
         public Output<string?> RuntimeVersion { get; private set; } = null!;
 
         /// <summary>
-        /// The system metadata relating to this resource.
-        /// </summary>
-        [Output("systemData")]
-        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
-
-        /// <summary>
         /// The number of hours after session token expiration that a session token can be used to
         /// call the token refresh API. The default is 72 hours.
         /// </summary>
@@ -357,6 +358,8 @@ namespace Pulumi.AzureNative.Web
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:WebAppAuthSettingsSlot"},
                     new Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppAuthSettingsSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:WebAppAuthSettingsSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppAuthSettingsSlot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20201201:WebAppAuthSettingsSlot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -464,6 +467,13 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         [Input("clientSecretSettingName")]
         public Input<string>? ClientSecretSettingName { get; set; }
+
+        /// <summary>
+        /// The ConfigVersion of the Authentication / Authorization feature in use for the current app.
+        /// The setting in this value can control the behavior of the control plane for Authentication / Authorization.
+        /// </summary>
+        [Input("configVersion")]
+        public Input<string>? ConfigVersion { get; set; }
 
         /// <summary>
         /// The default authentication provider to use when multiple providers are configured.

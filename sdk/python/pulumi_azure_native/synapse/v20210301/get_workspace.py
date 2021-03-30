@@ -20,7 +20,7 @@ class GetWorkspaceResult:
     """
     A workspace
     """
-    def __init__(__self__, adla_resource_id=None, connectivity_endpoints=None, default_data_lake_storage=None, encryption=None, extra_properties=None, id=None, identity=None, location=None, managed_resource_group_name=None, managed_virtual_network=None, managed_virtual_network_settings=None, name=None, network_settings=None, private_endpoint_connections=None, provisioning_state=None, purview_configuration=None, sql_administrator_login=None, sql_administrator_login_password=None, tags=None, type=None, virtual_network_profile=None, workspace_repository_configuration=None, workspace_uid=None):
+    def __init__(__self__, adla_resource_id=None, connectivity_endpoints=None, default_data_lake_storage=None, encryption=None, extra_properties=None, id=None, identity=None, location=None, managed_resource_group_name=None, managed_virtual_network=None, managed_virtual_network_settings=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, purview_configuration=None, sql_administrator_login=None, sql_administrator_login_password=None, tags=None, type=None, virtual_network_profile=None, workspace_repository_configuration=None, workspace_uid=None):
         if adla_resource_id and not isinstance(adla_resource_id, str):
             raise TypeError("Expected argument 'adla_resource_id' to be a str")
         pulumi.set(__self__, "adla_resource_id", adla_resource_id)
@@ -57,15 +57,15 @@ class GetWorkspaceResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if network_settings and not isinstance(network_settings, dict):
-            raise TypeError("Expected argument 'network_settings' to be a dict")
-        pulumi.set(__self__, "network_settings", network_settings)
         if private_endpoint_connections and not isinstance(private_endpoint_connections, list):
             raise TypeError("Expected argument 'private_endpoint_connections' to be a list")
         pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if public_network_access and not isinstance(public_network_access, str):
+            raise TypeError("Expected argument 'public_network_access' to be a str")
+        pulumi.set(__self__, "public_network_access", public_network_access)
         if purview_configuration and not isinstance(purview_configuration, dict):
             raise TypeError("Expected argument 'purview_configuration' to be a dict")
         pulumi.set(__self__, "purview_configuration", purview_configuration)
@@ -188,14 +188,6 @@ class GetWorkspaceResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="networkSettings")
-    def network_settings(self) -> Optional['outputs.NetworkSettingsResponse']:
-        """
-        Network Settings
-        """
-        return pulumi.get(self, "network_settings")
-
-    @property
     @pulumi.getter(name="privateEndpointConnections")
     def private_endpoint_connections(self) -> Optional[Sequence['outputs.PrivateEndpointConnectionResponse']]:
         """
@@ -210,6 +202,14 @@ class GetWorkspaceResult:
         Resource provisioning state
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[str]:
+        """
+        Enable or Disable pubic network access to workspace
+        """
+        return pulumi.get(self, "public_network_access")
 
     @property
     @pulumi.getter(name="purviewConfiguration")
@@ -294,9 +294,9 @@ class AwaitableGetWorkspaceResult(GetWorkspaceResult):
             managed_virtual_network=self.managed_virtual_network,
             managed_virtual_network_settings=self.managed_virtual_network_settings,
             name=self.name,
-            network_settings=self.network_settings,
             private_endpoint_connections=self.private_endpoint_connections,
             provisioning_state=self.provisioning_state,
+            public_network_access=self.public_network_access,
             purview_configuration=self.purview_configuration,
             sql_administrator_login=self.sql_administrator_login,
             sql_administrator_login_password=self.sql_administrator_login_password,
@@ -339,9 +339,9 @@ def get_workspace(resource_group_name: Optional[str] = None,
         managed_virtual_network=__ret__.managed_virtual_network,
         managed_virtual_network_settings=__ret__.managed_virtual_network_settings,
         name=__ret__.name,
-        network_settings=__ret__.network_settings,
         private_endpoint_connections=__ret__.private_endpoint_connections,
         provisioning_state=__ret__.provisioning_state,
+        public_network_access=__ret__.public_network_access,
         purview_configuration=__ret__.purview_configuration,
         sql_administrator_login=__ret__.sql_administrator_login,
         sql_administrator_login_password=__ret__.sql_administrator_login_password,

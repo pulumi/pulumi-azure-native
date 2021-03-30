@@ -12,7 +12,7 @@ import (
 )
 
 // A hostname binding object.
-// Latest API Version: 2020-10-01.
+// Latest API Version: 2020-12-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppHostNameBinding'.
 type WebAppHostNameBinding struct {
@@ -36,8 +36,6 @@ type WebAppHostNameBinding struct {
 	SiteName pulumi.StringPtrOutput `pulumi:"siteName"`
 	// SSL type
 	SslState pulumi.StringPtrOutput `pulumi:"sslState"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// SSL certificate thumbprint
 	Thumbprint pulumi.StringPtrOutput `pulumi:"thumbprint"`
 	// Resource type.
@@ -117,6 +115,12 @@ func NewWebAppHostNameBinding(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppHostNameBinding"),
 		},
+		{
+			Type: pulumi.String("azure-native:web/v20201201:WebAppHostNameBinding"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20201201:WebAppHostNameBinding"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource WebAppHostNameBinding
@@ -159,8 +163,6 @@ type webAppHostNameBindingState struct {
 	SiteName *string `pulumi:"siteName"`
 	// SSL type
 	SslState *string `pulumi:"sslState"`
-	// The system metadata relating to this resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// SSL certificate thumbprint
 	Thumbprint *string `pulumi:"thumbprint"`
 	// Resource type.
@@ -188,8 +190,6 @@ type WebAppHostNameBindingState struct {
 	SiteName pulumi.StringPtrInput
 	// SSL type
 	SslState pulumi.StringPtrInput
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponsePtrInput
 	// SSL certificate thumbprint
 	Thumbprint pulumi.StringPtrInput
 	// Resource type.

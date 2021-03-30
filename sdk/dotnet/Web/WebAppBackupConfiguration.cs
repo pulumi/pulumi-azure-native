@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Web
 {
     /// <summary>
     /// Description of a backup which will be performed.
-    /// API Version: 2020-10-01.
+    /// API Version: 2020-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:WebAppBackupConfiguration")]
     public partial class WebAppBackupConfiguration : Pulumi.CustomResource
@@ -57,12 +57,6 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         [Output("storageAccountUrl")]
         public Output<string> StorageAccountUrl { get; private set; } = null!;
-
-        /// <summary>
-        /// The system metadata relating to this resource.
-        /// </summary>
-        [Output("systemData")]
-        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.
@@ -114,6 +108,8 @@ namespace Pulumi.AzureNative.Web
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:WebAppBackupConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppBackupConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:WebAppBackupConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppBackupConfiguration"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20201201:WebAppBackupConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

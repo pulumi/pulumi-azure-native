@@ -29,10 +29,6 @@ namespace Pulumi.AzureNative.Web.Outputs
         public readonly bool? RequireHttps;
         public readonly Outputs.HttpSettingsRoutesResponse? Routes;
         /// <summary>
-        /// The system metadata relating to this resource.
-        /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
-        /// <summary>
         /// Resource type.
         /// </summary>
         public readonly string Type;
@@ -51,8 +47,6 @@ namespace Pulumi.AzureNative.Web.Outputs
 
             Outputs.HttpSettingsRoutesResponse? routes,
 
-            Outputs.SystemDataResponse systemData,
-
             string type)
         {
             ForwardProxy = forwardProxy;
@@ -61,7 +55,6 @@ namespace Pulumi.AzureNative.Web.Outputs
             Name = name;
             RequireHttps = requireHttps;
             Routes = routes;
-            SystemData = systemData;
             Type = type;
         }
     }

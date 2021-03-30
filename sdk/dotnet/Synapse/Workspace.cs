@@ -83,12 +83,6 @@ namespace Pulumi.AzureNative.Synapse
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Network Settings
-        /// </summary>
-        [Output("networkSettings")]
-        public Output<Outputs.NetworkSettingsResponse?> NetworkSettings { get; private set; } = null!;
-
-        /// <summary>
         /// Private endpoint connections to the workspace
         /// </summary>
         [Output("privateEndpointConnections")]
@@ -99,6 +93,12 @@ namespace Pulumi.AzureNative.Synapse
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Enable or Disable pubic network access to workspace
+        /// </summary>
+        [Output("publicNetworkAccess")]
+        public Output<string?> PublicNetworkAccess { get; private set; } = null!;
 
         /// <summary>
         /// Purview Configuration
@@ -259,12 +259,6 @@ namespace Pulumi.AzureNative.Synapse
         [Input("managedVirtualNetworkSettings")]
         public Input<Inputs.ManagedVirtualNetworkSettingsArgs>? ManagedVirtualNetworkSettings { get; set; }
 
-        /// <summary>
-        /// Network Settings
-        /// </summary>
-        [Input("networkSettings")]
-        public Input<Inputs.NetworkSettingsArgs>? NetworkSettings { get; set; }
-
         [Input("privateEndpointConnections")]
         private InputList<Inputs.PrivateEndpointConnectionArgs>? _privateEndpointConnections;
 
@@ -276,6 +270,12 @@ namespace Pulumi.AzureNative.Synapse
             get => _privateEndpointConnections ?? (_privateEndpointConnections = new InputList<Inputs.PrivateEndpointConnectionArgs>());
             set => _privateEndpointConnections = value;
         }
+
+        /// <summary>
+        /// Enable or Disable pubic network access to workspace
+        /// </summary>
+        [Input("publicNetworkAccess")]
+        public InputUnion<string, Pulumi.AzureNative.Synapse.WorkspacePublicNetworkAccess>? PublicNetworkAccess { get; set; }
 
         /// <summary>
         /// Purview Configuration

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Push settings for the App.
- * API Version: 2020-10-01.
+ * API Version: 2020-12-01.
  */
 export function listWebAppSitePushSettingsSlot(args: ListWebAppSitePushSettingsSlotArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppSitePushSettingsSlotResult> {
     if (!opts) {
@@ -63,10 +63,6 @@ export interface ListWebAppSitePushSettingsSlotResult {
      * Resource Name.
      */
     readonly name: string;
-    /**
-     * The system metadata relating to this resource.
-     */
-    readonly systemData: outputs.web.SystemDataResponse;
     /**
      * Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
      */

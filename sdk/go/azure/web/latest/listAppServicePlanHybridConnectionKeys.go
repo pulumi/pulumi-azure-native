@@ -8,7 +8,7 @@ import (
 )
 
 // Hybrid Connection key contract. This has the send key name and value for a Hybrid Connection.
-// Latest API Version: 2020-10-01.
+// Latest API Version: 2020-12-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listAppServicePlanHybridConnectionKeys'.
 func ListAppServicePlanHybridConnectionKeys(ctx *pulumi.Context, args *ListAppServicePlanHybridConnectionKeysArgs, opts ...pulumi.InvokeOption) (*ListAppServicePlanHybridConnectionKeysResult, error) {
@@ -43,8 +43,6 @@ type ListAppServicePlanHybridConnectionKeysResult struct {
 	SendKeyName string `pulumi:"sendKeyName"`
 	// The value of the send key.
 	SendKeyValue string `pulumi:"sendKeyValue"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }

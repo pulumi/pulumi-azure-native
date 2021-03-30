@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Web
 {
     /// <summary>
     /// Virtual Network information contract.
-    /// API Version: 2020-10-01.
+    /// API Version: 2020-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:WebAppVnetConnectionSlot")]
     public partial class WebAppVnetConnectionSlot : Pulumi.CustomResource
@@ -64,12 +64,6 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         [Output("routes")]
         public Output<ImmutableArray<Outputs.VnetRouteResponse>> Routes { get; private set; } = null!;
-
-        /// <summary>
-        /// The system metadata relating to this resource.
-        /// </summary>
-        [Output("systemData")]
-        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.
@@ -127,6 +121,8 @@ namespace Pulumi.AzureNative.Web
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:WebAppVnetConnectionSlot"},
                     new Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppVnetConnectionSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:WebAppVnetConnectionSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppVnetConnectionSlot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20201201:WebAppVnetConnectionSlot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

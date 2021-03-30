@@ -16,22 +16,52 @@ namespace Pulumi.AzureNative.Web.Latest.Inputs
     public sealed class StaticSiteBuildPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// A custom command to run during deployment of the Azure Functions API application.
+        /// </summary>
+        [Input("apiBuildCommand")]
+        public Input<string>? ApiBuildCommand { get; set; }
+
+        /// <summary>
         /// The path to the api code within the repository.
         /// </summary>
         [Input("apiLocation")]
         public Input<string>? ApiLocation { get; set; }
 
         /// <summary>
-        /// The path of the app artifacts after building.
+        /// Deprecated: The path of the app artifacts after building (deprecated in favor of OutputLocation)
         /// </summary>
         [Input("appArtifactLocation")]
         public Input<string>? AppArtifactLocation { get; set; }
+
+        /// <summary>
+        /// A custom command to run during deployment of the static content application.
+        /// </summary>
+        [Input("appBuildCommand")]
+        public Input<string>? AppBuildCommand { get; set; }
 
         /// <summary>
         /// The path to the app code within the repository.
         /// </summary>
         [Input("appLocation")]
         public Input<string>? AppLocation { get; set; }
+
+        /// <summary>
+        /// Github Action secret name override.
+        /// </summary>
+        [Input("githubActionSecretNameOverride")]
+        public Input<string>? GithubActionSecretNameOverride { get; set; }
+
+        /// <summary>
+        /// The output path of the app after building.
+        /// </summary>
+        [Input("outputLocation")]
+        public Input<string>? OutputLocation { get; set; }
+
+        /// <summary>
+        /// Skip Github Action workflow generation.
+        /// </summary>
+        [Input("skipGithubActionWorkflowGeneration")]
+        public Input<bool>? SkipGithubActionWorkflowGeneration { get; set; }
 
         public StaticSiteBuildPropertiesArgs()
         {

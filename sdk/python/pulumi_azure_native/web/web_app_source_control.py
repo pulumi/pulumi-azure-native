@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
+from ._inputs import *
 
 __all__ = ['WebAppSourceControl']
 
@@ -18,6 +19,7 @@ class WebAppSourceControl(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  branch: Optional[pulumi.Input[str]] = None,
                  deployment_rollback_enabled: Optional[pulumi.Input[bool]] = None,
+                 git_hub_action_configuration: Optional[pulumi.Input[pulumi.InputType['GitHubActionConfigurationArgs']]] = None,
                  is_git_hub_action: Optional[pulumi.Input[bool]] = None,
                  is_manual_integration: Optional[pulumi.Input[bool]] = None,
                  is_mercurial: Optional[pulumi.Input[bool]] = None,
@@ -30,12 +32,13 @@ class WebAppSourceControl(pulumi.CustomResource):
                  __opts__=None):
         """
         Source control configuration for an app.
-        API Version: 2020-10-01.
+        API Version: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] branch: Name of branch to use for deployment.
         :param pulumi.Input[bool] deployment_rollback_enabled: <code>true</code> to enable deployment rollback; otherwise, <code>false</code>.
+        :param pulumi.Input[pulumi.InputType['GitHubActionConfigurationArgs']] git_hub_action_configuration: If GitHub Action is selected, than the associated configuration.
         :param pulumi.Input[bool] is_git_hub_action: <code>true</code> if this is deployed via GitHub action.
         :param pulumi.Input[bool] is_manual_integration: <code>true</code> to limit to manual integration; <code>false</code> to enable continuous integration (which configures webhooks into online repos like GitHub).
         :param pulumi.Input[bool] is_mercurial: <code>true</code> for a Mercurial repository; <code>false</code> for a Git repository.
@@ -63,6 +66,7 @@ class WebAppSourceControl(pulumi.CustomResource):
 
             __props__['branch'] = branch
             __props__['deployment_rollback_enabled'] = deployment_rollback_enabled
+            __props__['git_hub_action_configuration'] = git_hub_action_configuration
             __props__['is_git_hub_action'] = is_git_hub_action
             __props__['is_manual_integration'] = is_manual_integration
             __props__['is_mercurial'] = is_mercurial
@@ -74,9 +78,8 @@ class WebAppSourceControl(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web:WebAppSourceControl"), pulumi.Alias(type_="azure-native:web/latest:WebAppSourceControl"), pulumi.Alias(type_="azure-nextgen:web/latest:WebAppSourceControl"), pulumi.Alias(type_="azure-native:web/v20150801:WebAppSourceControl"), pulumi.Alias(type_="azure-nextgen:web/v20150801:WebAppSourceControl"), pulumi.Alias(type_="azure-native:web/v20160801:WebAppSourceControl"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppSourceControl"), pulumi.Alias(type_="azure-native:web/v20180201:WebAppSourceControl"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppSourceControl"), pulumi.Alias(type_="azure-native:web/v20181101:WebAppSourceControl"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppSourceControl"), pulumi.Alias(type_="azure-native:web/v20190801:WebAppSourceControl"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppSourceControl"), pulumi.Alias(type_="azure-native:web/v20200601:WebAppSourceControl"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppSourceControl"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppSourceControl"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppSourceControl"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppSourceControl"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppSourceControl")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web:WebAppSourceControl"), pulumi.Alias(type_="azure-native:web/latest:WebAppSourceControl"), pulumi.Alias(type_="azure-nextgen:web/latest:WebAppSourceControl"), pulumi.Alias(type_="azure-native:web/v20150801:WebAppSourceControl"), pulumi.Alias(type_="azure-nextgen:web/v20150801:WebAppSourceControl"), pulumi.Alias(type_="azure-native:web/v20160801:WebAppSourceControl"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppSourceControl"), pulumi.Alias(type_="azure-native:web/v20180201:WebAppSourceControl"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppSourceControl"), pulumi.Alias(type_="azure-native:web/v20181101:WebAppSourceControl"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppSourceControl"), pulumi.Alias(type_="azure-native:web/v20190801:WebAppSourceControl"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppSourceControl"), pulumi.Alias(type_="azure-native:web/v20200601:WebAppSourceControl"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppSourceControl"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppSourceControl"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppSourceControl"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppSourceControl"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppSourceControl"), pulumi.Alias(type_="azure-native:web/v20201201:WebAppSourceControl"), pulumi.Alias(type_="azure-nextgen:web/v20201201:WebAppSourceControl")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppSourceControl, __self__).__init__(
             'azure-native:web:WebAppSourceControl',
@@ -102,13 +105,13 @@ class WebAppSourceControl(pulumi.CustomResource):
 
         __props__["branch"] = None
         __props__["deployment_rollback_enabled"] = None
+        __props__["git_hub_action_configuration"] = None
         __props__["is_git_hub_action"] = None
         __props__["is_manual_integration"] = None
         __props__["is_mercurial"] = None
         __props__["kind"] = None
         __props__["name"] = None
         __props__["repo_url"] = None
-        __props__["system_data"] = None
         __props__["type"] = None
         return WebAppSourceControl(resource_name, opts=opts, __props__=__props__)
 
@@ -127,6 +130,14 @@ class WebAppSourceControl(pulumi.CustomResource):
         <code>true</code> to enable deployment rollback; otherwise, <code>false</code>.
         """
         return pulumi.get(self, "deployment_rollback_enabled")
+
+    @property
+    @pulumi.getter(name="gitHubActionConfiguration")
+    def git_hub_action_configuration(self) -> pulumi.Output[Optional['outputs.GitHubActionConfigurationResponse']]:
+        """
+        If GitHub Action is selected, than the associated configuration.
+        """
+        return pulumi.get(self, "git_hub_action_configuration")
 
     @property
     @pulumi.getter(name="isGitHubAction")
@@ -175,14 +186,6 @@ class WebAppSourceControl(pulumi.CustomResource):
         Repository or source control URL.
         """
         return pulumi.get(self, "repo_url")
-
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
-        """
-        The system metadata relating to this resource.
-        """
-        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Site Extension Information.
- * API Version: 2020-10-01.
+ * API Version: 2020-12-01.
  */
 export function getWebAppSiteExtension(args: GetWebAppSiteExtensionArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppSiteExtensionResult> {
     if (!opts) {
@@ -127,10 +127,6 @@ export interface GetWebAppSiteExtensionResult {
      * Summary description.
      */
     readonly summary?: string;
-    /**
-     * The system metadata relating to this resource.
-     */
-    readonly systemData: outputs.web.SystemDataResponse;
     readonly title?: string;
     /**
      * Resource type.

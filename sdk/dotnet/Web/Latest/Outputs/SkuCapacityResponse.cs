@@ -18,6 +18,10 @@ namespace Pulumi.AzureNative.Web.Latest.Outputs
         /// </summary>
         public readonly int? Default;
         /// <summary>
+        /// Maximum number of Elastic workers for this App Service plan SKU.
+        /// </summary>
+        public readonly int? ElasticMaximum;
+        /// <summary>
         /// Maximum number of workers for this App Service plan SKU.
         /// </summary>
         public readonly int? Maximum;
@@ -34,6 +38,8 @@ namespace Pulumi.AzureNative.Web.Latest.Outputs
         private SkuCapacityResponse(
             int? @default,
 
+            int? elasticMaximum,
+
             int? maximum,
 
             int? minimum,
@@ -41,6 +47,7 @@ namespace Pulumi.AzureNative.Web.Latest.Outputs
             string? scaleType)
         {
             Default = @default;
+            ElasticMaximum = elasticMaximum;
             Maximum = maximum;
             Minimum = minimum;
             ScaleType = scaleType;

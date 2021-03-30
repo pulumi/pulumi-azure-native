@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Source control configuration for an app.
- * API Version: 2020-10-01.
+ * API Version: 2020-12-01.
  */
 export class WebAppSourceControlSlot extends pulumi.CustomResource {
     /**
@@ -45,6 +45,10 @@ export class WebAppSourceControlSlot extends pulumi.CustomResource {
      */
     public readonly deploymentRollbackEnabled!: pulumi.Output<boolean | undefined>;
     /**
+     * If GitHub Action is selected, than the associated configuration.
+     */
+    public readonly gitHubActionConfiguration!: pulumi.Output<outputs.web.GitHubActionConfigurationResponse | undefined>;
+    /**
      * <code>true</code> if this is deployed via GitHub action.
      */
     public readonly isGitHubAction!: pulumi.Output<boolean | undefined>;
@@ -68,10 +72,6 @@ export class WebAppSourceControlSlot extends pulumi.CustomResource {
      * Repository or source control URL.
      */
     public readonly repoUrl!: pulumi.Output<string | undefined>;
-    /**
-     * The system metadata relating to this resource.
-     */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.web.SystemDataResponse>;
     /**
      * Resource type.
      */
@@ -99,6 +99,7 @@ export class WebAppSourceControlSlot extends pulumi.CustomResource {
             }
             inputs["branch"] = args ? args.branch : undefined;
             inputs["deploymentRollbackEnabled"] = args ? args.deploymentRollbackEnabled : undefined;
+            inputs["gitHubActionConfiguration"] = args ? args.gitHubActionConfiguration : undefined;
             inputs["isGitHubAction"] = args ? args.isGitHubAction : undefined;
             inputs["isManualIntegration"] = args ? args.isManualIntegration : undefined;
             inputs["isMercurial"] = args ? args.isMercurial : undefined;
@@ -107,24 +108,23 @@ export class WebAppSourceControlSlot extends pulumi.CustomResource {
             inputs["repoUrl"] = args ? args.repoUrl : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["slot"] = args ? args.slot : undefined;
-            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["branch"] = undefined /*out*/;
             inputs["deploymentRollbackEnabled"] = undefined /*out*/;
+            inputs["gitHubActionConfiguration"] = undefined /*out*/;
             inputs["isGitHubAction"] = undefined /*out*/;
             inputs["isManualIntegration"] = undefined /*out*/;
             inputs["isMercurial"] = undefined /*out*/;
             inputs["kind"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["repoUrl"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:WebAppSourceControlSlot" }, { type: "azure-native:web/latest:WebAppSourceControlSlot" }, { type: "azure-nextgen:web/latest:WebAppSourceControlSlot" }, { type: "azure-native:web/v20150801:WebAppSourceControlSlot" }, { type: "azure-nextgen:web/v20150801:WebAppSourceControlSlot" }, { type: "azure-native:web/v20160801:WebAppSourceControlSlot" }, { type: "azure-nextgen:web/v20160801:WebAppSourceControlSlot" }, { type: "azure-native:web/v20180201:WebAppSourceControlSlot" }, { type: "azure-nextgen:web/v20180201:WebAppSourceControlSlot" }, { type: "azure-native:web/v20181101:WebAppSourceControlSlot" }, { type: "azure-nextgen:web/v20181101:WebAppSourceControlSlot" }, { type: "azure-native:web/v20190801:WebAppSourceControlSlot" }, { type: "azure-nextgen:web/v20190801:WebAppSourceControlSlot" }, { type: "azure-native:web/v20200601:WebAppSourceControlSlot" }, { type: "azure-nextgen:web/v20200601:WebAppSourceControlSlot" }, { type: "azure-native:web/v20200901:WebAppSourceControlSlot" }, { type: "azure-nextgen:web/v20200901:WebAppSourceControlSlot" }, { type: "azure-native:web/v20201001:WebAppSourceControlSlot" }, { type: "azure-nextgen:web/v20201001:WebAppSourceControlSlot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:WebAppSourceControlSlot" }, { type: "azure-native:web/latest:WebAppSourceControlSlot" }, { type: "azure-nextgen:web/latest:WebAppSourceControlSlot" }, { type: "azure-native:web/v20150801:WebAppSourceControlSlot" }, { type: "azure-nextgen:web/v20150801:WebAppSourceControlSlot" }, { type: "azure-native:web/v20160801:WebAppSourceControlSlot" }, { type: "azure-nextgen:web/v20160801:WebAppSourceControlSlot" }, { type: "azure-native:web/v20180201:WebAppSourceControlSlot" }, { type: "azure-nextgen:web/v20180201:WebAppSourceControlSlot" }, { type: "azure-native:web/v20181101:WebAppSourceControlSlot" }, { type: "azure-nextgen:web/v20181101:WebAppSourceControlSlot" }, { type: "azure-native:web/v20190801:WebAppSourceControlSlot" }, { type: "azure-nextgen:web/v20190801:WebAppSourceControlSlot" }, { type: "azure-native:web/v20200601:WebAppSourceControlSlot" }, { type: "azure-nextgen:web/v20200601:WebAppSourceControlSlot" }, { type: "azure-native:web/v20200901:WebAppSourceControlSlot" }, { type: "azure-nextgen:web/v20200901:WebAppSourceControlSlot" }, { type: "azure-native:web/v20201001:WebAppSourceControlSlot" }, { type: "azure-nextgen:web/v20201001:WebAppSourceControlSlot" }, { type: "azure-native:web/v20201201:WebAppSourceControlSlot" }, { type: "azure-nextgen:web/v20201201:WebAppSourceControlSlot" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebAppSourceControlSlot.__pulumiType, name, inputs, opts);
     }
@@ -142,6 +142,10 @@ export interface WebAppSourceControlSlotArgs {
      * <code>true</code> to enable deployment rollback; otherwise, <code>false</code>.
      */
     readonly deploymentRollbackEnabled?: pulumi.Input<boolean>;
+    /**
+     * If GitHub Action is selected, than the associated configuration.
+     */
+    readonly gitHubActionConfiguration?: pulumi.Input<inputs.web.GitHubActionConfiguration>;
     /**
      * <code>true</code> if this is deployed via GitHub action.
      */

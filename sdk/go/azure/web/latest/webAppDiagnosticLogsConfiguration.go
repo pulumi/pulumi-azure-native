@@ -12,7 +12,7 @@ import (
 )
 
 // Configuration of App Service site logs.
-// Latest API Version: 2020-10-01.
+// Latest API Version: 2020-12-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppDiagnosticLogsConfiguration'.
 type WebAppDiagnosticLogsConfiguration struct {
@@ -30,8 +30,6 @@ type WebAppDiagnosticLogsConfiguration struct {
 	Kind pulumi.StringPtrOutput `pulumi:"kind"`
 	// Resource Name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -107,6 +105,12 @@ func NewWebAppDiagnosticLogsConfiguration(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppDiagnosticLogsConfiguration"),
 		},
+		{
+			Type: pulumi.String("azure-native:web/v20201201:WebAppDiagnosticLogsConfiguration"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20201201:WebAppDiagnosticLogsConfiguration"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource WebAppDiagnosticLogsConfiguration
@@ -143,8 +147,6 @@ type webAppDiagnosticLogsConfigurationState struct {
 	Kind *string `pulumi:"kind"`
 	// Resource Name.
 	Name *string `pulumi:"name"`
-	// The system metadata relating to this resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type *string `pulumi:"type"`
 }
@@ -162,8 +164,6 @@ type WebAppDiagnosticLogsConfigurationState struct {
 	Kind pulumi.StringPtrInput
 	// Resource Name.
 	Name pulumi.StringPtrInput
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponsePtrInput
 	// Resource type.
 	Type pulumi.StringPtrInput
 }

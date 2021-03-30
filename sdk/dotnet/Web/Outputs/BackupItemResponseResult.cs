@@ -74,10 +74,6 @@ namespace Pulumi.AzureNative.Web.Outputs
         /// </summary>
         public readonly string StorageAccountUrl;
         /// <summary>
-        /// The system metadata relating to this resource.
-        /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
-        /// <summary>
         /// Resource type.
         /// </summary>
         public readonly string Type;
@@ -118,8 +114,6 @@ namespace Pulumi.AzureNative.Web.Outputs
 
             string storageAccountUrl,
 
-            Outputs.SystemDataResponse systemData,
-
             string type,
 
             double websiteSizeInBytes)
@@ -139,7 +133,6 @@ namespace Pulumi.AzureNative.Web.Outputs
             SizeInBytes = sizeInBytes;
             Status = status;
             StorageAccountUrl = storageAccountUrl;
-            SystemData = systemData;
             Type = type;
             WebsiteSizeInBytes = websiteSizeInBytes;
         }

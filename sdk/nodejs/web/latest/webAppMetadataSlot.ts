@@ -2,12 +2,11 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
  * String dictionary resource.
- * Latest API Version: 2020-10-01.
+ * Latest API Version: 2020-12-01.
  *
  * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppMetadataSlot'.
  */
@@ -52,10 +51,6 @@ export class WebAppMetadataSlot extends pulumi.CustomResource {
      */
     public readonly properties!: pulumi.Output<{[key: string]: string}>;
     /**
-     * The system metadata relating to this resource.
-     */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.web.latest.SystemDataResponse>;
-    /**
      * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -87,19 +82,17 @@ export class WebAppMetadataSlot extends pulumi.CustomResource {
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["slot"] = args ? args.slot : undefined;
-            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["kind"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["properties"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:WebAppMetadataSlot" }, { type: "azure-native:web:WebAppMetadataSlot" }, { type: "azure-nextgen:web:WebAppMetadataSlot" }, { type: "azure-native:web/v20150801:WebAppMetadataSlot" }, { type: "azure-nextgen:web/v20150801:WebAppMetadataSlot" }, { type: "azure-native:web/v20160801:WebAppMetadataSlot" }, { type: "azure-nextgen:web/v20160801:WebAppMetadataSlot" }, { type: "azure-native:web/v20180201:WebAppMetadataSlot" }, { type: "azure-nextgen:web/v20180201:WebAppMetadataSlot" }, { type: "azure-native:web/v20181101:WebAppMetadataSlot" }, { type: "azure-nextgen:web/v20181101:WebAppMetadataSlot" }, { type: "azure-native:web/v20190801:WebAppMetadataSlot" }, { type: "azure-nextgen:web/v20190801:WebAppMetadataSlot" }, { type: "azure-native:web/v20200601:WebAppMetadataSlot" }, { type: "azure-nextgen:web/v20200601:WebAppMetadataSlot" }, { type: "azure-native:web/v20200901:WebAppMetadataSlot" }, { type: "azure-nextgen:web/v20200901:WebAppMetadataSlot" }, { type: "azure-native:web/v20201001:WebAppMetadataSlot" }, { type: "azure-nextgen:web/v20201001:WebAppMetadataSlot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:WebAppMetadataSlot" }, { type: "azure-native:web:WebAppMetadataSlot" }, { type: "azure-nextgen:web:WebAppMetadataSlot" }, { type: "azure-native:web/v20150801:WebAppMetadataSlot" }, { type: "azure-nextgen:web/v20150801:WebAppMetadataSlot" }, { type: "azure-native:web/v20160801:WebAppMetadataSlot" }, { type: "azure-nextgen:web/v20160801:WebAppMetadataSlot" }, { type: "azure-native:web/v20180201:WebAppMetadataSlot" }, { type: "azure-nextgen:web/v20180201:WebAppMetadataSlot" }, { type: "azure-native:web/v20181101:WebAppMetadataSlot" }, { type: "azure-nextgen:web/v20181101:WebAppMetadataSlot" }, { type: "azure-native:web/v20190801:WebAppMetadataSlot" }, { type: "azure-nextgen:web/v20190801:WebAppMetadataSlot" }, { type: "azure-native:web/v20200601:WebAppMetadataSlot" }, { type: "azure-nextgen:web/v20200601:WebAppMetadataSlot" }, { type: "azure-native:web/v20200901:WebAppMetadataSlot" }, { type: "azure-nextgen:web/v20200901:WebAppMetadataSlot" }, { type: "azure-native:web/v20201001:WebAppMetadataSlot" }, { type: "azure-nextgen:web/v20201001:WebAppMetadataSlot" }, { type: "azure-native:web/v20201201:WebAppMetadataSlot" }, { type: "azure-nextgen:web/v20201201:WebAppMetadataSlot" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebAppMetadataSlot.__pulumiType, name, inputs, opts);
     }

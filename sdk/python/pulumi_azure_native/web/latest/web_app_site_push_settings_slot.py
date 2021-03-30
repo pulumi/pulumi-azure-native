@@ -7,7 +7,6 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
-from . import outputs
 
 __all__ = ['WebAppSitePushSettingsSlot']
 
@@ -33,7 +32,7 @@ class WebAppSitePushSettingsSlot(pulumi.CustomResource):
                  __opts__=None):
         """
         Push settings for the App.
-        Latest API Version: 2020-10-01.
+        Latest API Version: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -83,9 +82,8 @@ class WebAppSitePushSettingsSlot(pulumi.CustomResource):
             __props__['slot'] = slot
             __props__['tag_whitelist_json'] = tag_whitelist_json
             __props__['tags_requiring_auth'] = tags_requiring_auth
-            __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/latest:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-native:web:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-nextgen:web:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20160801:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20180201:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20181101:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20190801:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20200601:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppSitePushSettingsSlot")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/latest:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-native:web:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-nextgen:web:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20160801:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20180201:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20181101:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20190801:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20200601:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20201201:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20201201:WebAppSitePushSettingsSlot")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppSitePushSettingsSlot, __self__).__init__(
             'azure-native:web/latest:WebAppSitePushSettingsSlot',
@@ -113,7 +111,6 @@ class WebAppSitePushSettingsSlot(pulumi.CustomResource):
         __props__["is_push_enabled"] = None
         __props__["kind"] = None
         __props__["name"] = None
-        __props__["system_data"] = None
         __props__["tag_whitelist_json"] = None
         __props__["tags_requiring_auth"] = None
         __props__["type"] = None
@@ -150,14 +147,6 @@ class WebAppSitePushSettingsSlot(pulumi.CustomResource):
         Resource Name.
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
-        """
-        The system metadata relating to this resource.
-        """
-        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter(name="tagWhitelistJson")

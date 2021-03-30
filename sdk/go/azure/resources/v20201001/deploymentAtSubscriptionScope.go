@@ -107,6 +107,12 @@ func NewDeploymentAtSubscriptionScope(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:resources/v20200801:DeploymentAtSubscriptionScope"),
 		},
+		{
+			Type: pulumi.String("azure-native:resources/v20210101:DeploymentAtSubscriptionScope"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:resources/v20210101:DeploymentAtSubscriptionScope"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource DeploymentAtSubscriptionScope

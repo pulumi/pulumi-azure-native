@@ -12,7 +12,7 @@ import (
 )
 
 // User credentials used for publishing activity.
-// API Version: 2020-10-01.
+// API Version: 2020-12-01.
 type WebAppDeploymentSlot struct {
 	pulumi.CustomResourceState
 
@@ -38,8 +38,6 @@ type WebAppDeploymentSlot struct {
 	StartTime pulumi.StringPtrOutput `pulumi:"startTime"`
 	// Deployment status.
 	Status pulumi.IntPtrOutput `pulumi:"status"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -118,6 +116,12 @@ func NewWebAppDeploymentSlot(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppDeploymentSlot"),
 		},
+		{
+			Type: pulumi.String("azure-native:web/v20201201:WebAppDeploymentSlot"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20201201:WebAppDeploymentSlot"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource WebAppDeploymentSlot
@@ -164,8 +168,6 @@ type webAppDeploymentSlotState struct {
 	StartTime *string `pulumi:"startTime"`
 	// Deployment status.
 	Status *int `pulumi:"status"`
-	// The system metadata relating to this resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type *string `pulumi:"type"`
 }
@@ -193,8 +195,6 @@ type WebAppDeploymentSlotState struct {
 	StartTime pulumi.StringPtrInput
 	// Deployment status.
 	Status pulumi.IntPtrInput
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponsePtrInput
 	// Resource type.
 	Type pulumi.StringPtrInput
 }

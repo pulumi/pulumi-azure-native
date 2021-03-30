@@ -12,7 +12,7 @@ import (
 )
 
 // String dictionary resource.
-// API Version: 2020-10-01.
+// API Version: 2020-12-01.
 type WebAppMetadataSlot struct {
 	pulumi.CustomResourceState
 
@@ -22,8 +22,6 @@ type WebAppMetadataSlot struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Settings.
 	Properties pulumi.StringMapOutput `pulumi:"properties"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -102,6 +100,12 @@ func NewWebAppMetadataSlot(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppMetadataSlot"),
 		},
+		{
+			Type: pulumi.String("azure-native:web/v20201201:WebAppMetadataSlot"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20201201:WebAppMetadataSlot"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource WebAppMetadataSlot
@@ -132,8 +136,6 @@ type webAppMetadataSlotState struct {
 	Name *string `pulumi:"name"`
 	// Settings.
 	Properties map[string]string `pulumi:"properties"`
-	// The system metadata relating to this resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type *string `pulumi:"type"`
 }
@@ -145,8 +147,6 @@ type WebAppMetadataSlotState struct {
 	Name pulumi.StringPtrInput
 	// Settings.
 	Properties pulumi.StringMapInput
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponsePtrInput
 	// Resource type.
 	Type pulumi.StringPtrInput
 }

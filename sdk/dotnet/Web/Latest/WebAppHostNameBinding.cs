@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Web.Latest
 {
     /// <summary>
     /// A hostname binding object.
-    /// Latest API Version: 2020-10-01.
+    /// Latest API Version: 2020-12-01.
     /// </summary>
     [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppHostNameBinding'.")]
     [AzureNativeResourceType("azure-native:web/latest:WebAppHostNameBinding")]
@@ -70,12 +70,6 @@ namespace Pulumi.AzureNative.Web.Latest
         /// </summary>
         [Output("sslState")]
         public Output<string?> SslState { get; private set; } = null!;
-
-        /// <summary>
-        /// The system metadata relating to this resource.
-        /// </summary>
-        [Output("systemData")]
-        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// SSL certificate thumbprint
@@ -139,6 +133,8 @@ namespace Pulumi.AzureNative.Web.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:WebAppHostNameBinding"},
                     new Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppHostNameBinding"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:WebAppHostNameBinding"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppHostNameBinding"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20201201:WebAppHostNameBinding"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

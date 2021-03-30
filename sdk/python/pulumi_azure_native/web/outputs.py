@@ -22,6 +22,8 @@ __all__ = [
     'ApiResourceBackendServiceResponse',
     'ApiResourceDefinitionsResponse',
     'AppRegistrationResponse',
+    'AppleRegistrationResponse',
+    'AppleResponse',
     'ApplicationLogsConfigResponse',
     'ArmIdWrapperResponse',
     'AuthPlatformResponse',
@@ -35,6 +37,8 @@ __all__ = [
     'AzureActiveDirectoryValidationResponse',
     'AzureBlobStorageApplicationLogsConfigResponse',
     'AzureBlobStorageHttpLogsConfigResponse',
+    'AzureStaticWebAppsRegistrationResponse',
+    'AzureStaticWebAppsResponse',
     'AzureStorageInfoValueResponse',
     'AzureTableStorageApplicationLogsConfigResponse',
     'BackupItemResponseResult',
@@ -62,6 +66,9 @@ __all__ = [
     'FileSystemHttpLogsConfigResponse',
     'FileSystemTokenStoreResponse',
     'ForwardProxyResponse',
+    'GitHubActionCodeConfigurationResponse',
+    'GitHubActionConfigurationResponse',
+    'GitHubActionContainerConfigurationResponse',
     'GitHubResponse',
     'GlobalValidationResponse',
     'GoogleResponse',
@@ -75,13 +82,14 @@ __all__ = [
     'IdentityProvidersResponse',
     'IpSecurityRestrictionResponse',
     'JwtClaimChecksResponse',
+    'KubeEnvironmentProfileResponse',
+    'LegacyMicrosoftAccountResponse',
     'LoginResponse',
     'LoginRoutesResponse',
     'LoginScopesResponse',
     'ManagedServiceIdentityResponse',
     'ManagedServiceIdentityResponseUserAssignedIdentities',
     'NameValuePairResponse',
-    'NetworkAccessControlEntryResponse',
     'NonceResponse',
     'OpenIdConnectClientCredentialResponse',
     'OpenIdConnectConfigResponse',
@@ -98,20 +106,20 @@ __all__ = [
     'SkuDescriptionResponse',
     'SlotSwapStatusResponse',
     'SlowRequestsBasedTriggerResponse',
-    'StampCapacityResponse',
     'StaticSiteBuildPropertiesResponse',
+    'StaticSiteTemplateOptionsResponse',
     'StaticSiteUserARMResourceResponseResult',
+    'StaticSiteUserProvidedFunctionAppResponse',
     'StatusCodesBasedTriggerResponse',
+    'StatusCodesRangeBasedTriggerResponse',
     'SystemDataResponse',
     'TokenStoreResponse',
     'TwitterRegistrationResponse',
     'TwitterResponse',
     'VirtualApplicationResponse',
     'VirtualDirectoryResponse',
-    'VirtualIPMappingResponse',
     'VirtualNetworkProfileResponse',
     'VnetRouteResponse',
-    'WorkerPoolResponse',
     'WsdlDefinitionResponse',
     'WsdlServiceResponse',
 ]
@@ -121,20 +129,17 @@ class AllowedAudiencesValidationResponse(dict):
     def __init__(__self__, *,
                  id: str,
                  name: str,
-                 system_data: 'outputs.SystemDataResponse',
                  type: str,
                  allowed_audiences: Optional[Sequence[str]] = None,
                  kind: Optional[str] = None):
         """
         :param str id: Resource Id.
         :param str name: Resource Name.
-        :param 'SystemDataResponseArgs' system_data: The system metadata relating to this resource.
         :param str type: Resource type.
         :param str kind: Kind of resource.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "system_data", system_data)
         pulumi.set(__self__, "type", type)
         if allowed_audiences is not None:
             pulumi.set(__self__, "allowed_audiences", allowed_audiences)
@@ -156,14 +161,6 @@ class AllowedAudiencesValidationResponse(dict):
         Resource Name.
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
-        """
-        The system metadata relating to this resource.
-        """
-        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -717,7 +714,6 @@ class AppRegistrationResponse(dict):
     def __init__(__self__, *,
                  id: str,
                  name: str,
-                 system_data: 'outputs.SystemDataResponse',
                  type: str,
                  app_id: Optional[str] = None,
                  app_secret_setting_name: Optional[str] = None,
@@ -725,13 +721,11 @@ class AppRegistrationResponse(dict):
         """
         :param str id: Resource Id.
         :param str name: Resource Name.
-        :param 'SystemDataResponseArgs' system_data: The system metadata relating to this resource.
         :param str type: Resource type.
         :param str kind: Kind of resource.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "system_data", system_data)
         pulumi.set(__self__, "type", type)
         if app_id is not None:
             pulumi.set(__self__, "app_id", app_id)
@@ -755,14 +749,6 @@ class AppRegistrationResponse(dict):
         Resource Name.
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
-        """
-        The system metadata relating to this resource.
-        """
-        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -789,6 +775,156 @@ class AppRegistrationResponse(dict):
         Kind of resource.
         """
         return pulumi.get(self, "kind")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class AppleRegistrationResponse(dict):
+    def __init__(__self__, *,
+                 id: str,
+                 name: str,
+                 type: str,
+                 client_id: Optional[str] = None,
+                 client_secret_setting_name: Optional[str] = None,
+                 kind: Optional[str] = None):
+        """
+        :param str id: Resource Id.
+        :param str name: Resource Name.
+        :param str type: Resource type.
+        :param str kind: Kind of resource.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if client_secret_setting_name is not None:
+            pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource Name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[str]:
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="clientSecretSettingName")
+    def client_secret_setting_name(self) -> Optional[str]:
+        return pulumi.get(self, "client_secret_setting_name")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[str]:
+        """
+        Kind of resource.
+        """
+        return pulumi.get(self, "kind")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class AppleResponse(dict):
+    def __init__(__self__, *,
+                 id: str,
+                 name: str,
+                 type: str,
+                 enabled: Optional[bool] = None,
+                 kind: Optional[str] = None,
+                 login: Optional['outputs.LoginScopesResponse'] = None,
+                 registration: Optional['outputs.AppleRegistrationResponse'] = None):
+        """
+        :param str id: Resource Id.
+        :param str name: Resource Name.
+        :param str type: Resource type.
+        :param str kind: Kind of resource.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if login is not None:
+            pulumi.set(__self__, "login", login)
+        if registration is not None:
+            pulumi.set(__self__, "registration", registration)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource Name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[str]:
+        """
+        Kind of resource.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def login(self) -> Optional['outputs.LoginScopesResponse']:
+        return pulumi.get(self, "login")
+
+    @property
+    @pulumi.getter
+    def registration(self) -> Optional['outputs.AppleRegistrationResponse']:
+        return pulumi.get(self, "registration")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -870,7 +1006,6 @@ class AuthPlatformResponse(dict):
     def __init__(__self__, *,
                  id: str,
                  name: str,
-                 system_data: 'outputs.SystemDataResponse',
                  type: str,
                  config_file_path: Optional[str] = None,
                  enabled: Optional[bool] = None,
@@ -879,13 +1014,11 @@ class AuthPlatformResponse(dict):
         """
         :param str id: Resource Id.
         :param str name: Resource Name.
-        :param 'SystemDataResponseArgs' system_data: The system metadata relating to this resource.
         :param str type: Resource type.
         :param str kind: Kind of resource.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "system_data", system_data)
         pulumi.set(__self__, "type", type)
         if config_file_path is not None:
             pulumi.set(__self__, "config_file_path", config_file_path)
@@ -911,14 +1044,6 @@ class AuthPlatformResponse(dict):
         Resource Name.
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
-        """
-        The system metadata relating to this resource.
-        """
-        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -1094,13 +1219,17 @@ class AutoHealTriggersResponse(dict):
                  private_bytes_in_kb: Optional[int] = None,
                  requests: Optional['outputs.RequestsBasedTriggerResponse'] = None,
                  slow_requests: Optional['outputs.SlowRequestsBasedTriggerResponse'] = None,
-                 status_codes: Optional[Sequence['outputs.StatusCodesBasedTriggerResponse']] = None):
+                 slow_requests_with_path: Optional[Sequence['outputs.SlowRequestsBasedTriggerResponse']] = None,
+                 status_codes: Optional[Sequence['outputs.StatusCodesBasedTriggerResponse']] = None,
+                 status_codes_range: Optional[Sequence['outputs.StatusCodesRangeBasedTriggerResponse']] = None):
         """
         Triggers for auto-heal.
         :param int private_bytes_in_kb: A rule based on private bytes.
         :param 'RequestsBasedTriggerResponseArgs' requests: A rule based on total requests.
         :param 'SlowRequestsBasedTriggerResponseArgs' slow_requests: A rule based on request execution time.
+        :param Sequence['SlowRequestsBasedTriggerResponseArgs'] slow_requests_with_path: A rule based on multiple Slow Requests Rule with path
         :param Sequence['StatusCodesBasedTriggerResponseArgs'] status_codes: A rule based on status codes.
+        :param Sequence['StatusCodesRangeBasedTriggerResponseArgs'] status_codes_range: A rule based on status codes ranges.
         """
         if private_bytes_in_kb is not None:
             pulumi.set(__self__, "private_bytes_in_kb", private_bytes_in_kb)
@@ -1108,8 +1237,12 @@ class AutoHealTriggersResponse(dict):
             pulumi.set(__self__, "requests", requests)
         if slow_requests is not None:
             pulumi.set(__self__, "slow_requests", slow_requests)
+        if slow_requests_with_path is not None:
+            pulumi.set(__self__, "slow_requests_with_path", slow_requests_with_path)
         if status_codes is not None:
             pulumi.set(__self__, "status_codes", status_codes)
+        if status_codes_range is not None:
+            pulumi.set(__self__, "status_codes_range", status_codes_range)
 
     @property
     @pulumi.getter(name="privateBytesInKB")
@@ -1136,12 +1269,28 @@ class AutoHealTriggersResponse(dict):
         return pulumi.get(self, "slow_requests")
 
     @property
+    @pulumi.getter(name="slowRequestsWithPath")
+    def slow_requests_with_path(self) -> Optional[Sequence['outputs.SlowRequestsBasedTriggerResponse']]:
+        """
+        A rule based on multiple Slow Requests Rule with path
+        """
+        return pulumi.get(self, "slow_requests_with_path")
+
+    @property
     @pulumi.getter(name="statusCodes")
     def status_codes(self) -> Optional[Sequence['outputs.StatusCodesBasedTriggerResponse']]:
         """
         A rule based on status codes.
         """
         return pulumi.get(self, "status_codes")
+
+    @property
+    @pulumi.getter(name="statusCodesRange")
+    def status_codes_range(self) -> Optional[Sequence['outputs.StatusCodesRangeBasedTriggerResponse']]:
+        """
+        A rule based on status codes ranges.
+        """
+        return pulumi.get(self, "status_codes_range")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -1152,7 +1301,6 @@ class AzureActiveDirectoryLoginResponse(dict):
     def __init__(__self__, *,
                  id: str,
                  name: str,
-                 system_data: 'outputs.SystemDataResponse',
                  type: str,
                  disable_www_authenticate: Optional[bool] = None,
                  kind: Optional[str] = None,
@@ -1160,13 +1308,11 @@ class AzureActiveDirectoryLoginResponse(dict):
         """
         :param str id: Resource Id.
         :param str name: Resource Name.
-        :param 'SystemDataResponseArgs' system_data: The system metadata relating to this resource.
         :param str type: Resource type.
         :param str kind: Kind of resource.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "system_data", system_data)
         pulumi.set(__self__, "type", type)
         if disable_www_authenticate is not None:
             pulumi.set(__self__, "disable_www_authenticate", disable_www_authenticate)
@@ -1190,14 +1336,6 @@ class AzureActiveDirectoryLoginResponse(dict):
         Resource Name.
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
-        """
-        The system metadata relating to this resource.
-        """
-        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -1234,7 +1372,6 @@ class AzureActiveDirectoryRegistrationResponse(dict):
     def __init__(__self__, *,
                  id: str,
                  name: str,
-                 system_data: 'outputs.SystemDataResponse',
                  type: str,
                  client_id: Optional[str] = None,
                  client_secret_certificate_thumbprint: Optional[str] = None,
@@ -1244,13 +1381,11 @@ class AzureActiveDirectoryRegistrationResponse(dict):
         """
         :param str id: Resource Id.
         :param str name: Resource Name.
-        :param 'SystemDataResponseArgs' system_data: The system metadata relating to this resource.
         :param str type: Resource type.
         :param str kind: Kind of resource.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "system_data", system_data)
         pulumi.set(__self__, "type", type)
         if client_id is not None:
             pulumi.set(__self__, "client_id", client_id)
@@ -1278,14 +1413,6 @@ class AzureActiveDirectoryRegistrationResponse(dict):
         Resource Name.
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
-        """
-        The system metadata relating to this resource.
-        """
-        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -1332,7 +1459,6 @@ class AzureActiveDirectoryResponse(dict):
     def __init__(__self__, *,
                  id: str,
                  name: str,
-                 system_data: 'outputs.SystemDataResponse',
                  type: str,
                  enabled: Optional[bool] = None,
                  is_auto_provisioned: Optional[bool] = None,
@@ -1343,13 +1469,11 @@ class AzureActiveDirectoryResponse(dict):
         """
         :param str id: Resource Id.
         :param str name: Resource Name.
-        :param 'SystemDataResponseArgs' system_data: The system metadata relating to this resource.
         :param str type: Resource type.
         :param str kind: Kind of resource.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "system_data", system_data)
         pulumi.set(__self__, "type", type)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -1379,14 +1503,6 @@ class AzureActiveDirectoryResponse(dict):
         Resource Name.
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
-        """
-        The system metadata relating to this resource.
-        """
-        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -1438,7 +1554,6 @@ class AzureActiveDirectoryValidationResponse(dict):
     def __init__(__self__, *,
                  id: str,
                  name: str,
-                 system_data: 'outputs.SystemDataResponse',
                  type: str,
                  allowed_audiences: Optional[Sequence[str]] = None,
                  jwt_claim_checks: Optional['outputs.JwtClaimChecksResponse'] = None,
@@ -1446,13 +1561,11 @@ class AzureActiveDirectoryValidationResponse(dict):
         """
         :param str id: Resource Id.
         :param str name: Resource Name.
-        :param 'SystemDataResponseArgs' system_data: The system metadata relating to this resource.
         :param str type: Resource type.
         :param str kind: Kind of resource.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "system_data", system_data)
         pulumi.set(__self__, "type", type)
         if allowed_audiences is not None:
             pulumi.set(__self__, "allowed_audiences", allowed_audiences)
@@ -1476,14 +1589,6 @@ class AzureActiveDirectoryValidationResponse(dict):
         Resource Name.
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
-        """
-        The system metadata relating to this resource.
-        """
-        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -1618,6 +1723,140 @@ class AzureBlobStorageHttpLogsConfigResponse(dict):
         SAS url to a azure blob container with read/write/list/delete permissions.
         """
         return pulumi.get(self, "sas_url")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class AzureStaticWebAppsRegistrationResponse(dict):
+    def __init__(__self__, *,
+                 id: str,
+                 name: str,
+                 type: str,
+                 client_id: Optional[str] = None,
+                 kind: Optional[str] = None):
+        """
+        :param str id: Resource Id.
+        :param str name: Resource Name.
+        :param str type: Resource type.
+        :param str kind: Kind of resource.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource Name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[str]:
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[str]:
+        """
+        Kind of resource.
+        """
+        return pulumi.get(self, "kind")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class AzureStaticWebAppsResponse(dict):
+    def __init__(__self__, *,
+                 id: str,
+                 name: str,
+                 type: str,
+                 enabled: Optional[bool] = None,
+                 kind: Optional[str] = None,
+                 registration: Optional['outputs.AzureStaticWebAppsRegistrationResponse'] = None):
+        """
+        :param str id: Resource Id.
+        :param str name: Resource Name.
+        :param str type: Resource type.
+        :param str kind: Kind of resource.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if registration is not None:
+            pulumi.set(__self__, "registration", registration)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource Name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[str]:
+        """
+        Kind of resource.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def registration(self) -> Optional['outputs.AzureStaticWebAppsRegistrationResponse']:
+        return pulumi.get(self, "registration")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -1765,7 +2004,6 @@ class BackupItemResponseResult(dict):
                  size_in_bytes: float,
                  status: str,
                  storage_account_url: str,
-                 system_data: 'outputs.SystemDataResponse',
                  type: str,
                  website_size_in_bytes: float,
                  kind: Optional[str] = None):
@@ -1785,7 +2023,6 @@ class BackupItemResponseResult(dict):
         :param float size_in_bytes: Size of the backup in bytes.
         :param str status: Backup status.
         :param str storage_account_url: SAS URL for the storage account container which contains this backup.
-        :param 'SystemDataResponseArgs' system_data: The system metadata relating to this resource.
         :param str type: Resource type.
         :param float website_size_in_bytes: Size of the original web app which has been backed up.
         :param str kind: Kind of resource.
@@ -1804,7 +2041,6 @@ class BackupItemResponseResult(dict):
         pulumi.set(__self__, "size_in_bytes", size_in_bytes)
         pulumi.set(__self__, "status", status)
         pulumi.set(__self__, "storage_account_url", storage_account_url)
-        pulumi.set(__self__, "system_data", system_data)
         pulumi.set(__self__, "type", type)
         pulumi.set(__self__, "website_size_in_bytes", website_size_in_bytes)
         if kind is not None:
@@ -1921,14 +2157,6 @@ class BackupItemResponseResult(dict):
         SAS URL for the storage account container which contains this backup.
         """
         return pulumi.get(self, "storage_account_url")
-
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
-        """
-        The system metadata relating to this resource.
-        """
-        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -2049,20 +2277,17 @@ class BlobStorageTokenStoreResponse(dict):
     def __init__(__self__, *,
                  id: str,
                  name: str,
-                 system_data: 'outputs.SystemDataResponse',
                  type: str,
                  kind: Optional[str] = None,
                  sas_url_setting_name: Optional[str] = None):
         """
         :param str id: Resource Id.
         :param str name: Resource Name.
-        :param 'SystemDataResponseArgs' system_data: The system metadata relating to this resource.
         :param str type: Resource type.
         :param str kind: Kind of resource.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "system_data", system_data)
         pulumi.set(__self__, "type", type)
         if kind is not None:
             pulumi.set(__self__, "kind", kind)
@@ -2084,14 +2309,6 @@ class BlobStorageTokenStoreResponse(dict):
         Resource Name.
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
-        """
-        The system metadata relating to this resource.
-        """
-        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -2173,7 +2390,6 @@ class ClientRegistrationResponse(dict):
     def __init__(__self__, *,
                  id: str,
                  name: str,
-                 system_data: 'outputs.SystemDataResponse',
                  type: str,
                  client_id: Optional[str] = None,
                  client_secret_setting_name: Optional[str] = None,
@@ -2181,13 +2397,11 @@ class ClientRegistrationResponse(dict):
         """
         :param str id: Resource Id.
         :param str name: Resource Name.
-        :param 'SystemDataResponseArgs' system_data: The system metadata relating to this resource.
         :param str type: Resource type.
         :param str kind: Kind of resource.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "system_data", system_data)
         pulumi.set(__self__, "type", type)
         if client_id is not None:
             pulumi.set(__self__, "client_id", client_id)
@@ -2211,14 +2425,6 @@ class ClientRegistrationResponse(dict):
         Resource Name.
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
-        """
-        The system metadata relating to this resource.
-        """
-        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -2751,7 +2957,6 @@ class CookieExpirationResponse(dict):
     def __init__(__self__, *,
                  id: str,
                  name: str,
-                 system_data: 'outputs.SystemDataResponse',
                  type: str,
                  convention: Optional[str] = None,
                  kind: Optional[str] = None,
@@ -2759,13 +2964,11 @@ class CookieExpirationResponse(dict):
         """
         :param str id: Resource Id.
         :param str name: Resource Name.
-        :param 'SystemDataResponseArgs' system_data: The system metadata relating to this resource.
         :param str type: Resource type.
         :param str kind: Kind of resource.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "system_data", system_data)
         pulumi.set(__self__, "type", type)
         if convention is not None:
             pulumi.set(__self__, "convention", convention)
@@ -2789,14 +2992,6 @@ class CookieExpirationResponse(dict):
         Resource Name.
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
-        """
-        The system metadata relating to this resource.
-        """
-        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -3035,7 +3230,6 @@ class CustomOpenIdConnectProviderResponse(dict):
     def __init__(__self__, *,
                  id: str,
                  name: str,
-                 system_data: 'outputs.SystemDataResponse',
                  type: str,
                  enabled: Optional[bool] = None,
                  kind: Optional[str] = None,
@@ -3044,13 +3238,11 @@ class CustomOpenIdConnectProviderResponse(dict):
         """
         :param str id: Resource Id.
         :param str name: Resource Name.
-        :param 'SystemDataResponseArgs' system_data: The system metadata relating to this resource.
         :param str type: Resource type.
         :param str kind: Kind of resource.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "system_data", system_data)
         pulumi.set(__self__, "type", type)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -3076,14 +3268,6 @@ class CustomOpenIdConnectProviderResponse(dict):
         Resource Name.
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
-        """
-        The system metadata relating to this resource.
-        """
-        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -3236,7 +3420,6 @@ class FacebookResponse(dict):
     def __init__(__self__, *,
                  id: str,
                  name: str,
-                 system_data: 'outputs.SystemDataResponse',
                  type: str,
                  enabled: Optional[bool] = None,
                  graph_api_version: Optional[str] = None,
@@ -3246,13 +3429,11 @@ class FacebookResponse(dict):
         """
         :param str id: Resource Id.
         :param str name: Resource Name.
-        :param 'SystemDataResponseArgs' system_data: The system metadata relating to this resource.
         :param str type: Resource type.
         :param str kind: Kind of resource.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "system_data", system_data)
         pulumi.set(__self__, "type", type)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -3280,14 +3461,6 @@ class FacebookResponse(dict):
         Resource Name.
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
-        """
-        The system metadata relating to this resource.
-        """
-        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -3420,20 +3593,17 @@ class FileSystemTokenStoreResponse(dict):
     def __init__(__self__, *,
                  id: str,
                  name: str,
-                 system_data: 'outputs.SystemDataResponse',
                  type: str,
                  directory: Optional[str] = None,
                  kind: Optional[str] = None):
         """
         :param str id: Resource Id.
         :param str name: Resource Name.
-        :param 'SystemDataResponseArgs' system_data: The system metadata relating to this resource.
         :param str type: Resource type.
         :param str kind: Kind of resource.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "system_data", system_data)
         pulumi.set(__self__, "type", type)
         if directory is not None:
             pulumi.set(__self__, "directory", directory)
@@ -3455,14 +3625,6 @@ class FileSystemTokenStoreResponse(dict):
         Resource Name.
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
-        """
-        The system metadata relating to this resource.
-        """
-        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -3494,7 +3656,6 @@ class ForwardProxyResponse(dict):
     def __init__(__self__, *,
                  id: str,
                  name: str,
-                 system_data: 'outputs.SystemDataResponse',
                  type: str,
                  convention: Optional[str] = None,
                  custom_host_header_name: Optional[str] = None,
@@ -3503,13 +3664,11 @@ class ForwardProxyResponse(dict):
         """
         :param str id: Resource Id.
         :param str name: Resource Name.
-        :param 'SystemDataResponseArgs' system_data: The system metadata relating to this resource.
         :param str type: Resource type.
         :param str kind: Kind of resource.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "system_data", system_data)
         pulumi.set(__self__, "type", type)
         if convention is not None:
             pulumi.set(__self__, "convention", convention)
@@ -3535,14 +3694,6 @@ class ForwardProxyResponse(dict):
         Resource Name.
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
-        """
-        The system metadata relating to this resource.
-        """
-        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -3580,11 +3731,172 @@ class ForwardProxyResponse(dict):
 
 
 @pulumi.output_type
+class GitHubActionCodeConfigurationResponse(dict):
+    """
+    The GitHub action code configuration.
+    """
+    def __init__(__self__, *,
+                 runtime_stack: Optional[str] = None,
+                 runtime_version: Optional[str] = None):
+        """
+        The GitHub action code configuration.
+        :param str runtime_stack: Runtime stack is used to determine the workflow file content for code base apps.
+        :param str runtime_version: Runtime version is used to determine what build version to set in the workflow file.
+        """
+        if runtime_stack is not None:
+            pulumi.set(__self__, "runtime_stack", runtime_stack)
+        if runtime_version is not None:
+            pulumi.set(__self__, "runtime_version", runtime_version)
+
+    @property
+    @pulumi.getter(name="runtimeStack")
+    def runtime_stack(self) -> Optional[str]:
+        """
+        Runtime stack is used to determine the workflow file content for code base apps.
+        """
+        return pulumi.get(self, "runtime_stack")
+
+    @property
+    @pulumi.getter(name="runtimeVersion")
+    def runtime_version(self) -> Optional[str]:
+        """
+        Runtime version is used to determine what build version to set in the workflow file.
+        """
+        return pulumi.get(self, "runtime_version")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class GitHubActionConfigurationResponse(dict):
+    """
+    The GitHub action configuration.
+    """
+    def __init__(__self__, *,
+                 code_configuration: Optional['outputs.GitHubActionCodeConfigurationResponse'] = None,
+                 container_configuration: Optional['outputs.GitHubActionContainerConfigurationResponse'] = None,
+                 generate_workflow_file: Optional[bool] = None,
+                 is_linux: Optional[bool] = None):
+        """
+        The GitHub action configuration.
+        :param 'GitHubActionCodeConfigurationResponseArgs' code_configuration: GitHub Action code configuration.
+        :param 'GitHubActionContainerConfigurationResponseArgs' container_configuration: GitHub Action container configuration.
+        :param bool generate_workflow_file: Workflow option to determine whether the workflow file should be generated and written to the repository.
+        :param bool is_linux: This will help determine the workflow configuration to select.
+        """
+        if code_configuration is not None:
+            pulumi.set(__self__, "code_configuration", code_configuration)
+        if container_configuration is not None:
+            pulumi.set(__self__, "container_configuration", container_configuration)
+        if generate_workflow_file is not None:
+            pulumi.set(__self__, "generate_workflow_file", generate_workflow_file)
+        if is_linux is not None:
+            pulumi.set(__self__, "is_linux", is_linux)
+
+    @property
+    @pulumi.getter(name="codeConfiguration")
+    def code_configuration(self) -> Optional['outputs.GitHubActionCodeConfigurationResponse']:
+        """
+        GitHub Action code configuration.
+        """
+        return pulumi.get(self, "code_configuration")
+
+    @property
+    @pulumi.getter(name="containerConfiguration")
+    def container_configuration(self) -> Optional['outputs.GitHubActionContainerConfigurationResponse']:
+        """
+        GitHub Action container configuration.
+        """
+        return pulumi.get(self, "container_configuration")
+
+    @property
+    @pulumi.getter(name="generateWorkflowFile")
+    def generate_workflow_file(self) -> Optional[bool]:
+        """
+        Workflow option to determine whether the workflow file should be generated and written to the repository.
+        """
+        return pulumi.get(self, "generate_workflow_file")
+
+    @property
+    @pulumi.getter(name="isLinux")
+    def is_linux(self) -> Optional[bool]:
+        """
+        This will help determine the workflow configuration to select.
+        """
+        return pulumi.get(self, "is_linux")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class GitHubActionContainerConfigurationResponse(dict):
+    """
+    The GitHub action container configuration.
+    """
+    def __init__(__self__, *,
+                 image_name: Optional[str] = None,
+                 password: Optional[str] = None,
+                 server_url: Optional[str] = None,
+                 username: Optional[str] = None):
+        """
+        The GitHub action container configuration.
+        :param str image_name: The image name for the build.
+        :param str password: The password used to upload the image to the container registry.
+        :param str server_url: The server URL for the container registry where the build will be hosted.
+        :param str username: The username used to upload the image to the container registry.
+        """
+        if image_name is not None:
+            pulumi.set(__self__, "image_name", image_name)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if server_url is not None:
+            pulumi.set(__self__, "server_url", server_url)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter(name="imageName")
+    def image_name(self) -> Optional[str]:
+        """
+        The image name for the build.
+        """
+        return pulumi.get(self, "image_name")
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[str]:
+        """
+        The password used to upload the image to the container registry.
+        """
+        return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter(name="serverUrl")
+    def server_url(self) -> Optional[str]:
+        """
+        The server URL for the container registry where the build will be hosted.
+        """
+        return pulumi.get(self, "server_url")
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[str]:
+        """
+        The username used to upload the image to the container registry.
+        """
+        return pulumi.get(self, "username")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class GitHubResponse(dict):
     def __init__(__self__, *,
                  id: str,
                  name: str,
-                 system_data: 'outputs.SystemDataResponse',
                  type: str,
                  enabled: Optional[bool] = None,
                  kind: Optional[str] = None,
@@ -3593,13 +3905,11 @@ class GitHubResponse(dict):
         """
         :param str id: Resource Id.
         :param str name: Resource Name.
-        :param 'SystemDataResponseArgs' system_data: The system metadata relating to this resource.
         :param str type: Resource type.
         :param str kind: Kind of resource.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "system_data", system_data)
         pulumi.set(__self__, "type", type)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -3625,14 +3935,6 @@ class GitHubResponse(dict):
         Resource Name.
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
-        """
-        The system metadata relating to this resource.
-        """
-        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -3674,7 +3976,6 @@ class GlobalValidationResponse(dict):
     def __init__(__self__, *,
                  id: str,
                  name: str,
-                 system_data: 'outputs.SystemDataResponse',
                  type: str,
                  excluded_paths: Optional[Sequence[str]] = None,
                  kind: Optional[str] = None,
@@ -3684,13 +3985,11 @@ class GlobalValidationResponse(dict):
         """
         :param str id: Resource Id.
         :param str name: Resource Name.
-        :param 'SystemDataResponseArgs' system_data: The system metadata relating to this resource.
         :param str type: Resource type.
         :param str kind: Kind of resource.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "system_data", system_data)
         pulumi.set(__self__, "type", type)
         if excluded_paths is not None:
             pulumi.set(__self__, "excluded_paths", excluded_paths)
@@ -3718,14 +4017,6 @@ class GlobalValidationResponse(dict):
         Resource Name.
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
-        """
-        The system metadata relating to this resource.
-        """
-        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -3772,7 +4063,6 @@ class GoogleResponse(dict):
     def __init__(__self__, *,
                  id: str,
                  name: str,
-                 system_data: 'outputs.SystemDataResponse',
                  type: str,
                  enabled: Optional[bool] = None,
                  kind: Optional[str] = None,
@@ -3782,13 +4072,11 @@ class GoogleResponse(dict):
         """
         :param str id: Resource Id.
         :param str name: Resource Name.
-        :param 'SystemDataResponseArgs' system_data: The system metadata relating to this resource.
         :param str type: Resource type.
         :param str kind: Kind of resource.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "system_data", system_data)
         pulumi.set(__self__, "type", type)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -3816,14 +4104,6 @@ class GoogleResponse(dict):
         Resource Name.
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
-        """
-        The system metadata relating to this resource.
-        """
-        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -4094,7 +4374,6 @@ class HttpSettingsResponse(dict):
     def __init__(__self__, *,
                  id: str,
                  name: str,
-                 system_data: 'outputs.SystemDataResponse',
                  type: str,
                  forward_proxy: Optional['outputs.ForwardProxyResponse'] = None,
                  kind: Optional[str] = None,
@@ -4103,13 +4382,11 @@ class HttpSettingsResponse(dict):
         """
         :param str id: Resource Id.
         :param str name: Resource Name.
-        :param 'SystemDataResponseArgs' system_data: The system metadata relating to this resource.
         :param str type: Resource type.
         :param str kind: Kind of resource.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "system_data", system_data)
         pulumi.set(__self__, "type", type)
         if forward_proxy is not None:
             pulumi.set(__self__, "forward_proxy", forward_proxy)
@@ -4135,14 +4412,6 @@ class HttpSettingsResponse(dict):
         Resource Name.
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
-        """
-        The system metadata relating to this resource.
-        """
-        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -4184,20 +4453,17 @@ class HttpSettingsRoutesResponse(dict):
     def __init__(__self__, *,
                  id: str,
                  name: str,
-                 system_data: 'outputs.SystemDataResponse',
                  type: str,
                  api_prefix: Optional[str] = None,
                  kind: Optional[str] = None):
         """
         :param str id: Resource Id.
         :param str name: Resource Name.
-        :param 'SystemDataResponseArgs' system_data: The system metadata relating to this resource.
         :param str type: Resource type.
         :param str kind: Kind of resource.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "system_data", system_data)
         pulumi.set(__self__, "type", type)
         if api_prefix is not None:
             pulumi.set(__self__, "api_prefix", api_prefix)
@@ -4219,14 +4485,6 @@ class HttpSettingsRoutesResponse(dict):
         Resource Name.
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
-        """
-        The system metadata relating to this resource.
-        """
-        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -4261,7 +4519,6 @@ class IdentifierResponseResult(dict):
     def __init__(__self__, *,
                  id: str,
                  name: str,
-                 system_data: 'outputs.SystemDataResponse',
                  type: str,
                  kind: Optional[str] = None,
                  value: Optional[str] = None):
@@ -4269,14 +4526,12 @@ class IdentifierResponseResult(dict):
         A domain specific resource identifier.
         :param str id: Resource Id.
         :param str name: Resource Name.
-        :param 'SystemDataResponseArgs' system_data: The system metadata relating to this resource.
         :param str type: Resource type.
         :param str kind: Kind of resource.
         :param str value: String representation of the identity.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "system_data", system_data)
         pulumi.set(__self__, "type", type)
         if kind is not None:
             pulumi.set(__self__, "kind", kind)
@@ -4298,14 +4553,6 @@ class IdentifierResponseResult(dict):
         Resource Name.
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
-        """
-        The system metadata relating to this resource.
-        """
-        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -4337,28 +4584,32 @@ class IdentityProvidersResponse(dict):
     def __init__(__self__, *,
                  id: str,
                  name: str,
-                 system_data: 'outputs.SystemDataResponse',
                  type: str,
+                 apple: Optional['outputs.AppleResponse'] = None,
                  azure_active_directory: Optional['outputs.AzureActiveDirectoryResponse'] = None,
+                 azure_static_web_apps: Optional['outputs.AzureStaticWebAppsResponse'] = None,
                  custom_open_id_connect_providers: Optional[Mapping[str, 'outputs.CustomOpenIdConnectProviderResponse']] = None,
                  facebook: Optional['outputs.FacebookResponse'] = None,
                  git_hub: Optional['outputs.GitHubResponse'] = None,
                  google: Optional['outputs.GoogleResponse'] = None,
                  kind: Optional[str] = None,
+                 legacy_microsoft_account: Optional['outputs.LegacyMicrosoftAccountResponse'] = None,
                  twitter: Optional['outputs.TwitterResponse'] = None):
         """
         :param str id: Resource Id.
         :param str name: Resource Name.
-        :param 'SystemDataResponseArgs' system_data: The system metadata relating to this resource.
         :param str type: Resource type.
         :param str kind: Kind of resource.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "system_data", system_data)
         pulumi.set(__self__, "type", type)
+        if apple is not None:
+            pulumi.set(__self__, "apple", apple)
         if azure_active_directory is not None:
             pulumi.set(__self__, "azure_active_directory", azure_active_directory)
+        if azure_static_web_apps is not None:
+            pulumi.set(__self__, "azure_static_web_apps", azure_static_web_apps)
         if custom_open_id_connect_providers is not None:
             pulumi.set(__self__, "custom_open_id_connect_providers", custom_open_id_connect_providers)
         if facebook is not None:
@@ -4369,6 +4620,8 @@ class IdentityProvidersResponse(dict):
             pulumi.set(__self__, "google", google)
         if kind is not None:
             pulumi.set(__self__, "kind", kind)
+        if legacy_microsoft_account is not None:
+            pulumi.set(__self__, "legacy_microsoft_account", legacy_microsoft_account)
         if twitter is not None:
             pulumi.set(__self__, "twitter", twitter)
 
@@ -4389,14 +4642,6 @@ class IdentityProvidersResponse(dict):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
-        """
-        The system metadata relating to this resource.
-        """
-        return pulumi.get(self, "system_data")
-
-    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -4405,9 +4650,19 @@ class IdentityProvidersResponse(dict):
         return pulumi.get(self, "type")
 
     @property
+    @pulumi.getter
+    def apple(self) -> Optional['outputs.AppleResponse']:
+        return pulumi.get(self, "apple")
+
+    @property
     @pulumi.getter(name="azureActiveDirectory")
     def azure_active_directory(self) -> Optional['outputs.AzureActiveDirectoryResponse']:
         return pulumi.get(self, "azure_active_directory")
+
+    @property
+    @pulumi.getter(name="azureStaticWebApps")
+    def azure_static_web_apps(self) -> Optional['outputs.AzureStaticWebAppsResponse']:
+        return pulumi.get(self, "azure_static_web_apps")
 
     @property
     @pulumi.getter(name="customOpenIdConnectProviders")
@@ -4436,6 +4691,11 @@ class IdentityProvidersResponse(dict):
         Kind of resource.
         """
         return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter(name="legacyMicrosoftAccount")
+    def legacy_microsoft_account(self) -> Optional['outputs.LegacyMicrosoftAccountResponse']:
+        return pulumi.get(self, "legacy_microsoft_account")
 
     @property
     @pulumi.getter
@@ -4633,7 +4893,6 @@ class JwtClaimChecksResponse(dict):
     def __init__(__self__, *,
                  id: str,
                  name: str,
-                 system_data: 'outputs.SystemDataResponse',
                  type: str,
                  allowed_client_applications: Optional[Sequence[str]] = None,
                  allowed_groups: Optional[Sequence[str]] = None,
@@ -4641,13 +4900,11 @@ class JwtClaimChecksResponse(dict):
         """
         :param str id: Resource Id.
         :param str name: Resource Name.
-        :param 'SystemDataResponseArgs' system_data: The system metadata relating to this resource.
         :param str type: Resource type.
         :param str kind: Kind of resource.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "system_data", system_data)
         pulumi.set(__self__, "type", type)
         if allowed_client_applications is not None:
             pulumi.set(__self__, "allowed_client_applications", allowed_client_applications)
@@ -4671,14 +4928,6 @@ class JwtClaimChecksResponse(dict):
         Resource Name.
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
-        """
-        The system metadata relating to this resource.
-        """
-        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -4711,11 +4960,145 @@ class JwtClaimChecksResponse(dict):
 
 
 @pulumi.output_type
+class KubeEnvironmentProfileResponse(dict):
+    """
+    Specification for a Kubernetes Environment to use for this resource.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 type: str,
+                 id: Optional[str] = None):
+        """
+        Specification for a Kubernetes Environment to use for this resource.
+        :param str name: Name of the Kubernetes Environment.
+        :param str type: Resource type of the Kubernetes Environment.
+        :param str id: Resource ID of the Kubernetes Environment.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the Kubernetes Environment.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type of the Kubernetes Environment.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID of the Kubernetes Environment.
+        """
+        return pulumi.get(self, "id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class LegacyMicrosoftAccountResponse(dict):
+    def __init__(__self__, *,
+                 id: str,
+                 name: str,
+                 type: str,
+                 enabled: Optional[bool] = None,
+                 kind: Optional[str] = None,
+                 login: Optional['outputs.LoginScopesResponse'] = None,
+                 registration: Optional['outputs.ClientRegistrationResponse'] = None,
+                 validation: Optional['outputs.AllowedAudiencesValidationResponse'] = None):
+        """
+        :param str id: Resource Id.
+        :param str name: Resource Name.
+        :param str type: Resource type.
+        :param str kind: Kind of resource.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if login is not None:
+            pulumi.set(__self__, "login", login)
+        if registration is not None:
+            pulumi.set(__self__, "registration", registration)
+        if validation is not None:
+            pulumi.set(__self__, "validation", validation)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource Name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[str]:
+        """
+        Kind of resource.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def login(self) -> Optional['outputs.LoginScopesResponse']:
+        return pulumi.get(self, "login")
+
+    @property
+    @pulumi.getter
+    def registration(self) -> Optional['outputs.ClientRegistrationResponse']:
+        return pulumi.get(self, "registration")
+
+    @property
+    @pulumi.getter
+    def validation(self) -> Optional['outputs.AllowedAudiencesValidationResponse']:
+        return pulumi.get(self, "validation")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class LoginResponse(dict):
     def __init__(__self__, *,
                  id: str,
                  name: str,
-                 system_data: 'outputs.SystemDataResponse',
                  type: str,
                  allowed_external_redirect_urls: Optional[Sequence[str]] = None,
                  cookie_expiration: Optional['outputs.CookieExpirationResponse'] = None,
@@ -4727,13 +5110,11 @@ class LoginResponse(dict):
         """
         :param str id: Resource Id.
         :param str name: Resource Name.
-        :param 'SystemDataResponseArgs' system_data: The system metadata relating to this resource.
         :param str type: Resource type.
         :param str kind: Kind of resource.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "system_data", system_data)
         pulumi.set(__self__, "type", type)
         if allowed_external_redirect_urls is not None:
             pulumi.set(__self__, "allowed_external_redirect_urls", allowed_external_redirect_urls)
@@ -4765,14 +5146,6 @@ class LoginResponse(dict):
         Resource Name.
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
-        """
-        The system metadata relating to this resource.
-        """
-        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -4829,20 +5202,17 @@ class LoginRoutesResponse(dict):
     def __init__(__self__, *,
                  id: str,
                  name: str,
-                 system_data: 'outputs.SystemDataResponse',
                  type: str,
                  kind: Optional[str] = None,
                  logout_endpoint: Optional[str] = None):
         """
         :param str id: Resource Id.
         :param str name: Resource Name.
-        :param 'SystemDataResponseArgs' system_data: The system metadata relating to this resource.
         :param str type: Resource type.
         :param str kind: Kind of resource.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "system_data", system_data)
         pulumi.set(__self__, "type", type)
         if kind is not None:
             pulumi.set(__self__, "kind", kind)
@@ -4864,14 +5234,6 @@ class LoginRoutesResponse(dict):
         Resource Name.
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
-        """
-        The system metadata relating to this resource.
-        """
-        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -4903,20 +5265,17 @@ class LoginScopesResponse(dict):
     def __init__(__self__, *,
                  id: str,
                  name: str,
-                 system_data: 'outputs.SystemDataResponse',
                  type: str,
                  kind: Optional[str] = None,
                  scopes: Optional[Sequence[str]] = None):
         """
         :param str id: Resource Id.
         :param str name: Resource Name.
-        :param 'SystemDataResponseArgs' system_data: The system metadata relating to this resource.
         :param str type: Resource type.
         :param str kind: Kind of resource.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "system_data", system_data)
         pulumi.set(__self__, "type", type)
         if kind is not None:
             pulumi.set(__self__, "kind", kind)
@@ -4938,14 +5297,6 @@ class LoginScopesResponse(dict):
         Resource Name.
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
-        """
-        The system metadata relating to this resource.
-        """
-        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -5103,73 +5454,10 @@ class NameValuePairResponse(dict):
 
 
 @pulumi.output_type
-class NetworkAccessControlEntryResponse(dict):
-    """
-    Network access control entry.
-    """
-    def __init__(__self__, *,
-                 action: Optional[str] = None,
-                 description: Optional[str] = None,
-                 order: Optional[int] = None,
-                 remote_subnet: Optional[str] = None):
-        """
-        Network access control entry.
-        :param str action: Action object.
-        :param str description: Description of network access control entry.
-        :param int order: Order of precedence.
-        :param str remote_subnet: Remote subnet.
-        """
-        if action is not None:
-            pulumi.set(__self__, "action", action)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if order is not None:
-            pulumi.set(__self__, "order", order)
-        if remote_subnet is not None:
-            pulumi.set(__self__, "remote_subnet", remote_subnet)
-
-    @property
-    @pulumi.getter
-    def action(self) -> Optional[str]:
-        """
-        Action object.
-        """
-        return pulumi.get(self, "action")
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[str]:
-        """
-        Description of network access control entry.
-        """
-        return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter
-    def order(self) -> Optional[int]:
-        """
-        Order of precedence.
-        """
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter(name="remoteSubnet")
-    def remote_subnet(self) -> Optional[str]:
-        """
-        Remote subnet.
-        """
-        return pulumi.get(self, "remote_subnet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
 class NonceResponse(dict):
     def __init__(__self__, *,
                  id: str,
                  name: str,
-                 system_data: 'outputs.SystemDataResponse',
                  type: str,
                  kind: Optional[str] = None,
                  nonce_expiration_interval: Optional[str] = None,
@@ -5177,13 +5465,11 @@ class NonceResponse(dict):
         """
         :param str id: Resource Id.
         :param str name: Resource Name.
-        :param 'SystemDataResponseArgs' system_data: The system metadata relating to this resource.
         :param str type: Resource type.
         :param str kind: Kind of resource.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "system_data", system_data)
         pulumi.set(__self__, "type", type)
         if kind is not None:
             pulumi.set(__self__, "kind", kind)
@@ -5207,14 +5493,6 @@ class NonceResponse(dict):
         Resource Name.
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
-        """
-        The system metadata relating to this resource.
-        """
-        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -5251,7 +5529,6 @@ class OpenIdConnectClientCredentialResponse(dict):
     def __init__(__self__, *,
                  id: str,
                  name: str,
-                 system_data: 'outputs.SystemDataResponse',
                  type: str,
                  client_secret_setting_name: Optional[str] = None,
                  kind: Optional[str] = None,
@@ -5259,13 +5536,11 @@ class OpenIdConnectClientCredentialResponse(dict):
         """
         :param str id: Resource Id.
         :param str name: Resource Name.
-        :param 'SystemDataResponseArgs' system_data: The system metadata relating to this resource.
         :param str type: Resource type.
         :param str kind: Kind of resource.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "system_data", system_data)
         pulumi.set(__self__, "type", type)
         if client_secret_setting_name is not None:
             pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
@@ -5289,14 +5564,6 @@ class OpenIdConnectClientCredentialResponse(dict):
         Resource Name.
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
-        """
-        The system metadata relating to this resource.
-        """
-        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -5333,7 +5600,6 @@ class OpenIdConnectConfigResponse(dict):
     def __init__(__self__, *,
                  id: str,
                  name: str,
-                 system_data: 'outputs.SystemDataResponse',
                  type: str,
                  authorization_endpoint: Optional[str] = None,
                  certification_uri: Optional[str] = None,
@@ -5344,13 +5610,11 @@ class OpenIdConnectConfigResponse(dict):
         """
         :param str id: Resource Id.
         :param str name: Resource Name.
-        :param 'SystemDataResponseArgs' system_data: The system metadata relating to this resource.
         :param str type: Resource type.
         :param str kind: Kind of resource.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "system_data", system_data)
         pulumi.set(__self__, "type", type)
         if authorization_endpoint is not None:
             pulumi.set(__self__, "authorization_endpoint", authorization_endpoint)
@@ -5380,14 +5644,6 @@ class OpenIdConnectConfigResponse(dict):
         Resource Name.
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
-        """
-        The system metadata relating to this resource.
-        """
-        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -5439,7 +5695,6 @@ class OpenIdConnectLoginResponse(dict):
     def __init__(__self__, *,
                  id: str,
                  name: str,
-                 system_data: 'outputs.SystemDataResponse',
                  type: str,
                  kind: Optional[str] = None,
                  name_claim_type: Optional[str] = None,
@@ -5447,13 +5702,11 @@ class OpenIdConnectLoginResponse(dict):
         """
         :param str id: Resource Id.
         :param str name: Resource Name.
-        :param 'SystemDataResponseArgs' system_data: The system metadata relating to this resource.
         :param str type: Resource type.
         :param str kind: Kind of resource.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "system_data", system_data)
         pulumi.set(__self__, "type", type)
         if kind is not None:
             pulumi.set(__self__, "kind", kind)
@@ -5477,14 +5730,6 @@ class OpenIdConnectLoginResponse(dict):
         Resource Name.
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
-        """
-        The system metadata relating to this resource.
-        """
-        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -5521,7 +5766,6 @@ class OpenIdConnectRegistrationResponse(dict):
     def __init__(__self__, *,
                  id: str,
                  name: str,
-                 system_data: 'outputs.SystemDataResponse',
                  type: str,
                  client_credential: Optional['outputs.OpenIdConnectClientCredentialResponse'] = None,
                  client_id: Optional[str] = None,
@@ -5530,13 +5774,11 @@ class OpenIdConnectRegistrationResponse(dict):
         """
         :param str id: Resource Id.
         :param str name: Resource Name.
-        :param 'SystemDataResponseArgs' system_data: The system metadata relating to this resource.
         :param str type: Resource type.
         :param str kind: Kind of resource.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "system_data", system_data)
         pulumi.set(__self__, "type", type)
         if client_credential is not None:
             pulumi.set(__self__, "client_credential", client_credential)
@@ -5562,14 +5804,6 @@ class OpenIdConnectRegistrationResponse(dict):
         Resource Name.
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
-        """
-        The system metadata relating to this resource.
-        """
-        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -5665,7 +5899,6 @@ class PushSettingsResponse(dict):
                  id: str,
                  is_push_enabled: bool,
                  name: str,
-                 system_data: 'outputs.SystemDataResponse',
                  type: str,
                  dynamic_tags_json: Optional[str] = None,
                  kind: Optional[str] = None,
@@ -5676,7 +5909,6 @@ class PushSettingsResponse(dict):
         :param str id: Resource Id.
         :param bool is_push_enabled: Gets or sets a flag indicating whether the Push endpoint is enabled.
         :param str name: Resource Name.
-        :param 'SystemDataResponseArgs' system_data: The system metadata relating to this resource.
         :param str type: Resource type.
         :param str dynamic_tags_json: Gets or sets a JSON string containing a list of dynamic tags that will be evaluated from user claims in the push registration endpoint.
         :param str kind: Kind of resource.
@@ -5689,7 +5921,6 @@ class PushSettingsResponse(dict):
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "is_push_enabled", is_push_enabled)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "system_data", system_data)
         pulumi.set(__self__, "type", type)
         if dynamic_tags_json is not None:
             pulumi.set(__self__, "dynamic_tags_json", dynamic_tags_json)
@@ -5723,14 +5954,6 @@ class PushSettingsResponse(dict):
         Resource Name.
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
-        """
-        The system metadata relating to this resource.
-        """
-        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -5948,6 +6171,7 @@ class SiteConfigResponse(dict):
                  auto_heal_enabled: Optional[bool] = None,
                  auto_heal_rules: Optional['outputs.AutoHealRulesResponse'] = None,
                  auto_swap_slot_name: Optional[str] = None,
+                 azure_storage_accounts: Optional[Mapping[str, 'outputs.AzureStorageInfoValueResponse']] = None,
                  connection_strings: Optional[Sequence['outputs.ConnStringInfoResponse']] = None,
                  cors: Optional['outputs.CorsSettingsResponse'] = None,
                  default_documents: Optional[Sequence[str]] = None,
@@ -5955,6 +6179,8 @@ class SiteConfigResponse(dict):
                  document_root: Optional[str] = None,
                  experiments: Optional['outputs.ExperimentsResponse'] = None,
                  ftps_state: Optional[str] = None,
+                 function_app_scale_limit: Optional[int] = None,
+                 functions_runtime_scale_monitoring_enabled: Optional[bool] = None,
                  handler_mappings: Optional[Sequence['outputs.HandlerMappingResponse']] = None,
                  health_check_path: Optional[str] = None,
                  http20_enabled: Optional[bool] = None,
@@ -5963,6 +6189,7 @@ class SiteConfigResponse(dict):
                  java_container: Optional[str] = None,
                  java_container_version: Optional[str] = None,
                  java_version: Optional[str] = None,
+                 key_vault_reference_identity: Optional[str] = None,
                  limits: Optional['outputs.SiteLimitsResponse'] = None,
                  linux_fx_version: Optional[str] = None,
                  load_balancing: Optional[str] = None,
@@ -5971,6 +6198,7 @@ class SiteConfigResponse(dict):
                  managed_pipeline_mode: Optional[str] = None,
                  managed_service_identity_id: Optional[int] = None,
                  min_tls_version: Optional[str] = None,
+                 minimum_elastic_instance_count: Optional[int] = None,
                  net_framework_version: Optional[str] = None,
                  node_version: Optional[str] = None,
                  number_of_workers: Optional[int] = None,
@@ -5995,6 +6223,7 @@ class SiteConfigResponse(dict):
                  vnet_private_ports_count: Optional[int] = None,
                  vnet_route_all_enabled: Optional[bool] = None,
                  web_sockets_enabled: Optional[bool] = None,
+                 website_time_zone: Optional[str] = None,
                  windows_fx_version: Optional[str] = None,
                  x_managed_service_identity_id: Optional[int] = None):
         """
@@ -6008,6 +6237,7 @@ class SiteConfigResponse(dict):
         :param bool auto_heal_enabled: <code>true</code> if Auto Heal is enabled; otherwise, <code>false</code>.
         :param 'AutoHealRulesResponseArgs' auto_heal_rules: Auto Heal rules.
         :param str auto_swap_slot_name: Auto-swap slot name.
+        :param Mapping[str, 'AzureStorageInfoValueResponseArgs'] azure_storage_accounts: List of Azure Storage Accounts.
         :param Sequence['ConnStringInfoResponseArgs'] connection_strings: Connection strings.
         :param 'CorsSettingsResponseArgs' cors: Cross-Origin Resource Sharing (CORS) settings.
         :param Sequence[str] default_documents: Default documents.
@@ -6015,6 +6245,11 @@ class SiteConfigResponse(dict):
         :param str document_root: Document root.
         :param 'ExperimentsResponseArgs' experiments: This is work around for polymorphic types.
         :param str ftps_state: State of FTP / FTPS service
+        :param int function_app_scale_limit: Maximum number of workers that a site can scale out to.
+               This setting only applies to the Consumption and Elastic Premium Plans
+        :param bool functions_runtime_scale_monitoring_enabled: Gets or sets a value indicating whether functions runtime scale monitoring is enabled. When enabled,
+               the ScaleController will not monitor event sources directly, but will instead call to the
+               runtime to get scale status.
         :param Sequence['HandlerMappingResponseArgs'] handler_mappings: Handler mappings.
         :param str health_check_path: Health check path
         :param bool http20_enabled: Http20Enabled: configures a web site to allow clients to connect over http2.0
@@ -6023,6 +6258,7 @@ class SiteConfigResponse(dict):
         :param str java_container: Java container.
         :param str java_container_version: Java container version.
         :param str java_version: Java version.
+        :param str key_vault_reference_identity: Identity to use for Key Vault Reference authentication.
         :param 'SiteLimitsResponseArgs' limits: Site limits.
         :param str linux_fx_version: Linux App Framework and version
         :param str load_balancing: Site load balancing.
@@ -6031,6 +6267,8 @@ class SiteConfigResponse(dict):
         :param str managed_pipeline_mode: Managed pipeline mode.
         :param int managed_service_identity_id: Managed Service Identity Id
         :param str min_tls_version: MinTlsVersion: configures the minimum version of TLS required for SSL requests
+        :param int minimum_elastic_instance_count: Number of minimum instance count for a site
+               This setting only applies to the Elastic Plans
         :param str net_framework_version: .NET Framework version.
         :param str node_version: Version of Node.js.
         :param int number_of_workers: Number of workers.
@@ -6056,6 +6294,7 @@ class SiteConfigResponse(dict):
         :param int vnet_private_ports_count: The number of private ports assigned to this app. These will be assigned dynamically on runtime.
         :param bool vnet_route_all_enabled: Virtual Network Route All enabled. This causes all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
         :param bool web_sockets_enabled: <code>true</code> if WebSocket is enabled; otherwise, <code>false</code>.
+        :param str website_time_zone: Sets the time zone a site uses for generating timestamps. Compatible with Linux and Windows App Service. Setting the WEBSITE_TIME_ZONE app setting takes precedence over this config. For Linux, expects tz database values https://www.iana.org/time-zones (for a quick reference see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). For Windows, expects one of the time zones listed under HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Time Zones
         :param str windows_fx_version: Xenon App Framework and version
         :param int x_managed_service_identity_id: Explicit Managed Service Identity Id
         """
@@ -6076,6 +6315,8 @@ class SiteConfigResponse(dict):
             pulumi.set(__self__, "auto_heal_rules", auto_heal_rules)
         if auto_swap_slot_name is not None:
             pulumi.set(__self__, "auto_swap_slot_name", auto_swap_slot_name)
+        if azure_storage_accounts is not None:
+            pulumi.set(__self__, "azure_storage_accounts", azure_storage_accounts)
         if connection_strings is not None:
             pulumi.set(__self__, "connection_strings", connection_strings)
         if cors is not None:
@@ -6090,6 +6331,10 @@ class SiteConfigResponse(dict):
             pulumi.set(__self__, "experiments", experiments)
         if ftps_state is not None:
             pulumi.set(__self__, "ftps_state", ftps_state)
+        if function_app_scale_limit is not None:
+            pulumi.set(__self__, "function_app_scale_limit", function_app_scale_limit)
+        if functions_runtime_scale_monitoring_enabled is not None:
+            pulumi.set(__self__, "functions_runtime_scale_monitoring_enabled", functions_runtime_scale_monitoring_enabled)
         if handler_mappings is not None:
             pulumi.set(__self__, "handler_mappings", handler_mappings)
         if health_check_path is not None:
@@ -6108,6 +6353,8 @@ class SiteConfigResponse(dict):
             pulumi.set(__self__, "java_container_version", java_container_version)
         if java_version is not None:
             pulumi.set(__self__, "java_version", java_version)
+        if key_vault_reference_identity is not None:
+            pulumi.set(__self__, "key_vault_reference_identity", key_vault_reference_identity)
         if limits is not None:
             pulumi.set(__self__, "limits", limits)
         if linux_fx_version is not None:
@@ -6126,6 +6373,8 @@ class SiteConfigResponse(dict):
             pulumi.set(__self__, "managed_service_identity_id", managed_service_identity_id)
         if min_tls_version is not None:
             pulumi.set(__self__, "min_tls_version", min_tls_version)
+        if minimum_elastic_instance_count is not None:
+            pulumi.set(__self__, "minimum_elastic_instance_count", minimum_elastic_instance_count)
         if net_framework_version is None:
             net_framework_version = 'v4.6'
         if net_framework_version is not None:
@@ -6176,6 +6425,8 @@ class SiteConfigResponse(dict):
             pulumi.set(__self__, "vnet_route_all_enabled", vnet_route_all_enabled)
         if web_sockets_enabled is not None:
             pulumi.set(__self__, "web_sockets_enabled", web_sockets_enabled)
+        if website_time_zone is not None:
+            pulumi.set(__self__, "website_time_zone", website_time_zone)
         if windows_fx_version is not None:
             pulumi.set(__self__, "windows_fx_version", windows_fx_version)
         if x_managed_service_identity_id is not None:
@@ -6254,6 +6505,14 @@ class SiteConfigResponse(dict):
         return pulumi.get(self, "auto_swap_slot_name")
 
     @property
+    @pulumi.getter(name="azureStorageAccounts")
+    def azure_storage_accounts(self) -> Optional[Mapping[str, 'outputs.AzureStorageInfoValueResponse']]:
+        """
+        List of Azure Storage Accounts.
+        """
+        return pulumi.get(self, "azure_storage_accounts")
+
+    @property
     @pulumi.getter(name="connectionStrings")
     def connection_strings(self) -> Optional[Sequence['outputs.ConnStringInfoResponse']]:
         """
@@ -6308,6 +6567,25 @@ class SiteConfigResponse(dict):
         State of FTP / FTPS service
         """
         return pulumi.get(self, "ftps_state")
+
+    @property
+    @pulumi.getter(name="functionAppScaleLimit")
+    def function_app_scale_limit(self) -> Optional[int]:
+        """
+        Maximum number of workers that a site can scale out to.
+        This setting only applies to the Consumption and Elastic Premium Plans
+        """
+        return pulumi.get(self, "function_app_scale_limit")
+
+    @property
+    @pulumi.getter(name="functionsRuntimeScaleMonitoringEnabled")
+    def functions_runtime_scale_monitoring_enabled(self) -> Optional[bool]:
+        """
+        Gets or sets a value indicating whether functions runtime scale monitoring is enabled. When enabled,
+        the ScaleController will not monitor event sources directly, but will instead call to the
+        runtime to get scale status.
+        """
+        return pulumi.get(self, "functions_runtime_scale_monitoring_enabled")
 
     @property
     @pulumi.getter(name="handlerMappings")
@@ -6374,6 +6652,14 @@ class SiteConfigResponse(dict):
         return pulumi.get(self, "java_version")
 
     @property
+    @pulumi.getter(name="keyVaultReferenceIdentity")
+    def key_vault_reference_identity(self) -> Optional[str]:
+        """
+        Identity to use for Key Vault Reference authentication.
+        """
+        return pulumi.get(self, "key_vault_reference_identity")
+
+    @property
     @pulumi.getter
     def limits(self) -> Optional['outputs.SiteLimitsResponse']:
         """
@@ -6436,6 +6722,15 @@ class SiteConfigResponse(dict):
         MinTlsVersion: configures the minimum version of TLS required for SSL requests
         """
         return pulumi.get(self, "min_tls_version")
+
+    @property
+    @pulumi.getter(name="minimumElasticInstanceCount")
+    def minimum_elastic_instance_count(self) -> Optional[int]:
+        """
+        Number of minimum instance count for a site
+        This setting only applies to the Elastic Plans
+        """
+        return pulumi.get(self, "minimum_elastic_instance_count")
 
     @property
     @pulumi.getter(name="netFrameworkVersion")
@@ -6631,6 +6926,14 @@ class SiteConfigResponse(dict):
         return pulumi.get(self, "web_sockets_enabled")
 
     @property
+    @pulumi.getter(name="websiteTimeZone")
+    def website_time_zone(self) -> Optional[str]:
+        """
+        Sets the time zone a site uses for generating timestamps. Compatible with Linux and Windows App Service. Setting the WEBSITE_TIME_ZONE app setting takes precedence over this config. For Linux, expects tz database values https://www.iana.org/time-zones (for a quick reference see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). For Windows, expects one of the time zones listed under HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Time Zones
+        """
+        return pulumi.get(self, "website_time_zone")
+
+    @property
     @pulumi.getter(name="windowsFxVersion")
     def windows_fx_version(self) -> Optional[str]:
         """
@@ -6769,18 +7072,22 @@ class SkuCapacityResponse(dict):
     """
     def __init__(__self__, *,
                  default: Optional[int] = None,
+                 elastic_maximum: Optional[int] = None,
                  maximum: Optional[int] = None,
                  minimum: Optional[int] = None,
                  scale_type: Optional[str] = None):
         """
         Description of the App Service plan scale options.
         :param int default: Default number of workers for this App Service plan SKU.
+        :param int elastic_maximum: Maximum number of Elastic workers for this App Service plan SKU.
         :param int maximum: Maximum number of workers for this App Service plan SKU.
         :param int minimum: Minimum number of workers for this App Service plan SKU.
         :param str scale_type: Available scale configurations for an App Service plan.
         """
         if default is not None:
             pulumi.set(__self__, "default", default)
+        if elastic_maximum is not None:
+            pulumi.set(__self__, "elastic_maximum", elastic_maximum)
         if maximum is not None:
             pulumi.set(__self__, "maximum", maximum)
         if minimum is not None:
@@ -6795,6 +7102,14 @@ class SkuCapacityResponse(dict):
         Default number of workers for this App Service plan SKU.
         """
         return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter(name="elasticMaximum")
+    def elastic_maximum(self) -> Optional[int]:
+        """
+        Maximum number of Elastic workers for this App Service plan SKU.
+        """
+        return pulumi.get(self, "elastic_maximum")
 
     @property
     @pulumi.getter
@@ -6988,16 +7303,20 @@ class SlowRequestsBasedTriggerResponse(dict):
     """
     def __init__(__self__, *,
                  count: Optional[int] = None,
+                 path: Optional[str] = None,
                  time_interval: Optional[str] = None,
                  time_taken: Optional[str] = None):
         """
         Trigger based on request execution time.
         :param int count: Request Count.
+        :param str path: Request Path.
         :param str time_interval: Time interval.
         :param str time_taken: Time taken.
         """
         if count is not None:
             pulumi.set(__self__, "count", count)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
         if time_interval is not None:
             pulumi.set(__self__, "time_interval", time_interval)
         if time_taken is not None:
@@ -7010,6 +7329,14 @@ class SlowRequestsBasedTriggerResponse(dict):
         Request Count.
         """
         return pulumi.get(self, "count")
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[str]:
+        """
+        Request Path.
+        """
+        return pulumi.get(self, "path")
 
     @property
     @pulumi.getter(name="timeInterval")
@@ -7032,180 +7359,54 @@ class SlowRequestsBasedTriggerResponse(dict):
 
 
 @pulumi.output_type
-class StampCapacityResponse(dict):
-    """
-    Stamp capacity information.
-    """
-    def __init__(__self__, *,
-                 available_capacity: Optional[float] = None,
-                 compute_mode: Optional[str] = None,
-                 exclude_from_capacity_allocation: Optional[bool] = None,
-                 is_applicable_for_all_compute_modes: Optional[bool] = None,
-                 is_linux: Optional[bool] = None,
-                 name: Optional[str] = None,
-                 site_mode: Optional[str] = None,
-                 total_capacity: Optional[float] = None,
-                 unit: Optional[str] = None,
-                 worker_size: Optional[str] = None,
-                 worker_size_id: Optional[int] = None):
-        """
-        Stamp capacity information.
-        :param float available_capacity: Available capacity (# of machines, bytes of storage etc...).
-        :param str compute_mode: Shared/dedicated workers.
-        :param bool exclude_from_capacity_allocation: If <code>true</code>, it includes basic apps.
-               Basic apps are not used for capacity allocation.
-        :param bool is_applicable_for_all_compute_modes: <code>true</code> if capacity is applicable for all apps; otherwise, <code>false</code>.
-        :param bool is_linux: Is this a linux stamp capacity
-        :param str name: Name of the stamp.
-        :param str site_mode: Shared or Dedicated.
-        :param float total_capacity: Total capacity (# of machines, bytes of storage etc...).
-        :param str unit: Name of the unit.
-        :param str worker_size: Size of the machines.
-        :param int worker_size_id: Size ID of machines: 
-               0 - Small
-               1 - Medium
-               2 - Large
-        """
-        if available_capacity is not None:
-            pulumi.set(__self__, "available_capacity", available_capacity)
-        if compute_mode is not None:
-            pulumi.set(__self__, "compute_mode", compute_mode)
-        if exclude_from_capacity_allocation is not None:
-            pulumi.set(__self__, "exclude_from_capacity_allocation", exclude_from_capacity_allocation)
-        if is_applicable_for_all_compute_modes is not None:
-            pulumi.set(__self__, "is_applicable_for_all_compute_modes", is_applicable_for_all_compute_modes)
-        if is_linux is not None:
-            pulumi.set(__self__, "is_linux", is_linux)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if site_mode is not None:
-            pulumi.set(__self__, "site_mode", site_mode)
-        if total_capacity is not None:
-            pulumi.set(__self__, "total_capacity", total_capacity)
-        if unit is not None:
-            pulumi.set(__self__, "unit", unit)
-        if worker_size is not None:
-            pulumi.set(__self__, "worker_size", worker_size)
-        if worker_size_id is not None:
-            pulumi.set(__self__, "worker_size_id", worker_size_id)
-
-    @property
-    @pulumi.getter(name="availableCapacity")
-    def available_capacity(self) -> Optional[float]:
-        """
-        Available capacity (# of machines, bytes of storage etc...).
-        """
-        return pulumi.get(self, "available_capacity")
-
-    @property
-    @pulumi.getter(name="computeMode")
-    def compute_mode(self) -> Optional[str]:
-        """
-        Shared/dedicated workers.
-        """
-        return pulumi.get(self, "compute_mode")
-
-    @property
-    @pulumi.getter(name="excludeFromCapacityAllocation")
-    def exclude_from_capacity_allocation(self) -> Optional[bool]:
-        """
-        If <code>true</code>, it includes basic apps.
-        Basic apps are not used for capacity allocation.
-        """
-        return pulumi.get(self, "exclude_from_capacity_allocation")
-
-    @property
-    @pulumi.getter(name="isApplicableForAllComputeModes")
-    def is_applicable_for_all_compute_modes(self) -> Optional[bool]:
-        """
-        <code>true</code> if capacity is applicable for all apps; otherwise, <code>false</code>.
-        """
-        return pulumi.get(self, "is_applicable_for_all_compute_modes")
-
-    @property
-    @pulumi.getter(name="isLinux")
-    def is_linux(self) -> Optional[bool]:
-        """
-        Is this a linux stamp capacity
-        """
-        return pulumi.get(self, "is_linux")
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[str]:
-        """
-        Name of the stamp.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="siteMode")
-    def site_mode(self) -> Optional[str]:
-        """
-        Shared or Dedicated.
-        """
-        return pulumi.get(self, "site_mode")
-
-    @property
-    @pulumi.getter(name="totalCapacity")
-    def total_capacity(self) -> Optional[float]:
-        """
-        Total capacity (# of machines, bytes of storage etc...).
-        """
-        return pulumi.get(self, "total_capacity")
-
-    @property
-    @pulumi.getter
-    def unit(self) -> Optional[str]:
-        """
-        Name of the unit.
-        """
-        return pulumi.get(self, "unit")
-
-    @property
-    @pulumi.getter(name="workerSize")
-    def worker_size(self) -> Optional[str]:
-        """
-        Size of the machines.
-        """
-        return pulumi.get(self, "worker_size")
-
-    @property
-    @pulumi.getter(name="workerSizeId")
-    def worker_size_id(self) -> Optional[int]:
-        """
-        Size ID of machines: 
-        0 - Small
-        1 - Medium
-        2 - Large
-        """
-        return pulumi.get(self, "worker_size_id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
 class StaticSiteBuildPropertiesResponse(dict):
     """
     Build properties for the static site.
     """
     def __init__(__self__, *,
+                 api_build_command: Optional[str] = None,
                  api_location: Optional[str] = None,
                  app_artifact_location: Optional[str] = None,
-                 app_location: Optional[str] = None):
+                 app_build_command: Optional[str] = None,
+                 app_location: Optional[str] = None,
+                 github_action_secret_name_override: Optional[str] = None,
+                 output_location: Optional[str] = None,
+                 skip_github_action_workflow_generation: Optional[bool] = None):
         """
         Build properties for the static site.
+        :param str api_build_command: A custom command to run during deployment of the Azure Functions API application.
         :param str api_location: The path to the api code within the repository.
-        :param str app_artifact_location: The path of the app artifacts after building.
+        :param str app_artifact_location: Deprecated: The path of the app artifacts after building (deprecated in favor of OutputLocation)
+        :param str app_build_command: A custom command to run during deployment of the static content application.
         :param str app_location: The path to the app code within the repository.
+        :param str github_action_secret_name_override: Github Action secret name override.
+        :param str output_location: The output path of the app after building.
+        :param bool skip_github_action_workflow_generation: Skip Github Action workflow generation.
         """
+        if api_build_command is not None:
+            pulumi.set(__self__, "api_build_command", api_build_command)
         if api_location is not None:
             pulumi.set(__self__, "api_location", api_location)
         if app_artifact_location is not None:
             pulumi.set(__self__, "app_artifact_location", app_artifact_location)
+        if app_build_command is not None:
+            pulumi.set(__self__, "app_build_command", app_build_command)
         if app_location is not None:
             pulumi.set(__self__, "app_location", app_location)
+        if github_action_secret_name_override is not None:
+            pulumi.set(__self__, "github_action_secret_name_override", github_action_secret_name_override)
+        if output_location is not None:
+            pulumi.set(__self__, "output_location", output_location)
+        if skip_github_action_workflow_generation is not None:
+            pulumi.set(__self__, "skip_github_action_workflow_generation", skip_github_action_workflow_generation)
+
+    @property
+    @pulumi.getter(name="apiBuildCommand")
+    def api_build_command(self) -> Optional[str]:
+        """
+        A custom command to run during deployment of the Azure Functions API application.
+        """
+        return pulumi.get(self, "api_build_command")
 
     @property
     @pulumi.getter(name="apiLocation")
@@ -7219,9 +7420,17 @@ class StaticSiteBuildPropertiesResponse(dict):
     @pulumi.getter(name="appArtifactLocation")
     def app_artifact_location(self) -> Optional[str]:
         """
-        The path of the app artifacts after building.
+        Deprecated: The path of the app artifacts after building (deprecated in favor of OutputLocation)
         """
         return pulumi.get(self, "app_artifact_location")
+
+    @property
+    @pulumi.getter(name="appBuildCommand")
+    def app_build_command(self) -> Optional[str]:
+        """
+        A custom command to run during deployment of the static content application.
+        """
+        return pulumi.get(self, "app_build_command")
 
     @property
     @pulumi.getter(name="appLocation")
@@ -7230,6 +7439,104 @@ class StaticSiteBuildPropertiesResponse(dict):
         The path to the app code within the repository.
         """
         return pulumi.get(self, "app_location")
+
+    @property
+    @pulumi.getter(name="githubActionSecretNameOverride")
+    def github_action_secret_name_override(self) -> Optional[str]:
+        """
+        Github Action secret name override.
+        """
+        return pulumi.get(self, "github_action_secret_name_override")
+
+    @property
+    @pulumi.getter(name="outputLocation")
+    def output_location(self) -> Optional[str]:
+        """
+        The output path of the app after building.
+        """
+        return pulumi.get(self, "output_location")
+
+    @property
+    @pulumi.getter(name="skipGithubActionWorkflowGeneration")
+    def skip_github_action_workflow_generation(self) -> Optional[bool]:
+        """
+        Skip Github Action workflow generation.
+        """
+        return pulumi.get(self, "skip_github_action_workflow_generation")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class StaticSiteTemplateOptionsResponse(dict):
+    """
+    Template Options for the static site.
+    """
+    def __init__(__self__, *,
+                 description: Optional[str] = None,
+                 is_private: Optional[bool] = None,
+                 owner: Optional[str] = None,
+                 repository_name: Optional[str] = None,
+                 template_repository_url: Optional[str] = None):
+        """
+        Template Options for the static site.
+        :param str description: Description of the newly generated repository.
+        :param bool is_private: Whether or not the newly generated repository is a private repository. Defaults to false (i.e. public).
+        :param str owner: Owner of the newly generated repository.
+        :param str repository_name: Name of the newly generated repository.
+        :param str template_repository_url: URL of the template repository. The newly generated repository will be based on this one.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if is_private is not None:
+            pulumi.set(__self__, "is_private", is_private)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if repository_name is not None:
+            pulumi.set(__self__, "repository_name", repository_name)
+        if template_repository_url is not None:
+            pulumi.set(__self__, "template_repository_url", template_repository_url)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Description of the newly generated repository.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="isPrivate")
+    def is_private(self) -> Optional[bool]:
+        """
+        Whether or not the newly generated repository is a private repository. Defaults to false (i.e. public).
+        """
+        return pulumi.get(self, "is_private")
+
+    @property
+    @pulumi.getter
+    def owner(self) -> Optional[str]:
+        """
+        Owner of the newly generated repository.
+        """
+        return pulumi.get(self, "owner")
+
+    @property
+    @pulumi.getter(name="repositoryName")
+    def repository_name(self) -> Optional[str]:
+        """
+        Name of the newly generated repository.
+        """
+        return pulumi.get(self, "repository_name")
+
+    @property
+    @pulumi.getter(name="templateRepositoryUrl")
+    def template_repository_url(self) -> Optional[str]:
+        """
+        URL of the template repository. The newly generated repository will be based on this one.
+        """
+        return pulumi.get(self, "template_repository_url")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -7245,7 +7552,6 @@ class StaticSiteUserARMResourceResponseResult(dict):
                  id: str,
                  name: str,
                  provider: str,
-                 system_data: 'outputs.SystemDataResponse',
                  type: str,
                  user_id: str,
                  kind: Optional[str] = None,
@@ -7256,7 +7562,6 @@ class StaticSiteUserARMResourceResponseResult(dict):
         :param str id: Resource Id.
         :param str name: Resource Name.
         :param str provider: The identity provider for the static site user.
-        :param 'SystemDataResponseArgs' system_data: The system metadata relating to this resource.
         :param str type: Resource type.
         :param str user_id: The user id for the static site user.
         :param str kind: Kind of resource.
@@ -7266,7 +7571,6 @@ class StaticSiteUserARMResourceResponseResult(dict):
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "provider", provider)
-        pulumi.set(__self__, "system_data", system_data)
         pulumi.set(__self__, "type", type)
         pulumi.set(__self__, "user_id", user_id)
         if kind is not None:
@@ -7307,14 +7611,6 @@ class StaticSiteUserARMResourceResponseResult(dict):
         return pulumi.get(self, "provider")
 
     @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
-        """
-        The system metadata relating to this resource.
-        """
-        return pulumi.get(self, "system_data")
-
-    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -7348,12 +7644,107 @@ class StaticSiteUserARMResourceResponseResult(dict):
 
 
 @pulumi.output_type
+class StaticSiteUserProvidedFunctionAppResponse(dict):
+    """
+    A static site user provided function.
+    """
+    def __init__(__self__, *,
+                 created_on: str,
+                 id: str,
+                 name: str,
+                 type: str,
+                 function_app_region: Optional[str] = None,
+                 function_app_resource_id: Optional[str] = None,
+                 kind: Optional[str] = None):
+        """
+        A static site user provided function.
+        :param str created_on: The date and time on which the function app was registered with the static site.
+        :param str id: Resource Id.
+        :param str name: Resource Name.
+        :param str type: Resource type.
+        :param str function_app_region: The region of the function app registered with the static site
+        :param str function_app_resource_id: The resource id of the function app registered with the static site
+        :param str kind: Kind of resource.
+        """
+        pulumi.set(__self__, "created_on", created_on)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if function_app_region is not None:
+            pulumi.set(__self__, "function_app_region", function_app_region)
+        if function_app_resource_id is not None:
+            pulumi.set(__self__, "function_app_resource_id", function_app_resource_id)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> str:
+        """
+        The date and time on which the function app was registered with the static site.
+        """
+        return pulumi.get(self, "created_on")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource Name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="functionAppRegion")
+    def function_app_region(self) -> Optional[str]:
+        """
+        The region of the function app registered with the static site
+        """
+        return pulumi.get(self, "function_app_region")
+
+    @property
+    @pulumi.getter(name="functionAppResourceId")
+    def function_app_resource_id(self) -> Optional[str]:
+        """
+        The resource id of the function app registered with the static site
+        """
+        return pulumi.get(self, "function_app_resource_id")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[str]:
+        """
+        Kind of resource.
+        """
+        return pulumi.get(self, "kind")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class StatusCodesBasedTriggerResponse(dict):
     """
     Trigger based on status code.
     """
     def __init__(__self__, *,
                  count: Optional[int] = None,
+                 path: Optional[str] = None,
                  status: Optional[int] = None,
                  sub_status: Optional[int] = None,
                  time_interval: Optional[str] = None,
@@ -7361,6 +7752,7 @@ class StatusCodesBasedTriggerResponse(dict):
         """
         Trigger based on status code.
         :param int count: Request Count.
+        :param str path: Request Path
         :param int status: HTTP status code.
         :param int sub_status: Request Sub Status.
         :param str time_interval: Time interval.
@@ -7368,6 +7760,8 @@ class StatusCodesBasedTriggerResponse(dict):
         """
         if count is not None:
             pulumi.set(__self__, "count", count)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if sub_status is not None:
@@ -7384,6 +7778,14 @@ class StatusCodesBasedTriggerResponse(dict):
         Request Count.
         """
         return pulumi.get(self, "count")
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[str]:
+        """
+        Request Path
+        """
+        return pulumi.get(self, "path")
 
     @property
     @pulumi.getter
@@ -7416,6 +7818,64 @@ class StatusCodesBasedTriggerResponse(dict):
         Win32 error code.
         """
         return pulumi.get(self, "win32_status")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class StatusCodesRangeBasedTriggerResponse(dict):
+    """
+    Trigger based on range of status codes.
+    """
+    def __init__(__self__, *,
+                 count: Optional[int] = None,
+                 path: Optional[str] = None,
+                 status_codes: Optional[str] = None,
+                 time_interval: Optional[str] = None):
+        """
+        Trigger based on range of status codes.
+        :param int count: Request Count.
+        :param str status_codes: HTTP status code.
+        :param str time_interval: Time interval.
+        """
+        if count is not None:
+            pulumi.set(__self__, "count", count)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if status_codes is not None:
+            pulumi.set(__self__, "status_codes", status_codes)
+        if time_interval is not None:
+            pulumi.set(__self__, "time_interval", time_interval)
+
+    @property
+    @pulumi.getter
+    def count(self) -> Optional[int]:
+        """
+        Request Count.
+        """
+        return pulumi.get(self, "count")
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[str]:
+        return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter(name="statusCodes")
+    def status_codes(self) -> Optional[str]:
+        """
+        HTTP status code.
+        """
+        return pulumi.get(self, "status_codes")
+
+    @property
+    @pulumi.getter(name="timeInterval")
+    def time_interval(self) -> Optional[str]:
+        """
+        Time interval.
+        """
+        return pulumi.get(self, "time_interval")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -7512,7 +7972,6 @@ class TokenStoreResponse(dict):
     def __init__(__self__, *,
                  id: str,
                  name: str,
-                 system_data: 'outputs.SystemDataResponse',
                  type: str,
                  azure_blob_storage: Optional['outputs.BlobStorageTokenStoreResponse'] = None,
                  enabled: Optional[bool] = None,
@@ -7522,13 +7981,11 @@ class TokenStoreResponse(dict):
         """
         :param str id: Resource Id.
         :param str name: Resource Name.
-        :param 'SystemDataResponseArgs' system_data: The system metadata relating to this resource.
         :param str type: Resource type.
         :param str kind: Kind of resource.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "system_data", system_data)
         pulumi.set(__self__, "type", type)
         if azure_blob_storage is not None:
             pulumi.set(__self__, "azure_blob_storage", azure_blob_storage)
@@ -7556,14 +8013,6 @@ class TokenStoreResponse(dict):
         Resource Name.
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
-        """
-        The system metadata relating to this resource.
-        """
-        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -7610,7 +8059,6 @@ class TwitterRegistrationResponse(dict):
     def __init__(__self__, *,
                  id: str,
                  name: str,
-                 system_data: 'outputs.SystemDataResponse',
                  type: str,
                  consumer_key: Optional[str] = None,
                  consumer_secret_setting_name: Optional[str] = None,
@@ -7618,13 +8066,11 @@ class TwitterRegistrationResponse(dict):
         """
         :param str id: Resource Id.
         :param str name: Resource Name.
-        :param 'SystemDataResponseArgs' system_data: The system metadata relating to this resource.
         :param str type: Resource type.
         :param str kind: Kind of resource.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "system_data", system_data)
         pulumi.set(__self__, "type", type)
         if consumer_key is not None:
             pulumi.set(__self__, "consumer_key", consumer_key)
@@ -7648,14 +8094,6 @@ class TwitterRegistrationResponse(dict):
         Resource Name.
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
-        """
-        The system metadata relating to this resource.
-        """
-        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -7692,7 +8130,6 @@ class TwitterResponse(dict):
     def __init__(__self__, *,
                  id: str,
                  name: str,
-                 system_data: 'outputs.SystemDataResponse',
                  type: str,
                  enabled: Optional[bool] = None,
                  kind: Optional[str] = None,
@@ -7700,13 +8137,11 @@ class TwitterResponse(dict):
         """
         :param str id: Resource Id.
         :param str name: Resource Name.
-        :param 'SystemDataResponseArgs' system_data: The system metadata relating to this resource.
         :param str type: Resource type.
         :param str kind: Kind of resource.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "system_data", system_data)
         pulumi.set(__self__, "type", type)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -7730,14 +8165,6 @@ class TwitterResponse(dict):
         Resource Name.
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
-        """
-        The system metadata relating to this resource.
-        """
-        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -7870,102 +8297,35 @@ class VirtualDirectoryResponse(dict):
 
 
 @pulumi.output_type
-class VirtualIPMappingResponse(dict):
-    """
-    Virtual IP mapping.
-    """
-    def __init__(__self__, *,
-                 in_use: Optional[bool] = None,
-                 internal_http_port: Optional[int] = None,
-                 internal_https_port: Optional[int] = None,
-                 service_name: Optional[str] = None,
-                 virtual_ip: Optional[str] = None):
-        """
-        Virtual IP mapping.
-        :param bool in_use: Is virtual IP mapping in use.
-        :param int internal_http_port: Internal HTTP port.
-        :param int internal_https_port: Internal HTTPS port.
-        :param str service_name: name of the service that virtual IP is assigned to
-        :param str virtual_ip: Virtual IP address.
-        """
-        if in_use is not None:
-            pulumi.set(__self__, "in_use", in_use)
-        if internal_http_port is not None:
-            pulumi.set(__self__, "internal_http_port", internal_http_port)
-        if internal_https_port is not None:
-            pulumi.set(__self__, "internal_https_port", internal_https_port)
-        if service_name is not None:
-            pulumi.set(__self__, "service_name", service_name)
-        if virtual_ip is not None:
-            pulumi.set(__self__, "virtual_ip", virtual_ip)
-
-    @property
-    @pulumi.getter(name="inUse")
-    def in_use(self) -> Optional[bool]:
-        """
-        Is virtual IP mapping in use.
-        """
-        return pulumi.get(self, "in_use")
-
-    @property
-    @pulumi.getter(name="internalHttpPort")
-    def internal_http_port(self) -> Optional[int]:
-        """
-        Internal HTTP port.
-        """
-        return pulumi.get(self, "internal_http_port")
-
-    @property
-    @pulumi.getter(name="internalHttpsPort")
-    def internal_https_port(self) -> Optional[int]:
-        """
-        Internal HTTPS port.
-        """
-        return pulumi.get(self, "internal_https_port")
-
-    @property
-    @pulumi.getter(name="serviceName")
-    def service_name(self) -> Optional[str]:
-        """
-        name of the service that virtual IP is assigned to
-        """
-        return pulumi.get(self, "service_name")
-
-    @property
-    @pulumi.getter(name="virtualIP")
-    def virtual_ip(self) -> Optional[str]:
-        """
-        Virtual IP address.
-        """
-        return pulumi.get(self, "virtual_ip")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
 class VirtualNetworkProfileResponse(dict):
     """
     Specification for using a Virtual Network.
     """
     def __init__(__self__, *,
+                 id: str,
                  name: str,
                  type: str,
-                 id: Optional[str] = None,
                  subnet: Optional[str] = None):
         """
         Specification for using a Virtual Network.
+        :param str id: Resource id of the Virtual Network.
         :param str name: Name of the Virtual Network (read-only).
         :param str type: Resource type of the Virtual Network (read-only).
-        :param str id: Resource id of the Virtual Network.
         :param str subnet: Subnet within the Virtual Network.
         """
+        pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
-        if id is not None:
-            pulumi.set(__self__, "id", id)
         if subnet is not None:
             pulumi.set(__self__, "subnet", subnet)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource id of the Virtual Network.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -7982,14 +8342,6 @@ class VirtualNetworkProfileResponse(dict):
         Resource type of the Virtual Network (read-only).
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        """
-        Resource id of the Virtual Network.
-        """
-        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -8011,7 +8363,6 @@ class VnetRouteResponse(dict):
     def __init__(__self__, *,
                  id: str,
                  name: str,
-                 system_data: 'outputs.SystemDataResponse',
                  type: str,
                  end_address: Optional[str] = None,
                  kind: Optional[str] = None,
@@ -8021,7 +8372,6 @@ class VnetRouteResponse(dict):
         Virtual Network route contract used to pass routing information for a Virtual Network.
         :param str id: Resource Id.
         :param str name: Resource Name.
-        :param 'SystemDataResponseArgs' system_data: The system metadata relating to this resource.
         :param str type: Resource type.
         :param str end_address: The ending address for this route. If the start address is specified in CIDR notation, this must be omitted.
         :param str kind: Kind of resource.
@@ -8035,7 +8385,6 @@ class VnetRouteResponse(dict):
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "system_data", system_data)
         pulumi.set(__self__, "type", type)
         if end_address is not None:
             pulumi.set(__self__, "end_address", end_address)
@@ -8061,14 +8410,6 @@ class VnetRouteResponse(dict):
         Resource Name.
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
-        """
-        The system metadata relating to this resource.
-        """
-        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -8114,79 +8455,6 @@ class VnetRouteResponse(dict):
         The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.
         """
         return pulumi.get(self, "start_address")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class WorkerPoolResponse(dict):
-    """
-    Worker pool of an App Service Environment.
-    """
-    def __init__(__self__, *,
-                 instance_names: Sequence[str],
-                 compute_mode: Optional[str] = None,
-                 worker_count: Optional[int] = None,
-                 worker_size: Optional[str] = None,
-                 worker_size_id: Optional[int] = None):
-        """
-        Worker pool of an App Service Environment.
-        :param Sequence[str] instance_names: Names of all instances in the worker pool (read only).
-        :param str compute_mode: Shared or dedicated app hosting.
-        :param int worker_count: Number of instances in the worker pool.
-        :param str worker_size: VM size of the worker pool instances.
-        :param int worker_size_id: Worker size ID for referencing this worker pool.
-        """
-        pulumi.set(__self__, "instance_names", instance_names)
-        if compute_mode is not None:
-            pulumi.set(__self__, "compute_mode", compute_mode)
-        if worker_count is not None:
-            pulumi.set(__self__, "worker_count", worker_count)
-        if worker_size is not None:
-            pulumi.set(__self__, "worker_size", worker_size)
-        if worker_size_id is not None:
-            pulumi.set(__self__, "worker_size_id", worker_size_id)
-
-    @property
-    @pulumi.getter(name="instanceNames")
-    def instance_names(self) -> Sequence[str]:
-        """
-        Names of all instances in the worker pool (read only).
-        """
-        return pulumi.get(self, "instance_names")
-
-    @property
-    @pulumi.getter(name="computeMode")
-    def compute_mode(self) -> Optional[str]:
-        """
-        Shared or dedicated app hosting.
-        """
-        return pulumi.get(self, "compute_mode")
-
-    @property
-    @pulumi.getter(name="workerCount")
-    def worker_count(self) -> Optional[int]:
-        """
-        Number of instances in the worker pool.
-        """
-        return pulumi.get(self, "worker_count")
-
-    @property
-    @pulumi.getter(name="workerSize")
-    def worker_size(self) -> Optional[str]:
-        """
-        VM size of the worker pool instances.
-        """
-        return pulumi.get(self, "worker_size")
-
-    @property
-    @pulumi.getter(name="workerSizeId")
-    def worker_size_id(self) -> Optional[int]:
-        """
-        Worker size ID for referencing this worker pool.
-        """
-        return pulumi.get(self, "worker_size_id")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

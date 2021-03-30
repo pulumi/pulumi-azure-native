@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web
     {
         /// <summary>
         /// A web app, a mobile app backend, or an API app.
-        /// API Version: 2020-10-01.
+        /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetWebAppSlotResult> InvokeAsync(GetWebAppSlotArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppSlotResult>("azure-native:web:getWebAppSlot", args ?? new GetWebAppSlotArgs(), options.WithVersion());
@@ -144,6 +144,10 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         public readonly bool? IsXenon;
         /// <summary>
+        /// Identity to use for Key Vault Reference authentication.
+        /// </summary>
+        public readonly string? KeyVaultReferenceIdentity;
+        /// <summary>
         /// Kind of resource.
         /// </summary>
         public readonly string? Kind;
@@ -217,10 +221,6 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         public readonly string SuspendedTill;
         /// <summary>
-        /// The system metadata relating to this resource.
-        /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
-        /// <summary>
         /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -287,6 +287,8 @@ namespace Pulumi.AzureNative.Web
 
             bool? isXenon,
 
+            string? keyVaultReferenceIdentity,
+
             string? kind,
 
             string lastModifiedTimeUtc,
@@ -323,8 +325,6 @@ namespace Pulumi.AzureNative.Web
 
             string suspendedTill,
 
-            Outputs.SystemDataResponse systemData,
-
             ImmutableDictionary<string, string>? tags,
 
             string targetSwapSlot,
@@ -357,6 +357,7 @@ namespace Pulumi.AzureNative.Web
             InProgressOperationId = inProgressOperationId;
             IsDefaultContainer = isDefaultContainer;
             IsXenon = isXenon;
+            KeyVaultReferenceIdentity = keyVaultReferenceIdentity;
             Kind = kind;
             LastModifiedTimeUtc = lastModifiedTimeUtc;
             Location = location;
@@ -375,7 +376,6 @@ namespace Pulumi.AzureNative.Web
             State = state;
             StorageAccountRequired = storageAccountRequired;
             SuspendedTill = suspendedTill;
-            SystemData = systemData;
             Tags = tags;
             TargetSwapSlot = targetSwapSlot;
             TrafficManagerHostNames = trafficManagerHostNames;

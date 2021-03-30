@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * SSL certificate for an app.
- * API Version: 2020-10-01.
+ * API Version: 2020-12-01.
  */
 export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateResult> {
     if (!opts) {
@@ -46,6 +46,10 @@ export interface GetCertificateResult {
      * Raw bytes of .cer file
      */
     readonly cerBlob: string;
+    /**
+     * Method of domain validation for free cert
+     */
+    readonly domainValidationMethod?: string;
     /**
      * Certificate expiration date.
      */
@@ -122,10 +126,6 @@ export interface GetCertificateResult {
      * Subject name of the certificate.
      */
     readonly subjectName: string;
-    /**
-     * The system metadata relating to this resource.
-     */
-    readonly systemData: outputs.web.SystemDataResponse;
     /**
      * Resource tags.
      */

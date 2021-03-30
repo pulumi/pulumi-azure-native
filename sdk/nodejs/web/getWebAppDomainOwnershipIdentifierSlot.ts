@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A domain specific resource identifier.
- * API Version: 2020-10-01.
+ * API Version: 2020-12-01.
  */
 export function getWebAppDomainOwnershipIdentifierSlot(args: GetWebAppDomainOwnershipIdentifierSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppDomainOwnershipIdentifierSlotResult> {
     if (!opts) {
@@ -60,10 +60,6 @@ export interface GetWebAppDomainOwnershipIdentifierSlotResult {
      * Resource Name.
      */
     readonly name: string;
-    /**
-     * The system metadata relating to this resource.
-     */
-    readonly systemData: outputs.web.SystemDataResponse;
     /**
      * Resource type.
      */

@@ -2,12 +2,11 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
  * Premier add-on.
- * API Version: 2020-10-01.
+ * API Version: 2020-12-01.
  */
 export class WebAppPremierAddOn extends pulumi.CustomResource {
     /**
@@ -65,10 +64,6 @@ export class WebAppPremierAddOn extends pulumi.CustomResource {
      */
     public readonly sku!: pulumi.Output<string | undefined>;
     /**
-     * The system metadata relating to this resource.
-     */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.web.SystemDataResponse>;
-    /**
      * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -109,7 +104,6 @@ export class WebAppPremierAddOn extends pulumi.CustomResource {
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["vendor"] = args ? args.vendor : undefined;
-            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["kind"] = undefined /*out*/;
@@ -119,7 +113,6 @@ export class WebAppPremierAddOn extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["product"] = undefined /*out*/;
             inputs["sku"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["vendor"] = undefined /*out*/;
@@ -127,7 +120,7 @@ export class WebAppPremierAddOn extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:WebAppPremierAddOn" }, { type: "azure-native:web/latest:WebAppPremierAddOn" }, { type: "azure-nextgen:web/latest:WebAppPremierAddOn" }, { type: "azure-native:web/v20150801:WebAppPremierAddOn" }, { type: "azure-nextgen:web/v20150801:WebAppPremierAddOn" }, { type: "azure-native:web/v20160801:WebAppPremierAddOn" }, { type: "azure-nextgen:web/v20160801:WebAppPremierAddOn" }, { type: "azure-native:web/v20180201:WebAppPremierAddOn" }, { type: "azure-nextgen:web/v20180201:WebAppPremierAddOn" }, { type: "azure-native:web/v20181101:WebAppPremierAddOn" }, { type: "azure-nextgen:web/v20181101:WebAppPremierAddOn" }, { type: "azure-native:web/v20190801:WebAppPremierAddOn" }, { type: "azure-nextgen:web/v20190801:WebAppPremierAddOn" }, { type: "azure-native:web/v20200601:WebAppPremierAddOn" }, { type: "azure-nextgen:web/v20200601:WebAppPremierAddOn" }, { type: "azure-native:web/v20200901:WebAppPremierAddOn" }, { type: "azure-nextgen:web/v20200901:WebAppPremierAddOn" }, { type: "azure-native:web/v20201001:WebAppPremierAddOn" }, { type: "azure-nextgen:web/v20201001:WebAppPremierAddOn" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:WebAppPremierAddOn" }, { type: "azure-native:web/latest:WebAppPremierAddOn" }, { type: "azure-nextgen:web/latest:WebAppPremierAddOn" }, { type: "azure-native:web/v20150801:WebAppPremierAddOn" }, { type: "azure-nextgen:web/v20150801:WebAppPremierAddOn" }, { type: "azure-native:web/v20160801:WebAppPremierAddOn" }, { type: "azure-nextgen:web/v20160801:WebAppPremierAddOn" }, { type: "azure-native:web/v20180201:WebAppPremierAddOn" }, { type: "azure-nextgen:web/v20180201:WebAppPremierAddOn" }, { type: "azure-native:web/v20181101:WebAppPremierAddOn" }, { type: "azure-nextgen:web/v20181101:WebAppPremierAddOn" }, { type: "azure-native:web/v20190801:WebAppPremierAddOn" }, { type: "azure-nextgen:web/v20190801:WebAppPremierAddOn" }, { type: "azure-native:web/v20200601:WebAppPremierAddOn" }, { type: "azure-nextgen:web/v20200601:WebAppPremierAddOn" }, { type: "azure-native:web/v20200901:WebAppPremierAddOn" }, { type: "azure-nextgen:web/v20200901:WebAppPremierAddOn" }, { type: "azure-native:web/v20201001:WebAppPremierAddOn" }, { type: "azure-nextgen:web/v20201001:WebAppPremierAddOn" }, { type: "azure-native:web/v20201201:WebAppPremierAddOn" }, { type: "azure-nextgen:web/v20201201:WebAppPremierAddOn" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebAppPremierAddOn.__pulumiType, name, inputs, opts);
     }

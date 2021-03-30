@@ -26,10 +26,6 @@ namespace Pulumi.AzureNative.Web.Latest.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The system metadata relating to this resource.
-        /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
-        /// <summary>
         /// Resource type.
         /// </summary>
         public readonly string Type;
@@ -46,8 +42,6 @@ namespace Pulumi.AzureNative.Web.Latest.Outputs
 
             string name,
 
-            Outputs.SystemDataResponse systemData,
-
             string type,
 
             string? value)
@@ -55,7 +49,6 @@ namespace Pulumi.AzureNative.Web.Latest.Outputs
             Id = id;
             Kind = kind;
             Name = name;
-            SystemData = systemData;
             Type = type;
             Value = value;
         }

@@ -35,7 +35,7 @@ class WebAppAuthSettingsV2Slot(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
-        Latest API Version: 2020-10-01.
+        Latest API Version: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -77,9 +77,8 @@ class WebAppAuthSettingsV2Slot(pulumi.CustomResource):
             if slot is None and not opts.urn:
                 raise TypeError("Missing required property 'slot'")
             __props__['slot'] = slot
-            __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/latest:WebAppAuthSettingsV2Slot"), pulumi.Alias(type_="azure-native:web:WebAppAuthSettingsV2Slot"), pulumi.Alias(type_="azure-nextgen:web:WebAppAuthSettingsV2Slot"), pulumi.Alias(type_="azure-native:web/v20200601:WebAppAuthSettingsV2Slot"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppAuthSettingsV2Slot"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppAuthSettingsV2Slot"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppAuthSettingsV2Slot"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppAuthSettingsV2Slot"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppAuthSettingsV2Slot")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/latest:WebAppAuthSettingsV2Slot"), pulumi.Alias(type_="azure-native:web:WebAppAuthSettingsV2Slot"), pulumi.Alias(type_="azure-nextgen:web:WebAppAuthSettingsV2Slot"), pulumi.Alias(type_="azure-native:web/v20200601:WebAppAuthSettingsV2Slot"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppAuthSettingsV2Slot"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppAuthSettingsV2Slot"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppAuthSettingsV2Slot"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppAuthSettingsV2Slot"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppAuthSettingsV2Slot"), pulumi.Alias(type_="azure-native:web/v20201201:WebAppAuthSettingsV2Slot"), pulumi.Alias(type_="azure-nextgen:web/v20201201:WebAppAuthSettingsV2Slot")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppAuthSettingsV2Slot, __self__).__init__(
             'azure-native:web/latest:WebAppAuthSettingsV2Slot',
@@ -110,7 +109,6 @@ class WebAppAuthSettingsV2Slot(pulumi.CustomResource):
         __props__["login"] = None
         __props__["name"] = None
         __props__["platform"] = None
-        __props__["system_data"] = None
         __props__["type"] = None
         return WebAppAuthSettingsV2Slot(resource_name, opts=opts, __props__=__props__)
 
@@ -154,14 +152,6 @@ class WebAppAuthSettingsV2Slot(pulumi.CustomResource):
     @pulumi.getter
     def platform(self) -> pulumi.Output[Optional['outputs.AuthPlatformResponse']]:
         return pulumi.get(self, "platform")
-
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
-        """
-        The system metadata relating to this resource.
-        """
-        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

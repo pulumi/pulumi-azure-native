@@ -12,7 +12,7 @@ import (
 )
 
 // User credentials used for publishing activity.
-// Latest API Version: 2020-10-01.
+// Latest API Version: 2020-12-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppDeployment'.
 type WebAppDeployment struct {
@@ -40,8 +40,6 @@ type WebAppDeployment struct {
 	StartTime pulumi.StringPtrOutput `pulumi:"startTime"`
 	// Deployment status.
 	Status pulumi.IntPtrOutput `pulumi:"status"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -117,6 +115,12 @@ func NewWebAppDeployment(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppDeployment"),
 		},
+		{
+			Type: pulumi.String("azure-native:web/v20201201:WebAppDeployment"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20201201:WebAppDeployment"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource WebAppDeployment
@@ -163,8 +167,6 @@ type webAppDeploymentState struct {
 	StartTime *string `pulumi:"startTime"`
 	// Deployment status.
 	Status *int `pulumi:"status"`
-	// The system metadata relating to this resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type *string `pulumi:"type"`
 }
@@ -192,8 +194,6 @@ type WebAppDeploymentState struct {
 	StartTime pulumi.StringPtrInput
 	// Deployment status.
 	Status pulumi.IntPtrInput
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponsePtrInput
 	// Resource type.
 	Type pulumi.StringPtrInput
 }

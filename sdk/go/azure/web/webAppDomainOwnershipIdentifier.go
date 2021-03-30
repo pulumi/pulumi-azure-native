@@ -12,7 +12,7 @@ import (
 )
 
 // A domain specific resource identifier.
-// API Version: 2020-10-01.
+// API Version: 2020-12-01.
 type WebAppDomainOwnershipIdentifier struct {
 	pulumi.CustomResourceState
 
@@ -20,8 +20,6 @@ type WebAppDomainOwnershipIdentifier struct {
 	Kind pulumi.StringPtrOutput `pulumi:"kind"`
 	// Resource Name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 	// String representation of the identity.
@@ -93,6 +91,12 @@ func NewWebAppDomainOwnershipIdentifier(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppDomainOwnershipIdentifier"),
 		},
+		{
+			Type: pulumi.String("azure-native:web/v20201201:WebAppDomainOwnershipIdentifier"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20201201:WebAppDomainOwnershipIdentifier"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource WebAppDomainOwnershipIdentifier
@@ -121,8 +125,6 @@ type webAppDomainOwnershipIdentifierState struct {
 	Kind *string `pulumi:"kind"`
 	// Resource Name.
 	Name *string `pulumi:"name"`
-	// The system metadata relating to this resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type *string `pulumi:"type"`
 	// String representation of the identity.
@@ -134,8 +136,6 @@ type WebAppDomainOwnershipIdentifierState struct {
 	Kind pulumi.StringPtrInput
 	// Resource Name.
 	Name pulumi.StringPtrInput
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponsePtrInput
 	// Resource type.
 	Type pulumi.StringPtrInput
 	// String representation of the identity.

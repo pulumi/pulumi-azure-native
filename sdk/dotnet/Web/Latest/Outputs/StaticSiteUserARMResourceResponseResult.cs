@@ -38,10 +38,6 @@ namespace Pulumi.AzureNative.Web.Latest.Outputs
         /// </summary>
         public readonly string? Roles;
         /// <summary>
-        /// The system metadata relating to this resource.
-        /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
-        /// <summary>
         /// Resource type.
         /// </summary>
         public readonly string Type;
@@ -64,8 +60,6 @@ namespace Pulumi.AzureNative.Web.Latest.Outputs
 
             string? roles,
 
-            Outputs.SystemDataResponse systemData,
-
             string type,
 
             string userId)
@@ -76,7 +70,6 @@ namespace Pulumi.AzureNative.Web.Latest.Outputs
             Name = name;
             Provider = provider;
             Roles = roles;
-            SystemData = systemData;
             Type = type;
             UserId = userId;
         }

@@ -12,7 +12,7 @@ import (
 )
 
 // A web app, a mobile app backend, or an API app.
-// API Version: 2020-10-01.
+// API Version: 2020-12-01.
 type WebAppSlot struct {
 	pulumi.CustomResourceState
 
@@ -64,6 +64,8 @@ type WebAppSlot struct {
 	IsDefaultContainer pulumi.BoolOutput `pulumi:"isDefaultContainer"`
 	// Obsolete: Hyper-V sandbox.
 	IsXenon pulumi.BoolPtrOutput `pulumi:"isXenon"`
+	// Identity to use for Key Vault Reference authentication.
+	KeyVaultReferenceIdentity pulumi.StringPtrOutput `pulumi:"keyVaultReferenceIdentity"`
 	// Kind of resource.
 	Kind pulumi.StringPtrOutput `pulumi:"kind"`
 	// Last time the app was modified, in UTC. Read-only.
@@ -101,8 +103,6 @@ type WebAppSlot struct {
 	StorageAccountRequired pulumi.BoolPtrOutput `pulumi:"storageAccountRequired"`
 	// App suspended till in case memory-time quota is exceeded.
 	SuspendedTill pulumi.StringOutput `pulumi:"suspendedTill"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Specifies which deployment slot this app will swap into. Read-only.
@@ -198,6 +198,12 @@ func NewWebAppSlot(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppSlot"),
 		},
+		{
+			Type: pulumi.String("azure-native:web/v20201201:WebAppSlot"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20201201:WebAppSlot"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource WebAppSlot
@@ -270,6 +276,8 @@ type webAppSlotState struct {
 	IsDefaultContainer *bool `pulumi:"isDefaultContainer"`
 	// Obsolete: Hyper-V sandbox.
 	IsXenon *bool `pulumi:"isXenon"`
+	// Identity to use for Key Vault Reference authentication.
+	KeyVaultReferenceIdentity *string `pulumi:"keyVaultReferenceIdentity"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// Last time the app was modified, in UTC. Read-only.
@@ -307,8 +315,6 @@ type webAppSlotState struct {
 	StorageAccountRequired *bool `pulumi:"storageAccountRequired"`
 	// App suspended till in case memory-time quota is exceeded.
 	SuspendedTill *string `pulumi:"suspendedTill"`
-	// The system metadata relating to this resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies which deployment slot this app will swap into. Read-only.
@@ -370,6 +376,8 @@ type WebAppSlotState struct {
 	IsDefaultContainer pulumi.BoolPtrInput
 	// Obsolete: Hyper-V sandbox.
 	IsXenon pulumi.BoolPtrInput
+	// Identity to use for Key Vault Reference authentication.
+	KeyVaultReferenceIdentity pulumi.StringPtrInput
 	// Kind of resource.
 	Kind pulumi.StringPtrInput
 	// Last time the app was modified, in UTC. Read-only.
@@ -407,8 +415,6 @@ type WebAppSlotState struct {
 	StorageAccountRequired pulumi.BoolPtrInput
 	// App suspended till in case memory-time quota is exceeded.
 	SuspendedTill pulumi.StringPtrInput
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponsePtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// Specifies which deployment slot this app will swap into. Read-only.
@@ -463,6 +469,8 @@ type webAppSlotArgs struct {
 	Identity *ManagedServiceIdentity `pulumi:"identity"`
 	// Obsolete: Hyper-V sandbox.
 	IsXenon *bool `pulumi:"isXenon"`
+	// Identity to use for Key Vault Reference authentication.
+	KeyVaultReferenceIdentity *string `pulumi:"keyVaultReferenceIdentity"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// Resource Location.
@@ -528,6 +536,8 @@ type WebAppSlotArgs struct {
 	Identity ManagedServiceIdentityPtrInput
 	// Obsolete: Hyper-V sandbox.
 	IsXenon pulumi.BoolPtrInput
+	// Identity to use for Key Vault Reference authentication.
+	KeyVaultReferenceIdentity pulumi.StringPtrInput
 	// Kind of resource.
 	Kind pulumi.StringPtrInput
 	// Resource Location.

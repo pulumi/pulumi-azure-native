@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Premier add-on.
- * API Version: 2020-10-01.
+ * API Version: 2020-12-01.
  */
 export function getWebAppPremierAddOn(args: GetWebAppPremierAddOnArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppPremierAddOnResult> {
     if (!opts) {
@@ -75,10 +75,6 @@ export interface GetWebAppPremierAddOnResult {
      * Premier add on SKU.
      */
     readonly sku?: string;
-    /**
-     * The system metadata relating to this resource.
-     */
-    readonly systemData: outputs.web.SystemDataResponse;
     /**
      * Resource tags.
      */

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Web.Latest
     {
         /// <summary>
         /// Hybrid Connection for an App Service app.
-        /// Latest API Version: 2020-10-01.
+        /// Latest API Version: 2020-12-01.
         /// </summary>
         public static Task<GetWebAppRelayServiceConnectionResult> InvokeAsync(GetWebAppRelayServiceConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppRelayServiceConnectionResult>("azure-native:web/latest:getWebAppRelayServiceConnection", args ?? new GetWebAppRelayServiceConnectionArgs(), options.WithVersion());
@@ -70,10 +70,6 @@ namespace Pulumi.AzureNative.Web.Latest
         public readonly string? ResourceConnectionString;
         public readonly string? ResourceType;
         /// <summary>
-        /// The system metadata relating to this resource.
-        /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
-        /// <summary>
         /// Resource type.
         /// </summary>
         public readonly string Type;
@@ -100,8 +96,6 @@ namespace Pulumi.AzureNative.Web.Latest
 
             string? resourceType,
 
-            Outputs.SystemDataResponse systemData,
-
             string type)
         {
             BiztalkUri = biztalkUri;
@@ -114,7 +108,6 @@ namespace Pulumi.AzureNative.Web.Latest
             Port = port;
             ResourceConnectionString = resourceConnectionString;
             ResourceType = resourceType;
-            SystemData = systemData;
             Type = type;
         }
     }

@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * User credentials used for publishing activity.
- * Latest API Version: 2020-10-01.
+ * Latest API Version: 2020-12-01.
  */
 /** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listWebAppPublishingCredentials'. */
 export function listWebAppPublishingCredentials(args: ListWebAppPublishingCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppPublishingCredentialsResult> {
@@ -72,10 +72,6 @@ export interface ListWebAppPublishingCredentialsResult {
      * Url of SCM site.
      */
     readonly scmUri?: string;
-    /**
-     * The system metadata relating to this resource.
-     */
-    readonly systemData: outputs.web.latest.SystemDataResponse;
     /**
      * Resource type.
      */

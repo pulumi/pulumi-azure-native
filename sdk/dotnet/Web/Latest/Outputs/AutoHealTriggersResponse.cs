@@ -26,9 +26,17 @@ namespace Pulumi.AzureNative.Web.Latest.Outputs
         /// </summary>
         public readonly Outputs.SlowRequestsBasedTriggerResponse? SlowRequests;
         /// <summary>
+        /// A rule based on multiple Slow Requests Rule with path
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SlowRequestsBasedTriggerResponse> SlowRequestsWithPath;
+        /// <summary>
         /// A rule based on status codes.
         /// </summary>
         public readonly ImmutableArray<Outputs.StatusCodesBasedTriggerResponse> StatusCodes;
+        /// <summary>
+        /// A rule based on status codes ranges.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.StatusCodesRangeBasedTriggerResponse> StatusCodesRange;
 
         [OutputConstructor]
         private AutoHealTriggersResponse(
@@ -38,12 +46,18 @@ namespace Pulumi.AzureNative.Web.Latest.Outputs
 
             Outputs.SlowRequestsBasedTriggerResponse? slowRequests,
 
-            ImmutableArray<Outputs.StatusCodesBasedTriggerResponse> statusCodes)
+            ImmutableArray<Outputs.SlowRequestsBasedTriggerResponse> slowRequestsWithPath,
+
+            ImmutableArray<Outputs.StatusCodesBasedTriggerResponse> statusCodes,
+
+            ImmutableArray<Outputs.StatusCodesRangeBasedTriggerResponse> statusCodesRange)
         {
             PrivateBytesInKB = privateBytesInKB;
             Requests = requests;
             SlowRequests = slowRequests;
+            SlowRequestsWithPath = slowRequestsWithPath;
             StatusCodes = statusCodes;
+            StatusCodesRange = statusCodesRange;
         }
     }
 }

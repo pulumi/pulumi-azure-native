@@ -2,12 +2,11 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
  * Hybrid Connection contract. This is used to configure a Hybrid Connection.
- * Latest API Version: 2020-10-01.
+ * Latest API Version: 2020-12-01.
  *
  * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:web:WebAppHybridConnection'.
  */
@@ -81,10 +80,6 @@ export class WebAppHybridConnection extends pulumi.CustomResource {
      */
     public readonly serviceBusSuffix!: pulumi.Output<string | undefined>;
     /**
-     * The system metadata relating to this resource.
-     */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.web.latest.SystemDataResponse>;
-    /**
      * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -123,7 +118,6 @@ export class WebAppHybridConnection extends pulumi.CustomResource {
             inputs["sendKeyValue"] = args ? args.sendKeyValue : undefined;
             inputs["serviceBusNamespace"] = args ? args.serviceBusNamespace : undefined;
             inputs["serviceBusSuffix"] = args ? args.serviceBusSuffix : undefined;
-            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["hostname"] = undefined /*out*/;
@@ -136,13 +130,12 @@ export class WebAppHybridConnection extends pulumi.CustomResource {
             inputs["sendKeyValue"] = undefined /*out*/;
             inputs["serviceBusNamespace"] = undefined /*out*/;
             inputs["serviceBusSuffix"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:WebAppHybridConnection" }, { type: "azure-native:web:WebAppHybridConnection" }, { type: "azure-nextgen:web:WebAppHybridConnection" }, { type: "azure-native:web/v20160801:WebAppHybridConnection" }, { type: "azure-nextgen:web/v20160801:WebAppHybridConnection" }, { type: "azure-native:web/v20180201:WebAppHybridConnection" }, { type: "azure-nextgen:web/v20180201:WebAppHybridConnection" }, { type: "azure-native:web/v20181101:WebAppHybridConnection" }, { type: "azure-nextgen:web/v20181101:WebAppHybridConnection" }, { type: "azure-native:web/v20190801:WebAppHybridConnection" }, { type: "azure-nextgen:web/v20190801:WebAppHybridConnection" }, { type: "azure-native:web/v20200601:WebAppHybridConnection" }, { type: "azure-nextgen:web/v20200601:WebAppHybridConnection" }, { type: "azure-native:web/v20200901:WebAppHybridConnection" }, { type: "azure-nextgen:web/v20200901:WebAppHybridConnection" }, { type: "azure-native:web/v20201001:WebAppHybridConnection" }, { type: "azure-nextgen:web/v20201001:WebAppHybridConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/latest:WebAppHybridConnection" }, { type: "azure-native:web:WebAppHybridConnection" }, { type: "azure-nextgen:web:WebAppHybridConnection" }, { type: "azure-native:web/v20160801:WebAppHybridConnection" }, { type: "azure-nextgen:web/v20160801:WebAppHybridConnection" }, { type: "azure-native:web/v20180201:WebAppHybridConnection" }, { type: "azure-nextgen:web/v20180201:WebAppHybridConnection" }, { type: "azure-native:web/v20181101:WebAppHybridConnection" }, { type: "azure-nextgen:web/v20181101:WebAppHybridConnection" }, { type: "azure-native:web/v20190801:WebAppHybridConnection" }, { type: "azure-nextgen:web/v20190801:WebAppHybridConnection" }, { type: "azure-native:web/v20200601:WebAppHybridConnection" }, { type: "azure-nextgen:web/v20200601:WebAppHybridConnection" }, { type: "azure-native:web/v20200901:WebAppHybridConnection" }, { type: "azure-nextgen:web/v20200901:WebAppHybridConnection" }, { type: "azure-native:web/v20201001:WebAppHybridConnection" }, { type: "azure-nextgen:web/v20201001:WebAppHybridConnection" }, { type: "azure-native:web/v20201201:WebAppHybridConnection" }, { type: "azure-nextgen:web/v20201201:WebAppHybridConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebAppHybridConnection.__pulumiType, name, inputs, opts);
     }

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Deployment information.
- * API Version: 2020-10-01.
+ * API Version: 2021-01-01.
  */
 export class DeploymentAtScope extends pulumi.CustomResource {
     /**
@@ -91,7 +91,7 @@ export class DeploymentAtScope extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:resources:DeploymentAtScope" }, { type: "azure-native:resources/latest:DeploymentAtScope" }, { type: "azure-nextgen:resources/latest:DeploymentAtScope" }, { type: "azure-native:resources/v20190701:DeploymentAtScope" }, { type: "azure-nextgen:resources/v20190701:DeploymentAtScope" }, { type: "azure-native:resources/v20190801:DeploymentAtScope" }, { type: "azure-nextgen:resources/v20190801:DeploymentAtScope" }, { type: "azure-native:resources/v20191001:DeploymentAtScope" }, { type: "azure-nextgen:resources/v20191001:DeploymentAtScope" }, { type: "azure-native:resources/v20200601:DeploymentAtScope" }, { type: "azure-nextgen:resources/v20200601:DeploymentAtScope" }, { type: "azure-native:resources/v20200801:DeploymentAtScope" }, { type: "azure-nextgen:resources/v20200801:DeploymentAtScope" }, { type: "azure-native:resources/v20201001:DeploymentAtScope" }, { type: "azure-nextgen:resources/v20201001:DeploymentAtScope" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:resources:DeploymentAtScope" }, { type: "azure-native:resources/latest:DeploymentAtScope" }, { type: "azure-nextgen:resources/latest:DeploymentAtScope" }, { type: "azure-native:resources/v20190701:DeploymentAtScope" }, { type: "azure-nextgen:resources/v20190701:DeploymentAtScope" }, { type: "azure-native:resources/v20190801:DeploymentAtScope" }, { type: "azure-nextgen:resources/v20190801:DeploymentAtScope" }, { type: "azure-native:resources/v20191001:DeploymentAtScope" }, { type: "azure-nextgen:resources/v20191001:DeploymentAtScope" }, { type: "azure-native:resources/v20200601:DeploymentAtScope" }, { type: "azure-nextgen:resources/v20200601:DeploymentAtScope" }, { type: "azure-native:resources/v20200801:DeploymentAtScope" }, { type: "azure-nextgen:resources/v20200801:DeploymentAtScope" }, { type: "azure-native:resources/v20201001:DeploymentAtScope" }, { type: "azure-nextgen:resources/v20201001:DeploymentAtScope" }, { type: "azure-native:resources/v20210101:DeploymentAtScope" }, { type: "azure-nextgen:resources/v20210101:DeploymentAtScope" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DeploymentAtScope.__pulumiType, name, inputs, opts);
     }

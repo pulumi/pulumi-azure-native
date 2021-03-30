@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Web
 {
     /// <summary>
     /// SSL certificate for an app.
-    /// API Version: 2020-10-01.
+    /// API Version: 2020-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:Certificate")]
     public partial class Certificate : Pulumi.CustomResource
@@ -27,6 +27,12 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         [Output("cerBlob")]
         public Output<string> CerBlob { get; private set; } = null!;
+
+        /// <summary>
+        /// Method of domain validation for free cert
+        /// </summary>
+        [Output("domainValidationMethod")]
+        public Output<string?> DomainValidationMethod { get; private set; } = null!;
 
         /// <summary>
         /// Certificate expiration date.
@@ -137,12 +143,6 @@ namespace Pulumi.AzureNative.Web
         public Output<string> SubjectName { get; private set; } = null!;
 
         /// <summary>
-        /// The system metadata relating to this resource.
-        /// </summary>
-        [Output("systemData")]
-        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
-
-        /// <summary>
         /// Resource tags.
         /// </summary>
         [Output("tags")]
@@ -210,6 +210,8 @@ namespace Pulumi.AzureNative.Web
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:Certificate"},
                     new Pulumi.Alias { Type = "azure-native:web/v20201001:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201201:Certificate"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20201201:Certificate"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -238,6 +240,12 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         [Input("canonicalName")]
         public Input<string>? CanonicalName { get; set; }
+
+        /// <summary>
+        /// Method of domain validation for free cert
+        /// </summary>
+        [Input("domainValidationMethod")]
+        public Input<string>? DomainValidationMethod { get; set; }
 
         [Input("hostNames")]
         private InputList<string>? _hostNames;
@@ -284,8 +292,8 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Certificate password.
         /// </summary>
-        [Input("password", required: true)]
-        public Input<string> Password { get; set; } = null!;
+        [Input("password")]
+        public Input<string>? Password { get; set; }
 
         /// <summary>
         /// Pfx blob.

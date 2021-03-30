@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Premier add-on.
- * Latest API Version: 2020-10-01.
+ * Latest API Version: 2020-12-01.
  */
 /** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getWebAppPremierAddOnSlot'. */
 export function getWebAppPremierAddOnSlot(args: GetWebAppPremierAddOnSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppPremierAddOnSlotResult> {
@@ -82,10 +82,6 @@ export interface GetWebAppPremierAddOnSlotResult {
      * Premier add on SKU.
      */
     readonly sku?: string;
-    /**
-     * The system metadata relating to this resource.
-     */
-    readonly systemData: outputs.web.latest.SystemDataResponse;
     /**
      * Resource tags.
      */

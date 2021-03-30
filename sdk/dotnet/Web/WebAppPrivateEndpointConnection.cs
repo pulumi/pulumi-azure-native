@@ -10,12 +10,18 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web
 {
     /// <summary>
-    /// Private Endpoint Connection ARM resource.
-    /// API Version: 2020-10-01.
+    /// Remote Private Endpoint Connection ARM resource.
+    /// API Version: 2020-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:WebAppPrivateEndpointConnection")]
     public partial class WebAppPrivateEndpointConnection : Pulumi.CustomResource
     {
+        /// <summary>
+        /// Private IPAddresses mapped to the remote private endpoint
+        /// </summary>
+        [Output("ipAddresses")]
+        public Output<ImmutableArray<string>> IpAddresses { get; private set; } = null!;
+
         /// <summary>
         /// Kind of resource.
         /// </summary>
@@ -42,12 +48,6 @@ namespace Pulumi.AzureNative.Web
 
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// The system metadata relating to this resource.
-        /// </summary>
-        [Output("systemData")]
-        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.
@@ -91,6 +91,8 @@ namespace Pulumi.AzureNative.Web
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:WebAppPrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppPrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:WebAppPrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppPrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20201201:WebAppPrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

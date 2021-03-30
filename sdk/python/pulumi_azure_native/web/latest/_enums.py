@@ -5,7 +5,6 @@
 from enum import Enum
 
 __all__ = [
-    'AccessControlEntryAction',
     'ApiType',
     'AutoHealActionType',
     'AzureResourceType',
@@ -13,7 +12,6 @@ __all__ = [
     'BuiltInAuthenticationProvider',
     'ClientCertMode',
     'ClientCredentialMethod',
-    'ComputeModeOptions',
     'ConnectionParameterType',
     'ConnectionStringType',
     'CookieExpirationConvention',
@@ -40,14 +38,6 @@ __all__ = [
     'UnauthenticatedClientActionV2',
     'WsdlImportMethod',
 ]
-
-
-class AccessControlEntryAction(str, Enum):
-    """
-    Action object.
-    """
-    PERMIT = "Permit"
-    DENY = "Deny"
 
 
 class ApiType(str, Enum):
@@ -107,19 +97,11 @@ class ClientCertMode(str, Enum):
     """
     REQUIRED = "Required"
     OPTIONAL = "Optional"
+    OPTIONAL_INTERACTIVE_USER = "OptionalInteractiveUser"
 
 
 class ClientCredentialMethod(str, Enum):
     CLIENT_SECRET_POST = "ClientSecretPost"
-
-
-class ComputeModeOptions(str, Enum):
-    """
-    Shared or dedicated app hosting.
-    """
-    SHARED = "Shared"
-    DEDICATED = "Dedicated"
-    DYNAMIC = "Dynamic"
 
 
 class ConnectionParameterType(str, Enum):
@@ -232,7 +214,7 @@ class LoadBalancingMode(str, Enum):
     NONE = "None"
     WEB = "Web"
     PUBLISHING = "Publishing"
-    WEB_PUBLISHING = "Web,Publishing"
+    WEB_PUBLISHING = "Web, Publishing"
 
 
 class LogLevel(str, Enum):
@@ -327,6 +309,7 @@ class SiteLoadBalancing(str, Enum):
     LEAST_RESPONSE_TIME = "LeastResponseTime"
     WEIGHTED_TOTAL_TRAFFIC = "WeightedTotalTraffic"
     REQUEST_HASH = "RequestHash"
+    PER_SITE_ROUND_ROBIN = "PerSiteRoundRobin"
 
 
 class SslState(str, Enum):

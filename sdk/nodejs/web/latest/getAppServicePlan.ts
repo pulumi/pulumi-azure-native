@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * App Service plan.
- * Latest API Version: 2020-10-01.
+ * Latest API Version: 2020-12-01.
  */
 /** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getAppServicePlan'. */
 export function getAppServicePlan(args: GetAppServicePlanArgs, opts?: pulumi.InvokeOptions): Promise<GetAppServicePlanResult> {
@@ -73,6 +73,10 @@ export interface GetAppServicePlanResult {
      */
     readonly kind?: string;
     /**
+     * Specification for the Kubernetes Environment to use for the App Service plan.
+     */
+    readonly kubeEnvironmentProfile?: outputs.web.latest.KubeEnvironmentProfileResponse;
+    /**
      * Resource Location.
      */
     readonly location: string;
@@ -98,7 +102,7 @@ export interface GetAppServicePlanResult {
      */
     readonly perSiteScaling?: boolean;
     /**
-     * Provisioning state of the App Service Environment.
+     * Provisioning state of the App Service Plan.
      */
     readonly provisioningState: string;
     /**
@@ -125,10 +129,6 @@ export interface GetAppServicePlanResult {
      * App Service plan subscription.
      */
     readonly subscription: string;
-    /**
-     * The system metadata relating to this resource.
-     */
-    readonly systemData: outputs.web.latest.SystemDataResponse;
     /**
      * Resource tags.
      */

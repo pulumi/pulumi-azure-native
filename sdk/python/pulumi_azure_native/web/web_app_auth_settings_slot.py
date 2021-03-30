@@ -7,7 +7,6 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
-from . import outputs
 from ._enums import *
 
 __all__ = ['WebAppAuthSettingsSlot']
@@ -26,6 +25,7 @@ class WebAppAuthSettingsSlot(pulumi.CustomResource):
                  client_secret: Optional[pulumi.Input[str]] = None,
                  client_secret_certificate_thumbprint: Optional[pulumi.Input[str]] = None,
                  client_secret_setting_name: Optional[pulumi.Input[str]] = None,
+                 config_version: Optional[pulumi.Input[str]] = None,
                  default_provider: Optional[pulumi.Input['BuiltInAuthenticationProvider']] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  facebook_app_id: Optional[pulumi.Input[str]] = None,
@@ -63,7 +63,7 @@ class WebAppAuthSettingsSlot(pulumi.CustomResource):
                  __opts__=None):
         """
         Configuration settings for the Azure App Service Authentication / Authorization feature.
-        API Version: 2020-10-01.
+        API Version: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -89,6 +89,8 @@ class WebAppAuthSettingsSlot(pulumi.CustomResource):
         :param pulumi.Input[str] client_secret_certificate_thumbprint: An alternative to the client secret, that is the thumbprint of a certificate used for signing purposes. This property acts as
                a replacement for the Client Secret. It is also optional.
         :param pulumi.Input[str] client_secret_setting_name: The app setting name that contains the client secret of the relying party application.
+        :param pulumi.Input[str] config_version: The ConfigVersion of the Authentication / Authorization feature in use for the current app.
+               The setting in this value can control the behavior of the control plane for Authentication / Authorization.
         :param pulumi.Input['BuiltInAuthenticationProvider'] default_provider: The default authentication provider to use when multiple providers are configured.
                This setting is only needed if multiple providers are configured and the unauthenticated client
                action is set to "RedirectToLoginPage".
@@ -186,6 +188,7 @@ class WebAppAuthSettingsSlot(pulumi.CustomResource):
             __props__['client_secret'] = client_secret
             __props__['client_secret_certificate_thumbprint'] = client_secret_certificate_thumbprint
             __props__['client_secret_setting_name'] = client_secret_setting_name
+            __props__['config_version'] = config_version
             __props__['default_provider'] = default_provider
             __props__['enabled'] = enabled
             __props__['facebook_app_id'] = facebook_app_id
@@ -224,9 +227,8 @@ class WebAppAuthSettingsSlot(pulumi.CustomResource):
             __props__['twitter_consumer_secret_setting_name'] = twitter_consumer_secret_setting_name
             __props__['unauthenticated_client_action'] = unauthenticated_client_action
             __props__['validate_issuer'] = validate_issuer
-            __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web:WebAppAuthSettingsSlot"), pulumi.Alias(type_="azure-native:web/latest:WebAppAuthSettingsSlot"), pulumi.Alias(type_="azure-nextgen:web/latest:WebAppAuthSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20150801:WebAppAuthSettingsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20150801:WebAppAuthSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20160801:WebAppAuthSettingsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppAuthSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20180201:WebAppAuthSettingsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppAuthSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20181101:WebAppAuthSettingsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppAuthSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20190801:WebAppAuthSettingsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppAuthSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20200601:WebAppAuthSettingsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppAuthSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppAuthSettingsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppAuthSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppAuthSettingsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppAuthSettingsSlot")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web:WebAppAuthSettingsSlot"), pulumi.Alias(type_="azure-native:web/latest:WebAppAuthSettingsSlot"), pulumi.Alias(type_="azure-nextgen:web/latest:WebAppAuthSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20150801:WebAppAuthSettingsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20150801:WebAppAuthSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20160801:WebAppAuthSettingsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppAuthSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20180201:WebAppAuthSettingsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppAuthSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20181101:WebAppAuthSettingsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppAuthSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20190801:WebAppAuthSettingsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppAuthSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20200601:WebAppAuthSettingsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppAuthSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppAuthSettingsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppAuthSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppAuthSettingsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppAuthSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20201201:WebAppAuthSettingsSlot"), pulumi.Alias(type_="azure-nextgen:web/v20201201:WebAppAuthSettingsSlot")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppAuthSettingsSlot, __self__).__init__(
             'azure-native:web:WebAppAuthSettingsSlot',
@@ -259,6 +261,7 @@ class WebAppAuthSettingsSlot(pulumi.CustomResource):
         __props__["client_secret"] = None
         __props__["client_secret_certificate_thumbprint"] = None
         __props__["client_secret_setting_name"] = None
+        __props__["config_version"] = None
         __props__["default_provider"] = None
         __props__["enabled"] = None
         __props__["facebook_app_id"] = None
@@ -282,7 +285,6 @@ class WebAppAuthSettingsSlot(pulumi.CustomResource):
         __props__["microsoft_account_o_auth_scopes"] = None
         __props__["name"] = None
         __props__["runtime_version"] = None
-        __props__["system_data"] = None
         __props__["token_refresh_extension_hours"] = None
         __props__["token_store_enabled"] = None
         __props__["twitter_consumer_key"] = None
@@ -377,6 +379,15 @@ class WebAppAuthSettingsSlot(pulumi.CustomResource):
         The app setting name that contains the client secret of the relying party application.
         """
         return pulumi.get(self, "client_secret_setting_name")
+
+    @property
+    @pulumi.getter(name="configVersion")
+    def config_version(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ConfigVersion of the Authentication / Authorization feature in use for the current app.
+        The setting in this value can control the behavior of the control plane for Authentication / Authorization.
+        """
+        return pulumi.get(self, "config_version")
 
     @property
     @pulumi.getter(name="defaultProvider")
@@ -592,14 +603,6 @@ class WebAppAuthSettingsSlot(pulumi.CustomResource):
         The setting in this value can control the behavior of certain features in the Authentication / Authorization module.
         """
         return pulumi.get(self, "runtime_version")
-
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
-        """
-        The system metadata relating to this resource.
-        """
-        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter(name="tokenRefreshExtensionHours")

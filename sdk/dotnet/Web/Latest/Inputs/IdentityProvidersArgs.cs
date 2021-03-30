@@ -12,8 +12,14 @@ namespace Pulumi.AzureNative.Web.Latest.Inputs
 
     public sealed class IdentityProvidersArgs : Pulumi.ResourceArgs
     {
+        [Input("apple")]
+        public Input<Inputs.AppleArgs>? Apple { get; set; }
+
         [Input("azureActiveDirectory")]
         public Input<Inputs.AzureActiveDirectoryArgs>? AzureActiveDirectory { get; set; }
+
+        [Input("azureStaticWebApps")]
+        public Input<Inputs.AzureStaticWebAppsArgs>? AzureStaticWebApps { get; set; }
 
         [Input("customOpenIdConnectProviders")]
         private InputMap<Inputs.CustomOpenIdConnectProviderArgs>? _customOpenIdConnectProviders;
@@ -37,6 +43,9 @@ namespace Pulumi.AzureNative.Web.Latest.Inputs
         /// </summary>
         [Input("kind")]
         public Input<string>? Kind { get; set; }
+
+        [Input("legacyMicrosoftAccount")]
+        public Input<Inputs.LegacyMicrosoftAccountArgs>? LegacyMicrosoftAccount { get; set; }
 
         [Input("twitter")]
         public Input<Inputs.TwitterArgs>? Twitter { get; set; }

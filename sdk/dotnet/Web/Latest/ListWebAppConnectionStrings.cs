@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Web.Latest
     {
         /// <summary>
         /// String dictionary resource.
-        /// Latest API Version: 2020-10-01.
+        /// Latest API Version: 2020-12-01.
         /// </summary>
         public static Task<ListWebAppConnectionStringsResult> InvokeAsync(ListWebAppConnectionStringsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppConnectionStringsResult>("azure-native:web/latest:listWebAppConnectionStrings", args ?? new ListWebAppConnectionStringsArgs(), options.WithVersion());
@@ -61,10 +61,6 @@ namespace Pulumi.AzureNative.Web.Latest
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.ConnStringValueTypePairResponse> Properties;
         /// <summary>
-        /// The system metadata relating to this resource.
-        /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
-        /// <summary>
         /// Resource type.
         /// </summary>
         public readonly string Type;
@@ -79,15 +75,12 @@ namespace Pulumi.AzureNative.Web.Latest
 
             ImmutableDictionary<string, Outputs.ConnStringValueTypePairResponse> properties,
 
-            Outputs.SystemDataResponse systemData,
-
             string type)
         {
             Id = id;
             Kind = kind;
             Name = name;
             Properties = properties;
-            SystemData = systemData;
             Type = type;
         }
     }

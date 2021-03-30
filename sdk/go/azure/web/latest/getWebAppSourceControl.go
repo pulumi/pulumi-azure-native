@@ -8,7 +8,7 @@ import (
 )
 
 // Source control configuration for an app.
-// Latest API Version: 2020-10-01.
+// Latest API Version: 2020-12-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:getWebAppSourceControl'.
 func LookupWebAppSourceControl(ctx *pulumi.Context, args *LookupWebAppSourceControlArgs, opts ...pulumi.InvokeOption) (*LookupWebAppSourceControlResult, error) {
@@ -33,6 +33,8 @@ type LookupWebAppSourceControlResult struct {
 	Branch *string `pulumi:"branch"`
 	// <code>true</code> to enable deployment rollback; otherwise, <code>false</code>.
 	DeploymentRollbackEnabled *bool `pulumi:"deploymentRollbackEnabled"`
+	// If GitHub Action is selected, than the associated configuration.
+	GitHubActionConfiguration *GitHubActionConfigurationResponse `pulumi:"gitHubActionConfiguration"`
 	// Resource Id.
 	Id string `pulumi:"id"`
 	// <code>true</code> if this is deployed via GitHub action.
@@ -47,8 +49,6 @@ type LookupWebAppSourceControlResult struct {
 	Name string `pulumi:"name"`
 	// Repository or source control URL.
 	RepoUrl *string `pulumi:"repoUrl"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }

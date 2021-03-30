@@ -10,34 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Action object.
-type AccessControlEntryAction pulumi.String
-
-const (
-	AccessControlEntryActionPermit = AccessControlEntryAction("Permit")
-	AccessControlEntryActionDeny   = AccessControlEntryAction("Deny")
-)
-
-func (AccessControlEntryAction) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
-}
-
-func (e AccessControlEntryAction) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e AccessControlEntryAction) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e AccessControlEntryAction) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e AccessControlEntryAction) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
 // The API type
 type ApiType pulumi.String
 
@@ -193,8 +165,9 @@ func (e BuiltInAuthenticationProvider) ToStringPtrOutputWithContext(ctx context.
 type ClientCertMode pulumi.String
 
 const (
-	ClientCertModeRequired = ClientCertMode("Required")
-	ClientCertModeOptional = ClientCertMode("Optional")
+	ClientCertModeRequired                = ClientCertMode("Required")
+	ClientCertModeOptional                = ClientCertMode("Optional")
+	ClientCertModeOptionalInteractiveUser = ClientCertMode("OptionalInteractiveUser")
 )
 
 func (ClientCertMode) ElementType() reflect.Type {
@@ -240,35 +213,6 @@ func (e ClientCredentialMethod) ToStringPtrOutput() pulumi.StringPtrOutput {
 }
 
 func (e ClientCredentialMethod) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-// Shared or dedicated app hosting.
-type ComputeModeOptions pulumi.String
-
-const (
-	ComputeModeOptionsShared    = ComputeModeOptions("Shared")
-	ComputeModeOptionsDedicated = ComputeModeOptions("Dedicated")
-	ComputeModeOptionsDynamic   = ComputeModeOptions("Dynamic")
-)
-
-func (ComputeModeOptions) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
-}
-
-func (e ComputeModeOptions) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ComputeModeOptions) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ComputeModeOptions) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e ComputeModeOptions) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
@@ -606,7 +550,7 @@ const (
 	LoadBalancingModeNone            = LoadBalancingMode("None")
 	LoadBalancingModeWeb             = LoadBalancingMode("Web")
 	LoadBalancingModePublishing      = LoadBalancingMode("Publishing")
-	LoadBalancingMode_Web_Publishing = LoadBalancingMode("Web,Publishing")
+	LoadBalancingMode_Web_Publishing = LoadBalancingMode("Web, Publishing")
 )
 
 func (LoadBalancingMode) ElementType() reflect.Type {
@@ -861,6 +805,7 @@ const (
 	SiteLoadBalancingLeastResponseTime    = SiteLoadBalancing("LeastResponseTime")
 	SiteLoadBalancingWeightedTotalTraffic = SiteLoadBalancing("WeightedTotalTraffic")
 	SiteLoadBalancingRequestHash          = SiteLoadBalancing("RequestHash")
+	SiteLoadBalancingPerSiteRoundRobin    = SiteLoadBalancing("PerSiteRoundRobin")
 )
 
 func (SiteLoadBalancing) ElementType() reflect.Type {

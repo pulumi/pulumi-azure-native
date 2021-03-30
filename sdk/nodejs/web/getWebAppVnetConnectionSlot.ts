@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Virtual Network information contract.
- * API Version: 2020-10-01.
+ * API Version: 2020-12-01.
  */
 export function getWebAppVnetConnectionSlot(args: GetWebAppVnetConnectionSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppVnetConnectionSlotResult> {
     if (!opts) {
@@ -85,10 +85,6 @@ export interface GetWebAppVnetConnectionSlotResult {
      * The routes that this Virtual Network connection uses.
      */
     readonly routes: outputs.web.VnetRouteResponse[];
-    /**
-     * The system metadata relating to this resource.
-     */
-    readonly systemData: outputs.web.SystemDataResponse;
     /**
      * Resource type.
      */

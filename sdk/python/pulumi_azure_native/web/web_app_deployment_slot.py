@@ -7,7 +7,6 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
-from . import outputs
 
 __all__ = ['WebAppDeploymentSlot']
 
@@ -35,7 +34,7 @@ class WebAppDeploymentSlot(pulumi.CustomResource):
                  __opts__=None):
         """
         User credentials used for publishing activity.
-        API Version: 2020-10-01.
+        API Version: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -91,9 +90,8 @@ class WebAppDeploymentSlot(pulumi.CustomResource):
             __props__['slot'] = slot
             __props__['start_time'] = start_time
             __props__['status'] = status
-            __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web:WebAppDeploymentSlot"), pulumi.Alias(type_="azure-native:web/latest:WebAppDeploymentSlot"), pulumi.Alias(type_="azure-nextgen:web/latest:WebAppDeploymentSlot"), pulumi.Alias(type_="azure-native:web/v20150801:WebAppDeploymentSlot"), pulumi.Alias(type_="azure-nextgen:web/v20150801:WebAppDeploymentSlot"), pulumi.Alias(type_="azure-native:web/v20160801:WebAppDeploymentSlot"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppDeploymentSlot"), pulumi.Alias(type_="azure-native:web/v20180201:WebAppDeploymentSlot"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppDeploymentSlot"), pulumi.Alias(type_="azure-native:web/v20181101:WebAppDeploymentSlot"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppDeploymentSlot"), pulumi.Alias(type_="azure-native:web/v20190801:WebAppDeploymentSlot"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppDeploymentSlot"), pulumi.Alias(type_="azure-native:web/v20200601:WebAppDeploymentSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppDeploymentSlot"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppDeploymentSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppDeploymentSlot"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppDeploymentSlot"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppDeploymentSlot")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web:WebAppDeploymentSlot"), pulumi.Alias(type_="azure-native:web/latest:WebAppDeploymentSlot"), pulumi.Alias(type_="azure-nextgen:web/latest:WebAppDeploymentSlot"), pulumi.Alias(type_="azure-native:web/v20150801:WebAppDeploymentSlot"), pulumi.Alias(type_="azure-nextgen:web/v20150801:WebAppDeploymentSlot"), pulumi.Alias(type_="azure-native:web/v20160801:WebAppDeploymentSlot"), pulumi.Alias(type_="azure-nextgen:web/v20160801:WebAppDeploymentSlot"), pulumi.Alias(type_="azure-native:web/v20180201:WebAppDeploymentSlot"), pulumi.Alias(type_="azure-nextgen:web/v20180201:WebAppDeploymentSlot"), pulumi.Alias(type_="azure-native:web/v20181101:WebAppDeploymentSlot"), pulumi.Alias(type_="azure-nextgen:web/v20181101:WebAppDeploymentSlot"), pulumi.Alias(type_="azure-native:web/v20190801:WebAppDeploymentSlot"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppDeploymentSlot"), pulumi.Alias(type_="azure-native:web/v20200601:WebAppDeploymentSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppDeploymentSlot"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppDeploymentSlot"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppDeploymentSlot"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppDeploymentSlot"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppDeploymentSlot"), pulumi.Alias(type_="azure-native:web/v20201201:WebAppDeploymentSlot"), pulumi.Alias(type_="azure-nextgen:web/v20201201:WebAppDeploymentSlot")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppDeploymentSlot, __self__).__init__(
             'azure-native:web:WebAppDeploymentSlot',
@@ -128,7 +126,6 @@ class WebAppDeploymentSlot(pulumi.CustomResource):
         __props__["name"] = None
         __props__["start_time"] = None
         __props__["status"] = None
-        __props__["system_data"] = None
         __props__["type"] = None
         return WebAppDeploymentSlot(resource_name, opts=opts, __props__=__props__)
 
@@ -219,14 +216,6 @@ class WebAppDeploymentSlot(pulumi.CustomResource):
         Deployment status.
         """
         return pulumi.get(self, "status")
-
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
-        """
-        The system metadata relating to this resource.
-        """
-        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

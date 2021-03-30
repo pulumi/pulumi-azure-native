@@ -29,10 +29,6 @@ namespace Pulumi.AzureNative.Web.Latest.Outputs
         public readonly string Name;
         public readonly Outputs.ClientRegistrationResponse? Registration;
         /// <summary>
-        /// The system metadata relating to this resource.
-        /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
-        /// <summary>
         /// Resource type.
         /// </summary>
         public readonly string Type;
@@ -51,8 +47,6 @@ namespace Pulumi.AzureNative.Web.Latest.Outputs
 
             Outputs.ClientRegistrationResponse? registration,
 
-            Outputs.SystemDataResponse systemData,
-
             string type)
         {
             Enabled = enabled;
@@ -61,7 +55,6 @@ namespace Pulumi.AzureNative.Web.Latest.Outputs
             Login = login;
             Name = name;
             Registration = registration;
-            SystemData = systemData;
             Type = type;
         }
     }

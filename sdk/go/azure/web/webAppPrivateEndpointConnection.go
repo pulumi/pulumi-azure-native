@@ -11,11 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Private Endpoint Connection ARM resource.
-// API Version: 2020-10-01.
+// Remote Private Endpoint Connection ARM resource.
+// API Version: 2020-12-01.
 type WebAppPrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 
+	// Private IPAddresses mapped to the remote private endpoint
+	IpAddresses pulumi.StringArrayOutput `pulumi:"ipAddresses"`
 	// Kind of resource.
 	Kind pulumi.StringPtrOutput `pulumi:"kind"`
 	// Resource Name.
@@ -25,8 +27,6 @@ type WebAppPrivateEndpointConnection struct {
 	// The state of a private link connection
 	PrivateLinkServiceConnectionState PrivateLinkConnectionStateResponsePtrOutput `pulumi:"privateLinkServiceConnectionState"`
 	ProvisioningState                 pulumi.StringOutput                         `pulumi:"provisioningState"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -78,6 +78,12 @@ func NewWebAppPrivateEndpointConnection(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppPrivateEndpointConnection"),
 		},
+		{
+			Type: pulumi.String("azure-native:web/v20201201:WebAppPrivateEndpointConnection"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20201201:WebAppPrivateEndpointConnection"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource WebAppPrivateEndpointConnection
@@ -102,6 +108,8 @@ func GetWebAppPrivateEndpointConnection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering WebAppPrivateEndpointConnection resources.
 type webAppPrivateEndpointConnectionState struct {
+	// Private IPAddresses mapped to the remote private endpoint
+	IpAddresses []string `pulumi:"ipAddresses"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// Resource Name.
@@ -111,13 +119,13 @@ type webAppPrivateEndpointConnectionState struct {
 	// The state of a private link connection
 	PrivateLinkServiceConnectionState *PrivateLinkConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
 	ProvisioningState                 *string                             `pulumi:"provisioningState"`
-	// The system metadata relating to this resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type *string `pulumi:"type"`
 }
 
 type WebAppPrivateEndpointConnectionState struct {
+	// Private IPAddresses mapped to the remote private endpoint
+	IpAddresses pulumi.StringArrayInput
 	// Kind of resource.
 	Kind pulumi.StringPtrInput
 	// Resource Name.
@@ -127,8 +135,6 @@ type WebAppPrivateEndpointConnectionState struct {
 	// The state of a private link connection
 	PrivateLinkServiceConnectionState PrivateLinkConnectionStateResponsePtrInput
 	ProvisioningState                 pulumi.StringPtrInput
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponsePtrInput
 	// Resource type.
 	Type pulumi.StringPtrInput
 }

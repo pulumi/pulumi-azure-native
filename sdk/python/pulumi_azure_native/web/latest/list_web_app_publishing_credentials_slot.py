@@ -7,7 +7,6 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
-from . import outputs
 
 __all__ = [
     'ListWebAppPublishingCredentialsSlotResult',
@@ -22,7 +21,7 @@ class ListWebAppPublishingCredentialsSlotResult:
     """
     User credentials used for publishing activity.
     """
-    def __init__(__self__, id=None, kind=None, name=None, publishing_password=None, publishing_password_hash=None, publishing_password_hash_salt=None, publishing_user_name=None, scm_uri=None, system_data=None, type=None):
+    def __init__(__self__, id=None, kind=None, name=None, publishing_password=None, publishing_password_hash=None, publishing_password_hash_salt=None, publishing_user_name=None, scm_uri=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -47,9 +46,6 @@ class ListWebAppPublishingCredentialsSlotResult:
         if scm_uri and not isinstance(scm_uri, str):
             raise TypeError("Expected argument 'scm_uri' to be a str")
         pulumi.set(__self__, "scm_uri", scm_uri)
-        if system_data and not isinstance(system_data, dict):
-            raise TypeError("Expected argument 'system_data' to be a dict")
-        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -119,14 +115,6 @@ class ListWebAppPublishingCredentialsSlotResult:
         return pulumi.get(self, "scm_uri")
 
     @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
-        """
-        The system metadata relating to this resource.
-        """
-        return pulumi.get(self, "system_data")
-
-    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -149,7 +137,6 @@ class AwaitableListWebAppPublishingCredentialsSlotResult(ListWebAppPublishingCre
             publishing_password_hash_salt=self.publishing_password_hash_salt,
             publishing_user_name=self.publishing_user_name,
             scm_uri=self.scm_uri,
-            system_data=self.system_data,
             type=self.type)
 
 
@@ -159,7 +146,7 @@ def list_web_app_publishing_credentials_slot(name: Optional[str] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppPublishingCredentialsSlotResult:
     """
     User credentials used for publishing activity.
-    Latest API Version: 2020-10-01.
+    Latest API Version: 2020-12-01.
 
 
     :param str name: Name of the app.
@@ -186,5 +173,4 @@ def list_web_app_publishing_credentials_slot(name: Optional[str] = None,
         publishing_password_hash_salt=__ret__.publishing_password_hash_salt,
         publishing_user_name=__ret__.publishing_user_name,
         scm_uri=__ret__.scm_uri,
-        system_data=__ret__.system_data,
         type=__ret__.type)

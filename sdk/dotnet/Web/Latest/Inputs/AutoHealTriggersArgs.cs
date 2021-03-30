@@ -33,6 +33,18 @@ namespace Pulumi.AzureNative.Web.Latest.Inputs
         [Input("slowRequests")]
         public Input<Inputs.SlowRequestsBasedTriggerArgs>? SlowRequests { get; set; }
 
+        [Input("slowRequestsWithPath")]
+        private InputList<Inputs.SlowRequestsBasedTriggerArgs>? _slowRequestsWithPath;
+
+        /// <summary>
+        /// A rule based on multiple Slow Requests Rule with path
+        /// </summary>
+        public InputList<Inputs.SlowRequestsBasedTriggerArgs> SlowRequestsWithPath
+        {
+            get => _slowRequestsWithPath ?? (_slowRequestsWithPath = new InputList<Inputs.SlowRequestsBasedTriggerArgs>());
+            set => _slowRequestsWithPath = value;
+        }
+
         [Input("statusCodes")]
         private InputList<Inputs.StatusCodesBasedTriggerArgs>? _statusCodes;
 
@@ -43,6 +55,18 @@ namespace Pulumi.AzureNative.Web.Latest.Inputs
         {
             get => _statusCodes ?? (_statusCodes = new InputList<Inputs.StatusCodesBasedTriggerArgs>());
             set => _statusCodes = value;
+        }
+
+        [Input("statusCodesRange")]
+        private InputList<Inputs.StatusCodesRangeBasedTriggerArgs>? _statusCodesRange;
+
+        /// <summary>
+        /// A rule based on status codes ranges.
+        /// </summary>
+        public InputList<Inputs.StatusCodesRangeBasedTriggerArgs> StatusCodesRange
+        {
+            get => _statusCodesRange ?? (_statusCodesRange = new InputList<Inputs.StatusCodesRangeBasedTriggerArgs>());
+            set => _statusCodesRange = value;
         }
 
         public AutoHealTriggersArgs()

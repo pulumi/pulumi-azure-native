@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Web
 {
     /// <summary>
     /// AzureStorageInfo dictionary resource.
-    /// API Version: 2020-10-01.
+    /// API Version: 2020-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:WebAppAzureStorageAccounts")]
     public partial class WebAppAzureStorageAccounts : Pulumi.CustomResource
@@ -33,12 +33,6 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         [Output("properties")]
         public Output<ImmutableDictionary<string, Outputs.AzureStorageInfoValueResponse>> Properties { get; private set; } = null!;
-
-        /// <summary>
-        /// The system metadata relating to this resource.
-        /// </summary>
-        [Output("systemData")]
-        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.
@@ -86,6 +80,8 @@ namespace Pulumi.AzureNative.Web
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:WebAppAzureStorageAccounts"},
                     new Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppAzureStorageAccounts"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:WebAppAzureStorageAccounts"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppAzureStorageAccounts"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20201201:WebAppAzureStorageAccounts"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

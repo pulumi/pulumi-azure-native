@@ -43,10 +43,6 @@ namespace Pulumi.AzureNative.Web.Outputs
         /// </summary>
         public readonly string? StartAddress;
         /// <summary>
-        /// The system metadata relating to this resource.
-        /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
-        /// <summary>
         /// Resource type.
         /// </summary>
         public readonly string Type;
@@ -65,8 +61,6 @@ namespace Pulumi.AzureNative.Web.Outputs
 
             string? startAddress,
 
-            Outputs.SystemDataResponse systemData,
-
             string type)
         {
             EndAddress = endAddress;
@@ -75,7 +69,6 @@ namespace Pulumi.AzureNative.Web.Outputs
             Name = name;
             RouteType = routeType;
             StartAddress = startAddress;
-            SystemData = systemData;
             Type = type;
         }
     }

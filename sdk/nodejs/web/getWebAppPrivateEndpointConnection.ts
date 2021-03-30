@@ -6,8 +6,8 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Private Endpoint Connection ARM resource.
- * API Version: 2020-10-01.
+ * Remote Private Endpoint Connection ARM resource.
+ * API Version: 2020-12-01.
  */
 export function getWebAppPrivateEndpointConnection(args: GetWebAppPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppPrivateEndpointConnectionResult> {
     if (!opts) {
@@ -29,6 +29,9 @@ export interface GetWebAppPrivateEndpointConnectionArgs {
      * Name of the site.
      */
     readonly name: string;
+    /**
+     * Name of the private endpoint connection.
+     */
     readonly privateEndpointConnectionName: string;
     /**
      * Name of the resource group to which the resource belongs.
@@ -37,13 +40,17 @@ export interface GetWebAppPrivateEndpointConnectionArgs {
 }
 
 /**
- * Private Endpoint Connection ARM resource.
+ * Remote Private Endpoint Connection ARM resource.
  */
 export interface GetWebAppPrivateEndpointConnectionResult {
     /**
      * Resource Id.
      */
     readonly id: string;
+    /**
+     * Private IPAddresses mapped to the remote private endpoint
+     */
+    readonly ipAddresses?: string[];
     /**
      * Kind of resource.
      */
@@ -61,10 +68,6 @@ export interface GetWebAppPrivateEndpointConnectionResult {
      */
     readonly privateLinkServiceConnectionState?: outputs.web.PrivateLinkConnectionStateResponse;
     readonly provisioningState: string;
-    /**
-     * The system metadata relating to this resource.
-     */
-    readonly systemData: outputs.web.SystemDataResponse;
     /**
      * Resource type.
      */

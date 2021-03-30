@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Description of a backup which will be performed.
- * Latest API Version: 2020-10-01.
+ * Latest API Version: 2020-12-01.
  */
 /** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:web:listWebAppBackupConfiguration'. */
 export function listWebAppBackupConfiguration(args: ListWebAppBackupConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppBackupConfigurationResult> {
@@ -72,10 +72,6 @@ export interface ListWebAppBackupConfigurationResult {
      * SAS URL to the container.
      */
     readonly storageAccountUrl: string;
-    /**
-     * The system metadata relating to this resource.
-     */
-    readonly systemData: outputs.web.latest.SystemDataResponse;
     /**
      * Resource type.
      */

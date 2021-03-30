@@ -30,8 +30,8 @@ class WebAppPrivateEndpointConnection(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
-        Private Endpoint Connection ARM resource.
-        Latest API Version: 2020-10-01.
+        Remote Private Endpoint Connection ARM resource.
+        Latest API Version: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -67,11 +67,11 @@ class WebAppPrivateEndpointConnection(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['ip_addresses'] = None
             __props__['private_endpoint'] = None
             __props__['provisioning_state'] = None
-            __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/latest:WebAppPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:web:WebAppPrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:web:WebAppPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:web/v20190801:WebAppPrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:web/v20200601:WebAppPrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppPrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppPrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppPrivateEndpointConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/latest:WebAppPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:web:WebAppPrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:web:WebAppPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:web/v20190801:WebAppPrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:web/v20190801:WebAppPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:web/v20200601:WebAppPrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:web/v20200601:WebAppPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppPrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:web/v20200901:WebAppPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppPrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:web/v20201001:WebAppPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:web/v20201201:WebAppPrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:web/v20201201:WebAppPrivateEndpointConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppPrivateEndpointConnection, __self__).__init__(
             'azure-native:web/latest:WebAppPrivateEndpointConnection',
@@ -95,14 +95,22 @@ class WebAppPrivateEndpointConnection(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["ip_addresses"] = None
         __props__["kind"] = None
         __props__["name"] = None
         __props__["private_endpoint"] = None
         __props__["private_link_service_connection_state"] = None
         __props__["provisioning_state"] = None
-        __props__["system_data"] = None
         __props__["type"] = None
         return WebAppPrivateEndpointConnection(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="ipAddresses")
+    def ip_addresses(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        Private IPAddresses mapped to the remote private endpoint
+        """
+        return pulumi.get(self, "ip_addresses")
 
     @property
     @pulumi.getter
@@ -140,14 +148,6 @@ class WebAppPrivateEndpointConnection(pulumi.CustomResource):
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> pulumi.Output[str]:
         return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
-        """
-        The system metadata relating to this resource.
-        """
-        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

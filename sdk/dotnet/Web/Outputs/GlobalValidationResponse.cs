@@ -29,10 +29,6 @@ namespace Pulumi.AzureNative.Web.Outputs
         public readonly string? RedirectToProvider;
         public readonly bool? RequireAuthentication;
         /// <summary>
-        /// The system metadata relating to this resource.
-        /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
-        /// <summary>
         /// Resource type.
         /// </summary>
         public readonly string Type;
@@ -52,8 +48,6 @@ namespace Pulumi.AzureNative.Web.Outputs
 
             bool? requireAuthentication,
 
-            Outputs.SystemDataResponse systemData,
-
             string type,
 
             string? unauthenticatedClientAction)
@@ -64,7 +58,6 @@ namespace Pulumi.AzureNative.Web.Outputs
             Name = name;
             RedirectToProvider = redirectToProvider;
             RequireAuthentication = requireAuthentication;
-            SystemData = systemData;
             Type = type;
             UnauthenticatedClientAction = unauthenticatedClientAction;
         }

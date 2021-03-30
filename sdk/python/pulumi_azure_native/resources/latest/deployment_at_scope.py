@@ -32,7 +32,7 @@ class DeploymentAtScope(pulumi.CustomResource):
                  __opts__=None):
         """
         Deployment information.
-        Latest API Version: 2020-10-01.
+        Latest API Version: 2021-01-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -71,7 +71,7 @@ class DeploymentAtScope(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:resources/latest:DeploymentAtScope"), pulumi.Alias(type_="azure-native:resources:DeploymentAtScope"), pulumi.Alias(type_="azure-nextgen:resources:DeploymentAtScope"), pulumi.Alias(type_="azure-native:resources/v20190701:DeploymentAtScope"), pulumi.Alias(type_="azure-nextgen:resources/v20190701:DeploymentAtScope"), pulumi.Alias(type_="azure-native:resources/v20190801:DeploymentAtScope"), pulumi.Alias(type_="azure-nextgen:resources/v20190801:DeploymentAtScope"), pulumi.Alias(type_="azure-native:resources/v20191001:DeploymentAtScope"), pulumi.Alias(type_="azure-nextgen:resources/v20191001:DeploymentAtScope"), pulumi.Alias(type_="azure-native:resources/v20200601:DeploymentAtScope"), pulumi.Alias(type_="azure-nextgen:resources/v20200601:DeploymentAtScope"), pulumi.Alias(type_="azure-native:resources/v20200801:DeploymentAtScope"), pulumi.Alias(type_="azure-nextgen:resources/v20200801:DeploymentAtScope"), pulumi.Alias(type_="azure-native:resources/v20201001:DeploymentAtScope"), pulumi.Alias(type_="azure-nextgen:resources/v20201001:DeploymentAtScope")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:resources/latest:DeploymentAtScope"), pulumi.Alias(type_="azure-native:resources:DeploymentAtScope"), pulumi.Alias(type_="azure-nextgen:resources:DeploymentAtScope"), pulumi.Alias(type_="azure-native:resources/v20190701:DeploymentAtScope"), pulumi.Alias(type_="azure-nextgen:resources/v20190701:DeploymentAtScope"), pulumi.Alias(type_="azure-native:resources/v20190801:DeploymentAtScope"), pulumi.Alias(type_="azure-nextgen:resources/v20190801:DeploymentAtScope"), pulumi.Alias(type_="azure-native:resources/v20191001:DeploymentAtScope"), pulumi.Alias(type_="azure-nextgen:resources/v20191001:DeploymentAtScope"), pulumi.Alias(type_="azure-native:resources/v20200601:DeploymentAtScope"), pulumi.Alias(type_="azure-nextgen:resources/v20200601:DeploymentAtScope"), pulumi.Alias(type_="azure-native:resources/v20200801:DeploymentAtScope"), pulumi.Alias(type_="azure-nextgen:resources/v20200801:DeploymentAtScope"), pulumi.Alias(type_="azure-native:resources/v20201001:DeploymentAtScope"), pulumi.Alias(type_="azure-nextgen:resources/v20201001:DeploymentAtScope"), pulumi.Alias(type_="azure-native:resources/v20210101:DeploymentAtScope"), pulumi.Alias(type_="azure-nextgen:resources/v20210101:DeploymentAtScope")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DeploymentAtScope, __self__).__init__(
             'azure-native:resources/latest:DeploymentAtScope',

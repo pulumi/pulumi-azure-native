@@ -17,6 +17,7 @@ class Certificate(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  canonical_name: Optional[pulumi.Input[str]] = None,
+                 domain_validation_method: Optional[pulumi.Input[str]] = None,
                  host_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  key_vault_id: Optional[pulumi.Input[str]] = None,
                  key_vault_secret_name: Optional[pulumi.Input[str]] = None,
@@ -33,11 +34,12 @@ class Certificate(pulumi.CustomResource):
                  __opts__=None):
         """
         SSL certificate for an app.
-        API Version: 2020-10-01.
+        API Version: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] canonical_name: CNAME of the certificate to be issued via free certificate
+        :param pulumi.Input[str] domain_validation_method: Method of domain validation for free cert
         :param pulumi.Input[Sequence[pulumi.Input[str]]] host_names: Host names the certificate applies to.
         :param pulumi.Input[str] key_vault_id: Key Vault Csm resource Id.
         :param pulumi.Input[str] key_vault_secret_name: Key Vault secret name.
@@ -68,14 +70,13 @@ class Certificate(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['canonical_name'] = canonical_name
+            __props__['domain_validation_method'] = domain_validation_method
             __props__['host_names'] = host_names
             __props__['key_vault_id'] = key_vault_id
             __props__['key_vault_secret_name'] = key_vault_secret_name
             __props__['kind'] = kind
             __props__['location'] = location
             __props__['name'] = name
-            if password is None and not opts.urn:
-                raise TypeError("Missing required property 'password'")
             __props__['password'] = password
             __props__['pfx_blob'] = pfx_blob
             if resource_group_name is None and not opts.urn:
@@ -94,11 +95,10 @@ class Certificate(pulumi.CustomResource):
             __props__['self_link'] = None
             __props__['site_name'] = None
             __props__['subject_name'] = None
-            __props__['system_data'] = None
             __props__['thumbprint'] = None
             __props__['type'] = None
             __props__['valid'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web:Certificate"), pulumi.Alias(type_="azure-native:web/latest:Certificate"), pulumi.Alias(type_="azure-nextgen:web/latest:Certificate"), pulumi.Alias(type_="azure-native:web/v20150801:Certificate"), pulumi.Alias(type_="azure-nextgen:web/v20150801:Certificate"), pulumi.Alias(type_="azure-native:web/v20160301:Certificate"), pulumi.Alias(type_="azure-nextgen:web/v20160301:Certificate"), pulumi.Alias(type_="azure-native:web/v20180201:Certificate"), pulumi.Alias(type_="azure-nextgen:web/v20180201:Certificate"), pulumi.Alias(type_="azure-native:web/v20181101:Certificate"), pulumi.Alias(type_="azure-nextgen:web/v20181101:Certificate"), pulumi.Alias(type_="azure-native:web/v20190801:Certificate"), pulumi.Alias(type_="azure-nextgen:web/v20190801:Certificate"), pulumi.Alias(type_="azure-native:web/v20200601:Certificate"), pulumi.Alias(type_="azure-nextgen:web/v20200601:Certificate"), pulumi.Alias(type_="azure-native:web/v20200901:Certificate"), pulumi.Alias(type_="azure-nextgen:web/v20200901:Certificate"), pulumi.Alias(type_="azure-native:web/v20201001:Certificate"), pulumi.Alias(type_="azure-nextgen:web/v20201001:Certificate")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web:Certificate"), pulumi.Alias(type_="azure-native:web/latest:Certificate"), pulumi.Alias(type_="azure-nextgen:web/latest:Certificate"), pulumi.Alias(type_="azure-native:web/v20150801:Certificate"), pulumi.Alias(type_="azure-nextgen:web/v20150801:Certificate"), pulumi.Alias(type_="azure-native:web/v20160301:Certificate"), pulumi.Alias(type_="azure-nextgen:web/v20160301:Certificate"), pulumi.Alias(type_="azure-native:web/v20180201:Certificate"), pulumi.Alias(type_="azure-nextgen:web/v20180201:Certificate"), pulumi.Alias(type_="azure-native:web/v20181101:Certificate"), pulumi.Alias(type_="azure-nextgen:web/v20181101:Certificate"), pulumi.Alias(type_="azure-native:web/v20190801:Certificate"), pulumi.Alias(type_="azure-nextgen:web/v20190801:Certificate"), pulumi.Alias(type_="azure-native:web/v20200601:Certificate"), pulumi.Alias(type_="azure-nextgen:web/v20200601:Certificate"), pulumi.Alias(type_="azure-native:web/v20200901:Certificate"), pulumi.Alias(type_="azure-nextgen:web/v20200901:Certificate"), pulumi.Alias(type_="azure-native:web/v20201001:Certificate"), pulumi.Alias(type_="azure-nextgen:web/v20201001:Certificate"), pulumi.Alias(type_="azure-native:web/v20201201:Certificate"), pulumi.Alias(type_="azure-nextgen:web/v20201201:Certificate")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Certificate, __self__).__init__(
             'azure-native:web:Certificate',
@@ -124,6 +124,7 @@ class Certificate(pulumi.CustomResource):
 
         __props__["canonical_name"] = None
         __props__["cer_blob"] = None
+        __props__["domain_validation_method"] = None
         __props__["expiration_date"] = None
         __props__["friendly_name"] = None
         __props__["host_names"] = None
@@ -142,7 +143,6 @@ class Certificate(pulumi.CustomResource):
         __props__["server_farm_id"] = None
         __props__["site_name"] = None
         __props__["subject_name"] = None
-        __props__["system_data"] = None
         __props__["tags"] = None
         __props__["thumbprint"] = None
         __props__["type"] = None
@@ -164,6 +164,14 @@ class Certificate(pulumi.CustomResource):
         Raw bytes of .cer file
         """
         return pulumi.get(self, "cer_blob")
+
+    @property
+    @pulumi.getter(name="domainValidationMethod")
+    def domain_validation_method(self) -> pulumi.Output[Optional[str]]:
+        """
+        Method of domain validation for free cert
+        """
+        return pulumi.get(self, "domain_validation_method")
 
     @property
     @pulumi.getter(name="expirationDate")
@@ -308,14 +316,6 @@ class Certificate(pulumi.CustomResource):
         Subject name of the certificate.
         """
         return pulumi.get(self, "subject_name")
-
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
-        """
-        The system metadata relating to this resource.
-        """
-        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

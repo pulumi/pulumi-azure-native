@@ -8,7 +8,7 @@ import (
 )
 
 // Premier add-on.
-// API Version: 2020-10-01.
+// API Version: 2020-12-01.
 func LookupWebAppPremierAddOn(ctx *pulumi.Context, args *LookupWebAppPremierAddOnArgs, opts ...pulumi.InvokeOption) (*LookupWebAppPremierAddOnResult, error) {
 	var rv LookupWebAppPremierAddOnResult
 	err := ctx.Invoke("azure-native:web:getWebAppPremierAddOn", args, &rv, opts...)
@@ -45,8 +45,6 @@ type LookupWebAppPremierAddOnResult struct {
 	Product *string `pulumi:"product"`
 	// Premier add on SKU.
 	Sku *string `pulumi:"sku"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
