@@ -39,6 +39,7 @@ export * from "./getMyWorkbook";
 export * from "./getPrivateEndpointConnection";
 export * from "./getPrivateLinkScope";
 export * from "./getPrivateLinkScopedResource";
+export * from "./getProactiveDetectionConfiguration";
 export * from "./getScheduledQueryRule";
 export * from "./getSubscriptionDiagnosticSetting";
 export * from "./getTestResultFile";
@@ -56,6 +57,7 @@ export * from "./myWorkbook";
 export * from "./privateEndpointConnection";
 export * from "./privateLinkScope";
 export * from "./privateLinkScopedResource";
+export * from "./proactiveDetectionConfiguration";
 export * from "./scheduledQueryRule";
 export * from "./subscriptionDiagnosticSetting";
 export * from "./webTest";
@@ -146,6 +148,7 @@ import { MyWorkbook } from "./myWorkbook";
 import { PrivateEndpointConnection } from "./privateEndpointConnection";
 import { PrivateLinkScope } from "./privateLinkScope";
 import { PrivateLinkScopedResource } from "./privateLinkScopedResource";
+import { ProactiveDetectionConfiguration } from "./proactiveDetectionConfiguration";
 import { ScheduledQueryRule } from "./scheduledQueryRule";
 import { SubscriptionDiagnosticSetting } from "./subscriptionDiagnosticSetting";
 import { WebTest } from "./webTest";
@@ -199,6 +202,8 @@ const _module = {
                 return new PrivateLinkScope(name, <any>undefined, { urn })
             case "azure-native:insights:PrivateLinkScopedResource":
                 return new PrivateLinkScopedResource(name, <any>undefined, { urn })
+            case "azure-native:insights:ProactiveDetectionConfiguration":
+                return new ProactiveDetectionConfiguration(name, <any>undefined, { urn })
             case "azure-native:insights:ScheduledQueryRule":
                 return new ScheduledQueryRule(name, <any>undefined, { urn })
             case "azure-native:insights:SubscriptionDiagnosticSetting":

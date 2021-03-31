@@ -7,12 +7,15 @@ import * as utilities from "../../utilities";
 // Export members:
 export * from "./component";
 export * from "./getComponent";
+export * from "./getProactiveDetectionConfiguration";
+export * from "./proactiveDetectionConfiguration";
 
 // Export enums:
 export * from "../../types/enums/insights/v20180501preview";
 
 // Import resources to register:
 import { Component } from "./component";
+import { ProactiveDetectionConfiguration } from "./proactiveDetectionConfiguration";
 
 const _module = {
     version: utilities.getVersion(),
@@ -20,6 +23,8 @@ const _module = {
         switch (type) {
             case "azure-native:insights/v20180501preview:Component":
                 return new Component(name, <any>undefined, { urn })
+            case "azure-native:insights/v20180501preview:ProactiveDetectionConfiguration":
+                return new ProactiveDetectionConfiguration(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
