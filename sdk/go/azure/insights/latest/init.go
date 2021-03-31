@@ -45,6 +45,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewMetricAlert(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:insights/latest:MyWorkbook":
 		r, err = NewMyWorkbook(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-native:insights/latest:ProactiveDetectionConfiguration":
+		r, err = NewProactiveDetectionConfiguration(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:insights/latest:ScheduledQueryRule":
 		r, err = NewScheduledQueryRule(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:insights/latest:WebTest":

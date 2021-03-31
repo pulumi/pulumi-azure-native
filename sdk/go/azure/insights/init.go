@@ -63,6 +63,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewPrivateLinkScope(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:insights:PrivateLinkScopedResource":
 		r, err = NewPrivateLinkScopedResource(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-native:insights:ProactiveDetectionConfiguration":
+		r, err = NewProactiveDetectionConfiguration(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:insights:ScheduledQueryRule":
 		r, err = NewScheduledQueryRule(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:insights:SubscriptionDiagnosticSetting":

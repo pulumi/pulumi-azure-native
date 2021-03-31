@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "azure-native:insights/v20180501preview:Component":
 		r, err = NewComponent(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-native:insights/v20180501preview:ProactiveDetectionConfiguration":
+		r, err = NewProactiveDetectionConfiguration(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
