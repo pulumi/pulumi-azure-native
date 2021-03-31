@@ -26,6 +26,7 @@ export * from "./getFavorite";
 export * from "./getLogProfile";
 export * from "./getMetricAlert";
 export * from "./getMyWorkbook";
+export * from "./getProactiveDetectionConfiguration";
 export * from "./getScheduledQueryRule";
 export * from "./getWebTest";
 export * from "./getWorkbook";
@@ -33,6 +34,7 @@ export * from "./listEASubscriptionListMigrationDatePost";
 export * from "./logProfile";
 export * from "./metricAlert";
 export * from "./myWorkbook";
+export * from "./proactiveDetectionConfiguration";
 export * from "./scheduledQueryRule";
 export * from "./webTest";
 export * from "./workbook";
@@ -53,6 +55,7 @@ import { Favorite } from "./favorite";
 import { LogProfile } from "./logProfile";
 import { MetricAlert } from "./metricAlert";
 import { MyWorkbook } from "./myWorkbook";
+import { ProactiveDetectionConfiguration } from "./proactiveDetectionConfiguration";
 import { ScheduledQueryRule } from "./scheduledQueryRule";
 import { WebTest } from "./webTest";
 import { Workbook } from "./workbook";
@@ -85,6 +88,8 @@ const _module = {
                 return new MetricAlert(name, <any>undefined, { urn })
             case "azure-native:insights/latest:MyWorkbook":
                 return new MyWorkbook(name, <any>undefined, { urn })
+            case "azure-native:insights/latest:ProactiveDetectionConfiguration":
+                return new ProactiveDetectionConfiguration(name, <any>undefined, { urn })
             case "azure-native:insights/latest:ScheduledQueryRule":
                 return new ScheduledQueryRule(name, <any>undefined, { urn })
             case "azure-native:insights/latest:WebTest":

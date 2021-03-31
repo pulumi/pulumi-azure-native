@@ -16,9 +16,11 @@ export * from "./getComponentCurrentBillingFeature";
 export * from "./getExportConfiguration";
 export * from "./getFavorite";
 export * from "./getMyWorkbook";
+export * from "./getProactiveDetectionConfiguration";
 export * from "./getWebTest";
 export * from "./getWorkbook";
 export * from "./myWorkbook";
+export * from "./proactiveDetectionConfiguration";
 export * from "./webTest";
 export * from "./workbook";
 
@@ -32,6 +34,7 @@ import { ComponentCurrentBillingFeature } from "./componentCurrentBillingFeature
 import { ExportConfiguration } from "./exportConfiguration";
 import { Favorite } from "./favorite";
 import { MyWorkbook } from "./myWorkbook";
+import { ProactiveDetectionConfiguration } from "./proactiveDetectionConfiguration";
 import { WebTest } from "./webTest";
 import { Workbook } from "./workbook";
 
@@ -51,6 +54,8 @@ const _module = {
                 return new Favorite(name, <any>undefined, { urn })
             case "azure-native:insights/v20150501:MyWorkbook":
                 return new MyWorkbook(name, <any>undefined, { urn })
+            case "azure-native:insights/v20150501:ProactiveDetectionConfiguration":
+                return new ProactiveDetectionConfiguration(name, <any>undefined, { urn })
             case "azure-native:insights/v20150501:WebTest":
                 return new WebTest(name, <any>undefined, { urn })
             case "azure-native:insights/v20150501:Workbook":

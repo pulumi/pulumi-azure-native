@@ -33,6 +33,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewFavorite(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:insights/v20150501:MyWorkbook":
 		r, err = NewMyWorkbook(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-native:insights/v20150501:ProactiveDetectionConfiguration":
+		r, err = NewProactiveDetectionConfiguration(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:insights/v20150501:WebTest":
 		r, err = NewWebTest(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:insights/v20150501:Workbook":

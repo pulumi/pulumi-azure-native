@@ -2196,6 +2196,576 @@ func (o ApplicationInsightsComponentDataVolumeCapResponsePtrOutput) WarningThres
 	}).(pulumi.IntPtrOutput)
 }
 
+// Static definitions of the ProactiveDetection configuration rule (same values for all components).
+type ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions struct {
+	// The rule description
+	Description *string `pulumi:"description"`
+	// The rule name as it is displayed in UI
+	DisplayName *string `pulumi:"displayName"`
+	// URL which displays additional info about the proactive detection rule
+	HelpUrl *string `pulumi:"helpUrl"`
+	// A flag indicating whether the rule is enabled by default
+	IsEnabledByDefault *bool `pulumi:"isEnabledByDefault"`
+	// A flag indicating whether the rule is hidden (from the UI)
+	IsHidden *bool `pulumi:"isHidden"`
+	// A flag indicating whether the rule is in preview
+	IsInPreview *bool `pulumi:"isInPreview"`
+	// The rule name
+	Name *string `pulumi:"name"`
+	// A flag indicating whether email notifications are supported for detections for this rule
+	SupportsEmailNotifications *bool `pulumi:"supportsEmailNotifications"`
+}
+
+// ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsInput is an input type that accepts ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsArgs and ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsOutput values.
+// You can construct a concrete instance of `ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsInput` via:
+//
+//          ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsArgs{...}
+type ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsInput interface {
+	pulumi.Input
+
+	ToApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsOutput() ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsOutput
+	ToApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsOutputWithContext(context.Context) ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsOutput
+}
+
+// Static definitions of the ProactiveDetection configuration rule (same values for all components).
+type ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsArgs struct {
+	// The rule description
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The rule name as it is displayed in UI
+	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
+	// URL which displays additional info about the proactive detection rule
+	HelpUrl pulumi.StringPtrInput `pulumi:"helpUrl"`
+	// A flag indicating whether the rule is enabled by default
+	IsEnabledByDefault pulumi.BoolPtrInput `pulumi:"isEnabledByDefault"`
+	// A flag indicating whether the rule is hidden (from the UI)
+	IsHidden pulumi.BoolPtrInput `pulumi:"isHidden"`
+	// A flag indicating whether the rule is in preview
+	IsInPreview pulumi.BoolPtrInput `pulumi:"isInPreview"`
+	// The rule name
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// A flag indicating whether email notifications are supported for detections for this rule
+	SupportsEmailNotifications pulumi.BoolPtrInput `pulumi:"supportsEmailNotifications"`
+}
+
+func (ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions)(nil)).Elem()
+}
+
+func (i ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsArgs) ToApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsOutput() ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsOutput {
+	return i.ToApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsOutputWithContext(context.Background())
+}
+
+func (i ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsArgs) ToApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsOutputWithContext(ctx context.Context) ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsOutput)
+}
+
+func (i ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsArgs) ToApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutput() ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutput {
+	return i.ToApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsArgs) ToApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutputWithContext(ctx context.Context) ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsOutput).ToApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutputWithContext(ctx)
+}
+
+// ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrInput is an input type that accepts ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsArgs, ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtr and ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutput values.
+// You can construct a concrete instance of `ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrInput` via:
+//
+//          ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsArgs{...}
+//
+//  or:
+//
+//          nil
+type ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrInput interface {
+	pulumi.Input
+
+	ToApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutput() ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutput
+	ToApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutputWithContext(context.Context) ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutput
+}
+
+type applicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrType ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsArgs
+
+func ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtr(v *ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsArgs) ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrInput {
+	return (*applicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrType)(v)
+}
+
+func (*applicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions)(nil)).Elem()
+}
+
+func (i *applicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrType) ToApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutput() ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutput {
+	return i.ToApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutputWithContext(context.Background())
+}
+
+func (i *applicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrType) ToApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutputWithContext(ctx context.Context) ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutput)
+}
+
+// Static definitions of the ProactiveDetection configuration rule (same values for all components).
+type ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsOutput struct{ *pulumi.OutputState }
+
+func (ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions)(nil)).Elem()
+}
+
+func (o ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsOutput) ToApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsOutput() ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsOutput {
+	return o
+}
+
+func (o ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsOutput) ToApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsOutputWithContext(ctx context.Context) ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsOutput {
+	return o
+}
+
+func (o ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsOutput) ToApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutput() ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutput {
+	return o.ToApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsOutput) ToApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutputWithContext(ctx context.Context) ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutput {
+	return o.ApplyT(func(v ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions) *ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions {
+		return &v
+	}).(ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutput)
+}
+
+// The rule description
+func (o ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions) *string {
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// The rule name as it is displayed in UI
+func (o ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions) *string {
+		return v.DisplayName
+	}).(pulumi.StringPtrOutput)
+}
+
+// URL which displays additional info about the proactive detection rule
+func (o ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsOutput) HelpUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions) *string {
+		return v.HelpUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// A flag indicating whether the rule is enabled by default
+func (o ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsOutput) IsEnabledByDefault() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions) *bool {
+		return v.IsEnabledByDefault
+	}).(pulumi.BoolPtrOutput)
+}
+
+// A flag indicating whether the rule is hidden (from the UI)
+func (o ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsOutput) IsHidden() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions) *bool {
+		return v.IsHidden
+	}).(pulumi.BoolPtrOutput)
+}
+
+// A flag indicating whether the rule is in preview
+func (o ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsOutput) IsInPreview() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions) *bool {
+		return v.IsInPreview
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The rule name
+func (o ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions) *string {
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// A flag indicating whether email notifications are supported for detections for this rule
+func (o ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsOutput) SupportsEmailNotifications() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions) *bool {
+		return v.SupportsEmailNotifications
+	}).(pulumi.BoolPtrOutput)
+}
+
+type ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions)(nil)).Elem()
+}
+
+func (o ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutput) ToApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutput() ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutput {
+	return o
+}
+
+func (o ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutput) ToApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutputWithContext(ctx context.Context) ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutput {
+	return o
+}
+
+func (o ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutput) Elem() ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsOutput {
+	return o.ApplyT(func(v *ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions) ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions {
+		return *v
+	}).(ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsOutput)
+}
+
+// The rule description
+func (o ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// The rule name as it is displayed in UI
+func (o ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DisplayName
+	}).(pulumi.StringPtrOutput)
+}
+
+// URL which displays additional info about the proactive detection rule
+func (o ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutput) HelpUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HelpUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// A flag indicating whether the rule is enabled by default
+func (o ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutput) IsEnabledByDefault() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsEnabledByDefault
+	}).(pulumi.BoolPtrOutput)
+}
+
+// A flag indicating whether the rule is hidden (from the UI)
+func (o ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutput) IsHidden() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsHidden
+	}).(pulumi.BoolPtrOutput)
+}
+
+// A flag indicating whether the rule is in preview
+func (o ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutput) IsInPreview() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsInPreview
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The rule name
+func (o ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// A flag indicating whether email notifications are supported for detections for this rule
+func (o ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutput) SupportsEmailNotifications() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SupportsEmailNotifications
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Static definitions of the ProactiveDetection configuration rule (same values for all components).
+type ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitions struct {
+	// The rule description
+	Description *string `pulumi:"description"`
+	// The rule name as it is displayed in UI
+	DisplayName *string `pulumi:"displayName"`
+	// URL which displays additional info about the proactive detection rule
+	HelpUrl *string `pulumi:"helpUrl"`
+	// A flag indicating whether the rule is enabled by default
+	IsEnabledByDefault *bool `pulumi:"isEnabledByDefault"`
+	// A flag indicating whether the rule is hidden (from the UI)
+	IsHidden *bool `pulumi:"isHidden"`
+	// A flag indicating whether the rule is in preview
+	IsInPreview *bool `pulumi:"isInPreview"`
+	// The rule name
+	Name *string `pulumi:"name"`
+	// A flag indicating whether email notifications are supported for detections for this rule
+	SupportsEmailNotifications *bool `pulumi:"supportsEmailNotifications"`
+}
+
+// ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsInput is an input type that accepts ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsArgs and ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsOutput values.
+// You can construct a concrete instance of `ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsInput` via:
+//
+//          ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsArgs{...}
+type ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsInput interface {
+	pulumi.Input
+
+	ToApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsOutput() ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsOutput
+	ToApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsOutputWithContext(context.Context) ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsOutput
+}
+
+// Static definitions of the ProactiveDetection configuration rule (same values for all components).
+type ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsArgs struct {
+	// The rule description
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The rule name as it is displayed in UI
+	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
+	// URL which displays additional info about the proactive detection rule
+	HelpUrl pulumi.StringPtrInput `pulumi:"helpUrl"`
+	// A flag indicating whether the rule is enabled by default
+	IsEnabledByDefault pulumi.BoolPtrInput `pulumi:"isEnabledByDefault"`
+	// A flag indicating whether the rule is hidden (from the UI)
+	IsHidden pulumi.BoolPtrInput `pulumi:"isHidden"`
+	// A flag indicating whether the rule is in preview
+	IsInPreview pulumi.BoolPtrInput `pulumi:"isInPreview"`
+	// The rule name
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// A flag indicating whether email notifications are supported for detections for this rule
+	SupportsEmailNotifications pulumi.BoolPtrInput `pulumi:"supportsEmailNotifications"`
+}
+
+func (ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitions)(nil)).Elem()
+}
+
+func (i ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsArgs) ToApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsOutput() ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsOutput {
+	return i.ToApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsOutputWithContext(context.Background())
+}
+
+func (i ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsArgs) ToApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsOutputWithContext(ctx context.Context) ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsOutput)
+}
+
+func (i ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsArgs) ToApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsPtrOutput() ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsPtrOutput {
+	return i.ToApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsPtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsArgs) ToApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsPtrOutputWithContext(ctx context.Context) ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsOutput).ToApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsPtrOutputWithContext(ctx)
+}
+
+// ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsPtrInput is an input type that accepts ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsArgs, ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsPtr and ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsPtrOutput values.
+// You can construct a concrete instance of `ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsPtrInput` via:
+//
+//          ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsArgs{...}
+//
+//  or:
+//
+//          nil
+type ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsPtrInput interface {
+	pulumi.Input
+
+	ToApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsPtrOutput() ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsPtrOutput
+	ToApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsPtrOutputWithContext(context.Context) ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsPtrOutput
+}
+
+type applicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsPtrType ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsArgs
+
+func ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsPtr(v *ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsArgs) ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsPtrInput {
+	return (*applicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsPtrType)(v)
+}
+
+func (*applicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitions)(nil)).Elem()
+}
+
+func (i *applicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsPtrType) ToApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsPtrOutput() ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsPtrOutput {
+	return i.ToApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsPtrOutputWithContext(context.Background())
+}
+
+func (i *applicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsPtrType) ToApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsPtrOutputWithContext(ctx context.Context) ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsPtrOutput)
+}
+
+// Static definitions of the ProactiveDetection configuration rule (same values for all components).
+type ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsOutput struct{ *pulumi.OutputState }
+
+func (ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitions)(nil)).Elem()
+}
+
+func (o ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsOutput) ToApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsOutput() ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsOutput {
+	return o
+}
+
+func (o ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsOutput) ToApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsOutputWithContext(ctx context.Context) ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsOutput {
+	return o
+}
+
+func (o ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsOutput) ToApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsPtrOutput() ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsPtrOutput {
+	return o.ToApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsOutput) ToApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsPtrOutputWithContext(ctx context.Context) ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsPtrOutput {
+	return o.ApplyT(func(v ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitions) *ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitions {
+		return &v
+	}).(ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsPtrOutput)
+}
+
+// The rule description
+func (o ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitions) *string {
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// The rule name as it is displayed in UI
+func (o ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitions) *string {
+		return v.DisplayName
+	}).(pulumi.StringPtrOutput)
+}
+
+// URL which displays additional info about the proactive detection rule
+func (o ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsOutput) HelpUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitions) *string {
+		return v.HelpUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// A flag indicating whether the rule is enabled by default
+func (o ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsOutput) IsEnabledByDefault() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitions) *bool {
+		return v.IsEnabledByDefault
+	}).(pulumi.BoolPtrOutput)
+}
+
+// A flag indicating whether the rule is hidden (from the UI)
+func (o ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsOutput) IsHidden() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitions) *bool {
+		return v.IsHidden
+	}).(pulumi.BoolPtrOutput)
+}
+
+// A flag indicating whether the rule is in preview
+func (o ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsOutput) IsInPreview() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitions) *bool {
+		return v.IsInPreview
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The rule name
+func (o ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitions) *string {
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// A flag indicating whether email notifications are supported for detections for this rule
+func (o ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsOutput) SupportsEmailNotifications() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitions) *bool {
+		return v.SupportsEmailNotifications
+	}).(pulumi.BoolPtrOutput)
+}
+
+type ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsPtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitions)(nil)).Elem()
+}
+
+func (o ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsPtrOutput) ToApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsPtrOutput() ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsPtrOutput {
+	return o
+}
+
+func (o ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsPtrOutput) ToApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsPtrOutputWithContext(ctx context.Context) ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsPtrOutput {
+	return o
+}
+
+func (o ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsPtrOutput) Elem() ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsOutput {
+	return o.ApplyT(func(v *ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitions) ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitions {
+		return *v
+	}).(ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsOutput)
+}
+
+// The rule description
+func (o ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// The rule name as it is displayed in UI
+func (o ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsPtrOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DisplayName
+	}).(pulumi.StringPtrOutput)
+}
+
+// URL which displays additional info about the proactive detection rule
+func (o ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsPtrOutput) HelpUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HelpUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// A flag indicating whether the rule is enabled by default
+func (o ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsPtrOutput) IsEnabledByDefault() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsEnabledByDefault
+	}).(pulumi.BoolPtrOutput)
+}
+
+// A flag indicating whether the rule is hidden (from the UI)
+func (o ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsPtrOutput) IsHidden() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsHidden
+	}).(pulumi.BoolPtrOutput)
+}
+
+// A flag indicating whether the rule is in preview
+func (o ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsPtrOutput) IsInPreview() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsInPreview
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The rule name
+func (o ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// A flag indicating whether email notifications are supported for detections for this rule
+func (o ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsPtrOutput) SupportsEmailNotifications() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SupportsEmailNotifications
+	}).(pulumi.BoolPtrOutput)
+}
+
 // An arm role receiver.
 type ArmRoleReceiver struct {
 	// The name of the arm role receiver. Names must be unique across all receivers within an action group.
@@ -21636,6 +22206,10 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationInsightsComponentDataVolumeCapPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationInsightsComponentDataVolumeCapResponseOutput{})
 	pulumi.RegisterOutputType(ApplicationInsightsComponentDataVolumeCapResponsePtrOutput{})
+	pulumi.RegisterOutputType(ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsOutput{})
+	pulumi.RegisterOutputType(ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsOutput{})
+	pulumi.RegisterOutputType(ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsPtrOutput{})
 	pulumi.RegisterOutputType(ArmRoleReceiverOutput{})
 	pulumi.RegisterOutputType(ArmRoleReceiverArrayOutput{})
 	pulumi.RegisterOutputType(ArmRoleReceiverResponseOutput{})

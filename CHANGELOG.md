@@ -28,6 +28,8 @@ CHANGELOG
   [#605](https://github.com/pulumi/pulumi-azure-native/issues/605)
 - New resource: `storage.EncryptionSource`.
   [#637](https://github.com/pulumi/pulumi-azure-native/issues/637)
+- New resource: `insights.ProactiveDetectionConfiguration`.
+  [#704](https://github.com/pulumi/pulumi-azure-native/issues/704)
 - `Endpoint` and `CustomDomain` resources are auto-named with a random suffix.
   [#629](https://github.com/pulumi/pulumi-azure-native/issues/629)
 - Support auto-naming for UUID properties.

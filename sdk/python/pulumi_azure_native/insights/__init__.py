@@ -38,6 +38,7 @@ from .get_my_workbook import *
 from .get_private_endpoint_connection import *
 from .get_private_link_scope import *
 from .get_private_link_scoped_resource import *
+from .get_proactive_detection_configuration import *
 from .get_scheduled_query_rule import *
 from .get_subscription_diagnostic_setting import *
 from .get_test_result_file import *
@@ -55,6 +56,7 @@ from .my_workbook import *
 from .private_endpoint_connection import *
 from .private_link_scope import *
 from .private_link_scoped_resource import *
+from .proactive_detection_configuration import *
 from .scheduled_query_rule import *
 from .subscription_diagnostic_setting import *
 from .web_test import *
@@ -148,6 +150,8 @@ def _register_module():
                 return PrivateLinkScope(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:insights:PrivateLinkScopedResource":
                 return PrivateLinkScopedResource(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:insights:ProactiveDetectionConfiguration":
+                return ProactiveDetectionConfiguration(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:insights:ScheduledQueryRule":
                 return ScheduledQueryRule(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:insights:SubscriptionDiagnosticSetting":

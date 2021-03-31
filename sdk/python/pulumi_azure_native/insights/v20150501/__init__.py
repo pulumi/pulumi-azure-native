@@ -15,9 +15,11 @@ from .get_component_current_billing_feature import *
 from .get_export_configuration import *
 from .get_favorite import *
 from .get_my_workbook import *
+from .get_proactive_detection_configuration import *
 from .get_web_test import *
 from .get_workbook import *
 from .my_workbook import *
+from .proactive_detection_configuration import *
 from .web_test import *
 from .workbook import *
 from ._inputs import *
@@ -47,6 +49,8 @@ def _register_module():
                 return Favorite(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:insights/v20150501:MyWorkbook":
                 return MyWorkbook(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:insights/v20150501:ProactiveDetectionConfiguration":
+                return ProactiveDetectionConfiguration(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:insights/v20150501:WebTest":
                 return WebTest(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:insights/v20150501:Workbook":
