@@ -25,6 +25,7 @@ from .get_favorite import *
 from .get_log_profile import *
 from .get_metric_alert import *
 from .get_my_workbook import *
+from .get_proactive_detection_configuration import *
 from .get_scheduled_query_rule import *
 from .get_web_test import *
 from .get_workbook import *
@@ -32,6 +33,7 @@ from .list_ea_subscription_list_migration_date_post import *
 from .log_profile import *
 from .metric_alert import *
 from .my_workbook import *
+from .proactive_detection_configuration import *
 from .scheduled_query_rule import *
 from .web_test import *
 from .workbook import *
@@ -74,6 +76,8 @@ def _register_module():
                 return MetricAlert(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:insights/latest:MyWorkbook":
                 return MyWorkbook(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:insights/latest:ProactiveDetectionConfiguration":
+                return ProactiveDetectionConfiguration(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:insights/latest:ScheduledQueryRule":
                 return ScheduledQueryRule(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:insights/latest:WebTest":

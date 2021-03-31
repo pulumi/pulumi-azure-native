@@ -6,6 +6,9 @@
 from ._enums import *
 from .component import *
 from .get_component import *
+from .get_proactive_detection_configuration import *
+from .proactive_detection_configuration import *
+from ._inputs import *
 from . import outputs
 
 def _register_module():
@@ -22,6 +25,8 @@ def _register_module():
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
             if typ == "azure-native:insights/v20180501preview:Component":
                 return Component(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:insights/v20180501preview:ProactiveDetectionConfiguration":
+                return ProactiveDetectionConfiguration(name, pulumi.ResourceOptions(urn=urn))
             else:
                 raise Exception(f"unknown resource type {typ}")
 
