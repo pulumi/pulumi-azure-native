@@ -7393,6 +7393,51 @@ func (o TransportPreferencesResponsePtrOutput) PreferredShipmentType() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
+type FilterablePropertyArrayMap map[string]FilterablePropertyArrayInput
+
+func (FilterablePropertyArrayMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*FilterablePropertyArray)(nil)).Elem()
+}
+
+func (i FilterablePropertyArrayMap) ToFilterablePropertyArrayMapOutput() FilterablePropertyArrayMapOutput {
+	return i.ToFilterablePropertyArrayMapOutputWithContext(context.Background())
+}
+
+func (i FilterablePropertyArrayMap) ToFilterablePropertyArrayMapOutputWithContext(ctx context.Context) FilterablePropertyArrayMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FilterablePropertyArrayMapOutput)
+}
+
+type FilterablePropertyArrayMapOutput struct{ *pulumi.OutputState }
+
+func (FilterablePropertyArrayMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FilterablePropertyArray)(nil)).Elem()
+}
+
+func (o FilterablePropertyArrayMapOutput) ToFilterablePropertyArrayMapOutput() FilterablePropertyArrayMapOutput {
+	return o
+}
+
+func (o FilterablePropertyArrayMapOutput) ToFilterablePropertyArrayMapOutputWithContext(ctx context.Context) FilterablePropertyArrayMapOutput {
+	return o
+}
+
+func (o FilterablePropertyArrayMapOutput) MapIndex(k pulumi.StringInput) FilterablePropertyArrayOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) FilterablePropertyArray {
+		return vs[0].(map[string]FilterablePropertyArray)[vs[1].(string)]
+	}).(FilterablePropertyArrayOutput)
+}
+
+// FilterablePropertyArrayMapInput is an input type that accepts FilterablePropertyArrayMap and FilterablePropertyArrayMapOutput values.
+// You can construct a concrete instance of `FilterablePropertyArrayMapInput` via:
+//
+//          FilterablePropertyArrayMap{ "key": FilterablePropertyArray{ FilterablePropertyArgs{...} } }
+type FilterablePropertyArrayMapInput interface {
+	pulumi.Input
+
+	ToFilterablePropertyArrayMapOutput() FilterablePropertyArrayMapOutput
+	ToFilterablePropertyArrayMapOutputWithContext(context.Context) FilterablePropertyArrayMapOutput
+}
+
 func init() {
 	pulumi.RegisterOutputType(AddressDetailsOutput{})
 	pulumi.RegisterOutputType(AddressDetailsPtrOutput{})
@@ -7485,4 +7530,5 @@ func init() {
 	pulumi.RegisterOutputType(TransportPreferencesPtrOutput{})
 	pulumi.RegisterOutputType(TransportPreferencesResponseOutput{})
 	pulumi.RegisterOutputType(TransportPreferencesResponsePtrOutput{})
+	pulumi.RegisterOutputType(FilterablePropertyArrayMapOutput{})
 }

@@ -9064,6 +9064,51 @@ func (o ValidateMigrationInputSqlServerSqlMITaskPropertiesResponseOutput) TaskTy
 	return o.ApplyT(func(v ValidateMigrationInputSqlServerSqlMITaskPropertiesResponse) string { return v.TaskType }).(pulumi.StringOutput)
 }
 
+type DatabaseTableResponseArrayMap map[string]DatabaseTableResponseArrayInput
+
+func (DatabaseTableResponseArrayMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseTableResponseArray)(nil)).Elem()
+}
+
+func (i DatabaseTableResponseArrayMap) ToDatabaseTableResponseArrayMapOutput() DatabaseTableResponseArrayMapOutput {
+	return i.ToDatabaseTableResponseArrayMapOutputWithContext(context.Background())
+}
+
+func (i DatabaseTableResponseArrayMap) ToDatabaseTableResponseArrayMapOutputWithContext(ctx context.Context) DatabaseTableResponseArrayMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseTableResponseArrayMapOutput)
+}
+
+type DatabaseTableResponseArrayMapOutput struct{ *pulumi.OutputState }
+
+func (DatabaseTableResponseArrayMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseTableResponseArray)(nil)).Elem()
+}
+
+func (o DatabaseTableResponseArrayMapOutput) ToDatabaseTableResponseArrayMapOutput() DatabaseTableResponseArrayMapOutput {
+	return o
+}
+
+func (o DatabaseTableResponseArrayMapOutput) ToDatabaseTableResponseArrayMapOutputWithContext(ctx context.Context) DatabaseTableResponseArrayMapOutput {
+	return o
+}
+
+func (o DatabaseTableResponseArrayMapOutput) MapIndex(k pulumi.StringInput) DatabaseTableResponseArrayOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DatabaseTableResponseArray {
+		return vs[0].(map[string]DatabaseTableResponseArray)[vs[1].(string)]
+	}).(DatabaseTableResponseArrayOutput)
+}
+
+// DatabaseTableResponseArrayMapInput is an input type that accepts DatabaseTableResponseArrayMap and DatabaseTableResponseArrayMapOutput values.
+// You can construct a concrete instance of `DatabaseTableResponseArrayMapInput` via:
+//
+//          DatabaseTableResponseArrayMap{ "key": DatabaseTableResponseArray{ DatabaseTableResponseArgs{...} } }
+type DatabaseTableResponseArrayMapInput interface {
+	pulumi.Input
+
+	ToDatabaseTableResponseArrayMapOutput() DatabaseTableResponseArrayMapOutput
+	ToDatabaseTableResponseArrayMapOutputWithContext(context.Context) DatabaseTableResponseArrayMapOutput
+}
+
 func init() {
 	pulumi.RegisterOutputType(BlobShareOutput{})
 	pulumi.RegisterOutputType(BlobSharePtrOutput{})
@@ -9172,4 +9217,5 @@ func init() {
 	pulumi.RegisterOutputType(ValidateMigrationInputSqlServerSqlMITaskOutputResponseArrayOutput{})
 	pulumi.RegisterOutputType(ValidateMigrationInputSqlServerSqlMITaskPropertiesOutput{})
 	pulumi.RegisterOutputType(ValidateMigrationInputSqlServerSqlMITaskPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(DatabaseTableResponseArrayMapOutput{})
 }

@@ -15962,6 +15962,96 @@ func (o VirtualNetworkRuleResponseArrayOutput) Index(i pulumi.IntInput) VirtualN
 	}).(VirtualNetworkRuleResponseOutput)
 }
 
+type CompositePathArrayArray []CompositePathArrayInput
+
+func (CompositePathArrayArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*CompositePathArray)(nil)).Elem()
+}
+
+func (i CompositePathArrayArray) ToCompositePathArrayArrayOutput() CompositePathArrayArrayOutput {
+	return i.ToCompositePathArrayArrayOutputWithContext(context.Background())
+}
+
+func (i CompositePathArrayArray) ToCompositePathArrayArrayOutputWithContext(ctx context.Context) CompositePathArrayArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CompositePathArrayArrayOutput)
+}
+
+type CompositePathArrayArrayOutput struct{ *pulumi.OutputState }
+
+func (CompositePathArrayArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CompositePathArray)(nil)).Elem()
+}
+
+func (o CompositePathArrayArrayOutput) ToCompositePathArrayArrayOutput() CompositePathArrayArrayOutput {
+	return o
+}
+
+func (o CompositePathArrayArrayOutput) ToCompositePathArrayArrayOutputWithContext(ctx context.Context) CompositePathArrayArrayOutput {
+	return o
+}
+
+func (o CompositePathArrayArrayOutput) Index(i pulumi.IntInput) CompositePathArrayOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CompositePathArray {
+		return vs[0].([]CompositePathArray)[vs[1].(int)]
+	}).(CompositePathArrayOutput)
+}
+
+// CompositePathArrayArrayInput is an input type that accepts CompositePathArrayArray and CompositePathArrayArrayOutput values.
+// You can construct a concrete instance of `CompositePathArrayArrayInput` via:
+//
+//          CompositePathArrayArray{ CompositePathArray{ CompositePathArgs{...} } }
+type CompositePathArrayArrayInput interface {
+	pulumi.Input
+
+	ToCompositePathArrayArrayOutput() CompositePathArrayArrayOutput
+	ToCompositePathArrayArrayOutputWithContext(context.Context) CompositePathArrayArrayOutput
+}
+
+type CompositePathResponseArrayArray []CompositePathResponseArrayInput
+
+func (CompositePathResponseArrayArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*CompositePathResponseArray)(nil)).Elem()
+}
+
+func (i CompositePathResponseArrayArray) ToCompositePathResponseArrayArrayOutput() CompositePathResponseArrayArrayOutput {
+	return i.ToCompositePathResponseArrayArrayOutputWithContext(context.Background())
+}
+
+func (i CompositePathResponseArrayArray) ToCompositePathResponseArrayArrayOutputWithContext(ctx context.Context) CompositePathResponseArrayArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CompositePathResponseArrayArrayOutput)
+}
+
+type CompositePathResponseArrayArrayOutput struct{ *pulumi.OutputState }
+
+func (CompositePathResponseArrayArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CompositePathResponseArray)(nil)).Elem()
+}
+
+func (o CompositePathResponseArrayArrayOutput) ToCompositePathResponseArrayArrayOutput() CompositePathResponseArrayArrayOutput {
+	return o
+}
+
+func (o CompositePathResponseArrayArrayOutput) ToCompositePathResponseArrayArrayOutputWithContext(ctx context.Context) CompositePathResponseArrayArrayOutput {
+	return o
+}
+
+func (o CompositePathResponseArrayArrayOutput) Index(i pulumi.IntInput) CompositePathResponseArrayOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CompositePathResponseArray {
+		return vs[0].([]CompositePathResponseArray)[vs[1].(int)]
+	}).(CompositePathResponseArrayOutput)
+}
+
+// CompositePathResponseArrayArrayInput is an input type that accepts CompositePathResponseArrayArray and CompositePathResponseArrayArrayOutput values.
+// You can construct a concrete instance of `CompositePathResponseArrayArrayInput` via:
+//
+//          CompositePathResponseArrayArray{ CompositePathResponseArray{ CompositePathResponseArgs{...} } }
+type CompositePathResponseArrayArrayInput interface {
+	pulumi.Input
+
+	ToCompositePathResponseArrayArrayOutput() CompositePathResponseArrayArrayOutput
+	ToCompositePathResponseArrayArrayOutputWithContext(context.Context) CompositePathResponseArrayArrayOutput
+}
+
 func init() {
 	pulumi.RegisterOutputType(ApiPropertiesOutput{})
 	pulumi.RegisterOutputType(ApiPropertiesPtrOutput{})
@@ -16171,4 +16261,5 @@ func init() {
 	pulumi.RegisterOutputType(VirtualNetworkRuleArrayOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkRuleResponseOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkRuleResponseArrayOutput{})
+	pulumi.RegisterOutputType(CompositePathResponseArrayArrayOutput{})
 }
