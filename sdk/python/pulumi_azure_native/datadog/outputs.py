@@ -340,9 +340,9 @@ class MonitorPropertiesResponse(dict):
                  liftr_resource_category: str,
                  liftr_resource_preference: int,
                  marketplace_subscription_status: str,
+                 provisioning_state: str,
                  datadog_organization_properties: Optional['outputs.DatadogOrganizationPropertiesResponse'] = None,
                  monitoring_status: Optional[str] = None,
-                 provisioning_state: Optional[str] = None,
                  user_info: Optional['outputs.UserInfoResponse'] = None):
         """
         Properties specific to the monitor resource.
@@ -355,12 +355,11 @@ class MonitorPropertiesResponse(dict):
         pulumi.set(__self__, "liftr_resource_category", liftr_resource_category)
         pulumi.set(__self__, "liftr_resource_preference", liftr_resource_preference)
         pulumi.set(__self__, "marketplace_subscription_status", marketplace_subscription_status)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
         if datadog_organization_properties is not None:
             pulumi.set(__self__, "datadog_organization_properties", datadog_organization_properties)
         if monitoring_status is not None:
             pulumi.set(__self__, "monitoring_status", monitoring_status)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
         if user_info is not None:
             pulumi.set(__self__, "user_info", user_info)
 
@@ -386,6 +385,11 @@ class MonitorPropertiesResponse(dict):
         return pulumi.get(self, "marketplace_subscription_status")
 
     @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        return pulumi.get(self, "provisioning_state")
+
+    @property
     @pulumi.getter(name="datadogOrganizationProperties")
     def datadog_organization_properties(self) -> Optional['outputs.DatadogOrganizationPropertiesResponse']:
         """
@@ -400,11 +404,6 @@ class MonitorPropertiesResponse(dict):
         Flag specifying if the resource monitoring is enabled or disabled.
         """
         return pulumi.get(self, "monitoring_status")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
-        return pulumi.get(self, "provisioning_state")
 
     @property
     @pulumi.getter(name="userInfo")

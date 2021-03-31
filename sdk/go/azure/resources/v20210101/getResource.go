@@ -32,6 +32,8 @@ type LookupResourceArgs struct {
 
 // Resource information.
 type LookupResourceResult struct {
+	// Resource extended location.
+	ExtendedLocation *ExtendedLocationResponse `pulumi:"extendedLocation"`
 	// Resource ID
 	Id string `pulumi:"id"`
 	// The identity of the resource.

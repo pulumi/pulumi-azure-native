@@ -15,6 +15,8 @@ import (
 type Resource struct {
 	pulumi.CustomResourceState
 
+	// Resource extended location.
+	ExtendedLocation ExtendedLocationResponsePtrOutput `pulumi:"extendedLocation"`
 	// The identity of the resource.
 	Identity IdentityResponsePtrOutput `pulumi:"identity"`
 	// The kind of the resource.
@@ -192,6 +194,8 @@ func GetResource(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Resource resources.
 type resourceState struct {
+	// Resource extended location.
+	ExtendedLocation *ExtendedLocationResponse `pulumi:"extendedLocation"`
 	// The identity of the resource.
 	Identity *IdentityResponse `pulumi:"identity"`
 	// The kind of the resource.
@@ -215,6 +219,8 @@ type resourceState struct {
 }
 
 type ResourceState struct {
+	// Resource extended location.
+	ExtendedLocation ExtendedLocationResponsePtrInput
 	// The identity of the resource.
 	Identity IdentityResponsePtrInput
 	// The kind of the resource.
@@ -242,6 +248,8 @@ func (ResourceState) ElementType() reflect.Type {
 }
 
 type resourceArgs struct {
+	// Resource extended location.
+	ExtendedLocation *ExtendedLocation `pulumi:"extendedLocation"`
 	// The identity of the resource.
 	Identity *Identity `pulumi:"identity"`
 	// The kind of the resource.
@@ -272,6 +280,8 @@ type resourceArgs struct {
 
 // The set of arguments for constructing a Resource resource.
 type ResourceArgs struct {
+	// Resource extended location.
+	ExtendedLocation ExtendedLocationPtrInput
 	// The identity of the resource.
 	Identity IdentityPtrInput
 	// The kind of the resource.

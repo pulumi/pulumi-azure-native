@@ -27,9 +27,6 @@ namespace Pulumi.AzureNative.Datadog.V20210301.Inputs
         [Input("monitoringStatus")]
         public InputUnion<string, Pulumi.AzureNative.Datadog.V20210301.MonitoringStatus>? MonitoringStatus { get; set; }
 
-        [Input("provisioningState")]
-        public InputUnion<string, Pulumi.AzureNative.Datadog.V20210301.ProvisioningState>? ProvisioningState { get; set; }
-
         /// <summary>
         /// User info
         /// </summary>

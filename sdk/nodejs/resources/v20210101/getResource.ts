@@ -53,6 +53,10 @@ export interface GetResourceArgs {
  */
 export interface GetResourceResult {
     /**
+     * Resource extended location.
+     */
+    readonly extendedLocation?: outputs.resources.v20210101.ExtendedLocationResponse;
+    /**
      * Resource ID
      */
     readonly id: string;

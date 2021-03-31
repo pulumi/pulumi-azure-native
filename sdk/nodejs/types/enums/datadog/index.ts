@@ -31,17 +31,3 @@ export const MonitoringStatus = {
  * Flag specifying if the resource monitoring is enabled or disabled.
  */
 export type MonitoringStatus = (typeof MonitoringStatus)[keyof typeof MonitoringStatus];
-
-export const ProvisioningState = {
-    Accepted: "Accepted",
-    Creating: "Creating",
-    Updating: "Updating",
-    Deleting: "Deleting",
-    Succeeded: "Succeeded",
-    Failed: "Failed",
-    Canceled: "Canceled",
-    Deleted: "Deleted",
-    NotSpecified: "NotSpecified",
-} as const;
-
-export type ProvisioningState = (typeof ProvisioningState)[keyof typeof ProvisioningState];

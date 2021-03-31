@@ -7,7 +7,6 @@ from enum import Enum
 __all__ = [
     'ManagedIdentityTypes',
     'MonitoringStatus',
-    'ProvisioningState',
 ]
 
 
@@ -25,15 +24,3 @@ class MonitoringStatus(str, Enum):
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
-
-
-class ProvisioningState(str, Enum):
-    ACCEPTED = "Accepted"
-    CREATING = "Creating"
-    UPDATING = "Updating"
-    DELETING = "Deleting"
-    SUCCEEDED = "Succeeded"
-    FAILED = "Failed"
-    CANCELED = "Canceled"
-    DELETED = "Deleted"
-    NOT_SPECIFIED = "NotSpecified"

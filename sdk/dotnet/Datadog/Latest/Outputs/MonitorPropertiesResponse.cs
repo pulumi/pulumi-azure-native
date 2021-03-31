@@ -30,7 +30,7 @@ namespace Pulumi.AzureNative.Datadog.Latest.Outputs
         /// Flag specifying if the resource monitoring is enabled or disabled.
         /// </summary>
         public readonly string? MonitoringStatus;
-        public readonly string? ProvisioningState;
+        public readonly string ProvisioningState;
         /// <summary>
         /// User info
         /// </summary>
@@ -48,7 +48,7 @@ namespace Pulumi.AzureNative.Datadog.Latest.Outputs
 
             string? monitoringStatus,
 
-            string? provisioningState,
+            string provisioningState,
 
             Outputs.UserInfoResponse? userInfo)
         {

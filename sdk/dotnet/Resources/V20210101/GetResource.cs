@@ -61,6 +61,10 @@ namespace Pulumi.AzureNative.Resources.V20210101
     public sealed class GetResourceResult
     {
         /// <summary>
+        /// Resource extended location.
+        /// </summary>
+        public readonly Outputs.ExtendedLocationResponse? ExtendedLocation;
+        /// <summary>
         /// Resource ID
         /// </summary>
         public readonly string Id;
@@ -107,6 +111,8 @@ namespace Pulumi.AzureNative.Resources.V20210101
 
         [OutputConstructor]
         private GetResourceResult(
+            Outputs.ExtendedLocationResponse? extendedLocation,
+
             string id,
 
             Outputs.IdentityResponse? identity,
@@ -129,6 +135,7 @@ namespace Pulumi.AzureNative.Resources.V20210101
 
             string type)
         {
+            ExtendedLocation = extendedLocation;
             Id = id;
             Identity = identity;
             Kind = kind;

@@ -18,6 +18,7 @@ class Resource(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -39,6 +40,7 @@ class Resource(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: Resource extended location.
         :param pulumi.Input[pulumi.InputType['IdentityArgs']] identity: The identity of the resource.
         :param pulumi.Input[str] kind: The kind of the resource.
         :param pulumi.Input[str] location: Resource location
@@ -70,6 +72,7 @@ class Resource(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['extended_location'] = extended_location
             __props__['identity'] = identity
             __props__['kind'] = kind
             __props__['location'] = location
@@ -117,6 +120,7 @@ class Resource(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["extended_location"] = None
         __props__["identity"] = None
         __props__["kind"] = None
         __props__["location"] = None
@@ -128,6 +132,14 @@ class Resource(pulumi.CustomResource):
         __props__["tags"] = None
         __props__["type"] = None
         return Resource(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="extendedLocation")
+    def extended_location(self) -> pulumi.Output[Optional['outputs.ExtendedLocationResponse']]:
+        """
+        Resource extended location.
+        """
+        return pulumi.get(self, "extended_location")
 
     @property
     @pulumi.getter

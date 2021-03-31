@@ -20,7 +20,10 @@ class GetResourceResult:
     """
     Resource information.
     """
-    def __init__(__self__, id=None, identity=None, kind=None, location=None, managed_by=None, name=None, plan=None, properties=None, sku=None, tags=None, type=None):
+    def __init__(__self__, extended_location=None, id=None, identity=None, kind=None, location=None, managed_by=None, name=None, plan=None, properties=None, sku=None, tags=None, type=None):
+        if extended_location and not isinstance(extended_location, dict):
+            raise TypeError("Expected argument 'extended_location' to be a dict")
+        pulumi.set(__self__, "extended_location", extended_location)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -54,6 +57,14 @@ class GetResourceResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="extendedLocation")
+    def extended_location(self) -> Optional['outputs.ExtendedLocationResponse']:
+        """
+        Resource extended location.
+        """
+        return pulumi.get(self, "extended_location")
 
     @property
     @pulumi.getter
@@ -150,6 +161,7 @@ class AwaitableGetResourceResult(GetResourceResult):
         if False:
             yield self
         return GetResourceResult(
+            extended_location=self.extended_location,
             id=self.id,
             identity=self.identity,
             kind=self.kind,
@@ -192,6 +204,7 @@ def get_resource(parent_resource_path: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:resources/v20210101:getResource', __args__, opts=opts, typ=GetResourceResult).value
 
     return AwaitableGetResourceResult(
+        extended_location=__ret__.extended_location,
         id=__ret__.id,
         identity=__ret__.identity,
         kind=__ret__.kind,

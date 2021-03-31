@@ -22,6 +22,7 @@ __all__ = [
     'DeploymentPropertiesExtendedResponse',
     'ErrorAdditionalInfoResponse',
     'ErrorResponseResponse',
+    'ExtendedLocationResponse',
     'IdentityResponse',
     'IdentityResponseUserAssignedIdentities',
     'OnErrorDeploymentExtendedResponse',
@@ -736,6 +737,44 @@ class ErrorResponseResponse(dict):
         The error target.
         """
         return pulumi.get(self, "target")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ExtendedLocationResponse(dict):
+    """
+    Resource extended location.
+    """
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None):
+        """
+        Resource extended location.
+        :param str name: The extended location name.
+        :param str type: The extended location type.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The extended location name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The extended location type.
+        """
+        return pulumi.get(self, "type")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

@@ -65,37 +65,3 @@ func (e MonitoringStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
 func (e MonitoringStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
-
-type ProvisioningState pulumi.String
-
-const (
-	ProvisioningStateAccepted     = ProvisioningState("Accepted")
-	ProvisioningStateCreating     = ProvisioningState("Creating")
-	ProvisioningStateUpdating     = ProvisioningState("Updating")
-	ProvisioningStateDeleting     = ProvisioningState("Deleting")
-	ProvisioningStateSucceeded    = ProvisioningState("Succeeded")
-	ProvisioningStateFailed       = ProvisioningState("Failed")
-	ProvisioningStateCanceled     = ProvisioningState("Canceled")
-	ProvisioningStateDeleted      = ProvisioningState("Deleted")
-	ProvisioningStateNotSpecified = ProvisioningState("NotSpecified")
-)
-
-func (ProvisioningState) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
-}
-
-func (e ProvisioningState) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ProvisioningState) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ProvisioningState) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e ProvisioningState) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}

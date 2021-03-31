@@ -7,6 +7,7 @@ from enum import Enum
 __all__ = [
     'DeploymentMode',
     'ExpressionEvaluationOptionsScopeType',
+    'ExtendedLocationType',
     'OnErrorDeploymentType',
     'ResourceIdentityType',
 ]
@@ -27,6 +28,13 @@ class ExpressionEvaluationOptionsScopeType(str, Enum):
     NOT_SPECIFIED = "NotSpecified"
     OUTER = "Outer"
     INNER = "Inner"
+
+
+class ExtendedLocationType(str, Enum):
+    """
+    The extended location type.
+    """
+    EDGE_ZONE = "EdgeZone"
 
 
 class OnErrorDeploymentType(str, Enum):

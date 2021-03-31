@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.Resources.V20210101
     public partial class Resource : Pulumi.CustomResource
     {
         /// <summary>
+        /// Resource extended location.
+        /// </summary>
+        [Output("extendedLocation")]
+        public Output<Outputs.ExtendedLocationResponse?> ExtendedLocation { get; private set; } = null!;
+
+        /// <summary>
         /// The identity of the resource.
         /// </summary>
         [Output("identity")]
@@ -160,6 +166,12 @@ namespace Pulumi.AzureNative.Resources.V20210101
 
     public sealed class ResourceArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Resource extended location.
+        /// </summary>
+        [Input("extendedLocation")]
+        public Input<Inputs.ExtendedLocationArgs>? ExtendedLocation { get; set; }
+
         /// <summary>
         /// The identity of the resource.
         /// </summary>

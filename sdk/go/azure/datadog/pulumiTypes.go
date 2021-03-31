@@ -1503,8 +1503,7 @@ type MonitorProperties struct {
 	// Datadog organization properties
 	DatadogOrganizationProperties *DatadogOrganizationProperties `pulumi:"datadogOrganizationProperties"`
 	// Flag specifying if the resource monitoring is enabled or disabled.
-	MonitoringStatus  *string `pulumi:"monitoringStatus"`
-	ProvisioningState *string `pulumi:"provisioningState"`
+	MonitoringStatus *string `pulumi:"monitoringStatus"`
 	// User info
 	UserInfo *UserInfo `pulumi:"userInfo"`
 }
@@ -1525,8 +1524,7 @@ type MonitorPropertiesArgs struct {
 	// Datadog organization properties
 	DatadogOrganizationProperties DatadogOrganizationPropertiesPtrInput `pulumi:"datadogOrganizationProperties"`
 	// Flag specifying if the resource monitoring is enabled or disabled.
-	MonitoringStatus  pulumi.StringPtrInput `pulumi:"monitoringStatus"`
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
+	MonitoringStatus pulumi.StringPtrInput `pulumi:"monitoringStatus"`
 	// User info
 	UserInfo UserInfoPtrInput `pulumi:"userInfo"`
 }
@@ -1619,10 +1617,6 @@ func (o MonitorPropertiesOutput) MonitoringStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MonitorProperties) *string { return v.MonitoringStatus }).(pulumi.StringPtrOutput)
 }
 
-func (o MonitorPropertiesOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MonitorProperties) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
-}
-
 // User info
 func (o MonitorPropertiesOutput) UserInfo() UserInfoPtrOutput {
 	return o.ApplyT(func(v MonitorProperties) *UserInfo { return v.UserInfo }).(UserInfoPtrOutput)
@@ -1666,15 +1660,6 @@ func (o MonitorPropertiesPtrOutput) MonitoringStatus() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o MonitorPropertiesPtrOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MonitorProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ProvisioningState
-	}).(pulumi.StringPtrOutput)
-}
-
 // User info
 func (o MonitorPropertiesPtrOutput) UserInfo() UserInfoPtrOutput {
 	return o.ApplyT(func(v *MonitorProperties) *UserInfo {
@@ -1696,7 +1681,7 @@ type MonitorPropertiesResponse struct {
 	MarketplaceSubscriptionStatus string `pulumi:"marketplaceSubscriptionStatus"`
 	// Flag specifying if the resource monitoring is enabled or disabled.
 	MonitoringStatus  *string `pulumi:"monitoringStatus"`
-	ProvisioningState *string `pulumi:"provisioningState"`
+	ProvisioningState string  `pulumi:"provisioningState"`
 	// User info
 	UserInfo *UserInfoResponse `pulumi:"userInfo"`
 }
@@ -1723,7 +1708,7 @@ type MonitorPropertiesResponseArgs struct {
 	MarketplaceSubscriptionStatus pulumi.StringInput `pulumi:"marketplaceSubscriptionStatus"`
 	// Flag specifying if the resource monitoring is enabled or disabled.
 	MonitoringStatus  pulumi.StringPtrInput `pulumi:"monitoringStatus"`
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
+	ProvisioningState pulumi.StringInput    `pulumi:"provisioningState"`
 	// User info
 	UserInfo UserInfoResponsePtrInput `pulumi:"userInfo"`
 }
@@ -1832,8 +1817,8 @@ func (o MonitorPropertiesResponseOutput) MonitoringStatus() pulumi.StringPtrOutp
 	return o.ApplyT(func(v MonitorPropertiesResponse) *string { return v.MonitoringStatus }).(pulumi.StringPtrOutput)
 }
 
-func (o MonitorPropertiesResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MonitorPropertiesResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+func (o MonitorPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v MonitorPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
 // User info
@@ -1913,7 +1898,7 @@ func (o MonitorPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtr
 		if v == nil {
 			return nil
 		}
-		return v.ProvisioningState
+		return &v.ProvisioningState
 	}).(pulumi.StringPtrOutput)
 }
 

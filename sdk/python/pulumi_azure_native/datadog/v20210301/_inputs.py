@@ -149,7 +149,6 @@ class MonitorPropertiesArgs:
     def __init__(__self__, *,
                  datadog_organization_properties: Optional[pulumi.Input['DatadogOrganizationPropertiesArgs']] = None,
                  monitoring_status: Optional[pulumi.Input[Union[str, 'MonitoringStatus']]] = None,
-                 provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisioningState']]] = None,
                  user_info: Optional[pulumi.Input['UserInfoArgs']] = None):
         """
         Properties specific to the monitor resource.
@@ -161,8 +160,6 @@ class MonitorPropertiesArgs:
             pulumi.set(__self__, "datadog_organization_properties", datadog_organization_properties)
         if monitoring_status is not None:
             pulumi.set(__self__, "monitoring_status", monitoring_status)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
         if user_info is not None:
             pulumi.set(__self__, "user_info", user_info)
 
@@ -189,15 +186,6 @@ class MonitorPropertiesArgs:
     @monitoring_status.setter
     def monitoring_status(self, value: Optional[pulumi.Input[Union[str, 'MonitoringStatus']]]):
         pulumi.set(self, "monitoring_status", value)
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[Union[str, 'ProvisioningState']]]:
-        return pulumi.get(self, "provisioning_state")
-
-    @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[Union[str, 'ProvisioningState']]]):
-        pulumi.set(self, "provisioning_state", value)
 
     @property
     @pulumi.getter(name="userInfo")
