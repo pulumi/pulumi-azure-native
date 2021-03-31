@@ -75,7 +75,7 @@ export class ProductPolicy extends pulumi.CustomResource {
             if ((!args || args.serviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            inputs["contentFormat"] = (args ? args.contentFormat : undefined) || "xml";
+            inputs["contentFormat"] = (args ? args.contentFormat : undefined) ?? "xml";
             inputs["policyContent"] = args ? args.policyContent : undefined;
             inputs["policyId"] = args ? args.policyId : undefined;
             inputs["productId"] = args ? args.productId : undefined;

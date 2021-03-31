@@ -35,17 +35,17 @@ export class Provider extends pulumi.ProviderResource {
         opts = opts || {};
         {
             inputs["auxiliaryTenantIds"] = pulumi.output(args ? args.auxiliaryTenantIds : undefined).apply(JSON.stringify);
-            inputs["clientCertificatePassword"] = (args ? args.clientCertificatePassword : undefined) || utilities.getEnv("ARM_CLIENT_CERTIFICATE_PASSWORD");
-            inputs["clientCertificatePath"] = (args ? args.clientCertificatePath : undefined) || utilities.getEnv("ARM_CLIENT_CERTIFICATE_PATH");
-            inputs["clientId"] = (args ? args.clientId : undefined) || utilities.getEnv("ARM_CLIENT_ID");
-            inputs["clientSecret"] = (args ? args.clientSecret : undefined) || utilities.getEnv("ARM_CLIENT_SECRET");
-            inputs["disablePulumiPartnerId"] = pulumi.output((args ? args.disablePulumiPartnerId : undefined) || <any>utilities.getEnvBoolean("ARM_DISABLE_PULUMI_PARTNER_ID")).apply(JSON.stringify);
-            inputs["environment"] = (args ? args.environment : undefined) || (utilities.getEnv("ARM_ENVIRONMENT") || "public");
-            inputs["msiEndpoint"] = (args ? args.msiEndpoint : undefined) || utilities.getEnv("ARM_MSI_ENDPOINT");
-            inputs["partnerId"] = (args ? args.partnerId : undefined) || utilities.getEnv("ARM_PARTNER_ID");
-            inputs["subscriptionId"] = (args ? args.subscriptionId : undefined) || utilities.getEnv("ARM_SUBSCRIPTION_ID");
-            inputs["tenantId"] = (args ? args.tenantId : undefined) || utilities.getEnv("ARM_TENANT_ID");
-            inputs["useMsi"] = pulumi.output((args ? args.useMsi : undefined) || (<any>utilities.getEnvBoolean("ARM_USE_MSI") || false)).apply(JSON.stringify);
+            inputs["clientCertificatePassword"] = (args ? args.clientCertificatePassword : undefined) ?? utilities.getEnv("ARM_CLIENT_CERTIFICATE_PASSWORD");
+            inputs["clientCertificatePath"] = (args ? args.clientCertificatePath : undefined) ?? utilities.getEnv("ARM_CLIENT_CERTIFICATE_PATH");
+            inputs["clientId"] = (args ? args.clientId : undefined) ?? utilities.getEnv("ARM_CLIENT_ID");
+            inputs["clientSecret"] = (args ? args.clientSecret : undefined) ?? utilities.getEnv("ARM_CLIENT_SECRET");
+            inputs["disablePulumiPartnerId"] = pulumi.output((args ? args.disablePulumiPartnerId : undefined) ?? <any>utilities.getEnvBoolean("ARM_DISABLE_PULUMI_PARTNER_ID")).apply(JSON.stringify);
+            inputs["environment"] = (args ? args.environment : undefined) ?? (utilities.getEnv("ARM_ENVIRONMENT") || "public");
+            inputs["msiEndpoint"] = (args ? args.msiEndpoint : undefined) ?? utilities.getEnv("ARM_MSI_ENDPOINT");
+            inputs["partnerId"] = (args ? args.partnerId : undefined) ?? utilities.getEnv("ARM_PARTNER_ID");
+            inputs["subscriptionId"] = (args ? args.subscriptionId : undefined) ?? utilities.getEnv("ARM_SUBSCRIPTION_ID");
+            inputs["tenantId"] = (args ? args.tenantId : undefined) ?? utilities.getEnv("ARM_TENANT_ID");
+            inputs["useMsi"] = pulumi.output((args ? args.useMsi : undefined) ?? (<any>utilities.getEnvBoolean("ARM_USE_MSI") || false)).apply(JSON.stringify);
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});

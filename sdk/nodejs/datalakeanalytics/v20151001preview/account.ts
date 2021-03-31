@@ -189,7 +189,7 @@ export class Account extends pulumi.CustomResource {
             inputs["maxJobCount"] = args ? args.maxJobCount : undefined;
             inputs["minPriorityPerJob"] = args ? args.minPriorityPerJob : undefined;
             inputs["newTier"] = args ? args.newTier : undefined;
-            inputs["queryStoreRetention"] = (args ? args.queryStoreRetention : undefined) || 30;
+            inputs["queryStoreRetention"] = (args ? args.queryStoreRetention : undefined) ?? 30;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["storageAccounts"] = args ? args.storageAccounts : undefined;
             inputs["tags"] = args ? args.tags : undefined;

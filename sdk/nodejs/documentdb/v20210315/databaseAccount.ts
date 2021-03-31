@@ -211,7 +211,7 @@ export class DatabaseAccount extends pulumi.CustomResource {
             inputs["ipRules"] = args ? args.ipRules : undefined;
             inputs["isVirtualNetworkFilterEnabled"] = args ? args.isVirtualNetworkFilterEnabled : undefined;
             inputs["keyVaultKeyUri"] = args ? args.keyVaultKeyUri : undefined;
-            inputs["kind"] = (args ? args.kind : undefined) || "GlobalDocumentDB";
+            inputs["kind"] = (args ? args.kind : undefined) ?? "GlobalDocumentDB";
             inputs["location"] = args ? args.location : undefined;
             inputs["locations"] = args ? args.locations : undefined;
             inputs["networkAclBypass"] = args ? args.networkAclBypass : undefined;

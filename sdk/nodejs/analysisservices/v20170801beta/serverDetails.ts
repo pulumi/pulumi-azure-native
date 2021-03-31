@@ -118,10 +118,10 @@ export class ServerDetails extends pulumi.CustomResource {
             inputs["gatewayDetails"] = args ? args.gatewayDetails : undefined;
             inputs["ipV4FirewallSettings"] = args ? args.ipV4FirewallSettings : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["managedMode"] = (args ? args.managedMode : undefined) || 1;
-            inputs["querypoolConnectionMode"] = (args ? args.querypoolConnectionMode : undefined) || "All";
+            inputs["managedMode"] = (args ? args.managedMode : undefined) ?? 1;
+            inputs["querypoolConnectionMode"] = (args ? args.querypoolConnectionMode : undefined) ?? "All";
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serverMonitorMode"] = (args ? args.serverMonitorMode : undefined) || 1;
+            inputs["serverMonitorMode"] = (args ? args.serverMonitorMode : undefined) ?? 1;
             inputs["serverName"] = args ? args.serverName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;

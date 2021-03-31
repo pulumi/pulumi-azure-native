@@ -104,9 +104,9 @@ export class ServerDetails extends pulumi.CustomResource {
             inputs["asAdministrators"] = args ? args.asAdministrators : undefined;
             inputs["backupBlobContainerUri"] = args ? args.backupBlobContainerUri : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["managedMode"] = (args ? args.managedMode : undefined) || 1;
+            inputs["managedMode"] = (args ? args.managedMode : undefined) ?? 1;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serverMonitorMode"] = (args ? args.serverMonitorMode : undefined) || 1;
+            inputs["serverMonitorMode"] = (args ? args.serverMonitorMode : undefined) ?? 1;
             inputs["serverName"] = args ? args.serverName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;

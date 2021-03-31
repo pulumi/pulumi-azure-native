@@ -152,7 +152,7 @@ export class NetworkInterface extends pulumi.CustomResource {
             inputs["migrationPhase"] = args ? args.migrationPhase : undefined;
             inputs["networkInterfaceName"] = args ? args.networkInterfaceName : undefined;
             inputs["networkSecurityGroup"] = args ? args.networkSecurityGroup : undefined;
-            inputs["nicType"] = (args ? args.nicType : undefined) || "Standard";
+            inputs["nicType"] = (args ? args.nicType : undefined) ?? "Standard";
             inputs["privateLinkService"] = args ? args.privateLinkService : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;

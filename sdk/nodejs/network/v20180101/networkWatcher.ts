@@ -70,7 +70,7 @@ export class NetworkWatcher extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["etag"] = (args ? args.etag : undefined) || "A unique read-only string that changes whenever the resource is updated.";
+            inputs["etag"] = (args ? args.etag : undefined) ?? "A unique read-only string that changes whenever the resource is updated.";
             inputs["id"] = args ? args.id : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["networkWatcherName"] = args ? args.networkWatcherName : undefined;

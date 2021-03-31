@@ -130,7 +130,7 @@ export class Task extends pulumi.CustomResource {
             inputs["agentPoolName"] = args ? args.agentPoolName : undefined;
             inputs["credentials"] = args ? args.credentials : undefined;
             inputs["identity"] = args ? args.identity : undefined;
-            inputs["isSystemTask"] = (args ? args.isSystemTask : undefined) || false;
+            inputs["isSystemTask"] = (args ? args.isSystemTask : undefined) ?? false;
             inputs["location"] = args ? args.location : undefined;
             inputs["logTemplate"] = args ? args.logTemplate : undefined;
             inputs["platform"] = args ? args.platform : undefined;
@@ -140,7 +140,7 @@ export class Task extends pulumi.CustomResource {
             inputs["step"] = args ? args.step : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["taskName"] = args ? args.taskName : undefined;
-            inputs["timeout"] = (args ? args.timeout : undefined) || 3600;
+            inputs["timeout"] = (args ? args.timeout : undefined) ?? 3600;
             inputs["trigger"] = args ? args.trigger : undefined;
             inputs["creationDate"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;

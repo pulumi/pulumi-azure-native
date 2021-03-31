@@ -100,7 +100,7 @@ export class EventSubscription extends pulumi.CustomResource {
             }
             inputs["deadLetterDestination"] = args ? args.deadLetterDestination : undefined;
             inputs["destination"] = args ? args.destination : undefined;
-            inputs["eventDeliverySchema"] = (args ? args.eventDeliverySchema : undefined) || "EventGridSchema";
+            inputs["eventDeliverySchema"] = (args ? args.eventDeliverySchema : undefined) ?? "EventGridSchema";
             inputs["eventSubscriptionName"] = args ? args.eventSubscriptionName : undefined;
             inputs["expirationTimeUtc"] = args ? args.expirationTimeUtc : undefined;
             inputs["filter"] = args ? args.filter : undefined;

@@ -209,7 +209,7 @@ export class Job extends pulumi.CustomResource {
             inputs["outputDirectories"] = args ? args.outputDirectories : undefined;
             inputs["pyTorchSettings"] = args ? args.pyTorchSettings : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["schedulingPriority"] = (args ? args.schedulingPriority : undefined) || "normal";
+            inputs["schedulingPriority"] = (args ? args.schedulingPriority : undefined) ?? "normal";
             inputs["secrets"] = args ? args.secrets : undefined;
             inputs["stdOutErrPathPrefix"] = args ? args.stdOutErrPathPrefix : undefined;
             inputs["tensorFlowSettings"] = args ? args.tensorFlowSettings : undefined;
