@@ -36,6 +36,8 @@ CHANGELOG
   [#625](https://github.com/pulumi/pulumi-azure-native/issues/625)
 - Add support for arm64 plugin binaries.
   [#652](https://github.com/pulumi/pulumi-azure-native/pull/652)
+- Add nested collection types in Go to fix SDK build issues
+  [#707](https://github.com/pulumi/pulumi-azure-native/pull/707)
 
 #### Fixes
 
