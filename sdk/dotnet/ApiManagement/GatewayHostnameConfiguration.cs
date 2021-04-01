@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ApiManagement
 {
     /// <summary>
     /// Gateway hostname configuration details.
-    /// API Version: 2019-12-01.
+    /// API Version: 2020-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:GatewayHostnameConfiguration")]
     public partial class GatewayHostnameConfiguration : Pulumi.CustomResource
@@ -29,6 +29,12 @@ namespace Pulumi.AzureNative.ApiManagement
         public Output<string?> Hostname { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies if HTTP/2.0 is supported
+        /// </summary>
+        [Output("http2Enabled")]
+        public Output<bool?> Http2Enabled { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name.
         /// </summary>
         [Output("name")]
@@ -39,6 +45,18 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         [Output("negotiateClientCertificate")]
         public Output<bool?> NegotiateClientCertificate { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies if TLS 1.0 is supported
+        /// </summary>
+        [Output("tls10Enabled")]
+        public Output<bool?> Tls10Enabled { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies if TLS 1.1 is supported
+        /// </summary>
+        [Output("tls11Enabled")]
+        public Output<bool?> Tls11Enabled { get; private set; } = null!;
 
         /// <summary>
         /// Resource type for API Management resource.
@@ -132,6 +150,12 @@ namespace Pulumi.AzureNative.ApiManagement
         public Input<string>? Hostname { get; set; }
 
         /// <summary>
+        /// Specifies if HTTP/2.0 is supported
+        /// </summary>
+        [Input("http2Enabled")]
+        public Input<bool>? Http2Enabled { get; set; }
+
+        /// <summary>
         /// Determines whether gateway requests client certificate
         /// </summary>
         [Input("negotiateClientCertificate")]
@@ -148,6 +172,18 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         [Input("serviceName", required: true)]
         public Input<string> ServiceName { get; set; } = null!;
+
+        /// <summary>
+        /// Specifies if TLS 1.0 is supported
+        /// </summary>
+        [Input("tls10Enabled")]
+        public Input<bool>? Tls10Enabled { get; set; }
+
+        /// <summary>
+        /// Specifies if TLS 1.1 is supported
+        /// </summary>
+        [Input("tls11Enabled")]
+        public Input<bool>? Tls11Enabled { get; set; }
 
         public GatewayHostnameConfigurationArgs()
         {

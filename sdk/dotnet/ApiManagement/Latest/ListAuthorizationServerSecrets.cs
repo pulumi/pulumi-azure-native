@@ -13,8 +13,8 @@ namespace Pulumi.AzureNative.ApiManagement.Latest
     public static class ListAuthorizationServerSecrets
     {
         /// <summary>
-        /// Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
-        /// Latest API Version: 2019-12-01.
+        /// OAuth Server Secrets Contract.
+        /// Latest API Version: 2020-12-01.
         /// </summary>
         public static Task<ListAuthorizationServerSecretsResult> InvokeAsync(ListAuthorizationServerSecretsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListAuthorizationServerSecretsResult>("azure-native:apimanagement/latest:listAuthorizationServerSecrets", args ?? new ListAuthorizationServerSecretsArgs(), options.WithVersion());
@@ -51,14 +51,29 @@ namespace Pulumi.AzureNative.ApiManagement.Latest
     public sealed class ListAuthorizationServerSecretsResult
     {
         /// <summary>
-        /// Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
+        /// oAuth Authorization Server Secrets.
         /// </summary>
         public readonly string? ClientSecret;
+        /// <summary>
+        /// Can be optionally specified when resource owner password grant type is supported by this authorization server. Default resource owner password.
+        /// </summary>
+        public readonly string? ResourceOwnerPassword;
+        /// <summary>
+        /// Can be optionally specified when resource owner password grant type is supported by this authorization server. Default resource owner username.
+        /// </summary>
+        public readonly string? ResourceOwnerUsername;
 
         [OutputConstructor]
-        private ListAuthorizationServerSecretsResult(string? clientSecret)
+        private ListAuthorizationServerSecretsResult(
+            string? clientSecret,
+
+            string? resourceOwnerPassword,
+
+            string? resourceOwnerUsername)
         {
             ClientSecret = clientSecret;
+            ResourceOwnerPassword = resourceOwnerPassword;
+            ResourceOwnerUsername = resourceOwnerUsername;
         }
     }
 }

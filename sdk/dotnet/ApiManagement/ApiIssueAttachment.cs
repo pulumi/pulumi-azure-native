@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ApiManagement
 {
     /// <summary>
     /// Issue Attachment Contract details.
-    /// API Version: 2019-12-01.
+    /// API Version: 2020-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:ApiIssueAttachment")]
     public partial class ApiIssueAttachment : Pulumi.CustomResource

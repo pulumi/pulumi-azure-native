@@ -48,7 +48,7 @@ def list_named_value(named_value_id: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListNamedValueResult:
     """
     Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
-    API Version: 2019-12-01.
+    API Version: 2020-12-01.
 
 
     :param str named_value_id: Identifier of the NamedValue.

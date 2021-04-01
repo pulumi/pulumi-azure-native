@@ -12,7 +12,7 @@ import (
 )
 
 // Gateway hostname configuration details.
-// API Version: 2019-12-01.
+// API Version: 2020-12-01.
 type GatewayHostnameConfiguration struct {
 	pulumi.CustomResourceState
 
@@ -20,10 +20,16 @@ type GatewayHostnameConfiguration struct {
 	CertificateId pulumi.StringPtrOutput `pulumi:"certificateId"`
 	// Hostname value. Supports valid domain name, partial or full wildcard
 	Hostname pulumi.StringPtrOutput `pulumi:"hostname"`
+	// Specifies if HTTP/2.0 is supported
+	Http2Enabled pulumi.BoolPtrOutput `pulumi:"http2Enabled"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Determines whether gateway requests client certificate
 	NegotiateClientCertificate pulumi.BoolPtrOutput `pulumi:"negotiateClientCertificate"`
+	// Specifies if TLS 1.0 is supported
+	Tls10Enabled pulumi.BoolPtrOutput `pulumi:"tls10Enabled"`
+	// Specifies if TLS 1.1 is supported
+	Tls11Enabled pulumi.BoolPtrOutput `pulumi:"tls11Enabled"`
 	// Resource type for API Management resource.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -112,10 +118,16 @@ type gatewayHostnameConfigurationState struct {
 	CertificateId *string `pulumi:"certificateId"`
 	// Hostname value. Supports valid domain name, partial or full wildcard
 	Hostname *string `pulumi:"hostname"`
+	// Specifies if HTTP/2.0 is supported
+	Http2Enabled *bool `pulumi:"http2Enabled"`
 	// Resource name.
 	Name *string `pulumi:"name"`
 	// Determines whether gateway requests client certificate
 	NegotiateClientCertificate *bool `pulumi:"negotiateClientCertificate"`
+	// Specifies if TLS 1.0 is supported
+	Tls10Enabled *bool `pulumi:"tls10Enabled"`
+	// Specifies if TLS 1.1 is supported
+	Tls11Enabled *bool `pulumi:"tls11Enabled"`
 	// Resource type for API Management resource.
 	Type *string `pulumi:"type"`
 }
@@ -125,10 +137,16 @@ type GatewayHostnameConfigurationState struct {
 	CertificateId pulumi.StringPtrInput
 	// Hostname value. Supports valid domain name, partial or full wildcard
 	Hostname pulumi.StringPtrInput
+	// Specifies if HTTP/2.0 is supported
+	Http2Enabled pulumi.BoolPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
 	// Determines whether gateway requests client certificate
 	NegotiateClientCertificate pulumi.BoolPtrInput
+	// Specifies if TLS 1.0 is supported
+	Tls10Enabled pulumi.BoolPtrInput
+	// Specifies if TLS 1.1 is supported
+	Tls11Enabled pulumi.BoolPtrInput
 	// Resource type for API Management resource.
 	Type pulumi.StringPtrInput
 }
@@ -146,12 +164,18 @@ type gatewayHostnameConfigurationArgs struct {
 	HcId *string `pulumi:"hcId"`
 	// Hostname value. Supports valid domain name, partial or full wildcard
 	Hostname *string `pulumi:"hostname"`
+	// Specifies if HTTP/2.0 is supported
+	Http2Enabled *bool `pulumi:"http2Enabled"`
 	// Determines whether gateway requests client certificate
 	NegotiateClientCertificate *bool `pulumi:"negotiateClientCertificate"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the API Management service.
 	ServiceName string `pulumi:"serviceName"`
+	// Specifies if TLS 1.0 is supported
+	Tls10Enabled *bool `pulumi:"tls10Enabled"`
+	// Specifies if TLS 1.1 is supported
+	Tls11Enabled *bool `pulumi:"tls11Enabled"`
 }
 
 // The set of arguments for constructing a GatewayHostnameConfiguration resource.
@@ -164,12 +188,18 @@ type GatewayHostnameConfigurationArgs struct {
 	HcId pulumi.StringPtrInput
 	// Hostname value. Supports valid domain name, partial or full wildcard
 	Hostname pulumi.StringPtrInput
+	// Specifies if HTTP/2.0 is supported
+	Http2Enabled pulumi.BoolPtrInput
 	// Determines whether gateway requests client certificate
 	NegotiateClientCertificate pulumi.BoolPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the API Management service.
 	ServiceName pulumi.StringInput
+	// Specifies if TLS 1.0 is supported
+	Tls10Enabled pulumi.BoolPtrInput
+	// Specifies if TLS 1.1 is supported
+	Tls11Enabled pulumi.BoolPtrInput
 }
 
 func (GatewayHostnameConfigurationArgs) ElementType() reflect.Type {

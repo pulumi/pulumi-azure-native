@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * NamedValue details.
- * Latest API Version: 2019-12-01.
+ * Latest API Version: 2020-12-01.
  */
 /** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getNamedValue'. */
 export function getNamedValue(args: GetNamedValueArgs, opts?: pulumi.InvokeOptions): Promise<GetNamedValueResult> {
@@ -53,6 +53,10 @@ export interface GetNamedValueResult {
      * Resource ID.
      */
     readonly id: string;
+    /**
+     * KeyVault location details of the namedValue.
+     */
+    readonly keyVault?: outputs.apimanagement.latest.KeyVaultContractPropertiesResponse;
     /**
      * Resource name.
      */

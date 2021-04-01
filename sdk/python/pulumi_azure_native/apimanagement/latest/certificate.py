@@ -7,6 +7,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
 
 __all__ = ['Certificate']
 
@@ -21,6 +23,7 @@ class Certificate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  certificate_id: Optional[pulumi.Input[str]] = None,
                  data: Optional[pulumi.Input[str]] = None,
+                 key_vault: Optional[pulumi.Input[pulumi.InputType['KeyVaultContractCreatePropertiesArgs']]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
@@ -29,12 +32,13 @@ class Certificate(pulumi.CustomResource):
                  __opts__=None):
         """
         Certificate details.
-        Latest API Version: 2019-12-01.
+        Latest API Version: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] certificate_id: Identifier of the certificate entity. Must be unique in the current API Management service instance.
         :param pulumi.Input[str] data: Base 64 encoded certificate using the application/x-pkcs12 representation.
+        :param pulumi.Input[pulumi.InputType['KeyVaultContractCreatePropertiesArgs']] key_vault: KeyVault location details of the certificate.
         :param pulumi.Input[str] password: Password for the Certificate
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] service_name: The name of the API Management service.
@@ -58,11 +62,8 @@ class Certificate(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['certificate_id'] = certificate_id
-            if data is None and not opts.urn:
-                raise TypeError("Missing required property 'data'")
             __props__['data'] = data
-            if password is None and not opts.urn:
-                raise TypeError("Missing required property 'password'")
+            __props__['key_vault'] = key_vault
             __props__['password'] = password
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -100,6 +101,7 @@ class Certificate(pulumi.CustomResource):
         __props__ = dict()
 
         __props__["expiration_date"] = None
+        __props__["key_vault"] = None
         __props__["name"] = None
         __props__["subject"] = None
         __props__["thumbprint"] = None
@@ -113,6 +115,14 @@ class Certificate(pulumi.CustomResource):
         Expiration date of the certificate. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
         """
         return pulumi.get(self, "expiration_date")
+
+    @property
+    @pulumi.getter(name="keyVault")
+    def key_vault(self) -> pulumi.Output[Optional['outputs.KeyVaultContractPropertiesResponse']]:
+        """
+        KeyVault location details of the certificate.
+        """
+        return pulumi.get(self, "key_vault")
 
     @property
     @pulumi.getter

@@ -16,12 +16,14 @@ __all__ = [
     'ClientAuthenticationMethod',
     'Confirmation',
     'ContentFormat',
+    'DataMaskingMode',
     'GrantType',
     'GroupType',
     'HostnameType',
     'HttpCorrelationProtocol',
     'IdentityProviderType',
     'LoggerType',
+    'OperationNameFormat',
     'PolicyContentFormat',
     'ProductState',
     'Protocol',
@@ -132,6 +134,14 @@ class ContentFormat(str, Enum):
     OPENAPI_JSON_LINK = "openapi+json-link"
 
 
+class DataMaskingMode(str, Enum):
+    """
+    Data masking mode.
+    """
+    MASK = "Mask"
+    HIDE = "Hide"
+
+
 class GrantType(str, Enum):
     AUTHORIZATION_CODE = "authorizationCode"
     IMPLICIT = "implicit"
@@ -186,6 +196,15 @@ class LoggerType(str, Enum):
     """
     AZURE_EVENT_HUB = "azureEventHub"
     APPLICATION_INSIGHTS = "applicationInsights"
+    AZURE_MONITOR = "azureMonitor"
+
+
+class OperationNameFormat(str, Enum):
+    """
+    The format of the Operation Name for Application Insights telemetries. Default is Name.
+    """
+    NAME = "Name"
+    URL = "Url"
 
 
 class PolicyContentFormat(str, Enum):
@@ -234,6 +253,7 @@ class SkuType(str, Enum):
     PREMIUM = "Premium"
     BASIC = "Basic"
     CONSUMPTION = "Consumption"
+    ISOLATED = "Isolated"
 
 
 class SoapApiType(str, Enum):

@@ -19,7 +19,7 @@ class GetCacheResult:
     """
     Cache details.
     """
-    def __init__(__self__, connection_string=None, description=None, id=None, name=None, resource_id=None, type=None):
+    def __init__(__self__, connection_string=None, description=None, id=None, name=None, resource_id=None, type=None, use_from_location=None):
         if connection_string and not isinstance(connection_string, str):
             raise TypeError("Expected argument 'connection_string' to be a str")
         pulumi.set(__self__, "connection_string", connection_string)
@@ -38,6 +38,9 @@ class GetCacheResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+        if use_from_location and not isinstance(use_from_location, str):
+            raise TypeError("Expected argument 'use_from_location' to be a str")
+        pulumi.set(__self__, "use_from_location", use_from_location)
 
     @property
     @pulumi.getter(name="connectionString")
@@ -87,6 +90,14 @@ class GetCacheResult:
         """
         return pulumi.get(self, "type")
 
+    @property
+    @pulumi.getter(name="useFromLocation")
+    def use_from_location(self) -> str:
+        """
+        Location identifier to use cache from (should be either 'default' or valid Azure region identifier)
+        """
+        return pulumi.get(self, "use_from_location")
+
 
 class AwaitableGetCacheResult(GetCacheResult):
     # pylint: disable=using-constant-test
@@ -99,7 +110,8 @@ class AwaitableGetCacheResult(GetCacheResult):
             id=self.id,
             name=self.name,
             resource_id=self.resource_id,
-            type=self.type)
+            type=self.type,
+            use_from_location=self.use_from_location)
 
 
 def get_cache(cache_id: Optional[str] = None,
@@ -108,7 +120,7 @@ def get_cache(cache_id: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCacheResult:
     """
     Cache details.
-    API Version: 2019-12-01.
+    API Version: 2020-12-01.
 
 
     :param str cache_id: Identifier of the Cache entity. Cache identifier (should be either 'default' or valid Azure region identifier).
@@ -131,4 +143,5 @@ def get_cache(cache_id: Optional[str] = None,
         id=__ret__.id,
         name=__ret__.name,
         resource_id=__ret__.resource_id,
-        type=__ret__.type)
+        type=__ret__.type,
+        use_from_location=__ret__.use_from_location)

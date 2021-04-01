@@ -85,7 +85,7 @@ def get_tag_by_product(product_id: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTagByProductResult:
     """
     Tag Contract details.
-    API Version: 2019-12-01.
+    API Version: 2020-12-01.
 
 
     :param str product_id: Product identifier. Must be unique in the current API Management service instance.

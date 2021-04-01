@@ -8,7 +8,7 @@ import (
 )
 
 // Gateway certificate authority details.
-// API Version: 2021-01-01-preview.
+// API Version: 2020-12-01.
 func LookupGatewayCertificateAuthority(ctx *pulumi.Context, args *LookupGatewayCertificateAuthorityArgs, opts ...pulumi.InvokeOption) (*LookupGatewayCertificateAuthorityResult, error) {
 	var rv LookupGatewayCertificateAuthorityResult
 	err := ctx.Invoke("azure-native:apimanagement:getGatewayCertificateAuthority", args, &rv, opts...)

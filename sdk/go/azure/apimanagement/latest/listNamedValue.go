@@ -8,7 +8,7 @@ import (
 )
 
 // Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
-// Latest API Version: 2019-12-01.
+// Latest API Version: 2020-12-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:listNamedValue'.
 func ListNamedValue(ctx *pulumi.Context, args *ListNamedValueArgs, opts ...pulumi.InvokeOption) (*ListNamedValueResult, error) {

@@ -8,7 +8,7 @@ import (
 )
 
 // Gateway hostname configuration details.
-// API Version: 2019-12-01.
+// API Version: 2020-12-01.
 func LookupGatewayHostnameConfiguration(ctx *pulumi.Context, args *LookupGatewayHostnameConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupGatewayHostnameConfigurationResult, error) {
 	var rv LookupGatewayHostnameConfigurationResult
 	err := ctx.Invoke("azure-native:apimanagement:getGatewayHostnameConfiguration", args, &rv, opts...)
@@ -35,12 +35,18 @@ type LookupGatewayHostnameConfigurationResult struct {
 	CertificateId *string `pulumi:"certificateId"`
 	// Hostname value. Supports valid domain name, partial or full wildcard
 	Hostname *string `pulumi:"hostname"`
+	// Specifies if HTTP/2.0 is supported
+	Http2Enabled *bool `pulumi:"http2Enabled"`
 	// Resource ID.
 	Id string `pulumi:"id"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// Determines whether gateway requests client certificate
 	NegotiateClientCertificate *bool `pulumi:"negotiateClientCertificate"`
+	// Specifies if TLS 1.0 is supported
+	Tls10Enabled *bool `pulumi:"tls10Enabled"`
+	// Specifies if TLS 1.1 is supported
+	Tls11Enabled *bool `pulumi:"tls11Enabled"`
 	// Resource type for API Management resource.
 	Type string `pulumi:"type"`
 }

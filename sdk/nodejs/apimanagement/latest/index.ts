@@ -30,6 +30,7 @@ export * from "./diagnosticLogger";
 export * from "./emailTemplate";
 export * from "./gateway";
 export * from "./gatewayApiEntityTag";
+export * from "./gatewayCertificateAuthority";
 export * from "./gatewayHostnameConfiguration";
 export * from "./getApi";
 export * from "./getApiDiagnostic";
@@ -37,6 +38,7 @@ export * from "./getApiIssue";
 export * from "./getApiIssueAttachment";
 export * from "./getApiIssueComment";
 export * from "./getApiManagementService";
+export * from "./getApiManagementServiceDomainOwnershipIdentifier";
 export * from "./getApiManagementServiceSsoToken";
 export * from "./getApiOperation";
 export * from "./getApiOperationPolicy";
@@ -54,6 +56,7 @@ export * from "./getContentType";
 export * from "./getDiagnostic";
 export * from "./getEmailTemplate";
 export * from "./getGateway";
+export * from "./getGatewayCertificateAuthority";
 export * from "./getGatewayHostnameConfiguration";
 export * from "./getGroup";
 export * from "./getIdentityProvider";
@@ -129,6 +132,7 @@ import { DiagnosticLogger } from "./diagnosticLogger";
 import { EmailTemplate } from "./emailTemplate";
 import { Gateway } from "./gateway";
 import { GatewayApiEntityTag } from "./gatewayApiEntityTag";
+import { GatewayCertificateAuthority } from "./gatewayCertificateAuthority";
 import { GatewayHostnameConfiguration } from "./gatewayHostnameConfiguration";
 import { Group } from "./group";
 import { GroupUser } from "./groupUser";
@@ -205,6 +209,8 @@ const _module = {
                 return new Gateway(name, <any>undefined, { urn })
             case "azure-native:apimanagement/latest:GatewayApiEntityTag":
                 return new GatewayApiEntityTag(name, <any>undefined, { urn })
+            case "azure-native:apimanagement/latest:GatewayCertificateAuthority":
+                return new GatewayCertificateAuthority(name, <any>undefined, { urn })
             case "azure-native:apimanagement/latest:GatewayHostnameConfiguration":
                 return new GatewayHostnameConfiguration(name, <any>undefined, { urn })
             case "azure-native:apimanagement/latest:Group":

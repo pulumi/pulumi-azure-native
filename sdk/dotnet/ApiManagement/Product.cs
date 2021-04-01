@@ -11,13 +11,13 @@ namespace Pulumi.AzureNative.ApiManagement
 {
     /// <summary>
     /// Product details.
-    /// API Version: 2019-12-01.
+    /// API Version: 2020-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:Product")]
     public partial class Product : Pulumi.CustomResource
     {
         /// <summary>
-        /// whether subscription approval is required. If false, new subscriptions will be approved automatically enabling developers to call the product’s APIs immediately after subscribing. If true, administrators must manually approve the subscription before the developer can any of the product’s APIs. Can be present only if subscriptionRequired property is present and has a value of true.
+        /// whether subscription approval is required. If false, new subscriptions will be approved automatically enabling developers to call the product’s APIs immediately after subscribing. If true, administrators must manually approve the subscription before the developer can any of the product’s APIs. Can be present only if subscriptionRequired property is present and has a value of false.
         /// </summary>
         [Output("approvalRequired")]
         public Output<bool?> ApprovalRequired { get; private set; } = null!;
@@ -53,7 +53,7 @@ namespace Pulumi.AzureNative.ApiManagement
         public Output<bool?> SubscriptionRequired { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the number of subscriptions a user can have to this product at the same time. Set to null or omit to allow unlimited per user subscriptions. Can be present only if subscriptionRequired property is present and has a value of true.
+        /// Whether the number of subscriptions a user can have to this product at the same time. Set to null or omit to allow unlimited per user subscriptions. Can be present only if subscriptionRequired property is present and has a value of false.
         /// </summary>
         [Output("subscriptionsLimit")]
         public Output<int?> SubscriptionsLimit { get; private set; } = null!;
@@ -144,7 +144,7 @@ namespace Pulumi.AzureNative.ApiManagement
     public sealed class ProductArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// whether subscription approval is required. If false, new subscriptions will be approved automatically enabling developers to call the product’s APIs immediately after subscribing. If true, administrators must manually approve the subscription before the developer can any of the product’s APIs. Can be present only if subscriptionRequired property is present and has a value of true.
+        /// whether subscription approval is required. If false, new subscriptions will be approved automatically enabling developers to call the product’s APIs immediately after subscribing. If true, administrators must manually approve the subscription before the developer can any of the product’s APIs. Can be present only if subscriptionRequired property is present and has a value of false.
         /// </summary>
         [Input("approvalRequired")]
         public Input<bool>? ApprovalRequired { get; set; }
@@ -192,7 +192,7 @@ namespace Pulumi.AzureNative.ApiManagement
         public Input<bool>? SubscriptionRequired { get; set; }
 
         /// <summary>
-        /// Whether the number of subscriptions a user can have to this product at the same time. Set to null or omit to allow unlimited per user subscriptions. Can be present only if subscriptionRequired property is present and has a value of true.
+        /// Whether the number of subscriptions a user can have to this product at the same time. Set to null or omit to allow unlimited per user subscriptions. Can be present only if subscriptionRequired property is present and has a value of false.
         /// </summary>
         [Input("subscriptionsLimit")]
         public Input<int>? SubscriptionsLimit { get; set; }

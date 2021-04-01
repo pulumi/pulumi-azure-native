@@ -6,8 +6,8 @@ import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
- * Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
- * Latest API Version: 2019-12-01.
+ * OAuth Server Secrets Contract.
+ * Latest API Version: 2020-12-01.
  */
 /** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:listAuthorizationServerSecrets'. */
 export function listAuthorizationServerSecrets(args: ListAuthorizationServerSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListAuthorizationServerSecretsResult> {
@@ -42,11 +42,19 @@ export interface ListAuthorizationServerSecretsArgs {
 }
 
 /**
- * Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
+ * OAuth Server Secrets Contract.
  */
 export interface ListAuthorizationServerSecretsResult {
     /**
-     * Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
+     * oAuth Authorization Server Secrets.
      */
     readonly clientSecret?: string;
+    /**
+     * Can be optionally specified when resource owner password grant type is supported by this authorization server. Default resource owner password.
+     */
+    readonly resourceOwnerPassword?: string;
+    /**
+     * Can be optionally specified when resource owner password grant type is supported by this authorization server. Default resource owner username.
+     */
+    readonly resourceOwnerUsername?: string;
 }

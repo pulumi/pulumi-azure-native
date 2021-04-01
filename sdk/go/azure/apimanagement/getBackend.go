@@ -8,7 +8,7 @@ import (
 )
 
 // Backend details.
-// API Version: 2019-12-01.
+// API Version: 2020-12-01.
 func LookupBackend(ctx *pulumi.Context, args *LookupBackendArgs, opts ...pulumi.InvokeOption) (*LookupBackendResult, error) {
 	var rv LookupBackendResult
 	err := ctx.Invoke("azure-native:apimanagement:getBackend", args, &rv, opts...)

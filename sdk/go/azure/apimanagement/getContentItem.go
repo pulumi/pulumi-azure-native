@@ -8,7 +8,7 @@ import (
 )
 
 // Content type contract details.
-// API Version: 2019-12-01.
+// API Version: 2020-12-01.
 func LookupContentItem(ctx *pulumi.Context, args *LookupContentItemArgs, opts ...pulumi.InvokeOption) (*LookupContentItemResult, error) {
 	var rv LookupContentItemResult
 	err := ctx.Invoke("azure-native:apimanagement:getContentItem", args, &rv, opts...)

@@ -396,6 +396,36 @@ func (e ContentFormat) ToStringPtrOutputWithContext(ctx context.Context) pulumi.
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// Data masking mode.
+type DataMaskingMode pulumi.String
+
+const (
+	// Mask the value of an entity.
+	DataMaskingModeMask = DataMaskingMode("Mask")
+	// Hide the presence of an entity.
+	DataMaskingModeHide = DataMaskingMode("Hide")
+)
+
+func (DataMaskingMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e DataMaskingMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataMaskingMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataMaskingMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DataMaskingMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 type GrantType pulumi.String
 
 const (
@@ -567,6 +597,8 @@ const (
 	LoggerTypeAzureEventHub = LoggerType("azureEventHub")
 	// Azure Application Insights as log destination.
 	LoggerTypeApplicationInsights = LoggerType("applicationInsights")
+	// Azure Monitor
+	LoggerTypeAzureMonitor = LoggerType("azureMonitor")
 )
 
 func (LoggerType) ElementType() reflect.Type {
@@ -586,6 +618,36 @@ func (e LoggerType) ToStringPtrOutput() pulumi.StringPtrOutput {
 }
 
 func (e LoggerType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// The format of the Operation Name for Application Insights telemetries. Default is Name.
+type OperationNameFormat pulumi.String
+
+const (
+	// API_NAME;rev=API_REVISION - OPERATION_NAME
+	OperationNameFormatName = OperationNameFormat("Name")
+	// HTTP_VERB URL
+	OperationNameFormatUrl = OperationNameFormat("Url")
+)
+
+func (OperationNameFormat) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e OperationNameFormat) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OperationNameFormat) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OperationNameFormat) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e OperationNameFormat) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
@@ -792,6 +854,8 @@ const (
 	SkuTypeBasic = SkuType("Basic")
 	// Consumption SKU of Api Management.
 	SkuTypeConsumption = SkuType("Consumption")
+	// Isolated SKU of Api Management.
+	SkuTypeIsolated = SkuType("Isolated")
 )
 
 func (SkuType) ElementType() reflect.Type {

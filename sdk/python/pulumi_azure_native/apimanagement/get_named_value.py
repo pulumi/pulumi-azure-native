@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
+from . import outputs
 
 __all__ = [
     'GetNamedValueResult',
@@ -19,13 +20,16 @@ class GetNamedValueResult:
     """
     NamedValue details.
     """
-    def __init__(__self__, display_name=None, id=None, name=None, secret=None, tags=None, type=None, value=None):
+    def __init__(__self__, display_name=None, id=None, key_vault=None, name=None, secret=None, tags=None, type=None, value=None):
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
         pulumi.set(__self__, "display_name", display_name)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if key_vault and not isinstance(key_vault, dict):
+            raise TypeError("Expected argument 'key_vault' to be a dict")
+        pulumi.set(__self__, "key_vault", key_vault)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -57,6 +61,14 @@ class GetNamedValueResult:
         Resource ID.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="keyVault")
+    def key_vault(self) -> Optional['outputs.KeyVaultContractPropertiesResponse']:
+        """
+        KeyVault location details of the namedValue.
+        """
+        return pulumi.get(self, "key_vault")
 
     @property
     @pulumi.getter
@@ -107,6 +119,7 @@ class AwaitableGetNamedValueResult(GetNamedValueResult):
         return GetNamedValueResult(
             display_name=self.display_name,
             id=self.id,
+            key_vault=self.key_vault,
             name=self.name,
             secret=self.secret,
             tags=self.tags,
@@ -120,7 +133,7 @@ def get_named_value(named_value_id: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNamedValueResult:
     """
     NamedValue details.
-    API Version: 2019-12-01.
+    API Version: 2020-12-01.
 
 
     :param str named_value_id: Identifier of the NamedValue.
@@ -140,6 +153,7 @@ def get_named_value(named_value_id: Optional[str] = None,
     return AwaitableGetNamedValueResult(
         display_name=__ret__.display_name,
         id=__ret__.id,
+        key_vault=__ret__.key_vault,
         name=__ret__.name,
         secret=__ret__.secret,
         tags=__ret__.tags,

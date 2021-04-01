@@ -8,7 +8,7 @@ import (
 )
 
 // Diagnostic details.
-// Latest API Version: 2019-12-01.
+// Latest API Version: 2020-12-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getDiagnostic'.
 func LookupDiagnostic(ctx *pulumi.Context, args *LookupDiagnosticArgs, opts ...pulumi.InvokeOption) (*LookupDiagnosticResult, error) {
@@ -47,6 +47,8 @@ type LookupDiagnosticResult struct {
 	LoggerId string `pulumi:"loggerId"`
 	// Resource name.
 	Name string `pulumi:"name"`
+	// The format of the Operation Name for Application Insights telemetries. Default is Name.
+	OperationNameFormat *string `pulumi:"operationNameFormat"`
 	// Sampling settings for Diagnostic.
 	Sampling *SamplingSettingsResponse `pulumi:"sampling"`
 	// Resource type for API Management resource.

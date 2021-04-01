@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Content type contract details.
- * API Version: 2019-12-01.
+ * API Version: 2020-12-01.
  */
 export function getContentItem(args: GetContentItemArgs, opts?: pulumi.InvokeOptions): Promise<GetContentItemResult> {
     if (!opts) {

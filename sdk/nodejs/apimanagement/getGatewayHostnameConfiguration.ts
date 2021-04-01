@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gateway hostname configuration details.
- * API Version: 2019-12-01.
+ * API Version: 2020-12-01.
  */
 export function getGatewayHostnameConfiguration(args: GetGatewayHostnameConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetGatewayHostnameConfigurationResult> {
     if (!opts) {
@@ -57,6 +57,10 @@ export interface GetGatewayHostnameConfigurationResult {
      */
     readonly hostname?: string;
     /**
+     * Specifies if HTTP/2.0 is supported
+     */
+    readonly http2Enabled?: boolean;
+    /**
      * Resource ID.
      */
     readonly id: string;
@@ -68,6 +72,14 @@ export interface GetGatewayHostnameConfigurationResult {
      * Determines whether gateway requests client certificate
      */
     readonly negotiateClientCertificate?: boolean;
+    /**
+     * Specifies if TLS 1.0 is supported
+     */
+    readonly tls10Enabled?: boolean;
+    /**
+     * Specifies if TLS 1.1 is supported
+     */
+    readonly tls11Enabled?: boolean;
     /**
      * Resource type for API Management resource.
      */

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Diagnostic details.
- * API Version: 2019-12-01.
+ * API Version: 2020-12-01.
  */
 export class ApiDiagnostic extends pulumi.CustomResource {
     /**
@@ -65,6 +65,10 @@ export class ApiDiagnostic extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * The format of the Operation Name for Application Insights telemetries. Default is Name.
+     */
+    public readonly operationNameFormat!: pulumi.Output<string | undefined>;
+    /**
      * Sampling settings for Diagnostic.
      */
     public readonly sampling!: pulumi.Output<outputs.apimanagement.SamplingSettingsResponse | undefined>;
@@ -108,6 +112,7 @@ export class ApiDiagnostic extends pulumi.CustomResource {
             inputs["httpCorrelationProtocol"] = args ? args.httpCorrelationProtocol : undefined;
             inputs["logClientIp"] = args ? args.logClientIp : undefined;
             inputs["loggerId"] = args ? args.loggerId : undefined;
+            inputs["operationNameFormat"] = args ? args.operationNameFormat : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sampling"] = args ? args.sampling : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
@@ -122,6 +127,7 @@ export class ApiDiagnostic extends pulumi.CustomResource {
             inputs["logClientIp"] = undefined /*out*/;
             inputs["loggerId"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["operationNameFormat"] = undefined /*out*/;
             inputs["sampling"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["verbosity"] = undefined /*out*/;
@@ -171,6 +177,10 @@ export interface ApiDiagnosticArgs {
      * Resource Id of a target logger.
      */
     readonly loggerId: pulumi.Input<string>;
+    /**
+     * The format of the Operation Name for Application Insights telemetries. Default is Name.
+     */
+    readonly operationNameFormat?: pulumi.Input<string | enums.apimanagement.OperationNameFormat>;
     /**
      * The name of the resource group.
      */

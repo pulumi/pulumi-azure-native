@@ -8,7 +8,7 @@ import (
 )
 
 // Tag Contract details.
-// API Version: 2019-12-01.
+// API Version: 2020-12-01.
 func LookupTag(ctx *pulumi.Context, args *LookupTagArgs, opts ...pulumi.InvokeOption) (*LookupTagResult, error) {
 	var rv LookupTagResult
 	err := ctx.Invoke("azure-native:apimanagement:getTag", args, &rv, opts...)

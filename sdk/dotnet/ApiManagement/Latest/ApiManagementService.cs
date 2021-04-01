@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ApiManagement.Latest
 {
     /// <summary>
     /// A single API Management service resource in List or Get response.
-    /// Latest API Version: 2019-12-01.
+    /// Latest API Version: 2020-12-01.
     /// </summary>
     [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:ApiManagementService'.")]
     [AzureNativeResourceType("azure-native:apimanagement/latest:ApiManagementService")]
@@ -42,7 +42,7 @@ namespace Pulumi.AzureNative.ApiManagement.Latest
         public Output<string> CreatedAtUtc { get; private set; } = null!;
 
         /// <summary>
-        /// Custom properties of the API Management service.&lt;/br&gt;Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TripleDes168` will disable the cipher TLS_RSA_WITH_3DES_EDE_CBC_SHA for all TLS(1.0, 1.1 and 1.2).&lt;/br&gt;Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls11` can be used to disable just TLS 1.1.&lt;/br&gt;Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls10` can be used to disable TLS 1.0 on an API Management service.&lt;/br&gt;Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls11` can be used to disable just TLS 1.1 for communications with backends.&lt;/br&gt;Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls10` can be used to disable TLS 1.0 for communications with backends.&lt;/br&gt;Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Protocols.Server.Http2` can be used to enable HTTP2 protocol on an API Management service.&lt;/br&gt;&lt;/br&gt;Not specifying any of these properties on PATCH operation will reset omitted properties' values to their defaults. For all the settings except Http2 the default value is `True` if the service was created on or before April 1st 2018 and `False` otherwise. Http2 setting's default value is `False`.&lt;/br&gt;&lt;/br&gt;You can disable any of next ciphers by using settings `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.[cipher_name]`:&lt;/br&gt;TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA&lt;/br&gt;TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA&lt;/br&gt;TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA&lt;/br&gt;TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA&lt;/br&gt;TLS_RSA_WITH_AES_128_GCM_SHA256&lt;/br&gt;TLS_RSA_WITH_AES_256_CBC_SHA256&lt;br/&gt;TLS_RSA_WITH_AES_128_CBC_SHA256&lt;br/&gt;TLS_RSA_WITH_AES_256_CBC_SHA&lt;br/&gt;TLS_RSA_WITH_AES_128_CBC_SHA.&lt;br/&gt;&lt;br/&gt;For example: `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_128_CBC_SHA256`:`false`. The default value is `true` for all of them.&lt;br/&gt;&lt;br/&gt;Note: next ciphers can't be disabled since they are required by Azure CloudService internal components:&lt;br/&gt;TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384&lt;br/&gt;TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256&lt;br/&gt;TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384&lt;br/&gt;TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256&lt;br/&gt;TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384&lt;br/&gt;TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256&lt;br/&gt;TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384&lt;br/&gt;TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256&lt;br/&gt;TLS_RSA_WITH_AES_256_GCM_SHA384
+        /// Custom properties of the API Management service.&lt;/br&gt;Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TripleDes168` will disable the cipher TLS_RSA_WITH_3DES_EDE_CBC_SHA for all TLS(1.0, 1.1 and 1.2).&lt;/br&gt;Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls11` can be used to disable just TLS 1.1.&lt;/br&gt;Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls10` can be used to disable TLS 1.0 on an API Management service.&lt;/br&gt;Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls11` can be used to disable just TLS 1.1 for communications with backends.&lt;/br&gt;Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls10` can be used to disable TLS 1.0 for communications with backends.&lt;/br&gt;Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Protocols.Server.Http2` can be used to enable HTTP2 protocol on an API Management service.&lt;/br&gt;Not specifying any of these properties on PATCH operation will reset omitted properties' values to their defaults. For all the settings except Http2 the default value is `True` if the service was created on or before April 1st 2018 and `False` otherwise. Http2 setting's default value is `False`.&lt;/br&gt;&lt;/br&gt;You can disable any of next ciphers by using settings `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.[cipher_name]`: TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA, TLS_RSA_WITH_AES_128_GCM_SHA256, TLS_RSA_WITH_AES_256_CBC_SHA256, TLS_RSA_WITH_AES_128_CBC_SHA256, TLS_RSA_WITH_AES_256_CBC_SHA, TLS_RSA_WITH_AES_128_CBC_SHA. For example, `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_128_CBC_SHA256`:`false`. The default value is `true` for them.  Note: next ciphers can't be disabled since they are required by Azure CloudService internal components: TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256,TLS_RSA_WITH_AES_256_GCM_SHA384
         /// </summary>
         [Output("customProperties")]
         public Output<ImmutableDictionary<string, string>?> CustomProperties { get; private set; } = null!;
@@ -126,7 +126,7 @@ namespace Pulumi.AzureNative.ApiManagement.Latest
         public Output<string> PortalUrl { get; private set; } = null!;
 
         /// <summary>
-        /// Private Static Load Balanced IP addresses of the API Management service in Primary region which is deployed in an Internal Virtual Network. Available only for Basic, Standard and Premium SKU.
+        /// Private Static Load Balanced IP addresses of the API Management service in Primary region which is deployed in an Internal Virtual Network. Available only for Basic, Standard, Premium and Isolated SKU.
         /// </summary>
         [Output("privateIPAddresses")]
         public Output<ImmutableArray<string>> PrivateIPAddresses { get; private set; } = null!;
@@ -138,7 +138,7 @@ namespace Pulumi.AzureNative.ApiManagement.Latest
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// Public Static Load Balanced IP addresses of the API Management service in Primary region. Available only for Basic, Standard and Premium SKU.
+        /// Public Static Load Balanced IP addresses of the API Management service in Primary region. Available only for Basic, Standard, Premium and Isolated SKU.
         /// </summary>
         [Output("publicIPAddresses")]
         public Output<ImmutableArray<string>> PublicIPAddresses { get; private set; } = null!;
@@ -154,6 +154,12 @@ namespace Pulumi.AzureNative.ApiManagement.Latest
         /// </summary>
         [Output("publisherName")]
         public Output<string> PublisherName { get; private set; } = null!;
+
+        /// <summary>
+        /// Undelete Api Management Service if it was previously soft-deleted. If this flag is specified and set to True all other properties will be ignored.
+        /// </summary>
+        [Output("restore")]
+        public Output<bool?> Restore { get; private set; } = null!;
 
         /// <summary>
         /// SCM endpoint URL of the API Management service.
@@ -196,6 +202,12 @@ namespace Pulumi.AzureNative.ApiManagement.Latest
         /// </summary>
         [Output("virtualNetworkType")]
         public Output<string?> VirtualNetworkType { get; private set; } = null!;
+
+        /// <summary>
+        /// A list of availability zones denoting where the resource needs to come from.
+        /// </summary>
+        [Output("zones")]
+        public Output<ImmutableArray<string>> Zones { get; private set; } = null!;
 
 
         /// <summary>
@@ -304,7 +316,7 @@ namespace Pulumi.AzureNative.ApiManagement.Latest
         private InputMap<string>? _customProperties;
 
         /// <summary>
-        /// Custom properties of the API Management service.&lt;/br&gt;Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TripleDes168` will disable the cipher TLS_RSA_WITH_3DES_EDE_CBC_SHA for all TLS(1.0, 1.1 and 1.2).&lt;/br&gt;Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls11` can be used to disable just TLS 1.1.&lt;/br&gt;Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls10` can be used to disable TLS 1.0 on an API Management service.&lt;/br&gt;Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls11` can be used to disable just TLS 1.1 for communications with backends.&lt;/br&gt;Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls10` can be used to disable TLS 1.0 for communications with backends.&lt;/br&gt;Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Protocols.Server.Http2` can be used to enable HTTP2 protocol on an API Management service.&lt;/br&gt;&lt;/br&gt;Not specifying any of these properties on PATCH operation will reset omitted properties' values to their defaults. For all the settings except Http2 the default value is `True` if the service was created on or before April 1st 2018 and `False` otherwise. Http2 setting's default value is `False`.&lt;/br&gt;&lt;/br&gt;You can disable any of next ciphers by using settings `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.[cipher_name]`:&lt;/br&gt;TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA&lt;/br&gt;TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA&lt;/br&gt;TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA&lt;/br&gt;TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA&lt;/br&gt;TLS_RSA_WITH_AES_128_GCM_SHA256&lt;/br&gt;TLS_RSA_WITH_AES_256_CBC_SHA256&lt;br/&gt;TLS_RSA_WITH_AES_128_CBC_SHA256&lt;br/&gt;TLS_RSA_WITH_AES_256_CBC_SHA&lt;br/&gt;TLS_RSA_WITH_AES_128_CBC_SHA.&lt;br/&gt;&lt;br/&gt;For example: `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_128_CBC_SHA256`:`false`. The default value is `true` for all of them.&lt;br/&gt;&lt;br/&gt;Note: next ciphers can't be disabled since they are required by Azure CloudService internal components:&lt;br/&gt;TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384&lt;br/&gt;TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256&lt;br/&gt;TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384&lt;br/&gt;TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256&lt;br/&gt;TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384&lt;br/&gt;TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256&lt;br/&gt;TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384&lt;br/&gt;TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256&lt;br/&gt;TLS_RSA_WITH_AES_256_GCM_SHA384
+        /// Custom properties of the API Management service.&lt;/br&gt;Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TripleDes168` will disable the cipher TLS_RSA_WITH_3DES_EDE_CBC_SHA for all TLS(1.0, 1.1 and 1.2).&lt;/br&gt;Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls11` can be used to disable just TLS 1.1.&lt;/br&gt;Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls10` can be used to disable TLS 1.0 on an API Management service.&lt;/br&gt;Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls11` can be used to disable just TLS 1.1 for communications with backends.&lt;/br&gt;Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls10` can be used to disable TLS 1.0 for communications with backends.&lt;/br&gt;Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Protocols.Server.Http2` can be used to enable HTTP2 protocol on an API Management service.&lt;/br&gt;Not specifying any of these properties on PATCH operation will reset omitted properties' values to their defaults. For all the settings except Http2 the default value is `True` if the service was created on or before April 1st 2018 and `False` otherwise. Http2 setting's default value is `False`.&lt;/br&gt;&lt;/br&gt;You can disable any of next ciphers by using settings `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.[cipher_name]`: TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA, TLS_RSA_WITH_AES_128_GCM_SHA256, TLS_RSA_WITH_AES_256_CBC_SHA256, TLS_RSA_WITH_AES_128_CBC_SHA256, TLS_RSA_WITH_AES_256_CBC_SHA, TLS_RSA_WITH_AES_128_CBC_SHA. For example, `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_128_CBC_SHA256`:`false`. The default value is `true` for them.  Note: next ciphers can't be disabled since they are required by Azure CloudService internal components: TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256,TLS_RSA_WITH_AES_256_GCM_SHA384
         /// </summary>
         public InputMap<string> CustomProperties
         {
@@ -373,6 +385,12 @@ namespace Pulumi.AzureNative.ApiManagement.Latest
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
+        /// Undelete Api Management Service if it was previously soft-deleted. If this flag is specified and set to True all other properties will be ignored.
+        /// </summary>
+        [Input("restore")]
+        public Input<bool>? Restore { get; set; }
+
+        /// <summary>
         /// The name of the API Management service.
         /// </summary>
         [Input("serviceName")]
@@ -408,10 +426,23 @@ namespace Pulumi.AzureNative.ApiManagement.Latest
         [Input("virtualNetworkType")]
         public InputUnion<string, Pulumi.AzureNative.ApiManagement.Latest.VirtualNetworkType>? VirtualNetworkType { get; set; }
 
+        [Input("zones")]
+        private InputList<string>? _zones;
+
+        /// <summary>
+        /// A list of availability zones denoting where the resource needs to come from.
+        /// </summary>
+        public InputList<string> Zones
+        {
+            get => _zones ?? (_zones = new InputList<string>());
+            set => _zones = value;
+        }
+
         public ApiManagementServiceArgs()
         {
             DisableGateway = false;
             EnableClientCertificate = false;
+            Restore = false;
             VirtualNetworkType = "None";
         }
     }

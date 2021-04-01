@@ -417,6 +417,43 @@ namespace Pulumi.AzureNative.ApiManagement
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Data masking mode.
+    /// </summary>
+    [EnumType]
+    public readonly struct DataMaskingMode : IEquatable<DataMaskingMode>
+    {
+        private readonly string _value;
+
+        private DataMaskingMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Mask the value of an entity.
+        /// </summary>
+        public static DataMaskingMode Mask { get; } = new DataMaskingMode("Mask");
+        /// <summary>
+        /// Hide the presence of an entity.
+        /// </summary>
+        public static DataMaskingMode Hide { get; } = new DataMaskingMode("Hide");
+
+        public static bool operator ==(DataMaskingMode left, DataMaskingMode right) => left.Equals(right);
+        public static bool operator !=(DataMaskingMode left, DataMaskingMode right) => !left.Equals(right);
+
+        public static explicit operator string(DataMaskingMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataMaskingMode other && Equals(other);
+        public bool Equals(DataMaskingMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct GrantType : IEquatable<GrantType>
     {
@@ -640,6 +677,10 @@ namespace Pulumi.AzureNative.ApiManagement
         /// Azure Application Insights as log destination.
         /// </summary>
         public static LoggerType ApplicationInsights { get; } = new LoggerType("applicationInsights");
+        /// <summary>
+        /// Azure Monitor
+        /// </summary>
+        public static LoggerType AzureMonitor { get; } = new LoggerType("azureMonitor");
 
         public static bool operator ==(LoggerType left, LoggerType right) => left.Equals(right);
         public static bool operator !=(LoggerType left, LoggerType right) => !left.Equals(right);
@@ -649,6 +690,43 @@ namespace Pulumi.AzureNative.ApiManagement
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is LoggerType other && Equals(other);
         public bool Equals(LoggerType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The format of the Operation Name for Application Insights telemetries. Default is Name.
+    /// </summary>
+    [EnumType]
+    public readonly struct OperationNameFormat : IEquatable<OperationNameFormat>
+    {
+        private readonly string _value;
+
+        private OperationNameFormat(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// API_NAME;rev=API_REVISION - OPERATION_NAME
+        /// </summary>
+        public static OperationNameFormat Name { get; } = new OperationNameFormat("Name");
+        /// <summary>
+        /// HTTP_VERB URL
+        /// </summary>
+        public static OperationNameFormat Url { get; } = new OperationNameFormat("Url");
+
+        public static bool operator ==(OperationNameFormat left, OperationNameFormat right) => left.Equals(right);
+        public static bool operator !=(OperationNameFormat left, OperationNameFormat right) => !left.Equals(right);
+
+        public static explicit operator string(OperationNameFormat value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OperationNameFormat other && Equals(other);
+        public bool Equals(OperationNameFormat other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -856,6 +934,10 @@ namespace Pulumi.AzureNative.ApiManagement
         /// Consumption SKU of Api Management.
         /// </summary>
         public static SkuType Consumption { get; } = new SkuType("Consumption");
+        /// <summary>
+        /// Isolated SKU of Api Management.
+        /// </summary>
+        public static SkuType Isolated { get; } = new SkuType("Isolated");
 
         public static bool operator ==(SkuType left, SkuType right) => left.Equals(right);
         public static bool operator !=(SkuType left, SkuType right) => !left.Equals(right);

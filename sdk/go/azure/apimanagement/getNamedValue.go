@@ -8,7 +8,7 @@ import (
 )
 
 // NamedValue details.
-// API Version: 2019-12-01.
+// API Version: 2020-12-01.
 func LookupNamedValue(ctx *pulumi.Context, args *LookupNamedValueArgs, opts ...pulumi.InvokeOption) (*LookupNamedValueResult, error) {
 	var rv LookupNamedValueResult
 	err := ctx.Invoke("azure-native:apimanagement:getNamedValue", args, &rv, opts...)
@@ -33,6 +33,8 @@ type LookupNamedValueResult struct {
 	DisplayName string `pulumi:"displayName"`
 	// Resource ID.
 	Id string `pulumi:"id"`
+	// KeyVault location details of the namedValue.
+	KeyVault *KeyVaultContractPropertiesResponse `pulumi:"keyVault"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// Determines whether the value is a secret and should be encrypted or not. Default value is false.

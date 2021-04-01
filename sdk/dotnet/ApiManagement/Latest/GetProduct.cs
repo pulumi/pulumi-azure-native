@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.ApiManagement.Latest
     {
         /// <summary>
         /// Product details.
-        /// Latest API Version: 2019-12-01.
+        /// Latest API Version: 2020-12-01.
         /// </summary>
         public static Task<GetProductResult> InvokeAsync(GetProductArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetProductResult>("azure-native:apimanagement/latest:getProduct", args ?? new GetProductArgs(), options.WithVersion());
@@ -51,7 +51,7 @@ namespace Pulumi.AzureNative.ApiManagement.Latest
     public sealed class GetProductResult
     {
         /// <summary>
-        /// whether subscription approval is required. If false, new subscriptions will be approved automatically enabling developers to call the product’s APIs immediately after subscribing. If true, administrators must manually approve the subscription before the developer can any of the product’s APIs. Can be present only if subscriptionRequired property is present and has a value of true.
+        /// whether subscription approval is required. If false, new subscriptions will be approved automatically enabling developers to call the product’s APIs immediately after subscribing. If true, administrators must manually approve the subscription before the developer can any of the product’s APIs. Can be present only if subscriptionRequired property is present and has a value of false.
         /// </summary>
         public readonly bool? ApprovalRequired;
         /// <summary>
@@ -79,7 +79,7 @@ namespace Pulumi.AzureNative.ApiManagement.Latest
         /// </summary>
         public readonly bool? SubscriptionRequired;
         /// <summary>
-        /// Whether the number of subscriptions a user can have to this product at the same time. Set to null or omit to allow unlimited per user subscriptions. Can be present only if subscriptionRequired property is present and has a value of true.
+        /// Whether the number of subscriptions a user can have to this product at the same time. Set to null or omit to allow unlimited per user subscriptions. Can be present only if subscriptionRequired property is present and has a value of false.
         /// </summary>
         public readonly int? SubscriptionsLimit;
         /// <summary>

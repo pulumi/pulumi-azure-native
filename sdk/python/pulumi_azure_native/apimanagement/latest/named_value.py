@@ -7,6 +7,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from . import outputs
+from ._inputs import *
 
 __all__ = ['NamedValue']
 
@@ -20,6 +22,7 @@ class NamedValue(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
+                 key_vault: Optional[pulumi.Input[pulumi.InputType['KeyVaultContractCreatePropertiesArgs']]] = None,
                  named_value_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  secret: Optional[pulumi.Input[bool]] = None,
@@ -31,11 +34,12 @@ class NamedValue(pulumi.CustomResource):
                  __opts__=None):
         """
         NamedValue details.
-        Latest API Version: 2019-12-01.
+        Latest API Version: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] display_name: Unique name of NamedValue. It may contain only letters, digits, period, dash, and underscore characters.
+        :param pulumi.Input[pulumi.InputType['KeyVaultContractCreatePropertiesArgs']] key_vault: KeyVault location details of the namedValue.
         :param pulumi.Input[str] named_value_id: Identifier of the NamedValue.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[bool] secret: Determines whether the value is a secret and should be encrypted or not. Default value is false.
@@ -64,6 +68,7 @@ class NamedValue(pulumi.CustomResource):
             if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
             __props__['display_name'] = display_name
+            __props__['key_vault'] = key_vault
             __props__['named_value_id'] = named_value_id
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -73,8 +78,6 @@ class NamedValue(pulumi.CustomResource):
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
             __props__['tags'] = tags
-            if value is None and not opts.urn:
-                raise TypeError("Missing required property 'value'")
             __props__['value'] = value
             __props__['name'] = None
             __props__['type'] = None
@@ -103,6 +106,7 @@ class NamedValue(pulumi.CustomResource):
         __props__ = dict()
 
         __props__["display_name"] = None
+        __props__["key_vault"] = None
         __props__["name"] = None
         __props__["secret"] = None
         __props__["tags"] = None
@@ -117,6 +121,14 @@ class NamedValue(pulumi.CustomResource):
         Unique name of NamedValue. It may contain only letters, digits, period, dash, and underscore characters.
         """
         return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter(name="keyVault")
+    def key_vault(self) -> pulumi.Output[Optional['outputs.KeyVaultContractPropertiesResponse']]:
+        """
+        KeyVault location details of the namedValue.
+        """
+        return pulumi.get(self, "key_vault")
 
     @property
     @pulumi.getter

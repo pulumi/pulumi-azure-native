@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ApiManagement
 {
     /// <summary>
     /// Cache details.
-    /// API Version: 2019-12-01.
+    /// API Version: 2020-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:Cache")]
     public partial class Cache : Pulumi.CustomResource
@@ -45,6 +45,12 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Location identifier to use cache from (should be either 'default' or valid Azure region identifier)
+        /// </summary>
+        [Output("useFromLocation")]
+        public Output<string> UseFromLocation { get; private set; } = null!;
 
 
         /// <summary>
@@ -146,6 +152,12 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         [Input("serviceName", required: true)]
         public Input<string> ServiceName { get; set; } = null!;
+
+        /// <summary>
+        /// Location identifier to use cache from (should be either 'default' or valid Azure region identifier)
+        /// </summary>
+        [Input("useFromLocation", required: true)]
+        public Input<string> UseFromLocation { get; set; } = null!;
 
         public CacheArgs()
         {

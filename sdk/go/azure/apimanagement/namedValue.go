@@ -12,12 +12,14 @@ import (
 )
 
 // NamedValue details.
-// API Version: 2019-12-01.
+// API Version: 2020-12-01.
 type NamedValue struct {
 	pulumi.CustomResourceState
 
 	// Unique name of NamedValue. It may contain only letters, digits, period, dash, and underscore characters.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
+	// KeyVault location details of the namedValue.
+	KeyVault KeyVaultContractPropertiesResponsePtrOutput `pulumi:"keyVault"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Determines whether the value is a secret and should be encrypted or not. Default value is false.
@@ -45,9 +47,6 @@ func NewNamedValue(ctx *pulumi.Context,
 	}
 	if args.ServiceName == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceName'")
-	}
-	if args.Value == nil {
-		return nil, errors.New("invalid value for required argument 'Value'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -115,6 +114,8 @@ func GetNamedValue(ctx *pulumi.Context,
 type namedValueState struct {
 	// Unique name of NamedValue. It may contain only letters, digits, period, dash, and underscore characters.
 	DisplayName *string `pulumi:"displayName"`
+	// KeyVault location details of the namedValue.
+	KeyVault *KeyVaultContractPropertiesResponse `pulumi:"keyVault"`
 	// Resource name.
 	Name *string `pulumi:"name"`
 	// Determines whether the value is a secret and should be encrypted or not. Default value is false.
@@ -130,6 +131,8 @@ type namedValueState struct {
 type NamedValueState struct {
 	// Unique name of NamedValue. It may contain only letters, digits, period, dash, and underscore characters.
 	DisplayName pulumi.StringPtrInput
+	// KeyVault location details of the namedValue.
+	KeyVault KeyVaultContractPropertiesResponsePtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
 	// Determines whether the value is a secret and should be encrypted or not. Default value is false.
@@ -149,6 +152,8 @@ func (NamedValueState) ElementType() reflect.Type {
 type namedValueArgs struct {
 	// Unique name of NamedValue. It may contain only letters, digits, period, dash, and underscore characters.
 	DisplayName string `pulumi:"displayName"`
+	// KeyVault location details of the namedValue.
+	KeyVault *KeyVaultContractCreateProperties `pulumi:"keyVault"`
 	// Identifier of the NamedValue.
 	NamedValueId *string `pulumi:"namedValueId"`
 	// The name of the resource group.
@@ -160,13 +165,15 @@ type namedValueArgs struct {
 	// Optional tags that when provided can be used to filter the NamedValue list.
 	Tags []string `pulumi:"tags"`
 	// Value of the NamedValue. Can contain policy expressions. It may not be empty or consist only of whitespace. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
-	Value string `pulumi:"value"`
+	Value *string `pulumi:"value"`
 }
 
 // The set of arguments for constructing a NamedValue resource.
 type NamedValueArgs struct {
 	// Unique name of NamedValue. It may contain only letters, digits, period, dash, and underscore characters.
 	DisplayName pulumi.StringInput
+	// KeyVault location details of the namedValue.
+	KeyVault KeyVaultContractCreatePropertiesPtrInput
 	// Identifier of the NamedValue.
 	NamedValueId pulumi.StringPtrInput
 	// The name of the resource group.
@@ -178,7 +185,7 @@ type NamedValueArgs struct {
 	// Optional tags that when provided can be used to filter the NamedValue list.
 	Tags pulumi.StringArrayInput
 	// Value of the NamedValue. Can contain policy expressions. It may not be empty or consist only of whitespace. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
-	Value pulumi.StringInput
+	Value pulumi.StringPtrInput
 }
 
 func (NamedValueArgs) ElementType() reflect.Type {

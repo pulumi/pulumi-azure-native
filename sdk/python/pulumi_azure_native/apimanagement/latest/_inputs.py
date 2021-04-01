@@ -26,9 +26,12 @@ __all__ = [
     'BodyDiagnosticSettingsArgs',
     'CertificateConfigurationArgs',
     'CertificateInformationArgs',
+    'DataMaskingArgs',
+    'DataMaskingEntityArgs',
     'EmailTemplateParametersContractPropertiesArgs',
     'HostnameConfigurationArgs',
     'HttpMessageDiagnosticArgs',
+    'KeyVaultContractCreatePropertiesArgs',
     'OAuth2AuthenticationSettingsContractArgs',
     'OpenIdAuthenticationSettingsContractArgs',
     'ParameterContractArgs',
@@ -52,13 +55,15 @@ class AdditionalLocationArgs:
                  location: pulumi.Input[str],
                  sku: pulumi.Input['ApiManagementServiceSkuPropertiesArgs'],
                  disable_gateway: Optional[pulumi.Input[bool]] = None,
-                 virtual_network_configuration: Optional[pulumi.Input['VirtualNetworkConfigurationArgs']] = None):
+                 virtual_network_configuration: Optional[pulumi.Input['VirtualNetworkConfigurationArgs']] = None,
+                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Description of an additional API Management resource location.
         :param pulumi.Input[str] location: The location name of the additional region among Azure Data center regions.
         :param pulumi.Input['ApiManagementServiceSkuPropertiesArgs'] sku: SKU properties of the API Management service.
         :param pulumi.Input[bool] disable_gateway: Property only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in this additional location.
         :param pulumi.Input['VirtualNetworkConfigurationArgs'] virtual_network_configuration: Virtual network configuration for the location.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of availability zones denoting where the resource needs to come from.
         """
         pulumi.set(__self__, "location", location)
         pulumi.set(__self__, "sku", sku)
@@ -68,6 +73,8 @@ class AdditionalLocationArgs:
             pulumi.set(__self__, "disable_gateway", disable_gateway)
         if virtual_network_configuration is not None:
             pulumi.set(__self__, "virtual_network_configuration", virtual_network_configuration)
+        if zones is not None:
+            pulumi.set(__self__, "zones", zones)
 
     @property
     @pulumi.getter
@@ -116,6 +123,18 @@ class AdditionalLocationArgs:
     @virtual_network_configuration.setter
     def virtual_network_configuration(self, value: Optional[pulumi.Input['VirtualNetworkConfigurationArgs']]):
         pulumi.set(self, "virtual_network_configuration", value)
+
+    @property
+    @pulumi.getter
+    def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of availability zones denoting where the resource needs to come from.
+        """
+        return pulumi.get(self, "zones")
+
+    @zones.setter
+    def zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "zones", value)
 
 
 @pulumi.input_type
@@ -452,12 +471,14 @@ class BackendCredentialsContractArgs:
     def __init__(__self__, *,
                  authorization: Optional[pulumi.Input['BackendAuthorizationHeaderCredentialsArgs']] = None,
                  certificate: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 certificate_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  header: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[str]]]]]] = None,
                  query: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[str]]]]]] = None):
         """
         Details of the Credentials used to connect to Backend.
         :param pulumi.Input['BackendAuthorizationHeaderCredentialsArgs'] authorization: Authorization header authentication
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] certificate: List of Client Certificate Thumbprint.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] certificate: List of Client Certificate Thumbprints. Will be ignored if certificatesIds are provided.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] certificate_ids: List of Client Certificate Ids.
         :param pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[str]]]]] header: Header Parameter description.
         :param pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[str]]]]] query: Query Parameter description.
         """
@@ -465,6 +486,8 @@ class BackendCredentialsContractArgs:
             pulumi.set(__self__, "authorization", authorization)
         if certificate is not None:
             pulumi.set(__self__, "certificate", certificate)
+        if certificate_ids is not None:
+            pulumi.set(__self__, "certificate_ids", certificate_ids)
         if header is not None:
             pulumi.set(__self__, "header", header)
         if query is not None:
@@ -486,13 +509,25 @@ class BackendCredentialsContractArgs:
     @pulumi.getter
     def certificate(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of Client Certificate Thumbprint.
+        List of Client Certificate Thumbprints. Will be ignored if certificatesIds are provided.
         """
         return pulumi.get(self, "certificate")
 
     @certificate.setter
     def certificate(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "certificate", value)
+
+    @property
+    @pulumi.getter(name="certificateIds")
+    def certificate_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of Client Certificate Ids.
+        """
+        return pulumi.get(self, "certificate_ids")
+
+    @certificate_ids.setter
+    def certificate_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "certificate_ids", value)
 
     @property
     @pulumi.getter
@@ -601,39 +636,32 @@ class BackendProxyContractArgs:
 @pulumi.input_type
 class BackendServiceFabricClusterPropertiesArgs:
     def __init__(__self__, *,
-                 client_certificatethumbprint: pulumi.Input[str],
                  management_endpoints: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 client_certificate_id: Optional[pulumi.Input[str]] = None,
+                 client_certificatethumbprint: Optional[pulumi.Input[str]] = None,
                  max_partition_resolution_retries: Optional[pulumi.Input[int]] = None,
                  server_certificate_thumbprints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  server_x509_names: Optional[pulumi.Input[Sequence[pulumi.Input['X509CertificateNameArgs']]]] = None):
         """
         Properties of the Service Fabric Type Backend.
-        :param pulumi.Input[str] client_certificatethumbprint: The client certificate thumbprint for the management endpoint.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] management_endpoints: The cluster management endpoint.
+        :param pulumi.Input[str] client_certificate_id: The client certificate id for the management endpoint.
+        :param pulumi.Input[str] client_certificatethumbprint: The client certificate thumbprint for the management endpoint. Will be ignored if certificatesIds are provided
         :param pulumi.Input[int] max_partition_resolution_retries: Maximum number of retries while attempting resolve the partition.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] server_certificate_thumbprints: Thumbprints of certificates cluster management service uses for tls communication
         :param pulumi.Input[Sequence[pulumi.Input['X509CertificateNameArgs']]] server_x509_names: Server X509 Certificate Names Collection
         """
-        pulumi.set(__self__, "client_certificatethumbprint", client_certificatethumbprint)
         pulumi.set(__self__, "management_endpoints", management_endpoints)
+        if client_certificate_id is not None:
+            pulumi.set(__self__, "client_certificate_id", client_certificate_id)
+        if client_certificatethumbprint is not None:
+            pulumi.set(__self__, "client_certificatethumbprint", client_certificatethumbprint)
         if max_partition_resolution_retries is not None:
             pulumi.set(__self__, "max_partition_resolution_retries", max_partition_resolution_retries)
         if server_certificate_thumbprints is not None:
             pulumi.set(__self__, "server_certificate_thumbprints", server_certificate_thumbprints)
         if server_x509_names is not None:
             pulumi.set(__self__, "server_x509_names", server_x509_names)
-
-    @property
-    @pulumi.getter(name="clientCertificatethumbprint")
-    def client_certificatethumbprint(self) -> pulumi.Input[str]:
-        """
-        The client certificate thumbprint for the management endpoint.
-        """
-        return pulumi.get(self, "client_certificatethumbprint")
-
-    @client_certificatethumbprint.setter
-    def client_certificatethumbprint(self, value: pulumi.Input[str]):
-        pulumi.set(self, "client_certificatethumbprint", value)
 
     @property
     @pulumi.getter(name="managementEndpoints")
@@ -646,6 +674,30 @@ class BackendServiceFabricClusterPropertiesArgs:
     @management_endpoints.setter
     def management_endpoints(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "management_endpoints", value)
+
+    @property
+    @pulumi.getter(name="clientCertificateId")
+    def client_certificate_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The client certificate id for the management endpoint.
+        """
+        return pulumi.get(self, "client_certificate_id")
+
+    @client_certificate_id.setter
+    def client_certificate_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_certificate_id", value)
+
+    @property
+    @pulumi.getter(name="clientCertificatethumbprint")
+    def client_certificatethumbprint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The client certificate thumbprint for the management endpoint. Will be ignored if certificatesIds are provided
+        """
+        return pulumi.get(self, "client_certificatethumbprint")
+
+    @client_certificatethumbprint.setter
+    def client_certificatethumbprint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_certificatethumbprint", value)
 
     @property
     @pulumi.getter(name="maxPartitionResolutionRetries")
@@ -877,6 +929,84 @@ class CertificateInformationArgs:
 
 
 @pulumi.input_type
+class DataMaskingArgs:
+    def __init__(__self__, *,
+                 headers: Optional[pulumi.Input[Sequence[pulumi.Input['DataMaskingEntityArgs']]]] = None,
+                 query_params: Optional[pulumi.Input[Sequence[pulumi.Input['DataMaskingEntityArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['DataMaskingEntityArgs']]] headers: Masking settings for headers
+        :param pulumi.Input[Sequence[pulumi.Input['DataMaskingEntityArgs']]] query_params: Masking settings for Url query parameters
+        """
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
+        if query_params is not None:
+            pulumi.set(__self__, "query_params", query_params)
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataMaskingEntityArgs']]]]:
+        """
+        Masking settings for headers
+        """
+        return pulumi.get(self, "headers")
+
+    @headers.setter
+    def headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataMaskingEntityArgs']]]]):
+        pulumi.set(self, "headers", value)
+
+    @property
+    @pulumi.getter(name="queryParams")
+    def query_params(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataMaskingEntityArgs']]]]:
+        """
+        Masking settings for Url query parameters
+        """
+        return pulumi.get(self, "query_params")
+
+    @query_params.setter
+    def query_params(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataMaskingEntityArgs']]]]):
+        pulumi.set(self, "query_params", value)
+
+
+@pulumi.input_type
+class DataMaskingEntityArgs:
+    def __init__(__self__, *,
+                 mode: Optional[pulumi.Input[Union[str, 'DataMaskingMode']]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[Union[str, 'DataMaskingMode']] mode: Data masking mode.
+        :param pulumi.Input[str] value: The name of an entity to mask (e.g. a name of a header or a query parameter).
+        """
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> Optional[pulumi.Input[Union[str, 'DataMaskingMode']]]:
+        """
+        Data masking mode.
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: Optional[pulumi.Input[Union[str, 'DataMaskingMode']]]):
+        pulumi.set(self, "mode", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of an entity to mask (e.g. a name of a header or a query parameter).
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
 class EmailTemplateParametersContractPropertiesArgs:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[str]] = None,
@@ -941,6 +1071,7 @@ class HostnameConfigurationArgs:
                  certificate_password: Optional[pulumi.Input[str]] = None,
                  default_ssl_binding: Optional[pulumi.Input[bool]] = None,
                  encoded_certificate: Optional[pulumi.Input[str]] = None,
+                 identity_client_id: Optional[pulumi.Input[str]] = None,
                  key_vault_id: Optional[pulumi.Input[str]] = None,
                  negotiate_client_certificate: Optional[pulumi.Input[bool]] = None):
         """
@@ -951,7 +1082,8 @@ class HostnameConfigurationArgs:
         :param pulumi.Input[str] certificate_password: Certificate Password.
         :param pulumi.Input[bool] default_ssl_binding: Specify true to setup the certificate associated with this Hostname as the Default SSL Certificate. If a client does not send the SNI header, then this will be the certificate that will be challenged. The property is useful if a service has multiple custom hostname enabled and it needs to decide on the default ssl certificate. The setting only applied to Proxy Hostname Type.
         :param pulumi.Input[str] encoded_certificate: Base64 Encoded certificate.
-        :param pulumi.Input[str] key_vault_id: Url to the KeyVault Secret containing the Ssl Certificate. If absolute Url containing version is provided, auto-update of ssl certificate will not work. This requires Api Management service to be configured with MSI. The secret should be of type *application/x-pkcs12*
+        :param pulumi.Input[str] identity_client_id: System or User Assigned Managed identity clientId as generated by Azure AD, which has GET access to the keyVault containing the SSL certificate.
+        :param pulumi.Input[str] key_vault_id: Url to the KeyVault Secret containing the Ssl Certificate. If absolute Url containing version is provided, auto-update of ssl certificate will not work. This requires Api Management service to be configured with aka.ms/apimmsi. The secret should be of type *application/x-pkcs12*
         :param pulumi.Input[bool] negotiate_client_certificate: Specify true to always negotiate client certificate on the hostname. Default Value is false.
         """
         pulumi.set(__self__, "host_name", host_name)
@@ -966,6 +1098,8 @@ class HostnameConfigurationArgs:
             pulumi.set(__self__, "default_ssl_binding", default_ssl_binding)
         if encoded_certificate is not None:
             pulumi.set(__self__, "encoded_certificate", encoded_certificate)
+        if identity_client_id is not None:
+            pulumi.set(__self__, "identity_client_id", identity_client_id)
         if key_vault_id is not None:
             pulumi.set(__self__, "key_vault_id", key_vault_id)
         if negotiate_client_certificate is None:
@@ -1046,10 +1180,22 @@ class HostnameConfigurationArgs:
         pulumi.set(self, "encoded_certificate", value)
 
     @property
+    @pulumi.getter(name="identityClientId")
+    def identity_client_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        System or User Assigned Managed identity clientId as generated by Azure AD, which has GET access to the keyVault containing the SSL certificate.
+        """
+        return pulumi.get(self, "identity_client_id")
+
+    @identity_client_id.setter
+    def identity_client_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "identity_client_id", value)
+
+    @property
     @pulumi.getter(name="keyVaultId")
     def key_vault_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Url to the KeyVault Secret containing the Ssl Certificate. If absolute Url containing version is provided, auto-update of ssl certificate will not work. This requires Api Management service to be configured with MSI. The secret should be of type *application/x-pkcs12*
+        Url to the KeyVault Secret containing the Ssl Certificate. If absolute Url containing version is provided, auto-update of ssl certificate will not work. This requires Api Management service to be configured with aka.ms/apimmsi. The secret should be of type *application/x-pkcs12*
         """
         return pulumi.get(self, "key_vault_id")
 
@@ -1074,14 +1220,18 @@ class HostnameConfigurationArgs:
 class HttpMessageDiagnosticArgs:
     def __init__(__self__, *,
                  body: Optional[pulumi.Input['BodyDiagnosticSettingsArgs']] = None,
+                 data_masking: Optional[pulumi.Input['DataMaskingArgs']] = None,
                  headers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Http message diagnostic settings.
         :param pulumi.Input['BodyDiagnosticSettingsArgs'] body: Body logging settings.
+        :param pulumi.Input['DataMaskingArgs'] data_masking: Data masking settings.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] headers: Array of HTTP Headers to log.
         """
         if body is not None:
             pulumi.set(__self__, "body", body)
+        if data_masking is not None:
+            pulumi.set(__self__, "data_masking", data_masking)
         if headers is not None:
             pulumi.set(__self__, "headers", headers)
 
@@ -1098,6 +1248,18 @@ class HttpMessageDiagnosticArgs:
         pulumi.set(self, "body", value)
 
     @property
+    @pulumi.getter(name="dataMasking")
+    def data_masking(self) -> Optional[pulumi.Input['DataMaskingArgs']]:
+        """
+        Data masking settings.
+        """
+        return pulumi.get(self, "data_masking")
+
+    @data_masking.setter
+    def data_masking(self, value: Optional[pulumi.Input['DataMaskingArgs']]):
+        pulumi.set(self, "data_masking", value)
+
+    @property
     @pulumi.getter
     def headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -1108,6 +1270,46 @@ class HttpMessageDiagnosticArgs:
     @headers.setter
     def headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "headers", value)
+
+
+@pulumi.input_type
+class KeyVaultContractCreatePropertiesArgs:
+    def __init__(__self__, *,
+                 identity_client_id: Optional[pulumi.Input[str]] = None,
+                 secret_identifier: Optional[pulumi.Input[str]] = None):
+        """
+        Create keyVault contract details.
+        :param pulumi.Input[str] identity_client_id: SystemAssignedIdentity or UserAssignedIdentity Client Id which will be used to access key vault secret.
+        :param pulumi.Input[str] secret_identifier: Key vault secret identifier for fetching secret. Providing a versioned secret will prevent auto-refresh. This requires Api Management service to be configured with aka.ms/apimmsi
+        """
+        if identity_client_id is not None:
+            pulumi.set(__self__, "identity_client_id", identity_client_id)
+        if secret_identifier is not None:
+            pulumi.set(__self__, "secret_identifier", secret_identifier)
+
+    @property
+    @pulumi.getter(name="identityClientId")
+    def identity_client_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        SystemAssignedIdentity or UserAssignedIdentity Client Id which will be used to access key vault secret.
+        """
+        return pulumi.get(self, "identity_client_id")
+
+    @identity_client_id.setter
+    def identity_client_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "identity_client_id", value)
+
+    @property
+    @pulumi.getter(name="secretIdentifier")
+    def secret_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        Key vault secret identifier for fetching secret. Providing a versioned secret will prevent auto-refresh. This requires Api Management service to be configured with aka.ms/apimmsi
+        """
+        return pulumi.get(self, "secret_identifier")
+
+    @secret_identifier.setter
+    def secret_identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secret_identifier", value)
 
 
 @pulumi.input_type

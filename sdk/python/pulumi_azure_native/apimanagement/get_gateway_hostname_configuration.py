@@ -19,13 +19,16 @@ class GetGatewayHostnameConfigurationResult:
     """
     Gateway hostname configuration details.
     """
-    def __init__(__self__, certificate_id=None, hostname=None, id=None, name=None, negotiate_client_certificate=None, type=None):
+    def __init__(__self__, certificate_id=None, hostname=None, http2_enabled=None, id=None, name=None, negotiate_client_certificate=None, tls10_enabled=None, tls11_enabled=None, type=None):
         if certificate_id and not isinstance(certificate_id, str):
             raise TypeError("Expected argument 'certificate_id' to be a str")
         pulumi.set(__self__, "certificate_id", certificate_id)
         if hostname and not isinstance(hostname, str):
             raise TypeError("Expected argument 'hostname' to be a str")
         pulumi.set(__self__, "hostname", hostname)
+        if http2_enabled and not isinstance(http2_enabled, bool):
+            raise TypeError("Expected argument 'http2_enabled' to be a bool")
+        pulumi.set(__self__, "http2_enabled", http2_enabled)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -35,6 +38,12 @@ class GetGatewayHostnameConfigurationResult:
         if negotiate_client_certificate and not isinstance(negotiate_client_certificate, bool):
             raise TypeError("Expected argument 'negotiate_client_certificate' to be a bool")
         pulumi.set(__self__, "negotiate_client_certificate", negotiate_client_certificate)
+        if tls10_enabled and not isinstance(tls10_enabled, bool):
+            raise TypeError("Expected argument 'tls10_enabled' to be a bool")
+        pulumi.set(__self__, "tls10_enabled", tls10_enabled)
+        if tls11_enabled and not isinstance(tls11_enabled, bool):
+            raise TypeError("Expected argument 'tls11_enabled' to be a bool")
+        pulumi.set(__self__, "tls11_enabled", tls11_enabled)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -54,6 +63,14 @@ class GetGatewayHostnameConfigurationResult:
         Hostname value. Supports valid domain name, partial or full wildcard
         """
         return pulumi.get(self, "hostname")
+
+    @property
+    @pulumi.getter(name="http2Enabled")
+    def http2_enabled(self) -> Optional[bool]:
+        """
+        Specifies if HTTP/2.0 is supported
+        """
+        return pulumi.get(self, "http2_enabled")
 
     @property
     @pulumi.getter
@@ -80,6 +97,22 @@ class GetGatewayHostnameConfigurationResult:
         return pulumi.get(self, "negotiate_client_certificate")
 
     @property
+    @pulumi.getter(name="tls10Enabled")
+    def tls10_enabled(self) -> Optional[bool]:
+        """
+        Specifies if TLS 1.0 is supported
+        """
+        return pulumi.get(self, "tls10_enabled")
+
+    @property
+    @pulumi.getter(name="tls11Enabled")
+    def tls11_enabled(self) -> Optional[bool]:
+        """
+        Specifies if TLS 1.1 is supported
+        """
+        return pulumi.get(self, "tls11_enabled")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -96,9 +129,12 @@ class AwaitableGetGatewayHostnameConfigurationResult(GetGatewayHostnameConfigura
         return GetGatewayHostnameConfigurationResult(
             certificate_id=self.certificate_id,
             hostname=self.hostname,
+            http2_enabled=self.http2_enabled,
             id=self.id,
             name=self.name,
             negotiate_client_certificate=self.negotiate_client_certificate,
+            tls10_enabled=self.tls10_enabled,
+            tls11_enabled=self.tls11_enabled,
             type=self.type)
 
 
@@ -109,7 +145,7 @@ def get_gateway_hostname_configuration(gateway_id: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGatewayHostnameConfigurationResult:
     """
     Gateway hostname configuration details.
-    API Version: 2019-12-01.
+    API Version: 2020-12-01.
 
 
     :param str gateway_id: Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
@@ -131,7 +167,10 @@ def get_gateway_hostname_configuration(gateway_id: Optional[str] = None,
     return AwaitableGetGatewayHostnameConfigurationResult(
         certificate_id=__ret__.certificate_id,
         hostname=__ret__.hostname,
+        http2_enabled=__ret__.http2_enabled,
         id=__ret__.id,
         name=__ret__.name,
         negotiate_client_certificate=__ret__.negotiate_client_certificate,
+        tls10_enabled=__ret__.tls10_enabled,
+        tls11_enabled=__ret__.tls11_enabled,
         type=__ret__.type)

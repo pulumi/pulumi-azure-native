@@ -96,9 +96,16 @@ const key = new keyvault.Key("mykey", {
     },
 });
 
+const roleName = new random.RandomString("roleName", {
+    length: 10,
+    upper: false,
+    number: false,
+    special: false,
+}).result;
+
 const scope = pulumi.interpolate`/subscriptions/${config.subscriptionId}`;
 const roleDefinition = new authorization.RoleDefinition("custom-role", {
-    roleName: "my-custom-role",
+    roleName,
     assignableScopes: [scope],
     permissions: [{
         actions: ["*"],

@@ -26,10 +26,14 @@ __all__ = [
     'BodyDiagnosticSettingsResponse',
     'CertificateConfigurationResponse',
     'CertificateInformationResponse',
+    'DataMaskingEntityResponse',
+    'DataMaskingResponse',
     'EmailTemplateParametersContractPropertiesResponse',
     'GroupContractPropertiesResponse',
     'HostnameConfigurationResponse',
     'HttpMessageDiagnosticResponse',
+    'KeyVaultContractPropertiesResponse',
+    'KeyVaultLastAccessStatusContractPropertiesResponse',
     'OAuth2AuthenticationSettingsContractResponse',
     'OpenIdAuthenticationSettingsContractResponse',
     'ParameterContractResponse',
@@ -59,16 +63,18 @@ class AdditionalLocationResponse(dict):
                  public_ip_addresses: Sequence[str],
                  sku: 'outputs.ApiManagementServiceSkuPropertiesResponse',
                  disable_gateway: Optional[bool] = None,
-                 virtual_network_configuration: Optional['outputs.VirtualNetworkConfigurationResponse'] = None):
+                 virtual_network_configuration: Optional['outputs.VirtualNetworkConfigurationResponse'] = None,
+                 zones: Optional[Sequence[str]] = None):
         """
         Description of an additional API Management resource location.
         :param str gateway_regional_url: Gateway URL of the API Management service in the Region.
         :param str location: The location name of the additional region among Azure Data center regions.
-        :param Sequence[str] private_ip_addresses: Private Static Load Balanced IP addresses of the API Management service which is deployed in an Internal Virtual Network in a particular additional location. Available only for Basic, Standard and Premium SKU.
-        :param Sequence[str] public_ip_addresses: Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
+        :param Sequence[str] private_ip_addresses: Private Static Load Balanced IP addresses of the API Management service which is deployed in an Internal Virtual Network in a particular additional location. Available only for Basic, Standard, Premium and Isolated SKU.
+        :param Sequence[str] public_ip_addresses: Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard, Premium and Isolated SKU.
         :param 'ApiManagementServiceSkuPropertiesResponseArgs' sku: SKU properties of the API Management service.
         :param bool disable_gateway: Property only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in this additional location.
         :param 'VirtualNetworkConfigurationResponseArgs' virtual_network_configuration: Virtual network configuration for the location.
+        :param Sequence[str] zones: A list of availability zones denoting where the resource needs to come from.
         """
         pulumi.set(__self__, "gateway_regional_url", gateway_regional_url)
         pulumi.set(__self__, "location", location)
@@ -81,6 +87,8 @@ class AdditionalLocationResponse(dict):
             pulumi.set(__self__, "disable_gateway", disable_gateway)
         if virtual_network_configuration is not None:
             pulumi.set(__self__, "virtual_network_configuration", virtual_network_configuration)
+        if zones is not None:
+            pulumi.set(__self__, "zones", zones)
 
     @property
     @pulumi.getter(name="gatewayRegionalUrl")
@@ -102,7 +110,7 @@ class AdditionalLocationResponse(dict):
     @pulumi.getter(name="privateIPAddresses")
     def private_ip_addresses(self) -> Sequence[str]:
         """
-        Private Static Load Balanced IP addresses of the API Management service which is deployed in an Internal Virtual Network in a particular additional location. Available only for Basic, Standard and Premium SKU.
+        Private Static Load Balanced IP addresses of the API Management service which is deployed in an Internal Virtual Network in a particular additional location. Available only for Basic, Standard, Premium and Isolated SKU.
         """
         return pulumi.get(self, "private_ip_addresses")
 
@@ -110,7 +118,7 @@ class AdditionalLocationResponse(dict):
     @pulumi.getter(name="publicIPAddresses")
     def public_ip_addresses(self) -> Sequence[str]:
         """
-        Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
+        Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard, Premium and Isolated SKU.
         """
         return pulumi.get(self, "public_ip_addresses")
 
@@ -137,6 +145,14 @@ class AdditionalLocationResponse(dict):
         Virtual network configuration for the location.
         """
         return pulumi.get(self, "virtual_network_configuration")
+
+    @property
+    @pulumi.getter
+    def zones(self) -> Optional[Sequence[str]]:
+        """
+        A list of availability zones denoting where the resource needs to come from.
+        """
+        return pulumi.get(self, "zones")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -437,12 +453,14 @@ class BackendCredentialsContractResponse(dict):
     def __init__(__self__, *,
                  authorization: Optional['outputs.BackendAuthorizationHeaderCredentialsResponse'] = None,
                  certificate: Optional[Sequence[str]] = None,
+                 certificate_ids: Optional[Sequence[str]] = None,
                  header: Optional[Mapping[str, Sequence[str]]] = None,
                  query: Optional[Mapping[str, Sequence[str]]] = None):
         """
         Details of the Credentials used to connect to Backend.
         :param 'BackendAuthorizationHeaderCredentialsResponseArgs' authorization: Authorization header authentication
-        :param Sequence[str] certificate: List of Client Certificate Thumbprint.
+        :param Sequence[str] certificate: List of Client Certificate Thumbprints. Will be ignored if certificatesIds are provided.
+        :param Sequence[str] certificate_ids: List of Client Certificate Ids.
         :param Mapping[str, Sequence[str]] header: Header Parameter description.
         :param Mapping[str, Sequence[str]] query: Query Parameter description.
         """
@@ -450,6 +468,8 @@ class BackendCredentialsContractResponse(dict):
             pulumi.set(__self__, "authorization", authorization)
         if certificate is not None:
             pulumi.set(__self__, "certificate", certificate)
+        if certificate_ids is not None:
+            pulumi.set(__self__, "certificate_ids", certificate_ids)
         if header is not None:
             pulumi.set(__self__, "header", header)
         if query is not None:
@@ -467,9 +487,17 @@ class BackendCredentialsContractResponse(dict):
     @pulumi.getter
     def certificate(self) -> Optional[Sequence[str]]:
         """
-        List of Client Certificate Thumbprint.
+        List of Client Certificate Thumbprints. Will be ignored if certificatesIds are provided.
         """
         return pulumi.get(self, "certificate")
+
+    @property
+    @pulumi.getter(name="certificateIds")
+    def certificate_ids(self) -> Optional[Sequence[str]]:
+        """
+        List of Client Certificate Ids.
+        """
+        return pulumi.get(self, "certificate_ids")
 
     @property
     @pulumi.getter
@@ -572,21 +600,26 @@ class BackendServiceFabricClusterPropertiesResponse(dict):
     Properties of the Service Fabric Type Backend.
     """
     def __init__(__self__, *,
-                 client_certificatethumbprint: str,
                  management_endpoints: Sequence[str],
+                 client_certificate_id: Optional[str] = None,
+                 client_certificatethumbprint: Optional[str] = None,
                  max_partition_resolution_retries: Optional[int] = None,
                  server_certificate_thumbprints: Optional[Sequence[str]] = None,
                  server_x509_names: Optional[Sequence['outputs.X509CertificateNameResponse']] = None):
         """
         Properties of the Service Fabric Type Backend.
-        :param str client_certificatethumbprint: The client certificate thumbprint for the management endpoint.
         :param Sequence[str] management_endpoints: The cluster management endpoint.
+        :param str client_certificate_id: The client certificate id for the management endpoint.
+        :param str client_certificatethumbprint: The client certificate thumbprint for the management endpoint. Will be ignored if certificatesIds are provided
         :param int max_partition_resolution_retries: Maximum number of retries while attempting resolve the partition.
         :param Sequence[str] server_certificate_thumbprints: Thumbprints of certificates cluster management service uses for tls communication
         :param Sequence['X509CertificateNameResponseArgs'] server_x509_names: Server X509 Certificate Names Collection
         """
-        pulumi.set(__self__, "client_certificatethumbprint", client_certificatethumbprint)
         pulumi.set(__self__, "management_endpoints", management_endpoints)
+        if client_certificate_id is not None:
+            pulumi.set(__self__, "client_certificate_id", client_certificate_id)
+        if client_certificatethumbprint is not None:
+            pulumi.set(__self__, "client_certificatethumbprint", client_certificatethumbprint)
         if max_partition_resolution_retries is not None:
             pulumi.set(__self__, "max_partition_resolution_retries", max_partition_resolution_retries)
         if server_certificate_thumbprints is not None:
@@ -595,20 +628,28 @@ class BackendServiceFabricClusterPropertiesResponse(dict):
             pulumi.set(__self__, "server_x509_names", server_x509_names)
 
     @property
-    @pulumi.getter(name="clientCertificatethumbprint")
-    def client_certificatethumbprint(self) -> str:
-        """
-        The client certificate thumbprint for the management endpoint.
-        """
-        return pulumi.get(self, "client_certificatethumbprint")
-
-    @property
     @pulumi.getter(name="managementEndpoints")
     def management_endpoints(self) -> Sequence[str]:
         """
         The cluster management endpoint.
         """
         return pulumi.get(self, "management_endpoints")
+
+    @property
+    @pulumi.getter(name="clientCertificateId")
+    def client_certificate_id(self) -> Optional[str]:
+        """
+        The client certificate id for the management endpoint.
+        """
+        return pulumi.get(self, "client_certificate_id")
+
+    @property
+    @pulumi.getter(name="clientCertificatethumbprint")
+    def client_certificatethumbprint(self) -> Optional[str]:
+        """
+        The client certificate thumbprint for the management endpoint. Will be ignored if certificatesIds are provided
+        """
+        return pulumi.get(self, "client_certificatethumbprint")
 
     @property
     @pulumi.getter(name="maxPartitionResolutionRetries")
@@ -815,6 +856,74 @@ class CertificateInformationResponse(dict):
 
 
 @pulumi.output_type
+class DataMaskingEntityResponse(dict):
+    def __init__(__self__, *,
+                 mode: Optional[str] = None,
+                 value: Optional[str] = None):
+        """
+        :param str mode: Data masking mode.
+        :param str value: The name of an entity to mask (e.g. a name of a header or a query parameter).
+        """
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> Optional[str]:
+        """
+        Data masking mode.
+        """
+        return pulumi.get(self, "mode")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        The name of an entity to mask (e.g. a name of a header or a query parameter).
+        """
+        return pulumi.get(self, "value")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DataMaskingResponse(dict):
+    def __init__(__self__, *,
+                 headers: Optional[Sequence['outputs.DataMaskingEntityResponse']] = None,
+                 query_params: Optional[Sequence['outputs.DataMaskingEntityResponse']] = None):
+        """
+        :param Sequence['DataMaskingEntityResponseArgs'] headers: Masking settings for headers
+        :param Sequence['DataMaskingEntityResponseArgs'] query_params: Masking settings for Url query parameters
+        """
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
+        if query_params is not None:
+            pulumi.set(__self__, "query_params", query_params)
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[Sequence['outputs.DataMaskingEntityResponse']]:
+        """
+        Masking settings for headers
+        """
+        return pulumi.get(self, "headers")
+
+    @property
+    @pulumi.getter(name="queryParams")
+    def query_params(self) -> Optional[Sequence['outputs.DataMaskingEntityResponse']]:
+        """
+        Masking settings for Url query parameters
+        """
+        return pulumi.get(self, "query_params")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class EmailTemplateParametersContractPropertiesResponse(dict):
     """
     Email Template Parameter contract.
@@ -948,6 +1057,7 @@ class HostnameConfigurationResponse(dict):
                  certificate_password: Optional[str] = None,
                  default_ssl_binding: Optional[bool] = None,
                  encoded_certificate: Optional[str] = None,
+                 identity_client_id: Optional[str] = None,
                  key_vault_id: Optional[str] = None,
                  negotiate_client_certificate: Optional[bool] = None):
         """
@@ -958,7 +1068,8 @@ class HostnameConfigurationResponse(dict):
         :param str certificate_password: Certificate Password.
         :param bool default_ssl_binding: Specify true to setup the certificate associated with this Hostname as the Default SSL Certificate. If a client does not send the SNI header, then this will be the certificate that will be challenged. The property is useful if a service has multiple custom hostname enabled and it needs to decide on the default ssl certificate. The setting only applied to Proxy Hostname Type.
         :param str encoded_certificate: Base64 Encoded certificate.
-        :param str key_vault_id: Url to the KeyVault Secret containing the Ssl Certificate. If absolute Url containing version is provided, auto-update of ssl certificate will not work. This requires Api Management service to be configured with MSI. The secret should be of type *application/x-pkcs12*
+        :param str identity_client_id: System or User Assigned Managed identity clientId as generated by Azure AD, which has GET access to the keyVault containing the SSL certificate.
+        :param str key_vault_id: Url to the KeyVault Secret containing the Ssl Certificate. If absolute Url containing version is provided, auto-update of ssl certificate will not work. This requires Api Management service to be configured with aka.ms/apimmsi. The secret should be of type *application/x-pkcs12*
         :param bool negotiate_client_certificate: Specify true to always negotiate client certificate on the hostname. Default Value is false.
         """
         pulumi.set(__self__, "host_name", host_name)
@@ -973,6 +1084,8 @@ class HostnameConfigurationResponse(dict):
             pulumi.set(__self__, "default_ssl_binding", default_ssl_binding)
         if encoded_certificate is not None:
             pulumi.set(__self__, "encoded_certificate", encoded_certificate)
+        if identity_client_id is not None:
+            pulumi.set(__self__, "identity_client_id", identity_client_id)
         if key_vault_id is not None:
             pulumi.set(__self__, "key_vault_id", key_vault_id)
         if negotiate_client_certificate is None:
@@ -1029,10 +1142,18 @@ class HostnameConfigurationResponse(dict):
         return pulumi.get(self, "encoded_certificate")
 
     @property
+    @pulumi.getter(name="identityClientId")
+    def identity_client_id(self) -> Optional[str]:
+        """
+        System or User Assigned Managed identity clientId as generated by Azure AD, which has GET access to the keyVault containing the SSL certificate.
+        """
+        return pulumi.get(self, "identity_client_id")
+
+    @property
     @pulumi.getter(name="keyVaultId")
     def key_vault_id(self) -> Optional[str]:
         """
-        Url to the KeyVault Secret containing the Ssl Certificate. If absolute Url containing version is provided, auto-update of ssl certificate will not work. This requires Api Management service to be configured with MSI. The secret should be of type *application/x-pkcs12*
+        Url to the KeyVault Secret containing the Ssl Certificate. If absolute Url containing version is provided, auto-update of ssl certificate will not work. This requires Api Management service to be configured with aka.ms/apimmsi. The secret should be of type *application/x-pkcs12*
         """
         return pulumi.get(self, "key_vault_id")
 
@@ -1055,14 +1176,18 @@ class HttpMessageDiagnosticResponse(dict):
     """
     def __init__(__self__, *,
                  body: Optional['outputs.BodyDiagnosticSettingsResponse'] = None,
+                 data_masking: Optional['outputs.DataMaskingResponse'] = None,
                  headers: Optional[Sequence[str]] = None):
         """
         Http message diagnostic settings.
         :param 'BodyDiagnosticSettingsResponseArgs' body: Body logging settings.
+        :param 'DataMaskingResponseArgs' data_masking: Data masking settings.
         :param Sequence[str] headers: Array of HTTP Headers to log.
         """
         if body is not None:
             pulumi.set(__self__, "body", body)
+        if data_masking is not None:
+            pulumi.set(__self__, "data_masking", data_masking)
         if headers is not None:
             pulumi.set(__self__, "headers", headers)
 
@@ -1075,12 +1200,120 @@ class HttpMessageDiagnosticResponse(dict):
         return pulumi.get(self, "body")
 
     @property
+    @pulumi.getter(name="dataMasking")
+    def data_masking(self) -> Optional['outputs.DataMaskingResponse']:
+        """
+        Data masking settings.
+        """
+        return pulumi.get(self, "data_masking")
+
+    @property
     @pulumi.getter
     def headers(self) -> Optional[Sequence[str]]:
         """
         Array of HTTP Headers to log.
         """
         return pulumi.get(self, "headers")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class KeyVaultContractPropertiesResponse(dict):
+    """
+    KeyVault contract details.
+    """
+    def __init__(__self__, *,
+                 identity_client_id: Optional[str] = None,
+                 last_status: Optional['outputs.KeyVaultLastAccessStatusContractPropertiesResponse'] = None,
+                 secret_identifier: Optional[str] = None):
+        """
+        KeyVault contract details.
+        :param str identity_client_id: SystemAssignedIdentity or UserAssignedIdentity Client Id which will be used to access key vault secret.
+        :param 'KeyVaultLastAccessStatusContractPropertiesResponseArgs' last_status: Last time sync and refresh status of secret from key vault.
+        :param str secret_identifier: Key vault secret identifier for fetching secret. Providing a versioned secret will prevent auto-refresh. This requires Api Management service to be configured with aka.ms/apimmsi
+        """
+        if identity_client_id is not None:
+            pulumi.set(__self__, "identity_client_id", identity_client_id)
+        if last_status is not None:
+            pulumi.set(__self__, "last_status", last_status)
+        if secret_identifier is not None:
+            pulumi.set(__self__, "secret_identifier", secret_identifier)
+
+    @property
+    @pulumi.getter(name="identityClientId")
+    def identity_client_id(self) -> Optional[str]:
+        """
+        SystemAssignedIdentity or UserAssignedIdentity Client Id which will be used to access key vault secret.
+        """
+        return pulumi.get(self, "identity_client_id")
+
+    @property
+    @pulumi.getter(name="lastStatus")
+    def last_status(self) -> Optional['outputs.KeyVaultLastAccessStatusContractPropertiesResponse']:
+        """
+        Last time sync and refresh status of secret from key vault.
+        """
+        return pulumi.get(self, "last_status")
+
+    @property
+    @pulumi.getter(name="secretIdentifier")
+    def secret_identifier(self) -> Optional[str]:
+        """
+        Key vault secret identifier for fetching secret. Providing a versioned secret will prevent auto-refresh. This requires Api Management service to be configured with aka.ms/apimmsi
+        """
+        return pulumi.get(self, "secret_identifier")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class KeyVaultLastAccessStatusContractPropertiesResponse(dict):
+    """
+    Issue contract Update Properties.
+    """
+    def __init__(__self__, *,
+                 code: Optional[str] = None,
+                 message: Optional[str] = None,
+                 time_stamp_utc: Optional[str] = None):
+        """
+        Issue contract Update Properties.
+        :param str code: Last status code for sync and refresh of secret from key vault.
+        :param str message: Details of the error else empty.
+        :param str time_stamp_utc: Last time secret was accessed. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+        """
+        if code is not None:
+            pulumi.set(__self__, "code", code)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
+        if time_stamp_utc is not None:
+            pulumi.set(__self__, "time_stamp_utc", time_stamp_utc)
+
+    @property
+    @pulumi.getter
+    def code(self) -> Optional[str]:
+        """
+        Last status code for sync and refresh of secret from key vault.
+        """
+        return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter
+    def message(self) -> Optional[str]:
+        """
+        Details of the error else empty.
+        """
+        return pulumi.get(self, "message")
+
+    @property
+    @pulumi.getter(name="timeStampUtc")
+    def time_stamp_utc(self) -> Optional[str]:
+        """
+        Last time secret was accessed. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+        """
+        return pulumi.get(self, "time_stamp_utc")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

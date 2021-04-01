@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gateway authentication keys.
- * API Version: 2019-12-01.
+ * API Version: 2020-12-01.
  */
 export function listGatewayKeys(args: ListGatewayKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListGatewayKeysResult> {
     if (!opts) {

@@ -21,12 +21,13 @@ class Cache(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_id: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
+                 use_from_location: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
         """
         Cache details.
-        API Version: 2019-12-01.
+        API Version: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -36,6 +37,7 @@ class Cache(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] resource_id: Original uri of entity in external system cache points to
         :param pulumi.Input[str] service_name: The name of the API Management service.
+        :param pulumi.Input[str] use_from_location: Location identifier to use cache from (should be either 'default' or valid Azure region identifier)
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -66,6 +68,9 @@ class Cache(pulumi.CustomResource):
             if service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
+            if use_from_location is None and not opts.urn:
+                raise TypeError("Missing required property 'use_from_location'")
+            __props__['use_from_location'] = use_from_location
             __props__['name'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:apimanagement:Cache"), pulumi.Alias(type_="azure-native:apimanagement/latest:Cache"), pulumi.Alias(type_="azure-nextgen:apimanagement/latest:Cache"), pulumi.Alias(type_="azure-native:apimanagement/v20180601preview:Cache"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20180601preview:Cache"), pulumi.Alias(type_="azure-native:apimanagement/v20190101:Cache"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20190101:Cache"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:Cache"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201:Cache"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:Cache"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20191201preview:Cache"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:Cache"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20200601preview:Cache"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:Cache"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20201201:Cache"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:Cache"), pulumi.Alias(type_="azure-nextgen:apimanagement/v20210101preview:Cache")])
@@ -97,6 +102,7 @@ class Cache(pulumi.CustomResource):
         __props__["name"] = None
         __props__["resource_id"] = None
         __props__["type"] = None
+        __props__["use_from_location"] = None
         return Cache(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -138,6 +144,14 @@ class Cache(pulumi.CustomResource):
         Resource type for API Management resource.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="useFromLocation")
+    def use_from_location(self) -> pulumi.Output[str]:
+        """
+        Location identifier to use cache from (should be either 'default' or valid Azure region identifier)
+        """
+        return pulumi.get(self, "use_from_location")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

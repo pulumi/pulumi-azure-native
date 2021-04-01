@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Product details.
- * Latest API Version: 2019-12-01.
+ * Latest API Version: 2020-12-01.
  *
  * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:Product'.
  */
@@ -40,7 +40,7 @@ export class Product extends pulumi.CustomResource {
     }
 
     /**
-     * whether subscription approval is required. If false, new subscriptions will be approved automatically enabling developers to call the product’s APIs immediately after subscribing. If true, administrators must manually approve the subscription before the developer can any of the product’s APIs. Can be present only if subscriptionRequired property is present and has a value of true.
+     * whether subscription approval is required. If false, new subscriptions will be approved automatically enabling developers to call the product’s APIs immediately after subscribing. If true, administrators must manually approve the subscription before the developer can any of the product’s APIs. Can be present only if subscriptionRequired property is present and has a value of false.
      */
     public readonly approvalRequired!: pulumi.Output<boolean | undefined>;
     /**
@@ -64,7 +64,7 @@ export class Product extends pulumi.CustomResource {
      */
     public readonly subscriptionRequired!: pulumi.Output<boolean | undefined>;
     /**
-     * Whether the number of subscriptions a user can have to this product at the same time. Set to null or omit to allow unlimited per user subscriptions. Can be present only if subscriptionRequired property is present and has a value of true.
+     * Whether the number of subscriptions a user can have to this product at the same time. Set to null or omit to allow unlimited per user subscriptions. Can be present only if subscriptionRequired property is present and has a value of false.
      */
     public readonly subscriptionsLimit!: pulumi.Output<number | undefined>;
     /**
@@ -135,7 +135,7 @@ export class Product extends pulumi.CustomResource {
  */
 export interface ProductArgs {
     /**
-     * whether subscription approval is required. If false, new subscriptions will be approved automatically enabling developers to call the product’s APIs immediately after subscribing. If true, administrators must manually approve the subscription before the developer can any of the product’s APIs. Can be present only if subscriptionRequired property is present and has a value of true.
+     * whether subscription approval is required. If false, new subscriptions will be approved automatically enabling developers to call the product’s APIs immediately after subscribing. If true, administrators must manually approve the subscription before the developer can any of the product’s APIs. Can be present only if subscriptionRequired property is present and has a value of false.
      */
     readonly approvalRequired?: pulumi.Input<boolean>;
     /**
@@ -167,7 +167,7 @@ export interface ProductArgs {
      */
     readonly subscriptionRequired?: pulumi.Input<boolean>;
     /**
-     * Whether the number of subscriptions a user can have to this product at the same time. Set to null or omit to allow unlimited per user subscriptions. Can be present only if subscriptionRequired property is present and has a value of true.
+     * Whether the number of subscriptions a user can have to this product at the same time. Set to null or omit to allow unlimited per user subscriptions. Can be present only if subscriptionRequired property is present and has a value of false.
      */
     readonly subscriptionsLimit?: pulumi.Input<number>;
     /**

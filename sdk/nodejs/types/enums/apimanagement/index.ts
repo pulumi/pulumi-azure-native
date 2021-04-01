@@ -209,6 +209,22 @@ export const ContentFormat = {
  */
 export type ContentFormat = (typeof ContentFormat)[keyof typeof ContentFormat];
 
+export const DataMaskingMode = {
+    /**
+     * Mask the value of an entity.
+     */
+    Mask: "Mask",
+    /**
+     * Hide the presence of an entity.
+     */
+    Hide: "Hide",
+} as const;
+
+/**
+ * Data masking mode.
+ */
+export type DataMaskingMode = (typeof DataMaskingMode)[keyof typeof DataMaskingMode];
+
 export const GrantType = {
     /**
      * Authorization Code Grant flow as described https://tools.ietf.org/html/rfc6749#section-4.1.
@@ -315,12 +331,32 @@ export const LoggerType = {
      * Azure Application Insights as log destination.
      */
     ApplicationInsights: "applicationInsights",
+    /**
+     * Azure Monitor
+     */
+    AzureMonitor: "azureMonitor",
 } as const;
 
 /**
  * Logger type.
  */
 export type LoggerType = (typeof LoggerType)[keyof typeof LoggerType];
+
+export const OperationNameFormat = {
+    /**
+     * API_NAME;rev=API_REVISION - OPERATION_NAME
+     */
+    Name: "Name",
+    /**
+     * HTTP_VERB URL
+     */
+    Url: "Url",
+} as const;
+
+/**
+ * The format of the Operation Name for Application Insights telemetries. Default is Name.
+ */
+export type OperationNameFormat = (typeof OperationNameFormat)[keyof typeof OperationNameFormat];
 
 export const PolicyContentFormat = {
     /**
@@ -405,6 +441,10 @@ export const SkuType = {
      * Consumption SKU of Api Management.
      */
     Consumption: "Consumption",
+    /**
+     * Isolated SKU of Api Management.
+     */
+    Isolated: "Isolated",
 } as const;
 
 /**

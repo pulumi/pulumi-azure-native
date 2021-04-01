@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Issue Comment Contract details.
- * API Version: 2019-12-01.
+ * API Version: 2020-12-01.
  */
 export function getApiIssueComment(args: GetApiIssueCommentArgs, opts?: pulumi.InvokeOptions): Promise<GetApiIssueCommentResult> {
     if (!opts) {

@@ -8,7 +8,7 @@ import (
 )
 
 // ApiRelease details.
-// API Version: 2019-12-01.
+// API Version: 2020-12-01.
 func LookupApiRelease(ctx *pulumi.Context, args *LookupApiReleaseArgs, opts ...pulumi.InvokeOption) (*LookupApiReleaseResult, error) {
 	var rv LookupApiReleaseResult
 	err := ctx.Invoke("azure-native:apimanagement:getApiRelease", args, &rv, opts...)

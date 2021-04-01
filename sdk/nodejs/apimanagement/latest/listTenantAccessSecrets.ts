@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Tenant access information contract of the API Management service.
- * Latest API Version: 2019-12-01.
+ * Latest API Version: 2020-12-01.
  */
 /** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:listTenantAccessSecrets'. */
 export function listTenantAccessSecrets(args: ListTenantAccessSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListTenantAccessSecretsResult> {
@@ -50,13 +50,17 @@ export interface ListTenantAccessSecretsResult {
      */
     readonly enabled?: boolean;
     /**
-     * Identifier.
+     * Access Information type ('access' or 'gitAccess')
      */
     readonly id?: string;
     /**
      * Primary access key. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
      */
     readonly primaryKey?: string;
+    /**
+     * Principal (User) Identifier.
+     */
+    readonly principalId?: string;
     /**
      * Secondary access key. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
      */
