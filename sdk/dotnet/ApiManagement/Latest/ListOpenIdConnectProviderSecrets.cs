@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.ApiManagement.Latest
     {
         /// <summary>
         /// Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
-        /// Latest API Version: 2019-12-01.
+        /// Latest API Version: 2020-12-01.
         /// </summary>
         public static Task<ListOpenIdConnectProviderSecretsResult> InvokeAsync(ListOpenIdConnectProviderSecretsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListOpenIdConnectProviderSecretsResult>("azure-native:apimanagement/latest:listOpenIdConnectProviderSecrets", args ?? new ListOpenIdConnectProviderSecretsArgs(), options.WithVersion());

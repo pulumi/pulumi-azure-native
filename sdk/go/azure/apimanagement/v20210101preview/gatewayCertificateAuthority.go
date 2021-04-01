@@ -50,6 +50,12 @@ func NewGatewayCertificateAuthority(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:apimanagement:GatewayCertificateAuthority"),
 		},
 		{
+			Type: pulumi.String("azure-native:apimanagement/latest:GatewayCertificateAuthority"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:apimanagement/latest:GatewayCertificateAuthority"),
+		},
+		{
 			Type: pulumi.String("azure-native:apimanagement/v20200601preview:GatewayCertificateAuthority"),
 		},
 		{

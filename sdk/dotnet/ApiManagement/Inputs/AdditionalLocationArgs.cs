@@ -39,6 +39,18 @@ namespace Pulumi.AzureNative.ApiManagement.Inputs
         [Input("virtualNetworkConfiguration")]
         public Input<Inputs.VirtualNetworkConfigurationArgs>? VirtualNetworkConfiguration { get; set; }
 
+        [Input("zones")]
+        private InputList<string>? _zones;
+
+        /// <summary>
+        /// A list of availability zones denoting where the resource needs to come from.
+        /// </summary>
+        public InputList<string> Zones
+        {
+            get => _zones ?? (_zones = new InputList<string>());
+            set => _zones = value;
+        }
+
         public AdditionalLocationArgs()
         {
             DisableGateway = false;

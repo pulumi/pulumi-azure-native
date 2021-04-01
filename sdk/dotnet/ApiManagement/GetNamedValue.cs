@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement
     {
         /// <summary>
         /// NamedValue details.
-        /// API Version: 2019-12-01.
+        /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetNamedValueResult> InvokeAsync(GetNamedValueArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNamedValueResult>("azure-native:apimanagement:getNamedValue", args ?? new GetNamedValueArgs(), options.WithVersion());
@@ -58,6 +58,10 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// KeyVault location details of the namedValue.
+        /// </summary>
+        public readonly Outputs.KeyVaultContractPropertiesResponse? KeyVault;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
@@ -84,6 +88,8 @@ namespace Pulumi.AzureNative.ApiManagement
 
             string id,
 
+            Outputs.KeyVaultContractPropertiesResponse? keyVault,
+
             string name,
 
             bool? secret,
@@ -96,6 +102,7 @@ namespace Pulumi.AzureNative.ApiManagement
         {
             DisplayName = displayName;
             Id = id;
+            KeyVault = keyVault;
             Name = name;
             Secret = secret;
             Tags = tags;

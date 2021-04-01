@@ -6,7 +6,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Gateway hostname configuration details.
- * Latest API Version: 2019-12-01.
+ * Latest API Version: 2020-12-01.
  *
  * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:GatewayHostnameConfiguration'.
  */
@@ -47,6 +47,10 @@ export class GatewayHostnameConfiguration extends pulumi.CustomResource {
      */
     public readonly hostname!: pulumi.Output<string | undefined>;
     /**
+     * Specifies if HTTP/2.0 is supported
+     */
+    public readonly http2Enabled!: pulumi.Output<boolean | undefined>;
+    /**
      * Resource name.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
@@ -54,6 +58,14 @@ export class GatewayHostnameConfiguration extends pulumi.CustomResource {
      * Determines whether gateway requests client certificate
      */
     public readonly negotiateClientCertificate!: pulumi.Output<boolean | undefined>;
+    /**
+     * Specifies if TLS 1.0 is supported
+     */
+    public readonly tls10Enabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * Specifies if TLS 1.1 is supported
+     */
+    public readonly tls11Enabled!: pulumi.Output<boolean | undefined>;
     /**
      * Resource type for API Management resource.
      */
@@ -85,16 +97,22 @@ export class GatewayHostnameConfiguration extends pulumi.CustomResource {
             inputs["gatewayId"] = args ? args.gatewayId : undefined;
             inputs["hcId"] = args ? args.hcId : undefined;
             inputs["hostname"] = args ? args.hostname : undefined;
+            inputs["http2Enabled"] = args ? args.http2Enabled : undefined;
             inputs["negotiateClientCertificate"] = args ? args.negotiateClientCertificate : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
+            inputs["tls10Enabled"] = args ? args.tls10Enabled : undefined;
+            inputs["tls11Enabled"] = args ? args.tls11Enabled : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["certificateId"] = undefined /*out*/;
             inputs["hostname"] = undefined /*out*/;
+            inputs["http2Enabled"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["negotiateClientCertificate"] = undefined /*out*/;
+            inputs["tls10Enabled"] = undefined /*out*/;
+            inputs["tls11Enabled"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -127,6 +145,10 @@ export interface GatewayHostnameConfigurationArgs {
      */
     readonly hostname?: pulumi.Input<string>;
     /**
+     * Specifies if HTTP/2.0 is supported
+     */
+    readonly http2Enabled?: pulumi.Input<boolean>;
+    /**
      * Determines whether gateway requests client certificate
      */
     readonly negotiateClientCertificate?: pulumi.Input<boolean>;
@@ -138,4 +160,12 @@ export interface GatewayHostnameConfigurationArgs {
      * The name of the API Management service.
      */
     readonly serviceName: pulumi.Input<string>;
+    /**
+     * Specifies if TLS 1.0 is supported
+     */
+    readonly tls10Enabled?: pulumi.Input<boolean>;
+    /**
+     * Specifies if TLS 1.1 is supported
+     */
+    readonly tls11Enabled?: pulumi.Input<boolean>;
 }

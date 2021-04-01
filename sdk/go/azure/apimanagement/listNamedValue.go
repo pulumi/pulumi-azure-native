@@ -8,7 +8,7 @@ import (
 )
 
 // Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
-// API Version: 2019-12-01.
+// API Version: 2020-12-01.
 func ListNamedValue(ctx *pulumi.Context, args *ListNamedValueArgs, opts ...pulumi.InvokeOption) (*ListNamedValueResult, error) {
 	var rv ListNamedValueResult
 	err := ctx.Invoke("azure-native:apimanagement:listNamedValue", args, &rv, opts...)

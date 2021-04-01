@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Schema Contract details.
- * API Version: 2019-12-01.
+ * API Version: 2020-12-01.
  */
 export function getApiSchema(args: GetApiSchemaArgs, opts?: pulumi.InvokeOptions): Promise<GetApiSchemaResult> {
     if (!opts) {

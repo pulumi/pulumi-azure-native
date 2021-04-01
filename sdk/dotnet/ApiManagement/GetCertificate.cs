@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement
     {
         /// <summary>
         /// Certificate details.
-        /// API Version: 2019-12-01.
+        /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetCertificateResult> InvokeAsync(GetCertificateArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCertificateResult>("azure-native:apimanagement:getCertificate", args ?? new GetCertificateArgs(), options.WithVersion());
@@ -58,6 +58,10 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// KeyVault location details of the certificate.
+        /// </summary>
+        public readonly Outputs.KeyVaultContractPropertiesResponse? KeyVault;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
@@ -80,6 +84,8 @@ namespace Pulumi.AzureNative.ApiManagement
 
             string id,
 
+            Outputs.KeyVaultContractPropertiesResponse? keyVault,
+
             string name,
 
             string subject,
@@ -90,6 +96,7 @@ namespace Pulumi.AzureNative.ApiManagement
         {
             ExpirationDate = expirationDate;
             Id = id;
+            KeyVault = keyVault;
             Name = name;
             Subject = subject;
             Thumbprint = thumbprint;

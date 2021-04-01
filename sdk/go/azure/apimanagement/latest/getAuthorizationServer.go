@@ -8,7 +8,7 @@ import (
 )
 
 // External OAuth authorization server settings.
-// Latest API Version: 2019-12-01.
+// Latest API Version: 2020-12-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getAuthorizationServer'.
 func LookupAuthorizationServer(ctx *pulumi.Context, args *LookupAuthorizationServerArgs, opts ...pulumi.InvokeOption) (*LookupAuthorizationServerResult, error) {

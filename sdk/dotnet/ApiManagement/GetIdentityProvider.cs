@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement
     {
         /// <summary>
         /// Identity Provider details.
-        /// API Version: 2019-12-01.
+        /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetIdentityProviderResult> InvokeAsync(GetIdentityProviderArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIdentityProviderResult>("azure-native:apimanagement:getIdentityProvider", args ?? new GetIdentityProviderArgs(), options.WithVersion());

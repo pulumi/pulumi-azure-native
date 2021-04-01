@@ -6,7 +6,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Cache details.
- * Latest API Version: 2019-12-01.
+ * Latest API Version: 2020-12-01.
  *
  * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:Cache'.
  */
@@ -58,6 +58,10 @@ export class Cache extends pulumi.CustomResource {
      * Resource type for API Management resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Location identifier to use cache from (should be either 'default' or valid Azure region identifier)
+     */
+    public readonly useFromLocation!: pulumi.Output<string>;
 
     /**
      * Create a Cache resource with the given unique name, arguments, and options.
@@ -81,12 +85,16 @@ export class Cache extends pulumi.CustomResource {
             if ((!args || args.serviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
+            if ((!args || args.useFromLocation === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'useFromLocation'");
+            }
             inputs["cacheId"] = args ? args.cacheId : undefined;
             inputs["connectionString"] = args ? args.connectionString : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["resourceId"] = args ? args.resourceId : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
+            inputs["useFromLocation"] = args ? args.useFromLocation : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
@@ -95,6 +103,7 @@ export class Cache extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["resourceId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["useFromLocation"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -133,4 +142,8 @@ export interface CacheArgs {
      * The name of the API Management service.
      */
     readonly serviceName: pulumi.Input<string>;
+    /**
+     * Location identifier to use cache from (should be either 'default' or valid Azure region identifier)
+     */
+    readonly useFromLocation: pulumi.Input<string>;
 }

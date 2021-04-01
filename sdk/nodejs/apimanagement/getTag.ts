@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Tag Contract details.
- * API Version: 2019-12-01.
+ * API Version: 2020-12-01.
  */
 export function getTag(args: GetTagArgs, opts?: pulumi.InvokeOptions): Promise<GetTagResult> {
     if (!opts) {

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement
     {
         /// <summary>
         /// Policy Contract details.
-        /// API Version: 2019-12-01.
+        /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetPolicyResult> InvokeAsync(GetPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyResult>("azure-native:apimanagement:getPolicy", args ?? new GetPolicyArgs(), options.WithVersion());

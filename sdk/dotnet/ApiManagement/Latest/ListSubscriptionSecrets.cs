@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.ApiManagement.Latest
     {
         /// <summary>
         /// Subscription keys.
-        /// Latest API Version: 2019-12-01.
+        /// Latest API Version: 2020-12-01.
         /// </summary>
         public static Task<ListSubscriptionSecretsResult> InvokeAsync(ListSubscriptionSecretsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListSubscriptionSecretsResult>("azure-native:apimanagement/latest:listSubscriptionSecrets", args ?? new ListSubscriptionSecretsArgs(), options.WithVersion());

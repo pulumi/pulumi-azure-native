@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.ApiManagement.Latest
     {
         /// <summary>
         /// Content type contract details.
-        /// Latest API Version: 2019-12-01.
+        /// Latest API Version: 2020-12-01.
         /// </summary>
         public static Task<GetContentItemResult> InvokeAsync(GetContentItemArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetContentItemResult>("azure-native:apimanagement/latest:getContentItem", args ?? new GetContentItemArgs(), options.WithVersion());

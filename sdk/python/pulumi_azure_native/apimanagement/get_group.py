@@ -120,7 +120,7 @@ def get_group(group_id: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGroupResult:
     """
     Contract details.
-    API Version: 2019-12-01.
+    API Version: 2020-12-01.
 
 
     :param str group_id: Group identifier. Must be unique in the current API Management service instance.

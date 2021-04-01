@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.ApiManagement.Latest
     {
         /// <summary>
         /// Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
-        /// Latest API Version: 2019-12-01.
+        /// Latest API Version: 2020-12-01.
         /// </summary>
         public static Task<ListNamedValueResult> InvokeAsync(ListNamedValueArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListNamedValueResult>("azure-native:apimanagement/latest:listNamedValue", args ?? new ListNamedValueArgs(), options.WithVersion());

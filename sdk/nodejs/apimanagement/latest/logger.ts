@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Logger details.
- * Latest API Version: 2019-12-01.
+ * Latest API Version: 2020-12-01.
  *
  * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:Logger'.
  */
@@ -43,7 +43,7 @@ export class Logger extends pulumi.CustomResource {
      * The name and SendRule connection string of the event hub for azureEventHub logger.
      * Instrumentation key for applicationInsights logger.
      */
-    public readonly credentials!: pulumi.Output<{[key: string]: string}>;
+    public readonly credentials!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Logger description.
      */
@@ -82,9 +82,6 @@ export class Logger extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.credentials === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'credentials'");
-            }
             if ((!args || args.loggerType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'loggerType'");
             }
@@ -130,7 +127,7 @@ export interface LoggerArgs {
      * The name and SendRule connection string of the event hub for azureEventHub logger.
      * Instrumentation key for applicationInsights logger.
      */
-    readonly credentials: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly credentials?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Logger description.
      */

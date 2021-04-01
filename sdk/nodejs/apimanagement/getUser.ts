@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * User details.
- * API Version: 2019-12-01.
+ * API Version: 2020-12-01.
  */
 export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise<GetUserResult> {
     if (!opts) {

@@ -265,7 +265,7 @@ def get_authorization_server(authsid: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAuthorizationServerResult:
     """
     External OAuth authorization server settings.
-    API Version: 2019-12-01.
+    API Version: 2020-12-01.
 
 
     :param str authsid: Identifier of the authorization server.

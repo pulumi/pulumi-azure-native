@@ -8,7 +8,7 @@ import (
 )
 
 // Gateway authentication keys.
-// API Version: 2019-12-01.
+// API Version: 2020-12-01.
 func ListGatewayKeys(ctx *pulumi.Context, args *ListGatewayKeysArgs, opts ...pulumi.InvokeOption) (*ListGatewayKeysResult, error) {
 	var rv ListGatewayKeysResult
 	err := ctx.Invoke("azure-native:apimanagement:listGatewayKeys", args, &rv, opts...)

@@ -12,7 +12,7 @@ import (
 )
 
 // Gateway certificate authority details.
-// API Version: 2021-01-01-preview.
+// API Version: 2020-12-01.
 type GatewayCertificateAuthority struct {
 	pulumi.CustomResourceState
 
@@ -43,6 +43,12 @@ func NewGatewayCertificateAuthority(ctx *pulumi.Context,
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:apimanagement:GatewayCertificateAuthority"),
+		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/latest:GatewayCertificateAuthority"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:apimanagement/latest:GatewayCertificateAuthority"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20200601preview:GatewayCertificateAuthority"),

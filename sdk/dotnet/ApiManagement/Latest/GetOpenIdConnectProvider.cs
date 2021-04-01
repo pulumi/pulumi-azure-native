@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.ApiManagement.Latest
     {
         /// <summary>
         /// OpenId Connect Provider details.
-        /// Latest API Version: 2019-12-01.
+        /// Latest API Version: 2020-12-01.
         /// </summary>
         public static Task<GetOpenIdConnectProviderResult> InvokeAsync(GetOpenIdConnectProviderArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetOpenIdConnectProviderResult>("azure-native:apimanagement/latest:getOpenIdConnectProvider", args ?? new GetOpenIdConnectProviderArgs(), options.WithVersion());

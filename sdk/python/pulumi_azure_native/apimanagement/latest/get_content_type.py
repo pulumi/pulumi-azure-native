@@ -110,7 +110,7 @@ def get_content_type(content_type_id: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetContentTypeResult:
     """
     Content type contract details.
-    Latest API Version: 2019-12-01.
+    Latest API Version: 2020-12-01.
 
 
     :param str content_type_id: Content type identifier.

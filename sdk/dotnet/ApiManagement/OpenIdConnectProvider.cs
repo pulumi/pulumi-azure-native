@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ApiManagement
 {
     /// <summary>
     /// OpenId Connect Provider details.
-    /// API Version: 2019-12-01.
+    /// API Version: 2020-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:OpenIdConnectProvider")]
     public partial class OpenIdConnectProvider : Pulumi.CustomResource

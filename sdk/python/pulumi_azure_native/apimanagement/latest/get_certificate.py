@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from . import outputs
 
 __all__ = [
     'GetCertificateResult',
@@ -21,13 +22,16 @@ class GetCertificateResult:
     """
     Certificate details.
     """
-    def __init__(__self__, expiration_date=None, id=None, name=None, subject=None, thumbprint=None, type=None):
+    def __init__(__self__, expiration_date=None, id=None, key_vault=None, name=None, subject=None, thumbprint=None, type=None):
         if expiration_date and not isinstance(expiration_date, str):
             raise TypeError("Expected argument 'expiration_date' to be a str")
         pulumi.set(__self__, "expiration_date", expiration_date)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if key_vault and not isinstance(key_vault, dict):
+            raise TypeError("Expected argument 'key_vault' to be a dict")
+        pulumi.set(__self__, "key_vault", key_vault)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -56,6 +60,14 @@ class GetCertificateResult:
         Resource ID.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="keyVault")
+    def key_vault(self) -> Optional['outputs.KeyVaultContractPropertiesResponse']:
+        """
+        KeyVault location details of the certificate.
+        """
+        return pulumi.get(self, "key_vault")
 
     @property
     @pulumi.getter
@@ -98,6 +110,7 @@ class AwaitableGetCertificateResult(GetCertificateResult):
         return GetCertificateResult(
             expiration_date=self.expiration_date,
             id=self.id,
+            key_vault=self.key_vault,
             name=self.name,
             subject=self.subject,
             thumbprint=self.thumbprint,
@@ -110,7 +123,7 @@ def get_certificate(certificate_id: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCertificateResult:
     """
     Certificate details.
-    Latest API Version: 2019-12-01.
+    Latest API Version: 2020-12-01.
 
 
     :param str certificate_id: Identifier of the certificate entity. Must be unique in the current API Management service instance.
@@ -131,6 +144,7 @@ def get_certificate(certificate_id: Optional[str] = None,
     return AwaitableGetCertificateResult(
         expiration_date=__ret__.expiration_date,
         id=__ret__.id,
+        key_vault=__ret__.key_vault,
         name=__ret__.name,
         subject=__ret__.subject,
         thumbprint=__ret__.thumbprint,

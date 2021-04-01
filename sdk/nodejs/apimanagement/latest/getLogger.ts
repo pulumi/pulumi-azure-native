@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Logger details.
- * Latest API Version: 2019-12-01.
+ * Latest API Version: 2020-12-01.
  */
 /** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:apimanagement:getLogger'. */
 export function getLogger(args: GetLoggerArgs, opts?: pulumi.InvokeOptions): Promise<GetLoggerResult> {
@@ -49,7 +49,7 @@ export interface GetLoggerResult {
      * The name and SendRule connection string of the event hub for azureEventHub logger.
      * Instrumentation key for applicationInsights logger.
      */
-    readonly credentials: {[key: string]: string};
+    readonly credentials?: {[key: string]: string};
     /**
      * Logger description.
      */

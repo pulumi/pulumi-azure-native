@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * NamedValue details.
- * API Version: 2019-12-01.
+ * API Version: 2020-12-01.
  */
 export function getNamedValue(args: GetNamedValueArgs, opts?: pulumi.InvokeOptions): Promise<GetNamedValueResult> {
     if (!opts) {
@@ -51,6 +51,10 @@ export interface GetNamedValueResult {
      * Resource ID.
      */
     readonly id: string;
+    /**
+     * KeyVault location details of the namedValue.
+     */
+    readonly keyVault?: outputs.apimanagement.KeyVaultContractPropertiesResponse;
     /**
      * Resource name.
      */

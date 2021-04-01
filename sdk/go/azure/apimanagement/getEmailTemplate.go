@@ -8,7 +8,7 @@ import (
 )
 
 // Email Template details.
-// API Version: 2019-12-01.
+// API Version: 2020-12-01.
 func LookupEmailTemplate(ctx *pulumi.Context, args *LookupEmailTemplateArgs, opts ...pulumi.InvokeOption) (*LookupEmailTemplateResult, error) {
 	var rv LookupEmailTemplateResult
 	err := ctx.Invoke("azure-native:apimanagement:getEmailTemplate", args, &rv, opts...)

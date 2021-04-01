@@ -8,7 +8,7 @@ import (
 )
 
 // Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
-// API Version: 2019-12-01.
+// API Version: 2020-12-01.
 func ListOpenIdConnectProviderSecrets(ctx *pulumi.Context, args *ListOpenIdConnectProviderSecretsArgs, opts ...pulumi.InvokeOption) (*ListOpenIdConnectProviderSecretsResult, error) {
 	var rv ListOpenIdConnectProviderSecretsResult
 	err := ctx.Invoke("azure-native:apimanagement:listOpenIdConnectProviderSecrets", args, &rv, opts...)

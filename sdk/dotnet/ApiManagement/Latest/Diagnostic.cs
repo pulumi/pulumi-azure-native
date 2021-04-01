@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ApiManagement.Latest
 {
     /// <summary>
     /// Diagnostic details.
-    /// Latest API Version: 2019-12-01.
+    /// Latest API Version: 2020-12-01.
     /// </summary>
     [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:apimanagement:Diagnostic'.")]
     [AzureNativeResourceType("azure-native:apimanagement/latest:Diagnostic")]
@@ -58,6 +58,12 @@ namespace Pulumi.AzureNative.ApiManagement.Latest
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// The format of the Operation Name for Application Insights telemetries. Default is Name.
+        /// </summary>
+        [Output("operationNameFormat")]
+        public Output<string?> OperationNameFormat { get; private set; } = null!;
 
         /// <summary>
         /// Sampling settings for Diagnostic.
@@ -187,6 +193,12 @@ namespace Pulumi.AzureNative.ApiManagement.Latest
         /// </summary>
         [Input("loggerId", required: true)]
         public Input<string> LoggerId { get; set; } = null!;
+
+        /// <summary>
+        /// The format of the Operation Name for Application Insights telemetries. Default is Name.
+        /// </summary>
+        [Input("operationNameFormat")]
+        public InputUnion<string, Pulumi.AzureNative.ApiManagement.Latest.OperationNameFormat>? OperationNameFormat { get; set; }
 
         /// <summary>
         /// The name of the resource group.

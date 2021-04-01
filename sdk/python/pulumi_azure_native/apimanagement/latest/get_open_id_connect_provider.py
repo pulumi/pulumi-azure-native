@@ -134,7 +134,7 @@ def get_open_id_connect_provider(opid: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOpenIdConnectProviderResult:
     """
     OpenId Connect Provider details.
-    Latest API Version: 2019-12-01.
+    Latest API Version: 2020-12-01.
 
 
     :param str opid: Identifier of the OpenID Connect Provider.

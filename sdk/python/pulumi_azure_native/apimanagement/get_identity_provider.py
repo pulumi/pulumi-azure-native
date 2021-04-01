@@ -180,7 +180,7 @@ def get_identity_provider(identity_provider_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIdentityProviderResult:
     """
     Identity Provider details.
-    API Version: 2019-12-01.
+    API Version: 2020-12-01.
 
 
     :param str identity_provider_name: Identity Provider Type identifier.

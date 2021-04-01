@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement
     {
         /// <summary>
         /// Diagnostic details.
-        /// API Version: 2019-12-01.
+        /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetDiagnosticResult> InvokeAsync(GetDiagnosticArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDiagnosticResult>("azure-native:apimanagement:getDiagnostic", args ?? new GetDiagnosticArgs(), options.WithVersion());
@@ -82,6 +82,10 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// The format of the Operation Name for Application Insights telemetries. Default is Name.
+        /// </summary>
+        public readonly string? OperationNameFormat;
+        /// <summary>
         /// Sampling settings for Diagnostic.
         /// </summary>
         public readonly Outputs.SamplingSettingsResponse? Sampling;
@@ -112,6 +116,8 @@ namespace Pulumi.AzureNative.ApiManagement
 
             string name,
 
+            string? operationNameFormat,
+
             Outputs.SamplingSettingsResponse? sampling,
 
             string type,
@@ -126,6 +132,7 @@ namespace Pulumi.AzureNative.ApiManagement
             LogClientIp = logClientIp;
             LoggerId = loggerId;
             Name = name;
+            OperationNameFormat = operationNameFormat;
             Sampling = sampling;
             Type = type;
             Verbosity = verbosity;

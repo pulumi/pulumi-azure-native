@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ApiManagement
 {
     /// <summary>
     /// Backend details.
-    /// API Version: 2019-12-01.
+    /// API Version: 2020-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:Backend")]
     public partial class Backend : Pulumi.CustomResource

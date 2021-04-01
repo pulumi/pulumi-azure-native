@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Policy Contract details.
- * API Version: 2019-12-01.
+ * API Version: 2020-12-01.
  */
 export function getApiPolicy(args: GetApiPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetApiPolicyResult> {
     if (!opts) {

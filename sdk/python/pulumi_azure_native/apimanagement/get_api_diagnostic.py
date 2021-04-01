@@ -20,7 +20,7 @@ class GetApiDiagnosticResult:
     """
     Diagnostic details.
     """
-    def __init__(__self__, always_log=None, backend=None, frontend=None, http_correlation_protocol=None, id=None, log_client_ip=None, logger_id=None, name=None, sampling=None, type=None, verbosity=None):
+    def __init__(__self__, always_log=None, backend=None, frontend=None, http_correlation_protocol=None, id=None, log_client_ip=None, logger_id=None, name=None, operation_name_format=None, sampling=None, type=None, verbosity=None):
         if always_log and not isinstance(always_log, str):
             raise TypeError("Expected argument 'always_log' to be a str")
         pulumi.set(__self__, "always_log", always_log)
@@ -45,6 +45,9 @@ class GetApiDiagnosticResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if operation_name_format and not isinstance(operation_name_format, str):
+            raise TypeError("Expected argument 'operation_name_format' to be a str")
+        pulumi.set(__self__, "operation_name_format", operation_name_format)
         if sampling and not isinstance(sampling, dict):
             raise TypeError("Expected argument 'sampling' to be a dict")
         pulumi.set(__self__, "sampling", sampling)
@@ -120,6 +123,14 @@ class GetApiDiagnosticResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="operationNameFormat")
+    def operation_name_format(self) -> Optional[str]:
+        """
+        The format of the Operation Name for Application Insights telemetries. Default is Name.
+        """
+        return pulumi.get(self, "operation_name_format")
+
+    @property
     @pulumi.getter
     def sampling(self) -> Optional['outputs.SamplingSettingsResponse']:
         """
@@ -158,6 +169,7 @@ class AwaitableGetApiDiagnosticResult(GetApiDiagnosticResult):
             log_client_ip=self.log_client_ip,
             logger_id=self.logger_id,
             name=self.name,
+            operation_name_format=self.operation_name_format,
             sampling=self.sampling,
             type=self.type,
             verbosity=self.verbosity)
@@ -170,7 +182,7 @@ def get_api_diagnostic(api_id: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApiDiagnosticResult:
     """
     Diagnostic details.
-    API Version: 2019-12-01.
+    API Version: 2020-12-01.
 
 
     :param str api_id: API identifier. Must be unique in the current API Management service instance.
@@ -198,6 +210,7 @@ def get_api_diagnostic(api_id: Optional[str] = None,
         log_client_ip=__ret__.log_client_ip,
         logger_id=__ret__.logger_id,
         name=__ret__.name,
+        operation_name_format=__ret__.operation_name_format,
         sampling=__ret__.sampling,
         type=__ret__.type,
         verbosity=__ret__.verbosity)

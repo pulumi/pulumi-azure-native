@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Cache details.
- * API Version: 2019-12-01.
+ * API Version: 2020-12-01.
  */
 export function getCache(args: GetCacheArgs, opts?: pulumi.InvokeOptions): Promise<GetCacheResult> {
     if (!opts) {
@@ -67,4 +67,8 @@ export interface GetCacheResult {
      * Resource type for API Management resource.
      */
     readonly type: string;
+    /**
+     * Location identifier to use cache from (should be either 'default' or valid Azure region identifier)
+     */
+    readonly useFromLocation: string;
 }

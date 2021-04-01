@@ -21,6 +21,12 @@ namespace Pulumi.AzureNative.ApiManagement.Latest.Inputs
         [Input("body")]
         public Input<Inputs.BodyDiagnosticSettingsArgs>? Body { get; set; }
 
+        /// <summary>
+        /// Data masking settings.
+        /// </summary>
+        [Input("dataMasking")]
+        public Input<Inputs.DataMaskingArgs>? DataMasking { get; set; }
+
         [Input("headers")]
         private InputList<string>? _headers;
 
