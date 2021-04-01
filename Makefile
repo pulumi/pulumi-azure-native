@@ -103,9 +103,9 @@ generate_go::
 	$(WORKING_DIR)/bin/$(CODEGEN) go ${VERSION}
 
 build_go::
-	# build 8 packages at a time to avoid OOMing
+	# Only building the top level packages and building 4 at a time to avoid OOMing
 	cd sdk/ && \
-		go list github.com/pulumi/pulumi-azure-native/sdk/go/azure/... | grep -v "latest\|\/v.*"$ | xargs -L 8 go build
+		go list github.com/pulumi/pulumi-azure-native/sdk/go/azure/... | grep -v "latest\|\/v.*"$ | xargs -L 4 go build
 
 clean::
 	rm -rf sdk/nodejs && mkdir sdk/nodejs && touch sdk/nodejs/go.mod
