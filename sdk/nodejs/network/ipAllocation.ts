@@ -105,7 +105,7 @@ export class IpAllocation extends pulumi.CustomResource {
             inputs["ipamAllocationId"] = args ? args.ipamAllocationId : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["prefix"] = args ? args.prefix : undefined;
-            inputs["prefixLength"] = (args ? args.prefixLength : undefined) || 0;
+            inputs["prefixLength"] = (args ? args.prefixLength : undefined) ?? 0;
             inputs["prefixType"] = args ? args.prefixType : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;

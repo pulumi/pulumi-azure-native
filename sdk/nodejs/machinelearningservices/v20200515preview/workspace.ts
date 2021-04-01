@@ -146,14 +146,14 @@ export class Workspace extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["allowPublicAccessWhenBehindVnet"] = (args ? args.allowPublicAccessWhenBehindVnet : undefined) || false;
+            inputs["allowPublicAccessWhenBehindVnet"] = (args ? args.allowPublicAccessWhenBehindVnet : undefined) ?? false;
             inputs["applicationInsights"] = args ? args.applicationInsights : undefined;
             inputs["containerRegistry"] = args ? args.containerRegistry : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["discoveryUrl"] = args ? args.discoveryUrl : undefined;
             inputs["encryption"] = args ? args.encryption : undefined;
             inputs["friendlyName"] = args ? args.friendlyName : undefined;
-            inputs["hbiWorkspace"] = (args ? args.hbiWorkspace : undefined) || false;
+            inputs["hbiWorkspace"] = (args ? args.hbiWorkspace : undefined) ?? false;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["imageBuildCompute"] = args ? args.imageBuildCompute : undefined;
             inputs["keyVault"] = args ? args.keyVault : undefined;

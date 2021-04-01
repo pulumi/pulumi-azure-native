@@ -210,12 +210,12 @@ export class VirtualMachine extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["allowClaim"] = (args ? args.allowClaim : undefined) || false;
+            inputs["allowClaim"] = (args ? args.allowClaim : undefined) ?? false;
             inputs["artifacts"] = args ? args.artifacts : undefined;
             inputs["createdDate"] = args ? args.createdDate : undefined;
             inputs["customImageId"] = args ? args.customImageId : undefined;
             inputs["dataDiskParameters"] = args ? args.dataDiskParameters : undefined;
-            inputs["disallowPublicIpAddress"] = (args ? args.disallowPublicIpAddress : undefined) || false;
+            inputs["disallowPublicIpAddress"] = (args ? args.disallowPublicIpAddress : undefined) ?? false;
             inputs["environmentId"] = args ? args.environmentId : undefined;
             inputs["expirationDate"] = args ? args.expirationDate : undefined;
             inputs["galleryImageReference"] = args ? args.galleryImageReference : undefined;
@@ -227,7 +227,7 @@ export class VirtualMachine extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["networkInterface"] = args ? args.networkInterface : undefined;
             inputs["notes"] = args ? args.notes : undefined;
-            inputs["ownerObjectId"] = (args ? args.ownerObjectId : undefined) || "dynamicValue";
+            inputs["ownerObjectId"] = (args ? args.ownerObjectId : undefined) ?? "dynamicValue";
             inputs["ownerUserPrincipalName"] = args ? args.ownerUserPrincipalName : undefined;
             inputs["password"] = args ? args.password : undefined;
             inputs["planId"] = args ? args.planId : undefined;

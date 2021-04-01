@@ -190,12 +190,12 @@ export class Account extends pulumi.CustomResource {
             inputs["firewallRules"] = args ? args.firewallRules : undefined;
             inputs["firewallState"] = args ? args.firewallState : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["maxDegreeOfParallelism"] = (args ? args.maxDegreeOfParallelism : undefined) || 30;
+            inputs["maxDegreeOfParallelism"] = (args ? args.maxDegreeOfParallelism : undefined) ?? 30;
             inputs["maxDegreeOfParallelismPerJob"] = args ? args.maxDegreeOfParallelismPerJob : undefined;
-            inputs["maxJobCount"] = (args ? args.maxJobCount : undefined) || 3;
+            inputs["maxJobCount"] = (args ? args.maxJobCount : undefined) ?? 3;
             inputs["minPriorityPerJob"] = args ? args.minPriorityPerJob : undefined;
             inputs["newTier"] = args ? args.newTier : undefined;
-            inputs["queryStoreRetention"] = (args ? args.queryStoreRetention : undefined) || 30;
+            inputs["queryStoreRetention"] = (args ? args.queryStoreRetention : undefined) ?? 30;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["storageAccounts"] = args ? args.storageAccounts : undefined;
             inputs["tags"] = args ? args.tags : undefined;

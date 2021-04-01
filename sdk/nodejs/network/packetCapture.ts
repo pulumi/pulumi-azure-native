@@ -96,15 +96,15 @@ export class PacketCapture extends pulumi.CustomResource {
             if ((!args || args.target === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'target'");
             }
-            inputs["bytesToCapturePerPacket"] = (args ? args.bytesToCapturePerPacket : undefined) || 0;
+            inputs["bytesToCapturePerPacket"] = (args ? args.bytesToCapturePerPacket : undefined) ?? 0;
             inputs["filters"] = args ? args.filters : undefined;
             inputs["networkWatcherName"] = args ? args.networkWatcherName : undefined;
             inputs["packetCaptureName"] = args ? args.packetCaptureName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["storageLocation"] = args ? args.storageLocation : undefined;
             inputs["target"] = args ? args.target : undefined;
-            inputs["timeLimitInSeconds"] = (args ? args.timeLimitInSeconds : undefined) || 18000;
-            inputs["totalBytesPerSession"] = (args ? args.totalBytesPerSession : undefined) || 1073741824;
+            inputs["timeLimitInSeconds"] = (args ? args.timeLimitInSeconds : undefined) ?? 18000;
+            inputs["totalBytesPerSession"] = (args ? args.totalBytesPerSession : undefined) ?? 1073741824;
             inputs["etag"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;

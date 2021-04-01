@@ -25893,6 +25893,51 @@ func (o WaitStatisticsResponseMapOutput) MapIndex(k pulumi.StringInput) WaitStat
 	}).(WaitStatisticsResponseOutput)
 }
 
+type DatabaseTableResponseArrayMap map[string]DatabaseTableResponseArrayInput
+
+func (DatabaseTableResponseArrayMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseTableResponseArray)(nil)).Elem()
+}
+
+func (i DatabaseTableResponseArrayMap) ToDatabaseTableResponseArrayMapOutput() DatabaseTableResponseArrayMapOutput {
+	return i.ToDatabaseTableResponseArrayMapOutputWithContext(context.Background())
+}
+
+func (i DatabaseTableResponseArrayMap) ToDatabaseTableResponseArrayMapOutputWithContext(ctx context.Context) DatabaseTableResponseArrayMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseTableResponseArrayMapOutput)
+}
+
+type DatabaseTableResponseArrayMapOutput struct{ *pulumi.OutputState }
+
+func (DatabaseTableResponseArrayMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseTableResponseArray)(nil)).Elem()
+}
+
+func (o DatabaseTableResponseArrayMapOutput) ToDatabaseTableResponseArrayMapOutput() DatabaseTableResponseArrayMapOutput {
+	return o
+}
+
+func (o DatabaseTableResponseArrayMapOutput) ToDatabaseTableResponseArrayMapOutputWithContext(ctx context.Context) DatabaseTableResponseArrayMapOutput {
+	return o
+}
+
+func (o DatabaseTableResponseArrayMapOutput) MapIndex(k pulumi.StringInput) DatabaseTableResponseArrayOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DatabaseTableResponseArray {
+		return vs[0].(map[string]DatabaseTableResponseArray)[vs[1].(string)]
+	}).(DatabaseTableResponseArrayOutput)
+}
+
+// DatabaseTableResponseArrayMapInput is an input type that accepts DatabaseTableResponseArrayMap and DatabaseTableResponseArrayMapOutput values.
+// You can construct a concrete instance of `DatabaseTableResponseArrayMapInput` via:
+//
+//          DatabaseTableResponseArrayMap{ "key": DatabaseTableResponseArray{ DatabaseTableResponseArgs{...} } }
+type DatabaseTableResponseArrayMapInput interface {
+	pulumi.Input
+
+	ToDatabaseTableResponseArrayMapOutput() DatabaseTableResponseArrayMapOutput
+	ToDatabaseTableResponseArrayMapOutputWithContext(context.Context) DatabaseTableResponseArrayMapOutput
+}
+
 func init() {
 	pulumi.RegisterOutputType(AzureActiveDirectoryAppOutput{})
 	pulumi.RegisterOutputType(AzureActiveDirectoryAppPtrOutput{})
@@ -26182,4 +26227,5 @@ func init() {
 	pulumi.RegisterOutputType(ValidationErrorResponseOutput{})
 	pulumi.RegisterOutputType(WaitStatisticsResponseOutput{})
 	pulumi.RegisterOutputType(WaitStatisticsResponseMapOutput{})
+	pulumi.RegisterOutputType(DatabaseTableResponseArrayMapOutput{})
 }

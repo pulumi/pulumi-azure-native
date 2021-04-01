@@ -93,7 +93,7 @@ export class Blob extends pulumi.CustomResource {
             inputs["metadata"] = args ? args.metadata : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["source"] = args ? args.source : undefined;
-            inputs["type"] = (args ? args.type : undefined) || "Block";
+            inputs["type"] = (args ? args.type : undefined) ?? "Block";
             inputs["name"] = undefined /*out*/;
             inputs["url"] = undefined /*out*/;
         } else {

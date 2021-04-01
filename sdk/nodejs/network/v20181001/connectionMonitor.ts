@@ -104,11 +104,11 @@ export class ConnectionMonitor extends pulumi.CustomResource {
             if ((!args || args.source === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'source'");
             }
-            inputs["autoStart"] = (args ? args.autoStart : undefined) || true;
+            inputs["autoStart"] = (args ? args.autoStart : undefined) ?? true;
             inputs["connectionMonitorName"] = args ? args.connectionMonitorName : undefined;
             inputs["destination"] = args ? args.destination : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["monitoringIntervalInSeconds"] = (args ? args.monitoringIntervalInSeconds : undefined) || 60;
+            inputs["monitoringIntervalInSeconds"] = (args ? args.monitoringIntervalInSeconds : undefined) ?? 60;
             inputs["networkWatcherName"] = args ? args.networkWatcherName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["source"] = args ? args.source : undefined;

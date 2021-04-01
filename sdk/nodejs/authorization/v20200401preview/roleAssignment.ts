@@ -122,7 +122,7 @@ export class RoleAssignment extends pulumi.CustomResource {
             inputs["delegatedManagedIdentityResourceId"] = args ? args.delegatedManagedIdentityResourceId : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["principalId"] = args ? args.principalId : undefined;
-            inputs["principalType"] = (args ? args.principalType : undefined) || "User";
+            inputs["principalType"] = (args ? args.principalType : undefined) ?? "User";
             inputs["roleAssignmentName"] = args ? args.roleAssignmentName : undefined;
             inputs["roleDefinitionId"] = args ? args.roleDefinitionId : undefined;
             inputs["scope"] = args ? args.scope : undefined;

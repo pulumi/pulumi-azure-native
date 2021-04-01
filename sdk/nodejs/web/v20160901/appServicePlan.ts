@@ -145,8 +145,8 @@ export class AppServicePlan extends pulumi.CustomResource {
             inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["perSiteScaling"] = (args ? args.perSiteScaling : undefined) || false;
-            inputs["reserved"] = (args ? args.reserved : undefined) || false;
+            inputs["perSiteScaling"] = (args ? args.perSiteScaling : undefined) ?? false;
+            inputs["reserved"] = (args ? args.reserved : undefined) ?? false;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["spotExpirationTime"] = args ? args.spotExpirationTime : undefined;

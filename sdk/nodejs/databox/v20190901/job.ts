@@ -118,7 +118,7 @@ export class Job extends pulumi.CustomResource {
                 throw new Error("Missing required property 'sku'");
             }
             inputs["deliveryInfo"] = args ? args.deliveryInfo : undefined;
-            inputs["deliveryType"] = (args ? args.deliveryType : undefined) || "NonScheduled";
+            inputs["deliveryType"] = (args ? args.deliveryType : undefined) ?? "NonScheduled";
             inputs["details"] = args ? args.details : undefined;
             inputs["jobName"] = args ? args.jobName : undefined;
             inputs["location"] = args ? args.location : undefined;

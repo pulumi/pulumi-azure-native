@@ -86,7 +86,7 @@ export class StaticSiteCustomDomain extends pulumi.CustomResource {
             inputs["kind"] = args ? args.kind : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["validationMethod"] = (args ? args.validationMethod : undefined) || "cname-delegation";
+            inputs["validationMethod"] = (args ? args.validationMethod : undefined) ?? "cname-delegation";
             inputs["createdOn"] = undefined /*out*/;
             inputs["errorMessage"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;

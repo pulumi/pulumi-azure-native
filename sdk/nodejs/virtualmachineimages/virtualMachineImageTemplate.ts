@@ -112,7 +112,7 @@ export class VirtualMachineImageTemplate extends pulumi.CustomResource {
             if ((!args || args.source === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'source'");
             }
-            inputs["buildTimeoutInMinutes"] = (args ? args.buildTimeoutInMinutes : undefined) || 0;
+            inputs["buildTimeoutInMinutes"] = (args ? args.buildTimeoutInMinutes : undefined) ?? 0;
             inputs["customize"] = args ? args.customize : undefined;
             inputs["distribute"] = args ? args.distribute : undefined;
             inputs["identity"] = args ? args.identity : undefined;

@@ -102,10 +102,10 @@ export class Topic extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["inboundIpRules"] = args ? args.inboundIpRules : undefined;
-            inputs["inputSchema"] = (args ? args.inputSchema : undefined) || "EventGridSchema";
+            inputs["inputSchema"] = (args ? args.inputSchema : undefined) ?? "EventGridSchema";
             inputs["inputSchemaMapping"] = args ? args.inputSchemaMapping : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["publicNetworkAccess"] = (args ? args.publicNetworkAccess : undefined) || "Enabled";
+            inputs["publicNetworkAccess"] = (args ? args.publicNetworkAccess : undefined) ?? "Enabled";
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["topicName"] = args ? args.topicName : undefined;

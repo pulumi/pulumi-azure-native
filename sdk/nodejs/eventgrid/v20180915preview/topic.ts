@@ -82,7 +82,7 @@ export class Topic extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["inputSchema"] = (args ? args.inputSchema : undefined) || "EventGridSchema";
+            inputs["inputSchema"] = (args ? args.inputSchema : undefined) ?? "EventGridSchema";
             inputs["inputSchemaMapping"] = args ? args.inputSchemaMapping : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;

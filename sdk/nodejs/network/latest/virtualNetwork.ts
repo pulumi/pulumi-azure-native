@@ -128,8 +128,8 @@ export class VirtualNetwork extends pulumi.CustomResource {
             inputs["bgpCommunities"] = args ? args.bgpCommunities : undefined;
             inputs["ddosProtectionPlan"] = args ? args.ddosProtectionPlan : undefined;
             inputs["dhcpOptions"] = args ? args.dhcpOptions : undefined;
-            inputs["enableDdosProtection"] = (args ? args.enableDdosProtection : undefined) || false;
-            inputs["enableVmProtection"] = (args ? args.enableVmProtection : undefined) || false;
+            inputs["enableDdosProtection"] = (args ? args.enableDdosProtection : undefined) ?? false;
+            inputs["enableVmProtection"] = (args ? args.enableVmProtection : undefined) ?? false;
             inputs["extendedLocation"] = args ? args.extendedLocation : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["ipAllocations"] = args ? args.ipAllocations : undefined;

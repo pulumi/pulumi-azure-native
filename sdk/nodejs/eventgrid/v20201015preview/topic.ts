@@ -119,11 +119,11 @@ export class Topic extends pulumi.CustomResource {
             inputs["extendedLocation"] = args ? args.extendedLocation : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["inboundIpRules"] = args ? args.inboundIpRules : undefined;
-            inputs["inputSchema"] = (args ? args.inputSchema : undefined) || "EventGridSchema";
+            inputs["inputSchema"] = (args ? args.inputSchema : undefined) ?? "EventGridSchema";
             inputs["inputSchemaMapping"] = args ? args.inputSchemaMapping : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["publicNetworkAccess"] = (args ? args.publicNetworkAccess : undefined) || "Enabled";
+            inputs["publicNetworkAccess"] = (args ? args.publicNetworkAccess : undefined) ?? "Enabled";
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;

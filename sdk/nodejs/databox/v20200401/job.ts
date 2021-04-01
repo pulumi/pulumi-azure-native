@@ -133,7 +133,7 @@ export class Job extends pulumi.CustomResource {
                 throw new Error("Missing required property 'transferType'");
             }
             inputs["deliveryInfo"] = args ? args.deliveryInfo : undefined;
-            inputs["deliveryType"] = (args ? args.deliveryType : undefined) || "NonScheduled";
+            inputs["deliveryType"] = (args ? args.deliveryType : undefined) ?? "NonScheduled";
             inputs["details"] = args ? args.details : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["jobName"] = args ? args.jobName : undefined;
