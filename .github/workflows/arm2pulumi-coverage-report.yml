@@ -1,0 +1,25 @@
+name: arm2pulumi-coverage-report
+"on":
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  generate-coverage:
+    name: prerequisites
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        goversion: [1.16.x]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Build locally pt1
+        run: make ensure
+      - name: Build locally pt2
+        run: make build
+      - name: Build Schema + SDKs
+        run: make local_generate
+      - name: Generate coverage report
+        run: make arm2pulumi_coverage_report
+
