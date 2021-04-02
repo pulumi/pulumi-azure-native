@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.ContainerService.Latest
     {
         /// <summary>
         /// maintenance configuration.
-        /// Latest API Version: 2021-02-01.
+        /// Latest API Version: 2021-03-01.
         /// </summary>
         public static Task<GetMaintenanceConfigurationResult> InvokeAsync(GetMaintenanceConfigurationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMaintenanceConfigurationResult>("azure-native:containerservice/latest:getMaintenanceConfiguration", args ?? new GetMaintenanceConfigurationArgs(), options.WithVersion());

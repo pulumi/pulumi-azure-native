@@ -144,7 +144,7 @@ def get_bot(resource_group_name: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBotResult:
     """
     Bot resource definition
-    API Version: 2020-06-02.
+    API Version: 2021-03-01.
 
 
     :param str resource_group_name: The name of the Bot resource group in the user subscription.

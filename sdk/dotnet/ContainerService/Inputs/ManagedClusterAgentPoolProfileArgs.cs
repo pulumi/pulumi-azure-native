@@ -46,10 +46,22 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
         public Input<bool>? EnableEncryptionAtHost { get; set; }
 
         /// <summary>
+        /// Whether to use FIPS enabled OS
+        /// </summary>
+        [Input("enableFIPS")]
+        public Input<bool>? EnableFIPS { get; set; }
+
+        /// <summary>
         /// Enable public IP for nodes
         /// </summary>
         [Input("enableNodePublicIP")]
         public Input<bool>? EnableNodePublicIP { get; set; }
+
+        /// <summary>
+        /// GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU. Supported values are MIG1g, MIG2g, MIG3g, MIG4g and MIG7g.
+        /// </summary>
+        [Input("gpuInstanceProfile")]
+        public InputUnion<string, Pulumi.AzureNative.ContainerService.GPUInstanceProfile>? GpuInstanceProfile { get; set; }
 
         /// <summary>
         /// KubeletConfig specifies the configuration of kubelet on agent nodes.
@@ -146,6 +158,12 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
         /// </summary>
         [Input("osDiskType")]
         public InputUnion<string, Pulumi.AzureNative.ContainerService.OSDiskType>? OsDiskType { get; set; }
+
+        /// <summary>
+        /// OsSKU to be used to specify os sku. Choose from Ubuntu(default) and CBLMariner for Linux OSType. Not applicable to Windows OSType.
+        /// </summary>
+        [Input("osSKU")]
+        public InputUnion<string, Pulumi.AzureNative.ContainerService.OSSKU>? OsSKU { get; set; }
 
         /// <summary>
         /// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.

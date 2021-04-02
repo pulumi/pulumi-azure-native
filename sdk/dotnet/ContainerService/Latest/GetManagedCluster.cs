@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.ContainerService.Latest
     {
         /// <summary>
         /// Managed cluster.
-        /// Latest API Version: 2021-02-01.
+        /// Latest API Version: 2021-03-01.
         /// </summary>
         public static Task<GetManagedClusterResult> InvokeAsync(GetManagedClusterArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetManagedClusterResult>("azure-native:containerservice/latest:getManagedCluster", args ?? new GetManagedClusterArgs(), options.WithVersion());
@@ -73,6 +73,10 @@ namespace Pulumi.AzureNative.ContainerService.Latest
         /// </summary>
         public readonly string AzurePortalFQDN;
         /// <summary>
+        /// If set to true, getting static credential will be disabled for this cluster. Expected to only be used for AAD clusters.
+        /// </summary>
+        public readonly bool? DisableLocalAccounts;
+        /// <summary>
         /// ResourceId of the disk encryption set to use for enabling encryption at rest.
         /// </summary>
         public readonly string? DiskEncryptionSetID;
@@ -89,6 +93,10 @@ namespace Pulumi.AzureNative.ContainerService.Latest
         /// </summary>
         public readonly bool? EnableRBAC;
         /// <summary>
+        /// The extended location of the Virtual Machine.
+        /// </summary>
+        public readonly Outputs.ExtendedLocationResponse? ExtendedLocation;
+        /// <summary>
         /// FQDN for the master pool.
         /// </summary>
         public readonly string Fqdn;
@@ -96,6 +104,10 @@ namespace Pulumi.AzureNative.ContainerService.Latest
         /// FQDN subdomain specified when creating private cluster with custom private dns zone.
         /// </summary>
         public readonly string? FqdnSubdomain;
+        /// <summary>
+        /// Configurations for provisioning the cluster with HTTP proxy servers.
+        /// </summary>
+        public readonly Outputs.ManagedClusterHTTPProxyConfigResponse? HttpProxyConfig;
         /// <summary>
         /// Resource Id
         /// </summary>
@@ -149,6 +161,10 @@ namespace Pulumi.AzureNative.ContainerService.Latest
         /// </summary>
         public readonly string PrivateFQDN;
         /// <summary>
+        /// Private link resources associated with the cluster.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.PrivateLinkResourceResponse> PrivateLinkResources;
+        /// <summary>
         /// The current deployment or provisioning state, which only appears in the response.
         /// </summary>
         public readonly string ProvisioningState;
@@ -189,6 +205,8 @@ namespace Pulumi.AzureNative.ContainerService.Latest
 
             string azurePortalFQDN,
 
+            bool? disableLocalAccounts,
+
             string? diskEncryptionSetID,
 
             string? dnsPrefix,
@@ -197,9 +215,13 @@ namespace Pulumi.AzureNative.ContainerService.Latest
 
             bool? enableRBAC,
 
+            Outputs.ExtendedLocationResponse? extendedLocation,
+
             string fqdn,
 
             string? fqdnSubdomain,
+
+            Outputs.ManagedClusterHTTPProxyConfigResponse? httpProxyConfig,
 
             string id,
 
@@ -227,6 +249,8 @@ namespace Pulumi.AzureNative.ContainerService.Latest
 
             string privateFQDN,
 
+            ImmutableArray<Outputs.PrivateLinkResourceResponse> privateLinkResources,
+
             string provisioningState,
 
             Outputs.ManagedClusterServicePrincipalProfileResponse? servicePrincipalProfile,
@@ -246,12 +270,15 @@ namespace Pulumi.AzureNative.ContainerService.Latest
             AutoScalerProfile = autoScalerProfile;
             AutoUpgradeProfile = autoUpgradeProfile;
             AzurePortalFQDN = azurePortalFQDN;
+            DisableLocalAccounts = disableLocalAccounts;
             DiskEncryptionSetID = diskEncryptionSetID;
             DnsPrefix = dnsPrefix;
             EnablePodSecurityPolicy = enablePodSecurityPolicy;
             EnableRBAC = enableRBAC;
+            ExtendedLocation = extendedLocation;
             Fqdn = fqdn;
             FqdnSubdomain = fqdnSubdomain;
+            HttpProxyConfig = httpProxyConfig;
             Id = id;
             Identity = identity;
             IdentityProfile = identityProfile;
@@ -265,6 +292,7 @@ namespace Pulumi.AzureNative.ContainerService.Latest
             PodIdentityProfile = podIdentityProfile;
             PowerState = powerState;
             PrivateFQDN = privateFQDN;
+            PrivateLinkResources = privateLinkResources;
             ProvisioningState = provisioningState;
             ServicePrincipalProfile = servicePrincipalProfile;
             Sku = sku;

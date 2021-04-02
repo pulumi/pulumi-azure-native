@@ -325,6 +325,64 @@ func (e Expander) ToStringPtrOutputWithContext(ctx context.Context) pulumi.Strin
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// The type of the extended location.
+type ExtendedLocationTypes pulumi.String
+
+const (
+	ExtendedLocationTypesEdgeZone = ExtendedLocationTypes("EdgeZone")
+)
+
+func (ExtendedLocationTypes) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e ExtendedLocationTypes) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ExtendedLocationTypes) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ExtendedLocationTypes) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ExtendedLocationTypes) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU. Supported values are MIG1g, MIG2g, MIG3g, MIG4g and MIG7g.
+type GPUInstanceProfile pulumi.String
+
+const (
+	GPUInstanceProfileMIG1g = GPUInstanceProfile("MIG1g")
+	GPUInstanceProfileMIG2g = GPUInstanceProfile("MIG2g")
+	GPUInstanceProfileMIG3g = GPUInstanceProfile("MIG3g")
+	GPUInstanceProfileMIG4g = GPUInstanceProfile("MIG4g")
+	GPUInstanceProfileMIG7g = GPUInstanceProfile("MIG7g")
+)
+
+func (GPUInstanceProfile) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e GPUInstanceProfile) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GPUInstanceProfile) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GPUInstanceProfile) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e GPUInstanceProfile) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // KubeletDiskType determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage. Currently allows one value, OS, resulting in Kubelet using the OS disk for data.
 type KubeletDiskType pulumi.String
 
@@ -576,6 +634,34 @@ func (e OSDiskType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.Str
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// OsSKU to be used to specify os sku. Choose from Ubuntu(default) and CBLMariner for Linux OSType. Not applicable to Windows OSType.
+type OSSKU pulumi.String
+
+const (
+	OSSKUUbuntu     = OSSKU("Ubuntu")
+	OSSKUCBLMariner = OSSKU("CBLMariner")
+)
+
+func (OSSKU) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e OSSKU) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OSSKU) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OSSKU) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e OSSKU) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
 type OSType pulumi.String
 
@@ -808,10 +894,11 @@ func (e ScaleSetPriority) ToStringPtrOutputWithContext(ctx context.Context) pulu
 type UpgradeChannel pulumi.String
 
 const (
-	UpgradeChannelRapid  = UpgradeChannel("rapid")
-	UpgradeChannelStable = UpgradeChannel("stable")
-	UpgradeChannelPatch  = UpgradeChannel("patch")
-	UpgradeChannelNone   = UpgradeChannel("none")
+	UpgradeChannelRapid       = UpgradeChannel("rapid")
+	UpgradeChannelStable      = UpgradeChannel("stable")
+	UpgradeChannelPatch       = UpgradeChannel("patch")
+	UpgradeChannel_Node_image = UpgradeChannel("node-image")
+	UpgradeChannelNone        = UpgradeChannel("none")
 )
 
 func (UpgradeChannel) ElementType() reflect.Type {

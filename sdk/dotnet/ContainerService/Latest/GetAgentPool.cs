@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.ContainerService.Latest
     {
         /// <summary>
         /// Agent Pool.
-        /// Latest API Version: 2021-02-01.
+        /// Latest API Version: 2021-03-01.
         /// </summary>
         public static Task<GetAgentPoolResult> InvokeAsync(GetAgentPoolArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAgentPoolResult>("azure-native:containerservice/latest:getAgentPool", args ?? new GetAgentPoolArgs(), options.WithVersion());
@@ -67,9 +67,17 @@ namespace Pulumi.AzureNative.ContainerService.Latest
         /// </summary>
         public readonly bool? EnableEncryptionAtHost;
         /// <summary>
+        /// Whether to use FIPS enabled OS
+        /// </summary>
+        public readonly bool? EnableFIPS;
+        /// <summary>
         /// Enable public IP for nodes
         /// </summary>
         public readonly bool? EnableNodePublicIP;
+        /// <summary>
+        /// GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU. Supported values are MIG1g, MIG2g, MIG3g, MIG4g and MIG7g.
+        /// </summary>
+        public readonly string? GpuInstanceProfile;
         /// <summary>
         /// Resource ID.
         /// </summary>
@@ -135,6 +143,10 @@ namespace Pulumi.AzureNative.ContainerService.Latest
         /// </summary>
         public readonly string? OsDiskType;
         /// <summary>
+        /// OsSKU to be used to specify os sku. Choose from Ubuntu(default) and CBLMariner for Linux OSType. Not applicable to Windows OSType.
+        /// </summary>
+        public readonly string? OsSKU;
+        /// <summary>
         /// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
         /// </summary>
         public readonly string? OsType;
@@ -197,7 +209,11 @@ namespace Pulumi.AzureNative.ContainerService.Latest
 
             bool? enableEncryptionAtHost,
 
+            bool? enableFIPS,
+
             bool? enableNodePublicIP,
+
+            string? gpuInstanceProfile,
 
             string id,
 
@@ -231,6 +247,8 @@ namespace Pulumi.AzureNative.ContainerService.Latest
 
             string? osDiskType,
 
+            string? osSKU,
+
             string? osType,
 
             string? podSubnetID,
@@ -261,7 +279,9 @@ namespace Pulumi.AzureNative.ContainerService.Latest
             Count = count;
             EnableAutoScaling = enableAutoScaling;
             EnableEncryptionAtHost = enableEncryptionAtHost;
+            EnableFIPS = enableFIPS;
             EnableNodePublicIP = enableNodePublicIP;
+            GpuInstanceProfile = gpuInstanceProfile;
             Id = id;
             KubeletConfig = kubeletConfig;
             KubeletDiskType = kubeletDiskType;
@@ -278,6 +298,7 @@ namespace Pulumi.AzureNative.ContainerService.Latest
             OrchestratorVersion = orchestratorVersion;
             OsDiskSizeGB = osDiskSizeGB;
             OsDiskType = osDiskType;
+            OsSKU = osSKU;
             OsType = osType;
             PodSubnetID = podSubnetID;
             PowerState = powerState;

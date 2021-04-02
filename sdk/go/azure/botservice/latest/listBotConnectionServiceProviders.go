@@ -8,7 +8,7 @@ import (
 )
 
 // The list of bot service providers response.
-// Latest API Version: 2020-06-02.
+// Latest API Version: 2021-03-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:botservice:listBotConnectionServiceProviders'.
 func ListBotConnectionServiceProviders(ctx *pulumi.Context, args *ListBotConnectionServiceProvidersArgs, opts ...pulumi.InvokeOption) (*ListBotConnectionServiceProvidersResult, error) {

@@ -644,6 +644,16 @@ export const SparkThriftTransportProtocol = {
  */
 export type SparkThriftTransportProtocol = (typeof SparkThriftTransportProtocol)[keyof typeof SparkThriftTransportProtocol];
 
+export const SqlAlwaysEncryptedAkvAuthType = {
+    ServicePrincipal: "ServicePrincipal",
+    ManagedIdentity: "ManagedIdentity",
+} as const;
+
+/**
+ * Sql always encrypted AKV authentication type. Type: string (or Expression with resultType string).
+ */
+export type SqlAlwaysEncryptedAkvAuthType = (typeof SqlAlwaysEncryptedAkvAuthType)[keyof typeof SqlAlwaysEncryptedAkvAuthType];
+
 export const SsisLogLocationType = {
     File: "File",
 } as const;

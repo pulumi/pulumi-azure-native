@@ -30,6 +30,7 @@ import * as v20200901 from "./v20200901";
 import * as v20201101 from "./v20201101";
 import * as v20201201 from "./v20201201";
 import * as v20210201 from "./v20210201";
+import * as v20210301 from "./v20210301";
 
 export {
     latest,
@@ -60,6 +61,7 @@ export {
     v20201101,
     v20201201,
     v20210201,
+    v20210301,
 };
 
 export const AgentPoolMode = {
@@ -285,6 +287,28 @@ export const Expander = {
 
 export type Expander = (typeof Expander)[keyof typeof Expander];
 
+export const ExtendedLocationTypes = {
+    EdgeZone: "EdgeZone",
+} as const;
+
+/**
+ * The type of the extended location.
+ */
+export type ExtendedLocationTypes = (typeof ExtendedLocationTypes)[keyof typeof ExtendedLocationTypes];
+
+export const GPUInstanceProfile = {
+    MIG1g: "MIG1g",
+    MIG2g: "MIG2g",
+    MIG3g: "MIG3g",
+    MIG4g: "MIG4g",
+    MIG7g: "MIG7g",
+} as const;
+
+/**
+ * GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU. Supported values are MIG1g, MIG2g, MIG3g, MIG4g and MIG7g.
+ */
+export type GPUInstanceProfile = (typeof GPUInstanceProfile)[keyof typeof GPUInstanceProfile];
+
 export const KubeletDiskType = {
     OS: "OS",
     Temporary: "Temporary",
@@ -373,6 +397,16 @@ export const OSDiskType = {
  * OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. Defaults to 'Managed'. May not be changed after creation.
  */
 export type OSDiskType = (typeof OSDiskType)[keyof typeof OSDiskType];
+
+export const OSSKU = {
+    Ubuntu: "Ubuntu",
+    CBLMariner: "CBLMariner",
+} as const;
+
+/**
+ * OsSKU to be used to specify os sku. Choose from Ubuntu(default) and CBLMariner for Linux OSType. Not applicable to Windows OSType.
+ */
+export type OSSKU = (typeof OSSKU)[keyof typeof OSSKU];
 
 export const OSType = {
     Linux: "Linux",
@@ -480,6 +514,7 @@ export const UpgradeChannel = {
     Rapid: "rapid",
     Stable: "stable",
     Patch: "patch",
+    Node_image: "node-image",
     None: "none",
 } as const;
 

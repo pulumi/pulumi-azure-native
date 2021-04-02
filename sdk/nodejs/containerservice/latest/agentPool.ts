@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Agent Pool.
- * Latest API Version: 2021-02-01.
+ * Latest API Version: 2021-03-01.
  *
  * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:containerservice:AgentPool'.
  */
@@ -56,9 +56,17 @@ export class AgentPool extends pulumi.CustomResource {
      */
     public readonly enableEncryptionAtHost!: pulumi.Output<boolean | undefined>;
     /**
+     * Whether to use FIPS enabled OS
+     */
+    public readonly enableFIPS!: pulumi.Output<boolean | undefined>;
+    /**
      * Enable public IP for nodes
      */
     public readonly enableNodePublicIP!: pulumi.Output<boolean | undefined>;
+    /**
+     * GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU. Supported values are MIG1g, MIG2g, MIG3g, MIG4g and MIG7g.
+     */
+    public readonly gpuInstanceProfile!: pulumi.Output<string | undefined>;
     /**
      * KubeletConfig specifies the configuration of kubelet on agent nodes.
      */
@@ -119,6 +127,10 @@ export class AgentPool extends pulumi.CustomResource {
      * OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. Defaults to 'Managed'. May not be changed after creation.
      */
     public readonly osDiskType!: pulumi.Output<string | undefined>;
+    /**
+     * OsSKU to be used to specify os sku. Choose from Ubuntu(default) and CBLMariner for Linux OSType. Not applicable to Windows OSType.
+     */
+    public readonly osSKU!: pulumi.Output<string | undefined>;
     /**
      * OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
      */
@@ -196,7 +208,9 @@ export class AgentPool extends pulumi.CustomResource {
             inputs["count"] = args ? args.count : undefined;
             inputs["enableAutoScaling"] = args ? args.enableAutoScaling : undefined;
             inputs["enableEncryptionAtHost"] = args ? args.enableEncryptionAtHost : undefined;
+            inputs["enableFIPS"] = args ? args.enableFIPS : undefined;
             inputs["enableNodePublicIP"] = args ? args.enableNodePublicIP : undefined;
+            inputs["gpuInstanceProfile"] = args ? args.gpuInstanceProfile : undefined;
             inputs["kubeletConfig"] = args ? args.kubeletConfig : undefined;
             inputs["kubeletDiskType"] = args ? args.kubeletDiskType : undefined;
             inputs["linuxOSConfig"] = args ? args.linuxOSConfig : undefined;
@@ -210,6 +224,7 @@ export class AgentPool extends pulumi.CustomResource {
             inputs["orchestratorVersion"] = args ? args.orchestratorVersion : undefined;
             inputs["osDiskSizeGB"] = args ? args.osDiskSizeGB : undefined;
             inputs["osDiskType"] = args ? args.osDiskType : undefined;
+            inputs["osSKU"] = args ? args.osSKU : undefined;
             inputs["osType"] = args ? args.osType : undefined;
             inputs["podSubnetID"] = args ? args.podSubnetID : undefined;
             inputs["proximityPlacementGroupID"] = args ? args.proximityPlacementGroupID : undefined;
@@ -232,7 +247,9 @@ export class AgentPool extends pulumi.CustomResource {
             inputs["count"] = undefined /*out*/;
             inputs["enableAutoScaling"] = undefined /*out*/;
             inputs["enableEncryptionAtHost"] = undefined /*out*/;
+            inputs["enableFIPS"] = undefined /*out*/;
             inputs["enableNodePublicIP"] = undefined /*out*/;
+            inputs["gpuInstanceProfile"] = undefined /*out*/;
             inputs["kubeletConfig"] = undefined /*out*/;
             inputs["kubeletDiskType"] = undefined /*out*/;
             inputs["linuxOSConfig"] = undefined /*out*/;
@@ -248,6 +265,7 @@ export class AgentPool extends pulumi.CustomResource {
             inputs["orchestratorVersion"] = undefined /*out*/;
             inputs["osDiskSizeGB"] = undefined /*out*/;
             inputs["osDiskType"] = undefined /*out*/;
+            inputs["osSKU"] = undefined /*out*/;
             inputs["osType"] = undefined /*out*/;
             inputs["podSubnetID"] = undefined /*out*/;
             inputs["powerState"] = undefined /*out*/;
@@ -265,7 +283,7 @@ export class AgentPool extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:containerservice/latest:AgentPool" }, { type: "azure-native:containerservice:AgentPool" }, { type: "azure-nextgen:containerservice:AgentPool" }, { type: "azure-native:containerservice/v20190201:AgentPool" }, { type: "azure-nextgen:containerservice/v20190201:AgentPool" }, { type: "azure-native:containerservice/v20190401:AgentPool" }, { type: "azure-nextgen:containerservice/v20190401:AgentPool" }, { type: "azure-native:containerservice/v20190601:AgentPool" }, { type: "azure-nextgen:containerservice/v20190601:AgentPool" }, { type: "azure-native:containerservice/v20190801:AgentPool" }, { type: "azure-nextgen:containerservice/v20190801:AgentPool" }, { type: "azure-native:containerservice/v20191001:AgentPool" }, { type: "azure-nextgen:containerservice/v20191001:AgentPool" }, { type: "azure-native:containerservice/v20191101:AgentPool" }, { type: "azure-nextgen:containerservice/v20191101:AgentPool" }, { type: "azure-native:containerservice/v20200101:AgentPool" }, { type: "azure-nextgen:containerservice/v20200101:AgentPool" }, { type: "azure-native:containerservice/v20200201:AgentPool" }, { type: "azure-nextgen:containerservice/v20200201:AgentPool" }, { type: "azure-native:containerservice/v20200301:AgentPool" }, { type: "azure-nextgen:containerservice/v20200301:AgentPool" }, { type: "azure-native:containerservice/v20200401:AgentPool" }, { type: "azure-nextgen:containerservice/v20200401:AgentPool" }, { type: "azure-native:containerservice/v20200601:AgentPool" }, { type: "azure-nextgen:containerservice/v20200601:AgentPool" }, { type: "azure-native:containerservice/v20200701:AgentPool" }, { type: "azure-nextgen:containerservice/v20200701:AgentPool" }, { type: "azure-native:containerservice/v20200901:AgentPool" }, { type: "azure-nextgen:containerservice/v20200901:AgentPool" }, { type: "azure-native:containerservice/v20201101:AgentPool" }, { type: "azure-nextgen:containerservice/v20201101:AgentPool" }, { type: "azure-native:containerservice/v20201201:AgentPool" }, { type: "azure-nextgen:containerservice/v20201201:AgentPool" }, { type: "azure-native:containerservice/v20210201:AgentPool" }, { type: "azure-nextgen:containerservice/v20210201:AgentPool" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:containerservice/latest:AgentPool" }, { type: "azure-native:containerservice:AgentPool" }, { type: "azure-nextgen:containerservice:AgentPool" }, { type: "azure-native:containerservice/v20190201:AgentPool" }, { type: "azure-nextgen:containerservice/v20190201:AgentPool" }, { type: "azure-native:containerservice/v20190401:AgentPool" }, { type: "azure-nextgen:containerservice/v20190401:AgentPool" }, { type: "azure-native:containerservice/v20190601:AgentPool" }, { type: "azure-nextgen:containerservice/v20190601:AgentPool" }, { type: "azure-native:containerservice/v20190801:AgentPool" }, { type: "azure-nextgen:containerservice/v20190801:AgentPool" }, { type: "azure-native:containerservice/v20191001:AgentPool" }, { type: "azure-nextgen:containerservice/v20191001:AgentPool" }, { type: "azure-native:containerservice/v20191101:AgentPool" }, { type: "azure-nextgen:containerservice/v20191101:AgentPool" }, { type: "azure-native:containerservice/v20200101:AgentPool" }, { type: "azure-nextgen:containerservice/v20200101:AgentPool" }, { type: "azure-native:containerservice/v20200201:AgentPool" }, { type: "azure-nextgen:containerservice/v20200201:AgentPool" }, { type: "azure-native:containerservice/v20200301:AgentPool" }, { type: "azure-nextgen:containerservice/v20200301:AgentPool" }, { type: "azure-native:containerservice/v20200401:AgentPool" }, { type: "azure-nextgen:containerservice/v20200401:AgentPool" }, { type: "azure-native:containerservice/v20200601:AgentPool" }, { type: "azure-nextgen:containerservice/v20200601:AgentPool" }, { type: "azure-native:containerservice/v20200701:AgentPool" }, { type: "azure-nextgen:containerservice/v20200701:AgentPool" }, { type: "azure-native:containerservice/v20200901:AgentPool" }, { type: "azure-nextgen:containerservice/v20200901:AgentPool" }, { type: "azure-native:containerservice/v20201101:AgentPool" }, { type: "azure-nextgen:containerservice/v20201101:AgentPool" }, { type: "azure-native:containerservice/v20201201:AgentPool" }, { type: "azure-nextgen:containerservice/v20201201:AgentPool" }, { type: "azure-native:containerservice/v20210201:AgentPool" }, { type: "azure-nextgen:containerservice/v20210201:AgentPool" }, { type: "azure-native:containerservice/v20210301:AgentPool" }, { type: "azure-nextgen:containerservice/v20210301:AgentPool" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AgentPool.__pulumiType, name, inputs, opts);
     }
@@ -296,9 +314,17 @@ export interface AgentPoolArgs {
      */
     readonly enableEncryptionAtHost?: pulumi.Input<boolean>;
     /**
+     * Whether to use FIPS enabled OS
+     */
+    readonly enableFIPS?: pulumi.Input<boolean>;
+    /**
      * Enable public IP for nodes
      */
     readonly enableNodePublicIP?: pulumi.Input<boolean>;
+    /**
+     * GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU. Supported values are MIG1g, MIG2g, MIG3g, MIG4g and MIG7g.
+     */
+    readonly gpuInstanceProfile?: pulumi.Input<string | enums.containerservice.latest.GPUInstanceProfile>;
     /**
      * KubeletConfig specifies the configuration of kubelet on agent nodes.
      */
@@ -351,6 +377,10 @@ export interface AgentPoolArgs {
      * OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. Defaults to 'Managed'. May not be changed after creation.
      */
     readonly osDiskType?: pulumi.Input<string | enums.containerservice.latest.OSDiskType>;
+    /**
+     * OsSKU to be used to specify os sku. Choose from Ubuntu(default) and CBLMariner for Linux OSType. Not applicable to Windows OSType.
+     */
+    readonly osSKU?: pulumi.Input<string | enums.containerservice.latest.OSSKU>;
     /**
      * OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
      */

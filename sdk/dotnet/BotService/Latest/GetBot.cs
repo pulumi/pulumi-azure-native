@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.BotService.Latest
     {
         /// <summary>
         /// Bot resource definition
-        /// Latest API Version: 2020-06-02.
+        /// Latest API Version: 2021-03-01.
         /// </summary>
         public static Task<GetBotResult> InvokeAsync(GetBotArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBotResult>("azure-native:botservice/latest:getBot", args ?? new GetBotArgs(), options.WithVersion());

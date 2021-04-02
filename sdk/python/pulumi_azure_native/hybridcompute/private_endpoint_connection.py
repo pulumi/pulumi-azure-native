@@ -63,7 +63,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
             __props__['name'] = None
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:hybridcompute:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:hybridcompute/v20200815preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:hybridcompute/v20200815preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:hybridcompute/v20210128preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:hybridcompute/v20210128preview:PrivateEndpointConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:hybridcompute:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:hybridcompute/v20200815preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:hybridcompute/v20200815preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:hybridcompute/v20210128preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:hybridcompute/v20210128preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:hybridcompute/v20210325preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:hybridcompute/v20210325preview:PrivateEndpointConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateEndpointConnection, __self__).__init__(
             'azure-native:hybridcompute:PrivateEndpointConnection',

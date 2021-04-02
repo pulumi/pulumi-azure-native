@@ -10,6 +10,8 @@ __all__ = [
     'ConnectionStatus',
     'ContainerServiceVMSizeTypes',
     'Expander',
+    'ExtendedLocationTypes',
+    'GPUInstanceProfile',
     'KubeletDiskType',
     'LicenseType',
     'LoadBalancerSku',
@@ -19,6 +21,7 @@ __all__ = [
     'NetworkPlugin',
     'NetworkPolicy',
     'OSDiskType',
+    'OSSKU',
     'OSType',
     'OpenShiftAgentPoolProfileRole',
     'OpenShiftContainerServiceVMSize',
@@ -244,6 +247,24 @@ class Expander(str, Enum):
     RANDOM = "random"
 
 
+class ExtendedLocationTypes(str, Enum):
+    """
+    The type of the extended location.
+    """
+    EDGE_ZONE = "EdgeZone"
+
+
+class GPUInstanceProfile(str, Enum):
+    """
+    GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU. Supported values are MIG1g, MIG2g, MIG3g, MIG4g and MIG7g.
+    """
+    MIG1G = "MIG1g"
+    MIG2G = "MIG2g"
+    MIG3G = "MIG3g"
+    MIG4G = "MIG4g"
+    MIG7G = "MIG7g"
+
+
 class KubeletDiskType(str, Enum):
     """
     KubeletDiskType determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage. Currently allows one value, OS, resulting in Kubelet using the OS disk for data.
@@ -313,6 +334,14 @@ class OSDiskType(str, Enum):
     """
     MANAGED = "Managed"
     EPHEMERAL = "Ephemeral"
+
+
+class OSSKU(str, Enum):
+    """
+    OsSKU to be used to specify os sku. Choose from Ubuntu(default) and CBLMariner for Linux OSType. Not applicable to Windows OSType.
+    """
+    UBUNTU = "Ubuntu"
+    CBL_MARINER = "CBLMariner"
 
 
 class OSType(str, Enum):
@@ -410,6 +439,7 @@ class UpgradeChannel(str, Enum):
     RAPID = "rapid"
     STABLE = "stable"
     PATCH = "patch"
+    NODE_IMAGE = "node-image"
     NONE = "none"
 
 

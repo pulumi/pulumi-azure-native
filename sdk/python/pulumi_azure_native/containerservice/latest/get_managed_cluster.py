@@ -22,7 +22,7 @@ class GetManagedClusterResult:
     """
     Managed cluster.
     """
-    def __init__(__self__, aad_profile=None, addon_profiles=None, agent_pool_profiles=None, api_server_access_profile=None, auto_scaler_profile=None, auto_upgrade_profile=None, azure_portal_fqdn=None, disk_encryption_set_id=None, dns_prefix=None, enable_pod_security_policy=None, enable_rbac=None, fqdn=None, fqdn_subdomain=None, id=None, identity=None, identity_profile=None, kubernetes_version=None, linux_profile=None, location=None, max_agent_pools=None, name=None, network_profile=None, node_resource_group=None, pod_identity_profile=None, power_state=None, private_fqdn=None, provisioning_state=None, service_principal_profile=None, sku=None, tags=None, type=None, windows_profile=None):
+    def __init__(__self__, aad_profile=None, addon_profiles=None, agent_pool_profiles=None, api_server_access_profile=None, auto_scaler_profile=None, auto_upgrade_profile=None, azure_portal_fqdn=None, disable_local_accounts=None, disk_encryption_set_id=None, dns_prefix=None, enable_pod_security_policy=None, enable_rbac=None, extended_location=None, fqdn=None, fqdn_subdomain=None, http_proxy_config=None, id=None, identity=None, identity_profile=None, kubernetes_version=None, linux_profile=None, location=None, max_agent_pools=None, name=None, network_profile=None, node_resource_group=None, pod_identity_profile=None, power_state=None, private_fqdn=None, private_link_resources=None, provisioning_state=None, service_principal_profile=None, sku=None, tags=None, type=None, windows_profile=None):
         if aad_profile and not isinstance(aad_profile, dict):
             raise TypeError("Expected argument 'aad_profile' to be a dict")
         pulumi.set(__self__, "aad_profile", aad_profile)
@@ -44,6 +44,9 @@ class GetManagedClusterResult:
         if azure_portal_fqdn and not isinstance(azure_portal_fqdn, str):
             raise TypeError("Expected argument 'azure_portal_fqdn' to be a str")
         pulumi.set(__self__, "azure_portal_fqdn", azure_portal_fqdn)
+        if disable_local_accounts and not isinstance(disable_local_accounts, bool):
+            raise TypeError("Expected argument 'disable_local_accounts' to be a bool")
+        pulumi.set(__self__, "disable_local_accounts", disable_local_accounts)
         if disk_encryption_set_id and not isinstance(disk_encryption_set_id, str):
             raise TypeError("Expected argument 'disk_encryption_set_id' to be a str")
         pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
@@ -56,12 +59,18 @@ class GetManagedClusterResult:
         if enable_rbac and not isinstance(enable_rbac, bool):
             raise TypeError("Expected argument 'enable_rbac' to be a bool")
         pulumi.set(__self__, "enable_rbac", enable_rbac)
+        if extended_location and not isinstance(extended_location, dict):
+            raise TypeError("Expected argument 'extended_location' to be a dict")
+        pulumi.set(__self__, "extended_location", extended_location)
         if fqdn and not isinstance(fqdn, str):
             raise TypeError("Expected argument 'fqdn' to be a str")
         pulumi.set(__self__, "fqdn", fqdn)
         if fqdn_subdomain and not isinstance(fqdn_subdomain, str):
             raise TypeError("Expected argument 'fqdn_subdomain' to be a str")
         pulumi.set(__self__, "fqdn_subdomain", fqdn_subdomain)
+        if http_proxy_config and not isinstance(http_proxy_config, dict):
+            raise TypeError("Expected argument 'http_proxy_config' to be a dict")
+        pulumi.set(__self__, "http_proxy_config", http_proxy_config)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -101,6 +110,9 @@ class GetManagedClusterResult:
         if private_fqdn and not isinstance(private_fqdn, str):
             raise TypeError("Expected argument 'private_fqdn' to be a str")
         pulumi.set(__self__, "private_fqdn", private_fqdn)
+        if private_link_resources and not isinstance(private_link_resources, list):
+            raise TypeError("Expected argument 'private_link_resources' to be a list")
+        pulumi.set(__self__, "private_link_resources", private_link_resources)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -177,6 +189,14 @@ class GetManagedClusterResult:
         return pulumi.get(self, "azure_portal_fqdn")
 
     @property
+    @pulumi.getter(name="disableLocalAccounts")
+    def disable_local_accounts(self) -> Optional[bool]:
+        """
+        If set to true, getting static credential will be disabled for this cluster. Expected to only be used for AAD clusters.
+        """
+        return pulumi.get(self, "disable_local_accounts")
+
+    @property
     @pulumi.getter(name="diskEncryptionSetID")
     def disk_encryption_set_id(self) -> Optional[str]:
         """
@@ -209,6 +229,14 @@ class GetManagedClusterResult:
         return pulumi.get(self, "enable_rbac")
 
     @property
+    @pulumi.getter(name="extendedLocation")
+    def extended_location(self) -> Optional['outputs.ExtendedLocationResponse']:
+        """
+        The extended location of the Virtual Machine.
+        """
+        return pulumi.get(self, "extended_location")
+
+    @property
     @pulumi.getter
     def fqdn(self) -> str:
         """
@@ -223,6 +251,14 @@ class GetManagedClusterResult:
         FQDN subdomain specified when creating private cluster with custom private dns zone.
         """
         return pulumi.get(self, "fqdn_subdomain")
+
+    @property
+    @pulumi.getter(name="httpProxyConfig")
+    def http_proxy_config(self) -> Optional['outputs.ManagedClusterHTTPProxyConfigResponse']:
+        """
+        Configurations for provisioning the cluster with HTTP proxy servers.
+        """
+        return pulumi.get(self, "http_proxy_config")
 
     @property
     @pulumi.getter
@@ -329,6 +365,14 @@ class GetManagedClusterResult:
         return pulumi.get(self, "private_fqdn")
 
     @property
+    @pulumi.getter(name="privateLinkResources")
+    def private_link_resources(self) -> Optional[Sequence['outputs.PrivateLinkResourceResponse']]:
+        """
+        Private link resources associated with the cluster.
+        """
+        return pulumi.get(self, "private_link_resources")
+
+    @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
@@ -390,12 +434,15 @@ class AwaitableGetManagedClusterResult(GetManagedClusterResult):
             auto_scaler_profile=self.auto_scaler_profile,
             auto_upgrade_profile=self.auto_upgrade_profile,
             azure_portal_fqdn=self.azure_portal_fqdn,
+            disable_local_accounts=self.disable_local_accounts,
             disk_encryption_set_id=self.disk_encryption_set_id,
             dns_prefix=self.dns_prefix,
             enable_pod_security_policy=self.enable_pod_security_policy,
             enable_rbac=self.enable_rbac,
+            extended_location=self.extended_location,
             fqdn=self.fqdn,
             fqdn_subdomain=self.fqdn_subdomain,
+            http_proxy_config=self.http_proxy_config,
             id=self.id,
             identity=self.identity,
             identity_profile=self.identity_profile,
@@ -409,6 +456,7 @@ class AwaitableGetManagedClusterResult(GetManagedClusterResult):
             pod_identity_profile=self.pod_identity_profile,
             power_state=self.power_state,
             private_fqdn=self.private_fqdn,
+            private_link_resources=self.private_link_resources,
             provisioning_state=self.provisioning_state,
             service_principal_profile=self.service_principal_profile,
             sku=self.sku,
@@ -422,7 +470,7 @@ def get_managed_cluster(resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagedClusterResult:
     """
     Managed cluster.
-    Latest API Version: 2021-02-01.
+    Latest API Version: 2021-03-01.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -446,12 +494,15 @@ def get_managed_cluster(resource_group_name: Optional[str] = None,
         auto_scaler_profile=__ret__.auto_scaler_profile,
         auto_upgrade_profile=__ret__.auto_upgrade_profile,
         azure_portal_fqdn=__ret__.azure_portal_fqdn,
+        disable_local_accounts=__ret__.disable_local_accounts,
         disk_encryption_set_id=__ret__.disk_encryption_set_id,
         dns_prefix=__ret__.dns_prefix,
         enable_pod_security_policy=__ret__.enable_pod_security_policy,
         enable_rbac=__ret__.enable_rbac,
+        extended_location=__ret__.extended_location,
         fqdn=__ret__.fqdn,
         fqdn_subdomain=__ret__.fqdn_subdomain,
+        http_proxy_config=__ret__.http_proxy_config,
         id=__ret__.id,
         identity=__ret__.identity,
         identity_profile=__ret__.identity_profile,
@@ -465,6 +516,7 @@ def get_managed_cluster(resource_group_name: Optional[str] = None,
         pod_identity_profile=__ret__.pod_identity_profile,
         power_state=__ret__.power_state,
         private_fqdn=__ret__.private_fqdn,
+        private_link_resources=__ret__.private_link_resources,
         provisioning_state=__ret__.provisioning_state,
         service_principal_profile=__ret__.service_principal_profile,
         sku=__ret__.sku,

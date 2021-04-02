@@ -8,7 +8,7 @@ import (
 )
 
 // Bot channel resource definition
-// API Version: 2020-06-02.
+// API Version: 2021-03-01.
 func ListBotConnectionWithSecrets(ctx *pulumi.Context, args *ListBotConnectionWithSecretsArgs, opts ...pulumi.InvokeOption) (*ListBotConnectionWithSecretsResult, error) {
 	var rv ListBotConnectionWithSecretsResult
 	err := ctx.Invoke("azure-native:botservice:listBotConnectionWithSecrets", args, &rv, opts...)

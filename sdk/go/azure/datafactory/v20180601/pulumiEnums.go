@@ -1743,6 +1743,34 @@ func (e SparkThriftTransportProtocol) ToStringPtrOutputWithContext(ctx context.C
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// Sql always encrypted AKV authentication type. Type: string (or Expression with resultType string).
+type SqlAlwaysEncryptedAkvAuthType pulumi.String
+
+const (
+	SqlAlwaysEncryptedAkvAuthTypeServicePrincipal = SqlAlwaysEncryptedAkvAuthType("ServicePrincipal")
+	SqlAlwaysEncryptedAkvAuthTypeManagedIdentity  = SqlAlwaysEncryptedAkvAuthType("ManagedIdentity")
+)
+
+func (SqlAlwaysEncryptedAkvAuthType) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e SqlAlwaysEncryptedAkvAuthType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SqlAlwaysEncryptedAkvAuthType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SqlAlwaysEncryptedAkvAuthType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SqlAlwaysEncryptedAkvAuthType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // The type of SSIS log location.
 type SsisLogLocationType pulumi.String
 

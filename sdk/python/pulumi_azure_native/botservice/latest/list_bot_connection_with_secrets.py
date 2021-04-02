@@ -147,7 +147,7 @@ def list_bot_connection_with_secrets(connection_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListBotConnectionWithSecretsResult:
     """
     Bot channel resource definition
-    Latest API Version: 2020-06-02.
+    Latest API Version: 2021-03-01.
 
 
     :param str connection_name: The name of the Bot Service Connection Setting resource.

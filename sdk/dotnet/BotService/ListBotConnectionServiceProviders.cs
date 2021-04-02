@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.BotService
     {
         /// <summary>
         /// The list of bot service providers response.
-        /// API Version: 2020-06-02.
+        /// API Version: 2021-03-01.
         /// </summary>
         public static Task<ListBotConnectionServiceProvidersResult> InvokeAsync(ListBotConnectionServiceProvidersArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListBotConnectionServiceProvidersResult>("azure-native:botservice:listBotConnectionServiceProviders", args ?? new ListBotConnectionServiceProvidersArgs(), options.WithVersion());

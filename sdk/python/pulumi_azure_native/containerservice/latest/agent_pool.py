@@ -27,7 +27,9 @@ class AgentPool(pulumi.CustomResource):
                  count: Optional[pulumi.Input[int]] = None,
                  enable_auto_scaling: Optional[pulumi.Input[bool]] = None,
                  enable_encryption_at_host: Optional[pulumi.Input[bool]] = None,
+                 enable_fips: Optional[pulumi.Input[bool]] = None,
                  enable_node_public_ip: Optional[pulumi.Input[bool]] = None,
+                 gpu_instance_profile: Optional[pulumi.Input[Union[str, 'GPUInstanceProfile']]] = None,
                  kubelet_config: Optional[pulumi.Input[pulumi.InputType['KubeletConfigArgs']]] = None,
                  kubelet_disk_type: Optional[pulumi.Input[Union[str, 'KubeletDiskType']]] = None,
                  linux_os_config: Optional[pulumi.Input[pulumi.InputType['LinuxOSConfigArgs']]] = None,
@@ -41,6 +43,7 @@ class AgentPool(pulumi.CustomResource):
                  orchestrator_version: Optional[pulumi.Input[str]] = None,
                  os_disk_size_gb: Optional[pulumi.Input[int]] = None,
                  os_disk_type: Optional[pulumi.Input[Union[str, 'OSDiskType']]] = None,
+                 os_sku: Optional[pulumi.Input[Union[str, 'OSSKU']]] = None,
                  os_type: Optional[pulumi.Input[Union[str, 'OSType']]] = None,
                  pod_subnet_id: Optional[pulumi.Input[str]] = None,
                  proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
@@ -59,7 +62,7 @@ class AgentPool(pulumi.CustomResource):
                  __opts__=None):
         """
         Agent Pool.
-        Latest API Version: 2021-02-01.
+        Latest API Version: 2021-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -68,7 +71,9 @@ class AgentPool(pulumi.CustomResource):
         :param pulumi.Input[int] count: Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 100 (inclusive) for user pools and in the range of 1 to 100 (inclusive) for system pools. The default value is 1.
         :param pulumi.Input[bool] enable_auto_scaling: Whether to enable auto-scaler
         :param pulumi.Input[bool] enable_encryption_at_host: Whether to enable EncryptionAtHost
+        :param pulumi.Input[bool] enable_fips: Whether to use FIPS enabled OS
         :param pulumi.Input[bool] enable_node_public_ip: Enable public IP for nodes
+        :param pulumi.Input[Union[str, 'GPUInstanceProfile']] gpu_instance_profile: GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU. Supported values are MIG1g, MIG2g, MIG3g, MIG4g and MIG7g.
         :param pulumi.Input[pulumi.InputType['KubeletConfigArgs']] kubelet_config: KubeletConfig specifies the configuration of kubelet on agent nodes.
         :param pulumi.Input[Union[str, 'KubeletDiskType']] kubelet_disk_type: KubeletDiskType determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage. Currently allows one value, OS, resulting in Kubelet using the OS disk for data.
         :param pulumi.Input[pulumi.InputType['LinuxOSConfigArgs']] linux_os_config: LinuxOSConfig specifies the OS configuration of linux agent nodes.
@@ -82,6 +87,7 @@ class AgentPool(pulumi.CustomResource):
         :param pulumi.Input[str] orchestrator_version: Version of orchestrator specified when creating the managed cluster.
         :param pulumi.Input[int] os_disk_size_gb: OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
         :param pulumi.Input[Union[str, 'OSDiskType']] os_disk_type: OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. Defaults to 'Managed'. May not be changed after creation.
+        :param pulumi.Input[Union[str, 'OSSKU']] os_sku: OsSKU to be used to specify os sku. Choose from Ubuntu(default) and CBLMariner for Linux OSType. Not applicable to Windows OSType.
         :param pulumi.Input[Union[str, 'OSType']] os_type: OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
         :param pulumi.Input[str] pod_subnet_id: Pod SubnetID specifies the VNet's subnet identifier for pods.
         :param pulumi.Input[str] proximity_placement_group_id: The ID for Proximity Placement Group.
@@ -119,7 +125,9 @@ class AgentPool(pulumi.CustomResource):
             __props__['count'] = count
             __props__['enable_auto_scaling'] = enable_auto_scaling
             __props__['enable_encryption_at_host'] = enable_encryption_at_host
+            __props__['enable_fips'] = enable_fips
             __props__['enable_node_public_ip'] = enable_node_public_ip
+            __props__['gpu_instance_profile'] = gpu_instance_profile
             __props__['kubelet_config'] = kubelet_config
             __props__['kubelet_disk_type'] = kubelet_disk_type
             __props__['linux_os_config'] = linux_os_config
@@ -133,6 +141,7 @@ class AgentPool(pulumi.CustomResource):
             __props__['orchestrator_version'] = orchestrator_version
             __props__['os_disk_size_gb'] = os_disk_size_gb
             __props__['os_disk_type'] = os_disk_type
+            __props__['os_sku'] = os_sku
             __props__['os_type'] = os_type
             __props__['pod_subnet_id'] = pod_subnet_id
             __props__['proximity_placement_group_id'] = proximity_placement_group_id
@@ -154,7 +163,7 @@ class AgentPool(pulumi.CustomResource):
             __props__['node_image_version'] = None
             __props__['power_state'] = None
             __props__['provisioning_state'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:containerservice/latest:AgentPool"), pulumi.Alias(type_="azure-native:containerservice:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20190201:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20190201:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20190401:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20190401:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20190601:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20190601:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20190801:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20190801:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20191001:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20191001:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20191101:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20191101:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20200101:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20200101:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20200201:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20200201:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20200301:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20200301:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20200401:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20200401:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20200601:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20200601:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20200701:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20200701:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20200901:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20200901:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20201101:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20201101:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20201201:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20201201:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20210201:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20210201:AgentPool")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:containerservice/latest:AgentPool"), pulumi.Alias(type_="azure-native:containerservice:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20190201:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20190201:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20190401:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20190401:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20190601:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20190601:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20190801:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20190801:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20191001:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20191001:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20191101:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20191101:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20200101:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20200101:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20200201:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20200201:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20200301:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20200301:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20200401:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20200401:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20200601:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20200601:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20200701:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20200701:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20200901:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20200901:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20201101:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20201101:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20201201:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20201201:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20210201:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20210201:AgentPool"), pulumi.Alias(type_="azure-native:containerservice/v20210301:AgentPool"), pulumi.Alias(type_="azure-nextgen:containerservice/v20210301:AgentPool")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AgentPool, __self__).__init__(
             'azure-native:containerservice/latest:AgentPool',
@@ -182,7 +191,9 @@ class AgentPool(pulumi.CustomResource):
         __props__["count"] = None
         __props__["enable_auto_scaling"] = None
         __props__["enable_encryption_at_host"] = None
+        __props__["enable_fips"] = None
         __props__["enable_node_public_ip"] = None
+        __props__["gpu_instance_profile"] = None
         __props__["kubelet_config"] = None
         __props__["kubelet_disk_type"] = None
         __props__["linux_os_config"] = None
@@ -198,6 +209,7 @@ class AgentPool(pulumi.CustomResource):
         __props__["orchestrator_version"] = None
         __props__["os_disk_size_gb"] = None
         __props__["os_disk_type"] = None
+        __props__["os_sku"] = None
         __props__["os_type"] = None
         __props__["pod_subnet_id"] = None
         __props__["power_state"] = None
@@ -246,12 +258,28 @@ class AgentPool(pulumi.CustomResource):
         return pulumi.get(self, "enable_encryption_at_host")
 
     @property
+    @pulumi.getter(name="enableFIPS")
+    def enable_fips(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether to use FIPS enabled OS
+        """
+        return pulumi.get(self, "enable_fips")
+
+    @property
     @pulumi.getter(name="enableNodePublicIP")
     def enable_node_public_ip(self) -> pulumi.Output[Optional[bool]]:
         """
         Enable public IP for nodes
         """
         return pulumi.get(self, "enable_node_public_ip")
+
+    @property
+    @pulumi.getter(name="gpuInstanceProfile")
+    def gpu_instance_profile(self) -> pulumi.Output[Optional[str]]:
+        """
+        GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU. Supported values are MIG1g, MIG2g, MIG3g, MIG4g and MIG7g.
+        """
+        return pulumi.get(self, "gpu_instance_profile")
 
     @property
     @pulumi.getter(name="kubeletConfig")
@@ -372,6 +400,14 @@ class AgentPool(pulumi.CustomResource):
         OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. Defaults to 'Managed'. May not be changed after creation.
         """
         return pulumi.get(self, "os_disk_type")
+
+    @property
+    @pulumi.getter(name="osSKU")
+    def os_sku(self) -> pulumi.Output[Optional[str]]:
+        """
+        OsSKU to be used to specify os sku. Choose from Ubuntu(default) and CBLMariner for Linux OSType. Not applicable to Windows OSType.
+        """
+        return pulumi.get(self, "os_sku")
 
     @property
     @pulumi.getter(name="osType")

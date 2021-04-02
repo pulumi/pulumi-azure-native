@@ -469,6 +469,7 @@ __all__ = [
     'SparkLinkedServiceArgs',
     'SparkObjectDatasetArgs',
     'SparkSourceArgs',
+    'SqlAlwaysEncryptedPropertiesArgs',
     'SqlDWSinkArgs',
     'SqlDWSourceArgs',
     'SqlMISinkArgs',
@@ -13133,6 +13134,7 @@ class AzureSqlDatabaseLinkedServiceArgs:
     def __init__(__self__, *,
                  connection_string: Any,
                  type: pulumi.Input[str],
+                 always_encrypted_settings: Optional[pulumi.Input['SqlAlwaysEncryptedPropertiesArgs']] = None,
                  annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  azure_cloud_type: Optional[Any] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
@@ -13148,6 +13150,7 @@ class AzureSqlDatabaseLinkedServiceArgs:
         :param Any connection_string: The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param pulumi.Input[str] type: Type of linked service.
                Expected value is 'AzureSqlDatabase'.
+        :param pulumi.Input['SqlAlwaysEncryptedPropertiesArgs'] always_encrypted_settings: Sql always encrypted properties.
         :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the linked service.
         :param Any azure_cloud_type: Indicates the azure cloud type of the service principle auth. Allowed values are AzurePublic, AzureChina, AzureUsGovernment, AzureGermany. Default value is the data factory regions’ cloud type. Type: string (or Expression with resultType string).
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
@@ -13161,6 +13164,8 @@ class AzureSqlDatabaseLinkedServiceArgs:
         """
         pulumi.set(__self__, "connection_string", connection_string)
         pulumi.set(__self__, "type", 'AzureSqlDatabase')
+        if always_encrypted_settings is not None:
+            pulumi.set(__self__, "always_encrypted_settings", always_encrypted_settings)
         if annotations is not None:
             pulumi.set(__self__, "annotations", annotations)
         if azure_cloud_type is not None:
@@ -13206,6 +13211,18 @@ class AzureSqlDatabaseLinkedServiceArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="alwaysEncryptedSettings")
+    def always_encrypted_settings(self) -> Optional[pulumi.Input['SqlAlwaysEncryptedPropertiesArgs']]:
+        """
+        Sql always encrypted properties.
+        """
+        return pulumi.get(self, "always_encrypted_settings")
+
+    @always_encrypted_settings.setter
+    def always_encrypted_settings(self, value: Optional[pulumi.Input['SqlAlwaysEncryptedPropertiesArgs']]):
+        pulumi.set(self, "always_encrypted_settings", value)
 
     @property
     @pulumi.getter
@@ -13333,6 +13350,7 @@ class AzureSqlMILinkedServiceArgs:
     def __init__(__self__, *,
                  connection_string: Any,
                  type: pulumi.Input[str],
+                 always_encrypted_settings: Optional[pulumi.Input['SqlAlwaysEncryptedPropertiesArgs']] = None,
                  annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  azure_cloud_type: Optional[Any] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
@@ -13348,6 +13366,7 @@ class AzureSqlMILinkedServiceArgs:
         :param Any connection_string: The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param pulumi.Input[str] type: Type of linked service.
                Expected value is 'AzureSqlMI'.
+        :param pulumi.Input['SqlAlwaysEncryptedPropertiesArgs'] always_encrypted_settings: Sql always encrypted properties.
         :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the linked service.
         :param Any azure_cloud_type: Indicates the azure cloud type of the service principle auth. Allowed values are AzurePublic, AzureChina, AzureUsGovernment, AzureGermany. Default value is the data factory regions’ cloud type. Type: string (or Expression with resultType string).
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
@@ -13361,6 +13380,8 @@ class AzureSqlMILinkedServiceArgs:
         """
         pulumi.set(__self__, "connection_string", connection_string)
         pulumi.set(__self__, "type", 'AzureSqlMI')
+        if always_encrypted_settings is not None:
+            pulumi.set(__self__, "always_encrypted_settings", always_encrypted_settings)
         if annotations is not None:
             pulumi.set(__self__, "annotations", annotations)
         if azure_cloud_type is not None:
@@ -13406,6 +13427,18 @@ class AzureSqlMILinkedServiceArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="alwaysEncryptedSettings")
+    def always_encrypted_settings(self) -> Optional[pulumi.Input['SqlAlwaysEncryptedPropertiesArgs']]:
+        """
+        Sql always encrypted properties.
+        """
+        return pulumi.get(self, "always_encrypted_settings")
+
+    @always_encrypted_settings.setter
+    def always_encrypted_settings(self, value: Optional[pulumi.Input['SqlAlwaysEncryptedPropertiesArgs']]):
+        pulumi.set(self, "always_encrypted_settings", value)
 
     @property
     @pulumi.getter
@@ -64066,6 +64099,61 @@ class SparkSourceArgs:
 
 
 @pulumi.input_type
+class SqlAlwaysEncryptedPropertiesArgs:
+    def __init__(__self__, *,
+                 always_encrypted_akv_auth_type: pulumi.Input[Union[str, 'SqlAlwaysEncryptedAkvAuthType']],
+                 service_principal_id: Optional[Any] = None,
+                 service_principal_key: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None):
+        """
+        Sql always encrypted properties.
+        :param pulumi.Input[Union[str, 'SqlAlwaysEncryptedAkvAuthType']] always_encrypted_akv_auth_type: Sql always encrypted AKV authentication type. Type: string (or Expression with resultType string).
+        :param Any service_principal_id: The client ID of the application in Azure Active Directory used for Azure Key Vault authentication. Type: string (or Expression with resultType string).
+        :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] service_principal_key: The key of the service principal used to authenticate against Azure Key Vault.
+        """
+        pulumi.set(__self__, "always_encrypted_akv_auth_type", always_encrypted_akv_auth_type)
+        if service_principal_id is not None:
+            pulumi.set(__self__, "service_principal_id", service_principal_id)
+        if service_principal_key is not None:
+            pulumi.set(__self__, "service_principal_key", service_principal_key)
+
+    @property
+    @pulumi.getter(name="alwaysEncryptedAkvAuthType")
+    def always_encrypted_akv_auth_type(self) -> pulumi.Input[Union[str, 'SqlAlwaysEncryptedAkvAuthType']]:
+        """
+        Sql always encrypted AKV authentication type. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "always_encrypted_akv_auth_type")
+
+    @always_encrypted_akv_auth_type.setter
+    def always_encrypted_akv_auth_type(self, value: pulumi.Input[Union[str, 'SqlAlwaysEncryptedAkvAuthType']]):
+        pulumi.set(self, "always_encrypted_akv_auth_type", value)
+
+    @property
+    @pulumi.getter(name="servicePrincipalId")
+    def service_principal_id(self) -> Optional[Any]:
+        """
+        The client ID of the application in Azure Active Directory used for Azure Key Vault authentication. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "service_principal_id")
+
+    @service_principal_id.setter
+    def service_principal_id(self, value: Optional[Any]):
+        pulumi.set(self, "service_principal_id", value)
+
+    @property
+    @pulumi.getter(name="servicePrincipalKey")
+    def service_principal_key(self) -> Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]]:
+        """
+        The key of the service principal used to authenticate against Azure Key Vault.
+        """
+        return pulumi.get(self, "service_principal_key")
+
+    @service_principal_key.setter
+    def service_principal_key(self, value: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]]):
+        pulumi.set(self, "service_principal_key", value)
+
+
+@pulumi.input_type
 class SqlDWSinkArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
@@ -64914,6 +65002,7 @@ class SqlServerLinkedServiceArgs:
     def __init__(__self__, *,
                  connection_string: Any,
                  type: pulumi.Input[str],
+                 always_encrypted_settings: Optional[pulumi.Input['SqlAlwaysEncryptedPropertiesArgs']] = None,
                  annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -64926,6 +65015,7 @@ class SqlServerLinkedServiceArgs:
         :param Any connection_string: The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param pulumi.Input[str] type: Type of linked service.
                Expected value is 'SqlServer'.
+        :param pulumi.Input['SqlAlwaysEncryptedPropertiesArgs'] always_encrypted_settings: Sql always encrypted properties.
         :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
@@ -64936,6 +65026,8 @@ class SqlServerLinkedServiceArgs:
         """
         pulumi.set(__self__, "connection_string", connection_string)
         pulumi.set(__self__, "type", 'SqlServer')
+        if always_encrypted_settings is not None:
+            pulumi.set(__self__, "always_encrypted_settings", always_encrypted_settings)
         if annotations is not None:
             pulumi.set(__self__, "annotations", annotations)
         if connect_via is not None:
@@ -64975,6 +65067,18 @@ class SqlServerLinkedServiceArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="alwaysEncryptedSettings")
+    def always_encrypted_settings(self) -> Optional[pulumi.Input['SqlAlwaysEncryptedPropertiesArgs']]:
+        """
+        Sql always encrypted properties.
+        """
+        return pulumi.get(self, "always_encrypted_settings")
+
+    @always_encrypted_settings.setter
+    def always_encrypted_settings(self, value: Optional[pulumi.Input['SqlAlwaysEncryptedPropertiesArgs']]):
+        pulumi.set(self, "always_encrypted_settings", value)
 
     @property
     @pulumi.getter

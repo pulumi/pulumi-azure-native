@@ -19,6 +19,7 @@ __all__ = [
     'ContainerServiceSshConfigurationResponse',
     'ContainerServiceSshPublicKeyResponse',
     'CredentialResultResponseResult',
+    'ExtendedLocationResponse',
     'KubeletConfigResponse',
     'LinuxOSConfigResponse',
     'ManagedClusterAADProfileResponse',
@@ -27,6 +28,7 @@ __all__ = [
     'ManagedClusterAddonProfileResponseIdentity',
     'ManagedClusterAgentPoolProfileResponse',
     'ManagedClusterAutoUpgradeProfileResponse',
+    'ManagedClusterHTTPProxyConfigResponse',
     'ManagedClusterIdentityResponse',
     'ManagedClusterIdentityResponseUserAssignedIdentities',
     'ManagedClusterLoadBalancerProfileResponse',
@@ -51,6 +53,7 @@ __all__ = [
     'OpenShiftRouterProfileResponse',
     'PowerStateResponse',
     'PrivateEndpointResponse',
+    'PrivateLinkResourceResponse',
     'PrivateLinkServiceConnectionStateResponse',
     'PurchasePlanResponse',
     'ResourceReferenceResponse',
@@ -438,6 +441,44 @@ class CredentialResultResponseResult(dict):
         Base64-encoded Kubernetes configuration file.
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ExtendedLocationResponse(dict):
+    """
+    The complex type of the extended location.
+    """
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None):
+        """
+        The complex type of the extended location.
+        :param str name: The name of the extended location.
+        :param str type: The type of the extended location.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the extended location.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The type of the extended location.
+        """
+        return pulumi.get(self, "type")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -908,7 +949,9 @@ class ManagedClusterAgentPoolProfileResponse(dict):
                  count: Optional[int] = None,
                  enable_auto_scaling: Optional[bool] = None,
                  enable_encryption_at_host: Optional[bool] = None,
+                 enable_fips: Optional[bool] = None,
                  enable_node_public_ip: Optional[bool] = None,
+                 gpu_instance_profile: Optional[str] = None,
                  kubelet_config: Optional['outputs.KubeletConfigResponse'] = None,
                  kubelet_disk_type: Optional[str] = None,
                  linux_os_config: Optional['outputs.LinuxOSConfigResponse'] = None,
@@ -922,6 +965,7 @@ class ManagedClusterAgentPoolProfileResponse(dict):
                  orchestrator_version: Optional[str] = None,
                  os_disk_size_gb: Optional[int] = None,
                  os_disk_type: Optional[str] = None,
+                 os_sku: Optional[str] = None,
                  os_type: Optional[str] = None,
                  pod_subnet_id: Optional[str] = None,
                  proximity_placement_group_id: Optional[str] = None,
@@ -943,7 +987,9 @@ class ManagedClusterAgentPoolProfileResponse(dict):
         :param int count: Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 100 (inclusive) for user pools and in the range of 1 to 100 (inclusive) for system pools. The default value is 1.
         :param bool enable_auto_scaling: Whether to enable auto-scaler
         :param bool enable_encryption_at_host: Whether to enable EncryptionAtHost
+        :param bool enable_fips: Whether to use FIPS enabled OS
         :param bool enable_node_public_ip: Enable public IP for nodes
+        :param str gpu_instance_profile: GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU. Supported values are MIG1g, MIG2g, MIG3g, MIG4g and MIG7g.
         :param 'KubeletConfigResponseArgs' kubelet_config: KubeletConfig specifies the configuration of kubelet on agent nodes.
         :param str kubelet_disk_type: KubeletDiskType determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage. Currently allows one value, OS, resulting in Kubelet using the OS disk for data.
         :param 'LinuxOSConfigResponseArgs' linux_os_config: LinuxOSConfig specifies the OS configuration of linux agent nodes.
@@ -957,6 +1003,7 @@ class ManagedClusterAgentPoolProfileResponse(dict):
         :param str orchestrator_version: Version of orchestrator specified when creating the managed cluster.
         :param int os_disk_size_gb: OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
         :param str os_disk_type: OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. Defaults to 'Managed'. May not be changed after creation.
+        :param str os_sku: OsSKU to be used to specify os sku. Choose from Ubuntu(default) and CBLMariner for Linux OSType. Not applicable to Windows OSType.
         :param str os_type: OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
         :param str pod_subnet_id: Pod SubnetID specifies the VNet's subnet identifier for pods.
         :param str proximity_placement_group_id: The ID for Proximity Placement Group.
@@ -981,8 +1028,12 @@ class ManagedClusterAgentPoolProfileResponse(dict):
             pulumi.set(__self__, "enable_auto_scaling", enable_auto_scaling)
         if enable_encryption_at_host is not None:
             pulumi.set(__self__, "enable_encryption_at_host", enable_encryption_at_host)
+        if enable_fips is not None:
+            pulumi.set(__self__, "enable_fips", enable_fips)
         if enable_node_public_ip is not None:
             pulumi.set(__self__, "enable_node_public_ip", enable_node_public_ip)
+        if gpu_instance_profile is not None:
+            pulumi.set(__self__, "gpu_instance_profile", gpu_instance_profile)
         if kubelet_config is not None:
             pulumi.set(__self__, "kubelet_config", kubelet_config)
         if kubelet_disk_type is not None:
@@ -1009,6 +1060,8 @@ class ManagedClusterAgentPoolProfileResponse(dict):
             pulumi.set(__self__, "os_disk_size_gb", os_disk_size_gb)
         if os_disk_type is not None:
             pulumi.set(__self__, "os_disk_type", os_disk_type)
+        if os_sku is not None:
+            pulumi.set(__self__, "os_sku", os_sku)
         if os_type is not None:
             pulumi.set(__self__, "os_type", os_type)
         if pod_subnet_id is not None:
@@ -1097,12 +1150,28 @@ class ManagedClusterAgentPoolProfileResponse(dict):
         return pulumi.get(self, "enable_encryption_at_host")
 
     @property
+    @pulumi.getter(name="enableFIPS")
+    def enable_fips(self) -> Optional[bool]:
+        """
+        Whether to use FIPS enabled OS
+        """
+        return pulumi.get(self, "enable_fips")
+
+    @property
     @pulumi.getter(name="enableNodePublicIP")
     def enable_node_public_ip(self) -> Optional[bool]:
         """
         Enable public IP for nodes
         """
         return pulumi.get(self, "enable_node_public_ip")
+
+    @property
+    @pulumi.getter(name="gpuInstanceProfile")
+    def gpu_instance_profile(self) -> Optional[str]:
+        """
+        GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU. Supported values are MIG1g, MIG2g, MIG3g, MIG4g and MIG7g.
+        """
+        return pulumi.get(self, "gpu_instance_profile")
 
     @property
     @pulumi.getter(name="kubeletConfig")
@@ -1207,6 +1276,14 @@ class ManagedClusterAgentPoolProfileResponse(dict):
         OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. Defaults to 'Managed'. May not be changed after creation.
         """
         return pulumi.get(self, "os_disk_type")
+
+    @property
+    @pulumi.getter(name="osSKU")
+    def os_sku(self) -> Optional[str]:
+        """
+        OsSKU to be used to specify os sku. Choose from Ubuntu(default) and CBLMariner for Linux OSType. Not applicable to Windows OSType.
+        """
+        return pulumi.get(self, "os_sku")
 
     @property
     @pulumi.getter(name="osType")
@@ -1321,6 +1398,68 @@ class ManagedClusterAutoUpgradeProfileResponse(dict):
         upgrade channel for auto upgrade.
         """
         return pulumi.get(self, "upgrade_channel")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ManagedClusterHTTPProxyConfigResponse(dict):
+    """
+    Configurations for provisioning the cluster with HTTP proxy servers.
+    """
+    def __init__(__self__, *,
+                 http_proxy: Optional[str] = None,
+                 https_proxy: Optional[str] = None,
+                 no_proxy: Optional[Sequence[str]] = None,
+                 trusted_ca: Optional[str] = None):
+        """
+        Configurations for provisioning the cluster with HTTP proxy servers.
+        :param str http_proxy: HTTP proxy server endpoint to use.
+        :param str https_proxy: HTTPS proxy server endpoint to use.
+        :param Sequence[str] no_proxy: Endpoints that should not go through proxy.
+        :param str trusted_ca: Alternative CA cert to use for connecting to proxy servers.
+        """
+        if http_proxy is not None:
+            pulumi.set(__self__, "http_proxy", http_proxy)
+        if https_proxy is not None:
+            pulumi.set(__self__, "https_proxy", https_proxy)
+        if no_proxy is not None:
+            pulumi.set(__self__, "no_proxy", no_proxy)
+        if trusted_ca is not None:
+            pulumi.set(__self__, "trusted_ca", trusted_ca)
+
+    @property
+    @pulumi.getter(name="httpProxy")
+    def http_proxy(self) -> Optional[str]:
+        """
+        HTTP proxy server endpoint to use.
+        """
+        return pulumi.get(self, "http_proxy")
+
+    @property
+    @pulumi.getter(name="httpsProxy")
+    def https_proxy(self) -> Optional[str]:
+        """
+        HTTPS proxy server endpoint to use.
+        """
+        return pulumi.get(self, "https_proxy")
+
+    @property
+    @pulumi.getter(name="noProxy")
+    def no_proxy(self) -> Optional[Sequence[str]]:
+        """
+        Endpoints that should not go through proxy.
+        """
+        return pulumi.get(self, "no_proxy")
+
+    @property
+    @pulumi.getter(name="trustedCa")
+    def trusted_ca(self) -> Optional[str]:
+        """
+        Alternative CA cert to use for connecting to proxy servers.
+        """
+        return pulumi.get(self, "trusted_ca")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -1696,18 +1835,22 @@ class ManagedClusterPodIdentityResponse(dict):
                  name: str,
                  namespace: str,
                  provisioning_info: 'outputs.ManagedClusterPodIdentityResponseProvisioningInfo',
-                 provisioning_state: str):
+                 provisioning_state: str,
+                 binding_selector: Optional[str] = None):
         """
         :param 'UserAssignedIdentityResponseArgs' identity: Information of the user assigned identity.
         :param str name: Name of the pod identity.
         :param str namespace: Namespace of the pod identity.
         :param str provisioning_state: The current provisioning state of the pod identity.
+        :param str binding_selector: Binding selector to use for the AzureIdentityBinding resource.
         """
         pulumi.set(__self__, "identity", identity)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "namespace", namespace)
         pulumi.set(__self__, "provisioning_info", provisioning_info)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if binding_selector is not None:
+            pulumi.set(__self__, "binding_selector", binding_selector)
 
     @property
     @pulumi.getter
@@ -1745,6 +1888,14 @@ class ManagedClusterPodIdentityResponse(dict):
         The current provisioning state of the pod identity.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="bindingSelector")
+    def binding_selector(self) -> Optional[str]:
+        """
+        Binding selector to use for the AzureIdentityBinding resource.
+        """
+        return pulumi.get(self, "binding_selector")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -2047,16 +2198,20 @@ class ManagedClusterWindowsProfileResponse(dict):
     def __init__(__self__, *,
                  admin_username: str,
                  admin_password: Optional[str] = None,
+                 enable_csi_proxy: Optional[bool] = None,
                  license_type: Optional[str] = None):
         """
         Profile for Windows VMs in the container service cluster.
         :param str admin_username: Specifies the name of the administrator account. <br><br> **restriction:** Cannot end in "." <br><br> **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". <br><br> **Minimum-length:** 1 character <br><br> **Max-length:** 20 characters
         :param str admin_password: Specifies the password of the administrator account. <br><br> **Minimum-length:** 8 characters <br><br> **Max-length:** 123 characters <br><br> **Complexity requirements:** 3 out of 4 conditions below need to be fulfilled <br> Has lower characters <br>Has upper characters <br> Has a digit <br> Has a special character (Regex match [\W_]) <br><br> **Disallowed values:** "abc@123", "P@$$w0rd", "P@ssw0rd", "P@ssword123", "Pa$$word", "pass@word1", "Password!", "Password1", "Password22", "iloveyou!"
+        :param bool enable_csi_proxy: Whether to enable CSI proxy.
         :param str license_type: The licenseType to use for Windows VMs. Windows_Server is used to enable Azure Hybrid User Benefits for Windows VMs.
         """
         pulumi.set(__self__, "admin_username", admin_username)
         if admin_password is not None:
             pulumi.set(__self__, "admin_password", admin_password)
+        if enable_csi_proxy is not None:
+            pulumi.set(__self__, "enable_csi_proxy", enable_csi_proxy)
         if license_type is not None:
             pulumi.set(__self__, "license_type", license_type)
 
@@ -2075,6 +2230,14 @@ class ManagedClusterWindowsProfileResponse(dict):
         Specifies the password of the administrator account. <br><br> **Minimum-length:** 8 characters <br><br> **Max-length:** 123 characters <br><br> **Complexity requirements:** 3 out of 4 conditions below need to be fulfilled <br> Has lower characters <br>Has upper characters <br> Has a digit <br> Has a special character (Regex match [\W_]) <br><br> **Disallowed values:** "abc@123", "P@$$w0rd", "P@ssw0rd", "P@ssword123", "Pa$$word", "pass@word1", "Password!", "Password1", "Password22", "iloveyou!"
         """
         return pulumi.get(self, "admin_password")
+
+    @property
+    @pulumi.getter(name="enableCSIProxy")
+    def enable_csi_proxy(self) -> Optional[bool]:
+        """
+        Whether to enable CSI proxy.
+        """
+        return pulumi.get(self, "enable_csi_proxy")
 
     @property
     @pulumi.getter(name="licenseType")
@@ -2531,6 +2694,91 @@ class PrivateEndpointResponse(dict):
         The resource Id for private endpoint
         """
         return pulumi.get(self, "id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class PrivateLinkResourceResponse(dict):
+    """
+    A private link resource
+    """
+    def __init__(__self__, *,
+                 private_link_service_id: str,
+                 group_id: Optional[str] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None,
+                 required_members: Optional[Sequence[str]] = None,
+                 type: Optional[str] = None):
+        """
+        A private link resource
+        :param str private_link_service_id: The private link service ID of the resource, this field is exposed only to NRP internally.
+        :param str group_id: The group ID of the resource.
+        :param str id: The ID of the private link resource.
+        :param str name: The name of the private link resource.
+        :param Sequence[str] required_members: RequiredMembers of the resource
+        :param str type: The resource type.
+        """
+        pulumi.set(__self__, "private_link_service_id", private_link_service_id)
+        if group_id is not None:
+            pulumi.set(__self__, "group_id", group_id)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if required_members is not None:
+            pulumi.set(__self__, "required_members", required_members)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="privateLinkServiceID")
+    def private_link_service_id(self) -> str:
+        """
+        The private link service ID of the resource, this field is exposed only to NRP internally.
+        """
+        return pulumi.get(self, "private_link_service_id")
+
+    @property
+    @pulumi.getter(name="groupId")
+    def group_id(self) -> Optional[str]:
+        """
+        The group ID of the resource.
+        """
+        return pulumi.get(self, "group_id")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        The ID of the private link resource.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the private link resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="requiredMembers")
+    def required_members(self) -> Optional[Sequence[str]]:
+        """
+        RequiredMembers of the resource
+        """
+        return pulumi.get(self, "required_members")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The resource type.
+        """
+        return pulumi.get(self, "type")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

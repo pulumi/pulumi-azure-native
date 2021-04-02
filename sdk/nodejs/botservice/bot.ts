@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Bot resource definition
- * API Version: 2020-06-02.
+ * API Version: 2021-03-01.
  */
 export class Bot extends pulumi.CustomResource {
     /**
@@ -106,7 +106,7 @@ export class Bot extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:botservice:Bot" }, { type: "azure-native:botservice/latest:Bot" }, { type: "azure-nextgen:botservice/latest:Bot" }, { type: "azure-native:botservice/v20171201:Bot" }, { type: "azure-nextgen:botservice/v20171201:Bot" }, { type: "azure-native:botservice/v20180712:Bot" }, { type: "azure-nextgen:botservice/v20180712:Bot" }, { type: "azure-native:botservice/v20200602:Bot" }, { type: "azure-nextgen:botservice/v20200602:Bot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:botservice:Bot" }, { type: "azure-native:botservice/latest:Bot" }, { type: "azure-nextgen:botservice/latest:Bot" }, { type: "azure-native:botservice/v20171201:Bot" }, { type: "azure-nextgen:botservice/v20171201:Bot" }, { type: "azure-native:botservice/v20180712:Bot" }, { type: "azure-nextgen:botservice/v20180712:Bot" }, { type: "azure-native:botservice/v20200602:Bot" }, { type: "azure-nextgen:botservice/v20200602:Bot" }, { type: "azure-native:botservice/v20210301:Bot" }, { type: "azure-nextgen:botservice/v20210301:Bot" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Bot.__pulumiType, name, inputs, opts);
     }

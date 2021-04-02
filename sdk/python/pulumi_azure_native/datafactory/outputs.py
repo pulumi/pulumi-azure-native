@@ -479,6 +479,7 @@ __all__ = [
     'SparkLinkedServiceResponse',
     'SparkObjectDatasetResponse',
     'SparkSourceResponse',
+    'SqlAlwaysEncryptedPropertiesResponse',
     'SqlDWSinkResponse',
     'SqlDWSourceResponse',
     'SqlMISinkResponse',
@@ -10725,6 +10726,7 @@ class AzureSqlDatabaseLinkedServiceResponse(dict):
     def __init__(__self__, *,
                  connection_string: Any,
                  type: str,
+                 always_encrypted_settings: Optional['outputs.SqlAlwaysEncryptedPropertiesResponse'] = None,
                  annotations: Optional[Sequence[Any]] = None,
                  azure_cloud_type: Optional[Any] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
@@ -10740,6 +10742,7 @@ class AzureSqlDatabaseLinkedServiceResponse(dict):
         :param Any connection_string: The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param str type: Type of linked service.
                Expected value is 'AzureSqlDatabase'.
+        :param 'SqlAlwaysEncryptedPropertiesResponseArgs' always_encrypted_settings: Sql always encrypted properties.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param Any azure_cloud_type: Indicates the azure cloud type of the service principle auth. Allowed values are AzurePublic, AzureChina, AzureUsGovernment, AzureGermany. Default value is the data factory regions’ cloud type. Type: string (or Expression with resultType string).
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
@@ -10753,6 +10756,8 @@ class AzureSqlDatabaseLinkedServiceResponse(dict):
         """
         pulumi.set(__self__, "connection_string", connection_string)
         pulumi.set(__self__, "type", 'AzureSqlDatabase')
+        if always_encrypted_settings is not None:
+            pulumi.set(__self__, "always_encrypted_settings", always_encrypted_settings)
         if annotations is not None:
             pulumi.set(__self__, "annotations", annotations)
         if azure_cloud_type is not None:
@@ -10790,6 +10795,14 @@ class AzureSqlDatabaseLinkedServiceResponse(dict):
         Expected value is 'AzureSqlDatabase'.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="alwaysEncryptedSettings")
+    def always_encrypted_settings(self) -> Optional['outputs.SqlAlwaysEncryptedPropertiesResponse']:
+        """
+        Sql always encrypted properties.
+        """
+        return pulumi.get(self, "always_encrypted_settings")
 
     @property
     @pulumi.getter
@@ -10883,6 +10896,7 @@ class AzureSqlMILinkedServiceResponse(dict):
     def __init__(__self__, *,
                  connection_string: Any,
                  type: str,
+                 always_encrypted_settings: Optional['outputs.SqlAlwaysEncryptedPropertiesResponse'] = None,
                  annotations: Optional[Sequence[Any]] = None,
                  azure_cloud_type: Optional[Any] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
@@ -10898,6 +10912,7 @@ class AzureSqlMILinkedServiceResponse(dict):
         :param Any connection_string: The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param str type: Type of linked service.
                Expected value is 'AzureSqlMI'.
+        :param 'SqlAlwaysEncryptedPropertiesResponseArgs' always_encrypted_settings: Sql always encrypted properties.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param Any azure_cloud_type: Indicates the azure cloud type of the service principle auth. Allowed values are AzurePublic, AzureChina, AzureUsGovernment, AzureGermany. Default value is the data factory regions’ cloud type. Type: string (or Expression with resultType string).
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
@@ -10911,6 +10926,8 @@ class AzureSqlMILinkedServiceResponse(dict):
         """
         pulumi.set(__self__, "connection_string", connection_string)
         pulumi.set(__self__, "type", 'AzureSqlMI')
+        if always_encrypted_settings is not None:
+            pulumi.set(__self__, "always_encrypted_settings", always_encrypted_settings)
         if annotations is not None:
             pulumi.set(__self__, "annotations", annotations)
         if azure_cloud_type is not None:
@@ -10948,6 +10965,14 @@ class AzureSqlMILinkedServiceResponse(dict):
         Expected value is 'AzureSqlMI'.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="alwaysEncryptedSettings")
+    def always_encrypted_settings(self) -> Optional['outputs.SqlAlwaysEncryptedPropertiesResponse']:
+        """
+        Sql always encrypted properties.
+        """
+        return pulumi.get(self, "always_encrypted_settings")
 
     @property
     @pulumi.getter
@@ -52867,6 +52892,55 @@ class SparkSourceResponse(dict):
 
 
 @pulumi.output_type
+class SqlAlwaysEncryptedPropertiesResponse(dict):
+    """
+    Sql always encrypted properties.
+    """
+    def __init__(__self__, *,
+                 always_encrypted_akv_auth_type: str,
+                 service_principal_id: Optional[Any] = None,
+                 service_principal_key: Optional[Any] = None):
+        """
+        Sql always encrypted properties.
+        :param str always_encrypted_akv_auth_type: Sql always encrypted AKV authentication type. Type: string (or Expression with resultType string).
+        :param Any service_principal_id: The client ID of the application in Azure Active Directory used for Azure Key Vault authentication. Type: string (or Expression with resultType string).
+        :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] service_principal_key: The key of the service principal used to authenticate against Azure Key Vault.
+        """
+        pulumi.set(__self__, "always_encrypted_akv_auth_type", always_encrypted_akv_auth_type)
+        if service_principal_id is not None:
+            pulumi.set(__self__, "service_principal_id", service_principal_id)
+        if service_principal_key is not None:
+            pulumi.set(__self__, "service_principal_key", service_principal_key)
+
+    @property
+    @pulumi.getter(name="alwaysEncryptedAkvAuthType")
+    def always_encrypted_akv_auth_type(self) -> str:
+        """
+        Sql always encrypted AKV authentication type. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "always_encrypted_akv_auth_type")
+
+    @property
+    @pulumi.getter(name="servicePrincipalId")
+    def service_principal_id(self) -> Optional[Any]:
+        """
+        The client ID of the application in Azure Active Directory used for Azure Key Vault authentication. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "service_principal_id")
+
+    @property
+    @pulumi.getter(name="servicePrincipalKey")
+    def service_principal_key(self) -> Optional[Any]:
+        """
+        The key of the service principal used to authenticate against Azure Key Vault.
+        """
+        return pulumi.get(self, "service_principal_key")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class SqlDWSinkResponse(dict):
     """
     A copy activity SQL Data Warehouse sink.
@@ -53548,6 +53622,7 @@ class SqlServerLinkedServiceResponse(dict):
     def __init__(__self__, *,
                  connection_string: Any,
                  type: str,
+                 always_encrypted_settings: Optional['outputs.SqlAlwaysEncryptedPropertiesResponse'] = None,
                  annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
@@ -53560,6 +53635,7 @@ class SqlServerLinkedServiceResponse(dict):
         :param Any connection_string: The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param str type: Type of linked service.
                Expected value is 'SqlServer'.
+        :param 'SqlAlwaysEncryptedPropertiesResponseArgs' always_encrypted_settings: Sql always encrypted properties.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
@@ -53570,6 +53646,8 @@ class SqlServerLinkedServiceResponse(dict):
         """
         pulumi.set(__self__, "connection_string", connection_string)
         pulumi.set(__self__, "type", 'SqlServer')
+        if always_encrypted_settings is not None:
+            pulumi.set(__self__, "always_encrypted_settings", always_encrypted_settings)
         if annotations is not None:
             pulumi.set(__self__, "annotations", annotations)
         if connect_via is not None:
@@ -53601,6 +53679,14 @@ class SqlServerLinkedServiceResponse(dict):
         Expected value is 'SqlServer'.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="alwaysEncryptedSettings")
+    def always_encrypted_settings(self) -> Optional['outputs.SqlAlwaysEncryptedPropertiesResponse']:
+        """
+        Sql always encrypted properties.
+        """
+        return pulumi.get(self, "always_encrypted_settings")
 
     @property
     @pulumi.getter

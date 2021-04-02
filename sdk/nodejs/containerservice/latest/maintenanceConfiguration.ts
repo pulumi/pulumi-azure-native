@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * maintenance configuration.
- * Latest API Version: 2021-02-01.
+ * Latest API Version: 2021-03-01.
  *
  * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:containerservice:MaintenanceConfiguration'.
  */
@@ -97,7 +97,7 @@ export class MaintenanceConfiguration extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:containerservice/latest:MaintenanceConfiguration" }, { type: "azure-native:containerservice:MaintenanceConfiguration" }, { type: "azure-nextgen:containerservice:MaintenanceConfiguration" }, { type: "azure-native:containerservice/v20201201:MaintenanceConfiguration" }, { type: "azure-nextgen:containerservice/v20201201:MaintenanceConfiguration" }, { type: "azure-native:containerservice/v20210201:MaintenanceConfiguration" }, { type: "azure-nextgen:containerservice/v20210201:MaintenanceConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:containerservice/latest:MaintenanceConfiguration" }, { type: "azure-native:containerservice:MaintenanceConfiguration" }, { type: "azure-nextgen:containerservice:MaintenanceConfiguration" }, { type: "azure-native:containerservice/v20201201:MaintenanceConfiguration" }, { type: "azure-nextgen:containerservice/v20201201:MaintenanceConfiguration" }, { type: "azure-native:containerservice/v20210201:MaintenanceConfiguration" }, { type: "azure-nextgen:containerservice/v20210201:MaintenanceConfiguration" }, { type: "azure-native:containerservice/v20210301:MaintenanceConfiguration" }, { type: "azure-nextgen:containerservice/v20210301:MaintenanceConfiguration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MaintenanceConfiguration.__pulumiType, name, inputs, opts);
     }

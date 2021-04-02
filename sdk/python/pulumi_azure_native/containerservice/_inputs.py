@@ -15,6 +15,7 @@ __all__ = [
     'ContainerServiceNetworkProfileArgs',
     'ContainerServiceSshConfigurationArgs',
     'ContainerServiceSshPublicKeyArgs',
+    'ExtendedLocationArgs',
     'KubeletConfigArgs',
     'LinuxOSConfigArgs',
     'ManagedClusterAADProfileArgs',
@@ -22,6 +23,7 @@ __all__ = [
     'ManagedClusterAddonProfileArgs',
     'ManagedClusterAgentPoolProfileArgs',
     'ManagedClusterAutoUpgradeProfileArgs',
+    'ManagedClusterHTTPProxyConfigArgs',
     'ManagedClusterIdentityArgs',
     'ManagedClusterLoadBalancerProfileArgs',
     'ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs',
@@ -43,6 +45,7 @@ __all__ = [
     'OpenShiftManagedClusterMasterPoolProfileArgs',
     'OpenShiftRouterProfileArgs',
     'PrivateEndpointArgs',
+    'PrivateLinkResourceArgs',
     'PrivateLinkServiceConnectionStateArgs',
     'PurchasePlanArgs',
     'ResourceReferenceArgs',
@@ -338,6 +341,46 @@ class ContainerServiceSshPublicKeyArgs:
     @key_data.setter
     def key_data(self, value: pulumi.Input[str]):
         pulumi.set(self, "key_data", value)
+
+
+@pulumi.input_type
+class ExtendedLocationArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[Union[str, 'ExtendedLocationTypes']]] = None):
+        """
+        The complex type of the extended location.
+        :param pulumi.Input[str] name: The name of the extended location.
+        :param pulumi.Input[Union[str, 'ExtendedLocationTypes']] type: The type of the extended location.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the extended location.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[Union[str, 'ExtendedLocationTypes']]]:
+        """
+        The type of the extended location.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[Union[str, 'ExtendedLocationTypes']]]):
+        pulumi.set(self, "type", value)
 
 
 @pulumi.input_type
@@ -819,7 +862,9 @@ class ManagedClusterAgentPoolProfileArgs:
                  count: Optional[pulumi.Input[int]] = None,
                  enable_auto_scaling: Optional[pulumi.Input[bool]] = None,
                  enable_encryption_at_host: Optional[pulumi.Input[bool]] = None,
+                 enable_fips: Optional[pulumi.Input[bool]] = None,
                  enable_node_public_ip: Optional[pulumi.Input[bool]] = None,
+                 gpu_instance_profile: Optional[pulumi.Input[Union[str, 'GPUInstanceProfile']]] = None,
                  kubelet_config: Optional[pulumi.Input['KubeletConfigArgs']] = None,
                  kubelet_disk_type: Optional[pulumi.Input[Union[str, 'KubeletDiskType']]] = None,
                  linux_os_config: Optional[pulumi.Input['LinuxOSConfigArgs']] = None,
@@ -833,6 +878,7 @@ class ManagedClusterAgentPoolProfileArgs:
                  orchestrator_version: Optional[pulumi.Input[str]] = None,
                  os_disk_size_gb: Optional[pulumi.Input[int]] = None,
                  os_disk_type: Optional[pulumi.Input[Union[str, 'OSDiskType']]] = None,
+                 os_sku: Optional[pulumi.Input[Union[str, 'OSSKU']]] = None,
                  os_type: Optional[pulumi.Input[Union[str, 'OSType']]] = None,
                  pod_subnet_id: Optional[pulumi.Input[str]] = None,
                  proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
@@ -851,7 +897,9 @@ class ManagedClusterAgentPoolProfileArgs:
         :param pulumi.Input[int] count: Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 100 (inclusive) for user pools and in the range of 1 to 100 (inclusive) for system pools. The default value is 1.
         :param pulumi.Input[bool] enable_auto_scaling: Whether to enable auto-scaler
         :param pulumi.Input[bool] enable_encryption_at_host: Whether to enable EncryptionAtHost
+        :param pulumi.Input[bool] enable_fips: Whether to use FIPS enabled OS
         :param pulumi.Input[bool] enable_node_public_ip: Enable public IP for nodes
+        :param pulumi.Input[Union[str, 'GPUInstanceProfile']] gpu_instance_profile: GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU. Supported values are MIG1g, MIG2g, MIG3g, MIG4g and MIG7g.
         :param pulumi.Input['KubeletConfigArgs'] kubelet_config: KubeletConfig specifies the configuration of kubelet on agent nodes.
         :param pulumi.Input[Union[str, 'KubeletDiskType']] kubelet_disk_type: KubeletDiskType determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage. Currently allows one value, OS, resulting in Kubelet using the OS disk for data.
         :param pulumi.Input['LinuxOSConfigArgs'] linux_os_config: LinuxOSConfig specifies the OS configuration of linux agent nodes.
@@ -865,6 +913,7 @@ class ManagedClusterAgentPoolProfileArgs:
         :param pulumi.Input[str] orchestrator_version: Version of orchestrator specified when creating the managed cluster.
         :param pulumi.Input[int] os_disk_size_gb: OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
         :param pulumi.Input[Union[str, 'OSDiskType']] os_disk_type: OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. Defaults to 'Managed'. May not be changed after creation.
+        :param pulumi.Input[Union[str, 'OSSKU']] os_sku: OsSKU to be used to specify os sku. Choose from Ubuntu(default) and CBLMariner for Linux OSType. Not applicable to Windows OSType.
         :param pulumi.Input[Union[str, 'OSType']] os_type: OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
         :param pulumi.Input[str] pod_subnet_id: Pod SubnetID specifies the VNet's subnet identifier for pods.
         :param pulumi.Input[str] proximity_placement_group_id: The ID for Proximity Placement Group.
@@ -886,8 +935,12 @@ class ManagedClusterAgentPoolProfileArgs:
             pulumi.set(__self__, "enable_auto_scaling", enable_auto_scaling)
         if enable_encryption_at_host is not None:
             pulumi.set(__self__, "enable_encryption_at_host", enable_encryption_at_host)
+        if enable_fips is not None:
+            pulumi.set(__self__, "enable_fips", enable_fips)
         if enable_node_public_ip is not None:
             pulumi.set(__self__, "enable_node_public_ip", enable_node_public_ip)
+        if gpu_instance_profile is not None:
+            pulumi.set(__self__, "gpu_instance_profile", gpu_instance_profile)
         if kubelet_config is not None:
             pulumi.set(__self__, "kubelet_config", kubelet_config)
         if kubelet_disk_type is not None:
@@ -914,6 +967,8 @@ class ManagedClusterAgentPoolProfileArgs:
             pulumi.set(__self__, "os_disk_size_gb", os_disk_size_gb)
         if os_disk_type is not None:
             pulumi.set(__self__, "os_disk_type", os_disk_type)
+        if os_sku is not None:
+            pulumi.set(__self__, "os_sku", os_sku)
         if os_type is not None:
             pulumi.set(__self__, "os_type", os_type)
         if pod_subnet_id is not None:
@@ -998,6 +1053,18 @@ class ManagedClusterAgentPoolProfileArgs:
         pulumi.set(self, "enable_encryption_at_host", value)
 
     @property
+    @pulumi.getter(name="enableFIPS")
+    def enable_fips(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to use FIPS enabled OS
+        """
+        return pulumi.get(self, "enable_fips")
+
+    @enable_fips.setter
+    def enable_fips(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_fips", value)
+
+    @property
     @pulumi.getter(name="enableNodePublicIP")
     def enable_node_public_ip(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -1008,6 +1075,18 @@ class ManagedClusterAgentPoolProfileArgs:
     @enable_node_public_ip.setter
     def enable_node_public_ip(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enable_node_public_ip", value)
+
+    @property
+    @pulumi.getter(name="gpuInstanceProfile")
+    def gpu_instance_profile(self) -> Optional[pulumi.Input[Union[str, 'GPUInstanceProfile']]]:
+        """
+        GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU. Supported values are MIG1g, MIG2g, MIG3g, MIG4g and MIG7g.
+        """
+        return pulumi.get(self, "gpu_instance_profile")
+
+    @gpu_instance_profile.setter
+    def gpu_instance_profile(self, value: Optional[pulumi.Input[Union[str, 'GPUInstanceProfile']]]):
+        pulumi.set(self, "gpu_instance_profile", value)
 
     @property
     @pulumi.getter(name="kubeletConfig")
@@ -1166,6 +1245,18 @@ class ManagedClusterAgentPoolProfileArgs:
         pulumi.set(self, "os_disk_type", value)
 
     @property
+    @pulumi.getter(name="osSKU")
+    def os_sku(self) -> Optional[pulumi.Input[Union[str, 'OSSKU']]]:
+        """
+        OsSKU to be used to specify os sku. Choose from Ubuntu(default) and CBLMariner for Linux OSType. Not applicable to Windows OSType.
+        """
+        return pulumi.get(self, "os_sku")
+
+    @os_sku.setter
+    def os_sku(self, value: Optional[pulumi.Input[Union[str, 'OSSKU']]]):
+        pulumi.set(self, "os_sku", value)
+
+    @property
     @pulumi.getter(name="osType")
     def os_type(self) -> Optional[pulumi.Input[Union[str, 'OSType']]]:
         """
@@ -1320,6 +1411,78 @@ class ManagedClusterAutoUpgradeProfileArgs:
     @upgrade_channel.setter
     def upgrade_channel(self, value: Optional[pulumi.Input[Union[str, 'UpgradeChannel']]]):
         pulumi.set(self, "upgrade_channel", value)
+
+
+@pulumi.input_type
+class ManagedClusterHTTPProxyConfigArgs:
+    def __init__(__self__, *,
+                 http_proxy: Optional[pulumi.Input[str]] = None,
+                 https_proxy: Optional[pulumi.Input[str]] = None,
+                 no_proxy: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 trusted_ca: Optional[pulumi.Input[str]] = None):
+        """
+        Configurations for provisioning the cluster with HTTP proxy servers.
+        :param pulumi.Input[str] http_proxy: HTTP proxy server endpoint to use.
+        :param pulumi.Input[str] https_proxy: HTTPS proxy server endpoint to use.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] no_proxy: Endpoints that should not go through proxy.
+        :param pulumi.Input[str] trusted_ca: Alternative CA cert to use for connecting to proxy servers.
+        """
+        if http_proxy is not None:
+            pulumi.set(__self__, "http_proxy", http_proxy)
+        if https_proxy is not None:
+            pulumi.set(__self__, "https_proxy", https_proxy)
+        if no_proxy is not None:
+            pulumi.set(__self__, "no_proxy", no_proxy)
+        if trusted_ca is not None:
+            pulumi.set(__self__, "trusted_ca", trusted_ca)
+
+    @property
+    @pulumi.getter(name="httpProxy")
+    def http_proxy(self) -> Optional[pulumi.Input[str]]:
+        """
+        HTTP proxy server endpoint to use.
+        """
+        return pulumi.get(self, "http_proxy")
+
+    @http_proxy.setter
+    def http_proxy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "http_proxy", value)
+
+    @property
+    @pulumi.getter(name="httpsProxy")
+    def https_proxy(self) -> Optional[pulumi.Input[str]]:
+        """
+        HTTPS proxy server endpoint to use.
+        """
+        return pulumi.get(self, "https_proxy")
+
+    @https_proxy.setter
+    def https_proxy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "https_proxy", value)
+
+    @property
+    @pulumi.getter(name="noProxy")
+    def no_proxy(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Endpoints that should not go through proxy.
+        """
+        return pulumi.get(self, "no_proxy")
+
+    @no_proxy.setter
+    def no_proxy(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "no_proxy", value)
+
+    @property
+    @pulumi.getter(name="trustedCa")
+    def trusted_ca(self) -> Optional[pulumi.Input[str]]:
+        """
+        Alternative CA cert to use for connecting to proxy servers.
+        """
+        return pulumi.get(self, "trusted_ca")
+
+    @trusted_ca.setter
+    def trusted_ca(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "trusted_ca", value)
 
 
 @pulumi.input_type
@@ -1549,15 +1712,19 @@ class ManagedClusterPodIdentityArgs:
     def __init__(__self__, *,
                  identity: pulumi.Input['UserAssignedIdentityArgs'],
                  name: pulumi.Input[str],
-                 namespace: pulumi.Input[str]):
+                 namespace: pulumi.Input[str],
+                 binding_selector: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input['UserAssignedIdentityArgs'] identity: Information of the user assigned identity.
         :param pulumi.Input[str] name: Name of the pod identity.
         :param pulumi.Input[str] namespace: Namespace of the pod identity.
+        :param pulumi.Input[str] binding_selector: Binding selector to use for the AzureIdentityBinding resource.
         """
         pulumi.set(__self__, "identity", identity)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "namespace", namespace)
+        if binding_selector is not None:
+            pulumi.set(__self__, "binding_selector", binding_selector)
 
     @property
     @pulumi.getter
@@ -1594,6 +1761,18 @@ class ManagedClusterPodIdentityArgs:
     @namespace.setter
     def namespace(self, value: pulumi.Input[str]):
         pulumi.set(self, "namespace", value)
+
+    @property
+    @pulumi.getter(name="bindingSelector")
+    def binding_selector(self) -> Optional[pulumi.Input[str]]:
+        """
+        Binding selector to use for the AzureIdentityBinding resource.
+        """
+        return pulumi.get(self, "binding_selector")
+
+    @binding_selector.setter
+    def binding_selector(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "binding_selector", value)
 
 
 @pulumi.input_type
@@ -2069,16 +2248,20 @@ class ManagedClusterWindowsProfileArgs:
     def __init__(__self__, *,
                  admin_username: pulumi.Input[str],
                  admin_password: Optional[pulumi.Input[str]] = None,
+                 enable_csi_proxy: Optional[pulumi.Input[bool]] = None,
                  license_type: Optional[pulumi.Input[Union[str, 'LicenseType']]] = None):
         """
         Profile for Windows VMs in the container service cluster.
         :param pulumi.Input[str] admin_username: Specifies the name of the administrator account. <br><br> **restriction:** Cannot end in "." <br><br> **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". <br><br> **Minimum-length:** 1 character <br><br> **Max-length:** 20 characters
         :param pulumi.Input[str] admin_password: Specifies the password of the administrator account. <br><br> **Minimum-length:** 8 characters <br><br> **Max-length:** 123 characters <br><br> **Complexity requirements:** 3 out of 4 conditions below need to be fulfilled <br> Has lower characters <br>Has upper characters <br> Has a digit <br> Has a special character (Regex match [\W_]) <br><br> **Disallowed values:** "abc@123", "P@$$w0rd", "P@ssw0rd", "P@ssword123", "Pa$$word", "pass@word1", "Password!", "Password1", "Password22", "iloveyou!"
+        :param pulumi.Input[bool] enable_csi_proxy: Whether to enable CSI proxy.
         :param pulumi.Input[Union[str, 'LicenseType']] license_type: The licenseType to use for Windows VMs. Windows_Server is used to enable Azure Hybrid User Benefits for Windows VMs.
         """
         pulumi.set(__self__, "admin_username", admin_username)
         if admin_password is not None:
             pulumi.set(__self__, "admin_password", admin_password)
+        if enable_csi_proxy is not None:
+            pulumi.set(__self__, "enable_csi_proxy", enable_csi_proxy)
         if license_type is not None:
             pulumi.set(__self__, "license_type", license_type)
 
@@ -2105,6 +2288,18 @@ class ManagedClusterWindowsProfileArgs:
     @admin_password.setter
     def admin_password(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "admin_password", value)
+
+    @property
+    @pulumi.getter(name="enableCSIProxy")
+    def enable_csi_proxy(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to enable CSI proxy.
+        """
+        return pulumi.get(self, "enable_csi_proxy")
+
+    @enable_csi_proxy.setter
+    def enable_csi_proxy(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_csi_proxy", value)
 
     @property
     @pulumi.getter(name="licenseType")
@@ -2565,6 +2760,94 @@ class PrivateEndpointArgs:
     @id.setter
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class PrivateLinkResourceArgs:
+    def __init__(__self__, *,
+                 group_id: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 required_members: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 type: Optional[pulumi.Input[str]] = None):
+        """
+        A private link resource
+        :param pulumi.Input[str] group_id: The group ID of the resource.
+        :param pulumi.Input[str] id: The ID of the private link resource.
+        :param pulumi.Input[str] name: The name of the private link resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] required_members: RequiredMembers of the resource
+        :param pulumi.Input[str] type: The resource type.
+        """
+        if group_id is not None:
+            pulumi.set(__self__, "group_id", group_id)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if required_members is not None:
+            pulumi.set(__self__, "required_members", required_members)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="groupId")
+    def group_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The group ID of the resource.
+        """
+        return pulumi.get(self, "group_id")
+
+    @group_id.setter
+    def group_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "group_id", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the private link resource.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the private link resource.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="requiredMembers")
+    def required_members(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        RequiredMembers of the resource
+        """
+        return pulumi.get(self, "required_members")
+
+    @required_members.setter
+    def required_members(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "required_members", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
 
 
 @pulumi.input_type

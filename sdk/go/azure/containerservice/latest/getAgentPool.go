@@ -8,7 +8,7 @@ import (
 )
 
 // Agent Pool.
-// Latest API Version: 2021-02-01.
+// Latest API Version: 2021-03-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:containerservice:getAgentPool'.
 func LookupAgentPool(ctx *pulumi.Context, args *LookupAgentPoolArgs, opts ...pulumi.InvokeOption) (*LookupAgentPoolResult, error) {
@@ -39,8 +39,12 @@ type LookupAgentPoolResult struct {
 	EnableAutoScaling *bool `pulumi:"enableAutoScaling"`
 	// Whether to enable EncryptionAtHost
 	EnableEncryptionAtHost *bool `pulumi:"enableEncryptionAtHost"`
+	// Whether to use FIPS enabled OS
+	EnableFIPS *bool `pulumi:"enableFIPS"`
 	// Enable public IP for nodes
 	EnableNodePublicIP *bool `pulumi:"enableNodePublicIP"`
+	// GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU. Supported values are MIG1g, MIG2g, MIG3g, MIG4g and MIG7g.
+	GpuInstanceProfile *string `pulumi:"gpuInstanceProfile"`
 	// Resource ID.
 	Id string `pulumi:"id"`
 	// KubeletConfig specifies the configuration of kubelet on agent nodes.
@@ -73,6 +77,8 @@ type LookupAgentPoolResult struct {
 	OsDiskSizeGB *int `pulumi:"osDiskSizeGB"`
 	// OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. Defaults to 'Managed'. May not be changed after creation.
 	OsDiskType *string `pulumi:"osDiskType"`
+	// OsSKU to be used to specify os sku. Choose from Ubuntu(default) and CBLMariner for Linux OSType. Not applicable to Windows OSType.
+	OsSKU *string `pulumi:"osSKU"`
 	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
 	OsType *string `pulumi:"osType"`
 	// Pod SubnetID specifies the VNet's subnet identifier for pods.

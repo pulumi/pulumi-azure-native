@@ -12,7 +12,7 @@ import (
 )
 
 // maintenance configuration.
-// Latest API Version: 2021-02-01.
+// Latest API Version: 2021-03-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:containerservice:MaintenanceConfiguration'.
 type MaintenanceConfiguration struct {
@@ -64,6 +64,12 @@ func NewMaintenanceConfiguration(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:containerservice/v20210201:MaintenanceConfiguration"),
+		},
+		{
+			Type: pulumi.String("azure-native:containerservice/v20210301:MaintenanceConfiguration"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:containerservice/v20210301:MaintenanceConfiguration"),
 		},
 	})
 	opts = append(opts, aliases)

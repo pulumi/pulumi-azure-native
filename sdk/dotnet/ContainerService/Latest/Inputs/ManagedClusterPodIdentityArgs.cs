@@ -13,6 +13,12 @@ namespace Pulumi.AzureNative.ContainerService.Latest.Inputs
     public sealed class ManagedClusterPodIdentityArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Binding selector to use for the AzureIdentityBinding resource.
+        /// </summary>
+        [Input("bindingSelector")]
+        public Input<string>? BindingSelector { get; set; }
+
+        /// <summary>
         /// Information of the user assigned identity.
         /// </summary>
         [Input("identity", required: true)]

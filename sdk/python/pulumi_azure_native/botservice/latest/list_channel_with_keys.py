@@ -147,7 +147,7 @@ def list_channel_with_keys(channel_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListChannelWithKeysResult:
     """
     Bot channel resource definition
-    Latest API Version: 2020-06-02.
+    Latest API Version: 2021-03-01.
 
 
     :param str channel_name: The name of the Channel resource.

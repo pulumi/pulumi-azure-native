@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ContainerService
 {
     /// <summary>
     /// Agent Pool.
-    /// API Version: 2021-02-01.
+    /// API Version: 2021-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerservice:AgentPool")]
     public partial class AgentPool : Pulumi.CustomResource
@@ -41,10 +41,22 @@ namespace Pulumi.AzureNative.ContainerService
         public Output<bool?> EnableEncryptionAtHost { get; private set; } = null!;
 
         /// <summary>
+        /// Whether to use FIPS enabled OS
+        /// </summary>
+        [Output("enableFIPS")]
+        public Output<bool?> EnableFIPS { get; private set; } = null!;
+
+        /// <summary>
         /// Enable public IP for nodes
         /// </summary>
         [Output("enableNodePublicIP")]
         public Output<bool?> EnableNodePublicIP { get; private set; } = null!;
+
+        /// <summary>
+        /// GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU. Supported values are MIG1g, MIG2g, MIG3g, MIG4g and MIG7g.
+        /// </summary>
+        [Output("gpuInstanceProfile")]
+        public Output<string?> GpuInstanceProfile { get; private set; } = null!;
 
         /// <summary>
         /// KubeletConfig specifies the configuration of kubelet on agent nodes.
@@ -135,6 +147,12 @@ namespace Pulumi.AzureNative.ContainerService
         /// </summary>
         [Output("osDiskType")]
         public Output<string?> OsDiskType { get; private set; } = null!;
+
+        /// <summary>
+        /// OsSKU to be used to specify os sku. Choose from Ubuntu(default) and CBLMariner for Linux OSType. Not applicable to Windows OSType.
+        /// </summary>
+        [Output("osSKU")]
+        public Output<string?> OsSKU { get; private set; } = null!;
 
         /// <summary>
         /// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
@@ -274,6 +292,8 @@ namespace Pulumi.AzureNative.ContainerService
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20201201:AgentPool"},
                     new Pulumi.Alias { Type = "azure-native:containerservice/v20210201:AgentPool"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20210201:AgentPool"},
+                    new Pulumi.Alias { Type = "azure-native:containerservice/v20210301:AgentPool"},
+                    new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20210301:AgentPool"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -334,10 +354,22 @@ namespace Pulumi.AzureNative.ContainerService
         public Input<bool>? EnableEncryptionAtHost { get; set; }
 
         /// <summary>
+        /// Whether to use FIPS enabled OS
+        /// </summary>
+        [Input("enableFIPS")]
+        public Input<bool>? EnableFIPS { get; set; }
+
+        /// <summary>
         /// Enable public IP for nodes
         /// </summary>
         [Input("enableNodePublicIP")]
         public Input<bool>? EnableNodePublicIP { get; set; }
+
+        /// <summary>
+        /// GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU. Supported values are MIG1g, MIG2g, MIG3g, MIG4g and MIG7g.
+        /// </summary>
+        [Input("gpuInstanceProfile")]
+        public InputUnion<string, Pulumi.AzureNative.ContainerService.GPUInstanceProfile>? GpuInstanceProfile { get; set; }
 
         /// <summary>
         /// KubeletConfig specifies the configuration of kubelet on agent nodes.
@@ -428,6 +460,12 @@ namespace Pulumi.AzureNative.ContainerService
         /// </summary>
         [Input("osDiskType")]
         public InputUnion<string, Pulumi.AzureNative.ContainerService.OSDiskType>? OsDiskType { get; set; }
+
+        /// <summary>
+        /// OsSKU to be used to specify os sku. Choose from Ubuntu(default) and CBLMariner for Linux OSType. Not applicable to Windows OSType.
+        /// </summary>
+        [Input("osSKU")]
+        public InputUnion<string, Pulumi.AzureNative.ContainerService.OSSKU>? OsSKU { get; set; }
 
         /// <summary>
         /// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.

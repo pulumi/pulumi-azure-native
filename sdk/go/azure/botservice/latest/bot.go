@@ -12,7 +12,7 @@ import (
 )
 
 // Bot resource definition
-// Latest API Version: 2020-06-02.
+// Latest API Version: 2021-03-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:botservice:Bot'.
 type Bot struct {
@@ -73,6 +73,12 @@ func NewBot(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:botservice/v20200602:Bot"),
+		},
+		{
+			Type: pulumi.String("azure-native:botservice/v20210301:Bot"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:botservice/v20210301:Bot"),
 		},
 	})
 	opts = append(opts, aliases)

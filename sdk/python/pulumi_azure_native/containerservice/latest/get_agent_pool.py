@@ -22,7 +22,7 @@ class GetAgentPoolResult:
     """
     Agent Pool.
     """
-    def __init__(__self__, availability_zones=None, count=None, enable_auto_scaling=None, enable_encryption_at_host=None, enable_node_public_ip=None, id=None, kubelet_config=None, kubelet_disk_type=None, linux_os_config=None, max_count=None, max_pods=None, min_count=None, mode=None, name=None, node_image_version=None, node_labels=None, node_public_ip_prefix_id=None, node_taints=None, orchestrator_version=None, os_disk_size_gb=None, os_disk_type=None, os_type=None, pod_subnet_id=None, power_state=None, provisioning_state=None, proximity_placement_group_id=None, scale_set_eviction_policy=None, scale_set_priority=None, spot_max_price=None, tags=None, type=None, upgrade_settings=None, vm_size=None, vnet_subnet_id=None):
+    def __init__(__self__, availability_zones=None, count=None, enable_auto_scaling=None, enable_encryption_at_host=None, enable_fips=None, enable_node_public_ip=None, gpu_instance_profile=None, id=None, kubelet_config=None, kubelet_disk_type=None, linux_os_config=None, max_count=None, max_pods=None, min_count=None, mode=None, name=None, node_image_version=None, node_labels=None, node_public_ip_prefix_id=None, node_taints=None, orchestrator_version=None, os_disk_size_gb=None, os_disk_type=None, os_sku=None, os_type=None, pod_subnet_id=None, power_state=None, provisioning_state=None, proximity_placement_group_id=None, scale_set_eviction_policy=None, scale_set_priority=None, spot_max_price=None, tags=None, type=None, upgrade_settings=None, vm_size=None, vnet_subnet_id=None):
         if availability_zones and not isinstance(availability_zones, list):
             raise TypeError("Expected argument 'availability_zones' to be a list")
         pulumi.set(__self__, "availability_zones", availability_zones)
@@ -35,9 +35,15 @@ class GetAgentPoolResult:
         if enable_encryption_at_host and not isinstance(enable_encryption_at_host, bool):
             raise TypeError("Expected argument 'enable_encryption_at_host' to be a bool")
         pulumi.set(__self__, "enable_encryption_at_host", enable_encryption_at_host)
+        if enable_fips and not isinstance(enable_fips, bool):
+            raise TypeError("Expected argument 'enable_fips' to be a bool")
+        pulumi.set(__self__, "enable_fips", enable_fips)
         if enable_node_public_ip and not isinstance(enable_node_public_ip, bool):
             raise TypeError("Expected argument 'enable_node_public_ip' to be a bool")
         pulumi.set(__self__, "enable_node_public_ip", enable_node_public_ip)
+        if gpu_instance_profile and not isinstance(gpu_instance_profile, str):
+            raise TypeError("Expected argument 'gpu_instance_profile' to be a str")
+        pulumi.set(__self__, "gpu_instance_profile", gpu_instance_profile)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -86,6 +92,9 @@ class GetAgentPoolResult:
         if os_disk_type and not isinstance(os_disk_type, str):
             raise TypeError("Expected argument 'os_disk_type' to be a str")
         pulumi.set(__self__, "os_disk_type", os_disk_type)
+        if os_sku and not isinstance(os_sku, str):
+            raise TypeError("Expected argument 'os_sku' to be a str")
+        pulumi.set(__self__, "os_sku", os_sku)
         if os_type and not isinstance(os_type, str):
             raise TypeError("Expected argument 'os_type' to be a str")
         pulumi.set(__self__, "os_type", os_type)
@@ -159,12 +168,28 @@ class GetAgentPoolResult:
         return pulumi.get(self, "enable_encryption_at_host")
 
     @property
+    @pulumi.getter(name="enableFIPS")
+    def enable_fips(self) -> Optional[bool]:
+        """
+        Whether to use FIPS enabled OS
+        """
+        return pulumi.get(self, "enable_fips")
+
+    @property
     @pulumi.getter(name="enableNodePublicIP")
     def enable_node_public_ip(self) -> Optional[bool]:
         """
         Enable public IP for nodes
         """
         return pulumi.get(self, "enable_node_public_ip")
+
+    @property
+    @pulumi.getter(name="gpuInstanceProfile")
+    def gpu_instance_profile(self) -> Optional[str]:
+        """
+        GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU. Supported values are MIG1g, MIG2g, MIG3g, MIG4g and MIG7g.
+        """
+        return pulumi.get(self, "gpu_instance_profile")
 
     @property
     @pulumi.getter
@@ -295,6 +320,14 @@ class GetAgentPoolResult:
         return pulumi.get(self, "os_disk_type")
 
     @property
+    @pulumi.getter(name="osSKU")
+    def os_sku(self) -> Optional[str]:
+        """
+        OsSKU to be used to specify os sku. Choose from Ubuntu(default) and CBLMariner for Linux OSType. Not applicable to Windows OSType.
+        """
+        return pulumi.get(self, "os_sku")
+
+    @property
     @pulumi.getter(name="osType")
     def os_type(self) -> Optional[str]:
         """
@@ -409,7 +442,9 @@ class AwaitableGetAgentPoolResult(GetAgentPoolResult):
             count=self.count,
             enable_auto_scaling=self.enable_auto_scaling,
             enable_encryption_at_host=self.enable_encryption_at_host,
+            enable_fips=self.enable_fips,
             enable_node_public_ip=self.enable_node_public_ip,
+            gpu_instance_profile=self.gpu_instance_profile,
             id=self.id,
             kubelet_config=self.kubelet_config,
             kubelet_disk_type=self.kubelet_disk_type,
@@ -426,6 +461,7 @@ class AwaitableGetAgentPoolResult(GetAgentPoolResult):
             orchestrator_version=self.orchestrator_version,
             os_disk_size_gb=self.os_disk_size_gb,
             os_disk_type=self.os_disk_type,
+            os_sku=self.os_sku,
             os_type=self.os_type,
             pod_subnet_id=self.pod_subnet_id,
             power_state=self.power_state,
@@ -447,7 +483,7 @@ def get_agent_pool(agent_pool_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAgentPoolResult:
     """
     Agent Pool.
-    Latest API Version: 2021-02-01.
+    Latest API Version: 2021-03-01.
 
 
     :param str agent_pool_name: The name of the agent pool.
@@ -470,7 +506,9 @@ def get_agent_pool(agent_pool_name: Optional[str] = None,
         count=__ret__.count,
         enable_auto_scaling=__ret__.enable_auto_scaling,
         enable_encryption_at_host=__ret__.enable_encryption_at_host,
+        enable_fips=__ret__.enable_fips,
         enable_node_public_ip=__ret__.enable_node_public_ip,
+        gpu_instance_profile=__ret__.gpu_instance_profile,
         id=__ret__.id,
         kubelet_config=__ret__.kubelet_config,
         kubelet_disk_type=__ret__.kubelet_disk_type,
@@ -487,6 +525,7 @@ def get_agent_pool(agent_pool_name: Optional[str] = None,
         orchestrator_version=__ret__.orchestrator_version,
         os_disk_size_gb=__ret__.os_disk_size_gb,
         os_disk_type=__ret__.os_disk_type,
+        os_sku=__ret__.os_sku,
         os_type=__ret__.os_type,
         pod_subnet_id=__ret__.pod_subnet_id,
         power_state=__ret__.power_state,

@@ -12,7 +12,7 @@ import (
 )
 
 // Bot resource definition
-// API Version: 2020-06-02.
+// API Version: 2021-03-01.
 type Bot struct {
 	pulumi.CustomResourceState
 
@@ -71,6 +71,12 @@ func NewBot(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-nextgen:botservice/v20200602:Bot"),
+		},
+		{
+			Type: pulumi.String("azure-native:botservice/v20210301:Bot"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:botservice/v20210301:Bot"),
 		},
 	})
 	opts = append(opts, aliases)

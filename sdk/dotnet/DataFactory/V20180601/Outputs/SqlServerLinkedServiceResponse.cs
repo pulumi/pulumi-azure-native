@@ -14,6 +14,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
     public sealed class SqlServerLinkedServiceResponse
     {
         /// <summary>
+        /// Sql always encrypted properties.
+        /// </summary>
+        public readonly Outputs.SqlAlwaysEncryptedPropertiesResponse? AlwaysEncryptedSettings;
+        /// <summary>
         /// List of tags that can be used for describing the linked service.
         /// </summary>
         public readonly ImmutableArray<object> Annotations;
@@ -53,6 +57,8 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
         [OutputConstructor]
         private SqlServerLinkedServiceResponse(
+            Outputs.SqlAlwaysEncryptedPropertiesResponse? alwaysEncryptedSettings,
+
             ImmutableArray<object> annotations,
 
             Outputs.IntegrationRuntimeReferenceResponse? connectVia,
@@ -71,6 +77,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             object? userName)
         {
+            AlwaysEncryptedSettings = alwaysEncryptedSettings;
             Annotations = annotations;
             ConnectVia = connectVia;
             ConnectionString = connectionString;

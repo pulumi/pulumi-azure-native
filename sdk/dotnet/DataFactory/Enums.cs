@@ -1858,6 +1858,37 @@ namespace Pulumi.AzureNative.DataFactory
     }
 
     /// <summary>
+    /// Sql always encrypted AKV authentication type. Type: string (or Expression with resultType string).
+    /// </summary>
+    [EnumType]
+    public readonly struct SqlAlwaysEncryptedAkvAuthType : IEquatable<SqlAlwaysEncryptedAkvAuthType>
+    {
+        private readonly string _value;
+
+        private SqlAlwaysEncryptedAkvAuthType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SqlAlwaysEncryptedAkvAuthType ServicePrincipal { get; } = new SqlAlwaysEncryptedAkvAuthType("ServicePrincipal");
+        public static SqlAlwaysEncryptedAkvAuthType ManagedIdentity { get; } = new SqlAlwaysEncryptedAkvAuthType("ManagedIdentity");
+
+        public static bool operator ==(SqlAlwaysEncryptedAkvAuthType left, SqlAlwaysEncryptedAkvAuthType right) => left.Equals(right);
+        public static bool operator !=(SqlAlwaysEncryptedAkvAuthType left, SqlAlwaysEncryptedAkvAuthType right) => !left.Equals(right);
+
+        public static explicit operator string(SqlAlwaysEncryptedAkvAuthType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SqlAlwaysEncryptedAkvAuthType other && Equals(other);
+        public bool Equals(SqlAlwaysEncryptedAkvAuthType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of SSIS log location.
     /// </summary>
     [EnumType]

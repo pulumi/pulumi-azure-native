@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ContainerService.Latest
 {
     /// <summary>
     /// Managed cluster.
-    /// Latest API Version: 2021-02-01.
+    /// Latest API Version: 2021-03-01.
     /// </summary>
     [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:containerservice:ManagedCluster'.")]
     [AzureNativeResourceType("azure-native:containerservice/latest:ManagedCluster")]
@@ -60,6 +60,12 @@ namespace Pulumi.AzureNative.ContainerService.Latest
         public Output<string> AzurePortalFQDN { get; private set; } = null!;
 
         /// <summary>
+        /// If set to true, getting static credential will be disabled for this cluster. Expected to only be used for AAD clusters.
+        /// </summary>
+        [Output("disableLocalAccounts")]
+        public Output<bool?> DisableLocalAccounts { get; private set; } = null!;
+
+        /// <summary>
         /// ResourceId of the disk encryption set to use for enabling encryption at rest.
         /// </summary>
         [Output("diskEncryptionSetID")]
@@ -84,6 +90,12 @@ namespace Pulumi.AzureNative.ContainerService.Latest
         public Output<bool?> EnableRBAC { get; private set; } = null!;
 
         /// <summary>
+        /// The extended location of the Virtual Machine.
+        /// </summary>
+        [Output("extendedLocation")]
+        public Output<Outputs.ExtendedLocationResponse?> ExtendedLocation { get; private set; } = null!;
+
+        /// <summary>
         /// FQDN for the master pool.
         /// </summary>
         [Output("fqdn")]
@@ -94,6 +106,12 @@ namespace Pulumi.AzureNative.ContainerService.Latest
         /// </summary>
         [Output("fqdnSubdomain")]
         public Output<string?> FqdnSubdomain { get; private set; } = null!;
+
+        /// <summary>
+        /// Configurations for provisioning the cluster with HTTP proxy servers.
+        /// </summary>
+        [Output("httpProxyConfig")]
+        public Output<Outputs.ManagedClusterHTTPProxyConfigResponse?> HttpProxyConfig { get; private set; } = null!;
 
         /// <summary>
         /// The identity of the managed cluster, if configured.
@@ -166,6 +184,12 @@ namespace Pulumi.AzureNative.ContainerService.Latest
         /// </summary>
         [Output("privateFQDN")]
         public Output<string> PrivateFQDN { get; private set; } = null!;
+
+        /// <summary>
+        /// Private link resources associated with the cluster.
+        /// </summary>
+        [Output("privateLinkResources")]
+        public Output<ImmutableArray<Outputs.PrivateLinkResourceResponse>> PrivateLinkResources { get; private set; } = null!;
 
         /// <summary>
         /// The current deployment or provisioning state, which only appears in the response.
@@ -269,6 +293,8 @@ namespace Pulumi.AzureNative.ContainerService.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20201201:ManagedCluster"},
                     new Pulumi.Alias { Type = "azure-native:containerservice/v20210201:ManagedCluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20210201:ManagedCluster"},
+                    new Pulumi.Alias { Type = "azure-native:containerservice/v20210301:ManagedCluster"},
+                    new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20210301:ManagedCluster"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -341,6 +367,12 @@ namespace Pulumi.AzureNative.ContainerService.Latest
         public Input<Inputs.ManagedClusterAutoUpgradeProfileArgs>? AutoUpgradeProfile { get; set; }
 
         /// <summary>
+        /// If set to true, getting static credential will be disabled for this cluster. Expected to only be used for AAD clusters.
+        /// </summary>
+        [Input("disableLocalAccounts")]
+        public Input<bool>? DisableLocalAccounts { get; set; }
+
+        /// <summary>
         /// ResourceId of the disk encryption set to use for enabling encryption at rest.
         /// </summary>
         [Input("diskEncryptionSetID")]
@@ -365,10 +397,22 @@ namespace Pulumi.AzureNative.ContainerService.Latest
         public Input<bool>? EnableRBAC { get; set; }
 
         /// <summary>
+        /// The extended location of the Virtual Machine.
+        /// </summary>
+        [Input("extendedLocation")]
+        public Input<Inputs.ExtendedLocationArgs>? ExtendedLocation { get; set; }
+
+        /// <summary>
         /// FQDN subdomain specified when creating private cluster with custom private dns zone.
         /// </summary>
         [Input("fqdnSubdomain")]
         public Input<string>? FqdnSubdomain { get; set; }
+
+        /// <summary>
+        /// Configurations for provisioning the cluster with HTTP proxy servers.
+        /// </summary>
+        [Input("httpProxyConfig")]
+        public Input<Inputs.ManagedClusterHTTPProxyConfigArgs>? HttpProxyConfig { get; set; }
 
         /// <summary>
         /// The identity of the managed cluster, if configured.
@@ -423,6 +467,18 @@ namespace Pulumi.AzureNative.ContainerService.Latest
         /// </summary>
         [Input("podIdentityProfile")]
         public Input<Inputs.ManagedClusterPodIdentityProfileArgs>? PodIdentityProfile { get; set; }
+
+        [Input("privateLinkResources")]
+        private InputList<Inputs.PrivateLinkResourceArgs>? _privateLinkResources;
+
+        /// <summary>
+        /// Private link resources associated with the cluster.
+        /// </summary>
+        public InputList<Inputs.PrivateLinkResourceArgs> PrivateLinkResources
+        {
+            get => _privateLinkResources ?? (_privateLinkResources = new InputList<Inputs.PrivateLinkResourceArgs>());
+            set => _privateLinkResources = value;
+        }
 
         /// <summary>
         /// The name of the resource group.

@@ -8,7 +8,7 @@ import (
 )
 
 // The list of bot service providers response.
-// API Version: 2020-06-02.
+// API Version: 2021-03-01.
 func ListBotConnectionServiceProviders(ctx *pulumi.Context, args *ListBotConnectionServiceProvidersArgs, opts ...pulumi.InvokeOption) (*ListBotConnectionServiceProvidersResult, error) {
 	var rv ListBotConnectionServiceProvidersResult
 	err := ctx.Invoke("azure-native:botservice:listBotConnectionServiceProviders", args, &rv, opts...)

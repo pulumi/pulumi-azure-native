@@ -14,6 +14,10 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
     public sealed class ManagedClusterPodIdentityResponse
     {
         /// <summary>
+        /// Binding selector to use for the AzureIdentityBinding resource.
+        /// </summary>
+        public readonly string? BindingSelector;
+        /// <summary>
         /// Information of the user assigned identity.
         /// </summary>
         public readonly Outputs.UserAssignedIdentityResponse Identity;
@@ -33,6 +37,8 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
 
         [OutputConstructor]
         private ManagedClusterPodIdentityResponse(
+            string? bindingSelector,
+
             Outputs.UserAssignedIdentityResponse identity,
 
             string name,
@@ -43,6 +49,7 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
 
             string provisioningState)
         {
+            BindingSelector = bindingSelector;
             Identity = identity;
             Name = name;
             Namespace = @namespace;

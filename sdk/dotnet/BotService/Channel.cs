@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.BotService
 {
     /// <summary>
     /// Bot channel resource definition
-    /// API Version: 2020-06-02.
+    /// API Version: 2021-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:botservice:Channel")]
     public partial class Channel : Pulumi.CustomResource
@@ -98,6 +98,8 @@ namespace Pulumi.AzureNative.BotService
                     new Pulumi.Alias { Type = "azure-nextgen:botservice/v20180712:Channel"},
                     new Pulumi.Alias { Type = "azure-native:botservice/v20200602:Channel"},
                     new Pulumi.Alias { Type = "azure-nextgen:botservice/v20200602:Channel"},
+                    new Pulumi.Alias { Type = "azure-native:botservice/v20210301:Channel"},
+                    new Pulumi.Alias { Type = "azure-nextgen:botservice/v20210301:Channel"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

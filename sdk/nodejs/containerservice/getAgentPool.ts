@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Agent Pool.
- * API Version: 2021-02-01.
+ * API Version: 2021-03-01.
  */
 export function getAgentPool(args: GetAgentPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetAgentPoolResult> {
     if (!opts) {
@@ -60,9 +60,17 @@ export interface GetAgentPoolResult {
      */
     readonly enableEncryptionAtHost?: boolean;
     /**
+     * Whether to use FIPS enabled OS
+     */
+    readonly enableFIPS?: boolean;
+    /**
      * Enable public IP for nodes
      */
     readonly enableNodePublicIP?: boolean;
+    /**
+     * GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU. Supported values are MIG1g, MIG2g, MIG3g, MIG4g and MIG7g.
+     */
+    readonly gpuInstanceProfile?: string;
     /**
      * Resource ID.
      */
@@ -127,6 +135,10 @@ export interface GetAgentPoolResult {
      * OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. Defaults to 'Managed'. May not be changed after creation.
      */
     readonly osDiskType?: string;
+    /**
+     * OsSKU to be used to specify os sku. Choose from Ubuntu(default) and CBLMariner for Linux OSType. Not applicable to Windows OSType.
+     */
+    readonly osSKU?: string;
     /**
      * OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
      */

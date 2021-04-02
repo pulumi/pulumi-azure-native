@@ -8,7 +8,7 @@ import (
 )
 
 // Managed cluster.
-// Latest API Version: 2021-02-01.
+// Latest API Version: 2021-03-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:containerservice:getManagedCluster'.
 func LookupManagedCluster(ctx *pulumi.Context, args *LookupManagedClusterArgs, opts ...pulumi.InvokeOption) (*LookupManagedClusterResult, error) {
@@ -43,6 +43,8 @@ type LookupManagedClusterResult struct {
 	AutoUpgradeProfile *ManagedClusterAutoUpgradeProfileResponse `pulumi:"autoUpgradeProfile"`
 	// FQDN for the master pool which used by proxy config.
 	AzurePortalFQDN string `pulumi:"azurePortalFQDN"`
+	// If set to true, getting static credential will be disabled for this cluster. Expected to only be used for AAD clusters.
+	DisableLocalAccounts *bool `pulumi:"disableLocalAccounts"`
 	// ResourceId of the disk encryption set to use for enabling encryption at rest.
 	DiskEncryptionSetID *string `pulumi:"diskEncryptionSetID"`
 	// DNS prefix specified when creating the managed cluster.
@@ -51,10 +53,14 @@ type LookupManagedClusterResult struct {
 	EnablePodSecurityPolicy *bool `pulumi:"enablePodSecurityPolicy"`
 	// Whether to enable Kubernetes Role-Based Access Control.
 	EnableRBAC *bool `pulumi:"enableRBAC"`
+	// The extended location of the Virtual Machine.
+	ExtendedLocation *ExtendedLocationResponse `pulumi:"extendedLocation"`
 	// FQDN for the master pool.
 	Fqdn string `pulumi:"fqdn"`
 	// FQDN subdomain specified when creating private cluster with custom private dns zone.
 	FqdnSubdomain *string `pulumi:"fqdnSubdomain"`
+	// Configurations for provisioning the cluster with HTTP proxy servers.
+	HttpProxyConfig *ManagedClusterHTTPProxyConfigResponse `pulumi:"httpProxyConfig"`
 	// Resource Id
 	Id string `pulumi:"id"`
 	// The identity of the managed cluster, if configured.
@@ -81,6 +87,8 @@ type LookupManagedClusterResult struct {
 	PowerState PowerStateResponse `pulumi:"powerState"`
 	// FQDN of private cluster.
 	PrivateFQDN string `pulumi:"privateFQDN"`
+	// Private link resources associated with the cluster.
+	PrivateLinkResources []PrivateLinkResourceResponse `pulumi:"privateLinkResources"`
 	// The current deployment or provisioning state, which only appears in the response.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Information about a service principal identity for the cluster to use for manipulating Azure APIs.

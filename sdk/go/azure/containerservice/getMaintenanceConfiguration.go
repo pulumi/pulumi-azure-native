@@ -8,7 +8,7 @@ import (
 )
 
 // maintenance configuration.
-// API Version: 2021-02-01.
+// API Version: 2021-03-01.
 func LookupMaintenanceConfiguration(ctx *pulumi.Context, args *LookupMaintenanceConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupMaintenanceConfigurationResult, error) {
 	var rv LookupMaintenanceConfigurationResult
 	err := ctx.Invoke("azure-native:containerservice:getMaintenanceConfiguration", args, &rv, opts...)

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Bot channel resource definition
- * API Version: 2020-06-02.
+ * API Version: 2021-03-01.
  */
 export class BotConnection extends pulumi.CustomResource {
     /**
@@ -110,7 +110,7 @@ export class BotConnection extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:botservice:BotConnection" }, { type: "azure-native:botservice/latest:BotConnection" }, { type: "azure-nextgen:botservice/latest:BotConnection" }, { type: "azure-native:botservice/v20171201:BotConnection" }, { type: "azure-nextgen:botservice/v20171201:BotConnection" }, { type: "azure-native:botservice/v20180712:BotConnection" }, { type: "azure-nextgen:botservice/v20180712:BotConnection" }, { type: "azure-native:botservice/v20200602:BotConnection" }, { type: "azure-nextgen:botservice/v20200602:BotConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:botservice:BotConnection" }, { type: "azure-native:botservice/latest:BotConnection" }, { type: "azure-nextgen:botservice/latest:BotConnection" }, { type: "azure-native:botservice/v20171201:BotConnection" }, { type: "azure-nextgen:botservice/v20171201:BotConnection" }, { type: "azure-native:botservice/v20180712:BotConnection" }, { type: "azure-nextgen:botservice/v20180712:BotConnection" }, { type: "azure-native:botservice/v20200602:BotConnection" }, { type: "azure-nextgen:botservice/v20200602:BotConnection" }, { type: "azure-native:botservice/v20210301:BotConnection" }, { type: "azure-nextgen:botservice/v20210301:BotConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BotConnection.__pulumiType, name, inputs, opts);
     }

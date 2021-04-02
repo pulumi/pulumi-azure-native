@@ -22,6 +22,10 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
         /// </summary>
         public readonly string AdminUsername;
         /// <summary>
+        /// Whether to enable CSI proxy.
+        /// </summary>
+        public readonly bool? EnableCSIProxy;
+        /// <summary>
         /// The licenseType to use for Windows VMs. Windows_Server is used to enable Azure Hybrid User Benefits for Windows VMs.
         /// </summary>
         public readonly string? LicenseType;
@@ -32,10 +36,13 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
 
             string adminUsername,
 
+            bool? enableCSIProxy,
+
             string? licenseType)
         {
             AdminPassword = adminPassword;
             AdminUsername = adminUsername;
+            EnableCSIProxy = enableCSIProxy;
             LicenseType = licenseType;
         }
     }

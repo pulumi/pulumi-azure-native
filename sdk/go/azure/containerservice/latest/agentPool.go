@@ -12,7 +12,7 @@ import (
 )
 
 // Agent Pool.
-// Latest API Version: 2021-02-01.
+// Latest API Version: 2021-03-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:containerservice:AgentPool'.
 type AgentPool struct {
@@ -26,8 +26,12 @@ type AgentPool struct {
 	EnableAutoScaling pulumi.BoolPtrOutput `pulumi:"enableAutoScaling"`
 	// Whether to enable EncryptionAtHost
 	EnableEncryptionAtHost pulumi.BoolPtrOutput `pulumi:"enableEncryptionAtHost"`
+	// Whether to use FIPS enabled OS
+	EnableFIPS pulumi.BoolPtrOutput `pulumi:"enableFIPS"`
 	// Enable public IP for nodes
 	EnableNodePublicIP pulumi.BoolPtrOutput `pulumi:"enableNodePublicIP"`
+	// GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU. Supported values are MIG1g, MIG2g, MIG3g, MIG4g and MIG7g.
+	GpuInstanceProfile pulumi.StringPtrOutput `pulumi:"gpuInstanceProfile"`
 	// KubeletConfig specifies the configuration of kubelet on agent nodes.
 	KubeletConfig KubeletConfigResponsePtrOutput `pulumi:"kubeletConfig"`
 	// KubeletDiskType determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage. Currently allows one value, OS, resulting in Kubelet using the OS disk for data.
@@ -58,6 +62,8 @@ type AgentPool struct {
 	OsDiskSizeGB pulumi.IntPtrOutput `pulumi:"osDiskSizeGB"`
 	// OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. Defaults to 'Managed'. May not be changed after creation.
 	OsDiskType pulumi.StringPtrOutput `pulumi:"osDiskType"`
+	// OsSKU to be used to specify os sku. Choose from Ubuntu(default) and CBLMariner for Linux OSType. Not applicable to Windows OSType.
+	OsSKU pulumi.StringPtrOutput `pulumi:"osSKU"`
 	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
 	OsType pulumi.StringPtrOutput `pulumi:"osType"`
 	// Pod SubnetID specifies the VNet's subnet identifier for pods.
@@ -205,6 +211,12 @@ func NewAgentPool(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:containerservice/v20210201:AgentPool"),
 		},
+		{
+			Type: pulumi.String("azure-native:containerservice/v20210301:AgentPool"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:containerservice/v20210301:AgentPool"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource AgentPool
@@ -237,8 +249,12 @@ type agentPoolState struct {
 	EnableAutoScaling *bool `pulumi:"enableAutoScaling"`
 	// Whether to enable EncryptionAtHost
 	EnableEncryptionAtHost *bool `pulumi:"enableEncryptionAtHost"`
+	// Whether to use FIPS enabled OS
+	EnableFIPS *bool `pulumi:"enableFIPS"`
 	// Enable public IP for nodes
 	EnableNodePublicIP *bool `pulumi:"enableNodePublicIP"`
+	// GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU. Supported values are MIG1g, MIG2g, MIG3g, MIG4g and MIG7g.
+	GpuInstanceProfile *string `pulumi:"gpuInstanceProfile"`
 	// KubeletConfig specifies the configuration of kubelet on agent nodes.
 	KubeletConfig *KubeletConfigResponse `pulumi:"kubeletConfig"`
 	// KubeletDiskType determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage. Currently allows one value, OS, resulting in Kubelet using the OS disk for data.
@@ -269,6 +285,8 @@ type agentPoolState struct {
 	OsDiskSizeGB *int `pulumi:"osDiskSizeGB"`
 	// OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. Defaults to 'Managed'. May not be changed after creation.
 	OsDiskType *string `pulumi:"osDiskType"`
+	// OsSKU to be used to specify os sku. Choose from Ubuntu(default) and CBLMariner for Linux OSType. Not applicable to Windows OSType.
+	OsSKU *string `pulumi:"osSKU"`
 	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
 	OsType *string `pulumi:"osType"`
 	// Pod SubnetID specifies the VNet's subnet identifier for pods.
@@ -306,8 +324,12 @@ type AgentPoolState struct {
 	EnableAutoScaling pulumi.BoolPtrInput
 	// Whether to enable EncryptionAtHost
 	EnableEncryptionAtHost pulumi.BoolPtrInput
+	// Whether to use FIPS enabled OS
+	EnableFIPS pulumi.BoolPtrInput
 	// Enable public IP for nodes
 	EnableNodePublicIP pulumi.BoolPtrInput
+	// GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU. Supported values are MIG1g, MIG2g, MIG3g, MIG4g and MIG7g.
+	GpuInstanceProfile pulumi.StringPtrInput
 	// KubeletConfig specifies the configuration of kubelet on agent nodes.
 	KubeletConfig KubeletConfigResponsePtrInput
 	// KubeletDiskType determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage. Currently allows one value, OS, resulting in Kubelet using the OS disk for data.
@@ -338,6 +360,8 @@ type AgentPoolState struct {
 	OsDiskSizeGB pulumi.IntPtrInput
 	// OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. Defaults to 'Managed'. May not be changed after creation.
 	OsDiskType pulumi.StringPtrInput
+	// OsSKU to be used to specify os sku. Choose from Ubuntu(default) and CBLMariner for Linux OSType. Not applicable to Windows OSType.
+	OsSKU pulumi.StringPtrInput
 	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
 	OsType pulumi.StringPtrInput
 	// Pod SubnetID specifies the VNet's subnet identifier for pods.
@@ -381,8 +405,12 @@ type agentPoolArgs struct {
 	EnableAutoScaling *bool `pulumi:"enableAutoScaling"`
 	// Whether to enable EncryptionAtHost
 	EnableEncryptionAtHost *bool `pulumi:"enableEncryptionAtHost"`
+	// Whether to use FIPS enabled OS
+	EnableFIPS *bool `pulumi:"enableFIPS"`
 	// Enable public IP for nodes
 	EnableNodePublicIP *bool `pulumi:"enableNodePublicIP"`
+	// GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU. Supported values are MIG1g, MIG2g, MIG3g, MIG4g and MIG7g.
+	GpuInstanceProfile *string `pulumi:"gpuInstanceProfile"`
 	// KubeletConfig specifies the configuration of kubelet on agent nodes.
 	KubeletConfig *KubeletConfig `pulumi:"kubeletConfig"`
 	// KubeletDiskType determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage. Currently allows one value, OS, resulting in Kubelet using the OS disk for data.
@@ -409,6 +437,8 @@ type agentPoolArgs struct {
 	OsDiskSizeGB *int `pulumi:"osDiskSizeGB"`
 	// OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. Defaults to 'Managed'. May not be changed after creation.
 	OsDiskType *string `pulumi:"osDiskType"`
+	// OsSKU to be used to specify os sku. Choose from Ubuntu(default) and CBLMariner for Linux OSType. Not applicable to Windows OSType.
+	OsSKU *string `pulumi:"osSKU"`
 	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
 	OsType *string `pulumi:"osType"`
 	// Pod SubnetID specifies the VNet's subnet identifier for pods.
@@ -449,8 +479,12 @@ type AgentPoolArgs struct {
 	EnableAutoScaling pulumi.BoolPtrInput
 	// Whether to enable EncryptionAtHost
 	EnableEncryptionAtHost pulumi.BoolPtrInput
+	// Whether to use FIPS enabled OS
+	EnableFIPS pulumi.BoolPtrInput
 	// Enable public IP for nodes
 	EnableNodePublicIP pulumi.BoolPtrInput
+	// GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU. Supported values are MIG1g, MIG2g, MIG3g, MIG4g and MIG7g.
+	GpuInstanceProfile pulumi.StringPtrInput
 	// KubeletConfig specifies the configuration of kubelet on agent nodes.
 	KubeletConfig KubeletConfigPtrInput
 	// KubeletDiskType determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage. Currently allows one value, OS, resulting in Kubelet using the OS disk for data.
@@ -477,6 +511,8 @@ type AgentPoolArgs struct {
 	OsDiskSizeGB pulumi.IntPtrInput
 	// OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. Defaults to 'Managed'. May not be changed after creation.
 	OsDiskType pulumi.StringPtrInput
+	// OsSKU to be used to specify os sku. Choose from Ubuntu(default) and CBLMariner for Linux OSType. Not applicable to Windows OSType.
+	OsSKU pulumi.StringPtrInput
 	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
 	OsType pulumi.StringPtrInput
 	// Pod SubnetID specifies the VNet's subnet identifier for pods.

@@ -15,6 +15,12 @@ namespace Pulumi.AzureNative.DataFactory.Latest.Inputs
     /// </summary>
     public sealed class SqlServerLinkedServiceArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Sql always encrypted properties.
+        /// </summary>
+        [Input("alwaysEncryptedSettings")]
+        public Input<Inputs.SqlAlwaysEncryptedPropertiesArgs>? AlwaysEncryptedSettings { get; set; }
+
         [Input("annotations")]
         private InputList<object>? _annotations;
 

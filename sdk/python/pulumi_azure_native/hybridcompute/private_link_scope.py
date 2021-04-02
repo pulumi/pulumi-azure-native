@@ -65,7 +65,7 @@ class PrivateLinkScope(pulumi.CustomResource):
             __props__['name'] = None
             __props__['system_data'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:hybridcompute:PrivateLinkScope"), pulumi.Alias(type_="azure-native:hybridcompute/v20200815preview:PrivateLinkScope"), pulumi.Alias(type_="azure-nextgen:hybridcompute/v20200815preview:PrivateLinkScope"), pulumi.Alias(type_="azure-native:hybridcompute/v20210128preview:PrivateLinkScope"), pulumi.Alias(type_="azure-nextgen:hybridcompute/v20210128preview:PrivateLinkScope")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:hybridcompute:PrivateLinkScope"), pulumi.Alias(type_="azure-native:hybridcompute/v20200815preview:PrivateLinkScope"), pulumi.Alias(type_="azure-nextgen:hybridcompute/v20200815preview:PrivateLinkScope"), pulumi.Alias(type_="azure-native:hybridcompute/v20210128preview:PrivateLinkScope"), pulumi.Alias(type_="azure-nextgen:hybridcompute/v20210128preview:PrivateLinkScope"), pulumi.Alias(type_="azure-native:hybridcompute/v20210325preview:PrivateLinkScope"), pulumi.Alias(type_="azure-nextgen:hybridcompute/v20210325preview:PrivateLinkScope")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateLinkScope, __self__).__init__(
             'azure-native:hybridcompute:PrivateLinkScope',

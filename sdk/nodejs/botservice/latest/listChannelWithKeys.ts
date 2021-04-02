@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Bot channel resource definition
- * Latest API Version: 2020-06-02.
+ * Latest API Version: 2021-03-01.
  */
 /** @deprecated The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:botservice:listChannelWithKeys'. */
 export function listChannelWithKeys(args: ListChannelWithKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListChannelWithKeysResult> {

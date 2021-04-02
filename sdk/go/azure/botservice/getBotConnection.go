@@ -8,7 +8,7 @@ import (
 )
 
 // Bot channel resource definition
-// API Version: 2020-06-02.
+// API Version: 2021-03-01.
 func LookupBotConnection(ctx *pulumi.Context, args *LookupBotConnectionArgs, opts ...pulumi.InvokeOption) (*LookupBotConnectionResult, error) {
 	var rv LookupBotConnectionResult
 	err := ctx.Invoke("azure-native:botservice:getBotConnection", args, &rv, opts...)

@@ -2147,6 +2147,312 @@ func (o CredentialResultResponseArrayOutput) Index(i pulumi.IntInput) Credential
 	}).(CredentialResultResponseOutput)
 }
 
+// The complex type of the extended location.
+type ExtendedLocation struct {
+	// The name of the extended location.
+	Name *string `pulumi:"name"`
+	// The type of the extended location.
+	Type *string `pulumi:"type"`
+}
+
+// ExtendedLocationInput is an input type that accepts ExtendedLocationArgs and ExtendedLocationOutput values.
+// You can construct a concrete instance of `ExtendedLocationInput` via:
+//
+//          ExtendedLocationArgs{...}
+type ExtendedLocationInput interface {
+	pulumi.Input
+
+	ToExtendedLocationOutput() ExtendedLocationOutput
+	ToExtendedLocationOutputWithContext(context.Context) ExtendedLocationOutput
+}
+
+// The complex type of the extended location.
+type ExtendedLocationArgs struct {
+	// The name of the extended location.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The type of the extended location.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (ExtendedLocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExtendedLocation)(nil)).Elem()
+}
+
+func (i ExtendedLocationArgs) ToExtendedLocationOutput() ExtendedLocationOutput {
+	return i.ToExtendedLocationOutputWithContext(context.Background())
+}
+
+func (i ExtendedLocationArgs) ToExtendedLocationOutputWithContext(ctx context.Context) ExtendedLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExtendedLocationOutput)
+}
+
+func (i ExtendedLocationArgs) ToExtendedLocationPtrOutput() ExtendedLocationPtrOutput {
+	return i.ToExtendedLocationPtrOutputWithContext(context.Background())
+}
+
+func (i ExtendedLocationArgs) ToExtendedLocationPtrOutputWithContext(ctx context.Context) ExtendedLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExtendedLocationOutput).ToExtendedLocationPtrOutputWithContext(ctx)
+}
+
+// ExtendedLocationPtrInput is an input type that accepts ExtendedLocationArgs, ExtendedLocationPtr and ExtendedLocationPtrOutput values.
+// You can construct a concrete instance of `ExtendedLocationPtrInput` via:
+//
+//          ExtendedLocationArgs{...}
+//
+//  or:
+//
+//          nil
+type ExtendedLocationPtrInput interface {
+	pulumi.Input
+
+	ToExtendedLocationPtrOutput() ExtendedLocationPtrOutput
+	ToExtendedLocationPtrOutputWithContext(context.Context) ExtendedLocationPtrOutput
+}
+
+type extendedLocationPtrType ExtendedLocationArgs
+
+func ExtendedLocationPtr(v *ExtendedLocationArgs) ExtendedLocationPtrInput {
+	return (*extendedLocationPtrType)(v)
+}
+
+func (*extendedLocationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExtendedLocation)(nil)).Elem()
+}
+
+func (i *extendedLocationPtrType) ToExtendedLocationPtrOutput() ExtendedLocationPtrOutput {
+	return i.ToExtendedLocationPtrOutputWithContext(context.Background())
+}
+
+func (i *extendedLocationPtrType) ToExtendedLocationPtrOutputWithContext(ctx context.Context) ExtendedLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExtendedLocationPtrOutput)
+}
+
+// The complex type of the extended location.
+type ExtendedLocationOutput struct{ *pulumi.OutputState }
+
+func (ExtendedLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExtendedLocation)(nil)).Elem()
+}
+
+func (o ExtendedLocationOutput) ToExtendedLocationOutput() ExtendedLocationOutput {
+	return o
+}
+
+func (o ExtendedLocationOutput) ToExtendedLocationOutputWithContext(ctx context.Context) ExtendedLocationOutput {
+	return o
+}
+
+func (o ExtendedLocationOutput) ToExtendedLocationPtrOutput() ExtendedLocationPtrOutput {
+	return o.ToExtendedLocationPtrOutputWithContext(context.Background())
+}
+
+func (o ExtendedLocationOutput) ToExtendedLocationPtrOutputWithContext(ctx context.Context) ExtendedLocationPtrOutput {
+	return o.ApplyT(func(v ExtendedLocation) *ExtendedLocation {
+		return &v
+	}).(ExtendedLocationPtrOutput)
+}
+
+// The name of the extended location.
+func (o ExtendedLocationOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExtendedLocation) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The type of the extended location.
+func (o ExtendedLocationOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExtendedLocation) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type ExtendedLocationPtrOutput struct{ *pulumi.OutputState }
+
+func (ExtendedLocationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExtendedLocation)(nil)).Elem()
+}
+
+func (o ExtendedLocationPtrOutput) ToExtendedLocationPtrOutput() ExtendedLocationPtrOutput {
+	return o
+}
+
+func (o ExtendedLocationPtrOutput) ToExtendedLocationPtrOutputWithContext(ctx context.Context) ExtendedLocationPtrOutput {
+	return o
+}
+
+func (o ExtendedLocationPtrOutput) Elem() ExtendedLocationOutput {
+	return o.ApplyT(func(v *ExtendedLocation) ExtendedLocation { return *v }).(ExtendedLocationOutput)
+}
+
+// The name of the extended location.
+func (o ExtendedLocationPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExtendedLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of the extended location.
+func (o ExtendedLocationPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExtendedLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// The complex type of the extended location.
+type ExtendedLocationResponse struct {
+	// The name of the extended location.
+	Name *string `pulumi:"name"`
+	// The type of the extended location.
+	Type *string `pulumi:"type"`
+}
+
+// ExtendedLocationResponseInput is an input type that accepts ExtendedLocationResponseArgs and ExtendedLocationResponseOutput values.
+// You can construct a concrete instance of `ExtendedLocationResponseInput` via:
+//
+//          ExtendedLocationResponseArgs{...}
+type ExtendedLocationResponseInput interface {
+	pulumi.Input
+
+	ToExtendedLocationResponseOutput() ExtendedLocationResponseOutput
+	ToExtendedLocationResponseOutputWithContext(context.Context) ExtendedLocationResponseOutput
+}
+
+// The complex type of the extended location.
+type ExtendedLocationResponseArgs struct {
+	// The name of the extended location.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The type of the extended location.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (ExtendedLocationResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExtendedLocationResponse)(nil)).Elem()
+}
+
+func (i ExtendedLocationResponseArgs) ToExtendedLocationResponseOutput() ExtendedLocationResponseOutput {
+	return i.ToExtendedLocationResponseOutputWithContext(context.Background())
+}
+
+func (i ExtendedLocationResponseArgs) ToExtendedLocationResponseOutputWithContext(ctx context.Context) ExtendedLocationResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExtendedLocationResponseOutput)
+}
+
+func (i ExtendedLocationResponseArgs) ToExtendedLocationResponsePtrOutput() ExtendedLocationResponsePtrOutput {
+	return i.ToExtendedLocationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ExtendedLocationResponseArgs) ToExtendedLocationResponsePtrOutputWithContext(ctx context.Context) ExtendedLocationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExtendedLocationResponseOutput).ToExtendedLocationResponsePtrOutputWithContext(ctx)
+}
+
+// ExtendedLocationResponsePtrInput is an input type that accepts ExtendedLocationResponseArgs, ExtendedLocationResponsePtr and ExtendedLocationResponsePtrOutput values.
+// You can construct a concrete instance of `ExtendedLocationResponsePtrInput` via:
+//
+//          ExtendedLocationResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ExtendedLocationResponsePtrInput interface {
+	pulumi.Input
+
+	ToExtendedLocationResponsePtrOutput() ExtendedLocationResponsePtrOutput
+	ToExtendedLocationResponsePtrOutputWithContext(context.Context) ExtendedLocationResponsePtrOutput
+}
+
+type extendedLocationResponsePtrType ExtendedLocationResponseArgs
+
+func ExtendedLocationResponsePtr(v *ExtendedLocationResponseArgs) ExtendedLocationResponsePtrInput {
+	return (*extendedLocationResponsePtrType)(v)
+}
+
+func (*extendedLocationResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExtendedLocationResponse)(nil)).Elem()
+}
+
+func (i *extendedLocationResponsePtrType) ToExtendedLocationResponsePtrOutput() ExtendedLocationResponsePtrOutput {
+	return i.ToExtendedLocationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *extendedLocationResponsePtrType) ToExtendedLocationResponsePtrOutputWithContext(ctx context.Context) ExtendedLocationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExtendedLocationResponsePtrOutput)
+}
+
+// The complex type of the extended location.
+type ExtendedLocationResponseOutput struct{ *pulumi.OutputState }
+
+func (ExtendedLocationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExtendedLocationResponse)(nil)).Elem()
+}
+
+func (o ExtendedLocationResponseOutput) ToExtendedLocationResponseOutput() ExtendedLocationResponseOutput {
+	return o
+}
+
+func (o ExtendedLocationResponseOutput) ToExtendedLocationResponseOutputWithContext(ctx context.Context) ExtendedLocationResponseOutput {
+	return o
+}
+
+func (o ExtendedLocationResponseOutput) ToExtendedLocationResponsePtrOutput() ExtendedLocationResponsePtrOutput {
+	return o.ToExtendedLocationResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ExtendedLocationResponseOutput) ToExtendedLocationResponsePtrOutputWithContext(ctx context.Context) ExtendedLocationResponsePtrOutput {
+	return o.ApplyT(func(v ExtendedLocationResponse) *ExtendedLocationResponse {
+		return &v
+	}).(ExtendedLocationResponsePtrOutput)
+}
+
+// The name of the extended location.
+func (o ExtendedLocationResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExtendedLocationResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The type of the extended location.
+func (o ExtendedLocationResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExtendedLocationResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type ExtendedLocationResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ExtendedLocationResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExtendedLocationResponse)(nil)).Elem()
+}
+
+func (o ExtendedLocationResponsePtrOutput) ToExtendedLocationResponsePtrOutput() ExtendedLocationResponsePtrOutput {
+	return o
+}
+
+func (o ExtendedLocationResponsePtrOutput) ToExtendedLocationResponsePtrOutputWithContext(ctx context.Context) ExtendedLocationResponsePtrOutput {
+	return o
+}
+
+func (o ExtendedLocationResponsePtrOutput) Elem() ExtendedLocationResponseOutput {
+	return o.ApplyT(func(v *ExtendedLocationResponse) ExtendedLocationResponse { return *v }).(ExtendedLocationResponseOutput)
+}
+
+// The name of the extended location.
+func (o ExtendedLocationResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExtendedLocationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of the extended location.
+func (o ExtendedLocationResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExtendedLocationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 // Kubelet configurations of agent nodes.
 type KubeletConfig struct {
 	// Allowlist of unsafe sysctls or unsafe sysctl patterns (ending in `*`).
@@ -4331,8 +4637,12 @@ type ManagedClusterAgentPoolProfile struct {
 	EnableAutoScaling *bool `pulumi:"enableAutoScaling"`
 	// Whether to enable EncryptionAtHost
 	EnableEncryptionAtHost *bool `pulumi:"enableEncryptionAtHost"`
+	// Whether to use FIPS enabled OS
+	EnableFIPS *bool `pulumi:"enableFIPS"`
 	// Enable public IP for nodes
 	EnableNodePublicIP *bool `pulumi:"enableNodePublicIP"`
+	// GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU. Supported values are MIG1g, MIG2g, MIG3g, MIG4g and MIG7g.
+	GpuInstanceProfile *string `pulumi:"gpuInstanceProfile"`
 	// KubeletConfig specifies the configuration of kubelet on agent nodes.
 	KubeletConfig *KubeletConfig `pulumi:"kubeletConfig"`
 	// KubeletDiskType determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage. Currently allows one value, OS, resulting in Kubelet using the OS disk for data.
@@ -4361,6 +4671,8 @@ type ManagedClusterAgentPoolProfile struct {
 	OsDiskSizeGB *int `pulumi:"osDiskSizeGB"`
 	// OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. Defaults to 'Managed'. May not be changed after creation.
 	OsDiskType *string `pulumi:"osDiskType"`
+	// OsSKU to be used to specify os sku. Choose from Ubuntu(default) and CBLMariner for Linux OSType. Not applicable to Windows OSType.
+	OsSKU *string `pulumi:"osSKU"`
 	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
 	OsType *string `pulumi:"osType"`
 	// Pod SubnetID specifies the VNet's subnet identifier for pods.
@@ -4406,8 +4718,12 @@ type ManagedClusterAgentPoolProfileArgs struct {
 	EnableAutoScaling pulumi.BoolPtrInput `pulumi:"enableAutoScaling"`
 	// Whether to enable EncryptionAtHost
 	EnableEncryptionAtHost pulumi.BoolPtrInput `pulumi:"enableEncryptionAtHost"`
+	// Whether to use FIPS enabled OS
+	EnableFIPS pulumi.BoolPtrInput `pulumi:"enableFIPS"`
 	// Enable public IP for nodes
 	EnableNodePublicIP pulumi.BoolPtrInput `pulumi:"enableNodePublicIP"`
+	// GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU. Supported values are MIG1g, MIG2g, MIG3g, MIG4g and MIG7g.
+	GpuInstanceProfile pulumi.StringPtrInput `pulumi:"gpuInstanceProfile"`
 	// KubeletConfig specifies the configuration of kubelet on agent nodes.
 	KubeletConfig KubeletConfigPtrInput `pulumi:"kubeletConfig"`
 	// KubeletDiskType determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage. Currently allows one value, OS, resulting in Kubelet using the OS disk for data.
@@ -4436,6 +4752,8 @@ type ManagedClusterAgentPoolProfileArgs struct {
 	OsDiskSizeGB pulumi.IntPtrInput `pulumi:"osDiskSizeGB"`
 	// OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. Defaults to 'Managed'. May not be changed after creation.
 	OsDiskType pulumi.StringPtrInput `pulumi:"osDiskType"`
+	// OsSKU to be used to specify os sku. Choose from Ubuntu(default) and CBLMariner for Linux OSType. Not applicable to Windows OSType.
+	OsSKU pulumi.StringPtrInput `pulumi:"osSKU"`
 	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
 	OsType pulumi.StringPtrInput `pulumi:"osType"`
 	// Pod SubnetID specifies the VNet's subnet identifier for pods.
@@ -4532,9 +4850,19 @@ func (o ManagedClusterAgentPoolProfileOutput) EnableEncryptionAtHost() pulumi.Bo
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfile) *bool { return v.EnableEncryptionAtHost }).(pulumi.BoolPtrOutput)
 }
 
+// Whether to use FIPS enabled OS
+func (o ManagedClusterAgentPoolProfileOutput) EnableFIPS() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ManagedClusterAgentPoolProfile) *bool { return v.EnableFIPS }).(pulumi.BoolPtrOutput)
+}
+
 // Enable public IP for nodes
 func (o ManagedClusterAgentPoolProfileOutput) EnableNodePublicIP() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfile) *bool { return v.EnableNodePublicIP }).(pulumi.BoolPtrOutput)
+}
+
+// GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU. Supported values are MIG1g, MIG2g, MIG3g, MIG4g and MIG7g.
+func (o ManagedClusterAgentPoolProfileOutput) GpuInstanceProfile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterAgentPoolProfile) *string { return v.GpuInstanceProfile }).(pulumi.StringPtrOutput)
 }
 
 // KubeletConfig specifies the configuration of kubelet on agent nodes.
@@ -4605,6 +4933,11 @@ func (o ManagedClusterAgentPoolProfileOutput) OsDiskSizeGB() pulumi.IntPtrOutput
 // OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. Defaults to 'Managed'. May not be changed after creation.
 func (o ManagedClusterAgentPoolProfileOutput) OsDiskType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfile) *string { return v.OsDiskType }).(pulumi.StringPtrOutput)
+}
+
+// OsSKU to be used to specify os sku. Choose from Ubuntu(default) and CBLMariner for Linux OSType. Not applicable to Windows OSType.
+func (o ManagedClusterAgentPoolProfileOutput) OsSKU() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterAgentPoolProfile) *string { return v.OsSKU }).(pulumi.StringPtrOutput)
 }
 
 // OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
@@ -4692,8 +5025,12 @@ type ManagedClusterAgentPoolProfileResponse struct {
 	EnableAutoScaling *bool `pulumi:"enableAutoScaling"`
 	// Whether to enable EncryptionAtHost
 	EnableEncryptionAtHost *bool `pulumi:"enableEncryptionAtHost"`
+	// Whether to use FIPS enabled OS
+	EnableFIPS *bool `pulumi:"enableFIPS"`
 	// Enable public IP for nodes
 	EnableNodePublicIP *bool `pulumi:"enableNodePublicIP"`
+	// GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU. Supported values are MIG1g, MIG2g, MIG3g, MIG4g and MIG7g.
+	GpuInstanceProfile *string `pulumi:"gpuInstanceProfile"`
 	// KubeletConfig specifies the configuration of kubelet on agent nodes.
 	KubeletConfig *KubeletConfigResponse `pulumi:"kubeletConfig"`
 	// KubeletDiskType determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage. Currently allows one value, OS, resulting in Kubelet using the OS disk for data.
@@ -4724,6 +5061,8 @@ type ManagedClusterAgentPoolProfileResponse struct {
 	OsDiskSizeGB *int `pulumi:"osDiskSizeGB"`
 	// OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. Defaults to 'Managed'. May not be changed after creation.
 	OsDiskType *string `pulumi:"osDiskType"`
+	// OsSKU to be used to specify os sku. Choose from Ubuntu(default) and CBLMariner for Linux OSType. Not applicable to Windows OSType.
+	OsSKU *string `pulumi:"osSKU"`
 	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
 	OsType *string `pulumi:"osType"`
 	// Pod SubnetID specifies the VNet's subnet identifier for pods.
@@ -4773,8 +5112,12 @@ type ManagedClusterAgentPoolProfileResponseArgs struct {
 	EnableAutoScaling pulumi.BoolPtrInput `pulumi:"enableAutoScaling"`
 	// Whether to enable EncryptionAtHost
 	EnableEncryptionAtHost pulumi.BoolPtrInput `pulumi:"enableEncryptionAtHost"`
+	// Whether to use FIPS enabled OS
+	EnableFIPS pulumi.BoolPtrInput `pulumi:"enableFIPS"`
 	// Enable public IP for nodes
 	EnableNodePublicIP pulumi.BoolPtrInput `pulumi:"enableNodePublicIP"`
+	// GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU. Supported values are MIG1g, MIG2g, MIG3g, MIG4g and MIG7g.
+	GpuInstanceProfile pulumi.StringPtrInput `pulumi:"gpuInstanceProfile"`
 	// KubeletConfig specifies the configuration of kubelet on agent nodes.
 	KubeletConfig KubeletConfigResponsePtrInput `pulumi:"kubeletConfig"`
 	// KubeletDiskType determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage. Currently allows one value, OS, resulting in Kubelet using the OS disk for data.
@@ -4805,6 +5148,8 @@ type ManagedClusterAgentPoolProfileResponseArgs struct {
 	OsDiskSizeGB pulumi.IntPtrInput `pulumi:"osDiskSizeGB"`
 	// OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. Defaults to 'Managed'. May not be changed after creation.
 	OsDiskType pulumi.StringPtrInput `pulumi:"osDiskType"`
+	// OsSKU to be used to specify os sku. Choose from Ubuntu(default) and CBLMariner for Linux OSType. Not applicable to Windows OSType.
+	OsSKU pulumi.StringPtrInput `pulumi:"osSKU"`
 	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
 	OsType pulumi.StringPtrInput `pulumi:"osType"`
 	// Pod SubnetID specifies the VNet's subnet identifier for pods.
@@ -4905,9 +5250,19 @@ func (o ManagedClusterAgentPoolProfileResponseOutput) EnableEncryptionAtHost() p
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) *bool { return v.EnableEncryptionAtHost }).(pulumi.BoolPtrOutput)
 }
 
+// Whether to use FIPS enabled OS
+func (o ManagedClusterAgentPoolProfileResponseOutput) EnableFIPS() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) *bool { return v.EnableFIPS }).(pulumi.BoolPtrOutput)
+}
+
 // Enable public IP for nodes
 func (o ManagedClusterAgentPoolProfileResponseOutput) EnableNodePublicIP() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) *bool { return v.EnableNodePublicIP }).(pulumi.BoolPtrOutput)
+}
+
+// GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU. Supported values are MIG1g, MIG2g, MIG3g, MIG4g and MIG7g.
+func (o ManagedClusterAgentPoolProfileResponseOutput) GpuInstanceProfile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) *string { return v.GpuInstanceProfile }).(pulumi.StringPtrOutput)
 }
 
 // KubeletConfig specifies the configuration of kubelet on agent nodes.
@@ -4983,6 +5338,11 @@ func (o ManagedClusterAgentPoolProfileResponseOutput) OsDiskSizeGB() pulumi.IntP
 // OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. Defaults to 'Managed'. May not be changed after creation.
 func (o ManagedClusterAgentPoolProfileResponseOutput) OsDiskType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) *string { return v.OsDiskType }).(pulumi.StringPtrOutput)
+}
+
+// OsSKU to be used to specify os sku. Choose from Ubuntu(default) and CBLMariner for Linux OSType. Not applicable to Windows OSType.
+func (o ManagedClusterAgentPoolProfileResponseOutput) OsSKU() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) *string { return v.OsSKU }).(pulumi.StringPtrOutput)
 }
 
 // OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
@@ -5337,6 +5697,388 @@ func (o ManagedClusterAutoUpgradeProfileResponsePtrOutput) UpgradeChannel() pulu
 			return nil
 		}
 		return v.UpgradeChannel
+	}).(pulumi.StringPtrOutput)
+}
+
+// Configurations for provisioning the cluster with HTTP proxy servers.
+type ManagedClusterHTTPProxyConfig struct {
+	// HTTP proxy server endpoint to use.
+	HttpProxy *string `pulumi:"httpProxy"`
+	// HTTPS proxy server endpoint to use.
+	HttpsProxy *string `pulumi:"httpsProxy"`
+	// Endpoints that should not go through proxy.
+	NoProxy []string `pulumi:"noProxy"`
+	// Alternative CA cert to use for connecting to proxy servers.
+	TrustedCa *string `pulumi:"trustedCa"`
+}
+
+// ManagedClusterHTTPProxyConfigInput is an input type that accepts ManagedClusterHTTPProxyConfigArgs and ManagedClusterHTTPProxyConfigOutput values.
+// You can construct a concrete instance of `ManagedClusterHTTPProxyConfigInput` via:
+//
+//          ManagedClusterHTTPProxyConfigArgs{...}
+type ManagedClusterHTTPProxyConfigInput interface {
+	pulumi.Input
+
+	ToManagedClusterHTTPProxyConfigOutput() ManagedClusterHTTPProxyConfigOutput
+	ToManagedClusterHTTPProxyConfigOutputWithContext(context.Context) ManagedClusterHTTPProxyConfigOutput
+}
+
+// Configurations for provisioning the cluster with HTTP proxy servers.
+type ManagedClusterHTTPProxyConfigArgs struct {
+	// HTTP proxy server endpoint to use.
+	HttpProxy pulumi.StringPtrInput `pulumi:"httpProxy"`
+	// HTTPS proxy server endpoint to use.
+	HttpsProxy pulumi.StringPtrInput `pulumi:"httpsProxy"`
+	// Endpoints that should not go through proxy.
+	NoProxy pulumi.StringArrayInput `pulumi:"noProxy"`
+	// Alternative CA cert to use for connecting to proxy servers.
+	TrustedCa pulumi.StringPtrInput `pulumi:"trustedCa"`
+}
+
+func (ManagedClusterHTTPProxyConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterHTTPProxyConfig)(nil)).Elem()
+}
+
+func (i ManagedClusterHTTPProxyConfigArgs) ToManagedClusterHTTPProxyConfigOutput() ManagedClusterHTTPProxyConfigOutput {
+	return i.ToManagedClusterHTTPProxyConfigOutputWithContext(context.Background())
+}
+
+func (i ManagedClusterHTTPProxyConfigArgs) ToManagedClusterHTTPProxyConfigOutputWithContext(ctx context.Context) ManagedClusterHTTPProxyConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterHTTPProxyConfigOutput)
+}
+
+func (i ManagedClusterHTTPProxyConfigArgs) ToManagedClusterHTTPProxyConfigPtrOutput() ManagedClusterHTTPProxyConfigPtrOutput {
+	return i.ToManagedClusterHTTPProxyConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ManagedClusterHTTPProxyConfigArgs) ToManagedClusterHTTPProxyConfigPtrOutputWithContext(ctx context.Context) ManagedClusterHTTPProxyConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterHTTPProxyConfigOutput).ToManagedClusterHTTPProxyConfigPtrOutputWithContext(ctx)
+}
+
+// ManagedClusterHTTPProxyConfigPtrInput is an input type that accepts ManagedClusterHTTPProxyConfigArgs, ManagedClusterHTTPProxyConfigPtr and ManagedClusterHTTPProxyConfigPtrOutput values.
+// You can construct a concrete instance of `ManagedClusterHTTPProxyConfigPtrInput` via:
+//
+//          ManagedClusterHTTPProxyConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type ManagedClusterHTTPProxyConfigPtrInput interface {
+	pulumi.Input
+
+	ToManagedClusterHTTPProxyConfigPtrOutput() ManagedClusterHTTPProxyConfigPtrOutput
+	ToManagedClusterHTTPProxyConfigPtrOutputWithContext(context.Context) ManagedClusterHTTPProxyConfigPtrOutput
+}
+
+type managedClusterHTTPProxyConfigPtrType ManagedClusterHTTPProxyConfigArgs
+
+func ManagedClusterHTTPProxyConfigPtr(v *ManagedClusterHTTPProxyConfigArgs) ManagedClusterHTTPProxyConfigPtrInput {
+	return (*managedClusterHTTPProxyConfigPtrType)(v)
+}
+
+func (*managedClusterHTTPProxyConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedClusterHTTPProxyConfig)(nil)).Elem()
+}
+
+func (i *managedClusterHTTPProxyConfigPtrType) ToManagedClusterHTTPProxyConfigPtrOutput() ManagedClusterHTTPProxyConfigPtrOutput {
+	return i.ToManagedClusterHTTPProxyConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *managedClusterHTTPProxyConfigPtrType) ToManagedClusterHTTPProxyConfigPtrOutputWithContext(ctx context.Context) ManagedClusterHTTPProxyConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterHTTPProxyConfigPtrOutput)
+}
+
+// Configurations for provisioning the cluster with HTTP proxy servers.
+type ManagedClusterHTTPProxyConfigOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterHTTPProxyConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterHTTPProxyConfig)(nil)).Elem()
+}
+
+func (o ManagedClusterHTTPProxyConfigOutput) ToManagedClusterHTTPProxyConfigOutput() ManagedClusterHTTPProxyConfigOutput {
+	return o
+}
+
+func (o ManagedClusterHTTPProxyConfigOutput) ToManagedClusterHTTPProxyConfigOutputWithContext(ctx context.Context) ManagedClusterHTTPProxyConfigOutput {
+	return o
+}
+
+func (o ManagedClusterHTTPProxyConfigOutput) ToManagedClusterHTTPProxyConfigPtrOutput() ManagedClusterHTTPProxyConfigPtrOutput {
+	return o.ToManagedClusterHTTPProxyConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ManagedClusterHTTPProxyConfigOutput) ToManagedClusterHTTPProxyConfigPtrOutputWithContext(ctx context.Context) ManagedClusterHTTPProxyConfigPtrOutput {
+	return o.ApplyT(func(v ManagedClusterHTTPProxyConfig) *ManagedClusterHTTPProxyConfig {
+		return &v
+	}).(ManagedClusterHTTPProxyConfigPtrOutput)
+}
+
+// HTTP proxy server endpoint to use.
+func (o ManagedClusterHTTPProxyConfigOutput) HttpProxy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterHTTPProxyConfig) *string { return v.HttpProxy }).(pulumi.StringPtrOutput)
+}
+
+// HTTPS proxy server endpoint to use.
+func (o ManagedClusterHTTPProxyConfigOutput) HttpsProxy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterHTTPProxyConfig) *string { return v.HttpsProxy }).(pulumi.StringPtrOutput)
+}
+
+// Endpoints that should not go through proxy.
+func (o ManagedClusterHTTPProxyConfigOutput) NoProxy() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ManagedClusterHTTPProxyConfig) []string { return v.NoProxy }).(pulumi.StringArrayOutput)
+}
+
+// Alternative CA cert to use for connecting to proxy servers.
+func (o ManagedClusterHTTPProxyConfigOutput) TrustedCa() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterHTTPProxyConfig) *string { return v.TrustedCa }).(pulumi.StringPtrOutput)
+}
+
+type ManagedClusterHTTPProxyConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterHTTPProxyConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedClusterHTTPProxyConfig)(nil)).Elem()
+}
+
+func (o ManagedClusterHTTPProxyConfigPtrOutput) ToManagedClusterHTTPProxyConfigPtrOutput() ManagedClusterHTTPProxyConfigPtrOutput {
+	return o
+}
+
+func (o ManagedClusterHTTPProxyConfigPtrOutput) ToManagedClusterHTTPProxyConfigPtrOutputWithContext(ctx context.Context) ManagedClusterHTTPProxyConfigPtrOutput {
+	return o
+}
+
+func (o ManagedClusterHTTPProxyConfigPtrOutput) Elem() ManagedClusterHTTPProxyConfigOutput {
+	return o.ApplyT(func(v *ManagedClusterHTTPProxyConfig) ManagedClusterHTTPProxyConfig { return *v }).(ManagedClusterHTTPProxyConfigOutput)
+}
+
+// HTTP proxy server endpoint to use.
+func (o ManagedClusterHTTPProxyConfigPtrOutput) HttpProxy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedClusterHTTPProxyConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HttpProxy
+	}).(pulumi.StringPtrOutput)
+}
+
+// HTTPS proxy server endpoint to use.
+func (o ManagedClusterHTTPProxyConfigPtrOutput) HttpsProxy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedClusterHTTPProxyConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HttpsProxy
+	}).(pulumi.StringPtrOutput)
+}
+
+// Endpoints that should not go through proxy.
+func (o ManagedClusterHTTPProxyConfigPtrOutput) NoProxy() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ManagedClusterHTTPProxyConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.NoProxy
+	}).(pulumi.StringArrayOutput)
+}
+
+// Alternative CA cert to use for connecting to proxy servers.
+func (o ManagedClusterHTTPProxyConfigPtrOutput) TrustedCa() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedClusterHTTPProxyConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TrustedCa
+	}).(pulumi.StringPtrOutput)
+}
+
+// Configurations for provisioning the cluster with HTTP proxy servers.
+type ManagedClusterHTTPProxyConfigResponse struct {
+	// HTTP proxy server endpoint to use.
+	HttpProxy *string `pulumi:"httpProxy"`
+	// HTTPS proxy server endpoint to use.
+	HttpsProxy *string `pulumi:"httpsProxy"`
+	// Endpoints that should not go through proxy.
+	NoProxy []string `pulumi:"noProxy"`
+	// Alternative CA cert to use for connecting to proxy servers.
+	TrustedCa *string `pulumi:"trustedCa"`
+}
+
+// ManagedClusterHTTPProxyConfigResponseInput is an input type that accepts ManagedClusterHTTPProxyConfigResponseArgs and ManagedClusterHTTPProxyConfigResponseOutput values.
+// You can construct a concrete instance of `ManagedClusterHTTPProxyConfigResponseInput` via:
+//
+//          ManagedClusterHTTPProxyConfigResponseArgs{...}
+type ManagedClusterHTTPProxyConfigResponseInput interface {
+	pulumi.Input
+
+	ToManagedClusterHTTPProxyConfigResponseOutput() ManagedClusterHTTPProxyConfigResponseOutput
+	ToManagedClusterHTTPProxyConfigResponseOutputWithContext(context.Context) ManagedClusterHTTPProxyConfigResponseOutput
+}
+
+// Configurations for provisioning the cluster with HTTP proxy servers.
+type ManagedClusterHTTPProxyConfigResponseArgs struct {
+	// HTTP proxy server endpoint to use.
+	HttpProxy pulumi.StringPtrInput `pulumi:"httpProxy"`
+	// HTTPS proxy server endpoint to use.
+	HttpsProxy pulumi.StringPtrInput `pulumi:"httpsProxy"`
+	// Endpoints that should not go through proxy.
+	NoProxy pulumi.StringArrayInput `pulumi:"noProxy"`
+	// Alternative CA cert to use for connecting to proxy servers.
+	TrustedCa pulumi.StringPtrInput `pulumi:"trustedCa"`
+}
+
+func (ManagedClusterHTTPProxyConfigResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterHTTPProxyConfigResponse)(nil)).Elem()
+}
+
+func (i ManagedClusterHTTPProxyConfigResponseArgs) ToManagedClusterHTTPProxyConfigResponseOutput() ManagedClusterHTTPProxyConfigResponseOutput {
+	return i.ToManagedClusterHTTPProxyConfigResponseOutputWithContext(context.Background())
+}
+
+func (i ManagedClusterHTTPProxyConfigResponseArgs) ToManagedClusterHTTPProxyConfigResponseOutputWithContext(ctx context.Context) ManagedClusterHTTPProxyConfigResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterHTTPProxyConfigResponseOutput)
+}
+
+func (i ManagedClusterHTTPProxyConfigResponseArgs) ToManagedClusterHTTPProxyConfigResponsePtrOutput() ManagedClusterHTTPProxyConfigResponsePtrOutput {
+	return i.ToManagedClusterHTTPProxyConfigResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ManagedClusterHTTPProxyConfigResponseArgs) ToManagedClusterHTTPProxyConfigResponsePtrOutputWithContext(ctx context.Context) ManagedClusterHTTPProxyConfigResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterHTTPProxyConfigResponseOutput).ToManagedClusterHTTPProxyConfigResponsePtrOutputWithContext(ctx)
+}
+
+// ManagedClusterHTTPProxyConfigResponsePtrInput is an input type that accepts ManagedClusterHTTPProxyConfigResponseArgs, ManagedClusterHTTPProxyConfigResponsePtr and ManagedClusterHTTPProxyConfigResponsePtrOutput values.
+// You can construct a concrete instance of `ManagedClusterHTTPProxyConfigResponsePtrInput` via:
+//
+//          ManagedClusterHTTPProxyConfigResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ManagedClusterHTTPProxyConfigResponsePtrInput interface {
+	pulumi.Input
+
+	ToManagedClusterHTTPProxyConfigResponsePtrOutput() ManagedClusterHTTPProxyConfigResponsePtrOutput
+	ToManagedClusterHTTPProxyConfigResponsePtrOutputWithContext(context.Context) ManagedClusterHTTPProxyConfigResponsePtrOutput
+}
+
+type managedClusterHTTPProxyConfigResponsePtrType ManagedClusterHTTPProxyConfigResponseArgs
+
+func ManagedClusterHTTPProxyConfigResponsePtr(v *ManagedClusterHTTPProxyConfigResponseArgs) ManagedClusterHTTPProxyConfigResponsePtrInput {
+	return (*managedClusterHTTPProxyConfigResponsePtrType)(v)
+}
+
+func (*managedClusterHTTPProxyConfigResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedClusterHTTPProxyConfigResponse)(nil)).Elem()
+}
+
+func (i *managedClusterHTTPProxyConfigResponsePtrType) ToManagedClusterHTTPProxyConfigResponsePtrOutput() ManagedClusterHTTPProxyConfigResponsePtrOutput {
+	return i.ToManagedClusterHTTPProxyConfigResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *managedClusterHTTPProxyConfigResponsePtrType) ToManagedClusterHTTPProxyConfigResponsePtrOutputWithContext(ctx context.Context) ManagedClusterHTTPProxyConfigResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterHTTPProxyConfigResponsePtrOutput)
+}
+
+// Configurations for provisioning the cluster with HTTP proxy servers.
+type ManagedClusterHTTPProxyConfigResponseOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterHTTPProxyConfigResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterHTTPProxyConfigResponse)(nil)).Elem()
+}
+
+func (o ManagedClusterHTTPProxyConfigResponseOutput) ToManagedClusterHTTPProxyConfigResponseOutput() ManagedClusterHTTPProxyConfigResponseOutput {
+	return o
+}
+
+func (o ManagedClusterHTTPProxyConfigResponseOutput) ToManagedClusterHTTPProxyConfigResponseOutputWithContext(ctx context.Context) ManagedClusterHTTPProxyConfigResponseOutput {
+	return o
+}
+
+func (o ManagedClusterHTTPProxyConfigResponseOutput) ToManagedClusterHTTPProxyConfigResponsePtrOutput() ManagedClusterHTTPProxyConfigResponsePtrOutput {
+	return o.ToManagedClusterHTTPProxyConfigResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ManagedClusterHTTPProxyConfigResponseOutput) ToManagedClusterHTTPProxyConfigResponsePtrOutputWithContext(ctx context.Context) ManagedClusterHTTPProxyConfigResponsePtrOutput {
+	return o.ApplyT(func(v ManagedClusterHTTPProxyConfigResponse) *ManagedClusterHTTPProxyConfigResponse {
+		return &v
+	}).(ManagedClusterHTTPProxyConfigResponsePtrOutput)
+}
+
+// HTTP proxy server endpoint to use.
+func (o ManagedClusterHTTPProxyConfigResponseOutput) HttpProxy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterHTTPProxyConfigResponse) *string { return v.HttpProxy }).(pulumi.StringPtrOutput)
+}
+
+// HTTPS proxy server endpoint to use.
+func (o ManagedClusterHTTPProxyConfigResponseOutput) HttpsProxy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterHTTPProxyConfigResponse) *string { return v.HttpsProxy }).(pulumi.StringPtrOutput)
+}
+
+// Endpoints that should not go through proxy.
+func (o ManagedClusterHTTPProxyConfigResponseOutput) NoProxy() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ManagedClusterHTTPProxyConfigResponse) []string { return v.NoProxy }).(pulumi.StringArrayOutput)
+}
+
+// Alternative CA cert to use for connecting to proxy servers.
+func (o ManagedClusterHTTPProxyConfigResponseOutput) TrustedCa() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterHTTPProxyConfigResponse) *string { return v.TrustedCa }).(pulumi.StringPtrOutput)
+}
+
+type ManagedClusterHTTPProxyConfigResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterHTTPProxyConfigResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedClusterHTTPProxyConfigResponse)(nil)).Elem()
+}
+
+func (o ManagedClusterHTTPProxyConfigResponsePtrOutput) ToManagedClusterHTTPProxyConfigResponsePtrOutput() ManagedClusterHTTPProxyConfigResponsePtrOutput {
+	return o
+}
+
+func (o ManagedClusterHTTPProxyConfigResponsePtrOutput) ToManagedClusterHTTPProxyConfigResponsePtrOutputWithContext(ctx context.Context) ManagedClusterHTTPProxyConfigResponsePtrOutput {
+	return o
+}
+
+func (o ManagedClusterHTTPProxyConfigResponsePtrOutput) Elem() ManagedClusterHTTPProxyConfigResponseOutput {
+	return o.ApplyT(func(v *ManagedClusterHTTPProxyConfigResponse) ManagedClusterHTTPProxyConfigResponse { return *v }).(ManagedClusterHTTPProxyConfigResponseOutput)
+}
+
+// HTTP proxy server endpoint to use.
+func (o ManagedClusterHTTPProxyConfigResponsePtrOutput) HttpProxy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedClusterHTTPProxyConfigResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HttpProxy
+	}).(pulumi.StringPtrOutput)
+}
+
+// HTTPS proxy server endpoint to use.
+func (o ManagedClusterHTTPProxyConfigResponsePtrOutput) HttpsProxy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedClusterHTTPProxyConfigResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HttpsProxy
+	}).(pulumi.StringPtrOutput)
+}
+
+// Endpoints that should not go through proxy.
+func (o ManagedClusterHTTPProxyConfigResponsePtrOutput) NoProxy() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ManagedClusterHTTPProxyConfigResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.NoProxy
+	}).(pulumi.StringArrayOutput)
+}
+
+// Alternative CA cert to use for connecting to proxy servers.
+func (o ManagedClusterHTTPProxyConfigResponsePtrOutput) TrustedCa() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedClusterHTTPProxyConfigResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TrustedCa
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -7089,6 +7831,8 @@ func (o ManagedClusterLoadBalancerProfileResponseOutboundIPsPtrOutput) PublicIPs
 }
 
 type ManagedClusterPodIdentity struct {
+	// Binding selector to use for the AzureIdentityBinding resource.
+	BindingSelector *string `pulumi:"bindingSelector"`
 	// Information of the user assigned identity.
 	Identity UserAssignedIdentity `pulumi:"identity"`
 	// Name of the pod identity.
@@ -7109,6 +7853,8 @@ type ManagedClusterPodIdentityInput interface {
 }
 
 type ManagedClusterPodIdentityArgs struct {
+	// Binding selector to use for the AzureIdentityBinding resource.
+	BindingSelector pulumi.StringPtrInput `pulumi:"bindingSelector"`
 	// Information of the user assigned identity.
 	Identity UserAssignedIdentityInput `pulumi:"identity"`
 	// Name of the pod identity.
@@ -7166,6 +7912,11 @@ func (o ManagedClusterPodIdentityOutput) ToManagedClusterPodIdentityOutput() Man
 
 func (o ManagedClusterPodIdentityOutput) ToManagedClusterPodIdentityOutputWithContext(ctx context.Context) ManagedClusterPodIdentityOutput {
 	return o
+}
+
+// Binding selector to use for the AzureIdentityBinding resource.
+func (o ManagedClusterPodIdentityOutput) BindingSelector() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterPodIdentity) *string { return v.BindingSelector }).(pulumi.StringPtrOutput)
 }
 
 // Information of the user assigned identity.
@@ -7816,6 +8567,8 @@ func (o ManagedClusterPodIdentityProfileResponsePtrOutput) UserAssignedIdentityE
 }
 
 type ManagedClusterPodIdentityResponse struct {
+	// Binding selector to use for the AzureIdentityBinding resource.
+	BindingSelector *string `pulumi:"bindingSelector"`
 	// Information of the user assigned identity.
 	Identity UserAssignedIdentityResponse `pulumi:"identity"`
 	// Name of the pod identity.
@@ -7839,6 +8592,8 @@ type ManagedClusterPodIdentityResponseInput interface {
 }
 
 type ManagedClusterPodIdentityResponseArgs struct {
+	// Binding selector to use for the AzureIdentityBinding resource.
+	BindingSelector pulumi.StringPtrInput `pulumi:"bindingSelector"`
 	// Information of the user assigned identity.
 	Identity UserAssignedIdentityResponseInput `pulumi:"identity"`
 	// Name of the pod identity.
@@ -7899,6 +8654,11 @@ func (o ManagedClusterPodIdentityResponseOutput) ToManagedClusterPodIdentityResp
 
 func (o ManagedClusterPodIdentityResponseOutput) ToManagedClusterPodIdentityResponseOutputWithContext(ctx context.Context) ManagedClusterPodIdentityResponseOutput {
 	return o
+}
+
+// Binding selector to use for the AzureIdentityBinding resource.
+func (o ManagedClusterPodIdentityResponseOutput) BindingSelector() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterPodIdentityResponse) *string { return v.BindingSelector }).(pulumi.StringPtrOutput)
 }
 
 // Information of the user assigned identity.
@@ -9587,6 +10347,8 @@ type ManagedClusterWindowsProfile struct {
 	AdminPassword *string `pulumi:"adminPassword"`
 	// Specifies the name of the administrator account. <br><br> **restriction:** Cannot end in "." <br><br> **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". <br><br> **Minimum-length:** 1 character <br><br> **Max-length:** 20 characters
 	AdminUsername string `pulumi:"adminUsername"`
+	// Whether to enable CSI proxy.
+	EnableCSIProxy *bool `pulumi:"enableCSIProxy"`
 	// The licenseType to use for Windows VMs. Windows_Server is used to enable Azure Hybrid User Benefits for Windows VMs.
 	LicenseType *string `pulumi:"licenseType"`
 }
@@ -9608,6 +10370,8 @@ type ManagedClusterWindowsProfileArgs struct {
 	AdminPassword pulumi.StringPtrInput `pulumi:"adminPassword"`
 	// Specifies the name of the administrator account. <br><br> **restriction:** Cannot end in "." <br><br> **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". <br><br> **Minimum-length:** 1 character <br><br> **Max-length:** 20 characters
 	AdminUsername pulumi.StringInput `pulumi:"adminUsername"`
+	// Whether to enable CSI proxy.
+	EnableCSIProxy pulumi.BoolPtrInput `pulumi:"enableCSIProxy"`
 	// The licenseType to use for Windows VMs. Windows_Server is used to enable Azure Hybrid User Benefits for Windows VMs.
 	LicenseType pulumi.StringPtrInput `pulumi:"licenseType"`
 }
@@ -9700,6 +10464,11 @@ func (o ManagedClusterWindowsProfileOutput) AdminUsername() pulumi.StringOutput 
 	return o.ApplyT(func(v ManagedClusterWindowsProfile) string { return v.AdminUsername }).(pulumi.StringOutput)
 }
 
+// Whether to enable CSI proxy.
+func (o ManagedClusterWindowsProfileOutput) EnableCSIProxy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ManagedClusterWindowsProfile) *bool { return v.EnableCSIProxy }).(pulumi.BoolPtrOutput)
+}
+
 // The licenseType to use for Windows VMs. Windows_Server is used to enable Azure Hybrid User Benefits for Windows VMs.
 func (o ManagedClusterWindowsProfileOutput) LicenseType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterWindowsProfile) *string { return v.LicenseType }).(pulumi.StringPtrOutput)
@@ -9743,6 +10512,16 @@ func (o ManagedClusterWindowsProfilePtrOutput) AdminUsername() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// Whether to enable CSI proxy.
+func (o ManagedClusterWindowsProfilePtrOutput) EnableCSIProxy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ManagedClusterWindowsProfile) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableCSIProxy
+	}).(pulumi.BoolPtrOutput)
+}
+
 // The licenseType to use for Windows VMs. Windows_Server is used to enable Azure Hybrid User Benefits for Windows VMs.
 func (o ManagedClusterWindowsProfilePtrOutput) LicenseType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedClusterWindowsProfile) *string {
@@ -9759,6 +10538,8 @@ type ManagedClusterWindowsProfileResponse struct {
 	AdminPassword *string `pulumi:"adminPassword"`
 	// Specifies the name of the administrator account. <br><br> **restriction:** Cannot end in "." <br><br> **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". <br><br> **Minimum-length:** 1 character <br><br> **Max-length:** 20 characters
 	AdminUsername string `pulumi:"adminUsername"`
+	// Whether to enable CSI proxy.
+	EnableCSIProxy *bool `pulumi:"enableCSIProxy"`
 	// The licenseType to use for Windows VMs. Windows_Server is used to enable Azure Hybrid User Benefits for Windows VMs.
 	LicenseType *string `pulumi:"licenseType"`
 }
@@ -9780,6 +10561,8 @@ type ManagedClusterWindowsProfileResponseArgs struct {
 	AdminPassword pulumi.StringPtrInput `pulumi:"adminPassword"`
 	// Specifies the name of the administrator account. <br><br> **restriction:** Cannot end in "." <br><br> **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". <br><br> **Minimum-length:** 1 character <br><br> **Max-length:** 20 characters
 	AdminUsername pulumi.StringInput `pulumi:"adminUsername"`
+	// Whether to enable CSI proxy.
+	EnableCSIProxy pulumi.BoolPtrInput `pulumi:"enableCSIProxy"`
 	// The licenseType to use for Windows VMs. Windows_Server is used to enable Azure Hybrid User Benefits for Windows VMs.
 	LicenseType pulumi.StringPtrInput `pulumi:"licenseType"`
 }
@@ -9872,6 +10655,11 @@ func (o ManagedClusterWindowsProfileResponseOutput) AdminUsername() pulumi.Strin
 	return o.ApplyT(func(v ManagedClusterWindowsProfileResponse) string { return v.AdminUsername }).(pulumi.StringOutput)
 }
 
+// Whether to enable CSI proxy.
+func (o ManagedClusterWindowsProfileResponseOutput) EnableCSIProxy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ManagedClusterWindowsProfileResponse) *bool { return v.EnableCSIProxy }).(pulumi.BoolPtrOutput)
+}
+
 // The licenseType to use for Windows VMs. Windows_Server is used to enable Azure Hybrid User Benefits for Windows VMs.
 func (o ManagedClusterWindowsProfileResponseOutput) LicenseType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterWindowsProfileResponse) *string { return v.LicenseType }).(pulumi.StringPtrOutput)
@@ -9913,6 +10701,16 @@ func (o ManagedClusterWindowsProfileResponsePtrOutput) AdminUsername() pulumi.St
 		}
 		return &v.AdminUsername
 	}).(pulumi.StringPtrOutput)
+}
+
+// Whether to enable CSI proxy.
+func (o ManagedClusterWindowsProfileResponsePtrOutput) EnableCSIProxy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ManagedClusterWindowsProfileResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableCSIProxy
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The licenseType to use for Windows VMs. Windows_Server is used to enable Azure Hybrid User Benefits for Windows VMs.
@@ -12527,6 +13325,287 @@ func (o PrivateEndpointResponsePtrOutput) Id() pulumi.StringPtrOutput {
 		}
 		return v.Id
 	}).(pulumi.StringPtrOutput)
+}
+
+// A private link resource
+type PrivateLinkResource struct {
+	// The group ID of the resource.
+	GroupId *string `pulumi:"groupId"`
+	// The ID of the private link resource.
+	Id *string `pulumi:"id"`
+	// The name of the private link resource.
+	Name *string `pulumi:"name"`
+	// RequiredMembers of the resource
+	RequiredMembers []string `pulumi:"requiredMembers"`
+	// The resource type.
+	Type *string `pulumi:"type"`
+}
+
+// PrivateLinkResourceInput is an input type that accepts PrivateLinkResourceArgs and PrivateLinkResourceOutput values.
+// You can construct a concrete instance of `PrivateLinkResourceInput` via:
+//
+//          PrivateLinkResourceArgs{...}
+type PrivateLinkResourceInput interface {
+	pulumi.Input
+
+	ToPrivateLinkResourceOutput() PrivateLinkResourceOutput
+	ToPrivateLinkResourceOutputWithContext(context.Context) PrivateLinkResourceOutput
+}
+
+// A private link resource
+type PrivateLinkResourceArgs struct {
+	// The group ID of the resource.
+	GroupId pulumi.StringPtrInput `pulumi:"groupId"`
+	// The ID of the private link resource.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// The name of the private link resource.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// RequiredMembers of the resource
+	RequiredMembers pulumi.StringArrayInput `pulumi:"requiredMembers"`
+	// The resource type.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (PrivateLinkResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkResource)(nil)).Elem()
+}
+
+func (i PrivateLinkResourceArgs) ToPrivateLinkResourceOutput() PrivateLinkResourceOutput {
+	return i.ToPrivateLinkResourceOutputWithContext(context.Background())
+}
+
+func (i PrivateLinkResourceArgs) ToPrivateLinkResourceOutputWithContext(ctx context.Context) PrivateLinkResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkResourceOutput)
+}
+
+// PrivateLinkResourceArrayInput is an input type that accepts PrivateLinkResourceArray and PrivateLinkResourceArrayOutput values.
+// You can construct a concrete instance of `PrivateLinkResourceArrayInput` via:
+//
+//          PrivateLinkResourceArray{ PrivateLinkResourceArgs{...} }
+type PrivateLinkResourceArrayInput interface {
+	pulumi.Input
+
+	ToPrivateLinkResourceArrayOutput() PrivateLinkResourceArrayOutput
+	ToPrivateLinkResourceArrayOutputWithContext(context.Context) PrivateLinkResourceArrayOutput
+}
+
+type PrivateLinkResourceArray []PrivateLinkResourceInput
+
+func (PrivateLinkResourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrivateLinkResource)(nil)).Elem()
+}
+
+func (i PrivateLinkResourceArray) ToPrivateLinkResourceArrayOutput() PrivateLinkResourceArrayOutput {
+	return i.ToPrivateLinkResourceArrayOutputWithContext(context.Background())
+}
+
+func (i PrivateLinkResourceArray) ToPrivateLinkResourceArrayOutputWithContext(ctx context.Context) PrivateLinkResourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkResourceArrayOutput)
+}
+
+// A private link resource
+type PrivateLinkResourceOutput struct{ *pulumi.OutputState }
+
+func (PrivateLinkResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkResource)(nil)).Elem()
+}
+
+func (o PrivateLinkResourceOutput) ToPrivateLinkResourceOutput() PrivateLinkResourceOutput {
+	return o
+}
+
+func (o PrivateLinkResourceOutput) ToPrivateLinkResourceOutputWithContext(ctx context.Context) PrivateLinkResourceOutput {
+	return o
+}
+
+// The group ID of the resource.
+func (o PrivateLinkResourceOutput) GroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkResource) *string { return v.GroupId }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the private link resource.
+func (o PrivateLinkResourceOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkResource) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The name of the private link resource.
+func (o PrivateLinkResourceOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkResource) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// RequiredMembers of the resource
+func (o PrivateLinkResourceOutput) RequiredMembers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PrivateLinkResource) []string { return v.RequiredMembers }).(pulumi.StringArrayOutput)
+}
+
+// The resource type.
+func (o PrivateLinkResourceOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkResource) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type PrivateLinkResourceArrayOutput struct{ *pulumi.OutputState }
+
+func (PrivateLinkResourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrivateLinkResource)(nil)).Elem()
+}
+
+func (o PrivateLinkResourceArrayOutput) ToPrivateLinkResourceArrayOutput() PrivateLinkResourceArrayOutput {
+	return o
+}
+
+func (o PrivateLinkResourceArrayOutput) ToPrivateLinkResourceArrayOutputWithContext(ctx context.Context) PrivateLinkResourceArrayOutput {
+	return o
+}
+
+func (o PrivateLinkResourceArrayOutput) Index(i pulumi.IntInput) PrivateLinkResourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PrivateLinkResource {
+		return vs[0].([]PrivateLinkResource)[vs[1].(int)]
+	}).(PrivateLinkResourceOutput)
+}
+
+// A private link resource
+type PrivateLinkResourceResponse struct {
+	// The group ID of the resource.
+	GroupId *string `pulumi:"groupId"`
+	// The ID of the private link resource.
+	Id *string `pulumi:"id"`
+	// The name of the private link resource.
+	Name *string `pulumi:"name"`
+	// The private link service ID of the resource, this field is exposed only to NRP internally.
+	PrivateLinkServiceID string `pulumi:"privateLinkServiceID"`
+	// RequiredMembers of the resource
+	RequiredMembers []string `pulumi:"requiredMembers"`
+	// The resource type.
+	Type *string `pulumi:"type"`
+}
+
+// PrivateLinkResourceResponseInput is an input type that accepts PrivateLinkResourceResponseArgs and PrivateLinkResourceResponseOutput values.
+// You can construct a concrete instance of `PrivateLinkResourceResponseInput` via:
+//
+//          PrivateLinkResourceResponseArgs{...}
+type PrivateLinkResourceResponseInput interface {
+	pulumi.Input
+
+	ToPrivateLinkResourceResponseOutput() PrivateLinkResourceResponseOutput
+	ToPrivateLinkResourceResponseOutputWithContext(context.Context) PrivateLinkResourceResponseOutput
+}
+
+// A private link resource
+type PrivateLinkResourceResponseArgs struct {
+	// The group ID of the resource.
+	GroupId pulumi.StringPtrInput `pulumi:"groupId"`
+	// The ID of the private link resource.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// The name of the private link resource.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The private link service ID of the resource, this field is exposed only to NRP internally.
+	PrivateLinkServiceID pulumi.StringInput `pulumi:"privateLinkServiceID"`
+	// RequiredMembers of the resource
+	RequiredMembers pulumi.StringArrayInput `pulumi:"requiredMembers"`
+	// The resource type.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (PrivateLinkResourceResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkResourceResponse)(nil)).Elem()
+}
+
+func (i PrivateLinkResourceResponseArgs) ToPrivateLinkResourceResponseOutput() PrivateLinkResourceResponseOutput {
+	return i.ToPrivateLinkResourceResponseOutputWithContext(context.Background())
+}
+
+func (i PrivateLinkResourceResponseArgs) ToPrivateLinkResourceResponseOutputWithContext(ctx context.Context) PrivateLinkResourceResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkResourceResponseOutput)
+}
+
+// PrivateLinkResourceResponseArrayInput is an input type that accepts PrivateLinkResourceResponseArray and PrivateLinkResourceResponseArrayOutput values.
+// You can construct a concrete instance of `PrivateLinkResourceResponseArrayInput` via:
+//
+//          PrivateLinkResourceResponseArray{ PrivateLinkResourceResponseArgs{...} }
+type PrivateLinkResourceResponseArrayInput interface {
+	pulumi.Input
+
+	ToPrivateLinkResourceResponseArrayOutput() PrivateLinkResourceResponseArrayOutput
+	ToPrivateLinkResourceResponseArrayOutputWithContext(context.Context) PrivateLinkResourceResponseArrayOutput
+}
+
+type PrivateLinkResourceResponseArray []PrivateLinkResourceResponseInput
+
+func (PrivateLinkResourceResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrivateLinkResourceResponse)(nil)).Elem()
+}
+
+func (i PrivateLinkResourceResponseArray) ToPrivateLinkResourceResponseArrayOutput() PrivateLinkResourceResponseArrayOutput {
+	return i.ToPrivateLinkResourceResponseArrayOutputWithContext(context.Background())
+}
+
+func (i PrivateLinkResourceResponseArray) ToPrivateLinkResourceResponseArrayOutputWithContext(ctx context.Context) PrivateLinkResourceResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkResourceResponseArrayOutput)
+}
+
+// A private link resource
+type PrivateLinkResourceResponseOutput struct{ *pulumi.OutputState }
+
+func (PrivateLinkResourceResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkResourceResponse)(nil)).Elem()
+}
+
+func (o PrivateLinkResourceResponseOutput) ToPrivateLinkResourceResponseOutput() PrivateLinkResourceResponseOutput {
+	return o
+}
+
+func (o PrivateLinkResourceResponseOutput) ToPrivateLinkResourceResponseOutputWithContext(ctx context.Context) PrivateLinkResourceResponseOutput {
+	return o
+}
+
+// The group ID of the resource.
+func (o PrivateLinkResourceResponseOutput) GroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkResourceResponse) *string { return v.GroupId }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the private link resource.
+func (o PrivateLinkResourceResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkResourceResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The name of the private link resource.
+func (o PrivateLinkResourceResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkResourceResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The private link service ID of the resource, this field is exposed only to NRP internally.
+func (o PrivateLinkResourceResponseOutput) PrivateLinkServiceID() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateLinkResourceResponse) string { return v.PrivateLinkServiceID }).(pulumi.StringOutput)
+}
+
+// RequiredMembers of the resource
+func (o PrivateLinkResourceResponseOutput) RequiredMembers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PrivateLinkResourceResponse) []string { return v.RequiredMembers }).(pulumi.StringArrayOutput)
+}
+
+// The resource type.
+func (o PrivateLinkResourceResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkResourceResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type PrivateLinkResourceResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (PrivateLinkResourceResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrivateLinkResourceResponse)(nil)).Elem()
+}
+
+func (o PrivateLinkResourceResponseArrayOutput) ToPrivateLinkResourceResponseArrayOutput() PrivateLinkResourceResponseArrayOutput {
+	return o
+}
+
+func (o PrivateLinkResourceResponseArrayOutput) ToPrivateLinkResourceResponseArrayOutputWithContext(ctx context.Context) PrivateLinkResourceResponseArrayOutput {
+	return o
+}
+
+func (o PrivateLinkResourceResponseArrayOutput) Index(i pulumi.IntInput) PrivateLinkResourceResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PrivateLinkResourceResponse {
+		return vs[0].([]PrivateLinkResourceResponse)[vs[1].(int)]
+	}).(PrivateLinkResourceResponseOutput)
 }
 
 // The state of a private link service connection.
@@ -15546,6 +16625,10 @@ func init() {
 	pulumi.RegisterOutputType(ContainerServiceSshPublicKeyResponseArrayOutput{})
 	pulumi.RegisterOutputType(CredentialResultResponseOutput{})
 	pulumi.RegisterOutputType(CredentialResultResponseArrayOutput{})
+	pulumi.RegisterOutputType(ExtendedLocationOutput{})
+	pulumi.RegisterOutputType(ExtendedLocationPtrOutput{})
+	pulumi.RegisterOutputType(ExtendedLocationResponseOutput{})
+	pulumi.RegisterOutputType(ExtendedLocationResponsePtrOutput{})
 	pulumi.RegisterOutputType(KubeletConfigOutput{})
 	pulumi.RegisterOutputType(KubeletConfigPtrOutput{})
 	pulumi.RegisterOutputType(KubeletConfigResponseOutput{})
@@ -15575,6 +16658,10 @@ func init() {
 	pulumi.RegisterOutputType(ManagedClusterAutoUpgradeProfilePtrOutput{})
 	pulumi.RegisterOutputType(ManagedClusterAutoUpgradeProfileResponseOutput{})
 	pulumi.RegisterOutputType(ManagedClusterAutoUpgradeProfileResponsePtrOutput{})
+	pulumi.RegisterOutputType(ManagedClusterHTTPProxyConfigOutput{})
+	pulumi.RegisterOutputType(ManagedClusterHTTPProxyConfigPtrOutput{})
+	pulumi.RegisterOutputType(ManagedClusterHTTPProxyConfigResponseOutput{})
+	pulumi.RegisterOutputType(ManagedClusterHTTPProxyConfigResponsePtrOutput{})
 	pulumi.RegisterOutputType(ManagedClusterIdentityOutput{})
 	pulumi.RegisterOutputType(ManagedClusterIdentityPtrOutput{})
 	pulumi.RegisterOutputType(ManagedClusterIdentityResponseOutput{})
@@ -15664,6 +16751,10 @@ func init() {
 	pulumi.RegisterOutputType(PrivateEndpointPtrOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointResponseOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointResponsePtrOutput{})
+	pulumi.RegisterOutputType(PrivateLinkResourceOutput{})
+	pulumi.RegisterOutputType(PrivateLinkResourceArrayOutput{})
+	pulumi.RegisterOutputType(PrivateLinkResourceResponseOutput{})
+	pulumi.RegisterOutputType(PrivateLinkResourceResponseArrayOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStatePtrOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateResponseOutput{})

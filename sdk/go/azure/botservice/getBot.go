@@ -8,7 +8,7 @@ import (
 )
 
 // Bot resource definition
-// API Version: 2020-06-02.
+// API Version: 2021-03-01.
 func LookupBot(ctx *pulumi.Context, args *LookupBotArgs, opts ...pulumi.InvokeOption) (*LookupBotResult, error) {
 	var rv LookupBotResult
 	err := ctx.Invoke("azure-native:botservice:getBot", args, &rv, opts...)

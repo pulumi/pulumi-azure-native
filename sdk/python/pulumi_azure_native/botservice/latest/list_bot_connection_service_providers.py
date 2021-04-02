@@ -60,7 +60,7 @@ class AwaitableListBotConnectionServiceProvidersResult(ListBotConnectionServiceP
 def list_bot_connection_service_providers(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListBotConnectionServiceProvidersResult:
     """
     The list of bot service providers response.
-    Latest API Version: 2020-06-02.
+    Latest API Version: 2021-03-01.
     """
     pulumi.log.warn("""list_bot_connection_service_providers is deprecated: The 'latest' version is deprecated. Please migrate to the function in the top-level module: 'azure-native:botservice:listBotConnectionServiceProviders'.""")
     __args__ = dict()

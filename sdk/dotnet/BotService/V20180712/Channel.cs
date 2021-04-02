@@ -97,6 +97,8 @@ namespace Pulumi.AzureNative.BotService.V20180712
                     new Pulumi.Alias { Type = "azure-nextgen:botservice/v20171201:Channel"},
                     new Pulumi.Alias { Type = "azure-native:botservice/v20200602:Channel"},
                     new Pulumi.Alias { Type = "azure-nextgen:botservice/v20200602:Channel"},
+                    new Pulumi.Alias { Type = "azure-native:botservice/v20210301:Channel"},
+                    new Pulumi.Alias { Type = "azure-nextgen:botservice/v20210301:Channel"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

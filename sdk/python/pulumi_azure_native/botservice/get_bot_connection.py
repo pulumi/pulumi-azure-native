@@ -145,7 +145,7 @@ def get_bot_connection(connection_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBotConnectionResult:
     """
     Bot channel resource definition
-    API Version: 2020-06-02.
+    API Version: 2021-03-01.
 
 
     :param str connection_name: The name of the Bot Service Connection Setting resource.

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The list of bot service providers response.
- * API Version: 2020-06-02.
+ * API Version: 2021-03-01.
  */
 export function listBotConnectionServiceProviders(args?: ListBotConnectionServiceProvidersArgs, opts?: pulumi.InvokeOptions): Promise<ListBotConnectionServiceProvidersResult> {
     args = args || {};

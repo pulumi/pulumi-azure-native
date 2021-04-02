@@ -336,6 +336,70 @@ namespace Pulumi.AzureNative.ContainerService
     }
 
     /// <summary>
+    /// The type of the extended location.
+    /// </summary>
+    [EnumType]
+    public readonly struct ExtendedLocationTypes : IEquatable<ExtendedLocationTypes>
+    {
+        private readonly string _value;
+
+        private ExtendedLocationTypes(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ExtendedLocationTypes EdgeZone { get; } = new ExtendedLocationTypes("EdgeZone");
+
+        public static bool operator ==(ExtendedLocationTypes left, ExtendedLocationTypes right) => left.Equals(right);
+        public static bool operator !=(ExtendedLocationTypes left, ExtendedLocationTypes right) => !left.Equals(right);
+
+        public static explicit operator string(ExtendedLocationTypes value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ExtendedLocationTypes other && Equals(other);
+        public bool Equals(ExtendedLocationTypes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU. Supported values are MIG1g, MIG2g, MIG3g, MIG4g and MIG7g.
+    /// </summary>
+    [EnumType]
+    public readonly struct GPUInstanceProfile : IEquatable<GPUInstanceProfile>
+    {
+        private readonly string _value;
+
+        private GPUInstanceProfile(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GPUInstanceProfile MIG1g { get; } = new GPUInstanceProfile("MIG1g");
+        public static GPUInstanceProfile MIG2g { get; } = new GPUInstanceProfile("MIG2g");
+        public static GPUInstanceProfile MIG3g { get; } = new GPUInstanceProfile("MIG3g");
+        public static GPUInstanceProfile MIG4g { get; } = new GPUInstanceProfile("MIG4g");
+        public static GPUInstanceProfile MIG7g { get; } = new GPUInstanceProfile("MIG7g");
+
+        public static bool operator ==(GPUInstanceProfile left, GPUInstanceProfile right) => left.Equals(right);
+        public static bool operator !=(GPUInstanceProfile left, GPUInstanceProfile right) => !left.Equals(right);
+
+        public static explicit operator string(GPUInstanceProfile value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GPUInstanceProfile other && Equals(other);
+        public bool Equals(GPUInstanceProfile other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// KubeletDiskType determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage. Currently allows one value, OS, resulting in Kubelet using the OS disk for data.
     /// </summary>
     [EnumType]
@@ -614,6 +678,37 @@ namespace Pulumi.AzureNative.ContainerService
     }
 
     /// <summary>
+    /// OsSKU to be used to specify os sku. Choose from Ubuntu(default) and CBLMariner for Linux OSType. Not applicable to Windows OSType.
+    /// </summary>
+    [EnumType]
+    public readonly struct OSSKU : IEquatable<OSSKU>
+    {
+        private readonly string _value;
+
+        private OSSKU(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OSSKU Ubuntu { get; } = new OSSKU("Ubuntu");
+        public static OSSKU CBLMariner { get; } = new OSSKU("CBLMariner");
+
+        public static bool operator ==(OSSKU left, OSSKU right) => left.Equals(right);
+        public static bool operator !=(OSSKU left, OSSKU right) => !left.Equals(right);
+
+        public static explicit operator string(OSSKU value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OSSKU other && Equals(other);
+        public bool Equals(OSSKU other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
     /// </summary>
     [EnumType]
@@ -878,6 +973,7 @@ namespace Pulumi.AzureNative.ContainerService
         public static UpgradeChannel Rapid { get; } = new UpgradeChannel("rapid");
         public static UpgradeChannel Stable { get; } = new UpgradeChannel("stable");
         public static UpgradeChannel Patch { get; } = new UpgradeChannel("patch");
+        public static UpgradeChannel Node_image { get; } = new UpgradeChannel("node-image");
         public static UpgradeChannel None { get; } = new UpgradeChannel("none");
 
         public static bool operator ==(UpgradeChannel left, UpgradeChannel right) => left.Equals(right);

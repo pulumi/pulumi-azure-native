@@ -32,7 +32,7 @@ class BotConnection(pulumi.CustomResource):
                  __opts__=None):
         """
         Bot channel resource definition
-        API Version: 2020-06-02.
+        API Version: 2021-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -78,7 +78,7 @@ class BotConnection(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:botservice:BotConnection"), pulumi.Alias(type_="azure-native:botservice/latest:BotConnection"), pulumi.Alias(type_="azure-nextgen:botservice/latest:BotConnection"), pulumi.Alias(type_="azure-native:botservice/v20171201:BotConnection"), pulumi.Alias(type_="azure-nextgen:botservice/v20171201:BotConnection"), pulumi.Alias(type_="azure-native:botservice/v20180712:BotConnection"), pulumi.Alias(type_="azure-nextgen:botservice/v20180712:BotConnection"), pulumi.Alias(type_="azure-native:botservice/v20200602:BotConnection"), pulumi.Alias(type_="azure-nextgen:botservice/v20200602:BotConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:botservice:BotConnection"), pulumi.Alias(type_="azure-native:botservice/latest:BotConnection"), pulumi.Alias(type_="azure-nextgen:botservice/latest:BotConnection"), pulumi.Alias(type_="azure-native:botservice/v20171201:BotConnection"), pulumi.Alias(type_="azure-nextgen:botservice/v20171201:BotConnection"), pulumi.Alias(type_="azure-native:botservice/v20180712:BotConnection"), pulumi.Alias(type_="azure-nextgen:botservice/v20180712:BotConnection"), pulumi.Alias(type_="azure-native:botservice/v20200602:BotConnection"), pulumi.Alias(type_="azure-nextgen:botservice/v20200602:BotConnection"), pulumi.Alias(type_="azure-native:botservice/v20210301:BotConnection"), pulumi.Alias(type_="azure-nextgen:botservice/v20210301:BotConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BotConnection, __self__).__init__(
             'azure-native:botservice:BotConnection',

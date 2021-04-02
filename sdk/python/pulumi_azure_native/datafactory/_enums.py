@@ -63,6 +63,7 @@ __all__ = [
     'SparkAuthenticationType',
     'SparkServerType',
     'SparkThriftTransportProtocol',
+    'SqlAlwaysEncryptedAkvAuthType',
     'SsisLogLocationType',
     'SsisPackageLocationType',
     'StoredProcedureParameterType',
@@ -590,6 +591,14 @@ class SparkThriftTransportProtocol(str, Enum):
     BINARY = "Binary"
     SASL = "SASL"
     HTT_P_ = "HTTP "
+
+
+class SqlAlwaysEncryptedAkvAuthType(str, Enum):
+    """
+    Sql always encrypted AKV authentication type. Type: string (or Expression with resultType string).
+    """
+    SERVICE_PRINCIPAL = "ServicePrincipal"
+    MANAGED_IDENTITY = "ManagedIdentity"
 
 
 class SsisLogLocationType(str, Enum):

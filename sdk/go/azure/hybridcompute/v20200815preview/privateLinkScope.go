@@ -57,6 +57,12 @@ func NewPrivateLinkScope(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:hybridcompute/v20210128preview:PrivateLinkScope"),
 		},
+		{
+			Type: pulumi.String("azure-native:hybridcompute/v20210325preview:PrivateLinkScope"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:hybridcompute/v20210325preview:PrivateLinkScope"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource PrivateLinkScope

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Bot channel resource definition
- * API Version: 2020-06-02.
+ * API Version: 2021-03-01.
  */
 export function listChannelWithKeys(args: ListChannelWithKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListChannelWithKeysResult> {
     if (!opts) {

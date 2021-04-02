@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 
 /**
  * Managed cluster.
- * Latest API Version: 2021-02-01.
+ * Latest API Version: 2021-03-01.
  *
  * @deprecated The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:containerservice:ManagedCluster'.
  */
@@ -68,6 +68,10 @@ export class ManagedCluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly azurePortalFQDN!: pulumi.Output<string>;
     /**
+     * If set to true, getting static credential will be disabled for this cluster. Expected to only be used for AAD clusters.
+     */
+    public readonly disableLocalAccounts!: pulumi.Output<boolean | undefined>;
+    /**
      * ResourceId of the disk encryption set to use for enabling encryption at rest.
      */
     public readonly diskEncryptionSetID!: pulumi.Output<string | undefined>;
@@ -84,6 +88,10 @@ export class ManagedCluster extends pulumi.CustomResource {
      */
     public readonly enableRBAC!: pulumi.Output<boolean | undefined>;
     /**
+     * The extended location of the Virtual Machine.
+     */
+    public readonly extendedLocation!: pulumi.Output<outputs.containerservice.latest.ExtendedLocationResponse | undefined>;
+    /**
      * FQDN for the master pool.
      */
     public /*out*/ readonly fqdn!: pulumi.Output<string>;
@@ -91,6 +99,10 @@ export class ManagedCluster extends pulumi.CustomResource {
      * FQDN subdomain specified when creating private cluster with custom private dns zone.
      */
     public readonly fqdnSubdomain!: pulumi.Output<string | undefined>;
+    /**
+     * Configurations for provisioning the cluster with HTTP proxy servers.
+     */
+    public readonly httpProxyConfig!: pulumi.Output<outputs.containerservice.latest.ManagedClusterHTTPProxyConfigResponse | undefined>;
     /**
      * The identity of the managed cluster, if configured.
      */
@@ -140,6 +152,10 @@ export class ManagedCluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly privateFQDN!: pulumi.Output<string>;
     /**
+     * Private link resources associated with the cluster.
+     */
+    public readonly privateLinkResources!: pulumi.Output<outputs.containerservice.latest.PrivateLinkResourceResponse[] | undefined>;
+    /**
      * The current deployment or provisioning state, which only appears in the response.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
@@ -186,11 +202,14 @@ export class ManagedCluster extends pulumi.CustomResource {
             inputs["apiServerAccessProfile"] = args ? args.apiServerAccessProfile : undefined;
             inputs["autoScalerProfile"] = args ? args.autoScalerProfile : undefined;
             inputs["autoUpgradeProfile"] = args ? args.autoUpgradeProfile : undefined;
+            inputs["disableLocalAccounts"] = args ? args.disableLocalAccounts : undefined;
             inputs["diskEncryptionSetID"] = args ? args.diskEncryptionSetID : undefined;
             inputs["dnsPrefix"] = args ? args.dnsPrefix : undefined;
             inputs["enablePodSecurityPolicy"] = args ? args.enablePodSecurityPolicy : undefined;
             inputs["enableRBAC"] = args ? args.enableRBAC : undefined;
+            inputs["extendedLocation"] = args ? args.extendedLocation : undefined;
             inputs["fqdnSubdomain"] = args ? args.fqdnSubdomain : undefined;
+            inputs["httpProxyConfig"] = args ? args.httpProxyConfig : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["identityProfile"] = args ? args.identityProfile : undefined;
             inputs["kubernetesVersion"] = args ? args.kubernetesVersion : undefined;
@@ -199,6 +218,7 @@ export class ManagedCluster extends pulumi.CustomResource {
             inputs["networkProfile"] = args ? args.networkProfile : undefined;
             inputs["nodeResourceGroup"] = args ? args.nodeResourceGroup : undefined;
             inputs["podIdentityProfile"] = args ? args.podIdentityProfile : undefined;
+            inputs["privateLinkResources"] = args ? args.privateLinkResources : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["resourceName"] = args ? args.resourceName : undefined;
             inputs["servicePrincipalProfile"] = args ? args.servicePrincipalProfile : undefined;
@@ -221,12 +241,15 @@ export class ManagedCluster extends pulumi.CustomResource {
             inputs["autoScalerProfile"] = undefined /*out*/;
             inputs["autoUpgradeProfile"] = undefined /*out*/;
             inputs["azurePortalFQDN"] = undefined /*out*/;
+            inputs["disableLocalAccounts"] = undefined /*out*/;
             inputs["diskEncryptionSetID"] = undefined /*out*/;
             inputs["dnsPrefix"] = undefined /*out*/;
             inputs["enablePodSecurityPolicy"] = undefined /*out*/;
             inputs["enableRBAC"] = undefined /*out*/;
+            inputs["extendedLocation"] = undefined /*out*/;
             inputs["fqdn"] = undefined /*out*/;
             inputs["fqdnSubdomain"] = undefined /*out*/;
+            inputs["httpProxyConfig"] = undefined /*out*/;
             inputs["identity"] = undefined /*out*/;
             inputs["identityProfile"] = undefined /*out*/;
             inputs["kubernetesVersion"] = undefined /*out*/;
@@ -239,6 +262,7 @@ export class ManagedCluster extends pulumi.CustomResource {
             inputs["podIdentityProfile"] = undefined /*out*/;
             inputs["powerState"] = undefined /*out*/;
             inputs["privateFQDN"] = undefined /*out*/;
+            inputs["privateLinkResources"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["servicePrincipalProfile"] = undefined /*out*/;
             inputs["sku"] = undefined /*out*/;
@@ -249,7 +273,7 @@ export class ManagedCluster extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:containerservice/latest:ManagedCluster" }, { type: "azure-native:containerservice:ManagedCluster" }, { type: "azure-nextgen:containerservice:ManagedCluster" }, { type: "azure-native:containerservice/v20170831:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20170831:ManagedCluster" }, { type: "azure-native:containerservice/v20180331:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20180331:ManagedCluster" }, { type: "azure-native:containerservice/v20180801preview:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20180801preview:ManagedCluster" }, { type: "azure-native:containerservice/v20190201:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20190201:ManagedCluster" }, { type: "azure-native:containerservice/v20190401:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20190401:ManagedCluster" }, { type: "azure-native:containerservice/v20190601:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20190601:ManagedCluster" }, { type: "azure-native:containerservice/v20190801:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20190801:ManagedCluster" }, { type: "azure-native:containerservice/v20191001:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20191001:ManagedCluster" }, { type: "azure-native:containerservice/v20191101:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20191101:ManagedCluster" }, { type: "azure-native:containerservice/v20200101:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20200101:ManagedCluster" }, { type: "azure-native:containerservice/v20200201:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20200201:ManagedCluster" }, { type: "azure-native:containerservice/v20200301:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20200301:ManagedCluster" }, { type: "azure-native:containerservice/v20200401:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20200401:ManagedCluster" }, { type: "azure-native:containerservice/v20200601:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20200601:ManagedCluster" }, { type: "azure-native:containerservice/v20200701:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20200701:ManagedCluster" }, { type: "azure-native:containerservice/v20200901:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20200901:ManagedCluster" }, { type: "azure-native:containerservice/v20201101:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20201101:ManagedCluster" }, { type: "azure-native:containerservice/v20201201:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20201201:ManagedCluster" }, { type: "azure-native:containerservice/v20210201:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20210201:ManagedCluster" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:containerservice/latest:ManagedCluster" }, { type: "azure-native:containerservice:ManagedCluster" }, { type: "azure-nextgen:containerservice:ManagedCluster" }, { type: "azure-native:containerservice/v20170831:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20170831:ManagedCluster" }, { type: "azure-native:containerservice/v20180331:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20180331:ManagedCluster" }, { type: "azure-native:containerservice/v20180801preview:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20180801preview:ManagedCluster" }, { type: "azure-native:containerservice/v20190201:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20190201:ManagedCluster" }, { type: "azure-native:containerservice/v20190401:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20190401:ManagedCluster" }, { type: "azure-native:containerservice/v20190601:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20190601:ManagedCluster" }, { type: "azure-native:containerservice/v20190801:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20190801:ManagedCluster" }, { type: "azure-native:containerservice/v20191001:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20191001:ManagedCluster" }, { type: "azure-native:containerservice/v20191101:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20191101:ManagedCluster" }, { type: "azure-native:containerservice/v20200101:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20200101:ManagedCluster" }, { type: "azure-native:containerservice/v20200201:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20200201:ManagedCluster" }, { type: "azure-native:containerservice/v20200301:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20200301:ManagedCluster" }, { type: "azure-native:containerservice/v20200401:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20200401:ManagedCluster" }, { type: "azure-native:containerservice/v20200601:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20200601:ManagedCluster" }, { type: "azure-native:containerservice/v20200701:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20200701:ManagedCluster" }, { type: "azure-native:containerservice/v20200901:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20200901:ManagedCluster" }, { type: "azure-native:containerservice/v20201101:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20201101:ManagedCluster" }, { type: "azure-native:containerservice/v20201201:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20201201:ManagedCluster" }, { type: "azure-native:containerservice/v20210201:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20210201:ManagedCluster" }, { type: "azure-native:containerservice/v20210301:ManagedCluster" }, { type: "azure-nextgen:containerservice/v20210301:ManagedCluster" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ManagedCluster.__pulumiType, name, inputs, opts);
     }
@@ -284,6 +308,10 @@ export interface ManagedClusterArgs {
      */
     readonly autoUpgradeProfile?: pulumi.Input<inputs.containerservice.latest.ManagedClusterAutoUpgradeProfile>;
     /**
+     * If set to true, getting static credential will be disabled for this cluster. Expected to only be used for AAD clusters.
+     */
+    readonly disableLocalAccounts?: pulumi.Input<boolean>;
+    /**
      * ResourceId of the disk encryption set to use for enabling encryption at rest.
      */
     readonly diskEncryptionSetID?: pulumi.Input<string>;
@@ -300,9 +328,17 @@ export interface ManagedClusterArgs {
      */
     readonly enableRBAC?: pulumi.Input<boolean>;
     /**
+     * The extended location of the Virtual Machine.
+     */
+    readonly extendedLocation?: pulumi.Input<inputs.containerservice.latest.ExtendedLocation>;
+    /**
      * FQDN subdomain specified when creating private cluster with custom private dns zone.
      */
     readonly fqdnSubdomain?: pulumi.Input<string>;
+    /**
+     * Configurations for provisioning the cluster with HTTP proxy servers.
+     */
+    readonly httpProxyConfig?: pulumi.Input<inputs.containerservice.latest.ManagedClusterHTTPProxyConfig>;
     /**
      * The identity of the managed cluster, if configured.
      */
@@ -335,6 +371,10 @@ export interface ManagedClusterArgs {
      * Profile of managed cluster pod identity.
      */
     readonly podIdentityProfile?: pulumi.Input<inputs.containerservice.latest.ManagedClusterPodIdentityProfile>;
+    /**
+     * Private link resources associated with the cluster.
+     */
+    readonly privateLinkResources?: pulumi.Input<pulumi.Input<inputs.containerservice.latest.PrivateLinkResource>[]>;
     /**
      * The name of the resource group.
      */

@@ -111,7 +111,7 @@ def get_maintenance_configuration(config_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMaintenanceConfigurationResult:
     """
     maintenance configuration.
-    Latest API Version: 2021-02-01.
+    Latest API Version: 2021-03-01.
 
 
     :param str config_name: The name of the maintenance configuration.

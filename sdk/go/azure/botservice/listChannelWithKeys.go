@@ -8,7 +8,7 @@ import (
 )
 
 // Bot channel resource definition
-// API Version: 2020-06-02.
+// API Version: 2021-03-01.
 func ListChannelWithKeys(ctx *pulumi.Context, args *ListChannelWithKeysArgs, opts ...pulumi.InvokeOption) (*ListChannelWithKeysResult, error) {
 	var rv ListChannelWithKeysResult
 	err := ctx.Invoke("azure-native:botservice:listChannelWithKeys", args, &rv, opts...)

@@ -28,6 +28,12 @@ namespace Pulumi.AzureNative.ContainerService.Latest.Inputs
         public Input<string> AdminUsername { get; set; } = null!;
 
         /// <summary>
+        /// Whether to enable CSI proxy.
+        /// </summary>
+        [Input("enableCSIProxy")]
+        public Input<bool>? EnableCSIProxy { get; set; }
+
+        /// <summary>
         /// The licenseType to use for Windows VMs. Windows_Server is used to enable Azure Hybrid User Benefits for Windows VMs.
         /// </summary>
         [Input("licenseType")]

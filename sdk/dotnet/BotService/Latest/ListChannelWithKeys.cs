@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.BotService.Latest
     {
         /// <summary>
         /// Bot channel resource definition
-        /// Latest API Version: 2020-06-02.
+        /// Latest API Version: 2021-03-01.
         /// </summary>
         public static Task<ListChannelWithKeysResult> InvokeAsync(ListChannelWithKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListChannelWithKeysResult>("azure-native:botservice/latest:listChannelWithKeys", args ?? new ListChannelWithKeysArgs(), options.WithVersion());

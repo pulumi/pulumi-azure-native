@@ -111,7 +111,7 @@ def get_private_endpoint_connection(private_endpoint_connection_name: Optional[s
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionResult:
     """
     A private endpoint connection
-    Latest API Version: 2021-02-01.
+    Latest API Version: 2021-03-01.
 
 
     :param str private_endpoint_connection_name: The name of the private endpoint connection.

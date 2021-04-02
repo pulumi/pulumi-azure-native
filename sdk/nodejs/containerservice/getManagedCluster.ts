@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Managed cluster.
- * API Version: 2021-02-01.
+ * API Version: 2021-03-01.
  */
 export function getManagedCluster(args: GetManagedClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedClusterResult> {
     if (!opts) {
@@ -67,6 +67,10 @@ export interface GetManagedClusterResult {
      */
     readonly azurePortalFQDN: string;
     /**
+     * If set to true, getting static credential will be disabled for this cluster. Expected to only be used for AAD clusters.
+     */
+    readonly disableLocalAccounts?: boolean;
+    /**
      * ResourceId of the disk encryption set to use for enabling encryption at rest.
      */
     readonly diskEncryptionSetID?: string;
@@ -83,6 +87,10 @@ export interface GetManagedClusterResult {
      */
     readonly enableRBAC?: boolean;
     /**
+     * The extended location of the Virtual Machine.
+     */
+    readonly extendedLocation?: outputs.containerservice.ExtendedLocationResponse;
+    /**
      * FQDN for the master pool.
      */
     readonly fqdn: string;
@@ -90,6 +98,10 @@ export interface GetManagedClusterResult {
      * FQDN subdomain specified when creating private cluster with custom private dns zone.
      */
     readonly fqdnSubdomain?: string;
+    /**
+     * Configurations for provisioning the cluster with HTTP proxy servers.
+     */
+    readonly httpProxyConfig?: outputs.containerservice.ManagedClusterHTTPProxyConfigResponse;
     /**
      * Resource Id
      */
@@ -142,6 +154,10 @@ export interface GetManagedClusterResult {
      * FQDN of private cluster.
      */
     readonly privateFQDN: string;
+    /**
+     * Private link resources associated with the cluster.
+     */
+    readonly privateLinkResources?: outputs.containerservice.PrivateLinkResourceResponse[];
     /**
      * The current deployment or provisioning state, which only appears in the response.
      */
