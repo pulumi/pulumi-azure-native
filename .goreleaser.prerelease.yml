@@ -32,6 +32,6 @@ builds:
 changelog:
   skip: true
 release:
-  disable: true
+  prelrease: auto
 snapshot:
   name_template: '{{ .Tag }}-SNAPSHOT'
