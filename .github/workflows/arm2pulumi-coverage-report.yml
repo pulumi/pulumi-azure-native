@@ -4,6 +4,9 @@ name: arm2pulumi-coverage-report
     branches:
       - master
 
+env:
+  GITHUB_TOKEN: ${{ secrets.PULUMI_BOT_TOKEN }}
+  
 jobs:
   generate-coverage:
     name: prerequisites
