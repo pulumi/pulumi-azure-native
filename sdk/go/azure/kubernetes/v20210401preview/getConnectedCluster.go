@@ -54,6 +54,8 @@ type LookupConnectedClusterResult struct {
 	Offering string `pulumi:"offering"`
 	// The resource id of the private link scope this connected cluster is assigned to, if any.
 	PrivateLinkScopeResourceId *string `pulumi:"privateLinkScopeResourceId"`
+	// Property which describes the state of private link on a connected cluster resource.
+	PrivateLinkState *string `pulumi:"privateLinkState"`
 	// Provisioning state of the connected cluster resource.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// Metadata pertaining to creation and last modification of the resource

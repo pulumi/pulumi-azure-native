@@ -94,6 +94,12 @@ namespace Pulumi.AzureNative.Kubernetes.V20210401Preview
         public Output<string?> PrivateLinkScopeResourceId { get; private set; } = null!;
 
         /// <summary>
+        /// Property which describes the state of private link on a connected cluster resource.
+        /// </summary>
+        [Output("privateLinkState")]
+        public Output<string?> PrivateLinkState { get; private set; } = null!;
+
+        /// <summary>
         /// Provisioning state of the connected cluster resource.
         /// </summary>
         [Output("provisioningState")]
@@ -229,6 +235,12 @@ namespace Pulumi.AzureNative.Kubernetes.V20210401Preview
         public Input<string>? PrivateLinkScopeResourceId { get; set; }
 
         /// <summary>
+        /// Property which describes the state of private link on a connected cluster resource.
+        /// </summary>
+        [Input("privateLinkState")]
+        public InputUnion<string, Pulumi.AzureNative.Kubernetes.V20210401Preview.PrivateLinkState>? PrivateLinkState { get; set; }
+
+        /// <summary>
         /// Provisioning state of the connected cluster resource.
         /// </summary>
         [Input("provisioningState")]
@@ -254,6 +266,7 @@ namespace Pulumi.AzureNative.Kubernetes.V20210401Preview
 
         public ConnectedClusterArgs()
         {
+            PrivateLinkState = "Disabled";
         }
     }
 }

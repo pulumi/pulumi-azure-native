@@ -39,6 +39,37 @@ namespace Pulumi.AzureNative.Kubernetes.V20210401Preview
     }
 
     /// <summary>
+    /// Property which describes the state of private link on a connected cluster resource.
+    /// </summary>
+    [EnumType]
+    public readonly struct PrivateLinkState : IEquatable<PrivateLinkState>
+    {
+        private readonly string _value;
+
+        private PrivateLinkState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PrivateLinkState Enabled { get; } = new PrivateLinkState("Enabled");
+        public static PrivateLinkState Disabled { get; } = new PrivateLinkState("Disabled");
+
+        public static bool operator ==(PrivateLinkState left, PrivateLinkState right) => left.Equals(right);
+        public static bool operator !=(PrivateLinkState left, PrivateLinkState right) => !left.Equals(right);
+
+        public static explicit operator string(PrivateLinkState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PrivateLinkState other && Equals(other);
+        public bool Equals(PrivateLinkState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Provisioning state of the connected cluster resource.
     /// </summary>
     [EnumType]

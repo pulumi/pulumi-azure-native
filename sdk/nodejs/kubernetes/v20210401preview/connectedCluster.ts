@@ -88,6 +88,10 @@ export class ConnectedCluster extends pulumi.CustomResource {
      */
     public readonly privateLinkScopeResourceId!: pulumi.Output<string | undefined>;
     /**
+     * Property which describes the state of private link on a connected cluster resource.
+     */
+    public readonly privateLinkState!: pulumi.Output<string | undefined>;
+    /**
      * Provisioning state of the connected cluster resource.
      */
     public readonly provisioningState!: pulumi.Output<string | undefined>;
@@ -139,6 +143,7 @@ export class ConnectedCluster extends pulumi.CustomResource {
             inputs["infrastructure"] = args ? args.infrastructure : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["privateLinkScopeResourceId"] = args ? args.privateLinkScopeResourceId : undefined;
+            inputs["privateLinkState"] = (args ? args.privateLinkState : undefined) ?? "Disabled";
             inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -167,6 +172,7 @@ export class ConnectedCluster extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["offering"] = undefined /*out*/;
             inputs["privateLinkScopeResourceId"] = undefined /*out*/;
+            inputs["privateLinkState"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["systemData"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
@@ -215,6 +221,10 @@ export interface ConnectedClusterArgs {
      * The resource id of the private link scope this connected cluster is assigned to, if any.
      */
     readonly privateLinkScopeResourceId?: pulumi.Input<string>;
+    /**
+     * Property which describes the state of private link on a connected cluster resource.
+     */
+    readonly privateLinkState?: pulumi.Input<string | enums.kubernetes.v20210401preview.PrivateLinkState>;
     /**
      * Provisioning state of the connected cluster resource.
      */

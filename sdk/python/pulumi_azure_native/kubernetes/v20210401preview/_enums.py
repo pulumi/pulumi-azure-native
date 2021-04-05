@@ -6,6 +6,7 @@ from enum import Enum
 
 __all__ = [
     'AuthenticationMethod',
+    'PrivateLinkState',
     'ProvisioningState',
     'ResourceIdentityType',
 ]
@@ -17,6 +18,14 @@ class AuthenticationMethod(str, Enum):
     """
     TOKEN = "Token"
     AAD = "AAD"
+
+
+class PrivateLinkState(str, Enum):
+    """
+    Property which describes the state of private link on a connected cluster resource.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 class ProvisioningState(str, Enum):

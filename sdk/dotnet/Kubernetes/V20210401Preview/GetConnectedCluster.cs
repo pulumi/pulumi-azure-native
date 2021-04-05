@@ -99,6 +99,10 @@ namespace Pulumi.AzureNative.Kubernetes.V20210401Preview
         /// </summary>
         public readonly string? PrivateLinkScopeResourceId;
         /// <summary>
+        /// Property which describes the state of private link on a connected cluster resource.
+        /// </summary>
+        public readonly string? PrivateLinkState;
+        /// <summary>
         /// Provisioning state of the connected cluster resource.
         /// </summary>
         public readonly string? ProvisioningState;
@@ -153,6 +157,8 @@ namespace Pulumi.AzureNative.Kubernetes.V20210401Preview
 
             string? privateLinkScopeResourceId,
 
+            string? privateLinkState,
+
             string? provisioningState,
 
             Outputs.SystemDataResponse systemData,
@@ -179,6 +185,7 @@ namespace Pulumi.AzureNative.Kubernetes.V20210401Preview
             Name = name;
             Offering = offering;
             PrivateLinkScopeResourceId = privateLinkScopeResourceId;
+            PrivateLinkState = privateLinkState;
             ProvisioningState = provisioningState;
             SystemData = systemData;
             Tags = tags;

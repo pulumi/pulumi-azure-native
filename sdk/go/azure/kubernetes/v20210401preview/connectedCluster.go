@@ -41,6 +41,8 @@ type ConnectedCluster struct {
 	Offering pulumi.StringOutput `pulumi:"offering"`
 	// The resource id of the private link scope this connected cluster is assigned to, if any.
 	PrivateLinkScopeResourceId pulumi.StringPtrOutput `pulumi:"privateLinkScopeResourceId"`
+	// Property which describes the state of private link on a connected cluster resource.
+	PrivateLinkState pulumi.StringPtrOutput `pulumi:"privateLinkState"`
 	// Provisioning state of the connected cluster resource.
 	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
 	// Metadata pertaining to creation and last modification of the resource
@@ -70,6 +72,9 @@ func NewConnectedCluster(ctx *pulumi.Context,
 	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.PrivateLinkState == nil {
+		args.PrivateLinkState = pulumi.StringPtr("Disabled")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -149,6 +154,8 @@ type connectedClusterState struct {
 	Offering *string `pulumi:"offering"`
 	// The resource id of the private link scope this connected cluster is assigned to, if any.
 	PrivateLinkScopeResourceId *string `pulumi:"privateLinkScopeResourceId"`
+	// Property which describes the state of private link on a connected cluster resource.
+	PrivateLinkState *string `pulumi:"privateLinkState"`
 	// Provisioning state of the connected cluster resource.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// Metadata pertaining to creation and last modification of the resource
@@ -190,6 +197,8 @@ type ConnectedClusterState struct {
 	Offering pulumi.StringPtrInput
 	// The resource id of the private link scope this connected cluster is assigned to, if any.
 	PrivateLinkScopeResourceId pulumi.StringPtrInput
+	// Property which describes the state of private link on a connected cluster resource.
+	PrivateLinkState pulumi.StringPtrInput
 	// Provisioning state of the connected cluster resource.
 	ProvisioningState pulumi.StringPtrInput
 	// Metadata pertaining to creation and last modification of the resource
@@ -223,6 +232,8 @@ type connectedClusterArgs struct {
 	Location *string `pulumi:"location"`
 	// The resource id of the private link scope this connected cluster is assigned to, if any.
 	PrivateLinkScopeResourceId *string `pulumi:"privateLinkScopeResourceId"`
+	// Property which describes the state of private link on a connected cluster resource.
+	PrivateLinkState *string `pulumi:"privateLinkState"`
 	// Provisioning state of the connected cluster resource.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the resource group. The name is case insensitive.
@@ -247,6 +258,8 @@ type ConnectedClusterArgs struct {
 	Location pulumi.StringPtrInput
 	// The resource id of the private link scope this connected cluster is assigned to, if any.
 	PrivateLinkScopeResourceId pulumi.StringPtrInput
+	// Property which describes the state of private link on a connected cluster resource.
+	PrivateLinkState pulumi.StringPtrInput
 	// Provisioning state of the connected cluster resource.
 	ProvisioningState pulumi.StringPtrInput
 	// The name of the resource group. The name is case insensitive.

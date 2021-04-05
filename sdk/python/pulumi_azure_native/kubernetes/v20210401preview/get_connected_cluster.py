@@ -20,7 +20,7 @@ class GetConnectedClusterResult:
     """
     Represents a connected cluster.
     """
-    def __init__(__self__, agent_public_key_certificate=None, agent_version=None, connectivity_status=None, distribution=None, id=None, identity=None, infrastructure=None, kubernetes_version=None, last_connectivity_time=None, location=None, managed_identity_certificate_expiration_time=None, name=None, offering=None, private_link_scope_resource_id=None, provisioning_state=None, system_data=None, tags=None, total_core_count=None, total_node_count=None, type=None):
+    def __init__(__self__, agent_public_key_certificate=None, agent_version=None, connectivity_status=None, distribution=None, id=None, identity=None, infrastructure=None, kubernetes_version=None, last_connectivity_time=None, location=None, managed_identity_certificate_expiration_time=None, name=None, offering=None, private_link_scope_resource_id=None, private_link_state=None, provisioning_state=None, system_data=None, tags=None, total_core_count=None, total_node_count=None, type=None):
         if agent_public_key_certificate and not isinstance(agent_public_key_certificate, str):
             raise TypeError("Expected argument 'agent_public_key_certificate' to be a str")
         pulumi.set(__self__, "agent_public_key_certificate", agent_public_key_certificate)
@@ -63,6 +63,9 @@ class GetConnectedClusterResult:
         if private_link_scope_resource_id and not isinstance(private_link_scope_resource_id, str):
             raise TypeError("Expected argument 'private_link_scope_resource_id' to be a str")
         pulumi.set(__self__, "private_link_scope_resource_id", private_link_scope_resource_id)
+        if private_link_state and not isinstance(private_link_state, str):
+            raise TypeError("Expected argument 'private_link_state' to be a str")
+        pulumi.set(__self__, "private_link_state", private_link_state)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -195,6 +198,14 @@ class GetConnectedClusterResult:
         return pulumi.get(self, "private_link_scope_resource_id")
 
     @property
+    @pulumi.getter(name="privateLinkState")
+    def private_link_state(self) -> Optional[str]:
+        """
+        Property which describes the state of private link on a connected cluster resource.
+        """
+        return pulumi.get(self, "private_link_state")
+
+    @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> Optional[str]:
         """
@@ -263,6 +274,7 @@ class AwaitableGetConnectedClusterResult(GetConnectedClusterResult):
             name=self.name,
             offering=self.offering,
             private_link_scope_resource_id=self.private_link_scope_resource_id,
+            private_link_state=self.private_link_state,
             provisioning_state=self.provisioning_state,
             system_data=self.system_data,
             tags=self.tags,
@@ -305,6 +317,7 @@ def get_connected_cluster(cluster_name: Optional[str] = None,
         name=__ret__.name,
         offering=__ret__.offering,
         private_link_scope_resource_id=__ret__.private_link_scope_resource_id,
+        private_link_state=__ret__.private_link_state,
         provisioning_state=__ret__.provisioning_state,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
