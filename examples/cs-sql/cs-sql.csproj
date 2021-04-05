@@ -6,8 +6,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Pulumi" Version="2.*" />
-  </ItemGroup>
-
 </Project>

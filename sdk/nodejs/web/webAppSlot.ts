@@ -257,10 +257,7 @@ export class WebAppSlot extends pulumi.CustomResource {
             inputs["hyperV"] = (args ? args.hyperV : undefined) ?? false;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["isXenon"] = (args ? args.isXenon : undefined) ?? false;
-<<<<<<< HEAD
             inputs["keyVaultReferenceIdentity"] = args ? args.keyVaultReferenceIdentity : undefined;
-=======
->>>>>>> d6994fce16 (Regenerate SDK based on pulumi v3)
             inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
