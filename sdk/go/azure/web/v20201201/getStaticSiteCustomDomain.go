@@ -4,7 +4,7 @@
 package v20201201
 
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Static Site Custom Domain Overview ARM resource.

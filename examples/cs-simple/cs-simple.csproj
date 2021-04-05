@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Azure.Management.Storage" Version="17.2.0" />
-    <PackageReference Include="Pulumi" Version="2.*" />
   </ItemGroup>
 
 </Project>
