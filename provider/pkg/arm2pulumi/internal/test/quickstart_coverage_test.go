@@ -107,7 +107,7 @@ type Result struct {
 }
 
 type OverallResult struct {
-	NoErrors, LowSevErrors, HighSevErrors, Fatal 	Result
+	NoErrors, LowSevErrors, HighSevErrors, Fatal Result
 	Total int
 }
 

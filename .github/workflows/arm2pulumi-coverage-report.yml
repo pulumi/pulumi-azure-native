@@ -46,4 +46,10 @@ jobs:
         run: make provider
       - name: Generate coverage report
         run: make arm2pulumi_coverage_report
+      - name: test usage of results.json
+        run: cat provider/pkg/arm2pulumi/internal/test/results.json
+      
+      # Can use this to output result
+      # - name: 
+      #   run: output.txt
 
