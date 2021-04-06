@@ -101,6 +101,16 @@ type Diag struct {
 //	summarize(t, diagList)
 //}
 
+type Result struct {
+	Number int
+	Pct float32
+}
+
+type OverallResult struct {
+	NoErrors, LowSevErrors, HighSevErrors, Fatal 	Result
+	Total int
+}
+
 func summarize(t *testing.T, diagList []Diag) {
 	jsonOutputLocation := filepath.Join(*testOutputDir, "summary.json")
 	marshalled, err := json.MarshalIndent(diagList, "", "\t")
@@ -161,6 +171,23 @@ CREATE TABLE errors(
 
 	row = db.QueryRow(`SELECT COUNT(DISTINCT template) FROM errors WHERE severity is NULL`)
 	require.NoError(t, row.Scan(&success))
+
+	// Stores the overall results in a JSON object to compare in future tests.
+	data := OverallResult{
+		NoErrors: Result{success, float32(success)/float32(numTemplates)*100.0},
+		LowSevErrors: Result{medSevErrors, float32(medSevErrors)/float32(numTemplates)*100.0},
+		HighSevErrors: Result{highSevErrors, float32(highSevErrors)/float32(numTemplates)*100.0},
+		Fatal: Result{fatalErrors, float32(fatalErrors)/float32(numTemplates)*100.0},
+		Total: numTemplates,
+	}
+
+	file, err := json.MarshalIndent(data, "", "\t")
+	require.NoError(t, err)
+	
+	// Stores JSON result in "results.json" file in current directory.
+	err = ioutil.WriteFile("results.json", file, 0600)
+	require.NoError(t, err)
+
 
 	table := tablewriter.NewWriter(os.Stdout)
 	table.SetCaption(true, "Overall Summary of Conversions")

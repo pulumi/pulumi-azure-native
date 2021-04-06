@@ -1,0 +1,19 @@
+{
+	"NoErrors": {
+		"Number": 91,
+		"Pct": 23.636364
+	},
+	"LowSevErrors": {
+		"Number": 230,
+		"Pct": 59.740257
+	},
+	"HighSevErrors": {
+		"Number": 58,
+		"Pct": 15.064936
+	},
+	"Fatal": {
+		"Number": 52,
+		"Pct": 13.506493
+	},
+	"Total": 385
+}
