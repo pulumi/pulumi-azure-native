@@ -75,6 +75,8 @@ namespace Pulumi.AzureNative.AppPlatform.Latest
                     new Pulumi.Alias { Type = "azure-nextgen:appplatform/v20200701:Deployment"},
                     new Pulumi.Alias { Type = "azure-native:appplatform/v20201101preview:Deployment"},
                     new Pulumi.Alias { Type = "azure-nextgen:appplatform/v20201101preview:Deployment"},
+                    new Pulumi.Alias { Type = "azure-native:appplatform/v20210303preview:Deployment"},
+                    new Pulumi.Alias { Type = "azure-nextgen:appplatform/v20210303preview:Deployment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

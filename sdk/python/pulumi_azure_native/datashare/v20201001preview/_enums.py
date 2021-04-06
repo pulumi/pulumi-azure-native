@@ -26,12 +26,13 @@ class DataSetKind(str, Enum):
     ADLS_GEN2_FILE = "AdlsGen2File"
     ADLS_GEN1_FOLDER = "AdlsGen1Folder"
     ADLS_GEN1_FILE = "AdlsGen1File"
-    STORAGE_ACCOUNT = "StorageAccount"
+    ADLS_GEN2_STORAGE_ACCOUNT = "AdlsGen2StorageAccount"
     KUSTO_CLUSTER = "KustoCluster"
     KUSTO_DATABASE = "KustoDatabase"
     SQL_DB_TABLE = "SqlDBTable"
     SQL_DW_TABLE = "SqlDWTable"
     SYNAPSE_WORKSPACE_SQL_POOL_TABLE = "SynapseWorkspaceSqlPoolTable"
+    BLOB_STORAGE_ACCOUNT = "BlobStorageAccount"
 
 
 class DataSetMappingKind(str, Enum):
@@ -44,12 +45,13 @@ class DataSetMappingKind(str, Enum):
     ADLS_GEN2_FILE_SYSTEM = "AdlsGen2FileSystem"
     ADLS_GEN2_FOLDER = "AdlsGen2Folder"
     ADLS_GEN2_FILE = "AdlsGen2File"
-    STORAGE_ACCOUNT = "StorageAccount"
+    ADLS_GEN2_STORAGE_ACCOUNT = "AdlsGen2StorageAccount"
     KUSTO_CLUSTER = "KustoCluster"
     KUSTO_DATABASE = "KustoDatabase"
     SQL_DB_TABLE = "SqlDBTable"
     SQL_DW_TABLE = "SqlDWTable"
     SYNAPSE_WORKSPACE_SQL_POOL_TABLE = "SynapseWorkspaceSqlPoolTable"
+    BLOB_STORAGE_ACCOUNT = "BlobStorageAccount"
 
 
 class ShareKind(str, Enum):

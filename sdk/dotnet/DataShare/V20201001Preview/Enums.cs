@@ -28,12 +28,13 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
         public static DataSetKind AdlsGen2File { get; } = new DataSetKind("AdlsGen2File");
         public static DataSetKind AdlsGen1Folder { get; } = new DataSetKind("AdlsGen1Folder");
         public static DataSetKind AdlsGen1File { get; } = new DataSetKind("AdlsGen1File");
-        public static DataSetKind StorageAccount { get; } = new DataSetKind("StorageAccount");
+        public static DataSetKind AdlsGen2StorageAccount { get; } = new DataSetKind("AdlsGen2StorageAccount");
         public static DataSetKind KustoCluster { get; } = new DataSetKind("KustoCluster");
         public static DataSetKind KustoDatabase { get; } = new DataSetKind("KustoDatabase");
         public static DataSetKind SqlDBTable { get; } = new DataSetKind("SqlDBTable");
         public static DataSetKind SqlDWTable { get; } = new DataSetKind("SqlDWTable");
         public static DataSetKind SynapseWorkspaceSqlPoolTable { get; } = new DataSetKind("SynapseWorkspaceSqlPoolTable");
+        public static DataSetKind BlobStorageAccount { get; } = new DataSetKind("BlobStorageAccount");
 
         public static bool operator ==(DataSetKind left, DataSetKind right) => left.Equals(right);
         public static bool operator !=(DataSetKind left, DataSetKind right) => !left.Equals(right);
@@ -69,12 +70,13 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
         public static DataSetMappingKind AdlsGen2FileSystem { get; } = new DataSetMappingKind("AdlsGen2FileSystem");
         public static DataSetMappingKind AdlsGen2Folder { get; } = new DataSetMappingKind("AdlsGen2Folder");
         public static DataSetMappingKind AdlsGen2File { get; } = new DataSetMappingKind("AdlsGen2File");
-        public static DataSetMappingKind StorageAccount { get; } = new DataSetMappingKind("StorageAccount");
+        public static DataSetMappingKind AdlsGen2StorageAccount { get; } = new DataSetMappingKind("AdlsGen2StorageAccount");
         public static DataSetMappingKind KustoCluster { get; } = new DataSetMappingKind("KustoCluster");
         public static DataSetMappingKind KustoDatabase { get; } = new DataSetMappingKind("KustoDatabase");
         public static DataSetMappingKind SqlDBTable { get; } = new DataSetMappingKind("SqlDBTable");
         public static DataSetMappingKind SqlDWTable { get; } = new DataSetMappingKind("SqlDWTable");
         public static DataSetMappingKind SynapseWorkspaceSqlPoolTable { get; } = new DataSetMappingKind("SynapseWorkspaceSqlPoolTable");
+        public static DataSetMappingKind BlobStorageAccount { get; } = new DataSetMappingKind("BlobStorageAccount");
 
         public static bool operator ==(DataSetMappingKind left, DataSetMappingKind right) => left.Equals(right);
         public static bool operator !=(DataSetMappingKind left, DataSetMappingKind right) => !left.Equals(right);

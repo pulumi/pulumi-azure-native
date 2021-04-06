@@ -8,7 +8,7 @@ import (
 )
 
 // Base class for backup ProtectionIntent.
-// API Version: 2017-07-01.
+// API Version: 2021-02-01.
 func LookupProtectionIntent(ctx *pulumi.Context, args *LookupProtectionIntentArgs, opts ...pulumi.InvokeOption) (*LookupProtectionIntentResult, error) {
 	var rv LookupProtectionIntentResult
 	err := ctx.Invoke("azure-native:recoveryservices:getProtectionIntent", args, &rv, opts...)

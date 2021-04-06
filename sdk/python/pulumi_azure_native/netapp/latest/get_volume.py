@@ -224,7 +224,7 @@ class GetVolumeResult:
     @pulumi.getter(name="protocolTypes")
     def protocol_types(self) -> Optional[Sequence[str]]:
         """
-        Set of protocol types, default NFSv3, CIFS fro SMB protocol
+        Set of protocol types, default NFSv3, CIFS for SMB protocol
         """
         return pulumi.get(self, "protocol_types")
 

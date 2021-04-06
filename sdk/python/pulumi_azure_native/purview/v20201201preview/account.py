@@ -77,6 +77,7 @@ class Account(pulumi.CustomResource):
             __props__['name'] = None
             __props__['private_endpoint_connections'] = None
             __props__['provisioning_state'] = None
+            __props__['system_data'] = None
             __props__['type'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:purview/v20201201preview:Account"), pulumi.Alias(type_="azure-native:purview:Account"), pulumi.Alias(type_="azure-nextgen:purview:Account")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -116,6 +117,7 @@ class Account(pulumi.CustomResource):
         __props__["provisioning_state"] = None
         __props__["public_network_access"] = None
         __props__["sku"] = None
+        __props__["system_data"] = None
         __props__["tags"] = None
         __props__["type"] = None
         return Account(resource_name, opts=opts, __props__=__props__)
@@ -232,6 +234,14 @@ class Account(pulumi.CustomResource):
         Gets or sets the Sku.
         """
         return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.AccountPropertiesResponseSystemData']:
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

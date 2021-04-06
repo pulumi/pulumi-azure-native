@@ -62,6 +62,10 @@ export interface GetSensorResult {
      */
     readonly sensorStatus: string;
     /**
+     * Type of sensor
+     */
+    readonly sensorType?: string;
+    /**
      * Version of the IoT sensor
      */
     readonly sensorVersion: string;

@@ -18,8 +18,14 @@ namespace Pulumi.AzureNative.PowerPlatform.V20201030Preview.Inputs
         /// <summary>
         /// Key vault properties.
         /// </summary>
-        [Input("keyVaultProperties")]
-        public Input<Inputs.KeyVaultPropertiesArgs>? KeyVaultProperties { get; set; }
+        [Input("keyVault")]
+        public Input<Inputs.KeyVaultPropertiesArgs>? KeyVault { get; set; }
+
+        /// <summary>
+        /// The state of onboarding, which only appears in the response.
+        /// </summary>
+        [Input("state")]
+        public InputUnion<string, Pulumi.AzureNative.PowerPlatform.V20201030Preview.State>? State { get; set; }
 
         public PropertiesEncryptionArgs()
         {

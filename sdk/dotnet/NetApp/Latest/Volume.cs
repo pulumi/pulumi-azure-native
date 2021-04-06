@@ -96,7 +96,7 @@ namespace Pulumi.AzureNative.NetApp.Latest
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Set of protocol types, default NFSv3, CIFS fro SMB protocol
+        /// Set of protocol types, default NFSv3, CIFS for SMB protocol
         /// </summary>
         [Output("protocolTypes")]
         public Output<ImmutableArray<string>> ProtocolTypes { get; private set; } = null!;
@@ -329,7 +329,7 @@ namespace Pulumi.AzureNative.NetApp.Latest
         private InputList<string>? _protocolTypes;
 
         /// <summary>
-        /// Set of protocol types, default NFSv3, CIFS fro SMB protocol
+        /// Set of protocol types, default NFSv3, CIFS for SMB protocol
         /// </summary>
         public InputList<string> ProtocolTypes
         {

@@ -58,6 +58,8 @@ type LookupAccountResult struct {
 	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// Gets or sets the Sku.
 	Sku *AccountSkuResponse `pulumi:"sku"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData AccountPropertiesResponseSystemData `pulumi:"systemData"`
 	// Tags on the azure resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Gets or sets the type.

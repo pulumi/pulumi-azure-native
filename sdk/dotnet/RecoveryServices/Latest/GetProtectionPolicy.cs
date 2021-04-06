@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Latest
     {
         /// <summary>
         /// Base class for backup policy. Workload-specific backup policies are derived from this class.
-        /// Latest API Version: 2021-01-01.
+        /// Latest API Version: 2021-02-01.
         /// </summary>
         public static Task<GetProtectionPolicyResult> InvokeAsync(GetProtectionPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetProtectionPolicyResult>("azure-native:recoveryservices/latest:getProtectionPolicy", args ?? new GetProtectionPolicyArgs(), options.WithVersion());

@@ -12,7 +12,7 @@ import (
 )
 
 // Base class for backup ProtectionIntent.
-// Latest API Version: 2017-07-01.
+// Latest API Version: 2021-02-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:recoveryservices:ProtectionIntent'.
 type ProtectionIntent struct {

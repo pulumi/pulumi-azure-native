@@ -68,6 +68,10 @@ namespace Pulumi.AzureNative.IoTSecurity
         /// </summary>
         public readonly string SensorStatus;
         /// <summary>
+        /// Type of sensor
+        /// </summary>
+        public readonly string? SensorType;
+        /// <summary>
         /// Version of the IoT sensor
         /// </summary>
         public readonly string SensorVersion;
@@ -110,6 +114,8 @@ namespace Pulumi.AzureNative.IoTSecurity
 
             string sensorStatus,
 
+            string? sensorType,
+
             string sensorVersion,
 
             Outputs.SystemDataResponse systemData,
@@ -130,6 +136,7 @@ namespace Pulumi.AzureNative.IoTSecurity
             LearningMode = learningMode;
             Name = name;
             SensorStatus = sensorStatus;
+            SensorType = sensorType;
             SensorVersion = sensorVersion;
             SystemData = systemData;
             TiAutomaticUpdates = tiAutomaticUpdates;

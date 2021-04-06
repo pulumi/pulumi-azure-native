@@ -22,3 +22,14 @@ export const ResourceIdentityType = {
  * The type of identity used for the EnterprisePolicy. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.
  */
 export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
+
+export const State = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+    NotConfigured: "NotConfigured",
+} as const;
+
+/**
+ * lockbox configuration
+ */
+export type State = (typeof State)[keyof typeof State];

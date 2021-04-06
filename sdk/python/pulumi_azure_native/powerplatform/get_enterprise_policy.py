@@ -20,7 +20,7 @@ class GetEnterprisePolicyResult:
     """
     Definition of the EnterprisePolicy.
     """
-    def __init__(__self__, encryption=None, id=None, identity=None, location=None, lockbox=None, name=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, encryption=None, id=None, identity=None, location=None, lockbox=None, name=None, network_injection=None, system_data=None, tags=None, type=None):
         if encryption and not isinstance(encryption, dict):
             raise TypeError("Expected argument 'encryption' to be a dict")
         pulumi.set(__self__, "encryption", encryption)
@@ -39,6 +39,9 @@ class GetEnterprisePolicyResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if network_injection and not isinstance(network_injection, dict):
+            raise TypeError("Expected argument 'network_injection' to be a dict")
+        pulumi.set(__self__, "network_injection", network_injection)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -98,6 +101,14 @@ class GetEnterprisePolicyResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="networkInjection")
+    def network_injection(self) -> Optional['outputs.PropertiesResponseNetworkInjection']:
+        """
+        Settings concerning network injection.
+        """
+        return pulumi.get(self, "network_injection")
+
+    @property
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
@@ -134,6 +145,7 @@ class AwaitableGetEnterprisePolicyResult(GetEnterprisePolicyResult):
             location=self.location,
             lockbox=self.lockbox,
             name=self.name,
+            network_injection=self.network_injection,
             system_data=self.system_data,
             tags=self.tags,
             type=self.type)
@@ -166,6 +178,7 @@ def get_enterprise_policy(enterprise_policy_name: Optional[str] = None,
         location=__ret__.location,
         lockbox=__ret__.lockbox,
         name=__ret__.name,
+        network_injection=__ret__.network_injection,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)

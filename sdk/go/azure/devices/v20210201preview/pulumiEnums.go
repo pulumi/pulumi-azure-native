@@ -287,7 +287,7 @@ type ResourceIdentityType pulumi.String
 const (
 	ResourceIdentityTypeSystemAssigned               = ResourceIdentityType("SystemAssigned")
 	ResourceIdentityTypeUserAssigned                 = ResourceIdentityType("UserAssigned")
-	ResourceIdentityType_SystemAssigned_UserAssigned = ResourceIdentityType("SystemAssigned,UserAssigned")
+	ResourceIdentityType_SystemAssigned_UserAssigned = ResourceIdentityType("SystemAssigned, UserAssigned")
 	ResourceIdentityTypeNone                         = ResourceIdentityType("None")
 )
 

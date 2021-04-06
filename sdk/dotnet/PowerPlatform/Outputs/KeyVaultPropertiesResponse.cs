@@ -21,22 +21,15 @@ namespace Pulumi.AzureNative.PowerPlatform.Outputs
         /// Identity of the secret that includes name and version.
         /// </summary>
         public readonly Outputs.KeyPropertiesResponse? Key;
-        /// <summary>
-        /// The state of onboarding, which only appears in the response.
-        /// </summary>
-        public readonly string Status;
 
         [OutputConstructor]
         private KeyVaultPropertiesResponse(
             string? id,
 
-            Outputs.KeyPropertiesResponse? key,
-
-            string status)
+            Outputs.KeyPropertiesResponse? key)
         {
             Id = id;
             Key = key;
-            Status = status;
         }
     }
 }

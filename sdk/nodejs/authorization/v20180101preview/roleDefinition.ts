@@ -99,7 +99,7 @@ export class RoleDefinition extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:authorization/v20180101preview:RoleDefinition" }, { type: "azure-native:authorization:RoleDefinition" }, { type: "azure-nextgen:authorization:RoleDefinition" }, { type: "azure-native:authorization/latest:RoleDefinition" }, { type: "azure-nextgen:authorization/latest:RoleDefinition" }, { type: "azure-native:authorization/v20150701:RoleDefinition" }, { type: "azure-nextgen:authorization/v20150701:RoleDefinition" }, { type: "azure-native:authorization/v20200301preview:RoleDefinition" }, { type: "azure-nextgen:authorization/v20200301preview:RoleDefinition" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:authorization/v20180101preview:RoleDefinition" }, { type: "azure-native:authorization:RoleDefinition" }, { type: "azure-nextgen:authorization:RoleDefinition" }, { type: "azure-native:authorization/latest:RoleDefinition" }, { type: "azure-nextgen:authorization/latest:RoleDefinition" }, { type: "azure-native:authorization/v20150701:RoleDefinition" }, { type: "azure-nextgen:authorization/v20150701:RoleDefinition" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RoleDefinition.__pulumiType, name, inputs, opts);
     }

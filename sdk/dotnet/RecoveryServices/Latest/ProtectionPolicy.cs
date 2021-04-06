@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Latest
 {
     /// <summary>
     /// Base class for backup policy. Workload-specific backup policies are derived from this class.
-    /// Latest API Version: 2021-01-01.
+    /// Latest API Version: 2021-02-01.
     /// </summary>
     [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:recoveryservices:ProtectionPolicy'.")]
     [AzureNativeResourceType("azure-native:recoveryservices/latest:ProtectionPolicy")]

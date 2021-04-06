@@ -124,7 +124,7 @@ def get_protection_intent(fabric_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProtectionIntentResult:
     """
     Base class for backup ProtectionIntent.
-    Latest API Version: 2017-07-01.
+    Latest API Version: 2021-02-01.
 
 
     :param str fabric_name: Fabric name associated with the backed up item.

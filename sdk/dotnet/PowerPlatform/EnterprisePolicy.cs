@@ -47,6 +47,12 @@ namespace Pulumi.AzureNative.PowerPlatform
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Settings concerning network injection.
+        /// </summary>
+        [Output("networkInjection")]
+        public Output<Outputs.PropertiesResponseNetworkInjection?> NetworkInjection { get; private set; } = null!;
+
+        /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
         [Output("systemData")]
@@ -138,6 +144,18 @@ namespace Pulumi.AzureNative.PowerPlatform
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// Settings concerning lockbox.
+        /// </summary>
+        [Input("lockbox")]
+        public Input<Inputs.PropertiesLockboxArgs>? Lockbox { get; set; }
+
+        /// <summary>
+        /// Settings concerning network injection.
+        /// </summary>
+        [Input("networkInjection")]
+        public Input<Inputs.PropertiesNetworkInjectionArgs>? NetworkInjection { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

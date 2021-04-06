@@ -94,6 +94,10 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly sku!: pulumi.Output<outputs.purview.AccountSkuResponse | undefined>;
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.purview.AccountPropertiesResponseSystemData>;
+    /**
      * Tags on the azure resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -133,6 +137,7 @@ export class Account extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["privateEndpointConnections"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["cloudConnectors"] = undefined /*out*/;
@@ -149,6 +154,7 @@ export class Account extends pulumi.CustomResource {
             inputs["provisioningState"] = undefined /*out*/;
             inputs["publicNetworkAccess"] = undefined /*out*/;
             inputs["sku"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }

@@ -6,11 +6,9 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./accessReviewScheduleDefinitionById";
-export * from "./denyAssignment";
 export * from "./getAccessReviewScheduleDefinitionById";
 export * from "./getClientConfig";
 export * from "./getClientToken";
-export * from "./getDenyAssignment";
 export * from "./getManagementLockAtResourceGroupLevel";
 export * from "./getManagementLockAtResourceLevel";
 export * from "./getManagementLockAtSubscriptionLevel";
@@ -98,7 +96,6 @@ export {
 
 // Import resources to register:
 import { AccessReviewScheduleDefinitionById } from "./accessReviewScheduleDefinitionById";
-import { DenyAssignment } from "./denyAssignment";
 import { ManagementLockAtResourceGroupLevel } from "./managementLockAtResourceGroupLevel";
 import { ManagementLockAtResourceLevel } from "./managementLockAtResourceLevel";
 import { ManagementLockAtSubscriptionLevel } from "./managementLockAtSubscriptionLevel";
@@ -119,8 +116,6 @@ const _module = {
         switch (type) {
             case "azure-native:authorization:AccessReviewScheduleDefinitionById":
                 return new AccessReviewScheduleDefinitionById(name, <any>undefined, { urn })
-            case "azure-native:authorization:DenyAssignment":
-                return new DenyAssignment(name, <any>undefined, { urn })
             case "azure-native:authorization:ManagementLockAtResourceGroupLevel":
                 return new ManagementLockAtResourceGroupLevel(name, <any>undefined, { urn })
             case "azure-native:authorization:ManagementLockAtResourceLevel":

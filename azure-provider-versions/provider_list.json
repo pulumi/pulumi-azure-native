@@ -36464,7 +36464,7 @@
           "2020-07-01-privatepreview",
           "2020-07-01-preview"
         ],
-        "capabilities": "CrossResourceGroupResourceMove, CrossSubscriptionResourceMove, SystemAssignedResourceIdentity, SupportsTags, SupportsLocation",
+        "capabilities": "SystemAssignedResourceIdentity, SupportsTags, SupportsLocation",
         "defaultApiVersion": null,
         "locationMappings": null,
         "locations": [
@@ -47166,6 +47166,8 @@
           }
         ],
         "apiVersions": [
+          "2021-02-01-preview",
+          "2021-02-01",
           "2021-01-01",
           "2020-12-01",
           "2020-10-01",
@@ -47245,6 +47247,8 @@
           }
         ],
         "apiVersions": [
+          "2021-02-01-preview",
+          "2021-02-01",
           "2021-01-01",
           "2020-12-01",
           "2020-10-01",
@@ -54391,7 +54395,9 @@
           "UAE North",
           "Central India",
           "Korea Central",
-          "East Asia"
+          "East Asia",
+          "Japan East",
+          "South Africa North"
         ],
         "properties": null,
         "resourceType": "Spring"
@@ -54424,7 +54430,9 @@
           "UAE North",
           "Central India",
           "Korea Central",
-          "East Asia"
+          "East Asia",
+          "Japan East",
+          "South Africa North"
         ],
         "properties": null,
         "resourceType": "Spring/apps"
@@ -54457,7 +54465,9 @@
           "UAE North",
           "Central India",
           "Korea Central",
-          "East Asia"
+          "East Asia",
+          "Japan East",
+          "South Africa North"
         ],
         "properties": null,
         "resourceType": "Spring/apps/deployments"
@@ -54490,7 +54500,9 @@
           "UAE North",
           "Central India",
           "Korea Central",
-          "East Asia"
+          "East Asia",
+          "Japan East",
+          "South Africa North"
         ],
         "properties": null,
         "resourceType": "locations/checkNameAvailability"
@@ -54553,7 +54565,9 @@
           "UAE North",
           "Central India",
           "Korea Central",
-          "East Asia"
+          "East Asia",
+          "Japan East",
+          "South Africa North"
         ],
         "properties": null,
         "resourceType": "locations/operationResults"
@@ -54586,7 +54600,9 @@
           "UAE North",
           "Central India",
           "Korea Central",
-          "East Asia"
+          "East Asia",
+          "Japan East",
+          "South Africa North"
         ],
         "properties": null,
         "resourceType": "locations/operationStatus"
@@ -58459,7 +58475,10 @@
           "North Central US",
           "Switzerland West",
           "Canada East",
-          "Australia Southeast"
+          "Australia Southeast",
+          "Central India",
+          "Norway East",
+          "UAE North"
         ],
         "properties": null,
         "resourceType": "applications"
@@ -58499,7 +58518,10 @@
           "North Central US",
           "Switzerland West",
           "Canada East",
-          "Australia Southeast"
+          "Australia Southeast",
+          "Central India",
+          "Norway East",
+          "UAE North"
         ],
         "properties": null,
         "resourceType": "networks"
@@ -58539,7 +58561,10 @@
           "North Central US",
           "Switzerland West",
           "Canada East",
-          "Australia Southeast"
+          "Australia Southeast",
+          "Central India",
+          "Norway East",
+          "UAE North"
         ],
         "properties": null,
         "resourceType": "volumes"
@@ -58579,7 +58604,10 @@
           "North Central US",
           "Switzerland West",
           "Canada East",
-          "Australia Southeast"
+          "Australia Southeast",
+          "Central India",
+          "Norway East",
+          "UAE North"
         ],
         "properties": null,
         "resourceType": "secrets"
@@ -58619,7 +58647,10 @@
           "North Central US",
           "Switzerland West",
           "Canada East",
-          "Australia Southeast"
+          "Australia Southeast",
+          "Central India",
+          "Norway East",
+          "UAE North"
         ],
         "properties": null,
         "resourceType": "gateways"
@@ -58673,7 +58704,10 @@
           "North Central US",
           "Switzerland West",
           "Canada East",
-          "Australia Southeast"
+          "Australia Southeast",
+          "Central India",
+          "Norway East",
+          "UAE North"
         ],
         "properties": null,
         "resourceType": "locations/applicationOperations"
@@ -58713,7 +58747,10 @@
           "North Central US",
           "Switzerland West",
           "Canada East",
-          "Australia Southeast"
+          "Australia Southeast",
+          "Central India",
+          "Norway East",
+          "UAE North"
         ],
         "properties": null,
         "resourceType": "locations/networkOperations"
@@ -58753,7 +58790,10 @@
           "North Central US",
           "Switzerland West",
           "Canada East",
-          "Australia Southeast"
+          "Australia Southeast",
+          "Central India",
+          "Norway East",
+          "UAE North"
         ],
         "properties": null,
         "resourceType": "locations/volumeOperations"
@@ -58793,7 +58833,10 @@
           "North Central US",
           "Switzerland West",
           "Canada East",
-          "Australia Southeast"
+          "Australia Southeast",
+          "Central India",
+          "Norway East",
+          "UAE North"
         ],
         "properties": null,
         "resourceType": "locations/gatewayOperations"
@@ -58833,7 +58876,10 @@
           "North Central US",
           "Switzerland West",
           "Canada East",
-          "Australia Southeast"
+          "Australia Southeast",
+          "Central India",
+          "Norway East",
+          "UAE North"
         ],
         "properties": null,
         "resourceType": "locations/secretOperations"
@@ -68695,6 +68741,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-04-02-preview",
           "2021-03-05-preview",
           "2021-02-12-preview",
           "2021-01-21-preview",
@@ -76029,6 +76076,22 @@
         "apiVersions": [
           "2020-01-12-preview"
         ],
+        "capabilities": "SystemAssignedResourceIdentity, SupportsTags, SupportsLocation",
+        "defaultApiVersion": "2020-01-12-preview",
+        "locationMappings": null,
+        "locations": [
+          "West Central US",
+          "East US 2"
+        ],
+        "properties": null,
+        "resourceType": "dataConsumerCollaboratives"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2020-01-12-preview"
+        ],
         "capabilities": "None",
         "defaultApiVersion": null,
         "locationMappings": null,
@@ -76568,7 +76631,12 @@
         "capabilities": "None",
         "defaultApiVersion": null,
         "locationMappings": null,
-        "locations": [],
+        "locations": [
+          "West US 2",
+          "West Central US",
+          "East US 2 EUAP",
+          "Central US EUAP"
+        ],
         "properties": null,
         "resourceType": "operations"
       },
@@ -76595,6 +76663,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2020-05-01-preview",
           "2019-01-01-preview",
           "2018-10-15",
           "2017-12-01-preview"
@@ -82414,6 +82483,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-04-01-preview",
           "2020-03-15-preview"
         ],
         "capabilities": "None",
@@ -82427,6 +82497,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-04-01-preview",
           "2020-03-15-preview"
         ],
         "capabilities": "None",

@@ -11,12 +11,13 @@ export const DataSetKind = {
     AdlsGen2File: "AdlsGen2File",
     AdlsGen1Folder: "AdlsGen1Folder",
     AdlsGen1File: "AdlsGen1File",
-    StorageAccount: "StorageAccount",
+    AdlsGen2StorageAccount: "AdlsGen2StorageAccount",
     KustoCluster: "KustoCluster",
     KustoDatabase: "KustoDatabase",
     SqlDBTable: "SqlDBTable",
     SqlDWTable: "SqlDWTable",
     SynapseWorkspaceSqlPoolTable: "SynapseWorkspaceSqlPoolTable",
+    BlobStorageAccount: "BlobStorageAccount",
 } as const;
 
 /**
@@ -31,12 +32,13 @@ export const DataSetMappingKind = {
     AdlsGen2FileSystem: "AdlsGen2FileSystem",
     AdlsGen2Folder: "AdlsGen2Folder",
     AdlsGen2File: "AdlsGen2File",
-    StorageAccount: "StorageAccount",
+    AdlsGen2StorageAccount: "AdlsGen2StorageAccount",
     KustoCluster: "KustoCluster",
     KustoDatabase: "KustoDatabase",
     SqlDBTable: "SqlDBTable",
     SqlDWTable: "SqlDWTable",
     SynapseWorkspaceSqlPoolTable: "SynapseWorkspaceSqlPoolTable",
+    BlobStorageAccount: "BlobStorageAccount",
 } as const;
 
 /**

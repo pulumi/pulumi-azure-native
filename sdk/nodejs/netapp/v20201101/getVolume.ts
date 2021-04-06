@@ -100,7 +100,7 @@ export interface GetVolumeResult {
      */
     readonly name: string;
     /**
-     * Set of protocol types, default NFSv3, CIFS fro SMB protocol
+     * Set of protocol types, default NFSv3, CIFS for SMB protocol
      */
     readonly protocolTypes?: string[];
     /**

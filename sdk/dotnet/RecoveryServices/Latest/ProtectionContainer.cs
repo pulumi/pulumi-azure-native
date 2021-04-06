@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Latest
 {
     /// <summary>
     /// Base class for container with backup items. Containers with specific workloads are derived from this class.
-    /// Latest API Version: 2021-01-01.
+    /// Latest API Version: 2021-02-01.
     /// </summary>
     [Obsolete(@"The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:recoveryservices:ProtectionContainer'.")]
     [AzureNativeResourceType("azure-native:recoveryservices/latest:ProtectionContainer")]

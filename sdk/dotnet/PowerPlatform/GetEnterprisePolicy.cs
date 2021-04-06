@@ -68,6 +68,10 @@ namespace Pulumi.AzureNative.PowerPlatform
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// Settings concerning network injection.
+        /// </summary>
+        public readonly Outputs.PropertiesResponseNetworkInjection? NetworkInjection;
+        /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
@@ -94,6 +98,8 @@ namespace Pulumi.AzureNative.PowerPlatform
 
             string name,
 
+            Outputs.PropertiesResponseNetworkInjection? networkInjection,
+
             Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
@@ -106,6 +112,7 @@ namespace Pulumi.AzureNative.PowerPlatform
             Location = location;
             Lockbox = lockbox;
             Name = name;
+            NetworkInjection = networkInjection;
             SystemData = systemData;
             Tags = tags;
             Type = type;

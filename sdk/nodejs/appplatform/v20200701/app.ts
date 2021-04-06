@@ -91,7 +91,7 @@ export class App extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:appplatform/v20200701:App" }, { type: "azure-native:appplatform:App" }, { type: "azure-nextgen:appplatform:App" }, { type: "azure-native:appplatform/latest:App" }, { type: "azure-nextgen:appplatform/latest:App" }, { type: "azure-native:appplatform/v20190501preview:App" }, { type: "azure-nextgen:appplatform/v20190501preview:App" }, { type: "azure-native:appplatform/v20201101preview:App" }, { type: "azure-nextgen:appplatform/v20201101preview:App" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:appplatform/v20200701:App" }, { type: "azure-native:appplatform:App" }, { type: "azure-nextgen:appplatform:App" }, { type: "azure-native:appplatform/latest:App" }, { type: "azure-nextgen:appplatform/latest:App" }, { type: "azure-native:appplatform/v20190501preview:App" }, { type: "azure-nextgen:appplatform/v20190501preview:App" }, { type: "azure-native:appplatform/v20201101preview:App" }, { type: "azure-nextgen:appplatform/v20201101preview:App" }, { type: "azure-native:appplatform/v20210303preview:App" }, { type: "azure-nextgen:appplatform/v20210303preview:App" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(App.__pulumiType, name, inputs, opts);
     }

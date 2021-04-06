@@ -36,7 +36,7 @@ class ProtectedItem(pulumi.CustomResource):
                  __opts__=None):
         """
         Base class for backup items.
-        Latest API Version: 2021-01-01.
+        Latest API Version: 2021-02-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

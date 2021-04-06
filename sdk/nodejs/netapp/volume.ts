@@ -89,7 +89,7 @@ export class Volume extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Set of protocol types, default NFSv3, CIFS fro SMB protocol
+     * Set of protocol types, default NFSv3, CIFS for SMB protocol
      */
     public readonly protocolTypes!: pulumi.Output<string[] | undefined>;
     /**
@@ -289,7 +289,7 @@ export interface VolumeArgs {
      */
     readonly poolName: pulumi.Input<string>;
     /**
-     * Set of protocol types, default NFSv3, CIFS fro SMB protocol
+     * Set of protocol types, default NFSv3, CIFS for SMB protocol
      */
     readonly protocolTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**

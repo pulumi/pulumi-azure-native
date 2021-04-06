@@ -5,11 +5,9 @@
 # Export this package's modules as members:
 from ._enums import *
 from .access_review_schedule_definition_by_id import *
-from .deny_assignment import *
 from .get_access_review_schedule_definition_by_id import *
 from .get_client_config import *
 from .get_client_token import *
-from .get_deny_assignment import *
 from .get_management_lock_at_resource_group_level import *
 from .get_management_lock_at_resource_level import *
 from .get_management_lock_at_subscription_level import *
@@ -82,8 +80,6 @@ def _register_module():
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
             if typ == "azure-native:authorization:AccessReviewScheduleDefinitionById":
                 return AccessReviewScheduleDefinitionById(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "azure-native:authorization:DenyAssignment":
-                return DenyAssignment(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:authorization:ManagementLockAtResourceGroupLevel":
                 return ManagementLockAtResourceGroupLevel(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:authorization:ManagementLockAtResourceLevel":

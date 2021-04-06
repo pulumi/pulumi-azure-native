@@ -7,6 +7,7 @@ from enum import Enum
 __all__ = [
     'PrivateEndpointServiceConnectionStatus',
     'ResourceIdentityType',
+    'State',
 ]
 
 
@@ -25,3 +26,12 @@ class ResourceIdentityType(str, Enum):
     """
     SYSTEM_ASSIGNED = "SystemAssigned"
     NONE = "None"
+
+
+class State(str, Enum):
+    """
+    lockbox configuration
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+    NOT_CONFIGURED = "NotConfigured"

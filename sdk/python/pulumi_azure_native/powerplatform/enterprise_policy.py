@@ -22,6 +22,8 @@ class EnterprisePolicy(pulumi.CustomResource):
                  enterprise_policy_name: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['EnterprisePolicyIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 lockbox: Optional[pulumi.Input[pulumi.InputType['PropertiesLockboxArgs']]] = None,
+                 network_injection: Optional[pulumi.Input[pulumi.InputType['PropertiesNetworkInjectionArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
@@ -37,6 +39,8 @@ class EnterprisePolicy(pulumi.CustomResource):
         :param pulumi.Input[str] enterprise_policy_name: Name of the EnterprisePolicy.
         :param pulumi.Input[pulumi.InputType['EnterprisePolicyIdentityArgs']] identity: The identity of the EnterprisePolicy.
         :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input[pulumi.InputType['PropertiesLockboxArgs']] lockbox: Settings concerning lockbox.
+        :param pulumi.Input[pulumi.InputType['PropertiesNetworkInjectionArgs']] network_injection: Settings concerning network injection.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -61,11 +65,12 @@ class EnterprisePolicy(pulumi.CustomResource):
             __props__['enterprise_policy_name'] = enterprise_policy_name
             __props__['identity'] = identity
             __props__['location'] = location
+            __props__['lockbox'] = lockbox
+            __props__['network_injection'] = network_injection
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
-            __props__['lockbox'] = None
             __props__['name'] = None
             __props__['system_data'] = None
             __props__['type'] = None
@@ -98,6 +103,7 @@ class EnterprisePolicy(pulumi.CustomResource):
         __props__["location"] = None
         __props__["lockbox"] = None
         __props__["name"] = None
+        __props__["network_injection"] = None
         __props__["system_data"] = None
         __props__["tags"] = None
         __props__["type"] = None
@@ -142,6 +148,14 @@ class EnterprisePolicy(pulumi.CustomResource):
         The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="networkInjection")
+    def network_injection(self) -> pulumi.Output[Optional['outputs.PropertiesResponseNetworkInjection']]:
+        """
+        Settings concerning network injection.
+        """
+        return pulumi.get(self, "network_injection")
 
     @property
     @pulumi.getter(name="systemData")

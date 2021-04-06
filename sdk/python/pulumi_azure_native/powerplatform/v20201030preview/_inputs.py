@@ -15,6 +15,11 @@ __all__ = [
     'KeyVaultPropertiesArgs',
     'PrivateLinkServiceConnectionStateArgs',
     'PropertiesEncryptionArgs',
+    'PropertiesLockboxArgs',
+    'PropertiesNetworkInjectionArgs',
+    'SubnetPropertiesArgs',
+    'VirtualNetworkPropertiesArgs',
+    'VirtualNetworkPropertiesListArgs',
 ]
 
 @pulumi.input_type
@@ -180,24 +185,176 @@ class PrivateLinkServiceConnectionStateArgs:
 @pulumi.input_type
 class PropertiesEncryptionArgs:
     def __init__(__self__, *,
-                 key_vault_properties: Optional[pulumi.Input['KeyVaultPropertiesArgs']] = None):
+                 key_vault: Optional[pulumi.Input['KeyVaultPropertiesArgs']] = None,
+                 state: Optional[pulumi.Input[Union[str, 'State']]] = None):
         """
         The encryption settings for a configuration store.
-        :param pulumi.Input['KeyVaultPropertiesArgs'] key_vault_properties: Key vault properties.
+        :param pulumi.Input['KeyVaultPropertiesArgs'] key_vault: Key vault properties.
+        :param pulumi.Input[Union[str, 'State']] state: The state of onboarding, which only appears in the response.
         """
-        if key_vault_properties is not None:
-            pulumi.set(__self__, "key_vault_properties", key_vault_properties)
+        if key_vault is not None:
+            pulumi.set(__self__, "key_vault", key_vault)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
 
     @property
-    @pulumi.getter(name="keyVaultProperties")
-    def key_vault_properties(self) -> Optional[pulumi.Input['KeyVaultPropertiesArgs']]:
+    @pulumi.getter(name="keyVault")
+    def key_vault(self) -> Optional[pulumi.Input['KeyVaultPropertiesArgs']]:
         """
         Key vault properties.
         """
-        return pulumi.get(self, "key_vault_properties")
+        return pulumi.get(self, "key_vault")
 
-    @key_vault_properties.setter
-    def key_vault_properties(self, value: Optional[pulumi.Input['KeyVaultPropertiesArgs']]):
-        pulumi.set(self, "key_vault_properties", value)
+    @key_vault.setter
+    def key_vault(self, value: Optional[pulumi.Input['KeyVaultPropertiesArgs']]):
+        pulumi.set(self, "key_vault", value)
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[pulumi.Input[Union[str, 'State']]]:
+        """
+        The state of onboarding, which only appears in the response.
+        """
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: Optional[pulumi.Input[Union[str, 'State']]]):
+        pulumi.set(self, "state", value)
+
+
+@pulumi.input_type
+class PropertiesLockboxArgs:
+    def __init__(__self__, *,
+                 state: Optional[pulumi.Input[Union[str, 'State']]] = None):
+        """
+        Settings concerning lockbox.
+        :param pulumi.Input[Union[str, 'State']] state: lockbox configuration
+        """
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[pulumi.Input[Union[str, 'State']]]:
+        """
+        lockbox configuration
+        """
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: Optional[pulumi.Input[Union[str, 'State']]]):
+        pulumi.set(self, "state", value)
+
+
+@pulumi.input_type
+class PropertiesNetworkInjectionArgs:
+    def __init__(__self__, *,
+                 virtual_networks: Optional[pulumi.Input['VirtualNetworkPropertiesListArgs']] = None):
+        """
+        Settings concerning network injection.
+        :param pulumi.Input['VirtualNetworkPropertiesListArgs'] virtual_networks: Network injection configuration
+        """
+        if virtual_networks is not None:
+            pulumi.set(__self__, "virtual_networks", virtual_networks)
+
+    @property
+    @pulumi.getter(name="virtualNetworks")
+    def virtual_networks(self) -> Optional[pulumi.Input['VirtualNetworkPropertiesListArgs']]:
+        """
+        Network injection configuration
+        """
+        return pulumi.get(self, "virtual_networks")
+
+    @virtual_networks.setter
+    def virtual_networks(self, value: Optional[pulumi.Input['VirtualNetworkPropertiesListArgs']]):
+        pulumi.set(self, "virtual_networks", value)
+
+
+@pulumi.input_type
+class SubnetPropertiesArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        Properties of a subnet.
+        :param pulumi.Input[str] name: Subnet name.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Subnet name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class VirtualNetworkPropertiesArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[str]] = None,
+                 subnet: Optional[pulumi.Input['SubnetPropertiesArgs']] = None):
+        """
+        Settings concerning the virtual network.
+        :param pulumi.Input[str] id: Uri of the virtual network.
+        :param pulumi.Input['SubnetPropertiesArgs'] subnet: Properties of a subnet.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if subnet is not None:
+            pulumi.set(__self__, "subnet", subnet)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Uri of the virtual network.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def subnet(self) -> Optional[pulumi.Input['SubnetPropertiesArgs']]:
+        """
+        Properties of a subnet.
+        """
+        return pulumi.get(self, "subnet")
+
+    @subnet.setter
+    def subnet(self, value: Optional[pulumi.Input['SubnetPropertiesArgs']]):
+        pulumi.set(self, "subnet", value)
+
+
+@pulumi.input_type
+class VirtualNetworkPropertiesListArgs:
+    def __init__(__self__, *,
+                 value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkPropertiesArgs']]]] = None):
+        """
+        A list of private link resources
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkPropertiesArgs']]] value: Array of virtual networks.
+        """
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkPropertiesArgs']]]]:
+        """
+        Array of virtual networks.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkPropertiesArgs']]]]):
+        pulumi.set(self, "value", value)
 
 

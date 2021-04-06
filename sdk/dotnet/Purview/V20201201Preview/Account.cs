@@ -101,6 +101,12 @@ namespace Pulumi.AzureNative.Purview.V20201201Preview
         public Output<Outputs.AccountSkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.AccountPropertiesResponseSystemData> SystemData { get; private set; } = null!;
+
+        /// <summary>
         /// Tags on the azure resource.
         /// </summary>
         [Output("tags")]

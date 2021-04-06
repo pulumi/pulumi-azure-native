@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// backup protectionIntent type.
         /// Expected value is 'AzureResourceItem'.
         /// </summary>
-        public readonly string? ProtectionIntentItemType;
+        public readonly string ProtectionIntentItemType;
         /// <summary>
         /// Backup state of this backup item.
         /// </summary>
@@ -53,7 +53,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             string? policyId,
 
-            string? protectionIntentItemType,
+            string protectionIntentItemType,
 
             string? protectionState,
 

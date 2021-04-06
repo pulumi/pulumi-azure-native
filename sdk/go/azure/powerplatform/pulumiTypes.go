@@ -781,8 +781,6 @@ type KeyVaultPropertiesResponse struct {
 	Id *string `pulumi:"id"`
 	// Identity of the secret that includes name and version.
 	Key *KeyPropertiesResponse `pulumi:"key"`
-	// The state of onboarding, which only appears in the response.
-	Status string `pulumi:"status"`
 }
 
 // KeyVaultPropertiesResponseInput is an input type that accepts KeyVaultPropertiesResponseArgs and KeyVaultPropertiesResponseOutput values.
@@ -802,8 +800,6 @@ type KeyVaultPropertiesResponseArgs struct {
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Identity of the secret that includes name and version.
 	Key KeyPropertiesResponsePtrInput `pulumi:"key"`
-	// The state of onboarding, which only appears in the response.
-	Status pulumi.StringInput `pulumi:"status"`
 }
 
 func (KeyVaultPropertiesResponseArgs) ElementType() reflect.Type {
@@ -894,11 +890,6 @@ func (o KeyVaultPropertiesResponseOutput) Key() KeyPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v KeyVaultPropertiesResponse) *KeyPropertiesResponse { return v.Key }).(KeyPropertiesResponsePtrOutput)
 }
 
-// The state of onboarding, which only appears in the response.
-func (o KeyVaultPropertiesResponseOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v KeyVaultPropertiesResponse) string { return v.Status }).(pulumi.StringOutput)
-}
-
 type KeyVaultPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
 
 func (KeyVaultPropertiesResponsePtrOutput) ElementType() reflect.Type {
@@ -935,16 +926,6 @@ func (o KeyVaultPropertiesResponsePtrOutput) Key() KeyPropertiesResponsePtrOutpu
 		}
 		return v.Key
 	}).(KeyPropertiesResponsePtrOutput)
-}
-
-// The state of onboarding, which only appears in the response.
-func (o KeyVaultPropertiesResponsePtrOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KeyVaultPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Status
-	}).(pulumi.StringPtrOutput)
 }
 
 // The Private Endpoint resource.
@@ -1430,7 +1411,9 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Status() pulumi.Stri
 // The encryption settings for a configuration store.
 type PropertiesEncryption struct {
 	// Key vault properties.
-	KeyVaultProperties *KeyVaultProperties `pulumi:"keyVaultProperties"`
+	KeyVault *KeyVaultProperties `pulumi:"keyVault"`
+	// The state of onboarding, which only appears in the response.
+	State *string `pulumi:"state"`
 }
 
 // PropertiesEncryptionInput is an input type that accepts PropertiesEncryptionArgs and PropertiesEncryptionOutput values.
@@ -1447,7 +1430,9 @@ type PropertiesEncryptionInput interface {
 // The encryption settings for a configuration store.
 type PropertiesEncryptionArgs struct {
 	// Key vault properties.
-	KeyVaultProperties KeyVaultPropertiesPtrInput `pulumi:"keyVaultProperties"`
+	KeyVault KeyVaultPropertiesPtrInput `pulumi:"keyVault"`
+	// The state of onboarding, which only appears in the response.
+	State pulumi.StringPtrInput `pulumi:"state"`
 }
 
 func (PropertiesEncryptionArgs) ElementType() reflect.Type {
@@ -1529,8 +1514,13 @@ func (o PropertiesEncryptionOutput) ToPropertiesEncryptionPtrOutputWithContext(c
 }
 
 // Key vault properties.
-func (o PropertiesEncryptionOutput) KeyVaultProperties() KeyVaultPropertiesPtrOutput {
-	return o.ApplyT(func(v PropertiesEncryption) *KeyVaultProperties { return v.KeyVaultProperties }).(KeyVaultPropertiesPtrOutput)
+func (o PropertiesEncryptionOutput) KeyVault() KeyVaultPropertiesPtrOutput {
+	return o.ApplyT(func(v PropertiesEncryption) *KeyVaultProperties { return v.KeyVault }).(KeyVaultPropertiesPtrOutput)
+}
+
+// The state of onboarding, which only appears in the response.
+func (o PropertiesEncryptionOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PropertiesEncryption) *string { return v.State }).(pulumi.StringPtrOutput)
 }
 
 type PropertiesEncryptionPtrOutput struct{ *pulumi.OutputState }
@@ -1552,19 +1542,299 @@ func (o PropertiesEncryptionPtrOutput) Elem() PropertiesEncryptionOutput {
 }
 
 // Key vault properties.
-func (o PropertiesEncryptionPtrOutput) KeyVaultProperties() KeyVaultPropertiesPtrOutput {
+func (o PropertiesEncryptionPtrOutput) KeyVault() KeyVaultPropertiesPtrOutput {
 	return o.ApplyT(func(v *PropertiesEncryption) *KeyVaultProperties {
 		if v == nil {
 			return nil
 		}
-		return v.KeyVaultProperties
+		return v.KeyVault
 	}).(KeyVaultPropertiesPtrOutput)
+}
+
+// The state of onboarding, which only appears in the response.
+func (o PropertiesEncryptionPtrOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PropertiesEncryption) *string {
+		if v == nil {
+			return nil
+		}
+		return v.State
+	}).(pulumi.StringPtrOutput)
+}
+
+// Settings concerning lockbox.
+type PropertiesLockbox struct {
+	// lockbox configuration
+	State *string `pulumi:"state"`
+}
+
+// PropertiesLockboxInput is an input type that accepts PropertiesLockboxArgs and PropertiesLockboxOutput values.
+// You can construct a concrete instance of `PropertiesLockboxInput` via:
+//
+//          PropertiesLockboxArgs{...}
+type PropertiesLockboxInput interface {
+	pulumi.Input
+
+	ToPropertiesLockboxOutput() PropertiesLockboxOutput
+	ToPropertiesLockboxOutputWithContext(context.Context) PropertiesLockboxOutput
+}
+
+// Settings concerning lockbox.
+type PropertiesLockboxArgs struct {
+	// lockbox configuration
+	State pulumi.StringPtrInput `pulumi:"state"`
+}
+
+func (PropertiesLockboxArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PropertiesLockbox)(nil)).Elem()
+}
+
+func (i PropertiesLockboxArgs) ToPropertiesLockboxOutput() PropertiesLockboxOutput {
+	return i.ToPropertiesLockboxOutputWithContext(context.Background())
+}
+
+func (i PropertiesLockboxArgs) ToPropertiesLockboxOutputWithContext(ctx context.Context) PropertiesLockboxOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PropertiesLockboxOutput)
+}
+
+func (i PropertiesLockboxArgs) ToPropertiesLockboxPtrOutput() PropertiesLockboxPtrOutput {
+	return i.ToPropertiesLockboxPtrOutputWithContext(context.Background())
+}
+
+func (i PropertiesLockboxArgs) ToPropertiesLockboxPtrOutputWithContext(ctx context.Context) PropertiesLockboxPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PropertiesLockboxOutput).ToPropertiesLockboxPtrOutputWithContext(ctx)
+}
+
+// PropertiesLockboxPtrInput is an input type that accepts PropertiesLockboxArgs, PropertiesLockboxPtr and PropertiesLockboxPtrOutput values.
+// You can construct a concrete instance of `PropertiesLockboxPtrInput` via:
+//
+//          PropertiesLockboxArgs{...}
+//
+//  or:
+//
+//          nil
+type PropertiesLockboxPtrInput interface {
+	pulumi.Input
+
+	ToPropertiesLockboxPtrOutput() PropertiesLockboxPtrOutput
+	ToPropertiesLockboxPtrOutputWithContext(context.Context) PropertiesLockboxPtrOutput
+}
+
+type propertiesLockboxPtrType PropertiesLockboxArgs
+
+func PropertiesLockboxPtr(v *PropertiesLockboxArgs) PropertiesLockboxPtrInput {
+	return (*propertiesLockboxPtrType)(v)
+}
+
+func (*propertiesLockboxPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PropertiesLockbox)(nil)).Elem()
+}
+
+func (i *propertiesLockboxPtrType) ToPropertiesLockboxPtrOutput() PropertiesLockboxPtrOutput {
+	return i.ToPropertiesLockboxPtrOutputWithContext(context.Background())
+}
+
+func (i *propertiesLockboxPtrType) ToPropertiesLockboxPtrOutputWithContext(ctx context.Context) PropertiesLockboxPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PropertiesLockboxPtrOutput)
+}
+
+// Settings concerning lockbox.
+type PropertiesLockboxOutput struct{ *pulumi.OutputState }
+
+func (PropertiesLockboxOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PropertiesLockbox)(nil)).Elem()
+}
+
+func (o PropertiesLockboxOutput) ToPropertiesLockboxOutput() PropertiesLockboxOutput {
+	return o
+}
+
+func (o PropertiesLockboxOutput) ToPropertiesLockboxOutputWithContext(ctx context.Context) PropertiesLockboxOutput {
+	return o
+}
+
+func (o PropertiesLockboxOutput) ToPropertiesLockboxPtrOutput() PropertiesLockboxPtrOutput {
+	return o.ToPropertiesLockboxPtrOutputWithContext(context.Background())
+}
+
+func (o PropertiesLockboxOutput) ToPropertiesLockboxPtrOutputWithContext(ctx context.Context) PropertiesLockboxPtrOutput {
+	return o.ApplyT(func(v PropertiesLockbox) *PropertiesLockbox {
+		return &v
+	}).(PropertiesLockboxPtrOutput)
+}
+
+// lockbox configuration
+func (o PropertiesLockboxOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PropertiesLockbox) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+type PropertiesLockboxPtrOutput struct{ *pulumi.OutputState }
+
+func (PropertiesLockboxPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PropertiesLockbox)(nil)).Elem()
+}
+
+func (o PropertiesLockboxPtrOutput) ToPropertiesLockboxPtrOutput() PropertiesLockboxPtrOutput {
+	return o
+}
+
+func (o PropertiesLockboxPtrOutput) ToPropertiesLockboxPtrOutputWithContext(ctx context.Context) PropertiesLockboxPtrOutput {
+	return o
+}
+
+func (o PropertiesLockboxPtrOutput) Elem() PropertiesLockboxOutput {
+	return o.ApplyT(func(v *PropertiesLockbox) PropertiesLockbox { return *v }).(PropertiesLockboxOutput)
+}
+
+// lockbox configuration
+func (o PropertiesLockboxPtrOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PropertiesLockbox) *string {
+		if v == nil {
+			return nil
+		}
+		return v.State
+	}).(pulumi.StringPtrOutput)
+}
+
+// Settings concerning network injection.
+type PropertiesNetworkInjection struct {
+	// Network injection configuration
+	VirtualNetworks *VirtualNetworkPropertiesList `pulumi:"virtualNetworks"`
+}
+
+// PropertiesNetworkInjectionInput is an input type that accepts PropertiesNetworkInjectionArgs and PropertiesNetworkInjectionOutput values.
+// You can construct a concrete instance of `PropertiesNetworkInjectionInput` via:
+//
+//          PropertiesNetworkInjectionArgs{...}
+type PropertiesNetworkInjectionInput interface {
+	pulumi.Input
+
+	ToPropertiesNetworkInjectionOutput() PropertiesNetworkInjectionOutput
+	ToPropertiesNetworkInjectionOutputWithContext(context.Context) PropertiesNetworkInjectionOutput
+}
+
+// Settings concerning network injection.
+type PropertiesNetworkInjectionArgs struct {
+	// Network injection configuration
+	VirtualNetworks VirtualNetworkPropertiesListPtrInput `pulumi:"virtualNetworks"`
+}
+
+func (PropertiesNetworkInjectionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PropertiesNetworkInjection)(nil)).Elem()
+}
+
+func (i PropertiesNetworkInjectionArgs) ToPropertiesNetworkInjectionOutput() PropertiesNetworkInjectionOutput {
+	return i.ToPropertiesNetworkInjectionOutputWithContext(context.Background())
+}
+
+func (i PropertiesNetworkInjectionArgs) ToPropertiesNetworkInjectionOutputWithContext(ctx context.Context) PropertiesNetworkInjectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PropertiesNetworkInjectionOutput)
+}
+
+func (i PropertiesNetworkInjectionArgs) ToPropertiesNetworkInjectionPtrOutput() PropertiesNetworkInjectionPtrOutput {
+	return i.ToPropertiesNetworkInjectionPtrOutputWithContext(context.Background())
+}
+
+func (i PropertiesNetworkInjectionArgs) ToPropertiesNetworkInjectionPtrOutputWithContext(ctx context.Context) PropertiesNetworkInjectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PropertiesNetworkInjectionOutput).ToPropertiesNetworkInjectionPtrOutputWithContext(ctx)
+}
+
+// PropertiesNetworkInjectionPtrInput is an input type that accepts PropertiesNetworkInjectionArgs, PropertiesNetworkInjectionPtr and PropertiesNetworkInjectionPtrOutput values.
+// You can construct a concrete instance of `PropertiesNetworkInjectionPtrInput` via:
+//
+//          PropertiesNetworkInjectionArgs{...}
+//
+//  or:
+//
+//          nil
+type PropertiesNetworkInjectionPtrInput interface {
+	pulumi.Input
+
+	ToPropertiesNetworkInjectionPtrOutput() PropertiesNetworkInjectionPtrOutput
+	ToPropertiesNetworkInjectionPtrOutputWithContext(context.Context) PropertiesNetworkInjectionPtrOutput
+}
+
+type propertiesNetworkInjectionPtrType PropertiesNetworkInjectionArgs
+
+func PropertiesNetworkInjectionPtr(v *PropertiesNetworkInjectionArgs) PropertiesNetworkInjectionPtrInput {
+	return (*propertiesNetworkInjectionPtrType)(v)
+}
+
+func (*propertiesNetworkInjectionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PropertiesNetworkInjection)(nil)).Elem()
+}
+
+func (i *propertiesNetworkInjectionPtrType) ToPropertiesNetworkInjectionPtrOutput() PropertiesNetworkInjectionPtrOutput {
+	return i.ToPropertiesNetworkInjectionPtrOutputWithContext(context.Background())
+}
+
+func (i *propertiesNetworkInjectionPtrType) ToPropertiesNetworkInjectionPtrOutputWithContext(ctx context.Context) PropertiesNetworkInjectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PropertiesNetworkInjectionPtrOutput)
+}
+
+// Settings concerning network injection.
+type PropertiesNetworkInjectionOutput struct{ *pulumi.OutputState }
+
+func (PropertiesNetworkInjectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PropertiesNetworkInjection)(nil)).Elem()
+}
+
+func (o PropertiesNetworkInjectionOutput) ToPropertiesNetworkInjectionOutput() PropertiesNetworkInjectionOutput {
+	return o
+}
+
+func (o PropertiesNetworkInjectionOutput) ToPropertiesNetworkInjectionOutputWithContext(ctx context.Context) PropertiesNetworkInjectionOutput {
+	return o
+}
+
+func (o PropertiesNetworkInjectionOutput) ToPropertiesNetworkInjectionPtrOutput() PropertiesNetworkInjectionPtrOutput {
+	return o.ToPropertiesNetworkInjectionPtrOutputWithContext(context.Background())
+}
+
+func (o PropertiesNetworkInjectionOutput) ToPropertiesNetworkInjectionPtrOutputWithContext(ctx context.Context) PropertiesNetworkInjectionPtrOutput {
+	return o.ApplyT(func(v PropertiesNetworkInjection) *PropertiesNetworkInjection {
+		return &v
+	}).(PropertiesNetworkInjectionPtrOutput)
+}
+
+// Network injection configuration
+func (o PropertiesNetworkInjectionOutput) VirtualNetworks() VirtualNetworkPropertiesListPtrOutput {
+	return o.ApplyT(func(v PropertiesNetworkInjection) *VirtualNetworkPropertiesList { return v.VirtualNetworks }).(VirtualNetworkPropertiesListPtrOutput)
+}
+
+type PropertiesNetworkInjectionPtrOutput struct{ *pulumi.OutputState }
+
+func (PropertiesNetworkInjectionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PropertiesNetworkInjection)(nil)).Elem()
+}
+
+func (o PropertiesNetworkInjectionPtrOutput) ToPropertiesNetworkInjectionPtrOutput() PropertiesNetworkInjectionPtrOutput {
+	return o
+}
+
+func (o PropertiesNetworkInjectionPtrOutput) ToPropertiesNetworkInjectionPtrOutputWithContext(ctx context.Context) PropertiesNetworkInjectionPtrOutput {
+	return o
+}
+
+func (o PropertiesNetworkInjectionPtrOutput) Elem() PropertiesNetworkInjectionOutput {
+	return o.ApplyT(func(v *PropertiesNetworkInjection) PropertiesNetworkInjection { return *v }).(PropertiesNetworkInjectionOutput)
+}
+
+// Network injection configuration
+func (o PropertiesNetworkInjectionPtrOutput) VirtualNetworks() VirtualNetworkPropertiesListPtrOutput {
+	return o.ApplyT(func(v *PropertiesNetworkInjection) *VirtualNetworkPropertiesList {
+		if v == nil {
+			return nil
+		}
+		return v.VirtualNetworks
+	}).(VirtualNetworkPropertiesListPtrOutput)
 }
 
 // The encryption settings for a configuration store.
 type PropertiesResponseEncryption struct {
 	// Key vault properties.
-	KeyVaultProperties *KeyVaultPropertiesResponse `pulumi:"keyVaultProperties"`
+	KeyVault *KeyVaultPropertiesResponse `pulumi:"keyVault"`
+	// The state of onboarding, which only appears in the response.
+	State *string `pulumi:"state"`
 }
 
 // PropertiesResponseEncryptionInput is an input type that accepts PropertiesResponseEncryptionArgs and PropertiesResponseEncryptionOutput values.
@@ -1581,7 +1851,9 @@ type PropertiesResponseEncryptionInput interface {
 // The encryption settings for a configuration store.
 type PropertiesResponseEncryptionArgs struct {
 	// Key vault properties.
-	KeyVaultProperties KeyVaultPropertiesResponsePtrInput `pulumi:"keyVaultProperties"`
+	KeyVault KeyVaultPropertiesResponsePtrInput `pulumi:"keyVault"`
+	// The state of onboarding, which only appears in the response.
+	State pulumi.StringPtrInput `pulumi:"state"`
 }
 
 func (PropertiesResponseEncryptionArgs) ElementType() reflect.Type {
@@ -1663,8 +1935,13 @@ func (o PropertiesResponseEncryptionOutput) ToPropertiesResponseEncryptionPtrOut
 }
 
 // Key vault properties.
-func (o PropertiesResponseEncryptionOutput) KeyVaultProperties() KeyVaultPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v PropertiesResponseEncryption) *KeyVaultPropertiesResponse { return v.KeyVaultProperties }).(KeyVaultPropertiesResponsePtrOutput)
+func (o PropertiesResponseEncryptionOutput) KeyVault() KeyVaultPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v PropertiesResponseEncryption) *KeyVaultPropertiesResponse { return v.KeyVault }).(KeyVaultPropertiesResponsePtrOutput)
+}
+
+// The state of onboarding, which only appears in the response.
+func (o PropertiesResponseEncryptionOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PropertiesResponseEncryption) *string { return v.State }).(pulumi.StringPtrOutput)
 }
 
 type PropertiesResponseEncryptionPtrOutput struct{ *pulumi.OutputState }
@@ -1686,19 +1963,29 @@ func (o PropertiesResponseEncryptionPtrOutput) Elem() PropertiesResponseEncrypti
 }
 
 // Key vault properties.
-func (o PropertiesResponseEncryptionPtrOutput) KeyVaultProperties() KeyVaultPropertiesResponsePtrOutput {
+func (o PropertiesResponseEncryptionPtrOutput) KeyVault() KeyVaultPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v *PropertiesResponseEncryption) *KeyVaultPropertiesResponse {
 		if v == nil {
 			return nil
 		}
-		return v.KeyVaultProperties
+		return v.KeyVault
 	}).(KeyVaultPropertiesResponsePtrOutput)
+}
+
+// The state of onboarding, which only appears in the response.
+func (o PropertiesResponseEncryptionPtrOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PropertiesResponseEncryption) *string {
+		if v == nil {
+			return nil
+		}
+		return v.State
+	}).(pulumi.StringPtrOutput)
 }
 
 // Settings concerning lockbox.
 type PropertiesResponseLockbox struct {
 	// lockbox configuration
-	Status string `pulumi:"status"`
+	State *string `pulumi:"state"`
 }
 
 // PropertiesResponseLockboxInput is an input type that accepts PropertiesResponseLockboxArgs and PropertiesResponseLockboxOutput values.
@@ -1715,7 +2002,7 @@ type PropertiesResponseLockboxInput interface {
 // Settings concerning lockbox.
 type PropertiesResponseLockboxArgs struct {
 	// lockbox configuration
-	Status pulumi.StringInput `pulumi:"status"`
+	State pulumi.StringPtrInput `pulumi:"state"`
 }
 
 func (PropertiesResponseLockboxArgs) ElementType() reflect.Type {
@@ -1797,8 +2084,8 @@ func (o PropertiesResponseLockboxOutput) ToPropertiesResponseLockboxPtrOutputWit
 }
 
 // lockbox configuration
-func (o PropertiesResponseLockboxOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v PropertiesResponseLockbox) string { return v.Status }).(pulumi.StringOutput)
+func (o PropertiesResponseLockboxOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PropertiesResponseLockbox) *string { return v.State }).(pulumi.StringPtrOutput)
 }
 
 type PropertiesResponseLockboxPtrOutput struct{ *pulumi.OutputState }
@@ -1820,12 +2107,416 @@ func (o PropertiesResponseLockboxPtrOutput) Elem() PropertiesResponseLockboxOutp
 }
 
 // lockbox configuration
-func (o PropertiesResponseLockboxPtrOutput) Status() pulumi.StringPtrOutput {
+func (o PropertiesResponseLockboxPtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PropertiesResponseLockbox) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.Status
+		return v.State
+	}).(pulumi.StringPtrOutput)
+}
+
+// Settings concerning network injection.
+type PropertiesResponseNetworkInjection struct {
+	// Network injection configuration
+	VirtualNetworks *VirtualNetworkPropertiesListResponse `pulumi:"virtualNetworks"`
+}
+
+// PropertiesResponseNetworkInjectionInput is an input type that accepts PropertiesResponseNetworkInjectionArgs and PropertiesResponseNetworkInjectionOutput values.
+// You can construct a concrete instance of `PropertiesResponseNetworkInjectionInput` via:
+//
+//          PropertiesResponseNetworkInjectionArgs{...}
+type PropertiesResponseNetworkInjectionInput interface {
+	pulumi.Input
+
+	ToPropertiesResponseNetworkInjectionOutput() PropertiesResponseNetworkInjectionOutput
+	ToPropertiesResponseNetworkInjectionOutputWithContext(context.Context) PropertiesResponseNetworkInjectionOutput
+}
+
+// Settings concerning network injection.
+type PropertiesResponseNetworkInjectionArgs struct {
+	// Network injection configuration
+	VirtualNetworks VirtualNetworkPropertiesListResponsePtrInput `pulumi:"virtualNetworks"`
+}
+
+func (PropertiesResponseNetworkInjectionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PropertiesResponseNetworkInjection)(nil)).Elem()
+}
+
+func (i PropertiesResponseNetworkInjectionArgs) ToPropertiesResponseNetworkInjectionOutput() PropertiesResponseNetworkInjectionOutput {
+	return i.ToPropertiesResponseNetworkInjectionOutputWithContext(context.Background())
+}
+
+func (i PropertiesResponseNetworkInjectionArgs) ToPropertiesResponseNetworkInjectionOutputWithContext(ctx context.Context) PropertiesResponseNetworkInjectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PropertiesResponseNetworkInjectionOutput)
+}
+
+func (i PropertiesResponseNetworkInjectionArgs) ToPropertiesResponseNetworkInjectionPtrOutput() PropertiesResponseNetworkInjectionPtrOutput {
+	return i.ToPropertiesResponseNetworkInjectionPtrOutputWithContext(context.Background())
+}
+
+func (i PropertiesResponseNetworkInjectionArgs) ToPropertiesResponseNetworkInjectionPtrOutputWithContext(ctx context.Context) PropertiesResponseNetworkInjectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PropertiesResponseNetworkInjectionOutput).ToPropertiesResponseNetworkInjectionPtrOutputWithContext(ctx)
+}
+
+// PropertiesResponseNetworkInjectionPtrInput is an input type that accepts PropertiesResponseNetworkInjectionArgs, PropertiesResponseNetworkInjectionPtr and PropertiesResponseNetworkInjectionPtrOutput values.
+// You can construct a concrete instance of `PropertiesResponseNetworkInjectionPtrInput` via:
+//
+//          PropertiesResponseNetworkInjectionArgs{...}
+//
+//  or:
+//
+//          nil
+type PropertiesResponseNetworkInjectionPtrInput interface {
+	pulumi.Input
+
+	ToPropertiesResponseNetworkInjectionPtrOutput() PropertiesResponseNetworkInjectionPtrOutput
+	ToPropertiesResponseNetworkInjectionPtrOutputWithContext(context.Context) PropertiesResponseNetworkInjectionPtrOutput
+}
+
+type propertiesResponseNetworkInjectionPtrType PropertiesResponseNetworkInjectionArgs
+
+func PropertiesResponseNetworkInjectionPtr(v *PropertiesResponseNetworkInjectionArgs) PropertiesResponseNetworkInjectionPtrInput {
+	return (*propertiesResponseNetworkInjectionPtrType)(v)
+}
+
+func (*propertiesResponseNetworkInjectionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PropertiesResponseNetworkInjection)(nil)).Elem()
+}
+
+func (i *propertiesResponseNetworkInjectionPtrType) ToPropertiesResponseNetworkInjectionPtrOutput() PropertiesResponseNetworkInjectionPtrOutput {
+	return i.ToPropertiesResponseNetworkInjectionPtrOutputWithContext(context.Background())
+}
+
+func (i *propertiesResponseNetworkInjectionPtrType) ToPropertiesResponseNetworkInjectionPtrOutputWithContext(ctx context.Context) PropertiesResponseNetworkInjectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PropertiesResponseNetworkInjectionPtrOutput)
+}
+
+// Settings concerning network injection.
+type PropertiesResponseNetworkInjectionOutput struct{ *pulumi.OutputState }
+
+func (PropertiesResponseNetworkInjectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PropertiesResponseNetworkInjection)(nil)).Elem()
+}
+
+func (o PropertiesResponseNetworkInjectionOutput) ToPropertiesResponseNetworkInjectionOutput() PropertiesResponseNetworkInjectionOutput {
+	return o
+}
+
+func (o PropertiesResponseNetworkInjectionOutput) ToPropertiesResponseNetworkInjectionOutputWithContext(ctx context.Context) PropertiesResponseNetworkInjectionOutput {
+	return o
+}
+
+func (o PropertiesResponseNetworkInjectionOutput) ToPropertiesResponseNetworkInjectionPtrOutput() PropertiesResponseNetworkInjectionPtrOutput {
+	return o.ToPropertiesResponseNetworkInjectionPtrOutputWithContext(context.Background())
+}
+
+func (o PropertiesResponseNetworkInjectionOutput) ToPropertiesResponseNetworkInjectionPtrOutputWithContext(ctx context.Context) PropertiesResponseNetworkInjectionPtrOutput {
+	return o.ApplyT(func(v PropertiesResponseNetworkInjection) *PropertiesResponseNetworkInjection {
+		return &v
+	}).(PropertiesResponseNetworkInjectionPtrOutput)
+}
+
+// Network injection configuration
+func (o PropertiesResponseNetworkInjectionOutput) VirtualNetworks() VirtualNetworkPropertiesListResponsePtrOutput {
+	return o.ApplyT(func(v PropertiesResponseNetworkInjection) *VirtualNetworkPropertiesListResponse {
+		return v.VirtualNetworks
+	}).(VirtualNetworkPropertiesListResponsePtrOutput)
+}
+
+type PropertiesResponseNetworkInjectionPtrOutput struct{ *pulumi.OutputState }
+
+func (PropertiesResponseNetworkInjectionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PropertiesResponseNetworkInjection)(nil)).Elem()
+}
+
+func (o PropertiesResponseNetworkInjectionPtrOutput) ToPropertiesResponseNetworkInjectionPtrOutput() PropertiesResponseNetworkInjectionPtrOutput {
+	return o
+}
+
+func (o PropertiesResponseNetworkInjectionPtrOutput) ToPropertiesResponseNetworkInjectionPtrOutputWithContext(ctx context.Context) PropertiesResponseNetworkInjectionPtrOutput {
+	return o
+}
+
+func (o PropertiesResponseNetworkInjectionPtrOutput) Elem() PropertiesResponseNetworkInjectionOutput {
+	return o.ApplyT(func(v *PropertiesResponseNetworkInjection) PropertiesResponseNetworkInjection { return *v }).(PropertiesResponseNetworkInjectionOutput)
+}
+
+// Network injection configuration
+func (o PropertiesResponseNetworkInjectionPtrOutput) VirtualNetworks() VirtualNetworkPropertiesListResponsePtrOutput {
+	return o.ApplyT(func(v *PropertiesResponseNetworkInjection) *VirtualNetworkPropertiesListResponse {
+		if v == nil {
+			return nil
+		}
+		return v.VirtualNetworks
+	}).(VirtualNetworkPropertiesListResponsePtrOutput)
+}
+
+// Properties of a subnet.
+type SubnetProperties struct {
+	// Subnet name.
+	Name *string `pulumi:"name"`
+}
+
+// SubnetPropertiesInput is an input type that accepts SubnetPropertiesArgs and SubnetPropertiesOutput values.
+// You can construct a concrete instance of `SubnetPropertiesInput` via:
+//
+//          SubnetPropertiesArgs{...}
+type SubnetPropertiesInput interface {
+	pulumi.Input
+
+	ToSubnetPropertiesOutput() SubnetPropertiesOutput
+	ToSubnetPropertiesOutputWithContext(context.Context) SubnetPropertiesOutput
+}
+
+// Properties of a subnet.
+type SubnetPropertiesArgs struct {
+	// Subnet name.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (SubnetPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubnetProperties)(nil)).Elem()
+}
+
+func (i SubnetPropertiesArgs) ToSubnetPropertiesOutput() SubnetPropertiesOutput {
+	return i.ToSubnetPropertiesOutputWithContext(context.Background())
+}
+
+func (i SubnetPropertiesArgs) ToSubnetPropertiesOutputWithContext(ctx context.Context) SubnetPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubnetPropertiesOutput)
+}
+
+func (i SubnetPropertiesArgs) ToSubnetPropertiesPtrOutput() SubnetPropertiesPtrOutput {
+	return i.ToSubnetPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i SubnetPropertiesArgs) ToSubnetPropertiesPtrOutputWithContext(ctx context.Context) SubnetPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubnetPropertiesOutput).ToSubnetPropertiesPtrOutputWithContext(ctx)
+}
+
+// SubnetPropertiesPtrInput is an input type that accepts SubnetPropertiesArgs, SubnetPropertiesPtr and SubnetPropertiesPtrOutput values.
+// You can construct a concrete instance of `SubnetPropertiesPtrInput` via:
+//
+//          SubnetPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type SubnetPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToSubnetPropertiesPtrOutput() SubnetPropertiesPtrOutput
+	ToSubnetPropertiesPtrOutputWithContext(context.Context) SubnetPropertiesPtrOutput
+}
+
+type subnetPropertiesPtrType SubnetPropertiesArgs
+
+func SubnetPropertiesPtr(v *SubnetPropertiesArgs) SubnetPropertiesPtrInput {
+	return (*subnetPropertiesPtrType)(v)
+}
+
+func (*subnetPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SubnetProperties)(nil)).Elem()
+}
+
+func (i *subnetPropertiesPtrType) ToSubnetPropertiesPtrOutput() SubnetPropertiesPtrOutput {
+	return i.ToSubnetPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *subnetPropertiesPtrType) ToSubnetPropertiesPtrOutputWithContext(ctx context.Context) SubnetPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubnetPropertiesPtrOutput)
+}
+
+// Properties of a subnet.
+type SubnetPropertiesOutput struct{ *pulumi.OutputState }
+
+func (SubnetPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubnetProperties)(nil)).Elem()
+}
+
+func (o SubnetPropertiesOutput) ToSubnetPropertiesOutput() SubnetPropertiesOutput {
+	return o
+}
+
+func (o SubnetPropertiesOutput) ToSubnetPropertiesOutputWithContext(ctx context.Context) SubnetPropertiesOutput {
+	return o
+}
+
+func (o SubnetPropertiesOutput) ToSubnetPropertiesPtrOutput() SubnetPropertiesPtrOutput {
+	return o.ToSubnetPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o SubnetPropertiesOutput) ToSubnetPropertiesPtrOutputWithContext(ctx context.Context) SubnetPropertiesPtrOutput {
+	return o.ApplyT(func(v SubnetProperties) *SubnetProperties {
+		return &v
+	}).(SubnetPropertiesPtrOutput)
+}
+
+// Subnet name.
+func (o SubnetPropertiesOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SubnetProperties) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type SubnetPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (SubnetPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SubnetProperties)(nil)).Elem()
+}
+
+func (o SubnetPropertiesPtrOutput) ToSubnetPropertiesPtrOutput() SubnetPropertiesPtrOutput {
+	return o
+}
+
+func (o SubnetPropertiesPtrOutput) ToSubnetPropertiesPtrOutputWithContext(ctx context.Context) SubnetPropertiesPtrOutput {
+	return o
+}
+
+func (o SubnetPropertiesPtrOutput) Elem() SubnetPropertiesOutput {
+	return o.ApplyT(func(v *SubnetProperties) SubnetProperties { return *v }).(SubnetPropertiesOutput)
+}
+
+// Subnet name.
+func (o SubnetPropertiesPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubnetProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Properties of a subnet.
+type SubnetPropertiesResponse struct {
+	// Subnet name.
+	Name *string `pulumi:"name"`
+}
+
+// SubnetPropertiesResponseInput is an input type that accepts SubnetPropertiesResponseArgs and SubnetPropertiesResponseOutput values.
+// You can construct a concrete instance of `SubnetPropertiesResponseInput` via:
+//
+//          SubnetPropertiesResponseArgs{...}
+type SubnetPropertiesResponseInput interface {
+	pulumi.Input
+
+	ToSubnetPropertiesResponseOutput() SubnetPropertiesResponseOutput
+	ToSubnetPropertiesResponseOutputWithContext(context.Context) SubnetPropertiesResponseOutput
+}
+
+// Properties of a subnet.
+type SubnetPropertiesResponseArgs struct {
+	// Subnet name.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (SubnetPropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubnetPropertiesResponse)(nil)).Elem()
+}
+
+func (i SubnetPropertiesResponseArgs) ToSubnetPropertiesResponseOutput() SubnetPropertiesResponseOutput {
+	return i.ToSubnetPropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i SubnetPropertiesResponseArgs) ToSubnetPropertiesResponseOutputWithContext(ctx context.Context) SubnetPropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubnetPropertiesResponseOutput)
+}
+
+func (i SubnetPropertiesResponseArgs) ToSubnetPropertiesResponsePtrOutput() SubnetPropertiesResponsePtrOutput {
+	return i.ToSubnetPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i SubnetPropertiesResponseArgs) ToSubnetPropertiesResponsePtrOutputWithContext(ctx context.Context) SubnetPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubnetPropertiesResponseOutput).ToSubnetPropertiesResponsePtrOutputWithContext(ctx)
+}
+
+// SubnetPropertiesResponsePtrInput is an input type that accepts SubnetPropertiesResponseArgs, SubnetPropertiesResponsePtr and SubnetPropertiesResponsePtrOutput values.
+// You can construct a concrete instance of `SubnetPropertiesResponsePtrInput` via:
+//
+//          SubnetPropertiesResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type SubnetPropertiesResponsePtrInput interface {
+	pulumi.Input
+
+	ToSubnetPropertiesResponsePtrOutput() SubnetPropertiesResponsePtrOutput
+	ToSubnetPropertiesResponsePtrOutputWithContext(context.Context) SubnetPropertiesResponsePtrOutput
+}
+
+type subnetPropertiesResponsePtrType SubnetPropertiesResponseArgs
+
+func SubnetPropertiesResponsePtr(v *SubnetPropertiesResponseArgs) SubnetPropertiesResponsePtrInput {
+	return (*subnetPropertiesResponsePtrType)(v)
+}
+
+func (*subnetPropertiesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SubnetPropertiesResponse)(nil)).Elem()
+}
+
+func (i *subnetPropertiesResponsePtrType) ToSubnetPropertiesResponsePtrOutput() SubnetPropertiesResponsePtrOutput {
+	return i.ToSubnetPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *subnetPropertiesResponsePtrType) ToSubnetPropertiesResponsePtrOutputWithContext(ctx context.Context) SubnetPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubnetPropertiesResponsePtrOutput)
+}
+
+// Properties of a subnet.
+type SubnetPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (SubnetPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubnetPropertiesResponse)(nil)).Elem()
+}
+
+func (o SubnetPropertiesResponseOutput) ToSubnetPropertiesResponseOutput() SubnetPropertiesResponseOutput {
+	return o
+}
+
+func (o SubnetPropertiesResponseOutput) ToSubnetPropertiesResponseOutputWithContext(ctx context.Context) SubnetPropertiesResponseOutput {
+	return o
+}
+
+func (o SubnetPropertiesResponseOutput) ToSubnetPropertiesResponsePtrOutput() SubnetPropertiesResponsePtrOutput {
+	return o.ToSubnetPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (o SubnetPropertiesResponseOutput) ToSubnetPropertiesResponsePtrOutputWithContext(ctx context.Context) SubnetPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v SubnetPropertiesResponse) *SubnetPropertiesResponse {
+		return &v
+	}).(SubnetPropertiesResponsePtrOutput)
+}
+
+// Subnet name.
+func (o SubnetPropertiesResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SubnetPropertiesResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type SubnetPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SubnetPropertiesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SubnetPropertiesResponse)(nil)).Elem()
+}
+
+func (o SubnetPropertiesResponsePtrOutput) ToSubnetPropertiesResponsePtrOutput() SubnetPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o SubnetPropertiesResponsePtrOutput) ToSubnetPropertiesResponsePtrOutputWithContext(ctx context.Context) SubnetPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o SubnetPropertiesResponsePtrOutput) Elem() SubnetPropertiesResponseOutput {
+	return o.ApplyT(func(v *SubnetPropertiesResponse) SubnetPropertiesResponse { return *v }).(SubnetPropertiesResponseOutput)
+}
+
+// Subnet name.
+func (o SubnetPropertiesResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubnetPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -2058,6 +2749,492 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// Settings concerning the virtual network.
+type VirtualNetworkProperties struct {
+	// Uri of the virtual network.
+	Id *string `pulumi:"id"`
+	// Properties of a subnet.
+	Subnet *SubnetProperties `pulumi:"subnet"`
+}
+
+// VirtualNetworkPropertiesInput is an input type that accepts VirtualNetworkPropertiesArgs and VirtualNetworkPropertiesOutput values.
+// You can construct a concrete instance of `VirtualNetworkPropertiesInput` via:
+//
+//          VirtualNetworkPropertiesArgs{...}
+type VirtualNetworkPropertiesInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkPropertiesOutput() VirtualNetworkPropertiesOutput
+	ToVirtualNetworkPropertiesOutputWithContext(context.Context) VirtualNetworkPropertiesOutput
+}
+
+// Settings concerning the virtual network.
+type VirtualNetworkPropertiesArgs struct {
+	// Uri of the virtual network.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Properties of a subnet.
+	Subnet SubnetPropertiesPtrInput `pulumi:"subnet"`
+}
+
+func (VirtualNetworkPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkProperties)(nil)).Elem()
+}
+
+func (i VirtualNetworkPropertiesArgs) ToVirtualNetworkPropertiesOutput() VirtualNetworkPropertiesOutput {
+	return i.ToVirtualNetworkPropertiesOutputWithContext(context.Background())
+}
+
+func (i VirtualNetworkPropertiesArgs) ToVirtualNetworkPropertiesOutputWithContext(ctx context.Context) VirtualNetworkPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkPropertiesOutput)
+}
+
+// VirtualNetworkPropertiesArrayInput is an input type that accepts VirtualNetworkPropertiesArray and VirtualNetworkPropertiesArrayOutput values.
+// You can construct a concrete instance of `VirtualNetworkPropertiesArrayInput` via:
+//
+//          VirtualNetworkPropertiesArray{ VirtualNetworkPropertiesArgs{...} }
+type VirtualNetworkPropertiesArrayInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkPropertiesArrayOutput() VirtualNetworkPropertiesArrayOutput
+	ToVirtualNetworkPropertiesArrayOutputWithContext(context.Context) VirtualNetworkPropertiesArrayOutput
+}
+
+type VirtualNetworkPropertiesArray []VirtualNetworkPropertiesInput
+
+func (VirtualNetworkPropertiesArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualNetworkProperties)(nil)).Elem()
+}
+
+func (i VirtualNetworkPropertiesArray) ToVirtualNetworkPropertiesArrayOutput() VirtualNetworkPropertiesArrayOutput {
+	return i.ToVirtualNetworkPropertiesArrayOutputWithContext(context.Background())
+}
+
+func (i VirtualNetworkPropertiesArray) ToVirtualNetworkPropertiesArrayOutputWithContext(ctx context.Context) VirtualNetworkPropertiesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkPropertiesArrayOutput)
+}
+
+// Settings concerning the virtual network.
+type VirtualNetworkPropertiesOutput struct{ *pulumi.OutputState }
+
+func (VirtualNetworkPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkProperties)(nil)).Elem()
+}
+
+func (o VirtualNetworkPropertiesOutput) ToVirtualNetworkPropertiesOutput() VirtualNetworkPropertiesOutput {
+	return o
+}
+
+func (o VirtualNetworkPropertiesOutput) ToVirtualNetworkPropertiesOutputWithContext(ctx context.Context) VirtualNetworkPropertiesOutput {
+	return o
+}
+
+// Uri of the virtual network.
+func (o VirtualNetworkPropertiesOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualNetworkProperties) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Properties of a subnet.
+func (o VirtualNetworkPropertiesOutput) Subnet() SubnetPropertiesPtrOutput {
+	return o.ApplyT(func(v VirtualNetworkProperties) *SubnetProperties { return v.Subnet }).(SubnetPropertiesPtrOutput)
+}
+
+type VirtualNetworkPropertiesArrayOutput struct{ *pulumi.OutputState }
+
+func (VirtualNetworkPropertiesArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualNetworkProperties)(nil)).Elem()
+}
+
+func (o VirtualNetworkPropertiesArrayOutput) ToVirtualNetworkPropertiesArrayOutput() VirtualNetworkPropertiesArrayOutput {
+	return o
+}
+
+func (o VirtualNetworkPropertiesArrayOutput) ToVirtualNetworkPropertiesArrayOutputWithContext(ctx context.Context) VirtualNetworkPropertiesArrayOutput {
+	return o
+}
+
+func (o VirtualNetworkPropertiesArrayOutput) Index(i pulumi.IntInput) VirtualNetworkPropertiesOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualNetworkProperties {
+		return vs[0].([]VirtualNetworkProperties)[vs[1].(int)]
+	}).(VirtualNetworkPropertiesOutput)
+}
+
+// A list of private link resources
+type VirtualNetworkPropertiesList struct {
+	// Array of virtual networks.
+	Value []VirtualNetworkProperties `pulumi:"value"`
+}
+
+// VirtualNetworkPropertiesListInput is an input type that accepts VirtualNetworkPropertiesListArgs and VirtualNetworkPropertiesListOutput values.
+// You can construct a concrete instance of `VirtualNetworkPropertiesListInput` via:
+//
+//          VirtualNetworkPropertiesListArgs{...}
+type VirtualNetworkPropertiesListInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkPropertiesListOutput() VirtualNetworkPropertiesListOutput
+	ToVirtualNetworkPropertiesListOutputWithContext(context.Context) VirtualNetworkPropertiesListOutput
+}
+
+// A list of private link resources
+type VirtualNetworkPropertiesListArgs struct {
+	// Array of virtual networks.
+	Value VirtualNetworkPropertiesArrayInput `pulumi:"value"`
+}
+
+func (VirtualNetworkPropertiesListArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkPropertiesList)(nil)).Elem()
+}
+
+func (i VirtualNetworkPropertiesListArgs) ToVirtualNetworkPropertiesListOutput() VirtualNetworkPropertiesListOutput {
+	return i.ToVirtualNetworkPropertiesListOutputWithContext(context.Background())
+}
+
+func (i VirtualNetworkPropertiesListArgs) ToVirtualNetworkPropertiesListOutputWithContext(ctx context.Context) VirtualNetworkPropertiesListOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkPropertiesListOutput)
+}
+
+func (i VirtualNetworkPropertiesListArgs) ToVirtualNetworkPropertiesListPtrOutput() VirtualNetworkPropertiesListPtrOutput {
+	return i.ToVirtualNetworkPropertiesListPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualNetworkPropertiesListArgs) ToVirtualNetworkPropertiesListPtrOutputWithContext(ctx context.Context) VirtualNetworkPropertiesListPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkPropertiesListOutput).ToVirtualNetworkPropertiesListPtrOutputWithContext(ctx)
+}
+
+// VirtualNetworkPropertiesListPtrInput is an input type that accepts VirtualNetworkPropertiesListArgs, VirtualNetworkPropertiesListPtr and VirtualNetworkPropertiesListPtrOutput values.
+// You can construct a concrete instance of `VirtualNetworkPropertiesListPtrInput` via:
+//
+//          VirtualNetworkPropertiesListArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualNetworkPropertiesListPtrInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkPropertiesListPtrOutput() VirtualNetworkPropertiesListPtrOutput
+	ToVirtualNetworkPropertiesListPtrOutputWithContext(context.Context) VirtualNetworkPropertiesListPtrOutput
+}
+
+type virtualNetworkPropertiesListPtrType VirtualNetworkPropertiesListArgs
+
+func VirtualNetworkPropertiesListPtr(v *VirtualNetworkPropertiesListArgs) VirtualNetworkPropertiesListPtrInput {
+	return (*virtualNetworkPropertiesListPtrType)(v)
+}
+
+func (*virtualNetworkPropertiesListPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNetworkPropertiesList)(nil)).Elem()
+}
+
+func (i *virtualNetworkPropertiesListPtrType) ToVirtualNetworkPropertiesListPtrOutput() VirtualNetworkPropertiesListPtrOutput {
+	return i.ToVirtualNetworkPropertiesListPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualNetworkPropertiesListPtrType) ToVirtualNetworkPropertiesListPtrOutputWithContext(ctx context.Context) VirtualNetworkPropertiesListPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkPropertiesListPtrOutput)
+}
+
+// A list of private link resources
+type VirtualNetworkPropertiesListOutput struct{ *pulumi.OutputState }
+
+func (VirtualNetworkPropertiesListOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkPropertiesList)(nil)).Elem()
+}
+
+func (o VirtualNetworkPropertiesListOutput) ToVirtualNetworkPropertiesListOutput() VirtualNetworkPropertiesListOutput {
+	return o
+}
+
+func (o VirtualNetworkPropertiesListOutput) ToVirtualNetworkPropertiesListOutputWithContext(ctx context.Context) VirtualNetworkPropertiesListOutput {
+	return o
+}
+
+func (o VirtualNetworkPropertiesListOutput) ToVirtualNetworkPropertiesListPtrOutput() VirtualNetworkPropertiesListPtrOutput {
+	return o.ToVirtualNetworkPropertiesListPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualNetworkPropertiesListOutput) ToVirtualNetworkPropertiesListPtrOutputWithContext(ctx context.Context) VirtualNetworkPropertiesListPtrOutput {
+	return o.ApplyT(func(v VirtualNetworkPropertiesList) *VirtualNetworkPropertiesList {
+		return &v
+	}).(VirtualNetworkPropertiesListPtrOutput)
+}
+
+// Array of virtual networks.
+func (o VirtualNetworkPropertiesListOutput) Value() VirtualNetworkPropertiesArrayOutput {
+	return o.ApplyT(func(v VirtualNetworkPropertiesList) []VirtualNetworkProperties { return v.Value }).(VirtualNetworkPropertiesArrayOutput)
+}
+
+type VirtualNetworkPropertiesListPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualNetworkPropertiesListPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNetworkPropertiesList)(nil)).Elem()
+}
+
+func (o VirtualNetworkPropertiesListPtrOutput) ToVirtualNetworkPropertiesListPtrOutput() VirtualNetworkPropertiesListPtrOutput {
+	return o
+}
+
+func (o VirtualNetworkPropertiesListPtrOutput) ToVirtualNetworkPropertiesListPtrOutputWithContext(ctx context.Context) VirtualNetworkPropertiesListPtrOutput {
+	return o
+}
+
+func (o VirtualNetworkPropertiesListPtrOutput) Elem() VirtualNetworkPropertiesListOutput {
+	return o.ApplyT(func(v *VirtualNetworkPropertiesList) VirtualNetworkPropertiesList { return *v }).(VirtualNetworkPropertiesListOutput)
+}
+
+// Array of virtual networks.
+func (o VirtualNetworkPropertiesListPtrOutput) Value() VirtualNetworkPropertiesArrayOutput {
+	return o.ApplyT(func(v *VirtualNetworkPropertiesList) []VirtualNetworkProperties {
+		if v == nil {
+			return nil
+		}
+		return v.Value
+	}).(VirtualNetworkPropertiesArrayOutput)
+}
+
+// A list of private link resources
+type VirtualNetworkPropertiesListResponse struct {
+	// Array of virtual networks.
+	Value []VirtualNetworkPropertiesResponse `pulumi:"value"`
+}
+
+// VirtualNetworkPropertiesListResponseInput is an input type that accepts VirtualNetworkPropertiesListResponseArgs and VirtualNetworkPropertiesListResponseOutput values.
+// You can construct a concrete instance of `VirtualNetworkPropertiesListResponseInput` via:
+//
+//          VirtualNetworkPropertiesListResponseArgs{...}
+type VirtualNetworkPropertiesListResponseInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkPropertiesListResponseOutput() VirtualNetworkPropertiesListResponseOutput
+	ToVirtualNetworkPropertiesListResponseOutputWithContext(context.Context) VirtualNetworkPropertiesListResponseOutput
+}
+
+// A list of private link resources
+type VirtualNetworkPropertiesListResponseArgs struct {
+	// Array of virtual networks.
+	Value VirtualNetworkPropertiesResponseArrayInput `pulumi:"value"`
+}
+
+func (VirtualNetworkPropertiesListResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkPropertiesListResponse)(nil)).Elem()
+}
+
+func (i VirtualNetworkPropertiesListResponseArgs) ToVirtualNetworkPropertiesListResponseOutput() VirtualNetworkPropertiesListResponseOutput {
+	return i.ToVirtualNetworkPropertiesListResponseOutputWithContext(context.Background())
+}
+
+func (i VirtualNetworkPropertiesListResponseArgs) ToVirtualNetworkPropertiesListResponseOutputWithContext(ctx context.Context) VirtualNetworkPropertiesListResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkPropertiesListResponseOutput)
+}
+
+func (i VirtualNetworkPropertiesListResponseArgs) ToVirtualNetworkPropertiesListResponsePtrOutput() VirtualNetworkPropertiesListResponsePtrOutput {
+	return i.ToVirtualNetworkPropertiesListResponsePtrOutputWithContext(context.Background())
+}
+
+func (i VirtualNetworkPropertiesListResponseArgs) ToVirtualNetworkPropertiesListResponsePtrOutputWithContext(ctx context.Context) VirtualNetworkPropertiesListResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkPropertiesListResponseOutput).ToVirtualNetworkPropertiesListResponsePtrOutputWithContext(ctx)
+}
+
+// VirtualNetworkPropertiesListResponsePtrInput is an input type that accepts VirtualNetworkPropertiesListResponseArgs, VirtualNetworkPropertiesListResponsePtr and VirtualNetworkPropertiesListResponsePtrOutput values.
+// You can construct a concrete instance of `VirtualNetworkPropertiesListResponsePtrInput` via:
+//
+//          VirtualNetworkPropertiesListResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualNetworkPropertiesListResponsePtrInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkPropertiesListResponsePtrOutput() VirtualNetworkPropertiesListResponsePtrOutput
+	ToVirtualNetworkPropertiesListResponsePtrOutputWithContext(context.Context) VirtualNetworkPropertiesListResponsePtrOutput
+}
+
+type virtualNetworkPropertiesListResponsePtrType VirtualNetworkPropertiesListResponseArgs
+
+func VirtualNetworkPropertiesListResponsePtr(v *VirtualNetworkPropertiesListResponseArgs) VirtualNetworkPropertiesListResponsePtrInput {
+	return (*virtualNetworkPropertiesListResponsePtrType)(v)
+}
+
+func (*virtualNetworkPropertiesListResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNetworkPropertiesListResponse)(nil)).Elem()
+}
+
+func (i *virtualNetworkPropertiesListResponsePtrType) ToVirtualNetworkPropertiesListResponsePtrOutput() VirtualNetworkPropertiesListResponsePtrOutput {
+	return i.ToVirtualNetworkPropertiesListResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *virtualNetworkPropertiesListResponsePtrType) ToVirtualNetworkPropertiesListResponsePtrOutputWithContext(ctx context.Context) VirtualNetworkPropertiesListResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkPropertiesListResponsePtrOutput)
+}
+
+// A list of private link resources
+type VirtualNetworkPropertiesListResponseOutput struct{ *pulumi.OutputState }
+
+func (VirtualNetworkPropertiesListResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkPropertiesListResponse)(nil)).Elem()
+}
+
+func (o VirtualNetworkPropertiesListResponseOutput) ToVirtualNetworkPropertiesListResponseOutput() VirtualNetworkPropertiesListResponseOutput {
+	return o
+}
+
+func (o VirtualNetworkPropertiesListResponseOutput) ToVirtualNetworkPropertiesListResponseOutputWithContext(ctx context.Context) VirtualNetworkPropertiesListResponseOutput {
+	return o
+}
+
+func (o VirtualNetworkPropertiesListResponseOutput) ToVirtualNetworkPropertiesListResponsePtrOutput() VirtualNetworkPropertiesListResponsePtrOutput {
+	return o.ToVirtualNetworkPropertiesListResponsePtrOutputWithContext(context.Background())
+}
+
+func (o VirtualNetworkPropertiesListResponseOutput) ToVirtualNetworkPropertiesListResponsePtrOutputWithContext(ctx context.Context) VirtualNetworkPropertiesListResponsePtrOutput {
+	return o.ApplyT(func(v VirtualNetworkPropertiesListResponse) *VirtualNetworkPropertiesListResponse {
+		return &v
+	}).(VirtualNetworkPropertiesListResponsePtrOutput)
+}
+
+// Array of virtual networks.
+func (o VirtualNetworkPropertiesListResponseOutput) Value() VirtualNetworkPropertiesResponseArrayOutput {
+	return o.ApplyT(func(v VirtualNetworkPropertiesListResponse) []VirtualNetworkPropertiesResponse { return v.Value }).(VirtualNetworkPropertiesResponseArrayOutput)
+}
+
+type VirtualNetworkPropertiesListResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualNetworkPropertiesListResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNetworkPropertiesListResponse)(nil)).Elem()
+}
+
+func (o VirtualNetworkPropertiesListResponsePtrOutput) ToVirtualNetworkPropertiesListResponsePtrOutput() VirtualNetworkPropertiesListResponsePtrOutput {
+	return o
+}
+
+func (o VirtualNetworkPropertiesListResponsePtrOutput) ToVirtualNetworkPropertiesListResponsePtrOutputWithContext(ctx context.Context) VirtualNetworkPropertiesListResponsePtrOutput {
+	return o
+}
+
+func (o VirtualNetworkPropertiesListResponsePtrOutput) Elem() VirtualNetworkPropertiesListResponseOutput {
+	return o.ApplyT(func(v *VirtualNetworkPropertiesListResponse) VirtualNetworkPropertiesListResponse { return *v }).(VirtualNetworkPropertiesListResponseOutput)
+}
+
+// Array of virtual networks.
+func (o VirtualNetworkPropertiesListResponsePtrOutput) Value() VirtualNetworkPropertiesResponseArrayOutput {
+	return o.ApplyT(func(v *VirtualNetworkPropertiesListResponse) []VirtualNetworkPropertiesResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Value
+	}).(VirtualNetworkPropertiesResponseArrayOutput)
+}
+
+// Settings concerning the virtual network.
+type VirtualNetworkPropertiesResponse struct {
+	// Uri of the virtual network.
+	Id *string `pulumi:"id"`
+	// Properties of a subnet.
+	Subnet *SubnetPropertiesResponse `pulumi:"subnet"`
+}
+
+// VirtualNetworkPropertiesResponseInput is an input type that accepts VirtualNetworkPropertiesResponseArgs and VirtualNetworkPropertiesResponseOutput values.
+// You can construct a concrete instance of `VirtualNetworkPropertiesResponseInput` via:
+//
+//          VirtualNetworkPropertiesResponseArgs{...}
+type VirtualNetworkPropertiesResponseInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkPropertiesResponseOutput() VirtualNetworkPropertiesResponseOutput
+	ToVirtualNetworkPropertiesResponseOutputWithContext(context.Context) VirtualNetworkPropertiesResponseOutput
+}
+
+// Settings concerning the virtual network.
+type VirtualNetworkPropertiesResponseArgs struct {
+	// Uri of the virtual network.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Properties of a subnet.
+	Subnet SubnetPropertiesResponsePtrInput `pulumi:"subnet"`
+}
+
+func (VirtualNetworkPropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkPropertiesResponse)(nil)).Elem()
+}
+
+func (i VirtualNetworkPropertiesResponseArgs) ToVirtualNetworkPropertiesResponseOutput() VirtualNetworkPropertiesResponseOutput {
+	return i.ToVirtualNetworkPropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i VirtualNetworkPropertiesResponseArgs) ToVirtualNetworkPropertiesResponseOutputWithContext(ctx context.Context) VirtualNetworkPropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkPropertiesResponseOutput)
+}
+
+// VirtualNetworkPropertiesResponseArrayInput is an input type that accepts VirtualNetworkPropertiesResponseArray and VirtualNetworkPropertiesResponseArrayOutput values.
+// You can construct a concrete instance of `VirtualNetworkPropertiesResponseArrayInput` via:
+//
+//          VirtualNetworkPropertiesResponseArray{ VirtualNetworkPropertiesResponseArgs{...} }
+type VirtualNetworkPropertiesResponseArrayInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkPropertiesResponseArrayOutput() VirtualNetworkPropertiesResponseArrayOutput
+	ToVirtualNetworkPropertiesResponseArrayOutputWithContext(context.Context) VirtualNetworkPropertiesResponseArrayOutput
+}
+
+type VirtualNetworkPropertiesResponseArray []VirtualNetworkPropertiesResponseInput
+
+func (VirtualNetworkPropertiesResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualNetworkPropertiesResponse)(nil)).Elem()
+}
+
+func (i VirtualNetworkPropertiesResponseArray) ToVirtualNetworkPropertiesResponseArrayOutput() VirtualNetworkPropertiesResponseArrayOutput {
+	return i.ToVirtualNetworkPropertiesResponseArrayOutputWithContext(context.Background())
+}
+
+func (i VirtualNetworkPropertiesResponseArray) ToVirtualNetworkPropertiesResponseArrayOutputWithContext(ctx context.Context) VirtualNetworkPropertiesResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkPropertiesResponseArrayOutput)
+}
+
+// Settings concerning the virtual network.
+type VirtualNetworkPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (VirtualNetworkPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkPropertiesResponse)(nil)).Elem()
+}
+
+func (o VirtualNetworkPropertiesResponseOutput) ToVirtualNetworkPropertiesResponseOutput() VirtualNetworkPropertiesResponseOutput {
+	return o
+}
+
+func (o VirtualNetworkPropertiesResponseOutput) ToVirtualNetworkPropertiesResponseOutputWithContext(ctx context.Context) VirtualNetworkPropertiesResponseOutput {
+	return o
+}
+
+// Uri of the virtual network.
+func (o VirtualNetworkPropertiesResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualNetworkPropertiesResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Properties of a subnet.
+func (o VirtualNetworkPropertiesResponseOutput) Subnet() SubnetPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v VirtualNetworkPropertiesResponse) *SubnetPropertiesResponse { return v.Subnet }).(SubnetPropertiesResponsePtrOutput)
+}
+
+type VirtualNetworkPropertiesResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (VirtualNetworkPropertiesResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualNetworkPropertiesResponse)(nil)).Elem()
+}
+
+func (o VirtualNetworkPropertiesResponseArrayOutput) ToVirtualNetworkPropertiesResponseArrayOutput() VirtualNetworkPropertiesResponseArrayOutput {
+	return o
+}
+
+func (o VirtualNetworkPropertiesResponseArrayOutput) ToVirtualNetworkPropertiesResponseArrayOutputWithContext(ctx context.Context) VirtualNetworkPropertiesResponseArrayOutput {
+	return o
+}
+
+func (o VirtualNetworkPropertiesResponseArrayOutput) Index(i pulumi.IntInput) VirtualNetworkPropertiesResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualNetworkPropertiesResponse {
+		return vs[0].([]VirtualNetworkPropertiesResponse)[vs[1].(int)]
+	}).(VirtualNetworkPropertiesResponseOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(EnterprisePolicyIdentityOutput{})
 	pulumi.RegisterOutputType(EnterprisePolicyIdentityPtrOutput{})
@@ -2079,10 +3256,28 @@ func init() {
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateResponsePtrOutput{})
 	pulumi.RegisterOutputType(PropertiesEncryptionOutput{})
 	pulumi.RegisterOutputType(PropertiesEncryptionPtrOutput{})
+	pulumi.RegisterOutputType(PropertiesLockboxOutput{})
+	pulumi.RegisterOutputType(PropertiesLockboxPtrOutput{})
+	pulumi.RegisterOutputType(PropertiesNetworkInjectionOutput{})
+	pulumi.RegisterOutputType(PropertiesNetworkInjectionPtrOutput{})
 	pulumi.RegisterOutputType(PropertiesResponseEncryptionOutput{})
 	pulumi.RegisterOutputType(PropertiesResponseEncryptionPtrOutput{})
 	pulumi.RegisterOutputType(PropertiesResponseLockboxOutput{})
 	pulumi.RegisterOutputType(PropertiesResponseLockboxPtrOutput{})
+	pulumi.RegisterOutputType(PropertiesResponseNetworkInjectionOutput{})
+	pulumi.RegisterOutputType(PropertiesResponseNetworkInjectionPtrOutput{})
+	pulumi.RegisterOutputType(SubnetPropertiesOutput{})
+	pulumi.RegisterOutputType(SubnetPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(SubnetPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(SubnetPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(SystemDataResponseOutput{})
 	pulumi.RegisterOutputType(SystemDataResponsePtrOutput{})
+	pulumi.RegisterOutputType(VirtualNetworkPropertiesOutput{})
+	pulumi.RegisterOutputType(VirtualNetworkPropertiesArrayOutput{})
+	pulumi.RegisterOutputType(VirtualNetworkPropertiesListOutput{})
+	pulumi.RegisterOutputType(VirtualNetworkPropertiesListPtrOutput{})
+	pulumi.RegisterOutputType(VirtualNetworkPropertiesListResponseOutput{})
+	pulumi.RegisterOutputType(VirtualNetworkPropertiesListResponsePtrOutput{})
+	pulumi.RegisterOutputType(VirtualNetworkPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(VirtualNetworkPropertiesResponseArrayOutput{})
 }

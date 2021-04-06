@@ -21,12 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-native:authorization/v20200301preview:DenyAssignment":
-		r, err = NewDenyAssignment(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:authorization/v20200301preview:RoleAssignment":
 		r, err = NewRoleAssignment(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-native:authorization/v20200301preview:RoleDefinition":
-		r, err = NewRoleDefinition(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

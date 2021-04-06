@@ -43,8 +43,8 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         /// backup protectionIntent type.
         /// Expected value is 'AzureResourceItem'.
         /// </summary>
-        [Input("protectionIntentItemType")]
-        public Input<string>? ProtectionIntentItemType { get; set; }
+        [Input("protectionIntentItemType", required: true)]
+        public Input<string> ProtectionIntentItemType { get; set; } = null!;
 
         /// <summary>
         /// Backup state of this backup item.

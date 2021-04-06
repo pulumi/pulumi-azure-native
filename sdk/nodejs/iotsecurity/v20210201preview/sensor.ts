@@ -56,6 +56,10 @@ export class Sensor extends pulumi.CustomResource {
      */
     public /*out*/ readonly sensorStatus!: pulumi.Output<string>;
     /**
+     * Type of sensor
+     */
+    public readonly sensorType!: pulumi.Output<string | undefined>;
+    /**
      * Version of the IoT sensor
      */
     public /*out*/ readonly sensorVersion!: pulumi.Output<string>;
@@ -100,6 +104,7 @@ export class Sensor extends pulumi.CustomResource {
             }
             inputs["scope"] = args ? args.scope : undefined;
             inputs["sensorName"] = args ? args.sensorName : undefined;
+            inputs["sensorType"] = args ? args.sensorType : undefined;
             inputs["tiAutomaticUpdates"] = args ? args.tiAutomaticUpdates : undefined;
             inputs["zone"] = args ? args.zone : undefined;
             inputs["connectivityTime"] = undefined /*out*/;
@@ -118,6 +123,7 @@ export class Sensor extends pulumi.CustomResource {
             inputs["learningMode"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["sensorStatus"] = undefined /*out*/;
+            inputs["sensorType"] = undefined /*out*/;
             inputs["sensorVersion"] = undefined /*out*/;
             inputs["systemData"] = undefined /*out*/;
             inputs["tiAutomaticUpdates"] = undefined /*out*/;
@@ -147,6 +153,10 @@ export interface SensorArgs {
      * Name of the IoT sensor
      */
     readonly sensorName?: pulumi.Input<string>;
+    /**
+     * Type of sensor
+     */
+    readonly sensorType?: pulumi.Input<string | enums.iotsecurity.v20210201preview.SensorType>;
     /**
      * TI Automatic mode status of the IoT sensor
      */

@@ -122,7 +122,7 @@ def get_protection_container(container_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProtectionContainerResult:
     """
     Base class for container with backup items. Containers with specific workloads are derived from this class.
-    API Version: 2021-01-01.
+    API Version: 2021-02-01.
 
 
     :param str container_name: Name of the container whose details need to be fetched.

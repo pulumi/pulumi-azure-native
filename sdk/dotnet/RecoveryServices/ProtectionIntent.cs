@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.RecoveryServices
 {
     /// <summary>
     /// Base class for backup ProtectionIntent.
-    /// API Version: 2017-07-01.
+    /// API Version: 2021-02-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:recoveryservices:ProtectionIntent")]
     public partial class ProtectionIntent : Pulumi.CustomResource

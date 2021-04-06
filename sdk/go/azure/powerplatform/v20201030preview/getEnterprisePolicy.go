@@ -38,6 +38,8 @@ type LookupEnterprisePolicyResult struct {
 	Lockbox *PropertiesResponseLockbox `pulumi:"lockbox"`
 	// The name of the resource
 	Name string `pulumi:"name"`
+	// Settings concerning network injection.
+	NetworkInjection *PropertiesResponseNetworkInjection `pulumi:"networkInjection"`
 	// Metadata pertaining to creation and last modification of the resource.
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.

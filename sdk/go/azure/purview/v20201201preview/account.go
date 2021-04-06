@@ -44,6 +44,8 @@ type Account struct {
 	PublicNetworkAccess pulumi.StringPtrOutput `pulumi:"publicNetworkAccess"`
 	// Gets or sets the Sku.
 	Sku AccountSkuResponsePtrOutput `pulumi:"sku"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData AccountPropertiesResponseSystemDataOutput `pulumi:"systemData"`
 	// Tags on the azure resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Gets or sets the type.
@@ -123,6 +125,8 @@ type accountState struct {
 	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// Gets or sets the Sku.
 	Sku *AccountSkuResponse `pulumi:"sku"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData *AccountPropertiesResponseSystemData `pulumi:"systemData"`
 	// Tags on the azure resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Gets or sets the type.
@@ -159,6 +163,8 @@ type AccountState struct {
 	PublicNetworkAccess pulumi.StringPtrInput
 	// Gets or sets the Sku.
 	Sku AccountSkuResponsePtrInput
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData AccountPropertiesResponseSystemDataPtrInput
 	// Tags on the azure resource.
 	Tags pulumi.StringMapInput
 	// Gets or sets the type.

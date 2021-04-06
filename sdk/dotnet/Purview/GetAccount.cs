@@ -105,6 +105,10 @@ namespace Pulumi.AzureNative.Purview
         /// </summary>
         public readonly Outputs.AccountSkuResponse? Sku;
         /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        public readonly Outputs.AccountPropertiesResponseSystemData SystemData;
+        /// <summary>
         /// Tags on the azure resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -145,6 +149,8 @@ namespace Pulumi.AzureNative.Purview
 
             Outputs.AccountSkuResponse? sku,
 
+            Outputs.AccountPropertiesResponseSystemData systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string type)
@@ -164,6 +170,7 @@ namespace Pulumi.AzureNative.Purview
             ProvisioningState = provisioningState;
             PublicNetworkAccess = publicNetworkAccess;
             Sku = sku;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
         }

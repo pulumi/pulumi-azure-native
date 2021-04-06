@@ -60,7 +60,7 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[bool] kerberos_enabled: Describe if a volume is KerberosEnabled. To be use with swagger version 2020-05-01 or later
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] pool_name: The name of the capacity pool
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] protocol_types: Set of protocol types, default NFSv3, CIFS fro SMB protocol
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] protocol_types: Set of protocol types, default NFSv3, CIFS for SMB protocol
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Union[str, 'SecurityStyle']] security_style: The security style of volume, default unix, defaults to ntfs for dual protocol or CIFS protocol
         :param pulumi.Input[Union[str, 'ServiceLevel']] service_level: The service level of the file system
@@ -301,7 +301,7 @@ class Volume(pulumi.CustomResource):
     @pulumi.getter(name="protocolTypes")
     def protocol_types(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        Set of protocol types, default NFSv3, CIFS fro SMB protocol
+        Set of protocol types, default NFSv3, CIFS for SMB protocol
         """
         return pulumi.get(self, "protocol_types")
 

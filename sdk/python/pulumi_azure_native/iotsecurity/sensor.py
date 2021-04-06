@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
+from ._enums import *
 
 __all__ = ['Sensor']
 
@@ -18,6 +19,7 @@ class Sensor(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  sensor_name: Optional[pulumi.Input[str]] = None,
+                 sensor_type: Optional[pulumi.Input[Union[str, 'SensorType']]] = None,
                  ti_automatic_updates: Optional[pulumi.Input[bool]] = None,
                  zone: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -31,6 +33,7 @@ class Sensor(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] scope: Scope of the query (IoT Hub, /providers/Microsoft.Devices/iotHubs/myHub)
         :param pulumi.Input[str] sensor_name: Name of the IoT sensor
+        :param pulumi.Input[Union[str, 'SensorType']] sensor_type: Type of sensor
         :param pulumi.Input[bool] ti_automatic_updates: TI Automatic mode status of the IoT sensor
         :param pulumi.Input[str] zone: Zone of the IoT sensor
         """
@@ -55,6 +58,7 @@ class Sensor(pulumi.CustomResource):
                 raise TypeError("Missing required property 'scope'")
             __props__['scope'] = scope
             __props__['sensor_name'] = sensor_name
+            __props__['sensor_type'] = sensor_type
             __props__['ti_automatic_updates'] = ti_automatic_updates
             __props__['zone'] = zone
             __props__['connectivity_time'] = None
@@ -96,6 +100,7 @@ class Sensor(pulumi.CustomResource):
         __props__["learning_mode"] = None
         __props__["name"] = None
         __props__["sensor_status"] = None
+        __props__["sensor_type"] = None
         __props__["sensor_version"] = None
         __props__["system_data"] = None
         __props__["ti_automatic_updates"] = None
@@ -144,6 +149,14 @@ class Sensor(pulumi.CustomResource):
         Status of the IoT sensor
         """
         return pulumi.get(self, "sensor_status")
+
+    @property
+    @pulumi.getter(name="sensorType")
+    def sensor_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        Type of sensor
+        """
+        return pulumi.get(self, "sensor_type")
 
     @property
     @pulumi.getter(name="sensorVersion")

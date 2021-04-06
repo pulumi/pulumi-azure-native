@@ -69,4 +69,36 @@ namespace Pulumi.AzureNative.PowerPlatform
 
         public override string ToString() => _value;
     }
+
+    /// <summary>
+    /// lockbox configuration
+    /// </summary>
+    [EnumType]
+    public readonly struct State : IEquatable<State>
+    {
+        private readonly string _value;
+
+        private State(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static State Enabled { get; } = new State("Enabled");
+        public static State Disabled { get; } = new State("Disabled");
+        public static State NotConfigured { get; } = new State("NotConfigured");
+
+        public static bool operator ==(State left, State right) => left.Equals(right);
+        public static bool operator !=(State left, State right) => !left.Equals(right);
+
+        public static explicit operator string(State value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is State other && Equals(other);
+        public bool Equals(State other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

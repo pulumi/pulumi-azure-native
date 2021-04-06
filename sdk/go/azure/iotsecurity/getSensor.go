@@ -39,6 +39,8 @@ type LookupSensorResult struct {
 	Name string `pulumi:"name"`
 	// Status of the IoT sensor
 	SensorStatus string `pulumi:"sensorStatus"`
+	// Type of sensor
+	SensorType *string `pulumi:"sensorType"`
 	// Version of the IoT sensor
 	SensorVersion string `pulumi:"sensorVersion"`
 	// Azure Resource Manager metadata containing createdBy and modifiedBy information.

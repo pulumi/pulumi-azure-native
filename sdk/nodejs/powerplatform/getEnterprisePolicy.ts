@@ -63,6 +63,10 @@ export interface GetEnterprisePolicyResult {
      */
     readonly name: string;
     /**
+     * Settings concerning network injection.
+     */
+    readonly networkInjection?: outputs.powerplatform.PropertiesResponseNetworkInjection;
+    /**
      * Metadata pertaining to creation and last modification of the resource.
      */
     readonly systemData: outputs.powerplatform.SystemDataResponse;

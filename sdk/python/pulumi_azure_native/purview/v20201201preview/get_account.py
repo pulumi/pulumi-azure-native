@@ -20,7 +20,7 @@ class GetAccountResult:
     """
     Account resource
     """
-    def __init__(__self__, cloud_connectors=None, created_at=None, created_by=None, created_by_object_id=None, endpoints=None, friendly_name=None, id=None, identity=None, location=None, managed_resources=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, sku=None, tags=None, type=None):
+    def __init__(__self__, cloud_connectors=None, created_at=None, created_by=None, created_by_object_id=None, endpoints=None, friendly_name=None, id=None, identity=None, location=None, managed_resources=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, sku=None, system_data=None, tags=None, type=None):
         if cloud_connectors and not isinstance(cloud_connectors, dict):
             raise TypeError("Expected argument 'cloud_connectors' to be a dict")
         pulumi.set(__self__, "cloud_connectors", cloud_connectors)
@@ -66,6 +66,9 @@ class GetAccountResult:
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -195,6 +198,14 @@ class GetAccountResult:
         return pulumi.get(self, "sku")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.AccountPropertiesResponseSystemData':
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
@@ -232,6 +243,7 @@ class AwaitableGetAccountResult(GetAccountResult):
             provisioning_state=self.provisioning_state,
             public_network_access=self.public_network_access,
             sku=self.sku,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type)
 
@@ -271,5 +283,6 @@ def get_account(account_name: Optional[str] = None,
         provisioning_state=__ret__.provisioning_state,
         public_network_access=__ret__.public_network_access,
         sku=__ret__.sku,
+        system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)

@@ -114,7 +114,7 @@ export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof Publ
 export const ResourceIdentityType = {
     SystemAssigned: "SystemAssigned",
     UserAssigned: "UserAssigned",
-    SystemAssigned_UserAssigned: "SystemAssigned,UserAssigned",
+    SystemAssigned_UserAssigned: "SystemAssigned, UserAssigned",
     None: "None",
 } as const;
 

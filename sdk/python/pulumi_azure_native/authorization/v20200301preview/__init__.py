@@ -4,14 +4,8 @@
 
 # Export this package's modules as members:
 from ._enums import *
-from .deny_assignment import *
-from .get_deny_assignment import *
 from .get_role_assignment import *
-from .get_role_definition import *
 from .role_assignment import *
-from .role_definition import *
-from ._inputs import *
-from . import outputs
 
 def _register_module():
     import pulumi
@@ -25,12 +19,8 @@ def _register_module():
             return Module._version
 
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
-            if typ == "azure-native:authorization/v20200301preview:DenyAssignment":
-                return DenyAssignment(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "azure-native:authorization/v20200301preview:RoleAssignment":
+            if typ == "azure-native:authorization/v20200301preview:RoleAssignment":
                 return RoleAssignment(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "azure-native:authorization/v20200301preview:RoleDefinition":
-                return RoleDefinition(name, pulumi.ResourceOptions(urn=urn))
             else:
                 raise Exception(f"unknown resource type {typ}")
 

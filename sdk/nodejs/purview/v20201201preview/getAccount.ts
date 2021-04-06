@@ -99,6 +99,10 @@ export interface GetAccountResult {
      */
     readonly sku?: outputs.purview.v20201201preview.AccountSkuResponse;
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData: outputs.purview.v20201201preview.AccountPropertiesResponseSystemData;
+    /**
      * Tags on the azure resource.
      */
     readonly tags?: {[key: string]: string};

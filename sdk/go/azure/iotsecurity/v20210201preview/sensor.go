@@ -25,6 +25,8 @@ type Sensor struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Status of the IoT sensor
 	SensorStatus pulumi.StringOutput `pulumi:"sensorStatus"`
+	// Type of sensor
+	SensorType pulumi.StringPtrOutput `pulumi:"sensorType"`
 	// Version of the IoT sensor
 	SensorVersion pulumi.StringOutput `pulumi:"sensorVersion"`
 	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -95,6 +97,8 @@ type sensorState struct {
 	Name *string `pulumi:"name"`
 	// Status of the IoT sensor
 	SensorStatus *string `pulumi:"sensorStatus"`
+	// Type of sensor
+	SensorType *string `pulumi:"sensorType"`
 	// Version of the IoT sensor
 	SensorVersion *string `pulumi:"sensorVersion"`
 	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -122,6 +126,8 @@ type SensorState struct {
 	Name pulumi.StringPtrInput
 	// Status of the IoT sensor
 	SensorStatus pulumi.StringPtrInput
+	// Type of sensor
+	SensorType pulumi.StringPtrInput
 	// Version of the IoT sensor
 	SensorVersion pulumi.StringPtrInput
 	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -147,6 +153,8 @@ type sensorArgs struct {
 	Scope string `pulumi:"scope"`
 	// Name of the IoT sensor
 	SensorName *string `pulumi:"sensorName"`
+	// Type of sensor
+	SensorType *string `pulumi:"sensorType"`
 	// TI Automatic mode status of the IoT sensor
 	TiAutomaticUpdates *bool `pulumi:"tiAutomaticUpdates"`
 	// Zone of the IoT sensor
@@ -159,6 +167,8 @@ type SensorArgs struct {
 	Scope pulumi.StringInput
 	// Name of the IoT sensor
 	SensorName pulumi.StringPtrInput
+	// Type of sensor
+	SensorType pulumi.StringPtrInput
 	// TI Automatic mode status of the IoT sensor
 	TiAutomaticUpdates pulumi.BoolPtrInput
 	// Zone of the IoT sensor

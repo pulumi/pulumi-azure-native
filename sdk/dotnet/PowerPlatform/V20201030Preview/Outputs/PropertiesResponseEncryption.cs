@@ -16,12 +16,20 @@ namespace Pulumi.AzureNative.PowerPlatform.V20201030Preview.Outputs
         /// <summary>
         /// Key vault properties.
         /// </summary>
-        public readonly Outputs.KeyVaultPropertiesResponse? KeyVaultProperties;
+        public readonly Outputs.KeyVaultPropertiesResponse? KeyVault;
+        /// <summary>
+        /// The state of onboarding, which only appears in the response.
+        /// </summary>
+        public readonly string? State;
 
         [OutputConstructor]
-        private PropertiesResponseEncryption(Outputs.KeyVaultPropertiesResponse? keyVaultProperties)
+        private PropertiesResponseEncryption(
+            Outputs.KeyVaultPropertiesResponse? keyVault,
+
+            string? state)
         {
-            KeyVaultProperties = keyVaultProperties;
+            KeyVault = keyVault;
+            State = state;
         }
     }
 }

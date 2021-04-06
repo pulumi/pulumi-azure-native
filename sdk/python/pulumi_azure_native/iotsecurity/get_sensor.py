@@ -20,7 +20,7 @@ class GetSensorResult:
     """
     IoT sensor model
     """
-    def __init__(__self__, connectivity_time=None, dynamic_learning=None, id=None, learning_mode=None, name=None, sensor_status=None, sensor_version=None, system_data=None, ti_automatic_updates=None, ti_status=None, ti_version=None, type=None, zone=None):
+    def __init__(__self__, connectivity_time=None, dynamic_learning=None, id=None, learning_mode=None, name=None, sensor_status=None, sensor_type=None, sensor_version=None, system_data=None, ti_automatic_updates=None, ti_status=None, ti_version=None, type=None, zone=None):
         if connectivity_time and not isinstance(connectivity_time, str):
             raise TypeError("Expected argument 'connectivity_time' to be a str")
         pulumi.set(__self__, "connectivity_time", connectivity_time)
@@ -39,6 +39,9 @@ class GetSensorResult:
         if sensor_status and not isinstance(sensor_status, str):
             raise TypeError("Expected argument 'sensor_status' to be a str")
         pulumi.set(__self__, "sensor_status", sensor_status)
+        if sensor_type and not isinstance(sensor_type, str):
+            raise TypeError("Expected argument 'sensor_type' to be a str")
+        pulumi.set(__self__, "sensor_type", sensor_type)
         if sensor_version and not isinstance(sensor_version, str):
             raise TypeError("Expected argument 'sensor_version' to be a str")
         pulumi.set(__self__, "sensor_version", sensor_version)
@@ -110,6 +113,14 @@ class GetSensorResult:
         return pulumi.get(self, "sensor_status")
 
     @property
+    @pulumi.getter(name="sensorType")
+    def sensor_type(self) -> Optional[str]:
+        """
+        Type of sensor
+        """
+        return pulumi.get(self, "sensor_type")
+
+    @property
     @pulumi.getter(name="sensorVersion")
     def sensor_version(self) -> str:
         """
@@ -178,6 +189,7 @@ class AwaitableGetSensorResult(GetSensorResult):
             learning_mode=self.learning_mode,
             name=self.name,
             sensor_status=self.sensor_status,
+            sensor_type=self.sensor_type,
             sensor_version=self.sensor_version,
             system_data=self.system_data,
             ti_automatic_updates=self.ti_automatic_updates,
@@ -214,6 +226,7 @@ def get_sensor(scope: Optional[str] = None,
         learning_mode=__ret__.learning_mode,
         name=__ret__.name,
         sensor_status=__ret__.sensor_status,
+        sensor_type=__ret__.sensor_type,
         sensor_version=__ret__.sensor_version,
         system_data=__ret__.system_data,
         ti_automatic_updates=__ret__.ti_automatic_updates,

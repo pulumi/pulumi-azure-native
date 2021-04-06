@@ -356,6 +356,235 @@ func (o AccountPropertiesResponseManagedResourcesPtrOutput) StorageAccount() pul
 	}).(pulumi.StringPtrOutput)
 }
 
+// Metadata pertaining to creation and last modification of the resource.
+type AccountPropertiesResponseSystemData struct {
+	// The timestamp of resource creation (UTC).
+	CreatedAt *string `pulumi:"createdAt"`
+	// The identity that created the resource.
+	CreatedBy *string `pulumi:"createdBy"`
+	// The type of identity that created the resource.
+	CreatedByType *string `pulumi:"createdByType"`
+	// The timestamp of the last modification the resource (UTC).
+	LastModifiedAt *string `pulumi:"lastModifiedAt"`
+	// The identity that last modified the resource.
+	LastModifiedBy *string `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource.
+	LastModifiedByType *string `pulumi:"lastModifiedByType"`
+}
+
+// AccountPropertiesResponseSystemDataInput is an input type that accepts AccountPropertiesResponseSystemDataArgs and AccountPropertiesResponseSystemDataOutput values.
+// You can construct a concrete instance of `AccountPropertiesResponseSystemDataInput` via:
+//
+//          AccountPropertiesResponseSystemDataArgs{...}
+type AccountPropertiesResponseSystemDataInput interface {
+	pulumi.Input
+
+	ToAccountPropertiesResponseSystemDataOutput() AccountPropertiesResponseSystemDataOutput
+	ToAccountPropertiesResponseSystemDataOutputWithContext(context.Context) AccountPropertiesResponseSystemDataOutput
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type AccountPropertiesResponseSystemDataArgs struct {
+	// The timestamp of resource creation (UTC).
+	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
+	// The identity that created the resource.
+	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
+	// The type of identity that created the resource.
+	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
+	// The timestamp of the last modification the resource (UTC).
+	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	// The identity that last modified the resource.
+	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource.
+	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
+}
+
+func (AccountPropertiesResponseSystemDataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountPropertiesResponseSystemData)(nil)).Elem()
+}
+
+func (i AccountPropertiesResponseSystemDataArgs) ToAccountPropertiesResponseSystemDataOutput() AccountPropertiesResponseSystemDataOutput {
+	return i.ToAccountPropertiesResponseSystemDataOutputWithContext(context.Background())
+}
+
+func (i AccountPropertiesResponseSystemDataArgs) ToAccountPropertiesResponseSystemDataOutputWithContext(ctx context.Context) AccountPropertiesResponseSystemDataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountPropertiesResponseSystemDataOutput)
+}
+
+func (i AccountPropertiesResponseSystemDataArgs) ToAccountPropertiesResponseSystemDataPtrOutput() AccountPropertiesResponseSystemDataPtrOutput {
+	return i.ToAccountPropertiesResponseSystemDataPtrOutputWithContext(context.Background())
+}
+
+func (i AccountPropertiesResponseSystemDataArgs) ToAccountPropertiesResponseSystemDataPtrOutputWithContext(ctx context.Context) AccountPropertiesResponseSystemDataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountPropertiesResponseSystemDataOutput).ToAccountPropertiesResponseSystemDataPtrOutputWithContext(ctx)
+}
+
+// AccountPropertiesResponseSystemDataPtrInput is an input type that accepts AccountPropertiesResponseSystemDataArgs, AccountPropertiesResponseSystemDataPtr and AccountPropertiesResponseSystemDataPtrOutput values.
+// You can construct a concrete instance of `AccountPropertiesResponseSystemDataPtrInput` via:
+//
+//          AccountPropertiesResponseSystemDataArgs{...}
+//
+//  or:
+//
+//          nil
+type AccountPropertiesResponseSystemDataPtrInput interface {
+	pulumi.Input
+
+	ToAccountPropertiesResponseSystemDataPtrOutput() AccountPropertiesResponseSystemDataPtrOutput
+	ToAccountPropertiesResponseSystemDataPtrOutputWithContext(context.Context) AccountPropertiesResponseSystemDataPtrOutput
+}
+
+type accountPropertiesResponseSystemDataPtrType AccountPropertiesResponseSystemDataArgs
+
+func AccountPropertiesResponseSystemDataPtr(v *AccountPropertiesResponseSystemDataArgs) AccountPropertiesResponseSystemDataPtrInput {
+	return (*accountPropertiesResponseSystemDataPtrType)(v)
+}
+
+func (*accountPropertiesResponseSystemDataPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountPropertiesResponseSystemData)(nil)).Elem()
+}
+
+func (i *accountPropertiesResponseSystemDataPtrType) ToAccountPropertiesResponseSystemDataPtrOutput() AccountPropertiesResponseSystemDataPtrOutput {
+	return i.ToAccountPropertiesResponseSystemDataPtrOutputWithContext(context.Background())
+}
+
+func (i *accountPropertiesResponseSystemDataPtrType) ToAccountPropertiesResponseSystemDataPtrOutputWithContext(ctx context.Context) AccountPropertiesResponseSystemDataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountPropertiesResponseSystemDataPtrOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type AccountPropertiesResponseSystemDataOutput struct{ *pulumi.OutputState }
+
+func (AccountPropertiesResponseSystemDataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountPropertiesResponseSystemData)(nil)).Elem()
+}
+
+func (o AccountPropertiesResponseSystemDataOutput) ToAccountPropertiesResponseSystemDataOutput() AccountPropertiesResponseSystemDataOutput {
+	return o
+}
+
+func (o AccountPropertiesResponseSystemDataOutput) ToAccountPropertiesResponseSystemDataOutputWithContext(ctx context.Context) AccountPropertiesResponseSystemDataOutput {
+	return o
+}
+
+func (o AccountPropertiesResponseSystemDataOutput) ToAccountPropertiesResponseSystemDataPtrOutput() AccountPropertiesResponseSystemDataPtrOutput {
+	return o.ToAccountPropertiesResponseSystemDataPtrOutputWithContext(context.Background())
+}
+
+func (o AccountPropertiesResponseSystemDataOutput) ToAccountPropertiesResponseSystemDataPtrOutputWithContext(ctx context.Context) AccountPropertiesResponseSystemDataPtrOutput {
+	return o.ApplyT(func(v AccountPropertiesResponseSystemData) *AccountPropertiesResponseSystemData {
+		return &v
+	}).(AccountPropertiesResponseSystemDataPtrOutput)
+}
+
+// The timestamp of resource creation (UTC).
+func (o AccountPropertiesResponseSystemDataOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccountPropertiesResponseSystemData) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that created the resource.
+func (o AccountPropertiesResponseSystemDataOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccountPropertiesResponseSystemData) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that created the resource.
+func (o AccountPropertiesResponseSystemDataOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccountPropertiesResponseSystemData) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
+}
+
+// The timestamp of the last modification the resource (UTC).
+func (o AccountPropertiesResponseSystemDataOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccountPropertiesResponseSystemData) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that last modified the resource.
+func (o AccountPropertiesResponseSystemDataOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccountPropertiesResponseSystemData) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o AccountPropertiesResponseSystemDataOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccountPropertiesResponseSystemData) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
+}
+
+type AccountPropertiesResponseSystemDataPtrOutput struct{ *pulumi.OutputState }
+
+func (AccountPropertiesResponseSystemDataPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountPropertiesResponseSystemData)(nil)).Elem()
+}
+
+func (o AccountPropertiesResponseSystemDataPtrOutput) ToAccountPropertiesResponseSystemDataPtrOutput() AccountPropertiesResponseSystemDataPtrOutput {
+	return o
+}
+
+func (o AccountPropertiesResponseSystemDataPtrOutput) ToAccountPropertiesResponseSystemDataPtrOutputWithContext(ctx context.Context) AccountPropertiesResponseSystemDataPtrOutput {
+	return o
+}
+
+func (o AccountPropertiesResponseSystemDataPtrOutput) Elem() AccountPropertiesResponseSystemDataOutput {
+	return o.ApplyT(func(v *AccountPropertiesResponseSystemData) AccountPropertiesResponseSystemData { return *v }).(AccountPropertiesResponseSystemDataOutput)
+}
+
+// The timestamp of resource creation (UTC).
+func (o AccountPropertiesResponseSystemDataPtrOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountPropertiesResponseSystemData) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedAt
+	}).(pulumi.StringPtrOutput)
+}
+
+// The identity that created the resource.
+func (o AccountPropertiesResponseSystemDataPtrOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountPropertiesResponseSystemData) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedBy
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that created the resource.
+func (o AccountPropertiesResponseSystemDataPtrOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountPropertiesResponseSystemData) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedByType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The timestamp of the last modification the resource (UTC).
+func (o AccountPropertiesResponseSystemDataPtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountPropertiesResponseSystemData) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedAt
+	}).(pulumi.StringPtrOutput)
+}
+
+// The identity that last modified the resource.
+func (o AccountPropertiesResponseSystemDataPtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountPropertiesResponseSystemData) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedBy
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o AccountPropertiesResponseSystemDataPtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountPropertiesResponseSystemData) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedByType
+	}).(pulumi.StringPtrOutput)
+}
+
 // The Sku
 type AccountSku struct {
 	// Gets or sets the sku capacity. Possible values include: 4, 16
@@ -662,7 +891,6 @@ func (o AccountSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties for configuring third party cloud connections.
 type CloudConnectorsResponse struct {
 	// AWS external identifier.
 	// Configured in AWS to allow use of the role arn used for scanning
@@ -680,7 +908,6 @@ type CloudConnectorsResponseInput interface {
 	ToCloudConnectorsResponseOutputWithContext(context.Context) CloudConnectorsResponseOutput
 }
 
-// Properties for configuring third party cloud connections.
 type CloudConnectorsResponseArgs struct {
 	// AWS external identifier.
 	// Configured in AWS to allow use of the role arn used for scanning
@@ -740,7 +967,6 @@ func (i *cloudConnectorsResponsePtrType) ToCloudConnectorsResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(CloudConnectorsResponsePtrOutput)
 }
 
-// Properties for configuring third party cloud connections.
 type CloudConnectorsResponseOutput struct{ *pulumi.OutputState }
 
 func (CloudConnectorsResponseOutput) ElementType() reflect.Type {
@@ -1872,6 +2098,8 @@ func init() {
 	pulumi.RegisterOutputType(AccountPropertiesResponseEndpointsPtrOutput{})
 	pulumi.RegisterOutputType(AccountPropertiesResponseManagedResourcesOutput{})
 	pulumi.RegisterOutputType(AccountPropertiesResponseManagedResourcesPtrOutput{})
+	pulumi.RegisterOutputType(AccountPropertiesResponseSystemDataOutput{})
+	pulumi.RegisterOutputType(AccountPropertiesResponseSystemDataPtrOutput{})
 	pulumi.RegisterOutputType(AccountSkuOutput{})
 	pulumi.RegisterOutputType(AccountSkuPtrOutput{})
 	pulumi.RegisterOutputType(AccountSkuResponseOutput{})

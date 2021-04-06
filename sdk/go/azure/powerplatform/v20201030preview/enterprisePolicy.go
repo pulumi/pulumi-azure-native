@@ -25,6 +25,8 @@ type EnterprisePolicy struct {
 	Lockbox PropertiesResponseLockboxPtrOutput `pulumi:"lockbox"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Settings concerning network injection.
+	NetworkInjection PropertiesResponseNetworkInjectionPtrOutput `pulumi:"networkInjection"`
 	// Metadata pertaining to creation and last modification of the resource.
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource tags.
@@ -87,6 +89,8 @@ type enterprisePolicyState struct {
 	Lockbox *PropertiesResponseLockbox `pulumi:"lockbox"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
+	// Settings concerning network injection.
+	NetworkInjection *PropertiesResponseNetworkInjection `pulumi:"networkInjection"`
 	// Metadata pertaining to creation and last modification of the resource.
 	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
@@ -106,6 +110,8 @@ type EnterprisePolicyState struct {
 	Lockbox PropertiesResponseLockboxPtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
+	// Settings concerning network injection.
+	NetworkInjection PropertiesResponseNetworkInjectionPtrInput
 	// Metadata pertaining to creation and last modification of the resource.
 	SystemData SystemDataResponsePtrInput
 	// Resource tags.
@@ -127,6 +133,10 @@ type enterprisePolicyArgs struct {
 	Identity *EnterprisePolicyIdentity `pulumi:"identity"`
 	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
+	// Settings concerning lockbox.
+	Lockbox *PropertiesLockbox `pulumi:"lockbox"`
+	// Settings concerning network injection.
+	NetworkInjection *PropertiesNetworkInjection `pulumi:"networkInjection"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
@@ -143,6 +153,10 @@ type EnterprisePolicyArgs struct {
 	Identity EnterprisePolicyIdentityPtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
+	// Settings concerning lockbox.
+	Lockbox PropertiesLockboxPtrInput
+	// Settings concerning network injection.
+	NetworkInjection PropertiesNetworkInjectionPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.

@@ -12,7 +12,7 @@ import (
 )
 
 // Private Endpoint Connection Response Properties
-// Latest API Version: 2021-01-01.
+// Latest API Version: 2021-02-01.
 //
 // Deprecated: The 'latest' version is deprecated. Please migrate to the resource in the top-level module: 'azure-native:recoveryservices:PrivateEndpointConnection'.
 type PrivateEndpointConnection struct {

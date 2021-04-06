@@ -18,7 +18,11 @@ __all__ = [
     'PrivateLinkServiceConnectionStateResponse',
     'PropertiesResponseEncryption',
     'PropertiesResponseLockbox',
+    'PropertiesResponseNetworkInjection',
+    'SubnetPropertiesResponse',
     'SystemDataResponse',
+    'VirtualNetworkPropertiesListResponse',
+    'VirtualNetworkPropertiesResponse',
 ]
 
 @pulumi.output_type
@@ -113,28 +117,17 @@ class KeyVaultPropertiesResponse(dict):
     Settings concerning key vault encryption for a configuration store.
     """
     def __init__(__self__, *,
-                 status: str,
                  id: Optional[str] = None,
                  key: Optional['outputs.KeyPropertiesResponse'] = None):
         """
         Settings concerning key vault encryption for a configuration store.
-        :param str status: The state of onboarding, which only appears in the response.
         :param str id: Uri of KeyVault
         :param 'KeyPropertiesResponseArgs' key: Identity of the secret that includes name and version.
         """
-        pulumi.set(__self__, "status", status)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if key is not None:
             pulumi.set(__self__, "key", key)
-
-    @property
-    @pulumi.getter
-    def status(self) -> str:
-        """
-        The state of onboarding, which only appears in the response.
-        """
-        return pulumi.get(self, "status")
 
     @property
     @pulumi.getter
@@ -237,21 +230,33 @@ class PropertiesResponseEncryption(dict):
     The encryption settings for a configuration store.
     """
     def __init__(__self__, *,
-                 key_vault_properties: Optional['outputs.KeyVaultPropertiesResponse'] = None):
+                 key_vault: Optional['outputs.KeyVaultPropertiesResponse'] = None,
+                 state: Optional[str] = None):
         """
         The encryption settings for a configuration store.
-        :param 'KeyVaultPropertiesResponseArgs' key_vault_properties: Key vault properties.
+        :param 'KeyVaultPropertiesResponseArgs' key_vault: Key vault properties.
+        :param str state: The state of onboarding, which only appears in the response.
         """
-        if key_vault_properties is not None:
-            pulumi.set(__self__, "key_vault_properties", key_vault_properties)
+        if key_vault is not None:
+            pulumi.set(__self__, "key_vault", key_vault)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
 
     @property
-    @pulumi.getter(name="keyVaultProperties")
-    def key_vault_properties(self) -> Optional['outputs.KeyVaultPropertiesResponse']:
+    @pulumi.getter(name="keyVault")
+    def key_vault(self) -> Optional['outputs.KeyVaultPropertiesResponse']:
         """
         Key vault properties.
         """
-        return pulumi.get(self, "key_vault_properties")
+        return pulumi.get(self, "key_vault")
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        The state of onboarding, which only appears in the response.
+        """
+        return pulumi.get(self, "state")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -263,20 +268,73 @@ class PropertiesResponseLockbox(dict):
     Settings concerning lockbox.
     """
     def __init__(__self__, *,
-                 status: str):
+                 state: Optional[str] = None):
         """
         Settings concerning lockbox.
-        :param str status: lockbox configuration
+        :param str state: lockbox configuration
         """
-        pulumi.set(__self__, "status", status)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def state(self) -> Optional[str]:
         """
         lockbox configuration
         """
-        return pulumi.get(self, "status")
+        return pulumi.get(self, "state")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class PropertiesResponseNetworkInjection(dict):
+    """
+    Settings concerning network injection.
+    """
+    def __init__(__self__, *,
+                 virtual_networks: Optional['outputs.VirtualNetworkPropertiesListResponse'] = None):
+        """
+        Settings concerning network injection.
+        :param 'VirtualNetworkPropertiesListResponseArgs' virtual_networks: Network injection configuration
+        """
+        if virtual_networks is not None:
+            pulumi.set(__self__, "virtual_networks", virtual_networks)
+
+    @property
+    @pulumi.getter(name="virtualNetworks")
+    def virtual_networks(self) -> Optional['outputs.VirtualNetworkPropertiesListResponse']:
+        """
+        Network injection configuration
+        """
+        return pulumi.get(self, "virtual_networks")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SubnetPropertiesResponse(dict):
+    """
+    Properties of a subnet.
+    """
+    def __init__(__self__, *,
+                 name: Optional[str] = None):
+        """
+        Properties of a subnet.
+        :param str name: Subnet name.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Subnet name.
+        """
+        return pulumi.get(self, "name")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -363,6 +421,70 @@ class SystemDataResponse(dict):
         The type of identity that last modified the resource.
         """
         return pulumi.get(self, "last_modified_by_type")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualNetworkPropertiesListResponse(dict):
+    """
+    A list of private link resources
+    """
+    def __init__(__self__, *,
+                 value: Optional[Sequence['outputs.VirtualNetworkPropertiesResponse']] = None):
+        """
+        A list of private link resources
+        :param Sequence['VirtualNetworkPropertiesResponseArgs'] value: Array of virtual networks.
+        """
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[Sequence['outputs.VirtualNetworkPropertiesResponse']]:
+        """
+        Array of virtual networks.
+        """
+        return pulumi.get(self, "value")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualNetworkPropertiesResponse(dict):
+    """
+    Settings concerning the virtual network.
+    """
+    def __init__(__self__, *,
+                 id: Optional[str] = None,
+                 subnet: Optional['outputs.SubnetPropertiesResponse'] = None):
+        """
+        Settings concerning the virtual network.
+        :param str id: Uri of the virtual network.
+        :param 'SubnetPropertiesResponseArgs' subnet: Properties of a subnet.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if subnet is not None:
+            pulumi.set(__self__, "subnet", subnet)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Uri of the virtual network.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def subnet(self) -> Optional['outputs.SubnetPropertiesResponse']:
+        """
+        Properties of a subnet.
+        """
+        return pulumi.get(self, "subnet")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

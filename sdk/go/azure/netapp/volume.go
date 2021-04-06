@@ -42,7 +42,7 @@ type Volume struct {
 	MountTargets MountTargetPropertiesResponseArrayOutput `pulumi:"mountTargets"`
 	// Resource name
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Set of protocol types, default NFSv3, CIFS fro SMB protocol
+	// Set of protocol types, default NFSv3, CIFS for SMB protocol
 	ProtocolTypes pulumi.StringArrayOutput `pulumi:"protocolTypes"`
 	// Azure lifecycle management
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
@@ -279,7 +279,7 @@ type volumeState struct {
 	MountTargets []MountTargetPropertiesResponse `pulumi:"mountTargets"`
 	// Resource name
 	Name *string `pulumi:"name"`
-	// Set of protocol types, default NFSv3, CIFS fro SMB protocol
+	// Set of protocol types, default NFSv3, CIFS for SMB protocol
 	ProtocolTypes []string `pulumi:"protocolTypes"`
 	// Azure lifecycle management
 	ProvisioningState *string `pulumi:"provisioningState"`
@@ -335,7 +335,7 @@ type VolumeState struct {
 	MountTargets MountTargetPropertiesResponseArrayInput
 	// Resource name
 	Name pulumi.StringPtrInput
-	// Set of protocol types, default NFSv3, CIFS fro SMB protocol
+	// Set of protocol types, default NFSv3, CIFS for SMB protocol
 	ProtocolTypes pulumi.StringArrayInput
 	// Azure lifecycle management
 	ProvisioningState pulumi.StringPtrInput
@@ -391,7 +391,7 @@ type volumeArgs struct {
 	Location *string `pulumi:"location"`
 	// The name of the capacity pool
 	PoolName string `pulumi:"poolName"`
-	// Set of protocol types, default NFSv3, CIFS fro SMB protocol
+	// Set of protocol types, default NFSv3, CIFS for SMB protocol
 	ProtocolTypes []string `pulumi:"protocolTypes"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -444,7 +444,7 @@ type VolumeArgs struct {
 	Location pulumi.StringPtrInput
 	// The name of the capacity pool
 	PoolName pulumi.StringInput
-	// Set of protocol types, default NFSv3, CIFS fro SMB protocol
+	// Set of protocol types, default NFSv3, CIFS for SMB protocol
 	ProtocolTypes pulumi.StringArrayInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput

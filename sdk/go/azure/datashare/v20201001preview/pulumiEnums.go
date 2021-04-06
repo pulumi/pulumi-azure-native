@@ -22,12 +22,13 @@ const (
 	DataSetKindAdlsGen2File                 = DataSetKind("AdlsGen2File")
 	DataSetKindAdlsGen1Folder               = DataSetKind("AdlsGen1Folder")
 	DataSetKindAdlsGen1File                 = DataSetKind("AdlsGen1File")
-	DataSetKindStorageAccount               = DataSetKind("StorageAccount")
+	DataSetKindAdlsGen2StorageAccount       = DataSetKind("AdlsGen2StorageAccount")
 	DataSetKindKustoCluster                 = DataSetKind("KustoCluster")
 	DataSetKindKustoDatabase                = DataSetKind("KustoDatabase")
 	DataSetKindSqlDBTable                   = DataSetKind("SqlDBTable")
 	DataSetKindSqlDWTable                   = DataSetKind("SqlDWTable")
 	DataSetKindSynapseWorkspaceSqlPoolTable = DataSetKind("SynapseWorkspaceSqlPoolTable")
+	DataSetKindBlobStorageAccount           = DataSetKind("BlobStorageAccount")
 )
 
 func (DataSetKind) ElementType() reflect.Type {
@@ -60,12 +61,13 @@ const (
 	DataSetMappingKindAdlsGen2FileSystem           = DataSetMappingKind("AdlsGen2FileSystem")
 	DataSetMappingKindAdlsGen2Folder               = DataSetMappingKind("AdlsGen2Folder")
 	DataSetMappingKindAdlsGen2File                 = DataSetMappingKind("AdlsGen2File")
-	DataSetMappingKindStorageAccount               = DataSetMappingKind("StorageAccount")
+	DataSetMappingKindAdlsGen2StorageAccount       = DataSetMappingKind("AdlsGen2StorageAccount")
 	DataSetMappingKindKustoCluster                 = DataSetMappingKind("KustoCluster")
 	DataSetMappingKindKustoDatabase                = DataSetMappingKind("KustoDatabase")
 	DataSetMappingKindSqlDBTable                   = DataSetMappingKind("SqlDBTable")
 	DataSetMappingKindSqlDWTable                   = DataSetMappingKind("SqlDWTable")
 	DataSetMappingKindSynapseWorkspaceSqlPoolTable = DataSetMappingKind("SynapseWorkspaceSqlPoolTable")
+	DataSetMappingKindBlobStorageAccount           = DataSetMappingKind("BlobStorageAccount")
 )
 
 func (DataSetMappingKind) ElementType() reflect.Type {

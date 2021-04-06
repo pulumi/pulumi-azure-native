@@ -3346,34 +3346,46 @@ class AzureIaaSVMProtectionPolicyArgs:
 @pulumi.input_type
 class AzureRecoveryServiceVaultProtectionIntentArgs:
     def __init__(__self__, *,
+                 protection_intent_item_type: pulumi.Input[str],
                  backup_management_type: Optional[pulumi.Input[Union[str, 'BackupManagementType']]] = None,
                  item_id: Optional[pulumi.Input[str]] = None,
                  policy_id: Optional[pulumi.Input[str]] = None,
-                 protection_intent_item_type: Optional[pulumi.Input[str]] = None,
                  protection_state: Optional[pulumi.Input[Union[str, 'ProtectionStatus']]] = None,
                  source_resource_id: Optional[pulumi.Input[str]] = None):
         """
         Azure Recovery Services Vault specific protection intent item.
+        :param pulumi.Input[str] protection_intent_item_type: backup protectionIntent type.
+               Expected value is 'RecoveryServiceVaultItem'.
         :param pulumi.Input[Union[str, 'BackupManagementType']] backup_management_type: Type of backup management for the backed up item.
         :param pulumi.Input[str] item_id: ID of the item which is getting protected, In case of Azure Vm , it is ProtectedItemId
         :param pulumi.Input[str] policy_id: ID of the backup policy with which this item is backed up.
-        :param pulumi.Input[str] protection_intent_item_type: backup protectionIntent type.
-               Expected value is 'RecoveryServiceVaultItem'.
         :param pulumi.Input[Union[str, 'ProtectionStatus']] protection_state: Backup state of this backup item.
         :param pulumi.Input[str] source_resource_id: ARM ID of the resource to be backed up.
         """
+        pulumi.set(__self__, "protection_intent_item_type", 'RecoveryServiceVaultItem')
         if backup_management_type is not None:
             pulumi.set(__self__, "backup_management_type", backup_management_type)
         if item_id is not None:
             pulumi.set(__self__, "item_id", item_id)
         if policy_id is not None:
             pulumi.set(__self__, "policy_id", policy_id)
-        if protection_intent_item_type is not None:
-            pulumi.set(__self__, "protection_intent_item_type", 'RecoveryServiceVaultItem')
         if protection_state is not None:
             pulumi.set(__self__, "protection_state", protection_state)
         if source_resource_id is not None:
             pulumi.set(__self__, "source_resource_id", source_resource_id)
+
+    @property
+    @pulumi.getter(name="protectionIntentItemType")
+    def protection_intent_item_type(self) -> pulumi.Input[str]:
+        """
+        backup protectionIntent type.
+        Expected value is 'RecoveryServiceVaultItem'.
+        """
+        return pulumi.get(self, "protection_intent_item_type")
+
+    @protection_intent_item_type.setter
+    def protection_intent_item_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "protection_intent_item_type", value)
 
     @property
     @pulumi.getter(name="backupManagementType")
@@ -3412,19 +3424,6 @@ class AzureRecoveryServiceVaultProtectionIntentArgs:
         pulumi.set(self, "policy_id", value)
 
     @property
-    @pulumi.getter(name="protectionIntentItemType")
-    def protection_intent_item_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        backup protectionIntent type.
-        Expected value is 'RecoveryServiceVaultItem'.
-        """
-        return pulumi.get(self, "protection_intent_item_type")
-
-    @protection_intent_item_type.setter
-    def protection_intent_item_type(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "protection_intent_item_type", value)
-
-    @property
     @pulumi.getter(name="protectionState")
     def protection_state(self) -> Optional[pulumi.Input[Union[str, 'ProtectionStatus']]]:
         """
@@ -3452,24 +3451,25 @@ class AzureRecoveryServiceVaultProtectionIntentArgs:
 @pulumi.input_type
 class AzureResourceProtectionIntentArgs:
     def __init__(__self__, *,
+                 protection_intent_item_type: pulumi.Input[str],
                  backup_management_type: Optional[pulumi.Input[Union[str, 'BackupManagementType']]] = None,
                  friendly_name: Optional[pulumi.Input[str]] = None,
                  item_id: Optional[pulumi.Input[str]] = None,
                  policy_id: Optional[pulumi.Input[str]] = None,
-                 protection_intent_item_type: Optional[pulumi.Input[str]] = None,
                  protection_state: Optional[pulumi.Input[Union[str, 'ProtectionStatus']]] = None,
                  source_resource_id: Optional[pulumi.Input[str]] = None):
         """
         IaaS VM specific backup protection intent item.
+        :param pulumi.Input[str] protection_intent_item_type: backup protectionIntent type.
+               Expected value is 'AzureResourceItem'.
         :param pulumi.Input[Union[str, 'BackupManagementType']] backup_management_type: Type of backup management for the backed up item.
         :param pulumi.Input[str] friendly_name: Friendly name of the VM represented by this backup item.
         :param pulumi.Input[str] item_id: ID of the item which is getting protected, In case of Azure Vm , it is ProtectedItemId
         :param pulumi.Input[str] policy_id: ID of the backup policy with which this item is backed up.
-        :param pulumi.Input[str] protection_intent_item_type: backup protectionIntent type.
-               Expected value is 'AzureResourceItem'.
         :param pulumi.Input[Union[str, 'ProtectionStatus']] protection_state: Backup state of this backup item.
         :param pulumi.Input[str] source_resource_id: ARM ID of the resource to be backed up.
         """
+        pulumi.set(__self__, "protection_intent_item_type", 'AzureResourceItem')
         if backup_management_type is not None:
             pulumi.set(__self__, "backup_management_type", backup_management_type)
         if friendly_name is not None:
@@ -3478,12 +3478,23 @@ class AzureResourceProtectionIntentArgs:
             pulumi.set(__self__, "item_id", item_id)
         if policy_id is not None:
             pulumi.set(__self__, "policy_id", policy_id)
-        if protection_intent_item_type is not None:
-            pulumi.set(__self__, "protection_intent_item_type", 'AzureResourceItem')
         if protection_state is not None:
             pulumi.set(__self__, "protection_state", protection_state)
         if source_resource_id is not None:
             pulumi.set(__self__, "source_resource_id", source_resource_id)
+
+    @property
+    @pulumi.getter(name="protectionIntentItemType")
+    def protection_intent_item_type(self) -> pulumi.Input[str]:
+        """
+        backup protectionIntent type.
+        Expected value is 'AzureResourceItem'.
+        """
+        return pulumi.get(self, "protection_intent_item_type")
+
+    @protection_intent_item_type.setter
+    def protection_intent_item_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "protection_intent_item_type", value)
 
     @property
     @pulumi.getter(name="backupManagementType")
@@ -3532,19 +3543,6 @@ class AzureResourceProtectionIntentArgs:
     @policy_id.setter
     def policy_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "policy_id", value)
-
-    @property
-    @pulumi.getter(name="protectionIntentItemType")
-    def protection_intent_item_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        backup protectionIntent type.
-        Expected value is 'AzureResourceItem'.
-        """
-        return pulumi.get(self, "protection_intent_item_type")
-
-    @protection_intent_item_type.setter
-    def protection_intent_item_type(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "protection_intent_item_type", value)
 
     @property
     @pulumi.getter(name="protectionState")
@@ -6475,34 +6473,46 @@ class AzureVmWorkloadSQLDatabaseProtectedItemArgs:
 @pulumi.input_type
 class AzureWorkloadAutoProtectionIntentArgs:
     def __init__(__self__, *,
+                 protection_intent_item_type: pulumi.Input[str],
                  backup_management_type: Optional[pulumi.Input[Union[str, 'BackupManagementType']]] = None,
                  item_id: Optional[pulumi.Input[str]] = None,
                  policy_id: Optional[pulumi.Input[str]] = None,
-                 protection_intent_item_type: Optional[pulumi.Input[str]] = None,
                  protection_state: Optional[pulumi.Input[Union[str, 'ProtectionStatus']]] = None,
                  source_resource_id: Optional[pulumi.Input[str]] = None):
         """
         Azure Recovery Services Vault specific protection intent item.
+        :param pulumi.Input[str] protection_intent_item_type: backup protectionIntent type.
+               Expected value is 'RecoveryServiceVaultItem'.
         :param pulumi.Input[Union[str, 'BackupManagementType']] backup_management_type: Type of backup management for the backed up item.
         :param pulumi.Input[str] item_id: ID of the item which is getting protected, In case of Azure Vm , it is ProtectedItemId
         :param pulumi.Input[str] policy_id: ID of the backup policy with which this item is backed up.
-        :param pulumi.Input[str] protection_intent_item_type: backup protectionIntent type.
-               Expected value is 'RecoveryServiceVaultItem'.
         :param pulumi.Input[Union[str, 'ProtectionStatus']] protection_state: Backup state of this backup item.
         :param pulumi.Input[str] source_resource_id: ARM ID of the resource to be backed up.
         """
+        pulumi.set(__self__, "protection_intent_item_type", 'RecoveryServiceVaultItem')
         if backup_management_type is not None:
             pulumi.set(__self__, "backup_management_type", backup_management_type)
         if item_id is not None:
             pulumi.set(__self__, "item_id", item_id)
         if policy_id is not None:
             pulumi.set(__self__, "policy_id", policy_id)
-        if protection_intent_item_type is not None:
-            pulumi.set(__self__, "protection_intent_item_type", 'RecoveryServiceVaultItem')
         if protection_state is not None:
             pulumi.set(__self__, "protection_state", protection_state)
         if source_resource_id is not None:
             pulumi.set(__self__, "source_resource_id", source_resource_id)
+
+    @property
+    @pulumi.getter(name="protectionIntentItemType")
+    def protection_intent_item_type(self) -> pulumi.Input[str]:
+        """
+        backup protectionIntent type.
+        Expected value is 'RecoveryServiceVaultItem'.
+        """
+        return pulumi.get(self, "protection_intent_item_type")
+
+    @protection_intent_item_type.setter
+    def protection_intent_item_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "protection_intent_item_type", value)
 
     @property
     @pulumi.getter(name="backupManagementType")
@@ -6539,19 +6549,6 @@ class AzureWorkloadAutoProtectionIntentArgs:
     @policy_id.setter
     def policy_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "policy_id", value)
-
-    @property
-    @pulumi.getter(name="protectionIntentItemType")
-    def protection_intent_item_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        backup protectionIntent type.
-        Expected value is 'RecoveryServiceVaultItem'.
-        """
-        return pulumi.get(self, "protection_intent_item_type")
-
-    @protection_intent_item_type.setter
-    def protection_intent_item_type(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "protection_intent_item_type", value)
 
     @property
     @pulumi.getter(name="protectionState")
@@ -6812,38 +6809,50 @@ class AzureWorkloadContainerExtendedInfoArgs:
 @pulumi.input_type
 class AzureWorkloadSQLAutoProtectionIntentArgs:
     def __init__(__self__, *,
+                 protection_intent_item_type: pulumi.Input[str],
                  backup_management_type: Optional[pulumi.Input[Union[str, 'BackupManagementType']]] = None,
                  item_id: Optional[pulumi.Input[str]] = None,
                  policy_id: Optional[pulumi.Input[str]] = None,
-                 protection_intent_item_type: Optional[pulumi.Input[str]] = None,
                  protection_state: Optional[pulumi.Input[Union[str, 'ProtectionStatus']]] = None,
                  source_resource_id: Optional[pulumi.Input[str]] = None,
                  workload_item_type: Optional[pulumi.Input[Union[str, 'WorkloadItemType']]] = None):
         """
         Azure Workload SQL Auto Protection intent item.
+        :param pulumi.Input[str] protection_intent_item_type: backup protectionIntent type.
+               Expected value is 'RecoveryServiceVaultItem'.
         :param pulumi.Input[Union[str, 'BackupManagementType']] backup_management_type: Type of backup management for the backed up item.
         :param pulumi.Input[str] item_id: ID of the item which is getting protected, In case of Azure Vm , it is ProtectedItemId
         :param pulumi.Input[str] policy_id: ID of the backup policy with which this item is backed up.
-        :param pulumi.Input[str] protection_intent_item_type: backup protectionIntent type.
-               Expected value is 'RecoveryServiceVaultItem'.
         :param pulumi.Input[Union[str, 'ProtectionStatus']] protection_state: Backup state of this backup item.
         :param pulumi.Input[str] source_resource_id: ARM ID of the resource to be backed up.
         :param pulumi.Input[Union[str, 'WorkloadItemType']] workload_item_type: Workload item type of the item for which intent is to be set
         """
+        pulumi.set(__self__, "protection_intent_item_type", 'RecoveryServiceVaultItem')
         if backup_management_type is not None:
             pulumi.set(__self__, "backup_management_type", backup_management_type)
         if item_id is not None:
             pulumi.set(__self__, "item_id", item_id)
         if policy_id is not None:
             pulumi.set(__self__, "policy_id", policy_id)
-        if protection_intent_item_type is not None:
-            pulumi.set(__self__, "protection_intent_item_type", 'RecoveryServiceVaultItem')
         if protection_state is not None:
             pulumi.set(__self__, "protection_state", protection_state)
         if source_resource_id is not None:
             pulumi.set(__self__, "source_resource_id", source_resource_id)
         if workload_item_type is not None:
             pulumi.set(__self__, "workload_item_type", workload_item_type)
+
+    @property
+    @pulumi.getter(name="protectionIntentItemType")
+    def protection_intent_item_type(self) -> pulumi.Input[str]:
+        """
+        backup protectionIntent type.
+        Expected value is 'RecoveryServiceVaultItem'.
+        """
+        return pulumi.get(self, "protection_intent_item_type")
+
+    @protection_intent_item_type.setter
+    def protection_intent_item_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "protection_intent_item_type", value)
 
     @property
     @pulumi.getter(name="backupManagementType")
@@ -6880,19 +6889,6 @@ class AzureWorkloadSQLAutoProtectionIntentArgs:
     @policy_id.setter
     def policy_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "policy_id", value)
-
-    @property
-    @pulumi.getter(name="protectionIntentItemType")
-    def protection_intent_item_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        backup protectionIntent type.
-        Expected value is 'RecoveryServiceVaultItem'.
-        """
-        return pulumi.get(self, "protection_intent_item_type")
-
-    @protection_intent_item_type.setter
-    def protection_intent_item_type(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "protection_intent_item_type", value)
 
     @property
     @pulumi.getter(name="protectionState")

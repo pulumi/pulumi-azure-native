@@ -16,12 +16,12 @@ namespace Pulumi.AzureNative.PowerPlatform.V20201030Preview.Outputs
         /// <summary>
         /// lockbox configuration
         /// </summary>
-        public readonly string Status;
+        public readonly string? State;
 
         [OutputConstructor]
-        private PropertiesResponseLockbox(string status)
+        private PropertiesResponseLockbox(string? state)
         {
-            Status = status;
+            State = state;
         }
     }
 }

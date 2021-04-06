@@ -46,6 +46,12 @@ namespace Pulumi.AzureNative.IoTSecurity.V20210201Preview
         public Output<string> SensorStatus { get; private set; } = null!;
 
         /// <summary>
+        /// Type of sensor
+        /// </summary>
+        [Output("sensorType")]
+        public Output<string?> SensorType { get; private set; } = null!;
+
+        /// <summary>
         /// Version of the IoT sensor
         /// </summary>
         [Output("sensorVersion")]
@@ -149,6 +155,12 @@ namespace Pulumi.AzureNative.IoTSecurity.V20210201Preview
         /// </summary>
         [Input("sensorName")]
         public Input<string>? SensorName { get; set; }
+
+        /// <summary>
+        /// Type of sensor
+        /// </summary>
+        [Input("sensorType")]
+        public InputUnion<string, Pulumi.AzureNative.IoTSecurity.V20210201Preview.SensorType>? SensorType { get; set; }
 
         /// <summary>
         /// TI Automatic mode status of the IoT sensor

@@ -50,11 +50,15 @@ export class EnterprisePolicy extends pulumi.CustomResource {
     /**
      * Settings concerning lockbox.
      */
-    public /*out*/ readonly lockbox!: pulumi.Output<outputs.powerplatform.v20201030preview.PropertiesResponseLockbox | undefined>;
+    public readonly lockbox!: pulumi.Output<outputs.powerplatform.v20201030preview.PropertiesResponseLockbox | undefined>;
     /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
+    /**
+     * Settings concerning network injection.
+     */
+    public readonly networkInjection!: pulumi.Output<outputs.powerplatform.v20201030preview.PropertiesResponseNetworkInjection | undefined>;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
@@ -86,9 +90,10 @@ export class EnterprisePolicy extends pulumi.CustomResource {
             inputs["enterprisePolicyName"] = args ? args.enterprisePolicyName : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["lockbox"] = args ? args.lockbox : undefined;
+            inputs["networkInjection"] = args ? args.networkInjection : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["lockbox"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -98,6 +103,7 @@ export class EnterprisePolicy extends pulumi.CustomResource {
             inputs["location"] = undefined /*out*/;
             inputs["lockbox"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["networkInjection"] = undefined /*out*/;
             inputs["systemData"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -131,6 +137,14 @@ export interface EnterprisePolicyArgs {
      * The geo-location where the resource lives
      */
     readonly location?: pulumi.Input<string>;
+    /**
+     * Settings concerning lockbox.
+     */
+    readonly lockbox?: pulumi.Input<inputs.powerplatform.v20201030preview.PropertiesLockbox>;
+    /**
+     * Settings concerning network injection.
+     */
+    readonly networkInjection?: pulumi.Input<inputs.powerplatform.v20201030preview.PropertiesNetworkInjection>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

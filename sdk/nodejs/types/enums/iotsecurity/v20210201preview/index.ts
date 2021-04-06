@@ -11,3 +11,13 @@ export const OnboardingKind = {
  * The kind of onboarding for the subscription
  */
 export type OnboardingKind = (typeof OnboardingKind)[keyof typeof OnboardingKind];
+
+export const SensorType = {
+    Ot: "Ot",
+    Enterprise: "Enterprise",
+} as const;
+
+/**
+ * Type of sensor
+ */
+export type SensorType = (typeof SensorType)[keyof typeof SensorType];

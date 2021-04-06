@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Latest
     {
         /// <summary>
         /// Base class for backup items.
-        /// Latest API Version: 2021-01-01.
+        /// Latest API Version: 2021-02-01.
         /// </summary>
         public static Task<GetProtectedItemResult> InvokeAsync(GetProtectedItemArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetProtectedItemResult>("azure-native:recoveryservices/latest:getProtectedItem", args ?? new GetProtectedItemArgs(), options.WithVersion());
