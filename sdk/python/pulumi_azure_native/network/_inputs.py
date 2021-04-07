@@ -73,6 +73,7 @@ __all__ = [
     'BastionShareableLinkArgs',
     'BgpSettingsArgs',
     'BreakOutCategoryPoliciesArgs',
+    'CaaRecordArgs',
     'CacheConfigurationArgs',
     'CnameRecordArgs',
     'ConnectionMonitorDestinationArgs',
@@ -193,6 +194,7 @@ __all__ = [
     'NetworkRuleArgs',
     'NetworkRuleConditionArgs',
     'NetworkSecurityGroupArgs',
+    'NsRecordArgs',
     'O365BreakOutCategoryPoliciesArgs',
     'O365PolicyPropertiesArgs',
     'Office365PolicyPropertiesArgs',
@@ -5427,6 +5429,62 @@ class BreakOutCategoryPoliciesArgs:
     @optimize.setter
     def optimize(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "optimize", value)
+
+
+@pulumi.input_type
+class CaaRecordArgs:
+    def __init__(__self__, *,
+                 flags: Optional[pulumi.Input[int]] = None,
+                 tag: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        A CAA record.
+        :param pulumi.Input[int] flags: The flags for this CAA record as an integer between 0 and 255.
+        :param pulumi.Input[str] tag: The tag for this CAA record.
+        :param pulumi.Input[str] value: The value for this CAA record.
+        """
+        if flags is not None:
+            pulumi.set(__self__, "flags", flags)
+        if tag is not None:
+            pulumi.set(__self__, "tag", tag)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def flags(self) -> Optional[pulumi.Input[int]]:
+        """
+        The flags for this CAA record as an integer between 0 and 255.
+        """
+        return pulumi.get(self, "flags")
+
+    @flags.setter
+    def flags(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "flags", value)
+
+    @property
+    @pulumi.getter
+    def tag(self) -> Optional[pulumi.Input[str]]:
+        """
+        The tag for this CAA record.
+        """
+        return pulumi.get(self, "tag")
+
+    @tag.setter
+    def tag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tag", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        The value for this CAA record.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -13769,6 +13827,30 @@ class NetworkSecurityGroupArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+
+@pulumi.input_type
+class NsRecordArgs:
+    def __init__(__self__, *,
+                 nsdname: Optional[pulumi.Input[str]] = None):
+        """
+        An NS record.
+        :param pulumi.Input[str] nsdname: The name server name for this NS record.
+        """
+        if nsdname is not None:
+            pulumi.set(__self__, "nsdname", nsdname)
+
+    @property
+    @pulumi.getter
+    def nsdname(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name server name for this NS record.
+        """
+        return pulumi.get(self, "nsdname")
+
+    @nsdname.setter
+    def nsdname(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "nsdname", value)
 
 
 @pulumi.input_type

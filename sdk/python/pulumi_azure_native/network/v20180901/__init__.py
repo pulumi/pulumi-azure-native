@@ -3,11 +3,11 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from .get_private_record_set import *
 from .get_private_zone import *
-from .get_record_set import *
 from .get_virtual_network_link import *
+from .private_record_set import *
 from .private_zone import *
-from .record_set import *
 from .virtual_network_link import *
 from ._inputs import *
 from . import outputs
@@ -24,10 +24,10 @@ def _register_module():
             return Module._version
 
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
-            if typ == "azure-native:network/v20180901:PrivateZone":
+            if typ == "azure-native:network/v20180901:PrivateRecordSet":
+                return PrivateRecordSet(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:network/v20180901:PrivateZone":
                 return PrivateZone(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "azure-native:network/v20180901:RecordSet":
-                return RecordSet(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:network/v20180901:VirtualNetworkLink":
                 return VirtualNetworkLink(name, pulumi.ResourceOptions(urn=urn))
             else:

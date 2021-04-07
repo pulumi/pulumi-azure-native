@@ -81,6 +81,7 @@ __all__ = [
     'BgpPeerStatusResponseResult',
     'BgpSettingsResponse',
     'BreakOutCategoryPoliciesResponse',
+    'CaaRecordResponse',
     'CacheConfigurationResponse',
     'CnameRecordResponse',
     'ConnectionMonitorDestinationResponse',
@@ -219,6 +220,7 @@ __all__ = [
     'NetworkRuleConditionResponse',
     'NetworkRuleResponse',
     'NetworkSecurityGroupResponse',
+    'NsRecordResponse',
     'O365BreakOutCategoryPoliciesResponse',
     'O365PolicyPropertiesResponse',
     'Office365PolicyPropertiesResponse',
@@ -6575,6 +6577,56 @@ class BreakOutCategoryPoliciesResponse(dict):
         Flag to control breakout of o365 optimize category.
         """
         return pulumi.get(self, "optimize")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class CaaRecordResponse(dict):
+    """
+    A CAA record.
+    """
+    def __init__(__self__, *,
+                 flags: Optional[int] = None,
+                 tag: Optional[str] = None,
+                 value: Optional[str] = None):
+        """
+        A CAA record.
+        :param int flags: The flags for this CAA record as an integer between 0 and 255.
+        :param str tag: The tag for this CAA record.
+        :param str value: The value for this CAA record.
+        """
+        if flags is not None:
+            pulumi.set(__self__, "flags", flags)
+        if tag is not None:
+            pulumi.set(__self__, "tag", tag)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def flags(self) -> Optional[int]:
+        """
+        The flags for this CAA record as an integer between 0 and 255.
+        """
+        return pulumi.get(self, "flags")
+
+    @property
+    @pulumi.getter
+    def tag(self) -> Optional[str]:
+        """
+        The tag for this CAA record.
+        """
+        return pulumi.get(self, "tag")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        The value for this CAA record.
+        """
+        return pulumi.get(self, "value")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -16125,6 +16177,32 @@ class NetworkSecurityGroupResponse(dict):
         Resource tags.
         """
         return pulumi.get(self, "tags")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class NsRecordResponse(dict):
+    """
+    An NS record.
+    """
+    def __init__(__self__, *,
+                 nsdname: Optional[str] = None):
+        """
+        An NS record.
+        :param str nsdname: The name server name for this NS record.
+        """
+        if nsdname is not None:
+            pulumi.set(__self__, "nsdname", nsdname)
+
+    @property
+    @pulumi.getter
+    def nsdname(self) -> Optional[str]:
+        """
+        The name server name for this NS record.
+        """
+        return pulumi.get(self, "nsdname")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

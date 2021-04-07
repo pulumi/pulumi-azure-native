@@ -91,6 +91,7 @@ from .get_private_dns_zone_group import *
 from .get_private_endpoint import *
 from .get_private_link_service import *
 from .get_private_link_service_private_endpoint_connection import *
+from .get_private_record_set import *
 from .get_private_zone import *
 from .get_profile import *
 from .get_public_ip_address import *
@@ -164,6 +165,7 @@ from .private_dns_zone_group import *
 from .private_endpoint import *
 from .private_link_service import *
 from .private_link_service_private_endpoint_connection import *
+from .private_record_set import *
 from .private_zone import *
 from .profile import *
 from .public_ip_address import *
@@ -379,6 +381,8 @@ def _register_module():
                 return PrivateLinkService(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:network:PrivateLinkServicePrivateEndpointConnection":
                 return PrivateLinkServicePrivateEndpointConnection(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:network:PrivateRecordSet":
+                return PrivateRecordSet(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:network:PrivateZone":
                 return PrivateZone(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:network:Profile":

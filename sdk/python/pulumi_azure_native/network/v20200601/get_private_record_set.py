@@ -10,13 +10,13 @@ from ... import _utilities, _tables
 from . import outputs
 
 __all__ = [
-    'GetRecordSetResult',
-    'AwaitableGetRecordSetResult',
-    'get_record_set',
+    'GetPrivateRecordSetResult',
+    'AwaitableGetPrivateRecordSetResult',
+    'get_private_record_set',
 ]
 
 @pulumi.output_type
-class GetRecordSetResult:
+class GetPrivateRecordSetResult:
     """
     Describes a DNS record set (a collection of DNS records with the same name and type) in a Private DNS zone.
     """
@@ -199,12 +199,12 @@ class GetRecordSetResult:
         return pulumi.get(self, "type")
 
 
-class AwaitableGetRecordSetResult(GetRecordSetResult):
+class AwaitableGetPrivateRecordSetResult(GetPrivateRecordSetResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetRecordSetResult(
+        return GetPrivateRecordSetResult(
             a_records=self.a_records,
             aaaa_records=self.aaaa_records,
             cname_record=self.cname_record,
@@ -223,11 +223,11 @@ class AwaitableGetRecordSetResult(GetRecordSetResult):
             type=self.type)
 
 
-def get_record_set(private_zone_name: Optional[str] = None,
-                   record_type: Optional[str] = None,
-                   relative_record_set_name: Optional[str] = None,
-                   resource_group_name: Optional[str] = None,
-                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRecordSetResult:
+def get_private_record_set(private_zone_name: Optional[str] = None,
+                           record_type: Optional[str] = None,
+                           relative_record_set_name: Optional[str] = None,
+                           resource_group_name: Optional[str] = None,
+                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateRecordSetResult:
     """
     Describes a DNS record set (a collection of DNS records with the same name and type) in a Private DNS zone.
 
@@ -246,9 +246,9 @@ def get_record_set(private_zone_name: Optional[str] = None,
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azure-native:network/v20180901:getRecordSet', __args__, opts=opts, typ=GetRecordSetResult).value
+    __ret__ = pulumi.runtime.invoke('azure-native:network/v20200601:getPrivateRecordSet', __args__, opts=opts, typ=GetPrivateRecordSetResult).value
 
-    return AwaitableGetRecordSetResult(
+    return AwaitableGetPrivateRecordSetResult(
         a_records=__ret__.a_records,
         aaaa_records=__ret__.aaaa_records,
         cname_record=__ret__.cname_record,

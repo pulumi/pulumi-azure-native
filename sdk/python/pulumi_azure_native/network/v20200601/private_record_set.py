@@ -10,10 +10,10 @@ from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['RecordSet']
+__all__ = ['PrivateRecordSet']
 
 
-class RecordSet(pulumi.CustomResource):
+class PrivateRecordSet(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -98,10 +98,10 @@ class RecordSet(pulumi.CustomResource):
             __props__['is_auto_registered'] = None
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20180901:RecordSet"), pulumi.Alias(type_="azure-native:network:RecordSet"), pulumi.Alias(type_="azure-nextgen:network:RecordSet"), pulumi.Alias(type_="azure-native:network/v20200101:RecordSet"), pulumi.Alias(type_="azure-nextgen:network/v20200101:RecordSet"), pulumi.Alias(type_="azure-native:network/v20200601:RecordSet"), pulumi.Alias(type_="azure-nextgen:network/v20200601:RecordSet")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20200601:PrivateRecordSet"), pulumi.Alias(type_="azure-native:network:PrivateRecordSet"), pulumi.Alias(type_="azure-nextgen:network:PrivateRecordSet"), pulumi.Alias(type_="azure-native:network/v20180901:PrivateRecordSet"), pulumi.Alias(type_="azure-nextgen:network/v20180901:PrivateRecordSet"), pulumi.Alias(type_="azure-native:network/v20200101:PrivateRecordSet"), pulumi.Alias(type_="azure-nextgen:network/v20200101:PrivateRecordSet")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
-        super(RecordSet, __self__).__init__(
-            'azure-native:network/v20180901:RecordSet',
+        super(PrivateRecordSet, __self__).__init__(
+            'azure-native:network/v20200601:PrivateRecordSet',
             resource_name,
             __props__,
             opts)
@@ -109,9 +109,9 @@ class RecordSet(pulumi.CustomResource):
     @staticmethod
     def get(resource_name: str,
             id: pulumi.Input[str],
-            opts: Optional[pulumi.ResourceOptions] = None) -> 'RecordSet':
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'PrivateRecordSet':
         """
-        Get an existing RecordSet resource's state with the given name, id, and optional extra
+        Get an existing PrivateRecordSet resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
@@ -137,7 +137,7 @@ class RecordSet(pulumi.CustomResource):
         __props__["ttl"] = None
         __props__["txt_records"] = None
         __props__["type"] = None
-        return RecordSet(resource_name, opts=opts, __props__=__props__)
+        return PrivateRecordSet(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter(name="aRecords")

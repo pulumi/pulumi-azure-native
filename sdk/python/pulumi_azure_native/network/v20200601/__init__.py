@@ -72,10 +72,10 @@ from .get_private_dns_zone_group import *
 from .get_private_endpoint import *
 from .get_private_link_service import *
 from .get_private_link_service_private_endpoint_connection import *
+from .get_private_record_set import *
 from .get_private_zone import *
 from .get_public_ip_address import *
 from .get_public_ip_prefix import *
-from .get_record_set import *
 from .get_route import *
 from .get_route_filter import *
 from .get_route_filter_rule import *
@@ -130,10 +130,10 @@ from .private_dns_zone_group import *
 from .private_endpoint import *
 from .private_link_service import *
 from .private_link_service_private_endpoint_connection import *
+from .private_record_set import *
 from .private_zone import *
 from .public_ip_address import *
 from .public_ip_prefix import *
-from .record_set import *
 from .route import *
 from .route_filter import *
 from .route_filter_rule import *
@@ -261,14 +261,14 @@ def _register_module():
                 return PrivateLinkService(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:network/v20200601:PrivateLinkServicePrivateEndpointConnection":
                 return PrivateLinkServicePrivateEndpointConnection(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-native:network/v20200601:PrivateRecordSet":
+                return PrivateRecordSet(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:network/v20200601:PrivateZone":
                 return PrivateZone(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:network/v20200601:PublicIPAddress":
                 return PublicIPAddress(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:network/v20200601:PublicIPPrefix":
                 return PublicIPPrefix(name, pulumi.ResourceOptions(urn=urn))
-            elif typ == "azure-native:network/v20200601:RecordSet":
-                return RecordSet(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:network/v20200601:Route":
                 return Route(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-native:network/v20200601:RouteFilter":
