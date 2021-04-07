@@ -49,12 +49,6 @@ func NewDatabase(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:dbformariadb:Database"),
 		},
 		{
-			Type: pulumi.String("azure-native:dbformariadb/latest:Database"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:dbformariadb/latest:Database"),
-		},
-		{
 			Type: pulumi.String("azure-native:dbformariadb/v20180601:Database"),
 		},
 		{

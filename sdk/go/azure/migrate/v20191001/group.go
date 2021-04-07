@@ -48,12 +48,6 @@ func NewGroup(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:migrate:Group"),
 		},
-		{
-			Type: pulumi.String("azure-native:migrate/latest:Group"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:migrate/latest:Group"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource Group

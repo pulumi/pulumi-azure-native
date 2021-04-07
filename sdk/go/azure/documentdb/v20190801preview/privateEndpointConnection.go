@@ -53,12 +53,6 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:documentdb:PrivateEndpointConnection"),
 		},
 		{
-			Type: pulumi.String("azure-native:documentdb/latest:PrivateEndpointConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/latest:PrivateEndpointConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20210115:PrivateEndpointConnection"),
 		},
 		{

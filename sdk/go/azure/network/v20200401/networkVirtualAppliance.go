@@ -64,12 +64,6 @@ func NewNetworkVirtualAppliance(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:network:NetworkVirtualAppliance"),
 		},
 		{
-			Type: pulumi.String("azure-native:network/latest:NetworkVirtualAppliance"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/latest:NetworkVirtualAppliance"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20191201:NetworkVirtualAppliance"),
 		},
 		{

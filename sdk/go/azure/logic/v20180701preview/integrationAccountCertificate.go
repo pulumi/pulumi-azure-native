@@ -59,12 +59,6 @@ func NewIntegrationAccountCertificate(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:logic:IntegrationAccountCertificate"),
 		},
 		{
-			Type: pulumi.String("azure-native:logic/latest:IntegrationAccountCertificate"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:logic/latest:IntegrationAccountCertificate"),
-		},
-		{
 			Type: pulumi.String("azure-native:logic/v20150801preview:IntegrationAccountCertificate"),
 		},
 		{

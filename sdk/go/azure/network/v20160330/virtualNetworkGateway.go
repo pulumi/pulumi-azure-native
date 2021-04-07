@@ -68,12 +68,6 @@ func NewVirtualNetworkGateway(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:network:VirtualNetworkGateway"),
 		},
 		{
-			Type: pulumi.String("azure-native:network/latest:VirtualNetworkGateway"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/latest:VirtualNetworkGateway"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20150615:VirtualNetworkGateway"),
 		},
 		{

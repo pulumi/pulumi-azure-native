@@ -51,12 +51,6 @@ func NewHub(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:customerinsights:Hub"),
 		},
 		{
-			Type: pulumi.String("azure-native:customerinsights/latest:Hub"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:customerinsights/latest:Hub"),
-		},
-		{
 			Type: pulumi.String("azure-native:customerinsights/v20170101:Hub"),
 		},
 		{

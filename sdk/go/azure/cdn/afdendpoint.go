@@ -55,12 +55,6 @@ func NewAFDEndpoint(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:cdn:AFDEndpoint"),
 		},
 		{
-			Type: pulumi.String("azure-native:cdn/latest:AFDEndpoint"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:cdn/latest:AFDEndpoint"),
-		},
-		{
 			Type: pulumi.String("azure-native:cdn/v20200901:AFDEndpoint"),
 		},
 		{

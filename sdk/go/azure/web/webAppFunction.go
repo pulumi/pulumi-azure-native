@@ -68,12 +68,6 @@ func NewWebAppFunction(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:web:WebAppFunction"),
 		},
 		{
-			Type: pulumi.String("azure-native:web/latest:WebAppFunction"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/latest:WebAppFunction"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20160801:WebAppFunction"),
 		},
 		{

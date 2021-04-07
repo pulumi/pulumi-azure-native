@@ -65,12 +65,6 @@ func NewRedisEnterprise(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:cache:RedisEnterprise"),
 		},
 		{
-			Type: pulumi.String("azure-native:cache/latest:RedisEnterprise"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:cache/latest:RedisEnterprise"),
-		},
-		{
 			Type: pulumi.String("azure-native:cache/v20201001preview:RedisEnterprise"),
 		},
 		{

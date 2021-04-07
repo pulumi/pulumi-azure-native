@@ -53,12 +53,6 @@ func NewNamespaceNetworkRuleSet(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:eventhub:NamespaceNetworkRuleSet"),
 		},
 		{
-			Type: pulumi.String("azure-native:eventhub/latest:NamespaceNetworkRuleSet"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:eventhub/latest:NamespaceNetworkRuleSet"),
-		},
-		{
 			Type: pulumi.String("azure-native:eventhub/v20170401:NamespaceNetworkRuleSet"),
 		},
 		{

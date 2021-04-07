@@ -57,12 +57,6 @@ func NewGremlinResourceGremlinDatabase(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:documentdb:GremlinResourceGremlinDatabase"),
 		},
 		{
-			Type: pulumi.String("azure-native:documentdb/latest:GremlinResourceGremlinDatabase"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/latest:GremlinResourceGremlinDatabase"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20150401:GremlinResourceGremlinDatabase"),
 		},
 		{

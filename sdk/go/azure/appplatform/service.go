@@ -45,12 +45,6 @@ func NewService(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:appplatform:Service"),
 		},
 		{
-			Type: pulumi.String("azure-native:appplatform/latest:Service"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:appplatform/latest:Service"),
-		},
-		{
 			Type: pulumi.String("azure-native:appplatform/v20190501preview:Service"),
 		},
 		{

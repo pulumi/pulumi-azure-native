@@ -47,12 +47,6 @@ func NewJobCollection(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:scheduler:JobCollection"),
 		},
 		{
-			Type: pulumi.String("azure-native:scheduler/latest:JobCollection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:scheduler/latest:JobCollection"),
-		},
-		{
 			Type: pulumi.String("azure-native:scheduler/v20140801preview:JobCollection"),
 		},
 		{

@@ -65,12 +65,6 @@ func NewManagerExtendedInfo(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:storsimple:ManagerExtendedInfo"),
 		},
 		{
-			Type: pulumi.String("azure-native:storsimple/latest:ManagerExtendedInfo"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storsimple/latest:ManagerExtendedInfo"),
-		},
-		{
 			Type: pulumi.String("azure-native:storsimple/v20170601:ManagerExtendedInfo"),
 		},
 		{

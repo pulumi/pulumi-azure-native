@@ -75,12 +75,6 @@ func NewDomain(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:eventgrid:Domain"),
 		},
 		{
-			Type: pulumi.String("azure-native:eventgrid/latest:Domain"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:eventgrid/latest:Domain"),
-		},
-		{
 			Type: pulumi.String("azure-native:eventgrid/v20180915preview:Domain"),
 		},
 		{

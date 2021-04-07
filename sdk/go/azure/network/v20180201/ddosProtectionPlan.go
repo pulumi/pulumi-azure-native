@@ -54,12 +54,6 @@ func NewDdosProtectionPlan(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:network:DdosProtectionPlan"),
 		},
 		{
-			Type: pulumi.String("azure-native:network/latest:DdosProtectionPlan"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/latest:DdosProtectionPlan"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20180401:DdosProtectionPlan"),
 		},
 		{

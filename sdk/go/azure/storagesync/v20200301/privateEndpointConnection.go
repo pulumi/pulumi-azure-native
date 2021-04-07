@@ -54,12 +54,6 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:storagesync:PrivateEndpointConnection"),
 		},
 		{
-			Type: pulumi.String("azure-native:storagesync/latest:PrivateEndpointConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storagesync/latest:PrivateEndpointConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:storagesync/v20200901:PrivateEndpointConnection"),
 		},
 		{

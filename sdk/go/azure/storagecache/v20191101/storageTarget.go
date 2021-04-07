@@ -57,12 +57,6 @@ func NewStorageTarget(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:storagecache:StorageTarget"),
 		},
 		{
-			Type: pulumi.String("azure-native:storagecache/latest:StorageTarget"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storagecache/latest:StorageTarget"),
-		},
-		{
 			Type: pulumi.String("azure-native:storagecache/v20190801preview:StorageTarget"),
 		},
 		{

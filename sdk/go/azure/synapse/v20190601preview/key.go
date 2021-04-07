@@ -49,12 +49,6 @@ func NewKey(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:synapse:Key"),
 		},
 		{
-			Type: pulumi.String("azure-native:synapse/latest:Key"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:synapse/latest:Key"),
-		},
-		{
 			Type: pulumi.String("azure-native:synapse/v20201201:Key"),
 		},
 		{

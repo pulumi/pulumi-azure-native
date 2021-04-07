@@ -55,12 +55,6 @@ func NewContentKeyPolicy(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:media:ContentKeyPolicy"),
 		},
 		{
-			Type: pulumi.String("azure-native:media/latest:ContentKeyPolicy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:media/latest:ContentKeyPolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:media/v20180330preview:ContentKeyPolicy"),
 		},
 		{

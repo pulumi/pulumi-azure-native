@@ -73,12 +73,6 @@ func NewServerFarm(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:web:ServerFarm"),
 		},
 		{
-			Type: pulumi.String("azure-native:web/latest:ServerFarm"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/latest:ServerFarm"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20160901:ServerFarm"),
 		},
 		{

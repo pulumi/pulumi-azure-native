@@ -51,12 +51,6 @@ func NewServerKey(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:dbformysql:ServerKey"),
 		},
 		{
-			Type: pulumi.String("azure-native:dbformysql/latest:ServerKey"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:dbformysql/latest:ServerKey"),
-		},
-		{
 			Type: pulumi.String("azure-native:dbformysql/v20200101:ServerKey"),
 		},
 		{

@@ -83,12 +83,6 @@ func NewPrivateCloud(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:avs:PrivateCloud"),
 		},
 		{
-			Type: pulumi.String("azure-native:avs/latest:PrivateCloud"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:avs/latest:PrivateCloud"),
-		},
-		{
 			Type: pulumi.String("azure-native:avs/v20200320:PrivateCloud"),
 		},
 		{

@@ -130,12 +130,6 @@ func NewAppServiceEnvironment(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:web:AppServiceEnvironment"),
 		},
 		{
-			Type: pulumi.String("azure-native:web/latest:AppServiceEnvironment"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/latest:AppServiceEnvironment"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20150801:AppServiceEnvironment"),
 		},
 		{

@@ -75,12 +75,6 @@ func NewFileShare(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:storage:FileShare"),
 		},
 		{
-			Type: pulumi.String("azure-native:storage/latest:FileShare"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storage/latest:FileShare"),
-		},
-		{
 			Type: pulumi.String("azure-native:storage/v20190401:FileShare"),
 		},
 		{

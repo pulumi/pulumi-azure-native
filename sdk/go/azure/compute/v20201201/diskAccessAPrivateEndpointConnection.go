@@ -54,12 +54,6 @@ func NewDiskAccessAPrivateEndpointConnection(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:compute:DiskAccessAPrivateEndpointConnection"),
 		},
 		{
-			Type: pulumi.String("azure-native:compute/latest:DiskAccessAPrivateEndpointConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:compute/latest:DiskAccessAPrivateEndpointConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:compute/v20200930:DiskAccessAPrivateEndpointConnection"),
 		},
 		{

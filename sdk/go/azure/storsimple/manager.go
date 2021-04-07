@@ -49,12 +49,6 @@ func NewManager(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:storsimple:Manager"),
 		},
 		{
-			Type: pulumi.String("azure-native:storsimple/latest:Manager"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storsimple/latest:Manager"),
-		},
-		{
 			Type: pulumi.String("azure-native:storsimple/v20161001:Manager"),
 		},
 		{

@@ -49,12 +49,6 @@ func NewTrustedIdProvider(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:datalakestore:TrustedIdProvider"),
 		},
-		{
-			Type: pulumi.String("azure-native:datalakestore/latest:TrustedIdProvider"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:datalakestore/latest:TrustedIdProvider"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource TrustedIdProvider

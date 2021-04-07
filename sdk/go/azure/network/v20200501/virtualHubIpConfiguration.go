@@ -57,12 +57,6 @@ func NewVirtualHubIpConfiguration(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:network:VirtualHubIpConfiguration"),
 		},
 		{
-			Type: pulumi.String("azure-native:network/latest:VirtualHubIpConfiguration"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/latest:VirtualHubIpConfiguration"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200601:VirtualHubIpConfiguration"),
 		},
 		{

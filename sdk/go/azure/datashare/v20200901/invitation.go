@@ -72,12 +72,6 @@ func NewInvitation(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:datashare:Invitation"),
 		},
 		{
-			Type: pulumi.String("azure-native:datashare/latest:Invitation"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:datashare/latest:Invitation"),
-		},
-		{
 			Type: pulumi.String("azure-native:datashare/v20181101preview:Invitation"),
 		},
 		{

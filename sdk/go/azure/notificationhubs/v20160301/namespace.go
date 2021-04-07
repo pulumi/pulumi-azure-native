@@ -68,12 +68,6 @@ func NewNamespace(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:notificationhubs:Namespace"),
 		},
 		{
-			Type: pulumi.String("azure-native:notificationhubs/latest:Namespace"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:notificationhubs/latest:Namespace"),
-		},
-		{
 			Type: pulumi.String("azure-native:notificationhubs/v20140901:Namespace"),
 		},
 		{

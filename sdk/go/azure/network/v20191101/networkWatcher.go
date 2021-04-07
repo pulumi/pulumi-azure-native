@@ -50,12 +50,6 @@ func NewNetworkWatcher(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:network:NetworkWatcher"),
 		},
 		{
-			Type: pulumi.String("azure-native:network/latest:NetworkWatcher"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/latest:NetworkWatcher"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20160901:NetworkWatcher"),
 		},
 		{

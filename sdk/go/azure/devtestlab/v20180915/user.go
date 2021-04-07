@@ -59,12 +59,6 @@ func NewUser(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:devtestlab:User"),
 		},
 		{
-			Type: pulumi.String("azure-native:devtestlab/latest:User"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:devtestlab/latest:User"),
-		},
-		{
 			Type: pulumi.String("azure-native:devtestlab/v20160515:User"),
 		},
 		{

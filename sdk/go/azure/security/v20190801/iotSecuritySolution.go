@@ -82,12 +82,6 @@ func NewIotSecuritySolution(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:security:IotSecuritySolution"),
 		},
 		{
-			Type: pulumi.String("azure-native:security/latest:IotSecuritySolution"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:security/latest:IotSecuritySolution"),
-		},
-		{
 			Type: pulumi.String("azure-native:security/v20170801preview:IotSecuritySolution"),
 		},
 		{

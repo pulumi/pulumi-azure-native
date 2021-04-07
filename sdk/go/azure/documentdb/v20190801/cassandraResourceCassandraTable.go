@@ -59,12 +59,6 @@ func NewCassandraResourceCassandraTable(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:documentdb:CassandraResourceCassandraTable"),
 		},
 		{
-			Type: pulumi.String("azure-native:documentdb/latest:CassandraResourceCassandraTable"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/latest:CassandraResourceCassandraTable"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20150401:CassandraResourceCassandraTable"),
 		},
 		{

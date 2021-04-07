@@ -67,12 +67,6 @@ func NewVirtualNetworkPeering(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:network:VirtualNetworkPeering"),
 		},
 		{
-			Type: pulumi.String("azure-native:network/latest:VirtualNetworkPeering"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/latest:VirtualNetworkPeering"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20160601:VirtualNetworkPeering"),
 		},
 		{

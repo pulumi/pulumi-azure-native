@@ -74,12 +74,6 @@ func NewEnvironmentSetting(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:labservices:EnvironmentSetting"),
 		},
-		{
-			Type: pulumi.String("azure-native:labservices/latest:EnvironmentSetting"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:labservices/latest:EnvironmentSetting"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource EnvironmentSetting

@@ -58,12 +58,6 @@ func NewFavorite(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:insights:Favorite"),
 		},
 		{
-			Type: pulumi.String("azure-native:insights/latest:Favorite"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:insights/latest:Favorite"),
-		},
-		{
 			Type: pulumi.String("azure-native:insights/v20150501:Favorite"),
 		},
 		{

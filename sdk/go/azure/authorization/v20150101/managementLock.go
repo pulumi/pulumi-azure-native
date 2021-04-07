@@ -42,12 +42,6 @@ func NewManagementLock(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:authorization:ManagementLock"),
 		},
 		{
-			Type: pulumi.String("azure-native:authorization/latest:ManagementLock"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:authorization/latest:ManagementLock"),
-		},
-		{
 			Type: pulumi.String("azure-native:authorization/v20160901:ManagementLock"),
 		},
 		{

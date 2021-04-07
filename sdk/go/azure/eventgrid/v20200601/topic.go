@@ -70,12 +70,6 @@ func NewTopic(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:eventgrid:Topic"),
 		},
 		{
-			Type: pulumi.String("azure-native:eventgrid/latest:Topic"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:eventgrid/latest:Topic"),
-		},
-		{
 			Type: pulumi.String("azure-native:eventgrid/v20170615preview:Topic"),
 		},
 		{

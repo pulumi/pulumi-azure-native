@@ -53,12 +53,6 @@ func NewWCFRelayAuthorizationRule(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:relay:WCFRelayAuthorizationRule"),
 		},
 		{
-			Type: pulumi.String("azure-native:relay/latest:WCFRelayAuthorizationRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:relay/latest:WCFRelayAuthorizationRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:relay/v20160701:WCFRelayAuthorizationRule"),
 		},
 		{

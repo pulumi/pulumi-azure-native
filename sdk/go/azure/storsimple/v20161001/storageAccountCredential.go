@@ -63,12 +63,6 @@ func NewStorageAccountCredential(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:storsimple:StorageAccountCredential"),
 		},
 		{
-			Type: pulumi.String("azure-native:storsimple/latest:StorageAccountCredential"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storsimple/latest:StorageAccountCredential"),
-		},
-		{
 			Type: pulumi.String("azure-native:storsimple/v20170601:StorageAccountCredential"),
 		},
 		{

@@ -45,12 +45,6 @@ func NewTagByProduct(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:apimanagement:TagByProduct"),
 		},
 		{
-			Type: pulumi.String("azure-native:apimanagement/latest:TagByProduct"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/latest:TagByProduct"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20170301:TagByProduct"),
 		},
 		{

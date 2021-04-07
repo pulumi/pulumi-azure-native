@@ -50,12 +50,6 @@ func NewContentItem(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:apimanagement:ContentItem"),
 		},
 		{
-			Type: pulumi.String("azure-native:apimanagement/latest:ContentItem"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/latest:ContentItem"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20191201:ContentItem"),
 		},
 		{

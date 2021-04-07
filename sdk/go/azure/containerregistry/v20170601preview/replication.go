@@ -53,12 +53,6 @@ func NewReplication(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:containerregistry:Replication"),
 		},
 		{
-			Type: pulumi.String("azure-native:containerregistry/latest:Replication"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:containerregistry/latest:Replication"),
-		},
-		{
 			Type: pulumi.String("azure-native:containerregistry/v20171001:Replication"),
 		},
 		{

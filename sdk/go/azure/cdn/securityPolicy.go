@@ -47,12 +47,6 @@ func NewSecurityPolicy(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:cdn:SecurityPolicy"),
 		},
 		{
-			Type: pulumi.String("azure-native:cdn/latest:SecurityPolicy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:cdn/latest:SecurityPolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:cdn/v20200901:SecurityPolicy"),
 		},
 		{

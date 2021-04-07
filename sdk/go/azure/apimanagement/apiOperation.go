@@ -68,12 +68,6 @@ func NewApiOperation(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:apimanagement:ApiOperation"),
 		},
 		{
-			Type: pulumi.String("azure-native:apimanagement/latest:ApiOperation"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/latest:ApiOperation"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20160707:ApiOperation"),
 		},
 		{

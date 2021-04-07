@@ -64,12 +64,6 @@ func NewKey(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:keyvault:Key"),
 		},
-		{
-			Type: pulumi.String("azure-native:keyvault/latest:Key"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:keyvault/latest:Key"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource Key

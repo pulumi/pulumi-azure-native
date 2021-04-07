@@ -57,12 +57,6 @@ func NewEmailTemplate(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:apimanagement:EmailTemplate"),
 		},
 		{
-			Type: pulumi.String("azure-native:apimanagement/latest:EmailTemplate"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/latest:EmailTemplate"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20170301:EmailTemplate"),
 		},
 		{

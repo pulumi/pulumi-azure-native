@@ -112,12 +112,6 @@ func NewCluster(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:servicefabric:Cluster"),
 		},
 		{
-			Type: pulumi.String("azure-native:servicefabric/latest:Cluster"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:servicefabric/latest:Cluster"),
-		},
-		{
 			Type: pulumi.String("azure-native:servicefabric/v20160901:Cluster"),
 		},
 		{

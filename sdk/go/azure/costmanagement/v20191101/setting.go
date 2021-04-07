@@ -41,12 +41,6 @@ func NewSetting(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:costmanagement:Setting"),
 		},
-		{
-			Type: pulumi.String("azure-native:costmanagement/latest:Setting"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:costmanagement/latest:Setting"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource Setting

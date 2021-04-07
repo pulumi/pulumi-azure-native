@@ -77,12 +77,6 @@ func NewMyWorkbook(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:insights:MyWorkbook"),
 		},
 		{
-			Type: pulumi.String("azure-native:insights/latest:MyWorkbook"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:insights/latest:MyWorkbook"),
-		},
-		{
 			Type: pulumi.String("azure-native:insights/v20150501:MyWorkbook"),
 		},
 		{

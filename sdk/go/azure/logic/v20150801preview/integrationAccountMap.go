@@ -62,12 +62,6 @@ func NewIntegrationAccountMap(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:logic:IntegrationAccountMap"),
 		},
 		{
-			Type: pulumi.String("azure-native:logic/latest:IntegrationAccountMap"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:logic/latest:IntegrationAccountMap"),
-		},
-		{
 			Type: pulumi.String("azure-native:logic/v20160601:IntegrationAccountMap"),
 		},
 		{

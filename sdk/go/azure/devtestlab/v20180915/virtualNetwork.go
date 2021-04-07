@@ -65,12 +65,6 @@ func NewVirtualNetwork(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:devtestlab:VirtualNetwork"),
 		},
 		{
-			Type: pulumi.String("azure-native:devtestlab/latest:VirtualNetwork"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:devtestlab/latest:VirtualNetwork"),
-		},
-		{
 			Type: pulumi.String("azure-native:devtestlab/v20150521preview:VirtualNetwork"),
 		},
 		{

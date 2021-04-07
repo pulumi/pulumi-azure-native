@@ -65,12 +65,6 @@ func NewController(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:devspaces:Controller"),
 		},
-		{
-			Type: pulumi.String("azure-native:devspaces/latest:Controller"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:devspaces/latest:Controller"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource Controller

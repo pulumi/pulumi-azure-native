@@ -47,12 +47,6 @@ func NewWebAppConnectionStringsSlot(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:web:WebAppConnectionStringsSlot"),
 		},
 		{
-			Type: pulumi.String("azure-native:web/latest:WebAppConnectionStringsSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/latest:WebAppConnectionStringsSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20150801:WebAppConnectionStringsSlot"),
 		},
 		{

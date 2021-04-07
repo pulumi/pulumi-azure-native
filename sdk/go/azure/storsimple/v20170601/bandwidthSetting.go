@@ -53,12 +53,6 @@ func NewBandwidthSetting(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:storsimple:BandwidthSetting"),
 		},
-		{
-			Type: pulumi.String("azure-native:storsimple/latest:BandwidthSetting"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storsimple/latest:BandwidthSetting"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource BandwidthSetting

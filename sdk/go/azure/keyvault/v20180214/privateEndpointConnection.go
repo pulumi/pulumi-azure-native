@@ -55,12 +55,6 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:keyvault:PrivateEndpointConnection"),
 		},
 		{
-			Type: pulumi.String("azure-native:keyvault/latest:PrivateEndpointConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:keyvault/latest:PrivateEndpointConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:keyvault/v20190901:PrivateEndpointConnection"),
 		},
 		{

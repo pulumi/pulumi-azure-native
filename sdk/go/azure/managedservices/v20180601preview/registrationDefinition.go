@@ -46,12 +46,6 @@ func NewRegistrationDefinition(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:managedservices:RegistrationDefinition"),
 		},
 		{
-			Type: pulumi.String("azure-native:managedservices/latest:RegistrationDefinition"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:managedservices/latest:RegistrationDefinition"),
-		},
-		{
 			Type: pulumi.String("azure-native:managedservices/v20190401preview:RegistrationDefinition"),
 		},
 		{

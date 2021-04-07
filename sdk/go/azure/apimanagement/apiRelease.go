@@ -51,12 +51,6 @@ func NewApiRelease(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:apimanagement:ApiRelease"),
 		},
 		{
-			Type: pulumi.String("azure-native:apimanagement/latest:ApiRelease"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/latest:ApiRelease"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20170301:ApiRelease"),
 		},
 		{

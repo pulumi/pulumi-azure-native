@@ -53,12 +53,6 @@ func NewWorkspaceAadAdmin(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:synapse:WorkspaceAadAdmin"),
 		},
 		{
-			Type: pulumi.String("azure-native:synapse/latest:WorkspaceAadAdmin"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:synapse/latest:WorkspaceAadAdmin"),
-		},
-		{
 			Type: pulumi.String("azure-native:synapse/v20201201:WorkspaceAadAdmin"),
 		},
 		{

@@ -68,12 +68,6 @@ func NewWebAppInstanceFunctionSlot(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:web:WebAppInstanceFunctionSlot"),
 		},
 		{
-			Type: pulumi.String("azure-native:web/latest:WebAppInstanceFunctionSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/latest:WebAppInstanceFunctionSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20180201:WebAppInstanceFunctionSlot"),
 		},
 		{

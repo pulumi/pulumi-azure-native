@@ -69,12 +69,6 @@ func NewSoftwareUpdateConfigurationByName(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:automation:SoftwareUpdateConfigurationByName"),
 		},
 		{
-			Type: pulumi.String("azure-native:automation/latest:SoftwareUpdateConfigurationByName"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:automation/latest:SoftwareUpdateConfigurationByName"),
-		},
-		{
 			Type: pulumi.String("azure-native:automation/v20170515preview:SoftwareUpdateConfigurationByName"),
 		},
 		{

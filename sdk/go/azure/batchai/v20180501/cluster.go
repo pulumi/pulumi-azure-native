@@ -84,12 +84,6 @@ func NewCluster(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:batchai:Cluster"),
 		},
-		{
-			Type: pulumi.String("azure-native:batchai/latest:Cluster"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:batchai/latest:Cluster"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource Cluster

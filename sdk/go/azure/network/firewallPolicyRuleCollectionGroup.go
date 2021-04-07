@@ -48,12 +48,6 @@ func NewFirewallPolicyRuleCollectionGroup(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:network:FirewallPolicyRuleCollectionGroup"),
 		},
 		{
-			Type: pulumi.String("azure-native:network/latest:FirewallPolicyRuleCollectionGroup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/latest:FirewallPolicyRuleCollectionGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200501:FirewallPolicyRuleCollectionGroup"),
 		},
 		{

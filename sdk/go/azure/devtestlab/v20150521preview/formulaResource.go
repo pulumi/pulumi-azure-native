@@ -63,12 +63,6 @@ func NewFormulaResource(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:devtestlab:FormulaResource"),
 		},
 		{
-			Type: pulumi.String("azure-native:devtestlab/latest:FormulaResource"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:devtestlab/latest:FormulaResource"),
-		},
-		{
 			Type: pulumi.String("azure-native:devtestlab/v20160515:FormulaResource"),
 		},
 		{

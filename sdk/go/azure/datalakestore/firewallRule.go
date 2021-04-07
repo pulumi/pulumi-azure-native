@@ -50,12 +50,6 @@ func NewFirewallRule(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:datalakestore:FirewallRule"),
 		},
 		{
-			Type: pulumi.String("azure-native:datalakestore/latest:FirewallRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:datalakestore/latest:FirewallRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:datalakestore/v20161101:FirewallRule"),
 		},
 		{

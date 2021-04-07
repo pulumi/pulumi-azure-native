@@ -61,12 +61,6 @@ func NewMigrationConfig(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:servicebus:MigrationConfig"),
 		},
 		{
-			Type: pulumi.String("azure-native:servicebus/latest:MigrationConfig"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:servicebus/latest:MigrationConfig"),
-		},
-		{
 			Type: pulumi.String("azure-native:servicebus/v20180101preview:MigrationConfig"),
 		},
 		{

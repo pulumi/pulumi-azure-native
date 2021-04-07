@@ -56,12 +56,6 @@ func NewRoute(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:network:Route"),
 		},
 		{
-			Type: pulumi.String("azure-native:network/latest:Route"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/latest:Route"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20150615:Route"),
 		},
 		{

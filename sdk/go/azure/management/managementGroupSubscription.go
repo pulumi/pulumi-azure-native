@@ -45,12 +45,6 @@ func NewManagementGroupSubscription(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:management:ManagementGroupSubscription"),
 		},
 		{
-			Type: pulumi.String("azure-native:management/latest:ManagementGroupSubscription"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:management/latest:ManagementGroupSubscription"),
-		},
-		{
 			Type: pulumi.String("azure-native:management/v20200501:ManagementGroupSubscription"),
 		},
 		{

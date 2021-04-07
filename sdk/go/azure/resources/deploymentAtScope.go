@@ -46,12 +46,6 @@ func NewDeploymentAtScope(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:resources:DeploymentAtScope"),
 		},
 		{
-			Type: pulumi.String("azure-native:resources/latest:DeploymentAtScope"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:resources/latest:DeploymentAtScope"),
-		},
-		{
 			Type: pulumi.String("azure-native:resources/v20190701:DeploymentAtScope"),
 		},
 		{

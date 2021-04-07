@@ -62,12 +62,6 @@ func NewDatabaseAccountCassandraTable(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:documentdb:DatabaseAccountCassandraTable"),
 		},
 		{
-			Type: pulumi.String("azure-native:documentdb/latest:DatabaseAccountCassandraTable"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/latest:DatabaseAccountCassandraTable"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20150408:DatabaseAccountCassandraTable"),
 		},
 		{

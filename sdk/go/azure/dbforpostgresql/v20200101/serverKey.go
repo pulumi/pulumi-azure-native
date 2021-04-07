@@ -56,12 +56,6 @@ func NewServerKey(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:dbforpostgresql:ServerKey"),
 		},
 		{
-			Type: pulumi.String("azure-native:dbforpostgresql/latest:ServerKey"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:dbforpostgresql/latest:ServerKey"),
-		},
-		{
 			Type: pulumi.String("azure-native:dbforpostgresql/v20200101privatepreview:ServerKey"),
 		},
 		{

@@ -61,12 +61,6 @@ func NewWebAppSourceControl(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:web:WebAppSourceControl"),
 		},
 		{
-			Type: pulumi.String("azure-native:web/latest:WebAppSourceControl"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/latest:WebAppSourceControl"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20150801:WebAppSourceControl"),
 		},
 		{

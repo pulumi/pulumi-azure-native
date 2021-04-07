@@ -40,12 +40,6 @@ func NewSubscriptionAlias(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:subscription:SubscriptionAlias"),
 		},
 		{
-			Type: pulumi.String("azure-native:subscription/latest:SubscriptionAlias"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:subscription/latest:SubscriptionAlias"),
-		},
-		{
 			Type: pulumi.String("azure-native:subscription/v20200901:SubscriptionAlias"),
 		},
 		{

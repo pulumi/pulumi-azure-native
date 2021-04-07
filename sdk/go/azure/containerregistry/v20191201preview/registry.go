@@ -90,12 +90,6 @@ func NewRegistry(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:containerregistry:Registry"),
 		},
 		{
-			Type: pulumi.String("azure-native:containerregistry/latest:Registry"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:containerregistry/latest:Registry"),
-		},
-		{
 			Type: pulumi.String("azure-native:containerregistry/v20160627preview:Registry"),
 		},
 		{

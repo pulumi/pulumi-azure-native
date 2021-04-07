@@ -64,12 +64,6 @@ func NewEndpoint(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:network:Endpoint"),
 		},
 		{
-			Type: pulumi.String("azure-native:network/latest:Endpoint"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/latest:Endpoint"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20170301:Endpoint"),
 		},
 		{

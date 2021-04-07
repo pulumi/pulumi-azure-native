@@ -56,12 +56,6 @@ func NewTransform(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:media:Transform"),
 		},
 		{
-			Type: pulumi.String("azure-native:media/latest:Transform"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:media/latest:Transform"),
-		},
-		{
 			Type: pulumi.String("azure-native:media/v20180330preview:Transform"),
 		},
 		{

@@ -55,12 +55,6 @@ func NewReplicationProtectionContainerMapping(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:recoveryservices:ReplicationProtectionContainerMapping"),
 		},
 		{
-			Type: pulumi.String("azure-native:recoveryservices/latest:ReplicationProtectionContainerMapping"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/latest:ReplicationProtectionContainerMapping"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices/v20180110:ReplicationProtectionContainerMapping"),
 		},
 		{

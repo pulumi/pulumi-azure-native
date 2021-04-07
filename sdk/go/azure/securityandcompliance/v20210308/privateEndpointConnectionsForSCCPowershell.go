@@ -56,12 +56,6 @@ func NewPrivateEndpointConnectionsForSCCPowershell(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:securityandcompliance:PrivateEndpointConnectionsForSCCPowershell"),
 		},
 		{
-			Type: pulumi.String("azure-native:securityandcompliance/latest:PrivateEndpointConnectionsForSCCPowershell"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:securityandcompliance/latest:PrivateEndpointConnectionsForSCCPowershell"),
-		},
-		{
 			Type: pulumi.String("azure-native:securityandcompliance/v20210111:PrivateEndpointConnectionsForSCCPowershell"),
 		},
 		{

@@ -72,12 +72,6 @@ func NewIntegrationAccountSchema(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:logic:IntegrationAccountSchema"),
 		},
 		{
-			Type: pulumi.String("azure-native:logic/latest:IntegrationAccountSchema"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:logic/latest:IntegrationAccountSchema"),
-		},
-		{
 			Type: pulumi.String("azure-native:logic/v20150801preview:IntegrationAccountSchema"),
 		},
 		{

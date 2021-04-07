@@ -60,12 +60,6 @@ func NewWorkspace(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:operationalinsights:Workspace"),
 		},
 		{
-			Type: pulumi.String("azure-native:operationalinsights/latest:Workspace"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:operationalinsights/latest:Workspace"),
-		},
-		{
 			Type: pulumi.String("azure-native:operationalinsights/v20200301preview:Workspace"),
 		},
 		{

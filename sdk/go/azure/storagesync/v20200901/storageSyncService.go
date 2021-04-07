@@ -60,12 +60,6 @@ func NewStorageSyncService(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:storagesync:StorageSyncService"),
 		},
 		{
-			Type: pulumi.String("azure-native:storagesync/latest:StorageSyncService"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storagesync/latest:StorageSyncService"),
-		},
-		{
 			Type: pulumi.String("azure-native:storagesync/v20170605preview:StorageSyncService"),
 		},
 		{

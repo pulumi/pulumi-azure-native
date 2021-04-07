@@ -58,12 +58,6 @@ func NewOrganization(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:confluent:Organization"),
 		},
 		{
-			Type: pulumi.String("azure-native:confluent/latest:Organization"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:confluent/latest:Organization"),
-		},
-		{
 			Type: pulumi.String("azure-native:confluent/v20200301preview:Organization"),
 		},
 		{

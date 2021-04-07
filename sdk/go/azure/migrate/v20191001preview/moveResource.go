@@ -47,12 +47,6 @@ func NewMoveResource(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:migrate:MoveResource"),
 		},
 		{
-			Type: pulumi.String("azure-native:migrate/latest:MoveResource"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:migrate/latest:MoveResource"),
-		},
-		{
 			Type: pulumi.String("azure-native:migrate/v20210101:MoveResource"),
 		},
 		{

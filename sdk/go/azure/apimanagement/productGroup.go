@@ -51,12 +51,6 @@ func NewProductGroup(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:apimanagement:ProductGroup"),
 		},
 		{
-			Type: pulumi.String("azure-native:apimanagement/latest:ProductGroup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/latest:ProductGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20170301:ProductGroup"),
 		},
 		{

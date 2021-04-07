@@ -72,12 +72,6 @@ func NewSiteDeploymentSlot(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:web:SiteDeploymentSlot"),
 		},
 		{
-			Type: pulumi.String("azure-native:web/latest:SiteDeploymentSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/latest:SiteDeploymentSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20160801:SiteDeploymentSlot"),
 		},
 		{

@@ -46,12 +46,6 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:dbforpostgresql:PrivateEndpointConnection"),
 		},
 		{
-			Type: pulumi.String("azure-native:dbforpostgresql/latest:PrivateEndpointConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:dbforpostgresql/latest:PrivateEndpointConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:dbforpostgresql/v20180601:PrivateEndpointConnection"),
 		},
 		{

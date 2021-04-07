@@ -62,12 +62,6 @@ func NewPartner(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:logic:Partner"),
 		},
 		{
-			Type: pulumi.String("azure-native:logic/latest:Partner"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:logic/latest:Partner"),
-		},
-		{
 			Type: pulumi.String("azure-native:logic/v20150801preview:Partner"),
 		},
 		{

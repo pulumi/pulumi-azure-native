@@ -72,12 +72,6 @@ func NewGalleryImage(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:labservices:GalleryImage"),
 		},
-		{
-			Type: pulumi.String("azure-native:labservices/latest:GalleryImage"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:labservices/latest:GalleryImage"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource GalleryImage

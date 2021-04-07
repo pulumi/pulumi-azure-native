@@ -54,12 +54,6 @@ func NewServiceEndpointPolicy(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:network:ServiceEndpointPolicy"),
 		},
 		{
-			Type: pulumi.String("azure-native:network/latest:ServiceEndpointPolicy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/latest:ServiceEndpointPolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20180801:ServiceEndpointPolicy"),
 		},
 		{

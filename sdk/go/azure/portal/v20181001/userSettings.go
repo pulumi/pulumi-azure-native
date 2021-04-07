@@ -39,12 +39,6 @@ func NewUserSettings(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:portal:UserSettings"),
 		},
-		{
-			Type: pulumi.String("azure-native:portal/latest:UserSettings"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:portal/latest:UserSettings"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource UserSettings

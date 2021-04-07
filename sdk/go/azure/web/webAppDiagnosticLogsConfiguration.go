@@ -50,12 +50,6 @@ func NewWebAppDiagnosticLogsConfiguration(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:web:WebAppDiagnosticLogsConfiguration"),
 		},
 		{
-			Type: pulumi.String("azure-native:web/latest:WebAppDiagnosticLogsConfiguration"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/latest:WebAppDiagnosticLogsConfiguration"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20150801:WebAppDiagnosticLogsConfiguration"),
 		},
 		{

@@ -53,12 +53,6 @@ func NewDataStore(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:hybriddata:DataStore"),
 		},
 		{
-			Type: pulumi.String("azure-native:hybriddata/latest:DataStore"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:hybriddata/latest:DataStore"),
-		},
-		{
 			Type: pulumi.String("azure-native:hybriddata/v20160601:DataStore"),
 		},
 		{

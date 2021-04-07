@@ -74,12 +74,6 @@ func NewVirtualMachineRunCommandByVirtualMachine(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:compute:VirtualMachineRunCommandByVirtualMachine"),
 		},
 		{
-			Type: pulumi.String("azure-native:compute/latest:VirtualMachineRunCommandByVirtualMachine"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:compute/latest:VirtualMachineRunCommandByVirtualMachine"),
-		},
-		{
 			Type: pulumi.String("azure-native:compute/v20200601:VirtualMachineRunCommandByVirtualMachine"),
 		},
 		{

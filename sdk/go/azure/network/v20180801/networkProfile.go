@@ -56,12 +56,6 @@ func NewNetworkProfile(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:network:NetworkProfile"),
 		},
 		{
-			Type: pulumi.String("azure-native:network/latest:NetworkProfile"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/latest:NetworkProfile"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20181001:NetworkProfile"),
 		},
 		{

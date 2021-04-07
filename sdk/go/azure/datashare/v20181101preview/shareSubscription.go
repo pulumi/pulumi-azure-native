@@ -74,12 +74,6 @@ func NewShareSubscription(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:datashare:ShareSubscription"),
 		},
 		{
-			Type: pulumi.String("azure-native:datashare/latest:ShareSubscription"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:datashare/latest:ShareSubscription"),
-		},
-		{
 			Type: pulumi.String("azure-native:datashare/v20191101:ShareSubscription"),
 		},
 		{

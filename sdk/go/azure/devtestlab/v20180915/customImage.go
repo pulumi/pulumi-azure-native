@@ -73,12 +73,6 @@ func NewCustomImage(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:devtestlab:CustomImage"),
 		},
 		{
-			Type: pulumi.String("azure-native:devtestlab/latest:CustomImage"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:devtestlab/latest:CustomImage"),
-		},
-		{
 			Type: pulumi.String("azure-native:devtestlab/v20150521preview:CustomImage"),
 		},
 		{

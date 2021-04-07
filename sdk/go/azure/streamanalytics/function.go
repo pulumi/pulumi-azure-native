@@ -42,12 +42,6 @@ func NewFunction(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:streamanalytics:Function"),
 		},
 		{
-			Type: pulumi.String("azure-native:streamanalytics/latest:Function"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:streamanalytics/latest:Function"),
-		},
-		{
 			Type: pulumi.String("azure-native:streamanalytics/v20160301:Function"),
 		},
 		{

@@ -49,12 +49,6 @@ func NewFirewallRule(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:sql:FirewallRule"),
 		},
 		{
-			Type: pulumi.String("azure-native:sql/latest:FirewallRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql/latest:FirewallRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql/v20140401:FirewallRule"),
 		},
 		{

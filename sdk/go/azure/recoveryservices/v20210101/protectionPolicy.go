@@ -53,12 +53,6 @@ func NewProtectionPolicy(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:recoveryservices:ProtectionPolicy"),
 		},
 		{
-			Type: pulumi.String("azure-native:recoveryservices/latest:ProtectionPolicy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/latest:ProtectionPolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices/v20160601:ProtectionPolicy"),
 		},
 		{

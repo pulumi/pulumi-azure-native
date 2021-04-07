@@ -70,12 +70,6 @@ func NewApplianceDefinition(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:solutions:ApplianceDefinition"),
 		},
 		{
-			Type: pulumi.String("azure-native:solutions/latest:ApplianceDefinition"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:solutions/latest:ApplianceDefinition"),
-		},
-		{
 			Type: pulumi.String("azure-native:solutions/v20170901:ApplianceDefinition"),
 		},
 		{

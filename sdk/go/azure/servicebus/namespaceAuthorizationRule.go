@@ -45,12 +45,6 @@ func NewNamespaceAuthorizationRule(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:servicebus:NamespaceAuthorizationRule"),
 		},
 		{
-			Type: pulumi.String("azure-native:servicebus/latest:NamespaceAuthorizationRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:servicebus/latest:NamespaceAuthorizationRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:servicebus/v20140901:NamespaceAuthorizationRule"),
 		},
 		{

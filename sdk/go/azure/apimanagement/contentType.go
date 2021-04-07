@@ -46,12 +46,6 @@ func NewContentType(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:apimanagement:ContentType"),
 		},
 		{
-			Type: pulumi.String("azure-native:apimanagement/latest:ContentType"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/latest:ContentType"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20191201:ContentType"),
 		},
 		{

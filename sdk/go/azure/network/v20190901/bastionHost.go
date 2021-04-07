@@ -54,12 +54,6 @@ func NewBastionHost(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:network:BastionHost"),
 		},
 		{
-			Type: pulumi.String("azure-native:network/latest:BastionHost"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/latest:BastionHost"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20190401:BastionHost"),
 		},
 		{

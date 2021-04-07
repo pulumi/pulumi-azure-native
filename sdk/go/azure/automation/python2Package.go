@@ -71,12 +71,6 @@ func NewPython2Package(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:automation:Python2Package"),
 		},
 		{
-			Type: pulumi.String("azure-native:automation/latest:Python2Package"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:automation/latest:Python2Package"),
-		},
-		{
 			Type: pulumi.String("azure-native:automation/v20180630:Python2Package"),
 		},
 		{

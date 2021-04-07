@@ -56,12 +56,6 @@ func NewDisasterRecoveryConfiguration(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:sql:DisasterRecoveryConfiguration"),
 		},
 		{
-			Type: pulumi.String("azure-native:sql/latest:DisasterRecoveryConfiguration"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql/latest:DisasterRecoveryConfiguration"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql/v20140401:DisasterRecoveryConfiguration"),
 		},
 		{

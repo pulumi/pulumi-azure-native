@@ -49,12 +49,6 @@ func NewNotebookWorkspace(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:documentdb:NotebookWorkspace"),
 		},
 		{
-			Type: pulumi.String("azure-native:documentdb/latest:NotebookWorkspace"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/latest:NotebookWorkspace"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20190801:NotebookWorkspace"),
 		},
 		{

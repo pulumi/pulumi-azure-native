@@ -47,12 +47,6 @@ func NewRoleDefinition(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:authorization:RoleDefinition"),
 		},
 		{
-			Type: pulumi.String("azure-native:authorization/latest:RoleDefinition"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:authorization/latest:RoleDefinition"),
-		},
-		{
 			Type: pulumi.String("azure-native:authorization/v20150701:RoleDefinition"),
 		},
 		{

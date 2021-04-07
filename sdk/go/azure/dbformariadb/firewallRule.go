@@ -50,12 +50,6 @@ func NewFirewallRule(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:dbformariadb:FirewallRule"),
 		},
 		{
-			Type: pulumi.String("azure-native:dbformariadb/latest:FirewallRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:dbformariadb/latest:FirewallRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:dbformariadb/v20180601:FirewallRule"),
 		},
 		{

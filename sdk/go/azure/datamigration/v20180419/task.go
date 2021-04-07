@@ -52,12 +52,6 @@ func NewTask(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:datamigration:Task"),
 		},
 		{
-			Type: pulumi.String("azure-native:datamigration/latest:Task"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:datamigration/latest:Task"),
-		},
-		{
 			Type: pulumi.String("azure-native:datamigration/v20171115preview:Task"),
 		},
 		{

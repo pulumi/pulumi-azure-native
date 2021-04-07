@@ -54,12 +54,6 @@ func NewSnapshot(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:netapp:Snapshot"),
 		},
 		{
-			Type: pulumi.String("azure-native:netapp/latest:Snapshot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:netapp/latest:Snapshot"),
-		},
-		{
 			Type: pulumi.String("azure-native:netapp/v20170815:Snapshot"),
 		},
 		{

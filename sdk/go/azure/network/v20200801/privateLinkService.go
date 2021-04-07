@@ -70,12 +70,6 @@ func NewPrivateLinkService(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:network:PrivateLinkService"),
 		},
 		{
-			Type: pulumi.String("azure-native:network/latest:PrivateLinkService"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/latest:PrivateLinkService"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20190401:PrivateLinkService"),
 		},
 		{

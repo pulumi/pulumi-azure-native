@@ -72,12 +72,6 @@ func NewVolume(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:storsimple:Volume"),
 		},
 		{
-			Type: pulumi.String("azure-native:storsimple/latest:Volume"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storsimple/latest:Volume"),
-		},
-		{
 			Type: pulumi.String("azure-native:storsimple/v20170601:Volume"),
 		},
 		{

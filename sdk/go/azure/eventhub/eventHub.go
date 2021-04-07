@@ -54,12 +54,6 @@ func NewEventHub(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:eventhub:EventHub"),
 		},
 		{
-			Type: pulumi.String("azure-native:eventhub/latest:EventHub"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:eventhub/latest:EventHub"),
-		},
-		{
 			Type: pulumi.String("azure-native:eventhub/v20140901:EventHub"),
 		},
 		{

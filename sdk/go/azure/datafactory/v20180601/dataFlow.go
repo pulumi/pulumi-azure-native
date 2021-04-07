@@ -51,12 +51,6 @@ func NewDataFlow(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:datafactory:DataFlow"),
 		},
-		{
-			Type: pulumi.String("azure-native:datafactory/latest:DataFlow"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:datafactory/latest:DataFlow"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource DataFlow

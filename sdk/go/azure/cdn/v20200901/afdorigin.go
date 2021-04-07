@@ -73,12 +73,6 @@ func NewAFDOrigin(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:cdn:AFDOrigin"),
 		},
-		{
-			Type: pulumi.String("azure-native:cdn/latest:AFDOrigin"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:cdn/latest:AFDOrigin"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource AFDOrigin

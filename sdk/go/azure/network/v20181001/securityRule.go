@@ -86,12 +86,6 @@ func NewSecurityRule(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:network:SecurityRule"),
 		},
 		{
-			Type: pulumi.String("azure-native:network/latest:SecurityRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/latest:SecurityRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20150501preview:SecurityRule"),
 		},
 		{

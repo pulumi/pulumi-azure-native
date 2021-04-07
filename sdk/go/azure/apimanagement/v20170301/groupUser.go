@@ -64,12 +64,6 @@ func NewGroupUser(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:apimanagement:GroupUser"),
 		},
 		{
-			Type: pulumi.String("azure-native:apimanagement/latest:GroupUser"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/latest:GroupUser"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20180101:GroupUser"),
 		},
 		{

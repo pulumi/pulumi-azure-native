@@ -49,12 +49,6 @@ func NewVirtualNetworkRule(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:datalakestore:VirtualNetworkRule"),
 		},
-		{
-			Type: pulumi.String("azure-native:datalakestore/latest:VirtualNetworkRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:datalakestore/latest:VirtualNetworkRule"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource VirtualNetworkRule

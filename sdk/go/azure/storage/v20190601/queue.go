@@ -48,12 +48,6 @@ func NewQueue(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:storage:Queue"),
 		},
 		{
-			Type: pulumi.String("azure-native:storage/latest:Queue"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storage/latest:Queue"),
-		},
-		{
 			Type: pulumi.String("azure-native:storage/v20200801preview:Queue"),
 		},
 		{

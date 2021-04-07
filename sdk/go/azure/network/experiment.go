@@ -58,12 +58,6 @@ func NewExperiment(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:network:Experiment"),
 		},
 		{
-			Type: pulumi.String("azure-native:network/latest:Experiment"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/latest:Experiment"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20191101:Experiment"),
 		},
 		{

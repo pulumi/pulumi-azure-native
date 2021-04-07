@@ -48,12 +48,6 @@ func NewSerialPort(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:serialconsole:SerialPort"),
 		},
 		{
-			Type: pulumi.String("azure-native:serialconsole/latest:SerialPort"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:serialconsole/latest:SerialPort"),
-		},
-		{
 			Type: pulumi.String("azure-native:serialconsole/v20180501:SerialPort"),
 		},
 		{

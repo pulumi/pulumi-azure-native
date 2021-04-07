@@ -52,12 +52,6 @@ func NewStaticSiteUserProvidedFunctionAppForStaticSite(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:web:StaticSiteUserProvidedFunctionAppForStaticSite"),
 		},
-		{
-			Type: pulumi.String("azure-native:web/latest:StaticSiteUserProvidedFunctionAppForStaticSite"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/latest:StaticSiteUserProvidedFunctionAppForStaticSite"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource StaticSiteUserProvidedFunctionAppForStaticSite

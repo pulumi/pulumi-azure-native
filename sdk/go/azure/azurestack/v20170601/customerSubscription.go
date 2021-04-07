@@ -49,12 +49,6 @@ func NewCustomerSubscription(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:azurestack:CustomerSubscription"),
 		},
 		{
-			Type: pulumi.String("azure-native:azurestack/latest:CustomerSubscription"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:azurestack/latest:CustomerSubscription"),
-		},
-		{
 			Type: pulumi.String("azure-native:azurestack/v20200601preview:CustomerSubscription"),
 		},
 		{

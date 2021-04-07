@@ -57,12 +57,6 @@ func NewLogProfile(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:insights:LogProfile"),
 		},
 		{
-			Type: pulumi.String("azure-native:insights/latest:LogProfile"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:insights/latest:LogProfile"),
-		},
-		{
 			Type: pulumi.String("azure-native:insights/v20160301:LogProfile"),
 		},
 		{

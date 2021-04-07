@@ -48,12 +48,6 @@ func NewQueueAuthorizationRule(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:servicebus:QueueAuthorizationRule"),
 		},
 		{
-			Type: pulumi.String("azure-native:servicebus/latest:QueueAuthorizationRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:servicebus/latest:QueueAuthorizationRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:servicebus/v20140901:QueueAuthorizationRule"),
 		},
 		{

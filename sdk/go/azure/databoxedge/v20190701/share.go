@@ -74,12 +74,6 @@ func NewShare(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:databoxedge:Share"),
 		},
 		{
-			Type: pulumi.String("azure-native:databoxedge/latest:Share"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge/latest:Share"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20190301:Share"),
 		},
 		{

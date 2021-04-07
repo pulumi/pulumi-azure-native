@@ -59,12 +59,6 @@ func NewApp(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:iotcentral:App"),
 		},
 		{
-			Type: pulumi.String("azure-native:iotcentral/latest:App"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:iotcentral/latest:App"),
-		},
-		{
 			Type: pulumi.String("azure-native:iotcentral/v20170701privatepreview:App"),
 		},
 		{

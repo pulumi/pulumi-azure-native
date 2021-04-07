@@ -44,12 +44,6 @@ func NewComponentCurrentBillingFeature(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:insights:ComponentCurrentBillingFeature"),
 		},
-		{
-			Type: pulumi.String("azure-native:insights/latest:ComponentCurrentBillingFeature"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:insights/latest:ComponentCurrentBillingFeature"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource ComponentCurrentBillingFeature

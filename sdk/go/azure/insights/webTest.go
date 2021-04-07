@@ -84,12 +84,6 @@ func NewWebTest(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:insights:WebTest"),
 		},
 		{
-			Type: pulumi.String("azure-native:insights/latest:WebTest"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:insights/latest:WebTest"),
-		},
-		{
 			Type: pulumi.String("azure-native:insights/v20150501:WebTest"),
 		},
 		{

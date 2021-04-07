@@ -51,12 +51,6 @@ func NewServerCommunicationLink(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:sql:ServerCommunicationLink"),
 		},
 		{
-			Type: pulumi.String("azure-native:sql/latest:ServerCommunicationLink"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql/latest:ServerCommunicationLink"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql/v20140401:ServerCommunicationLink"),
 		},
 		{

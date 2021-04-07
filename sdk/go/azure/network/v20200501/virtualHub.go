@@ -82,12 +82,6 @@ func NewVirtualHub(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:network:VirtualHub"),
 		},
 		{
-			Type: pulumi.String("azure-native:network/latest:VirtualHub"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/latest:VirtualHub"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20180401:VirtualHub"),
 		},
 		{

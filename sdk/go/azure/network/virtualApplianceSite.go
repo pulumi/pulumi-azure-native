@@ -48,12 +48,6 @@ func NewVirtualApplianceSite(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:network:VirtualApplianceSite"),
 		},
 		{
-			Type: pulumi.String("azure-native:network/latest:VirtualApplianceSite"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/latest:VirtualApplianceSite"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200501:VirtualApplianceSite"),
 		},
 		{

@@ -75,12 +75,6 @@ func NewRedis(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:cache:Redis"),
 		},
 		{
-			Type: pulumi.String("azure-native:cache/latest:Redis"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:cache/latest:Redis"),
-		},
-		{
 			Type: pulumi.String("azure-native:cache/v20150801:Redis"),
 		},
 		{

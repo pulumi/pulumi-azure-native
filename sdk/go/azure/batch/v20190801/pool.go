@@ -89,12 +89,6 @@ func NewPool(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:batch:Pool"),
 		},
 		{
-			Type: pulumi.String("azure-native:batch/latest:Pool"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:batch/latest:Pool"),
-		},
-		{
 			Type: pulumi.String("azure-native:batch/v20170901:Pool"),
 		},
 		{

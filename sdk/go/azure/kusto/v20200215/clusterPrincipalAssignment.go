@@ -68,12 +68,6 @@ func NewClusterPrincipalAssignment(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:kusto:ClusterPrincipalAssignment"),
 		},
 		{
-			Type: pulumi.String("azure-native:kusto/latest:ClusterPrincipalAssignment"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:kusto/latest:ClusterPrincipalAssignment"),
-		},
-		{
 			Type: pulumi.String("azure-native:kusto/v20191109:ClusterPrincipalAssignment"),
 		},
 		{

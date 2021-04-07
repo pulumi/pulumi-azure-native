@@ -47,12 +47,6 @@ func NewInput(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:streamanalytics:Input"),
 		},
 		{
-			Type: pulumi.String("azure-native:streamanalytics/latest:Input"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:streamanalytics/latest:Input"),
-		},
-		{
 			Type: pulumi.String("azure-native:streamanalytics/v20160301:Input"),
 		},
 		{

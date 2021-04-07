@@ -45,12 +45,6 @@ func NewDeviceSecurityGroup(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:security:DeviceSecurityGroup"),
 		},
 		{
-			Type: pulumi.String("azure-native:security/latest:DeviceSecurityGroup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:security/latest:DeviceSecurityGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:security/v20170801preview:DeviceSecurityGroup"),
 		},
 		{

@@ -49,12 +49,6 @@ func NewUser(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:databoxedge:User"),
 		},
 		{
-			Type: pulumi.String("azure-native:databoxedge/latest:User"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge/latest:User"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20190701:User"),
 		},
 		{

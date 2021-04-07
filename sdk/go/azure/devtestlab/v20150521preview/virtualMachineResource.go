@@ -89,12 +89,6 @@ func NewVirtualMachineResource(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:devtestlab:VirtualMachineResource"),
 		},
 		{
-			Type: pulumi.String("azure-native:devtestlab/latest:VirtualMachineResource"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:devtestlab/latest:VirtualMachineResource"),
-		},
-		{
 			Type: pulumi.String("azure-native:devtestlab/v20160515:VirtualMachineResource"),
 		},
 		{

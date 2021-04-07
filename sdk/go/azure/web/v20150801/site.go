@@ -108,12 +108,6 @@ func NewSite(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:web:Site"),
 		},
 		{
-			Type: pulumi.String("azure-native:web/latest:Site"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/latest:Site"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20160801:Site"),
 		},
 		{

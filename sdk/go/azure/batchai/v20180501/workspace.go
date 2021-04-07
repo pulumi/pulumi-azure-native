@@ -51,12 +51,6 @@ func NewWorkspace(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:batchai:Workspace"),
 		},
-		{
-			Type: pulumi.String("azure-native:batchai/latest:Workspace"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:batchai/latest:Workspace"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource Workspace

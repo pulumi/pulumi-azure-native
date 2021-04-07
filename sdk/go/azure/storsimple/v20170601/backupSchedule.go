@@ -73,12 +73,6 @@ func NewBackupSchedule(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:storsimple:BackupSchedule"),
 		},
-		{
-			Type: pulumi.String("azure-native:storsimple/latest:BackupSchedule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storsimple/latest:BackupSchedule"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource BackupSchedule

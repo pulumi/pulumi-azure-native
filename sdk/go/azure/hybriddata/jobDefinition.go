@@ -71,12 +71,6 @@ func NewJobDefinition(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:hybriddata:JobDefinition"),
 		},
 		{
-			Type: pulumi.String("azure-native:hybriddata/latest:JobDefinition"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:hybriddata/latest:JobDefinition"),
-		},
-		{
 			Type: pulumi.String("azure-native:hybriddata/v20160601:JobDefinition"),
 		},
 		{

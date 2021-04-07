@@ -48,12 +48,6 @@ func NewAccount(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:maps:Account"),
 		},
 		{
-			Type: pulumi.String("azure-native:maps/latest:Account"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:maps/latest:Account"),
-		},
-		{
 			Type: pulumi.String("azure-native:maps/v20170101preview:Account"),
 		},
 		{

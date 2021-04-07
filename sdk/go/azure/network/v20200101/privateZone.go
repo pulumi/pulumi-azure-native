@@ -64,12 +64,6 @@ func NewPrivateZone(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:network:PrivateZone"),
 		},
 		{
-			Type: pulumi.String("azure-native:network/latest:PrivateZone"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/latest:PrivateZone"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20180901:PrivateZone"),
 		},
 		{

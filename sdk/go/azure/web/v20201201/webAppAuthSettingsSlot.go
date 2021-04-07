@@ -178,12 +178,6 @@ func NewWebAppAuthSettingsSlot(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:web:WebAppAuthSettingsSlot"),
 		},
 		{
-			Type: pulumi.String("azure-native:web/latest:WebAppAuthSettingsSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/latest:WebAppAuthSettingsSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20150801:WebAppAuthSettingsSlot"),
 		},
 		{

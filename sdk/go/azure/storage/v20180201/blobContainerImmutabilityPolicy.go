@@ -57,12 +57,6 @@ func NewBlobContainerImmutabilityPolicy(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:storage:BlobContainerImmutabilityPolicy"),
 		},
 		{
-			Type: pulumi.String("azure-native:storage/latest:BlobContainerImmutabilityPolicy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storage/latest:BlobContainerImmutabilityPolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:storage/v20180301preview:BlobContainerImmutabilityPolicy"),
 		},
 		{

@@ -55,12 +55,6 @@ func NewPrivateEndpointConnectionsForMIPPolicySync(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:securityandcompliance:PrivateEndpointConnectionsForMIPPolicySync"),
 		},
-		{
-			Type: pulumi.String("azure-native:securityandcompliance/latest:PrivateEndpointConnectionsForMIPPolicySync"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:securityandcompliance/latest:PrivateEndpointConnectionsForMIPPolicySync"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource PrivateEndpointConnectionsForMIPPolicySync

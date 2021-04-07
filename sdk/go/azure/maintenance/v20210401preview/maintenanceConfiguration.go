@@ -68,12 +68,6 @@ func NewMaintenanceConfiguration(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:maintenance:MaintenanceConfiguration"),
 		},
 		{
-			Type: pulumi.String("azure-native:maintenance/latest:MaintenanceConfiguration"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:maintenance/latest:MaintenanceConfiguration"),
-		},
-		{
 			Type: pulumi.String("azure-native:maintenance/v20180601preview:MaintenanceConfiguration"),
 		},
 		{

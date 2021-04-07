@@ -50,12 +50,6 @@ func NewNotificationRecipientEmail(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:apimanagement:NotificationRecipientEmail"),
 		},
 		{
-			Type: pulumi.String("azure-native:apimanagement/latest:NotificationRecipientEmail"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/latest:NotificationRecipientEmail"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20180101:NotificationRecipientEmail"),
 		},
 		{

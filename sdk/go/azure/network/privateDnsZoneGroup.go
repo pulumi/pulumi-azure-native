@@ -44,12 +44,6 @@ func NewPrivateDnsZoneGroup(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:network:PrivateDnsZoneGroup"),
 		},
 		{
-			Type: pulumi.String("azure-native:network/latest:PrivateDnsZoneGroup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/latest:PrivateDnsZoneGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200301:PrivateDnsZoneGroup"),
 		},
 		{

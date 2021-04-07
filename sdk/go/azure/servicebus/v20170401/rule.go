@@ -59,12 +59,6 @@ func NewRule(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:servicebus:Rule"),
 		},
 		{
-			Type: pulumi.String("azure-native:servicebus/latest:Rule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:servicebus/latest:Rule"),
-		},
-		{
 			Type: pulumi.String("azure-native:servicebus/v20180101preview:Rule"),
 		},
 		{

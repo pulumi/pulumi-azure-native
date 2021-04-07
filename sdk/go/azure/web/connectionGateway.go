@@ -44,12 +44,6 @@ func NewConnectionGateway(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:web:ConnectionGateway"),
 		},
 		{
-			Type: pulumi.String("azure-native:web/latest:ConnectionGateway"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/latest:ConnectionGateway"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20160601:ConnectionGateway"),
 		},
 		{

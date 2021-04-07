@@ -54,12 +54,6 @@ func NewIntegrationAccountBatchConfiguration(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:logic:IntegrationAccountBatchConfiguration"),
 		},
 		{
-			Type: pulumi.String("azure-native:logic/latest:IntegrationAccountBatchConfiguration"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:logic/latest:IntegrationAccountBatchConfiguration"),
-		},
-		{
 			Type: pulumi.String("azure-native:logic/v20180701preview:IntegrationAccountBatchConfiguration"),
 		},
 		{

@@ -52,12 +52,6 @@ func NewIntegrationRuntime(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:datafactory:IntegrationRuntime"),
 		},
 		{
-			Type: pulumi.String("azure-native:datafactory/latest:IntegrationRuntime"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:datafactory/latest:IntegrationRuntime"),
-		},
-		{
 			Type: pulumi.String("azure-native:datafactory/v20180601:IntegrationRuntime"),
 		},
 		{

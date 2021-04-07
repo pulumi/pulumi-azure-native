@@ -56,12 +56,6 @@ func NewPrivateEndpointConnectionsComp(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:securityandcompliance:PrivateEndpointConnectionsComp"),
 		},
 		{
-			Type: pulumi.String("azure-native:securityandcompliance/latest:PrivateEndpointConnectionsComp"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:securityandcompliance/latest:PrivateEndpointConnectionsComp"),
-		},
-		{
 			Type: pulumi.String("azure-native:securityandcompliance/v20210111:PrivateEndpointConnectionsComp"),
 		},
 		{

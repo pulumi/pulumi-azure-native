@@ -99,12 +99,6 @@ func NewPrediction(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:customerinsights:Prediction"),
 		},
-		{
-			Type: pulumi.String("azure-native:customerinsights/latest:Prediction"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:customerinsights/latest:Prediction"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource Prediction

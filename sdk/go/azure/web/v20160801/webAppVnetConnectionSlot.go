@@ -63,12 +63,6 @@ func NewWebAppVnetConnectionSlot(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:web:WebAppVnetConnectionSlot"),
 		},
 		{
-			Type: pulumi.String("azure-native:web/latest:WebAppVnetConnectionSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/latest:WebAppVnetConnectionSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20150801:WebAppVnetConnectionSlot"),
 		},
 		{

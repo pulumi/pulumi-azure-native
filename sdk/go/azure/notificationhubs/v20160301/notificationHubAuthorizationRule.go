@@ -59,12 +59,6 @@ func NewNotificationHubAuthorizationRule(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:notificationhubs:NotificationHubAuthorizationRule"),
 		},
 		{
-			Type: pulumi.String("azure-native:notificationhubs/latest:NotificationHubAuthorizationRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:notificationhubs/latest:NotificationHubAuthorizationRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:notificationhubs/v20170401:NotificationHubAuthorizationRule"),
 		},
 		{

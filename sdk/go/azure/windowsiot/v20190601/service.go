@@ -58,12 +58,6 @@ func NewService(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:windowsiot:Service"),
 		},
 		{
-			Type: pulumi.String("azure-native:windowsiot/latest:Service"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:windowsiot/latest:Service"),
-		},
-		{
 			Type: pulumi.String("azure-native:windowsiot/v20180216preview:Service"),
 		},
 		{

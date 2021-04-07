@@ -80,12 +80,6 @@ func NewBigDataPool(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:synapse:BigDataPool"),
 		},
 		{
-			Type: pulumi.String("azure-native:synapse/latest:BigDataPool"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:synapse/latest:BigDataPool"),
-		},
-		{
 			Type: pulumi.String("azure-native:synapse/v20190601preview:BigDataPool"),
 		},
 		{

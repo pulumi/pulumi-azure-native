@@ -44,12 +44,6 @@ func NewResourceGroup(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:resources:ResourceGroup"),
 		},
 		{
-			Type: pulumi.String("azure-native:resources/latest:ResourceGroup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:resources/latest:ResourceGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:resources/v20151101:ResourceGroup"),
 		},
 		{

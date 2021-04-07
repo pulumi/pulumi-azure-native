@@ -49,12 +49,6 @@ func NewDatabase(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:dbformysql:Database"),
 		},
 		{
-			Type: pulumi.String("azure-native:dbformysql/latest:Database"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:dbformysql/latest:Database"),
-		},
-		{
 			Type: pulumi.String("azure-native:dbformysql/v20171201preview:Database"),
 		},
 		{

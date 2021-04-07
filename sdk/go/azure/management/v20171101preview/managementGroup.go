@@ -46,12 +46,6 @@ func NewManagementGroup(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:management:ManagementGroup"),
 		},
 		{
-			Type: pulumi.String("azure-native:management/latest:ManagementGroup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:management/latest:ManagementGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:management/v20180101preview:ManagementGroup"),
 		},
 		{

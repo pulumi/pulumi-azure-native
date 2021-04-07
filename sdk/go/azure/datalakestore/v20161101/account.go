@@ -83,12 +83,6 @@ func NewAccount(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:datalakestore:Account"),
 		},
-		{
-			Type: pulumi.String("azure-native:datalakestore/latest:Account"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:datalakestore/latest:Account"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource Account

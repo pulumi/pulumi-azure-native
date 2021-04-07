@@ -81,12 +81,6 @@ func NewProfile(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:customerinsights:Profile"),
 		},
 		{
-			Type: pulumi.String("azure-native:customerinsights/latest:Profile"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:customerinsights/latest:Profile"),
-		},
-		{
 			Type: pulumi.String("azure-native:customerinsights/v20170101:Profile"),
 		},
 		{

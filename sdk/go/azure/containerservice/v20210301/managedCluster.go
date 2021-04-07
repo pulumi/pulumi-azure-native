@@ -108,12 +108,6 @@ func NewManagedCluster(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:containerservice:ManagedCluster"),
 		},
 		{
-			Type: pulumi.String("azure-native:containerservice/latest:ManagedCluster"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:containerservice/latest:ManagedCluster"),
-		},
-		{
 			Type: pulumi.String("azure-native:containerservice/v20170831:ManagedCluster"),
 		},
 		{

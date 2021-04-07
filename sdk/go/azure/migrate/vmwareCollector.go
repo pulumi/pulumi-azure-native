@@ -39,12 +39,6 @@ func NewVMwareCollector(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:migrate:VMwareCollector"),
 		},
 		{
-			Type: pulumi.String("azure-native:migrate/latest:VMwareCollector"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:migrate/latest:VMwareCollector"),
-		},
-		{
 			Type: pulumi.String("azure-native:migrate/v20191001:VMwareCollector"),
 		},
 		{

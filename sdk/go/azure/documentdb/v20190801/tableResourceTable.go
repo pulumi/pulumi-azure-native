@@ -56,12 +56,6 @@ func NewTableResourceTable(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:documentdb:TableResourceTable"),
 		},
 		{
-			Type: pulumi.String("azure-native:documentdb/latest:TableResourceTable"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/latest:TableResourceTable"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20150401:TableResourceTable"),
 		},
 		{

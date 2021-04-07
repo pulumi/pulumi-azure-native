@@ -50,12 +50,6 @@ func NewReplicationNetworkMapping(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:recoveryservices:ReplicationNetworkMapping"),
 		},
 		{
-			Type: pulumi.String("azure-native:recoveryservices/latest:ReplicationNetworkMapping"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/latest:ReplicationNetworkMapping"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices/v20160810:ReplicationNetworkMapping"),
 		},
 		{

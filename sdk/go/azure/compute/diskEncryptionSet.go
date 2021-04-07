@@ -55,12 +55,6 @@ func NewDiskEncryptionSet(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:compute:DiskEncryptionSet"),
 		},
 		{
-			Type: pulumi.String("azure-native:compute/latest:DiskEncryptionSet"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:compute/latest:DiskEncryptionSet"),
-		},
-		{
 			Type: pulumi.String("azure-native:compute/v20190701:DiskEncryptionSet"),
 		},
 		{

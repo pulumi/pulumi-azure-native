@@ -87,12 +87,6 @@ func NewDedicatedCloudNode(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:vmwarecloudsimple:DedicatedCloudNode"),
 		},
 		{
-			Type: pulumi.String("azure-native:vmwarecloudsimple/latest:DedicatedCloudNode"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:vmwarecloudsimple/latest:DedicatedCloudNode"),
-		},
-		{
 			Type: pulumi.String("azure-native:vmwarecloudsimple/v20190401:DedicatedCloudNode"),
 		},
 		{

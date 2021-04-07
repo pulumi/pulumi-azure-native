@@ -74,12 +74,6 @@ func NewDscConfiguration(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:automation:DscConfiguration"),
 		},
 		{
-			Type: pulumi.String("azure-native:automation/latest:DscConfiguration"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:automation/latest:DscConfiguration"),
-		},
-		{
 			Type: pulumi.String("azure-native:automation/v20190601:DscConfiguration"),
 		},
 		{

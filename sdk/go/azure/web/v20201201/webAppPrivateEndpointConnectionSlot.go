@@ -56,12 +56,6 @@ func NewWebAppPrivateEndpointConnectionSlot(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:web:WebAppPrivateEndpointConnectionSlot"),
 		},
-		{
-			Type: pulumi.String("azure-native:web/latest:WebAppPrivateEndpointConnectionSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/latest:WebAppPrivateEndpointConnectionSlot"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource WebAppPrivateEndpointConnectionSlot

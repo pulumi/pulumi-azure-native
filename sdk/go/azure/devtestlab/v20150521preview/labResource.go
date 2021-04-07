@@ -62,12 +62,6 @@ func NewLabResource(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:devtestlab:LabResource"),
 		},
 		{
-			Type: pulumi.String("azure-native:devtestlab/latest:LabResource"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:devtestlab/latest:LabResource"),
-		},
-		{
 			Type: pulumi.String("azure-native:devtestlab/v20160515:LabResource"),
 		},
 		{

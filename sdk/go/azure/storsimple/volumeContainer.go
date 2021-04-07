@@ -64,12 +64,6 @@ func NewVolumeContainer(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:storsimple:VolumeContainer"),
 		},
 		{
-			Type: pulumi.String("azure-native:storsimple/latest:VolumeContainer"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storsimple/latest:VolumeContainer"),
-		},
-		{
 			Type: pulumi.String("azure-native:storsimple/v20170601:VolumeContainer"),
 		},
 		{

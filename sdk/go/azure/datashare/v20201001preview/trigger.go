@@ -55,12 +55,6 @@ func NewTrigger(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:datashare:Trigger"),
 		},
 		{
-			Type: pulumi.String("azure-native:datashare/latest:Trigger"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:datashare/latest:Trigger"),
-		},
-		{
 			Type: pulumi.String("azure-native:datashare/v20181101preview:Trigger"),
 		},
 		{

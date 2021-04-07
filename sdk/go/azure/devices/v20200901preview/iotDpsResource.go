@@ -60,12 +60,6 @@ func NewIotDpsResource(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:devices:IotDpsResource"),
 		},
 		{
-			Type: pulumi.String("azure-native:devices/latest:IotDpsResource"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:devices/latest:IotDpsResource"),
-		},
-		{
 			Type: pulumi.String("azure-native:devices/v20170821preview:IotDpsResource"),
 		},
 		{

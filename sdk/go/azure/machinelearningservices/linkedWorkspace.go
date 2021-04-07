@@ -42,12 +42,6 @@ func NewLinkedWorkspace(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:machinelearningservices:LinkedWorkspace"),
 		},
 		{
-			Type: pulumi.String("azure-native:machinelearningservices/latest:LinkedWorkspace"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:machinelearningservices/latest:LinkedWorkspace"),
-		},
-		{
 			Type: pulumi.String("azure-native:machinelearningservices/v20200301:LinkedWorkspace"),
 		},
 		{

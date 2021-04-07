@@ -53,12 +53,6 @@ func NewDataManager(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:hybriddata:DataManager"),
 		},
 		{
-			Type: pulumi.String("azure-native:hybriddata/latest:DataManager"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:hybriddata/latest:DataManager"),
-		},
-		{
 			Type: pulumi.String("azure-native:hybriddata/v20160601:DataManager"),
 		},
 		{

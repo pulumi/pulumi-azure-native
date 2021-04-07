@@ -44,12 +44,6 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:datafactory:PrivateEndpointConnection"),
 		},
 		{
-			Type: pulumi.String("azure-native:datafactory/latest:PrivateEndpointConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:datafactory/latest:PrivateEndpointConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:datafactory/v20180601:PrivateEndpointConnection"),
 		},
 		{

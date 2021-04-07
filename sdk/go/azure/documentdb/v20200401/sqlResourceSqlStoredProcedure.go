@@ -62,12 +62,6 @@ func NewSqlResourceSqlStoredProcedure(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:documentdb:SqlResourceSqlStoredProcedure"),
 		},
 		{
-			Type: pulumi.String("azure-native:documentdb/latest:SqlResourceSqlStoredProcedure"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/latest:SqlResourceSqlStoredProcedure"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20190801:SqlResourceSqlStoredProcedure"),
 		},
 		{

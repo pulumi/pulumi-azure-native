@@ -54,12 +54,6 @@ func NewPolicyDefinitionAtManagementGroup(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:authorization:PolicyDefinitionAtManagementGroup"),
 		},
 		{
-			Type: pulumi.String("azure-native:authorization/latest:PolicyDefinitionAtManagementGroup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:authorization/latest:PolicyDefinitionAtManagementGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:authorization/v20161201:PolicyDefinitionAtManagementGroup"),
 		},
 		{

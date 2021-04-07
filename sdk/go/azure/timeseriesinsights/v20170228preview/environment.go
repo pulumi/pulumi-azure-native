@@ -66,12 +66,6 @@ func NewEnvironment(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:timeseriesinsights:Environment"),
 		},
 		{
-			Type: pulumi.String("azure-native:timeseriesinsights/latest:Environment"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:timeseriesinsights/latest:Environment"),
-		},
-		{
 			Type: pulumi.String("azure-native:timeseriesinsights/v20171115:Environment"),
 		},
 		{

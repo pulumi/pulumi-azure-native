@@ -131,12 +131,6 @@ func NewSiteAuthSettings(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:web:SiteAuthSettings"),
 		},
 		{
-			Type: pulumi.String("azure-native:web/latest:SiteAuthSettings"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/latest:SiteAuthSettings"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20160801:SiteAuthSettings"),
 		},
 		{

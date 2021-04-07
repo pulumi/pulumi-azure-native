@@ -56,12 +56,6 @@ func NewDigitalTwin(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:digitaltwins:DigitalTwin"),
 		},
 		{
-			Type: pulumi.String("azure-native:digitaltwins/latest:DigitalTwin"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:digitaltwins/latest:DigitalTwin"),
-		},
-		{
 			Type: pulumi.String("azure-native:digitaltwins/v20201031:DigitalTwin"),
 		},
 		{

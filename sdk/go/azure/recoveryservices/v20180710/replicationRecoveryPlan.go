@@ -52,12 +52,6 @@ func NewReplicationRecoveryPlan(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:recoveryservices:ReplicationRecoveryPlan"),
 		},
 		{
-			Type: pulumi.String("azure-native:recoveryservices/latest:ReplicationRecoveryPlan"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/latest:ReplicationRecoveryPlan"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices/v20160810:ReplicationRecoveryPlan"),
 		},
 		{

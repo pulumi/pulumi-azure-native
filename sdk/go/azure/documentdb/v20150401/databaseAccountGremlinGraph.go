@@ -74,12 +74,6 @@ func NewDatabaseAccountGremlinGraph(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:documentdb:DatabaseAccountGremlinGraph"),
 		},
 		{
-			Type: pulumi.String("azure-native:documentdb/latest:DatabaseAccountGremlinGraph"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/latest:DatabaseAccountGremlinGraph"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20150408:DatabaseAccountGremlinGraph"),
 		},
 		{

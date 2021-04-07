@@ -77,12 +77,6 @@ func NewWorkspace(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:synapse:Workspace"),
 		},
 		{
-			Type: pulumi.String("azure-native:synapse/latest:Workspace"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:synapse/latest:Workspace"),
-		},
-		{
 			Type: pulumi.String("azure-native:synapse/v20190601preview:Workspace"),
 		},
 		{

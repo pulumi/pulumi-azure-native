@@ -52,12 +52,6 @@ func NewApiSchema(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:apimanagement:ApiSchema"),
 		},
 		{
-			Type: pulumi.String("azure-native:apimanagement/latest:ApiSchema"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/latest:ApiSchema"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20170301:ApiSchema"),
 		},
 		{

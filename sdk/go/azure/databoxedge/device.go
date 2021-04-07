@@ -83,12 +83,6 @@ func NewDevice(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:databoxedge:Device"),
 		},
 		{
-			Type: pulumi.String("azure-native:databoxedge/latest:Device"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge/latest:Device"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20190301:Device"),
 		},
 		{

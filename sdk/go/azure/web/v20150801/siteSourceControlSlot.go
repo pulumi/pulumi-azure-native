@@ -64,12 +64,6 @@ func NewSiteSourceControlSlot(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:web:SiteSourceControlSlot"),
 		},
 		{
-			Type: pulumi.String("azure-native:web/latest:SiteSourceControlSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/latest:SiteSourceControlSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20160801:SiteSourceControlSlot"),
 		},
 		{

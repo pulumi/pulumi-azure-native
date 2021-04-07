@@ -59,12 +59,6 @@ func NewResource(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:resources:Resource"),
 		},
 		{
-			Type: pulumi.String("azure-native:resources/latest:Resource"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:resources/latest:Resource"),
-		},
-		{
 			Type: pulumi.String("azure-native:resources/v20160201:Resource"),
 		},
 		{

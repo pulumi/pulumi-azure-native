@@ -63,12 +63,6 @@ func NewApiIssueComment(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:apimanagement:ApiIssueComment"),
 		},
 		{
-			Type: pulumi.String("azure-native:apimanagement/latest:ApiIssueComment"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/latest:ApiIssueComment"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20170301:ApiIssueComment"),
 		},
 		{

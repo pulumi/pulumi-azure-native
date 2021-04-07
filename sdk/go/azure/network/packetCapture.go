@@ -69,12 +69,6 @@ func NewPacketCapture(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:network:PacketCapture"),
 		},
 		{
-			Type: pulumi.String("azure-native:network/latest:PacketCapture"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/latest:PacketCapture"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20160901:PacketCapture"),
 		},
 		{

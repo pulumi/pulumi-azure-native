@@ -58,12 +58,6 @@ func NewAssessment(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:security:Assessment"),
 		},
 		{
-			Type: pulumi.String("azure-native:security/latest:Assessment"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:security/latest:Assessment"),
-		},
-		{
 			Type: pulumi.String("azure-native:security/v20200101:Assessment"),
 		},
 		{

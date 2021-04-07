@@ -95,12 +95,6 @@ func NewPrediction(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:customerinsights:Prediction"),
 		},
 		{
-			Type: pulumi.String("azure-native:customerinsights/latest:Prediction"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:customerinsights/latest:Prediction"),
-		},
-		{
 			Type: pulumi.String("azure-native:customerinsights/v20170426:Prediction"),
 		},
 		{

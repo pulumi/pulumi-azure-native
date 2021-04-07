@@ -37,12 +37,6 @@ func NewResourceTypeRegistration(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:providerhub:ResourceTypeRegistration"),
 		},
 		{
-			Type: pulumi.String("azure-native:providerhub/latest:ResourceTypeRegistration"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:providerhub/latest:ResourceTypeRegistration"),
-		},
-		{
 			Type: pulumi.String("azure-native:providerhub/v20201120:ResourceTypeRegistration"),
 		},
 		{

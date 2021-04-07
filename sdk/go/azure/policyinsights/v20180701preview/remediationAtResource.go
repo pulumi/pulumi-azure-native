@@ -56,12 +56,6 @@ func NewRemediationAtResource(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:policyinsights:RemediationAtResource"),
 		},
 		{
-			Type: pulumi.String("azure-native:policyinsights/latest:RemediationAtResource"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:policyinsights/latest:RemediationAtResource"),
-		},
-		{
 			Type: pulumi.String("azure-native:policyinsights/v20190701:RemediationAtResource"),
 		},
 		{

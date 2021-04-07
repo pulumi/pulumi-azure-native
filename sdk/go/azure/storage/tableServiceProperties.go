@@ -42,12 +42,6 @@ func NewTableServiceProperties(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:storage:TableServiceProperties"),
 		},
 		{
-			Type: pulumi.String("azure-native:storage/latest:TableServiceProperties"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storage/latest:TableServiceProperties"),
-		},
-		{
 			Type: pulumi.String("azure-native:storage/v20190601:TableServiceProperties"),
 		},
 		{

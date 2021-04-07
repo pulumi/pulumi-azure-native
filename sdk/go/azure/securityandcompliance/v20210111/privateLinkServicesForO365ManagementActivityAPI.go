@@ -56,12 +56,6 @@ func NewPrivateLinkServicesForO365ManagementActivityAPI(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:securityandcompliance:privateLinkServicesForO365ManagementActivityAPI"),
 		},
 		{
-			Type: pulumi.String("azure-native:securityandcompliance/latest:privateLinkServicesForO365ManagementActivityAPI"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:securityandcompliance/latest:privateLinkServicesForO365ManagementActivityAPI"),
-		},
-		{
 			Type: pulumi.String("azure-native:securityandcompliance/v20210308:privateLinkServicesForO365ManagementActivityAPI"),
 		},
 		{

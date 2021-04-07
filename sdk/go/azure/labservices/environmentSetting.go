@@ -70,12 +70,6 @@ func NewEnvironmentSetting(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:labservices:EnvironmentSetting"),
 		},
 		{
-			Type: pulumi.String("azure-native:labservices/latest:EnvironmentSetting"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:labservices/latest:EnvironmentSetting"),
-		},
-		{
 			Type: pulumi.String("azure-native:labservices/v20181015:EnvironmentSetting"),
 		},
 		{

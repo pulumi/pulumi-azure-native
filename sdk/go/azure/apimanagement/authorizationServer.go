@@ -87,12 +87,6 @@ func NewAuthorizationServer(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:apimanagement:AuthorizationServer"),
 		},
 		{
-			Type: pulumi.String("azure-native:apimanagement/latest:AuthorizationServer"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/latest:AuthorizationServer"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20160707:AuthorizationServer"),
 		},
 		{

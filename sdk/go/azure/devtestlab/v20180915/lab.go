@@ -88,12 +88,6 @@ func NewLab(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:devtestlab:Lab"),
 		},
 		{
-			Type: pulumi.String("azure-native:devtestlab/latest:Lab"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:devtestlab/latest:Lab"),
-		},
-		{
 			Type: pulumi.String("azure-native:devtestlab/v20150521preview:Lab"),
 		},
 		{

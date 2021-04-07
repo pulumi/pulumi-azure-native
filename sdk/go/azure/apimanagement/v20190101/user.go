@@ -73,12 +73,6 @@ func NewUser(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:apimanagement:User"),
 		},
 		{
-			Type: pulumi.String("azure-native:apimanagement/latest:User"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/latest:User"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20160707:User"),
 		},
 		{

@@ -54,12 +54,6 @@ func NewAccount(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:netapp:Account"),
 		},
 		{
-			Type: pulumi.String("azure-native:netapp/latest:Account"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:netapp/latest:Account"),
-		},
-		{
 			Type: pulumi.String("azure-native:netapp/v20170815:Account"),
 		},
 		{

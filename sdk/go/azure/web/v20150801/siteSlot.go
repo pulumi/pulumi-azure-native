@@ -111,12 +111,6 @@ func NewSiteSlot(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:web:SiteSlot"),
 		},
 		{
-			Type: pulumi.String("azure-native:web/latest:SiteSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/latest:SiteSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20160801:SiteSlot"),
 		},
 		{

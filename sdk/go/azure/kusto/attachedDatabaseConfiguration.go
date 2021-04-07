@@ -61,12 +61,6 @@ func NewAttachedDatabaseConfiguration(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:kusto:AttachedDatabaseConfiguration"),
 		},
 		{
-			Type: pulumi.String("azure-native:kusto/latest:AttachedDatabaseConfiguration"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:kusto/latest:AttachedDatabaseConfiguration"),
-		},
-		{
 			Type: pulumi.String("azure-native:kusto/v20190907:AttachedDatabaseConfiguration"),
 		},
 		{

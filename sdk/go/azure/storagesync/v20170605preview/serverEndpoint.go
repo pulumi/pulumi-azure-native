@@ -88,12 +88,6 @@ func NewServerEndpoint(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:storagesync:ServerEndpoint"),
 		},
 		{
-			Type: pulumi.String("azure-native:storagesync/latest:ServerEndpoint"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storagesync/latest:ServerEndpoint"),
-		},
-		{
 			Type: pulumi.String("azure-native:storagesync/v20180402:ServerEndpoint"),
 		},
 		{

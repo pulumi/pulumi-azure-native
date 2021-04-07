@@ -51,12 +51,6 @@ func NewWebAppPublicCertificateSlot(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:web:WebAppPublicCertificateSlot"),
 		},
 		{
-			Type: pulumi.String("azure-native:web/latest:WebAppPublicCertificateSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/latest:WebAppPublicCertificateSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20160801:WebAppPublicCertificateSlot"),
 		},
 		{

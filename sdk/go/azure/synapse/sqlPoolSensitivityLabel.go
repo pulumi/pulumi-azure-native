@@ -71,12 +71,6 @@ func NewSqlPoolSensitivityLabel(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:synapse:SqlPoolSensitivityLabel"),
 		},
 		{
-			Type: pulumi.String("azure-native:synapse/latest:SqlPoolSensitivityLabel"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:synapse/latest:SqlPoolSensitivityLabel"),
-		},
-		{
 			Type: pulumi.String("azure-native:synapse/v20190601preview:SqlPoolSensitivityLabel"),
 		},
 		{

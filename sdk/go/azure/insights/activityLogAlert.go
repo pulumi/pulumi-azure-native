@@ -66,12 +66,6 @@ func NewActivityLogAlert(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:insights:ActivityLogAlert"),
 		},
 		{
-			Type: pulumi.String("azure-native:insights/latest:ActivityLogAlert"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:insights/latest:ActivityLogAlert"),
-		},
-		{
 			Type: pulumi.String("azure-native:insights/v20170401:ActivityLogAlert"),
 		},
 		{

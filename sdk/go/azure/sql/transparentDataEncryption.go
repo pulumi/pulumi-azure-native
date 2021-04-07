@@ -47,12 +47,6 @@ func NewTransparentDataEncryption(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:sql:TransparentDataEncryption"),
 		},
 		{
-			Type: pulumi.String("azure-native:sql/latest:TransparentDataEncryption"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql/latest:TransparentDataEncryption"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql/v20140401:TransparentDataEncryption"),
 		},
 		{

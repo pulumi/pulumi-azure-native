@@ -50,12 +50,6 @@ func NewDataSetMapping(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:datashare:DataSetMapping"),
 		},
 		{
-			Type: pulumi.String("azure-native:datashare/latest:DataSetMapping"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:datashare/latest:DataSetMapping"),
-		},
-		{
 			Type: pulumi.String("azure-native:datashare/v20181101preview:DataSetMapping"),
 		},
 		{

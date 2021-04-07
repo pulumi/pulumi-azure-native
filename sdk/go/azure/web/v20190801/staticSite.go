@@ -62,12 +62,6 @@ func NewStaticSite(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:web:StaticSite"),
 		},
 		{
-			Type: pulumi.String("azure-native:web/latest:StaticSite"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/latest:StaticSite"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20200601:StaticSite"),
 		},
 		{

@@ -69,12 +69,6 @@ func NewSiteDeployment(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:web:SiteDeployment"),
 		},
 		{
-			Type: pulumi.String("azure-native:web/latest:SiteDeployment"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/latest:SiteDeployment"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20160801:SiteDeployment"),
 		},
 		{

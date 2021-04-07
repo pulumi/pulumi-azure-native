@@ -55,12 +55,6 @@ func NewDatabaseAccountCassandraKeyspace(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:documentdb:DatabaseAccountCassandraKeyspace"),
 		},
 		{
-			Type: pulumi.String("azure-native:documentdb/latest:DatabaseAccountCassandraKeyspace"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/latest:DatabaseAccountCassandraKeyspace"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20150401:DatabaseAccountCassandraKeyspace"),
 		},
 		{

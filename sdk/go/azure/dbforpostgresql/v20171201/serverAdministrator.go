@@ -65,12 +65,6 @@ func NewServerAdministrator(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:dbforpostgresql:ServerAdministrator"),
 		},
 		{
-			Type: pulumi.String("azure-native:dbforpostgresql/latest:ServerAdministrator"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:dbforpostgresql/latest:ServerAdministrator"),
-		},
-		{
 			Type: pulumi.String("azure-native:dbforpostgresql/v20171201preview:ServerAdministrator"),
 		},
 		{

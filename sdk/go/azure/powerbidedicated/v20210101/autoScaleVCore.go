@@ -58,12 +58,6 @@ func NewAutoScaleVCore(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:powerbidedicated:AutoScaleVCore"),
 		},
-		{
-			Type: pulumi.String("azure-native:powerbidedicated/latest:AutoScaleVCore"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:powerbidedicated/latest:AutoScaleVCore"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource AutoScaleVCore

@@ -72,12 +72,6 @@ func NewSubscription(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:apimanagement:Subscription"),
 		},
 		{
-			Type: pulumi.String("azure-native:apimanagement/latest:Subscription"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/latest:Subscription"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20160707:Subscription"),
 		},
 		{

@@ -52,12 +52,6 @@ func NewJob(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:importexport:Job"),
 		},
 		{
-			Type: pulumi.String("azure-native:importexport/latest:Job"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:importexport/latest:Job"),
-		},
-		{
 			Type: pulumi.String("azure-native:importexport/v20200801:Job"),
 		},
 		{

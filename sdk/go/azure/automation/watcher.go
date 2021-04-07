@@ -64,12 +64,6 @@ func NewWatcher(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:automation:Watcher"),
 		},
 		{
-			Type: pulumi.String("azure-native:automation/latest:Watcher"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:automation/latest:Watcher"),
-		},
-		{
 			Type: pulumi.String("azure-native:automation/v20151031:Watcher"),
 		},
 		{

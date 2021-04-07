@@ -48,12 +48,6 @@ func NewCloudService(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:compute:CloudService"),
 		},
 		{
-			Type: pulumi.String("azure-native:compute/latest:CloudService"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:compute/latest:CloudService"),
-		},
-		{
 			Type: pulumi.String("azure-native:compute/v20201001preview:CloudService"),
 		},
 		{

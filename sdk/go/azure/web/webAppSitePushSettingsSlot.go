@@ -59,12 +59,6 @@ func NewWebAppSitePushSettingsSlot(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:web:WebAppSitePushSettingsSlot"),
 		},
 		{
-			Type: pulumi.String("azure-native:web/latest:WebAppSitePushSettingsSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/latest:WebAppSitePushSettingsSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20160801:WebAppSitePushSettingsSlot"),
 		},
 		{

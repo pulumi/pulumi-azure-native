@@ -68,12 +68,6 @@ func NewWorkspace(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:databricks:Workspace"),
 		},
 		{
-			Type: pulumi.String("azure-native:databricks/latest:Workspace"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databricks/latest:Workspace"),
-		},
-		{
 			Type: pulumi.String("azure-native:databricks/v20180401:Workspace"),
 		},
 		{

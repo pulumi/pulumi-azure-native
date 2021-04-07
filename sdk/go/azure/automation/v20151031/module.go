@@ -76,12 +76,6 @@ func NewModule(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:automation:Module"),
 		},
 		{
-			Type: pulumi.String("azure-native:automation/latest:Module"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:automation/latest:Module"),
-		},
-		{
 			Type: pulumi.String("azure-native:automation/v20190601:Module"),
 		},
 		{

@@ -61,12 +61,6 @@ func NewCloudEndpoint(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:storagesync:CloudEndpoint"),
 		},
 		{
-			Type: pulumi.String("azure-native:storagesync/latest:CloudEndpoint"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storagesync/latest:CloudEndpoint"),
-		},
-		{
 			Type: pulumi.String("azure-native:storagesync/v20170605preview:CloudEndpoint"),
 		},
 		{

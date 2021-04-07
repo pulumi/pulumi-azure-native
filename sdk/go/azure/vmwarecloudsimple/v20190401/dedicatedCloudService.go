@@ -56,12 +56,6 @@ func NewDedicatedCloudService(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:vmwarecloudsimple:DedicatedCloudService"),
 		},
-		{
-			Type: pulumi.String("azure-native:vmwarecloudsimple/latest:DedicatedCloudService"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:vmwarecloudsimple/latest:DedicatedCloudService"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource DedicatedCloudService

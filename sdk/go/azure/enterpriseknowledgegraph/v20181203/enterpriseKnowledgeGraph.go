@@ -49,12 +49,6 @@ func NewEnterpriseKnowledgeGraph(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:enterpriseknowledgegraph:EnterpriseKnowledgeGraph"),
 		},
-		{
-			Type: pulumi.String("azure-native:enterpriseknowledgegraph/latest:EnterpriseKnowledgeGraph"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:enterpriseknowledgegraph/latest:EnterpriseKnowledgeGraph"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource EnterpriseKnowledgeGraph

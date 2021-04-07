@@ -46,12 +46,6 @@ func NewSkusNestedResourceTypeFirst(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:providerhub:SkusNestedResourceTypeFirst"),
 		},
 		{
-			Type: pulumi.String("azure-native:providerhub/latest:SkusNestedResourceTypeFirst"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:providerhub/latest:SkusNestedResourceTypeFirst"),
-		},
-		{
 			Type: pulumi.String("azure-native:providerhub/v20201120:SkusNestedResourceTypeFirst"),
 		},
 		{

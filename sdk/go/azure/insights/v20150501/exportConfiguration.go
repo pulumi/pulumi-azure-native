@@ -78,12 +78,6 @@ func NewExportConfiguration(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:insights:ExportConfiguration"),
 		},
-		{
-			Type: pulumi.String("azure-native:insights/latest:ExportConfiguration"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:insights/latest:ExportConfiguration"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource ExportConfiguration

@@ -44,12 +44,6 @@ func NewConnection(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:web:Connection"),
 		},
 		{
-			Type: pulumi.String("azure-native:web/latest:Connection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/latest:Connection"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20150801preview:Connection"),
 		},
 		{

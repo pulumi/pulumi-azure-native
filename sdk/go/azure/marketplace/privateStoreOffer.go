@@ -59,12 +59,6 @@ func NewPrivateStoreOffer(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:marketplace:PrivateStoreOffer"),
 		},
 		{
-			Type: pulumi.String("azure-native:marketplace/latest:PrivateStoreOffer"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:marketplace/latest:PrivateStoreOffer"),
-		},
-		{
 			Type: pulumi.String("azure-native:marketplace/v20200101:PrivateStoreOffer"),
 		},
 		{

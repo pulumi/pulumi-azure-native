@@ -73,12 +73,6 @@ func NewFlowLog(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:network:FlowLog"),
 		},
 		{
-			Type: pulumi.String("azure-native:network/latest:FlowLog"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/latest:FlowLog"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20191201:FlowLog"),
 		},
 		{

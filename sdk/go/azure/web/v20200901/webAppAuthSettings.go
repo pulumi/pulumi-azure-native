@@ -174,12 +174,6 @@ func NewWebAppAuthSettings(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:web:WebAppAuthSettings"),
 		},
 		{
-			Type: pulumi.String("azure-native:web/latest:WebAppAuthSettings"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/latest:WebAppAuthSettings"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20150801:WebAppAuthSettings"),
 		},
 		{

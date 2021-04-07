@@ -55,12 +55,6 @@ func NewApiDiagnosticLogger(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:apimanagement:ApiDiagnosticLogger"),
 		},
 		{
-			Type: pulumi.String("azure-native:apimanagement/latest:ApiDiagnosticLogger"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/latest:ApiDiagnosticLogger"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20170301:ApiDiagnosticLogger"),
 		},
 		{

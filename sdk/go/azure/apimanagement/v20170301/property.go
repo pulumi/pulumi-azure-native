@@ -59,12 +59,6 @@ func NewProperty(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:apimanagement:Property"),
 		},
 		{
-			Type: pulumi.String("azure-native:apimanagement/latest:Property"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/latest:Property"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20160707:Property"),
 		},
 		{

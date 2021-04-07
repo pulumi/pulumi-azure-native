@@ -58,12 +58,6 @@ func NewRemediationAtResourceGroup(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:policyinsights:RemediationAtResourceGroup"),
 		},
 		{
-			Type: pulumi.String("azure-native:policyinsights/latest:RemediationAtResourceGroup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:policyinsights/latest:RemediationAtResourceGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:policyinsights/v20180701preview:RemediationAtResourceGroup"),
 		},
 		{

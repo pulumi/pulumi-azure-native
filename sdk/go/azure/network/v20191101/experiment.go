@@ -62,12 +62,6 @@ func NewExperiment(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:network:Experiment"),
 		},
-		{
-			Type: pulumi.String("azure-native:network/latest:Experiment"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/latest:Experiment"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource Experiment

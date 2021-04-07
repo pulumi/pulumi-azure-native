@@ -80,12 +80,6 @@ func NewLiveEvent(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:media:LiveEvent"),
 		},
 		{
-			Type: pulumi.String("azure-native:media/latest:LiveEvent"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:media/latest:LiveEvent"),
-		},
-		{
 			Type: pulumi.String("azure-native:media/v20180330preview:LiveEvent"),
 		},
 		{

@@ -52,12 +52,6 @@ func NewImage(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:compute:Image"),
 		},
 		{
-			Type: pulumi.String("azure-native:compute/latest:Image"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:compute/latest:Image"),
-		},
-		{
 			Type: pulumi.String("azure-native:compute/v20170330:Image"),
 		},
 		{

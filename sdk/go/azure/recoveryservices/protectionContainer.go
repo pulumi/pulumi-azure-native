@@ -51,12 +51,6 @@ func NewProtectionContainer(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:recoveryservices:ProtectionContainer"),
 		},
 		{
-			Type: pulumi.String("azure-native:recoveryservices/latest:ProtectionContainer"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/latest:ProtectionContainer"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices/v20161201:ProtectionContainer"),
 		},
 		{

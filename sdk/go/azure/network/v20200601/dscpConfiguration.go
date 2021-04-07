@@ -68,12 +68,6 @@ func NewDscpConfiguration(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:network:DscpConfiguration"),
 		},
 		{
-			Type: pulumi.String("azure-native:network/latest:DscpConfiguration"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/latest:DscpConfiguration"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200701:DscpConfiguration"),
 		},
 		{

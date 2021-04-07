@@ -56,12 +56,6 @@ func NewWebAppPremierAddOn(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:web:WebAppPremierAddOn"),
 		},
 		{
-			Type: pulumi.String("azure-native:web/latest:WebAppPremierAddOn"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/latest:WebAppPremierAddOn"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20150801:WebAppPremierAddOn"),
 		},
 		{

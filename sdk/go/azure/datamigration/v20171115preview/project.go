@@ -63,12 +63,6 @@ func NewProject(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:datamigration:Project"),
 		},
 		{
-			Type: pulumi.String("azure-native:datamigration/latest:Project"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:datamigration/latest:Project"),
-		},
-		{
 			Type: pulumi.String("azure-native:datamigration/v20180315preview:Project"),
 		},
 		{

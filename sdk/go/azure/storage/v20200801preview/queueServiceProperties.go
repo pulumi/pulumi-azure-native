@@ -47,12 +47,6 @@ func NewQueueServiceProperties(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:storage:QueueServiceProperties"),
 		},
 		{
-			Type: pulumi.String("azure-native:storage/latest:QueueServiceProperties"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storage/latest:QueueServiceProperties"),
-		},
-		{
 			Type: pulumi.String("azure-native:storage/v20190601:QueueServiceProperties"),
 		},
 		{

@@ -46,12 +46,6 @@ func NewServiceRunner(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:devtestlab:ServiceRunner"),
 		},
 		{
-			Type: pulumi.String("azure-native:devtestlab/latest:ServiceRunner"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:devtestlab/latest:ServiceRunner"),
-		},
-		{
 			Type: pulumi.String("azure-native:devtestlab/v20160515:ServiceRunner"),
 		},
 		{

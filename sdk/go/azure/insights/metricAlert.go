@@ -85,12 +85,6 @@ func NewMetricAlert(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:insights:MetricAlert"),
 		},
 		{
-			Type: pulumi.String("azure-native:insights/latest:MetricAlert"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:insights/latest:MetricAlert"),
-		},
-		{
 			Type: pulumi.String("azure-native:insights/v20180301:MetricAlert"),
 		},
 		{

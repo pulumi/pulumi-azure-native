@@ -78,12 +78,6 @@ func NewDomainService(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:aad:DomainService"),
 		},
 		{
-			Type: pulumi.String("azure-native:aad/latest:DomainService"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:aad/latest:DomainService"),
-		},
-		{
 			Type: pulumi.String("azure-native:aad/v20170601:DomainService"),
 		},
 		{

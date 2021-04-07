@@ -83,12 +83,6 @@ func NewActionGroup(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:insights:ActionGroup"),
 		},
 		{
-			Type: pulumi.String("azure-native:insights/latest:ActionGroup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:insights/latest:ActionGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:insights/v20170401:ActionGroup"),
 		},
 		{

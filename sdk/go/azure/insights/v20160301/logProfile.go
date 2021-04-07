@@ -61,12 +61,6 @@ func NewLogProfile(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:insights:LogProfile"),
 		},
-		{
-			Type: pulumi.String("azure-native:insights/latest:LogProfile"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:insights/latest:LogProfile"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource LogProfile

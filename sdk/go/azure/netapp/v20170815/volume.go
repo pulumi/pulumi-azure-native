@@ -78,12 +78,6 @@ func NewVolume(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:netapp:Volume"),
 		},
 		{
-			Type: pulumi.String("azure-native:netapp/latest:Volume"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:netapp/latest:Volume"),
-		},
-		{
 			Type: pulumi.String("azure-native:netapp/v20190501:Volume"),
 		},
 		{

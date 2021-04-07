@@ -51,12 +51,6 @@ func NewNetworkInterfaceTapConfiguration(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:network:NetworkInterfaceTapConfiguration"),
 		},
 		{
-			Type: pulumi.String("azure-native:network/latest:NetworkInterfaceTapConfiguration"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/latest:NetworkInterfaceTapConfiguration"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20181001:NetworkInterfaceTapConfiguration"),
 		},
 		{

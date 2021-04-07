@@ -48,12 +48,6 @@ func NewApplicationType(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:servicefabric:ApplicationType"),
 		},
 		{
-			Type: pulumi.String("azure-native:servicefabric/latest:ApplicationType"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:servicefabric/latest:ApplicationType"),
-		},
-		{
 			Type: pulumi.String("azure-native:servicefabric/v20170701preview:ApplicationType"),
 		},
 		{

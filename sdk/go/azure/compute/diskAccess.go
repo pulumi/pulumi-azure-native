@@ -47,12 +47,6 @@ func NewDiskAccess(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:compute:DiskAccess"),
 		},
 		{
-			Type: pulumi.String("azure-native:compute/latest:DiskAccess"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:compute/latest:DiskAccess"),
-		},
-		{
 			Type: pulumi.String("azure-native:compute/v20200501:DiskAccess"),
 		},
 		{

@@ -65,12 +65,6 @@ func NewLoadBalancer(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:network:LoadBalancer"),
 		},
 		{
-			Type: pulumi.String("azure-native:network/latest:LoadBalancer"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/latest:LoadBalancer"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20150501preview:LoadBalancer"),
 		},
 		{

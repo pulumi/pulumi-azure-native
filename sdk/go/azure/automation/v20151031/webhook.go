@@ -69,12 +69,6 @@ func NewWebhook(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:automation:Webhook"),
 		},
-		{
-			Type: pulumi.String("azure-native:automation/latest:Webhook"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:automation/latest:Webhook"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource Webhook

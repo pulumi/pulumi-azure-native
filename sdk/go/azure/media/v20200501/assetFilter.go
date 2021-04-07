@@ -56,12 +56,6 @@ func NewAssetFilter(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:media:AssetFilter"),
 		},
 		{
-			Type: pulumi.String("azure-native:media/latest:AssetFilter"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:media/latest:AssetFilter"),
-		},
-		{
 			Type: pulumi.String("azure-native:media/v20180701:AssetFilter"),
 		},
 		{

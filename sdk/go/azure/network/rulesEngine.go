@@ -44,12 +44,6 @@ func NewRulesEngine(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:network:RulesEngine"),
 		},
 		{
-			Type: pulumi.String("azure-native:network/latest:RulesEngine"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/latest:RulesEngine"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200101:RulesEngine"),
 		},
 		{

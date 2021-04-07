@@ -71,12 +71,6 @@ func NewArtifactSource(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:devtestlab:ArtifactSource"),
 		},
 		{
-			Type: pulumi.String("azure-native:devtestlab/latest:ArtifactSource"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:devtestlab/latest:ArtifactSource"),
-		},
-		{
 			Type: pulumi.String("azure-native:devtestlab/v20150521preview:ArtifactSource"),
 		},
 		{

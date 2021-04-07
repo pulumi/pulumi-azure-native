@@ -42,12 +42,6 @@ func NewWorkspaceCollection(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:powerbi:WorkspaceCollection"),
 		},
 		{
-			Type: pulumi.String("azure-native:powerbi/latest:WorkspaceCollection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:powerbi/latest:WorkspaceCollection"),
-		},
-		{
 			Type: pulumi.String("azure-native:powerbi/v20160129:WorkspaceCollection"),
 		},
 		{

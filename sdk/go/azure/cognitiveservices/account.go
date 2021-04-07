@@ -51,12 +51,6 @@ func NewAccount(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:cognitiveservices:Account"),
 		},
 		{
-			Type: pulumi.String("azure-native:cognitiveservices/latest:Account"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:cognitiveservices/latest:Account"),
-		},
-		{
 			Type: pulumi.String("azure-native:cognitiveservices/v20160201preview:Account"),
 		},
 		{

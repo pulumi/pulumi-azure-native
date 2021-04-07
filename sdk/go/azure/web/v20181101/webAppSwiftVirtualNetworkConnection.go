@@ -51,12 +51,6 @@ func NewWebAppSwiftVirtualNetworkConnection(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:web:WebAppSwiftVirtualNetworkConnection"),
 		},
 		{
-			Type: pulumi.String("azure-native:web/latest:WebAppSwiftVirtualNetworkConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/latest:WebAppSwiftVirtualNetworkConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20180201:WebAppSwiftVirtualNetworkConnection"),
 		},
 		{

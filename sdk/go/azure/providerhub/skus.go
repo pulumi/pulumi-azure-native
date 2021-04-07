@@ -43,12 +43,6 @@ func NewSkus(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:providerhub:Skus"),
 		},
 		{
-			Type: pulumi.String("azure-native:providerhub/latest:Skus"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:providerhub/latest:Skus"),
-		},
-		{
 			Type: pulumi.String("azure-native:providerhub/v20201120:Skus"),
 		},
 		{

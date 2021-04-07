@@ -51,12 +51,6 @@ func NewPrivateLinkServicesForMIPPolicySync(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:securityandcompliance:privateLinkServicesForMIPPolicySync"),
 		},
 		{
-			Type: pulumi.String("azure-native:securityandcompliance/latest:privateLinkServicesForMIPPolicySync"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:securityandcompliance/latest:privateLinkServicesForMIPPolicySync"),
-		},
-		{
 			Type: pulumi.String("azure-native:securityandcompliance/v20210308:privateLinkServicesForMIPPolicySync"),
 		},
 		{

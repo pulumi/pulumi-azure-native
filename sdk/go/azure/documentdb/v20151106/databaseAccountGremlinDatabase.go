@@ -61,12 +61,6 @@ func NewDatabaseAccountGremlinDatabase(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:documentdb:DatabaseAccountGremlinDatabase"),
 		},
 		{
-			Type: pulumi.String("azure-native:documentdb/latest:DatabaseAccountGremlinDatabase"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/latest:DatabaseAccountGremlinDatabase"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20150401:DatabaseAccountGremlinDatabase"),
 		},
 		{

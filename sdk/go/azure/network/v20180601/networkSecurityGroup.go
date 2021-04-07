@@ -60,12 +60,6 @@ func NewNetworkSecurityGroup(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:network:NetworkSecurityGroup"),
 		},
 		{
-			Type: pulumi.String("azure-native:network/latest:NetworkSecurityGroup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/latest:NetworkSecurityGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20150501preview:NetworkSecurityGroup"),
 		},
 		{

@@ -50,12 +50,6 @@ func NewReplicationRecoveryServicesProvider(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:recoveryservices:ReplicationRecoveryServicesProvider"),
 		},
 		{
-			Type: pulumi.String("azure-native:recoveryservices/latest:ReplicationRecoveryServicesProvider"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/latest:ReplicationRecoveryServicesProvider"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices/v20180110:ReplicationRecoveryServicesProvider"),
 		},
 		{

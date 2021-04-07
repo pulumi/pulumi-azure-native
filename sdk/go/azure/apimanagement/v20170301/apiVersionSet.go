@@ -61,12 +61,6 @@ func NewApiVersionSet(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:apimanagement:ApiVersionSet"),
 		},
 		{
-			Type: pulumi.String("azure-native:apimanagement/latest:ApiVersionSet"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/latest:ApiVersionSet"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20180101:ApiVersionSet"),
 		},
 		{

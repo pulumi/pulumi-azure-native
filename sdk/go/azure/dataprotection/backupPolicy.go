@@ -51,12 +51,6 @@ func NewBackupPolicy(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:dataprotection:BackupPolicy"),
 		},
 		{
-			Type: pulumi.String("azure-native:dataprotection/latest:BackupPolicy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:dataprotection/latest:BackupPolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:dataprotection/v20210101:BackupPolicy"),
 		},
 		{

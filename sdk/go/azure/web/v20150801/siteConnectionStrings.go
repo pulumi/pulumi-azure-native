@@ -53,12 +53,6 @@ func NewSiteConnectionStrings(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:web:SiteConnectionStrings"),
 		},
 		{
-			Type: pulumi.String("azure-native:web/latest:SiteConnectionStrings"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/latest:SiteConnectionStrings"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20160801:SiteConnectionStrings"),
 		},
 		{

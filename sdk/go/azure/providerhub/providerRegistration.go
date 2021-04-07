@@ -33,12 +33,6 @@ func NewProviderRegistration(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:providerhub:ProviderRegistration"),
 		},
 		{
-			Type: pulumi.String("azure-native:providerhub/latest:ProviderRegistration"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:providerhub/latest:ProviderRegistration"),
-		},
-		{
 			Type: pulumi.String("azure-native:providerhub/v20201120:ProviderRegistration"),
 		},
 		{

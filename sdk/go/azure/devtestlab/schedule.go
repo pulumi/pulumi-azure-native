@@ -66,12 +66,6 @@ func NewSchedule(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:devtestlab:Schedule"),
 		},
 		{
-			Type: pulumi.String("azure-native:devtestlab/latest:Schedule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:devtestlab/latest:Schedule"),
-		},
-		{
 			Type: pulumi.String("azure-native:devtestlab/v20150521preview:Schedule"),
 		},
 		{

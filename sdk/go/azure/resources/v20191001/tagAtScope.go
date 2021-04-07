@@ -47,12 +47,6 @@ func NewTagAtScope(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:resources:TagAtScope"),
 		},
 		{
-			Type: pulumi.String("azure-native:resources/latest:TagAtScope"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:resources/latest:TagAtScope"),
-		},
-		{
 			Type: pulumi.String("azure-native:resources/v20200601:TagAtScope"),
 		},
 		{

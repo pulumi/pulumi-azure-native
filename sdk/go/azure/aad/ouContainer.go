@@ -64,12 +64,6 @@ func NewOuContainer(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:aad:OuContainer"),
 		},
 		{
-			Type: pulumi.String("azure-native:aad/latest:OuContainer"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:aad/latest:OuContainer"),
-		},
-		{
 			Type: pulumi.String("azure-native:aad/v20170601:OuContainer"),
 		},
 		{

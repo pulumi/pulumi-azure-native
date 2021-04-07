@@ -61,12 +61,6 @@ func NewCapacityDetails(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:powerbidedicated:CapacityDetails"),
 		},
 		{
-			Type: pulumi.String("azure-native:powerbidedicated/latest:CapacityDetails"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:powerbidedicated/latest:CapacityDetails"),
-		},
-		{
 			Type: pulumi.String("azure-native:powerbidedicated/v20171001:CapacityDetails"),
 		},
 		{

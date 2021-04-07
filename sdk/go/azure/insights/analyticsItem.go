@@ -55,12 +55,6 @@ func NewAnalyticsItem(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:insights:AnalyticsItem"),
 		},
 		{
-			Type: pulumi.String("azure-native:insights/latest:AnalyticsItem"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:insights/latest:AnalyticsItem"),
-		},
-		{
 			Type: pulumi.String("azure-native:insights/v20150501:AnalyticsItem"),
 		},
 		{

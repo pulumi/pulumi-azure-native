@@ -62,12 +62,6 @@ func NewRule(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:cdn:Rule"),
 		},
 		{
-			Type: pulumi.String("azure-native:cdn/latest:Rule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:cdn/latest:Rule"),
-		},
-		{
 			Type: pulumi.String("azure-native:cdn/v20200901:Rule"),
 		},
 		{

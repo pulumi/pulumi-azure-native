@@ -53,12 +53,6 @@ func NewTagByOperation(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:apimanagement:TagByOperation"),
 		},
 		{
-			Type: pulumi.String("azure-native:apimanagement/latest:TagByOperation"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/latest:TagByOperation"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20170301:TagByOperation"),
 		},
 		{
