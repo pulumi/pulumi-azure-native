@@ -139,8 +139,6 @@ namespace Pulumi.AzureNative.Insights.V20180416
                     new Pulumi.Alias { Type = "azure-nextgen:insights/v20180416:ScheduledQueryRule"},
                     new Pulumi.Alias { Type = "azure-native:insights:ScheduledQueryRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights:ScheduledQueryRule"},
-                    new Pulumi.Alias { Type = "azure-native:insights/latest:ScheduledQueryRule"},
-                    new Pulumi.Alias { Type = "azure-nextgen:insights/latest:ScheduledQueryRule"},
                     new Pulumi.Alias { Type = "azure-native:insights/v20200501preview:ScheduledQueryRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights/v20200501preview:ScheduledQueryRule"},
                     new Pulumi.Alias { Type = "azure-native:insights/v20210201preview:ScheduledQueryRule"},

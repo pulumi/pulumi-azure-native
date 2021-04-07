@@ -97,8 +97,6 @@ namespace Pulumi.AzureNative.OperationalInsights.V20190801Preview
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20190801preview:DataExport"},
                     new Pulumi.Alias { Type = "azure-native:operationalinsights:DataExport"},
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights:DataExport"},
-                    new Pulumi.Alias { Type = "azure-native:operationalinsights/latest:DataExport"},
-                    new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/latest:DataExport"},
                     new Pulumi.Alias { Type = "azure-native:operationalinsights/v20200301preview:DataExport"},
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20200301preview:DataExport"},
                     new Pulumi.Alias { Type = "azure-native:operationalinsights/v20200801:DataExport"},

@@ -133,8 +133,6 @@ namespace Pulumi.AzureNative.ServiceFabric.V20190301
                     new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20190301:Service"},
                     new Pulumi.Alias { Type = "azure-native:servicefabric:Service"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicefabric:Service"},
-                    new Pulumi.Alias { Type = "azure-native:servicefabric/latest:Service"},
-                    new Pulumi.Alias { Type = "azure-nextgen:servicefabric/latest:Service"},
                     new Pulumi.Alias { Type = "azure-native:servicefabric/v20170701preview:Service"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20170701preview:Service"},
                     new Pulumi.Alias { Type = "azure-native:servicefabric/v20190301preview:Service"},

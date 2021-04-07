@@ -78,8 +78,6 @@ namespace Pulumi.AzureNative.Network
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:network:VirtualRouterPeering"},
-                    new Pulumi.Alias { Type = "azure-native:network/latest:VirtualRouterPeering"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:VirtualRouterPeering"},
                     new Pulumi.Alias { Type = "azure-native:network/v20190701:VirtualRouterPeering"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190701:VirtualRouterPeering"},
                     new Pulumi.Alias { Type = "azure-native:network/v20190801:VirtualRouterPeering"},

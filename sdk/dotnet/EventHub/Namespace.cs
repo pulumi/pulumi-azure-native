@@ -120,8 +120,6 @@ namespace Pulumi.AzureNative.EventHub
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:eventhub:Namespace"},
-                    new Pulumi.Alias { Type = "azure-native:eventhub/latest:Namespace"},
-                    new Pulumi.Alias { Type = "azure-nextgen:eventhub/latest:Namespace"},
                     new Pulumi.Alias { Type = "azure-native:eventhub/v20140901:Namespace"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventhub/v20140901:Namespace"},
                     new Pulumi.Alias { Type = "azure-native:eventhub/v20150801:Namespace"},

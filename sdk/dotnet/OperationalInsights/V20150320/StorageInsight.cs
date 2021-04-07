@@ -91,8 +91,6 @@ namespace Pulumi.AzureNative.OperationalInsights.V20150320
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20150320:StorageInsight"},
                     new Pulumi.Alias { Type = "azure-native:operationalinsights:StorageInsight"},
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights:StorageInsight"},
-                    new Pulumi.Alias { Type = "azure-native:operationalinsights/latest:StorageInsight"},
-                    new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/latest:StorageInsight"},
                     new Pulumi.Alias { Type = "azure-native:operationalinsights/v20200301preview:StorageInsight"},
                     new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20200301preview:StorageInsight"},
                     new Pulumi.Alias { Type = "azure-native:operationalinsights/v20200801:StorageInsight"},

@@ -67,8 +67,6 @@ namespace Pulumi.AzureNative.Web.V20200601
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:WebAppMetadataSlot"},
                     new Pulumi.Alias { Type = "azure-native:web:WebAppMetadataSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:WebAppMetadataSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/latest:WebAppMetadataSlot"},
-                    new Pulumi.Alias { Type = "azure-nextgen:web/latest:WebAppMetadataSlot"},
                     new Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppMetadataSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20150801:WebAppMetadataSlot"},
                     new Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppMetadataSlot"},

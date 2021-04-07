@@ -91,8 +91,6 @@ namespace Pulumi.AzureNative.Sql.V20140401
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20140401:DataMaskingPolicy"},
                     new Pulumi.Alias { Type = "azure-native:sql:DataMaskingPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql:DataMaskingPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:sql/latest:DataMaskingPolicy"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/latest:DataMaskingPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

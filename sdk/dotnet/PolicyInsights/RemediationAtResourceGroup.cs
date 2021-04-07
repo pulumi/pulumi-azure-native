@@ -102,8 +102,6 @@ namespace Pulumi.AzureNative.PolicyInsights
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:policyinsights:RemediationAtResourceGroup"},
-                    new Pulumi.Alias { Type = "azure-native:policyinsights/latest:RemediationAtResourceGroup"},
-                    new Pulumi.Alias { Type = "azure-nextgen:policyinsights/latest:RemediationAtResourceGroup"},
                     new Pulumi.Alias { Type = "azure-native:policyinsights/v20180701preview:RemediationAtResourceGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:policyinsights/v20180701preview:RemediationAtResourceGroup"},
                     new Pulumi.Alias { Type = "azure-native:policyinsights/v20190701:RemediationAtResourceGroup"},

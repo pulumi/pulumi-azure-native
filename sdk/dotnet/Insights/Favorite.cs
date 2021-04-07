@@ -108,8 +108,6 @@ namespace Pulumi.AzureNative.Insights
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:insights:Favorite"},
-                    new Pulumi.Alias { Type = "azure-native:insights/latest:Favorite"},
-                    new Pulumi.Alias { Type = "azure-nextgen:insights/latest:Favorite"},
                     new Pulumi.Alias { Type = "azure-native:insights/v20150501:Favorite"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights/v20150501:Favorite"},
                 },

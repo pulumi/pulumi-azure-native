@@ -79,8 +79,6 @@ namespace Pulumi.AzureNative.Web.V20160601
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20160601:CustomApi"},
                     new Pulumi.Alias { Type = "azure-native:web:CustomApi"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:CustomApi"},
-                    new Pulumi.Alias { Type = "azure-native:web/latest:CustomApi"},
-                    new Pulumi.Alias { Type = "azure-nextgen:web/latest:CustomApi"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

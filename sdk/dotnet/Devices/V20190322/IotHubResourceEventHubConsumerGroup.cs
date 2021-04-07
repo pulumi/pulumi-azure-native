@@ -67,8 +67,6 @@ namespace Pulumi.AzureNative.Devices.V20190322
                     new Pulumi.Alias { Type = "azure-nextgen:devices/v20190322:IotHubResourceEventHubConsumerGroup"},
                     new Pulumi.Alias { Type = "azure-native:devices:IotHubResourceEventHubConsumerGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices:IotHubResourceEventHubConsumerGroup"},
-                    new Pulumi.Alias { Type = "azure-native:devices/latest:IotHubResourceEventHubConsumerGroup"},
-                    new Pulumi.Alias { Type = "azure-nextgen:devices/latest:IotHubResourceEventHubConsumerGroup"},
                     new Pulumi.Alias { Type = "azure-native:devices/v20160203:IotHubResourceEventHubConsumerGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices/v20160203:IotHubResourceEventHubConsumerGroup"},
                     new Pulumi.Alias { Type = "azure-native:devices/v20170119:IotHubResourceEventHubConsumerGroup"},

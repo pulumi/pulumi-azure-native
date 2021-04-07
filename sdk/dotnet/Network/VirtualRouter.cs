@@ -108,8 +108,6 @@ namespace Pulumi.AzureNative.Network
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:network:VirtualRouter"},
-                    new Pulumi.Alias { Type = "azure-native:network/latest:VirtualRouter"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:VirtualRouter"},
                     new Pulumi.Alias { Type = "azure-native:network/v20190701:VirtualRouter"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190701:VirtualRouter"},
                     new Pulumi.Alias { Type = "azure-native:network/v20190801:VirtualRouter"},

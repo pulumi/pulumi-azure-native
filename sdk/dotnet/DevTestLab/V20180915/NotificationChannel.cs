@@ -115,8 +115,6 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20180915:NotificationChannel"},
                     new Pulumi.Alias { Type = "azure-native:devtestlab:NotificationChannel"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab:NotificationChannel"},
-                    new Pulumi.Alias { Type = "azure-native:devtestlab/latest:NotificationChannel"},
-                    new Pulumi.Alias { Type = "azure-nextgen:devtestlab/latest:NotificationChannel"},
                     new Pulumi.Alias { Type = "azure-native:devtestlab/v20160515:NotificationChannel"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20160515:NotificationChannel"},
                 },

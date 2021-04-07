@@ -67,8 +67,6 @@ namespace Pulumi.AzureNative.Kusto.V20200614
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/v20200614:Database"},
                     new Pulumi.Alias { Type = "azure-native:kusto:Database"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto:Database"},
-                    new Pulumi.Alias { Type = "azure-native:kusto/latest:Database"},
-                    new Pulumi.Alias { Type = "azure-nextgen:kusto/latest:Database"},
                     new Pulumi.Alias { Type = "azure-native:kusto/v20170907privatepreview:Database"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/v20170907privatepreview:Database"},
                     new Pulumi.Alias { Type = "azure-native:kusto/v20180907preview:Database"},

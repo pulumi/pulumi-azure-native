@@ -115,8 +115,6 @@ namespace Pulumi.AzureNative.Network.V20200501
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:VirtualWan"},
                     new Pulumi.Alias { Type = "azure-native:network:VirtualWan"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:VirtualWan"},
-                    new Pulumi.Alias { Type = "azure-native:network/latest:VirtualWan"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:VirtualWan"},
                     new Pulumi.Alias { Type = "azure-native:network/v20180401:VirtualWan"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180401:VirtualWan"},
                     new Pulumi.Alias { Type = "azure-native:network/v20180601:VirtualWan"},

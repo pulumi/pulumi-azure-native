@@ -81,8 +81,6 @@ namespace Pulumi.AzureNative.Web
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:web:AppServiceEnvironmentPrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:web/latest:AppServiceEnvironmentPrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:web/latest:AppServiceEnvironmentPrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:web/v20201201:AppServiceEnvironmentPrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201201:AppServiceEnvironmentPrivateEndpointConnection"},
                 },

@@ -103,8 +103,6 @@ namespace Pulumi.AzureNative.Confluent.V20200301
                     new Pulumi.Alias { Type = "azure-nextgen:confluent/v20200301:Organization"},
                     new Pulumi.Alias { Type = "azure-native:confluent:Organization"},
                     new Pulumi.Alias { Type = "azure-nextgen:confluent:Organization"},
-                    new Pulumi.Alias { Type = "azure-native:confluent/latest:Organization"},
-                    new Pulumi.Alias { Type = "azure-nextgen:confluent/latest:Organization"},
                     new Pulumi.Alias { Type = "azure-native:confluent/v20200301preview:Organization"},
                     new Pulumi.Alias { Type = "azure-nextgen:confluent/v20200301preview:Organization"},
                 },

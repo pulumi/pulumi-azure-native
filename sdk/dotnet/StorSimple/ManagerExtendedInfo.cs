@@ -102,8 +102,6 @@ namespace Pulumi.AzureNative.StorSimple
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:storsimple:ManagerExtendedInfo"},
-                    new Pulumi.Alias { Type = "azure-native:storsimple/latest:ManagerExtendedInfo"},
-                    new Pulumi.Alias { Type = "azure-nextgen:storsimple/latest:ManagerExtendedInfo"},
                     new Pulumi.Alias { Type = "azure-native:storsimple/v20161001:ManagerExtendedInfo"},
                     new Pulumi.Alias { Type = "azure-nextgen:storsimple/v20161001:ManagerExtendedInfo"},
                     new Pulumi.Alias { Type = "azure-native:storsimple/v20170601:ManagerExtendedInfo"},

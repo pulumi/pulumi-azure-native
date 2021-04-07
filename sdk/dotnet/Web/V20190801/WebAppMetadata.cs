@@ -67,8 +67,6 @@ namespace Pulumi.AzureNative.Web.V20190801
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20190801:WebAppMetadata"},
                     new Pulumi.Alias { Type = "azure-native:web:WebAppMetadata"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:WebAppMetadata"},
-                    new Pulumi.Alias { Type = "azure-native:web/latest:WebAppMetadata"},
-                    new Pulumi.Alias { Type = "azure-nextgen:web/latest:WebAppMetadata"},
                     new Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppMetadata"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20150801:WebAppMetadata"},
                     new Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppMetadata"},

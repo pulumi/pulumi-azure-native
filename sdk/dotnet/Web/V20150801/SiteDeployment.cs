@@ -127,8 +127,6 @@ namespace Pulumi.AzureNative.Web.V20150801
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20150801:SiteDeployment"},
                     new Pulumi.Alias { Type = "azure-native:web:SiteDeployment"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:SiteDeployment"},
-                    new Pulumi.Alias { Type = "azure-native:web/latest:SiteDeployment"},
-                    new Pulumi.Alias { Type = "azure-nextgen:web/latest:SiteDeployment"},
                     new Pulumi.Alias { Type = "azure-native:web/v20160801:SiteDeployment"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20160801:SiteDeployment"},
                     new Pulumi.Alias { Type = "azure-native:web/v20180201:SiteDeployment"},

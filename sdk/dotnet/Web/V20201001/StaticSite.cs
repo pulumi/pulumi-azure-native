@@ -121,8 +121,6 @@ namespace Pulumi.AzureNative.Web.V20201001
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:StaticSite"},
                     new Pulumi.Alias { Type = "azure-native:web:StaticSite"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:StaticSite"},
-                    new Pulumi.Alias { Type = "azure-native:web/latest:StaticSite"},
-                    new Pulumi.Alias { Type = "azure-nextgen:web/latest:StaticSite"},
                     new Pulumi.Alias { Type = "azure-native:web/v20190801:StaticSite"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20190801:StaticSite"},
                     new Pulumi.Alias { Type = "azure-native:web/v20200601:StaticSite"},

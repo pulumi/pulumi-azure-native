@@ -79,8 +79,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20210301Preview
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20210301preview:TableResourceTable"},
                     new Pulumi.Alias { Type = "azure-native:documentdb:TableResourceTable"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb:TableResourceTable"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/latest:TableResourceTable"},
-                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/latest:TableResourceTable"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20150401:TableResourceTable"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20150401:TableResourceTable"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20150408:TableResourceTable"},

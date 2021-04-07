@@ -127,8 +127,6 @@ namespace Pulumi.AzureNative.LabServices.V20181015
                     new Pulumi.Alias { Type = "azure-nextgen:labservices/v20181015:EnvironmentSetting"},
                     new Pulumi.Alias { Type = "azure-native:labservices:EnvironmentSetting"},
                     new Pulumi.Alias { Type = "azure-nextgen:labservices:EnvironmentSetting"},
-                    new Pulumi.Alias { Type = "azure-native:labservices/latest:EnvironmentSetting"},
-                    new Pulumi.Alias { Type = "azure-nextgen:labservices/latest:EnvironmentSetting"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

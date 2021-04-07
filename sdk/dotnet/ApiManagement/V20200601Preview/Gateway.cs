@@ -67,8 +67,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20200601Preview
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20200601preview:Gateway"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement:Gateway"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement:Gateway"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/latest:Gateway"},
-                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:Gateway"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:Gateway"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201:Gateway"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:Gateway"},

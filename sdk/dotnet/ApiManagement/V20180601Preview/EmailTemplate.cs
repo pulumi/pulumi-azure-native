@@ -91,8 +91,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20180601Preview
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180601preview:EmailTemplate"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement:EmailTemplate"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement:EmailTemplate"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/latest:EmailTemplate"},
-                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:EmailTemplate"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:EmailTemplate"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20170301:EmailTemplate"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:EmailTemplate"},

@@ -72,8 +72,6 @@ namespace Pulumi.AzureNative.Advisor
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:advisor:Suppression"},
-                    new Pulumi.Alias { Type = "azure-native:advisor/latest:Suppression"},
-                    new Pulumi.Alias { Type = "azure-nextgen:advisor/latest:Suppression"},
                     new Pulumi.Alias { Type = "azure-native:advisor/v20160712preview:Suppression"},
                     new Pulumi.Alias { Type = "azure-nextgen:advisor/v20160712preview:Suppression"},
                     new Pulumi.Alias { Type = "azure-native:advisor/v20170331:Suppression"},

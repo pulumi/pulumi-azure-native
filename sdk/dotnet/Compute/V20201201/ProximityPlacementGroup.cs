@@ -97,8 +97,6 @@ namespace Pulumi.AzureNative.Compute.V20201201
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20201201:ProximityPlacementGroup"},
                     new Pulumi.Alias { Type = "azure-native:compute:ProximityPlacementGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute:ProximityPlacementGroup"},
-                    new Pulumi.Alias { Type = "azure-native:compute/latest:ProximityPlacementGroup"},
-                    new Pulumi.Alias { Type = "azure-nextgen:compute/latest:ProximityPlacementGroup"},
                     new Pulumi.Alias { Type = "azure-native:compute/v20180401:ProximityPlacementGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20180401:ProximityPlacementGroup"},
                     new Pulumi.Alias { Type = "azure-native:compute/v20180601:ProximityPlacementGroup"},

@@ -126,8 +126,6 @@ namespace Pulumi.AzureNative.DelegatedNetwork
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:delegatednetwork:OrchestratorInstanceServiceDetails"},
-                    new Pulumi.Alias { Type = "azure-native:delegatednetwork/latest:OrchestratorInstanceServiceDetails"},
-                    new Pulumi.Alias { Type = "azure-nextgen:delegatednetwork/latest:OrchestratorInstanceServiceDetails"},
                     new Pulumi.Alias { Type = "azure-native:delegatednetwork/v20200808preview:OrchestratorInstanceServiceDetails"},
                     new Pulumi.Alias { Type = "azure-nextgen:delegatednetwork/v20200808preview:OrchestratorInstanceServiceDetails"},
                     new Pulumi.Alias { Type = "azure-native:delegatednetwork/v20210315:OrchestratorInstanceServiceDetails"},

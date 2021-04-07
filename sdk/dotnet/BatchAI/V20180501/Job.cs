@@ -229,8 +229,6 @@ namespace Pulumi.AzureNative.BatchAI.V20180501
                     new Pulumi.Alias { Type = "azure-nextgen:batchai/v20180501:Job"},
                     new Pulumi.Alias { Type = "azure-native:batchai:Job"},
                     new Pulumi.Alias { Type = "azure-nextgen:batchai:Job"},
-                    new Pulumi.Alias { Type = "azure-native:batchai/latest:Job"},
-                    new Pulumi.Alias { Type = "azure-nextgen:batchai/latest:Job"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -78,8 +78,6 @@ namespace Pulumi.AzureNative.Security
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:security:DeviceSecurityGroup"},
-                    new Pulumi.Alias { Type = "azure-native:security/latest:DeviceSecurityGroup"},
-                    new Pulumi.Alias { Type = "azure-nextgen:security/latest:DeviceSecurityGroup"},
                     new Pulumi.Alias { Type = "azure-native:security/v20170801preview:DeviceSecurityGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:security/v20170801preview:DeviceSecurityGroup"},
                     new Pulumi.Alias { Type = "azure-native:security/v20190801:DeviceSecurityGroup"},

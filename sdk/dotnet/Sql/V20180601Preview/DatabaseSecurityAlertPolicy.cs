@@ -103,8 +103,6 @@ namespace Pulumi.AzureNative.Sql.V20180601Preview
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20180601preview:DatabaseSecurityAlertPolicy"},
                     new Pulumi.Alias { Type = "azure-native:sql:DatabaseSecurityAlertPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql:DatabaseSecurityAlertPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:sql/latest:DatabaseSecurityAlertPolicy"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/latest:DatabaseSecurityAlertPolicy"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20140401:DatabaseSecurityAlertPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20140401:DatabaseSecurityAlertPolicy"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20200202preview:DatabaseSecurityAlertPolicy"},

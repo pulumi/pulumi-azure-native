@@ -73,8 +73,6 @@ namespace Pulumi.AzureNative.Compute.V20201201
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20201201:SshPublicKey"},
                     new Pulumi.Alias { Type = "azure-native:compute:SshPublicKey"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute:SshPublicKey"},
-                    new Pulumi.Alias { Type = "azure-native:compute/latest:SshPublicKey"},
-                    new Pulumi.Alias { Type = "azure-nextgen:compute/latest:SshPublicKey"},
                     new Pulumi.Alias { Type = "azure-native:compute/v20191201:SshPublicKey"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20191201:SshPublicKey"},
                     new Pulumi.Alias { Type = "azure-native:compute/v20200601:SshPublicKey"},

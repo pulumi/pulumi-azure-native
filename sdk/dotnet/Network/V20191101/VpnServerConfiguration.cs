@@ -145,8 +145,6 @@ namespace Pulumi.AzureNative.Network.V20191101
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20191101:VpnServerConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:network:VpnServerConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:VpnServerConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:network/latest:VpnServerConfiguration"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:VpnServerConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:network/v20190801:VpnServerConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190801:VpnServerConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:network/v20190901:VpnServerConfiguration"},

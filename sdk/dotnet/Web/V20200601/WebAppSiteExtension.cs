@@ -178,8 +178,6 @@ namespace Pulumi.AzureNative.Web.V20200601
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:WebAppSiteExtension"},
                     new Pulumi.Alias { Type = "azure-native:web:WebAppSiteExtension"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:WebAppSiteExtension"},
-                    new Pulumi.Alias { Type = "azure-native:web/latest:WebAppSiteExtension"},
-                    new Pulumi.Alias { Type = "azure-nextgen:web/latest:WebAppSiteExtension"},
                     new Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppSiteExtension"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20160801:WebAppSiteExtension"},
                     new Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppSiteExtension"},

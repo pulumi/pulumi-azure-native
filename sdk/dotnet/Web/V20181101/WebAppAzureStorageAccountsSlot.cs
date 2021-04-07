@@ -67,8 +67,6 @@ namespace Pulumi.AzureNative.Web.V20181101
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20181101:WebAppAzureStorageAccountsSlot"},
                     new Pulumi.Alias { Type = "azure-native:web:WebAppAzureStorageAccountsSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:WebAppAzureStorageAccountsSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/latest:WebAppAzureStorageAccountsSlot"},
-                    new Pulumi.Alias { Type = "azure-nextgen:web/latest:WebAppAzureStorageAccountsSlot"},
                     new Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppAzureStorageAccountsSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:WebAppAzureStorageAccountsSlot"},
                     new Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppAzureStorageAccountsSlot"},

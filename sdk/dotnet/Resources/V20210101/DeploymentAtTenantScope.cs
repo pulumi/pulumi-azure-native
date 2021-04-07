@@ -73,8 +73,6 @@ namespace Pulumi.AzureNative.Resources.V20210101
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20210101:DeploymentAtTenantScope"},
                     new Pulumi.Alias { Type = "azure-native:resources:DeploymentAtTenantScope"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources:DeploymentAtTenantScope"},
-                    new Pulumi.Alias { Type = "azure-native:resources/latest:DeploymentAtTenantScope"},
-                    new Pulumi.Alias { Type = "azure-nextgen:resources/latest:DeploymentAtTenantScope"},
                     new Pulumi.Alias { Type = "azure-native:resources/v20190701:DeploymentAtTenantScope"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20190701:DeploymentAtTenantScope"},
                     new Pulumi.Alias { Type = "azure-native:resources/v20190801:DeploymentAtTenantScope"},

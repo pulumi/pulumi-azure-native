@@ -121,8 +121,6 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170101
                     new Pulumi.Alias { Type = "azure-nextgen:customerinsights/v20170101:Link"},
                     new Pulumi.Alias { Type = "azure-native:customerinsights:Link"},
                     new Pulumi.Alias { Type = "azure-nextgen:customerinsights:Link"},
-                    new Pulumi.Alias { Type = "azure-native:customerinsights/latest:Link"},
-                    new Pulumi.Alias { Type = "azure-nextgen:customerinsights/latest:Link"},
                     new Pulumi.Alias { Type = "azure-native:customerinsights/v20170426:Link"},
                     new Pulumi.Alias { Type = "azure-nextgen:customerinsights/v20170426:Link"},
                 },

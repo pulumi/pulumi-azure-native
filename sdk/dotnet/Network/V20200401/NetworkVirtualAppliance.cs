@@ -121,8 +121,6 @@ namespace Pulumi.AzureNative.Network.V20200401
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:NetworkVirtualAppliance"},
                     new Pulumi.Alias { Type = "azure-native:network:NetworkVirtualAppliance"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:NetworkVirtualAppliance"},
-                    new Pulumi.Alias { Type = "azure-native:network/latest:NetworkVirtualAppliance"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:NetworkVirtualAppliance"},
                     new Pulumi.Alias { Type = "azure-native:network/v20191201:NetworkVirtualAppliance"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20191201:NetworkVirtualAppliance"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200301:NetworkVirtualAppliance"},

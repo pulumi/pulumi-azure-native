@@ -162,8 +162,6 @@ namespace Pulumi.AzureNative.SecurityInsights
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:securityinsights:Incident"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/latest:Incident"},
-                    new Pulumi.Alias { Type = "azure-nextgen:securityinsights/latest:Incident"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20200101:Incident"},
                     new Pulumi.Alias { Type = "azure-nextgen:securityinsights/v20200101:Incident"},
                 },

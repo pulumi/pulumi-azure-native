@@ -229,8 +229,6 @@ namespace Pulumi.AzureNative.Web.V20150801
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20150801:SiteAuthSettings"},
                     new Pulumi.Alias { Type = "azure-native:web:SiteAuthSettings"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:SiteAuthSettings"},
-                    new Pulumi.Alias { Type = "azure-native:web/latest:SiteAuthSettings"},
-                    new Pulumi.Alias { Type = "azure-nextgen:web/latest:SiteAuthSettings"},
                     new Pulumi.Alias { Type = "azure-native:web/v20160801:SiteAuthSettings"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20160801:SiteAuthSettings"},
                     new Pulumi.Alias { Type = "azure-native:web/v20180201:SiteAuthSettings"},

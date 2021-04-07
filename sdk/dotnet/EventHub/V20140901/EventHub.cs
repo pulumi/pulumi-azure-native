@@ -97,8 +97,6 @@ namespace Pulumi.AzureNative.EventHub.V20140901
                     new Pulumi.Alias { Type = "azure-nextgen:eventhub/v20140901:EventHub"},
                     new Pulumi.Alias { Type = "azure-native:eventhub:EventHub"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventhub:EventHub"},
-                    new Pulumi.Alias { Type = "azure-native:eventhub/latest:EventHub"},
-                    new Pulumi.Alias { Type = "azure-nextgen:eventhub/latest:EventHub"},
                     new Pulumi.Alias { Type = "azure-native:eventhub/v20150801:EventHub"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventhub/v20150801:EventHub"},
                     new Pulumi.Alias { Type = "azure-native:eventhub/v20170401:EventHub"},

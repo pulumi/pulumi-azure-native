@@ -67,8 +67,6 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
                     new Pulumi.Alias { Type = "azure-nextgen:datashare/v20201001preview:DataSetMapping"},
                     new Pulumi.Alias { Type = "azure-native:datashare:DataSetMapping"},
                     new Pulumi.Alias { Type = "azure-nextgen:datashare:DataSetMapping"},
-                    new Pulumi.Alias { Type = "azure-native:datashare/latest:DataSetMapping"},
-                    new Pulumi.Alias { Type = "azure-nextgen:datashare/latest:DataSetMapping"},
                     new Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:DataSetMapping"},
                     new Pulumi.Alias { Type = "azure-nextgen:datashare/v20181101preview:DataSetMapping"},
                     new Pulumi.Alias { Type = "azure-native:datashare/v20191101:DataSetMapping"},

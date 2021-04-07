@@ -114,8 +114,6 @@ namespace Pulumi.AzureNative.NetApp
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:netapp:BackupPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:netapp/latest:BackupPolicy"},
-                    new Pulumi.Alias { Type = "azure-nextgen:netapp/latest:BackupPolicy"},
                     new Pulumi.Alias { Type = "azure-native:netapp/v20200501:BackupPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200501:BackupPolicy"},
                     new Pulumi.Alias { Type = "azure-native:netapp/v20200601:BackupPolicy"},

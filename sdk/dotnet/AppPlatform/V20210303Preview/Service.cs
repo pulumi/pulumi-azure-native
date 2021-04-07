@@ -79,8 +79,6 @@ namespace Pulumi.AzureNative.AppPlatform.V20210303Preview
                     new Pulumi.Alias { Type = "azure-nextgen:appplatform/v20210303preview:Service"},
                     new Pulumi.Alias { Type = "azure-native:appplatform:Service"},
                     new Pulumi.Alias { Type = "azure-nextgen:appplatform:Service"},
-                    new Pulumi.Alias { Type = "azure-native:appplatform/latest:Service"},
-                    new Pulumi.Alias { Type = "azure-nextgen:appplatform/latest:Service"},
                     new Pulumi.Alias { Type = "azure-native:appplatform/v20190501preview:Service"},
                     new Pulumi.Alias { Type = "azure-nextgen:appplatform/v20190501preview:Service"},
                     new Pulumi.Alias { Type = "azure-native:appplatform/v20200701:Service"},

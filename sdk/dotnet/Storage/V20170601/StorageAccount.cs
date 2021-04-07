@@ -169,8 +169,6 @@ namespace Pulumi.AzureNative.Storage.V20170601
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20170601:StorageAccount"},
                     new Pulumi.Alias { Type = "azure-native:storage:StorageAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage:StorageAccount"},
-                    new Pulumi.Alias { Type = "azure-native:storage/latest:StorageAccount"},
-                    new Pulumi.Alias { Type = "azure-nextgen:storage/latest:StorageAccount"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20150501preview:StorageAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20150501preview:StorageAccount"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20150615:StorageAccount"},

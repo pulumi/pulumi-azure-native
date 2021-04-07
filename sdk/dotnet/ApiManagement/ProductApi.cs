@@ -162,8 +162,6 @@ namespace Pulumi.AzureNative.ApiManagement
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement:ProductApi"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/latest:ProductApi"},
-                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:ProductApi"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:ProductApi"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20170301:ProductApi"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:ProductApi"},

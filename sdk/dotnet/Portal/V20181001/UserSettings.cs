@@ -49,8 +49,6 @@ namespace Pulumi.AzureNative.Portal.V20181001
                     new Pulumi.Alias { Type = "azure-nextgen:portal/v20181001:UserSettings"},
                     new Pulumi.Alias { Type = "azure-native:portal:UserSettings"},
                     new Pulumi.Alias { Type = "azure-nextgen:portal:UserSettings"},
-                    new Pulumi.Alias { Type = "azure-native:portal/latest:UserSettings"},
-                    new Pulumi.Alias { Type = "azure-nextgen:portal/latest:UserSettings"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

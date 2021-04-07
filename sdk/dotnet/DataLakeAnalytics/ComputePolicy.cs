@@ -78,8 +78,6 @@ namespace Pulumi.AzureNative.DataLakeAnalytics
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:datalakeanalytics:ComputePolicy"},
-                    new Pulumi.Alias { Type = "azure-native:datalakeanalytics/latest:ComputePolicy"},
-                    new Pulumi.Alias { Type = "azure-nextgen:datalakeanalytics/latest:ComputePolicy"},
                     new Pulumi.Alias { Type = "azure-native:datalakeanalytics/v20151001preview:ComputePolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:datalakeanalytics/v20151001preview:ComputePolicy"},
                     new Pulumi.Alias { Type = "azure-native:datalakeanalytics/v20161101:ComputePolicy"},

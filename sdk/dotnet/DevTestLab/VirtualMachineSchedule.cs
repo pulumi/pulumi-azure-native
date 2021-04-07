@@ -132,8 +132,6 @@ namespace Pulumi.AzureNative.DevTestLab
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab:VirtualMachineSchedule"},
-                    new Pulumi.Alias { Type = "azure-native:devtestlab/latest:VirtualMachineSchedule"},
-                    new Pulumi.Alias { Type = "azure-nextgen:devtestlab/latest:VirtualMachineSchedule"},
                     new Pulumi.Alias { Type = "azure-native:devtestlab/v20160515:VirtualMachineSchedule"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20160515:VirtualMachineSchedule"},
                     new Pulumi.Alias { Type = "azure-native:devtestlab/v20180915:VirtualMachineSchedule"},

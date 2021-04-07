@@ -91,8 +91,6 @@ namespace Pulumi.AzureNative.Compute.V20191101
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20191101:DiskEncryptionSet"},
                     new Pulumi.Alias { Type = "azure-native:compute:DiskEncryptionSet"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute:DiskEncryptionSet"},
-                    new Pulumi.Alias { Type = "azure-native:compute/latest:DiskEncryptionSet"},
-                    new Pulumi.Alias { Type = "azure-nextgen:compute/latest:DiskEncryptionSet"},
                     new Pulumi.Alias { Type = "azure-native:compute/v20190701:DiskEncryptionSet"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20190701:DiskEncryptionSet"},
                     new Pulumi.Alias { Type = "azure-native:compute/v20200501:DiskEncryptionSet"},

@@ -162,8 +162,6 @@ namespace Pulumi.AzureNative.Solutions
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:solutions:ApplicationDefinition"},
-                    new Pulumi.Alias { Type = "azure-native:solutions/latest:ApplicationDefinition"},
-                    new Pulumi.Alias { Type = "azure-nextgen:solutions/latest:ApplicationDefinition"},
                     new Pulumi.Alias { Type = "azure-native:solutions/v20160901preview:ApplicationDefinition"},
                     new Pulumi.Alias { Type = "azure-nextgen:solutions/v20160901preview:ApplicationDefinition"},
                     new Pulumi.Alias { Type = "azure-native:solutions/v20170901:ApplicationDefinition"},

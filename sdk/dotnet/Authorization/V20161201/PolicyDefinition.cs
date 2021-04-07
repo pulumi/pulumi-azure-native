@@ -91,8 +91,6 @@ namespace Pulumi.AzureNative.Authorization.V20161201
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20161201:PolicyDefinition"},
                     new Pulumi.Alias { Type = "azure-native:authorization:PolicyDefinition"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization:PolicyDefinition"},
-                    new Pulumi.Alias { Type = "azure-native:authorization/latest:PolicyDefinition"},
-                    new Pulumi.Alias { Type = "azure-nextgen:authorization/latest:PolicyDefinition"},
                     new Pulumi.Alias { Type = "azure-native:authorization/v20151001preview:PolicyDefinition"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20151001preview:PolicyDefinition"},
                     new Pulumi.Alias { Type = "azure-native:authorization/v20160401:PolicyDefinition"},

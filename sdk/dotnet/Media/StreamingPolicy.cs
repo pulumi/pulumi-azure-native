@@ -96,8 +96,6 @@ namespace Pulumi.AzureNative.Media
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:media:StreamingPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:media/latest:StreamingPolicy"},
-                    new Pulumi.Alias { Type = "azure-nextgen:media/latest:StreamingPolicy"},
                     new Pulumi.Alias { Type = "azure-native:media/v20180330preview:StreamingPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20180330preview:StreamingPolicy"},
                     new Pulumi.Alias { Type = "azure-native:media/v20180601preview:StreamingPolicy"},

@@ -121,8 +121,6 @@ namespace Pulumi.AzureNative.Storage.V20180301Preview
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20180301preview:BlobContainer"},
                     new Pulumi.Alias { Type = "azure-native:storage:BlobContainer"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage:BlobContainer"},
-                    new Pulumi.Alias { Type = "azure-native:storage/latest:BlobContainer"},
-                    new Pulumi.Alias { Type = "azure-nextgen:storage/latest:BlobContainer"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20180201:BlobContainer"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20180201:BlobContainer"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20180701:BlobContainer"},

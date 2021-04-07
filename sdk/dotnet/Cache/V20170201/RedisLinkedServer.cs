@@ -79,8 +79,6 @@ namespace Pulumi.AzureNative.Cache.V20170201
                     new Pulumi.Alias { Type = "azure-nextgen:cache/v20170201:RedisLinkedServer"},
                     new Pulumi.Alias { Type = "azure-native:cache:RedisLinkedServer"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache:RedisLinkedServer"},
-                    new Pulumi.Alias { Type = "azure-native:cache/latest:RedisLinkedServer"},
-                    new Pulumi.Alias { Type = "azure-nextgen:cache/latest:RedisLinkedServer"},
                     new Pulumi.Alias { Type = "azure-native:cache/v20171001:RedisLinkedServer"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache/v20171001:RedisLinkedServer"},
                     new Pulumi.Alias { Type = "azure-native:cache/v20180301:RedisLinkedServer"},

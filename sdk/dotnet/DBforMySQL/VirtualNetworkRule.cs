@@ -72,8 +72,6 @@ namespace Pulumi.AzureNative.DBforMySQL
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:dbformysql:VirtualNetworkRule"},
-                    new Pulumi.Alias { Type = "azure-native:dbformysql/latest:VirtualNetworkRule"},
-                    new Pulumi.Alias { Type = "azure-nextgen:dbformysql/latest:VirtualNetworkRule"},
                     new Pulumi.Alias { Type = "azure-native:dbformysql/v20171201:VirtualNetworkRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbformysql/v20171201:VirtualNetworkRule"},
                     new Pulumi.Alias { Type = "azure-native:dbformysql/v20171201preview:VirtualNetworkRule"},

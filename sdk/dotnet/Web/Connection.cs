@@ -75,8 +75,6 @@ namespace Pulumi.AzureNative.Web
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:web:Connection"},
-                    new Pulumi.Alias { Type = "azure-native:web/latest:Connection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:web/latest:Connection"},
                     new Pulumi.Alias { Type = "azure-native:web/v20150801preview:Connection"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20150801preview:Connection"},
                     new Pulumi.Alias { Type = "azure-native:web/v20160601:Connection"},

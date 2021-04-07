@@ -73,8 +73,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20200601Preview
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20200601preview:ApiIssueComment"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement:ApiIssueComment"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement:ApiIssueComment"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/latest:ApiIssueComment"},
-                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:ApiIssueComment"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:ApiIssueComment"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20170301:ApiIssueComment"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:ApiIssueComment"},

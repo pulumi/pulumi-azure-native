@@ -72,8 +72,6 @@ namespace Pulumi.AzureNative.CognitiveServices
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:cognitiveservices:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:cognitiveservices/latest:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:cognitiveservices/latest:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:cognitiveservices/v20170418:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:cognitiveservices/v20170418:PrivateEndpointConnection"},
                 },

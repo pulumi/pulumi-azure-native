@@ -253,8 +253,6 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20160515:VirtualMachine"},
                     new Pulumi.Alias { Type = "azure-native:devtestlab:VirtualMachine"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab:VirtualMachine"},
-                    new Pulumi.Alias { Type = "azure-native:devtestlab/latest:VirtualMachine"},
-                    new Pulumi.Alias { Type = "azure-nextgen:devtestlab/latest:VirtualMachine"},
                     new Pulumi.Alias { Type = "azure-native:devtestlab/v20150521preview:VirtualMachine"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20150521preview:VirtualMachine"},
                     new Pulumi.Alias { Type = "azure-native:devtestlab/v20180915:VirtualMachine"},

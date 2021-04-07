@@ -85,8 +85,6 @@ namespace Pulumi.AzureNative.Automation.V20200113Preview
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20200113preview:JobSchedule"},
                     new Pulumi.Alias { Type = "azure-native:automation:JobSchedule"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation:JobSchedule"},
-                    new Pulumi.Alias { Type = "azure-native:automation/latest:JobSchedule"},
-                    new Pulumi.Alias { Type = "azure-nextgen:automation/latest:JobSchedule"},
                     new Pulumi.Alias { Type = "azure-native:automation/v20151031:JobSchedule"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20151031:JobSchedule"},
                     new Pulumi.Alias { Type = "azure-native:automation/v20190601:JobSchedule"},

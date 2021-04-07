@@ -85,8 +85,6 @@ namespace Pulumi.AzureNative.Web.V20150801
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20150801:SiteSlotConfigNames"},
                     new Pulumi.Alias { Type = "azure-native:web:SiteSlotConfigNames"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:SiteSlotConfigNames"},
-                    new Pulumi.Alias { Type = "azure-native:web/latest:SiteSlotConfigNames"},
-                    new Pulumi.Alias { Type = "azure-nextgen:web/latest:SiteSlotConfigNames"},
                     new Pulumi.Alias { Type = "azure-native:web/v20160801:SiteSlotConfigNames"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20160801:SiteSlotConfigNames"},
                     new Pulumi.Alias { Type = "azure-native:web/v20180201:SiteSlotConfigNames"},

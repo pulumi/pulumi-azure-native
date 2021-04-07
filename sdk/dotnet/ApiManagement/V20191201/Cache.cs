@@ -73,8 +73,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20191201
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201:Cache"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement:Cache"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement:Cache"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/latest:Cache"},
-                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:Cache"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:Cache"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180601preview:Cache"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:Cache"},

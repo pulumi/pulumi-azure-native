@@ -151,8 +151,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20190101
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20190101:AuthorizationServer"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement:AuthorizationServer"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement:AuthorizationServer"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/latest:AuthorizationServer"},
-                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:AuthorizationServer"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20160707:AuthorizationServer"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20160707:AuthorizationServer"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20161010:AuthorizationServer"},

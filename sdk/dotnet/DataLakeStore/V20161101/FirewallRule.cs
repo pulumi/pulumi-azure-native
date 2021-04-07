@@ -67,8 +67,6 @@ namespace Pulumi.AzureNative.DataLakeStore.V20161101
                     new Pulumi.Alias { Type = "azure-nextgen:datalakestore/v20161101:FirewallRule"},
                     new Pulumi.Alias { Type = "azure-native:datalakestore:FirewallRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:datalakestore:FirewallRule"},
-                    new Pulumi.Alias { Type = "azure-native:datalakestore/latest:FirewallRule"},
-                    new Pulumi.Alias { Type = "azure-nextgen:datalakestore/latest:FirewallRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

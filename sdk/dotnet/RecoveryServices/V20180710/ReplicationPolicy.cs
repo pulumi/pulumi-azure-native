@@ -67,8 +67,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20180710
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20180710:ReplicationPolicy"},
                     new Pulumi.Alias { Type = "azure-native:recoveryservices:ReplicationPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices:ReplicationPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/latest:ReplicationPolicy"},
-                    new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/latest:ReplicationPolicy"},
                     new Pulumi.Alias { Type = "azure-native:recoveryservices/v20160810:ReplicationPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20160810:ReplicationPolicy"},
                     new Pulumi.Alias { Type = "azure-native:recoveryservices/v20180110:ReplicationPolicy"},

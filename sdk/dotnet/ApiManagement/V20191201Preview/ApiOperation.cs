@@ -103,8 +103,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20191201Preview
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201preview:ApiOperation"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement:ApiOperation"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement:ApiOperation"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/latest:ApiOperation"},
-                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:ApiOperation"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20160707:ApiOperation"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20160707:ApiOperation"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20161010:ApiOperation"},

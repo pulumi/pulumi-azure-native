@@ -97,8 +97,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20170301
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20170301:IdentityProvider"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement:IdentityProvider"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement:IdentityProvider"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/latest:IdentityProvider"},
-                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:IdentityProvider"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20160707:IdentityProvider"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20160707:IdentityProvider"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20161010:IdentityProvider"},

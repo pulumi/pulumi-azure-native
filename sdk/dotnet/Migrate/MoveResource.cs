@@ -60,8 +60,6 @@ namespace Pulumi.AzureNative.Migrate
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:migrate:MoveResource"},
-                    new Pulumi.Alias { Type = "azure-native:migrate/latest:MoveResource"},
-                    new Pulumi.Alias { Type = "azure-nextgen:migrate/latest:MoveResource"},
                     new Pulumi.Alias { Type = "azure-native:migrate/v20191001preview:MoveResource"},
                     new Pulumi.Alias { Type = "azure-nextgen:migrate/v20191001preview:MoveResource"},
                     new Pulumi.Alias { Type = "azure-native:migrate/v20210101:MoveResource"},

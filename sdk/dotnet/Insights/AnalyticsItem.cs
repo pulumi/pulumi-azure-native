@@ -90,8 +90,6 @@ namespace Pulumi.AzureNative.Insights
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:insights:AnalyticsItem"},
-                    new Pulumi.Alias { Type = "azure-native:insights/latest:AnalyticsItem"},
-                    new Pulumi.Alias { Type = "azure-nextgen:insights/latest:AnalyticsItem"},
                     new Pulumi.Alias { Type = "azure-native:insights/v20150501:AnalyticsItem"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights/v20150501:AnalyticsItem"},
                 },

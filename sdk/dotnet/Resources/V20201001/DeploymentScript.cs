@@ -85,8 +85,6 @@ namespace Pulumi.AzureNative.Resources.V20201001
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20201001:DeploymentScript"},
                     new Pulumi.Alias { Type = "azure-native:resources:DeploymentScript"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources:DeploymentScript"},
-                    new Pulumi.Alias { Type = "azure-native:resources/latest:DeploymentScript"},
-                    new Pulumi.Alias { Type = "azure-nextgen:resources/latest:DeploymentScript"},
                     new Pulumi.Alias { Type = "azure-native:resources/v20191001preview:DeploymentScript"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20191001preview:DeploymentScript"},
                 },

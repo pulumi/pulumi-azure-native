@@ -161,8 +161,6 @@ namespace Pulumi.AzureNative.DomainRegistration.V20201201
                     new Pulumi.Alias { Type = "azure-nextgen:domainregistration/v20201201:Domain"},
                     new Pulumi.Alias { Type = "azure-native:domainregistration:Domain"},
                     new Pulumi.Alias { Type = "azure-nextgen:domainregistration:Domain"},
-                    new Pulumi.Alias { Type = "azure-native:domainregistration/latest:Domain"},
-                    new Pulumi.Alias { Type = "azure-nextgen:domainregistration/latest:Domain"},
                     new Pulumi.Alias { Type = "azure-native:domainregistration/v20150401:Domain"},
                     new Pulumi.Alias { Type = "azure-nextgen:domainregistration/v20150401:Domain"},
                     new Pulumi.Alias { Type = "azure-native:domainregistration/v20180201:Domain"},

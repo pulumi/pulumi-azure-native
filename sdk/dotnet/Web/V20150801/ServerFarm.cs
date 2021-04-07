@@ -146,8 +146,6 @@ namespace Pulumi.AzureNative.Web.V20150801
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20150801:ServerFarm"},
                     new Pulumi.Alias { Type = "azure-native:web:ServerFarm"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:ServerFarm"},
-                    new Pulumi.Alias { Type = "azure-native:web/latest:ServerFarm"},
-                    new Pulumi.Alias { Type = "azure-nextgen:web/latest:ServerFarm"},
                     new Pulumi.Alias { Type = "azure-native:web/v20160901:ServerFarm"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20160901:ServerFarm"},
                     new Pulumi.Alias { Type = "azure-native:web/v20180201:ServerFarm"},

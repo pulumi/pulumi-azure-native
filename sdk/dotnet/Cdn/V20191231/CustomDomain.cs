@@ -91,8 +91,6 @@ namespace Pulumi.AzureNative.Cdn.V20191231
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20191231:CustomDomain"},
                     new Pulumi.Alias { Type = "azure-native:cdn:CustomDomain"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn:CustomDomain"},
-                    new Pulumi.Alias { Type = "azure-native:cdn/latest:CustomDomain"},
-                    new Pulumi.Alias { Type = "azure-nextgen:cdn/latest:CustomDomain"},
                     new Pulumi.Alias { Type = "azure-native:cdn/v20150601:CustomDomain"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20150601:CustomDomain"},
                     new Pulumi.Alias { Type = "azure-native:cdn/v20160402:CustomDomain"},

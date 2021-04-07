@@ -70,8 +70,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20191212
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20191212:SqlResourceSqlUserDefinedFunction"},
                     new Pulumi.Alias { Type = "azure-native:documentdb:SqlResourceSqlUserDefinedFunction"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb:SqlResourceSqlUserDefinedFunction"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/latest:SqlResourceSqlUserDefinedFunction"},
-                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/latest:SqlResourceSqlUserDefinedFunction"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20190801:SqlResourceSqlUserDefinedFunction"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20190801:SqlResourceSqlUserDefinedFunction"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20200301:SqlResourceSqlUserDefinedFunction"},

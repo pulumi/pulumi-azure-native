@@ -60,8 +60,6 @@ namespace Pulumi.AzureNative.DataLakeStore
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:datalakestore:VirtualNetworkRule"},
-                    new Pulumi.Alias { Type = "azure-native:datalakestore/latest:VirtualNetworkRule"},
-                    new Pulumi.Alias { Type = "azure-nextgen:datalakestore/latest:VirtualNetworkRule"},
                     new Pulumi.Alias { Type = "azure-native:datalakestore/v20161101:VirtualNetworkRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:datalakestore/v20161101:VirtualNetworkRule"},
                 },

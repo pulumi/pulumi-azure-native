@@ -91,8 +91,6 @@ namespace Pulumi.AzureNative.Web.V20160801
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20160801:WebAppSourceControl"},
                     new Pulumi.Alias { Type = "azure-native:web:WebAppSourceControl"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:WebAppSourceControl"},
-                    new Pulumi.Alias { Type = "azure-native:web/latest:WebAppSourceControl"},
-                    new Pulumi.Alias { Type = "azure-nextgen:web/latest:WebAppSourceControl"},
                     new Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppSourceControl"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20150801:WebAppSourceControl"},
                     new Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppSourceControl"},

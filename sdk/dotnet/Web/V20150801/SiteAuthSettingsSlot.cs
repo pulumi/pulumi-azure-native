@@ -229,8 +229,6 @@ namespace Pulumi.AzureNative.Web.V20150801
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20150801:SiteAuthSettingsSlot"},
                     new Pulumi.Alias { Type = "azure-native:web:SiteAuthSettingsSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:SiteAuthSettingsSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/latest:SiteAuthSettingsSlot"},
-                    new Pulumi.Alias { Type = "azure-nextgen:web/latest:SiteAuthSettingsSlot"},
                     new Pulumi.Alias { Type = "azure-native:web/v20160801:SiteAuthSettingsSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20160801:SiteAuthSettingsSlot"},
                     new Pulumi.Alias { Type = "azure-native:web/v20180201:SiteAuthSettingsSlot"},

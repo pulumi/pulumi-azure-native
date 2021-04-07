@@ -60,8 +60,6 @@ namespace Pulumi.AzureNative.ApiManagement
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement:TagByProduct"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/latest:TagByProduct"},
-                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:TagByProduct"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:TagByProduct"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20170301:TagByProduct"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:TagByProduct"},

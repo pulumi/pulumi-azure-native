@@ -61,8 +61,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200301
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20200301:LinkedWorkspace"},
                     new Pulumi.Alias { Type = "azure-native:machinelearningservices:LinkedWorkspace"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices:LinkedWorkspace"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/latest:LinkedWorkspace"},
-                    new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/latest:LinkedWorkspace"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

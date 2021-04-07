@@ -108,8 +108,6 @@ namespace Pulumi.AzureNative.DataCatalog
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:datacatalog:ADCCatalog"},
-                    new Pulumi.Alias { Type = "azure-native:datacatalog/latest:ADCCatalog"},
-                    new Pulumi.Alias { Type = "azure-nextgen:datacatalog/latest:ADCCatalog"},
                     new Pulumi.Alias { Type = "azure-native:datacatalog/v20160330:ADCCatalog"},
                     new Pulumi.Alias { Type = "azure-nextgen:datacatalog/v20160330:ADCCatalog"},
                 },

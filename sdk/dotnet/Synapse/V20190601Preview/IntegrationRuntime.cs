@@ -67,8 +67,6 @@ namespace Pulumi.AzureNative.Synapse.V20190601Preview
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/v20190601preview:IntegrationRuntime"},
                     new Pulumi.Alias { Type = "azure-native:synapse:IntegrationRuntime"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse:IntegrationRuntime"},
-                    new Pulumi.Alias { Type = "azure-native:synapse/latest:IntegrationRuntime"},
-                    new Pulumi.Alias { Type = "azure-nextgen:synapse/latest:IntegrationRuntime"},
                     new Pulumi.Alias { Type = "azure-native:synapse/v20201201:IntegrationRuntime"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/v20201201:IntegrationRuntime"},
                     new Pulumi.Alias { Type = "azure-native:synapse/v20210301:IntegrationRuntime"},

@@ -85,8 +85,6 @@ namespace Pulumi.AzureNative.Peering.V20210101
                     new Pulumi.Alias { Type = "azure-nextgen:peering/v20210101:RegisteredPrefix"},
                     new Pulumi.Alias { Type = "azure-native:peering:RegisteredPrefix"},
                     new Pulumi.Alias { Type = "azure-nextgen:peering:RegisteredPrefix"},
-                    new Pulumi.Alias { Type = "azure-native:peering/latest:RegisteredPrefix"},
-                    new Pulumi.Alias { Type = "azure-nextgen:peering/latest:RegisteredPrefix"},
                     new Pulumi.Alias { Type = "azure-native:peering/v20200101preview:RegisteredPrefix"},
                     new Pulumi.Alias { Type = "azure-nextgen:peering/v20200101preview:RegisteredPrefix"},
                     new Pulumi.Alias { Type = "azure-native:peering/v20200401:RegisteredPrefix"},

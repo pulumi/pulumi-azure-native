@@ -60,8 +60,6 @@ namespace Pulumi.AzureNative.ServiceBus
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus:NamespaceAuthorizationRule"},
-                    new Pulumi.Alias { Type = "azure-native:servicebus/latest:NamespaceAuthorizationRule"},
-                    new Pulumi.Alias { Type = "azure-nextgen:servicebus/latest:NamespaceAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-native:servicebus/v20140901:NamespaceAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20140901:NamespaceAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-native:servicebus/v20150801:NamespaceAuthorizationRule"},

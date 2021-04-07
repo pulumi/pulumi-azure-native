@@ -73,8 +73,6 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20160515:ServiceRunner"},
                     new Pulumi.Alias { Type = "azure-native:devtestlab:ServiceRunner"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab:ServiceRunner"},
-                    new Pulumi.Alias { Type = "azure-native:devtestlab/latest:ServiceRunner"},
-                    new Pulumi.Alias { Type = "azure-nextgen:devtestlab/latest:ServiceRunner"},
                     new Pulumi.Alias { Type = "azure-native:devtestlab/v20180915:ServiceRunner"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20180915:ServiceRunner"},
                 },

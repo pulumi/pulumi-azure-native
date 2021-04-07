@@ -73,8 +73,6 @@ namespace Pulumi.AzureNative.Resources.V20210101
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20210101:DeploymentAtManagementGroupScope"},
                     new Pulumi.Alias { Type = "azure-native:resources:DeploymentAtManagementGroupScope"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources:DeploymentAtManagementGroupScope"},
-                    new Pulumi.Alias { Type = "azure-native:resources/latest:DeploymentAtManagementGroupScope"},
-                    new Pulumi.Alias { Type = "azure-nextgen:resources/latest:DeploymentAtManagementGroupScope"},
                     new Pulumi.Alias { Type = "azure-native:resources/v20190501:DeploymentAtManagementGroupScope"},
                     new Pulumi.Alias { Type = "azure-nextgen:resources/v20190501:DeploymentAtManagementGroupScope"},
                     new Pulumi.Alias { Type = "azure-native:resources/v20190510:DeploymentAtManagementGroupScope"},

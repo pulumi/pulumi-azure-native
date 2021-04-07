@@ -67,8 +67,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
                     new Pulumi.Alias { Type = "azure-nextgen:datafactory/v20180601:DataFlow"},
                     new Pulumi.Alias { Type = "azure-native:datafactory:DataFlow"},
                     new Pulumi.Alias { Type = "azure-nextgen:datafactory:DataFlow"},
-                    new Pulumi.Alias { Type = "azure-native:datafactory/latest:DataFlow"},
-                    new Pulumi.Alias { Type = "azure-nextgen:datafactory/latest:DataFlow"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

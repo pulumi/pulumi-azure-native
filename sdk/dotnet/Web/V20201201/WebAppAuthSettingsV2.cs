@@ -73,8 +73,6 @@ namespace Pulumi.AzureNative.Web.V20201201
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201201:WebAppAuthSettingsV2"},
                     new Pulumi.Alias { Type = "azure-native:web:WebAppAuthSettingsV2"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:WebAppAuthSettingsV2"},
-                    new Pulumi.Alias { Type = "azure-native:web/latest:WebAppAuthSettingsV2"},
-                    new Pulumi.Alias { Type = "azure-nextgen:web/latest:WebAppAuthSettingsV2"},
                     new Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppAuthSettingsV2"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:WebAppAuthSettingsV2"},
                     new Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppAuthSettingsV2"},

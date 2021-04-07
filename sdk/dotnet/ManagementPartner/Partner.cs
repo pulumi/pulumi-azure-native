@@ -102,8 +102,6 @@ namespace Pulumi.AzureNative.ManagementPartner
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:managementpartner:Partner"},
-                    new Pulumi.Alias { Type = "azure-native:managementpartner/latest:Partner"},
-                    new Pulumi.Alias { Type = "azure-nextgen:managementpartner/latest:Partner"},
                     new Pulumi.Alias { Type = "azure-native:managementpartner/v20180201:Partner"},
                     new Pulumi.Alias { Type = "azure-nextgen:managementpartner/v20180201:Partner"},
                 },

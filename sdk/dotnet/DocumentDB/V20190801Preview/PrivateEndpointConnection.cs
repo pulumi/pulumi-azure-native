@@ -79,8 +79,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20190801Preview
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20190801preview:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:documentdb:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/latest:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/latest:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20210115:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20210115:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20210301preview:PrivateEndpointConnection"},

@@ -97,8 +97,6 @@ namespace Pulumi.AzureNative.SecurityAndCompliance.V20210111
                     new Pulumi.Alias { Type = "azure-nextgen:securityandcompliance/v20210111:privateLinkServicesForEDMUpload"},
                     new Pulumi.Alias { Type = "azure-native:securityandcompliance:privateLinkServicesForEDMUpload"},
                     new Pulumi.Alias { Type = "azure-nextgen:securityandcompliance:privateLinkServicesForEDMUpload"},
-                    new Pulumi.Alias { Type = "azure-native:securityandcompliance/latest:privateLinkServicesForEDMUpload"},
-                    new Pulumi.Alias { Type = "azure-nextgen:securityandcompliance/latest:privateLinkServicesForEDMUpload"},
                     new Pulumi.Alias { Type = "azure-native:securityandcompliance/v20210308:privateLinkServicesForEDMUpload"},
                     new Pulumi.Alias { Type = "azure-nextgen:securityandcompliance/v20210308:privateLinkServicesForEDMUpload"},
                 },

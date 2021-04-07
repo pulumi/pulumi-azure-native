@@ -73,8 +73,6 @@ namespace Pulumi.AzureNative.Storage.V20200801Preview
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20200801preview:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:storage:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:storage/latest:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:storage/latest:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20190601:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20190601:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20210101:PrivateEndpointConnection"},

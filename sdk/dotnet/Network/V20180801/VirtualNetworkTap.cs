@@ -109,8 +109,6 @@ namespace Pulumi.AzureNative.Network.V20180801
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180801:VirtualNetworkTap"},
                     new Pulumi.Alias { Type = "azure-native:network:VirtualNetworkTap"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:VirtualNetworkTap"},
-                    new Pulumi.Alias { Type = "azure-native:network/latest:VirtualNetworkTap"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:VirtualNetworkTap"},
                     new Pulumi.Alias { Type = "azure-native:network/v20181001:VirtualNetworkTap"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20181001:VirtualNetworkTap"},
                     new Pulumi.Alias { Type = "azure-native:network/v20181101:VirtualNetworkTap"},

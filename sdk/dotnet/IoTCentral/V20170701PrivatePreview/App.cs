@@ -97,8 +97,6 @@ namespace Pulumi.AzureNative.IoTCentral.V20170701PrivatePreview
                     new Pulumi.Alias { Type = "azure-nextgen:iotcentral/v20170701privatepreview:App"},
                     new Pulumi.Alias { Type = "azure-native:iotcentral:App"},
                     new Pulumi.Alias { Type = "azure-nextgen:iotcentral:App"},
-                    new Pulumi.Alias { Type = "azure-native:iotcentral/latest:App"},
-                    new Pulumi.Alias { Type = "azure-nextgen:iotcentral/latest:App"},
                     new Pulumi.Alias { Type = "azure-native:iotcentral/v20180901:App"},
                     new Pulumi.Alias { Type = "azure-nextgen:iotcentral/v20180901:App"},
                 },

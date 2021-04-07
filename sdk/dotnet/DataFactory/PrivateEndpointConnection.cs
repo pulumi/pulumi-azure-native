@@ -66,8 +66,6 @@ namespace Pulumi.AzureNative.DataFactory
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:datafactory:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:datafactory/latest:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:datafactory/latest:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:datafactory/v20180601:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:datafactory/v20180601:PrivateEndpointConnection"},
                 },

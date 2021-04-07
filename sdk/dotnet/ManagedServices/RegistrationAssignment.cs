@@ -60,8 +60,6 @@ namespace Pulumi.AzureNative.ManagedServices
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:managedservices:RegistrationAssignment"},
-                    new Pulumi.Alias { Type = "azure-native:managedservices/latest:RegistrationAssignment"},
-                    new Pulumi.Alias { Type = "azure-nextgen:managedservices/latest:RegistrationAssignment"},
                     new Pulumi.Alias { Type = "azure-native:managedservices/v20180601preview:RegistrationAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:managedservices/v20180601preview:RegistrationAssignment"},
                     new Pulumi.Alias { Type = "azure-native:managedservices/v20190401preview:RegistrationAssignment"},

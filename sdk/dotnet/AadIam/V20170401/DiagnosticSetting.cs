@@ -91,8 +91,6 @@ namespace Pulumi.AzureNative.AadIam.V20170401
                     new Pulumi.Alias { Type = "azure-nextgen:aadiam/v20170401:DiagnosticSetting"},
                     new Pulumi.Alias { Type = "azure-native:aadiam:DiagnosticSetting"},
                     new Pulumi.Alias { Type = "azure-nextgen:aadiam:DiagnosticSetting"},
-                    new Pulumi.Alias { Type = "azure-native:aadiam/latest:DiagnosticSetting"},
-                    new Pulumi.Alias { Type = "azure-nextgen:aadiam/latest:DiagnosticSetting"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

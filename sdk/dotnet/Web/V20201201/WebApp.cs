@@ -320,8 +320,6 @@ namespace Pulumi.AzureNative.Web.V20201201
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201201:WebApp"},
                     new Pulumi.Alias { Type = "azure-native:web:WebApp"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:WebApp"},
-                    new Pulumi.Alias { Type = "azure-native:web/latest:WebApp"},
-                    new Pulumi.Alias { Type = "azure-nextgen:web/latest:WebApp"},
                     new Pulumi.Alias { Type = "azure-native:web/v20150801:WebApp"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20150801:WebApp"},
                     new Pulumi.Alias { Type = "azure-native:web/v20160801:WebApp"},

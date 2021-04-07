@@ -73,8 +73,6 @@ namespace Pulumi.AzureNative.KeyVault.V20161001
                     new Pulumi.Alias { Type = "azure-nextgen:keyvault/v20161001:Vault"},
                     new Pulumi.Alias { Type = "azure-native:keyvault:Vault"},
                     new Pulumi.Alias { Type = "azure-nextgen:keyvault:Vault"},
-                    new Pulumi.Alias { Type = "azure-native:keyvault/latest:Vault"},
-                    new Pulumi.Alias { Type = "azure-nextgen:keyvault/latest:Vault"},
                     new Pulumi.Alias { Type = "azure-native:keyvault/v20150601:Vault"},
                     new Pulumi.Alias { Type = "azure-nextgen:keyvault/v20150601:Vault"},
                     new Pulumi.Alias { Type = "azure-native:keyvault/v20180214:Vault"},

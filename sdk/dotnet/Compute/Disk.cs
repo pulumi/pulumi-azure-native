@@ -246,8 +246,6 @@ namespace Pulumi.AzureNative.Compute
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:compute:Disk"},
-                    new Pulumi.Alias { Type = "azure-native:compute/latest:Disk"},
-                    new Pulumi.Alias { Type = "azure-nextgen:compute/latest:Disk"},
                     new Pulumi.Alias { Type = "azure-native:compute/v20160430preview:Disk"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20160430preview:Disk"},
                     new Pulumi.Alias { Type = "azure-native:compute/v20170330:Disk"},

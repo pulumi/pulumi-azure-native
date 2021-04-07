@@ -115,8 +115,6 @@ namespace Pulumi.AzureNative.Logic.V20180701Preview
                     new Pulumi.Alias { Type = "azure-nextgen:logic/v20180701preview:IntegrationAccountMap"},
                     new Pulumi.Alias { Type = "azure-native:logic:IntegrationAccountMap"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic:IntegrationAccountMap"},
-                    new Pulumi.Alias { Type = "azure-native:logic/latest:IntegrationAccountMap"},
-                    new Pulumi.Alias { Type = "azure-nextgen:logic/latest:IntegrationAccountMap"},
                     new Pulumi.Alias { Type = "azure-native:logic/v20150801preview:IntegrationAccountMap"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic/v20150801preview:IntegrationAccountMap"},
                     new Pulumi.Alias { Type = "azure-native:logic/v20160601:IntegrationAccountMap"},

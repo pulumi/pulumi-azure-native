@@ -133,8 +133,6 @@ namespace Pulumi.AzureNative.NotificationHubs.V20160301
                     new Pulumi.Alias { Type = "azure-nextgen:notificationhubs/v20160301:Namespace"},
                     new Pulumi.Alias { Type = "azure-native:notificationhubs:Namespace"},
                     new Pulumi.Alias { Type = "azure-nextgen:notificationhubs:Namespace"},
-                    new Pulumi.Alias { Type = "azure-native:notificationhubs/latest:Namespace"},
-                    new Pulumi.Alias { Type = "azure-nextgen:notificationhubs/latest:Namespace"},
                     new Pulumi.Alias { Type = "azure-native:notificationhubs/v20140901:Namespace"},
                     new Pulumi.Alias { Type = "azure-nextgen:notificationhubs/v20140901:Namespace"},
                     new Pulumi.Alias { Type = "azure-native:notificationhubs/v20170401:Namespace"},

@@ -85,8 +85,6 @@ namespace Pulumi.AzureNative.AVS.V20200717Preview
                     new Pulumi.Alias { Type = "azure-nextgen:avs/v20200717preview:Cluster"},
                     new Pulumi.Alias { Type = "azure-native:avs:Cluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:avs:Cluster"},
-                    new Pulumi.Alias { Type = "azure-native:avs/latest:Cluster"},
-                    new Pulumi.Alias { Type = "azure-nextgen:avs/latest:Cluster"},
                     new Pulumi.Alias { Type = "azure-native:avs/v20200320:Cluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:avs/v20200320:Cluster"},
                     new Pulumi.Alias { Type = "azure-native:avs/v20210101preview:Cluster"},

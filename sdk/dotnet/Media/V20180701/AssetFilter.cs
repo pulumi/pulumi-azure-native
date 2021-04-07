@@ -73,8 +73,6 @@ namespace Pulumi.AzureNative.Media.V20180701
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20180701:AssetFilter"},
                     new Pulumi.Alias { Type = "azure-native:media:AssetFilter"},
                     new Pulumi.Alias { Type = "azure-nextgen:media:AssetFilter"},
-                    new Pulumi.Alias { Type = "azure-native:media/latest:AssetFilter"},
-                    new Pulumi.Alias { Type = "azure-nextgen:media/latest:AssetFilter"},
                     new Pulumi.Alias { Type = "azure-native:media/v20200501:AssetFilter"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20200501:AssetFilter"},
                 },

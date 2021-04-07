@@ -77,8 +77,6 @@ namespace Pulumi.AzureNative.EventGrid
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:eventgrid/latest:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:eventgrid/latest:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:eventgrid/v20200401preview:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20200401preview:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:eventgrid/v20200601:PrivateEndpointConnection"},

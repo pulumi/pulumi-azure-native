@@ -97,8 +97,6 @@ namespace Pulumi.AzureNative.Network.V20181001
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20181001:NetworkProfile"},
                     new Pulumi.Alias { Type = "azure-native:network:NetworkProfile"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:NetworkProfile"},
-                    new Pulumi.Alias { Type = "azure-native:network/latest:NetworkProfile"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:NetworkProfile"},
                     new Pulumi.Alias { Type = "azure-native:network/v20180801:NetworkProfile"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180801:NetworkProfile"},
                     new Pulumi.Alias { Type = "azure-native:network/v20181101:NetworkProfile"},

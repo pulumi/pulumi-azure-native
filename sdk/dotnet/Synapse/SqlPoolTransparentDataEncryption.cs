@@ -66,8 +66,6 @@ namespace Pulumi.AzureNative.Synapse
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:synapse:SqlPoolTransparentDataEncryption"},
-                    new Pulumi.Alias { Type = "azure-native:synapse/latest:SqlPoolTransparentDataEncryption"},
-                    new Pulumi.Alias { Type = "azure-nextgen:synapse/latest:SqlPoolTransparentDataEncryption"},
                     new Pulumi.Alias { Type = "azure-native:synapse/v20190601preview:SqlPoolTransparentDataEncryption"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/v20190601preview:SqlPoolTransparentDataEncryption"},
                     new Pulumi.Alias { Type = "azure-native:synapse/v20201201:SqlPoolTransparentDataEncryption"},

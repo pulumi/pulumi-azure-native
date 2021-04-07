@@ -67,8 +67,6 @@ namespace Pulumi.AzureNative.Devices.V20200301
                     new Pulumi.Alias { Type = "azure-nextgen:devices/v20200301:DpsCertificate"},
                     new Pulumi.Alias { Type = "azure-native:devices:DpsCertificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices:DpsCertificate"},
-                    new Pulumi.Alias { Type = "azure-native:devices/latest:DpsCertificate"},
-                    new Pulumi.Alias { Type = "azure-nextgen:devices/latest:DpsCertificate"},
                     new Pulumi.Alias { Type = "azure-native:devices/v20170821preview:DpsCertificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices/v20170821preview:DpsCertificate"},
                     new Pulumi.Alias { Type = "azure-native:devices/v20171115:DpsCertificate"},

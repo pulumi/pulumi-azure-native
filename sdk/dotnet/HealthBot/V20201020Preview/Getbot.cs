@@ -85,8 +85,6 @@ namespace Pulumi.AzureNative.HealthBot.V20201020Preview
                     new Pulumi.Alias { Type = "azure-nextgen:healthbot/v20201020preview:getbot"},
                     new Pulumi.Alias { Type = "azure-native:healthbot:getbot"},
                     new Pulumi.Alias { Type = "azure-nextgen:healthbot:getbot"},
-                    new Pulumi.Alias { Type = "azure-native:healthbot/latest:getbot"},
-                    new Pulumi.Alias { Type = "azure-nextgen:healthbot/latest:getbot"},
                     new Pulumi.Alias { Type = "azure-native:healthbot/v20201020:getbot"},
                     new Pulumi.Alias { Type = "azure-nextgen:healthbot/v20201020:getbot"},
                     new Pulumi.Alias { Type = "azure-native:healthbot/v20201208:getbot"},

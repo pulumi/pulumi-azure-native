@@ -115,8 +115,6 @@ namespace Pulumi.AzureNative.Web.V20200601
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:WebAppDeployment"},
                     new Pulumi.Alias { Type = "azure-native:web:WebAppDeployment"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:WebAppDeployment"},
-                    new Pulumi.Alias { Type = "azure-native:web/latest:WebAppDeployment"},
-                    new Pulumi.Alias { Type = "azure-nextgen:web/latest:WebAppDeployment"},
                     new Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppDeployment"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20150801:WebAppDeployment"},
                     new Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppDeployment"},

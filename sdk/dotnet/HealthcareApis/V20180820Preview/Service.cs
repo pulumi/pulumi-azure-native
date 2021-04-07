@@ -91,8 +91,6 @@ namespace Pulumi.AzureNative.HealthcareApis.V20180820Preview
                     new Pulumi.Alias { Type = "azure-nextgen:healthcareapis/v20180820preview:Service"},
                     new Pulumi.Alias { Type = "azure-native:healthcareapis:Service"},
                     new Pulumi.Alias { Type = "azure-nextgen:healthcareapis:Service"},
-                    new Pulumi.Alias { Type = "azure-native:healthcareapis/latest:Service"},
-                    new Pulumi.Alias { Type = "azure-nextgen:healthcareapis/latest:Service"},
                     new Pulumi.Alias { Type = "azure-native:healthcareapis/v20190916:Service"},
                     new Pulumi.Alias { Type = "azure-nextgen:healthcareapis/v20190916:Service"},
                     new Pulumi.Alias { Type = "azure-native:healthcareapis/v20200315:Service"},

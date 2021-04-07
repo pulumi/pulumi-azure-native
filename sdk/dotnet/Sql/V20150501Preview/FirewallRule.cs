@@ -67,8 +67,6 @@ namespace Pulumi.AzureNative.Sql.V20150501Preview
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20150501preview:FirewallRule"},
                     new Pulumi.Alias { Type = "azure-native:sql:FirewallRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql:FirewallRule"},
-                    new Pulumi.Alias { Type = "azure-native:sql/latest:FirewallRule"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/latest:FirewallRule"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20140401:FirewallRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20140401:FirewallRule"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20200202preview:FirewallRule"},

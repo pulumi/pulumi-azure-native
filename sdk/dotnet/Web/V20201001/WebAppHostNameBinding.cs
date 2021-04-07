@@ -121,8 +121,6 @@ namespace Pulumi.AzureNative.Web.V20201001
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:WebAppHostNameBinding"},
                     new Pulumi.Alias { Type = "azure-native:web:WebAppHostNameBinding"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:WebAppHostNameBinding"},
-                    new Pulumi.Alias { Type = "azure-native:web/latest:WebAppHostNameBinding"},
-                    new Pulumi.Alias { Type = "azure-nextgen:web/latest:WebAppHostNameBinding"},
                     new Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppHostNameBinding"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20150801:WebAppHostNameBinding"},
                     new Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppHostNameBinding"},

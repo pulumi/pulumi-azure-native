@@ -241,8 +241,6 @@ namespace Pulumi.AzureNative.Web.V20150801
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20150801:Site"},
                     new Pulumi.Alias { Type = "azure-native:web:Site"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:Site"},
-                    new Pulumi.Alias { Type = "azure-native:web/latest:Site"},
-                    new Pulumi.Alias { Type = "azure-nextgen:web/latest:Site"},
                     new Pulumi.Alias { Type = "azure-native:web/v20160801:Site"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20160801:Site"},
                     new Pulumi.Alias { Type = "azure-native:web/v20180201:Site"},

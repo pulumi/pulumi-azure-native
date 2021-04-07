@@ -144,8 +144,6 @@ namespace Pulumi.AzureNative.Insights
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:insights:MetricAlert"},
-                    new Pulumi.Alias { Type = "azure-native:insights/latest:MetricAlert"},
-                    new Pulumi.Alias { Type = "azure-nextgen:insights/latest:MetricAlert"},
                     new Pulumi.Alias { Type = "azure-native:insights/v20180301:MetricAlert"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights/v20180301:MetricAlert"},
                 },

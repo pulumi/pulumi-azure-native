@@ -91,8 +91,6 @@ namespace Pulumi.AzureNative.DelegatedNetwork.V20200808Preview
                     new Pulumi.Alias { Type = "azure-nextgen:delegatednetwork/v20200808preview:DelegatedSubnetServiceDetails"},
                     new Pulumi.Alias { Type = "azure-native:delegatednetwork:DelegatedSubnetServiceDetails"},
                     new Pulumi.Alias { Type = "azure-nextgen:delegatednetwork:DelegatedSubnetServiceDetails"},
-                    new Pulumi.Alias { Type = "azure-native:delegatednetwork/latest:DelegatedSubnetServiceDetails"},
-                    new Pulumi.Alias { Type = "azure-nextgen:delegatednetwork/latest:DelegatedSubnetServiceDetails"},
                     new Pulumi.Alias { Type = "azure-native:delegatednetwork/v20210315:DelegatedSubnetServiceDetails"},
                     new Pulumi.Alias { Type = "azure-nextgen:delegatednetwork/v20210315:DelegatedSubnetServiceDetails"},
                 },

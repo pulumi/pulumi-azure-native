@@ -79,8 +79,6 @@ namespace Pulumi.AzureNative.Sql.V20140401
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20140401:GeoBackupPolicy"},
                     new Pulumi.Alias { Type = "azure-native:sql:GeoBackupPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql:GeoBackupPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:sql/latest:GeoBackupPolicy"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/latest:GeoBackupPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

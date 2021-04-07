@@ -85,8 +85,6 @@ namespace Pulumi.AzureNative.Compute.V20190701
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20190701:DedicatedHostGroup"},
                     new Pulumi.Alias { Type = "azure-native:compute:DedicatedHostGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute:DedicatedHostGroup"},
-                    new Pulumi.Alias { Type = "azure-native:compute/latest:DedicatedHostGroup"},
-                    new Pulumi.Alias { Type = "azure-nextgen:compute/latest:DedicatedHostGroup"},
                     new Pulumi.Alias { Type = "azure-native:compute/v20190301:DedicatedHostGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20190301:DedicatedHostGroup"},
                     new Pulumi.Alias { Type = "azure-native:compute/v20191201:DedicatedHostGroup"},

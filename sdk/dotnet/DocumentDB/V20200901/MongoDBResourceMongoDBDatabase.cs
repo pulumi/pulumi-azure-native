@@ -73,8 +73,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20200901
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200901:MongoDBResourceMongoDBDatabase"},
                     new Pulumi.Alias { Type = "azure-native:documentdb:MongoDBResourceMongoDBDatabase"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb:MongoDBResourceMongoDBDatabase"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/latest:MongoDBResourceMongoDBDatabase"},
-                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/latest:MongoDBResourceMongoDBDatabase"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20150401:MongoDBResourceMongoDBDatabase"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20150401:MongoDBResourceMongoDBDatabase"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20150408:MongoDBResourceMongoDBDatabase"},

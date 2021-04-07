@@ -49,8 +49,6 @@ namespace Pulumi.AzureNative.Portal.V20181001
                     new Pulumi.Alias { Type = "azure-nextgen:portal/v20181001:UserSettingsWithLocation"},
                     new Pulumi.Alias { Type = "azure-native:portal:UserSettingsWithLocation"},
                     new Pulumi.Alias { Type = "azure-nextgen:portal:UserSettingsWithLocation"},
-                    new Pulumi.Alias { Type = "azure-native:portal/latest:UserSettingsWithLocation"},
-                    new Pulumi.Alias { Type = "azure-nextgen:portal/latest:UserSettingsWithLocation"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

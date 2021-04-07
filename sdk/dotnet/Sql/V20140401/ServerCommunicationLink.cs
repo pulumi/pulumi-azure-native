@@ -79,8 +79,6 @@ namespace Pulumi.AzureNative.Sql.V20140401
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20140401:ServerCommunicationLink"},
                     new Pulumi.Alias { Type = "azure-native:sql:ServerCommunicationLink"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql:ServerCommunicationLink"},
-                    new Pulumi.Alias { Type = "azure-native:sql/latest:ServerCommunicationLink"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/latest:ServerCommunicationLink"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

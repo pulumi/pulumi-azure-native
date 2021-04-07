@@ -187,8 +187,6 @@ namespace Pulumi.AzureNative.ContainerService.V20200401
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20200401:AgentPool"},
                     new Pulumi.Alias { Type = "azure-native:containerservice:AgentPool"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice:AgentPool"},
-                    new Pulumi.Alias { Type = "azure-native:containerservice/latest:AgentPool"},
-                    new Pulumi.Alias { Type = "azure-nextgen:containerservice/latest:AgentPool"},
                     new Pulumi.Alias { Type = "azure-native:containerservice/v20190201:AgentPool"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20190201:AgentPool"},
                     new Pulumi.Alias { Type = "azure-native:containerservice/v20190401:AgentPool"},

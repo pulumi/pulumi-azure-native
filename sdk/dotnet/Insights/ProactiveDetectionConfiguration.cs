@@ -78,8 +78,6 @@ namespace Pulumi.AzureNative.Insights
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:insights:ProactiveDetectionConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:insights/latest:ProactiveDetectionConfiguration"},
-                    new Pulumi.Alias { Type = "azure-nextgen:insights/latest:ProactiveDetectionConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:insights/v20150501:ProactiveDetectionConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights/v20150501:ProactiveDetectionConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:insights/v20180501preview:ProactiveDetectionConfiguration"},

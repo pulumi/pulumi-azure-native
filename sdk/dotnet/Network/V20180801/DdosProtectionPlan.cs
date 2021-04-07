@@ -91,8 +91,6 @@ namespace Pulumi.AzureNative.Network.V20180801
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180801:DdosProtectionPlan"},
                     new Pulumi.Alias { Type = "azure-native:network:DdosProtectionPlan"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:DdosProtectionPlan"},
-                    new Pulumi.Alias { Type = "azure-native:network/latest:DdosProtectionPlan"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:DdosProtectionPlan"},
                     new Pulumi.Alias { Type = "azure-native:network/v20180201:DdosProtectionPlan"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180201:DdosProtectionPlan"},
                     new Pulumi.Alias { Type = "azure-native:network/v20180401:DdosProtectionPlan"},

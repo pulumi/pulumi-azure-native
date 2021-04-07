@@ -103,8 +103,6 @@ namespace Pulumi.AzureNative.Web.V20150801
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20150801:SiteSourceControlSlot"},
                     new Pulumi.Alias { Type = "azure-native:web:SiteSourceControlSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:SiteSourceControlSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/latest:SiteSourceControlSlot"},
-                    new Pulumi.Alias { Type = "azure-nextgen:web/latest:SiteSourceControlSlot"},
                     new Pulumi.Alias { Type = "azure-native:web/v20160801:SiteSourceControlSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20160801:SiteSourceControlSlot"},
                     new Pulumi.Alias { Type = "azure-native:web/v20180201:SiteSourceControlSlot"},

@@ -97,8 +97,6 @@ namespace Pulumi.AzureNative.StorSimple.V20170601
                     new Pulumi.Alias { Type = "azure-nextgen:storsimple/v20170601:BackupSchedule"},
                     new Pulumi.Alias { Type = "azure-native:storsimple:BackupSchedule"},
                     new Pulumi.Alias { Type = "azure-nextgen:storsimple:BackupSchedule"},
-                    new Pulumi.Alias { Type = "azure-native:storsimple/latest:BackupSchedule"},
-                    new Pulumi.Alias { Type = "azure-nextgen:storsimple/latest:BackupSchedule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

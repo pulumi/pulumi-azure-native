@@ -66,8 +66,6 @@ namespace Pulumi.AzureNative.Web
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:web:WebAppConnectionStringsSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/latest:WebAppConnectionStringsSlot"},
-                    new Pulumi.Alias { Type = "azure-nextgen:web/latest:WebAppConnectionStringsSlot"},
                     new Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppConnectionStringsSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20150801:WebAppConnectionStringsSlot"},
                     new Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppConnectionStringsSlot"},

@@ -61,8 +61,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20201201
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20201201:TagByOperation"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement:TagByOperation"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement:TagByOperation"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/latest:TagByOperation"},
-                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:TagByOperation"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:TagByOperation"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20170301:TagByOperation"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:TagByOperation"},

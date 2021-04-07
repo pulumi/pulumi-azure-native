@@ -66,8 +66,6 @@ namespace Pulumi.AzureNative.Migrate
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:migrate:Group"},
-                    new Pulumi.Alias { Type = "azure-native:migrate/latest:Group"},
-                    new Pulumi.Alias { Type = "azure-nextgen:migrate/latest:Group"},
                     new Pulumi.Alias { Type = "azure-native:migrate/v20191001:Group"},
                     new Pulumi.Alias { Type = "azure-nextgen:migrate/v20191001:Group"},
                 },

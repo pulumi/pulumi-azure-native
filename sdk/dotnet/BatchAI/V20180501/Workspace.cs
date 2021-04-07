@@ -85,8 +85,6 @@ namespace Pulumi.AzureNative.BatchAI.V20180501
                     new Pulumi.Alias { Type = "azure-nextgen:batchai/v20180501:Workspace"},
                     new Pulumi.Alias { Type = "azure-native:batchai:Workspace"},
                     new Pulumi.Alias { Type = "azure-nextgen:batchai:Workspace"},
-                    new Pulumi.Alias { Type = "azure-native:batchai/latest:Workspace"},
-                    new Pulumi.Alias { Type = "azure-nextgen:batchai/latest:Workspace"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

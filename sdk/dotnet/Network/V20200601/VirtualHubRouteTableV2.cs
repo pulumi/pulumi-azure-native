@@ -73,8 +73,6 @@ namespace Pulumi.AzureNative.Network.V20200601
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:VirtualHubRouteTableV2"},
                     new Pulumi.Alias { Type = "azure-native:network:VirtualHubRouteTableV2"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:VirtualHubRouteTableV2"},
-                    new Pulumi.Alias { Type = "azure-native:network/latest:VirtualHubRouteTableV2"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:VirtualHubRouteTableV2"},
                     new Pulumi.Alias { Type = "azure-native:network/v20190901:VirtualHubRouteTableV2"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190901:VirtualHubRouteTableV2"},
                     new Pulumi.Alias { Type = "azure-native:network/v20191101:VirtualHubRouteTableV2"},

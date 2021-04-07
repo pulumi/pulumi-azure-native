@@ -91,8 +91,6 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20200515
                     new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights/v20200515:ReferenceDataSet"},
                     new Pulumi.Alias { Type = "azure-native:timeseriesinsights:ReferenceDataSet"},
                     new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights:ReferenceDataSet"},
-                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights/latest:ReferenceDataSet"},
-                    new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights/latest:ReferenceDataSet"},
                     new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20170228preview:ReferenceDataSet"},
                     new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights/v20170228preview:ReferenceDataSet"},
                     new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20171115:ReferenceDataSet"},

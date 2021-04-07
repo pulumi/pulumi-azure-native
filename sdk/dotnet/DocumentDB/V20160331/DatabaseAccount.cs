@@ -163,8 +163,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20160331
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20160331:DatabaseAccount"},
                     new Pulumi.Alias { Type = "azure-native:documentdb:DatabaseAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb:DatabaseAccount"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/latest:DatabaseAccount"},
-                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/latest:DatabaseAccount"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20150401:DatabaseAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20150401:DatabaseAccount"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20150408:DatabaseAccount"},

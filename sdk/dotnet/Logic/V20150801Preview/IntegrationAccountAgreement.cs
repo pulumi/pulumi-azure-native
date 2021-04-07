@@ -118,8 +118,6 @@ namespace Pulumi.AzureNative.Logic.V20150801Preview
                     new Pulumi.Alias { Type = "azure-nextgen:logic/v20150801preview:IntegrationAccountAgreement"},
                     new Pulumi.Alias { Type = "azure-native:logic:IntegrationAccountAgreement"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic:IntegrationAccountAgreement"},
-                    new Pulumi.Alias { Type = "azure-native:logic/latest:IntegrationAccountAgreement"},
-                    new Pulumi.Alias { Type = "azure-nextgen:logic/latest:IntegrationAccountAgreement"},
                     new Pulumi.Alias { Type = "azure-native:logic/v20160601:IntegrationAccountAgreement"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic/v20160601:IntegrationAccountAgreement"},
                     new Pulumi.Alias { Type = "azure-native:logic/v20180701preview:IntegrationAccountAgreement"},

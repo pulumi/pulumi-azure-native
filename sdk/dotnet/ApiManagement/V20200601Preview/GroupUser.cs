@@ -103,8 +103,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20200601Preview
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20200601preview:GroupUser"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement:GroupUser"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement:GroupUser"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/latest:GroupUser"},
-                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:GroupUser"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:GroupUser"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20170301:GroupUser"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:GroupUser"},

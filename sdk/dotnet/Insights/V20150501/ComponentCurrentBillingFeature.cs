@@ -55,8 +55,6 @@ namespace Pulumi.AzureNative.Insights.V20150501
                     new Pulumi.Alias { Type = "azure-nextgen:insights/v20150501:ComponentCurrentBillingFeature"},
                     new Pulumi.Alias { Type = "azure-native:insights:ComponentCurrentBillingFeature"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights:ComponentCurrentBillingFeature"},
-                    new Pulumi.Alias { Type = "azure-native:insights/latest:ComponentCurrentBillingFeature"},
-                    new Pulumi.Alias { Type = "azure-nextgen:insights/latest:ComponentCurrentBillingFeature"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

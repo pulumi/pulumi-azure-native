@@ -157,8 +157,6 @@ namespace Pulumi.AzureNative.NetApp.V20200301
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20200301:Volume"},
                     new Pulumi.Alias { Type = "azure-native:netapp:Volume"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp:Volume"},
-                    new Pulumi.Alias { Type = "azure-native:netapp/latest:Volume"},
-                    new Pulumi.Alias { Type = "azure-nextgen:netapp/latest:Volume"},
                     new Pulumi.Alias { Type = "azure-native:netapp/v20170815:Volume"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20170815:Volume"},
                     new Pulumi.Alias { Type = "azure-native:netapp/v20190501:Volume"},

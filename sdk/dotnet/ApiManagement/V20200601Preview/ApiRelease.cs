@@ -79,8 +79,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20200601Preview
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20200601preview:ApiRelease"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement:ApiRelease"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement:ApiRelease"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/latest:ApiRelease"},
-                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:ApiRelease"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:ApiRelease"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20170301:ApiRelease"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:ApiRelease"},

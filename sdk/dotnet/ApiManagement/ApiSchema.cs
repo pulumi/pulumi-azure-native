@@ -72,8 +72,6 @@ namespace Pulumi.AzureNative.ApiManagement
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement:ApiSchema"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/latest:ApiSchema"},
-                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:ApiSchema"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:ApiSchema"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20170301:ApiSchema"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:ApiSchema"},

@@ -67,8 +67,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20210101Preview
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20210101preview:ApiOperationPolicy"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement:ApiOperationPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement:ApiOperationPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/latest:ApiOperationPolicy"},
-                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:ApiOperationPolicy"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:ApiOperationPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20170301:ApiOperationPolicy"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:ApiOperationPolicy"},

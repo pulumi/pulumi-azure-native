@@ -121,8 +121,6 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200901
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901:Share"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge:Share"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge:Share"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/latest:Share"},
-                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/latest:Share"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20190301:Share"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190301:Share"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20190701:Share"},

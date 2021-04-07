@@ -109,8 +109,6 @@ namespace Pulumi.AzureNative.Insights.V20150501
                     new Pulumi.Alias { Type = "azure-nextgen:insights/v20150501:Favorite"},
                     new Pulumi.Alias { Type = "azure-native:insights:Favorite"},
                     new Pulumi.Alias { Type = "azure-nextgen:insights:Favorite"},
-                    new Pulumi.Alias { Type = "azure-native:insights/latest:Favorite"},
-                    new Pulumi.Alias { Type = "azure-nextgen:insights/latest:Favorite"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

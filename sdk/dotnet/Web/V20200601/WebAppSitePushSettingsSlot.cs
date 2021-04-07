@@ -88,8 +88,6 @@ namespace Pulumi.AzureNative.Web.V20200601
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:WebAppSitePushSettingsSlot"},
                     new Pulumi.Alias { Type = "azure-native:web:WebAppSitePushSettingsSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:WebAppSitePushSettingsSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/latest:WebAppSitePushSettingsSlot"},
-                    new Pulumi.Alias { Type = "azure-nextgen:web/latest:WebAppSitePushSettingsSlot"},
                     new Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppSitePushSettingsSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20160801:WebAppSitePushSettingsSlot"},
                     new Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppSitePushSettingsSlot"},

@@ -241,8 +241,6 @@ namespace Pulumi.AzureNative.Web.V20150801
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20150801:SiteSlot"},
                     new Pulumi.Alias { Type = "azure-native:web:SiteSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:SiteSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/latest:SiteSlot"},
-                    new Pulumi.Alias { Type = "azure-nextgen:web/latest:SiteSlot"},
                     new Pulumi.Alias { Type = "azure-native:web/v20160801:SiteSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20160801:SiteSlot"},
                     new Pulumi.Alias { Type = "azure-native:web/v20180201:SiteSlot"},

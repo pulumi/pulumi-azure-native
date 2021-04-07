@@ -52,8 +52,6 @@ namespace Pulumi.AzureNative.Migrate.V20191001
                     new Pulumi.Alias { Type = "azure-nextgen:migrate/v20191001:VMwareCollector"},
                     new Pulumi.Alias { Type = "azure-native:migrate:VMwareCollector"},
                     new Pulumi.Alias { Type = "azure-nextgen:migrate:VMwareCollector"},
-                    new Pulumi.Alias { Type = "azure-native:migrate/latest:VMwareCollector"},
-                    new Pulumi.Alias { Type = "azure-nextgen:migrate/latest:VMwareCollector"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

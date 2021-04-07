@@ -91,8 +91,6 @@ namespace Pulumi.AzureNative.Network.V20181001
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20181001:PacketCapture"},
                     new Pulumi.Alias { Type = "azure-native:network:PacketCapture"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:PacketCapture"},
-                    new Pulumi.Alias { Type = "azure-native:network/latest:PacketCapture"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:PacketCapture"},
                     new Pulumi.Alias { Type = "azure-native:network/v20160901:PacketCapture"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20160901:PacketCapture"},
                     new Pulumi.Alias { Type = "azure-native:network/v20161201:PacketCapture"},

@@ -114,8 +114,6 @@ namespace Pulumi.AzureNative.Network
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:network:P2sVpnServerConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:network/latest:P2sVpnServerConfiguration"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:P2sVpnServerConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:network/v20180801:P2sVpnServerConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180801:P2sVpnServerConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:network/v20181001:P2sVpnServerConfiguration"},

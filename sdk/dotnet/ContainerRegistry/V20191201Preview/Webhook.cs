@@ -97,8 +97,6 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20191201Preview
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20191201preview:Webhook"},
                     new Pulumi.Alias { Type = "azure-native:containerregistry:Webhook"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry:Webhook"},
-                    new Pulumi.Alias { Type = "azure-native:containerregistry/latest:Webhook"},
-                    new Pulumi.Alias { Type = "azure-nextgen:containerregistry/latest:Webhook"},
                     new Pulumi.Alias { Type = "azure-native:containerregistry/v20170601preview:Webhook"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20170601preview:Webhook"},
                     new Pulumi.Alias { Type = "azure-native:containerregistry/v20171001:Webhook"},

@@ -115,8 +115,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20150401
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20150401:DatabaseAccountGremlinGraph"},
                     new Pulumi.Alias { Type = "azure-native:documentdb:DatabaseAccountGremlinGraph"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb:DatabaseAccountGremlinGraph"},
-                    new Pulumi.Alias { Type = "azure-native:documentdb/latest:DatabaseAccountGremlinGraph"},
-                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/latest:DatabaseAccountGremlinGraph"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20150408:DatabaseAccountGremlinGraph"},
                     new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20150408:DatabaseAccountGremlinGraph"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20151106:DatabaseAccountGremlinGraph"},

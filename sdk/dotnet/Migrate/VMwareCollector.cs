@@ -53,8 +53,6 @@ namespace Pulumi.AzureNative.Migrate
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:migrate:VMwareCollector"},
-                    new Pulumi.Alias { Type = "azure-native:migrate/latest:VMwareCollector"},
-                    new Pulumi.Alias { Type = "azure-nextgen:migrate/latest:VMwareCollector"},
                     new Pulumi.Alias { Type = "azure-native:migrate/v20191001:VMwareCollector"},
                     new Pulumi.Alias { Type = "azure-nextgen:migrate/v20191001:VMwareCollector"},
                 },

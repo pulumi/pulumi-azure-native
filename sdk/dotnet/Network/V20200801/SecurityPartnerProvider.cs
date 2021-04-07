@@ -97,8 +97,6 @@ namespace Pulumi.AzureNative.Network.V20200801
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:SecurityPartnerProvider"},
                     new Pulumi.Alias { Type = "azure-native:network:SecurityPartnerProvider"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:SecurityPartnerProvider"},
-                    new Pulumi.Alias { Type = "azure-native:network/latest:SecurityPartnerProvider"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:SecurityPartnerProvider"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200301:SecurityPartnerProvider"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200301:SecurityPartnerProvider"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200401:SecurityPartnerProvider"},

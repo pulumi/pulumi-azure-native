@@ -85,8 +85,6 @@ namespace Pulumi.AzureNative.Automation.V20151031
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20151031:Variable"},
                     new Pulumi.Alias { Type = "azure-native:automation:Variable"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation:Variable"},
-                    new Pulumi.Alias { Type = "azure-native:automation/latest:Variable"},
-                    new Pulumi.Alias { Type = "azure-nextgen:automation/latest:Variable"},
                     new Pulumi.Alias { Type = "azure-native:automation/v20190601:Variable"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20190601:Variable"},
                     new Pulumi.Alias { Type = "azure-native:automation/v20200113preview:Variable"},

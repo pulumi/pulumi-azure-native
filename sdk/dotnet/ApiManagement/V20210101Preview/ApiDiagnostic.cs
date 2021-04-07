@@ -109,8 +109,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20210101Preview
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20210101preview:ApiDiagnostic"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement:ApiDiagnostic"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement:ApiDiagnostic"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/latest:ApiDiagnostic"},
-                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:ApiDiagnostic"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:ApiDiagnostic"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20170301:ApiDiagnostic"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:ApiDiagnostic"},

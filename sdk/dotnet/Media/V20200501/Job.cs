@@ -121,8 +121,6 @@ namespace Pulumi.AzureNative.Media.V20200501
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20200501:Job"},
                     new Pulumi.Alias { Type = "azure-native:media:Job"},
                     new Pulumi.Alias { Type = "azure-nextgen:media:Job"},
-                    new Pulumi.Alias { Type = "azure-native:media/latest:Job"},
-                    new Pulumi.Alias { Type = "azure-nextgen:media/latest:Job"},
                     new Pulumi.Alias { Type = "azure-native:media/v20180330preview:Job"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20180330preview:Job"},
                     new Pulumi.Alias { Type = "azure-native:media/v20180601preview:Job"},

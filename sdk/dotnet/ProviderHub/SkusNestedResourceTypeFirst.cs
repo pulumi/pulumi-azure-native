@@ -56,8 +56,6 @@ namespace Pulumi.AzureNative.ProviderHub
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:providerhub:SkusNestedResourceTypeFirst"},
-                    new Pulumi.Alias { Type = "azure-native:providerhub/latest:SkusNestedResourceTypeFirst"},
-                    new Pulumi.Alias { Type = "azure-nextgen:providerhub/latest:SkusNestedResourceTypeFirst"},
                     new Pulumi.Alias { Type = "azure-native:providerhub/v20201120:SkusNestedResourceTypeFirst"},
                     new Pulumi.Alias { Type = "azure-nextgen:providerhub/v20201120:SkusNestedResourceTypeFirst"},
                 },

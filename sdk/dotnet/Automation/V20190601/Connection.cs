@@ -85,8 +85,6 @@ namespace Pulumi.AzureNative.Automation.V20190601
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20190601:Connection"},
                     new Pulumi.Alias { Type = "azure-native:automation:Connection"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation:Connection"},
-                    new Pulumi.Alias { Type = "azure-native:automation/latest:Connection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:automation/latest:Connection"},
                     new Pulumi.Alias { Type = "azure-native:automation/v20151031:Connection"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20151031:Connection"},
                     new Pulumi.Alias { Type = "azure-native:automation/v20200113preview:Connection"},

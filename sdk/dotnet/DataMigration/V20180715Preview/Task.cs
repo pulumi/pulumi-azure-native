@@ -67,8 +67,6 @@ namespace Pulumi.AzureNative.DataMigration.V20180715Preview
                     new Pulumi.Alias { Type = "azure-nextgen:datamigration/v20180715preview:Task"},
                     new Pulumi.Alias { Type = "azure-native:datamigration:Task"},
                     new Pulumi.Alias { Type = "azure-nextgen:datamigration:Task"},
-                    new Pulumi.Alias { Type = "azure-native:datamigration/latest:Task"},
-                    new Pulumi.Alias { Type = "azure-nextgen:datamigration/latest:Task"},
                     new Pulumi.Alias { Type = "azure-native:datamigration/v20171115preview:Task"},
                     new Pulumi.Alias { Type = "azure-nextgen:datamigration/v20171115preview:Task"},
                     new Pulumi.Alias { Type = "azure-native:datamigration/v20180315preview:Task"},

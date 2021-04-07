@@ -109,8 +109,6 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20170601Preview
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20170601preview:Registry"},
                     new Pulumi.Alias { Type = "azure-native:containerregistry:Registry"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry:Registry"},
-                    new Pulumi.Alias { Type = "azure-native:containerregistry/latest:Registry"},
-                    new Pulumi.Alias { Type = "azure-nextgen:containerregistry/latest:Registry"},
                     new Pulumi.Alias { Type = "azure-native:containerregistry/v20160627preview:Registry"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20160627preview:Registry"},
                     new Pulumi.Alias { Type = "azure-native:containerregistry/v20170301:Registry"},

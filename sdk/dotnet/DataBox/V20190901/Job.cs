@@ -139,8 +139,6 @@ namespace Pulumi.AzureNative.DataBox.V20190901
                     new Pulumi.Alias { Type = "azure-nextgen:databox/v20190901:Job"},
                     new Pulumi.Alias { Type = "azure-native:databox:Job"},
                     new Pulumi.Alias { Type = "azure-nextgen:databox:Job"},
-                    new Pulumi.Alias { Type = "azure-native:databox/latest:Job"},
-                    new Pulumi.Alias { Type = "azure-nextgen:databox/latest:Job"},
                     new Pulumi.Alias { Type = "azure-native:databox/v20180101:Job"},
                     new Pulumi.Alias { Type = "azure-nextgen:databox/v20180101:Job"},
                     new Pulumi.Alias { Type = "azure-native:databox/v20200401:Job"},

@@ -79,8 +79,6 @@ namespace Pulumi.AzureNative.Batch.V20190801
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20190801:Application"},
                     new Pulumi.Alias { Type = "azure-native:batch:Application"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch:Application"},
-                    new Pulumi.Alias { Type = "azure-native:batch/latest:Application"},
-                    new Pulumi.Alias { Type = "azure-nextgen:batch/latest:Application"},
                     new Pulumi.Alias { Type = "azure-native:batch/v20151201:Application"},
                     new Pulumi.Alias { Type = "azure-nextgen:batch/v20151201:Application"},
                     new Pulumi.Alias { Type = "azure-native:batch/v20170101:Application"},

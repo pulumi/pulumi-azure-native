@@ -109,8 +109,6 @@ namespace Pulumi.AzureNative.Consumption.V20191001
                     new Pulumi.Alias { Type = "azure-nextgen:consumption/v20191001:Budget"},
                     new Pulumi.Alias { Type = "azure-native:consumption:Budget"},
                     new Pulumi.Alias { Type = "azure-nextgen:consumption:Budget"},
-                    new Pulumi.Alias { Type = "azure-native:consumption/latest:Budget"},
-                    new Pulumi.Alias { Type = "azure-nextgen:consumption/latest:Budget"},
                     new Pulumi.Alias { Type = "azure-native:consumption/v20190101:Budget"},
                     new Pulumi.Alias { Type = "azure-nextgen:consumption/v20190101:Budget"},
                     new Pulumi.Alias { Type = "azure-native:consumption/v20190401preview:Budget"},

@@ -103,8 +103,6 @@ namespace Pulumi.AzureNative.BatchAI.V20180501
                     new Pulumi.Alias { Type = "azure-nextgen:batchai/v20180501:FileServer"},
                     new Pulumi.Alias { Type = "azure-native:batchai:FileServer"},
                     new Pulumi.Alias { Type = "azure-nextgen:batchai:FileServer"},
-                    new Pulumi.Alias { Type = "azure-native:batchai/latest:FileServer"},
-                    new Pulumi.Alias { Type = "azure-nextgen:batchai/latest:FileServer"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

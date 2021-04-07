@@ -79,8 +79,6 @@ namespace Pulumi.AzureNative.Storage.V20200801Preview
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20200801preview:BlobContainerImmutabilityPolicy"},
                     new Pulumi.Alias { Type = "azure-native:storage:BlobContainerImmutabilityPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage:BlobContainerImmutabilityPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:storage/latest:BlobContainerImmutabilityPolicy"},
-                    new Pulumi.Alias { Type = "azure-nextgen:storage/latest:BlobContainerImmutabilityPolicy"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20180201:BlobContainerImmutabilityPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20180201:BlobContainerImmutabilityPolicy"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20180301preview:BlobContainerImmutabilityPolicy"},

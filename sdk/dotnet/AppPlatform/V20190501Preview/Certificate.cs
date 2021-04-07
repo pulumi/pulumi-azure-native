@@ -61,8 +61,6 @@ namespace Pulumi.AzureNative.AppPlatform.V20190501Preview
                     new Pulumi.Alias { Type = "azure-nextgen:appplatform/v20190501preview:Certificate"},
                     new Pulumi.Alias { Type = "azure-native:appplatform:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:appplatform:Certificate"},
-                    new Pulumi.Alias { Type = "azure-native:appplatform/latest:Certificate"},
-                    new Pulumi.Alias { Type = "azure-nextgen:appplatform/latest:Certificate"},
                     new Pulumi.Alias { Type = "azure-native:appplatform/v20200701:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:appplatform/v20200701:Certificate"},
                     new Pulumi.Alias { Type = "azure-native:appplatform/v20201101preview:Certificate"},

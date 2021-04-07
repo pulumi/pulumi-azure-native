@@ -73,8 +73,6 @@ namespace Pulumi.AzureNative.Network.V20190201
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190201:ExpressRouteCircuitAuthorization"},
                     new Pulumi.Alias { Type = "azure-native:network:ExpressRouteCircuitAuthorization"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:ExpressRouteCircuitAuthorization"},
-                    new Pulumi.Alias { Type = "azure-native:network/latest:ExpressRouteCircuitAuthorization"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:ExpressRouteCircuitAuthorization"},
                     new Pulumi.Alias { Type = "azure-native:network/v20150501preview:ExpressRouteCircuitAuthorization"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20150501preview:ExpressRouteCircuitAuthorization"},
                     new Pulumi.Alias { Type = "azure-native:network/v20150615:ExpressRouteCircuitAuthorization"},

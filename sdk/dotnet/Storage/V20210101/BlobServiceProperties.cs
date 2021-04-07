@@ -115,8 +115,6 @@ namespace Pulumi.AzureNative.Storage.V20210101
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20210101:BlobServiceProperties"},
                     new Pulumi.Alias { Type = "azure-native:storage:BlobServiceProperties"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage:BlobServiceProperties"},
-                    new Pulumi.Alias { Type = "azure-native:storage/latest:BlobServiceProperties"},
-                    new Pulumi.Alias { Type = "azure-nextgen:storage/latest:BlobServiceProperties"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20180701:BlobServiceProperties"},
                     new Pulumi.Alias { Type = "azure-nextgen:storage/v20180701:BlobServiceProperties"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20181101:BlobServiceProperties"},

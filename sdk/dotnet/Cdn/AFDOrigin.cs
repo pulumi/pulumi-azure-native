@@ -123,8 +123,6 @@ namespace Pulumi.AzureNative.Cdn
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:cdn:AFDOrigin"},
-                    new Pulumi.Alias { Type = "azure-native:cdn/latest:AFDOrigin"},
-                    new Pulumi.Alias { Type = "azure-nextgen:cdn/latest:AFDOrigin"},
                     new Pulumi.Alias { Type = "azure-native:cdn/v20200901:AFDOrigin"},
                     new Pulumi.Alias { Type = "azure-nextgen:cdn/v20200901:AFDOrigin"},
                 },

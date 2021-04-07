@@ -157,8 +157,6 @@ namespace Pulumi.AzureNative.Network.V20201101
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20201101:FirewallPolicy"},
                     new Pulumi.Alias { Type = "azure-native:network:FirewallPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:FirewallPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:network/latest:FirewallPolicy"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:FirewallPolicy"},
                     new Pulumi.Alias { Type = "azure-native:network/v20190601:FirewallPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20190601:FirewallPolicy"},
                     new Pulumi.Alias { Type = "azure-native:network/v20190701:FirewallPolicy"},

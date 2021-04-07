@@ -91,8 +91,6 @@ namespace Pulumi.AzureNative.Management.V20191101
                     new Pulumi.Alias { Type = "azure-nextgen:management/v20191101:ManagementGroup"},
                     new Pulumi.Alias { Type = "azure-native:management:ManagementGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:management:ManagementGroup"},
-                    new Pulumi.Alias { Type = "azure-native:management/latest:ManagementGroup"},
-                    new Pulumi.Alias { Type = "azure-nextgen:management/latest:ManagementGroup"},
                     new Pulumi.Alias { Type = "azure-native:management/v20171101preview:ManagementGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:management/v20171101preview:ManagementGroup"},
                     new Pulumi.Alias { Type = "azure-native:management/v20180101preview:ManagementGroup"},

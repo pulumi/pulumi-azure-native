@@ -157,8 +157,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20180601Preview
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180601preview:Api"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement:Api"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement:Api"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/latest:Api"},
-                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:Api"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20160707:Api"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20160707:Api"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20161010:Api"},

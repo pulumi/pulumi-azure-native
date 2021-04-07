@@ -138,8 +138,6 @@ namespace Pulumi.AzureNative.Network
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:network:LoadBalancer"},
-                    new Pulumi.Alias { Type = "azure-native:network/latest:LoadBalancer"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:LoadBalancer"},
                     new Pulumi.Alias { Type = "azure-native:network/v20150501preview:LoadBalancer"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20150501preview:LoadBalancer"},
                     new Pulumi.Alias { Type = "azure-native:network/v20150615:LoadBalancer"},

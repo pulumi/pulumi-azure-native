@@ -85,8 +85,6 @@ namespace Pulumi.AzureNative.MixedReality.V20190228Preview
                     new Pulumi.Alias { Type = "azure-nextgen:mixedreality/v20190228preview:SpatialAnchorsAccount"},
                     new Pulumi.Alias { Type = "azure-native:mixedreality:SpatialAnchorsAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:mixedreality:SpatialAnchorsAccount"},
-                    new Pulumi.Alias { Type = "azure-native:mixedreality/latest:SpatialAnchorsAccount"},
-                    new Pulumi.Alias { Type = "azure-nextgen:mixedreality/latest:SpatialAnchorsAccount"},
                     new Pulumi.Alias { Type = "azure-native:mixedreality/v20191202preview:SpatialAnchorsAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:mixedreality/v20191202preview:SpatialAnchorsAccount"},
                     new Pulumi.Alias { Type = "azure-native:mixedreality/v20200501:SpatialAnchorsAccount"},

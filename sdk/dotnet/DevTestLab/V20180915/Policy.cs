@@ -121,8 +121,6 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20180915:Policy"},
                     new Pulumi.Alias { Type = "azure-native:devtestlab:Policy"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab:Policy"},
-                    new Pulumi.Alias { Type = "azure-native:devtestlab/latest:Policy"},
-                    new Pulumi.Alias { Type = "azure-nextgen:devtestlab/latest:Policy"},
                     new Pulumi.Alias { Type = "azure-native:devtestlab/v20150521preview:Policy"},
                     new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20150521preview:Policy"},
                     new Pulumi.Alias { Type = "azure-native:devtestlab/v20160515:Policy"},

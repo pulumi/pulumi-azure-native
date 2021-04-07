@@ -121,8 +121,6 @@ namespace Pulumi.AzureNative.MachineLearning.V20191001
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearning/v20191001:Workspace"},
                     new Pulumi.Alias { Type = "azure-native:machinelearning:Workspace"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearning:Workspace"},
-                    new Pulumi.Alias { Type = "azure-native:machinelearning/latest:Workspace"},
-                    new Pulumi.Alias { Type = "azure-nextgen:machinelearning/latest:Workspace"},
                     new Pulumi.Alias { Type = "azure-native:machinelearning/v20160401:Workspace"},
                     new Pulumi.Alias { Type = "azure-nextgen:machinelearning/v20160401:Workspace"},
                 },

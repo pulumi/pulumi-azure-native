@@ -114,8 +114,6 @@ namespace Pulumi.AzureNative.LabServices
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:labservices:User"},
-                    new Pulumi.Alias { Type = "azure-native:labservices/latest:User"},
-                    new Pulumi.Alias { Type = "azure-nextgen:labservices/latest:User"},
                     new Pulumi.Alias { Type = "azure-native:labservices/v20181015:User"},
                     new Pulumi.Alias { Type = "azure-nextgen:labservices/v20181015:User"},
                 },

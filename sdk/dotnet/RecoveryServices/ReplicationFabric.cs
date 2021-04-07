@@ -66,8 +66,6 @@ namespace Pulumi.AzureNative.RecoveryServices
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices:ReplicationFabric"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/latest:ReplicationFabric"},
-                    new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/latest:ReplicationFabric"},
                     new Pulumi.Alias { Type = "azure-native:recoveryservices/v20160810:ReplicationFabric"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20160810:ReplicationFabric"},
                     new Pulumi.Alias { Type = "azure-native:recoveryservices/v20180110:ReplicationFabric"},

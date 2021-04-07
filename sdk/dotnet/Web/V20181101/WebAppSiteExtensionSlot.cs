@@ -178,8 +178,6 @@ namespace Pulumi.AzureNative.Web.V20181101
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20181101:WebAppSiteExtensionSlot"},
                     new Pulumi.Alias { Type = "azure-native:web:WebAppSiteExtensionSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:WebAppSiteExtensionSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/latest:WebAppSiteExtensionSlot"},
-                    new Pulumi.Alias { Type = "azure-nextgen:web/latest:WebAppSiteExtensionSlot"},
                     new Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppSiteExtensionSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20160801:WebAppSiteExtensionSlot"},
                     new Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppSiteExtensionSlot"},

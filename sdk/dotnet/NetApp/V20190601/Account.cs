@@ -79,8 +79,6 @@ namespace Pulumi.AzureNative.NetApp.V20190601
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20190601:Account"},
                     new Pulumi.Alias { Type = "azure-native:netapp:Account"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp:Account"},
-                    new Pulumi.Alias { Type = "azure-native:netapp/latest:Account"},
-                    new Pulumi.Alias { Type = "azure-nextgen:netapp/latest:Account"},
                     new Pulumi.Alias { Type = "azure-native:netapp/v20170815:Account"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20170815:Account"},
                     new Pulumi.Alias { Type = "azure-native:netapp/v20190501:Account"},

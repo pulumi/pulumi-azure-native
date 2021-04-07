@@ -174,8 +174,6 @@ namespace Pulumi.AzureNative.CustomerInsights
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:customerinsights:RoleAssignment"},
-                    new Pulumi.Alias { Type = "azure-native:customerinsights/latest:RoleAssignment"},
-                    new Pulumi.Alias { Type = "azure-nextgen:customerinsights/latest:RoleAssignment"},
                     new Pulumi.Alias { Type = "azure-native:customerinsights/v20170101:RoleAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:customerinsights/v20170101:RoleAssignment"},
                     new Pulumi.Alias { Type = "azure-native:customerinsights/v20170426:RoleAssignment"},

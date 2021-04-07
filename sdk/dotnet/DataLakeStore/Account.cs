@@ -180,8 +180,6 @@ namespace Pulumi.AzureNative.DataLakeStore
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:datalakestore:Account"},
-                    new Pulumi.Alias { Type = "azure-native:datalakestore/latest:Account"},
-                    new Pulumi.Alias { Type = "azure-nextgen:datalakestore/latest:Account"},
                     new Pulumi.Alias { Type = "azure-native:datalakestore/v20161101:Account"},
                     new Pulumi.Alias { Type = "azure-nextgen:datalakestore/v20161101:Account"},
                 },

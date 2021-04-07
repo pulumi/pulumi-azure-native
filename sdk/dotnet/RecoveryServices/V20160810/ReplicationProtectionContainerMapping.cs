@@ -67,8 +67,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20160810
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20160810:ReplicationProtectionContainerMapping"},
                     new Pulumi.Alias { Type = "azure-native:recoveryservices:ReplicationProtectionContainerMapping"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices:ReplicationProtectionContainerMapping"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/latest:ReplicationProtectionContainerMapping"},
-                    new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/latest:ReplicationProtectionContainerMapping"},
                     new Pulumi.Alias { Type = "azure-native:recoveryservices/v20180110:ReplicationProtectionContainerMapping"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20180110:ReplicationProtectionContainerMapping"},
                     new Pulumi.Alias { Type = "azure-native:recoveryservices/v20180710:ReplicationProtectionContainerMapping"},

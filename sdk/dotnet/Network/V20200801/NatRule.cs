@@ -103,8 +103,6 @@ namespace Pulumi.AzureNative.Network.V20200801
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:NatRule"},
                     new Pulumi.Alias { Type = "azure-native:network:NatRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:NatRule"},
-                    new Pulumi.Alias { Type = "azure-native:network/latest:NatRule"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:NatRule"},
                     new Pulumi.Alias { Type = "azure-native:network/v20201101:NatRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20201101:NatRule"},
                 },

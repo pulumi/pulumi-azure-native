@@ -85,8 +85,6 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200901Preview
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901preview:Container"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge:Container"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge:Container"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/latest:Container"},
-                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/latest:Container"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20190801:Container"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190801:Container"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20200501preview:Container"},

@@ -97,8 +97,6 @@ namespace Pulumi.AzureNative.SecurityAndCompliance.V20210308
                     new Pulumi.Alias { Type = "azure-nextgen:securityandcompliance/v20210308:privateLinkServicesForMIPPolicySync"},
                     new Pulumi.Alias { Type = "azure-native:securityandcompliance:privateLinkServicesForMIPPolicySync"},
                     new Pulumi.Alias { Type = "azure-nextgen:securityandcompliance:privateLinkServicesForMIPPolicySync"},
-                    new Pulumi.Alias { Type = "azure-native:securityandcompliance/latest:privateLinkServicesForMIPPolicySync"},
-                    new Pulumi.Alias { Type = "azure-nextgen:securityandcompliance/latest:privateLinkServicesForMIPPolicySync"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

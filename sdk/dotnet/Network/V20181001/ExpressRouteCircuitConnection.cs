@@ -91,8 +91,6 @@ namespace Pulumi.AzureNative.Network.V20181001
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20181001:ExpressRouteCircuitConnection"},
                     new Pulumi.Alias { Type = "azure-native:network:ExpressRouteCircuitConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:ExpressRouteCircuitConnection"},
-                    new Pulumi.Alias { Type = "azure-native:network/latest:ExpressRouteCircuitConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:ExpressRouteCircuitConnection"},
                     new Pulumi.Alias { Type = "azure-native:network/v20180201:ExpressRouteCircuitConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180201:ExpressRouteCircuitConnection"},
                     new Pulumi.Alias { Type = "azure-native:network/v20180401:ExpressRouteCircuitConnection"},

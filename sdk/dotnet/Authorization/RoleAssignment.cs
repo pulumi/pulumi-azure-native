@@ -126,8 +126,6 @@ namespace Pulumi.AzureNative.Authorization
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:authorization:RoleAssignment"},
-                    new Pulumi.Alias { Type = "azure-native:authorization/latest:RoleAssignment"},
-                    new Pulumi.Alias { Type = "azure-nextgen:authorization/latest:RoleAssignment"},
                     new Pulumi.Alias { Type = "azure-native:authorization/v20150701:RoleAssignment"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20150701:RoleAssignment"},
                     new Pulumi.Alias { Type = "azure-native:authorization/v20171001preview:RoleAssignment"},

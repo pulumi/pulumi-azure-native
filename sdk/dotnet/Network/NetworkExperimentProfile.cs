@@ -84,8 +84,6 @@ namespace Pulumi.AzureNative.Network
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:network:NetworkExperimentProfile"},
-                    new Pulumi.Alias { Type = "azure-native:network/latest:NetworkExperimentProfile"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:NetworkExperimentProfile"},
                     new Pulumi.Alias { Type = "azure-native:network/v20191101:NetworkExperimentProfile"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20191101:NetworkExperimentProfile"},
                 },

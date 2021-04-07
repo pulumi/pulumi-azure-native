@@ -73,8 +73,6 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20180815Preview
                     new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights/v20180815preview:AccessPolicy"},
                     new Pulumi.Alias { Type = "azure-native:timeseriesinsights:AccessPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights:AccessPolicy"},
-                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights/latest:AccessPolicy"},
-                    new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights/latest:AccessPolicy"},
                     new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20170228preview:AccessPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights/v20170228preview:AccessPolicy"},
                     new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20171115:AccessPolicy"},

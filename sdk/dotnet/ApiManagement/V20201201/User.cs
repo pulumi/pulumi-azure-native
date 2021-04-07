@@ -103,8 +103,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20201201
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20201201:User"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement:User"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement:User"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/latest:User"},
-                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:User"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20160707:User"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20160707:User"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20161010:User"},

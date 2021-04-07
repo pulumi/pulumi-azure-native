@@ -72,8 +72,6 @@ namespace Pulumi.AzureNative.Logic
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:logic:IntegrationServiceEnvironmentManagedApi"},
-                    new Pulumi.Alias { Type = "azure-native:logic/latest:IntegrationServiceEnvironmentManagedApi"},
-                    new Pulumi.Alias { Type = "azure-nextgen:logic/latest:IntegrationServiceEnvironmentManagedApi"},
                     new Pulumi.Alias { Type = "azure-native:logic/v20190501:IntegrationServiceEnvironmentManagedApi"},
                     new Pulumi.Alias { Type = "azure-nextgen:logic/v20190501:IntegrationServiceEnvironmentManagedApi"},
                 },

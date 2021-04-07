@@ -109,8 +109,6 @@ namespace Pulumi.AzureNative.Network.V20191101
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20191101:Experiment"},
                     new Pulumi.Alias { Type = "azure-native:network:Experiment"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:Experiment"},
-                    new Pulumi.Alias { Type = "azure-native:network/latest:Experiment"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:Experiment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

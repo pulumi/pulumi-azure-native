@@ -159,8 +159,6 @@ namespace Pulumi.AzureNative.ContainerInstance
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:containerinstance:ContainerGroup"},
-                    new Pulumi.Alias { Type = "azure-native:containerinstance/latest:ContainerGroup"},
-                    new Pulumi.Alias { Type = "azure-nextgen:containerinstance/latest:ContainerGroup"},
                     new Pulumi.Alias { Type = "azure-native:containerinstance/v20170801preview:ContainerGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:containerinstance/v20170801preview:ContainerGroup"},
                     new Pulumi.Alias { Type = "azure-native:containerinstance/v20171001preview:ContainerGroup"},

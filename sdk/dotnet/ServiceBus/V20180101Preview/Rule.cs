@@ -79,8 +79,6 @@ namespace Pulumi.AzureNative.ServiceBus.V20180101Preview
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20180101preview:Rule"},
                     new Pulumi.Alias { Type = "azure-native:servicebus:Rule"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus:Rule"},
-                    new Pulumi.Alias { Type = "azure-native:servicebus/latest:Rule"},
-                    new Pulumi.Alias { Type = "azure-nextgen:servicebus/latest:Rule"},
                     new Pulumi.Alias { Type = "azure-native:servicebus/v20170401:Rule"},
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20170401:Rule"},
                     new Pulumi.Alias { Type = "azure-native:servicebus/v20210101preview:Rule"},

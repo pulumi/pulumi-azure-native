@@ -73,8 +73,6 @@ namespace Pulumi.AzureNative.Network.V20191201
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20191201:NetworkInterfaceTapConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:network:NetworkInterfaceTapConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:NetworkInterfaceTapConfiguration"},
-                    new Pulumi.Alias { Type = "azure-native:network/latest:NetworkInterfaceTapConfiguration"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:NetworkInterfaceTapConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:network/v20180801:NetworkInterfaceTapConfiguration"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180801:NetworkInterfaceTapConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:network/v20181001:NetworkInterfaceTapConfiguration"},

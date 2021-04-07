@@ -67,8 +67,6 @@ namespace Pulumi.AzureNative.Web.V20181101
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20181101:WebAppApplicationSettings"},
                     new Pulumi.Alias { Type = "azure-native:web:WebAppApplicationSettings"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:WebAppApplicationSettings"},
-                    new Pulumi.Alias { Type = "azure-native:web/latest:WebAppApplicationSettings"},
-                    new Pulumi.Alias { Type = "azure-nextgen:web/latest:WebAppApplicationSettings"},
                     new Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppApplicationSettings"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20150801:WebAppApplicationSettings"},
                     new Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppApplicationSettings"},

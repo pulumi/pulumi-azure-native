@@ -103,8 +103,6 @@ namespace Pulumi.AzureNative.Web.V20200601
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:WebAppPremierAddOnSlot"},
                     new Pulumi.Alias { Type = "azure-native:web:WebAppPremierAddOnSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:WebAppPremierAddOnSlot"},
-                    new Pulumi.Alias { Type = "azure-native:web/latest:WebAppPremierAddOnSlot"},
-                    new Pulumi.Alias { Type = "azure-nextgen:web/latest:WebAppPremierAddOnSlot"},
                     new Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppPremierAddOnSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20150801:WebAppPremierAddOnSlot"},
                     new Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppPremierAddOnSlot"},

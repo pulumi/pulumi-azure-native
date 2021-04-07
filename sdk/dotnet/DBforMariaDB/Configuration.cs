@@ -90,8 +90,6 @@ namespace Pulumi.AzureNative.DBforMariaDB
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:dbformariadb:Configuration"},
-                    new Pulumi.Alias { Type = "azure-native:dbformariadb/latest:Configuration"},
-                    new Pulumi.Alias { Type = "azure-nextgen:dbformariadb/latest:Configuration"},
                     new Pulumi.Alias { Type = "azure-native:dbformariadb/v20180601:Configuration"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbformariadb/v20180601:Configuration"},
                     new Pulumi.Alias { Type = "azure-native:dbformariadb/v20180601preview:Configuration"},

@@ -109,8 +109,6 @@ namespace Pulumi.AzureNative.Automation.V20190601
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20190601:SourceControl"},
                     new Pulumi.Alias { Type = "azure-native:automation:SourceControl"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation:SourceControl"},
-                    new Pulumi.Alias { Type = "azure-native:automation/latest:SourceControl"},
-                    new Pulumi.Alias { Type = "azure-nextgen:automation/latest:SourceControl"},
                     new Pulumi.Alias { Type = "azure-native:automation/v20170515preview:SourceControl"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20170515preview:SourceControl"},
                     new Pulumi.Alias { Type = "azure-native:automation/v20200113preview:SourceControl"},

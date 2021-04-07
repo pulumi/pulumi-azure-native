@@ -193,8 +193,6 @@ namespace Pulumi.AzureNative.Aad.V20170601
                     new Pulumi.Alias { Type = "azure-nextgen:aad/v20170601:DomainService"},
                     new Pulumi.Alias { Type = "azure-native:aad:DomainService"},
                     new Pulumi.Alias { Type = "azure-nextgen:aad:DomainService"},
-                    new Pulumi.Alias { Type = "azure-native:aad/latest:DomainService"},
-                    new Pulumi.Alias { Type = "azure-nextgen:aad/latest:DomainService"},
                     new Pulumi.Alias { Type = "azure-native:aad/v20170101:DomainService"},
                     new Pulumi.Alias { Type = "azure-nextgen:aad/v20170101:DomainService"},
                     new Pulumi.Alias { Type = "azure-native:aad/v20200101:DomainService"},

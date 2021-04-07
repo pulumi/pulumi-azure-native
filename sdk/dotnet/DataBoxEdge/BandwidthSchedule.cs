@@ -84,8 +84,6 @@ namespace Pulumi.AzureNative.DataBoxEdge
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge:BandwidthSchedule"},
-                    new Pulumi.Alias { Type = "azure-native:databoxedge/latest:BandwidthSchedule"},
-                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/latest:BandwidthSchedule"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20190301:BandwidthSchedule"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190301:BandwidthSchedule"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20190701:BandwidthSchedule"},

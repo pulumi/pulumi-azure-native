@@ -61,8 +61,6 @@ namespace Pulumi.AzureNative.Search.V20191001Preview
                     new Pulumi.Alias { Type = "azure-nextgen:search/v20191001preview:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:search:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:search:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:search/latest:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:search/latest:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:search/v20200313:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:search/v20200313:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:search/v20200801:PrivateEndpointConnection"},

@@ -66,8 +66,6 @@ namespace Pulumi.AzureNative.RecoveryServices
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices:ReplicationMigrationItem"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/latest:ReplicationMigrationItem"},
-                    new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/latest:ReplicationMigrationItem"},
                     new Pulumi.Alias { Type = "azure-native:recoveryservices/v20180110:ReplicationMigrationItem"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20180110:ReplicationMigrationItem"},
                     new Pulumi.Alias { Type = "azure-native:recoveryservices/v20180710:ReplicationMigrationItem"},

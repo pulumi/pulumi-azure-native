@@ -72,8 +72,6 @@ namespace Pulumi.AzureNative.SecurityInsights
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:securityinsights:Action"},
-                    new Pulumi.Alias { Type = "azure-native:securityinsights/latest:Action"},
-                    new Pulumi.Alias { Type = "azure-nextgen:securityinsights/latest:Action"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20200101:Action"},
                     new Pulumi.Alias { Type = "azure-nextgen:securityinsights/v20200101:Action"},
                 },

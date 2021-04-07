@@ -82,8 +82,6 @@ namespace Pulumi.AzureNative.Web.V20201201
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201201:StaticSitePrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:web:StaticSitePrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:web:StaticSitePrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-native:web/latest:StaticSitePrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:web/latest:StaticSitePrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

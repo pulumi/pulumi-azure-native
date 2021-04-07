@@ -151,8 +151,6 @@ namespace Pulumi.AzureNative.Network.V20200401
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:VirtualHub"},
                     new Pulumi.Alias { Type = "azure-native:network:VirtualHub"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:VirtualHub"},
-                    new Pulumi.Alias { Type = "azure-native:network/latest:VirtualHub"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/latest:VirtualHub"},
                     new Pulumi.Alias { Type = "azure-native:network/v20180401:VirtualHub"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20180401:VirtualHub"},
                     new Pulumi.Alias { Type = "azure-native:network/v20180601:VirtualHub"},

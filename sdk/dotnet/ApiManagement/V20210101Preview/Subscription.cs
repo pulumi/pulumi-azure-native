@@ -133,8 +133,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20210101Preview
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20210101preview:Subscription"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement:Subscription"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement:Subscription"},
-                    new Pulumi.Alias { Type = "azure-native:apimanagement/latest:Subscription"},
-                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/latest:Subscription"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20160707:Subscription"},
                     new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20160707:Subscription"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20161010:Subscription"},

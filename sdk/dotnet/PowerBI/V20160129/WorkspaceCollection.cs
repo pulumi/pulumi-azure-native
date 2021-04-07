@@ -70,8 +70,6 @@ namespace Pulumi.AzureNative.PowerBI.V20160129
                     new Pulumi.Alias { Type = "azure-nextgen:powerbi/v20160129:WorkspaceCollection"},
                     new Pulumi.Alias { Type = "azure-native:powerbi:WorkspaceCollection"},
                     new Pulumi.Alias { Type = "azure-nextgen:powerbi:WorkspaceCollection"},
-                    new Pulumi.Alias { Type = "azure-native:powerbi/latest:WorkspaceCollection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:powerbi/latest:WorkspaceCollection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
