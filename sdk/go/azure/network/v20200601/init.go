@@ -105,14 +105,14 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewPrivateLinkService(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:network/v20200601:PrivateLinkServicePrivateEndpointConnection":
 		r, err = NewPrivateLinkServicePrivateEndpointConnection(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-native:network/v20200601:PrivateRecordSet":
+		r, err = NewPrivateRecordSet(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:network/v20200601:PrivateZone":
 		r, err = NewPrivateZone(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:network/v20200601:PublicIPAddress":
 		r, err = NewPublicIPAddress(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:network/v20200601:PublicIPPrefix":
 		r, err = NewPublicIPPrefix(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-native:network/v20200601:RecordSet":
-		r, err = NewRecordSet(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:network/v20200601:Route":
 		r, err = NewRoute(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:network/v20200601:RouteFilter":

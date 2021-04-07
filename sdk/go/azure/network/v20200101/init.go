@@ -23,10 +23,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "azure-native:network/v20200101:FrontDoor":
 		r, err = NewFrontDoor(ctx, name, nil, pulumi.URN_(urn))
+	case "azure-native:network/v20200101:PrivateRecordSet":
+		r, err = NewPrivateRecordSet(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:network/v20200101:PrivateZone":
 		r, err = NewPrivateZone(ctx, name, nil, pulumi.URN_(urn))
-	case "azure-native:network/v20200101:RecordSet":
-		r, err = NewRecordSet(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:network/v20200101:RulesEngine":
 		r, err = NewRulesEngine(ctx, name, nil, pulumi.URN_(urn))
 	case "azure-native:network/v20200101:VirtualNetworkLink":
